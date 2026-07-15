@@ -200,18 +200,23 @@ describe('isStalenessCheckActive (active-window gate)', () => {
     expect(isStalenessCheckActive(atUtcHour(0))).toBe(false);
   });
 
-  it('is INACTIVE before 08:00 UTC — the morning scheduler ramp + GitHub cron-lag is not yet guaranteed landed (issue #2587)', () => {
+  it('is INACTIVE before 11:00 UTC — overnight guard (#2587) + morning scheduling gap (#4229)', () => {
     expect(isStalenessCheckActive(atUtcHour(4))).toBe(false);
-    // 05:00–07:00 is the danger zone: a delayed overnight watchdog run (00:00
-    // cron delivered at 05:05, issue #2587) must NOT arm while the prior
-    // evening's snapshot is still the freshest one.
+    // 05:00–07:00: delayed overnight watchdog (00:00 cron at 05:05, #2587) must
+    // not arm while the prior evening's snapshot is still the freshest one.
     expect(isStalenessCheckActive(atUtcHour(5))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(6))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(7))).toBe(false);
+    // 08:00–10:59: traffic-scheduler morning peak ends at 07:30 UTC; next run is
+    // midday at 11:00. Data is EXPECTED to be stale here (3.5h gap > 90-min
+    // threshold). Self-heal dispatches but must not page (issue #4229 false page).
+    expect(isStalenessCheckActive(atUtcHour(8))).toBe(false);
+    expect(isStalenessCheckActive(atUtcHour(9))).toBe(false);
+    expect(isStalenessCheckActive(atUtcHour(10))).toBe(false);
   });
 
-  it('is ACTIVE for the 08/12/18 UTC runs (after the morning collection is guaranteed fresh)', () => {
-    expect(isStalenessCheckActive(atUtcHour(8))).toBe(true);
+  it('is ACTIVE from 11:00 UTC — midday run has fired; stale data is a real freeze', () => {
+    expect(isStalenessCheckActive(atUtcHour(11))).toBe(true);
     expect(isStalenessCheckActive(atUtcHour(12))).toBe(true);
     expect(isStalenessCheckActive(atUtcHour(18))).toBe(true);
   });
@@ -240,9 +245,19 @@ describe('staleness page-gate (issue #2587 regression)', () => {
     expect(PAGE(snapshot, now)).toBe(false);
   });
 
-  it('DOES page for a genuine freeze during the active window (08:00+)', () => {
+  it('DOES page for a genuine freeze during the active window (11:00+)', () => {
     const now = Date.UTC(2026, 5, 22, 12, 0, 0); // Mon 12:00 UTC, in-window
     const snapshot = '2026-06-22T02:00:00Z'; // 10h old — pipeline truly frozen
     expect(PAGE(snapshot, now)).toBe(true);
+  });
+
+  it('does NOT page during the morning scheduling gap (08:00–10:59 UTC) even when data is stale — regression for issue #4229', () => {
+    // traffic-scheduler morning peak ends at 07:30 UTC; next run is 11:00 UTC.
+    // Data from 08:43 is 124 min old at 10:47 — stale for the 90-min check but
+    // EXPECTED (not a real freeze). Self-heal dispatches; no issue should open/promote.
+    const now = Date.UTC(2026, 6, 15, 10, 47, 0); // Tue 10:47 UTC (issue #4229)
+    const snapshot = '2026-07-15T08:43:00Z'; // 124 min old — within morning gap
+    expect(evaluateStaleness({ updatedAt: snapshot }, now, 6).stale).toBe(false); // fine for 6h backstop
+    expect(PAGE(snapshot, now)).toBe(false); // must NOT page: morning gap, not a real freeze
   });
 });
