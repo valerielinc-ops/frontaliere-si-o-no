@@ -49680,6 +49680,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-berna-non-crea-attriti-con-litalia': {
+    title: 'Berna non vuole creare attriti con l\'Italia | RSI',
+    description: 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, vuole, creare, attriti',
+    ogTitle: 'Berna non crea attriti con l\'Italia | RSI',
+    ogDescription: 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese.',
+    canonicalPath: '/articoli-frontaliere/berna-non-crea-attriti-con-litalia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna non vuole creare attriti con l'Italia | RSI",
+      "description": "La Svizzera non vuole creare attriti con l'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-non-crea-attriti-con-litalia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Svizzera e l'Italia si incontrano al confine del Ticino, in un contesto di collaborazione e rispetto reciproco."
+      },
+      "datePublished": "2026-07-15T23:44:15+00:00",
+      "dateModified": "2026-07-15T23:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-non-crea-attriti-con-litalia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

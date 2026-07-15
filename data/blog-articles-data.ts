@@ -25613,6 +25613,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'berna-non-crea-attriti-con-litalia',
+ category: 'fiscale',
+ date: '2026-07-15T23:44:15.781Z',
+ image: '/images/blog/berna-non-crea-attriti-con-litalia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

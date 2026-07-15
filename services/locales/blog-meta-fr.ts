@@ -8525,6 +8525,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italie-Suisse : échange automatique d\'informations fiscales',
     'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analyse du fonctionnement de l\'échange automatique d\'informations fiscales entre l\'Italie et la Suisse via CRS et DAC pour les travailleurs frontaliers.',
     'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berne ne veut pas créer de frictions avec l\'Italie | RSE',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Suisse ne veut pas créer de frictions avec l\'Italie, mais veut plutôt collaborer et respecter la souveraineté de notre pays.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'Les frontières suisses et italiennes se rencontrent au Tessin, dans un contexte de collaboration et de respect mutuel.',
 };
 
 export default blogMetaFr;
