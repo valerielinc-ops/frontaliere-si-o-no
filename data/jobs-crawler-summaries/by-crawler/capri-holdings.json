@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-14T21:59:47.041Z",
-  "total": 7,
+  "generatedAt": "2026-07-15T10:59:37.653Z",
+  "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17960,
-  "avgDurationMs": 17960,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 18340,
+  "avgDurationMs": 18340,
   "durationHistory": [
-    17960
+    18340
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -245,8 +245,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
@@ -289,5 +288,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
