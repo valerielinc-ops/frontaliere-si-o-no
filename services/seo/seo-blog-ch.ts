@@ -14799,6 +14799,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giugno-pernottamenti-calo': {
+    title: 'Pernottamenti in calo a giugno | Frontaliere Ticino',
+    description: 'La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pernottamenti, calo, giugno, domanda',
+    ogTitle: 'Pernottamenti in calo a giugno: dati ufficiali',
+    ogDescription: 'La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%',
+    canonicalPath: '/articoli-svizzera/giugno-pernottamenti-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pernottamenti in calo a giugno",
+      "description": "La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giugno-pernottamenti-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I dati dei pernottamenti in Svizzera per giugno"
+      },
+      "datePublished": "2026-07-15T13:34:08+00:00",
+      "dateModified": "2026-07-15T13:34:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giugno-pernottamenti-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

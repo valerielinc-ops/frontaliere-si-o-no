@@ -1147,6 +1147,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Initiative pour une alimentation sûre : ce qui change le 27 septembre',
     'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'Le 27 septembre, les Suisses votent sur une initiative visant à augmenter l\'autosuffisance alimentaire de 46% à 70%. Voici les détails du texte.',
     'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Champ agricole suisse avec les Alpes en arrière-plan',
+    'blog.article.giugno-pernottamenti-calo.title': 'Nuitées en baisse en juin',
+    'blog.article.giugno-pernottamenti-calo.excerpt': 'La demande étrangère a chuté de 4,4 %, tandis que les clients de la Confédération ont marqué -0,1 %',
+    'blog.article.giugno-pernottamenti-calo.imageAlt': 'Les nuitées hôtelières en Suisse en juin',
 };
 
 export default blogMetaChFr;
