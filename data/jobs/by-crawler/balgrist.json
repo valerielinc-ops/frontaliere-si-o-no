@@ -4121,7 +4121,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 50–100 %",
       "titleByLocale": {
         "it": "Infermiere diplomata HF/FH 50–100 %",
-        "en": "Dipl. Pflegefachperson HF/FH 50–100 %",
+        "en": "Dipl. Care professional HF/FH 50–100 %",
         "de": "Dipl. Pflegefachperson HF/FH 50–100 %",
         "fr": "Infirmier(e) diplômé(e) HF/FH 50–100 %"
       },
@@ -4195,6 +4195,9 @@
         "en": [
           "dipl-care-professional-hf-fh-50-100-universitatsklinik-balgrist-zurich",
           "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-50-100-balgrist-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:10.433Z",
@@ -4210,8 +4213,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "balgrist-e5bd0ca3b472",

@@ -3494,7 +3494,7 @@
       "url": "https://jobs.emilfrey.ch/Leiterin-Werkstatt-Mercedes-Benz-de-j1726.html",
       "source": "Emil Frey Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:01:36.297Z",
+      "crawledAt": "2026-07-14T22:18:18.278Z",
       "addressLocality": "Altendorf",
       "streetAddress": "Zürcherstrasse 10A",
       "postalCode": "8852",
@@ -3513,17 +3513,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-werkstatt-mercedes-benz-emil-frey-altendorf",
-        "responsabile-officina-mercedes-benz-emil-frey-altendorf"
+        "leiter-in-werkstatt-mercedes-benz-emil-frey-altendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-werkstatt-mercedes-benz-emil-frey-altendorf",
-          "responsabile-officina-mercedes-benz-emil-frey-altendorf"
+          "leiter-in-werkstatt-mercedes-benz-emil-frey-altendorf"
         ]
       },
       "firstSeenAt": "2026-06-25T22:17:36.468Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3535,7 +3532,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "emil-frey-74ac063da359",
