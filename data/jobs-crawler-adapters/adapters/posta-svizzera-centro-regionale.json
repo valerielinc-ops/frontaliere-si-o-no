@@ -11,6 +11,8 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/Business-Intelligence-und-Data-Analyst/74300-de_DE",
+    "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
     "https://job.post.ch/default/job/Immobilienbewirtschafterin/73567-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73500-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73799-de_DE",
@@ -63,14 +65,11 @@
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73604-de_DE",
     "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
     "https://job.post.ch/default/job/Schichtkoordinatorin-Erfassungs-und-Codierzentrum/73788-de_DE",
-    "https://job.post.ch/default/job/Teamleiterin-Auftrags-und-Leistungsverrechnung-FM/73822-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74057-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73528-de_DE",
     "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
     "https://job.post.ch/default/job/Hauswartin-Bern-%28Hauptsitz%29/73646-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Abendzustellung-Pakete/74182-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74188-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74194-de_DE",
     "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73798-de_DE",
@@ -87,17 +86,13 @@
     "https://job.post.ch/default/job/HR-Data-&-Solution-Spezialistin/74098-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74117-de_DE",
     "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
-    "https://job.post.ch/default/job/Servicetechnikerin/73841-de_DE",
-    "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74309-fr_FR",
     "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74116-fr_FR",
     "https://job.post.ch/default/job/Assistante-Assistant-g%C3%A9rance-immobili%C3%A8re/74288-fr_FR",
     "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-CDD-6-mois%2C-Aubonne%2CGimel/74056-fr_FR",
     "https://job.post.ch/default/job/ConductriceConducteur-CarPostal/74115-fr_FR",
-    "https://job.post.ch/default/job/R%C3%A9gulatriceR%C3%A9gulateur-de-trafic/74237-fr_FR",
-    "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Berne-%28francophone%29/73558-fr_FR",
-    "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR"
+    "https://job.post.ch/default/job/R%C3%A9gulatriceR%C3%A9gulateur-de-trafic/74237-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-07-15T11:07:09.690Z"
+  "updatedAt": "2026-07-15T22:10:25.565Z"
 }
