@@ -1150,6 +1150,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giugno-pernottamenti-calo.title': 'Übernachtungen im Juni rückläufig',
     'blog.article.giugno-pernottamenti-calo.excerpt': 'Die Auslandsnachfrage sank um 4,4%, während Gäste aus dem Bund -0,1% erzielten',
     'blog.article.giugno-pernottamenti-calo.imageAlt': 'Die Hotelbuchungen in der Schweiz im Juni',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Telearbeit Grenzgänger: Vereinbarung ab 2024 in Kraft',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Grenzgänger können bis zu 25% der Jahreszeit ohne Steueränderungen von zu Hause aus arbeiten. Hier sind die Details des Abkommens zwischen der Schweiz und Italien.',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'Blick auf Lugano und modernes Büro für Fachkräfte',
 };
 
 export default blogMetaChDe;

@@ -1150,6 +1150,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.giugno-pernottamenti-calo.title': 'Nuitées en baisse en juin',
     'blog.article.giugno-pernottamenti-calo.excerpt': 'La demande étrangère a chuté de 4,4 %, tandis que les clients de la Confédération ont marqué -0,1 %',
     'blog.article.giugno-pernottamenti-calo.imageAlt': 'Les nuitées hôtelières en Suisse en juin',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Télétravail frontalier : accord en vigueur depuis 2024',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Les frontaliers peuvent travailler à domicile jusqu\'à 25 % du temps annuel sans modification fiscale. Voici les détails de l\'accord entre la Suisse et l\'Italie.',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'Vue sur Lugano et bureau moderne pour les professionnels',
 };
 
 export default blogMetaChFr;

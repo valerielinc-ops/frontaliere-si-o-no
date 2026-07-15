@@ -3446,6 +3446,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'intesa-telelavoro-frontalieri-svizzera-italia',
+    category: 'fiscale',
+    date: '2026-07-15T15:25:23.545Z',
+    image: '/images/blog/intesa-telelavoro-frontalieri-svizzera-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

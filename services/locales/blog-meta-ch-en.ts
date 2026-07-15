@@ -1150,6 +1150,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giugno-pernottamenti-calo.title': 'Declining nights in June',
     'blog.article.giugno-pernottamenti-calo.excerpt': 'Foreign demand fell by 4.4%, while guests from the Confederation scored -0.1%',
     'blog.article.giugno-pernottamenti-calo.imageAlt': 'Switzerland\'s hotel stays in June',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Border teleworking: agreement in force since 2024',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Border workers can work from home for up to 25% of their annual time with no tax changes. Here are the details of the agreement between Switzerland and Italy.',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'View of Lugano and modern office for professionals',
 };
 
 export default blogMetaChEn;
