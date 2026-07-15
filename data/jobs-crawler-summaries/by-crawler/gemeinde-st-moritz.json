@@ -1,18 +1,53 @@
 {
   "key": "gemeinde-st-moritz",
   "label": "Gemeinde St. Moritz",
-  "generatedAt": "2026-07-15T11:41:38.008Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-07-15T22:55:17.880Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7999,
-  "avgDurationMs": 7999,
+  "durationMs": 9620,
+  "avgDurationMs": 9620,
   "durationHistory": [
-    7999
+    9620
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "gemeinde-st-moritz-dcd856c9907a",
+      "slug": "wichtige-kontakte-gemeinde-st-moritz-ch",
+      "company": "Gemeinde St. Moritz",
+      "companyKey": "gemeinde-st-moritz",
+      "companyDomain": "gemeinde-stmoritz.ch",
+      "title": "Wichtige Kontakte",
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/archivarin-archivar-50-60",
+      "source": "Gemeinde St. Moritz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-15T22:55:11.621Z",
+      "addressLocality": "St. Moritz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7500",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/archivarin-archivar-50-60",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "gemeinde-st-moritz-8ee8533e73fe",
@@ -26,7 +61,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:41:33.772Z",
+      "crawledAt": "2026-07-15T22:55:13.269Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +96,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:41:35.308Z",
+      "crawledAt": "2026-07-15T22:55:15.001Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
