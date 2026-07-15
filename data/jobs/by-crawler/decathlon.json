@@ -3032,7 +3032,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4464383-team-leader-abteilungsleiter-mwd-100-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T23:09:52.093Z",
+      "crawledAt": "2026-07-14T11:59:17.775Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -3050,22 +3050,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
-        "capo-squadra-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-kreuzlingen"
+        "capo-squadra-abteilungsleiter-m-w-d-hinwil-decathlon-hinwil",
+        "team-leader-head-of-department-m-f-d-hinwil-decathlon-hinwil",
+        "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch",
+        "chef-d-equipe-chef-de-departement-m-f-d-hinwil-decathlon-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
-          "capo-squadra-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-kreuzlingen"
+          "capo-squadra-abteilungsleiter-m-w-d-hinwil-decathlon-hinwil",
+          "team-leader-head-of-department-m-f-d-hinwil-decathlon-hinwil",
+          "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch",
+          "chef-d-equipe-chef-de-departement-m-f-d-hinwil-decathlon-hinwil"
         ],
         "en": [
-          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
+          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
+          "team-leader-head-of-department-m-f-d-hinwil-decathlon-hinwil"
         ],
         "fr": [
-          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch"
+          "team-leader-abteilungsleiter-m-w-d-100-kreuzlingen-decathlon-ch",
+          "chef-d-equipe-chef-de-departement-m-f-d-hinwil-decathlon-hinwil"
+        ],
+        "de": [
+          "team-leader-abteilungsleiter-m-w-d-hinwil-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T22:10:54.622Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -3341,7 +3351,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4476969-conseiller-ere-caisse-cycle-hf-cdd-50-collombey-1868-collombey-muraz",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T23:09:50.738Z",
+      "crawledAt": "2026-07-14T11:59:16.427Z",
       "addressLocality": "Collombey-Muraz",
       "postalCode": "1868",
       "addressRegion": "VS",
@@ -3359,12 +3369,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch",
-        "caisse-cycle-advisor-m-f-cdd-50-collombey-decathlon-collombey-muraz"
+        "consigliere-caisse-cycle-h-f-cdd-50-collombey-decathlon-collombey-muraz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch",
-          "caisse-cycle-advisor-m-f-cdd-50-collombey-decathlon-collombey-muraz"
+          "consigliere-caisse-cycle-h-f-cdd-50-collombey-decathlon-collombey-muraz"
         ],
         "en": [
           "conseiller-ere-caisse-cycle-h-f-cdd-50-collombey-decathlon-ch"
@@ -3374,7 +3384,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:30:48.115Z",
-      "needsRetranslation": true,
       "salaryMin": 30300,
       "salaryMax": 45800,
       "baseSalary": {
@@ -4373,7 +4382,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4492459-conseiller-ere-sportif-mobiliteatelierlocation-hf-cdi-40-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T23:09:45.883Z",
+      "crawledAt": "2026-07-14T11:59:11.492Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -4391,18 +4400,39 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
-        "consulente-sportivo-mobility-workshop-location-h-f-cdi-40-martigny-decathlon-martigny"
+        "consulente-sportivo-quinto-ciclo-workshop-noleggio-contratto-a-tempo-determinato-decathlon-martigny-decathlon-martigny",
+        "sports-advisor-fifth-cycle-workshop-rental-fixed-term-contract-decathlon-martigny-decathlon-martigny",
+        "sportberater-funfter-zyklus-werkstatt-miete-befristeter-vertrag-zehnkampf-martigny-decathlon-martigny",
+        "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
+        "consulente-eta-sporty-ve-ciclo-laboratorio-noleggio-cdd-decathlon-martigny-decathlon-martigny",
+        "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-3-mois-martigny-decathlon-ch",
+        "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-1-mois-martigny-decathlon-ch",
+        "consultant-age-sporty-ve-cycle-workshop-rental-cdd-decathlon-martigny-decathlon-martigny",
+        "berater-alter-sportlich-ve-zyklus-werkstatt-miete-cdd-decathlon-martigny-decathlon-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
-          "consulente-sportivo-mobility-workshop-location-h-f-cdi-40-martigny-decathlon-martigny"
+          "consulente-sportivo-quinto-ciclo-workshop-noleggio-contratto-a-tempo-determinato-decathlon-martigny-decathlon-martigny",
+          "sports-advisor-fifth-cycle-workshop-rental-fixed-term-contract-decathlon-martigny-decathlon-martigny",
+          "sportberater-funfter-zyklus-werkstatt-miete-befristeter-vertrag-zehnkampf-martigny-decathlon-martigny",
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch",
+          "consulente-eta-sporty-ve-ciclo-laboratorio-noleggio-cdd-decathlon-martigny-decathlon-martigny",
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-3-mois-martigny-decathlon-ch",
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-1-mois-martigny-decathlon-ch",
+          "consultant-age-sporty-ve-cycle-workshop-rental-cdd-decathlon-martigny-decathlon-martigny",
+          "berater-alter-sportlich-ve-zyklus-werkstatt-miete-cdd-decathlon-martigny-decathlon-martigny"
         ],
         "en": [
-          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch"
+          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
+          "sports-advisor-fifth-cycle-workshop-rental-fixed-term-contract-decathlon-martigny-decathlon-martigny"
         ],
         "de": [
-          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch"
+          "conseiller-ere-sportif-mobilite-atelier-location-h-f-cdi-40-martigny-decathlon-ch",
+          "sportberater-funfter-zyklus-werkstatt-miete-befristeter-vertrag-zehnkampf-martigny-decathlon-martigny"
+        ],
+        "fr": [
+          "conseiller-ere-sportif-ve-cycle-atelier-location-cdd-decathlon-martigny-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:34:39.948Z",

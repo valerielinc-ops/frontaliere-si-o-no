@@ -1703,14 +1703,14 @@
         "it": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
         "en": "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-yffowm",
         "de": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "fr": "transporteur-a-frauenfeld-denner-frauenfeld"
+        "fr": "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
       "companyDomain": "denner.ch",
       "title": "Transportdisponent*in Frauenfeld",
       "titleByLocale": {
-        "it": "Transportdisponent*in Frauenfeld",
+        "it": "Spedizionista di trasporto* in Frauenfeld",
         "en": "Transport dispatcher* in Frauenfeld",
         "de": "Transportdisponent*in Frauenfeld",
         "fr": "Transporteur* à Frauenfeld"
@@ -1759,21 +1759,42 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/transportdisponentin-frauenfeld/a5e1cd4a-ac20-4f46-8c39-fdc1cc8f13c7",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:08:21.830Z",
+      "crawledAt": "2026-07-14T11:03:21.460Z",
       "previousSlugs": [
         "transportdisponent-in-frauenfeld-denner",
-        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
+        "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
+        "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+        "transportmanifestant-a-frauenfeld-denner-frauenfeld",
+        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
+        "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld",
+        "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "transportdisponent-in-frauenfeld-denner"
+          "transportdisponent-in-frauenfeld-denner",
+          "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
+          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transportmanifestant-a-frauenfeld-denner-frauenfeld",
+          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
+          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld",
+          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi"
+        ],
+        "en": [
+          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
+          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld"
         ],
         "fr": [
-          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
+          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
+          "transportmanifestant-a-frauenfeld-denner-frauenfeld",
+          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.508Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {

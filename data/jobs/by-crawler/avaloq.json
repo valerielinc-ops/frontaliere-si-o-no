@@ -58,7 +58,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-13T13:22:21.520Z"
+      "firstSeenAt": "2026-07-13T13:22:21.520Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-projects-business-management-lead-avaloq-bioggio",
+          "personalwesen-projects-business-management-lead-avaloq-bioggio",
+          "ressources-humaines-projects-business-management-lead-avaloq-bioggio",
+          "risorse-umane-projects-business-management-lead-avaloq-bioggio"
+        ],
+        "en": [
+          "hr-projects-business-management-lead-avaloq-bioggio"
+        ],
+        "de": [
+          "personalwesen-projects-business-management-lead-avaloq-bioggio"
+        ],
+        "fr": [
+          "ressources-humaines-projects-business-management-lead-avaloq-bioggio"
+        ]
+      },
+      "previousSlugs": [
+        "hr-projects-business-management-lead-avaloq-bioggio",
+        "personalwesen-projects-business-management-lead-avaloq-bioggio",
+        "ressources-humaines-projects-business-management-lead-avaloq-bioggio",
+        "risorse-umane-projects-business-management-lead-avaloq-bioggio"
+      ]
     },
     {
       "title": "Head of Delivery Unit CH/FL & Europe",
@@ -371,16 +394,17 @@
       "firstSeenAt": "2026-06-17T12:20:40.921Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-analyst-financial-instruments-data-avaloq-zurich"
+          "senior-business-analyst-financial-instruments-data-avaloq-zurich",
+          "senior-business-analista-financial-instruments-data-avaloq-zurich"
         ],
         "fr": [
           "senior-business-analyst-financial-instruments-data-avaloq-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-business-analyst-financial-instruments-data-avaloq-zurich"
-      ],
-      "needsRetranslation": true
+        "senior-business-analyst-financial-instruments-data-avaloq-zurich",
+        "senior-business-analista-financial-instruments-data-avaloq-zurich"
+      ]
     },
     {
       "title": "Senior Cyber Security Specialist",

@@ -654,7 +654,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Mobil-Vaud-Fribourg",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:34:52.467Z",
+      "crawledAt": "2026-07-14T11:41:26.452Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -673,12 +673,14 @@
       "previousSlugs": [
         "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage",
         "commercial-itinerant-h-f-d-for-the-automotive-division-region-vaud-fribourg-montagetechnik-berner-ag-visp",
-        "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp"
+        "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp",
+        "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage",
-          "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp"
+          "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp",
+          "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp"
         ],
         "en": [
           "commercial-itinerant-h-f-d-for-the-automotive-division-region-vaud-fribourg-montagetechnik-berner-ag-visp",
@@ -701,8 +703,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "needsRetranslation": true
+      "addressRegion": "VS"
     },
     {
       "id": "berner-montage-ff0962713571",

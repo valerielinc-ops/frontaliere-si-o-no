@@ -3913,7 +3913,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000137375649-commis-ou-commise-administrative-30-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:03:23.416Z",
+      "crawledAt": "2026-07-14T11:00:22.424Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3932,18 +3932,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "commis-ou-commise-administrative-30-hug-geneve",
-        "ufficio-amministrativo-30-hug-geneve"
+        "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
+        "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
+        "administrative-clerk-weekender-20-hug-geneve",
+        "impiegato-amministrativo-80-hug-geneve",
+        "administrative-clerk-80-hug-geneve",
+        "verwaltungsangestellter-80-hug-geneve",
+        "commis-ou-commise-administrative-80-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-ou-commise-administrative-30-hug-geneve",
-          "ufficio-amministrativo-30-hug-geneve"
+          "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
+          "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
+          "administrative-clerk-weekender-20-hug-geneve",
+          "impiegato-amministrativo-80-hug-geneve",
+          "administrative-clerk-80-hug-geneve",
+          "verwaltungsangestellter-80-hug-geneve",
+          "commis-ou-commise-administrative-80-hug-geneve"
         ],
         "en": [
           "commis-ou-commise-administrative-30-hug-geneve"
         ],
         "de": [
           "commis-ou-commise-administrative-30-hug-geneve"
+        ],
+        "fr": [
+          "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ]
       },
       "firstSeenAt": "2026-07-13T12:15:47.458Z",
@@ -3991,7 +4006,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000137374305-chef-ou-cheffe-de-secretariat-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:03:23.412Z",
+      "crawledAt": "2026-07-14T11:00:22.420Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4010,18 +4025,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
-        "capo-della-segreteria-80-al-100-hug-geneve"
+        "capo-o-capo-segreteria-da-80-a-100-hug-geneva",
+        "head-or-executive-head-80-to-100-hug-geneva",
+        "head-oder-executive-head-80-bis-100-hug-geneva",
+        "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
-          "capo-della-segreteria-80-al-100-hug-geneve"
+          "capo-o-capo-segreteria-da-80-a-100-hug-geneva",
+          "head-or-executive-head-80-to-100-hug-geneva",
+          "head-oder-executive-head-80-bis-100-hug-geneva",
+          "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
         ],
         "en": [
-          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
+          "head-or-executive-head-80-to-100-hug-geneva"
         ],
         "de": [
-          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
+          "head-oder-executive-head-80-bis-100-hug-geneva"
+        ],
+        "fr": [
+          "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
         ]
       },
       "firstSeenAt": "2026-07-13T12:15:47.474Z",
