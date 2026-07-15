@@ -249,7 +249,7 @@
       "slug": "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "psychotherapeut-in-schmerzklinik-80-sro-ag-spital-region-oberaargau-langenthal",
         "de": "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
         "fr": "responsable-d-equipe-en-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal"
       },
@@ -259,7 +259,7 @@
       "title": "Psychotherapeut/in Schmerzklinik 80 %",
       "titleByLocale": {
         "it": "Responsabile di Psicologia del Dolore 80%",
-        "en": "Psychotherapist/Pain Clinic 80 %",
+        "en": "Psychotherapeut/in Schmerzklinik 80 %",
         "de": "Psychotherapeut/in Schmerzklinik 80 %",
         "fr": "Responsable d'équipe en psychologie de la douleur 80%"
       },
@@ -299,16 +299,18 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "de": [
-          "teamleitung-schmerzpsychologie-80-sro-langenthal"
+          "teamleitung-schmerzpsychologie-80-sro-langenthal",
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
         ],
         "it": [
           "teamleitung-schmerzpsychologie-80-sro-langenthal",
-          "psychotherapeut-in-schmerzklinik-80-sro-langenthal"
+          "psychotherapeut-in-schmerzklinik-80-sro-langenthal",
+          "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
           "teamleitung-schmerzpsychologie-80-sro-langenthal",
-          "psychotherapeut-in-schmerzklinik-80-sro-ag-spital-region-oberaargau-langenthal"
+          "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "teamleitung-schmerzpsychologie-80-sro-langenthal"
@@ -320,7 +322,8 @@
         "team-leader-pain-psychology-80-sro-ag-spital-region-oberaargau-langenthal",
         "team-leader-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal",
         "responsable-equipe-psychologie-de-la-douleur-80-sro-ag-spital-region-oberaargau-langenthal",
-        "psychotherapeut-in-schmerzklinik-80-sro-ag-spital-region-oberaargau-langenthal"
+        "psychotherapist-pain-clinic-80-sro-ag-spital-region-oberaargau-langenthal",
+        "capo-squadra-psicologia-del-dolore-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-06-22T15:23:13.268Z",
       "salaryMin": 75600,
@@ -400,6 +403,7 @@
         "psicologa-psicologo-psichiatria-geriatrica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologue-therapeute-psychiatrie-geriatrique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "psychologin-psychologen-fur-alterspsychiatrie-80-100-or-klinische-psychologin-klinische-psychologen-schwerpunkt",
+        "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-hf-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-nursing-specialist-hf-stationary-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
@@ -409,6 +413,7 @@
       "previousSlugsByLocale": {
         "it": [
           "psychologin-psychologen-stationare-psychiatrie-80-sro-langenthal",
+          "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infermieristica-hf-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-nursing-specialist-hf-stationary-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
@@ -455,7 +460,7 @@
       "companyDomain": "sro.ch",
       "title": "Psychologin/Psychologen Ambulatorium 80 - 100 %",
       "titleByLocale": {
-        "it": "Psicologo/psicologo Ambulatorium 80 - 100%",
+        "it": "Psychologin/Psychologen Ambulatorium 80 - 100 %",
         "en": "Psychologist Outpatient Clinic 80 - 100 %",
         "de": "Psychologin/Psychologen Ambulatorium 80 - 100 %",
         "fr": "Psychologue en consultation externe 80 - 100 %"
@@ -495,11 +500,13 @@
       "validThrough": "2026-07-16",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+        "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+          "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
@@ -576,11 +583,13 @@
       "validThrough": "2026-07-17",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+        "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+          "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
@@ -744,11 +753,13 @@
       "validThrough": "2026-08-11",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal"
+        "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
+        "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal"
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
+          "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal"
@@ -1207,7 +1218,7 @@
       "title": "Nachdiplomstudium (NDS) dipl. Expertin/Experte Notfallpflege NDS HF 80 - 100%",
       "titleByLocale": {
         "it": "Studi post-laurea (NDS) dipl. Emergenza esperto NDS HF 80 - 100%",
-        "en": "Postgraduate studies (NDS) dipl. Expert Emergency Care NDS HF 80 - 100%",
+        "en": "Nachdiplomstudium (NDS) dipl. Expertin/Experte Notfallpflege NDS HF 80 - 100%",
         "de": "Nachdiplomstudium (NDS) dipl. Expertin/Experte Notfallpflege NDS HF 80 - 100%",
         "fr": "Études supérieures (DND) Expert Soins d'urgence NDS HF 80 - 100%"
       },
@@ -1246,11 +1257,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
+        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
+        "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
+          "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal"
@@ -1288,7 +1301,7 @@
       "title": "Nachdiplomstudium (NDS) dipl. Expertin/ Experte Intensivpflege NDS HF 80-100 %",
       "titleByLocale": {
         "it": "Studi post-laurea (NDS) dipl. Cura intensiva NDS HF 80-100 %",
-        "en": "Postgraduate studies (NDS) dipl. Expert/Expert Intensive Care NDS HF 80-100 %",
+        "en": "Nachdiplomstudium (NDS) dipl. Expertin/ Experte Intensivpflege NDS HF 80-100 %",
         "de": "Nachdiplomstudium (NDS) dipl. Expertin/ Experte Intensivpflege NDS HF 80-100 %",
         "fr": "Études supérieures (DND) Expert/Expert soins intensifs NDS HF 80-100 %"
       },
@@ -1329,12 +1342,14 @@
       "previousSlugs": [
         "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
         "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal"
+          "nachdiplomstudium-nds-dipl-expertin-experte-intensivpflege-nds-hf-80-100-sro-langenthal",
+          "studi-post-laurea-nds-dipl-cura-intensiva-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-0f1288"
         ],
         "en": [
           "postgraduate-studies-nds-dipl-expert-expert-intensive-care-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -2241,12 +2256,14 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
+        "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
+        "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal",
-          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
+          "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2",
+          "specialista-specialista-generale-medicina-interna-emergenza-pratica-50-100-sro-ag-spital-region-oberaargau-75cf4a"
         ],
         "en": [
           "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-langenthal-2"
@@ -2332,11 +2349,13 @@
         "specialiste-en-radiologie-diplome-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "infermiere-di-soccorso-diplomato-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-assistant-sanitaire-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+          "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
@@ -2374,7 +2393,7 @@
       "title": "Dipl. Radiologiefachperson HF 50-100 %",
       "titleByLocale": {
         "it": "Dipl. Specialista di radiologia HF 50-100 %",
-        "en": "Dipl. Radiology specialist HF 50-100 %",
+        "en": "Dipl. Radiologiefachperson HF 50-100 %",
         "de": "Dipl. Radiologiefachperson HF 50-100 %",
         "fr": "Dipl. Spécialiste en radiologie HF 50-100 %"
       },
@@ -2413,11 +2432,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+        "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+          "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-4834a2"
         ],
         "en": [
           "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
@@ -2534,7 +2555,7 @@
       "title": "Dipl. Pflegefachperson HF/FH Tagesklinik/Aufwachraum 40 - 80 %",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale HF/FH day clinic/sala ricreazione 40 - 80%",
-        "en": "Dipl. Nursing professional HF/FH day clinic/recreation room 40 - 80%",
+        "en": "Dipl. Pflegefachperson HF/FH Tagesklinik/Aufwachraum 40 - 80 %",
         "de": "Dipl. Pflegefachperson HF/FH Tagesklinik/Aufwachraum 40 - 80 %",
         "fr": "Dipl. Soins infirmiers professionnels HF / FH jour clinique / salle de loisirs 40 - 80%"
       },
@@ -2573,11 +2594,13 @@
       "validThrough": "2026-08-07",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+        "dipl-infermieristica-professionale-hf-fh-day-clinic-sala-ricreazione-40-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal",
+          "dipl-infermieristica-professionale-hf-fh-day-clinic-sala-ricreazione-40-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-tagesklinik-aufwachraum-40-80-sro-langenthal"
@@ -2614,17 +2637,17 @@
       "companyDomain": "sro.ch",
       "title": "Dipl. Pflegefachperson HF/FH 80 - 100 % Home Treatment",
       "titleByLocale": {
-        "it": "Infermiere/a diplomato/a SSS/SUP 80-100% Home Treatment",
+        "it": "Dipl. Infermiera HF/FH 80 - 100% Home Trattamento",
         "en": "Dipl. Pflegefachperson HF/FH 80 - 100 % Home Treatment",
-        "de": "Dipl.HF/FH 80 - 100 % Hausbehandlung",
-        "fr": "Infirmier/ère diplômé/e ES/HES 80-100% Home Treatment"
+        "de": "Dipl. Pflegefachperson HF/FH 80 - 100 % Home Treatment",
+        "fr": "Dipl. Infirmière HF/FH 80 - 100% Soins à domicile"
       },
       "description": "Psychiatrie zu Hause - ernsthaft und überraschend wirksam. Wer glaubt Psychiatrie funktioniere nur hinter Spitalmauern kennt unsere mobile Akutbehandlung noch nicht. In der mobilen Akutbehandlung (Home Treatment) behandeln wir Menschen mit akuten psychischen Erkrankungen in ihrem Zuhause. Das ist nicht weniger als stationsäquivalent - aber persönlicher, unmittelbarer und flexibler. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine Das bewirken Sie bei uns\n• Sie gehen dorthin wo andere nicht hinkommen - ins Wohnzimmer, in die Krise, mitten ins Leben.\n• Zwischen Alltagschaos, Familienleben und schnurrender Katze behandeln sie Menschen in psychischen Krisen zu Hause - gemeinsam mit ihrem sozialen Umfeld.\n• Sie arbeiten in der dualen Fallführung gemeinsam mit den Therapeuten - nicht in Delegation.\n• Mithilfe bei der Gestaltung der noch jungen Prozesse. Sie verfügen über entsprechendes Mitspracherecht und Entscheidungskompetenzen. Das bringen Sie mit\n• Ausbildung als dipl. Pflegefachperson HF/FH mit Vorteil Richtung Psychiatrie.\n• Freude an selbständigem, sozialpsychiatrischem Arbeiten.\n• Sie arbeiten eigenverantwortlich und trotzdem eingebettet in einem Team, dass sie unterstützt.\n• Sie verfügen über einen Führerausweis und die Bereitschaft auf verschiedenen Sofas Platz zu nehmen. Bei uns arbeiten\n• Wir tauschen uns täglich im Rapport aus, das Team ist jederzeit erreichbar.\n• Arbeitszeiten von 8.00 - 20.00 Uhr in geregeltem Zweischichtbetrieb mit Pikettbereitschaft .\n• Wir bieten Supervision und Möglichkeiten zur internen und externen Fortbildung.\n• Eine Anstellung mit attraktiven Arbeitsbedingungen und Sozialleistungen nach GAV. SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Sie gehen dorthin wo andere nicht hinkommen - ins Wohnzimmer, in die Krise, mitten ins Leben.\n• Zwischen Alltagschaos, Familienleben und schnurrender Katze behandeln sie Menschen in psychischen Krisen zu Hause - gemeinsam mit ihrem sozialen Umfeld.\n• Sie arbeiten in der dualen Fallführung gemeinsam mit den Therapeuten - nicht in Delegation.\n• Mithilfe bei der Gestaltung der noch jungen Prozesse. Sie verfügen über entsprechendes Mitspracherecht und Entscheidungskompetenzen.\n\nAnforderungen:\n• Ausbildung als dipl. Pflegefachperson HF/FH mit Vorteil Richtung Psychiatrie.\n• Freude an selbständigem, sozialpsychiatrischem Arbeiten.\n• Sie arbeiten eigenverantwortlich und trotzdem eingebettet in einem Team, dass sie unterstützt.\n• Sie verfügen über einen Führerausweis und die Bereitschaft auf verschiedenen Sofas Platz zu nehmen.",
       "descriptionByLocale": {
-        "it": "La psichiatria a casa - grave e sorprendentemente efficace. Chi crede che la psichiatria lavori solo dietro le pareti dell'ospedale non conosce ancora il nostro trattamento acuto mobile. In trattamento cellulare acuto (Home Treatment) trattiamo le persone con malattie mentali acute nella loro casa. Questo non è meno del 3,25% equivalente - ma personale, immediato e più flessibile.Per completare il nostro team stiamo cercando un immediato o su appuntamento.Si può fare con noi • Si va dove gli altri non arrivano - in soggiorno, nella crisi, nel mezzo della vita.\n\n• Tra la vita quotidiana, la vita familiare e un gatto che fa il bucato, essi trattano le persone in crisi mentali a casa - insieme al loro ambiente sociale. • Lavorano nella gestione dei casi duale insieme ai terapisti - non in delegazione. • Aiutano a modellare i processi ancora giovani. Hanno la voce corrispondente e le competenze decisionali.\n\n• Lavorate in modo indipendente e ancora in un team che vi supporta. • Avete una carta di guida e la disponibilità a sedersi su diversi divani. • Ci scambiamo informazioni ogni giorno nella ripetizione, il team è disponibile in qualsiasi momento. • Orario di lavoro dalle 8.00 alle 20.00 in un'operazione regolamentata a due turni con prontezza piket. • Offriamo supervisione e opportunità per la formazione interna ed esterna. • Un lavoro con condizioni di lavoro attraenti e benefici sociali secondo GAV.\n\nSRO AG Servizi psichiatrici, Marktgasse 1-8 CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nCompiti: • Vanno dove gli altri non vanno - in soggiorno, alla crisi, al centro della vita. • Tra la vita quotidiana, la vita familiare e il gatto sporgente trattano le persone in crisi mentali a casa - insieme al loro ambiente sociale. • Lavorano nella gestione dei casi duale insieme ai terapisti - non in delegazione. • Aiutano a modellare i processi ancora giovani. Hanno competenze di opinione e decisionale corrispondenti.\n\nRequisiti: • Formazione come specialista in cura HF/FH con un vantaggio verso la psichiatria. • Godersi il lavoro indipendente, social-psichiatra. • Lavorare in modo indipendente e ma incorporato in un team che ti supporta. • Hai una scheda guida e la disponibilità a sedersi su diversi divani.",
-        "en": "Psychiatry at home - serious and surprisingly effective. Who believes Psychiatry works only behind hospital walls does not yet know our mobile acute treatment. In mobile acute treatment (Home Treatment) we treat people with acute mental illness in their home. This is no less than 3,25% equivalent - but personal, immediate and more flexible. To complement our team we are looking for an immediate or by appointment.You can do this with us • You go where others don't get to - in the living room, in the crisis, in the middle of life.\n\n• Between everyday life, family life and a purring cat, they treat people in mental crises at home - together with their social environment. • They work in the dual case management together with the therapists - not in delegation. • They help in shaping the still young processes. They have corresponding say and decision-making skills. This is brought with • Training as a dipl. nursing specialist HF/FH with advantage towards psychiatry. • Joy in independent, socially psycho-chiatric work.\n\n• You work independently and still embedded in a team that supports you. • You have a driver's card and the willingness to take a seat on different sofas. • We exchange information daily in the repeat, the team is available at any time. • Working hours from 8.00 am to 8.00 pm in a regulated two-shift operation with piket readiness. • We offer supervision and opportunities for internal and external training. • A job with attractive working conditions and social benefits according to GAV.\n\nSRO AG Psychiatric services, Marktgasse 1-8 CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nTasks: • They go where others don't go - to the living room, to the crisis, to the middle of life. • Between everyday life, family life and purring cat they treat people in mental crises at home - together with their social environment. • They work in the dual case management together with the therapists - not in delegation. • They help in shaping the still young processes. They have corresponding say and decision-making skills.\n\nRequirements: • Training as a specialist in nursing care HF/FH with an advantage towards psychiatry. • Enjoying independent, social-psychiatric work. • You work independently and yet embedded in a team that supports you. • You have a guide card and the willingness to sit on different sofas.",
+        "it": "Psichiatria a casa - seriamente e sorprendentemente efficace. Chiunque creda psichiatria funziona solo dietro le pareti ospedaliere non conosce ancora il nostro trattamento acuto mobile. Nella cura acuta mobile (trattamento a casa), trattiamo le persone con malattie mentali acute nella loro casa. Questo non è meno che equivalente stazione, ma più personale, immediato e flessibile. Per completare il nostro team, stiamo cercando una soluzione immediata o d'accordo.\n• Essi vanno dove gli altri non vengono - nel soggiorno, nella crisi, nel mezzo della vita.\n• Tra la vita quotidiana, la vita familiare e il gatto purificante, trattano le persone in crisi psicologiche a casa - insieme al loro ambiente sociale.\n• Lavorano nella doppia gestione dei casi insieme ai terapeuti - non in delegazione.\n• Assistenza nella progettazione di processi ancora giovani. Hanno un corrispondente potere decisionale. Ecco cosa portano con loro.\n• Allenamento come dipl. Infermiera HF/FH con vantaggio verso la psichiatria.\n• Gioia di lavoro psichiatrico indipendente e sociale.\n• Lavorano in modo indipendente e ancora incorporati in una squadra che li supporta.\n• Hanno una patente di guida e la volontà di sedersi su vari divani. Lavorare con noi\n• Scambiamo idee ogni giorno nel rapporto, la squadra può essere raggiunta in qualsiasi momento.\n• Ore lavorative dalle 8.00 alle 8.00 in funzionamento a due turni regolato con prontezza piquet.\n• Offriamo supervisione e opportunità di formazione interna ed esterna.\n• Un'occupazione con condizioni di lavoro attraenti e benefici sociali secondo GAV. SRO AG Psychiatric Services, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch Compiti:\n• Essi vanno dove gli altri non vengono - nel soggiorno, nella crisi, nel mezzo della vita.\n• Tra la vita quotidiana, la vita familiare e il gatto purificante, trattano le persone in crisi psicologiche a casa - insieme al loro ambiente sociale.\n• Lavorano nella doppia gestione dei casi insieme ai terapeuti - non in delegazione.\n• Assistenza nella progettazione di processi ancora giovani. Hanno un corrispondente potere decisionale. Requisiti\n• Allenamento come dipl. Infermiera HF/FH con vantaggio verso la psichiatria.\n• Gioia di lavoro psichiatrico indipendente e sociale.\n• Lavorano in modo indipendente e ancora incorporati in una squadra che li supporta.\n• Hanno una patente di guida e la volontà di sedersi su vari divani.",
+        "en": "Psychiatry at home - seriously and surprisingly effective. Anyone who believes psychiatry works only behind hospital walls does not yet know our mobile acute treatment. In mobile acute care (home treatment), we treat people with acute mental illnesses in their home. That’s no less than station equivalent—but more personal, immediate, and flexible. To complement our team, we are looking for a solution immediately or by agreement.\n• They go where others do not come - into the living room, into the crisis, into the middle of life.\n• Between everyday life, family life and purring cat, they treat people in psychological crises at home - together with their social environment.\n• They work in dual case management together with the therapists - not in delegation.\n• Assistance in the design of still young processes. They have a corresponding say and decision-making powers. This is what they bring with them.\n• Training as a dipl. Nurse HF/FH with advantage towards psychiatry.\n• Joy of independent, social psychiatric work.\n• They work independently and yet embedded in a team that supports them.\n• They have a driver’s license and the willingness to sit on various sofas. Working with us\n• We exchange ideas every day in the rapport, the team can be reached at any time.\n• Working hours from 8.00 a.m. to 8.00 p.m. in regulated two-shift operation with piquet readiness.\n• We offer supervision and opportunities for internal and external training.\n• An employment with attractive working conditions and social benefits according to GAV. SRO AG Psychiatric Services, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch Tasks:\n• They go where others do not come - into the living room, into the crisis, into the middle of life.\n• Between everyday life, family life and purring cat, they treat people in psychological crises at home - together with their social environment.\n• They work in dual case management together with the therapists - not in delegation.\n• Assistance in the design of still young processes. They have a corresponding say and decision-making powers. Requirements\n• Training as a dipl. Nurse HF/FH with advantage towards psychiatry.\n• Joy of independent, social psychiatric work.\n• They work independently and yet embedded in a team that supports them.\n• They have a driver’s license and the willingness to sit on various sofas.",
         "de": "Psychiatrie zu Hause - ernsthaft und überraschend wirksam. Wer glaubt Psychiatrie funktioniere nur hinter Spitalmauern kennt unsere mobile Akutbehandlung noch nicht. In der mobilen Akutbehandlung (Home Treatment) behandeln wir Menschen mit akuten psychischen Erkrankungen in ihrem Zuhause. Das ist nicht weniger als stationsäquivalent - aber persönlicher, unmittelbarer und flexibler. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine Das bewirken Sie bei uns\n• Sie gehen dorthin wo andere nicht hinkommen - ins Wohnzimmer, in die Krise, mitten ins Leben.\n• Zwischen Alltagschaos, Familienleben und schnurrender Katze behandeln sie Menschen in psychischen Krisen zu Hause - gemeinsam mit ihrem sozialen Umfeld.\n• Sie arbeiten in der dualen Fallführung gemeinsam mit den Therapeuten - nicht in Delegation.\n• Mithilfe bei der Gestaltung der noch jungen Prozesse. Sie verfügen über entsprechendes Mitspracherecht und Entscheidungskompetenzen. Das bringen Sie mit\n• Ausbildung als dipl. Pflegefachperson HF/FH mit Vorteil Richtung Psychiatrie.\n• Freude an selbständigem, sozialpsychiatrischem Arbeiten.\n• Sie arbeiten eigenverantwortlich und trotzdem eingebettet in einem Team, dass sie unterstützt.\n• Sie verfügen über einen Führerausweis und die Bereitschaft auf verschiedenen Sofas Platz zu nehmen. Bei uns arbeiten\n• Wir tauschen uns täglich im Rapport aus, das Team ist jederzeit erreichbar.\n• Arbeitszeiten von 8.00 - 20.00 Uhr in geregeltem Zweischichtbetrieb mit Pikettbereitschaft .\n• Wir bieten Supervision und Möglichkeiten zur internen und externen Fortbildung.\n• Eine Anstellung mit attraktiven Arbeitsbedingungen und Sozialleistungen nach GAV. SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Sie gehen dorthin wo andere nicht hinkommen - ins Wohnzimmer, in die Krise, mitten ins Leben.\n• Zwischen Alltagschaos, Familienleben und schnurrender Katze behandeln sie Menschen in psychischen Krisen zu Hause - gemeinsam mit ihrem sozialen Umfeld.\n• Sie arbeiten in der dualen Fallführung gemeinsam mit den Therapeuten - nicht in Delegation.\n• Mithilfe bei der Gestaltung der noch jungen Prozesse. Sie verfügen über entsprechendes Mitspracherecht und Entscheidungskompetenzen.\n\nAnforderungen:\n• Ausbildung als dipl. Pflegefachperson HF/FH mit Vorteil Richtung Psychiatrie.\n• Freude an selbständigem, sozialpsychiatrischem Arbeiten.\n• Sie arbeiten eigenverantwortlich und trotzdem eingebettet in einem Team, dass sie unterstützt.\n• Sie verfügen über einen Führerausweis und die Bereitschaft auf verschiedenen Sofas Platz zu nehmen.",
-        "fr": "La psychiatrie à la maison - sérieux et étonnamment efficace. Qui croit que la psychiatrie ne fonctionne que derrière les murs de l'hôpital ne connaît pas encore notre traitement mobile aigu. En traitement mobile aigu (traitement à domicile) nous traitons les personnes souffrant de maladie mentale aiguë dans leur maison. Ce n'est pas moins de 3,25 % équivalent - mais personnel, immédiat et plus flexible.Pour compléter notre équipe, nous cherchons un immédiat ou sur rendez-vous.Vous pouvez le faire avec nous • Vous allez là où d'autres ne vont pas - dans le salon, dans la crise, au milieu de la vie.\n\n• Entre vie de tous les jours, vie familiale et chat en train de se purifier, ils traitent les personnes en crise mentale à la maison - avec leur environnement social. • Ils travaillent dans la double gestion de cas avec les thérapeutes - pas en délégation. • Ils aident à façonner les processus encore jeunes. Ils ont leur mot à dire et les compétences de décision correspondantes.\n\n• Vous travaillez de façon indépendante et toujours intégrée dans une équipe qui vous soutient. • Vous avez une carte de conducteur et la volonté de prendre place sur différents canapés. • Nous échangeons des informations tous les jours dans la répétition, l'équipe est disponible à tout moment. • Heures de travail de 8h00 à 20h00 dans une opération de deux équipes réglementée avec disponibilité de piquet. • Nous offrons une supervision et des possibilités de formation interne et externe. • Un emploi avec des conditions de travail attrayantes et des avantages sociaux selon GAV.\n\nSRO AG Services de pédiatrie, Marktgasse 1-8 CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nLes tâches: • Ils vont là où les autres ne vont pas - au salon, à la crise, au milieu de la vie. • Entre la vie quotidienne, la vie familiale et le chat purifiant, ils traitent les gens dans des crises mentales à la maison - avec leur environnement social. • Ils travaillent dans la gestion du double cas avec les thérapeutes - pas dans la délégation. • Ils aident à façonner les processus encore jeunes. Ils ont des compétences correspondantes de dire et de décision.\n\nExigences: • Formation en tant que spécialiste des soins infirmiers HF/FH avec un avantage en psychiatrie. • Profitez d'un travail indépendant et social-psychiatrique. • Vous travaillez de façon indépendante et pourtant intégré dans une équipe qui vous soutient. • Vous avez une carte de guide et la volonté de vous asseoir sur différents canapés."
+        "fr": "Psychiatrie à la maison - sérieusement et étonnamment efficace. Quiconque croit que la psychiatrie ne travaille que derrière les murs de l'hôpital ne connaît pas encore notre traitement aigu mobile. Dans les soins actifs mobiles (traitement à domicile), nous traitons les personnes atteintes de maladies mentales aiguës à la maison. Ce n'est pas moins que l'équivalent de la station, mais plus personnel, immédiat et flexible. Pour compléter notre équipe, nous cherchons une solution immédiatement ou par accord.\n• Ils vont là où d'autres ne viennent pas - dans le salon, dans la crise, au milieu de la vie.\n• Entre la vie de tous les jours, la vie de famille et le chat purifiant, ils traitent les personnes en crise psychologique à la maison - avec leur environnement social.\n• Ils travaillent en double gestion de cas avec les thérapeutes - pas en délégation.\n• Aide à la conception de processus encore jeunes. Ils ont le même pouvoir de parole et de décision. C'est ce qu'ils apportent.\n• Entraînement comme dipl. Infirmière HF/FH avec avantage sur la psychiatrie.\n• Joy de travail psychiatrique indépendant et social.\n• Ils travaillent de façon indépendante et pourtant intégrés dans une équipe qui les soutient.\n• Ils ont un permis de conduire et la volonté de s'asseoir sur différents canapés. Travailler avec nous\n• Nous échangeons des idées tous les jours dans le rapport, l'équipe peut être rejointe à tout moment.\n• Heures de travail de 8h00 à 20h00 dans le cadre d'une opération de deux quarts de travail avec préparation au piquet.\n• Nous offrons une supervision et des possibilités de formation interne et externe.\n• Un emploi avec des conditions de travail attrayantes et des prestations sociales selon GAV. SRO AG Services psychiatriques, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch Tâches :\n• Ils vont là où d'autres ne viennent pas - dans le salon, dans la crise, au milieu de la vie.\n• Entre la vie de tous les jours, la vie de famille et le chat purifiant, ils traitent les personnes en crise psychologique à la maison - avec leur environnement social.\n• Ils travaillent en double gestion de cas avec les thérapeutes - pas en délégation.\n• Aide à la conception de processus encore jeunes. Ils ont le même pouvoir de parole et de décision. Exigences\n• Entraînement comme dipl. Infirmière HF/FH avec avantage sur la psychiatrie.\n• Joy de travail psychiatrique indépendant et social.\n• Ils travaillent de façon indépendante et pourtant intégrés dans une équipe qui les soutient.\n• Ils ont un permis de conduire et la volonté de s'asseoir sur différents canapés."
       },
       "location": "Langenthal",
       "canton": "BE",
@@ -2657,13 +2680,21 @@
         "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
         "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+        "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+        ],
+        "de": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
         ]
       },
@@ -2683,12 +2714,12 @@
     },
     {
       "id": "sro-13440a9097fa",
-      "slug": "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+      "slug": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
-        "it": "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+        "it": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
         "en": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
-        "fr": "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c"
+        "fr": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2748,18 +2779,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T10:59:14.893Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
-      ]
+      "firstSeenAt": "2026-07-15T10:59:14.893Z"
     },
     {
       "id": "sro-ae53a2fd20f1",
@@ -2776,7 +2796,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 80 - 100 %<br/>Abteilung allgemein Medizin / geriatrische Akutrehabilitation",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale HF/FH 80 - 100% <br/>Dipartimento della medicina generale / riabilitazione geriatrica acuta",
-        "en": "Dipl. Nursing professional HF/FH 80 - 100%<br/>Department of general medicine / geriatric acute rehabilitation",
+        "en": "Dipl. Pflegefachperson HF/FH 80 - 100 %<br/>Abteilung allgemein Medizin / geriatrische Akutrehabilitation",
         "de": "Dipl. Pflegefachperson HF/FH 80 - 100 %<br/>Abteilung allgemein Medizin / geriatrische Akutrehabilitation",
         "fr": "Dipl. Professionnels des soins infirmiers HF/FH 80 - 100%<br/>Département de médecine générale / réadaptation aiguë gériatrique"
       },
@@ -2816,6 +2836,7 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+        "dipl-infermieristica-professionale-hf-fh-80-100-br-dipartimento-della-medicina-generale-riabilitazione-geriatrica-acuta",
         "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
         "dipl-nursing-professional-hf-fh-80-100-br-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital",
         "infirmiere-diplomee-hf-fh-80-100-departement-de-medecine-generale-reeducation-aigue-geriatrique-sro-ag-spital-region",
@@ -2828,6 +2849,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+          "dipl-infermieristica-professionale-hf-fh-80-100-br-dipartimento-della-medicina-generale-riabilitazione-geriatrica-acuta",
           "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
           "dipl-nursing-professional-hf-fh-80-100-br-department-of-general-medicine-geriatric-acute-rehabilitation-sro-ag-spital",
           "infirmiere-diplomee-hf-fh-80-100-departement-de-medecine-generale-reeducation-aigue-geriatrique-sro-ag-spital-region",
@@ -2875,7 +2897,7 @@
       "title": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Medizin",
       "titleByLocale": {
         "it": "Dipl. Specialista HF/FH 70 - 100%, generale. Medicina",
-        "en": "dipl. Care specialist HF/FH 70 - 100%, general. Medicine",
+        "en": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Medizin",
         "de": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Medizin",
         "fr": "- Oui. Spécialiste des soins HF/FH 70 - 100%, général. Médecine"
       },
@@ -2915,6 +2937,7 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+        "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal"
@@ -2922,6 +2945,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+          "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal"
@@ -2964,7 +2988,7 @@
       "title": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale HF/FH 70 - 100%, chirurgia generale",
-        "en": "dipl. Nursing professional HF/FH 70 - 100%, general surgery",
+        "en": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Chirurgie",
         "de": "dipl. Pflegefachperson HF/FH 70 - 100%, allg. Chirurgie",
         "fr": "- Oui. Soins infirmiers professionnels HF/FH 70 - 100%, chirurgie générale"
       },
@@ -3004,6 +3028,7 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+        "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
@@ -3011,6 +3036,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+          "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
@@ -3094,12 +3120,14 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "dipl-care-specialist-hf-fh-50-100-br-general-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-        "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+        "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
-          "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+          "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-50-100-br-general-orthopaedics-sro-ag-spital-region-oberaargau-langenthal"
@@ -3134,7 +3162,7 @@
       "title": "Dipl. Pflegefachperson HF/FH 40 - 100%<br/>Medizin / Palliativ Care",
       "titleByLocale": {
         "it": "Dipl. Assistente Professionale Sanitaria HF/FH 40 - 100%",
-        "en": "Dipl. Nurse HF/FH 40 - 100%<br/>Medicine / Palliative Care",
+        "en": "Dipl. Pflegefachperson HF/FH 40 - 100%<br/>Medizin / Palliativ Care",
         "de": "Dipl. Pflegefachperson HF/FH 40 - 100%<br/>Medizin / Palliativ Care",
         "fr": "Diplômé(e) en Soins Infirmiers HF/FH 40 - 100%"
       },
@@ -3173,11 +3201,13 @@
       "validThrough": "2026-08-04",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+        "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+          "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
@@ -3611,7 +3641,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF oder TOA 80 - 100 %",
       "titleByLocale": {
         "it": "Dipl. Fachperson Operationstechnik HF o TOA 80 - 100 %",
-        "en": "Dipl. Specialist surgical technology HF or TOA 80 - 100%",
+        "en": "Dipl. Fachperson Operationstechnik HF oder TOA 80 - 100 %",
         "de": "Dipl. Fachperson Operationstechnik HF oder TOA 80 - 100 %",
         "fr": "Dipl. Technique chirurgicale spécialisée HF ou TOA 80 - 100%"
       },
@@ -3693,7 +3723,7 @@
       "title": "Dipl. Expertin/Experte NDS in Notfallpflege / Dipl. Pflegefachperson HF/FH Notfallzentrum 80 - 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert/Expert NDS in Emergenza / Dipl. Infermiera HF/FH Emergency Center 80 - 100%",
-        "en": "Dipl. Expert/Expert NDS in Emergency Care / Dipl. Nurse HF/FH Emergency Center 80 - 100%",
+        "en": "Dipl. Expertin/Experte NDS in Notfallpflege / Dipl. Pflegefachperson HF/FH Notfallzentrum 80 - 100 %",
         "de": "Dipl. Expertin/Experte NDS in Notfallpflege / Dipl. Pflegefachperson HF/FH Notfallzentrum 80 - 100 %",
         "fr": "Dipl. Expert/Expert NDS en soins d'urgence / Dipl. Infirmière HF/FH Emergency Center 80 - 100%"
       },
@@ -3732,11 +3762,13 @@
       "validThrough": "2026-07-23",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
+        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
+        "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
+          "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80",
+          "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
         ],
         "en": [
           "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80"
@@ -3774,7 +3806,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege 60 – 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert Intensive Care 60 – 100%",
-        "en": "Dipl. Expert Intensive Care 60 – 100%",
+        "en": "Dipl. Expertin/Experte Intensivpflege 60 – 100 %",
         "de": "Dipl. Expertin/Experte Intensivpflege 60 – 100 %",
         "fr": "Dipl. Expert soins intensifs 60 – 100%"
       },
@@ -3813,11 +3845,13 @@
       "validThrough": "2026-08-06",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+        "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+          "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+          "dipl-expert-intensive-care-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "fr": [
           "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
@@ -3925,8 +3959,8 @@
       "slugByLocale": {
         "de": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
         "it": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
-        "en": "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-        "fr": "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+        "en": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "fr": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -4223,11 +4257,13 @@
         "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
         "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
         "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
-        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal",
+          "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "arztsekretar-in-orthopadie-80-100-sro-langenthal"
@@ -4386,11 +4422,13 @@
       "validThrough": "2026-07-24",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
+        "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+        "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"
+          "arztsekretar-in-schmerzklinik-80-100-sro-langenthal",
+          "segreteria-medica-clinica-antidolorifico-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "arztsekretar-in-schmerzklinik-80-100-sro-langenthal"

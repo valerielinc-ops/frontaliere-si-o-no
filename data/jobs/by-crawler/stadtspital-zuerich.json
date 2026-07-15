@@ -70,7 +70,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -248,8 +247,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadtspital-zuerich-9840100120c9",
@@ -991,7 +989,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1160,7 +1157,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1252,8 +1248,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadtspital-zuerich-4b7097486ed0",
@@ -1332,8 +1327,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "stadtspital-zuerich-791a3b8a5aa5",
@@ -1408,7 +1402,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2076,7 +2069,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2238,7 +2230,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3563,7 +3554,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.243Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4138,7 +4128,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4381,7 +4370,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4466,7 +4454,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4635,7 +4622,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4704,18 +4690,35 @@
       "previousSlugs": [
         "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281",
         "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich",
-        "assistenzarzt-in-orthopala-hand-e-unfallchirurgie-stadtspital-zurich"
+        "assistenzarzt-in-orthopala-hand-e-unfallchirurgie-stadtspital-zurich",
+        "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zurich-zurich",
+        "intern-in-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich",
+        "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zuerich-49747",
+        "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-b8b29b",
+        "trainee-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich",
+        "secretariat-medical-des-stagiaires-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zuerich-41281",
-          "assistenzarzt-in-orthopala-hand-e-unfallchirurgie-stadtspital-zurich"
+          "assistenzarzt-in-orthopala-hand-e-unfallchirurgie-stadtspital-zurich",
+          "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zurich-zurich",
+          "intern-in-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich",
+          "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zuerich-49747",
+          "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-b8b29b",
+          "trainee-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich",
+          "secretariat-medical-des-stagiaires-stadtspital-zurich-zurich"
         ],
         "en": [
-          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
+          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich",
+          "intern-in-medical-secretariat-orthopaedics-hand-trauma-surgery-stadtspital-zurich-zurich"
         ],
         "fr": [
-          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich"
+          "assistenzarzt-in-orthopadie-hand-und-unfallchirurgie-stadtspital-zurich-zurich",
+          "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-b8b29b"
+        ],
+        "de": [
+          "praktikant-in-arztsekretariat-orthopadie-hand-unfallchirurgie-stadtspital-zuerich-49747"
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
@@ -4889,7 +4892,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5139,7 +5141,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5311,7 +5312,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -5696,7 +5696,7 @@
       "url": "https://jobs.stadt-zuerich.ch/job/Assistenz%C3%A4rztin-Medizinische-Onkologie_%C3%84rzte-DIM-Onkologie/733917002/",
       "source": "Stadtspital Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:34:53.377Z",
+      "crawledAt": "2026-07-15T11:35:11.556Z",
       "streetAddress": "Birmensdorferstrasse 497",
       "addressLocality": "Zürich",
       "postalCode": "8063",
@@ -5719,11 +5719,13 @@
       "referenceNumber": "18343",
       "previousSlugs": [
         "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
+        "assistente-medico-in-oncologia-medica-medici-dim-oncologia-stadtspital-zurich-zurich",
         "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zuerich-18343",
+          "assistente-medico-in-oncologia-medica-medici-dim-oncologia-stadtspital-zurich-zurich",
           "assistenzarzt-in-medizinische-onkologie-arzte-dim-onkologie-stadtspital-zurich-zurich"
         ],
         "en": [
@@ -6077,7 +6079,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6322,7 +6323,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6409,7 +6409,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -6493,7 +6492,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7347,7 +7345,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7432,7 +7429,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7518,7 +7514,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -7772,7 +7767,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -7856,7 +7850,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8351,7 +8344,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -8678,7 +8670,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -8761,7 +8752,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -9174,7 +9164,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.239Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9412,7 +9401,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:34:53.375Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9601,7 +9589,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Betriebselektriker*in",
+        "en": "Business electrician*",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -9659,7 +9647,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -9745,7 +9732,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10242,7 +10228,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10320,7 +10305,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -10571,7 +10555,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
