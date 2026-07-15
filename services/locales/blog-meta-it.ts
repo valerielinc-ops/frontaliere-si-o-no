@@ -8513,6 +8513,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Borsa di Zurigo: analisi dell\'andamento e mercati',
     'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analisi dell\'andamento dello Swiss Market Index: tra sofferenza e ripresa, ecco i numeri chiave e le dinamiche correnti del listino svizzero.',
     'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Vista panoramica di Lugano, centro finanziario del Ticino.',
+    'blog.article.traffico-frontalieri-como-ticino.title': 'Frontalieri in Ticino: flussi, mobilità e aree di provenienza',
+    'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontaliere su due arriva da Como. Analisi sui flussi, le destinazioni e l\'uso dell\'auto basata sull\'indagine del Dipartimento del territorio.',
+    'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Traffico mattutino al valico di frontiera tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

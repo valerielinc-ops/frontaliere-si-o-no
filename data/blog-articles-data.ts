@@ -25577,6 +25577,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'traffico-frontalieri-como-ticino',
+ category: 'pratico',
+ date: '2026-07-15T02:26:38.145Z',
+ image: '/images/blog/traffico-frontalieri-como-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
