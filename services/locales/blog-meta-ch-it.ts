@@ -1129,6 +1129,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.investimenti-startup-svizzere-riduzione.title': 'Di più startup, diminuisce il volume degli investimenti',
     'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'Il volume degli investimenti nelle startup svizzere è diminuito del 15,5% nel primo semestre 2025.',
     'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Immagine di un investitore che guarda una grafica con tendenze negative',
+    'blog.article.frontalieri-indennita.title': 'Indennità ai frontalieri: Berna fa i conti con la riforma UE',
+    'blog.article.frontalieri-indennita.excerpt': 'La legge in discussione a Bruxelles potrebbe spostare sulla Svizzera il pagamento della disoccupazione ai lavoratori esteri rimasti senza lavoro',
+    'blog.article.frontalieri-indennita.imageAlt': 'Immagine di un impiegato frontaliero in una situazione di disoccupazione',
 };
 
 export default blogMetaChIt;

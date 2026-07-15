@@ -1129,6 +1129,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investimenti-startup-svizzere-riduzione.title': 'Mehr Startups, sinkt das Investitionsvolumen',
     'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'Das Investitionsvolumen in Schweizer Startups ging im ersten Halbjahr 2025 um 15,5% zurück.',
     'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Bild eines Investors, der eine Grafik mit negativen Trends betrachtet',
+    'blog.article.frontalieri-indennita.title': 'Grenzgängerentschädigung: Bern rechnet mit EU-Reform',
+    'blog.article.frontalieri-indennita.excerpt': 'Das in Brüssel diskutierte Gesetz könnte die Zahlung von Arbeitslosengeld an ausländische Arbeitnehmer, die arbeitslos geworden sind, in die Schweiz verlagern',
+    'blog.article.frontalieri-indennita.imageAlt': 'Bild eines Grenzarbeiters in einer Situation der Arbeitslosigkeit',
 };
 
 export default blogMetaChDe;

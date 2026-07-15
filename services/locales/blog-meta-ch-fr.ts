@@ -1129,6 +1129,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investimenti-startup-svizzere-riduzione.title': 'Plus de startups, moins de volume d\'investissement',
     'blog.article.investimenti-startup-svizzere-riduzione.excerpt': 'Le volume des investissements dans les startups suisses a diminué de 15,5 % au premier semestre 2025.',
     'blog.article.investimenti-startup-svizzere-riduzione.imageAlt': 'Image d\'un investisseur regardant un graphique avec des tendances négatives',
+    'blog.article.frontalieri-indennita.title': 'Indemnités aux frontaliers : Berne fait face à la réforme de l\'UE',
+    'blog.article.frontalieri-indennita.excerpt': 'La loi en discussion à Bruxelles pourrait déplacer sur la Suisse le paiement du chômage aux travailleurs étrangers restés sans emploi',
+    'blog.article.frontalieri-indennita.imageAlt': 'Image d\'un travailleur frontalier dans une situation d\'chomage',
 };
 
 export default blogMetaChFr;

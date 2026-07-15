@@ -14565,6 +14565,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-indennita': {
+    title: 'Indennità ai frontalieri: Berna fa i conti con la riforma UE',
+    description: 'La legge in discussione a Bruxelles potrebbe spostare sulla Svizzera il pagamento della disoccupazione ai lavoratori esteri rimasti senza lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, berna, conti, riforma',
+    ogTitle: 'Indennità ai frontalieri: Berna fa i conti con la riforma UE',
+    ogDescription: 'La legge in discussione a Bruxelles potrebbe spostare sulla Svizzera il pagamento della disoccupazione ai lavoratori esteri rimasti senza lavoro.',
+    canonicalPath: '/articoli-svizzera/frontalieri-indennita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità ai frontalieri: Berna fa i conti con la riforma UE",
+      "description": "La legge in discussione a Bruxelles potrebbe spostare sulla Svizzera il pagamento della disoccupazione ai lavoratori esteri rimasti senza lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-indennita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un impiegato frontaliero in una situazione di disoccupazione"
+      },
+      "datePublished": "2026-07-15T00:05:54+00:00",
+      "dateModified": "2026-07-15T00:05:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-indennita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
