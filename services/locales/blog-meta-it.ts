@@ -8516,6 +8516,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Frontalieri in Ticino: flussi, mobilità e aree di provenienza',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontaliere su due arriva da Como. Analisi sui flussi, le destinazioni e l\'uso dell\'auto basata sull\'indagine del Dipartimento del territorio.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Traffico mattutino al valico di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Frontalieri disoccupati: diritti e accesso agli URC',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'I frontalieri disoccupati hanno il diritto di iscriversi agli Uffici regionali di collocamento (URC) svizzeri. Ecco come funziona la procedura.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Veduta di Lugano con il lago e le montagne sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -49563,6 +49563,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati-urc-diritti': {
+    title: 'Frontalieri disoccupati: diritti e accesso agli URC',
+    description: 'I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare e la procedura corretta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, diritti, accesso, agli',
+    ogTitle: 'Frontalieri disoccupati: diritti e accesso agli URC',
+    ogDescription: 'I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupati-urc-diritti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri disoccupati: diritti e accesso agli URC",
+      "description": "I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare e la procedura corretta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupati-urc-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con il lago e le montagne sullo sfondo."
+      },
+      "datePublished": "2026-07-15T12:28:22+00:00",
+      "dateModified": "2026-07-15T12:28:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

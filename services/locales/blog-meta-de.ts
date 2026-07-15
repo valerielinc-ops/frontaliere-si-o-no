@@ -8514,6 +8514,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Grenzgänger im Tessin: Ströme, Mobilität und Herkunftsgebiete',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Jeder zweite Grenzgänger kommt aus Como. Analyse der Flüsse, Ziele und Nutzung des Autos auf der Grundlage der Umfrage des Department of Territory.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Morgendlicher Verkehr am Grenzübergang zwischen Italien und der Schweiz',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Arbeitslose Grenzgänger: Rechte und Zugang zu den RAVs',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Arbeitslose Grenzgängerinnen und Grenzgänger haben das Recht, sich bei den regionalen Arbeitsvermittlungsstellen (RAV) der Schweiz anzumelden. So funktioniert das Verfahren.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Blick auf Lugano mit dem See und den Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

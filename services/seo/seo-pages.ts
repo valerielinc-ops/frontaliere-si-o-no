@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3239,
+ "numberOfItems": 3240,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7914,7 +7914,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3236, "name": "Frontalieri in Ticino: flussi, mobilità e aree ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-frontalieri-como-ticino` },
           { "@type": "ListItem", "position": 3237, "name": "Disoccupazione frontalieri: le nuove regole UE", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-nuove-regole-ue` },
           { "@type": "ListItem", "position": 3238, "name": "Disoccupazione frontalieri: l'UDC si oppone all...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-ue` },
-          { "@type": "ListItem", "position": 3239, "name": "Iniziativa per un'alimentazione sicura: cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-alimentazione-sicura-voto` }
+          { "@type": "ListItem", "position": 3239, "name": "Iniziativa per un'alimentazione sicura: cosa ca...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-alimentazione-sicura-voto` },
+          { "@type": "ListItem", "position": 3240, "name": "Frontalieri disoccupati: diritti e accesso agli...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-diritti` }
  ]
  },
  {
