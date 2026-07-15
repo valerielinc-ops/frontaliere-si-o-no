@@ -67,7 +67,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -406,7 +405,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -491,7 +489,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -566,7 +563,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -728,7 +724,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1254,7 +1249,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1313,7 +1308,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1341,7 +1335,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Diploma in Nursing (HF/FH)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Diplômé(e) en soins infirmiers (HF/FH)"
@@ -1395,7 +1389,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1560,7 +1553,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1659,7 +1651,6 @@
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1742,7 +1733,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2179,7 +2169,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2237,7 +2227,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2322,7 +2311,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2406,8 +2394,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-f974b289fe3e",
@@ -2732,7 +2719,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapeuta del lavoro",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -2781,7 +2768,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2802,7 +2788,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2861,7 +2847,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3863,7 +3848,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3942,7 +3926,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4018,7 +4001,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4494,7 +4476,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5165,7 +5146,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -5234,7 +5215,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5315,7 +5295,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5396,7 +5375,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5631,7 +5609,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -5722,8 +5699,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-ad78492ec9aa",
@@ -5890,7 +5866,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.829Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "baseSalary": {
@@ -5974,8 +5949,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-c8420a22fefc",
@@ -6148,7 +6122,7 @@
       "slug": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
-        "en": "senior-transplant-coordinator-universitatsspital-basel-basel",
+        "en": "senior-transplantationskoordinator-in-universitatsspital-basel-basel",
         "de": "senior-transplantationskoordinator-in-unispital-basel-ch",
         "fr": "senior-transplantationskoordinator-in-universitatsspital-basel-basel"
       },
@@ -6213,7 +6187,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:27:28.546Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6578,7 +6551,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:46:13.904Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6651,7 +6623,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:45:57.172Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6875,7 +6846,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:09.619Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7183,7 +7153,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7574,7 +7543,6 @@
         "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-06-09T12:27:47.540Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7742,7 +7710,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:02:54.504Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -7899,7 +7866,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:09:51.132Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -8121,7 +8087,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-13T22:31:23.963Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-client-engineering-unispital-basel-ch"
@@ -8338,16 +8303,16 @@
       "title": "Assistenzarzt / Assistenzärztin (Pneumologie)",
       "titleByLocale": {
         "de": "Assistenzarzt / Assistenzärztin (Pneumologie)",
-        "it": "Assistenzarzt / Assistenzärztin (Pneumologie)",
-        "en": "Assistenzarzt / Assistenzärztin (Pneumologie)",
-        "fr": "Assistenzarzt / Assistenzärztin (Pneumologie)"
+        "it": "Assistente medico (pneumologia)",
+        "en": "Assistant doctor (pneumology)",
+        "fr": "Assistant médecin (pneumologie)"
       },
       "description": "Aufgaben:\n• Stationäre und ambulante Betreuung von Patientinnen und Patienten mit Lungenerkrankungen\n\n• Befundung fachspezifischer Untersuchungen (Lungenfunktion, Spiroergometrie, Allergietests, Bildgebung etc.)\n\n• Durchführung fachspezifischer Eingriffe wie Bronchoskopien, Pleurasonografie, Pleurapunktionen und Drainageanlagen\n\n• Durchführung und Mitarbeit in fachspezifischen Sprechstunden und Boards\n\nAnforderungen:\n• Abgeschlossenes Medizinstudium sowie mindestens zwei Jahre Erfahrung in der Inneren Medizin\n\n• Interesse an der Weiterbildung in Pneumologie\n\n• Offene und wertschätzende Kommunikation sowie Freude an der interdisziplinären Zusammenarbeit im Team\n\n• Bereitschaft, mit Engagement für unsere Patientinnen und Patienten und unsere Klinik zu arbeiten und aktiv am Klinikalltag inklusive Fort- und Weiterbildungen mitzuwirken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Stationäre und ambulante Betreuung von Patientinnen und Patienten mit Lungenerkrankungen\n\n• Befundung fachspezifischer Untersuchungen (Lungenfunktion, Spiroergometrie, Allergietests, Bildgebung etc.)\n\n• Durchführung fachspezifischer Eingriffe wie Bronchoskopien, Pleurasonografie, Pleurapunktionen und Drainageanlagen\n\n• Durchführung und Mitarbeit in fachspezifischen Sprechstunden und Boards\n\nAnforderungen:\n• Abgeschlossenes Medizinstudium sowie mindestens zwei Jahre Erfahrung in der Inneren Medizin\n\n• Interesse an der Weiterbildung in Pneumologie\n\n• Offene und wertschätzende Kommunikation sowie Freude an der interdisziplinären Zusammenarbeit im Team\n\n• Bereitschaft, mit Engagement für unsere Patientinnen und Patienten und unsere Klinik zu arbeiten und aktiv am Klinikalltag inklusive Fort- und Weiterbildungen mitzuwirken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Stationäre und ambulante Betreuung von Patientinnen und Patienten mit Lungenerkrankungen\n\n• Befundung fachspezifischer Untersuchungen (Lungenfunktion, Spiroergometrie, Allergietests, Bildgebung etc.)\n\n• Durchführung fachspezifischer Eingriffe wie Bronchoskopien, Pleurasonografie, Pleurapunktionen und Drainageanlagen\n\n• Durchführung und Mitarbeit in fachspezifischen Sprechstunden und Boards\n\nAnforderungen:\n• Abgeschlossenes Medizinstudium sowie mindestens zwei Jahre Erfahrung in der Inneren Medizin\n\n• Interesse an der Weiterbildung in Pneumologie\n\n• Offene und wertschätzende Kommunikation sowie Freude an der interdisziplinären Zusammenarbeit im Team\n\n• Bereitschaft, mit Engagement für unsere Patientinnen und Patienten und unsere Klinik zu arbeiten und aktiv am Klinikalltag inklusive Fort- und Weiterbildungen mitzuwirken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Stationäre und ambulante Betreuung von Patientinnen und Patienten mit Lungenerkrankungen\n\n• Befundung fachspezifischer Untersuchungen (Lungenfunktion, Spiroergometrie, Allergietests, Bildgebung etc.)\n\n• Durchführung fachspezifischer Eingriffe wie Bronchoskopien, Pleurasonografie, Pleurapunktionen und Drainageanlagen\n\n• Durchführung und Mitarbeit in fachspezifischen Sprechstunden und Boards\n\nAnforderungen:\n• Abgeschlossenes Medizinstudium sowie mindestens zwei Jahre Erfahrung in der Inneren Medizin\n\n• Interesse an der Weiterbildung in Pneumologie\n\n• Offene und wertschätzende Kommunikation sowie Freude an der interdisziplinären Zusammenarbeit im Team\n\n• Bereitschaft, mit Engagement für unsere Patientinnen und Patienten und unsere Klinik zu arbeiten und aktiv am Klinikalltag inklusive Fort- und Weiterbildungen mitzuwirken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Stationäre und ambulante Betreuung von Patientinnen und Patienten mit Lungenerkrankungen\n\n• Befundung fachspezifischer Untersuchungen (Lungenfunktion, Spiroergometrie, Allergietests, Bildgebung etc.)\n\n• Durchführung fachspezifischer Eingriffe wie Bronchoskopien, Pleurasonografie, Pleurapunktionen und Drainageanlagen\n\n• Durchführung und Mitarbeit in fachspezifischen Sprechstunden und Boards\n\nAnforderungen:\n• Abgeschlossenes Medizinstudium sowie mindestens zwei Jahre Erfahrung in der Inneren Medizin\n\n• Interesse an der Weiterbildung in Pneumologie\n\n• Offene und wertschätzende Kommunikation sowie Freude an der interdisziplinären Zusammenarbeit im Team\n\n• Bereitschaft, mit Engagement für unsere Patientinnen und Patienten und unsere Klinik zu arbeiten und aktiv am Klinikalltag inklusive Fort- und Weiterbildungen mitzuwirken\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Cura paziente e ambulatorio per pazienti affetti da malattie polmonari\n\n• Rilevamento di esami specifici (funzione polmonare, spiroergometria, test di allergia, imaging, ecc.)\n\n• Esecuzione di procedure specializzate come broncoscopie, generografia pleurale, punture pleurali e sistemi di drenaggio\n\n• Attuazione e cooperazione nelle ore e negli uffici specializzati\n\nRequisiti\n• Studi medici completi e almeno due anni di esperienza nella medicina interna\n\n• Interessi nell'ulteriore istruzione in polmonologia\n\n• Comunicazione aperta e apprezzativa nonché il godimento della cooperazione interdisciplinare nel team\n\n• Volontà di lavorare con impegno per i nostri pazienti e la nostra clinica e di partecipare attivamente alla vita quotidiana ospedaliera, tra cui ulteriore istruzione e formazione\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Inpatient and outpatient care for patients with lung diseases\n\n• Detection of subject-specific examinations (pulmonary function, spiroergometry, allergy tests, imaging, etc.)\n\n• Performing specialized procedures such as bronchoscopies, pleural sonography, pleural punctures and drainage systems\n\n• Implementation and cooperation in specialist office hours and boards\n\nRequirements\n• Completed medical studies and at least two years of experience in internal medicine\n\n• Interest in further education in pulmonology\n\n• Open and appreciative communication as well as enjoyment of interdisciplinary cooperation in the team\n\n• Willingness to work with commitment for our patients and our clinic and to actively participate in everyday hospital life including further education and training\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Soins hospitaliers et ambulatoires pour les patients atteints de maladies pulmonaires\n\n• Détection d'examens spécifiques (fonction pulmonaire, spiroergométrie, tests d'allergie, imagerie, etc.)\n\n• Effectuer des procédures spécialisées telles que bronchoscopies, sonographie pleurale, perforations pleurales et systèmes de drainage\n\n• Mise en œuvre et coopération des horaires et des conseils de bureau spécialisés\n\nExigences\n• Études médicales terminées et au moins deux ans d'expérience en médecine interne\n\n• Intérêt pour la formation continue en Pulmonologie\n\n• Communication ouverte et reconnaissante ainsi que le plaisir de la coopération interdisciplinaire au sein de l'équipe\n\n• Volonté de travailler avec engagement pour nos patients et notre clinique et de participer activement à la vie quotidienne de l'hôpital, y compris l'éducation et la formation continues\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8373,7 +8338,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-assistenzarztin-pneumologie-unispital-basel-ch"
@@ -8411,16 +8375,16 @@
       "title": "Study Nurse/Study Coordinator (Kardiologie)",
       "titleByLocale": {
         "de": "Study Nurse/Study Koordinator (Kardiologie)",
-        "en": "Study Nurse/Study Coordinator (Kardiologie)",
+        "en": "Study Nurse/Study Coordinator (Cardiology)",
         "it": "Study Nurse/Study Coordinatore (Kardiologie)",
         "fr": "Study Nurse/Study Coordinateur (Kardiologie)"
       },
       "description": "Aufgaben:\n• Unterstützung des klinischen Forschungsteams bei sämtlichen studienbezogenen Tätigkeiten, wie patientennahen Befragungen, der Durchführung von EKGs und Blutentnahmen\n\n• Organisation, Durchführung und Nachbereitung von Studienvisiten unter Einhaltung des Studienprotokolls sowie der ICH-GCP-Richtlinien und regulatorischen Vorgaben\n\n• Erhebung und Dokumentation studienspezifischer Daten in elektronischen Datenbanken sowie Pflege studienrelevanter Dokumente (z. B. SOPs, ISF)\n\n• Ansprechperson für Patient*innen, Prüfärzt*innen, Sponsor*innen, Monitor*innen und externe Studienzentren\n\n• Übernahme administrativer und organisatorischer Aufgaben innerhalb des Studienteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe), Medizinische Praxisassistent*in (MPA), dipl. Pflegefachfrau/Pflegefachmann HF/FH oder eine gleichwertige Ausbildung bzw. ein Studium mit Bezug zum Gesundheitswesen oder den Naturwissenschaften\n\n• Erfahrung als Study Nurse oder Study Coordinator oder in einer vergleichbaren Funktion im Bereich klinischer Studien\n\n• Selbstständige und strukturierte Arbeitsweise mit hoher Eigenverantwortung sowie ausgeprägtem Qualitäts- und Verantwortungsbewusstsein\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie ausgeprägte Kommunikationsfähigkeiten; Französischkenntnisse von Vorteil\n\n• Teamorientierte Persönlichkeit mit organisatorischer Stärke und Freude am direkten Patientenkontakt\n\n• Von Vorteil: Kenntnisse im Bereich Kardiologie, aktuelles GCP-Zertifikat sowie Erfahrung im Umgang mit elektronischen Datenerfassungssystemen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Unterstützung des klinischen Forschungsteams bei sämtlichen studienbezogenen Tätigkeiten, wie patientennahen Befragungen, der Durchführung von EKGs und Blutentnahmen\n\n• Organisation, Durchführung und Nachbereitung von Studienvisiten unter Einhaltung des Studienprotokolls sowie der ICH-GCP-Richtlinien und regulatorischen Vorgaben\n\n• Erhebung und Dokumentation studienspezifischer Daten in elektronischen Datenbanken sowie Pflege studienrelevanter Dokumente (z. B. SOPs, ISF)\n\n• Ansprechperson für Patient*innen, Prüfärzt*innen, Sponsor*innen, Monitor*innen und externe Studienzentren\n\n• Übernahme administrativer und organisatorischer Aufgaben innerhalb des Studienteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe), Medizinische Praxisassistent*in (MPA), dipl. Pflegefachfrau/Pflegefachmann HF/FH oder eine gleichwertige Ausbildung bzw. ein Studium mit Bezug zum Gesundheitswesen oder den Naturwissenschaften\n\n• Erfahrung als Study Nurse oder Study Coordinator oder in einer vergleichbaren Funktion im Bereich klinischer Studien\n\n• Selbstständige und strukturierte Arbeitsweise mit hoher Eigenverantwortung sowie ausgeprägtem Qualitäts- und Verantwortungsbewusstsein\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie ausgeprägte Kommunikationsfähigkeiten; Französischkenntnisse von Vorteil\n\n• Teamorientierte Persönlichkeit mit organisatorischer Stärke und Freude am direkten Patientenkontakt\n\n• Von Vorteil: Kenntnisse im Bereich Kardiologie, aktuelles GCP-Zertifikat sowie Erfahrung im Umgang mit elektronischen Datenerfassungssystemen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Unterstützung des klinischen Forschungsteams bei sämtlichen studienbezogenen Tätigkeiten, wie patientennahen Befragungen, der Durchführung von EKGs und Blutentnahmen\n\n• Organisation, Durchführung und Nachbereitung von Studienvisiten unter Einhaltung des Studienprotokolls sowie der ICH-GCP-Richtlinien und regulatorischen Vorgaben\n\n• Erhebung und Dokumentation studienspezifischer Daten in elektronischen Datenbanken sowie Pflege studienrelevanter Dokumente (z. B. SOPs, ISF)\n\n• Ansprechperson für Patient*innen, Prüfärzt*innen, Sponsor*innen, Monitor*innen und externe Studienzentren\n\n• Übernahme administrativer und organisatorischer Aufgaben innerhalb des Studienteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe), Medizinische Praxisassistent*in (MPA), dipl. Pflegefachfrau/Pflegefachmann HF/FH oder eine gleichwertige Ausbildung bzw. ein Studium mit Bezug zum Gesundheitswesen oder den Naturwissenschaften\n\n• Erfahrung als Study Nurse oder Study Coordinator oder in einer vergleichbaren Funktion im Bereich klinischer Studien\n\n• Selbstständige und strukturierte Arbeitsweise mit hoher Eigenverantwortung sowie ausgeprägtem Qualitäts- und Verantwortungsbewusstsein\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie ausgeprägte Kommunikationsfähigkeiten; Französischkenntnisse von Vorteil\n\n• Teamorientierte Persönlichkeit mit organisatorischer Stärke und Freude am direkten Patientenkontakt\n\n• Von Vorteil: Kenntnisse im Bereich Kardiologie, aktuelles GCP-Zertifikat sowie Erfahrung im Umgang mit elektronischen Datenerfassungssystemen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Unterstützung des klinischen Forschungsteams bei sämtlichen studienbezogenen Tätigkeiten, wie patientennahen Befragungen, der Durchführung von EKGs und Blutentnahmen\n\n• Organisation, Durchführung und Nachbereitung von Studienvisiten unter Einhaltung des Studienprotokolls sowie der ICH-GCP-Richtlinien und regulatorischen Vorgaben\n\n• Erhebung und Dokumentation studienspezifischer Daten in elektronischen Datenbanken sowie Pflege studienrelevanter Dokumente (z. B. SOPs, ISF)\n\n• Ansprechperson für Patient*innen, Prüfärzt*innen, Sponsor*innen, Monitor*innen und externe Studienzentren\n\n• Übernahme administrativer und organisatorischer Aufgaben innerhalb des Studienteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe), Medizinische Praxisassistent*in (MPA), dipl. Pflegefachfrau/Pflegefachmann HF/FH oder eine gleichwertige Ausbildung bzw. ein Studium mit Bezug zum Gesundheitswesen oder den Naturwissenschaften\n\n• Erfahrung als Study Nurse oder Study Coordinator oder in einer vergleichbaren Funktion im Bereich klinischer Studien\n\n• Selbstständige und strukturierte Arbeitsweise mit hoher Eigenverantwortung sowie ausgeprägtem Qualitäts- und Verantwortungsbewusstsein\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie ausgeprägte Kommunikationsfähigkeiten; Französischkenntnisse von Vorteil\n\n• Teamorientierte Persönlichkeit mit organisatorischer Stärke und Freude am direkten Patientenkontakt\n\n• Von Vorteil: Kenntnisse im Bereich Kardiologie, aktuelles GCP-Zertifikat sowie Erfahrung im Umgang mit elektronischen Datenerfassungssystemen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Unterstützung des klinischen Forschungsteams bei sämtlichen studienbezogenen Tätigkeiten, wie patientennahen Befragungen, der Durchführung von EKGs und Blutentnahmen\n\n• Organisation, Durchführung und Nachbereitung von Studienvisiten unter Einhaltung des Studienprotokolls sowie der ICH-GCP-Richtlinien und regulatorischen Vorgaben\n\n• Erhebung und Dokumentation studienspezifischer Daten in elektronischen Datenbanken sowie Pflege studienrelevanter Dokumente (z. B. SOPs, ISF)\n\n• Ansprechperson für Patient*innen, Prüfärzt*innen, Sponsor*innen, Monitor*innen und externe Studienzentren\n\n• Übernahme administrativer und organisatorischer Aufgaben innerhalb des Studienteams\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit (FaGe), Medizinische Praxisassistent*in (MPA), dipl. Pflegefachfrau/Pflegefachmann HF/FH oder eine gleichwertige Ausbildung bzw. ein Studium mit Bezug zum Gesundheitswesen oder den Naturwissenschaften\n\n• Erfahrung als Study Nurse oder Study Coordinator oder in einer vergleichbaren Funktion im Bereich klinischer Studien\n\n• Selbstständige und strukturierte Arbeitsweise mit hoher Eigenverantwortung sowie ausgeprägtem Qualitäts- und Verantwortungsbewusstsein\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie ausgeprägte Kommunikationsfähigkeiten; Französischkenntnisse von Vorteil\n\n• Teamorientierte Persönlichkeit mit organisatorischer Stärke und Freude am direkten Patientenkontakt\n\n• Von Vorteil: Kenntnisse im Bereich Kardiologie, aktuelles GCP-Zertifikat sowie Erfahrung im Umgang mit elektronischen Datenerfassungssystemen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Sostenere il team di ricerca clinica in tutte le attività relative allo studio, come le indagini relative al paziente, l'implementazione ECG e il campionamento del sangue\n\n• Organizzazione, implementazione e follow-up delle visite di studio nel rispetto del protocollo di studio, nonché delle linee guida ICH-GCP e dei requisiti normativi\n\n• Raccolta e documentazione dei dati specifici per lo studio nei database elettronici e manutenzione dei documenti pertinenti allo studio (ad esempio SOP, ISF)\n\n• Persona di contatto per pazienti, investigatori, sponsor, monitor e centri di studio esterni\n\n• Assumere compiti amministrativi e organizzativi all'interno del team di studio\n\nRequisiti\n• Formazione completa come specialista in salute (FaGe), assistente medico (MPA), dipl. infermieristica / specialista HF/FH o istruzione equivalente o uno studio relativo all'assistenza sanitaria o alle scienze naturali\n\n• Esperienza come infermiera di studio o coordinatore di studio o in una funzione paragonabile nel campo delle sperimentazioni cliniche\n\n• Metodo di lavoro indipendente e strutturato con un alto livello di responsabilità personale e un alto livello di qualità e consapevolezza della responsabilità\n\n• Ottima conoscenza del tedesco e dell'inglese nelle parole e nella scrittura e nelle forti capacità di comunicazione; La conoscenza del francese è benefica\n\n• Personalità orientata al team con forza organizzativa e piacere nel contatto diretto del paziente\n\n• Vantaggi: la conoscenza della cardiologia, il certificato GCP aggiornato e l'esperienza nel trattare i sistemi di acquisizione dati elettronici\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Supporting the clinical research team in all study-related activities, such as patient-related surveys, ECG implementation and blood sampling\n\n• Organization, implementation and follow-up of study visits in compliance with the study protocol as well as the ICH-GCP guidelines and regulatory requirements\n\n• Collection and documentation of study-specific data in electronic databases and maintenance of study-relevant documents (e.g. SOPs, ISF)\n\n• Contact person for patients, investigators, sponsors, monitors and external study centers\n\n• Taking over administrative and organizational tasks within the study team\n\nRequirements\n• Completed training as a specialist in health (FaGe), medical practice assistant (MPA), dipl. nurse/nurse specialist HF/FH or equivalent education or a study related to health care or the natural sciences\n\n• Experience as a study nurse or study coordinator or in a comparable function in the field of clinical trials\n\n• Independent and structured working method with a high level of personal responsibility as well as a high level of quality and responsibility awareness\n\n• Very good knowledge of German and English in words and writing as well as strong communication skills; Knowledge of French is beneficial\n\n• Team-oriented personality with organizational strength and pleasure in direct patient contact\n\n• Advantages: knowledge of cardiology, up-to-date GCP certificate and experience in dealing with electronic data acquisition systems\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Soutenir l'équipe de recherche clinique dans toutes les activités liées à l'étude, telles que les enquêtes sur les patients, la mise en oeuvre de l'ECG et l'échantillonnage sanguin\n\n• Organisation, mise en oeuvre et suivi des visites d'étude conformément au protocole d'étude ainsi qu'aux lignes directrices et aux exigences réglementaires de l'ICH-GPC\n\n• Collecte et documentation de données spécifiques à l'étude dans les bases de données électroniques et tenue à jour de documents pertinents à l'étude (par exemple SOP, FSI)\n\n• Personne-ressource pour les patients, les chercheurs, les sponsors, les moniteurs et les centres d'études externes\n\n• Prise en charge des tâches administratives et organisationnelles au sein de l'équipe d'étude\n\nExigences\n• Achevé la formation en tant que spécialiste de la santé (FaGe), assistant à la pratique médicale (MPA), dipl. infirmière/infirmière spécialiste HF/FH ou une formation équivalente ou une étude liée aux soins de santé ou aux sciences naturelles\n\n• Expérience en tant qu'infirmière ou coordonnateur d'études ou dans une fonction comparable dans le domaine des essais cliniques\n\n• Méthode de travail indépendante et structurée avec un haut niveau de responsabilité personnelle ainsi qu'un haut niveau de qualité et de sensibilisation aux responsabilités\n\n• Très bonne connaissance de l'allemand et de l'anglais en mots et en écriture ainsi que de solides compétences en communication; La connaissance du français est bénéfique\n\n• Personnalité orientée équipe avec force organisationnelle et plaisir en contact direct avec le patient\n\n• Avantages: connaissance de la cardiologie, mise à jour du certificat GCP et expérience dans le traitement des systèmes d'acquisition de données électroniques\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8446,7 +8410,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {

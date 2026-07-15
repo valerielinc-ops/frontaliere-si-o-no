@@ -370,7 +370,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -433,7 +432,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:34.807Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -509,7 +507,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.926Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -573,18 +570,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "field-service-engineer-thermo-fisher-scientific-ch",
-        "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach"
+        "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach",
+        "on-site-service-ingegnere-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
+        "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch",
+        "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-engineer-thermo-fisher-scientific-ch",
-          "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach"
+          "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach",
+          "on-site-service-ingegnere-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
+          "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch",
+          "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
         ],
         "de": [
           "field-service-engineer-thermo-fisher-scientific-ch"
         ],
         "fr": [
-          "field-service-engineer-thermo-fisher-scientific-ch"
+          "field-service-engineer-thermo-fisher-scientific-ch",
+          "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
+        ],
+        "en": [
+          "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.261Z",
@@ -677,8 +684,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-14dbed50cf4f",
@@ -729,7 +735,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:31.714Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1262,7 +1267,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:18:54.109Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1335,7 +1339,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:22.727Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1489,7 +1492,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:18.664Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1810,8 +1812,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-662212db4ff8",
@@ -2107,7 +2108,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:37:45.366Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2181,8 +2181,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-7c1971d49613",
