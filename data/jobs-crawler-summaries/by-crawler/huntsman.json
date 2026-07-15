@@ -1,16 +1,16 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-07-15T11:40:45.841Z",
+  "generatedAt": "2026-07-15T22:23:36.392Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7548,
-  "avgDurationMs": 7548,
+  "durationMs": 5729,
+  "avgDurationMs": 5729,
   "durationHistory": [
-    7548
+    5729
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:40:40.254Z",
+      "crawledAt": "2026-07-15T22:23:31.453Z",
       "jobReqId": "J-020004",
       "firstSeenAt": "2026-06-30T11:38:48.368Z",
       "_qualityScore": 82,
@@ -73,7 +73,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:40:41.035Z",
+      "crawledAt": "2026-07-15T22:23:32.064Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "_qualityScore": 82,
@@ -108,7 +108,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:40:41.821Z",
+      "crawledAt": "2026-07-15T22:23:32.631Z",
       "jobReqId": "J-019681",
       "firstSeenAt": "2026-05-04T22:05:20.209Z",
       "_qualityScore": 82,
@@ -143,7 +143,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:40:42.478Z",
+      "crawledAt": "2026-07-15T22:23:33.228Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "_qualityScore": 82,
@@ -155,46 +155,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "huntsman-77905485f1ea",
-      "slug": "operatore-pilota-huntsman-corporation-monthey",
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "Opérateur Pilote",
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-16",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:59:57.723Z",
-      "jobReqId": "J-019602",
-      "firstSeenAt": "2026-04-13T10:44:44.868Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
