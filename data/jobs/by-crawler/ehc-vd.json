@@ -1796,13 +1796,17 @@
       "previousSlugs": [
         "assistant-medical-f-h-ehc-vd-ecublens",
         "assistant-medical-f-h-ehc-vd-crissier",
-        "assistant-medical-f-h-ehc-vd-morges"
+        "assistant-medical-f-h-ehc-vd-morges",
+        "assistant-medical-f-h-ehc-vd-renens",
+        "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-medical-f-h-ehc-vd-ecublens",
           "assistant-medical-f-h-ehc-vd-crissier",
-          "assistant-medical-f-h-ehc-vd-morges"
+          "assistant-medical-f-h-ehc-vd-morges",
+          "assistant-medical-f-h-ehc-vd-renens",
+          "medical-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-crissier"
         ],
         "fr": [
           "assistant-medical-f-h-ehc-vd-ecublens",
@@ -1954,14 +1958,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-de-sante-f-h-ehc-vd-morges"
+          "auxiliaire-de-sante-f-h-ehc-vd-morges",
+          "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "auxiliaire-de-sante-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "auxiliaire-de-sante-f-h-ehc-vd-morges"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-f-h-ehc-vd-morges"
+        "auxiliaire-de-sante-f-h-ehc-vd-morges",
+        "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "auxiliaire-de-sante-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

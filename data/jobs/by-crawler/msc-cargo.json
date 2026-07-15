@@ -341,12 +341,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "copywriter-6-months-contract-msc-geneva",
-        "copywriter-6-mesi-msc-group-geneva"
+        "copywriter-6-mesi-msc-group-geneva",
+        "copywriter-contratto-6-mesi-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "copywriter-6-months-contract-msc-geneva",
-          "copywriter-6-mesi-msc-group-geneva"
+          "copywriter-6-mesi-msc-group-geneva",
+          "copywriter-contratto-6-mesi-msc-group-geneva"
         ],
         "de": [
           "copywriter-6-months-contract-msc-geneva"
@@ -432,7 +434,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T22:14:06.644Z"
+      "firstSeenAt": "2026-07-14T22:14:06.644Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "marketing-full-funnell-analyst-msc-geneva"
+        ],
+        "it": [
+          "marketing-full-funnel-analista-msc-group-geneva"
+        ],
+        "fr": [
+          "marketing-full-funnel-analyste-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-full-funnell-analyst-msc-geneva",
+        "marketing-full-funnel-analista-msc-group-geneva",
+        "marketing-full-funnel-analyste-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -497,7 +515,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T22:14:05.691Z"
+      "firstSeenAt": "2026-07-14T22:14:05.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-fleet-supervisore-shore-excursions-msc-group-geneva"
+        ],
+        "de": [
+          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva"
+        ],
+        "fr": [
+          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-fleet-supervisore-shore-excursions-msc-group-geneva",
+        "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
+        "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -552,10 +586,14 @@
       "previousSlugsByLocale": {
         "it": [
           "digital-platforms-manager-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-platforms-manager-msc-geneva"
+        "digital-platforms-manager-msc-geneva",
+        "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 92000,
