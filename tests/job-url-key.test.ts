@@ -107,6 +107,20 @@ describe('mergeUrlKey Bank Cler requisition rule (Rule K — slug-drift class)',
   it('does NOT change keys for non-Cler hosts (host-gated, no re-key)', () => {
     expect(mergeUrlKey('https://example.com/careers/title-2589')).toBe('url:https://example.com/careers/title-2589');
   });
+  // #4205 item 3 — Rule K is host-gated on cler.ch but ALSO requires the leaf
+  // to end in a digit run (trailingDigitRunFromLeaf); a cler.ch URL whose
+  // leaf carries no trailing digits (host matches, per-job token doesn't)
+  // falls through Rule K/L/R/X to Rule C, which always returns a non-empty
+  // `url:`-prefixed key for any non-empty input — never ''. This confirms the
+  // whole-URL fallback stays a STABLE, non-empty key (so callers like
+  // dedupeClerJobsByStableId never mistake it for "no derivable id").
+  it('falls back to a stable whole-URL key when the cler.ch leaf has no trailing digit run', () => {
+    const url = 'https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen';
+    const key = mergeUrlKey(url);
+    expect(key).toBe(`url:${url.toLowerCase()}`);
+    expect(key).not.toBe('');
+    expect(mergeUrlKey(url)).toBe(mergeUrlKey(url));
+  });
 });
 
 describe('mergeUrlKey ETA SA requisition rule (Rule L — slug-drift class)', () => {

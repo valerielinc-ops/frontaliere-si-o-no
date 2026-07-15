@@ -212,6 +212,23 @@ describe('dedupeClerJobsByStableId — #3836', () => {
     expect(unique).toHaveLength(2);
   });
 
+  // #4205 item 3 — a URL IS present but Rule K's host-gate doesn't apply
+  // (the leaf carries no trailing digit run, e.g. a listing/index path with
+  // no requisition id). extractStableJobId still falls back to a stable
+  // whole-URL key (job-url-key.mjs Rule C never returns '' for a non-empty
+  // input) — two identical such listings must collapse into ONE record, not
+  // scatter across synthetic `__nokey_N` keys (which would happen only if
+  // the URL resolved to '').
+  it('collapses duplicate listings whose URL has no extractable requisition id (Rule K inapplicable)', () => {
+    const noReqUrl = '/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen';
+    const listings = [
+      { link: { url: noReqUrl } },
+      { link: { url: noReqUrl } },
+    ];
+    const unique = dedupeClerJobsByStableId(listings, getListingUrl);
+    expect(unique).toHaveLength(1);
+  });
+
   it('clerCareerSectionYear extracts the year suffix (0 when absent)', () => {
     expect(clerCareerSectionYear(`${API_BASE}/de/bank-cler/jobs-und-karriere-2026/x-2589`)).toBe(2026);
     expect(clerCareerSectionYear(`${API_BASE}/de/bank-cler/jobs-und-karriere/x-2589`)).toBe(0);

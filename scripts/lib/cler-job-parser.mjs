@@ -34,7 +34,13 @@ export function clerCareerSectionYear(url = '') {
  *
  * Records with no derivable stable id (no url and no slug) are preserved
  * as-is under a per-record synthetic key so a missing id never silently
- * drops a job.
+ * drops a job. This only triggers when `getUrl(item)` returns '' (the API
+ * listing carries no link at all) — whenever a URL IS present, `extractStableJobId`
+ * always resolves a non-empty, stable key: Rule K (cler.ch host-gate) wins when
+ * the leaf ends in a requisition digit run, and otherwise Rule C
+ * (job-url-key.mjs) falls back to the whole normalized URL, which is never ''
+ * for non-empty input (confirmed #4205 item 3, tests/job-url-key.test.ts +
+ * tests/cler-crawler.test.ts).
  *
  * @param {Array<object>} items
  * @param {(item: object) => string} [getUrl] URL accessor (default `item.url`)
