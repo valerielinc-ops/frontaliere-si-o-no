@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axpo-group",
-  "assembledAt": "2026-07-15T11:16:12.161Z",
+  "assembledAt": "2026-07-15T22:42:25.938Z",
   "jobs": [
     {
       "title": "Leittechnikingenieur (m/w/d)",
@@ -44,7 +44,7 @@
         "de": "leittechnikingenieur-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "fr": "ingenieur-du-controle-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
-      "crawledAt": "2026-07-15T11:16:10.908Z",
+      "crawledAt": "2026-07-15T22:42:24.879Z",
       "id": "axpo-group-33aaffb27ca9",
       "previousSlugsByLocale": {
         "it": [
@@ -119,7 +119,7 @@
         "de": "elektro-bauleiter-in-ruswil-w-m-d-ckw-ruswil",
         "fr": "gestionnaire-de-site-electrique-a-ruswil-f-m-d-ckw-ruswil"
       },
-      "crawledAt": "2026-07-15T11:16:10.964Z",
+      "crawledAt": "2026-07-15T22:42:24.921Z",
       "id": "axpo-group-75e50ec2ff0e",
       "previousSlugsByLocale": {
         "it": [
@@ -196,7 +196,7 @@
         "de": "leiter-in-geschaftsstelle-elektro-horw-w-m-d-ckw-horw",
         "fr": "chef-de-bureau-elektro-horw-f-m-d-ckw-horw"
       },
-      "crawledAt": "2026-07-15T11:16:10.986Z",
+      "crawledAt": "2026-07-15T22:42:24.942Z",
       "id": "axpo-group-ea544f9e61e4",
       "previousSlugsByLocale": {
         "en": [
@@ -270,7 +270,7 @@
         "de": "inbetriebsetzungsingenieur-in-schutz-und-steuerung-w-m-d-axpo-group-baden",
         "fr": "ingenieur-de-mise-en-service-dans-la-protection-et-le-controle-w-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.012Z",
+      "crawledAt": "2026-07-15T22:42:24.969Z",
       "id": "axpo-group-54129cedd394",
       "previousSlugsByLocale": {
         "en": [
@@ -344,7 +344,7 @@
         "de": "praktikant-in-elektrotechnik-w-m-d-axpo-group-dottingen",
         "fr": "stage-ingenierie-electrique-f-m-d-axpo-group-dottingen"
       },
-      "crawledAt": "2026-07-15T11:16:11.035Z",
+      "crawledAt": "2026-07-15T22:42:24.991Z",
       "id": "axpo-group-2e97b219cd62",
       "salaryMin": 50000,
       "salaryMax": 76000,
@@ -417,7 +417,7 @@
         "de": "praktikant-transaction-management-gas-power-plant-f-m-d-axpo-group-baden",
         "fr": "stagiaire-transaction-management-gas-power-plant-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.062Z",
+      "crawledAt": "2026-07-15T22:42:25.009Z",
       "id": "axpo-group-772c10f7ea11",
       "salaryMin": 50000,
       "salaryMax": 76000,
@@ -446,7 +446,8 @@
       },
       "previousSlugs": [
         "intern-transaction-management-gas-power-plant-f-m-d-d4e4d765-9932-423b-ae69-ac659dd6b16b"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Instandhaltungsfachmann/-frau Fernwärme (w/m/d)",
@@ -490,7 +491,7 @@
         "de": "instandhaltungsfachmann-frau-fernwarme-w-m-d-ckw-emmen",
         "fr": "specialiste-de-l-entretien-f-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.076Z",
+      "crawledAt": "2026-07-15T22:42:25.024Z",
       "id": "axpo-group-5bb4d3219fec",
       "previousSlugsByLocale": {
         "it": [
@@ -567,7 +568,7 @@
         "de": "stv-leiter-in-geschaftsstelle-elektro-grosswangen-w-m-d-ckw-grosswangen",
         "fr": "directeur-bureau-de-stv-elektro-grosswangen-f-m-d-ckw-grosswangen"
       },
-      "crawledAt": "2026-07-15T11:16:11.088Z",
+      "crawledAt": "2026-07-15T22:42:25.035Z",
       "id": "axpo-group-d381528b7d6a",
       "previousSlugsByLocale": {
         "en": [
@@ -598,6 +599,74 @@
         }
       },
       "firstSeenAt": "2026-07-09T22:38:17.778Z"
+    },
+    {
+      "title": "Leiter/in Asset Management Division Hydro & Biomasse (w/m/d)",
+      "slug": "responsabile-asset-management-division-hydro-biomasse-m-w-d-axpo-group-baden",
+      "url": "https://careers.axpo.com/jobs/8038409-leiter-in-asset-management-division-hydro-biomasse-w-m-d",
+      "applyUrl": "https://careers.axpo.com/jobs/8038409-leiter-in-asset-management-division-hydro-biomasse-w-m-d",
+      "company": "Axpo Group",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Baden",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "it",
+      "sector": "Energia & Utilities",
+      "department": "Strategy / Business Development",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-08",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "## Pensum: 100% | Baden\n\n**Arbeiten in einer der spannendsten Branchen der Schweiz – nachhaltige Energie! Einen Beitrag zur Energiezukunft leisten.** Du willst nicht nur verwalten, sondern aktiv etwas bewegen? Du denkst strategisch, handelst unternehmerisch und möchtest die Zukunft der Wasserkraft und Biomasse in der Schweiz mitgestalten? Dann wartet bei uns eine spannende Führungsaufgabe mit grossem Gestaltungsspielraum auf dich.\n\nAls Leiter/in Asset Management übernimmst du Verantwortung für bedeutende Energieanlagen, entwickelst nachhaltige Projekte weiter und prägst gemeinsam mit der Divisionsleitung die strategische Ausrichtung im Bereich Hydroenergie & Biomasse.\n\n## Aufgaben & Verantwortlichkeiten:\n\n## Strategische Führung & Weiterentwicklung\n\n- Du entwickelst die strategische Ausrichtung des Asset Managements im Bereich Hydroenergie & Biomasse aktiv weiter.\n- Du identifizierst neue Chancen zur Wertsteigerung und Weiterentwicklung bestehender und neuer Anlagen.\n- Du treibst Projekte wie Neubauten, Konzessionserneuerungen, Akquisitionen und Erweiterungen voran.\n\n## Projektentwicklung & Beteiligungsmanagement\n\n- Du führst komplexe Projekte von der ersten Idee bis zur Vorstudie oder zum Vorprojekt.\n- Du verantwortest Budgets, Ressourcen, Termine und Qualität der Projekte.\n- Du vertrittst die Interessen des Unternehmens in Partnerwerken, Verwaltungsräten und Branchenorganisationen.\n\n## Führung & Zusammenarbeit\n\n- Du führst und entwickelst dein Team fachlich und personell weiter.\n- Du schaffst ein motivierendes Umfeld mit klarer Kommunikation, Vertrauen und Eigenverantwortung.\n- Du arbeitest eng mit internen Fachbereichen, Behörden, Partnerunternehmen und Verbänden zusammen.\n\n## Netzwerk & Stakeholder Management\n\n- Du pflegst aktiv Beziehungen zu Behörden, Energiepartnern und Branchenverbänden.\n- Du führst Verhandlungen mit verschiedenen Stakeholdern souverän und lösungsorientiert.\n- Du wirkst an wichtigen Themen rund um Konzessionen, Gewässerschutz und Energiepolitik mit.\n\n## Profil & Anforderungen:\n\n## Fachliche Qualifikationen\n\n- Hochschulabschluss als Ingenieur ETH/FH oder Studium in Betriebswirtschaft oder Recht\n- Fundierte Kenntnisse in Wasserkraft, Biomasse oder Infrastrukturprojekten\n- Mehrjährige Erfahrung im Projektmanagement und in der erfolgreichen Führung grosser Projekte\n- Erfahrung mit Konzessionen, Bewilligungen und regulatorischen Fragestellungen\n\n## Führung & Persönlichkeit\n\n- Langjährige Führungserfahrung, idealerweise in der Energie- oder Infrastrukturbranche\n- Unternehmerisches Denken und strategische Stärke\n- Hohe Eigenverantwortung und Entscheidungsfreude\n- Kommunikationsstärke sowie sicheres Auftreten auf allen Ebenen\n- Freude an Zusammenarbeit, Verhandlungen und nachhaltigen Lösungen\n\n## Sprachkenntnisse\n\n- Sehr gute Deutschkenntnisse\n- Gute Französischkenntnisse\n- Italienisch und Englisch sind ein Plus\n\nBist Du bist ein strategischer Denker und gleichzeitig ein umsetzungsstarker Leader? Wir freuen uns auf deine Bewerbung! Roger Hofer freut sich auf deine Bewerbung.\n\n## Über das Team:\n\nBei uns erwartet Dich ein spannendes Arbeitsumfeld, in dem Du Deine Fähigkeiten entfalten und Verantwortung übernehmen kannst. Du arbeitest mit modernster Technologie und einem motivierten Team, das gemeinsam an innovativen Lösungen für die Energiezukunft arbeitet. Weiterbildung und persönliche Entwicklung sind uns wichtig – wir unterstützen Dich dabei, Dein volles Potenzial zu entfalten.\n\nBewerbungen von Personaldienstleistern können wir leider nicht berücksichtigen, daher werden nur Direktbewerbungen entgegengenommen.\n\n#Hydroenergie\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+      "titleByLocale": {
+        "de": "Leiter/in Asset Management Division Hydro & Biomasse (w/m/d)",
+        "it": "Responsabile Asset Management Division Hydro & Biomasse (w/m/d)",
+        "en": "Leiter/in Asset Management Division Hydro & Biomasse (w/m/d)",
+        "fr": "Leiter/in Asset Management Division Hydro & Biomasse (w/m/d)"
+      },
+      "descriptionByLocale": {
+        "de": "## Pensum: 100% | Baden\n\n**Arbeiten in einer der spannendsten Branchen der Schweiz – nachhaltige Energie! Einen Beitrag zur Energiezukunft leisten.** Du willst nicht nur verwalten, sondern aktiv etwas bewegen? Du denkst strategisch, handelst unternehmerisch und möchtest die Zukunft der Wasserkraft und Biomasse in der Schweiz mitgestalten? Dann wartet bei uns eine spannende Führungsaufgabe mit grossem Gestaltungsspielraum auf dich.\n\nAls Leiter/in Asset Management übernimmst du Verantwortung für bedeutende Energieanlagen, entwickelst nachhaltige Projekte weiter und prägst gemeinsam mit der Divisionsleitung die strategische Ausrichtung im Bereich Hydroenergie & Biomasse.\n\n## Aufgaben & Verantwortlichkeiten:\n\n## Strategische Führung & Weiterentwicklung\n\n- Du entwickelst die strategische Ausrichtung des Asset Managements im Bereich Hydroenergie & Biomasse aktiv weiter.\n- Du identifizierst neue Chancen zur Wertsteigerung und Weiterentwicklung bestehender und neuer Anlagen.\n- Du treibst Projekte wie Neubauten, Konzessionserneuerungen, Akquisitionen und Erweiterungen voran.\n\n## Projektentwicklung & Beteiligungsmanagement\n\n- Du führst komplexe Projekte von der ersten Idee bis zur Vorstudie oder zum Vorprojekt.\n- Du verantwortest Budgets, Ressourcen, Termine und Qualität der Projekte.\n- Du vertrittst die Interessen des Unternehmens in Partnerwerken, Verwaltungsräten und Branchenorganisationen.\n\n## Führung & Zusammenarbeit\n\n- Du führst und entwickelst dein Team fachlich und personell weiter.\n- Du schaffst ein motivierendes Umfeld mit klarer Kommunikation, Vertrauen und Eigenverantwortung.\n- Du arbeitest eng mit internen Fachbereichen, Behörden, Partnerunternehmen und Verbänden zusammen.\n\n## Netzwerk & Stakeholder Management\n\n- Du pflegst aktiv Beziehungen zu Behörden, Energiepartnern und Branchenverbänden.\n- Du führst Verhandlungen mit verschiedenen Stakeholdern souverän und lösungsorientiert.\n- Du wirkst an wichtigen Themen rund um Konzessionen, Gewässerschutz und Energiepolitik mit.\n\n## Profil & Anforderungen:\n\n## Fachliche Qualifikationen\n\n- Hochschulabschluss als Ingenieur ETH/FH oder Studium in Betriebswirtschaft oder Recht\n- Fundierte Kenntnisse in Wasserkraft, Biomasse oder Infrastrukturprojekten\n- Mehrjährige Erfahrung im Projektmanagement und in der erfolgreichen Führung grosser Projekte\n- Erfahrung mit Konzessionen, Bewilligungen und regulatorischen Fragestellungen\n\n## Führung & Persönlichkeit\n\n- Langjährige Führungserfahrung, idealerweise in der Energie- oder Infrastrukturbranche\n- Unternehmerisches Denken und strategische Stärke\n- Hohe Eigenverantwortung und Entscheidungsfreude\n- Kommunikationsstärke sowie sicheres Auftreten auf allen Ebenen\n- Freude an Zusammenarbeit, Verhandlungen und nachhaltigen Lösungen\n\n## Sprachkenntnisse\n\n- Sehr gute Deutschkenntnisse\n- Gute Französischkenntnisse\n- Italienisch und Englisch sind ein Plus\n\nBist Du bist ein strategischer Denker und gleichzeitig ein umsetzungsstarker Leader? Wir freuen uns auf deine Bewerbung! Roger Hofer freut sich auf deine Bewerbung.\n\n## Über das Team:\n\nBei uns erwartet Dich ein spannendes Arbeitsumfeld, in dem Du Deine Fähigkeiten entfalten und Verantwortung übernehmen kannst. Du arbeitest mit modernster Technologie und einem motivierten Team, das gemeinsam an innovativen Lösungen für die Energiezukunft arbeitet. Weiterbildung und persönliche Entwicklung sind uns wichtig – wir unterstützen Dich dabei, Dein volles Potenzial zu entfalten.\n\nBewerbungen von Personaldienstleistern können wir leider nicht berücksichtigen, daher werden nur Direktbewerbungen entgegengenommen.\n\n#Hydroenergie\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+        "it": "## Pensum: 100% | Baden\n\n**Arbeiten in einer der spannendsten Branchen der Schweiz – nachhaltige Energie! Einen Beitrag zur Energiezukunft leisten.** Du willst nicht nur verwalten, sondern aktiv etwas bewegen? Du denkst strategisch, handelst unternehmerisch und möchtest die Zukunft der Wasserkraft und Biomasse in der Schweiz mitgestalten? Dann wartet bei uns eine spannende Führungsaufgabe mit grossem Gestaltungsspielraum auf dich.\n\nAls Leiter/in Asset Management übernimmst du Verantwortung für bedeutende Energieanlagen, entwickelst nachhaltige Projekte weiter und prägst gemeinsam mit der Divisionsleitung die strategische Ausrichtung im Bereich Hydroenergie & Biomasse.\n\n## Aufgaben & Verantwortlichkeiten:\n\n## Strategische Führung & Weiterentwicklung\n\n- Du entwickelst die strategische Ausrichtung des Asset Managements im Bereich Hydroenergie & Biomasse aktiv weiter.\n- Du identifizierst neue Chancen zur Wertsteigerung und Weiterentwicklung bestehender und neuer Anlagen.\n- Du treibst Projekte wie Neubauten, Konzessionserneuerungen, Akquisitionen und Erweiterungen voran.\n\n## Projektentwicklung & Beteiligungsmanagement\n\n- Du führst komplexe Projekte von der ersten Idee bis zur Vorstudie oder zum Vorprojekt.\n- Du verantwortest Budgets, Ressourcen, Termine und Qualität der Projekte.\n- Du vertrittst die Interessen des Unternehmens in Partnerwerken, Verwaltungsräten und Branchenorganisationen.\n\n## Führung & Zusammenarbeit\n\n- Du führst und entwickelst dein Team fachlich und personell weiter.\n- Du schaffst ein motivierendes Umfeld mit klarer Kommunikation, Vertrauen und Eigenverantwortung.\n- Du arbeitest eng mit internen Fachbereichen, Behörden, Partnerunternehmen und Verbänden zusammen.\n\n## Netzwerk & Stakeholder Management\n\n- Du pflegst aktiv Beziehungen zu Behörden, Energiepartnern und Branchenverbänden.\n- Du führst Verhandlungen mit verschiedenen Stakeholdern souverän und lösungsorientiert.\n- Du wirkst an wichtigen Themen rund um Konzessionen, Gewässerschutz und Energiepolitik mit.\n\n## Profil & Anforderungen:\n\n## Fachliche Qualifikationen\n\n- Hochschulabschluss als Ingenieur ETH/FH oder Studium in Betriebswirtschaft oder Recht\n- Fundierte Kenntnisse in Wasserkraft, Biomasse oder Infrastrukturprojekten\n- Mehrjährige Erfahrung im Projektmanagement und in der erfolgreichen Führung grosser Projekte\n- Erfahrung mit Konzessionen, Bewilligungen und regulatorischen Fragestellungen\n\n## Führung & Persönlichkeit\n\n- Langjährige Führungserfahrung, idealerweise in der Energie- oder Infrastrukturbranche\n- Unternehmerisches Denken und strategische Stärke\n- Hohe Eigenverantwortung und Entscheidungsfreude\n- Kommunikationsstärke sowie sicheres Auftreten auf allen Ebenen\n- Freude an Zusammenarbeit, Verhandlungen und nachhaltigen Lösungen\n\n## Sprachkenntnisse\n\n- Sehr gute Deutschkenntnisse\n- Gute Französischkenntnisse\n- Italienisch und Englisch sind ein Plus\n\nBist Du bist ein strategischer Denker und gleichzeitig ein umsetzungsstarker Leader? Wir freuen uns auf deine Bewerbung! Roger Hofer freut sich auf deine Bewerbung.\n\n## Über das Team:\n\nBei uns erwartet Dich ein spannendes Arbeitsumfeld, in dem Du Deine Fähigkeiten entfalten und Verantwortung übernehmen kannst. Du arbeitest mit modernster Technologie und einem motivierten Team, das gemeinsam an innovativen Lösungen für die Energiezukunft arbeitet. Weiterbildung und persönliche Entwicklung sind uns wichtig – wir unterstützen Dich dabei, Dein volles Potenzial zu entfalten.\n\nBewerbungen von Personaldienstleistern können wir leider nicht berücksichtigen, daher werden nur Direktbewerbungen entgegengenommen.\n\n#Hydroenergie\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+        "en": "## Pensum: 100% | Baden\n\n**Arbeiten in einer der spannendsten Branchen der Schweiz – nachhaltige Energie! Einen Beitrag zur Energiezukunft leisten.** Du willst nicht nur verwalten, sondern aktiv etwas bewegen? Du denkst strategisch, handelst unternehmerisch und möchtest die Zukunft der Wasserkraft und Biomasse in der Schweiz mitgestalten? Dann wartet bei uns eine spannende Führungsaufgabe mit grossem Gestaltungsspielraum auf dich.\n\nAls Leiter/in Asset Management übernimmst du Verantwortung für bedeutende Energieanlagen, entwickelst nachhaltige Projekte weiter und prägst gemeinsam mit der Divisionsleitung die strategische Ausrichtung im Bereich Hydroenergie & Biomasse.\n\n## Aufgaben & Verantwortlichkeiten:\n\n## Strategische Führung & Weiterentwicklung\n\n- Du entwickelst die strategische Ausrichtung des Asset Managements im Bereich Hydroenergie & Biomasse aktiv weiter.\n- Du identifizierst neue Chancen zur Wertsteigerung und Weiterentwicklung bestehender und neuer Anlagen.\n- Du treibst Projekte wie Neubauten, Konzessionserneuerungen, Akquisitionen und Erweiterungen voran.\n\n## Projektentwicklung & Beteiligungsmanagement\n\n- Du führst komplexe Projekte von der ersten Idee bis zur Vorstudie oder zum Vorprojekt.\n- Du verantwortest Budgets, Ressourcen, Termine und Qualität der Projekte.\n- Du vertrittst die Interessen des Unternehmens in Partnerwerken, Verwaltungsräten und Branchenorganisationen.\n\n## Führung & Zusammenarbeit\n\n- Du führst und entwickelst dein Team fachlich und personell weiter.\n- Du schaffst ein motivierendes Umfeld mit klarer Kommunikation, Vertrauen und Eigenverantwortung.\n- Du arbeitest eng mit internen Fachbereichen, Behörden, Partnerunternehmen und Verbänden zusammen.\n\n## Netzwerk & Stakeholder Management\n\n- Du pflegst aktiv Beziehungen zu Behörden, Energiepartnern und Branchenverbänden.\n- Du führst Verhandlungen mit verschiedenen Stakeholdern souverän und lösungsorientiert.\n- Du wirkst an wichtigen Themen rund um Konzessionen, Gewässerschutz und Energiepolitik mit.\n\n## Profil & Anforderungen:\n\n## Fachliche Qualifikationen\n\n- Hochschulabschluss als Ingenieur ETH/FH oder Studium in Betriebswirtschaft oder Recht\n- Fundierte Kenntnisse in Wasserkraft, Biomasse oder Infrastrukturprojekten\n- Mehrjährige Erfahrung im Projektmanagement und in der erfolgreichen Führung grosser Projekte\n- Erfahrung mit Konzessionen, Bewilligungen und regulatorischen Fragestellungen\n\n## Führung & Persönlichkeit\n\n- Langjährige Führungserfahrung, idealerweise in der Energie- oder Infrastrukturbranche\n- Unternehmerisches Denken und strategische Stärke\n- Hohe Eigenverantwortung und Entscheidungsfreude\n- Kommunikationsstärke sowie sicheres Auftreten auf allen Ebenen\n- Freude an Zusammenarbeit, Verhandlungen und nachhaltigen Lösungen\n\n## Sprachkenntnisse\n\n- Sehr gute Deutschkenntnisse\n- Gute Französischkenntnisse\n- Italienisch und Englisch sind ein Plus\n\nBist Du bist ein strategischer Denker und gleichzeitig ein umsetzungsstarker Leader? Wir freuen uns auf deine Bewerbung! Roger Hofer freut sich auf deine Bewerbung.\n\n## Über das Team:\n\nBei uns erwartet Dich ein spannendes Arbeitsumfeld, in dem Du Deine Fähigkeiten entfalten und Verantwortung übernehmen kannst. Du arbeitest mit modernster Technologie und einem motivierten Team, das gemeinsam an innovativen Lösungen für die Energiezukunft arbeitet. Weiterbildung und persönliche Entwicklung sind uns wichtig – wir unterstützen Dich dabei, Dein volles Potenzial zu entfalten.\n\nBewerbungen von Personaldienstleistern können wir leider nicht berücksichtigen, daher werden nur Direktbewerbungen entgegengenommen.\n\n#Hydroenergie\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*",
+        "fr": "## Pensum: 100% | Baden\n\n**Arbeiten in einer der spannendsten Branchen der Schweiz – nachhaltige Energie! Einen Beitrag zur Energiezukunft leisten.** Du willst nicht nur verwalten, sondern aktiv etwas bewegen? Du denkst strategisch, handelst unternehmerisch und möchtest die Zukunft der Wasserkraft und Biomasse in der Schweiz mitgestalten? Dann wartet bei uns eine spannende Führungsaufgabe mit grossem Gestaltungsspielraum auf dich.\n\nAls Leiter/in Asset Management übernimmst du Verantwortung für bedeutende Energieanlagen, entwickelst nachhaltige Projekte weiter und prägst gemeinsam mit der Divisionsleitung die strategische Ausrichtung im Bereich Hydroenergie & Biomasse.\n\n## Aufgaben & Verantwortlichkeiten:\n\n## Strategische Führung & Weiterentwicklung\n\n- Du entwickelst die strategische Ausrichtung des Asset Managements im Bereich Hydroenergie & Biomasse aktiv weiter.\n- Du identifizierst neue Chancen zur Wertsteigerung und Weiterentwicklung bestehender und neuer Anlagen.\n- Du treibst Projekte wie Neubauten, Konzessionserneuerungen, Akquisitionen und Erweiterungen voran.\n\n## Projektentwicklung & Beteiligungsmanagement\n\n- Du führst komplexe Projekte von der ersten Idee bis zur Vorstudie oder zum Vorprojekt.\n- Du verantwortest Budgets, Ressourcen, Termine und Qualität der Projekte.\n- Du vertrittst die Interessen des Unternehmens in Partnerwerken, Verwaltungsräten und Branchenorganisationen.\n\n## Führung & Zusammenarbeit\n\n- Du führst und entwickelst dein Team fachlich und personell weiter.\n- Du schaffst ein motivierendes Umfeld mit klarer Kommunikation, Vertrauen und Eigenverantwortung.\n- Du arbeitest eng mit internen Fachbereichen, Behörden, Partnerunternehmen und Verbänden zusammen.\n\n## Netzwerk & Stakeholder Management\n\n- Du pflegst aktiv Beziehungen zu Behörden, Energiepartnern und Branchenverbänden.\n- Du führst Verhandlungen mit verschiedenen Stakeholdern souverän und lösungsorientiert.\n- Du wirkst an wichtigen Themen rund um Konzessionen, Gewässerschutz und Energiepolitik mit.\n\n## Profil & Anforderungen:\n\n## Fachliche Qualifikationen\n\n- Hochschulabschluss als Ingenieur ETH/FH oder Studium in Betriebswirtschaft oder Recht\n- Fundierte Kenntnisse in Wasserkraft, Biomasse oder Infrastrukturprojekten\n- Mehrjährige Erfahrung im Projektmanagement und in der erfolgreichen Führung grosser Projekte\n- Erfahrung mit Konzessionen, Bewilligungen und regulatorischen Fragestellungen\n\n## Führung & Persönlichkeit\n\n- Langjährige Führungserfahrung, idealerweise in der Energie- oder Infrastrukturbranche\n- Unternehmerisches Denken und strategische Stärke\n- Hohe Eigenverantwortung und Entscheidungsfreude\n- Kommunikationsstärke sowie sicheres Auftreten auf allen Ebenen\n- Freude an Zusammenarbeit, Verhandlungen und nachhaltigen Lösungen\n\n## Sprachkenntnisse\n\n- Sehr gute Deutschkenntnisse\n- Gute Französischkenntnisse\n- Italienisch und Englisch sind ein Plus\n\nBist Du bist ein strategischer Denker und gleichzeitig ein umsetzungsstarker Leader? Wir freuen uns auf deine Bewerbung! Roger Hofer freut sich auf deine Bewerbung.\n\n## Über das Team:\n\nBei uns erwartet Dich ein spannendes Arbeitsumfeld, in dem Du Deine Fähigkeiten entfalten und Verantwortung übernehmen kannst. Du arbeitest mit modernster Technologie und einem motivierten Team, das gemeinsam an innovativen Lösungen für die Energiezukunft arbeitet. Weiterbildung und persönliche Entwicklung sind uns wichtig – wir unterstützen Dich dabei, Dein volles Potenzial zu entfalten.\n\nBewerbungen von Personaldienstleistern können wir leider nicht berücksichtigen, daher werden nur Direktbewerbungen entgegengenommen.\n\n#Hydroenergie\n\n*Bei der Axpo Gruppe setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, die Chancengleichheit lebt, begrüssen wir Bewerbungen unabhängig von ethnischer Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozioökonomischem, kulturellem und religiösem Hintergrund. Wir verpflichten uns zu einem respektvollen und inklusiven Rekrutierungsprozess sowie einem diskriminierungsfreien Arbeitsumfeld für alle.*"
+      },
+      "slugByLocale": {
+        "it": "responsabile-asset-management-division-hydro-biomasse-m-w-d-axpo-group-baden",
+        "en": "leiter-in-asset-management-division-hydro-amp-biomasse-w-m-d-2a09f64a-f917-425c-8e73-d0fbc21834ca",
+        "de": "leiter-in-asset-management-division-hydro-biomasse-w-m-d-axpo-group-baden",
+        "fr": "leiter-in-asset-management-division-hydro-amp-biomasse-w-m-d-2a09f64a-f917-425c-8e73-d0fbc21834ca"
+      },
+      "crawledAt": "2026-07-15T22:42:25.058Z",
+      "id": "axpo-group-c59e590b943e",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-asset-management-division-hydro-amp-biomasse-w-m-d-2a09f64a-f917-425c-8e73-d0fbc21834ca"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-asset-management-division-hydro-amp-biomasse-w-m-d-2a09f64a-f917-425c-8e73-d0fbc21834ca"
+      ],
+      "salaryMin": 99500,
+      "salaryMax": 169500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 169500,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-15T22:42:25.058Z"
     },
     {
       "title": "Projektleiter/in Kalkulation (w/m/d)",
@@ -641,7 +710,7 @@
         "de": "projektleiter-in-kalkulation-w-m-d-ckw-egerkingen",
         "fr": "chef-de-projet-kalkulation-w-m-d-ckw-egerkingen"
       },
-      "crawledAt": "2026-07-15T11:16:11.108Z",
+      "crawledAt": "2026-07-15T22:42:25.074Z",
       "id": "axpo-group-3070390354cb",
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -714,7 +783,7 @@
         "de": "leitender-ingenieur-stahlwasserbau-w-m-d-axpo-group-baden",
         "fr": "ingenieur-principal-en-genie-hydraulique-de-l-acier-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.129Z",
+      "crawledAt": "2026-07-15T22:42:25.093Z",
       "id": "axpo-group-3b14e6549de1",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -788,7 +857,7 @@
         "de": "techniker-in-video-security-ckw-stansstad",
         "fr": "technicien-en-video-securite-ckw-stansstad"
       },
-      "crawledAt": "2026-07-15T11:16:11.154Z",
+      "crawledAt": "2026-07-15T22:42:25.103Z",
       "id": "axpo-group-3585b2a2a5bf",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -861,7 +930,7 @@
         "de": "projektleiter-in-gebaudeautomation-w-m-d-ckw-luzern",
         "fr": "chef-de-projet-gebaudeautomation-w-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-07-15T11:16:11.172Z",
+      "crawledAt": "2026-07-15T22:42:25.111Z",
       "id": "axpo-group-dd208eee13d8",
       "previousSlugsByLocale": {
         "en": [
@@ -935,7 +1004,7 @@
         "de": "praktikum-umweltabteilung-hydroenergie-biomasse-w-m-d-axpo-group-baden",
         "fr": "stages-departement-de-l-environnement-hydroenergie-et-biomasse-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.185Z",
+      "crawledAt": "2026-07-15T22:42:25.125Z",
       "id": "axpo-group-19692aa8fc67",
       "previousSlugsByLocale": {
         "it": [
@@ -1010,7 +1079,7 @@
         "de": "berater-in-kundensupport-w-m-d-ckw-emmen",
         "fr": "consultant-assistance-a-la-clientele-f-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.199Z",
+      "crawledAt": "2026-07-15T22:42:25.140Z",
       "id": "axpo-group-6f09fd06b616",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1084,7 +1153,7 @@
         "de": "lead-application-development-w-m-d-axpo-group-baden",
         "fr": "elaboration-de-l-application-principale-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.210Z",
+      "crawledAt": "2026-07-15T22:42:25.150Z",
       "id": "axpo-group-03282fc98207",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -1158,7 +1227,7 @@
         "de": "projektleiter-in-solar-w-m-d-ckw-burgdorf",
         "fr": "chef-de-projet-solar-w-m-d-ckw-burgdorf"
       },
-      "crawledAt": "2026-07-15T11:16:11.217Z",
+      "crawledAt": "2026-07-15T22:42:25.157Z",
       "id": "axpo-group-0b2afaa8d660",
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -1216,7 +1285,7 @@
       "description": "## Pensum: 80-100%\n\n## Das kannst du gestalten\n\n- Du koordinierst die Auftragsabwicklung in den Bereichen Disposition, Zählerinstallation und Störungsbearbeitung.\n- Du analysierst Messfehler und organisierst Vor-Ort-Einsätze unserer Techniker/innen.\n- Du bearbeitest kleinere Projekte wie Zählerablesungen oder Stromabschaltungen.\n- Du betreust interne und externe Stellen sowie die Kundschaft telefonisch.\n- Du identifizierst Digitalisierungspotenziale und unterstützt entsprechende Projekte.\n- Du pflegst Stammdaten und erstellst Auswertungen im SAP.\n\n## Das macht dich aus\n\n- Du hast eine elektrotechnische Grundausbildung.\n- Idealerweise hast du eine kaufmännische Weiterbildung absolviert.\n- Du bist sicher im Umgang mit MS Office, und SAP-Erfahrung ist von Vorteil.\n- Du verfügst über stilsichere Deutschkenntnisse in Wort und Schrift.\n- Du arbeitest selbstständig, kunden- und teamorientiert.\n- Du hast eine hohe Lernbereitschaft und technisches Verständnis.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n💰 Attraktive Vergütung und umfangreiche Sozialleistungen: Freue dich auf faire Bezahlung und umfassende Vorsorgepakete, die deine Zukunft absichern.\n\n📅 Beruf und Privatleben im Einklang: Mit flexiblen Arbeitszeiten, Teilzeitmodellen und bis zu 50% Home-Office (je nach Tätigkeit) ermöglichen wir eine gesunde Balance zwischen Arbeit und Privatleben.\n\n📚 Talentförderung: Dein persönliches und berufliches Wachstum liegt uns am Herzen. Wir unterstützen dich bei Aus- oder Weiterbildungen.\n\n🚌 Attraktive Extras: Profitiere von unseren Angeboten wie vergünstigten Mobile-Abos, Unterstützung bei der Kinderbetreuung, Ferienkauf oder kostenlosen Parkplätzen. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/vorteile)\n\n*Bei CKW setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, der Chancengleichheit wichtig ist, begrüssen wir Bewerbungen unabhängig von Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozialem, kulturellem und religiösem Hintergrund. Wir engagieren uns für einen respektvollen und inklusiven Bewerbungsprozess und Arbeitsplatz für alle.*",
       "titleByLocale": {
         "it": "Misurazione dell'energia (f/m/d)",
-        "en": "Case Manager Energy measurement (f/m/d)",
+        "en": "Case Manager Energiemessung (w/m/d)",
         "de": "Case Manager Energiemessung (w/m/d)",
         "fr": "Gestionnaire de cas Mesure de l'énergie (f/m/d)"
       },
@@ -1228,11 +1297,11 @@
       },
       "slugByLocale": {
         "it": "misurazione-dell-energia-f-m-d-ckw-emmen",
-        "en": "case-manager-energy-measurement-f-m-d-ckw-emmen",
+        "en": "case-manager-energiemessung-w-m-d-ckw-emmen",
         "de": "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
         "fr": "gestionnaire-de-cas-mesure-de-l-energie-f-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.225Z",
+      "crawledAt": "2026-07-15T22:42:25.166Z",
       "id": "axpo-group-2b18e986e4e7",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -1252,6 +1321,7 @@
       "previousSlugsByLocale": {
         "en": [
           "case-manager-energy-measurement-w-m-d-ckw-emmen",
+          "case-manager-energy-measurement-f-m-d-ckw-emmen",
           "case-manager-energiemessung-w-m-d-ckw-emmen"
         ],
         "it": [
@@ -1264,8 +1334,10 @@
       "previousSlugs": [
         "case-manager-energy-measurement-w-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-508909c0-0363-41a5-ac7b-f18ea7ff2091",
+        "case-manager-energy-measurement-f-m-d-ckw-emmen",
         "case-manager-energiemessung-w-m-d-ckw-emmen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Chefmonteur/in Realisierung (w/m/d)",
@@ -1309,7 +1381,7 @@
         "de": "chefmonteur-in-realisierung-w-m-d-ckw-knutwil",
         "fr": "installateur-principal-realisation-f-m-d-ckw-knutwil"
       },
-      "crawledAt": "2026-07-15T11:16:11.243Z",
+      "crawledAt": "2026-07-15T22:42:25.182Z",
       "id": "axpo-group-e59e64e6ece5",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -1383,7 +1455,7 @@
         "de": "verkaufsleiter-in-solartechnik-nordostschweiz-w-m-d-ckw-winterthur",
         "fr": "directeur-des-ventes-a-solartechnik-nordostschweiz-f-m-d-ckw-winterthur"
       },
-      "crawledAt": "2026-07-15T11:16:11.252Z",
+      "crawledAt": "2026-07-15T22:42:25.191Z",
       "id": "axpo-group-c002d7444894",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1459,7 +1531,7 @@
         "de": "leiter-in-geschaftsstelle-elektro-stadt-luzern-w-m-d-ckw-luzern",
         "fr": "chef-de-la-ville-electrique-de-lucerne-f-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-07-15T11:16:11.262Z",
+      "crawledAt": "2026-07-15T22:42:25.202Z",
       "id": "axpo-group-22cb752cac08",
       "previousSlugsByLocale": {
         "en": [
@@ -1490,7 +1562,8 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-26T21:30:17.615Z"
+      "firstSeenAt": "2026-06-26T21:30:17.615Z",
+      "needsRetranslation": true
     },
     {
       "title": "Chefmonteur/in Realisierung (w/m/d)",
@@ -1534,7 +1607,7 @@
         "de": "chefmonteur-in-realisierung-w-m-d-ckw-luzern",
         "fr": "installateur-principal-realisation-f-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-07-15T11:16:11.269Z",
+      "crawledAt": "2026-07-15T22:42:25.208Z",
       "id": "axpo-group-64acce6b7cd2",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -1608,7 +1681,7 @@
         "de": "senior-ai-solutions-enablement-ingenieur-f-m-d-axpo-group-baden",
         "fr": "senior-ai-solutions-enablement-ingenieur-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.285Z",
+      "crawledAt": "2026-07-15T22:42:25.230Z",
       "id": "axpo-group-5eea1380e654",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -1682,7 +1755,7 @@
         "de": "teamleiter-maschinisten-mobile-dienste-ost-w-m-d-axpo-group-hagenbuch",
         "fr": "responsable-d-equipe-services-mobiles-est-h-f-axpo-group-hagenbuch"
       },
-      "crawledAt": "2026-07-15T11:16:11.306Z",
+      "crawledAt": "2026-07-15T22:42:25.243Z",
       "id": "axpo-group-66080f81c5f7",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1758,7 +1831,7 @@
         "de": "fachspezialist-in-technische-sachbearbeitung-w-m-d-axpo-group-dottingen",
         "fr": "specialiste-technique-f-m-d-axpo-group-dottingen"
       },
-      "crawledAt": "2026-07-15T11:16:11.322Z",
+      "crawledAt": "2026-07-15T22:42:25.254Z",
       "id": "axpo-group-aa02a1d20573",
       "previousSlugsByLocale": {
         "it": [
@@ -1834,7 +1907,7 @@
         "de": "fachspezialist-in-safety-security-w-m-d-axpo-group-baden",
         "fr": "specialiste-de-la-surete-et-de-la-securite-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.336Z",
+      "crawledAt": "2026-07-15T22:42:25.266Z",
       "id": "axpo-group-20b061507a70",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -1908,7 +1981,7 @@
         "de": "projektleiter-in-e-mobilitat-region-bern-basel-solothurn-westschweiz-w-m-d-ckw-egerkingen",
         "fr": "chef-de-projet-e-mobilitat-region-bern-basel-solothurn-westschweiz-w-m-d-ckw-egerkingen"
       },
-      "crawledAt": "2026-07-15T11:16:11.356Z",
+      "crawledAt": "2026-07-15T22:42:25.283Z",
       "id": "axpo-group-edf40aeb4b15",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -1982,7 +2055,7 @@
         "de": "praktikant-w-m-d-im-bereich-it-sicherheit-ckw-emmen",
         "fr": "ingenieur-principal-des-donnees-f-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.367Z",
+      "crawledAt": "2026-07-15T22:42:25.291Z",
       "id": "axpo-group-8dddf4d78d36",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -2012,86 +2085,6 @@
       },
       "previousSlugs": [
         "senior-data-engineer-w-m-d-3f6b6adf-4c62-4ad1-b74f-5543d2c9df0c"
-      ]
-    },
-    {
-      "title": "ICT Senior Workplace Engineer (w/m/d)",
-      "slug": "ict-senior-workplace-ingegnere-w-m-d-axpo-group-dottingen",
-      "url": "https://careers.axpo.com/jobs/7921627-ict-senior-workplace-engineer-w-m-d",
-      "applyUrl": "https://careers.axpo.com/jobs/7921627-ict-senior-workplace-engineer-w-m-d",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Döttingen",
-      "addressLocality": "Döttingen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "it",
-      "sector": "Energia & Utilities",
-      "department": "IT / Technology",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "## Pensum: 80–100% I Baden und Werksstandorte\n\nIn dieser Rolle gestaltest und optimierst du moderne Arbeitsplatzdienste für die Kernenergie-Informatik von Axpo mit Fokus auf Sicherheit, Automatisierung und Benutzererlebnis. Als ICT Senior Workplace Engineer übernimmst du die Qualitätsmanagement-Verantwortung für die KI Workplace Umgebung – von der Technik bis zum Betrieb – und stellst eine zuverlässige, stabile und nachvollziehbar gesteuerte Servicebereitstellung sicher.\n\nFür die neue Kernenergie-Informatik der Kernkraftwerke Leibstadt KKL, Beznau KKB und des ZWILAG stellst du Workplace-Services bereit, die die hohen nuklearen Anforderungen an Sicherheit, Compliance, Verfügbarkeit und Qualität erfüllen, Synergien mit der Axpo Group IT nutzen und ein konsistentes Qualitätsniveau auf allen Endgeräten sicherstellen. Durch klare Standards, saubere Dokumentation und eine enge Zusammenarbeit mit den relevanten Stakeholdern gewährleistest du einen stabilen, sicheren und zukunftsfähigen virtuellen und physischen Arbeitsplatz.\n\nMit deinem Know-how in Virtualisierung, Automation und Security-by-Design sorgst du dafür, dass unsere hochkritischen Systeme jederzeit verfügbar sind und die hohe Sicherheitskultur im Umfeld der Kernenergie gelebt wird. Wenn du Freude an komplexen Infrastrukturen hast, gerne Verantwortung vom Design bis zum Betrieb übernimmst und dich in einem technisch anspruchsvollen Umfeld mit hoher Sicherheitskultur wohlfühlst, bist du bei uns genau richtig.\n\n## Aufgaben & Verantwortlichkeiten\n\n- Du entwickelst und betreibst Workplace-Services so, dass Stabilität, Sicherheit und ein reibungsloses Nutzererlebnis sichergestellt sind und bringst dabei eine ausgeprägte Security-by-Design-Mentalität ein.\n- Du betreibst und unterstützt die VMware Horizon Omnissa Produktionsumgebungen und mitverantwortest Horizon-Plattform-Upgrades für Agenten, Pods und Komponenten mit minimalem Einfluss auf die Nutzer. Ausserdem verwaltest du die Betriebssystem-Baselines und das Arbeitsplatz-Anwendungsportfolio, einschliesslich Paketierung, Veröffentlichungen sowie Validierungs- und Rollback-Verfahren, sowohl für virtuelle Endpunkte VDI als auch für physische Clients.\n- Du unterstützt den Betrieb der Hardware-Infrastruktur und leistest einen wesentlichen Beitrag zum reibungslosen Betrieb der gesamten ICT-Infrastruktur.\n- Interdisziplinäre Zusammenarbeit innerhalb des ICT-Infrastruktur Teams mit anderen Fachexperten (z.B. Netzwerk, Virtualisierung, Infrastruktur etc.)\n- Du koordinierst und führst vertiefte Analysen bei Leistungsproblemen durch, inklusive Fehlerdiagnosen und Kapazitätsplanungen im Workplace-Umfeld, und analysierst sowie behebst dabei Ressourcenkonflikte in den Bereichen Rechenleistung, Speicher, Storage, Netzwerk und vGPU.\n- Du dokumentierst Systemkonfigurationen und Prozesse, stellst die Einhaltung von Richtlinien und Verfahren sicher und pflegst Verfahren, Standards und Wissensartikel, damit die Dokumentation vollständig, konsistent und auditreif ist.\n\n## Profil & Anforderungen\n\n- Abgeschlossene Ausbildung und Weiterbildung in der Informatik, oder vergleichbare technische Ausbildung mit langjähriger Erfahrung im Bereich Infrastruktur Hardware\n- Du verfügst über eine abgeschlossene höhere Ausbildung HF, FH oder Universität in Informatik oder Ingenieurwesen – oder über eine gleichwertige, ausgewiesene Praxis im Enterprise Workplace Engineering.\n- Ausserdem bringst du fundierte Erfahrung im Workplace Engineering für grosse Umgebungen mit. Inklusive Betrieb, Lebenszyklusmanagement sowie strukturiertem Qualitätsmanagement und systematischem Testing.\n- Fundierte Kenntnisse in VMware Horizon Omnissa oder vergleichbaren VDI-Technologien.\n- Kenntnisse in Automatisierung und Skripting z.B. PowerShell zur Effizienzsteigerung im Betrieb\n- Know-how im Bereich Monitoring, Performance-Analyse und Kapazitätsplanung im Workplace-Umfeld.\n- Interesse an der Nuklearindustrie und Bereitschaft, dort langfristig fachliche Kompetenzen aufzubauen\n- Selbständige, strukturierte und analytische Arbeitsweise\n- Starke schriftliche und mündliche Kommunikationsfähigkeiten\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse\n- Bereitschaft für Wartungseinsätze ausserhalb der regulären Arbeitszeit und Pikettdienst\n- Einwandfreier Leumund und keine Vorstrafen\n- Führerausweis Kat. B\n\n## Über das Team\n\nBei uns triffst du auf ein diverses, engagiertes Team, das mit Leidenschaft an innovativen Lösungen arbeitet. Wir unterstützen uns gegenseitig, kommunizieren offen und ziehen gemeinsam an einem Strang.\n\n#nuclear\n\n## Benefits:\n\nIn unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden!\n\n- **Flexibl",
-      "titleByLocale": {
-        "it": "ICT Senior Workplace Ingegnere (w/m/d)",
-        "en": "ICT Senior Workplace Engineer (w/m/d)",
-        "de": "Werkstudent (w/m/d) im Bereich IT-Sicherheit",
-        "fr": "Ingénieur principal des TIC sur le lieu de travail (f/m/d)"
-      },
-      "descriptionByLocale": {
-        "it": "In questo ruolo, si progetta e ottimizza i servizi di lavoro moderni per l'elaborazione di energia nucleare di Axpo con un focus sulla sicurezza, l'automazione e l'esperienza degli utenti. In qualità di ICT Senior Workplace Engineer, si assume la responsabilità di gestione della qualità per l'ambiente AI Workplace – dalla tecnologia al funzionamento – e garantire la consegna di servizio affidabile, stabile e rintracciabile. Per le nuove tecnologie dell'energia nucleare presso le centrali nucleari Leibstadt KKL, Beznau KKB e ZWILAG, fornisci servizi sul posto di lavoro che soddisfano gli elevati requisiti nucleari per la sicurezza, la conformità, la disponibilità e la qualità, utilizzi sinergie con Axpo Group IT e garantisca un livello di qualità costante su tutti i dispositivi. Attraverso standard chiari, documentazione pulita e una stretta collaborazione con le parti interessate, si garantisce un luogo di lavoro virtuale e fisico stabile, sicuro e sostenibile. Con la vostra esperienza nella virtualizzazione, nell'automazione e nella sicurezza-by-design, assicuratevi che i nostri sistemi altamente critici siano sempre disponibili e che l'alta cultura della sicurezza sia vissuta nel campo dell'energia nucleare. Se vi piacciono le infrastrutture complesse, come prendersi la responsabilità dal design al funzionamento e sentirsi a proprio agio in un ambiente tecnicamente esigente con un'alta cultura della sicurezza, siete al posto giusto con noi. Tasks & Responsabilità - Si sviluppa e gestisce i servizi di lavoro in un modo che garantisce stabilità, sicurezza e un'esperienza utente fluida, portando una forte mentalità di sicurezza per design. È possibile gestire e supportare gli ambienti di produzione VMware Horizon Omnissa e potenziare la piattaforma Horizon co-responsabile per agenti, pod e componenti con un impatto minimo sugli utenti. Gestisci anche le linee di base del sistema operativo e il portafoglio applicazioni sul posto di lavoro, comprese le procedure di imballaggio, pubblicazione, convalida e rollback sia per i endpoint virtuali VDI che per i clienti fisici. Supporta il funzionamento dell'infrastruttura hardware e contribuisce in modo significativo al buon funzionamento dell'intera infrastruttura ICT. - Cooperazione interdisciplinare all'interno del team di infrastrutture ICT con altri specialisti (ad esempio rete, virtualizzazione, infrastrutture, ecc.) - Coordinate e effettuate analisi approfondite di problemi di prestazioni, tra cui la diagnosi di errore e la pianificazione della capacità nell'ambiente di lavoro, e analizzate e risolte i conflitti delle risorse nei settori della potenza di calcolo, stoccaggio, archiviazione, rete e vGPU. - No. Documenti le configurazioni e i processi del sistema, garantisci il rispetto delle politiche e delle procedure e mantieni le procedure, gli standard e gli articoli di conoscenza in modo che la documentazione sia completa, coerente e verificabile. Profilo &\n• Requisiti - Formazione completa e formazione ulteriore in informatica, o formazione tecnica comparabile con molti anni di esperienza nel settore dell'hardware delle infrastrutture - Hai una formazione superiore completa HF, FH o università in informatica o ingegneria - o una pratica equivalente e collaudata in Enterprise Workplace Engineering. - No. Inoltre, si offre un'esperienza approfondita nell'ingegneria del posto di lavoro per ambienti di grandi dimensioni. Funzionamento inclusivo, gestione del ciclo di vita e gestione della qualità strutturata e test sistematici. - Conoscenza approfondita di VMware Horizon Omnissa o tecnologie VDI comparabili. - Conoscenza dell'automazione e dello scripting, ad esempio PowerShell per aumentare l'efficienza delle operazioni - know-how nell'area di monitoraggio, analisi delle prestazioni e pianificazione delle capacità nell'ambiente di lavoro. - No. Interesse nell'industria nucleare e disponibilità a sviluppare competenze professionali a lungo termine - Metodi di lavoro autonomi, strutturati e analitici - Forte capacità di comunicazione scritta e orale - Molto buone capacità di lingua tedesca orale e scritta - Buone competenze di lingua inglese - Prontezza per le missioni di manutenzione al di fuori delle ore di lavoro regolari e pikettdienst - Buona reputazione e nessun record criminale - patente di guida Cat. B Ci sosteniamo a vicenda, comunichiamo apertamente e ci mettiamo insieme. #nuclear Benefits: Nella nostra azienda ci sforziamo di una cultura dell'apprendimento continuo, dello sviluppo personale e dell'impegno per la comunità a livello nazionale. È importante per noi dare ai nostri dipendenti gli strumenti e le risorse di cui hanno bisogno per avere successo e siamo sicuri che sarete felici di essere parte del nostro team! - Flexibl",
-        "en": "In this role, you will design and optimize modern workplace services for Axpo’s nuclear energy computing with a focus on safety, automation and user experience. As an ICT Senior Workplace Engineer, you take over the quality management responsibility for the AI Workplace environment – from technology to operation – and ensure reliable, stable and traceably controlled service delivery. For the new nuclear energy informatics at the Leibstadt KKL, Beznau KKB and ZWILAG nuclear power plants, you provide workplace services that meet the high nuclear requirements for safety, compliance, availability and quality, use synergies with Axpo Group IT and ensure a consistent quality level on all devices. Through clear standards, clean documentation and close cooperation with relevant stakeholders, you ensure a stable, secure and sustainable virtual and physical workplace. With your expertise in virtualization, automation and security-by-design, you ensure that our highly critical systems are available at all times and that the high safety culture is lived in the field of nuclear energy. If you enjoy complex infrastructures, like to take responsibility from design to operation and feel comfortable in a technically demanding environment with a high safety culture, you are at the right place with us. Tasks &\n• Responsibilities - You develop and operate workplace services in a way that ensures stability, security and a smooth user experience, bringing a strong security-by-design mentality. You operate and support the VMware Horizon Omnissa production environments and co-responsible Horizon platform upgrades for agents, pods and components with minimal impact on users. You also manage the operating system baselines and workplace application portfolio, including packaging, publishing, validation and rollback procedures for both VDI virtual endpoints and physical clients. You support the operation of the hardware infrastructure and make a significant contribution to the smooth operation of the entire ICT infrastructure. - Interdisciplinary cooperation within the ICT infrastructure team with other specialists (e.g. network, virtualization, infrastructure, etc.) - You coordinate and carry out in-depth analyses of performance issues, including error diagnosis and capacity planning in the workplace environment, and analyze and resolve resource conflicts in the areas of computing power, storage, storage, network and vGPU. - You document system configurations and processes, ensure compliance with policies and procedures, and maintain procedures, standards and knowledge articles so that the documentation is complete, consistent and auditable.\n• Profile &\n• Requirements - Completed training and further education in computer science, or comparable technical training with many years of experience in the field of infrastructure hardware - You have a completed higher education HF, FH or university in computer science or engineering - or an equivalent, proven practice in Enterprise Workplace Engineering. - You also bring in-depth experience in workplace engineering for large environments. Inclusive operation, life cycle management as well as structured quality management and systematic testing. - In-depth knowledge of VMware Horizon Omnissa or comparable VDI technologies. - Knowledge of automation and scripting e.g. PowerShell to increase efficiency in operations - know-how in the area of monitoring, performance analysis and capacity planning in the workplace environment. - Interest in the nuclear industry and willingness to build up professional skills there in the long term - Self-employed, structured and analytical working methods - Strong written and oral communication skills - Very good oral and written German language skills - Good English language skills - Readiness for maintenance missions outside regular working hours and pikettdienst - Good repute and no criminal record - driving licence Cat. B About the team With us you will meet a diverse, committed team that works with passion on innovative solutions. We support each other, communicate openly and pull together. #nuclear Benefits: In our company we strive for a culture of continuous learning, personal development and commitment to the community at the national level. It is important to us to give our employees the tools and resources they need to succeed and we are sure that you will be happy to be part of our team! - Flexibl",
-        "de": "Pensum: 80–100% I Baden und Werksstandorte In dieser Rolle gestaltest und optimierst du moderne Arbeitsplatzdienste für die Kernenergie-Informatik von Axpo mit Fokus auf Sicherheit, Automatisierung und Benutzererlebnis. Als ICT Senior Workplace Engineer übernimmst du die Qualitätsmanagement-Verantwortung für die KI Workplace Umgebung – von der Technik bis zum Betrieb – und stellst eine zuverlässige, stabile und nachvollziehbar gesteuerte Servicebereitstellung sicher. Für die neue Kernenergie-Informatik der Kernkraftwerke Leibstadt KKL, Beznau KKB und des ZWILAG stellst du Workplace-Services bereit, die die hohen nuklearen\n• Anforderungen an Sicherheit, Compliance, Verfügbarkeit und Qualität erfüllen, Synergien mit der Axpo Group IT nutzen und ein konsistentes Qualitätsniveau auf allen Endgeräten sicherstellen. Durch klare Standards, saubere Dokumentation und eine enge Zusammenarbeit mit den relevanten Stakeholdern gewährleistest du einen stabilen, sicheren und zukunftsfähigen virtuellen und physischen Arbeitsplatz. Mit deinem Know-how in Virtualisierung, Automation und Security-by-Design sorgst du dafür, dass unsere hochkritischen Systeme jederzeit verfügbar sind und die hohe Sicherheitskultur im Umfeld der Kernenergie gelebt wird. Wenn du Freude an komplexen Infrastrukturen hast, gerne Verantwortung vom Design bis zum Betrieb übernimmst und dich in einem technisch anspruchsvollen Umfeld mit hoher Sicherheitskultur wohlfühlst, bist du bei uns genau richtig.\n• Aufgaben & Verantwortlichkeiten - Du entwickelst und betreibst Workplace-Services so, dass Stabilität, Sicherheit und ein reibungsloses Nutzererlebnis sichergestellt sind und bringst dabei eine ausgeprägte Security-by-Design-Mentalität ein. - Du betreibst und unterstützt die VMware Horizon Omnissa Produktionsumgebungen und mitverantwortest Horizon-Plattform-Upgrades für Agenten, Pods und Komponenten mit minimalem Einfluss auf die Nutzer. Ausserdem verwaltest du die Betriebssystem-Baselines und das Arbeitsplatz-Anwendungsportfolio, einschliesslich Paketierung, Veröffentlichungen sowie Validierungs- und Rollback-Verfahren, sowohl für virtuelle Endpunkte VDI als auch für physische Clients. - Du unterstützt den Betrieb der Hardware-Infrastruktur und leistest einen wesentlichen Beitrag zum reibungslosen Betrieb der gesamten ICT-Infrastruktur. - Interdisziplinäre Zusammenarbeit innerhalb des ICT-Infrastruktur Teams mit anderen Fachexperten (z.B. Netzwerk, Virtualisierung, Infrastruktur etc.) - Du koordinierst und führst vertiefte Analysen bei Leistungsproblemen durch, inklusive Fehlerdiagnosen und Kapazitätsplanungen im Workplace-Umfeld, und analysierst sowie behebst dabei Ressourcenkonflikte in den Bereichen Rechenleistung, Speicher, Storage, Netzwerk und vGPU. - Du dokumentierst Systemkonfigurationen und Prozesse, stellst die Einhaltung von Richtlinien und Verfahren sicher und pflegst Verfahren, Standards und Wissensartikel, damit die Dokumentation vollständig, konsistent und auditreif ist. Profil &\n• Anforderungen - Abgeschlossene Ausbildung und Weiterbildung in der Informatik, oder vergleichbare technische Ausbildung mit langjähriger Erfahrung im Bereich Infrastruktur Hardware - Du verfügst über eine abgeschlossene höhere Ausbildung HF, FH oder Universität in Informatik oder Ingenieurwesen – oder über eine gleichwertige, ausgewiesene Praxis im Enterprise Workplace Engineering. - Ausserdem bringst du fundierte Erfahrung im Workplace Engineering für grosse Umgebungen mit. Inklusive Betrieb, Lebenszyklusmanagement sowie strukturiertem Qualitätsmanagement und systematischem Testing. - Fundierte Kenntnisse in VMware Horizon Omnissa oder vergleichbaren VDI-Technologien. - Kenntnisse in Automatisierung und Skripting z.B. PowerShell zur Effizienzsteigerung im Betrieb - Know-how im Bereich Monitoring, Performance-Analyse und Kapazitätsplanung im Workplace-Umfeld. - Interesse an der Nuklearindustrie und Bereitschaft, dort langfristig fachliche Kompetenzen aufzubauen - Selbständige, strukturierte und analytische Arbeitsweise - Starke schriftliche und mündliche Kommunikationsfähigkeiten - Sehr gute mündliche und schriftliche Deutschkenntnisse - Gute Englischkenntnisse - Bereitschaft für Wartungseinsätze ausserhalb der regulären Arbeitszeit und Pikettdienst - Einwandfreier Leumund und keine Vorstrafen - Führerausweis Kat. B Über das Team Bei uns triffst du auf ein diverses, engagiertes Team, das mit Leidenschaft an innovativen Lösungen arbeitet. Wir unterstützen uns gegenseitig, kommunizieren offen und ziehen gemeinsam an einem Strang. #nuclear Benefits: In unserem Unternehmen bemühen wir uns um eine Kultur des kontinuierlichen Lernens, der persönlichen Weiterentwicklung und des Engagements für die Gemeinschaft auf nationaler Ebene. Es liegt uns am Herzen, unseren Mitarbeitern die Werkzeuge und Ressourcen an die Hand zu geben, die sie für ihren Erfolg benötigen, und wir sind sicher, dass Sie gerne Teil unseres Teams sein werden! - **Flexibl",
-        "fr": "Dans ce rôle, vous concevrez et optimiserez des services modernes en milieu de travail pour le calcul de l'énergie nucléaire d'Axpo, en mettant l'accent sur la sécurité, l'automatisation et l'expérience utilisateur. En tant qu'ingénieur principal des TIC en milieu de travail, vous assumez la responsabilité de la gestion de la qualité de l'environnement de travail de l'IA – de la technologie à l'exploitation – et vous assurerez une prestation de services fiable, stable et contrôlée de façon trace. Pour la nouvelle informatique nucléaire des centrales nucléaires de Leibstadt KKL, Beznau KKB et ZWILAG, vous fournissez des services sur le lieu de travail répondant aux exigences nucléaires élevées en matière de sûreté, de conformité, de disponibilité et de qualité, utilisez des synergies avec Axpo Group IT et assurez un niveau de qualité cohérent sur tous les appareils. Grâce à des normes claires, à une documentation propre et à une collaboration étroite avec les parties prenantes concernées, vous assurez un milieu de travail virtuel et physique stable, sûr et durable. Grâce à votre expertise en virtualisation, automatisation et sécurité par conception, vous veillez à ce que nos systèmes hautement critiques soient disponibles en tout temps et à ce que la culture de haute sûreté soit vécue dans le domaine de l'énergie nucléaire. Si vous profitez d'infrastructures complexes, comme prendre la responsabilité de la conception à l'exploitation et se sentir à l'aise dans un environnement techniquement exigeant avec une culture de sécurité élevée, vous êtes au bon endroit avec nous. Tâches et responsabilités - Vous développez et exploitez des services en milieu de travail d'une manière qui assure la stabilité, la sécurité et une expérience utilisateur en douceur, apportant une forte mentalité de sécurité par conception. Vous exploitez et supportez les environnements de production VMware Horizon Omnissa et les mises à niveau co-responsables de la plateforme Horizon pour les agents, les pods et les composants avec un impact minimal sur les utilisateurs. Vous gérez également les bases de données du système d'exploitation et le portefeuille d'applications en milieu de travail, y compris les procédures d'emballage, de publication, de validation et de retour pour les terminaux virtuels VDI et les clients physiques. Vous soutenez le fonctionnement de l'infrastructure matérielle et contribuez de manière significative au bon fonctionnement de l'ensemble de l'infrastructure TIC. - Coopération interdisciplinaire au sein de l'équipe d'infrastructure des TIC avec d'autres spécialistes (réseau, virtualisation, infrastructure, etc.) Vous coordonnez et réalisez des analyses approfondies des problèmes de performance, y compris le diagnostic d'erreurs et la planification des capacités en milieu de travail, et analysez et résolvez les conflits de ressources dans les domaines de la puissance informatique, du stockage, du stockage, du réseau et de la VGPU. - Oui. Vous documentez les configurations et les processus du système, vous assurez la conformité aux politiques et aux procédures et vous maintenez les procédures, les normes et les articles de connaissances afin que la documentation soit complète, cohérente et vérifiable. Profil et exigences - Formation complète et perfectionnement en informatique, ou formation technique comparable avec de nombreuses années d'expérience dans le domaine du matériel d'infrastructure - Vous avez un diplôme d'études supérieures HF, FH ou l'université en informatique ou en génie - ou une pratique équivalente, prouvée en Ingénierie d'entreprise. - Oui. Vous apportez également une expérience approfondie en ingénierie de travail pour les grands environnements. Fonctionnement inclusif, gestion du cycle de vie, gestion structurée de la qualité et tests systématiques. - Connaissance approfondie de VMware Horizon Omnissa ou de technologies VDI comparables. - Connaissance de l'automatisation et de l'écriture, par exemple PowerShell, pour accroître l'efficacité des opérations - savoir-faire dans le domaine du suivi, de l'analyse des performances et de la planification des capacités en milieu de travail. - Oui. Intérêt pour l'industrie nucléaire et volonté d'y développer des compétences professionnelles à long terme - Indépendants, méthodes de travail structurées et analytiques - Fortes compétences en communication écrite et orale - Très bonnes compétences orales et écrites en langue allemande - Bonnes compétences en langue anglaise - Disponibilité pour les missions de maintenance en dehors des heures normales de travail et pikettdienst - Bonne réputation et sans casier judiciaire - permis de conduire Cat. B À propos de l'équipe Avec nous vous rencontrerez une équipe diversifiée et engagée qui travaille avec passion sur des solutions innovantes. Nous nous soutenons, nous communiquons ouvertement et nous rassemblons. #bénéfices nucléaires: Dans notre entreprise, nous nous efforçons d'instaurer une culture d'apprentissage continu, de développement personnel et d'engagement envers la communauté au niveau national. Il est important pour nous de donner à nos employés les outils et les ressources dont ils ont besoin pour réussir et nous sommes sûrs que vous serez heureux de faire partie de notre équipe! - Flexibl"
-      },
-      "slugByLocale": {
-        "it": "ict-senior-workplace-ingegnere-w-m-d-axpo-group-dottingen",
-        "en": "ict-senior-workplace-engineer-w-m-d-axpo-group-dottingen",
-        "de": "werkstudent-w-m-d-im-bereich-it-sicherheit-axpo-group-dottingen",
-        "fr": "ingenieur-principal-des-tic-sur-le-lieu-de-travail-f-m-d-axpo-group-dottingen"
-      },
-      "crawledAt": "2026-07-15T11:16:11.384Z",
-      "id": "axpo-group-029d706cab91",
-      "salaryMin": 99500,
-      "salaryMax": 169500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 169500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-06-16T12:57:29.169Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ingegnere-senior-del-posto-di-lavoro-ict-f-m-d-axpo-group-dottingen",
-          "ict-senior-workplace-engineer-f-m-d-axpo-group-dottingen",
-          "ict-senior-workplace-engineer-w-m-d-cdcc0e45-8728-4845-8f8b-ea702be02435"
-        ],
-        "fr": [
-          "ingenieur-principal-en-tic-f-m-d-axpo-group-dottingen",
-          "ict-senior-workplace-engineer-w-m-d-cdcc0e45-8728-4845-8f8b-ea702be02435"
-        ],
-        "de": [
-          "ict-senior-workplace-engineer-w-m-d-cdcc0e45-8728-4845-8f8b-ea702be02435"
-        ]
-      },
-      "previousSlugs": [
-        "ingegnere-senior-del-posto-di-lavoro-ict-f-m-d-axpo-group-dottingen",
-        "ict-senior-workplace-engineer-f-m-d-axpo-group-dottingen",
-        "ingenieur-principal-en-tic-f-m-d-axpo-group-dottingen",
-        "ict-senior-workplace-engineer-w-m-d-cdcc0e45-8728-4845-8f8b-ea702be02435"
       ]
     },
     {
@@ -2136,7 +2129,7 @@
         "de": "senior-spezialist-in-zeitwirtschaft-w-m-d-axpo-group-baden",
         "fr": "specialiste-principal-de-la-gestion-du-temps-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.401Z",
+      "crawledAt": "2026-07-15T22:42:25.302Z",
       "id": "axpo-group-38d52c4d06a3",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -2210,7 +2203,7 @@
         "de": "elektroinstallateur-in-fur-solarmontage-w-m-d-ckw-luzern",
         "fr": "electricien-pour-installation-solaire-h-f-d-ckw-luzern"
       },
-      "crawledAt": "2026-07-15T11:16:11.409Z",
+      "crawledAt": "2026-07-15T22:42:25.308Z",
       "id": "axpo-group-0a8d6c18ca1e",
       "previousSlugsByLocale": {
         "en": [
@@ -2285,7 +2278,7 @@
         "de": "it-ot-system-ingenieur-mit-gruppenleitung-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "fr": "it-ot-system-ingenieur-mit-gruppenleitung-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
-      "crawledAt": "2026-07-15T11:16:11.418Z",
+      "crawledAt": "2026-07-15T22:42:25.322Z",
       "id": "axpo-group-f4238bc170f4",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -2359,7 +2352,7 @@
         "de": "lead-ingenieur-sicherheitsleittechnik-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "fr": "ingenieur-principal-technologie-de-controle-de-la-securite-m-f-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
-      "crawledAt": "2026-07-15T11:16:11.426Z",
+      "crawledAt": "2026-07-15T22:42:25.330Z",
       "id": "axpo-group-9d3c16a71d35",
       "previousSlugsByLocale": {
         "it": [
@@ -2434,7 +2427,7 @@
         "de": "mitarbeiter-in-personalrestaurant-60-w-m-d-axpo-group-dottingen",
         "fr": "employe-dans-le-restaurant-du-personnel-60-f-m-j-axpo-group-dottingen"
       },
-      "crawledAt": "2026-07-15T11:16:11.441Z",
+      "crawledAt": "2026-07-15T22:42:25.343Z",
       "id": "axpo-group-d69ae431f83a",
       "previousSlugsByLocale": {
         "en": [
@@ -2493,7 +2486,7 @@
       "description": "## Pensum: 80-100%\n\n## Das kannst du gestalten\n\n- Du baust und etablierst den Asset Life Cycle Management-Prozess im Geschäftsbereich Netze gemäss ISO 55000.\n- Du betreibst die entsprechende Simulationsumgebung AM und entwickelst die bestehenden Datengrundlagen weiter.\n- Du verantwortest die langfristige Investitionsplanung mit und definierst Service Levels.\n- Du führst Risikoanalysen durch und automatisierst Datenprozessevia Databricks.\n- Du erstellst Auswertungen zu Reinvestitionsbedarf, Ausfallwahrscheinlichkeiten und Wachstumsinvestitionen und ermöglichst damit fundierte Grundlage für strategische Entscheidungen.\n- Du gestaltest Vertragswerke über den gesamten Lebenszyklus von Anlagen mit – von der Vorstudie bis zum Recycling.\n\n## Das macht dich aus\n\n- Du hast einen Hochschulabschluss (FH/ETH) in einem technischen Fach, idealerweise Ingenieurswissenschaften.\n- Du bringst bereits Erfahrung oder Weiterbildung im langfristigen Asset Life Cycle Management von Infrastrukturen mit.\n- Idealerweise hast du Berufserfahrung in der Energiebranche und Kenntnisse in Elektrotechnik.\n- Du bist routiniert im Umgang mit Technologien wie Python, DataBricks, Power BI und SAP.\n- Du denkst analytisch, arbeitest gerne interdisziplinär und erklärst komplexe Sachverhalte zielgruppengerecht.\n- Du bist serviceorientiert, eigenverantwortlich und kommunikationsstark – auf Deutsch und Englisch.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n💰 Attraktive Vergütung und umfangreiche Sozialleistungen: Freue dich auf faire Bezahlung und umfassende Vorsorgepakete, die deine Zukunft absichern.\n\n📅 Beruf und Privatleben im Einklang: Mit flexiblen Arbeitszeiten, Teilzeitmodellen und bis zu 50% Home-Office (je nach Tätigkeit) ermöglichen wir eine gesunde Balance zwischen Arbeit und Privatleben.\n\n📚 Talentförderung: Dein persönliches und berufliches Wachstum liegt uns am Herzen. Wir unterstützen dich bei Aus- oder Weiterbildungen.\n\n🚌 Attraktive Extras: Profitiere von unseren Angeboten wie vergünstigten Mobile-Abos, Unterstützung bei der Kinderbetreuung, Ferienkauf oder kostenlosen Parkplätzen. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/vorteile)\n\n*Bei CKW setzen wir uns für eine Kultur der Nichtdiskriminierung, Toleranz und Inklusion ein. Als Arbeitgeberin, der Chancengleichheit wichtig ist, begrüssen wir Bewerbungen unabhängig von Herkunft, Geschlechtsidentität und -ausdruck, sexueller Orientierung, Alter, Behinderung sowie sozialem, kulturellem und religiösem Hintergrund. Wir engagieren uns für einen respektvollen und inklusiven Bewerbungsprozess und Arbeitsplatz für alle.*",
       "titleByLocale": {
         "it": "Asset Life Cycle Manager (f/m/d)",
-        "en": "Asset Life Cycle Manager (f/m/d)",
+        "en": "Asset Life Cycle Manager (w/m/d)",
         "de": "Asset Life Cycle Manager (w/m/d)",
         "fr": "Gestionnaire du cycle de vie des biens (f/m/d)"
       },
@@ -2509,7 +2502,7 @@
         "de": "asset-life-cycle-manager-w-m-d-5e6d9dd0-f977-41ba-ba4f-1684e864b93a",
         "fr": "gestionnaire-du-cycle-de-vie-des-biens-f-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.457Z",
+      "crawledAt": "2026-07-15T22:42:25.350Z",
       "id": "axpo-group-18dce44c9d94",
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -2532,7 +2525,8 @@
       },
       "previousSlugs": [
         "asset-life-cycle-manager-w-m-d-5e6d9dd0-f977-41ba-ba4f-1684e864b93a"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Solution Architect Microsoft Dynamics (w/m/d)",
@@ -2576,7 +2570,7 @@
         "de": "solution-architect-microsoft-dynamics-w-m-d-ckw-emmen",
         "fr": "solution-architecte-microsoft-dynamics-w-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-07-15T11:16:11.467Z",
+      "crawledAt": "2026-07-15T22:42:25.358Z",
       "id": "axpo-group-00000dd0c9b9",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -2650,7 +2644,7 @@
         "de": "elektroinstallateur-in-herzogenbuchsee-w-m-d-ckw-herzogenbuchsee",
         "fr": "installateur-trice-electricien-ne-herzogenbuchsee-w-m-d-ckw-herzogenbuchsee"
       },
-      "crawledAt": "2026-07-15T11:16:11.478Z",
+      "crawledAt": "2026-07-15T22:42:25.374Z",
       "id": "axpo-group-9c982884b654",
       "previousSlugsByLocale": {
         "en": [
@@ -2728,7 +2722,7 @@
         "de": "elektroinstallateur-in-burgdorf-w-m-d-ckw-burgdorf",
         "fr": "elektroinstallateur-in-burgdorf-w-m-d-ckw-burgdorf"
       },
-      "crawledAt": "2026-07-15T11:16:11.485Z",
+      "crawledAt": "2026-07-15T22:42:25.382Z",
       "id": "axpo-group-1238417d8798",
       "previousSlugsByLocale": {
         "en": [
@@ -2800,7 +2794,7 @@
         "de": "executive-assistent-general-counsel-w-m-d-axpo-group-baden",
         "fr": "executive-assistant-general-counsel-w-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-07-15T11:16:11.502Z",
+      "crawledAt": "2026-07-15T22:42:25.392Z",
       "id": "axpo-group-0cc40fa207d3",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2871,7 +2865,7 @@
         "de": "anlagenwart-in-bachenbulach-30-50-w-m-d-axpo-group-bachenbulach",
         "fr": "anlagenwart-in-bachenbulach-30-50-w-m-d-axpo-group-bachenbulach"
       },
-      "crawledAt": "2026-07-15T11:16:11.517Z",
+      "crawledAt": "2026-07-15T22:42:25.406Z",
       "id": "axpo-group-2f3ff1f11529",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -2945,7 +2939,7 @@
         "de": "chef-de-projet-lignes-postes-electriques-f-m-d-fa4df7af-f742-4731-bfd6-dc78bd4feb20",
         "fr": "chef-de-projet-lignes-postes-electriques-f-m-d-axpo-group-lausanne"
       },
-      "crawledAt": "2026-07-15T11:16:11.540Z",
+      "crawledAt": "2026-07-15T22:42:25.423Z",
       "id": "axpo-group-ed1772917a03",
       "previousSlugsByLocale": {
         "it": [
