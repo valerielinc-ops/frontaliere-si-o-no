@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-07-14T22:04:48.649Z",
+  "assembledAt": "2026-07-15T11:33:25.018Z",
   "jobs": [
     {
       "id": "tschuggen-8d19d792463c",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:46.310Z",
+      "crawledAt": "2026-07-15T11:33:22.324Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:24:18.552Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -108,7 +109,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:45.439Z",
+      "crawledAt": "2026-07-15T11:33:21.370Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -129,17 +130,20 @@
       "previousSlugs": [
         "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "head-de-partie-tournant-m-w-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
-        "head-de-partie-tournant-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+        "head-de-partie-tournant-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "chef-de-partie-tournant-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+          "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "chef-de-partie-tournant-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ],
         "en": [
           "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T23:49:23.372Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -185,7 +189,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:44.580Z",
+      "crawledAt": "2026-07-15T11:33:20.412Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -205,11 +209,13 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugs": [
         "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
-        "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
+        "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
+        "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
+          "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
         ],
         "fr": [
           "assistant-pour-les-aliments-et-boissons-m-f-d-achats-saison-hivernale-2026-2027-tschuggen-collection-st-moritz",
@@ -217,6 +223,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -262,7 +269,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:43.673Z",
+      "crawledAt": "2026-07-15T11:33:19.442Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -281,11 +288,13 @@
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
-        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "assistente-responsabile-della-prenotazione-m-w-d-tschuggen-collection-arosa"
         ],
         "en": [
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
@@ -295,6 +304,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -340,7 +350,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:42.777Z",
+      "crawledAt": "2026-07-15T11:33:18.509Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -360,14 +370,18 @@
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugsByLocale": {
         "de": [
-          "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch"
+          "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "it": [
-          "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch"
+          "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch"
+        "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T23:42:44.909Z",
@@ -416,7 +430,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1372/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:41.864Z",
+      "crawledAt": "2026-07-15T11:33:17.570Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -436,16 +450,21 @@
       "hotelName": "Hotel Eden Roc",
       "previousSlugsByLocale": {
         "de": [
-          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch"
+          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
-          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch"
+          "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+          "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch"
+        "demi-chef-de-partie-restaurant-eden-roc-m-w-d-tschuggen-ch",
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-07-06T15:40:45.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -491,7 +510,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1374/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:40.974Z",
+      "crawledAt": "2026-07-15T11:33:16.606Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -510,11 +529,13 @@
       "department": "Housekeeping",
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
-        "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+          "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+          "executive-housekeeping-manager-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa"
         ],
         "en": [
           "executive-housekeeping-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
@@ -524,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:55.244Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -569,7 +591,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1373/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:40.098Z",
+      "crawledAt": "2026-07-15T11:33:15.640Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -588,14 +610,17 @@
       "department": "Loge",
       "hotelName": "Tschuggen Grand Hotel",
       "previousSlugs": [
-        "head-concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "head-concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "head-concierge-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+          "head-concierge-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+          "head-concierge-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa"
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:38.644Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -641,7 +666,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/840/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:39.196Z",
+      "crawledAt": "2026-07-15T11:33:14.696Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -664,11 +689,13 @@
         "projektmanager-m-w-d-tschuggen-collection-st-moritz",
         "front-office-manager-m-f-d-in-permanent-employment-tschuggen-collection-st-moritz",
         "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
-        "directeur-de-la-reception-m-w-d-en-unbefristeter-anstellung-tschuggen-collection-st-moritz"
+        "directeur-de-la-reception-m-w-d-en-unbefristeter-anstellung-tschuggen-collection-st-moritz",
+        "front-office-manager-con-impiego-annuale-a-tempo-indeterminato-m-f-d-tschuggen-collection-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch"
+          "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch",
+          "front-office-manager-con-impiego-annuale-a-tempo-indeterminato-m-f-d-tschuggen-collection-arosa"
         ],
         "en": [
           "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-ch"
@@ -678,6 +705,7 @@
         ]
       },
       "firstSeenAt": "2026-07-11T11:08:37.949Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -696,9 +724,9 @@
       "id": "tschuggen-ac6abd139664",
       "slug": "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "de": "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
         "it": "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
         "en": "reservation-supervisor-m-f-d-limited-to-the-end-of-winter-season-2026-27-tschuggen-collection-st-moritz",
+        "de": "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
         "fr": "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -706,16 +734,16 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Reservation Supervisor (m/w/d) befristet bis Ende Wintersaison 2026/27",
       "titleByLocale": {
-        "de": "Reservation Vorgesetzter (m/w/d) befristet bis Ende Wintersaison 2026/27",
-        "en": "Reservation Supervisor (m/f/d) limited to the end of winter season 2026/27",
         "it": "Reservation Supervisore (m/w/d) befristet bis Ende Wintersaison 2026/27",
+        "en": "Reservation Supervisor (m/w/d) befristet bis Ende Wintersaison 2026/27",
+        "de": "Reservation Vorgesetzter (m/w/d) befristet bis Ende Wintersaison 2026/27",
         "fr": "Reservation Superviseur (m/w/d) befristet bis Ende Wintersaison 2026/27"
       },
       "description": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Als leidenschaftlicher Gastgeber sind Sie bei uns genau richtig. | Arbeitsverhältnis befristet bis Ende März 2027 | Abgeschlossene Kaufmännische Berufsausbildung Mindestens 2jährige Berufserfahrung in der Reservierung in der 4* oder 5* Hotellerie Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache, wie Italienisch sind von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail Gepflegtes Erscheinungsbild, professionelle Umgangsformen und freundliches Auftreten Empathische und diskrete Persönlichkeit, sowie Bereitschaft die Extrameile zu gehen | Sorgfältiges Einpflegen und Verwalten der Gäste- und Reservierungsdaten in unsere Hotelsoftware „Protel“ Annahme und Bearbeitung aller Individualreservierungen, eingehender Systembuchungen sowie Bearbeitung von Umbuchungen und Stornierungen Überwachung von Optionsdaten und Rückbestätigungen Erstellen und Auswerten verschiedener Statistiken Gewährleistung eines reibungslosen Ablaufs anhand von Checklisten Kontrolle der Vorgaben lt. LQA, Forbes und (ISO) Enge Zusammenarbeit mit dem Front of House Team Aktiver Zusatzverkauf von Hoteldienstleistungen Erledigung aller weiter anfallenden \n• Aufgaben in der Reservierung Unterstützung und Stellvertretung des Reservation und Revenue Managers | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
       "descriptionByLocale": {
-        "de": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Als leidenschaftlicher Gastgeber sind Sie bei uns genau richtig. | Arbeitsverhältnis befristet bis Ende März 2027 | Abgeschlossene Kaufmännische Berufsausbildung Mindestens 2jährige Berufserfahrung in der Reservierung in der 4* oder 5* Hotellerie Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache, wie Italienisch sind von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail Gepflegtes Erscheinungsbild, professionelle Umgangsformen und freundliches Auftreten Empathische und diskrete Persönlichkeit, sowie Bereitschaft die Extrameile zu gehen | Sorgfältiges Einpflegen und Verwalten der Gäste- und Reservierungsdaten in unsere Hotelsoftware „Protel“ Annahme und Bearbeitung aller Individualreservierungen, eingehender Systembuchungen sowie Bearbeitung von Umbuchungen und Stornierungen Überwachung von Optionsdaten und Rückbestätigungen Erstellen und Auswerten verschiedener Statistiken Gewährleistung eines reibungslosen Ablaufs anhand von Checklisten Kontrolle der Vorgaben lt. LQA, Forbes und (ISO) Enge Zusammenarbeit mit dem Front of House Team Aktiver Zusatzverkauf von Hoteldienstleistungen Erledigung aller weiter anfallenden \n• Aufgaben in der Reservierung Unterstützung und Stellvertretung des Reservation und Revenue Managers | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
         "it": "Il Carlton Hotel di St. Moritz è un hotel di lusso a 5 stelle superior nel Bündner Bergen, progettato da Carlo Rampazzi. Come una delle 4 case di \"The Tschuggen Collection AG\", la nostra casa offre 60 suite e camere disegnate individualmente, oltre a ristoranti eleganti - tra cui il clou gourmet Da Vittorio con 18 punti Gault Millau & 2 stelle Michelin e il Grand Restaurant, un omaggio alla natura e alle delizie culinarie dell'Engadine - così come un impressionante centro benessere di 1 200 m2. Apprezziamo la sostenibilità, siamo certificati Green Globe e siamo membri dei Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide e American Express Fine Hotels & Resorts. VISIONE - Ritorniamo il vostro valore in tempo. Come ospite appassionato, hai esattamente ragione con noi. | Rapporto di lavoro limitato fino alla fine del marzo 2027 | Formazione professionale completa Almeno 2 anni di esperienza professionale nella prenotazione nel settore alberghiero 4* o 5* Le conoscenze di tedesco e inglese sono un prerequisito, ogni altra lingua, come l'italiano sono vantaggiose Forte pensiero di servizio, alta consapevolezza di qualità e attenzione ai dettagli L'aspetto principale, le modalità professionali e l'aspetto amichevole Empathetic e personalità discreta, così come la volontà di andare l'elaborazione extra del miglio | Curare la manutenzione e la gestione dei dati di prenotazione ospite e di hotel LQA, Forbes e (ISO) stretta collaborazione con il Front of House Team Active Altri servizi dell'hotel\n• Sostegno di prenotazione e supplente della prenotazione e del gestore di entrate | Alloggi per dipendenti accattivanti vicino all'hotel Offerta di menu bilanciato nel nostro ristorante dipendente \"Le Bistro\" durante la stagione invernale Yoga per i dipendenti, nonché serate di piscina mensili e utilizzo del nostro centro fitness durante la stagione invernale Condizioni e sconti con i nostri partner (ad esempio: Update Fitness, negozio di sport interno) Prezzi speciali per soggiorni di notte nei nostri hotel \"The Tschuggen Collection\" Attendiamo con ansia il vostro dossier di applicazione - felicemente digitale: Lettera di applicazione Full CV incl. Certificati di lavoro e diplomi fotografici",
         "en": "The Carlton Hotel in St. Moritz is a 5-star superior luxury hotel in the Bündner Bergen, designed by Carlo Rampazzi. As one of the 4 houses of \"The Tschuggen Collection AG\", our house offers 60 individually designed suites and rooms, plus stylish restaurants - including the gourmet highlight Da Vittorio with 18 points Gault Millau & 2 Michelin stars and the Grand Restaurant, a tribute to nature and the culinary delights of the Engadine - as well as an impressive 1 200 m2 spa. We value sustainability, are Green Globe certified and are members of Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide and American Express Fine Hotels & Resorts. OUR VISION - We return your value to time. As a passionate host, you are exactly right with us. | Employment relationship limited until the end of March 2027 | Completed commercial vocational training At least 2 years of professional experience in reservation in the 4* or 5* hotel industry Flowing knowledge of German and English are a prerequisite, every other language, such as Italian are advantageous Strong service thinking, high quality awareness as well as attention to detail Maintained appearance, professional manners and friendly appearance Empathetic and discreet personality, as well as willingness to go the extra mile | Careful maintenance and management of the guest and reservation data in our hotel software \"Protel\" Acceptance and processing of all individual reservations, incoming system bookings as well as processing of rebookings and confirmations Monitoring of option data and evaluation of various statistics Ensure a smooth process based on checklists Control of the specifications according to. LQA, Forbes and (ISO) Close cooperation with the Front of House Team Active Additional Sale of Hotel Services\n• Reservation support and deputy of the reservation and revenue manager | Attractive employee accommodation near the hotel Balanced menu offer in our employee restaurant \"Le Bistro\" during the winter season Yoga for employees, as well as monthly pool evenings & use of our fitness center during the winter season Preferred conditions and discounts with our partners (e.g.: Update Fitness, in-house sports shop) Special prices for overnight stays in our hotels \"The Tschuggen Collection\" and the Swiss Deluxe Hotels | Feel addressed - Apply now! We look forward to your application dossier - gladly digital: Application letter Full CV incl. Photo Employment certificates & diplomas",
+        "de": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Als leidenschaftlicher Gastgeber sind Sie bei uns genau richtig. | Arbeitsverhältnis befristet bis Ende März 2027 | Abgeschlossene Kaufmännische Berufsausbildung Mindestens 2jährige Berufserfahrung in der Reservierung in der 4* oder 5* Hotellerie Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache, wie Italienisch sind von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail Gepflegtes Erscheinungsbild, professionelle Umgangsformen und freundliches Auftreten Empathische und diskrete Persönlichkeit, sowie Bereitschaft die Extrameile zu gehen | Sorgfältiges Einpflegen und Verwalten der Gäste- und Reservierungsdaten in unsere Hotelsoftware „Protel“ Annahme und Bearbeitung aller Individualreservierungen, eingehender Systembuchungen sowie Bearbeitung von Umbuchungen und Stornierungen Überwachung von Optionsdaten und Rückbestätigungen Erstellen und Auswerten verschiedener Statistiken Gewährleistung eines reibungslosen Ablaufs anhand von Checklisten Kontrolle der Vorgaben lt. LQA, Forbes und (ISO) Enge Zusammenarbeit mit dem Front of House Team Aktiver Zusatzverkauf von Hoteldienstleistungen Erledigung aller weiter anfallenden \n• Aufgaben in der Reservierung Unterstützung und Stellvertretung des Reservation und Revenue Managers | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotels Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
         "fr": "L'hôtel Carlton à St. Moritz est un hôtel de luxe 5 étoiles situé dans le Bündner Bergen, conçu par Carlo Rampazzi. Notre maison, l'une des 4 maisons du Tschuggen Collection AG, propose 60 suites et chambres conçues individuellement, ainsi que des restaurants élégants - dont le point culminant gastronomique Da Vittorio avec 18 points Gault Millau & 2 étoiles Michelin et le Grand Restaurant, un hommage à la nature et les délices culinaires de l'Engadine - ainsi qu'un impressionnant spa de 1 200 m2. Nous apprécions la durabilité, sommes certifiés Green Globe et sont membres de Leading Hotels of the World, Swiss Deluxe Hotels, Forbes Travel Guide et American Express Fine Hotels & Resorts. NOTRE VISION - Nous retournons votre valeur au temps. En tant qu'hôte passionné, vous avez raison avec nous. La relation de travail est limitée jusqu'à la fin de mars 2027. Au moins 2 ans d'expérience professionnelle en réservation dans l'hôtellerie 4* ou 5* La connaissance de l'allemand et de l'anglais est une condition préalable, toutes les autres langues, telles que l'italien sont avantageuses Une pensée de service forte, une prise de conscience de haute qualité ainsi que l'attention aux détails Une apparence préservée, des manières professionnelles et une apparence amicale Une personnalité empathique et discrète, ainsi que la volonté d'aller au mille supplémentaire. LQA, Forbes et (ISO) Coopération étroite avec l'équipe Front of House Active Vente supplémentaire de services hôteliers\n• Support de réservation et adjoint du responsable de la réservation et des revenus.Excellent hébergement à proximité de l'hôtel Offre de menu équilibré dans notre restaurant salarié \"Le Bistro\" pendant la saison d'hiver Yoga pour les employés, ainsi que les soirées de piscine mensuelle et l'utilisation de notre centre de fitness pendant la saison d'hiver Conditions et réductions préférées avec nos partenaires (par exemple: Mise à jour Fitness, magasin de sport interne) Prix spéciaux pour les séjours de nuit dans nos hôtels \"La collection Tschuggen\" et les hôtels suisses Deluxe. Nous attendons avec impatience votre dossier de candidature - volontiers numérique: Lettre de candidature CV complet incl. Photo Certificats et diplômes d'emploi"
       },
       "location": "St. Moritz",
@@ -723,7 +751,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:38.287Z",
+      "crawledAt": "2026-07-15T11:33:13.746Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -738,29 +766,31 @@
       "postedDate": "2026-07-14",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1375/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
+        "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-ch",
+        "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-collection-st-moritz",
+        "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
           "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-ch",
-          "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-collection-st-moritz"
-        ],
-        "de": [
-          "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-ch"
+          "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-collection-st-moritz",
+          "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz"
         ],
         "en": [
           "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch"
+        ],
+        "de": [
+          "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-ch"
         ]
       },
-      "previousSlugs": [
-        "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
-        "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-ch",
-        "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2027-28-tschuggen-collection-st-moritz"
-      ],
+      "firstSeenAt": "2026-07-14T22:04:38.287Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -773,15 +803,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-07-14T22:04:38.287Z"
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-f6bf7211a6a1",
       "slug": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "it": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
-        "en": "auditore-notturno-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "en": "night-auditor-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
         "de": "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "fr": "auditeur-nocturne-m-f-d-saison-hivernale-2026-2027-tschuggen-collection-st-moritz"
       },
@@ -828,11 +857,11 @@
       "previousSlugs": [
         "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "scientific-volunteer-in-80-tschuggen-collection-st-moritz",
-        "night-auditor-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
         "floor-porter-lun-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "floor-porter-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
         "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "porteur-de-plancher-m-f-d-saison-d-hiver-2026-2027-tschuggen-collection-st-moritz"
+        "porteur-de-plancher-m-f-d-saison-d-hiver-2026-2027-tschuggen-collection-st-moritz",
+        "night-auditor-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -843,8 +872,8 @@
           "porteur-de-plancher-m-f-d-saison-d-hiver-2026-2027-tschuggen-collection-st-moritz"
         ],
         "en": [
-          "night-auditor-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
-          "floor-porter-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz"
+          "floor-porter-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
+          "night-auditor-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz"
         ],
         "de": [
           "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -867,7 +896,8 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
