@@ -11,6 +11,9 @@
   "seedUrls": [
     "https://job.post.ch/search/?locale=it_IT",
     "https://job.post.ch/search/?locale=de_DE",
+    "https://job.post.ch/default/job/Immobilienbewirtschafterin/73567-de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73500-de_DE",
+    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73799-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74317-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74313-de_DE",
     "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",
@@ -63,9 +66,7 @@
     "https://job.post.ch/default/job/Teamleiterin-Auftrags-und-Leistungsverrechnung-FM/73822-de_DE",
     "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74057-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Abendzustellung/73615-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73528-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73500-de_DE",
     "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
     "https://job.post.ch/default/job/Hauswartin-Bern-%28Hauptsitz%29/73646-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Abendzustellung-Pakete/74182-de_DE",
@@ -76,10 +77,8 @@
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73444-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73539-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73762-de_DE",
-    "https://job.post.ch/default/job/Immobilienbewirtschafterin/73567-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74180-de_DE",
     "https://job.post.ch/default/job/Teilbetriebsleiterin-Pakete/74113-de_DE",
-    "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73799-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74138-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74139-de_DE",
     "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74126-de_DE",
@@ -100,5 +99,5 @@
     "https://job.post.ch/default/job/Apprentissage-d'employ%C3%A9-e-de-commerce-CFC%2C-Services-et-administration-Jura/73607-fr_FR"
   ],
   "notes": "Swiss Post careers portal — CH-wide jobs (all 26 cantons) discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs, national / no canton facet) and detail HTML scraped from job.post.ch.",
-  "updatedAt": "2026-07-14T22:06:23.630Z"
+  "updatedAt": "2026-07-15T11:07:09.690Z"
 }
