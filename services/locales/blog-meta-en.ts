@@ -8518,6 +8518,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Unemployed frontier workers: rights and access to URCs',
     'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Unemployed frontier workers have the right to register with the Swiss Regional Employment Offices (RPOs). Here\'s how the procedure works.',
     'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'View of Lugano with the lake and mountains in the background.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Border refurbishments: the new political weapon between Switzerland and Italy',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Ticino blocks 50.2 million francs and Graubünden threatens retaliation. Refreshments become negotiating pawns in tax and Olympic disputes.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande castle in Bellinzona, seat of the Ticino government',
 };
 
 export default blogMetaEn;

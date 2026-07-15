@@ -25595,6 +25595,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ristorni-frontalieri-arma-politica',
+ category: 'fiscale',
+ date: '2026-07-15T13:21:36.452Z',
+ image: '/images/blog/ristorni-frontalieri-arma-politica.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

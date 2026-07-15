@@ -8517,6 +8517,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Arbeitslose Grenzgänger: Rechte und Zugang zu den RAVs',
     'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Arbeitslose Grenzgängerinnen und Grenzgänger haben das Recht, sich bei den regionalen Arbeitsvermittlungsstellen (RAV) der Schweiz anzumelden. So funktioniert das Verfahren.',
     'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Blick auf Lugano mit dem See und den Bergen im Hintergrund.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Grenzrestaurants: die neue politische Waffe zwischen der Schweiz und Italien',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Das Tessin blockiert 50,2 Millionen Franken und Graubünden droht mit Vergeltung. Rückerstattungen werden zu Spielfiguren in Steuer- und Olympiastreitigkeiten.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande in Bellinzona, Sitz der Tessiner Regierung',
 };
 
 export default blogMetaDe;

@@ -4547,6 +4547,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-disoccupazione-frontalieri-ue': { name: 'Politica e Lavoro', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-ue/', parent: 'blog' },
     'blog-iniziativa-alimentazione-sicura-voto': { name: 'Votazioni federali', path: '/articoli-svizzera/iniziativa-alimentazione-sicura-voto/', parent: 'blog' },
     'blog-frontalieri-disoccupati-urc-diritti': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-urc-diritti', parent: 'blog' },
+    'blog-ristorni-frontalieri-arma-politica': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-arma-politica', parent: 'blog' },
  };
 
  const info = sectionNames[section];
