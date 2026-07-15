@@ -7076,7 +7076,7 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:16:42.619Z",
+      "crawledAt": "2026-07-14T22:39:29.303Z",
       "titleByLocale": {
         "it": "Consulente Real Estate (100%)",
         "en": "Consultant Real Estate (100%)",
@@ -7112,7 +7112,15 @@
       },
       "addressLocality": "Crissier",
       "addressCountry": "CH",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-real-estate-100-mcdonald-s-switzerland-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-real-estate-100-mcdonald-s-switzerland-crissier"
+      ]
     },
     {
       "title": "Coordinator Business Support (50%)",

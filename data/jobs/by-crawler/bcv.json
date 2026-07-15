@@ -663,7 +663,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-r%C3%A9glementaire-Etat-major-de-la-division-Finance-et-risques/1410878233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:20:04.452Z",
+      "crawledAt": "2026-07-14T23:03:27.679Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -684,15 +684,20 @@
       "sfJobId": "1410878233",
       "previousSlugs": [
         "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-bcv-lausanne",
-        "specialiste-reglementaire-etat-major-de-la-division-finanza-et-risques-banque-cantonale-vaudoise-lausanne"
+        "specialiste-reglementaire-etat-major-de-la-division-finanza-et-risques-banque-cantonale-vaudoise-lausanne",
+        "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-bcv-lausanne",
-          "specialiste-reglementaire-etat-major-de-la-division-finanza-et-risques-banque-cantonale-vaudoise-lausanne"
+          "specialiste-reglementaire-etat-major-de-la-division-finanza-et-risques-banque-cantonale-vaudoise-lausanne",
+          "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-banque-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-bcv-lausanne"
+        ],
+        "fr": [
+          "specialiste-reglementaire-etat-major-de-la-division-finance-et-risques-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:03.071Z",
@@ -707,8 +712,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bcv-99df6caf8a10",
@@ -2208,7 +2212,7 @@
       "url": "https://jobs.bcv.ch/job/Payerne-Responsable-r%C3%A9gional-Private-Banking-Broye/1188391001/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:19:51.660Z",
+      "crawledAt": "2026-07-14T23:03:17.447Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2229,18 +2233,23 @@
       "sfJobId": "1188391001",
       "previousSlugs": [
         "responsable-regional-private-banking-broye-bcv-payerne",
-        "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
+        "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne",
+        "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-regional-private-banking-broye-bcv-payerne",
-          "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
+          "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne",
+          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
         ],
         "en": [
           "responsable-regional-private-banking-broye-bcv-payerne"
         ],
         "de": [
           "responsable-regional-private-banking-broye-bcv-payerne"
+        ],
+        "fr": [
+          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:17.681Z",
@@ -2255,8 +2264,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "bcv-5be022537abe",
@@ -2696,7 +2704,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-la-R%C3%A9mun%C3%A9ration-et-des-Assurances-Sociales/1391621233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:19:47.065Z",
+      "crawledAt": "2026-07-14T23:03:13.646Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2732,7 +2740,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:21.748Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2744,7 +2751,9 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "bcv-3b53649bc9c8",

@@ -2545,7 +2545,7 @@
       "title": "Senior DWH Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Data Ingegnere (m/w/d)",
-        "en": "Senior DWH Engineer (m/w/d)",
+        "en": "Senior DWH Engineer (m/f/d)",
         "de": "Senior DWH Ingenieur (m/w/d)",
         "fr": "Data Ingénieur (m/w/d)"
       },
@@ -2561,7 +2561,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P62FF9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T12:08:39.443Z",
+      "crawledAt": "2026-07-14T22:21:05.166Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2596,13 +2596,15 @@
       "previousSlugs": [
         "data-engineer-m-w-d-coopers-zug",
         "senior-dwh-engineer-m-w-d-coopers-luzern",
-        "data-ingegnere-m-w-d-coopers-group-ag-zug"
+        "data-ingegnere-m-w-d-coopers-group-ag-zug",
+        "data-ingegnere-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-engineer-m-w-d-coopers-zug",
           "senior-dwh-engineer-m-w-d-coopers-luzern",
-          "data-ingegnere-m-w-d-coopers-group-ag-zug"
+          "data-ingegnere-m-w-d-coopers-group-ag-zug",
+          "data-ingegnere-m-w-d-coopers-group-ag-luzern"
         ],
         "en": [
           "data-engineer-m-w-d-coopers-zug"
@@ -2612,7 +2614,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:20:41.709Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {

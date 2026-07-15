@@ -197,7 +197,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:33:16.837Z",
+      "crawledAt": "2026-07-14T22:04:40.879Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -217,23 +217,22 @@
       "jobReqId": "1246",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
+        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
-        ],
         "it": [
           "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
           "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+          "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
         ]
       },
-      "previousSlugs": [
-        "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich"
-      ],
       "firstSeenAt": "2026-07-14T11:18:14.564Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
