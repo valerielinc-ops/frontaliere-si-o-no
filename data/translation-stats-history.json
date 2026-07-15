@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-15T17:39:31.032Z",
+    "label": "before",
+    "total": 24891,
+    "needsRetranslation": 9181,
+    "suppressed": 48,
+    "incomplete": 244,
+    "complete": 24647,
+    "missingByLocale": {
+      "it": 202,
+      "en": 134,
+      "de": 84,
+      "fr": 165
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 24
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 18
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Spitex Grauholz",
+        "pending": 11
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 9
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 8
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-15T17:47:20.365Z",
+    "label": "after",
+    "total": 24891,
+    "needsRetranslation": 1793,
+    "suppressed": 46,
+    "incomplete": 244,
+    "complete": 24647,
+    "missingByLocale": {
+      "it": 202,
+      "en": 134,
+      "de": 84,
+      "fr": 165
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 24
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 18
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Spitex Grauholz",
+        "pending": 11
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 9
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 8
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      }
+    ]
   }
 ]
