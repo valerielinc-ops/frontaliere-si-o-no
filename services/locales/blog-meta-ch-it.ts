@@ -1150,6 +1150,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giugno-pernottamenti-calo.title': 'Pernottamenti in calo a giugno',
     'blog.article.giugno-pernottamenti-calo.excerpt': 'La domanda estera è scesa del 4,4%, mentre gli ospiti provenienti dalla Confederazione hanno fatto segnare -0,1%',
     'blog.article.giugno-pernottamenti-calo.imageAlt': 'I dati dei pernottamenti in Svizzera per giugno',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Telelavoro frontalieri: intesa in vigore dal 2024',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'I frontalieri possono lavorare da casa fino al 25% del tempo annuale senza variazioni fiscali. Ecco i dettagli dell\'accordo tra Svizzera e Italia.',
+    'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'Vista su Lugano e ufficio moderno per professionisti',
 };
 
 export default blogMetaChIt;

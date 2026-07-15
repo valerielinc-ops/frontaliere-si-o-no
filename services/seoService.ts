@@ -4549,6 +4549,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupati-urc-diritti': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-urc-diritti', parent: 'blog' },
     'blog-ristorni-frontalieri-arma-politica': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-arma-politica', parent: 'blog' },
     'blog-giugno-pernottamenti-calo': { name: 'Pernottamenti in calo a giugno', path: '/articoli-svizzera/giugno-pernottamenti-calo/', parent: 'blog' },
+    'blog-intesa-telelavoro-frontalieri-svizzera-italia': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/intesa-telelavoro-frontalieri-svizzera-italia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
