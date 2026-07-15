@@ -193,13 +193,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be",
-        "supporto-per-area-di-produzione-m-f-d-100-sodexo-suisse-sa-lengnau-be"
+        "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be",
-          "supporto-per-area-di-produzione-m-f-d-100-sodexo-suisse-sa-lengnau-be"
+          "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be"
         ],
         "fr": [
           "manufacturing-area-support-m-w-d-100-sodexo-lengnau-be"
@@ -269,13 +267,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-support-m-w-d-70-100-sodexo-glattbrugg",
-        "supporto-it-m-f-d-70-100-sodexo-suisse-sa-glattbrugg"
+        "it-support-m-w-d-70-100-sodexo-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-support-m-w-d-70-100-sodexo-glattbrugg",
-          "supporto-it-m-f-d-70-100-sodexo-suisse-sa-glattbrugg"
+          "it-support-m-w-d-70-100-sodexo-glattbrugg"
         ],
         "fr": [
           "it-support-m-w-d-70-100-sodexo-glattbrugg"
@@ -1212,13 +1208,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen",
-        "servitore-di-pulizia-m-f-d-a-richiesta-sodexo-suisse-sa-zurich-flughafen"
+        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen",
-          "servitore-di-pulizia-m-f-d-a-richiesta-sodexo-suisse-sa-zurich-flughafen"
+          "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen"
         ],
         "en": [
           "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-zurich-flughafen"
@@ -1697,12 +1691,12 @@
     },
     {
       "id": "sodexo-e91ffbc16944",
-      "slug": "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs",
+      "slug": "pulitore-di-manutenzione-in-m-f-d-20h-a-settimana-sodexo-suisse-sa-buchs",
       "slugByLocale": {
         "de": "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs",
-        "it": "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs",
-        "en": "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs",
-        "fr": "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs"
+        "it": "pulitore-di-manutenzione-in-m-f-d-20h-a-settimana-sodexo-suisse-sa-buchs",
+        "en": "maintenance-cleaner-in-m-f-d-20h-per-week-sodexo-suisse-sa-buchs",
+        "fr": "nettoyeur-d-entretien-en-m-f-j-20h-par-semaine-sodexo-suisse-sa-buchs"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -1758,16 +1752,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T10:56:34.828Z"
+      "firstSeenAt": "2026-07-15T10:56:34.828Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs"
+        ],
+        "en": [
+          "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-20h-pro-woche-sodexo-buchs"
+      ]
     },
     {
       "id": "sodexo-5b272b93b278",
-      "slug": "rezeptionist-in-80-100-sodexo-therwil",
+      "slug": "ricevitore-in-80-100-sodexo-suisse-sa-therwil",
       "slugByLocale": {
         "de": "rezeptionist-in-80-100-sodexo-therwil",
-        "it": "rezeptionist-in-80-100-sodexo-therwil",
-        "en": "rezeptionist-in-80-100-sodexo-therwil",
-        "fr": "rezeptionist-in-80-100-sodexo-therwil"
+        "it": "ricevitore-in-80-100-sodexo-suisse-sa-therwil",
+        "en": "receptionist-in-80-100-sodexo-suisse-sa-therwil",
+        "fr": "receptionniste-dans-80-100-sodexo-suisse-sa-therwil"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -1823,7 +1831,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T10:56:34.246Z"
+      "firstSeenAt": "2026-07-15T10:56:34.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rezeptionist-in-80-100-sodexo-therwil"
+        ],
+        "en": [
+          "rezeptionist-in-80-100-sodexo-therwil"
+        ],
+        "fr": [
+          "rezeptionist-in-80-100-sodexo-therwil"
+        ]
+      },
+      "previousSlugs": [
+        "rezeptionist-in-80-100-sodexo-therwil"
+      ]
     },
     {
       "id": "sodexo-deaab39c32d3",
@@ -1954,13 +1976,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-project-manager-m-w-d-100-sodexo-glattbrugg",
-        "direttore-del-progetto-di-vendita-m-f-d-100-sodexo-suisse-sa-glattbrugg"
+        "sales-project-manager-m-w-d-100-sodexo-glattbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-project-manager-m-w-d-100-sodexo-glattbrugg",
-          "direttore-del-progetto-di-vendita-m-f-d-100-sodexo-suisse-sa-glattbrugg"
+          "sales-project-manager-m-w-d-100-sodexo-glattbrugg"
         ],
         "fr": [
           "sales-project-manager-m-w-d-100-sodexo-glattbrugg"

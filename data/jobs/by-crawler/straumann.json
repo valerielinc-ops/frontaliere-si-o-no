@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "straumann-5a4978ad822e",
-      "slug": "development-engineer-straumann-ch",
+      "slug": "development-ingegnere-straumann-basel",
       "slugByLocale": {
         "en": "development-engineer-straumann-ch",
-        "it": "development-engineer-straumann-ch",
-        "de": "development-engineer-straumann-ch",
+        "it": "development-ingegnere-straumann-basel",
+        "de": "development-ingenieur-straumann-basel",
         "fr": "development-engineer-straumann-ch"
       },
       "company": "Straumann",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:04:15.756Z"
+      "firstSeenAt": "2026-07-15T11:04:15.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "development-engineer-straumann-ch"
+        ],
+        "de": [
+          "development-engineer-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "development-engineer-straumann-ch"
+      ]
     },
     {
       "id": "straumann-3cc876152a9f",
@@ -115,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-medical-education-demo-materials-manager-straumann-ch",
-        "responsabile-dei-materiali-dimostrativi-per-la-formazione-medica-globale-straumann-basel"
+        "global-medical-education-demo-materials-manager-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-education-demo-materials-manager-straumann-ch",
-          "responsabile-dei-materiali-dimostrativi-per-la-formazione-medica-globale-straumann-basel"
+          "global-medical-education-demo-materials-manager-straumann-ch"
         ],
         "de": [
           "global-medical-education-demo-materials-manager-straumann-ch"
@@ -193,13 +202,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-development-engineer-straumann-ch",
-        "packaging-development-ingegnere-straumann-basel"
+        "packaging-development-engineer-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-development-engineer-straumann-ch",
-          "packaging-development-ingegnere-straumann-basel"
+          "packaging-development-engineer-straumann-ch"
         ],
         "de": [
           "packaging-development-engineer-straumann-ch"
@@ -271,13 +278,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
@@ -346,13 +351,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-rdi-academy-clinical-research-straumann-ch",
-        "tirocinante-rdi-academy-clinical-ricerca-straumann-basel"
+        "intern-rdi-academy-clinical-research-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-rdi-academy-clinical-research-straumann-ch",
-          "tirocinante-rdi-academy-clinical-ricerca-straumann-basel"
+          "intern-rdi-academy-clinical-research-straumann-ch"
         ],
         "de": [
           "intern-rdi-academy-clinical-research-straumann-ch"
@@ -382,7 +385,7 @@
         "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "en": "procurement-business-partner-villeret-straumann-ch",
         "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
-        "fr": "procurement-business-partner-villeret-straumann-villeret"
+        "fr": "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -432,18 +435,14 @@
       },
       "previousSlugs": [
         "procurement-business-partner-villeret-straumann-ch",
-        "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
-        "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "procurement-business-partner-villeret-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-business-partner-villeret-straumann-ch",
-          "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret"
+          "procurement-business-partner-villeret-straumann-ch"
         ],
         "fr": [
           "procurement-business-partner-villeret-straumann-ch",
-          "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
           "procurement-business-partner-villeret-straumann-villeret"
         ]
       },
@@ -543,14 +542,12 @@
       "previousSlugs": [
         "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
         "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
-        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck",
-        "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
+        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
-          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
-          "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
+          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck"
         ],
         "de": [
           "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
@@ -576,7 +573,7 @@
       "slugByLocale": {
         "it": "steward-dei-dati-principali-straumann-villeret",
         "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
-        "de": "master-data-steward-straumann-villeret",
+        "de": "stammdatenverwalter-straumann-villeret",
         "fr": "master-data-steward-straumann-ch"
       },
       "company": "Straumann",
@@ -620,18 +617,14 @@
       "previousSlugs": [
         "master-data-steward-straumann-ch",
         "maitre-de-la-garde-des-donnees-straumann-villeret",
-        "stammdatenverwalter-straumann-villeret",
-        "steward-dei-dati-principali-straumann-villeret",
         "master-data-steward-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-data-steward-straumann-ch",
-          "steward-dei-dati-principali-straumann-villeret"
+          "master-data-steward-straumann-ch"
         ],
         "de": [
           "master-data-steward-straumann-ch",
-          "stammdatenverwalter-straumann-villeret",
           "master-data-steward-straumann-villeret"
         ],
         "fr": [
@@ -702,13 +695,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
-        "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel"
+        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
-          "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel"
+          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.723Z",
@@ -774,13 +765,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
-        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden",
-        "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden"
+        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
-          "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden"
+          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
         ],
         "fr": [
           "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
@@ -849,13 +838,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-        "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-          "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.721Z",

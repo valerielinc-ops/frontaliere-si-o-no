@@ -64,12 +64,12 @@
     },
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "slugByLocale": {
         "en": "client-advisor-prada-group-vancouver-client-advisor",
-        "it": "client-advisor-prada-group-vancouver-client-advisor",
-        "de": "client-advisor-prada-group-vancouver-client-advisor",
-        "fr": "client-advisor-prada-group-vancouver-client-advisor"
+        "it": "client-consulente-prada-group-vancouver-client-advisor",
+        "de": "client-berater-prada-group-vancouver-client-advisor",
+        "fr": "client-conseiller-prada-group-vancouver-client-advisor"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -120,7 +120,21 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-15T11:09:45.584Z"
+      "firstSeenAt": "2026-07-15T11:09:45.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ],
+        "de": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ],
+        "fr": [
+          "client-advisor-prada-group-vancouver-client-advisor"
+        ]
+      },
+      "previousSlugs": [
+        "client-advisor-prada-group-vancouver-client-advisor"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -178,15 +192,7 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "prada-a992bea64306",
@@ -231,13 +237,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-07-14T22:36:30.549Z",
       "previousSlugs": [
-        "client-advisor-houston-prada-group-nearest-major-market-houston",
-        "client-consulente-houston-prada-group-nearest-major-market-houston"
+        "client-advisor-houston-prada-group-nearest-major-market-houston"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "client-advisor-houston-prada-group-nearest-major-market-houston",
-          "client-consulente-houston-prada-group-nearest-major-market-houston"
+          "client-advisor-houston-prada-group-nearest-major-market-houston"
         ],
         "de": [
           "client-advisor-houston-prada-group-nearest-major-market-houston"
@@ -307,14 +311,12 @@
       "crawledAt": "2026-07-14T22:36:30.141Z",
       "previousSlugs": [
         "client-advisor-houston-prada-group-nearest-major-market-houston",
-        "client-advisor-houston-prada-group-nearest-major-market-houston-2",
-        "client-consulente-houston-prada-group-nearest-major-market-houston-edecd9"
+        "client-advisor-houston-prada-group-nearest-major-market-houston-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-houston-prada-group-nearest-major-market-houston",
-          "client-advisor-houston-prada-group-nearest-major-market-houston-2",
-          "client-consulente-houston-prada-group-nearest-major-market-houston-edecd9"
+          "client-advisor-houston-prada-group-nearest-major-market-houston-2"
         ],
         "de": [
           "client-advisor-houston-prada-group-nearest-major-market-houston-2"
