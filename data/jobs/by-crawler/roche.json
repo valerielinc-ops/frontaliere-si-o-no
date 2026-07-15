@@ -9445,7 +9445,23 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-07-15T11:19:34.700Z"
+      "firstSeenAt": "2026-07-15T11:19:34.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-systems-solutions-analista-sostituzione-maternita-roche-budapest"
+        ],
+        "de": [
+          "learning-systems-solutions-analyst-mutterschaftsvertretung-roche-budapest"
+        ],
+        "fr": [
+          "learning-systems-solutions-analyste-remplacement-maternite-roche-budapest"
+        ]
+      },
+      "previousSlugs": [
+        "learning-systems-solutions-analista-sostituzione-maternita-roche-budapest",
+        "learning-systems-solutions-analyst-mutterschaftsvertretung-roche-budapest",
+        "learning-systems-solutions-analyste-remplacement-maternite-roche-budapest"
+      ]
     },
     {
       "id": "roche-e6c13fcae0b2",
@@ -92452,11 +92468,19 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-07-14T22:00:21.802Z",
       "previousSlugs": [
-        "junior-project-coordinatore-internship-roche-basel"
+        "junior-project-coordinatore-internship-roche-basel",
+        "junior-project-koordinator-internship-roche-basel",
+        "junior-project-coordinateur-internship-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-project-coordinatore-internship-roche-basel"
+        ],
+        "de": [
+          "junior-project-koordinator-internship-roche-basel"
+        ],
+        "fr": [
+          "junior-project-coordinateur-internship-roche-basel"
         ]
       }
     },
