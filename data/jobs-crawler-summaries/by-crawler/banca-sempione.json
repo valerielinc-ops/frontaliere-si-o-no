@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-07-14T22:56:50.215Z",
+  "generatedAt": "2026-07-15T12:24:08.504Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4258,
-  "avgDurationMs": 4258,
+  "durationMs": 4793,
+  "avgDurationMs": 4793,
   "durationHistory": [
-    4258
+    4793
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -83,11 +83,11 @@
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 75,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },
