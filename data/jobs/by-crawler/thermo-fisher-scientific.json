@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-07-14T22:05:39.216Z",
+  "assembledAt": "2026-07-15T11:34:01.736Z",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-3073768c6ef1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01359186/director-strategic-sourcing",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:37.369Z",
+      "crawledAt": "2026-07-15T11:33:58.908Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -111,7 +111,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358136/mitarbeiter-in-der-qualitatskontrolle",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:05:35.923Z",
+      "crawledAt": "2026-07-15T11:33:57.431Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -183,7 +183,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356747/manager-process-automation",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:34.373Z",
+      "crawledAt": "2026-07-15T11:33:55.813Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -261,7 +261,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344620/associate-project-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:33.015Z",
+      "crawledAt": "2026-07-15T11:33:54.779Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -339,7 +339,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358126/goods-receipt-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:05:31.315Z",
+      "crawledAt": "2026-07-15T11:33:52.536Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -370,6 +370,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -414,7 +415,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356760/senior-scientist-qa-operations",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:29.653Z",
+      "crawledAt": "2026-07-15T11:33:50.846Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -432,6 +433,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:34.807Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -476,7 +478,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358177/usp-manufacturing-professional",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:27.904Z",
+      "crawledAt": "2026-07-15T11:33:49.205Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -507,6 +509,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.926Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -551,7 +554,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351632/field-service-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:26.188Z",
+      "crawledAt": "2026-07-15T11:33:47.465Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -570,18 +573,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "field-service-engineer-thermo-fisher-scientific-ch",
-        "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach",
         "on-site-service-ingegnere-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
         "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch",
-        "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
+        "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
+        "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-engineer-thermo-fisher-scientific-ch",
-          "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach",
           "on-site-service-ingegnere-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
           "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch",
-          "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
+          "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach",
+          "field-service-ingegnere-thermo-fisher-scientific-schweiz-ag-reinach"
+        ],
+        "en": [
+          "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch"
         ],
         "de": [
           "field-service-engineer-thermo-fisher-scientific-ch"
@@ -589,9 +595,6 @@
         "fr": [
           "field-service-engineer-thermo-fisher-scientific-ch",
           "on-site-service-ingenieur-chromatography-f-m-d-thermo-fisher-scientific-schweiz-ag-reinach"
-        ],
-        "en": [
-          "on-site-service-engineer-chromatography-f-m-d-thermo-fisher-scientific-ch"
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:33.261Z",
@@ -639,7 +642,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01357758/senior-technical-sales-specialist-single-use-technologies",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:24.553Z",
+      "crawledAt": "2026-07-15T11:33:45.802Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -684,7 +687,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-14dbed50cf4f",
@@ -717,7 +721,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01349188/senior-scientist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:22.837Z",
+      "crawledAt": "2026-07-15T11:33:44.114Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -735,6 +739,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T23:19:31.714Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -779,7 +784,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01354201/r-d-engineer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:21.162Z",
+      "crawledAt": "2026-07-15T11:33:42.611Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "postalCode": "1033",
       "addressRegion": "VD",
@@ -858,7 +863,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01352354/laboratory-specialist-sample-management",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:19.556Z",
+      "crawledAt": "2026-07-15T11:33:41.027Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -936,7 +941,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351336/dsp-manufacturing-team-leader",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:18.862Z",
+      "crawledAt": "2026-07-15T11:33:39.750Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1015,7 +1020,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344554/scientist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:18.142Z",
+      "crawledAt": "2026-07-15T11:33:39.067Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1093,7 +1098,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344516/mbp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:16.443Z",
+      "crawledAt": "2026-07-15T11:33:38.175Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1171,7 +1176,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01357104/comparator-sourcing-procurement-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:14.803Z",
+      "crawledAt": "2026-07-15T11:33:36.957Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1249,7 +1254,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358785/sr-account-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:13.135Z",
+      "crawledAt": "2026-07-15T11:33:36.200Z",
       "addressLocality": "Reinach",
       "postalCode": "CH-4153",
       "addressRegion": "BL",
@@ -1267,6 +1272,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:18:54.109Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1311,7 +1317,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356720/laboratory-specialist-microbiological-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:11.495Z",
+      "crawledAt": "2026-07-15T11:33:35.223Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1339,6 +1345,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:22.727Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1383,7 +1390,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356730/senior-scientist-electronic-laboratory-systems",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:09.746Z",
+      "crawledAt": "2026-07-15T11:33:34.467Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1461,7 +1468,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344213/project-support-associate-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:08.214Z",
+      "crawledAt": "2026-07-15T11:33:33.687Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1492,6 +1499,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:18.664Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1536,7 +1544,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356723/process-and-cleaning-validation-lead-msat",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:06.564Z",
+      "crawledAt": "2026-07-15T11:33:32.876Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1614,7 +1622,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356103/demand-and-supply-management-coordinator",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:05:00.015Z",
+      "crawledAt": "2026-07-15T11:33:32.096Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1692,7 +1700,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356104/demand-and-supply-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:58.380Z",
+      "crawledAt": "2026-07-15T11:33:30.954Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1767,7 +1775,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01349179/senior-scientist-material-management-qualification-quality-control",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:56.621Z",
+      "crawledAt": "2026-07-15T11:33:29.573Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1812,7 +1820,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-662212db4ff8",
@@ -1845,7 +1854,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01351330/mbp-manufacturing-team-leader",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:54.844Z",
+      "crawledAt": "2026-07-15T11:33:28.817Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -1924,7 +1933,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344621/senior-project-manager-client-services-distribution",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:53.218Z",
+      "crawledAt": "2026-07-15T11:33:27.100Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -1999,7 +2008,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344518/mbp-manufacturing-specialist-fixed-term",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:51.574Z",
+      "crawledAt": "2026-07-15T11:33:25.362Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2077,7 +2086,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01359595/operator",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:49.774Z",
+      "crawledAt": "2026-07-15T11:33:23.617Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2108,6 +2117,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:37:45.366Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2152,7 +2162,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356713/clean-utilities-and-package-units-process-automation",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:48.064Z",
+      "crawledAt": "2026-07-15T11:33:21.915Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2181,7 +2191,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "thermo-fisher-scientific-7c1971d49613",
@@ -2214,7 +2225,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01358176/usp-manufacturing-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:46.487Z",
+      "crawledAt": "2026-07-15T11:33:21.082Z",
       "addressLocality": "Lengnau",
       "postalCode": "2543",
       "addressRegion": "BE",
@@ -2292,7 +2303,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356488/team-leader-customer-site",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:44.609Z",
+      "crawledAt": "2026-07-15T11:33:19.319Z",
       "addressLocality": "Solothurn",
       "postalCode": "99999",
       "addressRegion": "SO",
@@ -2371,7 +2382,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01355076/team-leader-ipi-quality-operations",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:42.916Z",
+      "crawledAt": "2026-07-15T11:33:17.642Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2450,7 +2461,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01356120/project-support-associate-document-writer",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:40.917Z",
+      "crawledAt": "2026-07-15T11:33:15.948Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
@@ -2528,7 +2539,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01345023/procurement-specialist-12-month-ftc",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:39.208Z",
+      "crawledAt": "2026-07-15T11:33:15.110Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "addressRegion": "BL",
