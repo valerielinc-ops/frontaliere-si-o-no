@@ -1,21 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-07-15T11:09:49.268Z",
+  "generatedAt": "2026-07-15T22:28:59.242Z",
   "total": 5,
-  "newCount": 2,
-  "updatedCount": 1,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6617,
-  "avgDurationMs": 6617,
+  "durationMs": 10064,
+  "avgDurationMs": 10064,
   "durationHistory": [
-    6617
+    10064
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -33,12 +34,13 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Client-Advisor-BC/1405245333/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:45.584Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-15T22:28:54.157Z",
+      "firstSeenAt": "2026-07-15T11:09:45.584Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,17 +64,16 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-Client-Advisor-CDD-%28hf%29-Cannes/1405126933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:46.935Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-07-15T22:28:56.144Z",
+      "firstSeenAt": "2026-07-15T11:09:46.935Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -93,7 +94,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:44.690Z",
+      "crawledAt": "2026-07-15T22:28:52.839Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -104,78 +105,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-0906f5cb166c",
-      "slug": "addetto-a-produzione-pelletteria-prada-group-scandicci-addettoa-produzione-pelletteria",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Addetto/a Produzione Pelletteria",
-      "location": "Scandicci Addettoa Produzione Pelletteria",
-      "canton": "TI",
-      "addressLocality": "Scandicci Addettoa Produzione Pelletteria",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-13T22:09:12.284Z",
-      "firstSeenAt": "2026-07-12T11:51:17.908Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "country": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "prada-220da0423fc3",
-      "slug": "prada-client-advisor-saks-fifth-avenue-boston-prada-group-boston",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA Client Advisor Saks Fifth Avenue Boston",
-      "location": "Boston",
-      "canton": "TI",
-      "addressLocality": "Boston",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-12",
-      "url": "https://jobs.pradagroup.com/job/Boston-PRADA-Client-Advisor-Saks-Fifth-Avenue-Boston-MI/1393924433/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-13T22:09:11.834Z",
-      "firstSeenAt": "2026-07-12T11:51:16.754Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "country": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-69d30264a0d1",
@@ -197,23 +127,23 @@
       "url": "https://jobs.pradagroup.com/job/Cannes-Client-Advisor-CDD-%28hf%29-Cannes/1405126933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:46.935Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-15T22:28:56.144Z",
+      "firstSeenAt": "2026-07-15T11:09:46.935Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
     {
       "id": "prada-47d0d4f535bc",
-      "slug": "client-advisor-prada-group-vancouver-client-advisor",
+      "slug": "client-consulente-prada-group-vancouver-client-advisor",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -231,17 +161,17 @@
       "url": "https://jobs.pradagroup.com/job/Vancouver-Client-Advisor-BC/1405245333/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:45.584Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-07-15T22:28:54.157Z",
+      "firstSeenAt": "2026-07-15T11:09:45.584Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 83,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -265,7 +195,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T11:09:44.690Z",
+      "crawledAt": "2026-07-15T22:28:52.839Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
       "needsRetranslation": true,
       "salaryMin": 79000,
@@ -306,7 +236,7 @@
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -341,7 +271,7 @@
       "salaryMax": 75000,
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
