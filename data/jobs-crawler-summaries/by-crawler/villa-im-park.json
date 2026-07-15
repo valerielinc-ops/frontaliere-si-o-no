@@ -1,16 +1,16 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-07-14T22:09:03.487Z",
+  "generatedAt": "2026-07-15T10:58:36.196Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3251,
-  "avgDurationMs": 3251,
+  "durationMs": 3080,
+  "avgDurationMs": 3080,
   "durationHistory": [
-    3251
+    3080
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:09:01.219Z",
+      "crawledAt": "2026-07-15T10:58:34.061Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:09:01.682Z",
+      "crawledAt": "2026-07-15T10:58:34.508Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -125,7 +125,7 @@
       "firstSeenAt": "2026-06-19T22:49:55.291Z",
       "salaryMin": 55800,
       "salaryMax": 84600,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
