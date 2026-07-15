@@ -8519,6 +8519,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Chômeurs frontaliers : droits et accès aux URC',
     'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Les frontaliers chômeurs ont le droit de s\'inscrire auprès des Offices régionaux de placement (ORP) suisses. Voici comment fonctionne la procédure.',
     'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Vue de Lugano avec le lac et les montagnes en arrière-plan.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Restaurants frontaliers : la nouvelle arme politique entre la Suisse et l\'Italie',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Le Tessin bloque 50,2 millions de francs et les Grisons menacent de représailles. Les restaurants deviennent des pions de négociation dans les litiges fiscaux et olympiques.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Château de Castelgrande à Bellinzone, siège du gouvernement tessinois',
 };
 
 export default blogMetaFr;

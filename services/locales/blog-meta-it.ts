@@ -8519,6 +8519,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Frontalieri disoccupati: diritti e accesso agli URC',
     'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'I frontalieri disoccupati hanno il diritto di iscriversi agli Uffici regionali di collocamento (URC) svizzeri. Ecco come funziona la procedura.',
     'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Veduta di Lugano con il lago e le montagne sullo sfondo.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. I ristorni diventano pedine negoziali nelle dispute fiscali e olimpiche.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande di Bellinzona, sede del governo ticinese',
 };
 
 export default blogMetaIt;
