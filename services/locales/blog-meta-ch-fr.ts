@@ -1138,6 +1138,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incontro-fiscale-roma-giugno.title': 'Suisse et Italie : réunion fiscale à Rome en juin',
     'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Sommet institutionnel entre la Suisse et l\'Italie prévu d\'ici fin juin pour discuter des aspects fiscaux liés aux frontières.',
     'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Vue du bord du lac de Lugano avec drapeaux suisses et italiens',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.title': 'Chômage frontalier : les nouvelles règles de l\'UE',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.excerpt': 'L\'UE est parvenue à un accord sur les indemnités de chômage pour les frontaliers. C\'est ce qui change pour la Suisse et le Tessin.',
+    'blog.article.disoccupazione-frontalieri-nuove-regole-ue.imageAlt': 'Château de Bellinzona avec drapeau suisse',
 };
 
 export default blogMetaChFr;

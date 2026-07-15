@@ -4543,6 +4543,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-borsa-zurigo-analisi-mercato-2024': { name: 'Analisi Borsa Zurigo', path: '/articoli-frontaliere/borsa-zurigo-analisi-mercato-2024', parent: 'blog' },
     'blog-incontro-fiscale-roma-giugno': { name: 'Accordo fiscale Roma', path: '/articoli-svizzera/incontro-fiscale-roma-giugno/', parent: 'blog' },
     'blog-traffico-frontalieri-como-ticino': { name: 'Mobilità frontalieri', path: '/articoli-frontaliere/traffico-frontalieri-como-ticino', parent: 'blog' },
+    'blog-disoccupazione-frontalieri-nuove-regole-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/disoccupazione-frontalieri-nuove-regole-ue/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

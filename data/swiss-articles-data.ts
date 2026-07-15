@@ -3410,6 +3410,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'disoccupazione-frontalieri-nuove-regole-ue',
+    category: 'novita',
+    date: '2026-07-15T02:42:51.284Z',
+    image: '/images/blog/disoccupazione-frontalieri-nuove-regole-ue.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

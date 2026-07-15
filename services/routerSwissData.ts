@@ -402,6 +402,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-indennita': { it: 'frontalieri-indennita', en: 'frontier-workers-unemployment', de: 'grenzganger-arbeitslosigkeit', fr: 'travailleurs-frontaliers-chomage' },
  'frontalieri-disoccupati': { it: 'frontalieri-disoccupati', en: 'frontaliers-unemployed', de: 'frontalier-ohne-arbeit', fr: 'frontaliers-sans-emploi' },
  'incontro-fiscale-roma-giugno': { it: 'incontro-fiscale-roma-giugno', en: 'switzerland-italy-fiscal-meeting-rome', de: 'schweiz-italien-steuerliches-treffen-rom', fr: 'suisse-italie-rencontre-fiscale-rome' },
+ 'disoccupazione-frontalieri-nuove-regole-ue': { it: 'disoccupazione-frontalieri-nuove-regole-ue', en: 'cross-border-unemployment-eu-rules', de: 'grenzgaenger-arbeitslosigkeit-eu-regeln', fr: 'chomage-frontaliers-nouvelles-regles-ue' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

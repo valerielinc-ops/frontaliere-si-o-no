@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3236,
+ "numberOfItems": 3237,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7911,7 +7911,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3233, "name": "Permesso G per apprendisti: addio ai rinnovi an...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-svolta-storica` },
           { "@type": "ListItem", "position": 3234, "name": "Borsa di Zurigo: analisi dell'andamento e mercati", "url": `${BASE_URL}/articoli-frontaliere/borsa-zurigo-analisi-mercato-2024` },
           { "@type": "ListItem", "position": 3235, "name": "Svizzera e Italia: incontro fiscale a Roma entr...", "url": `${BASE_URL}/articoli-frontaliere/incontro-fiscale-roma-giugno` },
-          { "@type": "ListItem", "position": 3236, "name": "Frontalieri in Ticino: flussi, mobilità e aree ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-frontalieri-como-ticino` }
+          { "@type": "ListItem", "position": 3236, "name": "Frontalieri in Ticino: flussi, mobilità e aree ...", "url": `${BASE_URL}/articoli-frontaliere/traffico-frontalieri-como-ticino` },
+          { "@type": "ListItem", "position": 3237, "name": "Disoccupazione frontalieri: le nuove regole UE", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-nuove-regole-ue` }
  ]
  },
  {
