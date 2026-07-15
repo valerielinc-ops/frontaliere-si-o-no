@@ -1,18 +1,19 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-07-15T12:05:14.074Z",
+  "generatedAt": "2026-07-15T22:14:35.520Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 498617,
-  "avgDurationMs": 498617,
+  "durationMs": 498475,
+  "avgDurationMs": 498475,
   "durationHistory": [
-    498617
+    498475
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Zivilstandsbeamtin / Zivilstandsbeamter",
       "slug": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
@@ -36,17 +37,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-15T11:58:33.330Z",
-      "_qualityScore": 49,
+      "crawledAt": "2026-07-15T22:07:54.835Z",
+      "id": "stadt-chur-8181a7de3772",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-15T11:58:33.330Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 0,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
       "slug": "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679",
@@ -70,7 +74,7 @@
       "validThrough": "",
       "employmentType": "part_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-15T11:59:40.091Z",
+      "crawledAt": "2026-07-15T22:09:01.594Z",
       "id": "stadt-chur-b0fbf56b6b57",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -107,7 +111,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-15T12:00:46.850Z",
+      "crawledAt": "2026-07-15T22:10:08.353Z",
       "id": "stadt-chur-4c04fef428bd",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -144,7 +148,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-15T12:01:53.619Z",
+      "crawledAt": "2026-07-15T22:11:15.115Z",
       "id": "stadt-chur-198fc32154ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -181,7 +185,7 @@
       "validThrough": "",
       "employmentType": "temporary",
       "contractType": "temporaneo",
-      "crawledAt": "2026-07-15T12:03:00.381Z",
+      "crawledAt": "2026-07-15T22:12:21.874Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -218,7 +222,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-15T12:04:07.141Z",
+      "crawledAt": "2026-07-15T22:13:28.632Z",
       "id": "stadt-chur-4309d92c4ac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -255,7 +259,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "crawledAt": "2026-07-15T12:05:13.902Z",
+      "crawledAt": "2026-07-15T22:14:35.391Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
