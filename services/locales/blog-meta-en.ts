@@ -8509,6 +8509,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-svolta-storica.title': 'G Leave for Apprentices: Farewell to Annual Renewals',
     'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Historical turnaround for over 700 young cross-border apprentices: the G work permit will be valid for the entire duration of the internship, eliminating the annual bureaucracy.',
     'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Students in front of a vocational school in Ticino',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Zurich Stock Exchange: trend analysis and markets',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analysis of the performance of the Swiss Market Index: between distress and recovery, here are the key numbers and current dynamics of the Swiss price list.',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Panoramic view of Lugano, financial center of Ticino.',
 };
 
 export default blogMetaEn;

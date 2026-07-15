@@ -49485,6 +49485,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borsa-zurigo-analisi-mercato-2024': {
+    title: 'Borsa di Zurigo: analisi dell\'andamento e mercati',
+    description: 'Analisi dell\'andamento dello Swiss Market Index: scopri i dati di chiusura, il confronto con i massimi storici e le implicazioni per i lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borsa, zurigo, analisi, dell',
+    ogTitle: 'Borsa di Zurigo: analisi andamento e mercati finanziari',
+    ogDescription: 'Analisi dell\'andamento dello Swiss Market Index: scopri i dati di chiusura, il confronto con i massimi storici e le implicazioni per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/borsa-zurigo-analisi-mercato-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borsa di Zurigo: analisi dell'andamento e mercati",
+      "description": "Analisi dell'andamento dello Swiss Market Index: scopri i dati di chiusura, il confronto con i massimi storici e le implicazioni per i lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borsa-zurigo-analisi-mercato-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, centro finanziario del Ticino."
+      },
+      "datePublished": "2026-07-15T02:04:47+00:00",
+      "dateModified": "2026-07-15T02:04:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borsa-zurigo-analisi-mercato-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

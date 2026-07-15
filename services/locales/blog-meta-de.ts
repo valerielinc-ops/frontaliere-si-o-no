@@ -8508,6 +8508,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Bewilligung G für Auszubildende: Abschied von der jährlichen Erneuerung',
     'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Historische Wende für über 700 junge Grenzgängerinnen und Grenzgänger: Die Arbeitsbewilligung G gilt für die gesamte Dauer des Praktikums und beseitigt die jährliche Bürokratie.',
     'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Schüler vor einer Berufsschule im Tessin',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Börse Zürich: Trend- und Marktanalysen',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analyse der Entwicklung des Swiss Market Index: Zwischen Leiden und Erholung finden Sie hier die wichtigsten Zahlen und die aktuelle Dynamik der Schweizer Preisliste.',
+    'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Panoramablick auf Lugano, Finanzzentrum des Tessins.',
 };
 
 export default blogMetaDe;
