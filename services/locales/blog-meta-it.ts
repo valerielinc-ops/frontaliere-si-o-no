@@ -8522,6 +8522,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-frontalieri-arma-politica.title': 'Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia',
     'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. I ristorni diventano pedine negoziali nelle dispute fiscali e olimpiche.',
     'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande di Bellinzona, sede del governo ticinese',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italia-Svizzera: scambio automatico informazioni fiscali',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analisi sul funzionamento dello scambio automatico di informazioni fiscali tra Italia e Svizzera tramite CRS e DAC per i lavoratori frontalieri.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne.',
 };
 
 export default blogMetaIt;

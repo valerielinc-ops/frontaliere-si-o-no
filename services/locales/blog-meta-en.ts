@@ -8521,6 +8521,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ristorni-frontalieri-arma-politica.title': 'Border refurbishments: the new political weapon between Switzerland and Italy',
     'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Ticino blocks 50.2 million francs and Graubünden threatens retaliation. Refreshments become negotiating pawns in tax and Olympic disputes.',
     'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande castle in Bellinzona, seat of the Ticino government',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italy-Switzerland: automatic exchange of tax information',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analysis of the operation of the automatic exchange of tax information between Italy and Switzerland through CRS and DAC for frontier workers.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Panoramic view of Lugano with the lake and mountains.',
 };
 
 export default blogMetaEn;

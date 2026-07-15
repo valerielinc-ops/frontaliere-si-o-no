@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3243,
+ "numberOfItems": 3244,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7918,7 +7918,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3240, "name": "Frontalieri disoccupati: diritti e accesso agli...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-diritti` },
           { "@type": "ListItem", "position": 3241, "name": "Ristorni frontalieri: la nuova arma politica tr...", "url": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-arma-politica` },
           { "@type": "ListItem", "position": 3242, "name": "Pernottamenti in calo a giugno", "url": `${BASE_URL}/articoli-frontaliere/giugno-pernottamenti-calo` },
-          { "@type": "ListItem", "position": 3243, "name": "Telelavoro frontalieri: intesa in vigore dal 2024", "url": `${BASE_URL}/articoli-frontaliere/intesa-telelavoro-frontalieri-svizzera-italia` }
+          { "@type": "ListItem", "position": 3243, "name": "Telelavoro frontalieri: intesa in vigore dal 2024", "url": `${BASE_URL}/articoli-frontaliere/intesa-telelavoro-frontalieri-svizzera-italia` },
+          { "@type": "ListItem", "position": 3244, "name": "Italia-Svizzera: scambio automatico informazion...", "url": `${BASE_URL}/articoli-frontaliere/scambio-automatico-informazioni-fiscali` }
  ]
  },
  {
