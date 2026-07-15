@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-15T11:16:51.709Z",
+  "savedAt": "2026-07-15T11:34:58.795Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -114922,7 +114922,7 @@
     },
     {
       "key": "ecdd483dc68673ced8ed56eadc67beb1294d177d43f4792c74b22270775dfada",
-      "touchedAt": 1783636944044,
+      "touchedAt": 1784115240601,
       "value": {
         "isJob": true,
         "confidence": 95,
@@ -158558,11 +158558,11 @@
     },
     {
       "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1784066773730,
+      "touchedAt": 1784114905494,
       "value": {
         "isJob": true,
         "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
       }
     },
     {
@@ -158576,7 +158576,7 @@
     },
     {
       "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1784066774254,
+      "touchedAt": 1784114929055,
       "value": {
         "isJob": true,
         "confidence": 0.9,
@@ -164554,6 +164554,312 @@
         "isJob": true,
         "confidence": 95,
         "reason": "The page contains a concrete role title 'Verkaufsberater (All Genders)', responsibilities, and application context."
+      }
+    },
+    {
+      "key": "b06759ef4055ac11f106b73f2ac8149f747317f53903d25a1e9f6a9424986319",
+      "touchedAt": 1784114927980,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "d2aa61c2e770baf3597facade8918ba9d13a5c5d076deeea200f099271f61f1a",
+      "touchedAt": 1784114946003,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "ab6ebf2cb8cd08b120e37aa1fddef1f75aa25c85060edf37d357bc01b09065bd",
+      "touchedAt": 1784114970089,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, including a job summary, qualifications, and accountabilities. It also provides a clear call-to-action to apply for the job."
+      }
+    },
+    {
+      "key": "f3f9ea7e32f8c8ce3852fb53cd39dc184d6da8a45bea58fda9ca818e7c0e5718",
+      "touchedAt": 1784115219770,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Group Pensions Administrator'), responsibilities ('administration of Corporate Pension schemes', 'building strong relationships with our corporate clients', 'interacting with other areas of Corporate Life & Pensions'), and application context ('Apply now', 'Apply online')."
+      }
+    },
+    {
+      "key": "7b0358fdbb6a36770dfb2c71edcf126c3d300142a0e67b60a68fa9dda857e66c",
+      "touchedAt": 1784115220452,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Data Engineer'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "43a727da18ca84a627d958fb518e2ce3eab6d35c69205ef2f9c6b71f3f71ebfe",
+      "touchedAt": 1784115220750,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Service Contract Associate'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "2cd15280589f9db2efbdd0915d4174cf25d3e61df771596509a73cc07e22ede0",
+      "touchedAt": 1784115221511,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sachbearbeiter Leistungsprüfung Leben (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "d77b79f10d87a8cfd5a8924e7290931e850e9cec4631465436ac52507d846bab",
+      "touchedAt": 1784115221796,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Chief Internal Auditor'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "02c61d6fb5fcf4ec8b6a99b41c8717053ce789b5c057bf33a924238344daa8d0",
+      "touchedAt": 1784115222043,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Underwriter Trade Credit Insurance Financial Institutions (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "0b2386d3614e117bd62a0560acebcbb392d876247ab2087f800480cf903ba583",
+      "touchedAt": 1784115222308,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Enterprise Data Management Specialist'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "f310545116cb0bc2b17c79e8f846be5ef27c5230f67897117e671c4385f8a756",
+      "touchedAt": 1784115240214,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Captive Underwriter (Employee Benefits)'), responsibilities ('Contributing to the request for proposal process...'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "fa50909af7d76b98f362bfb6e1979db6840a408ec1b6c060c197145c8e2fe355",
+      "touchedAt": 1784115240368,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Working Student CI Program Management Office'), responsibilities ('Use AI and data tools to create meaningful portfolio insights and management reports'), and application context ('Currently enrolled in a Bachelor’s or Master’s degree')."
+      }
+    },
+    {
+      "key": "f846b47280dccebc993c136e3bc54c056030f1b44d1a511c70c0d3a525b7e7e6",
+      "touchedAt": 1784115277941,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Group Pensions Administrator'), responsibilities ('administration of Corporate Pension schemes', 'building strong relationships with our corporate clients', 'interacting with other areas of Corporate Life & Pensions'), and application context ('Apply now', 'Apply online', 'Primary work location is Blackrock, Co Dublin')."
+      }
+    },
+    {
+      "key": "fe68cfb4b32657d167c5f9809350f1b4371ff0370c0c4b58906a42597839becf",
+      "touchedAt": 1784115279073,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Data Engineer'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "859297353051f98057b25082f7fe91f8e898b0793655a7c9d25ce263ca94443d",
+      "touchedAt": 1784115279434,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Service Contract Associate'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "31c4ee52f461d3cd302a37b1eb09433fc55ee79bdb38f747863fa2c93227bf97",
+      "touchedAt": 1784115279852,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sachbearbeiter Leistungsprüfung Leben (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "bcf9cd81f5a5d5519e2bc98ff27d9028b2143af47118b3075058634c3922e85c",
+      "touchedAt": 1784115280232,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Chief Internal Auditor'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "37a6a8da0edeadd83ac5b5308e14cce4b9210ce491a41ce9dd470b4be1468ec9",
+      "touchedAt": 1784115280668,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Underwriter Trade Credit Insurance Financial Institutions (m/w/d)'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "5c49535e7c43dff8dc95daa9e9a406db33dd90de9302316e5c1e1884b779ea43",
+      "touchedAt": 1784115281244,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Enterprise Data Management Specialist'), responsibilities ('operation, optimization, and continuous enhancement of the enterprise Data Governance Platform'), and application context ('Zurich Insurance Company Ltd.')."
+      }
+    },
+    {
+      "key": "82fadc4763222f56e1395e3d3e94b47b9b955794c9f530dcc46644f8a623dfe9",
+      "touchedAt": 1784115281621,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Underwriter, Middle Market - Prairies'), responsibilities ('Underwrite new and renewal commercial P&C business...'), and application context ('Apply now'). It is not a generic careers listing or news page."
+      }
+    },
+    {
+      "key": "2facdf6c86f0d537938c5c3936bcd385257b13bd8a7525911de223a72e7d2c6f",
+      "touchedAt": 1784115282064,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Direktionsbeauftragter Versicherung - Region Süd (m/w/d) - Standorte Mainz/Mannheim'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "5adbd731bc0abb2f876851b9727727bd816821233171b2516dae3c7bbd8edbb2",
+      "touchedAt": 1784115282819,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Underwriting Service für internationale Industrieversicherungen (mensch*)'), responsibilities ('Implementierung und Koordination von Polizzen für die Risiken unserer internationalen Industriegroßkundinnen und -kunden'), and application context ('Bewerbung starten mit LinkedIn')."
+      }
+    },
+    {
+      "key": "ddb96e3f7a3cbff374bc6b579b1c13aadbb15ffe128c23f1149f6738f5916c28",
+      "touchedAt": 1784115283212,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Chief Trial Attorney, General Liability'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "acf90703aa3aad2b184228c848c36c7322708fb262ee17f83422c787eda05dae",
+      "touchedAt": 1784115283614,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Cyber Risk Engineer'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "109d2810bfbe1a4bbb4c0d13703f7898db70ea6fc411ffb2f9cb5b4fc1fae8d2",
+      "touchedAt": 1784115283981,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Beca Canal Corredores'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "e216e51b83f513970a87cb2106f5566765a9aab3ae613b37e0f22318990d9ed4",
+      "touchedAt": 1784115284430,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a specific job title, responsibilities, and application context, making it a real single job detail page."
+      }
+    },
+    {
+      "key": "84fa2e43fc89b2b5d3a23609f8e66afbbf5e80849510b7c5b04326199c64238a",
+      "touchedAt": 1784115284800,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Claims Fraud Investigator'), responsibilities ('Conduct investigations into suspected insurance fraud...'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "87f888a605f4dba73f055acf53ea84b4b390c3ff9ff5df07b4b94009455ee04f",
+      "touchedAt": 1784115285197,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('UA Associate - Surety'), responsibilities ('Works under close Underwriter and Manager supervision to handle end-to-end bond administration, responding to basic agent/broker servicing requests to help ensure delivery of excellent service'), and application context ('Apply now')."
+      }
+    },
+    {
+      "key": "c4d4b11aaef9a29f30718d8625f3cbebaffcde49f66a1ff327e2107af56b80c3",
+      "touchedAt": 1784115285657,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Senior Underwriter/in Marine'), responsibilities ('Underwriting im Bereich nationaler und internationaler (Industrie-) Großkunden'), and application context ('Bewerbung starten mit LinkedIn')."
+      }
+    },
+    {
+      "key": "e216dc1cc15bf55ba176d47ac4fb145f5b59479752d2f93c4ecbf4e1d31f2550",
+      "touchedAt": 1784115286032,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Credit Analyst Team Delcredere), responsibilities (analyzing risks, making Kreditentscheidungen, etc.), and application context (application process, benefits, etc.)."
+      }
+    },
+    {
+      "key": "04ce2a1867467dd6fe14201ed70266864aeb68ac26009fe3fa94d57e825c7b23",
+      "touchedAt": 1784115286384,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Regional Income Development Executive North Division'), responsibilities/requirements, and application context."
+      }
+    },
+    {
+      "key": "d9586a742d2ac0c3fa03573bc71ab78bfc3912ec58e2dfda1508729423cce915",
+      "touchedAt": 1784115286753,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Internship'), responsibilities, and application context."
+      }
+    },
+    {
+      "key": "0bf6ffb51079122bae324c96a67049f78f869ec756a614570a44d5b24eafc35d",
+      "touchedAt": 1784115287114,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title (Agency Expansion Unit Marketing Manager), responsibilities (e.g., develop and execute marketing campaigns, plan and coordinate with branches), and application context (e.g., location, closing date)."
+      }
+    },
+    {
+      "key": "30a7a30ed8ab5cc3fc07999559853848531239a8650e2eb00e31f57688bf50f5",
+      "touchedAt": 1784115287475,
+      "value": {
+        "isJob": true,
+        "confidence": 95,
+        "reason": "The page contains a concrete role title ('Sr. Audit Manager'), responsibilities ('Work with Functional and Regional Audit Executives, as well as country / legal entity heads of audit, to perform risk assessments and develop and shape the audit plan in line with key risks and trends, ensuring appropriate coverage across the group'), and application context ('Apply now')."
       }
     }
   ]
