@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-07-14T22:48:00.499Z",
+  "assembledAt": "2026-07-15T12:01:31.998Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.265Z",
+      "crawledAt": "2026-07-15T12:01:29.687Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -54,11 +54,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+        "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+        "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
+          "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf",
+          "ricercatore-post-dottorato-sulla-modellatura-e-degradazione-degli-adsorbenti-solidi-di-co2-empa-dubendorf"
         ],
         "de": [
           "postdoctoral-researcher-on-co2-solid-adsorbent-shaping-and-degradation-empa-dubendorf"
@@ -68,6 +70,87 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.183Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "empa-e0a720ff6929",
+      "slug": "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf",
+      "slugByLocale": {
+        "it": "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf",
+        "en": "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+        "de": "postdoc-position-in-der-co2-elektrokatalyse-unter-realistischen-bedingungen-empa-dubendorf",
+        "fr": "position-postdoc-dans-l-electrocatalyse-co2-dans-des-conditions-realistes-empa-dubendorf"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "Postdoc position in CO2 electrocatalysis under realistic conditions",
+      "titleByLocale": {
+        "it": "Posizione postdoc in elettrocatalisi CO2 in condizioni realistiche",
+        "en": "Postdoc position in CO2 electrocatalysis under realistic conditions",
+        "de": "Postdoc-Position in der CO2-Elektrokatalyse unter realistischen Bedingungen",
+        "fr": "Position postdoc dans l'électrocatalyse CO2 dans des conditions réalistes"
+      },
+      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc position in CO2 electrocatalysis under realistic conditions\n\nEmpa’s Laboratory Materials for Energy Conversion focuses on materials and device innovation for sustainable energy conversion and storage technologies.\n\nYour tasks\n\nThe research project focuses on understanding the electrocatalytic conversion of CO2 into sustainable products. Your task will include:\n\n• Assemble and validate modular electrocatalytic reactors and analysis methods for realistic CO2 electrocatalysis, with a focus on parallel investigations and accelerated aging.\n\n• Dissect degradation processes of CO2 electroreduction catalyst, electrodes, and ionomer membranes under diverse real-world operating conditions, using operando electrochemical and spectroscopic methods.\n\n• Lead synchrotron campaigns aiming at unveiling the degradation mechanism of catalysts, electrodes, and ionomer membranes with high time resolution, operando x-ray measurements.\n\n• Develop electrode architecture and catalyst/electrode modification strategies for enhanced durability, using different fabrication methods.\n\nThis postdoc position is part of an international collaborative project involving several academic and industrial partners.\n\nYour profile\n\nWe are looking for a highly motivated team player who thrives in a collaborative and interdisciplinary research environment. The ideal candidate possesses a PhD degree in chemistry or chemical engineering, materials science, physics, or related discipline. As this project is a cutting-edge research activity beyond the current state-of-the-art in electrocatalysis, we are looking for someone creative, curious, highly motivated, and with excellent problem-solving and technical skills. Prior experience in electrochemistry and/or catalysis is a strong advantage. The successful candidate will be expected to work independently in the lab while collaborating and communicating effectively with our multidisciplinary team.\n\nOur offer\n\nYou will join a dynamic young international research group working in a brand new laboratory building located at Empa’s campus in Dübendorf near downtown Zürich. In addition to our state-of-the-art electrocatalysis facilities encompassing catalyst and electrode synthesis, parallel electrochemical characterizations and comprehensive gas and liquid analytics, the lab owns and operates a large array of instruments including X-ray diffractometers, X-ray photoelectron spectroscopy, infrared and Raman spectrometers, and argon ion mills and electron microscopes. The position is closely connected to two national research initiatives focusing on the synthesis of sustainable fuels and chemicals providing many opportunities to interact with a large and high-profile network that includes members of both academia and industry.\n\nEmpa is committed to diversity, equity, and inclusion. We strongly encourage applications from female researchers and individuals from underrepresented backgrounds. We believe diversity drives innovation and scientific excellence. Join us in contributing to groundbreaking research in sustainable energy technologies!\n\nWe look forward to receiving your online application including a two-page motivation letter, CV, scholarly records, diplomas with transcripts, and at least two reference letters. Only complete applications will be considered. Please upload all documents through our webpage, applications via E-mail cannot be accepted.",
+      "descriptionByLocale": {
+        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Posizione Postdoc nell'elettrocatalisi CO2 in condizioni realistiche I materiali di laboratorio di Empa per la conversione dell’energia si concentrano sull’innovazione dei materiali e dei dispositivi per la conversione sostenibile dell’energia e le tecnologie di storage. I tuoi compiti Il progetto di ricerca si concentra sulla comprensione della conversione elettrocatalitica di CO2 in prodotti sostenibili. Il vostro compito includerà:\n• Assemblare e convalidare reattori elettrocatalitici modulari e metodi di analisi per l'elettrocatalisi CO2 realistica, con un focus sulle indagini parallele e sull'invecchiamento accelerato.\n• Processi di degrado differenziati di catalizzatore di elettroriduzione CO2, elettrodi e membrane ionomeri in diverse condizioni operative del mondo reale, utilizzando metodi elettrochimici e spettroscopici operando.\n• Piombo campagne di sincrotrone che mirano a svelare il meccanismo di degrado di catalizzatori, elettrodi e membrane ionomeri con alta risoluzione di tempo, operando misurazioni a raggi x.\n• Sviluppare l'architettura degli elettrodi e le strategie di modifica del catalizzatore/elettrodo per una maggiore durata, utilizzando diversi metodi di fabbricazione. Questa posizione postdoc fa parte di un progetto collaborativo internazionale che coinvolge diversi partner accademici e industriali. Il tuo profilo Siamo alla ricerca di un team player altamente motivato che prospera in un ambiente di ricerca collaborativo e interdisciplinare. Il candidato ideale possiede una laurea in chimica o ingegneria chimica, scienza dei materiali, fisica o disciplina relativa. Poiché questo progetto è un'attività di ricerca all'avanguardia al di là dell'attuale stato dell'arte nell'elettrocatalisi, stiamo cercando qualcuno creativo, curioso, altamente motivato, e con eccellenti capacità di problem solving e tecniche. L'esperienza precedente in elettrochimica e/o catalisi è un forte vantaggio. Il candidato di successo lavorerà in modo indipendente in laboratorio, collaborando e comunicando efficacemente con il nostro team multidisciplinare. La nostra offerta Vi unirete a un dinamico gruppo di ricerca internazionale che lavora in un nuovo edificio di laboratorio situato nel campus di Empa a Dübendorf vicino al centro di Zurigo. Oltre ai nostri impianti di elettrocatalisi all'avanguardia che comprendono catalizzatore e sintesi elettrodi, caratterizzazioni elettrochimiche parallele e analisi complete del gas e del liquido, il laboratorio possiede e gestisce una vasta gamma di strumenti tra cui diffrattometri a raggi X, spettroscopia a raggi X, spettrometri a raggi infrarossi e Raman, mulini a ioni argon e microscopi elettroni. La posizione è strettamente collegata a due iniziative nazionali di ricerca che si concentrano sulla sintesi di combustibili sostenibili e prodotti chimici che offrono molte opportunità di interagire con una rete di grandi e di alto profilo che comprende membri sia dell'accademia che dell'industria. Empa si impegna per la diversità, l'equità e l'inclusione. Noi incoraggiamo fortemente le applicazioni da ricercatori e individui di sesso femminile da backgrounds sottorappresentati. Crediamo che la diversità spinga l'innovazione e l'eccellenza scientifica. Unisciti a noi per contribuire alla ricerca innovativa nelle tecnologie energetiche sostenibili! Non vediamo l'ora di ricevere la vostra domanda online, tra cui una lettera di motivazione di due pagine, CV, record accademici, diplomi con trascrizioni, e almeno due lettere di riferimento. Saranno considerate solo le applicazioni complete. Si prega di caricare tutti i documenti attraverso la nostra pagina web, le applicazioni via E-mail non possono essere accettate.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc position in CO2 electrocatalysis under realistic conditions\n\nEmpa’s Laboratory Materials for Energy Conversion focuses on materials and device innovation for sustainable energy conversion and storage technologies.\n\nYour tasks\n\nThe research project focuses on understanding the electrocatalytic conversion of CO2 into sustainable products. Your task will include:\n\n• Assemble and validate modular electrocatalytic reactors and analysis methods for realistic CO2 electrocatalysis, with a focus on parallel investigations and accelerated aging.\n\n• Dissect degradation processes of CO2 electroreduction catalyst, electrodes, and ionomer membranes under diverse real-world operating conditions, using operando electrochemical and spectroscopic methods.\n\n• Lead synchrotron campaigns aiming at unveiling the degradation mechanism of catalysts, electrodes, and ionomer membranes with high time resolution, operando x-ray measurements.\n\n• Develop electrode architecture and catalyst/electrode modification strategies for enhanced durability, using different fabrication methods.\n\nThis postdoc position is part of an international collaborative project involving several academic and industrial partners.\n\nYour profile\n\nWe are looking for a highly motivated team player who thrives in a collaborative and interdisciplinary research environment. The ideal candidate possesses a PhD degree in chemistry or chemical engineering, materials science, physics, or related discipline. As this project is a cutting-edge research activity beyond the current state-of-the-art in electrocatalysis, we are looking for someone creative, curious, highly motivated, and with excellent problem-solving and technical skills. Prior experience in electrochemistry and/or catalysis is a strong advantage. The successful candidate will be expected to work independently in the lab while collaborating and communicating effectively with our multidisciplinary team.\n\nOur offer\n\nYou will join a dynamic young international research group working in a brand new laboratory building located at Empa’s campus in Dübendorf near downtown Zürich. In addition to our state-of-the-art electrocatalysis facilities encompassing catalyst and electrode synthesis, parallel electrochemical characterizations and comprehensive gas and liquid analytics, the lab owns and operates a large array of instruments including X-ray diffractometers, X-ray photoelectron spectroscopy, infrared and Raman spectrometers, and argon ion mills and electron microscopes. The position is closely connected to two national research initiatives focusing on the synthesis of sustainable fuels and chemicals providing many opportunities to interact with a large and high-profile network that includes members of both academia and industry.\n\nEmpa is committed to diversity, equity, and inclusion. We strongly encourage applications from female researchers and individuals from underrepresented backgrounds. We believe diversity drives innovation and scientific excellence. Join us in contributing to groundbreaking research in sustainable energy technologies!\n\nWe look forward to receiving your online application including a two-page motivation letter, CV, scholarly records, diplomas with transcripts, and at least two reference letters. Only complete applications will be considered. Please upload all documents through our webpage, applications via E-mail cannot be accepted.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs. Postdoc-Position in der CO2-Elektrokatalyse unter realistischen Bedingungen Der Fokus der Empa Labormaterialien für Energieumwandlung liegt auf Material- und Geräteinnovationen für nachhaltige Energieumwandlungs- und Speichertechnologien. Ihre Aufgaben Das Forschungsprojekt konzentriert sich auf das Verständnis der elektrokatalytischen Umwandlung von CO2 in nachhaltige Produkte. Ihre Aufgabe umfasst:\n• Bauen und validieren Sie modulare elektrokatalytische Reaktoren und Analysemethoden für eine realistische CO2-Elektrokatalyse mit Schwerpunkt auf parallelen Untersuchungen und beschleunigter Alterung.\n• Zerlegungsprozesse von CO2-Elektroreduktionskatalysatoren, Elektroden und Ionomermembranen unter verschiedenen realen Betriebsbedingungen mit elektrochemischen und spektroskopischen Methoden.\n• Führen Sie Synchrotronkampagnen, die darauf abzielen, den Abbaumechanismus von Katalysatoren, Elektroden und Ionomermembranen mit hoher Zeitauflösung, Operando-Röntgenmessungen, zu enthüllen.\n• Entwickeln Sie Elektrodenarchitektur und Katalysator-/Elektrodenmodifikationsstrategien für eine verbesserte Haltbarkeit unter Verwendung verschiedener Fertigungsmethoden. Diese Postdoc-Stelle ist Teil eines internationalen Kooperationsprojekts mit mehreren akademischen und industriellen Partnern. Dein Profil Wir suchen einen hochmotivierten Teamplayer, der in einem kollaborativen und interdisziplinären Forschungsumfeld lebt. Der ideale Kandidat besitzt einen PhD-Abschluss in Chemie oder Chemieingenieurwesen, Materialwissenschaften, Physik oder verwandten Disziplinen. Da es sich bei diesem Projekt um eine hochmoderne Forschungsaktivität handelt, die über den aktuellen Stand der Elektrokatalyse hinausgeht, suchen wir jemanden, der kreativ, neugierig, hoch motiviert und mit hervorragenden Problemlösungs- und technischen Fähigkeiten ausgestattet ist. Vorkenntnisse in der Elektrochemie und / oder Katalyse sind ein großer Vorteil. Von dem erfolgreichen Kandidaten wird erwartet, dass er unabhängig im Labor arbeitet und gleichzeitig effektiv mit unserem multidisziplinären Team zusammenarbeitet und kommuniziert. Unser Angebot Sie treten einer dynamischen jungen internationalen Forschungsgruppe bei, die in einem brandneuen Laborgebäude auf dem Empa-Campus in Dübendorf bei der Innenstadt von Zürich arbeitet. Zusätzlich zu unseren hochmodernen Elektrokatalyseanlagen, die Katalysator- und Elektrodensynthese, parallele elektrochemische Charakterisierungen und umfassende Gas- und Flüssigkeitsanalytik umfassen, besitzt und betreibt das Labor eine große Auswahl an Instrumenten, darunter Röntgendiffraktometer, Röntgenphotoelektronenspektroskopie, Infrarot- und Raman-Spektrometer sowie Argonionenmühlen und Elektronenmikroskope. Die Position ist eng mit zwei nationalen Forschungsinitiativen verbunden, die sich auf die Synthese nachhaltiger Brennstoffe und Chemikalien konzentrieren und viele Möglichkeiten bieten, mit einem großen und hochkarätigen Netzwerk zu interagieren, das sowohl Mitglieder der Wissenschaft als auch der Industrie umfasst. Die Empa setzt sich für Diversität, Gerechtigkeit und Inklusion ein. Wir empfehlen nachdrücklich Bewerbungen von Forscherinnen und Einzelpersonen mit unterrepräsentiertem Hintergrund. Wir glauben, dass Vielfalt Innovation und wissenschaftliche Exzellenz vorantreibt. Tragen Sie mit uns zu einer bahnbrechenden Forschung im Bereich nachhaltiger Energietechnologien bei! Wir freuen uns auf Ihre Online-Bewerbung mit einem zweiseitigen Motivationsschreiben, Lebenslauf, wissenschaftlichen Aufzeichnungen, Diplomen mit Transkripten und mindestens zwei Referenzschreiben. Es werden nur vollständige Anträge berücksichtigt. Bitte laden Sie alle Dokumente über unsere Webseite hoch, Bewerbungen per E-Mail können nicht angenommen werden.",
+        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Position postdoc dans l'électrocatalyse CO2 dans des conditions réalistes Les matériaux de laboratoire pour la conversion de l'énergie sont axés sur l'innovation des matériaux et des appareils pour des technologies de conversion et de stockage durables de l'énergie. Vos tâches Le projet de recherche vise à comprendre la conversion électrocatalytique du CO2 en produits durables. Votre tâche comprendra :\n• Assembler et valider des réacteurs électrocatalytiques modulaires et des méthodes d'analyse pour l'électrocatalyse réaliste du CO2, en mettant l'accent sur les enquêtes parallèles et le vieillissement accéléré.\n• Disséquer les processus de dégradation du catalyseur d'électroréduction du CO2, des électrodes et des membranes d'ionomères dans diverses conditions d'exploitation réelles, en utilisant des méthodes électrochimiques et spectroscopiques.\n• Campagnes de synchrotrons de plomb visant à dévoiler le mécanisme de dégradation des catalyseurs, des électrodes et des membranes ionomères à haute résolution temporelle, mesures par rayons X d'opérando.\n• Développer l'architecture des électrodes et des stratégies de modification des catalyseurs/électrodes pour une durabilité accrue, en utilisant différentes méthodes de fabrication. Ce poste postdoc fait partie d'un projet de collaboration internationale impliquant plusieurs partenaires académiques et industriels. Votre profil Nous cherchons un joueur d'équipe hautement motivé qui prospère dans un environnement de recherche collaboratif et interdisciplinaire. Le candidat idéal possède un doctorat en chimie ou en génie chimique, sciences des matériaux, physique ou discipline connexe. Comme ce projet est une activité de recherche de pointe au-delà de l'état actuel de l'électrocatalyse, nous sommes à la recherche de quelqu'un de créatif, curieux, très motivé, et avec d'excellentes compétences techniques et de résolution de problèmes. L'expérience antérieure en électrochimie et/ou en catalyse est un avantage important. On s'attend à ce que le candidat reçu travaille de façon indépendante au laboratoire tout en collaborant et en communiquant efficacement avec notre équipe multidisciplinaire. Notre offre Vous rejoindrez un jeune groupe de recherche international dynamique travaillant dans un tout nouveau bâtiment de laboratoire situé sur le campus d'Empa, à Dübendorf, près du centre-ville de Zürich. En plus de nos installations d'électrocatalyse de pointe comprenant la synthèse des catalyseurs et des électrodes, les caractérisations électrochimiques parallèles et l'analyse complète des gaz et des liquides, le laboratoire possède et exploite une vaste gamme d'instruments, dont les diffractomètres à rayons X, la spectroscopie par photoélectrons à rayons X, les spectromètres infrarouges et Raman, ainsi que les argon-ions et les microscopes électroniques. La position est étroitement liée à deux initiatives nationales de recherche axées sur la synthèse de combustibles et de produits chimiques durables, offrant de nombreuses possibilités d'interagir avec un réseau de grande envergure qui comprend des membres du milieu universitaire et de l'industrie. Empa est attachée à la diversité, à l'équité et à l'inclusion. Nous encourageons vivement les candidatures de femmes chercheurs et de personnes issues de milieux sous-représentés. Nous croyons que la diversité stimule l'innovation et l'excellence scientifique. Rejoignez-nous pour contribuer à la recherche révolutionnaire sur les technologies énergétiques durables! Nous sommes impatients de recevoir votre candidature en ligne, y compris une lettre de motivation de deux pages, un CV, des documents scientifiques, des diplômes avec transcriptions et au moins deux lettres de référence. Seules les demandes complètes seront examinées. Veuillez télécharger tous les documents via notre page Web, les applications par e-mail ne peuvent pas être acceptées."
+      },
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-15T12:01:29.686Z",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "streetAddress": "Ueberlandstrasse 129",
+      "postalCode": "8600",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-24",
+      "applyUrl": "https://apply.refline.ch/673276/2181/pub/4/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2181",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+        "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
+          "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf"
+        ],
+        "de": [
+          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+        ],
+        "fr": [
+          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -112,7 +195,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.263Z",
+      "crawledAt": "2026-07-15T12:01:29.684Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -133,11 +216,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+        "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+          "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.178Z",
@@ -150,85 +235,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "empa-e0a720ff6929",
-      "slug": "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf",
-      "slugByLocale": {
-        "it": "posizione-postdoc-in-elettrocatalisi-co2-in-condizioni-realistiche-empa-dubendorf",
-        "en": "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf",
-        "de": "postdoc-position-in-der-co2-elektrokatalyse-unter-realistischen-bedingungen-empa-dubendorf",
-        "fr": "position-postdoc-dans-l-electrocatalyse-co2-dans-des-conditions-realistes-empa-dubendorf"
-      },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "Postdoc position in CO2 electrocatalysis under realistic conditions",
-      "titleByLocale": {
-        "it": "Posizione postdoc in elettrocatalisi CO2 in condizioni realistiche",
-        "en": "Postdoc position in CO2 electrocatalysis under realistic conditions",
-        "de": "Postdoc-Position in der CO2-Elektrokatalyse unter realistischen Bedingungen",
-        "fr": "Position postdoc dans l'électrocatalyse CO2 dans des conditions réalistes"
-      },
-      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc position in CO2 electrocatalysis under realistic conditions\n\nEmpa’s Laboratory Materials for Energy Conversion focuses on materials and device innovation for sustainable energy conversion and storage technologies.\n\nYour tasks\n\nThe research project focuses on understanding the electrocatalytic conversion of CO2 into sustainable products. Your task will include:\n\n• Assemble and validate modular electrocatalytic reactors and analysis methods for realistic CO2 electrocatalysis, with a focus on parallel investigations and accelerated aging.\n\n• Dissect degradation processes of CO2 electroreduction catalyst, electrodes, and ionomer membranes under diverse real-world operating conditions, using operando electrochemical and spectroscopic methods.\n\n• Lead synchrotron campaigns aiming at unveiling the degradation mechanism of catalysts, electrodes, and ionomer membranes with high time resolution, operando x-ray measurements.\n\n• Develop electrode architecture and catalyst/electrode modification strategies for enhanced durability, using different fabrication methods.\n\nThis postdoc position is part of an international collaborative project involving several academic and industrial partners.\n\nYour profile\n\nWe are looking for a highly motivated team player who thrives in a collaborative and interdisciplinary research environment. The ideal candidate possesses a PhD degree in chemistry or chemical engineering, materials science, physics, or related discipline. As this project is a cutting-edge research activity beyond the current state-of-the-art in electrocatalysis, we are looking for someone creative, curious, highly motivated, and with excellent problem-solving and technical skills. Prior experience in electrochemistry and/or catalysis is a strong advantage. The successful candidate will be expected to work independently in the lab while collaborating and communicating effectively with our multidisciplinary team.\n\nOur offer\n\nYou will join a dynamic young international research group working in a brand new laboratory building located at Empa’s campus in Dübendorf near downtown Zürich. In addition to our state-of-the-art electrocatalysis facilities encompassing catalyst and electrode synthesis, parallel electrochemical characterizations and comprehensive gas and liquid analytics, the lab owns and operates a large array of instruments including X-ray diffractometers, X-ray photoelectron spectroscopy, infrared and Raman spectrometers, and argon ion mills and electron microscopes. The position is closely connected to two national research initiatives focusing on the synthesis of sustainable fuels and chemicals providing many opportunities to interact with a large and high-profile network that includes members of both academia and industry.\n\nEmpa is committed to diversity, equity, and inclusion. We strongly encourage applications from female researchers and individuals from underrepresented backgrounds. We believe diversity drives innovation and scientific excellence. Join us in contributing to groundbreaking research in sustainable energy technologies!\n\nWe look forward to receiving your online application including a two-page motivation letter, CV, scholarly records, diplomas with transcripts, and at least two reference letters. Only complete applications will be considered. Please upload all documents through our webpage, applications via E-mail cannot be accepted.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Posizione Postdoc nell'elettrocatalisi CO2 in condizioni realistiche I materiali di laboratorio di Empa per la conversione dell’energia si concentrano sull’innovazione dei materiali e dei dispositivi per la conversione sostenibile dell’energia e le tecnologie di storage. I tuoi compiti Il progetto di ricerca si concentra sulla comprensione della conversione elettrocatalitica di CO2 in prodotti sostenibili. Il vostro compito includerà:\n• Assemblare e convalidare reattori elettrocatalitici modulari e metodi di analisi per l'elettrocatalisi CO2 realistica, con un focus sulle indagini parallele e sull'invecchiamento accelerato.\n• Processi di degrado differenziati di catalizzatore di elettroriduzione CO2, elettrodi e membrane ionomeri in diverse condizioni operative del mondo reale, utilizzando metodi elettrochimici e spettroscopici operando.\n• Piombo campagne di sincrotrone che mirano a svelare il meccanismo di degrado di catalizzatori, elettrodi e membrane ionomeri con alta risoluzione di tempo, operando misurazioni a raggi x.\n• Sviluppare l'architettura degli elettrodi e le strategie di modifica del catalizzatore/elettrodo per una maggiore durata, utilizzando diversi metodi di fabbricazione. Questa posizione postdoc fa parte di un progetto collaborativo internazionale che coinvolge diversi partner accademici e industriali. Il tuo profilo Siamo alla ricerca di un team player altamente motivato che prospera in un ambiente di ricerca collaborativo e interdisciplinare. Il candidato ideale possiede una laurea in chimica o ingegneria chimica, scienza dei materiali, fisica o disciplina relativa. Poiché questo progetto è un'attività di ricerca all'avanguardia al di là dell'attuale stato dell'arte nell'elettrocatalisi, stiamo cercando qualcuno creativo, curioso, altamente motivato, e con eccellenti capacità di problem solving e tecniche. L'esperienza precedente in elettrochimica e/o catalisi è un forte vantaggio. Il candidato di successo lavorerà in modo indipendente in laboratorio, collaborando e comunicando efficacemente con il nostro team multidisciplinare. La nostra offerta Vi unirete a un dinamico gruppo di ricerca internazionale che lavora in un nuovo edificio di laboratorio situato nel campus di Empa a Dübendorf vicino al centro di Zurigo. Oltre ai nostri impianti di elettrocatalisi all'avanguardia che comprendono catalizzatore e sintesi elettrodi, caratterizzazioni elettrochimiche parallele e analisi complete del gas e del liquido, il laboratorio possiede e gestisce una vasta gamma di strumenti tra cui diffrattometri a raggi X, spettroscopia a raggi X, spettrometri a raggi infrarossi e Raman, mulini a ioni argon e microscopi elettroni. La posizione è strettamente collegata a due iniziative nazionali di ricerca che si concentrano sulla sintesi di combustibili sostenibili e prodotti chimici che offrono molte opportunità di interagire con una rete di grandi e di alto profilo che comprende membri sia dell'accademia che dell'industria. Empa si impegna per la diversità, l'equità e l'inclusione. Noi incoraggiamo fortemente le applicazioni da ricercatori e individui di sesso femminile da backgrounds sottorappresentati. Crediamo che la diversità spinga l'innovazione e l'eccellenza scientifica. Unisciti a noi per contribuire alla ricerca innovativa nelle tecnologie energetiche sostenibili! Non vediamo l'ora di ricevere la vostra domanda online, tra cui una lettera di motivazione di due pagine, CV, record accademici, diplomi con trascrizioni, e almeno due lettere di riferimento. Saranno considerate solo le applicazioni complete. Si prega di caricare tutti i documenti attraverso la nostra pagina web, le applicazioni via E-mail non possono essere accettate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc position in CO2 electrocatalysis under realistic conditions\n\nEmpa’s Laboratory Materials for Energy Conversion focuses on materials and device innovation for sustainable energy conversion and storage technologies.\n\nYour tasks\n\nThe research project focuses on understanding the electrocatalytic conversion of CO2 into sustainable products. Your task will include:\n\n• Assemble and validate modular electrocatalytic reactors and analysis methods for realistic CO2 electrocatalysis, with a focus on parallel investigations and accelerated aging.\n\n• Dissect degradation processes of CO2 electroreduction catalyst, electrodes, and ionomer membranes under diverse real-world operating conditions, using operando electrochemical and spectroscopic methods.\n\n• Lead synchrotron campaigns aiming at unveiling the degradation mechanism of catalysts, electrodes, and ionomer membranes with high time resolution, operando x-ray measurements.\n\n• Develop electrode architecture and catalyst/electrode modification strategies for enhanced durability, using different fabrication methods.\n\nThis postdoc position is part of an international collaborative project involving several academic and industrial partners.\n\nYour profile\n\nWe are looking for a highly motivated team player who thrives in a collaborative and interdisciplinary research environment. The ideal candidate possesses a PhD degree in chemistry or chemical engineering, materials science, physics, or related discipline. As this project is a cutting-edge research activity beyond the current state-of-the-art in electrocatalysis, we are looking for someone creative, curious, highly motivated, and with excellent problem-solving and technical skills. Prior experience in electrochemistry and/or catalysis is a strong advantage. The successful candidate will be expected to work independently in the lab while collaborating and communicating effectively with our multidisciplinary team.\n\nOur offer\n\nYou will join a dynamic young international research group working in a brand new laboratory building located at Empa’s campus in Dübendorf near downtown Zürich. In addition to our state-of-the-art electrocatalysis facilities encompassing catalyst and electrode synthesis, parallel electrochemical characterizations and comprehensive gas and liquid analytics, the lab owns and operates a large array of instruments including X-ray diffractometers, X-ray photoelectron spectroscopy, infrared and Raman spectrometers, and argon ion mills and electron microscopes. The position is closely connected to two national research initiatives focusing on the synthesis of sustainable fuels and chemicals providing many opportunities to interact with a large and high-profile network that includes members of both academia and industry.\n\nEmpa is committed to diversity, equity, and inclusion. We strongly encourage applications from female researchers and individuals from underrepresented backgrounds. We believe diversity drives innovation and scientific excellence. Join us in contributing to groundbreaking research in sustainable energy technologies!\n\nWe look forward to receiving your online application including a two-page motivation letter, CV, scholarly records, diplomas with transcripts, and at least two reference letters. Only complete applications will be considered. Please upload all documents through our webpage, applications via E-mail cannot be accepted.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs. Postdoc-Position in der CO2-Elektrokatalyse unter realistischen Bedingungen Der Fokus der Empa Labormaterialien für Energieumwandlung liegt auf Material- und Geräteinnovationen für nachhaltige Energieumwandlungs- und Speichertechnologien. Ihre Aufgaben Das Forschungsprojekt konzentriert sich auf das Verständnis der elektrokatalytischen Umwandlung von CO2 in nachhaltige Produkte. Ihre Aufgabe umfasst:\n• Bauen und validieren Sie modulare elektrokatalytische Reaktoren und Analysemethoden für eine realistische CO2-Elektrokatalyse mit Schwerpunkt auf parallelen Untersuchungen und beschleunigter Alterung.\n• Zerlegungsprozesse von CO2-Elektroreduktionskatalysatoren, Elektroden und Ionomermembranen unter verschiedenen realen Betriebsbedingungen mit elektrochemischen und spektroskopischen Methoden.\n• Führen Sie Synchrotronkampagnen, die darauf abzielen, den Abbaumechanismus von Katalysatoren, Elektroden und Ionomermembranen mit hoher Zeitauflösung, Operando-Röntgenmessungen, zu enthüllen.\n• Entwickeln Sie Elektrodenarchitektur und Katalysator-/Elektrodenmodifikationsstrategien für eine verbesserte Haltbarkeit unter Verwendung verschiedener Fertigungsmethoden. Diese Postdoc-Stelle ist Teil eines internationalen Kooperationsprojekts mit mehreren akademischen und industriellen Partnern. Dein Profil Wir suchen einen hochmotivierten Teamplayer, der in einem kollaborativen und interdisziplinären Forschungsumfeld lebt. Der ideale Kandidat besitzt einen PhD-Abschluss in Chemie oder Chemieingenieurwesen, Materialwissenschaften, Physik oder verwandten Disziplinen. Da es sich bei diesem Projekt um eine hochmoderne Forschungsaktivität handelt, die über den aktuellen Stand der Elektrokatalyse hinausgeht, suchen wir jemanden, der kreativ, neugierig, hoch motiviert und mit hervorragenden Problemlösungs- und technischen Fähigkeiten ausgestattet ist. Vorkenntnisse in der Elektrochemie und / oder Katalyse sind ein großer Vorteil. Von dem erfolgreichen Kandidaten wird erwartet, dass er unabhängig im Labor arbeitet und gleichzeitig effektiv mit unserem multidisziplinären Team zusammenarbeitet und kommuniziert. Unser Angebot Sie treten einer dynamischen jungen internationalen Forschungsgruppe bei, die in einem brandneuen Laborgebäude auf dem Empa-Campus in Dübendorf bei der Innenstadt von Zürich arbeitet. Zusätzlich zu unseren hochmodernen Elektrokatalyseanlagen, die Katalysator- und Elektrodensynthese, parallele elektrochemische Charakterisierungen und umfassende Gas- und Flüssigkeitsanalytik umfassen, besitzt und betreibt das Labor eine große Auswahl an Instrumenten, darunter Röntgendiffraktometer, Röntgenphotoelektronenspektroskopie, Infrarot- und Raman-Spektrometer sowie Argonionenmühlen und Elektronenmikroskope. Die Position ist eng mit zwei nationalen Forschungsinitiativen verbunden, die sich auf die Synthese nachhaltiger Brennstoffe und Chemikalien konzentrieren und viele Möglichkeiten bieten, mit einem großen und hochkarätigen Netzwerk zu interagieren, das sowohl Mitglieder der Wissenschaft als auch der Industrie umfasst. Die Empa setzt sich für Diversität, Gerechtigkeit und Inklusion ein. Wir empfehlen nachdrücklich Bewerbungen von Forscherinnen und Einzelpersonen mit unterrepräsentiertem Hintergrund. Wir glauben, dass Vielfalt Innovation und wissenschaftliche Exzellenz vorantreibt. Tragen Sie mit uns zu einer bahnbrechenden Forschung im Bereich nachhaltiger Energietechnologien bei! Wir freuen uns auf Ihre Online-Bewerbung mit einem zweiseitigen Motivationsschreiben, Lebenslauf, wissenschaftlichen Aufzeichnungen, Diplomen mit Transkripten und mindestens zwei Referenzschreiben. Es werden nur vollständige Anträge berücksichtigt. Bitte laden Sie alle Dokumente über unsere Webseite hoch, Bewerbungen per E-Mail können nicht angenommen werden.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Position postdoc dans l'électrocatalyse CO2 dans des conditions réalistes Les matériaux de laboratoire pour la conversion de l'énergie sont axés sur l'innovation des matériaux et des appareils pour des technologies de conversion et de stockage durables de l'énergie. Vos tâches Le projet de recherche vise à comprendre la conversion électrocatalytique du CO2 en produits durables. Votre tâche comprendra :\n• Assembler et valider des réacteurs électrocatalytiques modulaires et des méthodes d'analyse pour l'électrocatalyse réaliste du CO2, en mettant l'accent sur les enquêtes parallèles et le vieillissement accéléré.\n• Disséquer les processus de dégradation du catalyseur d'électroréduction du CO2, des électrodes et des membranes d'ionomères dans diverses conditions d'exploitation réelles, en utilisant des méthodes électrochimiques et spectroscopiques.\n• Campagnes de synchrotrons de plomb visant à dévoiler le mécanisme de dégradation des catalyseurs, des électrodes et des membranes ionomères à haute résolution temporelle, mesures par rayons X d'opérando.\n• Développer l'architecture des électrodes et des stratégies de modification des catalyseurs/électrodes pour une durabilité accrue, en utilisant différentes méthodes de fabrication. Ce poste postdoc fait partie d'un projet de collaboration internationale impliquant plusieurs partenaires académiques et industriels. Votre profil Nous cherchons un joueur d'équipe hautement motivé qui prospère dans un environnement de recherche collaboratif et interdisciplinaire. Le candidat idéal possède un doctorat en chimie ou en génie chimique, sciences des matériaux, physique ou discipline connexe. Comme ce projet est une activité de recherche de pointe au-delà de l'état actuel de l'électrocatalyse, nous sommes à la recherche de quelqu'un de créatif, curieux, très motivé, et avec d'excellentes compétences techniques et de résolution de problèmes. L'expérience antérieure en électrochimie et/ou en catalyse est un avantage important. On s'attend à ce que le candidat reçu travaille de façon indépendante au laboratoire tout en collaborant et en communiquant efficacement avec notre équipe multidisciplinaire. Notre offre Vous rejoindrez un jeune groupe de recherche international dynamique travaillant dans un tout nouveau bâtiment de laboratoire situé sur le campus d'Empa, à Dübendorf, près du centre-ville de Zürich. En plus de nos installations d'électrocatalyse de pointe comprenant la synthèse des catalyseurs et des électrodes, les caractérisations électrochimiques parallèles et l'analyse complète des gaz et des liquides, le laboratoire possède et exploite une vaste gamme d'instruments, dont les diffractomètres à rayons X, la spectroscopie par photoélectrons à rayons X, les spectromètres infrarouges et Raman, ainsi que les argon-ions et les microscopes électroniques. La position est étroitement liée à deux initiatives nationales de recherche axées sur la synthèse de combustibles et de produits chimiques durables, offrant de nombreuses possibilités d'interagir avec un réseau de grande envergure qui comprend des membres du milieu universitaire et de l'industrie. Empa est attachée à la diversité, à l'équité et à l'inclusion. Nous encourageons vivement les candidatures de femmes chercheurs et de personnes issues de milieux sous-représentés. Nous croyons que la diversité stimule l'innovation et l'excellence scientifique. Rejoignez-nous pour contribuer à la recherche révolutionnaire sur les technologies énergétiques durables! Nous sommes impatients de recevoir votre candidature en ligne, y compris une lettre de motivation de deux pages, un CV, des documents scientifiques, des diplômes avec transcriptions et au moins deux lettres de référence. Seules les demandes complètes seront examinées. Veuillez télécharger tous les documents via notre page Web, les applications par e-mail ne peuvent pas être acceptées."
-      },
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.263Z",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 129",
-      "postalCode": "8600",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "applyUrl": "https://apply.refline.ch/673276/2181/pub/4/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2181",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
-        ],
-        "de": [
-          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
-        ],
-        "fr": [
-          "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -264,7 +270,7 @@
       "url": "https://apply.refline.ch/673276/2201/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.262Z",
+      "crawledAt": "2026-07-15T12:01:29.683Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -285,11 +291,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
+        "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
+        "apprendista-konstrukteur-in-cfc-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
+          "lernende-r-konstrukteur-in-efz-a-empa-dubendorf",
+          "apprendista-konstrukteur-in-cfc-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-konstrukteur-in-efz-a-empa-dubendorf"
@@ -343,7 +351,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.261Z",
+      "crawledAt": "2026-07-15T12:01:29.682Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -364,11 +372,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.174Z",
@@ -416,7 +426,7 @@
       "url": "https://apply.refline.ch/673276/2193/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.260Z",
+      "crawledAt": "2026-07-15T12:01:29.681Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -437,11 +447,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+        "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+        "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf"
+          "lernende-r-laborant-in-fachrichtung-chemie-a-empa-dubendorf",
+          "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.173Z",
@@ -489,7 +501,7 @@
       "url": "https://apply.refline.ch/673276/2194/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.258Z",
+      "crawledAt": "2026-07-15T12:01:29.680Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -521,7 +533,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-9ba3f17d58f2",
@@ -554,7 +567,7 @@
       "url": "https://apply.refline.ch/673276/2195/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.257Z",
+      "crawledAt": "2026-07-15T12:01:29.678Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -619,7 +632,7 @@
       "url": "https://apply.refline.ch/673276/2203/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.256Z",
+      "crawledAt": "2026-07-15T12:01:29.676Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -640,11 +653,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
+        "lernende-r-physiklaborant-in-efz-a-empa-st-gallen",
+        "apprendista-physiklaborant-in-cfc-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
+          "lernende-r-physiklaborant-in-efz-a-empa-st-gallen",
+          "apprendista-physiklaborant-in-cfc-a-empa-st-gallen"
         ],
         "en": [
           "lernende-r-physiklaborant-in-efz-a-empa-st-gallen"
@@ -698,7 +713,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.254Z",
+      "crawledAt": "2026-07-15T12:01:29.674Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -719,11 +734,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-polymechaniker-in-a-empa-dubendorf"
+        "lernende-r-polymechaniker-in-a-empa-dubendorf",
+        "apprendista-polymechaniker-in-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-polymechaniker-in-a-empa-dubendorf"
+          "lernende-r-polymechaniker-in-a-empa-dubendorf",
+          "apprendista-polymechaniker-in-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-polymechaniker-in-a-empa-dubendorf"
@@ -763,7 +780,7 @@
         "it": "Postdoc in fisica applicata dei laser",
         "en": "Postdoc in applied laser physics",
         "de": "Postdoc in Angewandter Laserphysik",
-        "fr": "Postdoc en physique laser appliquée"
+        "fr": "Postdoc in applied laser physics"
       },
       "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc in applied laser physics\n\nThe Laboratory of Advanced Materials Processing (LAMP) is a multidisciplinary research unit that develops innovative functional modification of materials by beam (e.g. laser light, electrons) and plasma induced processing. LAMP provides full cycle technology development, starting from novel materials, deep understanding of the background physics of beam-matter interactions, development of automated AI/ML systems for novel materials processing and quality insurance. The lab combines additive manufacturing, large scale laser micro-processing, multiscale modelling and AI/ML for the quality monitoring/control, at the end offering to the society novel nanostructured materials, their shape-forming and integration into devices.\n\nYour tasks\n\n• Operation of different laser platforms\n\n• Conceptualization and setup of optical systems\n\n• Hardware synchronization and data acquisition\n\n• Conduction of experimental campaigns, evaluation of results and reporting\n\nYour profile\n\n• PhD degree in Physics/Photonics/Engineering or equivalent\n\n• Experience: Laser applications (measuring, processing, etc.), optical system design, assembly and usage\n\n• Skills: Hands-on experimental mindset, strong understanding of laser and optical physics, strong problem-solving and troubleshooting skills, experience with data analysis and experimental optimization\n\n• English, French and German as a plus\n\nOur offer\n\nEmpa offers a dynamic and inspiring research environment at its Thun campus, located near Bern. You will work on a scientifically and technologically cutting-edge topic of high relevance and novelty, with direct access to state-of-the-art research infrastructure and equipment. As part of an experienced and multidisciplinary project team with strong national and international collaborations, you will receive full support in advancing the current project as well as in shaping and realizing your own scientific ideas within the lab's research activities. You will be encouraged and supported in producing high-impact results, publishing in leading international peer-reviewed journals, and pursuing your personal and professional development. The position is available with a starting date in September 2026 and a duration of one year with the possibility of extension.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
       "descriptionByLocale": {
@@ -777,7 +794,7 @@
       "url": "https://apply.refline.ch/673276/2208/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.253Z",
+      "crawledAt": "2026-07-15T12:01:29.673Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -798,11 +815,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoc-in-applied-laser-physics-empa-thun"
+        "postdoc-in-applied-laser-physics-empa-thun",
+        "postdoc-in-fisica-applicata-dei-laser-empa-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-in-applied-laser-physics-empa-thun"
+          "postdoc-in-applied-laser-physics-empa-thun",
+          "postdoc-in-fisica-applicata-dei-laser-empa-thun"
         ],
         "de": [
           "postdoc-in-applied-laser-physics-empa-thun"
@@ -812,6 +831,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.165Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -856,7 +876,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.252Z",
+      "crawledAt": "2026-07-15T12:01:29.672Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -888,7 +908,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-3f0d824112e5",
@@ -921,7 +942,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.251Z",
+      "crawledAt": "2026-07-15T12:01:29.670Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -943,11 +964,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf",
-        "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
+        "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf",
+        "posizione-post-doc-in-istopatologia-a-raggi-x-3d-dei-tumori-colorettali-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf"
+          "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf",
+          "posizione-post-doc-in-istopatologia-a-raggi-x-3d-dei-tumori-colorettali-empa-dubendorf"
         ],
         "de": [
           "postdoc-position-in-3d-x-ray-histopathology-of-colorectal-tumors-empa-dubendorf"
@@ -1002,7 +1025,7 @@
       "url": "https://apply.refline.ch/673276/2210/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.249Z",
+      "crawledAt": "2026-07-15T12:01:29.669Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1023,11 +1046,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scientist-postdoc-position-to-work-on-the-integration-of-ccus-processes-to-energy-system"
+        "scientist-postdoc-position-to-work-on-the-integration-of-ccus-processes-to-energy-system",
+        "posizione-di-scienziato-postdoc-per-lavorare-sull-integrazione-dei-processi-ccus-nei-modelli-dei-sistemi-energetici-empa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "scientist-postdoc-position-to-work-on-the-integration-of-ccus-processes-to-energy-system"
+          "scientist-postdoc-position-to-work-on-the-integration-of-ccus-processes-to-energy-system",
+          "posizione-di-scienziato-postdoc-per-lavorare-sull-integrazione-dei-processi-ccus-nei-modelli-dei-sistemi-energetici-empa"
         ],
         "de": [
           "scientist-postdoc-position-to-work-on-the-integration-of-ccus-processes-to-energy-system"
@@ -1081,7 +1106,7 @@
       "url": "https://apply.refline.ch/673276/2213/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.247Z",
+      "crawledAt": "2026-07-15T12:01:29.667Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1160,7 +1185,7 @@
       "url": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:47:58.246Z",
+      "crawledAt": "2026-07-15T12:01:29.665Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1182,11 +1207,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "phd-position-on-all-solid-state-batteries-empa-dubendorf",
-        "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf"
+        "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf",
+        "posizione-di-dottorato-su-batterie-interamente-a-stato-solido-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-on-all-solid-state-batteries-empa-dubendorf"
+          "phd-position-on-all-solid-state-batteries-empa-dubendorf",
+          "posizione-di-dottorato-su-batterie-interamente-a-stato-solido-empa-dubendorf"
         ],
         "fr": [
           "phd-position-on-all-solid-state-batteries-empa-dubendorf",
@@ -1214,7 +1241,7 @@
         "it": "apprendista-physiklaborant-in-a-empa-thun-fb5508",
         "en": "apprentice-physiklaborant-in-a-empa-thun-fb5508",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
-        "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
+        "fr": "lernende-r-physiklaborant-in-a-empa-thun"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1224,7 +1251,7 @@
         "it": "Apprendista Physiklaborant/in (a)",
         "en": "Apprentice Physiklaborant/in (a)",
         "de": "Lernende/r Physiklaborant/in (a)",
-        "fr": "Laboratoire d'apprentissage/de physique (a)"
+        "fr": "Lernende/r Physiklaborant/in (a)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Physiklaborant/in (a)\n\nFür August 2027 bieten wir in der Abteilung Werkstoff- und Nanomechanik in Thun einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas erwartet dich\n\nAn einem ETH Forschungsinstitut tätig zu sein, bringt viel Abwechslung in den Berufsalltag. Wenn du Interesse an Physik, Elektronik, Technik und Werkstoffen hast, garantieren wir dir spannende Aufgaben in einem internationalen Umfeld der Forschung. Zudem liebst du das Tüfteln und Werken.\n\nWas bringst du mit\n\n• Sekundarschule A mit sehr guten Leistungen in den naturwissenschaftlichen, mathematischen und sprachlichen Fächern - Englisch ist bei uns Alltagssprache\n\n• Theoretisches und praktisches Interesse für Physik, Chemie, Werkstoffe, Elektronik sowie Informatik und an technischen Systemen\n\n• Abstraktes Denken und methodisches Vorgehen, technisches Verständnis und manuelle Geschicklichkeit\n\n• Gute Beobachtungs- und Auffassungsgabe, Sorgfalt, verantwortungsvolles und zuverlässiges Arbeiten\n\n• Freude an einer hoch technisierten und komplexen Arbeitsumgebung\n\n• Hohe Kompetenzen in der Kommunikation und Zusammenarbeit mit Menschen\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n\nWas wir dir bieten\n\n• Du untersuchst die physikalische und chemische Integrität von metallischen Werkstoffen und ihren Bauteilen, wie sie z.B. in Gebäuden, Brücken, Tunnels, Produktionsanlagen, im Maschinenbau sowie der Energie-, Bahn- und Medizinaltechnik angewendet werden\n\n• Du ermittelst Werkstoffkennwerte mittels modernster analytischer Methoden und führst physikalische Messungen und Versuchsreihen mit Werkstoffen und Systemen durch\n\n• Du tüftelst an Versuchsanlagen, bereitest Versuche vor, führst sie durch und dokumentierst sie anschliessend\n\n• Du besuchst die Berufsschule in Zürich. Der Besuch der BMS wird unterstützt.\n Wir bieten eine spannende und vielseitige Grundausbildung Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
@@ -1238,7 +1265,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.245Z",
+      "crawledAt": "2026-07-15T12:01:29.664Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1260,21 +1287,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-physiklaborant-in-a-empa-thun",
-        "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508"
+        "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
+        "laboratoire-d-apprentissage-de-physique-a-empa-thun",
+        "apprendista-physiklaborant-in-a-empa-thun-fb5508"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-physiklaborant-in-a-empa-thun"
+          "lernende-r-physiklaborant-in-a-empa-thun",
+          "apprendista-physiklaborant-in-a-empa-thun-fb5508"
         ],
         "en": [
           "lernende-r-physiklaborant-in-a-empa-thun"
         ],
         "fr": [
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
+          "laboratoire-d-apprentissage-de-physique-a-empa-thun",
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1319,7 +1351,7 @@
       "url": "https://apply.refline.ch/673276/2214/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.243Z",
+      "crawledAt": "2026-07-15T12:01:29.662Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1340,6 +1372,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-07T22:14:30.855Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1384,7 +1417,7 @@
       "url": "https://apply.refline.ch/673276/2215/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.241Z",
+      "crawledAt": "2026-07-15T12:01:29.660Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1449,7 +1482,7 @@
       "url": "https://apply.refline.ch/673276/2216/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:47:58.237Z",
+      "crawledAt": "2026-07-15T12:01:29.657Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1470,11 +1503,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-business-development-80-100-a-empa-dubendorf"
+        "leiter-in-business-development-80-100-a-empa-dubendorf",
+        "responsabile-business-development-80-100-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-business-development-80-100-a-empa-dubendorf"
+          "leiter-in-business-development-80-100-a-empa-dubendorf",
+          "responsabile-business-development-80-100-a-empa-dubendorf"
         ],
         "fr": [
           "leiter-in-business-development-80-100-a-empa-dubendorf"
@@ -1493,86 +1528,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "empa-e1578476c1a2",
-      "slug": "postdoc-in-biologia-computazionale-studio-della-comunicazione-incrociata-tra-il-tumore-e-il-sistema-immunitario-nel",
-      "slugByLocale": {
-        "it": "postdoc-in-biologia-computazionale-studio-della-comunicazione-incrociata-tra-il-tumore-e-il-sistema-immunitario-nel",
-        "en": "postdoc-in-computational-biology-study-of-the-crosstalk-between-the-tumor-and-immune",
-        "de": "postdoc-in-computational-biology-studie-des-crosstalks-zwischen-tumor-und-immunsystem-bei-metastasierendem-darmkrebs",
-        "fr": "postdoc-en-biologie-computationnelle-etude-du-crosstalk-entre-la-tumeur-et-le-systeme-immunitaire-dans-le-cancer"
-      },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "PostDoc in Computational Biology: Study of the crosstalk between the tumor and immune system in metastatic colorectal cancer",
-      "titleByLocale": {
-        "it": "PostDoc in Biologia Computazionale: Studio della comunicazione incrociata tra il tumore e il sistema immunitario nel cancro colorettale metastatico",
-        "en": "PostDoc in Computational Biology: Study of the crosstalk between the tumor and immune system in metastatic colorectal cancer",
-        "de": "PostDoc in Computational Biology: Studie des Crosstalks zwischen Tumor und Immunsystem bei metastasierendem Darmkrebs",
-        "fr": "PostDoc en biologie computationnelle: étude du crosstalk entre la tumeur et le système immunitaire dans le cancer colorectal métastatique"
-      },
-      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostDoc in Computational Biology: Study of the crosstalk between the tumor and immune system in metastatic colorectal cancer\n\nThe group Multi-omics for Healthcare materials at Empa St. Gallen generates and integrates multi-modal biomedical datasets with the aim to inform development of new sensors, support nanoparticle-based cellular reprogramming strategies and identify new omics-based biomarkers. We work closely with clinical partners and we focus on deep understanding of molecular mechanisms of disease development.\n\nYour tasks\n\nWe are looking for a highly motivated candidate with genuine interest in biomedicine and a strong proficiency in data analysis. In this project, we study how tumor-intrinsic genetic alterations and spatially organized microenvironmental niches jointly shape metastatic progression and therapy response in colorectal cancer. The project is strongly oriented towards clinical applications and identification of new therapeutic avenues.\n The key responsibilities include:\n\n• Working closely with interdisciplinary project partners\n\n• Integrating newly generated datasets with multi-omics profiles of tumors from previous studies\n\n• Developing new machine learning models through collaboration with the Swiss Data Science Centre\n\n• Establishing data analysis pipelines, writing manuscripts and presenting at scientific conferences\n\nYour profile\n\nRequired qualifications include a PhD degree in computational biology or a related field. We are looking for a research-driven and results-oriented team player. Ideal profile includes following competencies and experience:\n• Strong programming skills, deep statistical knowledge and a proven track record with machine learning\n\n• Solid knowledge of tumor biology, signaling pathways and the tumor microenvironment\n\n• Strong publication record\n\n• Fluency in English and excellent communication and writing skills\n\n• Experience in the analysis of single-cell and spatial transcriptomics datasets is desirable\n\nOur offer\n\nThis project was funded by the Swiss National Science Foundation and it allows close collaboration with the team of leading experts in the field as well as access to rich datasets generated on valuable clinical samples. The postoctoral fellow will be located in St. Gallen at the Swiss Federal Laboratories for Materials Science and Technologies (Empa) with often visits to collaborators in Zurich. The fellow will also be affiliated with the Swiss Institute of Bioinformatics.\n We offer outstanding conditions for excelling in the field of computational biology and translational biomedical research. Empa offers excellent infrastructure, support with high performance computing, international and interdisciplinary environment and highly competitive salaries. The position is available upon agreement with a planned duration of two to four years.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. PostDoc in Biologia Computazionale: Studio del crosstalk tra il tumore e il sistema immunitario nel cancro del colorettale metastatico Il gruppo Multi-omics per i materiali sanitari di Empa St. Gallen genera e integra i dataset biomedici multimodali con l'obiettivo di informare lo sviluppo di nuovi sensori, sostenere le strategie di riprogrammazione cellulare nanoparticella e identificare nuovi biomarcatori basati sull'omica. Lavoriamo a stretto contatto con i partner clinici e ci concentriamo sulla profonda comprensione dei meccanismi molecolari di sviluppo delle malattie. I tuoi compiti Siamo alla ricerca di un candidato altamente motivato con autentico interesse per la biomedicina e una forte competenza nell'analisi dei dati. In questo progetto, studiamo come alterazioni genetiche tumorali-intrinsiche e nicchie microambientali organizzate nello spazio formano insieme progressione metastatica e risposta terapeutica nel cancro del colon-retto. Il progetto è fortemente orientato verso applicazioni cliniche e l'identificazione di nuove vie terapeutiche. Le responsabilità chiave includono:\n• Lavorare a stretto contatto con partner di progetto interdisciplinari\n• Integrazione di nuovi dataset generati con profili multi-omici di tumori da studi precedenti\n• Sviluppare nuovi modelli di apprendimento automatico attraverso la collaborazione con il Centro svizzero per la scienza dei dati\n• Creazione di condotte di analisi dei dati, scrittura di manoscritti e presentazione a conferenze scientifiche Il tuo profilo Le qualifiche richieste includono un dottorato in biologia computazionale o un campo correlato. Stiamo cercando un giocatore di squadra orientato alla ricerca e ai risultati. Il profilo ideale comprende le seguenti competenze ed esperienza:\n• Forte capacità di programmazione, profonda conoscenza statistica e un comprovato record di traccia con l'apprendimento automatico\n• Conoscenza solida della biologia tumorale, dei percorsi di segnalazione e del microambiente tumorale\n• Forte record di pubblicazione\n• Fluency in inglese e ottime capacità di comunicazione e scrittura\n• L'esperienza nell'analisi dei set di dati transcriptomics monocellulari e spaziali è auspicabile La nostra offerta Questo progetto è stato finanziato dalla Swiss National Science Foundation e consente una stretta collaborazione con il team di esperti leader nel settore e l'accesso a ricchi set di dati generati su preziosi campioni clinici. Il compagno postottario sarà situato a St. Gallen presso i Laboratori federali svizzeri per la scienza e le tecnologie dei materiali (Empa) con spesso visite a collaboratori a Zurigo. Il compagno sarà anche affiliato all'Istituto svizzero di bioinformatica. Offriamo condizioni eccezionali per l'escelling nel campo della biologia computazionale e della ricerca biomedica traduttiva. Empa offre eccellenti infrastrutture, supporto con calcolo ad alte prestazioni, ambiente internazionale e interdisciplinare e stipendi altamente competitivi. La posizione è disponibile su accordo con una durata prevista di due o quattro anni. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che sono interessate a attività innovative, sostenibili e significative - questo è ciò che conta. Non vediamo l'ora di ricevere la tua candidatura online completa, tra cui una lettera di motivazione, CV, certificati, diplomi e dettagli di contatto di due persone di riferimento. Si prega di inviare questi esclusivamente tramite il nostro portale di lavoro. Le domande per e-mail e per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostDoc in Computational Biology: Study of the crosstalk between the tumor and immune system in metastatic colorectal cancer\n\nThe group Multi-omics for Healthcare materials at Empa St. Gallen generates and integrates multi-modal biomedical datasets with the aim to inform development of new sensors, support nanoparticle-based cellular reprogramming strategies and identify new omics-based biomarkers. We work closely with clinical partners and we focus on deep understanding of molecular mechanisms of disease development.\n\nYour tasks\n\nWe are looking for a highly motivated candidate with genuine interest in biomedicine and a strong proficiency in data analysis. In this project, we study how tumor-intrinsic genetic alterations and spatially organized microenvironmental niches jointly shape metastatic progression and therapy response in colorectal cancer. The project is strongly oriented towards clinical applications and identification of new therapeutic avenues.\nThe key responsibilities include:\n\n• Working closely with interdisciplinary project partners\n\n• Integrating newly generated datasets with multi-omics profiles of tumors from previous studies\n\n• Developing new machine learning models through collaboration with the Swiss Data Science Centre\n\n• Establishing data analysis pipelines, writing manuscripts and presenting at scientific conferences\n\nYour profile\n\nRequired qualifications include a PhD degree in computational biology or a related field. We are looking for a research-driven and results-oriented team player. Ideal profile includes following competencies and experience:\n• Strong programming skills, deep statistical knowledge and a proven track record with machine learning\n\n• Solid knowledge of tumor biology, signaling pathways and the tumor microenvironment\n\n• Strong publication record\n\n• Fluency in English and excellent communication and writing skills\n\n• Experience in the analysis of single-cell and spatial transcriptomics datasets is desirable\n\nOur offer\n\nThis project was funded by the Swiss National Science Foundation and it allows close collaboration with the team of leading experts in the field as well as access to rich datasets generated on valuable clinical samples. The postoctoral fellow will be located in St. Gallen at the Swiss Federal Laboratories for Materials Science and Technologies (Empa) with often visits to collaborators in Zurich. The fellow will also be affiliated with the Swiss Institute of Bioinformatics.\nWe offer outstanding conditions for excelling in the field of computational biology and translational biomedical research. Empa offers excellent infrastructure, support with high performance computing, international and interdisciplinary environment and highly competitive salaries. The position is available upon agreement with a planned duration of two to four years.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs. PostDoc in Computational Biology: Studie des Crosstalks zwischen Tumor und Immunsystem bei metastasierendem Darmkrebs Die Gruppe Multi-omics for Healthcare materials an der Empa St. Gallen generiert und integriert multimodale biomedizinische Datensätze mit dem Ziel, die Entwicklung neuer Sensoren zu informieren, nanopartikelbasierte zelluläre Reprogrammierungsstrategien zu unterstützen und neue Omik-basierte Biomarker zu identifizieren. Wir arbeiten eng mit klinischen Partnern zusammen und konzentrieren uns auf ein tiefes Verständnis der molekularen Mechanismen der Krankheitsentwicklung. Ihre Aufgaben Wir suchen einen hochmotivierten Kandidaten mit echtem Interesse an Biomedizin und einer starken Kompetenz in der Datenanalyse. In diesem Projekt untersuchen wir, wie tumor-intrinsische genetische Veränderungen und räumlich organisierte Mikroumgebungsnischen gemeinsam metastasierende Progression und Therapiereaktion bei Darmkrebs formen. Das Projekt ist stark auf klinische Anwendungen und die Identifizierung neuer therapeutischer Wege ausgerichtet. Zu den wichtigsten Aufgaben gehören:\n• Enge Zusammenarbeit mit interdisziplinären Projektpartnern\n• Integration neu generierter Datensätze mit Multi-Omics-Profilen von Tumoren aus früheren Studien\n• Entwicklung neuer Machine-Learning-Modelle durch Zusammenarbeit mit dem Swiss Data Science Centre\n• Erstellung von Datenanalyse-Pipelines, Verfassen von Manuskripten und Präsentieren auf wissenschaftlichen Konferenzen Dein Profil Erforderliche Qualifikationen umfassen einen PhD-Abschluss in Computerbiologie oder einem verwandten Bereich. Wir suchen einen forschungsorientierten und ergebnisorientierten Teamplayer. Ideales Profil umfasst folgende Kompetenzen und Erfahrungen:\n• Starke Programmierkenntnisse, fundierte statistische Kenntnisse und eine nachgewiesene Erfolgsbilanz mit maschinellem Lernen\n• Solides Wissen über Tumorbiologie, Signalwege und die Tumormikroumgebung\n• Starker Publikationsrekord\n• Englisch fließend und ausgezeichnete Kommunikations- und Schreibfähigkeiten\n• Erfahrung in der Analyse von Einzelzell- und räumlichen Transkriptomik-Datensätzen ist wünschenswert Unser Angebot Dieses Projekt wurde vom Schweizerischen Nationalfonds finanziert und ermöglicht eine enge Zusammenarbeit mit dem Team führender Experten auf diesem Gebiet sowie den Zugang zu reichen Datensätzen, die auf wertvollen klinischen Proben generiert wurden. Der Postoctoral Fellow wird in St. Gallen bei den Eidgenössischen Laboratorien für Materialwissenschaften und -technologien (Empa) angesiedelt sein und häufig Mitarbeiter in Zürich besuchen. Der Stipendiat wird auch dem Schweizerischen Institut für Bioinformatik angeschlossen sein. Wir bieten hervorragende Voraussetzungen für herausragende Leistungen im Bereich der Computerbiologie und translationalen biomedizinischen Forschung. Die Empa bietet eine exzellente Infrastruktur, Support mit High Performance Computing, internationales und interdisziplinäres Umfeld und hoch wettbewerbsfähige Gehälter. Die Stelle ist nach Vereinbarung mit einer geplanten Laufzeit von zwei bis vier Jahren verfügbar. Wir leben eine Kultur der Integration und des Respekts. Wir begrüßen alle Menschen, die sich für innovative, nachhaltige und sinnvolle Aktivitäten interessieren – das zählt. Wir freuen uns auf Ihre vollständige Online-Bewerbung mit Motivationsschreiben, Lebenslauf, Zertifikaten, Diplomen und Kontaktdaten von zwei Referenzpersonen. Bitte senden Sie diese ausschließlich über unser Jobportal. Bewerbungen per E-Mail und Post werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. PostDoc en biologie computationnelle: étude du crosstalk entre la tumeur et le système immunitaire dans le cancer colorectal métastatique Le groupe Multi-omics for Healthcare materials d'Empa St. Gallen génère et intègre des ensembles de données biomédicales multimodales dans le but d'éclairer le développement de nouveaux capteurs, de soutenir les stratégies de reprogrammation cellulaire basées sur les nanoparticules et d'identifier de nouveaux biomarqueurs basés sur les omics. Nous travaillons en étroite collaboration avec des partenaires cliniques et nous nous concentrons sur la compréhension approfondie des mécanismes moléculaires du développement de la maladie. Vos tâches Nous recherchons un candidat très motivé qui s'intéresse véritablement à la biomédecine et qui possède une solide compétence en analyse de données. Dans ce projet, nous étudions comment les altérations génétiques tumorales-intrinsiques et les niches microenvironnementales organisées spatialement façonnent conjointement la progression métastatique et la réponse thérapeutique dans le cancer colorectal. Le projet est fortement orienté vers les applications cliniques et l'identification de nouvelles voies thérapeutiques. Les principales responsabilités sont les suivantes :\n• Collaborer étroitement avec les partenaires interdisciplinaires du projet\n• Intégration de nouveaux ensembles de données avec des profils multi-omiques de tumeurs provenant d'études antérieures\n• Mettre au point de nouveaux modèles d'apprentissage automatique en collaboration avec le Centre suisse des données scientifiques\n• Établissement de pipelines d'analyse de données, rédaction de manuscrits et présentation lors de conférences scientifiques Votre profil Les qualifications requises comprennent un doctorat en biologie informatique ou un domaine connexe. Nous cherchons un joueur d'équipe axé sur la recherche et les résultats. Le profil idéal comprend les compétences et l'expérience suivantes :\n• De solides compétences en programmation, de profondes connaissances statistiques et une expérience éprouvée avec l'apprentissage automatique\n• Connaissance solide de la biologie tumorale, des voies de signalisation et du microenvironnement tumoral\n• Forte publication\n• Connaissance de l'anglais et excellentes compétences en communication et en écriture\n• Une expérience dans l'analyse des ensembles de données transcriptomiques à cellules uniques et spatiales est souhaitable Notre offre Ce projet a été financé par la Fondation nationale suisse des sciences et permet une collaboration étroite avec l'équipe des experts de premier plan sur le terrain ainsi que l'accès à de riches ensembles de données produits sur des échantillons cliniques précieux. Le boursier postoctoral sera situé à St. Gallen aux Laboratoires fédéraux suisses des sciences et technologies des matériaux (Empa) avec souvent des visites de collaborateurs à Zurich. Le boursier sera également affilié à l'Institut suisse de bioinformatique. Nous offrons des conditions exceptionnelles pour exceller dans le domaine de la biologie informatique et de la recherche biomédicale translationnelle. Empa offre une excellente infrastructure, un support avec l'informatique haute performance, un environnement international et interdisciplinaire et des salaires hautement compétitifs. Le poste est disponible en accord avec une durée prévue de deux à quatre ans. Nous vivons une culture d'inclusion et de respect. Nous accueillons toutes les personnes qui s'intéressent à des activités novatrices, durables et significatives - c'est ce qui compte. Nous sommes impatients de recevoir votre candidature en ligne complète comprenant une lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'emploi. Les demandes par courrier électronique et par la poste ne seront pas prises en considération."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://apply.refline.ch/673276/2189/pub/1/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-13T23:12:54.067Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "streetAddress": "Lerchenfeldstrasse 5",
-      "postalCode": "9014",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://apply.refline.ch/673276/2189/pub/1/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2189",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-in-computational-biology-study-of-the-crosstalk-between-the-tumor-and-immune"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-in-computational-biology-study-of-the-crosstalk-between-the-tumor-and-immune"
-        ],
-        "de": [
-          "postdoc-in-computational-biology-study-of-the-crosstalk-between-the-tumor-and-immune"
-        ],
-        "fr": [
-          "postdoc-in-computational-biology-study-of-the-crosstalk-between-the-tumor-and-immune"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
