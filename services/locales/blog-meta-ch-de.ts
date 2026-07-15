@@ -1135,6 +1135,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupati.title': 'Arbeitslose Grenzgänger: EU verabschiedet kostenintensive Reform für die Schweiz',
     'blog.article.frontalieri-disoccupati.excerpt': 'Das Europäische Parlament hat am Dienstag die Reform zur Neudefinition der Zuständigkeiten für arbeitslose Grenzgänger gebilligt.',
     'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri ohne Arbeit in Lugano',
+    'blog.article.incontro-fiscale-roma-giugno.title': 'Schweiz und Italien: Steuergespräch in Rom bis Juni',
+    'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Institutionelles Gipfeltreffen zwischen der Schweiz und Italien, das bis Ende Juni geplant ist, um steuerliche Aspekte im Zusammenhang mit dem Grenzverkehr zu erörtern.',
+    'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Blick auf das Seeufer von Lugano mit Schweizer und italienischen Flaggen',
 };
 
 export default blogMetaChDe;

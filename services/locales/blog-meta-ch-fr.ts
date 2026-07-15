@@ -1135,6 +1135,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati.title': 'Chômeurs frontaliers : l\'UE approuve une réforme coûteuse pour la Suisse',
     'blog.article.frontalieri-disoccupati.excerpt': 'Le Parlement européen a approuvé mardi la réforme visant à redéfinir les compétences en matière de travailleurs frontaliers au chômage.',
     'blog.article.frontalieri-disoccupati.imageAlt': 'Frontaliers sans emploi à Lugano',
+    'blog.article.incontro-fiscale-roma-giugno.title': 'Suisse et Italie : réunion fiscale à Rome en juin',
+    'blog.article.incontro-fiscale-roma-giugno.excerpt': 'Sommet institutionnel entre la Suisse et l\'Italie prévu d\'ici fin juin pour discuter des aspects fiscaux liés aux frontières.',
+    'blog.article.incontro-fiscale-roma-giugno.imageAlt': 'Vue du bord du lac de Lugano avec drapeaux suisses et italiens',
 };
 
 export default blogMetaChFr;

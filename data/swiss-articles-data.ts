@@ -3401,6 +3401,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'incontro-fiscale-roma-giugno',
+    category: 'fiscale',
+    date: '2026-07-15T02:13:13.348Z',
+    image: '/images/blog/incontro-fiscale-roma-giugno.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
