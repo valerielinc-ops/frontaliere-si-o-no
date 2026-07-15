@@ -8505,6 +8505,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-ue.title': 'Grenzgängerarbeitslosigkeit: Die EU-Reform und die Zweifel im Tessin',
     'blog.article.riforma-disoccupazione-frontalieri-ue.excerpt': 'Die EU strebt eine Reform der Zulage für Grenzgänger an. Andrea Puglia (OCST) kommentiert die Auswirkungen auf Rechte, Kosten und den Arbeitsmarkt im Tessin.',
     'blog.article.riforma-disoccupazione-frontalieri-ue.imageAlt': 'Panoramablick auf Lugano mit modernen Gebäuden im Stadtzentrum',
+    'blog.article.permesso-g-apprendisti-svolta-storica.title': 'Bewilligung G für Auszubildende: Abschied von der jährlichen Erneuerung',
+    'blog.article.permesso-g-apprendisti-svolta-storica.excerpt': 'Historische Wende für über 700 junge Grenzgängerinnen und Grenzgänger: Die Arbeitsbewilligung G gilt für die gesamte Dauer des Praktikums und beseitigt die jährliche Bürokratie.',
+    'blog.article.permesso-g-apprendisti-svolta-storica.imageAlt': 'Schüler vor einer Berufsschule im Tessin',
 };
 
 export default blogMetaDe;

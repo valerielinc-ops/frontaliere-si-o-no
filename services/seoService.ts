@@ -4539,6 +4539,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-investimenti-startup-svizzere-riduzione': { name: 'Investimenti startup svizzera', path: '/articoli-svizzera/investimenti-startup-svizzere-riduzione/', parent: 'blog' },
     'blog-frontalieri-indennita': { name: 'Frontalieri e indennità', path: '/articoli-svizzera/frontalieri-indennita/', parent: 'blog' },
     'blog-frontalieri-disoccupati': { name: 'Frontalieri disoccupati', path: '/articoli-svizzera/frontalieri-disoccupati/', parent: 'blog' },
+    'blog-permesso-g-apprendisti-svolta-storica': { name: 'Permesso G apprendisti', path: '/articoli-frontaliere/permesso-g-apprendisti-svolta-storica', parent: 'blog' },
  };
 
  const info = sectionNames[section];

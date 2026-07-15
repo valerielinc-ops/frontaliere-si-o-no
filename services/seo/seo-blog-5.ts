@@ -49446,6 +49446,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-apprendisti-svolta-storica': {
+    title: 'Permesso G per apprendisti: addio ai rinnovi annuali',
+    description: 'Svolta storica: gli apprendisti frontalieri in Ticino avranno un permesso G valido per l\'intera durata del tirocinio. Stop ai rinnovi annuali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, apprendisti, addio, rinnovi',
+    ogTitle: 'Permesso G per apprendisti in Ticino: addio ai rinnovi',
+    ogDescription: 'Svolta storica: gli apprendisti frontalieri in Ticino avranno un permesso G valido per l\'intera durata del tirocinio.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-apprendisti-svolta-storica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G per apprendisti: addio ai rinnovi annuali",
+      "description": "Svolta storica: gli apprendisti frontalieri in Ticino avranno un permesso G valido per l'intera durata del tirocinio. Stop ai rinnovi annuali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-apprendisti-svolta-storica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti davanti a una scuola professionale in Ticino"
+      },
+      "datePublished": "2026-07-15T01:12:29+00:00",
+      "dateModified": "2026-07-15T01:12:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-svolta-storica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
