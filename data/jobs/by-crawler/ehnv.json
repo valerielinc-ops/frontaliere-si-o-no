@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-07-15T11:24:01.357Z",
+  "assembledAt": "2026-07-15T22:33:59.774Z",
   "jobs": [
     {
       "id": "ehnv-0dee523b36cd",
@@ -34,7 +34,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/3428/une-medecin-adjointe-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:58.944Z",
+      "crawledAt": "2026-07-15T22:33:57.974Z",
       "addressLocality": "Chamblon et Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,12 +54,14 @@
       "externalId": "3428",
       "previousSlugs": [
         "un-e-medecin-adjoint-e-a-80-ehnv-chamblon-et-orbe",
-        "un-e-medecin-adjoint-e-a-80-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe"
+        "un-e-medecin-adjoint-e-a-80-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe",
+        "80-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-e-medecin-adjoint-e-a-80-ehnv-chamblon-et-orbe",
-          "un-e-medecin-adjoint-e-a-80-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe"
+          "un-e-medecin-adjoint-e-a-80-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe",
+          "80-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon-et-orbe"
         ],
         "en": [
           "un-e-medecin-adjoint-e-a-80-ehnv-chamblon-et-orbe"
@@ -114,7 +116,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/3999/une-specialiste-famh-a-50-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:58.355Z",
+      "crawledAt": "2026-07-15T22:33:57.375Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -133,11 +135,13 @@
       "requirementsByLocale": {},
       "externalId": "3999",
       "previousSlugs": [
-        "un-e-specialiste-famh-a-50-100-ehnv-yverdon-les-bains"
+        "un-e-specialiste-famh-a-50-100-ehnv-yverdon-les-bains",
+        "specialista-famh-al-50-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-specialiste-famh-a-50-100-ehnv-yverdon-les-bains"
+          "un-e-specialiste-famh-a-50-100-ehnv-yverdon-les-bains",
+          "specialista-famh-al-50-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-specialiste-famh-a-50-100-ehnv-yverdon-les-bains"
@@ -192,7 +196,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:57.773Z",
+      "crawledAt": "2026-07-15T22:33:56.764Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,11 +215,13 @@
       "requirementsByLocale": {},
       "externalId": "4094",
       "previousSlugs": [
-        "un-e-medecin-agree-e-ou-associe-interniste-bariatrique-a-100-min-60-ehnv-yverdon-les-bains"
+        "un-e-medecin-agree-e-ou-associe-interniste-bariatrique-a-100-min-60-ehnv-yverdon-les-bains",
+        "un-medico-certificato-o-un-partner-internista-del-100-min-60-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-medecin-agree-e-ou-associe-interniste-bariatrique-a-100-min-60-ehnv-yverdon-les-bains"
+          "un-e-medecin-agree-e-ou-associe-interniste-bariatrique-a-100-min-60-ehnv-yverdon-les-bains",
+          "un-medico-certificato-o-un-partner-internista-del-100-min-60-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-medecin-agree-e-ou-associe-interniste-bariatrique-a-100-min-60-ehnv-yverdon-les-bains"
@@ -270,7 +276,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4147/des-assc-a-70-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:57.196Z",
+      "crawledAt": "2026-07-15T22:33:55.979Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -289,11 +295,13 @@
       "requirementsByLocale": {},
       "externalId": "4147",
       "previousSlugs": [
-        "des-assc-a-70-100-ehnv-yverdon-les-bains"
+        "des-assc-a-70-100-ehnv-yverdon-les-bains",
+        "70-100-assc-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "des-assc-a-70-100-ehnv-yverdon-les-bains"
+          "des-assc-a-70-100-ehnv-yverdon-les-bains",
+          "70-100-assc-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "des-assc-a-70-100-ehnv-yverdon-les-bains"
@@ -348,7 +356,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4174/une-medecin-cadre-medecin-cheffe-ou-medecin-adjointe-a-100-ref-50-051",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:56.617Z",
+      "crawledAt": "2026-07-15T22:33:55.378Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -368,12 +376,14 @@
       "externalId": "4174",
       "previousSlugs": [
         "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-ehnv-yverdon-les",
-        "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+        "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "100-medico-esecutivo-capo-medico-o-assistente-medico-rif-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-ehnv-yverdon-les",
-          "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
+          "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+          "100-medico-esecutivo-capo-medico-o-assistente-medico-rif-50-051-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-medecin-cadre-medecin-chef-fe-ou-medecin-adjoint-e-a-100-ref-50-051-ehnv-yverdon-les"
@@ -428,7 +438,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4173/une-secretaire-medicale-a-50",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:56.001Z",
+      "crawledAt": "2026-07-15T22:33:54.740Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -447,11 +457,13 @@
       "requirementsByLocale": {},
       "externalId": "4173",
       "previousSlugs": [
-        "un-e-secretaire-medical-e-a-50-ehnv-yverdon-les-bains"
+        "un-e-secretaire-medical-e-a-50-ehnv-yverdon-les-bains",
+        "a-50-segretario-medico-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-secretaire-medical-e-a-50-ehnv-yverdon-les-bains"
+          "un-e-secretaire-medical-e-a-50-ehnv-yverdon-les-bains",
+          "a-50-segretario-medico-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-secretaire-medical-e-a-50-ehnv-yverdon-les-bains"
@@ -500,12 +512,13 @@
         "de": "UNSERE FORSCHUNGSSERIEN WICHTIGSTE MISSIONEN\n• Übung fortgeschrittene Pflege klinische Praxis mit älteren hospitalisierten Patienten\n• Führen Sie geriatrische Untersuchungen bei Notfällen in Pflegeeinheiten durch, um eine optimale Orientierung zu bestimmen\n• Entwicklung von Vorschlägen für evidenzbasierte, individualisierte Versorgungspläne zur Erfüllung komplexer Patientenbedürfnisse\n• Klinische Unterstützung für Krankenschwestern und andere medizinische Fachkräfte und Förderung der interprofessionellen Zusammenarbeit\n• Förderung der Entwicklung von Selbstversorgungskapazitäten für ältere hospitalisierte Patienten\n• Trainieren Sie interdisziplinäre Teams für geriatrische Syndrome\n• Verwaltung klinischer Projekte für geriatrische Dienstleistungen\n• Überwachung von Qualitätsindikatoren für das Management der Pflegeleistung\n• Beteiligung an der Umsetzung der institutionellen Strategie FÄHLE — ERFORDERLICHE ANFORDERUNGEN\n• Geriatrische Erfahrung (2 Jahre)\n• Um einen Master-Abschluss in Nursing zu halten\n• Führungsqualitäten, Verantwortungsbewusstsein, Teamwork\n• Beziehungs- und Kommunikationsfähigkeiten, um effektiv mit älteren Patienten, ihren Familien, Ärzten und Gesundheitsteams zu interagieren\n• Wissen, wie man sich jederzeit in einer positiven Einstellung durch Beispiel anpassen kann\n• Innovationsgeist und Stärke des Vorschlags\n• Ausgezeichnete Beherrschung der gemeinsamen Computer-Tools WIR ANGEBOT\n• Eine abwechslungsreiche Aktivität\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n• Hervorragende Sozialleistungen\n• Ort der Tätigkeit: Yverdon – Saint-Loup DATUM DER VERPFLICHTUNG: Weitere Informationen erhalten Sie bei Frau Habiba Bechnoune, Assistant Director of Care, T. +41 24 442 64 29 Sind Sie interessiert? Angebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 31. Juli 2026 einzureichen.",
         "fr": "NOTRE EQUIPE DE GERIATRIE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Exercer une pratique clinique de soins infirmiers avancés auprès des patients âgés hospitalisés\n\n• Réaliser des évaluations gériatriques aux urgences, dans les unités de soins afin de déterminer l’orientation optimale\n\n• Élaborer des propositions de plans de soins individualisés et basés sur des preuves pour répondre aux besoins complexes des patients\n\n• Exercer un soutien clinique aux infirmier.ères et aux autres professionnel.les de santé et favoriser la collaboration interprofessionnelle\n\n• Promouvoir le développement des capacités d’auto-soins des patients âgés hospitalisés\n\n• Former les équipes interdisciplinaires aux syndromes gériatriques\n\n• Gérer des projets cliniques pour le service de gériatrie\n\n• Suivre des indicateurs qualité pour le pilotage de la performance des soins\n\n• Participer à la mise en œuvre de la stratégie institutionnelle\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Expérience en gériatrie (2 ans)\n\n• Être titulaire d’un titre de master en Sciences infirmières\n\n• Compétences de leadership, sens des responsabilités, esprit d’équipe\n\n• Compétences relationnelles et de communication permettant d’interagir efficacement avec les patients âgés, leurs familles, les médecins et les équipes soignantes\n\n• Savoir s’adapter en toute circonstance dans une attitude positive par l’exemple\n\n• Esprit novateur et force de proposition\n\n• Excellente maîtrise des outils informatiques usuels\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\n• Lieu d’activité : Yverdon – Saint-Loup\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Habiba Bechnoune, directrice des soins adjointe, T. +41 24 442 64 29\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmettre d’ici le 31 juillet 2026 ."
       },
+      "needsRetranslation": true,
       "location": "Yverdon et Pompaples",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/3380/une-infirmierere-clinicienne-specialisee-icls-entre-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:55.410Z",
+      "crawledAt": "2026-07-15T22:33:54.121Z",
       "addressLocality": "Yverdon et Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -524,11 +537,13 @@
       "requirementsByLocale": {},
       "externalId": "3380",
       "previousSlugs": [
-        "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples"
+        "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples",
+        "un-infermiere-clinico-specializzato-icls-tra-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-et-pompaples"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples"
+          "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples",
+          "un-infermiere-clinico-specializzato-icls-tra-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-et-pompaples"
         ],
         "en": [
           "un-e-infirmier-ere-clinicien-ne-specialise-e-icls-entre-80-100-ehnv-yverdon-et-pompaples"
@@ -583,7 +598,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/2624/une-neuropsychologue-a-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:54.829Z",
+      "crawledAt": "2026-07-15T22:33:53.501Z",
       "addressLocality": "Chamblon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -603,12 +618,14 @@
       "externalId": "2624",
       "previousSlugs": [
         "un-e-neuropsychologue-a-60-ehnv-chamblon",
-        "un-e-neuropsychologue-a-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
+        "un-e-neuropsychologue-a-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon",
+        "un-neuropsicologo-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-e-neuropsychologue-a-60-ehnv-chamblon",
-          "un-e-neuropsychologue-a-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
+          "un-e-neuropsychologue-a-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon",
+          "un-neuropsicologo-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
         ],
         "en": [
           "un-e-neuropsychologue-a-60-etab-hospitaliers-du-nord-vaudois-ehnv-chamblon"
@@ -663,7 +680,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4187/une-cheffe-de-clinique-adjointe-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:54.237Z",
+      "crawledAt": "2026-07-15T22:33:52.886Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -682,11 +699,13 @@
       "requirementsByLocale": {},
       "externalId": "4187",
       "previousSlugs": [
-        "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains"
+        "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains",
+        "una-testa-di-clinica-assistant-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains",
+          "una-testa-di-clinica-assistant-a-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-chef-fe-de-clinique-adjointe-a-80-100-ehnv-yverdon-les-bains"
@@ -741,7 +760,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4208/une-trm-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:53.614Z",
+      "crawledAt": "2026-07-15T22:33:52.259Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -799,12 +818,13 @@
         "de": "DIE TRANSVERSE RADIOLOGIE DER EHNV-FORSCHUNG FÄHLE — ERFORDERLICHE ANFORDERUNGEN\n• Halten Sie den FMH-Titel in Radiologie oder gleichwertig\n• Fähigkeit, als Team zu arbeiten\n• Kompetenzen in allen Bereichen der Radiologie einschließlich einfacher nichtvaskulärer interventioneller Radiologie WIR ANGEBOT\n• Ein modernes technisches Tray bestehend aus MRT, 2 CT, modernsten US-Geräten, Senologie, konventionellen Durchleuchtungsräumen inklusive 2 direkter Digitalisierung\n• Ein Computerarchivierungssystem PACS und Teleradiologie\n• Eine abwechslungsreiche Krankenhaus- und Ambulanztätigkeit (ca. 55.000 Prüfungen/Jahr)\n• Erweitern Sie Ihre beruflichen Fähigkeiten in einem dynamischen Team mit großartigen Entwicklungsmöglichkeiten DATUM DER VERPFLICHTUNG: Weitere Informationen erhalten Sie bei Dr. Julien Ombelli, Ärztlicher Direktor unter +41 24 424 53 31. Sind Sie interessiert? Angebote mit Standarddokumenten sollten bis zum 31. Juli 2026 übermittelt werden.",
         "fr": "LE SERVICE DE RADIOLOGIE TRANSVERSE DES EHNV RECHERCHE\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être porteur.se du titre FMH en radiologie ou équivalent\n\n• Aptitude à travailler en équipe\n\n• Compétences dans tous les domaines de la radiologie y compris des actes simples de radiologie interventionnelle non vasculaire\n\nNOUS OFFRONS\n\n• Un plateau technique moderne comprenant une IRM, 2 CT, des appareils US de toute dernière génération, sénologie, salles de fluoroscopie conventionnelle dont 2 à digitalisation directe\n\n• Un système d’archivage informatique PACS et télé radiologie\n\n• Une activité hospitalière et ambulatoire variée (env. 55'000 examens/année)\n\n• D’élargir ses compétences professionnelles dans une équipe dynamique avec belles opportunités de développement\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès du Dr Julien Ombelli, Directeur médical au +41 24 424 53 31.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 31 juillet 2026."
       },
+      "needsRetranslation": true,
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4220/une-medecin-cheffe-en-radiologie-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:53.017Z",
+      "crawledAt": "2026-07-15T22:33:51.648Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -823,11 +843,13 @@
       "requirementsByLocale": {},
       "externalId": "4220",
       "previousSlugs": [
-        "un-e-medecin-chef-fe-en-radiologie-a-80-100-ehnv-yverdon-les-bains"
+        "un-e-medecin-chef-fe-en-radiologie-a-80-100-ehnv-yverdon-les-bains",
+        "ufficiale-medico-a-raggi-x-capo-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-medecin-chef-fe-en-radiologie-a-80-100-ehnv-yverdon-les-bains"
+          "un-e-medecin-chef-fe-en-radiologie-a-80-100-ehnv-yverdon-les-bains",
+          "ufficiale-medico-a-raggi-x-capo-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains"
         ],
         "en": [
           "un-e-medecin-chef-fe-en-radiologie-a-80-100-ehnv-yverdon-les-bains"
@@ -882,7 +904,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4265/une-secretaire-medicale-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:52.421Z",
+      "crawledAt": "2026-07-15T22:33:51.028Z",
       "addressLocality": "Pompaples",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -901,11 +923,13 @@
       "requirementsByLocale": {},
       "externalId": "4265",
       "previousSlugs": [
-        "un-e-secretaire-medical-e-a-80-ehnv-pompaples"
+        "un-e-secretaire-medical-e-a-80-ehnv-pompaples",
+        "80-segretaria-medica-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-secretaire-medical-e-a-80-ehnv-pompaples"
+          "un-e-secretaire-medical-e-a-80-ehnv-pompaples",
+          "80-segretaria-medica-etab-hospitaliers-du-nord-vaudois-ehnv-pompaples"
         ],
         "en": [
           "un-e-secretaire-medical-e-a-80-ehnv-pompaples"
@@ -932,34 +956,35 @@
       "id": "ehnv-befc66e83546",
       "slug": "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
       "slugByLocale": {
-        "fr": "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
         "it": "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
         "en": "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
-        "de": "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
+        "de": "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
+        "fr": "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
       "companyDomain": "ehnv.ch",
       "title": "Un.e assistant.e médical.e à 70-100 %",
       "titleByLocale": {
-        "fr": "Un.e assistant.e médical.e à 70-100 %",
         "it": "70-100% assistente medico",
         "en": "70-100% medical assistant",
-        "de": "Un.e Assistent.e médical.e à 70-100 %"
+        "de": "Un.e Assistent.e médical.e à 70-100 %",
+        "fr": "Un.e assistant.e médical.e à 70-100 %"
       },
       "description": "LES PERMANENCES D’ORBE ET DE COSSONAY RECHERCHENT\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients pour des consultations d’urgence\n\n• Gestion du flux\n\n• Gestion administrative des dossiers patients, admissions\n\n• Soins aux patients : assistance du médecin, soins techniques, radiologie, analyse de laboratoire, confection de plâtres\n\n• Horaires irréguliers de jour, y compris le samedi\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’assistant.e médical.e\n\n• Formation complémentaire pour pose de voies veineuses exigée\n\n• Expérience en permanence/urgences serait un atout\n\n• Formation élargie en radiologie souhaitée\n\n• Bonnes connaissances des outils informatiques (OPALE, Soarian)\n\n• Cours BLS à jour\n\n• Sens de l’accueil et orientation client\n\n• Capacité à travailler en équipe\n\n• Flexibilité sur lieu de travail et les horaires\n\n• Bonne gestion du stress et ses des priorités\n\n• Autonomie\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er SEPTEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Jocelyne Belin, Cadre de proximité, T. +41 24 424 40 21.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 3 août 2026.",
       "descriptionByLocale": {
-        "fr": "LES PERMANENCES D’ORBE ET DE COSSONAY RECHERCHENT\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients pour des consultations d’urgence\n\n• Gestion du flux\n\n• Gestion administrative des dossiers patients, admissions\n\n• Soins aux patients : assistance du médecin, soins techniques, radiologie, analyse de laboratoire, confection de plâtres\n\n• Horaires irréguliers de jour, y compris le samedi\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’assistant.e médical.e\n\n• Formation complémentaire pour pose de voies veineuses exigée\n\n• Expérience en permanence/urgences serait un atout\n\n• Formation élargie en radiologie souhaitée\n\n• Bonnes connaissances des outils informatiques (OPALE, Soarian)\n\n• Cours BLS à jour\n\n• Sens de l’accueil et orientation client\n\n• Capacité à travailler en équipe\n\n• Flexibilité sur lieu de travail et les horaires\n\n• Bonne gestion du stress et ses des priorités\n\n• Autonomie\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er SEPTEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Jocelyne Belin, Cadre de proximité, T. +41 24 424 40 21.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 3 août 2026.",
         "it": "LE PERMANENZE DELLA COSSONA E DEL ROAD\n\nATTIVITÀ PRINCIPALI\n\n• Accoglienza paziente per le consultazioni di emergenza\n\n• Gestione del flusso\n\n• Gestione amministrativa dei registri dei pazienti, ammissioni\n\n• Assistenza medica: assistenza medica, assistenza tecnica, radiologia, analisi di laboratorio, intonaco\n\n• Ore lavorative irregolari, compreso il sabato\n\nSKILLS – PRESCRIZIONI\n\n• Assistente medico SWC. E\n\n• Formazione aggiuntiva per l'installazione di canali venosi richiesti\n\n• Esperienza continua/emergenza sarebbe un bene\n\n• Formazione estesa nella radiologia desiderata\n\n• Buona conoscenza degli strumenti informatici (OPALE, Soarian)\n\n• Corsi BLS aggiornati\n\n• Reception e orientamento clienti\n\n• Capacità di lavorare come squadra\n\n• Flessibilità al lavoro e ore di lavoro\n\n• Buona gestione dello stress e priorità\n\n• Autonomia\n\nUFFICIO\n\n• Una variegata attività\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATE ENTRY: 1 SETTEMBRE 2026\n\nUlteriori informazioni possono essere ottenute dalla sig.ra Jocelyne Belin, Outreach Manager, T. +41 24 424 40 21.\n\nSei interessato?\n\nLe offerte con documenti abituali devono essere inviate entro il 3 agosto 2026.",
         "en": "THE PERMANENCES OF COSSONAY AND ROAD\n\nMAIN ACTIVITIES\n\n• Patient reception for emergency consultations\n\n• Flow management\n\n• Administrative management of patient records, admissions\n\n• Patient care: medical assistance, technical care, radiology, laboratory analysis, plastering\n\n• Irregular working hours, including Saturdays\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• SWC medical assistant. e\n\n• Additional training for the installation of venous channels required\n\n• Continuous/emergency experience would be an asset\n\n• Expanded training in desired radiology\n\n• Good knowledge of computer tools (OPALE, Soarian)\n\n• BLS courses up to date\n\n• Reception and customer orientation\n\n• Ability to work as a team\n\n• Flexibility at work and working hours\n\n• Good stress management and priorities\n\n• Autonomy\n\nWE OFFER\n\n• A varied activity\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE ENTRY: 1 SEPTEMBER 2026 OR TO BE AGREED\n\nFurther information can be obtained from Ms. Jocelyne Belin, Outreach Manager, T. +41 24 424 40 21.\n\nAre you interested?\n\nOffers with usual documents should be sent by 3 August 2026.",
-        "de": "DIE DAUER VON COSSONAY UND STRASSE\n\nWICHTIGKEITEN\n\n• Patientenaufnahme für Notaufnahmen\n\n• Flussmanagement\n\n• Verwaltung von Patientenakten, Zulassungen\n\n• Patientenversorgung: medizinische Versorgung, technische Versorgung, Radiologie, Laboranalyse, Putz\n\n• Unregelmäßige Arbeitszeiten, einschließlich Samstagen\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• SWC medizinischer Assistent. e\n\n• Zusätzliche Schulung für die Installation von Venenkanälen erforderlich\n\n• Kontinuierliche / Notfallerfahrung wäre ein Vermögenswert\n\n• Erweiterte Ausbildung in der gewünschten Radiologie\n\n• Gute Kenntnisse der Computer-Tools (OPALE, Soarian)\n\n• BLS Kurse auf dem neuesten Stand\n\n• Empfang und Kundenorientierung\n\n• Fähigkeit, als Team zu arbeiten\n\n• Flexibilität am Arbeitsplatz und Arbeitszeit\n\n• Gutes Stressmanagement und Prioritäten\n\n• Autonomie\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM EINTRAG: 1. SEPTEMBER 2026 ODER ZU ÜBEREINKOMMEN\n\nWeitere Informationen erhalten Sie bei Frau Jocelyne Belin, Outreach Manager, T. +41 24 424 40 21.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Dokumenten sollten bis zum 3. August 2026 gesendet werden."
+        "de": "DIE DAUER VON COSSONAY UND STRASSE\n\nWICHTIGKEITEN\n\n• Patientenaufnahme für Notaufnahmen\n\n• Flussmanagement\n\n• Verwaltung von Patientenakten, Zulassungen\n\n• Patientenversorgung: medizinische Versorgung, technische Versorgung, Radiologie, Laboranalyse, Putz\n\n• Unregelmäßige Arbeitszeiten, einschließlich Samstagen\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• SWC medizinischer Assistent. e\n\n• Zusätzliche Schulung für die Installation von Venenkanälen erforderlich\n\n• Kontinuierliche / Notfallerfahrung wäre ein Vermögenswert\n\n• Erweiterte Ausbildung in der gewünschten Radiologie\n\n• Gute Kenntnisse der Computer-Tools (OPALE, Soarian)\n\n• BLS Kurse auf dem neuesten Stand\n\n• Empfang und Kundenorientierung\n\n• Fähigkeit, als Team zu arbeiten\n\n• Flexibilität am Arbeitsplatz und Arbeitszeit\n\n• Gutes Stressmanagement und Prioritäten\n\n• Autonomie\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM EINTRAG: 1. SEPTEMBER 2026 ODER ZU ÜBEREINKOMMEN\n\nWeitere Informationen erhalten Sie bei Frau Jocelyne Belin, Outreach Manager, T. +41 24 424 40 21.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Dokumenten sollten bis zum 3. August 2026 gesendet werden.",
+        "fr": "LES PERMANENCES D’ORBE ET DE COSSONAY RECHERCHENT\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients pour des consultations d’urgence\n\n• Gestion du flux\n\n• Gestion administrative des dossiers patients, admissions\n\n• Soins aux patients : assistance du médecin, soins techniques, radiologie, analyse de laboratoire, confection de plâtres\n\n• Horaires irréguliers de jour, y compris le samedi\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’assistant.e médical.e\n\n• Formation complémentaire pour pose de voies veineuses exigée\n\n• Expérience en permanence/urgences serait un atout\n\n• Formation élargie en radiologie souhaitée\n\n• Bonnes connaissances des outils informatiques (OPALE, Soarian)\n\n• Cours BLS à jour\n\n• Sens de l’accueil et orientation client\n\n• Capacité à travailler en équipe\n\n• Flexibilité sur lieu de travail et les horaires\n\n• Bonne gestion du stress et ses des priorités\n\n• Autonomie\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er SEPTEMBRE 2026 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Madame Jocelyne Belin, Cadre de proximité, T. +41 24 424 40 21.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 3 août 2026."
       },
+      "needsRetranslation": false,
       "location": "Orbe et Cossonay",
       "canton": "VD",
       "url": "https://www.ehnv.ch/emplois#offer/4198/une-assistante-medicale-a-70-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:23:51.832Z",
+      "crawledAt": "2026-07-15T22:33:50.390Z",
       "addressLocality": "Orbe et Cossonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -975,107 +1000,22 @@
       "postedDate": "2026-07-15",
       "applyUrl": "https://www.ehnv.ch/emplois#offer/4198/une-assistante-medicale-a-70-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "externalId": "4198",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-15T11:23:51.832Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
-        ]
-      },
-      "previousSlugs": [
-        "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
-      ]
-    },
-    {
-      "id": "ehnv-153dd7a40292",
-      "slug": "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
-      "slugByLocale": {
-        "it": "infermiera-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
-        "en": "nurse-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
-        "de": "krankenschwester-80-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
-        "fr": "un-e-infirmier-ere-80-100-ehnv-orbe"
-      },
-      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "companyKey": "ehnv",
-      "companyDomain": "ehnv.ch",
-      "title": "Un.e infirmier.ère 80-100 %",
-      "titleByLocale": {
-        "it": "Infermiera 80-100%",
-        "en": "Nurse 80-100%",
-        "de": "Krankenschwester 80-100%",
-        "fr": "Un.e infirmier.ère 80-100 %"
-      },
-      "description": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation\n\n• Suite de traitement\n\n• Collaboration interdisciplinaire\n\n• Accompagnement des patients et des familles\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Expérience en réadaptation et/ou en gériatrie serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers y compris des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici au 13 juillet 2026.",
-      "descriptionByLocale": {
-        "it": "CENTRO DI TRATTAMENTO E DI RICERCA MISSIONI PRINCIPALI\n• Riabilitazione\n• Suite di trattamento\n• Collaborazione interdisciplinare\n• Supporto paziente e familiare SKILLS – PRESCRIZIONI\n• Diploma di infermiera. ère HES o equivalente riconosciuto dalla Croce Rossa svizzera\n• L'esperienza nella riabilitazione e/o geriatria sarebbe un bene\n• Organizzazione e priorità, autonomia\n• Adattabilità e apertura al cambiamento\n• Collaborazione interdisciplinare e spirito di squadra\n• Significato della comunicazione\n• Personalità dinamica, aperta e disponibile\n• Ore irregolari incluso orologio UFFICIO\n• Una variegata attività in un ambiente di lavoro che permette il miglioramento delle vostre competenze\n• Opportunità di formazione continua\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n• Vantaggi sociali eccellenti DICHIARAZIONE: Ulteriori informazioni possono essere ottenute da Raphaëlle Meylan, T. +41 24 442 60. Sei interessato? Le offerte con documenti abituali (lettera mobile, CV, diplomi e certificati di lavoro) devono essere trasmesse entro il 13 luglio 2026.",
-        "en": "THE TREATMENT CENTRE AND READAPTATION OF RESEARCH MAIN MISSIONS\n• Rehabilitation\n• Treatment suite\n• Interdisciplinary collaboration\n• Patient and family support SKILLS – REQUIREMENTS REQUIRED\n• Diploma of nurse.ère HES or equivalent recognized by the Swiss Red Cross\n• Experience in rehabilitation and/or geriatrics would be an asset\n• Organisation and priorities, autonomy\n• Adaptability and openness to change\n• Interdisciplinary collaboration and team spirit\n• Meaning of communication\n• Dynamic, open and helpful personality\n• Irregular hours including watch WE OFFER\n• A varied activity in a working environment that allows the enhancement of your skills\n• Opportunities for continuing training\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n• Excellent social benefits DATE OF COMMENCEMENT: Further information may be obtained from Raphaëlle Meylan, T. +41 24 442 60 60. Are you interested? Offers with usual documents (motif letter, CV, diplomas and certificates of employment) are to be transmitted by 13 July 2026.",
-        "de": "BEHANDLUNGSZENTRUM UND READAPTATION DER FORSCHUNG WICHTIGSTE MISSIONEN\n• Rehabilitation\n• Behandlungssuite\n• Interdisziplinäre Zusammenarbeit\n• Patienten- und Familienunterstützung FÄHLE — ERFORDERLICHE ANFORDERUNGEN\n• Diplom einer Krankenschwester. ère HES oder gleichwertig vom Schweizerischen Roten Kreuz anerkannt\n• Erfahrung in Rehabilitation und / oder Geriatrie wäre ein Gewinn\n• Organisation und Prioritäten, Autonomie\n• Anpassungsfähigkeit und Offenheit für Veränderungen\n• Interdisziplinäre Zusammenarbeit und Teamgeist\n• Bedeutung der Kommunikation\n• Dynamische, offene und hilfreiche Persönlichkeit\n• Unregelmäßige Stunden einschließlich Uhrzeit WIR ANGEBOT\n• Eine abwechslungsreiche Aktivität in einem Arbeitsumfeld, das die Verbesserung Ihrer Fähigkeiten ermöglicht\n• Weiterbildungsmöglichkeiten\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n• Hervorragende Sozialleistungen DATUM DER VERPFLICHTUNG: Weitere Informationen sind erhältlich bei Raphaëlle Meylan, T. +41 24 442 60 60. Sind Sie interessiert? Angebote mit üblichen Unterlagen (Motivbrief, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 13. Juli 2026 zu übermitteln.",
-        "fr": "LE CENTRE DE TRAITEMENT ET READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation\n\n• Suite de traitement\n\n• Collaboration interdisciplinaire\n\n• Accompagnement des patients et des familles\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Diplôme d’infirmier.ère HES ou titre jugé équivalent reconnu par la Croix Rouge Suisse\n\n• Expérience en réadaptation et/ou en gériatrie serait un atout\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique, ouverte et serviable\n\n• Horaires irréguliers y compris des veilles\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement de travail permettant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, T. +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici au 13 juillet 2026."
-      },
-      "needsRetranslation": false,
-      "location": "Orbe",
-      "canton": "VD",
-      "url": "https://www.ehnv.ch/emplois#offer/4161/une-infirmierere-80-100",
-      "source": "eHnv Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-13T22:16:05.335Z",
-      "addressLocality": "Orbe",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1350",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.ehnv.ch/emplois#offer/4161/une-infirmierere-80-100",
-      "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "4161",
+      "externalId": "4198",
       "previousSlugs": [
-        "un-e-infirmier-ere-80-100-ehnv-orbe",
-        "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
         "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
-        "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
+        "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-infirmier-ere-80-100-ehnv-orbe",
-          "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay",
           "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay",
-          "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
-        ],
-        "en": [
-          "un-e-infirmier-ere-80-100-ehnv-orbe"
+          "70-100-assistente-medico-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
         ],
         "de": [
-          "un-e-infirmier-ere-80-100-ehnv-orbe",
-          "un-e-assistent-e-medical-e-a-70-100-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-cossonay"
-        ],
-        "fr": [
           "un-e-assistant-e-medical-e-a-70-100-ehnv-orbe-et-cossonay"
         ]
       },
-      "firstSeenAt": "2026-07-08T10:56:34.495Z",
+      "firstSeenAt": "2026-07-15T11:23:51.832Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1087,8 +1027,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
