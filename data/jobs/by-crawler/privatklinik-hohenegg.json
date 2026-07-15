@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-hohenegg",
-  "assembledAt": "2026-07-14T21:58:44.932Z",
+  "assembledAt": "2026-07-15T10:58:12.597Z",
   "jobs": [
     {
       "id": "privatklinik-hohenegg-4aec380d7fbc",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/640332/0047/pub/13/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T21:58:41.239Z",
+      "crawledAt": "2026-07-15T10:58:08.471Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://apply.refline.ch/640332/0065/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T21:58:40.811Z",
+      "crawledAt": "2026-07-15T10:58:07.982Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "it": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
-        "en": "hf-nurse-with-a-focus-on-psychiatry-60-100-privatklinik-hohenegg-meilen",
+        "en": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-meilen",
         "de": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
         "fr": "infirmiere-hf-avec-un-accent-sur-la-psychiatrie-60-100-privatklinik-hohenegg-meilen"
       },
@@ -175,7 +175,7 @@
       "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
       "titleByLocale": {
         "it": "HF infermiera con un focus sulla psichiatria (60-100%)",
-        "en": "HF nurse with a focus on psychiatry (60-100%)",
+        "en": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
         "de": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
         "fr": "Infirmière HF avec un accent sur la psychiatrie (60-100%)"
       },
@@ -186,12 +186,13 @@
         "de": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%) bei der Privatklinik Hohenegg in Meilen, Kanton Zürich.\n\nDie Privatklinik Hohenegg AG ist ein modernes Kompetenzzentrum für stationäre Psychiatrie, Psychosomatik und Psychotherapie am Zürichsee. Wir behandeln in einer ruhigen Umgebung Erwachsene mit Burnout, Depression, Angst-, Trauma- und Lebenskrisen.\n\nWas die Hohenegg bietet:\n• Modernes Klinikumfeld mit hoher fachlicher Qualität\n• Interdisziplinäre Zusammenarbeit in einem engagierten Team\n• Attraktive Anstellungsbedingungen und Weiterbildungsmöglichkeiten\n• Wunderschöne Lage am Zürichsee in Meilen",
         "fr": "Infirmière HF avec l'accent sur la psychiatrie Privatklinik Hohenegg AG est un centre de compétence moderne pour la psychiatrie, la psychosomatique et la psychothérapie hospitalisée sur le lac de Zurich. Nous traitons les adultes avec épuisement, dépression, anxiété, traumatismes et crises de vie dans un environnement calme.\n• Requisiti - Infirmière HF avec un accent sur la psychiatrie (60-100%)\n• Cosa offriamo - L'environnement hospitalier moderne avec une qualité professionnelle élevée - La coopération interdisciplinaire dans une équipe engagée - Des conditions d'emploi attrayantes et des possibilités de formation continue - Magnifique emplacement sur le lac de Zurich en miles"
       },
+      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0038/pub/14/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T21:58:40.373Z",
+      "crawledAt": "2026-07-15T10:58:07.492Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -213,6 +214,7 @@
       "pensum": "60%",
       "previousSlugs": [
         "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "hf-nurse-with-a-focus-on-psychiatry-60-100-privatklinik-hohenegg-meilen",
         "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen"
       ],
       "previousSlugsByLocale": {
@@ -221,7 +223,8 @@
           "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen"
         ],
         "en": [
-          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+          "hf-nurse-with-a-focus-on-psychiatry-60-100-privatklinik-hohenegg-meilen"
         ],
         "fr": [
           "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
@@ -273,7 +276,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T21:58:39.911Z",
+      "crawledAt": "2026-07-15T10:58:06.970Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
