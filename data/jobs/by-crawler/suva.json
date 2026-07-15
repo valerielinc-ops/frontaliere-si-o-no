@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suva",
-  "assembledAt": "2026-07-15T10:58:26.174Z",
+  "assembledAt": "2026-07-15T22:02:55.645Z",
   "jobs": [
     {
       "id": "suva-a2f22985953d",
@@ -33,7 +33,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-M%C3%A9decin-assistant%E2%88%99e-en-m%C3%A9decine-du-travail-80-100-VD-1003/1411281733/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:23.580Z",
+      "crawledAt": "2026-07-15T22:02:51.888Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.suva.ch/job/Fribourg-Sp%C3%A9cialiste-en-s%C3%A9curit%C3%A9-int%C3%A9gr%C3%A9e-80-100-FR-1700/1409237433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:22.555Z",
+      "crawledAt": "2026-07-15T22:02:50.840Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -143,6 +143,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -188,7 +189,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Sp%C3%A9cialiste-conduite-des-cas-80-100-VD-1003/1403235033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:21.572Z",
+      "crawledAt": "2026-07-15T22:02:49.896Z",
       "addressLocality": "Genève | Lausanne | Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,7 +273,7 @@
       "url": "https://jobs.suva.ch/job/La-Chaux-de-Fonds-Gestionnaire-centre-de-comp%C3%A9tence-80-100-NE-2300/1387007233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:20.388Z",
+      "crawledAt": "2026-07-15T22:02:48.975Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -351,7 +352,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Kauffrau-Kaufmann-EFZ-%28alle-Geschlechter%29-100-SG-9000/1376392933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:19.407Z",
+      "crawledAt": "2026-07-15T22:02:48.047Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -369,6 +370,7 @@
       "pensum": "100%",
       "sfJobId": "1376392933",
       "firstSeenAt": "2026-07-04T12:22:49.137Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -414,7 +416,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:18.464Z",
+      "crawledAt": "2026-07-15T22:02:47.090Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -493,7 +495,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Fach%C3%A4rztin-Facharzt-Neurologie-80-100-ZH-8002/1387059033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:17.514Z",
+      "crawledAt": "2026-07-15T22:02:46.171Z",
       "addressLocality": "Winterthur | Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,7 +574,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Sachbearbeiterin-Heilkosten-ambulant-80-100-AG-5000/1410639833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:16.448Z",
+      "crawledAt": "2026-07-15T22:02:45.245Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -651,7 +653,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Fach%C3%A4rztin-Facharzt-Psychiatrie-%28alle-Geschlechter%29-80-100-SG-9000/1371896633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:15.420Z",
+      "crawledAt": "2026-07-15T22:02:44.303Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -730,7 +732,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-M%C3%A9decin-avec-connaissances-approfondies-en-traumatologie-80-100-VD-1003/1216709001/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:14.423Z",
+      "crawledAt": "2026-07-15T22:02:43.370Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -809,7 +811,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Teamleiterin-Versicherungsmedizin-80-100-VD-1003/1399745833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:13.211Z",
+      "crawledAt": "2026-07-15T22:02:42.439Z",
       "addressLocality": "Genf | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -888,7 +890,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Chef%E2%88%99fe-de-team-m%C3%A9decine-d'assurance-80-100-VD-1003/1398235133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:12.272Z",
+      "crawledAt": "2026-07-15T22:02:41.533Z",
       "addressLocality": "Genève | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -965,7 +967,7 @@
       "url": "https://jobs.suva.ch/job/La-Chaux-de-Fonds-Stage-d%C3%A9couverte-apprenti%E2%88%99e-employ%C3%A9%E2%88%99e-de-commerce-CFC-La-Chaux-de-Fonds-NE-2300/1286775701/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T10:58:10.978Z",
+      "crawledAt": "2026-07-15T22:02:40.374Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressCountry": "CH",
       "country": "CH",
@@ -1043,7 +1045,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Cyber-Security-Specialist-%28all-genders%29-80-100-LU-6004/1397715233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:09.982Z",
+      "crawledAt": "2026-07-15T22:02:39.447Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1061,6 +1063,7 @@
       "pensum": "80-100%",
       "sfJobId": "1397715233",
       "firstSeenAt": "2026-07-04T12:22:46.317Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1106,7 +1109,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Assistenz%C3%A4rztin-Assistenzarzt-Versicherungsmedizin-%28alle-Geschlechter%29-80-100-LU-6004/1395395933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:08.880Z",
+      "crawledAt": "2026-07-15T22:02:38.508Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1125,14 +1128,14 @@
       "sfJobId": "1395395933",
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-        "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino",
-        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-ticino"
+        "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-ticino",
+        "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau",
-          "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino",
-          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-ticino"
+          "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-ticino",
+          "assistente-medico-assicurazione-medicina-tutti-i-sessi-80-100-suva-ticino"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-versicherungsmedizin-alle-geschlechter-80-100-suva-aarau"
@@ -1187,7 +1190,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:07.899Z",
+      "crawledAt": "2026-07-15T22:02:37.569Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1266,7 +1269,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Teamleiterin-Redaktion-und-Sprachenmanagement-80-100-LU-6004/1410109633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:06.854Z",
+      "crawledAt": "2026-07-15T22:02:36.543Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1374,7 +1377,8 @@
         }
       },
       "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
