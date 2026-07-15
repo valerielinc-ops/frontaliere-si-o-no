@@ -515,7 +515,9 @@ function main() {
     }
 
     if (!tracking[slug]) {
-      tracking[slug] = localePaths;
+      tracking[slug] = nonGitSourceSlugs.has(slug)
+        ? localePaths
+        : { ...localePaths, _gitOnly: true };
       added++;
     } else {
       // Patch missing locales in existing entry
@@ -527,6 +529,10 @@ function main() {
         }
       }
       if (didPatch) patched++;
+      // Upgrade: slug previously marked git-only but now visible from a non-git source.
+      if (tracking[slug]._gitOnly && nonGitSourceSlugs.has(slug)) {
+        delete tracking[slug]._gitOnly;
+      }
     }
   }
 
@@ -564,7 +570,7 @@ function main() {
     if (preSerialized.length > SIZE_CAP) {
       let pruned = 0;
       for (const slug of Object.keys(tracking)) {
-        if (!nonGitSourceSlugs.has(slug)) {
+        if (tracking[slug]?._gitOnly === true) {
           delete tracking[slug];
           pruned++;
         }
