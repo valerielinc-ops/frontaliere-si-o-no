@@ -1,19 +1,75 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-14T22:09:26.687Z",
+  "generatedAt": "2026-07-15T10:57:34.408Z",
   "total": 39,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 39,
-  "durationMs": 21162,
-  "avgDurationMs": 21162,
+  "unchangedCount": 38,
+  "durationMs": 19506,
+  "avgDurationMs": 19506,
   "durationHistory": [
-    21162
+    19506
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "efg-5984",
+      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-07-15T10:57:31.957Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -161,7 +217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.627Z",
+      "crawledAt": "2026-07-15T10:57:31.986Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -277,7 +333,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.625Z",
+      "crawledAt": "2026-07-15T10:57:31.984Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -363,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.624Z",
+      "crawledAt": "2026-07-15T10:57:31.983Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -418,7 +474,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.623Z",
+      "crawledAt": "2026-07-15T10:57:31.982Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -473,7 +529,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.622Z",
+      "crawledAt": "2026-07-15T10:57:31.981Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -602,7 +658,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.621Z",
+      "crawledAt": "2026-07-15T10:57:31.980Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -703,7 +759,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.620Z",
+      "crawledAt": "2026-07-15T10:57:31.978Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -821,7 +877,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.619Z",
+      "crawledAt": "2026-07-15T10:57:31.977Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -876,7 +932,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.618Z",
+      "crawledAt": "2026-07-15T10:57:31.976Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1000,7 +1056,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.617Z",
+      "crawledAt": "2026-07-15T10:57:31.975Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1055,7 +1111,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.616Z",
+      "crawledAt": "2026-07-15T10:57:31.974Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1110,7 +1166,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.614Z",
+      "crawledAt": "2026-07-15T10:57:31.972Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1165,7 +1221,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.613Z",
+      "crawledAt": "2026-07-15T10:57:31.971Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1276,7 +1332,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.612Z",
+      "crawledAt": "2026-07-15T10:57:31.970Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1404,7 +1460,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.611Z",
+      "crawledAt": "2026-07-15T10:57:31.969Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1460,7 +1516,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.610Z",
+      "crawledAt": "2026-07-15T10:57:31.967Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1607,7 +1663,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.609Z",
+      "crawledAt": "2026-07-15T10:57:31.966Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1728,7 +1784,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.607Z",
+      "crawledAt": "2026-07-15T10:57:31.964Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -1847,7 +1903,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-14T22:09:23.605Z",
+      "crawledAt": "2026-07-15T10:57:31.961Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -1864,61 +1920,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 19
-      }
-    },
-    {
-      "id": "efg-5984",
-      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-07-14T22:09:23.602Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -2741,6 +2742,134 @@
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 17,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6151",
+      "slug": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Strategic Transformation Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6151",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<i>Enterprise & Strategic Transformation</i>"
+            ],
+            "responsibilities": [
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Prepare decision material for senior management and Board-level discussions",
+              "Design and implement target operating models adapted to a relationship-driven private banking environment.",
+              "Support optimization of front-to-back processes across:<ul><li> Client Relationship Management and Client Advisory",
+              "Investment Services and Portfolio Management",
+              "Operations and Middle Office",
+              "Lead cost-efficiency and productivity initiatives while preserving service quality and client experience",
+              "Lead business-driven digital initiatives including:<ul><li> CRM and client lifecycle management",
+              "Advisory and portfolio management tools",
+              "Process automation (workflow digitization, RPA, AI use cases)",
+              "Act as bridge between business, IT, and data teams to ensure adoption and value realization.",
+              "Promote data-driven management through dashboards, KPIs, and management information.",
+              "Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.",
+              "Ensure regulatory changes are embedded pragmatically into business processes."
+            ],
+            "requirements": [
+              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
+              "Transformation & Execution<ul><li>Enterprise and functional transformation",
+              "Operating model design",
+              "Business case development and benefits tracking",
+              "Program and portfolio management",
+              "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
+              "CRM platforms, Front office / Investment applications and private banking core systems",
+              "Process automation and digitalisation / AI in banking",
+              "Data analytics and performance management",
+              "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
+              "Strong influencing skills without formal authority",
+              "Structured problem-solving and analytical rigor",
+              "High discretion, resilience, and ownership mindset"
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Pure Private Banking Expertise",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Strong sensitivity to confidentiality",
+              "Transformation & Execution<ul><li>Enterprise and functional transformation",
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Prepare decision material for senior management and Board-level discussions"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
+                  "<br><strong>Job Description</strong>",
+                  "We are looking to onboard a manager with 10–15 years of experience within private banking and wealth management institutions. The objective is for them to join the Transformation Office as a Senior member and to drive strategic, operational, and digital transformation initiatives tailored to the specific culture, risk profile, and client-centric model EFG. MBA-qualified would be a plus, with strong execution capabilities and deep understanding of front-to-back private banking operations."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-01T14:24:17.994Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-15",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-15T21:42:14.752Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 25,
         "translation": 25,
         "completeness": 22
