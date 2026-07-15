@@ -101,12 +101,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adligenswil",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adligenswil",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-adligenswil",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-adligenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -140,7 +140,21 @@
       "addressLocality": "Adligenswil",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-14T22:06:26.418Z"
+      "firstSeenAt": "2026-07-14T22:06:26.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Fachspezialistin-Elektrosicherheit/73641-de_DE",

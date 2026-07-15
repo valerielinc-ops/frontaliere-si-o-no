@@ -978,7 +978,7 @@
       },
       "slugByLocale": {
         "it": "chauffeur-in-cat-ce-coop-genossenschaft-gossau",
-        "en": "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3",
+        "en": "chauffeur-in-cat-ce-coop-genossenschaft-gossau-sankt-gallen",
         "de": "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3",
         "fr": "chauffeur-en-cat-ce-coop-genossenschaft-gossau"
       },
@@ -1012,6 +1012,9 @@
           "chauffeur-in-kat-ce-coop-gossau-sankt-gallen"
         ],
         "fr": [
+          "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3"
+        ],
+        "en": [
           "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-3uewa3"
         ]
       },
@@ -3636,20 +3639,10 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen"
-        ],
-        "en": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-akgg8v"
-        ],
-        "de": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-akgg8v"
-        ],
-        "fr": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-akgg8v"
         ]
       },
       "previousSlugs": [
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen",
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-akgg8v"
+        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -3836,20 +3829,10 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-2"
-        ],
-        "en": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-4xq1vq"
-        ],
-        "de": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-4xq1vq"
-        ],
-        "fr": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-4xq1vq"
         ]
       },
       "previousSlugs": [
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-2",
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-4xq1vq"
+        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-2"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -3915,20 +3898,10 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-3"
-        ],
-        "en": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-9jtrmn"
-        ],
-        "de": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-9jtrmn"
-        ],
-        "fr": [
-          "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-9jtrmn"
         ]
       },
       "previousSlugs": [
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-3",
-        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-9jtrmn"
+        "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-3"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500
@@ -165291,8 +165264,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-zg3msp",
-          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz"
+          "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-zg3msp"
         ],
         "en": [
           "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-zg3msp",
@@ -165310,8 +165282,7 @@
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz-zg3msp",
         "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-kussnacht-zg3msp",
-        "strahlenleiter-coop-genossenschaft-kussnacht",
-        "rayonleiter-in-grundnahrungsmittel-coop-kussnacht-schwyz"
+        "strahlenleiter-coop-genossenschaft-kussnacht"
       ],
       "sourceLang": "de",
       "salaryMin": 69500,
@@ -165464,7 +165435,7 @@
     },
     {
       "id": "company-usuvan",
-      "slug": "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon",
+      "slug": "assistente-cuoco-cuoco-ausiliario-100-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Hilfskoch/Hilfsköchin 100%",
       "location": "Dietlikon",
@@ -165495,10 +165466,10 @@
         "fr": "## Cuisinier adjoint/cuisinier auxiliaire 100%\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 90 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Préparer et fournir Mise en Place\n- Participation active à la cuisine chaude et froide\n- Parfaite production de produits de cuisine selon les exigences quotidiennes communiquées conformément aux processus actuels\n- Respect des recettes et assurance qualité\n- Respect et contrôle des normes d'hygiène dans le domaine de responsabilité\n- Nettoyage et nettoyage divers\n\n## Exigences\n- Expérience professionnelle en tant que cuisinier auxiliaire\n- L'expérience dans le secteur événementiel et banquet est un avantage\n- Méthodes de travail propres et avancées\n- Profiter de processus structurés\n- Préparation pour les services de poste, de week-end et de vacances\n- Les compétences en allemand au niveau A2, les compétences en anglais sont avantageuses\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nPatchaya Greutmann\nRessources humaines\n\n**Tipo:** Temps plein\n**Sede:** Dietlikon"
       },
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan",
-        "en": "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan",
+        "it": "assistente-cuoco-cuoco-ausiliario-100-two-spice-ag-dietlikon",
+        "en": "assistant-cook-auxiliary-cook-100-two-spice-ag-dietlikon",
         "de": "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan",
-        "fr": "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan"
+        "fr": "cuisinier-adjoint-cuisinier-auxiliaire-100-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietlikon",
@@ -165517,11 +165488,27 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan",
+          "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon-usuvan",
+        "hilfskoch-hilfskochin-100-two-spice-ag-dietlikon"
+      ]
     },
     {
       "id": "company-n5mu7v",
-      "slug": "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon",
+      "slug": "personale-di-produzione-in-80-100-imballaggio-notte-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Produktionsmitarbeiter:in 80-100% Verpackung (Nacht)",
       "location": "Dietlikon",
@@ -165552,10 +165539,10 @@
         "fr": "## Personnel de production: en emballage 80-100% (nuit)\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 90 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Production, emballage et cueillage sans faute selon les exigences quotidiennes communiquées, conformément aux normes et procédés actuels\n- Préparation du travail sans erreur\n- Choix approprié de différentes commandes\n- Travaux divers de nettoyage et de nettoyage et respect des normes de nettoyage conformément aux normes de nettoyage et d'hygiène applicables\n- Entretien et entretien des infrastructures\n\n## Exigences\n- Expérience professionnelle dans la production, l'emballage ou la cueillette d'aliments\n- L'expérience dans la manipulation des aliments et la connaissance des règlements d'hygiène (HACCP) sont bénéfiques\n- Bonne connaissance de l'allemand en mots et en écriture\n- Préparation pour un quart de nuit permanent ainsi que pour les missions de week-end et de jours fériés\n- La résilience physique et la volonté de travailler principalement debout et le levage régulier des charges\n- Les compétences en allemand au niveau A2, les compétences en anglais sont avantageuses\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nPatchaya Greutmann\nRessources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Dietlikon"
       },
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v",
-        "en": "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v",
+        "it": "personale-di-produzione-in-80-100-imballaggio-notte-two-spice-ag-dietlikon",
+        "en": "production-staff-in-80-100-packaging-night-two-spice-ag-dietlikon",
         "de": "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v",
-        "fr": "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v"
+        "fr": "personnel-de-production-en-emballage-80-100-nuit-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietlikon",
@@ -165574,11 +165561,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v",
+          "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon-n5mu7v",
+        "produktionsmitarbeiter-in-80-100-verpackung-nacht-two-spice-ag-dietlikon"
+      ]
     },
     {
       "id": "company-c9seio",
-      "slug": "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon",
+      "slug": "personale-di-produzione-in-cucina-di-riso-100-two-spice-ag-dietlikon",
       "company": "Two Spice AG",
       "title": "Produktionsmitarbeiter:in 100% Reisküche",
       "location": "Dietlikon",
@@ -165609,10 +165612,10 @@
         "fr": "## Personnel de production: dans une cuisine 100% riz\n\n**Deux Spice AG** — Dietlikon, Dietlikon, Svizzera\n\n## Yooji-S Manufaktur, qui fait partie de Two Spice AG, offre une gamme polyvalente et exquise de sushi, sashimi et bien plus encore. Le site de production du Two Spice Manufaktur est situé à Rümlang et emploie plus de 90 personnes. Diverses spécialités sont préparées chaque jour et livrées plusieurs fois par jour aux restaurants et magasins de Yooji. Des produits spécialement développés pour notre marque japonaise ZENBU sont également produits dans l'usine. Les produits ZENBU tels que Sushi, Poké, Onigiri et végétalien sont produits pour Coop et sont disponibles directement auprès de Coop partout en Suisse. Tu veux faire partie de notre équipe ? C'est votre chance !\n\n## Tâche\n- Production et préparation de riz selon recettes, plans de production et instructions de travail\n- Exploitation, suivi et mise en place des installations de production\n- Mise et travail sur place\n- Nettoyage et nettoyage divers\n- Respect des normes de nettoyage et d'hygiène\n\n## Exigences\n- Expérience professionnelle dans une fonction comparable dans l'industrie alimentaire\n- Haute fiabilité\n- Bonne connaissance de l'allemand au moins niveau A2\n- Méthodes de travail propres, précises et efficaces\n- Résistance au stress, résistance et ajustement physique\n- Joueur/in de l'équipe\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nPatchaya Greutmann\nRessources humaines\n\n**Tipo:** Temps plein\n**Sede:** Dietlikon"
       },
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio",
-        "en": "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio",
+        "it": "personale-di-produzione-in-cucina-di-riso-100-two-spice-ag-dietlikon",
+        "en": "production-staff-in-100-rice-kitchen-two-spice-ag-dietlikon",
         "de": "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio",
-        "fr": "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio"
+        "fr": "personnel-de-production-dans-une-cuisine-100-riz-two-spice-ag-dietlikon"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietlikon",
@@ -165631,11 +165634,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio",
+          "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon-c9seio",
+        "produktionsmitarbeiter-in-100-reiskuche-two-spice-ag-dietlikon"
+      ]
     },
     {
       "id": "company-jvhc8i",
-      "slug": "verkaufsberater-in-christ-uhren-schmuck-ag-zurich",
+      "slug": "consulente-commerciale-in-christ-uhren-schmuck-ag-zurich",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Verkaufsberater:in",
       "location": "Zürich",
@@ -165668,10 +165687,10 @@
         "fr": "## Consultant en ventes:\n\n**CHRIST Uhren & Schmuck AG** — Zurich, Zurich, Svizzera\n\n## Tâche\n- Unique et inspirant : C'est ainsi que les clients vivent vos conseils.\n- Des émotions ! C'est de ça qu'il s'agit quand vous présentez nos collections de bijoux et de montres. Vous êtes au courant. Et ce qui vient avec elle est une image de magasin élégant. C'est pourquoi vous êtes conjointement responsable.\n- Le fait que vous reprennez le travail de service comme le remplacement de la batterie et/ou le raccourcissement des bandes de montres est une question bien sûr pour vous.\n- Responsabilité de la gestion de la trésorerie? Pas de problème pour toi.\n\n## Exigences\n- Passion et joie – les clients et l'équipe devraient sentir que lorsqu'ils travaillent avec vous.\n- Une formation de vente ou une expérience professionnelle dans le domaine des bijoux? Les deux sont bons.\n- Vous connaissez très bien l'allemand. Les langues étrangères sont également souhaitées.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). C'est pour vous en vente.\n- Un sourire pétillant est votre secret pour réussir.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Zurich"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
-        "en": "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
+        "it": "consulente-commerciale-in-christ-uhren-schmuck-ag-zurich",
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-zurich",
         "de": "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
-        "fr": "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i"
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -165697,11 +165716,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich-jvhc8i",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-zurich"
+      ]
     },
     {
       "id": "company-n4h1vn",
-      "slug": "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich",
+      "slug": "consulente-a-do-it-jumbo-division-der-coop-genossenschaft-rumlang-209c75",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkausberater:in Do-it",
       "location": "Rümlang",
@@ -165734,10 +165769,10 @@
         "fr": "## Consultant: en Do-it\n\n**Jumbo, Division de la coopérative Coop** — Rümlang, Zurich, Svizzera\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Remise sur l'abonnement, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:**Rümlang"
       },
       "slugByLocale": {
-        "it": "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn",
-        "en": "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn",
+        "it": "consulente-a-do-it-jumbo-division-der-coop-genossenschaft-rumlang-209c75",
+        "en": "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-209c75",
         "de": "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn",
-        "fr": "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn"
+        "fr": "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang-209c75"
       },
       "requirementsByLocale": {
         "it": [],
@@ -165775,7 +165810,9 @@
         "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-77caib",
         "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang-77caib",
         "consultant-in-do-it-jumbo-rumlang-zurich-77caib",
-        "consultant-en-do-it-jumbo-rumlang-zurich-77caib"
+        "consultant-en-do-it-jumbo-rumlang-zurich-77caib",
+        "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn",
+        "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -165789,16 +165826,20 @@
           "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-77caib",
           "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang-77caib",
           "consultant-in-do-it-jumbo-rumlang-zurich-77caib",
-          "consultant-en-do-it-jumbo-rumlang-zurich-77caib"
+          "consultant-en-do-it-jumbo-rumlang-zurich-77caib",
+          "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn",
+          "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich"
         ],
         "en": [
-          "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-77caib"
+          "consultant-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-77caib",
+          "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn"
         ],
         "de": [
           "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-afc57b"
         ],
         "fr": [
-          "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-77caib"
+          "consultant-en-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-77caib",
+          "verkausberater-in-do-it-jumbo-division-der-coop-genossenschaft-rumlang-zurich-n4h1vn"
         ]
       }
     },
@@ -165870,7 +165911,7 @@
     },
     {
       "id": "company-c9xm7t",
-      "slug": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern",
+      "slug": "venditore-in-prodotti-freschi-pane-coop-genossenschaft-wiedlisbach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Brot)",
       "location": "Wiedlisbach",
@@ -165903,10 +165944,10 @@
         "fr": "## Vendeur:en produits frais (pain)\n\n**Coop Genossenschaft** — Wiedlisbach, Berne, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Le président"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t",
-        "en": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t",
+        "it": "venditore-in-prodotti-freschi-pane-coop-genossenschaft-wiedlisbach",
+        "en": "seller-in-fresh-products-bread-coop-genossenschaft-wiedlisbach",
         "de": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t",
-        "fr": "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t"
+        "fr": "vendeur-en-produits-frais-pain-coop-genossenschaft-wiedlisbach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -165932,11 +165973,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t",
+          "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern-c9xm7t",
+        "verkaufer-in-frischprodukte-brot-coop-genossenschaft-wiedlisbach-bern"
+      ]
     },
     {
       "id": "company-2ye4lp",
-      "slug": "verkaufer-in-food-coop-genossenschaft-kirchberg-bern",
+      "slug": "venditore-in-food-coop-genossenschaft-kirchberg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Kirchberg",
@@ -165969,10 +166026,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative de coop** — Kirchberg, Berne, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Kirchberg"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp",
-        "en": "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp",
+        "it": "venditore-in-food-coop-genossenschaft-kirchberg",
+        "en": "seller-in-food-coop-genossenschaft-kirchberg",
         "de": "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp",
-        "fr": "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-kirchberg"
       },
       "requirementsByLocale": {
         "it": [],
@@ -165998,11 +166055,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp",
+          "verkaufer-in-food-coop-genossenschaft-kirchberg-bern"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-genossenschaft-kirchberg-bern-2ye4lp",
+        "verkaufer-in-food-coop-genossenschaft-kirchberg-bern"
+      ]
     },
     {
       "id": "company-cdjmrm",
-      "slug": "verkaufer-in-food-coop-genossenschaft-zurich",
+      "slug": "venditore-in-food-coop-genossenschaft-zurich-079962",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -166035,10 +166108,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Zurich, Zurich, Svizzera\n\n## Tâche\n- Conseils et fonctionnement: Dans le workflow quotidien, vous êtes là pour nos clients exigeants.\n- Toujours frais et séduisant: attention consciencieuse Ils parlent de la gamme variée de pain et de produits de boulangerie.\n- Ce calcul est basé sur : Le système de trésorerie est votre responsabilité.\n- Lorsque vous êtes en utilisation, la rayonne est propre et bien entretenue.\n- Il est clair pour vous que vous respectez les exigences de qualité telles que la fraîcheur et la qualité, l'hygiène, les règlements de température et les dates d'expiration sans exception.\n\n## Exigences\n- Formation sur les ventes terminée? C'est la condition préalable.\n- Vous connaissez la nourriture ? Tant mieux.\n- Votre allemand est très bon – verbalement et par écrit.\n- Heure de déploiement ? Vous êtes flexible.\n- Tu préfères travailler avec les gens. Dans votre équipe – et tout aussi heureux avec les clients.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Zurich"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm",
-        "en": "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm",
+        "it": "venditore-in-food-coop-genossenschaft-zurich-079962",
+        "en": "seller-in-food-coop-genossenschaft-zurich-079962",
         "de": "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-079962"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166064,11 +166137,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm",
+          "verkaufer-in-food-coop-genossenschaft-zurich"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-genossenschaft-zurich-cdjmrm",
+        "verkaufer-in-food-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-u0fdt",
-      "slug": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich",
+      "slug": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-volketswil",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Deco",
       "location": "Volketswil",
@@ -166101,10 +166190,10 @@
         "fr": "## Consultant en ventes: en Deco\n\n**Jumbo, Division de la coopérative Coop** — Volketswil, Zurich, Svizzera\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement. Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, demi-ax CFF ou réduction sur l'abonnement GA, rabais personnel également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Volketswil"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt",
-        "en": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt",
+        "it": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-volketswil",
+        "en": "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-volketswil",
         "de": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt",
-        "fr": "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt"
+        "fr": "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-volketswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166130,11 +166219,27 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt",
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt"
+        ],
+        "fr": [
+          "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich-0u0fdt",
+        "verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich"
+      ]
     },
     {
       "id": "company-e64mup",
-      "slug": "verkaufsberater-in-interdiscount-wadenswil-zurich",
+      "slug": "consulente-commerciale-in-interdiscount-wadenswil-60f8f0",
       "company": "Interdiscount",
       "title": "Verkaufsberater:in",
       "location": "Wädenswil",
@@ -166165,10 +166270,10 @@
         "fr": "## Consultant en ventes:\n\n** Interdiscount** — Wädenswil, Zurich, Svizzera\n\n## Chez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. S'engager dans un environnement de travail dynamique et entrepreneurial. Prenez des responsabilités, soyez proactif avec nous et développez-vous.\n\n## Tâche\n- Vous conseillez nos clients professionnellement et avec engagement.\n- Vous vendez notre gamme de produits avec conviction et passion.\n- Vous êtes conjointement responsable d'une présentation attrayante des marchandises et l'utilisez avec profit.\n- Vous traitez notre reçu de marchandises et sortez avec soin.\n\n## Exigences\n- Profitez des conseils aux clients\n- Fiabilité, honnêteté et loyauté\n- Motivation pour la formation personnelle et professionnelle\n- Flair pour nouveaux produits techniques\n- une formation sur les ventes terminée; une expérience professionnelle en électronique à domicile ou en salle d'entraînement est bénéfique\n\n## Ce que nous offrons\n\n## Votre personne à contacter\nAlexandra Studer\nMarketing des ressources humaines\n+41 31 764 42 61\n\n**Tipo:** Temps partiel\n**Sécurité :** Wädenswil"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-        "en": "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
+        "it": "consulente-commerciale-in-interdiscount-wadenswil-60f8f0",
+        "en": "sales-consultant-in-interdiscount-wadenswil-60f8f0",
         "de": "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
-        "fr": "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup"
+        "fr": "consultant-en-ventes-interdiscount-wadenswil-60f8f0"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wädenswil",
@@ -166187,11 +166292,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
+          "verkaufsberater-in-interdiscount-wadenswil-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup"
+        ],
+        "fr": [
+          "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-wadenswil-zurich-e64mup",
+        "verkaufsberater-in-interdiscount-wadenswil-zurich"
+      ]
     },
     {
       "id": "company-3q7izn",
-      "slug": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich",
+      "slug": "consulenti-di-vendita-incl-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in inkl. Stellvertretung der Geschäftsführung",
       "location": "Winterthur",
@@ -166224,10 +166345,10 @@
         "fr": "## Consultants en matière de vente : y compris Directeur adjoint\n\n**Coopérative Coop** — Winterthur, Zurich, Svizzera\n\n## Tâche\n- Inspirer les clients avec des tendances et des nouveautés et les conseiller individuellement et selon le type est exactement votre chose – et votre tâche quotidienne.\n- Motivé vous aidez que le magasin semble toujours bien gardé.\n- Vous prenez soin de la gestion des marchandises sur notre zone de vente très consciencieusement.\n- La responsabilité de la gestion de la trésorerie vous incombe également.\n- Vous êtes l'adjoint de la direction en absence.\n\n## Exigences\n- Tu préfères travailler avec les gens. L'équipe et les clients ressentent votre passion jour après jour.\n- Achevé la formation professionnelle et/ou l'expérience de préférence en tant que vendeur de parfums:in, esthéticien:in ou drogué:in? Nous cherchons des gens comme vous.\n- Vous avez l'allemand sous contrôle – verbalement et par écrit. Et si vous connaissez des langues étrangères, tant mieux.\n- Le fait que vous devriez être flexible dans les ventes pendant les temps d'utilisation (Mo. à Sa.) est une question bien sûr pour vous.\n- Votre performance est importante pour vous. Vous créez la combinaison parfaite d'élégance et de naturel.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nPamela Padovano\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Winterthur"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn",
-        "en": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn",
+        "it": "consulenti-di-vendita-incl-coop-genossenschaft-winterthur",
+        "en": "sales-consultants-incl-deputy-management-coop-genossenschaft-winterthur",
         "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn",
-        "fr": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn"
+        "fr": "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-winterthur"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166253,11 +166374,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn"
+        ],
+        "fr": [
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich-3q7izn",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-winterthur-zurich"
+      ]
     },
     {
       "id": "company-ghy74d",
-      "slug": "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau",
+      "slug": "stv-leader-del-gruppo-in-pasta-sfoglia-panofina-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Stv. Gruppenleiter:in Konditorei Verkaufsteig Panofina",
       "location": "Schafisheim",
@@ -166288,10 +166425,10 @@
         "fr": "## Stv. chef de groupe: en pâte à pâte\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Gestion du groupe adjoint en absence\n- Planification, contrôle et mise en oeuvre du Plan d'exploitation des ressources humaines\n- Traitement des commandes dans SAP\n- Établissement et mise en œuvre active des principes de gestion maigre\n- Assurer le respect des spécifications (poids, horaires, heures de travail)\n\n## Exigences\n- Examen professionnel en tant que technologie alimentaire : avantage\n- Expérience dans l'industrie alimentaire et idéalement en leadership\n- Bonne connaissance de l'allemand en mots et en écriture\n- Compréhension rapide et pensée en réseau\n- Préparation pour le travail posté et le week-end\n- Réduction sur l'offre ITS Coop Travel\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nCorinne Elmiger\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Schafisheim"
       },
       "slugByLocale": {
-        "it": "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d",
-        "en": "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d",
+        "it": "stv-leader-del-gruppo-in-pasta-sfoglia-panofina-coop-genossenschaft-schafisheim",
+        "en": "stv-group-leader-in-pastry-sales-dough-panofina-coop-genossenschaft-schafisheim",
         "de": "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d",
-        "fr": "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d"
+        "fr": "stv-chef-de-groupe-en-pate-a-pate-coop-genossenschaft-schafisheim"
       },
       "requirementsByLocale": {},
       "addressLocality": "Schafisheim",
@@ -166310,11 +166447,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d",
+          "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau"
+        ],
+        "en": [
+          "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d"
+        ],
+        "fr": [
+          "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d"
+        ]
+      },
+      "previousSlugs": [
+        "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau-ghy74d",
+        "stv-gruppenleiter-in-konditorei-verkaufsteig-panofina-coop-genossenschaft-schafisheim-aargau"
+      ]
     },
     {
       "id": "company-ka4nxx",
-      "slug": "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau",
+      "slug": "leader-del-gruppo-in-tecnologia-intralogistica-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Gruppenleiter:in Technik Intralogistik",
       "location": "Schafisheim",
@@ -166345,10 +166498,10 @@
         "fr": "## Chef de groupe: en technologie Intralogistique\n\n**Coopérative de coopératives** — Schafisheim, Aargau, Svizzera\n\n## Tâche\n- Vous dirigez, promeutz et développez votre équipe.\n- Vous assurez la disponibilité maximale de nos systèmes intralogistiques automatisés.\n- Vous planifiez des ressources, des déplacements et des piquets à l'avance.\n- Vous assurez que les travaux d'entretien, de réparation et d'entretien sont effectués efficacement.\n- Vous travaillez en étroite collaboration avec la logistique et d'autres interfaces internes et êtes un point de contact précieux.\n- Vous êtes responsable du budget, des chiffres clés et de la planification des investissements dans votre région.\n- Vous veillez à ce que les normes de sécurité, de qualité et d'hygiène soient respectées en tout temps.\n\n## Exigences\n- Une formation technique de base avec une formation complémentaire appropriée, par exemple en tant que technicien: en HF ou gestionnaire de maintenance:in.\n- Plusieurs années d'expérience de leadership, idéalement dans un environnement technique ou industriel.\n- Expérience dans la maintenance d'installations automatisées ou de systèmes techniques complexes.\n- La joie de diriger, de développer les gens et de réussir ensemble.\n- Communication claire, force de décision et assurance.\n- Une façon structurée de travailler et de penser entrepreneurial.\n- Préparation pour Pikett ainsi que flexibilité dans une opération 24/7.\n\n## Ce que nous offrons\n- Avantages: 5 fois le nombre de super points dans le supermarché\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nTobias Widmer\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sede:** Schafisheim"
       },
       "slugByLocale": {
-        "it": "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx",
-        "en": "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx",
+        "it": "leader-del-gruppo-in-tecnologia-intralogistica-coop-genossenschaft-schafisheim",
+        "en": "group-leader-in-technology-intralogistics-coop-genossenschaft-schafisheim",
         "de": "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx",
-        "fr": "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx"
+        "fr": "chef-de-groupe-en-technologie-intralogistique-coop-genossenschaft-schafisheim"
       },
       "requirementsByLocale": {},
       "addressLocality": "Schafisheim",
@@ -166367,11 +166520,27 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx",
+          "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau"
+        ],
+        "en": [
+          "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx"
+        ],
+        "fr": [
+          "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau-ka4nxx",
+        "gruppenleiter-in-technik-intralogistik-coop-genossenschaft-schafisheim-aargau"
+      ]
     },
     {
       "id": "company-83nf66",
-      "slug": "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen",
+      "slug": "venditore-in-prodotti-alimentari-macellaio-convenienza-coop-genossenschaft-rapperswil-jona",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food/Frischprodukte (Metzgerei/Convenience)",
       "location": "Rapperswil-Jona",
@@ -166409,10 +166578,10 @@
         "fr": "## Vendeur:dans les aliments/produits frais (Butcher/Convenience)\n\n**Coopérative Coop** — Rapperswil-Jona, Sankt Gallen, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Rapperswil-Jona"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
-        "en": "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
+        "it": "venditore-in-prodotti-alimentari-macellaio-convenienza-coop-genossenschaft-rapperswil-jona",
+        "en": "seller-in-food-fresh-products-butcher-convenience-coop-genossenschaft-rapperswil-jona",
         "de": "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
-        "fr": "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66"
+        "fr": "vendeur-dans-les-aliments-produits-frais-butcher-convenience-coop-genossenschaft-rapperswil-jona"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166438,11 +166607,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
+          "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen"
+        ],
+        "en": [
+          "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66"
+        ],
+        "fr": [
+          "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen-83nf66",
+        "verkaufer-in-food-frischprodukte-metzgerei-convenience-coop-rapperswil-jona-sankt-gallen"
+      ]
     },
     {
       "id": "company-687c5y",
-      "slug": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen",
+      "slug": "consulenti-di-vendita-incl-coop-genossenschaft-rapperswil-jona",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in inkl. Stellvertretung der Geschäftsführung",
       "location": "Rapperswil-Jona",
@@ -166480,10 +166665,10 @@
         "fr": "## Consultants en matière de vente : y compris Directeur adjoint\n\n**Coopérative Coop** — Rapperswil-Jona, Sankt Gallen, Svizzera\n\n## Tâche\n- Inspirer les clients avec des tendances et des nouveautés et les conseiller individuellement et selon le type est exactement votre chose – et votre tâche quotidienne.\n- Motivé vous aidez que le magasin semble toujours bien gardé.\n- Vous prenez soin de la gestion des marchandises sur notre zone de vente très consciencieusement.\n- La responsabilité de la gestion de la trésorerie vous incombe également.\n- Vous êtes l'adjoint de la direction en absence.\n\n## Exigences\n- Tu préfères travailler avec les gens. L'équipe et les clients ressentent votre passion jour après jour.\n- Achevé la formation professionnelle et/ou l'expérience de préférence en tant que vendeur de parfums:in, esthéticien:in ou drogué:in? Nous cherchons des gens comme vous.\n- Vous avez l'allemand sous contrôle – verbalement et par écrit. Et si vous connaissez des langues étrangères, tant mieux.\n- Le fait que vous devriez être flexible dans les ventes pendant les temps d'utilisation (Mo. à Sa.) est une question bien sûr pour vous.\n- Votre performance est importante pour vous. Vous créez la combinaison parfaite d'élégance et de naturel.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, rabais personnel également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Rapperswil-Jona"
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y",
-        "en": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y",
+        "it": "consulenti-di-vendita-incl-coop-genossenschaft-rapperswil-jona",
+        "en": "sales-consultants-incl-deputy-management-coop-genossenschaft-rapperswil-jona",
         "de": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y",
-        "fr": "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y"
+        "fr": "consultants-en-matiere-de-vente-y-compris-directeur-adjoint-coop-genossenschaft-rapperswil-jona"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166538,11 +166723,11 @@
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona",
         "vendeur-veuse-assistant-e-administrative-avec-delegation-de-direction-coop-genossenschaft-rapperswil-jona",
         "consultant-commercial-incluant-la-direction-adjointe-coop-genossenschaft-rapperswil-jona-k2qdrj",
-        "consulente-vendite-inclusa-la-direzione-aggiuntiva-coop-genossenschaft-rapperswil-jona"
+        "consulente-vendite-inclusa-la-direzione-aggiuntiva-coop-genossenschaft-rapperswil-jona",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-consultant-including-deputy-management-coop-genossenschaft-rapperswil-jona-k2qdrj",
           "consultant-en-ventes-en-y-compris-la-representation-de-la-direction-coop-genossenschaft-rapperswil-jona",
           "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona",
           "sales-assistant-including-deputy-management-coop-genossenschaft-rapperswil-jona",
@@ -166561,22 +166746,25 @@
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-coop-genossenschaft-rapperswil-jona",
           "vendeur-veuse-assistant-e-administrative-avec-delegation-de-direction-coop-genossenschaft-rapperswil-jona",
           "consultant-commercial-incluant-la-direction-adjointe-coop-genossenschaft-rapperswil-jona-k2qdrj",
-          "consulente-vendite-inclusa-la-direzione-aggiuntiva-coop-genossenschaft-rapperswil-jona"
+          "consulente-vendite-inclusa-la-direzione-aggiuntiva-coop-genossenschaft-rapperswil-jona",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y"
         ],
         "en": [
-          "sales-consultant-with-management-deputy-role-coop-genossenschaft-rapperswil-jona-k2qdrj"
+          "sales-consultant-with-management-deputy-role-coop-genossenschaft-rapperswil-jona-k2qdrj",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y"
         ],
         "de": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-k2qdrj"
         ],
         "fr": [
-          "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona-k2qdrj"
+          "conseiller-ere-de-vente-avec-remplacement-de-la-direction-coop-genossenschaft-rapperswil-jona-k2qdrj",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrung-import-parfumerie-rapperswil-jona-sankt-gallen-687c5y"
         ]
       }
     },
     {
       "id": "company-l5t0wv",
-      "slug": "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen",
+      "slug": "capo-della-ricevuta-aggiunto-fust-swiss-household-services-ag-oberburen",
       "company": "Fust | Swiss Household Services AG",
       "title": "Stellvertretung Leitung Wareneingang",
       "location": "Oberbüren",
@@ -166612,10 +166800,10 @@
         "fr": "## Chef adjoint de réception\n\nServices aux ménages suisses AG — Oberbüren, Sankt Gallen, Svizzera\n\n## La Suisse achète chez Fust ! Nous sommes fiers d'être un leader dans les appareils électroménagers, l'électronique multimédia / divertissement et la rénovation de la cuisine et de la salle de bains, et grâce à notre gamme complète de services et de services uniques, nous créons une réelle valeur ajoutée! Devenez membre de notre équipe et aidez-nous à continuer à créer des expériences client! Un boulot à Fust, et il court !\n\n## Tâche\n- Chef adjoint de la réception des biens en matière professionnelle et organisationnelle\n- Planification et suivi des recettes en temps voulu et qualitatives\n- Coordination des équipes et appui aux opérations courantes de réception des marchandises\n- Assurer la réservation correcte des marchandises dans SAP et WAMAS ainsi que le respect des exigences de qualité et de sécurité\n- Optimisation des processus et participation aux projets, évaluations et audits\n\n## Exigences\n- Formation professionnelle complétée en tant que logisticien:dans EFZ\n- Formation continue en tant que spécialiste de la logistique ou avantage similaire\n- Identification des chariots élévateurs et expérience pratique de l'entrepôt et de l'entrée des marchandises\n- Connaissance du SAP et idéalement du WAMAS\n- Méthodes de travail indépendantes, compétences organisationnelles et exercice du leadership professionnel\n\n## Ce que nous offrons\n- Conditions d'emploi: horaires de travail variables entre 6h00 et 22h00, parking gratuit, restaurant coop interne avec une gamme de prix élevés, locaux modernes\n- Réductions: Réductions dans différents formats de coop, 5 fois le nombre de super points de coop, Jusqu'à 20% de réduction sur divers services d'assurance, Abonnements mobiles et prépayés à bas prix chez Coop Mobile, Reka Card: Réductions sur l'abonnement, réduction personnel également pour les partenaires: en (habitant dans le même ménage), réduction sur l'offre voyage ITS Coop Travel, CHF 650.- Bon pour l'achat d'un CFF GA\n- Formation: formation interne, soutien à la formation externe, possibilités de développement\n- Communication & culture: culture DU dans toute l'entreprise, orientation vers des valeurs communes, application interne de communication avec les salariés\n- Assurances: Caisse de retraite: 2/3 est payé par Coop (base), divers plans d'épargne à la caisse de retraite, prestations d'assurance généreuses et super-obligatoires en cas d'accident et de maladie\n- Vacances: Au moins 25 jours de congé ou selon le GAV valide, si possible soutien pour les congés non payés\n- Santé : mise à jour de la condition physique : CHF 200.- Réduction sur l'abonnement annuel, conseil social gratuit et anonyme 24/7\nVos personnes de contact chez Fust\nTanja Voser\nResponsable des partenariats d'affaires\nSteven Vivre\nSpécialiste du recrutement\n\nTipo: Temps plein\nSécurité : Oberbüren"
       },
       "slugByLocale": {
-        "it": "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv",
-        "en": "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv",
+        "it": "capo-della-ricevuta-aggiunto-fust-swiss-household-services-ag-oberburen",
+        "en": "deputy-head-of-receipt-fust-swiss-household-services-ag-oberburen",
         "de": "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv",
-        "fr": "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv"
+        "fr": "chef-adjoint-de-reception-fust-swiss-household-services-ag-oberburen"
       },
       "requirementsByLocale": {},
       "addressLocality": "Oberbüren",
@@ -166634,11 +166822,27 @@
           "maxValue": 174000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv",
+          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen"
+        ],
+        "en": [
+          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv"
+        ],
+        "fr": [
+          "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen-l5t0wv",
+        "stellvertretung-leitung-wareneingang-fust-oberburen-sankt-gallen"
+      ]
     },
     {
       "id": "company-c9mmyo",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-basel",
+      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-80e749",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Basel",
@@ -166676,10 +166880,10 @@
         "fr": "## Metzger:in (spécialiste de la viande / spécialiste de la viande)\n\n**Coopérative Coop** — Bâle, Bâle, Svizzera\n\n## Tâche\n- La viande et la saucisse sont exactement votre chose: amical et ouvert d'esprit, vous conseillez et servez les clients exigeants derrière le comptoir en plein air.\n- Fraisement coupé et habillé: Vous préparez les produits de viande professionnellement.\n- Vous cultivez les biens et les aidez à mieux les vendre.\n- Il est clair pour vous que vous respectez les exigences de qualité et les directives telles que la fraîcheur et la qualité, l'hygiène, la réglementation de la température et les dates d'expiration sans exception.\n\n## Exigences\n- Vous avez suivi une formation de base en tant que spécialiste de la viande (f/m/d), boucher:in, vendeur de viande:in ou cuisinier (f/m/d).\n- Avec votre expérience professionnelle dans une boucherie soignée, vous marquez également avec nous.\n- En tant que prestataire de services, vous vous engagez toujours pleinement.\n- Vous maîtrisez la langue allemande verbalement et par écrit très bien.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec un large éventail de possibilités de développement, soutien aux offres de formation complémentaire du LGAV et de la Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nChristelle Heitz\nMarketing des ressources humaines\n\n**Tipo:** Temps plein\n**Sécurité :** Bâle"
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo",
+        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-basel-80e749",
+        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-basel-80e749",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo"
+        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-basel-80e749"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166705,11 +166909,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-basel-c9mmyo",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-basel"
+      ]
     },
     {
       "id": "company-unw1c6",
-      "slug": "verkaufer-in-food-coop-bern",
+      "slug": "venditore-in-food-coop-genossenschaft-bern-8aab3d",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bern",
@@ -166747,10 +166967,10 @@
         "fr": "## Vendeur:dans la nourriture\n\n**Coopérative Coop** — Berne, Berne, Svizzera\n\n## Tâche\n- Vous aimez la variété, donc vous servez et conseillez nos clients dans différents départements – toujours amical et engagé.\n- Grâce à votre utilisation active, les marchandises se vendent mieux et sont gérées haut.\n- Il est clair que vous respectez nos exigences, que ce soit la fraîcheur et la qualité, l'hygiène, les règlements de température ou la date d'expiration.\n- Votre engagement aux caisses enregistreuses est également varié si vous soutenez l'équipe.\n\n## Exigences\n- Êtes-vous formé au commerce de détail (éducation de base) ou avez-vous déjà acquis beaucoup d'expérience dans la vente? Bingo, puis appliquez.\n- Vos temps d'affectation sont flexibles, mais cela ne vous cause aucun problème.\n- Vous maîtrisez bien l'allemand, en conversation et sur papier.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Belgique"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bern-unw1c6",
-        "en": "verkaufer-in-food-coop-bern-unw1c6",
+        "it": "venditore-in-food-coop-genossenschaft-bern-8aab3d",
+        "en": "seller-in-food-coop-genossenschaft-bern-8aab3d",
         "de": "verkaufer-in-food-coop-bern-unw1c6",
-        "fr": "verkaufer-in-food-coop-bern-unw1c6"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bern-8aab3d"
       },
       "requirementsByLocale": {
         "it": [],
@@ -166776,7 +166996,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-bern-unw1c6",
+          "verkaufer-in-food-coop-bern"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-bern-unw1c6"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-bern-unw1c6"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-bern-unw1c6",
+        "verkaufer-in-food-coop-bern"
+      ]
     },
     {
       "id": "company-ufarsm",

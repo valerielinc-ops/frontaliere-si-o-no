@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "valuer-fixed-term-contract-12-months-pictet-luxembourg",
-        "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+        "valuer-fixed-term-contract-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "valuer-fixed-term-contract-12-months-pictet-luxembourg",
-          "valore-contratto-a-termine-12-mesi-pictet-group-luxembourg"
+          "valuer-fixed-term-contract-12-months-pictet-luxembourg"
         ],
         "de": [
           "valuer-fixed-term-contract-12-months-pictet-luxembourg"
@@ -191,13 +189,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-tax-expert-pictet-geneva",
-        "esperto-fiscale-di-gruppo-pictet-group-geneva"
+        "group-tax-expert-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-tax-expert-pictet-geneva",
-          "esperto-fiscale-di-gruppo-pictet-group-geneva"
+          "group-tax-expert-pictet-geneva"
         ],
         "de": [
           "group-tax-expert-pictet-geneva"
@@ -219,12 +215,12 @@
     },
     {
       "id": "pictet-d7489287345f",
-      "slug": "senior-compliance-officer-pictet-luxembourg",
+      "slug": "ufficiale-di-conformita-senior-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "senior-compliance-officer-pictet-luxembourg",
+        "it": "ufficiale-di-conformita-senior-pictet-group-luxembourg",
         "en": "senior-compliance-officer-pictet-luxembourg",
         "de": "senior-compliance-officer-pictet-luxembourg",
-        "fr": "senior-compliance-officer-pictet-group-luxembourg"
+        "fr": "fonctionnaire-principal-charge-du-respect-des-dispositions-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -268,11 +264,17 @@
       "firstSeenAt": "2026-07-14T11:12:11.192Z",
       "previousSlugsByLocale": {
         "fr": [
-          "specialiste-principal-de-la-conformite-pictet-group-luxembourg"
+          "specialiste-principal-de-la-conformite-pictet-group-luxembourg",
+          "senior-compliance-officer-pictet-group-luxembourg"
+        ],
+        "it": [
+          "senior-compliance-officer-pictet-luxembourg"
         ]
       },
       "previousSlugs": [
-        "specialiste-principal-de-la-conformite-pictet-group-luxembourg"
+        "specialiste-principal-de-la-conformite-pictet-group-luxembourg",
+        "senior-compliance-officer-pictet-luxembourg",
+        "senior-compliance-officer-pictet-group-luxembourg"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -365,11 +367,11 @@
     },
     {
       "id": "pictet-fa1a0e3dc53a",
-      "slug": "audiovisual-engineer-pictet-geneva",
+      "slug": "audiovisual-ingegnere-pictet-group-geneva",
       "slugByLocale": {
         "en": "audiovisual-engineer-pictet-geneva",
-        "it": "audiovisual-engineer-pictet-geneva",
-        "de": "audiovisual-engineer-pictet-geneva",
+        "it": "audiovisual-ingegnere-pictet-group-geneva",
+        "de": "audiovisual-ingenieur-pictet-group-geneva",
         "fr": "audiovisual-engineer-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -425,7 +427,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T22:02:43.464Z"
+      "firstSeenAt": "2026-07-14T22:02:43.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "audiovisual-engineer-pictet-geneva"
+        ],
+        "de": [
+          "audiovisual-engineer-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "audiovisual-engineer-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-31b99f94de60",
@@ -434,7 +447,7 @@
         "en": "senior-global-equity-portfolio-manager-pictet-geneva",
         "it": "senior-global-equity-portfolio-manager-pictet-geneva",
         "de": "senior-global-equity-portfolio-manager-pictet-geneva",
-        "fr": "senior-global-equity-portfolio-manager-pictet-geneva"
+        "fr": "gestionnaire-principal-de-portefeuille-d-actions-mondiales-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -562,7 +575,7 @@
         "en": "learning-talent-development-operations-officer-fixed-term-contract-of-6m-pictet-geneva",
         "it": "learning-talent-development-operations-officer-fixed-term-contract-of-6m-pictet-geneva",
         "de": "learning-talent-development-operations-officer-fixed-term-contract-of-6m-pictet-geneva",
-        "fr": "learning-talent-development-operations-officer-fixed-term-contract-of-6m-pictet-geneva"
+        "fr": "agent-des-operations-d-apprentissage-et-de-perfectionnement-des-talents-contrat-a-duree-determinee-de-6m-pictet-group"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -621,11 +634,11 @@
     },
     {
       "id": "pictet-046cf6134422",
-      "slug": "devops-engineer-pictet-geneva",
+      "slug": "devops-ingegnere-pictet-group-geneva",
       "slugByLocale": {
         "en": "devops-engineer-pictet-geneva",
-        "it": "devops-engineer-pictet-geneva",
-        "de": "devops-engineer-pictet-geneva",
+        "it": "devops-ingegnere-pictet-group-geneva",
+        "de": "devops-ingenieur-pictet-group-geneva",
         "fr": "devops-engineer-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -681,7 +694,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-14T22:02:40.803Z"
+      "firstSeenAt": "2026-07-14T22:02:40.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-pictet-geneva"
+        ],
+        "de": [
+          "devops-engineer-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-9d24671c4aba",
