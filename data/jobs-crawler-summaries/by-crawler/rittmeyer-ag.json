@@ -1,18 +1,51 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-07-15T11:28:22.549Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-07-15T22:21:55.555Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14799,
-  "avgDurationMs": 14799,
+  "durationMs": 14685,
+  "avgDurationMs": 14685,
   "durationHistory": [
-    14799
+    14685
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Schaltanlagenmonteur (a) temporär",
+      "slug": "schaltanlagenmonteur-a-temporar-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/schaltanlagenmonteur-a-temporaer/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
+      "employmentType": "other",
+      "contractType": "other",
+      "validThrough": "",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
