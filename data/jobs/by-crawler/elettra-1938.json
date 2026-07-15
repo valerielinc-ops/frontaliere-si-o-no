@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-07-15T11:38:35.528Z",
+  "assembledAt": "2026-07-15T23:04:53.625Z",
   "jobs": [
     {
       "id": "elettra-1938-4eb9d2395e16",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-716611/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-15T11:38:33.031Z",
+      "crawledAt": "2026-07-15T23:04:51.869Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -95,7 +95,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-15T11:38:32.730Z",
+      "crawledAt": "2026-07-15T23:04:51.568Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-15T11:38:32.428Z",
+      "crawledAt": "2026-07-15T23:04:51.265Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -175,6 +175,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:22:37.214Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
