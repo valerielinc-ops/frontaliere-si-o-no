@@ -1,7 +1,67 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-07-14T22:25:20.245Z",
+  "assembledAt": "2026-07-15T12:05:14.073Z",
   "jobs": [
+    {
+      "title": "Zivilstandsbeamtin / Zivilstandsbeamter",
+      "slug": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+      "url": "https://jobs.chur.ch/Zivilstandsbeamtin-Zivilstandsbeamter-de-j1699.html",
+      "applyUrl": "https://jobs.chur.ch/Zivilstandsbeamtin-Zivilstandsbeamter-de-j1699.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
+      "titleByLocale": {
+        "en": "Zivilstandsbeamtin / Zivilstandsbeamter",
+        "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
+        "it": "Zivilstandsbeamtin / Zivilstandsbeamter",
+        "fr": "Zivilstandsbeamtin / Zivilstandsbeamter"
+      },
+      "descriptionByLocale": {
+        "de": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
+        "it": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
+        "en": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
+        "fr": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv..."
+      },
+      "slugByLocale": {
+        "it": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+        "en": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+        "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+        "fr": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
+      },
+      "crawledAt": "2026-07-15T11:58:33.330Z",
+      "id": "stadt-chur-8181a7de3772",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-15T11:58:33.330Z"
+    },
     {
       "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
       "slug": "stadtgeometer-in-e-verantwortliche-r-landerwerb-80-stadt-chur",
@@ -44,7 +104,7 @@
         "de": "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679",
         "fr": "geometre-urbain-et-acquisition-responsable-de-terres-80-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:19:46.345Z",
+      "crawledAt": "2026-07-15T11:59:40.091Z",
       "id": "stadt-chur-b0fbf56b6b57",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -117,7 +177,7 @@
         "de": "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698",
         "fr": "gestionnaire-construction-immobiliere-et-immobiliere-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:20:53.097Z",
+      "crawledAt": "2026-07-15T12:00:46.850Z",
       "id": "stadt-chur-4c04fef428bd",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -192,7 +252,7 @@
         "de": "dienststellenleiter-in-stadtraum-und-umwelt-80-100-stadt-chur-1696",
         "fr": "gestionnaire-de-bureau-dans-l-espace-urbain-et-l-environnement-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:21:59.849Z",
+      "crawledAt": "2026-07-15T12:01:53.619Z",
       "id": "stadt-chur-198fc32154ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -265,7 +325,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:23:06.599Z",
+      "crawledAt": "2026-07-15T12:03:00.381Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -338,7 +398,7 @@
         "de": "sargtrager-in-stadt-chur-chur",
         "fr": "porte-cercueil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:24:13.351Z",
+      "crawledAt": "2026-07-15T12:04:07.141Z",
       "id": "stadt-chur-4309d92c4ac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -415,7 +475,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-14T22:25:20.101Z",
+      "crawledAt": "2026-07-15T12:05:13.902Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
