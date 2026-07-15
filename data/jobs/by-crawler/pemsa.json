@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-con-attestato-federale-caposquadra-elettricista-pemsa-lausanne",
-        "en": "elettricista-con-attestato-federale-caposquadra-elettricista-pemsa-lausanne",
-        "de": "elettricista-con-attestato-federale-caposquadra-elettricista-pemsa-lausanne",
-        "fr": "elettricista-con-attestato-federale-caposquadra-elettricista-pemsa-lausanne"
+        "en": "electrician-with-federal-certificate-electrician-head-pemsa-lausanne",
+        "de": "elektriker-mit-bundeszertifikat-elektrikerleiter-pemsa-lausanne",
+        "fr": "electricien-avec-certificat-federal-chef-electricien-pemsa-lausanne"
       },
       "id": "pemsa-3c84c635e8c5",
       "needsRetranslation": true,
@@ -97,8 +97,8 @@
       },
       "slugByLocale": {
         "it": "lattoniere-copritetto-m-f-pemsa-plan-les-ouates",
-        "en": "lattoniere-copritetto-m-f-pemsa-plan-les-ouates",
-        "de": "lattoniere-copritetto-m-f-pemsa-plan-les-ouates",
+        "en": "lactoniere-couple-m-f-pemsa-plan-les-ouates",
+        "de": "lactoniere-paar-m-w-pemsa-plan-les-ouates",
         "fr": "lattoniere-copritetto-m-f-pemsa-plan-les-ouates"
       },
       "id": "pemsa-64c3272173e4",
@@ -155,9 +155,9 @@
       },
       "slugByLocale": {
         "it": "cameriera-ai-piani-pemsa-andermatt",
-        "en": "cameriera-ai-piani-pemsa-andermatt",
-        "de": "cameriera-ai-piani-pemsa-andermatt",
-        "fr": "cameriera-ai-piani-pemsa-andermatt"
+        "en": "cameriera-on-the-floors-pemsa-andermatt",
+        "de": "cameriera-auf-den-boden-pemsa-andermatt",
+        "fr": "cameriera-sur-les-sols-pemsa-andermatt"
       },
       "id": "pemsa-2b061a706282",
       "needsRetranslation": true,
@@ -213,9 +213,9 @@
       },
       "slugByLocale": {
         "it": "capocantiere-elettricista-pemsa-bulle",
-        "en": "capocantiere-elettricista-pemsa-bulle",
-        "de": "capocantiere-elettricista-pemsa-bulle",
-        "fr": "capocantiere-elettricista-pemsa-bulle"
+        "en": "electrician-headmaster-pemsa-bulle",
+        "de": "leiter-des-elektrikers-pemsa-bulle",
+        "fr": "directeur-electricien-pemsa-bulle"
       },
       "id": "pemsa-9cd28cbf8c8a",
       "needsRetranslation": true,
@@ -271,9 +271,9 @@
       },
       "slugByLocale": {
         "it": "operatore-m1-piccole-macchine-pemsa-fribourg",
-        "en": "operatore-m1-piccole-macchine-pemsa-fribourg",
-        "de": "operatore-m1-piccole-macchine-pemsa-fribourg",
-        "fr": "operatore-m1-piccole-macchine-pemsa-fribourg"
+        "en": "operator-m1-small-machines-pemsa-fribourg",
+        "de": "betreiber-m1-kleine-maschinen-pemsa-fribourg",
+        "fr": "operateur-m1-petites-machines-pemsa-fribourg"
       },
       "id": "pemsa-0397b1947de3",
       "needsRetranslation": true,
@@ -329,9 +329,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m2-pemsa-fribourg",
-        "en": "macchinista-m2-pemsa-fribourg",
-        "de": "macchinista-m2-pemsa-fribourg",
-        "fr": "macchinista-m2-pemsa-fribourg"
+        "en": "knife-m2-pemsa-fribourg",
+        "de": "messer-m2-pemsa-fribourg",
+        "fr": "couteau-m2-pemsa-fribourg"
       },
       "id": "pemsa-946dd3a53b48",
       "needsRetranslation": true,
@@ -387,9 +387,9 @@
       },
       "slugByLocale": {
         "it": "verniciatore-di-carrozzerie-m-f-pemsa-la-chaux-de-fonds",
-        "en": "verniciatore-di-carrozzerie-m-f-pemsa-la-chaux-de-fonds",
-        "de": "verniciatore-di-carrozzerie-m-f-pemsa-la-chaux-de-fonds",
-        "fr": "verniciatore-di-carrozzerie-m-f-pemsa-la-chaux-de-fonds"
+        "en": "car-dealer-m-f-pemsa-la-chaux-de-fonds",
+        "de": "autohandler-m-f-pemsa-la-chaux-de-fonds",
+        "fr": "concessionnaire-automobile-m-f-pemsa-la-chaux-de-fonds"
       },
       "id": "pemsa-4934b4408094",
       "needsRetranslation": true,
@@ -2077,7 +2077,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -2094,14 +2094,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-sigirino"
-      ],
       "needsRetranslation": true
     },
     {
@@ -3874,7 +3866,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -3892,14 +3884,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -7522,11 +7506,9 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "tiler-efz-eba-m-f-d-pemsa-basel"
         ],
         "fr": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "plaquiste-efz-eba-h-f-d-pemsa-basel"
         ],
         "it": [

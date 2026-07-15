@@ -45,9 +45,9 @@
       },
       "slugByLocale": {
         "it": "jr-medical-writing-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
-        "en": "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
-        "de": "jr-medical-writing-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
-        "fr": "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
+        "en": "jr-medical-writing-specialist-ibsa-institut-biochimique-collina-d",
+        "de": "jr-medical-writing-spezialist-ibsa-institut-biochimique-collina-d",
+        "fr": "jr-medical-writing-specialiste-ibsa-institut-biochimique-collina-d"
       },
       "requirementsByLocale": {
         "it": [
@@ -64,10 +64,22 @@
       "previousSlugsByLocale": {
         "it": [
           "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d"
+        ],
+        "en": [
+          "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
+        ],
+        "de": [
+          "jr-medical-writing-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
+        ],
+        "fr": [
+          "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
         ]
       },
       "previousSlugs": [
-        "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d"
+        "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d",
+        "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
+        "jr-medical-writing-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
+        "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -242,9 +254,6 @@
         "it": [
           "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4",
           "responsabile-cmo-ibsa-institut-biochimique-grancia"
-        ],
-        "de": [
-          "cmo-manager-ibsa-institut-biochimique-grancia-bm0ep4"
         ]
       },
       "previousSlugs": [
@@ -565,8 +574,7 @@
         "en": [
           "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
           "industrial-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager",
-          "industrial-controlling-manager-ibsa-institut-biochimique-collina",
-          "industrial-controlling-manager-ibsa-institut-biochimique-collina-um2f7f"
+          "industrial-controlling-manager-ibsa-institut-biochimique-collina"
         ],
         "de": [
           "industrieller-controlling-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-industrial-controlling-manager",

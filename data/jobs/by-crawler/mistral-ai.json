@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mistral-ai-d809e115916d",
-      "slug": "research-software-engineer-mistral-ai-ch",
+      "slug": "ricerca-software-ingegnere-mistral-ai-zurich",
       "slugByLocale": {
         "en": "research-software-engineer-mistral-ai-ch",
-        "it": "research-software-engineer-mistral-ai-ch",
-        "de": "research-software-engineer-mistral-ai-ch",
-        "fr": "research-software-engineer-mistral-ai-ch"
+        "it": "ricerca-software-ingegnere-mistral-ai-zurich",
+        "de": "forschung-software-ingenieur-mistral-ai-zurich",
+        "fr": "recherche-software-ingenieur-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -63,16 +63,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-14T22:36:36.718Z"
+      "firstSeenAt": "2026-07-14T22:36:36.718Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-software-engineer-mistral-ai-ch"
+        ],
+        "de": [
+          "research-software-engineer-mistral-ai-ch"
+        ],
+        "fr": [
+          "research-software-engineer-mistral-ai-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-software-engineer-mistral-ai-ch"
+      ]
     },
     {
       "id": "mistral-ai-f6ecdeb0c60d",
-      "slug": "research-engineer-data-infrastructure-mistral-ai-ch",
+      "slug": "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich",
       "slugByLocale": {
         "en": "research-engineer-data-infrastructure-mistral-ai-ch",
-        "it": "research-engineer-data-infrastructure-mistral-ai-ch",
-        "de": "research-engineer-data-infrastructure-mistral-ai-ch",
-        "fr": "research-engineer-data-infrastructure-mistral-ai-ch"
+        "it": "ricerca-ingegnere-data-infrastructure-mistral-ai-zurich",
+        "de": "forschung-ingenieur-data-infrastructure-mistral-ai-zurich",
+        "fr": "recherche-ingenieur-data-infrastructure-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -131,19 +145,23 @@
         "it": [
           "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
           "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
-          "recherche-ingenieur-data-infrastructure-mistral-ai-paris"
+          "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
+          "research-engineer-data-infrastructure-mistral-ai-ch"
         ],
         "de": [
-          "forschung-ingenieur-data-infrastructure-mistral-ai-paris"
+          "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
+          "research-engineer-data-infrastructure-mistral-ai-ch"
         ],
         "fr": [
-          "recherche-ingenieur-data-infrastructure-mistral-ai-paris"
+          "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
+          "research-engineer-data-infrastructure-mistral-ai-ch"
         ]
       },
       "previousSlugs": [
         "ricerca-ingegnere-data-infrastructure-mistral-ai-paris",
         "forschung-ingenieur-data-infrastructure-mistral-ai-paris",
-        "recherche-ingenieur-data-infrastructure-mistral-ai-paris"
+        "recherche-ingenieur-data-infrastructure-mistral-ai-paris",
+        "research-engineer-data-infrastructure-mistral-ai-ch"
       ]
     },
     {
@@ -152,8 +170,8 @@
       "slugByLocale": {
         "en": "ai-scientist-mistral-ai-ch",
         "it": "ai-scientist-mistral-ai-ch",
-        "de": "ai-scientist-mistral-ai-ch",
-        "fr": "ai-scientist-mistral-ai-ch"
+        "de": "ki-wissenschaftler-mistral-ai-zurich",
+        "fr": "scientifique-de-l-ia-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -229,12 +247,12 @@
     },
     {
       "id": "mistral-ai-6111928c148b",
-      "slug": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
+      "slug": "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne",
       "slugByLocale": {
         "en": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
-        "it": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
-        "de": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
-        "fr": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+        "it": "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne",
+        "de": "applied-scientist-forschung-ingenieur-ai4engineering-mistral-ai-lausanne",
+        "fr": "applied-scientist-recherche-ingenieur-ai4engineering-mistral-ai-lausanne"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -288,16 +306,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-14T22:36:36.711Z"
+      "firstSeenAt": "2026-07-14T22:36:36.711Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+        ],
+        "de": [
+          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+        ],
+        "fr": [
+          "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch"
+      ]
     },
     {
       "id": "mistral-ai-4e88609166a7",
-      "slug": "research-engineer-machine-learning-mistral-ai-ch",
+      "slug": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
       "slugByLocale": {
         "en": "research-engineer-machine-learning-mistral-ai-ch",
-        "it": "research-engineer-machine-learning-mistral-ai-ch",
-        "de": "research-engineer-machine-learning-mistral-ai-ch",
-        "fr": "research-engineer-machine-learning-mistral-ai-ch"
+        "it": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
+        "de": "forschung-ingenieur-machine-learning-mistral-ai-zurich",
+        "fr": "recherche-ingenieur-machine-learning-mistral-ai-zurich"
       },
       "company": "Mistral AI",
       "companyKey": "mistral-ai",
@@ -351,7 +383,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-14T22:36:36.705Z"
+      "firstSeenAt": "2026-07-14T22:36:36.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-machine-learning-mistral-ai-ch"
+        ],
+        "de": [
+          "research-engineer-machine-learning-mistral-ai-ch"
+        ],
+        "fr": [
+          "research-engineer-machine-learning-mistral-ai-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-engineer-machine-learning-mistral-ai-ch"
+      ]
     }
   ]
 }
