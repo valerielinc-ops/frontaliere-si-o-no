@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-07-14T22:21:59.480Z",
+  "generatedAt": "2026-07-15T11:01:45.694Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 21633,
-  "avgDurationMs": 21633,
+  "durationMs": 19115,
+  "avgDurationMs": 19115,
   "durationHistory": [
-    21633
+    19115
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Servicetechniker im Aussendienst - Bereich Industriehydraulik 100% (w/m/div.) REF271176Q",
+      "slug": "servicetechniker-im-aussendienst-bereich-industriehydraulik-100-w-m-div-ref271176q-bosch-buttikon",
+      "url": "https://jobs.bosch.com/en/job/REF271176Q-servicetechniker-im-aussendienst-bereich-industriehydraulik-100-w-m-div-ref271176q",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000137807619-servicetechniker-im-aussendienst-bereich-industriehydraulik-100-w-m-div-ref271176q?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Buttikon",
+      "addressLocality": "Buttikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sachbearbeiter Debitorenbuchhaltung 60% (w/m/div.) REF291116Z",
@@ -258,10 +289,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Lehrstelle Produktionsmechaniker (w/m/div.) 2027 - REF289874T",
-      "slug": "lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-st-niklaus",
+      "slug": "apprendistato-produktionsmechaniker-w-m-div-2027-ref289874t-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF289874T-lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000136445939-lehrstelle-produktionsmechaniker-w-m-div-2027-ref289874t?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -295,6 +328,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
