@@ -8525,6 +8525,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italia-Svizzera: scambio automatico informazioni fiscali',
     'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analisi sul funzionamento dello scambio automatico di informazioni fiscali tra Italia e Svizzera tramite CRS e DAC per i lavoratori frontalieri.',
     'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berna non vuole creare attriti con l\'Italia | RSI',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'La Svizzera e l\'Italia si incontrano al confine del Ticino, in un contesto di collaborazione e rispetto reciproco.',
 };
 
 export default blogMetaIt;

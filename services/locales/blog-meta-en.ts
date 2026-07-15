@@ -8524,6 +8524,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italy-Switzerland: automatic exchange of tax information',
     'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analysis of the operation of the automatic exchange of tax information between Italy and Switzerland through CRS and DAC for frontier workers.',
     'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Panoramic view of Lugano with the lake and mountains.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Bern does not want to create friction with Italy | CSR',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'Switzerland does not want to create friction with Italy, but instead wants to cooperate and respect the sovereignty of our country.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'The Swiss and Italian borders meet in Ticino, in a context of collaboration and mutual respect.',
 };
 
 export default blogMetaEn;

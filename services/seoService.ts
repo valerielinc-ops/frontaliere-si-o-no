@@ -4551,6 +4551,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giugno-pernottamenti-calo': { name: 'Pernottamenti in calo a giugno', path: '/articoli-svizzera/giugno-pernottamenti-calo/', parent: 'blog' },
     'blog-intesa-telelavoro-frontalieri-svizzera-italia': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/intesa-telelavoro-frontalieri-svizzera-italia/', parent: 'blog' },
     'blog-scambio-automatico-informazioni-fiscali': { name: 'Scambio Fiscale', path: '/articoli-frontaliere/scambio-automatico-informazioni-fiscali', parent: 'blog' },
+    'blog-berna-non-crea-attriti-con-litalia': { name: 'Collaborazione e rispetto tra la Svizzera', path: '/articoli-frontaliere/berna-non-crea-attriti-con-litalia', parent: 'blog' },
  };
 
  const info = sectionNames[section];
