@@ -400,6 +400,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'quadro-rw-2026-chi-dichiara-conto-svizzero': { it: 'quadro-rw-2026-chi-dichiara-conto-svizzero', en: 'quadro-rw-2026-who-declares-swiss-account', de: 'quadro-rw-2026-wer-erklart-die-schweizer-rechnung', fr: 'quadro-rw-2026-qui-declare-le-compte-suisse' },
  'investimenti-startup-svizzere-riduzione': { it: 'investimenti-startup-svizzere-riduzione', en: 'swiss-startup-investments-decline', de: 'schweizer-startup-investitionen-rueckgang', fr: 'investissements-startup-suisse-reduction' },
  'frontalieri-indennita': { it: 'frontalieri-indennita', en: 'frontier-workers-unemployment', de: 'grenzganger-arbeitslosigkeit', fr: 'travailleurs-frontaliers-chomage' },
+ 'frontalieri-disoccupati': { it: 'frontalieri-disoccupati', en: 'frontaliers-unemployed', de: 'frontalier-ohne-arbeit', fr: 'frontaliers-sans-emploi' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1132,6 +1132,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-indennita.title': 'Indennità ai frontalieri: Berna fa i conti con la riforma UE',
     'blog.article.frontalieri-indennita.excerpt': 'La legge in discussione a Bruxelles potrebbe spostare sulla Svizzera il pagamento della disoccupazione ai lavoratori esteri rimasti senza lavoro',
     'blog.article.frontalieri-indennita.imageAlt': 'Immagine di un impiegato frontaliero in una situazione di disoccupazione',
+    'blog.article.frontalieri-disoccupati.title': 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    'blog.article.frontalieri-disoccupati.excerpt': 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati.',
+    'blog.article.frontalieri-disoccupati.imageAlt': 'Frontalieri disoccupati a Lugano',
 };
 
 export default blogMetaChIt;
