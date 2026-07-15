@@ -49524,6 +49524,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-frontalieri-como-ticino': {
+    title: 'Frontalieri in Ticino: flussi, mobilità e aree di provenienza',
+    description: 'Analisi dei flussi di frontalieri in Ticino: Como e Varese le aree di provenienza. Scopri i dati su spostamenti, uso dell\'auto e destinazioni lavorative.',
+    keywords: 'frontalieri, ticino, svizzera, italia, flussi, mobilità, aree, provenienza',
+    ogTitle: 'Frontalieri in Ticino: flussi e mobilità verso Como e Varese',
+    ogDescription: 'Analisi dei flussi di frontalieri in Ticino: Como e Varese le aree di provenienza. Scopri i dati su spostamenti, uso dell\'auto e destinazioni lavorative.',
+    canonicalPath: '/articoli-frontaliere/traffico-frontalieri-como-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: flussi, mobilità e aree di provenienza",
+      "description": "Analisi dei flussi di frontalieri in Ticino: Como e Varese le aree di provenienza. Scopri i dati su spostamenti, uso dell'auto e destinazioni lavorative.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-frontalieri-como-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico mattutino al valico di frontiera tra Italia e Svizzera"
+      },
+      "datePublished": "2026-07-15T02:26:38+00:00",
+      "dateModified": "2026-07-15T02:26:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-frontalieri-como-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

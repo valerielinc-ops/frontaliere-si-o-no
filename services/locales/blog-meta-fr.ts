@@ -8513,6 +8513,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Bourse de Zurich : analyse de l\'évolution et des marchés',
     'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analyse de l\'évolution du Swiss Market Index : entre souffrance et reprise, voici les chiffres clés et les dynamiques actuelles du barème suisse.',
     'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Vue panoramique de Lugano, centre financier du Tessin.',
+    'blog.article.traffico-frontalieri-como-ticino.title': 'Frontières au Tessin : flux, mobilité et zones de provenance',
+    'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontalier sur deux vient de Côme. Analyse des flux, des destinations et de l\'utilisation de la voiture basée sur l\'enquête du Département du territoire.',
+    'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Trafic matinal au poste frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

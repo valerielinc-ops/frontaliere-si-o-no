@@ -4542,6 +4542,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permesso-g-apprendisti-svolta-storica': { name: 'Permesso G apprendisti', path: '/articoli-frontaliere/permesso-g-apprendisti-svolta-storica', parent: 'blog' },
     'blog-borsa-zurigo-analisi-mercato-2024': { name: 'Analisi Borsa Zurigo', path: '/articoli-frontaliere/borsa-zurigo-analisi-mercato-2024', parent: 'blog' },
     'blog-incontro-fiscale-roma-giugno': { name: 'Accordo fiscale Roma', path: '/articoli-svizzera/incontro-fiscale-roma-giugno/', parent: 'blog' },
+    'blog-traffico-frontalieri-como-ticino': { name: 'Mobilità frontalieri', path: '/articoli-frontaliere/traffico-frontalieri-como-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

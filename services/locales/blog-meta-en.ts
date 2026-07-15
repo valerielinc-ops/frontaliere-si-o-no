@@ -8512,6 +8512,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.borsa-zurigo-analisi-mercato-2024.title': 'Zurich Stock Exchange: trend analysis and markets',
     'blog.article.borsa-zurigo-analisi-mercato-2024.excerpt': 'Analysis of the performance of the Swiss Market Index: between distress and recovery, here are the key numbers and current dynamics of the Swiss price list.',
     'blog.article.borsa-zurigo-analisi-mercato-2024.imageAlt': 'Panoramic view of Lugano, financial center of Ticino.',
+    'blog.article.traffico-frontalieri-como-ticino.title': 'Border crossers in Ticino: flows, mobility and areas of origin',
+    'blog.article.traffico-frontalieri-como-ticino.excerpt': 'One out of two border crossers arrives from Como. Analysis of the flows, destinations and use of the car based on the survey of the Department of the territory.',
+    'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Morning traffic at the Swiss-Italian border crossing',
 };
 
 export default blogMetaEn;
