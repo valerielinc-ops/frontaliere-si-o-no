@@ -1,16 +1,16 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-07-14T22:07:43.185Z",
-  "total": 3,
+  "generatedAt": "2026-07-15T11:32:19.574Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6284,
-  "avgDurationMs": 6284,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6931,
+  "avgDurationMs": 6931,
   "durationHistory": [
-    6284
+    6931
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/100/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:07:39.136Z",
+      "crawledAt": "2026-07-15T11:32:15.671Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:07:39.828Z",
+      "crawledAt": "2026-07-15T11:32:16.340Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -91,8 +91,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "stiftung-kind-autismus-3a72454bcdc5",
       "slug": "vorpraktikum-o-praticantato-nel-settore-sociale-stiftung-kind-und-autismus-urdorf",
@@ -133,5 +132,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
