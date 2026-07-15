@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-07-15T12:24:10.361Z",
+  "generatedAt": "2026-07-15T23:14:53.336Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 94272,
-  "avgDurationMs": 94272,
+  "durationMs": 13626,
+  "avgDurationMs": 13626,
   "durationHistory": [
-    94272
+    13626
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "category": "engineering",
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
-      "sourceLang": "de",
+      "sourceLang": "en",
       "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -42,11 +42,11 @@
       "currency": "CHF",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-06T14:18:05.737Z",
-      "needsRetranslation": false,
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -68,7 +68,7 @@
       "category": "engineering",
       "sector": "Ingegneria civile",
       "source": "lombardi-dedicated-crawler",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "postedDate": "2026-07-15",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -80,11 +80,11 @@
       "streetAddress": "",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-03T12:31:53.830Z",
-      "needsRetranslation": false,
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -118,11 +118,11 @@
       "postalCode": "6512",
       "id": "lombardi-group-801be55e6f08",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
-      "needsRetranslation": false,
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -270,11 +270,11 @@
       "postalCode": "6512",
       "id": "lombardi-group-acf929491e4c",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
-      "needsRetranslation": false,
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
