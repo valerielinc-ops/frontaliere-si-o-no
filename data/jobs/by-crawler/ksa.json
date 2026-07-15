@@ -138,7 +138,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -296,7 +295,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -450,7 +448,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -556,7 +553,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Intensive Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Intensive Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
         "fr": "Nachdiplomstudieng Dipl. Experts / Experts Intensivpflege NDS HF"
       },
@@ -591,7 +588,6 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -695,7 +691,7 @@
       "slug": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
-        "en": "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau",
+        "en": "study-radiology-specialist-hf-kantonsspital-aarau-ksa-aarau",
         "de": "studium-radiologiefachperson-hf-ksa-ch",
         "fr": "etude-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
       },
@@ -705,7 +701,7 @@
       "title": "Studium Radiologiefachperson HF",
       "titleByLocale": {
         "it": "Studio specialista in radiologia HF",
-        "en": "Studium Radiologiefachperson HF",
+        "en": "Study radiology specialist HF",
         "de": "Studium Radiologiefachperson HF",
         "fr": "Spécialiste de radiologie HF"
       },
@@ -740,21 +736,14 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "studium-radiologiefachperson-hf-ksa-ch",
-        "study-radiology-specialist-hf-kantonsspital-aarau-ksa-aarau",
-        "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
+        "studium-radiologiefachperson-hf-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studium-radiologiefachperson-hf-ksa-ch",
-          "studium-radiologiefachperson-hf-kantonsspital-aarau-ksa-aarau"
-        ],
-        "en": [
-          "study-radiology-specialist-hf-kantonsspital-aarau-ksa-aarau"
+          "studium-radiologiefachperson-hf-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -782,7 +771,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nurse/nurse professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Infirmière/infirmière professionnelle"
@@ -836,7 +825,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:54:17.460Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1063,7 +1051,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1228,7 +1215,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
-        "en": "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4"
       },
@@ -1237,7 +1224,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nurse/nurse professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Infirmière/infirmière professionnelle"
@@ -1290,7 +1277,6 @@
         "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2988,8 +2974,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-7c3110422aba",
@@ -3152,16 +3137,16 @@
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
         "de": "Fachexpertin / Fachexperte Pflege",
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Fachexpertin / Fachexperte Pflege",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "it": "Expert / Expert Care",
+        "en": "Expert / Expert Care",
+        "fr": "Expert / Expert Care"
       },
       "description": "Aufgaben:\n• Sie stellen auf unserer Bettenstation eine evidenz-basierte und professionelle Pflege sicher, in dem Sie Patientinnen mit komplexen Pflegesituationen pflegen, sowie Mitarbeitende und Studierende begleiten, unterstützen und fördern.\n\n• Anhand von laufender Reflektion und Überprüfung planen und gestalten Sie zusammen mit der Abteilungsleitung, den Fachexpertinnen und Fachexperten der anderen Stationen und der Pflegeexpertin adäquate und nachhaltige Entwicklungsstrategien um Kernthemen wie z.B. Festigung des Pflegeprozesses, Umsetzung von Neuerungen, Coaching von Mitarbeitende usw. zu implementieren.\n\nAnforderungen:\n• Sie sind eine Dipl. Pflegefachperson HF/FH mit einem Bachelor oder MAS in spezialisierter, vorzugsweise onkologischer Pflege, oder befinden sich in einem dieser Studiengänge.\n\n• Eine reflektierte, Patienten- und Lösungsorientierte Arbeitsweise sowie Verantwortungsbewusstsein und Engagement zeichnen Sie aus.\n\n• Sie pflegen einen respektvollen, professionellen und kooperativen Umgang mit Patientinnen, Angehörigen und Mitarbeitenden auf allen Ebenen und fördern damit die wichtige interprofessionelle Zusammenarbeit.\n Es macht Ihnen Freude, sich in dem breiten Gebiet zwischen Fachexpertise, Führung, Leadership und Bildung zu bewegen und mit Ihrer Professionalität ein positives Vorbild zu sein.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie stellen auf unserer Bettenstation eine evidenz-basierte und professionelle Pflege sicher, in dem Sie Patientinnen mit komplexen Pflegesituationen pflegen, sowie Mitarbeitende und Studierende begleiten, unterstützen und fördern.\n\n• Anhand von laufender Reflektion und Überprüfung planen und gestalten Sie zusammen mit der Abteilungsleitung, den Fachexpertinnen und Fachexperten der anderen Stationen und der Pflegeexpertin adäquate und nachhaltige Entwicklungsstrategien um Kernthemen wie z.B. Festigung des Pflegeprozesses, Umsetzung von Neuerungen, Coaching von Mitarbeitende usw. zu implementieren.\n\nAnforderungen:\n• Sie sind eine Dipl. Pflegefachperson HF/FH mit einem Bachelor oder MAS in spezialisierter, vorzugsweise onkologischer Pflege, oder befinden sich in einem dieser Studiengänge.\n\n• Eine reflektierte, Patienten- und Lösungsorientierte Arbeitsweise sowie Verantwortungsbewusstsein und Engagement zeichnen Sie aus.\n\n• Sie pflegen einen respektvollen, professionellen und kooperativen Umgang mit Patientinnen, Angehörigen und Mitarbeitenden auf allen Ebenen und fördern damit die wichtige interprofessionelle Zusammenarbeit.\n Es macht Ihnen Freude, sich in dem breiten Gebiet zwischen Fachexpertise, Führung, Leadership und Bildung zu bewegen und mit Ihrer Professionalität ein positives Vorbild zu sein.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\n• Sie stellen auf unserer Bettenstation eine evidenz-basierte und professionelle Pflege sicher, in dem Sie Patientinnen mit komplexen Pflegesituationen pflegen, sowie Mitarbeitende und Studierende begleiten, unterstützen und fördern.\n\n• Anhand von laufender Reflektion und Überprüfung planen und gestalten Sie zusammen mit der Abteilungsleitung, den Fachexpertinnen und Fachexperten der anderen Stationen und der Pflegeexpertin adäquate und nachhaltige Entwicklungsstrategien um Kernthemen wie z.B. Festigung des Pflegeprozesses, Umsetzung von Neuerungen, Coaching von Mitarbeitende usw. zu implementieren.\n\nAnforderungen:\n• Sie sind eine Dipl. Pflegefachperson HF/FH mit einem Bachelor oder MAS in spezialisierter, vorzugsweise onkologischer Pflege, oder befinden sich in einem dieser Studiengänge.\n\n• Eine reflektierte, Patienten- und Lösungsorientierte Arbeitsweise sowie Verantwortungsbewusstsein und Engagement zeichnen Sie aus.\n\n• Sie pflegen einen respektvollen, professionellen und kooperativen Umgang mit Patientinnen, Angehörigen und Mitarbeitenden auf allen Ebenen und fördern damit die wichtige interprofessionelle Zusammenarbeit.\n Es macht Ihnen Freude, sich in dem breiten Gebiet zwischen Fachexpertise, Führung, Leadership und Bildung zu bewegen und mit Ihrer Professionalität ein positives Vorbild zu sein.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Sie stellen auf unserer Bettenstation eine evidenz-basierte und professionelle Pflege sicher, in dem Sie Patientinnen mit komplexen Pflegesituationen pflegen, sowie Mitarbeitende und Studierende begleiten, unterstützen und fördern.\n\n• Anhand von laufender Reflektion und Überprüfung planen und gestalten Sie zusammen mit der Abteilungsleitung, den Fachexpertinnen und Fachexperten der anderen Stationen und der Pflegeexpertin adäquate und nachhaltige Entwicklungsstrategien um Kernthemen wie z.B. Festigung des Pflegeprozesses, Umsetzung von Neuerungen, Coaching von Mitarbeitende usw. zu implementieren.\n\nAnforderungen:\n• Sie sind eine Dipl. Pflegefachperson HF/FH mit einem Bachelor oder MAS in spezialisierter, vorzugsweise onkologischer Pflege, oder befinden sich in einem dieser Studiengänge.\n\n• Eine reflektierte, Patienten- und Lösungsorientierte Arbeitsweise sowie Verantwortungsbewusstsein und Engagement zeichnen Sie aus.\n\n• Sie pflegen einen respektvollen, professionellen und kooperativen Umgang mit Patientinnen, Angehörigen und Mitarbeitenden auf allen Ebenen und fördern damit die wichtige interprofessionelle Zusammenarbeit.\n Es macht Ihnen Freude, sich in dem breiten Gebiet zwischen Fachexpertise, Führung, Leadership und Bildung zu bewegen und mit Ihrer Professionalität ein positives Vorbild zu sein.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Sie stellen auf unserer Bettenstation eine evidenz-basierte und professionelle Pflege sicher, in dem Sie Patientinnen mit komplexen Pflegesituationen pflegen, sowie Mitarbeitende und Studierende begleiten, unterstützen und fördern.\n\n• Anhand von laufender Reflektion und Überprüfung planen und gestalten Sie zusammen mit der Abteilungsleitung, den Fachexpertinnen und Fachexperten der anderen Stationen und der Pflegeexpertin adäquate und nachhaltige Entwicklungsstrategien um Kernthemen wie z.B. Festigung des Pflegeprozesses, Umsetzung von Neuerungen, Coaching von Mitarbeitende usw. zu implementieren.\n\nAnforderungen:\n• Sie sind eine Dipl. Pflegefachperson HF/FH mit einem Bachelor oder MAS in spezialisierter, vorzugsweise onkologischer Pflege, oder befinden sich in einem dieser Studiengänge.\n\n• Eine reflektierte, Patienten- und Lösungsorientierte Arbeitsweise sowie Verantwortungsbewusstsein und Engagement zeichnen Sie aus.\n\n• Sie pflegen einen respektvollen, professionellen und kooperativen Umgang mit Patientinnen, Angehörigen und Mitarbeitenden auf allen Ebenen und fördern damit die wichtige interprofessionelle Zusammenarbeit.\n Es macht Ihnen Freude, sich in dem breiten Gebiet zwischen Fachexpertise, Führung, Leadership und Bildung zu bewegen und mit Ihrer Professionalität ein positives Vorbild zu sein.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\n• Sul nostro reparto letto, si garantisce la cura basata su prove e professionale, in cui si prende cura di pazienti con situazioni di cura complesse, così come accompagnare, sostenere e promuovere dipendenti e studenti.\n\n• Sulla base della riflessione e della revisione in corso, insieme alla gestione del dipartimento, gli esperti specializzati delle altre stazioni e l'esperto di assistenza, progetta e progetta strategie di sviluppo adeguate e sostenibili per implementare temi fondamentali come il rafforzamento del processo di cura, l'implementazione di innovazioni, la formazione dei dipendenti, ecc.\n\nRequisiti\n• Sei un dipl. Specialista infermieristico HF/FH con una laurea o MAS in cure specialistiche, preferibilmente oncologiche, o sono in uno di questi corsi di laurea.\n\n• Un modo di lavorare riflettente, paziente e orientato alla soluzione, nonché un senso di responsabilità e di impegno vi distinguono.\n\n• Coltivano un approccio rispettoso, professionale e cooperativo a pazienti, parenti e dipendenti a tutti i livelli e quindi promuovono l'importante cooperazione interprofessionale.\n Vi dà il piacere di muoversi nel vasto campo tra competenze, leadership, leadership e istruzione e di essere un modello di ruolo positivo con la vostra professionalità.\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• On our bedside ward, you ensure evidence-based and professional care, in which you care for patients with complex care situations, as well as accompany, support and promote employees and students.\n\n• On the basis of ongoing reflection and review, together with the department management, the specialist experts of the other stations and the care expert, you plan and design adequate and sustainable development strategies to implement core topics such as strengthening the care process, implementing innovations, coaching of employees, etc.\n\nRequirements\n• You are a dipl. Nursing specialist HF/FH with a Bachelor or MAS in specialized, preferably oncological care, or are in one of these degree programmes.\n\n• A reflective, patient- and solution-oriented way of working as well as a sense of responsibility and commitment distinguish you.\n\n• They cultivate a respectful, professional and cooperative approach to patients, relatives and employees at all levels and thus promote the important interprofessional cooperation.\n It gives you pleasure to move in the broad field between expertise, leadership, leadership and education and to be a positive role model with your professionalism.\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\n• Dans notre service de chevet, vous veillez à des soins professionnels et fondés sur des données probantes, dans lesquels vous prenez soin de patients ayant des situations de soins complexes, ainsi que d'accompagner, de soutenir et de promouvoir les employés et les étudiants.\n\n• Sur la base d'une réflexion et d'un examen continus, en collaboration avec la direction du département, les experts des autres stations et l'expert en soins, vous planifiez et concevez des stratégies de développement adéquates et durables pour mettre en œuvre des thèmes essentiels tels que le renforcement du processus de soins, la mise en oeuvre d'innovations, l'encadrement des employés, etc.\n\nExigences\n• Vous êtes un diplome. Spécialiste des soins infirmiers HF/FH avec un baccalauréat ou un MAS en soins spécialisés, de préférence oncologiques, ou sont dans l'un de ces programmes de diplôme.\n\n• Une façon de travailler réfléchie, axée sur le patient et la solution, ainsi qu'un sentiment de responsabilité et d'engagement vous distinguent.\n\n• Ils développent une approche respectueuse, professionnelle et coopérative des patients, des parents et des employés à tous les niveaux et favorisent ainsi l'importante coopération interprofessionnelle.\n Il vous donne le plaisir de progresser dans le vaste domaine entre expertise, leadership, leadership et éducation et d'être un modèle positif avec votre professionnalisme.\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -3196,7 +3181,6 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3227,15 +3211,15 @@
       "titleByLocale": {
         "de": "Arztsekretär/in oder Med. Praxisassistent/in",
         "it": "Arztsekretär/in o Med. Praxisassistent/in",
-        "en": "Arztsekretär/in oder Med. Praxisassistent/in",
-        "fr": "Arztsekretär/in oder Med. Praxisassistent/in"
+        "en": "Medical Secretary or Med. Practical Assistant/",
+        "fr": "Secrétaire médical ou Med. Assistant pratique/"
       },
       "description": "Aufgaben:\n• Organisation der Sprechstunden und Operationen\n\n• Verwalten der Sprechstunden-Kalender\n\n• Unterstützen der Ärzteschaft in administrativen sowie organisatorischen Belangen\n\n• Kontakt mit Patientinnen und Patienten, internen Stellen und Abteilungen, Hausärzten, Versicherungen etc.\n\n• Vorbereiten der Sprechstundenberichte\n\n• Abwesenheitsvertretung der Kolleginnen\n\n• Mitwirkung in den Prozessen im Hinblick auf den Umzug in den KSA-Neubau \"Dreiklang\n\nAnforderungen:\n• Versierte Arztsekretär/in oder Ausbildung als Med. Praxisassistent/in\n\n• Berufserfahrung im medizinischen Sekretariat wird vorausgesetzt\n\n• Stilsicherheit in der deutschen Sprache\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Gute IT-Kenntnisse (MS Office-Palette)\n\n• Kompetentes und ruhiges Auftreten auch in schwierigen Situationen\n\n• Vernetztes und unternehmerisches Denken, Zuverlässigkeit, Vertrauenswürdigkeit, Selbstständigkeit und speditive Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Organisation der Sprechstunden und Operationen\n\n• Verwalten der Sprechstunden-Kalender\n\n• Unterstützen der Ärzteschaft in administrativen sowie organisatorischen Belangen\n\n• Kontakt mit Patientinnen und Patienten, internen Stellen und Abteilungen, Hausärzten, Versicherungen etc.\n\n• Vorbereiten der Sprechstundenberichte\n\n• Abwesenheitsvertretung der Kolleginnen\n\n• Mitwirkung in den Prozessen im Hinblick auf den Umzug in den KSA-Neubau \"Dreiklang\n\nAnforderungen:\n• Versierte Arztsekretär/in oder Ausbildung als Med. Praxisassistent/in\n\n• Berufserfahrung im medizinischen Sekretariat wird vorausgesetzt\n\n• Stilsicherheit in der deutschen Sprache\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Gute IT-Kenntnisse (MS Office-Palette)\n\n• Kompetentes und ruhiges Auftreten auch in schwierigen Situationen\n\n• Vernetztes und unternehmerisches Denken, Zuverlässigkeit, Vertrauenswürdigkeit, Selbstständigkeit und speditive Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\n• Organisation der Sprechstunden und Operationen\n\n• Verwalten der Sprechstunden-Kalender\n\n• Unterstützen der Ärzteschaft in administrativen sowie organisatorischen Belangen\n\n• Kontakt mit Patientinnen und Patienten, internen Stellen und Abteilungen, Hausärzten, Versicherungen etc.\n\n• Vorbereiten der Sprechstundenberichte\n\n• Abwesenheitsvertretung der Kolleginnen\n\n• Mitwirkung in den Prozessen im Hinblick auf den Umzug in den KSA-Neubau \"Dreiklang\n\nAnforderungen:\n• Versierte Arztsekretär/in oder Ausbildung als Med. Praxisassistent/in\n\n• Berufserfahrung im medizinischen Sekretariat wird vorausgesetzt\n\n• Stilsicherheit in der deutschen Sprache\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Gute IT-Kenntnisse (MS Office-Palette)\n\n• Kompetentes und ruhiges Auftreten auch in schwierigen Situationen\n\n• Vernetztes und unternehmerisches Denken, Zuverlässigkeit, Vertrauenswürdigkeit, Selbstständigkeit und speditive Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Organisation der Sprechstunden und Operationen\n\n• Verwalten der Sprechstunden-Kalender\n\n• Unterstützen der Ärzteschaft in administrativen sowie organisatorischen Belangen\n\n• Kontakt mit Patientinnen und Patienten, internen Stellen und Abteilungen, Hausärzten, Versicherungen etc.\n\n• Vorbereiten der Sprechstundenberichte\n\n• Abwesenheitsvertretung der Kolleginnen\n\n• Mitwirkung in den Prozessen im Hinblick auf den Umzug in den KSA-Neubau \"Dreiklang\n\nAnforderungen:\n• Versierte Arztsekretär/in oder Ausbildung als Med. Praxisassistent/in\n\n• Berufserfahrung im medizinischen Sekretariat wird vorausgesetzt\n\n• Stilsicherheit in der deutschen Sprache\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Gute IT-Kenntnisse (MS Office-Palette)\n\n• Kompetentes und ruhiges Auftreten auch in schwierigen Situationen\n\n• Vernetztes und unternehmerisches Denken, Zuverlässigkeit, Vertrauenswürdigkeit, Selbstständigkeit und speditive Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Organisation der Sprechstunden und Operationen\n\n• Verwalten der Sprechstunden-Kalender\n\n• Unterstützen der Ärzteschaft in administrativen sowie organisatorischen Belangen\n\n• Kontakt mit Patientinnen und Patienten, internen Stellen und Abteilungen, Hausärzten, Versicherungen etc.\n\n• Vorbereiten der Sprechstundenberichte\n\n• Abwesenheitsvertretung der Kolleginnen\n\n• Mitwirkung in den Prozessen im Hinblick auf den Umzug in den KSA-Neubau \"Dreiklang\n\nAnforderungen:\n• Versierte Arztsekretär/in oder Ausbildung als Med. Praxisassistent/in\n\n• Berufserfahrung im medizinischen Sekretariat wird vorausgesetzt\n\n• Stilsicherheit in der deutschen Sprache\n\n• Gute Kenntnisse der medizinischen Terminologie\n\n• Gute IT-Kenntnisse (MS Office-Palette)\n\n• Kompetentes und ruhiges Auftreten auch in schwierigen Situationen\n\n• Vernetztes und unternehmerisches Denken, Zuverlässigkeit, Vertrauenswürdigkeit, Selbstständigkeit und speditive Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\n• Organizzazione delle ore di consultazione e delle operazioni\n\n• Gestione del calendario delle ore di ufficio\n\n• Sostegno alla professione medica in materia amministrativa e organizzativa\n\n• Contatto con pazienti, uffici interni e dipartimenti, medici di famiglia, assicurazione ecc.\n\n• Preparazione dei rapporti delle ore di ufficio\n\n• Assenza di colleghi\n\n• Partecipazione ai processi relativi al passaggio al nuovo edificio KSA \"Triiklang\"\n\nRequisiti\n• Segretario medico esperto o formazione come Med. Assistente pratico/\n\n• Esperienza professionale nel segretariato medico è richiesto\n\n• Sicurezza stilistica nella lingua tedesca\n\n• Buona conoscenza della terminologia medica\n\n• Buona conoscenza dell'IT (MS Office range)\n\n• Competenza e calma anche in situazioni difficili\n\n• Pensare in rete e imprenditoriale, affidabilità, affidabilità, autooccupazione e metodi di lavoro inoltro\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• Organisation of consultation hours and operations\n\n• Managing the office hours calendar\n\n• Supporting the medical profession in administrative and organizational matters\n\n• Contact with patients, internal offices and departments, family doctors, insurance etc.\n\n• Preparation of office hours reports\n\n• Absence of colleagues\n\n• Participation in the processes regarding the move to the new KSA building \"Triiklang\"\n\nRequirements\n• Experienced medical secretary or training as a Med. Practical Assistant/\n\n• Professional experience in the medical secretariat is required\n\n• Stylistic security in the German language\n\n• Good knowledge of medical terminology\n\n• Good IT knowledge (MS Office range)\n\n• Competent and calm appearance even in difficult situations\n\n• Networked and entrepreneurial thinking, reliability, trustworthiness, self-employment and forwarding working methods\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\n• Organisation des heures de consultation et des opérations\n\n• Gestion du calendrier des heures de bureau\n\n• Appui à la profession médicale en matière administrative et organisationnelle\n\n• Contact avec les patients, les bureaux et départements internes, les médecins de famille, les assurances, etc.\n\n• Établissement des rapports sur les heures de bureau\n\n• Absence de collègues\n\n• Participation aux processus concernant le déménagement dans le nouveau bâtiment KSA \"Triiklang\"\n\nExigences\n• Secrétaire médical expérimenté ou formation en médecine. Assistant pratique/\n\n• Une expérience professionnelle au sein du secrétariat médical est requise\n\n• Sécurité stylistique en langue allemande\n\n• Bonne connaissance de la terminologie médicale\n\n• Bonnes connaissances en matière de technologie de l'information (panier MS Office)\n\n• Apparence compétente et calme même dans des situations difficiles\n\n• Réflexion en réseau et esprit d'entreprise, fiabilité, fiabilité, travail indépendant et méthodes de travail\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -3264,13 +3248,29 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+          "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
+          "med-praxisassistent-in-o-medizinstudent-in-kantonsspital-aarau-ksa-aarau",
+          "med-practical-assistant-or-medical-student-kantonsspital-aarau-ksa-aarau",
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch",
+          "medicament-assistant-pratique-ou-etudiant-en-medecine-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "med-practical-assistant-or-medical-student-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch"
+        ],
+        "fr": [
+          "medicament-assistant-pratique-ou-etudiant-en-medecine-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch"
+        "arztsekretar-in-oder-med-praxisassistent-in-ksa-ch",
+        "med-praxisassistent-in-o-medizinstudent-in-kantonsspital-aarau-ksa-aarau",
+        "med-practical-assistant-or-medical-student-kantonsspital-aarau-ksa-aarau",
+        "med-praxisassistent-in-oder-medizinstudent-in-ksa-ch",
+        "medicament-assistant-pratique-ou-etudiant-en-medecine-kantonsspital-aarau-ksa-aarau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3378,7 +3378,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -3434,7 +3434,6 @@
         "infermiere-diplomato-infermiere-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-11T11:38:53.676Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3946,7 +3945,7 @@
       "title": "Dipl. Radiologiefachperson",
       "titleByLocale": {
         "it": "Dipl. Specialista di radiologia",
-        "en": "Dipl. Radiologiefachperson",
+        "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachperson",
         "fr": "Dipl. Radiologie"
       },
@@ -3998,7 +3997,6 @@
         "manutenzione-stradale-artigianale-100-kanton-aargau-aarau-90ccd1"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4510,7 +4508,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Pflegefachfrau / Pflegefachmann o Dipl. Expertin / Experte Notfallpflege",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
+        "en": "Dipl. Nursing professional or dipl. Expert / Expert Emergency Care",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Expertin / Experte Notfallpflege",
         "fr": "Dipl. Professionnels des soins infirmiers ou dipl. Expert / Expert Soins d'urgence"
       },
@@ -4558,7 +4556,6 @@
         "dipl-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich-hydrich"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4673,7 +4670,7 @@
       "title": "ICT Service Manager/in Digital Communication",
       "titleByLocale": {
         "it": "ICT Service Manager/in Comunicazione digitale",
-        "en": "ICT Service Manager/in Digital Communication",
+        "en": "ICT Service Manager/Digital Communication",
         "de": "ICT Service Manager/in Digital Communication",
         "fr": "Gestionnaire de services TIC/Communication numérique"
       },
@@ -4727,7 +4724,6 @@
         "ict-service-manager-in-comunicazione-digitale-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -4835,7 +4831,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -4883,7 +4879,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5103,7 +5098,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5288,7 +5282,7 @@
         "it": "Controllore/in affari",
         "en": "Business Controller",
         "de": "Business Controller/in",
-        "fr": "Business Controller/in"
+        "fr": "Contrôleur d'entreprise"
       },
       "description": "Aufgaben:\n• Sie erstellen und koordinieren die Budgetplanung, führen Wirtschaftlichkeitsrechnungen durch und überwachen die Einhaltung der finanziellen Vorgaben in Zusammenarbeit mit dem Bereichsmanagement.\n\n• Sie verantworten die periodischen Abgrenzungen im Abschlussprozess und stellen eine transparente finanzielle Berichterstattung sicher.\n\n• Sie bereiten finanzielle Reportings und Analysen für das Bereichsmanagement auf und schaffen eine fundierte Grundlage für betriebswirtschaftliche Entscheidungen.\n\n• Sie analysieren die Kostenstellen- und Kostenträgerrechnung sowie das Leistungsspektrum der Kliniken und identifizieren Optimierungs- und Steuerungspotenziale.\n\n• Sie beraten das Bereichsmanagement und die Kliniken in finanziellen Fragestellungen, unterstützen die Umsetzung von Verbesserungsmassnahmen und wirken aktiv an Projekten sowie der Weiterentwicklung von Controllingprozessen und -instrumenten mit.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene betriebswirtschaftliche Ausbildung mit Weiterbildung im Controlling oder einen Hochschulabschluss (FH/Uni) mit Schwerpunkt Finanzen/Controlling\n\n• Sie bringen eine initiative, durchsetzungsstarke Persönlichkeit mit hoher Eigenverantwortung sowie ausgeprägter Kommunikationsfähigkeit auf verschiedenen Hierarchieebenen mit.\n\n• Idealerweise verfügen Sie über Erfahrung im Umfeld eines Akutspitals und kennen die spezifischen Daten-, Leistungs- und Wertflüsse im Gesundheitswesen.\n\n• Ihre Arbeitsweise ist stark analytisch geprägt, zahlenaffin sowie konsequent ziel- und ergebnisorientiert.\n\n• Sie besitzen sehr gute MS-Excel-Kenntnisse; Kenntnisse in BI-Systemen (z. B. Qlik Sense, TIP HCe) sind von Vorteil.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -5331,7 +5325,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5568,7 +5561,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -5597,7 +5589,7 @@
       "title": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Certificato esperto / certificato di assistenza di emergenza NDS HF",
-        "en": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF",
+        "en": "Certified Expert / Certified Expert Emergency Care NDS HF",
         "de": "Diplomierte Expertin / Diplomierter Experte Notfallpflege NDS HF",
         "fr": "Expert certifié / Expert certifié Soins d'urgence NDS HF"
       },
@@ -5647,7 +5639,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5734,8 +5725,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-39bae4f26a6a",
@@ -5754,7 +5744,7 @@
         "it": "Radiologia specialistica (MPA / professione di allattamento)",
         "en": "Specialist radiology (MPA / nursing profession)",
         "de": "Fachangestellte/r Radiologie (MPA / Pflegeberuf)",
-        "fr": "Fachangestellte/r Radiologie (MPA / Pflegeberuf)"
+        "fr": "Radiologie spécialisée (MPA / profession infirmière)"
       },
       "description": "Aufgaben:\n• Betreuung und Vorbereitung der Patientinnen und Patienten für die radiologischen Untersuchungen (Sonographien, CT, MRT, Angiographien, Mammographie)\n\n• Vorbereitung und Assistenz bei Punktionen oder Biopsien\n\n• Materialbestellwesen\n\n• Patienten-Koordination von ambulanten Patienten\n\n• Möglichkeit zur Rotation in das neue eigene Radiologiezentrum in Lenzburg möglich\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in / Pflegeberuf oder ähnliches\n\n• Erfahrung in der Administration im Gesundheitswesen\n\n• Exakte und selbstständige Arbeitsweise\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -5797,7 +5787,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5910,7 +5899,7 @@
       "description": "Aufgaben:\n• Durchführung von Lungenfunktionsuntersuchungen (Plethysmographie, Spiroergometrie)\n\n• Schlafmedizinische Untersuchungen (Resp. Polygraphien, Aktigraphien, Einschulung der Nicht-invasive Beatmungstherapien)\n\n• Administrative Tätigkeiten wie Patientenaufgebote\n\nAnforderungen:\n• Ausbildung als Med. Praxisassistent/in EFZ oder Fachfrau/ Fachmann Gesundheit EFZ\n\n• Erfahrung in der Durchführung von Lungenfunktionsdiagnostik wünschenswert\n\n• Kenntnisse in der Schlafmedizin von Vorteil\n\n• Gute Kommunikationsfähigkeiten und Einfühlungsvermögen im Umgang mit Patienten\n\n• Sicherer Umgang mit EDV-Programmen und medizinischer Dokumentation\n\n• Selbständige, zuverlässige und speditive Arbeitsweise sowie gute organisatorische Fähigkeiten\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "it": "Compiti:\n• Performazione degli esami di funzione polmonare (pletismografia, spiroergometria)\n\n• esami medici del sonno (poligrafi di sospensione, attigrafi, formazione di terapie di ventilazione non invasiva)\n\n• Attività amministrative come il servizio paziente\n\nRequisiti\n• Formazione come Med. Assistente di pratica/EFZ o specialista Salute EFZ\n\n• Esperienza nell'esecuzione diagnostica funzione polmonare desiderabile\n\n• La conoscenza nella medicina del sonno è benefica\n\n• Buone capacità di comunicazione ed empatia nel trattare con i pazienti\n\n• Gestione sicura dei programmi informatici e della documentazione medica\n\n• Metodi di lavoro autonomi, affidabili e avanzati nonché buone capacità organizzative\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
-        "en": "Tasks:\n• Performation of lung",
+        "en": "Tasks:\n• Performation of lung function examinations (plethysmography, spiroergometry)\n\n• Sleep medical examinations (resp. polygraphs, actigraphs, training of non-invasive ventilation therapies)\n\n• Administrative activities such as patient service\n\nRequirements\n• Education as a Med. Practice assistant/in EFZ or specialist health EFZ\n\n• Experience in performing lung function diagnostics desirable\n\n• Knowledge in sleep medicine is beneficial\n\n• Good communication skills and empathy in dealing with patients\n\n• Safe handling of computer programs and medical documentation\n\n• Independent, reliable and forward working methods as well as good organisational skills\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
         "de": "Aufgaben:\n• Durchführung von Lungenfunktionsuntersuchungen (Plethysmographie, Spiroergometrie)\n\n• Schlafmedizinische Untersuchungen (Resp. Polygraphien, Aktigraphien, Einschulung der Nicht-invasive Beatmungstherapien)\n\n• Administrative Tätigkeiten wie Patientenaufgebote\n\nAnforderungen:\n• Ausbildung als Med. Praxisassistent/in EFZ oder Fachfrau/ Fachmann Gesundheit EFZ\n\n• Erfahrung in der Durchführung von Lungenfunktionsdiagnostik wünschenswert\n\n• Kenntnisse in der Schlafmedizin von Vorteil\n\n• Gute Kommunikationsfähigkeiten und Einfühlungsvermögen im Umgang mit Patienten\n\n• Sicherer Umgang mit EDV-Programmen und medizinischer Dokumentation\n\n• Selbständige, zuverlässige und speditive Arbeitsweise sowie gute organisatorische Fähigkeiten\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
         "fr": "Tâches :\n• Réalisation d'examens de la fonction pulmonaire (pléthysmographie, spiroergométrie)\n\n• Examens médicaux du sommeil (resp. polygraphes, actigraphes, formation de thérapies de ventilation non invasives)\n\n• Activités administratives comme le service aux patients\n\nExigences\n• L'éducation en tant qu'assistant médical/EFZ ou spécialiste de la santé EFZ\n\n• Expérience dans l'exécution de diagnostics de fonctions pulmonaires souhaitables\n\n• La connaissance de la médecine du sommeil est bénéfique\n\n• Bonnes compétences en communication et empathie dans le traitement des patients\n\n• Gestion sécuritaire des programmes informatiques et de la documentation médicale\n\n• Travail indépendant, méthodes de travail fiables et avancées ainsi que bonnes compétences organisationnelles\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
@@ -5957,8 +5946,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-1d4aff4dae80",
@@ -6053,7 +6041,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care",
-        "en": "Dipl. Expertin / Experte Intensivpflege",
+        "en": "Dipl. Expert / Expert Intensive Care",
         "de": "Dipl. Expertin / Experte Intensivpflege",
         "fr": "Dipl. Expert / Expert soins intensifs"
       },
@@ -6088,7 +6076,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6358,7 +6345,7 @@
       "title": "ICT Service Manager/in – Storage & Cloud Engineering",
       "titleByLocale": {
         "it": "ICT Service Manager – Storage & Cloud Engineering",
-        "en": "ICT Service Manager/in – Storage & Cloud Engineering",
+        "en": "ICT Service Manager – Storage & Cloud Engineering",
         "de": "ICT Service Manager/in – Storage & Cloud Engineering",
         "fr": "Gestionnaire de services TIC – Stockage et Cloud Engineering"
       },
@@ -6407,7 +6394,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6436,7 +6422,7 @@
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expertin / Experte Notfallpflege NDS HF",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Postgraduate degree Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expertin / Experte Notfallpflege NDS HF"
       },
@@ -6487,7 +6473,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6561,7 +6546,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6927,7 +6911,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6955,7 +6938,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
+        "it": "Dipl. Infermiera / specialista in infermiera Dialysis",
         "en": "Dipl. Pflegefachfrau / Pflegefachmann Dialysis",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
         "fr": "Dipl. Infirmière / Infirmière spécialiste Dialyse"
@@ -7004,7 +6987,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7246,8 +7228,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-5d54aaf87a5e",
@@ -7407,7 +7388,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie",
+        "it": "Dipl. Specialista infermieristico / infermieristica Gastroenterologia/Endoscopia",
         "en": "Pflegefachfrau / Pflegefachmann Gastroenterologie/ Endoskopie",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Gastroenterologie/Endoskopie",
         "fr": "Pflegefachfrau / Pflegefachmann Gastroentérologie/ Endoskopie"
@@ -7453,7 +7434,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7481,7 +7461,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann",
+        "it": "Dipl. Specialista di radiologia / Specialista di radiologia",
         "en": "Dipl. Radiologyfachfrau / Radiologyfachmann",
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann",
         "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie"
@@ -7532,7 +7512,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7685,7 +7664,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7946,7 +7924,7 @@
       "title": "Dipl. Physiotherapeut/in",
       "titleByLocale": {
         "it": "Dipl. Fisioterapie/in",
-        "en": "Dipl. Physiotherapeut/in",
+        "en": "Dipl. Physiotherapist",
         "de": "Dipl. Physiotherapeut/in",
         "fr": "Dipl. Physiothérapeute"
       },
@@ -7995,7 +7973,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8026,7 +8003,7 @@
         "it": "Supporto ICT/in Service Desk",
         "en": "ICT Supporter/Service Desk",
         "de": "ICT Supporter/in Service Desk",
-        "fr": "ICT Supporter/in Service Desk"
+        "fr": "Service d ' appui aux TIC"
       },
       "description": "Aufgaben:\nAls Abteilung Digitalisierung und ICT erbringen wir umfassende Informatik- & Projektdienstleistungen. Unsere Mitarbeitenden sind Berater und Botschafter innerhalb der Klinik und arbeiten eng mit dem Business zusammen. Der ICT Service Desk ist die erste Adresse für unsere Kunden und übernimmt dabei eine zentrale Rolle im First-Level Support.\n\nFür unseren ICT Service Desk suchen wir jemanden, welcher Freude an der Unterstützung unserer Benutzer hat.\nSozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\n\nIhre Aufgaben:\n• Erfassen und Klassifizieren von Störungen und Anfragen sowie gegebenenfalls Voranalysen für den Second oder Third Level Support, um eine schnelle Bearbeitung zu ermöglichen\n\n• Bearbeitung und Behebung von kleineren Störungen und von Anfragen von Kunden per Telefon, E-Mail oder SelfService Portal\n\n• Nachvollziehbarkeit der Störungsbehebung und Bearbeitung von Anfragen im Service Management Tool unter Einhaltung der vorgegebenen SLA\n\n• Mitarbeit bei der Benutzerverwaltung (z.B. Freigabe von Zugriffsrechten)\n\n• Einhaltung der ICT-Sicherheitsrichtlinien\n\n• Korrektes Eskalationsverfahren im Bedarfsfall\n\n• Die Wissensdatenbank für den Service Desk auf dem aktuellen Stand halten\n\n• Bei Bedarf Mitarbeit in IT Projekten\n\n• Mitwirkung bei der Verbesserung von Serviceprozessen\n\n• Unterstützung der Endbenutzer mit Schulungen, Hilfestellungen bei der Anwendung von ICT-Tools und -Anwendungen\n\n• Verwaltung und Aktualisierung des Software-Inventars inklusive Zuweisung der Software an die Kunden\n\n• Mitarbeit beim Dispatching aller eingehenden Störungen und Anfragen in die verschiedenen ICT-Teams\n\nAnforderungen:\n• Ausbildung zur ICT-Fachfrau / zum ICT-Fachmann EFZ oder äquivalente Ausbildung\n\n• Selbstständige Arbeitsweise\n\n• Bearbeitung von Anfragen und Priorisierung von Aufgaben unter Zeitdruck\n\n• Hohe Serviceorientierung und Fähigkeit, freundlich und geduldig auf Benutzeranfragen einzugehen\n\n• Fähigkeit zur schnellen Identifizierung und Lösung technischer Probleme sowie die Fähigkeit zur Priorisierung und Selbstorganisation\n\n• Umfassende Kenntnisse in der Hard- und Software, Netzwerken und Betriebssystemen\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -8072,7 +8049,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8100,7 +8076,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nurse/nurse professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Infirmière/infirmière professionnelle"
@@ -8154,7 +8130,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T12:11:49.770Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8262,7 +8237,7 @@
       "title": "Leiter/in ICT Support Onsite",
       "titleByLocale": {
         "it": "Responsabile ICT Support Onsite",
-        "en": "Leiter/in ICT Support Onsite",
+        "en": "Head of ICT Support Onsite",
         "de": "Leiter/in ICT Support Onsite",
         "fr": "Chef du soutien aux TIC sur place"
       },
@@ -8312,7 +8287,6 @@
         "responsabile-ict-support-onsite-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.789Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -8636,9 +8610,9 @@
       "description": "Aufgaben:\nWir suchen Menschen, die im Team Grosses bewegen wollen. Sozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\nWir leben einen modernen Führungsstil, fördern eigenverantwortliches Arbeiten und setzen auf eine offene Fehlerkultur. Mitarbeiterentwicklung und Weiterbildung sehen wir nicht als Bonus – sondern als Teil deiner Reise bei uns.\n\n• Entwicklung, Betrieb und kontinuierliche Optimierung von skalierbaren Datenpipelines für BI-Use Cases\n\n• Integration, Transformation und Aufbereitung von strukturierten Daten aus klinischen und administrativen Quellsystemen\n\n• Sicherstellung von Datenqualität, Verfügbarkeit, Nachvollziehbarkeit und Governance entlang der gesamten Pipeline\n\n• Zusammenarbeit mit BI, Analytics und Fachbereichen zur Umsetzung von Anforderungen\n\n• Automatisierung von ETL/ELT-Prozessen und kontinuierliche Weiterentwicklung von Standards der Datenprodukten\n\nAnforderungen:\n• Abgeschlossenes Studium (Informatik, Wirtschaftsinformatik o. ä.) oder vergleichbare Erfahrung\n\n• Fundierte Kenntnisse in Datenmodellierung sowie ETL/ELT-Tools, Python und SQL\n\n• Erfahrung mit Lakehouse Datenplattformen mit Cloud Native Technology von Vorteil\n\n• Verständnis für BI-Anforderungen und analytische Fragestellungen sowie Interesse an Datenqualität\n\n• Teamorientierte, strukturierte Arbeitsweise und hohe Qualitätsorientierung\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\nWir suchen Menschen, die im Team Grosses bewegen wollen. Sozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\nWir leben einen modernen Führungsstil, fördern eigenverantwortliches Arbeiten und setzen auf eine offene Fehlerkultur. Mitarbeiterentwicklung und Weiterbildung sehen wir nicht als Bonus – sondern als Teil deiner Reise bei uns.\n\n• Entwicklung, Betrieb und kontinuierliche Optimierung von skalierbaren Datenpipelines für BI-Use Cases\n\n• Integration, Transformation und Aufbereitung von strukturierten Daten aus klinischen und administrativen Quellsystemen\n\n• Sicherstellung von Datenqualität, Verfügbarkeit, Nachvollziehbarkeit und Governance entlang der gesamten Pipeline\n\n• Zusammenarbeit mit BI, Analytics und Fachbereichen zur Umsetzung von Anforderungen\n\n• Automatisierung von ETL/ELT-Prozessen und kontinuierliche Weiterentwicklung von Standards der Datenprodukten\n\nAnforderungen:\n• Abgeschlossenes Studium (Informatik, Wirtschaftsinformatik o. ä.) oder vergleichbare Erfahrung\n\n• Fundierte Kenntnisse in Datenmodellierung sowie ETL/ELT-Tools, Python und SQL\n\n• Erfahrung mit Lakehouse Datenplattformen mit Cloud Native Technology von Vorteil\n\n• Verständnis für BI-Anforderungen und analytische Fragestellungen sowie Interesse an Datenqualität\n\n• Teamorientierte, strukturierte Arbeitsweise und hohe Qualitätsorientierung\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\nWir suchen Menschen, die im Team Grosses bewegen wollen. Sozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\nWir leben einen modernen Führungsstil, fördern eigenverantwortliches Arbeiten und setzen auf eine offene Fehlerkultur. Mitarbeiterentwicklung und Weiterbildung sehen wir nicht als Bonus – sondern als Teil deiner Reise bei uns.\n\n• Entwicklung, Betrieb und kontinuierliche Optimierung von skalierbaren Datenpipelines für BI-Use Cases\n\n• Integration, Transformation und Aufbereitung von strukturierten Daten aus klinischen und administrativen Quellsystemen\n\n• Sicherstellung von Datenqualität, Verfügbarkeit, Nachvollziehbarkeit und Governance entlang der gesamten Pipeline\n\n• Zusammenarbeit mit BI, Analytics und Fachbereichen zur Umsetzung von Anforderungen\n\n• Automatisierung von ETL/ELT-Prozessen und kontinuierliche Weiterentwicklung von Standards der Datenprodukten\n\nAnforderungen:\n• Abgeschlossenes Studium (Informatik, Wirtschaftsinformatik o. ä.) oder vergleichbare Erfahrung\n\n• Fundierte Kenntnisse in Datenmodellierung sowie ETL/ELT-Tools, Python und SQL\n\n• Erfahrung mit Lakehouse Datenplattformen mit Cloud Native Technology von Vorteil\n\n• Verständnis für BI-Anforderungen und analytische Fragestellungen sowie Interesse an Datenqualität\n\n• Teamorientierte, strukturierte Arbeitsweise und hohe Qualitätsorientierung\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\nWir suchen Menschen, die im Team Grosses bewegen wollen. Sozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\nWir leben einen modernen Führungsstil, fördern eigenverantwortliches Arbeiten und setzen auf eine offene Fehlerkultur. Mitarbeiterentwicklung und Weiterbildung sehen wir nicht als Bonus – sondern als Teil deiner Reise bei uns.\n\n• Entwicklung, Betrieb und kontinuierliche Optimierung von skalierbaren Datenpipelines für BI-Use Cases\n\n• Integration, Transformation und Aufbereitung von strukturierten Daten aus klinischen und administrativen Quellsystemen\n\n• Sicherstellung von Datenqualität, Verfügbarkeit, Nachvollziehbarkeit und Governance entlang der gesamten Pipeline\n\n• Zusammenarbeit mit BI, Analytics und Fachbereichen zur Umsetzung von Anforderungen\n\n• Automatisierung von ETL/ELT-Prozessen und kontinuierliche Weiterentwicklung von Standards der Datenprodukten\n\nAnforderungen:\n• Abgeschlossenes Studium (Informatik, Wirtschaftsinformatik o. ä.) oder vergleichbare Erfahrung\n\n• Fundierte Kenntnisse in Datenmodellierung sowie ETL/ELT-Tools, Python und SQL\n\n• Erfahrung mit Lakehouse Datenplattformen mit Cloud Native Technology von Vorteil\n\n• Verständnis für BI-Anforderungen und analytische Fragestellungen sowie Interesse an Datenqualität\n\n• Teamorientierte, strukturierte Arbeitsweise und hohe Qualitätsorientierung\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\nWir suchen Menschen, die im Team Grosses bewegen wollen. Sozialkompetenz, Lernbereitschaft und ein aktiver Beitrag zur Teamkultur zählen bei uns genauso viel wie die ausgeprägten technischen Skills.\nWir leben einen modernen Führungsstil, fördern eigenverantwortliches Arbeiten und setzen auf eine offene Fehlerkultur. Mitarbeiterentwicklung und Weiterbildung sehen wir nicht als Bonus – sondern als Teil deiner Reise bei uns.\n\n• Entwicklung, Betrieb und kontinuierliche Optimierung von skalierbaren Datenpipelines für BI-Use Cases\n\n• Integration, Transformation und Aufbereitung von strukturierten Daten aus klinischen und administrativen Quellsystemen\n\n• Sicherstellung von Datenqualität, Verfügbarkeit, Nachvollziehbarkeit und Governance entlang der gesamten Pipeline\n\n• Zusammenarbeit mit BI, Analytics und Fachbereichen zur Umsetzung von Anforderungen\n\n• Automatisierung von ETL/ELT-Prozessen und kontinuierliche Weiterentwicklung von Standards der Datenprodukten\n\nAnforderungen:\n• Abgeschlossenes Studium (Informatik, Wirtschaftsinformatik o. ä.) oder vergleichbare Erfahrung\n\n• Fundierte Kenntnisse in Datenmodellierung sowie ETL/ELT-Tools, Python und SQL\n\n• Erfahrung mit Lakehouse Datenplattformen mit Cloud Native Technology von Vorteil\n\n• Verständnis für BI-Anforderungen und analytische Fragestellungen sowie Interesse an Datenqualität\n\n• Teamorientierte, strukturierte Arbeitsweise und hohe Qualitätsorientierung\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\nStiamo cercando persone che vogliono spostare grandi cose nella squadra. Le competenze sociali, la volontà di imparare e un contributo attivo alla cultura del team contano tanto quanto le nostre forti competenze tecniche.\nViviamo uno stile di gestione moderno, promuoviamo il lavoro auto-responsabile e ci concentriamo su una cultura aperta di errore. Non vediamo lo sviluppo dei dipendenti e l'ulteriore formazione come un bonus – ma come parte del vostro viaggio con noi.\n\n• Sviluppo, funzionamento e ottimizzazione continua di datadotti scalabili per casi di utilizzo BI\n\n• Integrazione, trasformazione e trattamento dei dati strutturati da sistemi di sorgenti cliniche e amministrative\n\n• Garantire la qualità dei dati, la disponibilità, la tracciabilità e la governance in tutta la pipeline\n\n• Collaborazione con BI, Analytics e dipartimenti per implementare i requisiti\n\n• Automazione dei processi ETL/ELT e sviluppo continuo degli standard di prodotto dati\n\nRequisiti\n• Studi completi (informatica, informatica aziendale, ecc.) o esperienze comparabili\n\n• Conoscenza approfondita della modellazione dei dati e degli strumenti ETL/ELT, Python e SQL\n\n• Esperienza con Piattaforme dati Lakehouse con Cloud Native Technology\n\n• Comprendere i requisiti BI e le questioni analitiche e l'interesse per la qualità dei dati\n\n• Metodo di lavoro strutturato e orientato al team e orientamento di alta qualità\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\nWe are looking for people who want to move big things in the team. Social skills, willingness to learn and an active contribution to team culture count as much as our strong technical skills.\nWe live a modern management style, promote self-responsible work and focus on an open culture of error. We do not see employee development and further education as a bonus – but as part of your journey with us.\n\n• Development, operation and continuous optimization of scalable data pipelines for BI use cases\n\n• Integration, transformation and processing of structured data from clinical and administrative source systems\n\n• Ensuring data quality, availability, traceability and governance throughout the pipeline\n\n• Collaboration with BI, Analytics and departments to implement requirements\n\n• Automation of ETL/ELT processes and continuous development of data product standards\n\nRequirements\n• Completed studies (Informatics, Business Informatics, etc.) or comparable experience\n\n• In-depth knowledge of data modeling as well as ETL/ELT tools, Python and SQL\n\n• Experience with Lakehouse Data Platforms with Cloud Native Technology\n\n• Understanding BI requirements and analytical issues as well as interest in data quality\n\n• Team-oriented, structured working method and high quality orientation\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\nNous cherchons des gens qui veulent déplacer de grandes choses dans l'équipe. Les compétences sociales, la volonté d'apprendre et une contribution active à la culture d'équipe comptent autant que nos compétences techniques fortes.\nNous vivons un style de gestion moderne, promouvons le travail autoresponsable et nous concentrons sur une culture ouverte d'erreur. Nous ne considérons pas le développement des employés et la formation continue comme un bonus – mais comme un élément de votre voyage avec nous.\n\n• Développement, exploitation et optimisation continue des pipelines de données évolutives pour les cas d'utilisation BI\n\n• Intégration, transformation et traitement des données structurées provenant des systèmes de sources cliniques et administratives\n\n• Assurer la qualité, la disponibilité, la traçabilité et la gouvernance des données tout au long du pipeline\n\n• Collaboration avec BI, Analytics et les ministères pour mettre en oeuvre les exigences\n\n• Automatisation des processus ETL/ELT et développement continu des normes de produits de données\n\nExigences\n• Études terminées (informatique, informatique des affaires, etc.) ou expérience comparable\n\n• Connaissance approfondie de la modélisation des données ainsi que des outils ETL/ELT, Python et SQL\n\n• Expérience avec Lakehouse Data Platforms avec Cloud Native Technology\n\n• Comprendre les exigences de la BI et les questions d'analyse ainsi que l'intérêt pour la qualité des données\n\n• Méthode de travail structurée axée sur l'équipe et orientation de haute qualité\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8665,7 +8639,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {

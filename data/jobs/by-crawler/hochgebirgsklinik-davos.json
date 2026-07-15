@@ -164,7 +164,24 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-07-14T21:58:40.639Z"
+      "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-247afd562517",
@@ -173,7 +190,7 @@
         "de": "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik-",
         "it": "medico-specialista-in-pediatria-e-medicina-dell-adolescenza-pronto-soccorso-pediatrico-hochgebirgsklinik-davos-davos",
         "en": "pediatrician-adolescent-medicine-specialist-ambulatory-pediatrics-hochgebirgsklinik-davos-davos",
-        "fr": "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
+        "fr": "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -231,12 +248,14 @@
         ],
         "fr": [
           "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-          "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
+          "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos",
+          "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
         ]
       },
       "previousSlugs": [
         "facharztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-padiatrie-hochgebirgsklinik",
-        "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos"
+        "medecin-specialiste-en-pediatrie-et-medecine-de-l-adolescent-pediatrie-ambulatoire-hochgebirgsklinik-davos-davos",
+        "specialiste-specialiste-en-pediatrie-et-medecine-des-adolescents-developpement-de-la-pediatrie-externe-hochgebirgsklinik"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1836,6 +1855,9 @@
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
         ],
         "fr": [
+          "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "de": [
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
         ]
       },

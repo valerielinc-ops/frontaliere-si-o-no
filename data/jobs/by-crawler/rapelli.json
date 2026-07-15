@@ -45,7 +45,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:41.323Z",
       "firstSeenAt": "2026-07-14T12:02:52.946Z",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 60000,
       "baseSalary": {
@@ -59,7 +58,15 @@
         }
       },
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio"
+        ]
+      },
+      "previousSlugs": [
+        "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio"
+      ]
     },
     {
       "id": "rapelli-7cba533711b8",
@@ -104,7 +111,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:41.062Z",
       "firstSeenAt": "2026-07-14T12:02:52.545Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -163,7 +169,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:40.817Z",
       "firstSeenAt": "2026-07-14T12:02:51.962Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -260,7 +265,7 @@
       "title": "Manutentore/Maintenance Technician, 100%",
       "titleByLocale": {
         "it": "Manutentore/Maintenance Technician, 100%",
-        "en": "Manutentore/Maintenance Technician, 100%",
+        "en": "Technician Maintenance, 100%",
         "de": "Manutentore/Maintenance Techniker, 100%",
         "fr": "Manutentore/Maintenance Technicien, 100%"
       },
@@ -288,7 +293,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:40.378Z",
       "firstSeenAt": "2026-07-14T12:02:51.149Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -302,7 +306,20 @@
         }
       },
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
+          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+        ],
+        "fr": [
+          "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+        ]
+      },
+      "previousSlugs": [
+        "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
+        "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
+      ]
     },
     {
       "id": "rapelli-9f442deed99b",
@@ -445,7 +462,7 @@
       "title": "Buyer ingredienti & trade, 100%",
       "titleByLocale": {
         "it": "Buyer ingredienti & trade, 100%",
-        "en": "Buyer ingredienti & trade, 100%",
+        "en": "Buyer ingredients & trade, 100%",
         "de": "Käufer Zutaten & Handel, 100%",
         "fr": "Ingrédients d'achat et commerce, 100%"
       },
@@ -473,7 +490,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:39.604Z",
       "firstSeenAt": "2026-07-07T12:05:15.599Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -532,7 +548,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-07-14T22:07:39.281Z",
       "firstSeenAt": "2026-07-07T12:05:14.994Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
