@@ -3428,6 +3428,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iniziativa-alimentazione-sicura-voto',
+    category: 'novita',
+    date: '2026-07-15T11:58:21.993Z',
+    image: '/images/blog/iniziativa-alimentazione-sicura-voto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

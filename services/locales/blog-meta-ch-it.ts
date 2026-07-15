@@ -1144,6 +1144,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Disoccupazione frontalieri: l\'UDC si oppone alle nuove regole UE',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'L\'UDC lancia una mozione per bloccare il cambio di paradigma UE sul pagamento delle indennità di disoccupazione ai lavoratori frontalieri.',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Vista panoramica della città svizzera con edifici governativi',
+    'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Iniziativa per un\'alimentazione sicura: cosa cambia il 27 settembre',
+    'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'Il 27 settembre gli svizzeri votano su un\'iniziativa che punta ad aumentare l\'autosufficienza alimentare dal 46% al 70%. Ecco i dettagli del testo.',
+    'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Campo agricolo svizzero con Alpi sullo sfondo',
 };
 
 export default blogMetaChIt;

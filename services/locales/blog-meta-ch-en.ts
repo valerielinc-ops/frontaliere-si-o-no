@@ -1144,6 +1144,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-ue.title': 'Border unemployment: UDC opposes new EU rules',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.excerpt': 'The UDC launches a motion to block the EU paradigm shift on the payment of unemployment benefits to frontier workers.',
     'blog.article.svizzera-disoccupazione-frontalieri-ue.imageAlt': 'Panoramic view of a Swiss city with government buildings',
+    'blog.article.iniziativa-alimentazione-sicura-voto.title': 'Safe Food Initiative: What\'s Changing on September 27th',
+    'blog.article.iniziativa-alimentazione-sicura-voto.excerpt': 'On September 27, the Swiss vote on an initiative that aims to increase food self-sufficiency from 46% to 70%. Here are the details of the text.',
+    'blog.article.iniziativa-alimentazione-sicura-voto.imageAlt': 'Swiss agricultural field with Alps in the background',
 };
 
 export default blogMetaChEn;
