@@ -1372,7 +1372,7 @@ async function main() {
       }
     }
     if (trackingAdded > 0 || trackingPatched > 0) {
-      fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
+      fs.writeFileSync(trackingFile, JSON.stringify(tracking) + '\n');
       console.log(`  ✅ Tracking: ${trackingAdded} new slugs registered, ${trackingPatched} existing entries patched (total: ${Object.keys(tracking).length})`);
     }
     if (reservedHubsSkipped > 0) {

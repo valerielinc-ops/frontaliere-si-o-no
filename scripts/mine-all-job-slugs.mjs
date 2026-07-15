@@ -438,11 +438,15 @@ function main() {
 
   // Merge all mined slugs
   const allSlugs = new Map(); // slug → { locales: { it?, en?, de?, fr? } }
+  // Track slugs seen from any non-git source — used for size-cap pruning below.
+  const nonGitSourceSlugs = new Set();
 
   for (const { name, fn } of sources) {
     const mined = fn();
+    const isGit = name === 'Git history (removed slugs)';
     console.log(`  📦 ${name}: ${mined.size} slugs`);
     for (const [slug, data] of mined) {
+      if (!isGit) nonGitSourceSlugs.add(slug);
       if (!allSlugs.has(slug)) {
         allSlugs.set(slug, { locales: {} });
       }
@@ -461,6 +465,7 @@ function main() {
     if (!allSlugs.has(slug)) {
       allSlugs.set(slug, data);
     }
+    nonGitSourceSlugs.add(slug); // fuzzy-matched orphans are GSC-indexed — keep
   }
   if (fuzzyRecovered.size > 0) {
     console.log(`  📊 After fuzzy reconciliation: ${allSlugs.size}`);
@@ -550,7 +555,24 @@ function main() {
 
   // Write outputs
   if (!DRY_RUN) {
-    fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
+    // Size guard: GitHub rejects files ≥ 100 MB. Prune tracking entries backed
+    // ONLY by git-history mining (lowest signal) when the compact JSON would
+    // exceed 95 MB. Compact JSON (no 2-space indent) minimises file size;
+    // all consumers use JSON.parse() and are format-agnostic.
+    const SIZE_CAP = 95 * 1024 * 1024; // 95 MB — 5 MB headroom under GitHub's 100 MB limit
+    const preSerialized = JSON.stringify(tracking);
+    if (preSerialized.length > SIZE_CAP) {
+      let pruned = 0;
+      for (const slug of Object.keys(tracking)) {
+        if (!nonGitSourceSlugs.has(slug)) {
+          delete tracking[slug];
+          pruned++;
+        }
+      }
+      const afterMB = (JSON.stringify(tracking).length / 1e6).toFixed(1);
+      console.log(`\n  ✂️  Size cap: pruned ${pruned} git-history-only entries (${(preSerialized.length / 1e6).toFixed(1)} MB → ${afterMB} MB)`);
+    }
+    fs.writeFileSync(trackingFile, JSON.stringify(tracking) + '\n');
     const updatedCompat = {
       ...compat,
       paths: [...existingCompat].filter((p) => typeof p === 'string' && p.startsWith('/')).sort(),
