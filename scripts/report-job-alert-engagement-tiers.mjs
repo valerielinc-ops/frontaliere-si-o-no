@@ -10,7 +10,7 @@
  * `alerts/*` doc (collectionGroup, same query send-job-alerts.mjs uses) plus
  * its parent `job_alert_subscribers/{email}` doc, then:
  *   - splits alerts into manual-pinned (frequencyOverride:true) vs
- *     engine-managed, and reports the daily/36h/weekly distribution of the
+ *     engine-managed, and reports the daily/every-other-day/weekly distribution of the
  *     engine-managed ones using the SAME pure classifier the send pipeline
  *     uses (scripts/lib/jobAlertEngagementTier.mjs) — a live snapshot,
  *     independent of send-job-alerts.mjs's own daily cron cadence.
@@ -91,7 +91,7 @@ async function loadSubscriberProfiles(db, emails) {
 export function emptyDistribution() {
   return {
     [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
-    [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H]: 0,
+    [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 0,
     [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 0,
   };
 }
@@ -126,7 +126,7 @@ export function aggregateEngagementTiers(alerts, subscriberProfiles, nowMs) {
     } else {
       // Rank: daily is the "warmest"/most-frequent tier, weekly the coldest —
       // moving toward daily is an engagement improvement, the reverse a regression.
-      const rank = { [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 0, [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H]: 1, [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 2 };
+      const rank = { [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 0, [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1, [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 2 };
       if ((rank[verdict.tier] ?? -1) > (rank[priorTier] ?? -1)) delta.improved++;
       else delta.regressed++;
     }
@@ -139,7 +139,7 @@ function formatReport(result) {
   const { manualByFrequency, engineDistribution, delta, totalAlerts } = result;
   const manualTotal = manualByFrequency.daily + manualByFrequency.weekly;
   const engineTotal = engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.DAILY]
-    + engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H]
+    + engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]
     + engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY];
 
   const lines = [];
@@ -151,9 +151,9 @@ function formatReport(result) {
   lines.push(`     - weekly: ${manualByFrequency.weekly}`);
   lines.push('');
   lines.push(`   Engine-managed: ${engineTotal}`);
-  lines.push(`     - daily:  ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.DAILY]}`);
-  lines.push(`     - 36h:    ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H]}`);
-  lines.push(`     - weekly: ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]}`);
+  lines.push(`     - daily:           ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.DAILY]}`);
+  lines.push(`     - every-other-day: ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]}`);
+  lines.push(`     - weekly:          ${engineDistribution[JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]}`);
   lines.push('');
   lines.push('   Cadence movement vs. last send-job-alerts.mjs run (last_engagement_tier):');
   lines.push(`     - improved (colder→warmer):  ${delta.improved}`);

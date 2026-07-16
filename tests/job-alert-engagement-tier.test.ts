@@ -24,9 +24,9 @@ describe('classifyJobAlertEngagementTier', () => {
     expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.DAILY);
   });
 
-  it('classifies a subscriber who only opened recently as 36h', () => {
+  it('classifies a subscriber who only opened recently as every-other-day', () => {
     const verdict = classifyJobAlertEngagementTier(sub({ last_open_at: daysAgo(2) }), NOW);
-    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H);
+    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY);
   });
 
   it('classifies a never-engaged subscriber as weekly', () => {
@@ -44,7 +44,7 @@ describe('classifyJobAlertEngagementTier', () => {
 
   it('treats engagement exactly at the lookback boundary as still-recent', () => {
     const verdict = classifyJobAlertEngagementTier(sub({ last_open_at: daysAgo(JOB_ALERT_ENGAGEMENT_LOOKBACK_DAYS) }), NOW);
-    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H);
+    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY);
   });
 
   it('a click always wins over an open, regardless of which is more recent', () => {
@@ -55,12 +55,12 @@ describe('classifyJobAlertEngagementTier', () => {
     expect(clickOlderThanOpen.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.DAILY);
   });
 
-  it('a stale click outside the lookback does not block a fresh open from scoring 36h', () => {
+  it('a stale click outside the lookback does not block a fresh open from scoring every-other-day', () => {
     const verdict = classifyJobAlertEngagementTier(
       sub({ last_click_at: daysAgo(JOB_ALERT_ENGAGEMENT_LOOKBACK_DAYS + 5), last_open_at: daysAgo(1) }),
       NOW,
     );
-    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H);
+    expect(verdict.tier).toBe(JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY);
   });
 
   it('honors the camelCase field spellings too', () => {
