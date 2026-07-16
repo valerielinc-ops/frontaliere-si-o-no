@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-07-16T11:17:47.592Z",
+  "assembledAt": "2026-07-16T22:07:24.155Z",
   "jobs": [
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
@@ -56,6 +56,7 @@
         }
       },
       "firstSeenAt": "2026-07-11T10:54:08.039Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-produktion-lft-m-w-d-100-ems-chemie-domat-ems"
@@ -118,7 +119,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T12:18:34.509Z"
+      "firstSeenAt": "2026-07-10T12:18:34.509Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter Rechnungswesen (m/w/d) 100%",
@@ -173,7 +175,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Produktentwickler / Entwicklungschemiker (m/w/d) 100%",
@@ -228,7 +231,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Area Sales Manager (m/w/d) 100%",
@@ -257,7 +261,7 @@
       },
       "titleByLocale": {
         "it": "Area Sales Manager (m/w/d) 100%",
-        "en": "Sales Manager (m/w/d) 100%",
+        "en": "Area Sales Manager (m/w/d) 100%",
         "de": "Verkaufsleiter (m/w/d) 100%",
         "fr": "Directeur des ventes (m/m/j) 100%"
       },
@@ -283,7 +287,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Automatiker / Elektriker/in im Schichtdienst (m/w/d) 100%",
@@ -338,7 +343,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
@@ -456,7 +462,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-umweltschutz-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verfahrensingenieur Spritzgiessen (m/w/d) 100%",
@@ -511,7 +518,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     },
     {
       "title": "Polymechaniker (m/w/d) 100%",
@@ -569,7 +577,8 @@
       "firstSeenAt": "2026-07-10T10:23:20.075Z",
       "previousSlugs": [
         "polymechaniker-w-m-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
@@ -592,14 +601,14 @@
       "slug": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
         "it": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-ag-domat-ems",
-        "en": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
+        "en": "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
         "de": "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
         "fr": "projektleiter-kunstoffanwendungen-industrie-et-soins-de-sante-m-m-j-100-ems-chemie-ag-domat-ems"
       },
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Industrie & Consumer (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Industrie & Consumer (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Industrie & Consommateur (m/p/d) 100%"
       },
       "crawledAt": "",
@@ -627,6 +636,7 @@
       "firstSeenAt": "2026-07-10T10:23:20.075Z",
       "previousSlugsByLocale": {
         "en": [
+          "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
           "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems"
         ],
         "it": [
@@ -635,8 +645,10 @@
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+        "projektleiter-kunststoffanwendungen-industrie-health-care-m-w-d-100-ems-chemie-domat-ems",
         "projektleiter-kunstoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
@@ -666,7 +678,7 @@
       "titleByLocale": {
         "it": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "en": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
-        "de": "Projektleiter Kunstoffanwendungen Automobil (m/w/d) 100%",
+        "de": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
         "fr": "Projektleiter Kunstoffanwendungen Automobile (m/m/j) 100%"
       },
       "crawledAt": "",
@@ -699,7 +711,8 @@
       },
       "previousSlugs": [
         "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "SAP Modulbetreuer SD/WM/EWM (m/w/d) 100%",
@@ -927,7 +940,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-10T10:23:20.075Z"
+      "firstSeenAt": "2026-07-10T10:23:20.075Z",
+      "needsRetranslation": true
     }
   ]
 }
