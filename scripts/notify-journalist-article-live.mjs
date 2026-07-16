@@ -31,9 +31,20 @@
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
+import { checkArticleIdExists } from './create-article.mjs';
+import { slugify } from './publish-journalist-article.mjs';
 
 const LIVE_CHECK_TIMEOUT_MS = 15_000;
 const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
+
+// A `status:'published'` doc whose commit never actually landed on main
+// (e.g. the calling workflow's git-push hit an unresolved rebase conflict
+// and aborted — incident 2026-07-16, run 29485706663) is otherwise invisible
+// forever: nothing else reprocesses a 'published' doc, so it stays orphaned
+// while this script logs "not live yet" every run for good. Worst observed
+// real deploy took 2h4m37s (run 29505580973); 3h gives that a safety margin
+// before concluding the article was never committed and requeuing it.
+const ORPHAN_THRESHOLD_MS = 3 * 60 * 60 * 1000;
 
 async function initDb() {
   const admin = (await import('firebase-admin')).default;
@@ -103,6 +114,25 @@ async function processDoc(FieldValue, docSnap) {
 
   const live = await checkAllLocalesLive(publishedUrls);
   if (!live) {
+    const publishedAtMs = doc.publishedAt?.toMillis ? doc.publishedAt.toMillis() : null;
+    const ageMs = publishedAtMs ? Date.now() - publishedAtMs : 0;
+    if (ageMs > ORPHAN_THRESHOLD_MS) {
+      const articleId = slugify(docId) || docId;
+      if (!checkArticleIdExists(articleId)) {
+        console.warn(
+          `  ♻️  ${docId}: still not live after ${Math.round(ageMs / 3_600_000)}h and "${articleId}" is absent ` +
+            `from the article registry — requeuing (publish commit likely never landed on main).`,
+        );
+        await docSnap.ref.update({
+          status: 'queued',
+          publishedAt: FieldValue.delete(),
+          publishedUrls: FieldValue.delete(),
+          slugs: FieldValue.delete(),
+          liveVerifiedAt: FieldValue.delete(),
+        });
+        return;
+      }
+    }
     console.log(`  ⏭️  ${docId}: not live yet (deploy pending) — will retry next run.`);
     return;
   }

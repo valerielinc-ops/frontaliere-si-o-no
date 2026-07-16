@@ -87,7 +87,20 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "📰 Publish journalist article(s)"
-            bash scripts/lib/git-push-with-retry.sh
+            # --in-place-resolver-cmd: this pipeline runs registerArticleFiles()
+            # (scripts/create-article.mjs) — the SAME writer of router.ts/
+            # seo-pages.ts/blog-articles-data.ts/sitemaps as generate-article.yml,
+            # which already mirrors this resolver for the identical append-only-
+            # file conflict shape. Without it, a concurrent main writer racing
+            # this commit hits "Rebase conflict and no resolver provided" and the
+            # push is abandoned — but Firestore was already stamped
+            # status:'published' by publish-journalist-article.mjs BEFORE this
+            # step ran, so the doc is left permanently orphaned (published in
+            # Firestore, never actually committed to git, no code re-processes a
+            # 'published' doc). Incident 2026-07-16: run 29485706663 hit exactly
+            # this, orphaning 4 of Samuele Valente's articles for 8+ hours.
+            bash scripts/lib/git-push-with-retry.sh \
+              --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
