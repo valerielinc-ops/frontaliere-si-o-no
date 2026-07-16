@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-07-16T12:17:02.174Z",
-  "total": 2,
+  "generatedAt": "2026-07-16T22:48:33.657Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4851,
-  "avgDurationMs": 4851,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5069,
+  "avgDurationMs": 5069,
   "durationHistory": [
-    4851
+    5069
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7b82cc50-8baf-45ac-af38-d733661d06d0/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T12:16:59.894Z",
+      "crawledAt": "2026-07-16T22:48:31.067Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,8 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fondation-domus-58291476562b",
       "slug": "segretario-ricevitore-al-50-fondation-domus-ardon",
@@ -91,5 +90,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
