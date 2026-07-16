@@ -76,7 +76,10 @@ describe('geo-preference floor survives the full send pipeline (nit: minLocal vs
     expect(deduped.map((j) => j.id)).toEqual(['ti-0', 'ti-2', 'bs-0', 'bs-1', 'bs-2']);
 
     // Live-link check drops one BS job (filterLiveJobs preserves order too).
-    const fetchSpy = vi.fn(async (url: string) => ({ status: String(url).includes('bs-1') ? 404 : 200, ok: !String(url).includes('bs-1') }));
+    const fetchSpy = vi.fn(async (url: string) => {
+      const dead = String(url).includes('bs-1');
+      return { status: dead ? 404 : 200, ok: !dead, text: async () => '<html>live job page</html>' };
+    });
     vi.stubGlobal('fetch', fetchSpy);
     const liveMatched = await filterLiveJobs(deduped, 'it', new Map());
 

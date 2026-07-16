@@ -10,7 +10,7 @@
  * any doc missing that field, regardless of how long ago it was published.
  */
 import { describe, expect, it, vi, afterEach } from 'vitest';
-import { processDoc } from '../scripts/check-journalist-article-links.mjs';
+import { processDoc, checkPageLinks } from '../scripts/check-journalist-article-links.mjs';
 
 describe('processDoc — live gate (issue #3209 item 2 follow-up)', () => {
   afterEach(() => {
@@ -63,5 +63,52 @@ describe('processDoc — live gate (issue #3209 item 2 follow-up)', () => {
         linkCheck: expect.objectContaining({ totalLinks: 0, brokenLinks: 0, localesChecked: 1 }),
       }),
     );
+  });
+});
+
+describe('checkPageLinks — soft-404 expired-job outlink detection (sibling of issue #3172)', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('flags a same-origin outlink to an expired job as broken, even though it 200s', async () => {
+    const articlePage =
+      '<html><body><a href="https://frontaliereticino.ch/cerca-lavoro-ticino/some-expired-job/">job</a></body></html>';
+    const expiredJobPage =
+      '<html><script>window.__EXPIRED_JOB_DATA__={"slug":"some-expired-job"};</script></html>';
+
+    const fetchSpy = vi.fn(async (url: string) => {
+      if (url.includes('some-expired-job')) {
+        return { ok: true, status: 200, text: async () => expiredJobPage };
+      }
+      return { ok: true, status: 200, text: async () => articlePage };
+    });
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const result = await checkPageLinks('https://frontaliereticino.ch/articoli-frontaliere/test/');
+
+    expect(result.totalLinks).toBe(1);
+    expect(result.brokenLinks).toBe(1);
+    expect(result.brokenUrls).toEqual(['https://frontaliereticino.ch/cerca-lavoro-ticino/some-expired-job/']);
+    // Never HEAD — a HEAD/status-only check can't see the soft-404 marker.
+    expect(fetchSpy.mock.calls.every(([, init]) => (init as RequestInit | undefined)?.method !== 'HEAD')).toBe(true);
+  });
+
+  it('does not flag a same-origin outlink that resolves to a normal live page', async () => {
+    const articlePage =
+      '<html><body><a href="https://frontaliereticino.ch/articoli-frontaliere/altro/">altro</a></body></html>';
+
+    const fetchSpy = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      text: async () => articlePage,
+    }));
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const result = await checkPageLinks('https://frontaliereticino.ch/articoli-frontaliere/test/');
+
+    expect(result.totalLinks).toBe(1);
+    expect(result.brokenLinks).toBe(0);
+    expect(result.brokenUrls).toEqual([]);
   });
 });

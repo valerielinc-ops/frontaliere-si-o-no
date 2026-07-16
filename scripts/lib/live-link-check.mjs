@@ -18,6 +18,12 @@
  * blip on OUR side making every check fail) must add their own fail-open
  * guard around the aggregate result; this helper only reports per-URL
  * liveness.
+ *
+ * checkPageBodyLive() (added for issue #3172, then reused back into
+ * check-journalist-article-links.mjs per the sibling-pattern rule): GET +
+ * expired-job soft-landing marker check, for same-origin frontaliereticino.ch
+ * URLs where checkLink()'s HEAD/status-only check is blind to the site's
+ * soft-404 policy (see its own doc comment below).
  */
 
 export const DEFAULT_LIVE_CHECK_TIMEOUT_MS = 8_000;
@@ -57,6 +63,33 @@ export async function checkLink(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS, 
       return getRes.ok || getRes.status === 206;
     }
     return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+/** Marker `buildSoftLandingHtml` (build-plugins/jobsSeoPagesPlugin.ts) is the
+ * SOLE emitter of, seeded into `window.__EXPIRED_JOB_DATA__` on the soft-404
+ * bridge page the site renders (HTTP 200) for any expired/pulled job — per
+ * AGENTS.md "Static SEO Pages" the site never serves a real 404 for a
+ * previously-known job slug. So `checkLink()`'s HEAD/status-only check is a
+ * structural no-op against frontaliereticino.ch job URLs: the expired page
+ * 200s forever. Any caller checking same-origin frontaliereticino.ch links
+ * that may include a job page (issue #3172) must use `checkPageBodyLive`
+ * below instead of `checkLink` for those URLs. */
+export const EXPIRED_JOB_MARKER = '__EXPIRED_JOB_DATA__=';
+
+/** GET (not HEAD) a same-origin URL and treat it as dead when the request
+ * fails/non-oks OR the body carries the expired-job soft-landing marker (see
+ * EXPIRED_JOB_MARKER above — HEAD/status alone can never see this, the page
+ * always 200s). Never throws — resolves `false` on any non-ok status,
+ * network error, timeout, or marker match. */
+export async function checkPageBodyLive(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS) {
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
+    if (!res.ok) return false;
+    const body = await res.text();
+    return !body.includes(EXPIRED_JOB_MARKER);
   } catch {
     return false;
   }

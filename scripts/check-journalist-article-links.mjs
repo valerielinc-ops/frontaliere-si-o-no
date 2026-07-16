@@ -8,9 +8,13 @@
  * concept of an individual journalist_articles Firestore doc. This script
  * instead crawls each PUBLISHED journalist article's live URLs (one per
  * locale) straight from Firestore `publishedUrls`, fetches the live HTML,
- * extracts same-origin links, HEAD-checks them with a small concurrency cap,
- * and writes the result back onto the doc so the dashboard can surface
- * "3 broken links" without a human re-checking manually.
+ * extracts same-origin links, checks each via checkPageBodyLive (GET + the
+ * expired-job soft-landing marker, not just HTTP status — see issue #3172 /
+ * scripts/lib/live-link-check.mjs; a plain HEAD/status check can't see a
+ * since-expired job link because the site's soft-404 policy always 200s it)
+ * with a small concurrency cap, and writes the result back onto the doc so
+ * the dashboard can surface "3 broken links" without a human re-checking
+ * manually.
  *
  * Result is a SINGLE aggregate across all locale pages, not one per locale
  * (was: `linkCheck.<locale>`). Each locale page carries the same site chrome
@@ -43,7 +47,7 @@
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
+import { checkPageBodyLive, runWithConcurrency } from './lib/live-link-check.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FETCH_TIMEOUT_MS = 10_000;
@@ -96,7 +100,7 @@ async function checkPageLinks(pageUrl) {
   const brokenUrls = [];
   let brokenCount = 0;
   await runWithConcurrency(links, HEAD_CONCURRENCY, async (url) => {
-    const ok = await checkLink(url, HEAD_TIMEOUT_MS);
+    const ok = await checkPageBodyLive(url, HEAD_TIMEOUT_MS);
     if (ok) return;
     brokenCount += 1;
     if (brokenUrls.length < MAX_BROKEN_URLS_STORED) brokenUrls.push(url);
