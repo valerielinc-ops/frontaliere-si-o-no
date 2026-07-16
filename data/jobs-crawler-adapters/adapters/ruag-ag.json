@@ -41,10 +41,12 @@
     "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da",
     "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856",
     "https://jobs.ruag.ch/offene-stellen/bauleiterin-hochbau/b71a07a8-5b0d-4aa6-8152-7ef481f5cedb",
-    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/db90bfa7-5df0-423e-aac9-9c9ac923d95c"
+    "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/db90bfa7-5df0-423e-aac9-9c9ac923d95c",
+    "https://jobs.ruag.ch/offene-stellen/ict-architect-c5i/aa4ce14b-c713-4b2b-931b-8c94ef041de2",
+    "https://jobs.ruag.ch/offene-stellen/finance-business-partner-c5i/14c66e02-f4e0-4c3c-a49a-11aaa342d276"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-16T11:57:30.802Z",
+  "updatedAt": "2026-07-16T22:56:56.419Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -234,6 +236,18 @@
     },
     "https://jobs.ruag.ch/offene-stellen/teamleader-project-management/db90bfa7-5df0-423e-aac9-9c9ac923d95c": {
       "location": "Bern",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-16"
+    },
+    "https://jobs.ruag.ch/offene-stellen/ict-architect-c5i/aa4ce14b-c713-4b2b-931b-8c94ef041de2": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-16"
+    },
+    "https://jobs.ruag.ch/offene-stellen/finance-business-partner-c5i/14c66e02-f4e0-4c3c-a49a-11aaa342d276": {
+      "location": "Thun",
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-07-16"
