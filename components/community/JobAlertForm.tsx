@@ -252,6 +252,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     (async () => {
       try {
         const created = await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        import('@/services/analytics')
+          .then(({ Analytics }) => Analytics.trackJobAlertPendingReplay(true))
+          .catch(() => {});
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
@@ -259,6 +262,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
         try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
       } catch (err: any) {
+        import('@/services/analytics')
+          .then(({ Analytics }) => Analytics.trackJobAlertPendingReplay(false))
+          .catch(() => {});
         // Surface the failure (e.g. quota full = permanent) instead of swallowing
         // it. Leave pendingConsumedRef set so we don't retry-loop on re-render;
         // the now-authenticated user can re-submit manually if needed.
@@ -269,10 +275,27 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
 
  const handleCreate = async () => {
+   // Fire before any auth check / validation so we can measure how many
+   // form expansions lead to an actual submit attempt (vs. open-and-close).
+   const hasContent = !!(keyword.trim() || selectedLocations.length > 0);
+   import('@/services/analytics')
+     .then(({ Analytics }) =>
+       Analytics.trackJobAlertFormSubmit({
+         isAuthed: !!authUser,
+         hasContent,
+         surface: 'inline_card',
+       }),
+     )
+     .catch(() => {});
+
  if (!authUser) {
  const pendingConfig = buildConfig();
-          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig);
-          onRequireAuth?.();
+   const hasPending = !configIsEmpty(pendingConfig);
+   if (hasPending) savePendingJobAlert(pendingConfig);
+   import('@/services/analytics')
+     .then(({ Analytics }) => Analytics.trackJobAlertAuthWall(hasPending))
+     .catch(() => {});
+   onRequireAuth?.();
  return;
  }
 

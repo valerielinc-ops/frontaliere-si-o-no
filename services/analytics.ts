@@ -1921,6 +1921,50 @@ export const Analytics = {
  },
 
  /**
+  * Submit attempt on the inline job-alert form — fired BEFORE auth check /
+  * validation. Reveals how many `job_alert_cta_click[open]` events actually
+  * lead to a submit attempt vs. open-and-close without action.
+  *
+  * `isAuthed`: user had an active session at submit time.
+  * `hasContent`: form had at least a keyword or location (non-empty config) —
+  * false means the user would hit the empty-fields toast (authed) or would
+  * NOT have a pending config stashed for post-auth replay (anon).
+  */
+ trackJobAlertFormSubmit: (params: {
+   isAuthed: boolean;
+   hasContent: boolean;
+   surface: 'inline_card';
+ }) => {
+   log('job_alert_form_submit', {
+     is_authed: params.isAuthed,
+     has_content: params.hasContent,
+     submit_surface: params.surface,
+   });
+ },
+
+ /**
+  * Anonymous user hit the auth wall from the inline form — fired immediately
+  * before they are sent through the sign-in flow. `hasPending` is true when
+  * non-empty form content was stashed for post-auth replay (happy path), false
+  * when the form was empty (nothing will auto-create post-auth).
+  */
+ trackJobAlertAuthWall: (hasPending: boolean) => {
+   log('job_alert_auth_wall', { has_pending: hasPending });
+ },
+
+ /**
+  * Post-auth pending alert replay completed. Fired in `JobAlertForm.tsx`'s
+  * auth-round-trip effect after `consumePendingJobAlert` finds a stashed
+  * config and `createAlert` completes (`success=true`) or throws
+  * (`success=false`). A false here means the config survived the round-trip
+  * but Firestore rejected the write (quota full, transient error) — a
+  * distinct failure mode from `hasPending=false` at the auth wall.
+  */
+ trackJobAlertPendingReplay: (success: boolean) => {
+   log('job_alert_pending_replay', { replay_success: success });
+ },
+
+ /**
  * Job-match ranking block (job board, profile-derived sector/canton/
  * experience signals) became visible with at least one matched job.
  */

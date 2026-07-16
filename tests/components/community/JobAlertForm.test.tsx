@@ -36,6 +36,9 @@ vi.mock('@/services/analytics', () => ({
     trackJobAlertCtaShown: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
+    trackJobAlertFormSubmit: vi.fn(),
+    trackJobAlertAuthWall: vi.fn(),
+    trackJobAlertPendingReplay: vi.fn(),
   },
 }));
 
