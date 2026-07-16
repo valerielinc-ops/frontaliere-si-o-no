@@ -8532,6 +8532,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Schließung der sechsten Eisenbrücke: Straßenführung',
     'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Vom 20. bis 26. Juli bleibt die Eisenbrücke wegen Wartungsarbeiten geschlossen. Aktivierung eines kostenlosen Bootes und Änderungen an der Buslinie V125 zwischen Varese und Arona.',
     'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Die Eisenbrücke über den Fluss Tessin in Sesto Calende',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.title': '730 vorausgefüllte Unterlagen 2026, die Angaben der Steuerbehörde',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.excerpt': 'Jetzt können Sie die vorausgefüllten 730 für die Steuererklärung 2026 herunterladen. Hier sind die Angaben der Steuerbehörde.',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.imageAlt': 'Ein Frontalier füllt seine Steuererklärung aus',
 };
 
 export default blogMetaDe;
