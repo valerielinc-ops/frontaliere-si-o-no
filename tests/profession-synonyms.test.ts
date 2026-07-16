@@ -26,6 +26,19 @@ describe('professionSynonymText', () => {
     expect(professionSynonymText(null)).toBe('');
     expect(professionSynonymText('')).toBe('');
   });
+
+  it('is memoized without leaking results across different titles (#4270)', () => {
+    // Interleave repeat calls to two distinct titles — a cache keyed
+    // incorrectly (e.g. shared/global instead of per-input) would return
+    // the wrong title's result on the second call.
+    const nurse = professionSynonymText('Infermiera SSR — Ospedale Regionale di Lugano');
+    const cook = professionSynonymText('Cuoco di partita');
+    expect(professionSynonymText('Infermiera SSR — Ospedale Regionale di Lugano')).toBe(nurse);
+    expect(professionSynonymText('Cuoco di partita')).toBe(cook);
+    expect(nurse).not.toBe(cook);
+    expect(nurse).toContain('nurse');
+    expect(cook).toContain('cook');
+  });
 });
 
 describe('expandKeywordsWithSynonyms', () => {
@@ -46,6 +59,25 @@ describe('expandKeywordsWithSynonyms', () => {
     const expanded = expandKeywordsWithSynonyms(['lugano', 'part-time']);
     expect(expanded).toEqual(expect.arrayContaining(['lugano', 'part-time']));
     expect(expanded.length).toBe(2);
+  });
+
+  it('never attempts a taxonomy lookup for locality/stopword/digit tokens (#4270 guard)', () => {
+    // These are exactly the kind of non-profession tokens the LLM/heuristic
+    // extractor's keyword list can contain (canton/city names, search
+    // filler words, years). The guard in isPlausibleProfessionToken() must
+    // reject them before matchProfession ever scans the taxonomy, so a
+    // future alias addition can't turn one of them into a false-positive
+    // profession match.
+    const guardedTokens = ['ticino', 'berna', 'zurigo', 'cerco', 'lavoro', '2026'];
+    for (const token of guardedTokens) {
+      expect(expandKeywordsWithSynonyms([token])).toEqual([token]);
+    }
+  });
+
+  it('only expands the profession-plausible token when mixed with locality/stopword noise', () => {
+    const expanded = expandKeywordsWithSynonyms(['nurse', 'ticino', 'cerco']);
+    expect(expanded).toEqual(expect.arrayContaining(['nurse', 'ticino', 'cerco', 'infermiere', 'infermiera']));
+    expect(expanded).not.toContain('koch');
   });
 
   it('deduplicates when a keyword and its expansion overlap', () => {
