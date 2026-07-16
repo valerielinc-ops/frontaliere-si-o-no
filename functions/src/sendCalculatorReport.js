@@ -13,9 +13,10 @@
  */
 
 import admin from 'firebase-admin';
-import { Resend } from 'resend';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
+import { sendEmailCascade, isProviderConfigured } from './emailCascade.js';
+import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <report@frontaliereticino.ch>';
@@ -79,9 +80,7 @@ export async function handleSendCalculatorReport({
   resultSummary,
   locale,
   sourcePath,
-  resendApiKey,
   db: injectedDb,
-  resendClient,
 }) {
   if (!validateEmail(email)) {
     return { status: 400, body: { success: false, error: 'invalid_email' } };
@@ -95,7 +94,14 @@ export async function handleSendCalculatorReport({
   if (approxBytes > MAX_PDF_BYTES) {
     return { status: 413, body: { success: false, error: 'pdf_too_large' } };
   }
-  if (!resendApiKey) {
+  // Cascade-routed (2026-07-16, was a direct Resend client) — but PDF
+  // attachments are Resend-only in the cascade (no other provider's
+  // sendVia* forwards email.attachments), so this still hard-requires
+  // Resend specifically, not "any provider". Cloud Functions source
+  // secrets async via Remote Config; the cascade reads sync process.env.*,
+  // so the bridge must run first.
+  await bridgeEmailCascadeCredentialsToEnv();
+  if (!isProviderConfigured('resend')) {
     return { status: 500, body: { success: false, error: 'missing_resend_api_key' } };
   }
 
@@ -140,35 +146,38 @@ export async function handleSendCalculatorReport({
     return { status: 503, body: { success: false, error: 'firestore_unavailable' } };
   }
 
-  const resend = resendClient || new Resend(resendApiKey);
   const attachmentFilename = `frontaliere-ticino-confronto-${new Date().toISOString().slice(0, 10)}.pdf`;
-  // Resend expects attachment.content as a Buffer (or Uint8Array) for binary
-  // files. Passing a raw base64 string attaches the encoded text verbatim,
-  // which produces a corrupted PDF on the recipient end. Decode once here.
-  const pdfBuffer = Buffer.from(pdfBase64, 'base64');
-  const { data: emailData, error } = await resend.emails.send({
-    from: FROM_EMAIL,
-    to: normalizedEmail,
-    subject: 'Il tuo confronto Italia-Svizzera (PDF)',
-    html: buildBodyHtml(lang, resultSummary),
-    attachments: [
-      {
-        filename: attachmentFilename,
-        content: pdfBuffer,
-        contentType: 'application/pdf',
-      },
-    ],
-    tags: [
-      { name: 'campaign_id', value: 'calculator_paywall' },
-      { name: 'type', value: 'transactional' },
-      { name: 'locale', value: lang },
-    ],
-  });
+  // The cascade's sendViaResend calls Resend's raw REST API (fetch + JSON),
+  // not the SDK — the REST API's attachments[].content wants a base64
+  // STRING (unlike the SDK, which accepts a Buffer and encodes it for you).
+  // pdfBase64 already IS that string, so no decode/re-encode is needed here.
+  const { sent, failed } = await sendEmailCascade([{
+    payload: {
+      from: FROM_EMAIL,
+      to: normalizedEmail,
+      subject: 'Il tuo confronto Italia-Svizzera (PDF)',
+      html: buildBodyHtml(lang, resultSummary),
+      attachments: [
+        {
+          filename: attachmentFilename,
+          content: pdfBase64,
+        },
+      ],
+      tags: [
+        { name: 'campaign_id', value: 'calculator_paywall' },
+        { name: 'type', value: 'transactional' },
+        { name: 'locale', value: lang },
+      ],
+    },
+    recipient: { email: normalizedEmail },
+    meta: {},
+  }], { forceProvider: 'resend' });
 
-  if (error) {
-    console.error('[sendCalculatorReport] Resend error:', error);
+  if (failed.length > 0) {
+    console.error('[sendCalculatorReport] send error:', failed[0].error);
     return { status: 502, body: { success: false, error: 'email_send_failed' } };
   }
+  const emailData = { id: sent[0]?.messageId };
 
   // Best-effort event write — if Firestore is temporarily unavailable the
   // email has already shipped, so we log and still return 200 to the client

@@ -1607,6 +1607,18 @@ async function main() {
     console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);
   }
 
+  // Most-engaged-first send order: if the shared cascade daily cap is hit
+  // mid-run, the recipients who already got their email should be the ones
+  // most likely to open/click (daily-tier clickers), not whoever happened
+  // to be queued first. Array.prototype.sort is stable in Node, so within a
+  // tier the existing order (alert enumeration order) is preserved.
+  const ENGAGEMENT_SEND_PRIORITY = {
+    [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
+    [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1,
+    [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 2,
+  };
+  emailsToSend.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
+
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
 
   if (emailsToSend.length === 0) {

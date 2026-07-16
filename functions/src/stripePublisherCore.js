@@ -30,7 +30,8 @@
  */
 
 import admin from 'firebase-admin';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { getRemoteConfigValue, bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { sendEmailCascade } from './emailCascade.js';
 import {
   discountRateForUnits,
   countDistinctLocations,
@@ -446,21 +447,27 @@ async function sendPublisherConfirmation(publisherUid, jobCount) {
     const pubSnap = await db().collection('publishers').doc(String(publisherUid)).get();
     const to = pubSnap.exists ? pubSnap.data().email : null;
     if (!to) return;
-    const resendApiKey = await getRemoteConfigValue('RESEND_API_KEY');
-    if (!resendApiKey) return;
-    const { Resend } = await import('resend');
-    const resend = new Resend(resendApiKey);
-    await resend.emails.send({
-      from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
-      to,
-      subject: 'Pagamento confermato — il tuo annuncio sta per andare online',
-      html:
-        `<h2>Grazie, pagamento confermato</h2>` +
-        `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
-        `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
-        `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>` +
-        `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
-    });
+    // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
+    // fallback if Resend alone is exhausted. Cloud Functions source secrets
+    // async via Remote Config; the cascade reads sync process.env.*, so the
+    // bridge must run first. Stays inside this function's own try/catch —
+    // never gates the Stripe webhook's 200 response.
+    await bridgeEmailCascadeCredentialsToEnv();
+    await sendEmailCascade([{
+      payload: {
+        from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+        to,
+        subject: 'Pagamento confermato — il tuo annuncio sta per andare online',
+        html:
+          `<h2>Grazie, pagamento confermato</h2>` +
+          `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
+          `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
+          `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>` +
+          `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
+      },
+      recipient: { email: to },
+      meta: {},
+    }]);
   } catch {
     // non-fatal
   }

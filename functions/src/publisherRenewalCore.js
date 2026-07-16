@@ -14,7 +14,8 @@
  */
 
 import admin from 'firebase-admin';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const DASHBOARD_URL = 'https://frontaliereticino.ch/i-miei-annunci';
@@ -62,10 +63,12 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
   }
   if (byPublisher.size === 0) return 0;
 
-  const resendApiKey = await getRemoteConfigValue('RESEND_API_KEY');
-  if (!resendApiKey) return 0;
-  const { Resend } = await import('resend');
-  const resend = new Resend(resendApiKey);
+  // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
+  // fallback if Resend alone is exhausted. Cloud Functions source secrets
+  // async via Remote Config; the cascade reads sync process.env.*, so the
+  // bridge must run first.
+  await bridgeEmailCascadeCredentialsToEnv();
+  if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) return 0;
 
   let sent = 0;
   // Batched via db.getAll() instead of one sequential .get() per publisher —
@@ -98,20 +101,24 @@ export async function sendRenewalReminders(nowMs = Date.now()) {
         : REMINDER_WINDOW_DAYS;
       const adCount = entry.jobRefs.length;
 
-      const { error } = await resend.emails.send({
-        from: FROM_EMAIL,
-        to,
-        subject: `Il tuo annuncio si rinnova tra ${days} giorn${days === 1 ? 'o' : 'i'}`,
-        html:
-          `<h2>Il tuo abbonamento si rinnova a breve</h2>` +
-          `<p>${adCount > 1 ? 'I tuoi annunci si rinnovano' : 'Il tuo annuncio si rinnova'} ` +
-          `tra ${days} giorn${days === 1 ? 'o' : 'i'}.</p>` +
-          `<p>Puoi gestire o disdire l'abbonamento dalla tua dashboard: ` +
-          `<a href="${DASHBOARD_URL}">I miei annunci</a>.</p>` +
-          `<p style="font-size:12px;color:#666">Se non fai nulla, l'abbonamento si rinnova automaticamente. ` +
-          `La ricevuta ti arriva separatamente da Stripe.</p>`,
-      });
-      if (error) continue; // leave renewalReminderSentAt unset → retry next run
+      const { failed } = await sendEmailCascade([{
+        payload: {
+          from: FROM_EMAIL,
+          to,
+          subject: `Il tuo annuncio si rinnova tra ${days} giorn${days === 1 ? 'o' : 'i'}`,
+          html:
+            `<h2>Il tuo abbonamento si rinnova a breve</h2>` +
+            `<p>${adCount > 1 ? 'I tuoi annunci si rinnovano' : 'Il tuo annuncio si rinnova'} ` +
+            `tra ${days} giorn${days === 1 ? 'o' : 'i'}.</p>` +
+            `<p>Puoi gestire o disdire l'abbonamento dalla tua dashboard: ` +
+            `<a href="${DASHBOARD_URL}">I miei annunci</a>.</p>` +
+            `<p style="font-size:12px;color:#666">Se non fai nulla, l'abbonamento si rinnova automaticamente. ` +
+            `La ricevuta ti arriva separatamente da Stripe.</p>`,
+        },
+        recipient: { email: to },
+        meta: {},
+      }]);
+      if (failed.length > 0) continue; // leave renewalReminderSentAt unset → retry next run
 
       // Stamp idempotency on every reminded job.
       const batch = db().batch();

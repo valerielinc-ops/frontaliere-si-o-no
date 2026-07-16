@@ -1,0 +1,95 @@
+name: Email Quota Check
+
+# Daily watchdog for the email-provider cascade's quota health
+# (functions/src/emailCascade.js). syncQuotasFromAPIs() already hits every
+# provider's real usage endpoint and the cascade's own dynamic daily cap
+# (computeResendDynamicDailyLimit, cycle anchored on the 6th of each month)
+# already THROTTLES future Resend sends to land at/under the 50k/mo quota by
+# renewal — but a cap only slows down what happens next, it does not tell a
+# human the burn rate already looks wrong (a send bypassing the cascade, the
+# provider reorder not absorbing enough volume, or a genuine demand spike).
+#
+# This workflow runs scripts/check-email-quotas.mjs, which additionally
+# compares Resend's cycle-to-date usage ratio against the expected pace and
+# opens a GitHub issue ONLY when usage is meaningfully ahead of pace. The
+# script always exits 0 (reporter, not a gate) so an API blip never paints
+# the run red.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
+#
+# Auth: provider API keys live in Firebase Remote Config and are loaded by
+# scripts/load-rc-env.mjs — same mechanism as dmarc-monitor.yml.
+
+on:
+  schedule:
+    # Daily 08:15 UTC — quotas move daily (unlike DMARC's multi-day signal),
+    # so a daily check is needed to catch pacing drift before it compounds.
+    # 08:15 keeps clear of the 06:30 GH_PAT monitor and the 07:10 DMARC run.
+    - cron: '15 8 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (print pacing signal, never open an issue)'
+        required: false
+        type: boolean
+        default: false
+
+# Serialize so a manual run never races the scheduled one.
+concurrency:
+  group: check-email-quotas
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin from node_modules to read Remote
+        # Config; the check itself only uses node built-ins + the gh CLI.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Populates $GITHUB_ENV with provider API keys from Firebase Remote
+        # Config. Same step used by every update-jobs-* crawler.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run email quota check
+        env:
+          # github-issue-creator.mjs reads GH_REPO for --repo and authenticates
+          # `gh` via GH_TOKEN. The default Actions token (issues: write, granted
+          # above) only touches THIS repo's issues — exactly the scope needed.
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/check-email-quotas.mjs --dry-run
+          else
+            node scripts/check-email-quotas.mjs
+          fi

@@ -25,6 +25,7 @@ import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
 import { makeAuthenticatedActionUrl } from '../services/newsletterUrls.mjs';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -68,16 +69,14 @@ async function main() {
   const subscribers = subsSnap.docs.filter((d) => d.id !== '_meta_').map((d) => d.data());
   console.log(`[blast] ${ads.length} ad(s), ${subscribers.length} subscribers. mode=${SEND ? 'SEND' : 'DRY-RUN'}`);
 
-  let resend = null;
   if (SEND) {
-    // CI runs `node scripts/load-rc-env.mjs` first → RESEND_API_KEY is in env.
-    const key = process.env.RESEND_API_KEY || '';
-    if (!key) {
-      console.error('[blast] RESEND_API_KEY missing (run load-rc-env first) — aborting send.');
+    // CI runs `node scripts/load-rc-env.mjs` first → provider keys are in env.
+    // Cascade-routed (2026-07-16, was a direct Resend client) — no single
+    // provider is required, just at least one configured.
+    if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
+      console.error('[blast] no email provider configured (run load-rc-env first) — aborting send.');
       process.exit(1);
     }
-    const { Resend } = await import('resend');
-    resend = new Resend(key);
   }
 
   let sentTotal = 0;
@@ -135,8 +134,13 @@ async function main() {
         locationLabel: firstLocationLabel,
       });
       try {
-        const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html });
-        if (!error) { adSent++; sentTotal++; }
+        const { failed } = await sendEmailCascade([{
+          payload: { from: FROM_EMAIL, to: r.email, subject, html, tags: [{ name: 'campaign_id', value: 'publisher_blast' }] },
+          recipient: { email: r.email },
+          meta: {},
+        }]);
+        if (failed.length === 0) { adSent++; sentTotal++; }
+        else console.error(`[blast] send failed to ${r.email}: ${failed[0].error}`);
       } catch (e) {
         console.error(`[blast] send failed to ${r.email}: ${e?.message || e}`);
       }

@@ -33,6 +33,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
 import { checkArticleIdExists } from './create-article.mjs';
 import { slugify } from './publish-journalist-article.mjs';
+import { sendEmailCascade } from './lib/email-cascade.mjs';
 
 const LIVE_CHECK_TIMEOUT_MS = 15_000;
 const ARTICLE_LOCALES = ['it', 'en', 'de', 'fr'];
@@ -69,23 +70,20 @@ async function checkAllLocalesLive(publishedUrls) {
   return results.every(Boolean);
 }
 
-/** Best-effort "your article is live" email — never throws. */
+/** Best-effort "your article is live" email — never throws. Routed through
+ * the multi-provider cascade (2026-07-16, was a direct Resend fetch) so a
+ * low volume already-quota-aware/paced send never competes unaccounted
+ * against the dynamic Resend cap, and falls back to another provider
+ * instead of silently dropping the email if Resend alone is exhausted. */
 async function sendPublishedEmail(doc, publishedUrls) {
   try {
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.warn('  ⚠️  RESEND_API_KEY not set — skipping publish notification email.');
-      return;
-    }
     const to = doc.authorEmail;
     if (!to) return;
     const linkList = Object.entries(publishedUrls)
       .map(([locale, url]) => `<li>${locale.toUpperCase()}: <a href="${url}">${url}</a></li>`)
       .join('');
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
+    const { failed } = await sendEmailCascade([{
+      payload: {
         from: 'Frontaliere Ticino <redazione@frontaliereticino.ch>',
         to,
         subject: 'Il tuo articolo è online',
@@ -95,12 +93,18 @@ async function sendPublishedEmail(doc, publishedUrls) {
           `<p>Il tuo articolo "${doc.content?.it?.title || ''}" è ora online nelle 4 lingue del sito:</p>` +
           `<ul>${linkList}</ul>` +
           `<p>Puoi seguire statistiche e stato pubblicazione dalla tua dashboard.</p>`,
-      }),
-      signal: AbortSignal.timeout(15000),
+        tags: [{ name: 'campaign_id', value: 'journalist_article_live' }],
+      },
+      recipient: { email: to },
+      meta: {},
+    }], {
+      // Bounds this send the same way as the hero-image download in
+      // publish-journalist-article.mjs (issue #3209 item 3) — a hung
+      // provider API call must not block this run indefinitely.
+      signal: AbortSignal.timeout(LIVE_CHECK_TIMEOUT_MS),
     });
-    if (!res.ok) {
-      const errText = await res.text().catch(() => '');
-      console.warn(`  ⚠️  publish notification email failed: Resend ${res.status}: ${errText.slice(0, 200)}`);
+    if (failed.length > 0) {
+      console.warn(`  ⚠️  publish notification email failed: ${failed[0].error}`);
     }
   } catch (err) {
     console.warn(`  ⚠️  publish notification email failed (non-fatal): ${err.message}`);

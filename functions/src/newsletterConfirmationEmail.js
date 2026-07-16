@@ -8,9 +8,10 @@
 
 import { createHmac } from 'node:crypto';
 import admin from 'firebase-admin';
-import { Resend } from 'resend';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
+import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
@@ -103,7 +104,7 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it') 
 </html>`;
 }
 
-export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, resendApiKey, secret, db: injectedDb, purpose }) {
+export async function sendNewsletterConfirmationEmail({ email, locale, sourcePath, secret, db: injectedDb, purpose }) {
  // purpose 'login' → send the confirm link even to an already-confirmed
  // subscriber (used as a passwordless sign-in link; the confirm action is a
  // no-op for them but still mints a custom token for auto-login). The cooldown
@@ -112,7 +113,13 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  if (!email || !email.includes('@')) {
  return { success: false, error: 'invalid_email' };
  }
- if (!resendApiKey) {
+ // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
+ // fallback if Resend alone is exhausted. Cloud Functions source secrets
+ // async via Remote Config; the cascade reads sync process.env.*, so the
+ // bridge must run first. Error string kept as-is (no external consumer
+ // depends on it meaning "Resend specifically" vs. "no provider at all").
+ await bridgeEmailCascadeCredentialsToEnv();
+ if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
  return { success: false, error: 'missing_resend_api_key' };
  }
  if (!secret) {
@@ -156,8 +163,8 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // Firebase custom token 1-hour expiry problem entirely.
  const finalUrl = `${BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(normalizedEmail)}&token=${token}`;
 
- const resend = new Resend(resendApiKey);
- const { data: emailData, error } = await resend.emails.send({
+ const { sent, failed } = await sendEmailCascade([{
+ payload: {
  from: FROM_EMAIL,
  to: normalizedEmail,
  subject: t(emailLocale, 'confirmSubject'),
@@ -167,16 +174,20 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  { name: 'type', value: 'transactional' },
  { name: 'locale', value: emailLocale },
  ],
- });
+ },
+ recipient: { email: normalizedEmail },
+ meta: {},
+ }]);
 
- if (error) {
- console.error('[newsletterConfirmation] Resend error:', error);
+ if (failed.length > 0) {
+ console.error('[newsletterConfirmation] send error:', failed[0].error);
  return { success: false, error: 'email_send_failed' };
  }
+ const messageId = sent[0]?.messageId || null;
 
  await subscriberRef.update({
  confirmation_sent_at: admin.firestore.FieldValue.serverTimestamp(),
- confirmation_message_id: emailData?.id || null,
+ confirmation_message_id: messageId,
  preferred_locale: emailLocale,
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  });
@@ -185,7 +196,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  email: normalizedEmail,
  event_type: 'confirmation_email_sent',
  source_channel: 'newsletter_confirmation',
- message_id: emailData?.id || null,
+ message_id: messageId,
  locale: emailLocale,
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),

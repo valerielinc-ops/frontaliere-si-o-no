@@ -59,6 +59,15 @@ vi.mock('../../functions/src/newsletterResendWebhookCore.js', () => ({
   ensureAdminApp: () => undefined,
 }));
 
+// sendCalculatorReport.js is cascade-routed (2026-07-16) rather than holding a
+// directly-injectable Resend client, so its 503/502/200 status-code contract
+// is exercised here by controlling the cascade's isProviderConfigured/
+// sendEmailCascade directly instead of an injected resendClient.
+vi.mock('../../functions/src/emailCascade.js', () => ({
+  isProviderConfigured: vi.fn(),
+  sendEmailCascade: vi.fn(),
+}));
+
 // Resolve the handler module lazily after mocks are registered.
 async function loadSendCalculatorReport() {
   const mod = await import('../../functions/src/sendCalculatorReport.js');
@@ -93,24 +102,16 @@ function makeDbStub(overrides: {
   };
 }
 
-/** Minimal stub that mimics the Resend SDK's `emails.send` return shape. */
-function makeResendClient(behaviour: 'ok' | 'error') {
-  return {
-    emails: {
-      send: vi.fn(async () =>
-        behaviour === 'ok'
-          ? { data: { id: 'res_ok' }, error: null }
-          : { data: null, error: { name: 'send_failed', message: 'simulated' } },
-      ),
-    },
-  };
-}
-
 const VALID_PDF_BASE64 = Buffer.from('%PDF-1.4 fake', 'utf8').toString('base64');
 
 describe('handleSendCalculatorReport — structured error responses', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     vi.clearAllMocks();
+    // Default: Resend configured, cascade send succeeds — individual tests
+    // override one of these to exercise the 500/502 branches.
+    const cascade = await import('../../functions/src/emailCascade.js');
+    vi.mocked(cascade.isProviderConfigured).mockReturnValue(true);
+    vi.mocked(cascade.sendEmailCascade).mockResolvedValue({ sent: [{ messageId: 'res_ok' }], failed: [] });
   });
 
   it('returns 400 with structured body for an invalid email', async () => {
@@ -121,9 +122,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: {},
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db: makeDbStub(),
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(400);
     expect(res.body).toEqual({ success: false, error: 'invalid_email' });
@@ -137,9 +136,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: {},
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db: makeDbStub(),
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(400);
     expect(res.body).toEqual({ success: false, error: 'missing_pdf' });
@@ -155,15 +152,15 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: {},
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db: makeDbStub(),
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(413);
     expect(res.body).toEqual({ success: false, error: 'pdf_too_large' });
   });
 
   it('returns 500 with stable body when Resend API key is not configured', async () => {
+    const cascade = await import('../../functions/src/emailCascade.js');
+    vi.mocked(cascade.isProviderConfigured).mockReturnValue(false);
     const handle = await loadSendCalculatorReport();
     const res = await handle({
       email: 'user@example.com',
@@ -171,9 +168,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: {},
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: '',
       db: makeDbStub(),
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(500);
     expect(res.body).toEqual({ success: false, error: 'missing_resend_api_key' });
@@ -192,15 +187,15 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: {},
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db,
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(503);
     expect(res.body).toEqual({ success: false, error: 'firestore_unavailable' });
   });
 
   it('returns 502 structured error when Resend rejects the email send', async () => {
+    const cascade = await import('../../functions/src/emailCascade.js');
+    vi.mocked(cascade.sendEmailCascade).mockResolvedValue({ sent: [], failed: [{ error: 'simulated' }] });
     const handle = await loadSendCalculatorReport();
     const res = await handle({
       email: 'user@example.com',
@@ -208,9 +203,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: { netCH_CHF: 50000, netIT_CHF: 30000, savingsCHF: 20000 },
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db: makeDbStub(),
-      resendClient: makeResendClient('error'),
     });
     expect(res.status).toBe(502);
     expect(res.body).toEqual({ success: false, error: 'email_send_failed' });
@@ -244,9 +237,7 @@ describe('handleSendCalculatorReport — structured error responses', () => {
       resultSummary: { netCH_CHF: 50000, netIT_CHF: 30000, savingsCHF: 20000 },
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'fake',
       db,
-      resendClient: makeResendClient('ok'),
     });
     expect(res.status).toBe(200);
     expect(res.body.success).toBe(true);
