@@ -1950,6 +1950,26 @@ export const Analytics = {
  match_canton: cantonCode || '(none)',
  });
  },
+
+ /** Calculator↔job-board bridge (issue #4307): "netto stimato" widget became visible on a job detail. */
+ trackJobNetWidgetImpression: (jobId: string) => {
+ log('job_net_widget_impression', { job_id: jobId });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): user tapped a "netto stimato" widget row/CTA. */
+ trackJobNetWidgetClick: (jobId: string, variant: 'frontaliere' | 'resident' | 'cta') => {
+ log('job_net_widget_click', { job_id: jobId, widget_variant: variant });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): calculator landed pre-filled via a deep-link (?reddito=&cantone=). */
+ trackCalculatorDeepLinkArrival: (source: string) => {
+ log('calculator_deep_link_arrival', { arrival_source: source });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): user clicked the reverse-bridge "Offerte nella tua fascia" block. */
+ trackReverseBridgeClick: (canton: string, matchedCount: number) => {
+ log('calculator_reverse_bridge_click', { bridge_canton: canton, bridge_matched_count: matchedCount });
+ },
 };
 
 // ─── Protect Analytics methods from external modification ──────
