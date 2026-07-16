@@ -1165,6 +1165,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banche-svizzere-truffe-online.title': 'Di più Fondazione consumatori: più supporto banche contro truffe online',
     'blog.article.banche-svizzere-truffe-online.excerpt': 'La Fondazione svizzero-tedesca per la protezione dei consumatori ha condotto uno studio sui sistemi di protezione delle banche svizzere contro le truffe online.',
     'blog.article.banche-svizzere-truffe-online.imageAlt': 'Un bancomat in una banca svizzera',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.title': 'Smart working frontalieri: cosa prevede l\'accordo',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.excerpt': 'Analisi dell\'accordo sul telelavoro per i frontalieri in Svizzera: regole, soglie di tempo e impatto fiscale per chi lavora oltre confine.',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.imageAlt': 'Veduta del lungolago di Lugano con edifici moderni',
 };
 
 export default blogMetaChIt;
