@@ -15,11 +15,51 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-baseline.json');
+
+/**
+ * Capture git provenance for the dataset being audited, so a report can be
+ * told apart as stale-vs-fresh after the fact (issue #4063 item 3). The
+ * audit's `workflow_run` trigger historically fired on the crawler
+ * *dispatcher* workflow completing, not on the crawl-and-push actually
+ * finishing (dispatch takes minutes; the crawl+push it kicks off can take
+ * hours) — so a report could silently read data from BEFORE the latest
+ * crawl commit landed, with no way to tell after the fact. Two references:
+ *   - repoHeadSha: the commit actually checked out when the audit ran
+ *     (GITHUB_SHA in CI, else `git rev-parse HEAD`).
+ *   - datasetLastCommit: the most recent commit that touched
+ *     data/jobs/by-crawler/ as of repoHeadSha — the true "as-of" freshness
+ *     of the audited data, independent of unrelated commits landing on top.
+ * Falls back to nulls outside a git checkout rather than throwing —
+ * provenance is diagnostic, never load-bearing for the audit's verdict.
+ *
+ * @returns {{ repoHeadSha: string | null, datasetLastCommit: { sha: string | null, committedAt: string | null } }}
+ */
+export function getDatasetProvenance() {
+  const run = (cmd) => execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  let repoHeadSha = process.env.GITHUB_SHA || null;
+  if (!repoHeadSha) {
+    try {
+      repoHeadSha = run('git rev-parse HEAD');
+    } catch {
+      repoHeadSha = null;
+    }
+  }
+  let datasetLastCommit = { sha: null, committedAt: null };
+  try {
+    const out = run('git log -1 --format=%H%x1f%cI -- data/jobs/by-crawler');
+    const [sha, committedAt] = out.split('\x1f');
+    if (sha) datasetLastCommit = { sha, committedAt: committedAt || null };
+  } catch {
+    // Not a git checkout (or path untracked) — leave nulls.
+  }
+  return { repoHeadSha, datasetLastCommit };
+}
 
 export function loadNoStructureBaseline(p = BASELINE_PATH) {
   try {
@@ -460,8 +500,14 @@ function loadCrawlerSlices() {
 
 /* ── Main audit ────────────────────────────────────────────── */
 async function main() {
+  const provenance = getDatasetProvenance();
   const slices = loadCrawlerSlices();
   console.log(`\nLoaded ${slices.length} crawler slices from ${SLICES_DIR}\n`);
+  console.log(
+    `Dataset provenance: repo HEAD ${provenance.repoHeadSha || 'unknown'} — ` +
+    `data/jobs/by-crawler last touched ${provenance.datasetLastCommit.committedAt || 'unknown'} ` +
+    `(${provenance.datasetLastCommit.sha || 'unknown'})\n`,
+  );
 
   const report = {}; // key → { issues[], severity }
   const urlsToCheck = []; // { crawlerKey, url }
@@ -671,6 +717,7 @@ async function main() {
   // Write JSON
   const jsonReport = {
     timestamp: new Date().toISOString(),
+    datasetProvenance: provenance,
     crawlersChecked: Object.keys(report).length,
     urlChecksEnabled: !skipUrls,
     crawlers: report,

@@ -9,7 +9,7 @@
  *   2. audit-title-length                 (SERP title length ratchet)
  *   3. audit-h1-title-duplicates          (duplicate H1/title ratchet)
  *   4. audit-content-duplicates           (per-locale duplicate body clusters)
- *   5. audit-page-weight                  (200 KB HTML budget + <img> attrs)
+ *   5. audit-page-weight                  (260 KB HTML budget + <img> attrs)
  *   6. audit-hreflang                     (hreflang completeness/host/target)
  *   7. audit-title-uniqueness             (within-locale unique <title>s)
  *   8. validate-jobposting-schema         (9 mandatory JobPosting fields)
@@ -71,7 +71,11 @@ const DUP_MAX_REPORTED = 20;
 const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
 // audit-page-weight constants.
-const MAX_HTML_BYTES = 200 * 1024; // 200 KB per CLAUDE.md non-negotiable perf gate.
+// Kept in lock-step with scripts/audit-page-weight.mjs's own MAX_HTML_BYTES
+// (see maintenance contract in that file's header) — raised 215 -> 260 KB
+// for the TI /cerca-lavoro-ticino/tutti/ pagination-ladder headroom
+// (issue #4209(b); this script was already stale at 200 KB pre-change).
+const MAX_HTML_BYTES = 260 * 1024;
 // Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
 // gate). The Italian-fuel-stations index pages deliberately link every border
 // station inline for the orphan-elimination contract (#1241); per explicit user

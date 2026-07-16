@@ -390,6 +390,27 @@ const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_B
 // reason as JOB_BOARD_PAGINATION_PATTERN above: jobsSeoPagesPlugin explicitly EXCLUDES
 // these slugs from its own tracking (searchComboPattern in jobsSeoPagesPlugin.ts), so
 // legacyRedirectsPlugin's job-prefix skip must not also swallow them here.
+// Issue #4263 item 2 (reviewer adversarial check, round 1): flagged as "not anchored to
+// the terminal path segment — matches ANY occurrence of `/ricerca-` anywhere in the
+// path", risking a false exemption in legacyRedirectsPlugin's isCompatResolvableUnderJobPrefix
+// for a real, distinct job slug that merely CONTAINS a `/ricerca-`-shaped segment
+// somewhere upstream of further real path structure. The reviewer explicitly flagged
+// this as an unverified risk ("non ho trovato un caso concreto").
+// VERIFIED (this fix): terminal-anchoring (`/\/(ricerca|search|suche|recherche)-[^/]*\/?$/`)
+// was tried and reverted — it regressed `tests/search-console-compat.test.ts`'s
+// "covers the committed live 404 export paths" check, which walks the full live
+// data/seo-404-compat/* accumulator (1.7M+ paths) and requires every entry to resolve.
+// Scanning that ENTIRE accumulator for paths where this pattern matches at a
+// non-terminal position (i.e. would be dropped by anchoring) surfaces exactly 310
+// hits — and every single one is a garbage-suffixed variant of a genuine search-combo
+// shape (trailing literal `/null`, a stray `/'` quote segment, or a `/&...`
+// tracking-param blob mis-parsed into the path — e.g.
+// `/cerca-lavoro-svizzera/ricerca-addetto-alle-prestazioni-m-f-100/null`), never a
+// distinct real page. So the terminal-anchoring the reviewer suggested would have
+// traded a zero-observed-instance risk for an active regression on real GSC-exported
+// 404s. Left unanchored; re-run this scan (grep `ricerca-|search-|suche-|recherche-`
+// mid-path in a fresh accumulator export) if a future export surfaces a genuine
+// non-terminal, non-garbage match.
 export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-/;
 // Event-detail leaves past the plugin's own noindex grace window (eventsSeoPagesPlugin
 // stops emitting a bridge EVENT_PAST_GRACE_DAYS after the event ends) or dropped

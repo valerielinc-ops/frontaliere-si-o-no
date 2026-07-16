@@ -33345,7 +33345,7 @@
             "JOBS_HOUSEKEEPING_SCOPE": "swatchgroup",
             "JOBS_SLICE_FILE": "data/jobs/by-crawler/swatchgroup.json"
           },
-          "run": "node scripts/cleanup-jobs.mjs",
+          "run": "for f in data/jobs/by-crawler/comadur-swatch-group.json data/jobs/by-crawler/eta-sa-swatch-group.json data/jobs/by-crawler/nivarox-swatch-group.json data/jobs/by-crawler/swatch-group-assembly.json data/jobs/by-crawler/swiss-timing-swatch-group.json data/jobs/by-crawler/rado.json; do\n  JOBS_SLICE_FILE=\"$f\" node scripts/cleanup-jobs.mjs\ndone\n",
           "continue-on-error": true
         },
         {

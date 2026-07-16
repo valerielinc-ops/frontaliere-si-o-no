@@ -322,7 +322,28 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return {
  name: 'legacy-redirects',
  apply: 'build',
- async closeBundle() {
+ // Issue #4263 item 4: this plugin has NO `enforce` field, so Vite places it in
+ // its 'normal' enforce bucket — BEFORE every `enforce:'post'` plugin regardless
+ // of registration line (this file is registered at vite.config.ts:241, between
+ // eventsSeoPagesPlugin@235 and cantonOrphanRedirectsPlugin@249, but enforce
+ // bucketing, not registration line, decides Rollup dispatch order across
+ // buckets). This plugin's own gap-fill above (`fs.existsSync(targetFile)`
+ // against eventsSeoPagesPlugin's dist output) assumed the opposite ("runs in
+ // closeBundle() AFTER eventsSeoPagesPlugin" — see the comment near
+ // isCompatResolvableUnderJobPrefix below), which was false: with no ordering
+ // hook, Rollup's closeBundle is async-parallel, so this plugin's existsSync
+ // check could race eventsSeoPagesPlugin's write non-deterministically.
+ // `order:'post'` moves it into Rollup's later hook-order bucket (after every
+ // plain-shorthand closeBundle, i.e. after eventsSeoPagesPlugin and every other
+ // producer this depends on); `sequential:true` then makes Rollup await every
+ // previously-queued closeBundle promise before invoking this handler. Verified
+ // against the installed rollup package that this combination (order+sequential
+ // on the CONSUMER only, left off the PRODUCER) is what actually enforces the
+ // intended order — mirrors hreflangPostprocessPlugin.ts's pattern.
+ closeBundle: {
+   order: 'post',
+   sequential: true,
+   handler: async () => {
  const distDir = path.resolve(rootDir, 'dist');
  let count = 0;
  let compatCount = 0;
@@ -498,23 +519,33 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
  // unconditionally emitted (e.g. an events canton hub only exists when that canton
  // has an upcoming event THIS build — see fallbackPath doc in searchConsoleCompat.ts).
- // This plugin runs in closeBundle() AFTER eventsSeoPagesPlugin (vite.config.ts plugin
- // order), so distDir already reflects this build's real output — verify before
- // redirecting there, falling back to the resolver-provided fallbackPath (the
+ // This plugin's closeBundle runs AFTER eventsSeoPagesPlugin's, guaranteed by the
+ // `order:'post'` + `sequential:true` on the closeBundle hook above (issue #4263
+ // item 4) — registration line order in vite.config.ts alone does NOT guarantee
+ // this (Rollup's closeBundle is async-parallel by default), so distDir reliably
+ // reflects this build's real output only because of that hook config — verify
+ // before redirecting there, falling back to the resolver-provided fallbackPath (the
  // Swiss-wide events index, unconditionally emitted whenever any event exists) rather
  // than pointing a bridge page at another 404. Must run BEFORE the self-reference
  // check below, mirroring cfHot404BridgePlugin.ts's identical gap-fill: an unresolved
  // fallback can otherwise land back on `from` itself.
- let to = resolution.canonicalPath;
+ // Trailing slash on `to` is wrapped with withSlash() right at assignment (not just
+ // ad-hoc at the existence-check callsite) — issue #4263 item 3: EVENTS_SECTION_PATTERN's
+ // match[0] happens to always include the trailing slash by regex construction today,
+ // but `to` is also consumed unwrapped further below (buildCompatHtml's canonicalUrl/
+ // pathLabel), so relying on that structural coincidence instead of guaranteeing it here
+ // is fragile to a future resolver change. Mirrors cfHot404BridgePlugin.ts's own
+ // `let to = withSlash(resolution.canonicalPath);` for the exact same consumption.
+ let to = withSlash(resolution.canonicalPath);
  if (resolution.fallbackPath) {
- const targetFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ const targetFile = path.join(distDir, to.slice(1), 'index.html');
  if (!fs.existsSync(targetFile)) {
- to = resolution.fallbackPath;
+ to = withSlash(resolution.fallbackPath);
  // The fallback itself is not unconditionally emitted either (e.g. the
  // Swiss-wide events index is skipped when zero events exist sitewide
  // this build, not just for one canton) — verify it too, otherwise this
  // bridges to another 404 (review finding on PR #4252's re-review round).
- const fallbackFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ const fallbackFile = path.join(distDir, to.slice(1), 'index.html');
  if (!fs.existsSync(fallbackFile)) continue;
  }
  }
@@ -550,6 +581,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  if (compatCount > 0) {
  console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages${skippedJobPaths > 0 ? ` (skipped ${skippedJobPaths} job paths → handled by jobs plugin)` : ''}`);
  }
+   },
  },
  };
 }

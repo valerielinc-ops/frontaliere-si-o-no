@@ -136,6 +136,58 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
   });
 
+  // #4208 (post-merge review of #4200): collectMissingAssembledBridges was
+  // called on the PRE-rename sliceJob, so its headroom didn't yet know about
+  // the flat-cap slots the rename loop (L189-196) was about to spend on the
+  // locales renaming THIS run. With 2+ locales renamed in the same crawl run,
+  // that stale headroom could hand the carry-forward loop more "missing"
+  // bridges than the cap truly had room for after the rename landed. Fixed
+  // by recomputing collectMissingAssembledBridges on `updatedJob` AFTER the
+  // rename loop completes.
+  it('carry-forward headroom reflects the POST-rename occupancy, not the pre-rename snapshot (2 locales renamed same run)', () => {
+    // 70 pre-existing flat bridges + 4 distinct active locale slugs (it/en/de/fr)
+    // headroom computed PRE-rename (on sliceJob) = 80 - 70 - 4 = 6.
+    // headroom computed POST-rename (on updatedJob, after en+de rename push
+    // their 2 old actives into the flat union) = 80 - 72 - 4 = 4.
+    const existing = Array.from({ length: 70 }, (_, i) => `slice-bridge-${i}`);
+    const sliceJob = {
+      id: 'company-xyz',
+      slug: 's-it',
+      slugByLocale: { it: 's-it', en: 's-en-old', de: 's-de-old', fr: 's-fr-old' },
+      titleByLocale: { it: 'T', en: 'T', de: 'T', fr: 'T' },
+      descriptionByLocale: {},
+      previousSlugs: [...existing],
+      previousSlugsByLocale: { it: [...existing] },
+    };
+    // Assembled renames en+de AND offers 6 brand-new bridge candidates
+    // (attributed to fr, which is NOT renaming this run).
+    const newCandidates = Array.from({ length: 6 }, (_, i) => `assembled-new-${i}`);
+    const assembled = {
+      ...sliceJob,
+      slugByLocale: { it: 's-it', en: 's-en-new', de: 's-de-new', fr: 's-fr-old' },
+      previousSlugs: [...existing, ...newCandidates],
+      previousSlugsByLocale: { it: [...existing], fr: newCandidates },
+    };
+
+    const { job } = applyAssembledToSliceJob(sliceJob, assembled);
+    const unionAll = new Set([
+      ...(job.previousSlugs || []),
+      ...Object.values(job.previousSlugsByLocale || {}).flat(),
+    ]);
+
+    // Every pre-existing bridge survives.
+    for (const s of existing) expect(unionAll.has(s)).toBe(true);
+    // Both renamed-away old actives are captured.
+    expect(unionAll.has('s-en-old')).toBe(true);
+    expect(unionAll.has('s-de-old')).toBe(true);
+
+    // Only 4 of the 6 new candidates fit under the POST-rename headroom —
+    // the pre-rename computation would have (incorrectly) admitted all 6.
+    const admitted = newCandidates.filter((s) => unionAll.has(s));
+    expect(admitted).toHaveLength(4);
+    expect(admitted).toEqual(newCandidates.slice(0, 4));
+  });
+
   it('applying twice is idempotent (no runaway history growth)', () => {
     const sliceJob = baseSlice();
     const assembled = {

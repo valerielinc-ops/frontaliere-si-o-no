@@ -357,7 +357,17 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
     name: 'location-hub-bridge',
     apply: 'build',
     enforce: 'post',
-    async closeBundle() {
+    // Issue #4263 item 4 (sibling of the eventsSeoPagesPlugin/legacyRedirectsPlugin/
+    // cfHot404BridgePlugin race): the collision guard below (`fs.existsSync(indexTarget)`)
+    // only holds if the canonical page producer has actually finished writing by the
+    // time this runs, which registration order alone does not guarantee under
+    // Rollup's default async-parallel closeBundle. `order:'post'` + `sequential:true`
+    // makes Rollup await every earlier-queued closeBundle promise first. Verified
+    // against the installed rollup package; mirrors hreflangPostprocessPlugin.ts.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       const dataPath = path.join(rootDir, 'data', 'gsc-location-hubs.json');
       if (!fs.existsSync(dataPath)) {
         console.warn('\x1b[33m[location-hub-bridge]\x1b[0m data/gsc-location-hubs.json missing — skipping');
@@ -407,6 +417,7 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[location-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${file.hubs.length - skipped} pages, ${skipped} skipped due to collision) in ${dur}s`,
       );
+      },
     },
   };
 }

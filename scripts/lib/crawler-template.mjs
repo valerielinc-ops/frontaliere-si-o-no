@@ -601,14 +601,22 @@ export async function fetchHtml(url, options = {}) {
  * the default for plain pages — it also carries the Jina IP-block fallback this
  * helper deliberately omits (a cookie wall is not an IP-reputation block).
  *
+ * By default the cookie jar is fresh per call (and per retry attempt within a
+ * call) — right for a challenge that completes within one redirect chain.
+ * Callers that need the session to survive ACROSS several SEPARATE calls
+ * (e.g. a paginated listing where page 2 must resend the cookie page 1 set —
+ * Umantis/KSA, issue #4057) can pass their own `Map` via `options.cookieJar`;
+ * it is read AND mutated in place, so it carries forward to the next call
+ * instead of being discarded.
+ *
  * @param {string} url
- * @param {Object} [options] — { timeoutMs, headers, maxRedirects }
+ * @param {Object} [options] — { timeoutMs, headers, maxRedirects, cookieJar }
  */
 export async function fetchHtmlWithCookies(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const maxRedirects = options.maxRedirects ?? 8;
   return fetchWithRetry(async () => {
-    const jar = new Map();
+    const jar = options.cookieJar instanceof Map ? options.cookieJar : new Map();
     let currentUrl = url;
     for (let hop = 0; hop <= maxRedirects; hop += 1) {
       const controller = new AbortController();

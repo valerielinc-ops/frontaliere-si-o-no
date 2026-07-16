@@ -231,6 +231,44 @@ describe('registryPinnedLocaleSlug', () => {
       );
     });
 
+    it('refuses when the caller opted into title validation but supplies NEITHER a title nor a canonicalSlug for this locale (#4206 item 1 — no witness is not a free pass)', () => {
+      // hasTitleContext is true (ctx.titleByLocale is an object) but this
+      // fixture's locale ('pt') has no key in ctx.titleByLocale AND the entry
+      // carries no canonicalSlug — a caller that opted in should never fall
+      // through to unconditional-honor just because both witnesses happen to
+      // be absent for this one locale.
+      const noWitnessAtAll = {
+        slugByLocale: { pt: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau' },
+      };
+      expect(registryPinnedLocaleSlug(noWitnessAtAll, 'pt', 'de', ctx)).toBeNull();
+    });
+
+    it('does NOT refuse when canonicalSlug is present even though this locale has no title recorded (single witness — not judgeable, symmetric with the no-canonicalSlug case)', () => {
+      const canonicalOnly = {
+        canonicalSlug: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch-2',
+        slugByLocale: { pt: 'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau' },
+      };
+      expect(registryPinnedLocaleSlug(canonicalOnly, 'pt', 'de', ctx)).toBe(
+        'logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau',
+      );
+    });
+
+    it('does NOT refuse when both title and canonicalSlug are present but tokenize to nothing (#4206 item 2 — short text is not evidence of garbage)', () => {
+      // "IT" / "it" are real, non-empty witnesses, but slugTokenSet's 3-char
+      // floor tokenizes both to an empty set — indistinguishable from "shares
+      // nothing" yet not positive evidence the pin is garbled. Must default
+      // to keeping the pin, same "not judgeable → no churn" principle as the
+      // pinTokens-empty branch.
+      const shortWitnesses = {
+        canonicalSlug: 'it',
+        slugByLocale: { en: 'garbled-token-value-co-loc' },
+      };
+      const shortCtx = { titleByLocale: { en: 'IT' }, company: 'Co', location: 'Loc' };
+      expect(registryPinnedLocaleSlug(shortWitnesses, 'en', 'en', shortCtx)).toBe(
+        'garbled-token-value-co-loc',
+      );
+    });
+
     it('sourceSlugPinContext extracts titleByLocale + noise fields and refuses the garbage pin end-to-end', () => {
       const job = {
         sourceLang: 'de',

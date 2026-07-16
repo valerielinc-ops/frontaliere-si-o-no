@@ -56,7 +56,14 @@ describe('cfHot404BridgePlugin', () => {
     }
 
     const plugin = cfHot404BridgePlugin(tmp);
-    await (plugin.closeBundle as () => Promise<void>)();
+    // Issue #4263 item 4: closeBundle is now an object hook ({order, sequential,
+    // handler}), not a plain function — see flat-html-redirect.test.ts's
+    // runPluginCloseBundle for the same pattern.
+    const closeBundle = plugin.closeBundle;
+    if (!closeBundle || typeof closeBundle !== 'object' || !('handler' in closeBundle)) {
+      throw new Error('closeBundle must be an object hook with handler');
+    }
+    await closeBundle.handler.call({} as never);
   });
 
   afterAll(() => {

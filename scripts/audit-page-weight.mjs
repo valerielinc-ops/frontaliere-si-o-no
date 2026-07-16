@@ -31,7 +31,26 @@ import { insertBounded } from './lib/boundedTopN.mjs';
 // keeping LCP impact bounded (4G ≈ +40 ms over the 200 KB curve at the
 // new cap). TODO: drop the tile cap to 25 in the next round of landing
 // refactor and re-tighten to 200 KB.
-const MAX_HTML_BYTES = 215 * 1024;
+//
+// 260 KB (was 215 KB, issue #4209(b)). The TI
+// /cerca-lavoro-ticino/tutti/page-N/ pagination ladder is topologically
+// unbounded: every one of its ~1956 pages (2026-07-16 live count) renders
+// a full flat nav linking every OTHER page (BFS-depth closure — see
+// seoHubsPlugin.ts renderPagination / buildThinCantonHubHtml; the
+// redesign that would bound this ladder is tracked separately as
+// #4209(a), out of scope here). That nav payload scales with total page
+// count and is duplicated on every page, so it only grows as the crawler
+// pipeline adds jobs. Live-measured baseline on 2026-07-16 (curl
+// frontaliereticino.ch, 6 samples spanning page-1..page-1956): 156.4-
+// 176.7 KB — already 73-82% of the old 215 KB budget, with no per-path
+// override (falls under the flat `job-board` budget via
+// JOB_BOARD_SECTION_RX, unlike the fuel-station
+// ITALIAN_STATIONS_INDEX_BUDGET override below). Raising to 260 KB buys
+// ~83 KB (47%) of headroom over today's measured peak before the ladder
+// redesign lands, instead of waiting for a hard breach like run
+// 26112128794 above. Do not raise further without a fresh measured
+// baseline citing the issue.
+const MAX_HTML_BYTES = 260 * 1024;
 
 // Per-path budget override (explicit user-approved exception, 2026-06-03).
 // The Italian-fuel-stations INDEX pages (2 fuels × 4 locales) deliberately

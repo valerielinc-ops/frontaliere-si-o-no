@@ -147,18 +147,24 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
 export function applyAssembledToSliceJob(sliceJob, assembled) {
   // SEO bridge slugs the assembled job captured (trackSlugHistoryDrift /
   // ensureLocaleFields / collision guard) but the slice is still missing.
-  // Computed up front so it can ALSO trigger a write for a job whose
-  // locale/slug fields are otherwise unchanged — otherwise a slug renamed on
-  // the assembled side in a prior run (its old value living only in the
-  // assembled previousSlugs) would never make it onto the committed slice.
-  const missingBridges = collectMissingAssembledBridges(sliceJob, assembled);
+  // Computed up front (on the PRE-rename sliceJob) purely to decide whether a
+  // job whose locale/slug fields are otherwise unchanged still needs a write
+  // — otherwise a slug renamed on the assembled side in a prior run (its old
+  // value living only in the assembled previousSlugs) would never make it
+  // onto the committed slice. This preliminary list is NOT used for the
+  // actual carry-forward below (see the recompute after the rename loop,
+  // issue #4208) — it is only safe as a boolean "is there anything to add"
+  // gate here because whenever THIS call also renames a slug, `changed`
+  // already flips true via the slugByLocale diff check two lines down,
+  // independent of this list's headroom accuracy.
+  const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled).length > 0;
 
   // Compare locale fields — only update if they changed
   const changed =
     JSON.stringify(assembled.titleByLocale) !== JSON.stringify(sliceJob.titleByLocale) ||
     JSON.stringify(assembled.descriptionByLocale) !== JSON.stringify(sliceJob.descriptionByLocale) ||
     JSON.stringify(assembled.slugByLocale) !== JSON.stringify(sliceJob.slugByLocale) ||
-    missingBridges.length > 0;
+    hasMissingBridgesPreRename;
 
   if (!changed) return { job: sliceJob, changed: false };
 
@@ -206,6 +212,18 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // exactly like trackSlugHistoryDrift's carry-forward. The add-list is already
   // bounded to the flat cap headroom so this can never evict a bridge the
   // slice already had.
+  //
+  // Recomputed HERE on `updatedJob` — AFTER the rename loop above — rather
+  // than reusing `hasMissingBridgesPreRename`'s pre-rename list (issue #4208).
+  // The rename loop just pushed this job's OLD per-locale slugs into
+  // previousSlugsByLocale (and the flat previousSlugs mirror it keeps in
+  // sync via addPreviousSlugForLocale → syncLegacyPreviousSlugs). Computing
+  // headroom before that landed doesn't know those flat-cap slots are about
+  // to be spent when 2+ locales rename in the same run, so it could hand
+  // this loop more "missing" bridges than the cap truly has room for after
+  // the rename — recomputing on the POST-rename state keeps headroom
+  // accurate to what's actually left.
+  const missingBridges = collectMissingAssembledBridges(updatedJob, assembled);
   for (const { locale, slug } of missingBridges) {
     addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
   }

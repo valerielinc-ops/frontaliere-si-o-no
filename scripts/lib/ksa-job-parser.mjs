@@ -42,6 +42,8 @@ import {
   stripHtml,
   normalizeSpace,
   normalizeDescriptionBullets,
+  fetchJson,
+  fetchHtmlWithCookies,
 } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -309,21 +311,20 @@ export function buildProspectiveDescriptionMap(prospectiveJobs = []) {
  * @returns {Promise<Array<object>>}
  */
 async function fetchProspectiveJobs() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   const all = [];
   let total = Infinity;
   for (let page = 0; page < PROSPECTIVE_MAX_PAGES && all.length < total; page++) {
     const offset = page * PROSPECTIVE_PAGE_SIZE;
     const url = `${PROSPECTIVE_API_BASE}?lang=de&offset=${offset}&limit=${PROSPECTIVE_PAGE_SIZE}`;
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, {
-        headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-      const data = await res.json();
+      // Shared fetchJson (retry on transient network/5xx/invalid-JSON-on-200)
+      // instead of a naked single-attempt fetch — sibling-pattern fix for
+      // issue #4057 item 2 (CI-specific fetch blips): PR #4056 fixed the
+      // equivalent naked-fetch anti-pattern for csd-engineers' detail page,
+      // but its sibling check only scanned literal "detail page" fetchers —
+      // KSA's rich content comes from this Prospective JSON join instead
+      // (see file header), so it didn't match and was missed.
+      const data = await fetchJson(url, { headers: { 'User-Agent': USER_AGENT } });
       const items = Array.isArray(data?.jobs) ? data.jobs : [];
       if (Number.isFinite(Number(data?.total))) total = Number(data.total);
       if (items.length === 0) break;
@@ -332,8 +333,6 @@ async function fetchProspectiveJobs() {
     } catch (err) {
       console.warn(`  ⚠️ Prospective enrichment fetch failed at offset=${offset}: ${err?.message || err}`);
       break;
-    } finally {
-      clearTimeout(timer);
     }
     await new Promise((r) => setTimeout(r, 300));
   }
@@ -342,34 +341,21 @@ async function fetchProspectiveJobs() {
 
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
+/**
+ * Fetch one Umantis listing page. `cookieJar` is an external `Map` (NOT
+ * fetchHtmlWithCookies's own per-attempt jar) so the session cookie set on
+ * page 1 is resent on page 2+ — pagination continuity spans several
+ * SEPARATE calls, which fetchHtmlWithCookies's `options.cookieJar` param
+ * exists specifically to support (see its doc in crawler-template.mjs).
+ * Shared helper (retry + manual redirect cookie relay) replaces a naked
+ * single-attempt fetch — same sibling-pattern fix as fetchProspectiveJobs()
+ * above (issue #4057 item 2).
+ */
 async function fetchPage(url, cookieJar) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  const headers = {
-    Accept: 'text/html,application/xhtml+xml',
-    'User-Agent': USER_AGENT,
-    'Accept-Language': 'de-CH,de;q=0.9',
-  };
-  if (cookieJar?.value) headers.Cookie = cookieJar.value;
-  try {
-    const res = await fetch(url, { signal: controller.signal, headers, redirect: 'follow' });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    if (cookieJar) {
-      const setCookie = res.headers.get('set-cookie');
-      if (setCookie) {
-        const pairs = setCookie.split(/,(?=\s*[A-Za-z0-9_-]+=)/g)
-          .map((c) => c.split(';')[0].trim())
-          .filter(Boolean);
-        if (pairs.length) cookieJar.value = pairs.join('; ');
-      }
-    }
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtmlWithCookies(url, {
+    cookieJar,
+    headers: { 'User-Agent': USER_AGENT, 'Accept-Language': 'de-CH,de;q=0.9' },
+  });
 }
 
 /* ── Main Fetch Function ──────────────────────────────────── */
@@ -379,7 +365,9 @@ export async function fetchAllKsaJobs() {
   console.log(`   Source:        ${LISTING_URL}`);
   console.log(`   Public career: ${PUBLIC_CAREER_URL}\n`);
 
-  const cookieJar = { value: '' };
+  // External Map (not a `{value}` box) — the shape fetchHtmlWithCookies's
+  // `options.cookieJar` expects so pagination cookies survive across calls.
+  const cookieJar = new Map();
   const allListings = [];
   const seenIds = new Set();
 

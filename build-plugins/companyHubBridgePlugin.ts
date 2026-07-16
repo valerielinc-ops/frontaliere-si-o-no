@@ -547,7 +547,19 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
     name: 'company-hub-bridge',
     apply: 'build',
     enforce: 'post',
-    async closeBundle() {
+    // Issue #4263 item 4 (sibling of the eventsSeoPagesPlugin/legacyRedirectsPlugin/
+    // cfHot404BridgePlugin race): this plugin's own docblock states "the bridge's
+    // existing fs.existsSync guard skips any auto-discovered slug whose canonical
+    // HTML was already written [by jobsSeoPagesPlugin]" — that guard only holds if
+    // jobsSeoPagesPlugin has actually finished writing by the time this runs, which
+    // registration order alone does not guarantee under Rollup's default
+    // async-parallel closeBundle. `order:'post'` + `sequential:true` makes Rollup
+    // await every earlier-queued closeBundle promise first. Verified against the
+    // installed rollup package; mirrors hreflangPostprocessPlugin.ts.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       const distDir = path.join(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
 
@@ -607,6 +619,7 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[company-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${merged.length - skipped} pages from ${curatedHubs.length} curated + ${discovered.length} auto-discovered, ${skipped} skipped) in ${dur}s`,
       );
+      },
     },
   };
 }

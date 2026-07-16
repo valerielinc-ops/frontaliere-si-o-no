@@ -1,5 +1,6 @@
 /**
- * check-sibling-patterns.mjs — extractTokens() + extractRemovedExpressions() coverage.
+ * check-sibling-patterns.mjs — extractTokens() + extractRemovedExpressions() +
+ * pattern-class registry coverage.
  *
  * extractTokens (issue #3658): token extraction only ever looked for kebab-case
  * inside import/require path strings, so a shared entity-id string LITERAL was
@@ -9,9 +10,23 @@
  * escalation persisted because token-match misses siblings that share only the
  * OLD removed anti-pattern — they do not yet import the NEW helper introduced by
  * the fix, so no token is common. The verbatim removed-line pass addresses this.
+ *
+ * PATTERN_CLASSES / detectCapBeforeMutation / detectCloseBundleOrdering (issue
+ * #4260 escalation, round 2): the sibling-class-fix bucket kept recurring past
+ * the verbatim pass (6× in 14 days) because some repeat findings are the SAME
+ * bug SHAPE re-implemented with different variable/helper names — no shared
+ * token or expression to grep for. These detectors are curated, heuristic,
+ * shape-level checks (see the doc comment above PATTERN_CLASSES in the script
+ * for the worked examples — issue #4208 and issue #4263 item 4).
  */
 import { describe, it, expect } from 'vitest';
-import { extractTokens, extractRemovedExpressions } from '../scripts/ci/check-sibling-patterns.mjs';
+import {
+  extractTokens,
+  extractRemovedExpressions,
+  detectCapBeforeMutation,
+  detectCloseBundleOrdering,
+  PATTERN_CLASSES,
+} from '../scripts/ci/check-sibling-patterns.mjs';
 
 describe('extractTokens — SCREAMING_SNAKE_CASE constants', () => {
   it('extracts constants with ≥1 underscore and length ≥5', () => {
@@ -183,5 +198,163 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
     const exprs = extractRemovedExpressions(diff);
     expect(exprs.has('description: copy.description')).toBe(true);
     expect(exprs.has('longPropertyName: someValue.anotherProp')).toBe(true);
+  });
+});
+
+describe('PATTERN_CLASSES registry (issue #4260 escalation, round 2)', () => {
+  it('registers the two curated bug-shape classes', () => {
+    const names = PATTERN_CLASSES.map((c) => c.name);
+    expect(names).toContain('cap-before-mutation');
+    expect(names).toContain('closeBundle-ordering');
+    for (const cls of PATTERN_CLASSES) {
+      expect(typeof cls.description).toBe('string');
+      expect(cls.description.length).toBeGreaterThan(0);
+      expect(typeof cls.detect).toBe('function');
+    }
+  });
+});
+
+describe('detectCapBeforeMutation (worked example: issue #4208)', () => {
+  it('flags a cap/headroom computed from an object, then that SAME object mutated afterward without recompute', () => {
+    const buggy = [
+      'function planAdds(job, incoming) {',
+      '  const cap = 20;',
+      '  const headroom = Math.max(0, cap - job.slugs.length);',
+      '  const adds = incoming.slice(0, headroom);',
+      '  // BUG: job.slugs mutated after headroom was computed from its',
+      '  // pre-mutation length; headroom is never recomputed.',
+      '  job.slugs.push(...adds);',
+      '  return adds;',
+      '}',
+    ].join('\n');
+    const findings = detectCapBeforeMutation(buggy);
+    expect(findings.length).toBe(1);
+    expect(findings[0].snippet).toContain('headroom');
+  });
+
+  it('does NOT flag when the mutation lands on an unrelated object (clean)', () => {
+    const clean = [
+      'function planAdds(job, incoming) {',
+      '  const cap = 20;',
+      '  const headroom = Math.max(0, cap - job.slugs.length);',
+      '  const adds = incoming.slice(0, headroom);',
+      '  const auditLog = [];',
+      '  auditLog.push(...adds); // mutates auditLog, not job.slugs — safe',
+      '  return adds;',
+      '}',
+    ].join('\n');
+    expect(detectCapBeforeMutation(clean)).toEqual([]);
+  });
+
+  it('does NOT flag when the cap is recomputed before the mutation runs (fixed shape, clean)', () => {
+    const clean = [
+      'function planAdds(job, incoming) {',
+      '  const cap = 20;',
+      '  let headroom = Math.max(0, cap - job.slugs.length);',
+      '  const adds = incoming.slice(0, headroom);',
+      '  // Recompute right before mutating — safe even if something else',
+      '  // touched job.slugs in between.',
+      '  headroom = Math.max(0, cap - job.slugs.length);',
+      '  if (headroom > 0) job.slugs.push(...adds.slice(0, headroom));',
+      '  return adds;',
+      '}',
+    ].join('\n');
+    expect(detectCapBeforeMutation(clean)).toEqual([]);
+  });
+
+  it('does NOT flag a bare cap computation with no mutation at all (clean)', () => {
+    const clean = [
+      'function headroomOnly(job) {',
+      '  const cap = 20;',
+      '  const headroom = Math.max(0, cap - job.slugs.length);',
+      '  return headroom;',
+      '}',
+    ].join('\n');
+    expect(detectCapBeforeMutation(clean)).toEqual([]);
+  });
+});
+
+describe('detectCloseBundleOrdering (worked example: issue #4263 item 4)', () => {
+  it('flags a closeBundle hook reading a dist-output path without `sequential: true`', () => {
+    const buggy = [
+      'export function siblingBridgePlugin(rootDir) {',
+      '  return {',
+      "    name: 'sibling-bridge',",
+      "    apply: 'build',",
+      '    async closeBundle() {',
+      "      const distDir = path.resolve(rootDir, 'dist');",
+      "      const targetFile = path.join(distDir, eventSlug, 'index.html');",
+      '      if (!fs.existsSync(targetFile)) {',
+      '        // fall back — but the sibling plugin that writes targetFile',
+      '        // may not have finished yet: this hook declares no ordering guard.',
+      "        console.log('fallback');",
+      '      }',
+      '    },',
+      '  };',
+      '}',
+    ].join('\n');
+    const findings = detectCloseBundleOrdering(buggy);
+    expect(findings.length).toBe(1);
+    expect(findings[0].snippet).toContain('existsSync');
+  });
+
+  it('does NOT flag when the hook declares `sequential: true` (object-form, fixed shape, clean)', () => {
+    const clean = [
+      'export function siblingBridgeSafePlugin(rootDir) {',
+      '  return {',
+      "    name: 'sibling-bridge-safe',",
+      "    apply: 'build',",
+      '    closeBundle: {',
+      '      sequential: true,',
+      '      async handler() {',
+      "        const distDir = path.resolve(rootDir, 'dist');",
+      "        const targetFile = path.join(distDir, 'events', 'index.html');",
+      '        if (!fs.existsSync(targetFile)) {',
+      "          console.log('safe — sequential guarantees ordering');",
+      '        }',
+      '      },',
+      '    },',
+      '  };',
+      '}',
+    ].join('\n');
+    expect(detectCloseBundleOrdering(clean)).toEqual([]);
+  });
+
+  it('does NOT flag a closeBundle with no cross-plugin dist read at all (clean)', () => {
+    const clean = [
+      'async closeBundle() {',
+      "  const distDir = path.resolve(rootDir, 'dist');",
+      "  fs.writeFileSync(path.join(distDir, 'own-output.html'), html, 'utf-8');",
+      '}',
+    ].join('\n');
+    expect(detectCloseBundleOrdering(clean)).toEqual([]);
+  });
+
+  it('does NOT flag the bare `existsSync(distDir)` bail-out idiom alone (clean, common, not cross-plugin)', () => {
+    const clean = [
+      'async closeBundle() {',
+      "  const distDir = path.resolve(rootDir, 'dist');",
+      '  if (!fs.existsSync(distDir)) return;',
+      "  fs.writeFileSync(path.join(distDir, 'own-output.html'), html, 'utf-8');",
+      '}',
+    ].join('\n');
+    expect(detectCloseBundleOrdering(clean)).toEqual([]);
+  });
+
+  it('does NOT flag a var holding a HARDCODED literal filename off distDir, even when read via existsSync (regression guard: literal-segment exclusion must not be defeated by the space after the comma)', () => {
+    // Real shape from build-plugins/adminDataPlugin.ts: `indexHtml` is a
+    // literal `dist/index.html` path (own build's core output, not another
+    // plugin's dynamic per-page output) — reading it back is not the
+    // cross-plugin ordering risk this class targets.
+    const clean = [
+      'closeBundle() {',
+      "  const distDir = path.resolve(root, 'dist');",
+      "  const indexHtml = path.resolve(distDir, 'index.html');",
+      '  if (fs.existsSync(indexHtml)) {',
+      "    const shell = fs.readFileSync(indexHtml, 'utf-8');",
+      '  }',
+      '}',
+    ].join('\n');
+    expect(detectCloseBundleOrdering(clean)).toEqual([]);
   });
 });

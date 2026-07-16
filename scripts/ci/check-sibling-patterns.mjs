@@ -30,6 +30,23 @@
  *      del token-match). Cattura i gemelli che condividono solo il vecchio
  *      anti-pattern rimosso, invisibili al token-match perché non importano
  *      ancora il helper NUOVO introdotto dal fix (il caso PR #4224 / PR #4199).
+ *   7. Pattern-class registry (issue #4260 escalation, round 2): i pass 3-6
+ *      sono tutti LESSICALI — servono un token o un'espressione VERBATIM
+ *      condivisa. Il bucket `sibling-class-fix` ha continuato a ricorrere
+ *      (×6 in 14gg dopo il pass #6: #4252/#4224/#4221/#4200/#4199) perché una
+ *      classe di finding ricorrenti è STRUTTURALE/LOGIC-LEVEL, non lessicale:
+ *      stessa FORMA di bug in file con nomi di variabile/helper completamente
+ *      diversi (es. issue #4208 "cap calcolato prima di una mutazione dello
+ *      stesso oggetto sorgente", issue #4263 item 4 "closeBundle legge
+ *      l'output di un altro plugin senza `sequential: true`") — nessun token
+ *      comune da estrarre, il pass lessicale è strutturalmente cieco. Questo
+ *      pass aggiunge un REGISTRO curato (`PATTERN_CLASSES`) di forme di bug
+ *      note e ricorrenti: ciascuna ha un nome, una descrizione e un detector
+ *      euristico (grep AST-lite, non un parser) che scansiona TUTTI i file
+ *      gemelli tracked in CODE_DIRS — non solo quelli che condividono un
+ *      token col diff — cercando la STESSA forma. Stesso principio
+ *      "candidato ≠ verdetto" dei pass precedenti: un match è un invito a
+ *      ispezionare, non una diagnosi.
  *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
@@ -42,6 +59,7 @@
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -113,6 +131,13 @@ const STOP = new Set([
 // Un token che compare in più di MAX_FILES file tracked è troppo generico per
 // indicare un file gemello specifico → lo scartiamo (sarebbe solo rumore).
 const MAX_FILES = 15;
+
+// Un pattern-class del registro (vedi PATTERN_CLASSES) che flagga più di
+// MAX_PATTERN_CLASS_HITS file NON è più un "candidato mirato" — è il
+// detector che spara troppo largo (misfire), non un segnale reale sul
+// repo. In quel caso i risultati di quella classe vengono scartati per
+// questa run invece di floodare l'output (vedi doc del registro sopra).
+const MAX_PATTERN_CLASS_HITS = 15;
 
 function git(args, { allowFail = false } = {}) {
   try {
@@ -221,6 +246,166 @@ export function extractTokens(text) {
   return tokens;
 }
 
+/**
+ * ─── Pattern-class registry (issue #4260 escalation, round 2) ─────────────
+ *
+ * extractTokens/extractRemovedExpressions above are LEXICAL: they need a
+ * literal token or expression shared between the diff and a sibling file.
+ * The `sibling-class-fix` bucket kept recurring past that pass (6× in 14
+ * days: #4252, #4224, #4221, #4200, #4199) because the repeat findings are a
+ * different SHAPE of gap — the SAME bug logic re-implemented with different
+ * variable/helper names, so there is no shared token to grep for. A curated
+ * registry of a FEW known recurring bug shapes closes part of that gap: each
+ * entry below is a heuristic detector (regex-based "AST-lite", not a real
+ * parser) that scans file CONTENT for the shape, independent of what the
+ * current diff happens to touch. Like the token/verbatim passes, this is a
+ * candidate-surfacer — a match means "worth a human look", not "confirmed
+ * bug". Keep this registry SMALL and each detector NARROW (verified against
+ * the live repo — see docs/AGENTS-HISTORY.md#sibling-pattern-fix for the
+ * false-positive rates measured while calibrating each one): a detector that
+ * fires on a large fraction of matching files is noise, not signal.
+ */
+
+/**
+ * "cap-before-mutation" (worked example: issue #4208, scatter-jobs-to-slices
+ * `collectMissingAssembledBridges` — headroom computed from a job's CURRENT
+ * slug set, then a later step in the same pass renames/rewrites that same
+ * slug set without recomputing headroom against the post-mutation state).
+ *
+ * Heuristic: find a `const/let <cap|headroom|floor>Var = … - <obj>.length`
+ * (or `.size`) computation, then look ONLY forward in the same file for a
+ * mutation of that SAME base object (`obj.push(`/`obj.splice(`/index or
+ * property assignment, or `obj` passed into a rename/rewrite/mutate-named
+ * call) before the cap variable is ever recomputed. Deliberately narrow:
+ * requires the literal base-object identifier to reappear, so it only
+ * catches the case where cap and mutation share an identifier — it will NOT
+ * catch the case where the cap is derived from one variable and the
+ * mutation lands on an unrelated clone (the real #4208 shape after its
+ * fix moved to a journal-backed helper). That is an accepted false-negative
+ * for a lexical heuristic; expand the registry with a second, more specific
+ * detector if another concrete incident of that broader shape recurs.
+ */
+export function detectCapBeforeMutation(text) {
+  const findings = [];
+  const capRx =
+    /\b(?:const|let)\s+(\w*(?:[Cc]ap|[Hh]eadroom|[Ff]loor)\w*)\s*=\s*(?:Math\.(?:max|min)\([^,]*,\s*)?[\w.]+\s*-\s*(?:\w+\.)*(\w+)\.(?:length|size)\b/g;
+  let m;
+  while ((m = capRx.exec(text)) !== null) {
+    const [full, capVar, baseObj] = m;
+    const windowStart = m.index + full.length;
+    const window = text.slice(windowStart, windowStart + 4000);
+    const mutateRx = new RegExp(
+      `\\b${baseObj}\\.(?:push|splice|unshift|pop|shift)\\(` +
+        `|\\b${baseObj}\\[[^\\]]*\\]\\s*=(?!=)` +
+        `|\\b${baseObj}\\.\\w+\\s*=(?!=)` +
+        `|\\b\\w*(?:[Rr]ename|[Rr]ewrite|[Mm]utate)\\w*\\([^)]*\\b${baseObj}\\b`,
+    );
+    const mutateMatch = mutateRx.exec(window);
+    if (!mutateMatch) continue;
+    // Cap recomputed before the mutation runs → the shape is safe, skip.
+    const recomputeRx = new RegExp(`\\b${capVar}\\s*=`);
+    if (recomputeRx.test(window.slice(0, mutateMatch.index))) continue;
+    findings.push({ index: m.index, snippet: full.trim() });
+  }
+  return findings;
+}
+
+/**
+ * "closeBundle-ordering" (worked example: issue #4263 item 4 — a Rollup
+ * plugin's `closeBundle` hook does `existsSync`/`readFileSync` against a
+ * dist-output path a DIFFERENT plugin may or may not have written yet,
+ * without declaring `sequential: true` — Rollup runs `closeBundle` hooks
+ * async/parallel by default, so the read races the sibling plugin's write).
+ *
+ * Heuristic: find a `closeBundle(`/`closeBundle:` hook; bail out entirely
+ * if the file declares `sequential: true` anywhere (the established fix,
+ * see `hreflangPostprocessPlugin.ts`). Otherwise, inside the hook, track
+ * path variables built by joining `distDir`/`outDir` with a NON-literal
+ * segment (a per-item/per-URL variable, not a hardcoded filename — a
+ * hardcoded name under `distDir` is almost always the plugin's OWN
+ * artifact, e.g. `sitemap-annual-report.xml`, not a sibling's). Flag if one
+ * of those derived paths is read via `existsSync`/`readFileSync`. Bare
+ * `existsSync(distDir)`/`existsSync(outDir)` (the ubiquitous "did the build
+ * even produce a dist dir" bail-out) is deliberately excluded — it is not
+ * itself a cross-plugin read and flagging it made this detector fire on
+ * over half the files that use `closeBundle` (measured while calibrating —
+ * narrowed to the dynamic-path-only form above, see AGENTS-HISTORY.md).
+ */
+export function detectCloseBundleOrdering(text) {
+  const findings = [];
+  if (/\bsequential\s*:\s*true\b/.test(text)) return findings;
+  const cbRx = /\bcloseBundle\s*[:(]/g;
+  let m;
+  while ((m = cbRx.exec(text)) !== null) {
+    const windowStart = m.index;
+    const window = text.slice(windowStart, windowStart + 50000);
+
+    // Track path vars built from distDir/outDir (or from another already-
+    // discovered path var) with a non-literal joined segment — up to 3
+    // passes to follow a couple of levels of derivation.
+    const rootNames = new Set(['distDir', 'outDir']);
+    const discovered = new Set();
+    for (let pass = 0; pass < 3; pass++) {
+      const before = discovered.size;
+      const namesAlt = [...rootNames, ...discovered].join('|');
+      // Capture the char right after the comma (if a quote/backtick) instead
+      // of a negative lookahead: `\s*` before a lookahead can backtrack past
+      // the intended anchor point and let a literal ('index.html') slip
+      // through as if it were a dynamic segment. An explicit optional
+      // capture group has no failure path to backtrack from, so it reports
+      // the actual next-non-space char reliably.
+      const declRx = new RegExp(
+        `\\b(?:const|let)\\s+(\\w+)\\s*=\\s*path\\.(?:join|resolve)\\(\\s*(?:${namesAlt})\\s*,\\s*(['"\`]?)[^;\\n]*\\);`,
+        'g',
+      );
+      let d;
+      while ((d = declRx.exec(window)) !== null) {
+        if (d[2]) continue; // literal segment (quoted string) — not dynamic
+        discovered.add(d[1]);
+      }
+      if (discovered.size === before) break;
+    }
+
+    let hit = null;
+    for (const v of discovered) {
+      const readRx = new RegExp(
+        `\\b(?:existsSync|readFileSync)\\(\\s*(?:path\\.(?:join|resolve)\\(\\s*)?${v}\\b`,
+      );
+      const rm = readRx.exec(window);
+      if (rm) {
+        hit = rm[0];
+        break;
+      }
+    }
+    if (hit) findings.push({ index: windowStart, snippet: hit });
+  }
+  return findings;
+}
+
+/**
+ * The registry itself: name + one-line description (surfaced to the user)
+ * + a cheap `prefilter` (passed to `git grep -l` to shrink the file set
+ * before the more expensive per-file `detect()` regex runs) + the detector.
+ */
+export const PATTERN_CLASSES = [
+  {
+    name: 'cap-before-mutation',
+    description:
+      'cap/headroom/floor calcolato da un oggetto, poi lo STESSO oggetto mutato dopo senza ricalcolo (issue #4208)',
+    prefilter: '(headroom|floor|\\bcap\\b)',
+    prefilterFlags: '-liE',
+    detect: detectCapBeforeMutation,
+  },
+  {
+    name: 'closeBundle-ordering',
+    description:
+      "closeBundle legge l'output dist di un altro plugin senza `sequential: true` (issue #4263 item 4)",
+    prefilter: 'closeBundle\\s*[:(]',
+    prefilterFlags: '-lE',
+    detect: detectCloseBundleOrdering,
+  },
+];
+
 function main() {
   const base = resolveBase();
   // merge-base per il three-dot: cambiamenti del branch dalla divergenza.
@@ -315,6 +500,40 @@ function main() {
       if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
       const label = `removed:"${expr.length > 50 ? expr.slice(0, 47) + '…' : expr}"`;
       candidateTokens.get(f).add(label);
+    }
+  }
+
+  // Pattern-class registry (issue #4260 escalation, round 2): indipendente
+  // dal diff, scansiona TUTTI i file gemelli tracked (non toccati dal
+  // branch) per le forme di bug curate in PATTERN_CLASSES. A differenza dei
+  // pass sopra, non serve un token/espressione condivisa col diff — solo la
+  // STESSA forma strutturale, anche con nomi di variabile diversi.
+  for (const cls of PATTERN_CLASSES) {
+    const out = git(
+      ['grep', cls.prefilterFlags, cls.prefilter, '--', ...pathspecs],
+      { allowFail: true },
+    );
+    const files = out.split('\n').map((s) => s.trim()).filter(Boolean);
+    // Collect first, merge only if under the cap — a misfiring detector
+    // should not contribute partial noise just because it fired early.
+    const classHits = [];
+    for (const f of files) {
+      if (changedSet.has(f)) continue;
+      if (!isCodeFile(f)) continue;
+      let content;
+      try {
+        content = readFileSync(f, 'utf8');
+      } catch {
+        continue; // deleted/binary/unreadable in working tree — skip
+      }
+      if (cls.detect(content).length === 0) continue;
+      classHits.push(f);
+      if (classHits.length > MAX_PATTERN_CLASS_HITS) break; // stop early, too broad to be useful
+    }
+    if (classHits.length > MAX_PATTERN_CLASS_HITS) continue; // detector misfiring broadly → drop this class for this run
+    for (const f of classHits) {
+      if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
+      candidateTokens.get(f).add(`class:"${cls.name}"`);
     }
   }
 
