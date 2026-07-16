@@ -34,7 +34,8 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
-import { describeSegment, selectArticleCandidates, CONTENT_STRATEGIES } from '../services/newsletter-segments.mjs';
+import { describeSegment, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
+import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
@@ -1107,6 +1108,17 @@ function resolveArticleContent(subscriber, locale, featuredArticleFn) {
   const contentInfo = segmentInfo.strategy === CONTENT_STRATEGIES.WINBACK
     ? { strategy: CONTENT_STRATEGIES.DIGEST, interest: null }
     : segmentInfo;
+
+  // (#4299) hot_utility/warm_utility subscribers get genuinely
+  // time-of-year-relevant content (TFR calculator in Jan, Italian tax
+  // return in spring, 3a pillar deadline in autumn, ...) FIRST — a real
+  // seasonal pick beats the generic fiscale/pratico-clustered winner
+  // article the ranking below would otherwise pick.
+  if (contentInfo.interest === INTERESTS.UTILITY) {
+    const seasonal = getSeasonalUtilityContent(new Date(), locale);
+    if (seasonal) return { segment: segmentInfo.segmentId, article: seasonal };
+  }
+
   const selection = selectArticleCandidates(contentInfo, winners);
 
   let article = null;
