@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3261,
+ "numberOfItems": 3262,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7936,7 +7936,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3258, "name": "Diritto all’indennità di maternità della lavora...", "url": `${BASE_URL}/articoli-frontaliere/diritto-allindennita-di-maternita-della-lavoratrice-frontaliera` },
           { "@type": "ListItem", "position": 3259, "name": "Dividenti italiani, stop alle discriminazioni f...", "url": `${BASE_URL}/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri` },
           { "@type": "ListItem", "position": 3260, "name": "Frontalieri, la flat tax entra nel Tuir: dal 20...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d` },
-          { "@type": "ListItem", "position": 3261, "name": "Telelavoro dei frontalieri tra Italia e Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ` }
+          { "@type": "ListItem", "position": 3261, "name": "Telelavoro dei frontalieri tra Italia e Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ` },
+          { "@type": "ListItem", "position": 3262, "name": "Ticino ostaggio del traffico: chi sfrutta paghi", "url": `${BASE_URL}/articoli-frontaliere/ticino-traffico-2024` }
  ]
  },
  {
