@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-07-15T23:15:28.536Z",
+  "assembledAt": "2026-07-16T12:21:37.391Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -72,7 +72,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -122,6 +123,7 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",
@@ -158,13 +160,13 @@
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "de": "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "fr": "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano"
+        "fr": "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management – Private Banker (Lugano)",
         "de": "Global Wealth Management – Privatbanker (Lugano)",
-        "fr": "Gestion mondiale de patrimoine – banquier privé (Lugano)"
+        "fr": "Global Wealth Management – Private Banker (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -180,6 +182,7 @@
         "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano",
         "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
         "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano",
+        "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
         "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
       ],
       "previousSlugsByLocale": {
@@ -195,11 +198,13 @@
           "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano"
         ],
         "fr": [
+          "gestion-mondiale-de-patrimoine-banquier-prive-lugano-banca-del-sempione-lugano",
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
         ]
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -274,6 +279,7 @@
       },
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "currency": "CHF",

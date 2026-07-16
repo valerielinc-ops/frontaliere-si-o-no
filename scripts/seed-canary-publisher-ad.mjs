@@ -163,6 +163,9 @@ async function main() {
     sectors: [],
     cantonFilter: null,
     frequency: 'daily',
+    // Deliberate operator-picked cadence, not inferred — pin it so the
+    // engagement-tier engine never re-tiers the canary away from daily.
+    frequencyOverride: true,
     locale: 'it',
     // Job-specific scope: this alert fires ONLY for the canary job.
     specificJobId: projectedJobId,

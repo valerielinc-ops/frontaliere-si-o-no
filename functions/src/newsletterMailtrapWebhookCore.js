@@ -4,6 +4,7 @@ import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
+import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -19,10 +20,6 @@ import { instantReactivationFields } from './lib/subscriberReactivation.js';
  * newsletter_subscribers/{email}/campaign_deliveries/{campaign-id}
  * newsletter_subscribers/{email} (status updates: bounced, unsubscribed, etc.)
  */
-
-function normalizeEmail(value) {
- return String(value || '').trim().toLowerCase();
-}
 
 // ── Event type mapping (Mailtrap → normalized types) ────────
 
@@ -53,7 +50,7 @@ function extractCampaignId(data) {
 // ── Persist a single event to Firestore ─────────────────────
 
 export async function persistMailtrapEvent(db, eventData) {
- const email = normalizeEmail(eventData.email);
+ const email = normalizeEmailAddress(eventData.email);
  if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
 
  const type = mapMailtrapEvent(eventData.event);
