@@ -22,6 +22,7 @@ import {
  careClusterSlug,
  type JobCareClusterKey,
 } from './jobEditorialLanding';
+import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 
 type SupportedLocale = CantonLocale;
 
@@ -458,13 +459,19 @@ export function resolveSearchConsoleCompatTarget(
  // Event-detail leaves (past the noindex grace window, or dropped pre-emptively on
  // reschedule/cancellation — see EVENTS_SECTION_PATTERN comment above). match[0] IS
  // already the canton hub root (pattern is anchored through the trailing slash after
- // the canton segment), so no further path construction is needed.
+ // the canton segment), so no further path construction is needed. The canton hub
+ // is only emitted when that canton has an upcoming event THIS build (eventsSeoPagesPlugin
+ // groups from upcomingEvents), so unlike the profession-canton/pagination self-maps
+ // above it has no universal per-canton guarantee — fallbackPath lets the consuming
+ // plugin gap-fill to the Swiss-wide index (EVENTS_INDEX_PATH), which IS unconditional
+ // whenever any event exists at all (see review finding on PR #4252).
  const eventsMatch = EVENTS_SECTION_PATTERN.exec(path);
  if (eventsMatch) {
  return {
  canonicalPath: eventsMatch[0],
  kind: 'legacy',
  locale,
+ fallbackPath: `${EVENTS_INDEX_PATH[locale]}/`,
  };
  }
 

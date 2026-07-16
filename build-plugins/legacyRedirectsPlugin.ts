@@ -495,9 +495,24 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
  const from = normalize(String(compatPathRaw || ''));
+ // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
+ // unconditionally emitted (e.g. an events canton hub only exists when that canton
+ // has an upcoming event THIS build — see fallbackPath doc in searchConsoleCompat.ts).
+ // This plugin runs in closeBundle() AFTER eventsSeoPagesPlugin (vite.config.ts plugin
+ // order), so distDir already reflects this build's real output — verify before
+ // redirecting there, falling back to the resolver-provided fallbackPath (the
+ // Swiss-wide events index, unconditionally emitted whenever any event exists) rather
+ // than pointing a bridge page at another 404. Must run BEFORE the self-reference
+ // check below, mirroring cfHot404BridgePlugin.ts's identical gap-fill: an unresolved
+ // fallback can otherwise land back on `from` itself.
+ let to = resolution.canonicalPath;
+ if (resolution.fallbackPath) {
+ const targetFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ if (!fs.existsSync(targetFile)) to = resolution.fallbackPath;
+ }
  // Skip self-references (normalize strips trailing slash, canonicalPath may have it)
  const fromNorm = from.replace(/\/+$/, '');
- const toNorm = resolution.canonicalPath.replace(/\/+$/, '');
+ const toNorm = to.replace(/\/+$/, '');
  if (from === '/' || fromNorm === toNorm) continue;
  // Skip job paths — handled by jobsSeoPagesPlugin with enriched content, EXCEPT
  // search-combo/pagination shapes which no plugin ever bridges (see comment above).
@@ -506,7 +521,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  fs.mkdirSync(outDir, { recursive: true });
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
  if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
- const html = buildCompatHtml(from, resolution.canonicalPath, resolution.kind);
+ const html = buildCompatHtml(from, to, resolution.kind);
  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
  const flatPath = from.replace(/\/+$/, '');
  if (flatPath) {
