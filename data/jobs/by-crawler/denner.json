@@ -1751,7 +1751,7 @@
       "slug": "assistant-adjoint-assistante-adjointe-denner-sa-nyon",
       "slugByLocale": {
         "it": "assistant-adjoint-assistante-adjointe-denner-sa-nyon",
-        "en": "assistant-assistant-assistant-denner-nyon",
+        "en": "assistant-assistant-assistant-denner-sa-nyon",
         "de": "assistent-adjoint-assistante-adjointe-denner-sa-nyon-ntvc2a",
         "fr": "assistant-adjoint-assistante-adjointe-denner-sa-nyon-ntvc2a"
       },
@@ -1816,10 +1816,14 @@
         ],
         "fr": [
           "assistant-adjoint-assistante-adjointe-denner"
+        ],
+        "en": [
+          "assistant-assistant-assistant-denner-nyon"
         ]
       },
       "previousSlugs": [
-        "assistant-adjoint-assistante-adjointe-denner"
+        "assistant-adjoint-assistante-adjointe-denner",
+        "assistant-assistant-assistant-denner-nyon"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -1926,10 +1930,10 @@
       "id": "denner-1b7e3973d6bd",
       "slug": "venditore-nel-salario-orario-denner-steckborn",
       "slugByLocale": {
-        "it": "venditore-nel-salario-orario-denner-steckborn",
-        "en": "seller-in-the-hourly-wage-denner-steckborn",
+        "it": "venditore-nel-salario-orario-migros-ticino-steckborn",
+        "en": "seller-in-the-hourly-wage-migros-ticino-steckborn",
         "de": "verkaufer-in-im-stundenlohn-denner-steckborn",
-        "fr": "vendeur-dans-le-salaire-horaire-denner-steckborn"
+        "fr": "vendeur-dans-le-salaire-horaire-migros-ticino-steckborn"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1992,16 +1996,20 @@
           "verkaufer-in-im-stundenlohn-denner"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-steckborn"
+          "verkaufer-in-im-stundenlohn-denner-steckborn",
+          "seller-in-the-hourly-wage-denner-steckborn"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-steckborn"
+          "verkaufer-in-im-stundenlohn-denner-steckborn",
+          "vendeur-dans-le-salaire-horaire-denner-steckborn"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-steckborn"
+        "verkaufer-in-im-stundenlohn-denner-steckborn",
+        "seller-in-the-hourly-wage-denner-steckborn",
+        "vendeur-dans-le-salaire-horaire-denner-steckborn"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2306,9 +2314,9 @@
       "id": "denner-2083dfc179b9",
       "slug": "venditore-venditore-denner-renens-vd",
       "slugByLocale": {
-        "it": "venditore-venditore-denner-renens-vd",
-        "en": "seller-seller-denner-renens-vd",
-        "de": "verkaufer-verkaufer-denner-renens-vd",
+        "it": "venditore-venditore-denner-sa-renens-vd",
+        "en": "seller-seller-denner-sa-renens-vd",
+        "de": "verkaufer-verkaufer-denner-sa-renens-vd",
         "fr": "vendeur-vendeuse-denner-renens-vd"
       },
       "company": "Denner",
@@ -2385,14 +2393,18 @@
           "vendeur-vendeuse-denner"
         ],
         "en": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "seller-seller-denner-renens-vd"
         ],
         "de": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "verkaufer-verkaufer-denner-renens-vd"
         ]
       },
       "previousSlugs": [
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "seller-seller-denner-renens-vd",
+        "verkaufer-verkaufer-denner-renens-vd"
       ]
     },
     {

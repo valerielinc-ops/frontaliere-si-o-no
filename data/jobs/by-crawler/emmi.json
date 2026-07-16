@@ -8161,12 +8161,12 @@
     },
     {
       "id": "emmi-a90992a237ff",
-      "slug": "tecnologia-del-latte-di-apprendista-cfc-2027-emmi-saignelegier-jura",
+      "slug": "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura",
       "slugByLocale": {
         "fr": "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch",
-        "it": "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2",
-        "en": "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2",
-        "de": "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2"
+        "it": "apprendista-tecnologo-del-latte-afc-2027-emmi-saignelegier-jura",
+        "en": "apprentice-dairy-technologist-efz-2027-emmi-saignelegier-jura",
+        "de": "lernender-milchtechnologe-efz-2027-emmi-saignelegier-jura"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8258,9 +8258,6 @@
           "auszubildender-milchtechnologe-cfc-2027-emmi-courgenay-jura",
           "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch-2",
           "auszubildender-milchtechnologe-cfc-2027-emmi-saignelegier-jura"
-        ],
-        "fr": [
-          "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
         ]
       },
       "previousSlugs": [
@@ -8514,9 +8511,6 @@
           "apprentice-milk-technologist-cfc-2026-emmi-saignelegier",
           "lernende-r-milchtechnologe-in-efz-2026-emmi-saignelegier",
           "apprenti-e-technologue-du-lait-cfc-2026-emmi-ch"
-        ],
-        "fr": [
-          "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.923Z",
@@ -8531,9 +8525,7 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emmi-331988334e04",
@@ -8608,9 +8600,6 @@
           "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
         ],
         "de": [
-          "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
-        ],
-        "fr": [
           "apprenti-e-technologue-du-lait-cfc-2027-emmi-ch"
         ]
       },
