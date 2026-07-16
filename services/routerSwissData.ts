@@ -407,6 +407,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'iniziativa-alimentazione-sicura-voto': { it: 'iniziativa-alimentazione-sicura-voto', en: 'secure-food-supply-initiative-vote', de: 'initiative-sichere-ernaehrung-abstimmung', fr: 'initiative-alimentation-sure-vote' },
  'giugno-pernottamenti-calo': { it: 'giugno-pernottamenti-calo', en: 'june-hotel-stays-decline', de: 'juni-hotelbuchungen-ruckgang', fr: 'nuitees-hotelieres-en-juin-decroissance' },
  'intesa-telelavoro-frontalieri-svizzera-italia': { it: 'intesa-telelavoro-frontalieri-svizzera-italia', en: 'cross-border-telework-agreement-switzerland-italy', de: 'telearbeit-vereinbarung-grenzganger-schweiz-italien', fr: 'accord-teletravail-frontaliers-suisse-italie' },
+ 'attacco-informatico-iwb-basilea': { it: 'attacco-informatico-iwb-basilea', en: 'cyber-attack-iwb-basel', de: 'cyber-angriff-iwb-basel', fr: 'cyber-attaque-iwb-bale' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

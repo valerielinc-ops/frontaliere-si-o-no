@@ -1153,6 +1153,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Telearbeit Grenzgänger: Vereinbarung ab 2024 in Kraft',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Grenzgänger können bis zu 25% der Jahreszeit ohne Steueränderungen von zu Hause aus arbeiten. Hier sind die Details des Abkommens zwischen der Schweiz und Italien.',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'Blick auf Lugano und modernes Büro für Fachkräfte',
+    'blog.article.attacco-informatico-iwb-basilea.title': 'Cyberangriff auf IWB: 40\'000 Kunden in Basel involviert',
+    'blog.article.attacco-informatico-iwb-basilea.excerpt': 'Datenverletzung bei einem externen Anbieter des Basler Energieversorgers. Was ist passiert und welche Informationen wurden gestohlen.',
+    'blog.article.attacco-informatico-iwb-basilea.imageAlt': 'IWB Energieversorgungsunternehmen in Basel',
 };
 
 export default blogMetaChDe;
