@@ -8528,6 +8528,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berne ne veut pas créer de frictions avec l\'Italie | RSE',
     'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Suisse ne veut pas créer de frictions avec l\'Italie, mais veut plutôt collaborer et respecter la souveraineté de notre pays.',
     'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'Les frontières suisses et italiennes se rencontrent au Tessin, dans un contexte de collaboration et de respect mutuel.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Contrat Police : le Silp Cgil signe mais conteste les augmentations',
+    'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Le syndicat Silp Cgil signe le renouvellement du contrat de police mais dénonce des augmentations nettes inadéquates et une perte de pouvoir d\'achat pour les agents.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Uniforme de la police d\'État italienne dans un casier',
 };
 
 export default blogMetaFr;

@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3249,
+ "numberOfItems": 3250,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7924,7 +7924,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3246, "name": "Attacco informatico a IWB: 40'000 clienti coinv...", "url": `${BASE_URL}/articoli-frontaliere/attacco-informatico-iwb-basilea` },
           { "@type": "ListItem", "position": 3247, "name": "Frontalieri: richiesta la sospensione dell'impo...", "url": `${BASE_URL}/articoli-frontaliere/sospensione-riversamento-imposta-frontalieri` },
           { "@type": "ListItem", "position": 3248, "name": "Di più: Rappresentante per il commercio USA elo...", "url": `${BASE_URL}/articoli-frontaliere/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri` },
-          { "@type": "ListItem", "position": 3249, "name": "Di più Fondazione consumatori: più supporto ban...", "url": `${BASE_URL}/articoli-frontaliere/banche-svizzere-truffe-online` }
+          { "@type": "ListItem", "position": 3249, "name": "Di più Fondazione consumatori: più supporto ban...", "url": `${BASE_URL}/articoli-frontaliere/banche-svizzere-truffe-online` },
+          { "@type": "ListItem", "position": 3250, "name": "Contratto Polizia: il Silp Cgil firma ma contes...", "url": `${BASE_URL}/articoli-frontaliere/contratto-polizia-silp-cgil-critiche` }
  ]
  },
  {

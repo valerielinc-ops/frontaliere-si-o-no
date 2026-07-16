@@ -4556,6 +4556,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sospensione-riversamento-imposta-frontalieri': { name: 'Frontalieri e Fisco', path: '/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/', parent: 'blog' },
     'blog-rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': { name: 'Economia', path: '/articoli-svizzera/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri/', parent: 'blog' },
     'blog-banche-svizzere-truffe-online': { name: 'Banche svizzere e truffe online', path: '/articoli-svizzera/banche-svizzere-truffe-online/', parent: 'blog' },
+    'blog-contratto-polizia-silp-cgil-critiche': { name: 'Contratto Polizia', path: '/articoli-frontaliere/contratto-polizia-silp-cgil-critiche', parent: 'blog' },
  };
 
  const info = sectionNames[section];

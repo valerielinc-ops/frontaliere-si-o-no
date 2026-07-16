@@ -25622,6 +25622,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'contratto-polizia-silp-cgil-critiche',
+ category: 'novita',
+ date: '2026-07-16T09:24:04.561Z',
+ image: '/images/blog/contratto-polizia-silp-cgil-critiche.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8528,6 +8528,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berna non vuole creare attriti con l\'Italia | RSI',
     'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese.',
     'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'La Svizzera e l\'Italia si incontrano al confine del Ticino, in un contesto di collaborazione e rispetto reciproco.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Contratto Polizia: il Silp Cgil firma ma contesta gli aumenti',
+    'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Il sindacato Silp Cgil firma il rinnovo del contratto di Polizia ma denuncia aumenti netti inadeguati e una perdita di potere d\'acquisto per gli agenti.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Divisa della Polizia di Stato in un armadietto',
 };
 
 export default blogMetaIt;
