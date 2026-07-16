@@ -44,6 +44,7 @@ import {
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 function esc(s: unknown): string {
   return String(s ?? '')
@@ -182,7 +183,7 @@ ${sourcesHtml}
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

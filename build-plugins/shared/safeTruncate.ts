@@ -38,3 +38,17 @@ export function stripLoneSurrogates(input: string): string {
     '',
   );
 }
+
+/** Google's practical limit for JSON-LD `description` values. */
+export const MAX_ARTICLE_JSONLD_DESCRIPTION_CHARS = 5000;
+
+/**
+ * Guard a `description` value bound for an `Article` JSON-LD object: a
+ * blank/whitespace-only input returns `undefined` (so `JSON.stringify` drops
+ * the key entirely rather than emitting `""`), a non-blank one is capped at
+ * `MAX_ARTICLE_JSONLD_DESCRIPTION_CHARS` via `truncateCodeUnits`.
+ */
+export function guardArticleJsonLdDescription(input: string): string | undefined {
+  const trimmed = input.trim();
+  return trimmed ? truncateCodeUnits(trimmed, MAX_ARTICLE_JSONLD_DESCRIPTION_CHARS) : undefined;
+}

@@ -54,6 +54,7 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
 import { formatUpdatedDate } from './shared/humanDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
@@ -483,7 +484,7 @@ function renderPage(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

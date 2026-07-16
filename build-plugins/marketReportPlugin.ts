@@ -46,6 +46,7 @@ import { CITY_HUB_KEYS } from './cityJobsHub';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -553,7 +554,7 @@ function renderReport(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

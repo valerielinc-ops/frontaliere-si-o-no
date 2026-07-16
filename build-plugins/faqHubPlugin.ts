@@ -51,6 +51,7 @@ import {
 import type { FaqHubCategory, FaqHubEntry, FaqHubLocale, FaqHubLocalizedString } from '../data/faq-hub';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 // ── Locale-specific static copy ────────────────────────────────────
 
@@ -419,7 +420,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

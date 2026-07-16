@@ -96,6 +96,7 @@ import {
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -453,7 +454,7 @@ function renderPage(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

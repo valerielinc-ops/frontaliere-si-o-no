@@ -60,6 +60,7 @@ import {
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -788,7 +789,7 @@ function renderReport(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

@@ -93,6 +93,7 @@ import {
 } from './shared/employerCardHtml';
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -370,7 +371,7 @@ function renderPage(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: copy.h1,
-    description: copy.description,
+    description: guardArticleJsonLdDescription(copy.description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
