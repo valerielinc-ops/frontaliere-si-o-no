@@ -2269,6 +2269,11 @@ Rules:
  'results.net.eur': 'Net IT (EUR)',
  'results.taxes.ch': 'Swiss Taxes',
  'results.taxes.it': 'Italian Taxes',
+ 'results.jobBridge.title': 'Jobs in your salary range (±15%) in {canton}',
+ 'results.jobBridge.cta': 'See the jobs →',
+ 'input.professionPresetsLabel': 'Your profession',
+ 'jobBoard.salaryRangeFilter.active': 'Filtered by salary range: CHF {min} – {max}',
+ 'jobBoard.salaryRangeFilter.clear': 'Remove filter',
  'results.methodology.title': 'Calculation methodology:',
  'results.methodology.description': 'Based on official 2026 rates from the Swiss Federal Tax Administration (FTA) and Italian Revenue Agency (Agenzia delle Entrate). Social contributions: AVS 5.3%, AD 1.1%, AINF 0.7%, IGM 0.8% (source: FSIO). Withholding tax: Canton Ticino A/B/C/H tables. IRPEF: 2026 brackets with €10,000 exemption for new cross-border workers (CH-IT Agreement 2023).',
 
@@ -3455,6 +3460,9 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3610.title': 'Calculator and job board, connected',
+  'whatsNew.v3610.calcJobBridge.title': 'Estimated net pay on every job listing + direct link to the calculator',
+  'whatsNew.v3610.calcJobBridge.desc': 'Every job listing now shows an estimated monthly net pay (cross-border and CH resident). One tap takes you to the calculator prefilled with that salary — and from the result you can jump back to jobs within your ±15% range. New quick profession chips in the calculator.',
   'whatsNew.v3600.title': 'Per-canton tax precision',
   'whatsNew.v3600.cantonWithholding.title': 'Real per-canton withholding rate in the salary comparator',
   'whatsNew.v3600.cantonWithholding.desc': 'The Swiss net-by-canton figure now uses the real tax burden of each of the 26 cantons\' capital cities (official ESTV data), instead of one generic rate for every canton.',

@@ -2272,6 +2272,11 @@ Règles :
  'results.net.eur': 'Net IT (EUR)',
  'results.taxes.ch': 'Impôts suisses',
  'results.taxes.it': 'Impôts italiens',
+ 'results.jobBridge.title': 'Offres dans votre fourchette salariale (±15%) à {canton}',
+ 'results.jobBridge.cta': 'Voir les offres →',
+ 'input.professionPresetsLabel': 'Votre profession',
+ 'jobBoard.salaryRangeFilter.active': 'Filtré par fourchette salariale : CHF {min} – {max}',
+ 'jobBoard.salaryRangeFilter.clear': 'Supprimer le filtre',
  'results.methodology.title': 'Méthodologie de calcul :',
  'results.methodology.description': 'Selon les taux officiels 2026 de l\'Administration fédérale des contributions (AFC) et de l\'Agence des revenus italienne (Agenzia delle Entrate). Cotisations sociales : AVS 5.3%, AC 1.1%, LAA 0.7%, IJM 0.8% (source : OFAS). Impôt à la source : barèmes A/B/C/H du Canton du Tessin. IRPEF : tranches 2026 avec franchise de €10.000 pour les nouveaux frontaliers (Accord CH-IT 2023).',
 
@@ -3458,6 +3463,9 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3610.title': 'Calculateur et offres d\'emploi, connectés',
+  'whatsNew.v3610.calcJobBridge.title': 'Net estimé sur chaque offre d\'emploi + lien direct vers le calculateur',
+  'whatsNew.v3610.calcJobBridge.desc': 'Chaque offre d\'emploi affiche désormais un net mensuel estimé (frontalier et résident CH). Un tap vous amène au calculateur préremplit avec ce salaire — et depuis le résultat vous pouvez revenir aux offres dans votre fourchette de ±15%. Nouveaux chips rapides par profession dans le calculateur.',
   'whatsNew.v3600.title': 'Précision fiscale par canton',
   'whatsNew.v3600.cantonWithholding.title': 'Taux d\'imposition réel par canton dans le comparateur de salaires',
   'whatsNew.v3600.cantonWithholding.desc': 'Le salaire net suisse par canton utilise désormais la charge fiscale réelle du chef-lieu de chacun des 26 cantons (données officielles ESTV/AFC), au lieu d\'un taux générique identique pour tous.',

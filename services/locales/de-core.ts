@@ -2272,6 +2272,11 @@ Regeln:
  'results.net.eur': 'Netto IT (EUR)',
  'results.taxes.ch': 'Schweizer Steuern',
  'results.taxes.it': 'Italienische Steuern',
+ 'results.jobBridge.title': 'Stellen in deiner Gehaltsspanne (±15%) in {canton}',
+ 'results.jobBridge.cta': 'Stellen ansehen →',
+ 'input.professionPresetsLabel': 'Dein Beruf',
+ 'jobBoard.salaryRangeFilter.active': 'Gefiltert nach Gehaltsspanne: CHF {min} – {max}',
+ 'jobBoard.salaryRangeFilter.clear': 'Filter entfernen',
  'results.methodology.title': 'Berechnungsmethodik:',
  'results.methodology.description': 'Basierend auf den offiziellen Sätzen 2026 der Eidgenössischen Steuerverwaltung (ESTV) und der italienischen Steuerbehörde (Agenzia delle Entrate). Sozialabgaben: AHV 5.3%, ALV 1.1%, UVG 0.7%, KTG 0.8% (Quelle: BSV). Quellensteuer: Kanton Tessin Tarife A/B/C/H. IRPEF: Steuerstufen 2026 mit €10.000 Freibetrag für neue Grenzgänger (CH-IT Abkommen 2023).',
 
@@ -3458,6 +3463,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3610.title': 'Rechner und Stellenbörse, verbunden',
+  'whatsNew.v3610.calcJobBridge.title': 'Geschätzter Nettolohn auf jeder Stellenanzeige + direkter Link zum Rechner',
+  'whatsNew.v3610.calcJobBridge.desc': 'Jede Stellenanzeige zeigt jetzt einen geschätzten monatlichen Nettolohn (Grenzgänger und CH-Einwohner). Ein Tap führt dich zum vorausgefüllten Rechner — und vom Ergebnis aus kannst du zu Stellen in deiner ±15%-Spanne zurückspringen. Neue Schnellauswahl-Chips nach Beruf im Rechner.',
   'whatsNew.v3600.title': 'Steuerpräzision pro Kanton',
   'whatsNew.v3600.cantonWithholding.title': 'Realer kantonaler Quellensteuersatz im Lohnvergleich',
   'whatsNew.v3600.cantonWithholding.desc': 'Der Schweizer Nettolohn pro Kanton verwendet jetzt die reale Steuerbelastung des Hauptorts jedes der 26 Kantone (offizielle ESTV-Daten) statt eines generischen Satzes für alle Kantone.',
