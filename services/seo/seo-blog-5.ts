@@ -49719,6 +49719,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contratto-polizia-silp-cgil-critiche': {
+    title: 'Contratto Polizia: il Silp Cgil firma ma contesta gli aumenti',
+    description: 'Il Silp Cgil firma il nuovo contratto Polizia ma contesta aumenti netti insufficienti contro l\'inflazione e ritardi nei pagamenti degli straordinari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contratto, polizia, silp, cgil',
+    ogTitle: 'Contratto Polizia: il Silp Cgil firma ma attacca gli aumenti',
+    ogDescription: 'Il sindacato Silp Cgil firma il rinnovo del contratto Polizia denunciando aumenti inadeguati e una perdita di potere d\'acquisto per il personale.',
+    canonicalPath: '/articoli-frontaliere/contratto-polizia-silp-cgil-critiche',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contratto Polizia: il Silp Cgil firma ma contesta gli aumenti",
+      "description": "Il Silp Cgil firma il nuovo contratto Polizia ma contesta aumenti netti insufficienti contro l'inflazione e ritardi nei pagamenti degli straordinari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/contratto-polizia-silp-cgil-critiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Divisa della Polizia di Stato in un armadietto"
+      },
+      "datePublished": "2026-07-16T09:24:04+00:00",
+      "dateModified": "2026-07-16T09:24:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contratto-polizia-silp-cgil-critiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

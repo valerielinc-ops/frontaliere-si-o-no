@@ -8526,6 +8526,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.berna-non-crea-attriti-con-litalia.title': 'Bern will keine Reibungen mit Italien schaffen | RSI',
     'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'Die Schweiz will keine Spannungen mit Italien schaffen, sondern kooperieren und die Souveränität unseres Landes respektieren.',
     'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'Die Schweiz und Italien treffen sich an der Grenze von Ticino, in einem Kontext der Zusammenarbeit und gegenseitigen Achtung.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Polizeivertrag: Die Silp Cgil unterzeichnet, bestreitet jedoch die Erhöhungen',
+    'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Die Gewerkschaft Silp Cgil unterzeichnet die Erneuerung des Polizeivertrags, klagt jedoch unangemessene Nettoerhöhungen und einen Kaufkraftverlust für die Agenten an.',
+    'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Uniform der italienischen Staatspolizei in einem Spind',
 };
 
 export default blogMetaDe;
