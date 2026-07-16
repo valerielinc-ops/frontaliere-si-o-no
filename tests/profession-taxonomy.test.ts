@@ -102,4 +102,28 @@ describe('taxonomy invariants', () => {
       expect(matchProfession(id), id).toBe(id);
     }
   });
+
+  it('every alias resolves back to its own entry (collision guard)', () => {
+    // Regression guard: an alias added to one entry can silently steal a
+    // query from another entry via tokenMatchesAlias's typing-prefix rule
+    // (a ≥5-char token fuzzy-matches any alias whose stem starts with the
+    // token's stem) combined with the longest-alias tie-break. Feeding
+    // every alias back through matchProfession catches that shape whenever
+    // the taxonomy changes, not just at authoring time.
+    //
+    // 'zimmermann' and 'carpenter' are literally listed as aliases of BOTH
+    // falegname and carpentiere — German "Zimmermann"/English "carpenter"
+    // legitimately span wood-carpentry and metal-carpentry trades, and
+    // falegname (declared first) wins the tie. Pre-existing curated
+    // ambiguity, unrelated to any change in this file — allowlisted rather
+    // than resolved, since picking a single owner is a domain judgment
+    // call outside this test's scope.
+    const KNOWN_AMBIGUOUS_ALIASES = new Set(['zimmermann', 'carpenter']);
+    for (const entry of PROFESSION_TAXONOMY) {
+      for (const alias of entry.aliases) {
+        if (KNOWN_AMBIGUOUS_ALIASES.has(alias)) continue;
+        expect(matchProfession(alias), `${entry.id} alias "${alias}"`).toBe(entry.id);
+      }
+    }
+  });
 });

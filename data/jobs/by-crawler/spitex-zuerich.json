@@ -1,85 +1,7 @@
 {
   "crawlerKey": "spitex-zuerich",
-  "assembledAt": "2026-07-15T22:18:12.450Z",
+  "assembledAt": "2026-07-16T11:23:15.550Z",
   "jobs": [
-    {
-      "id": "spitex-zuerich-5f5195d70b7e",
-      "slug": "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich",
-      "slugByLocale": {
-        "it": "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich",
-        "en": "stoma-continence-therapist-in-60-100-a-spitex-zurich-zurich",
-        "de": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
-        "fr": "stoma-continence-therapeute-dans-60-100-a-spitex-zurich-zurich"
-      },
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Stoma- & Kontinenztherapeut/-in 60-100% (a)",
-      "titleByLocale": {
-        "it": "Stoma & continence terapeuta/-in 60-100% (a)",
-        "en": "Stoma & continence therapist/-in 60-100% (a)",
-        "de": "Stoma- & Kontinenztherapeut/-in 60-100% (a)",
-        "fr": "Stoma & continence thérapeute/-dans 60-100% (a)"
-      },
-      "description": "Stoma- & Kontinenztherapeut/-in 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-      "descriptionByLocale": {
-        "it": "Stoma & continence terapeuta/-in 60-100% (a) a Spitex Zurich, Zurigo (ZH), Svizzera.\n• Ore lavorative: part-time\n• Ubicazione: Zurigo (ZH)\n• Area: cura ambulatoria e pulizia\n• Applicazione tramite il softgarden solofy. Carriera del portale Spitex Zurich",
-        "en": "Stoma & continence therapist/-in 60-100% (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n• Working hours: part-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and housekeeping\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "de": "Stoma- & Kontinenztherapeut/-in 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "fr": "Stoma & continence thérapeute/-dans 60-100% (a) à Spitex Zurich, Zurich (ZH), Suisse.\n• Horaires de travail: à temps partiel\n• Lieu: Zurich (ZH)\n• Zone: soins ambulatoires et entretien ménager\n• Application via le jardinier seulement. portail carrière de Spitex Zurich"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/y1021j9fob6lxa62gi6xmosqiof8itr",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:09.956Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/y1021j9fob6lxa62gi6xmosqiof8itr",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
-        "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
-          "stoma-continence-terapeuta-in-60-100-a-spitex-zurich-zurich"
-        ],
-        "en": [
-          "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
-        ],
-        "fr": [
-          "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T13:11:19.697Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "spitex-zuerich-a7681682cef3",
       "slug": "apn-cura-mentale-80-100-a-spitex-zurich-zurich",
@@ -112,7 +34,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8ppyds219vjmye1fory75j5tt413uy7",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:09.127Z",
+      "crawledAt": "2026-07-16T11:23:12.874Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,7 +125,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/h5ckt43pibs9l71bqg0t16niag5z31f",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:08.274Z",
+      "crawledAt": "2026-07-16T11:23:11.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -284,7 +206,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:07.134Z",
+      "crawledAt": "2026-07-16T11:23:10.567Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -362,12 +284,13 @@
         "de": "Mitarbeitende Hauswirtschaft und Betreuung 50-70% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
         "fr": "Personnel de nettoyage et de soins à 50-70 % (a) chez Spitex Zurich, Zurich (ZH), Suisse.\n• Horaires : temps partiel\n• Lieu : Zurich (ZH)\n• Zone : soins ambulatoires et entretien ménager\n• Candidature via le portail onlyfy.jobs carrière de jardin souple de Zurich"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:06.276Z",
+      "crawledAt": "2026-07-16T11:23:09.219Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -438,12 +361,13 @@
         "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Demenz 60-100% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
         "fr": "Dipl. Spécialiste de la prise en charge des cas – démence 60-100% (a) à Spitex Zurich, Zurich (ZH), Suisse.\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/ui3t7tv680e4hueff634rq8p897izdc",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:03.951Z",
+      "crawledAt": "2026-07-16T11:23:06.410Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -520,7 +444,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/xreva9sck6cy0lyyyssq5d0jxpn1eje",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:03.135Z",
+      "crawledAt": "2026-07-16T11:23:05.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,7 +521,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/wr557vv4v1xzvpakrhpkueo4p88kupo",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:01.967Z",
+      "crawledAt": "2026-07-16T11:23:04.108Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -656,7 +580,7 @@
       "companyDomain": "spitex-zuerich.ch",
       "title": "Dipl. Pflegefachfrau/-mann – Nachtspitex 60-80% (a)",
       "titleByLocale": {
-        "it": "Dipl. Nursing Professional – Spitex notturno 60-80% (a)",
+        "it": "Dipl. Pflegefachfrau/-mann – Nachtspitex 60-80% (a)",
         "en": "Dipl. Nursing Professional – Night Spitex 60-80% (a)",
         "de": "Dipl. Pflegefachfrau/-mann – Nachtspitex 60-80% (a)",
         "fr": "Dipl. professionnel des soins infirmiers – Spitex de nuit 60-80% (a)"
@@ -668,12 +592,13 @@
         "de": "Dipl. Pflegefachfrau/-mann – Nachtspitex 60-80% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
         "fr": "Spécialiste des soins infirmiers – Nachtspitex 60-80% (a) à Spitex Zurich, Zurich (ZH), Suisse.\n• Temps de travail: temps partiel\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/n3ypwiwc2nzn8r2qevxy4iib18t1d7i",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:18:00.768Z",
+      "crawledAt": "2026-07-16T11:23:02.728Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -738,38 +663,38 @@
       }
     },
     {
-      "id": "spitex-zuerich-185526464b2a",
-      "slug": "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich",
+      "id": "spitex-zuerich-4090b76ef7ba",
+      "slug": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
-        "it": "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich",
-        "en": "health-specialist-fage-evening-service-20-80-a-spitex-zurich-zurich",
-        "de": "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich",
-        "fr": "specialiste-de-la-sante-fage-service-en-soiree-20-80-a-spitex-zurich-zurich"
+        "de": "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
+        "en": "project-manager-ceo-s-office-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
       "companyDomain": "spitex-zuerich.ch",
-      "title": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 20-80% (a)",
+      "title": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a)",
       "titleByLocale": {
-        "it": "Specialista della Salute (FaGe) – Turno serale 20-80% (a)",
-        "en": "Health specialist (FaGe) – evening service 20-80% (a)",
-        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 20-80% (a)",
-        "fr": "Spécialiste de la santé (FaGe) – service en soirée 20-80% (a)"
+        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a)",
+        "it": "Dipl. Pflegefachfrau/-mann con Fallführung – Psychiatrie 60% (a)",
+        "en": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a)",
+        "fr": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a)"
       },
-      "description": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 20-80% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+      "description": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
       "descriptionByLocale": {
-        "it": "Specialista della salute (FaGe) – servizio serale 20-80% (a) presso Spitex Zurigo, Zurigo (ZH), Svizzera.\n• Orario di lavoro: part-time\n• Posizione: Zurigo (ZH)\n• Area: cura ambulatoria e amministrazione domestica\n• Applicazione tramite il portale di carriera softgarden onlyfy.jobs di Spitex Zurigo",
-        "en": "Health specialist (FaGe) – evening service 20-80% (a) at Spitex Zurich, Zurich (ZH), Switzerland.\n• Working time: part-time\n• Location: Zurich (ZH)\n• Area: ambulatory care and home administration\n• Application via the softgarden onlyfy.jobs career portal of Spitex Zurich",
-        "de": "Fachfrau/-mann Gesundheit (FaGe) – Abenddienst 20-80% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
-        "fr": "Spécialiste de la santé (FaGe) – service du soir 20-80% (a) à Spitex Zurich, Zurich (ZH), Suisse.\n• Temps de travail: temps partiel\n• Lieu: Zurich (ZH)\n• Domaine: soins ambulatoires et administration à domicile\n• Application via le portail de carrière softgarden onlyfy.jobs de Spitex Zurich"
+        "de": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "it": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "en": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich",
+        "fr": "Dipl. Pflegefachfrau/-mann mit Fallführung – Psychiatrie 60% (a) bei Spitex Zürich, Zürich (ZH), Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zürich (ZH)\n• Bereich: Ambulante Pflege und Hauswirtschaft\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Spitex Zürich"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
+      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0ltsce1nk44swtiyyxom5pdobyx4j1p",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:06:12.788Z",
+      "crawledAt": "2026-07-16T11:23:01.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -782,42 +707,36 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/dydz9op8m3siff0rexrqjqgljybmwei",
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/0ltsce1nk44swtiyyxom5pdobyx4j1p",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich",
-        "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zurich",
-        "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich",
-          "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zurich",
-          "specialista-della-salute-fage-turno-serale-20-80-a-spitex-zurich-zurich"
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich"
         ],
-        "en": [
-          "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-fage-abenddienst-20-80-a-spitex-zuerich-zurich"
+        "de": [
+          "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-03T12:39:16.716Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-mit-fallfuhrung-psychiatrie-60-a-spitex-zuerich-zurich"
+      ],
+      "salaryMin": 44100,
+      "salaryMax": 66900,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
+          "minValue": 44100,
+          "maxValue": 66900,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-07-16T11:23:01.306Z"
     }
   ]
 }

@@ -1,18 +1,19 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-07-15T22:17:30.470Z",
+  "generatedAt": "2026-07-16T11:18:22.409Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9717,
-  "avgDurationMs": 9717,
+  "durationMs": 8036,
+  "avgDurationMs": 8036,
   "durationHistory": [
-    9717
+    8036
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "novelis-4f0b91457927",
       "slug": "mecanicien-de-maintenance-novelis-ch",
@@ -39,17 +40,16 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:17:22.223Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-07-16T11:18:15.731Z",
+      "firstSeenAt": "2026-07-15T22:17:22.223Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "novelis-28ac4c763380",
       "slug": "finance-lead-m-f-d-digital-transformation-business-projects-novelis-ch",
@@ -76,7 +76,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52696/finance-lead-%28m-f-d%29-%e2%80%93-digital-transformation-%26-business-projects/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:17:23.883Z",
+      "crawledAt": "2026-07-16T11:18:16.945Z",
       "firstSeenAt": "2026-07-09T22:26:43.200Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52701/stagiaire-communication-visuelle/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:17:23.045Z",
+      "crawledAt": "2026-07-16T11:18:16.360Z",
       "firstSeenAt": "2026-07-08T11:23:08.808Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -148,7 +148,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52695/internship-%28m-f-d%29-human-resources-%2860%25-80%26%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:17:24.827Z",
+      "crawledAt": "2026-07-16T11:18:17.534Z",
       "firstSeenAt": "2026-07-08T11:23:10.202Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52694/stagiaire/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:17:25.567Z",
+      "crawledAt": "2026-07-16T11:18:18.162Z",
       "firstSeenAt": "2026-07-08T11:23:10.893Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:17:26.382Z",
+      "crawledAt": "2026-07-16T11:18:18.781Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -256,7 +256,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52551/industrial-fluids-process-engineer/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:17:27.102Z",
+      "crawledAt": "2026-07-16T11:18:19.334Z",
       "firstSeenAt": "2026-07-08T11:23:13.625Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -292,7 +292,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52223/electricien---automaticien/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:17:27.926Z",
+      "crawledAt": "2026-07-16T11:18:19.917Z",
       "firstSeenAt": "2026-07-08T11:23:15.394Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {

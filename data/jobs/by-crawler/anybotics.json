@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anybotics",
-  "assembledAt": "2026-07-15T22:26:06.360Z",
+  "assembledAt": "2026-07-16T11:13:04.559Z",
   "jobs": [
     {
       "id": "anybotics-74337a3d76ea",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "en": "vp-system-architecture-anybotics-ch",
-        "de": "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "de": "vp-system-architecture-anybotics-zurich-switzerland",
         "fr": "vp-architecture-du-systeme-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Architettura del sistema VP",
         "en": "VP System Architecture",
-        "de": "VP Systemarchitektur",
+        "de": "VP System Architecture",
         "fr": "VP Architecture du système"
       },
       "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nAs VP of System Architecture, you will define the architectural direction for the next generation of ANYbotics robot platforms. You will shape how a shared modular foundation supports multiple robot variants, operational design domains, and future business models.\n\nThis is a senior, cross-functional role spanning the full technology spectrum, from AI and autonomy through hardware, software, mechatronics, functional safety, system integration, and factory industrialization. You will help determine how our robots evolve from strong individual products into a scalable family of platforms, balancing reuse, flexibility, performance, manufacturability, and long-term maintainability.\n\nThis role is not just about technical design. It is also about setting direction, driving alignment across teams, and helping the organisation make strong architectural decisions as we scale.\n\nMarket & Our Technology\n\nANYbotics is pioneering autonomous robotic platforms for industrial inspection and operations in challenging environments. From explosion-proof systems in oil and gas to agile robotic platforms for utilities and other industrial settings, our technology is built for environments where safety, reliability, and uptime are critical.\n\nSystem Architecture is central to how we scale. The challenge is not only to build great robots, but to create the modular architecture, interfaces, and platform strategy that allow multiple variants to be derived from a shared core. This includes anticipating future customer needs, new domains, certification requirements, and external integrations such as fleet management, predictive maintenance, and digital twins.\n\nWith the right architecture in place, ANYbotics can move faster, reuse more effectively, and expand into new markets without rebuilding from scratch each time.\n\nAbout us\n\nANYbotics is a leading robotics company specialising in advanced autonomous systems. With a successful Series B financing round closed and strong momentum in the market, we are entering an important phase of growth and international expansion.\n\nOur mission is to transform industrial inspection and operations through world-class robotics. We combine deep robotics expertise with real customer deployments in demanding industrial environments. This is an opportunity to join at a stage where the technology is proven, the ambition is high, and the architectural decisions made now will have a major impact on the company’s future.\n\nYour Contributions\n\n•\n Define and govern the reference system architecture across hardware and software domains focusing on modules interfaces\n\n•\n Build a modular platform strategy that enables multiple robot variants and operational domains to be derived from a shared architectural foundation\n\n•\n Drive architectural decisions on interfaces, middleware, data models, integration patterns, and the software backbone that supports future platform scaling\n\n•\n Define how reuse, configuration, and hardware-specific adaptation are handled so new variants can be developed without unnecessary redesign\n\n•\n Lead platform-level trade-offs across performance, agility, endurance, safety, manufacturability, and cost\n\n•\n Embed diagnostics, functional safety, cybersecurity, over-the-air updates, and certification requirements into the architecture from the outset\n\n•\n Partner with senior engineering leaders across software and hardware domains, and through the system engineering community to align on direction, influence execution, and translate long-term architecture into practical delivery\n\nYour Profile\n\n•\n MSc in Systems Engineering, Electronics, Robotics, Computer Science, or a related field\n\n•\n Significant experience in system architecture and modularity leadership within robotics, autonomous systems, medical devices, automotive, aerospace, or other complex mechatronic environments\n\n•\n Proven track record of architecting and evolving complex platforms rather than one-off systems\n\n•\n Experience defining modular architectures and enabling reuse across multiple product variants\n\n•\n Strong understanding of hardware and software co-design principles across sensors, actuators, compute, control systems, middleware, and power management\n\n•\n Good understanding of autonomy-related systems such as perception, localisation, navigation, motion planning, or fleet-level coordination\n\n•\n Experience with real-time systems, platform middleware, and system integration (V model) in complex industrial or safety-relevant environments\n\n•\n Ability to translate customer needs, business direction, and technical constraints into clear architectural decisions\n\n•\n Experience balancing performance, safety, manufacturability, scalability, and product maturity in real-world systems\n\n•\n Proven ability to influence across teams, drive alignment, and lead change without relying solely on formal authority\n\n•\n Strong communication and influence skills, sound judgement, and the ability to simplify complex architectural questions for a broad technical audience\n\n•\n Proven ability to translate company strategy and mid- to long-term technology vision into a clear, executable roadmap, along with effective governance to drive its execution.\n\nBonus Points\n\n•\n Experience with safety-critical or regulated robotic systems\n\n•\n Familiarity with Ex certification or related industrial safety constraints\n\n•\n Experience with large-scale simulation environments, digital twins, or platform-level validation frameworks\n\n•\n Track record of reducing time to market through platform reuse and stronger architectural discipline\n\n•\n Experience embedding certification and safety pathways into architectural frameworks\n\n•\n Experience supporting products that scale across multiple variants, deployment environments, or different operational design domains\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/anybotics/456ebeb5-37c3-4531-8bdf-ead40406eb49",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:03.466Z",
+      "crawledAt": "2026-07-16T11:13:01.677Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,13 +50,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vp-system-architecture-anybotics-ch",
+        "vp-systemarchitektur-anybotics-zurich-switzerland",
+        "architettura-del-sistema-vp-anybotics-zurich-switzerland",
         "vp-system-architecture-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vp-system-architecture-anybotics-ch"
+          "vp-system-architecture-anybotics-ch",
+          "architettura-del-sistema-vp-anybotics-zurich-switzerland"
         ],
         "de": [
+          "vp-systemarchitektur-anybotics-zurich-switzerland",
           "vp-system-architecture-anybotics-zurich-switzerland"
         ],
         "fr": [
@@ -64,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:18:39.699Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -109,7 +114,7 @@
       "url": "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:03.165Z",
+      "crawledAt": "2026-07-16T11:13:01.375Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-reinforcement-learning-engineer-anybotics-ch"
+        "senior-reinforcement-learning-engineer-anybotics-ch",
+        "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-reinforcement-learning-engineer-anybotics-ch"
+          "senior-reinforcement-learning-engineer-anybotics-ch",
+          "senior-reinforcement-learning-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-reinforcement-learning-engineer-anybotics-ch"
@@ -184,7 +191,7 @@
       "url": "https://jobs.lever.co/anybotics/16980988-bb5a-44f8-b688-ef7053de2899",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:02.863Z",
+      "crawledAt": "2026-07-16T11:13:01.073Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,11 +207,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-product-quality-engineer-anybotics-ch"
+        "senior-product-quality-engineer-anybotics-ch",
+        "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-quality-engineer-anybotics-ch"
+          "senior-product-quality-engineer-anybotics-ch",
+          "senior-product-quality-ingegnere-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-06T12:59:44.319Z",
@@ -253,7 +262,7 @@
       "url": "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:02.561Z",
+      "crawledAt": "2026-07-16T11:13:00.771Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +278,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+        "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+        "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
+          "senior-manager-product-structure-systems-plm-mes-anybotics-ch",
+          "senior-manager-struttura-e-sistemi-dei-prodotti-plm-mes-anybotics-zurich-switzerland"
         ],
         "de": [
           "senior-manager-product-structure-systems-plm-mes-anybotics-ch"
@@ -328,7 +339,7 @@
       "url": "https://jobs.lever.co/anybotics/9755ae0f-f740-40bc-bc13-be52c505748b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:02.259Z",
+      "crawledAt": "2026-07-16T11:13:00.470Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,14 +355,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "robotics-lab-technician-intern-anybotics-ch"
+        "robotics-lab-technician-intern-anybotics-ch",
+        "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "robotics-lab-technician-intern-anybotics-ch"
+          "robotics-lab-technician-intern-anybotics-ch",
+          "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-14T22:46:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -397,7 +411,7 @@
       "url": "https://jobs.lever.co/anybotics/f13a84f8-23ff-489f-ad1a-aa56a8c7eb6d",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:01.957Z",
+      "crawledAt": "2026-07-16T11:13:00.168Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -413,11 +427,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-technician-ii-robotics-anybotics-ch"
+        "production-technician-ii-robotics-anybotics-ch",
+        "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-technician-ii-robotics-anybotics-ch"
+          "production-technician-ii-robotics-anybotics-ch",
+          "tecnologia-di-produzione-ii-robotics-anybotics-zurich-switzerland"
         ],
         "de": [
           "production-technician-ii-robotics-anybotics-ch"
@@ -472,7 +488,7 @@
       "url": "https://jobs.lever.co/anybotics/74b68707-86aa-4efc-9efb-94ca5ad82698",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:01.655Z",
+      "crawledAt": "2026-07-16T11:12:59.866Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -488,11 +504,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-data-management-internship-anybotics-ch"
+        "product-data-management-internship-anybotics-ch",
+        "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-data-management-internship-anybotics-ch"
+          "product-data-management-internship-anybotics-ch",
+          "gestione-dei-dati-del-prodotto-anybotics-zurich-switzerland"
         ],
         "de": [
           "product-data-management-internship-anybotics-ch"
@@ -547,7 +565,7 @@
       "url": "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:01.353Z",
+      "crawledAt": "2026-07-16T11:12:59.564Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,11 +581,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-engineer-anybotics-ch"
+        "manufacturing-engineer-anybotics-ch",
+        "manufacturing-ingegnere-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-engineer-anybotics-ch"
+          "manufacturing-engineer-anybotics-ch",
+          "manufacturing-ingegnere-anybotics-zurich-switzerland"
         ],
         "de": [
           "manufacturing-engineer-anybotics-ch"
@@ -622,7 +642,7 @@
       "url": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:01.051Z",
+      "crawledAt": "2026-07-16T11:12:59.262Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -638,11 +658,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-3d-perception-computer-vision-ai-anybotics-ch"
+        "internship-3d-perception-computer-vision-ai-anybotics-ch",
+        "stage-3d-perception-computer-vision-ai-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-3d-perception-computer-vision-ai-anybotics-ch"
+          "internship-3d-perception-computer-vision-ai-anybotics-ch",
+          "stage-3d-perception-computer-vision-ai-anybotics-zurich-switzerland"
         ],
         "de": [
           "internship-3d-perception-computer-vision-ai-anybotics-ch"
@@ -694,7 +716,7 @@
       "url": "https://jobs.lever.co/anybotics/9d34ce1f-0dae-4cf3-85b0-d231dfb4851b",
       "source": "ANYbotics Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:00.747Z",
+      "crawledAt": "2026-07-16T11:12:58.958Z",
       "addressLocality": "Zurich, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -710,11 +732,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "internship-reinforcement-learning-for-navigation-anybotics-ch"
+        "internship-reinforcement-learning-for-navigation-anybotics-ch",
+        "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-reinforcement-learning-for-navigation-anybotics-ch"
+          "internship-reinforcement-learning-for-navigation-anybotics-ch",
+          "internship-apprendimento-di-rinforzo-per-la-navigazione-anybotics-zurich-switzerland"
         ],
         "de": [
           "internship-reinforcement-learning-for-navigation-anybotics-ch"
@@ -733,81 +757,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "anybotics-15d30a66bcfa",
-      "slug": "ingegneria-elettrica-stage-anybotics-zurich",
-      "slugByLocale": {
-        "it": "ingegneria-elettrica-stage-anybotics-zurich",
-        "en": "electrical-engineering-internship-anybotics-ch",
-        "de": "elektrotechnik-praktikum-anybotics-zurich",
-        "fr": "genie-electrique-stage-anybotics-zurich"
-      },
-      "company": "ANYbotics",
-      "companyKey": "anybotics",
-      "companyDomain": "anybotics.com",
-      "title": "Electrical Engineering - Internship",
-      "titleByLocale": {
-        "it": "Ingegneria elettrica - Stage",
-        "en": "Electrical Engineering - Internship",
-        "de": "Elektrotechnik - Praktikum",
-        "fr": "Génie électrique - Stage"
-      },
-      "description": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nYou’ll join our Solutions team, where we push the limits of autonomous robotic inspection intelligence. You’ll build cutting-edge sensing technologies to tackle the toughest real-world deployment challenges. Collaborating with engineers and partners, you’ll assess new technologies, design proof-of-concept, and swiftly transfer promising ideas to our product. If you thrive on discovery, hands-on experimentation, and know your work can redefine robotics and industrial inspections, this role lets you make a real difference — for our customers and the robotics community.\n\nThe Market & Our Technology\n ANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nAbout Us\n\nANYbotics is a leading robotics company specializing in advanced autonomous systems. With a successful Series B financing round recently closed, we are poised for rapid growth and international expansion. Our mission is to revolutionize the robotics industry through cutting-edge technology and innovation. As we embark on this exciting journey, we are seeking a dynamic person to join our team and help us shape the future of autonomous robotic inspections.\n\nYour Contributions\n\n• PCB design experience\n\n• Rapid prototyping of electronics subsystem\n\n• Testing, verifying and documenting of your electronics subsystem\n\nYour Profile\n\n• Pursuing a Bachelor’s or Master’s degree in electrical/electronic engineering or similar\n\n• Excellent verbal and written communication skills in English\n\n• Proficient in C coding\n\n• Ability to use electronics instruments such as oscilloscope and multimeter\n\n• Good collaboration/teamwork skills, with ability to work independently\n\nBonus Points\n\n• Experience with PCB design\n\n• Hands-on experience with robotic systems and sensor integration\n\n• Experience with embedded systems tools (e.g. NVIDIA JetPack, Jetson AI lab)\n\n• Let us know of any relevant extra-curricular activities (e.g. student teams, personal hobbies, etc) :)\n\nPlease note that we are only able to consider applications from Schengen-Area citizens (or any student enrolled at ETH and EPFL who require compulsory internship). For residents outside of Switzerland, you will need to find your own accommodation in order to apply for the L or B work permit.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-      "descriptionByLocale": {
-        "it": "ANYbotics è una società tecnologica in rapida crescita dedicata a modellare il futuro della robotica mobile in più settori. Unisciti al nostro team altamente talentuoso e motivato di oltre 200 persone e lavorare sulla tecnologia robot all'avanguardia. L'opportunità Ti unirai al nostro team di soluzioni, dove spingiamo i limiti dell'intelligenza di ispezione robotica autonoma. Costruirete tecnologie di rilevamento all'avanguardia per affrontare le sfide di distribuzione più difficili del mondo reale. Collaborando con ingegneri e partner, valuterete le nuove tecnologie, la prova del design e trasferire rapidamente idee promettenti al nostro prodotto. Se si prospera alla scoperta, alla sperimentazione pratica, e sapere che il vostro lavoro può ridefinire la robotica e le ispezioni industriali, questo ruolo vi permette di fare una vera differenza - per i nostri clienti e la comunità robotica. Il mercato e la nostra tecnologia ANYbotics trasforma gli impianti industriali nel settore dell'energia, del processo e dell'utilità introducendo la robotica a una vasta gamma di applicazioni innovative che finora erano al di là della portata. I nostri clienti sono grandi operatori di asset e fornitori di servizi industriali pionieristico l'uso della tecnologia robotica per l'ispezione e la manutenzione. Il nostro robot mobile ANYmal utilizza le gambe per una mobilità estrema in ambienti complessi, sensori basati su telecamere e LIDAR per una piena autonomia e un'elusione agli ostacoli, e AI per risultati di ispezione di alta qualità e coerente. Sviluppiamo numerosi sistemi hardware personalizzati, tra cui l'intera piattaforma robotica, attuatori, sensori, carichi di ispezione, sistemi di ricarica e tutti i relativi hardware meccanico ANYbotics. Informazioni su di noi ANYbotics è una società di robotica leader specializzata in sistemi autonomi avanzati. Con un successo del round di finanziamento della Serie B, recentemente chiuso, siamo pronti per una rapida crescita e un'espansione internazionale. La nostra missione è quella di rivoluzionare l'industria della robotica attraverso tecnologie all'avanguardia e innovazione. Mentre ci imbarchiamo in questo emozionante viaggio, stiamo cercando una persona dinamica per unirsi al nostro team e aiutarci a plasmare il futuro delle ispezioni robotiche autonome. I tuoi contributi\n• Esperienza di progettazione PCB\n• Prototipazione rapida del sottosistema elettronico\n• Test, verifica e documentazione del sottosistema elettronico Il tuo profilo\n• Conseguimento di una laurea o master in ingegneria elettrica / elettronica o simili\n• Eccellente capacità di comunicazione verbale e scritta in inglese\n• Proficiente nella codifica C\n• Capacità di utilizzare strumenti elettronici come oscilloscopio e multimetro\n• Buona collaborazione / competenze di lavoro, con capacità di lavorare indipendentemente Punti bonus\n• Esperienza con il design PCB\n• Esperienza pratica con sistemi robotizzati e integrazione dei sensori\n• Esperienza con strumenti di sistemi incorporati (ad esempio NVIDIA JetPack, Jetson AI lab)\n• Fateci sapere di qualsiasi attività extra-curricolare rilevante (ad esempio squadre studentesche, hobby personali, ecc.) Si prega di notare che siamo in grado di prendere in considerazione solo domande da cittadini Schengen-Area (o qualsiasi studente iscritto a ETH e EPFL che richiedono stage obbligatori). Per i residenti al di fuori della Svizzera, è necessario trovare il proprio alloggio per richiedere il permesso di lavoro L o B. Vi offriamo un ambiente di lavoro molto emozionante e dinamico, l'opportunità di entrare a far parte di una società in rapida crescita e di un team ambizioso che è in missione di cambiare il mercato dell'ispezione industriale, la possibilità di sfruttare la vostra esperienza e portare le vostre idee, un salario di mercato equo, un attraente piano di azionariato dei dipendenti e un lavoro nella città di Zurigo. Politica dell'Agenzia: Attualmente non stiamo collaborando con aziende di ricerca esterne o agenzie di reclutamento. Qualsiasi profilo o curriculum inviato ai dipendenti di ANYbotics senza un preventivo accordo scritto sarà considerato la divulgazione pubblica e la proprietà di ANYbotics, che non comporta alcuna responsabilità o tassa per il successivo assunzione.",
-        "en": "ANYbotics is a fast-growing tech company dedicated to shaping the future of mobile robotics across multiple industries. Join our highly talented and motivated team of more than 200 people and work on cutting-edge robot technology.\n\nThe Opportunity\n\nYou’ll join our Solutions team, where we push the limits of autonomous robotic inspection intelligence. You’ll build cutting-edge sensing technologies to tackle the toughest real-world deployment challenges. Collaborating with engineers and partners, you’ll assess new technologies, design proof-of-concept, and swiftly transfer promising ideas to our product. If you thrive on discovery, hands-on experimentation, and know your work can redefine robotics and industrial inspections, this role lets you make a real difference — for our customers and the robotics community.\n\nThe Market & Our Technology\nANYbotics transforms industrial plants in the energy, process, and utility sector by introducing robotics to a wide range of novel applications that so far were beyond reach. Our customers are large asset operators and industrial service providers pioneering the use of robotics technology for inspection and maintenance. Our mobile robot ANYmal uses legs for extreme mobility in complex environments, camera- and LIDAR-based sensing for full autonomy and obstacle avoidance, and AI for high-quality and consistent inspection results. We develop numerous customized hardware systems, including the entire robotic platform, actuators, sensors, inspection payloads, charging systems, and all related ANYbotics mechanical hardware.\n\nAbout Us\n\nANYbotics is a leading robotics company specializing in advanced autonomous systems. With a successful Series B financing round recently closed, we are poised for rapid growth and international expansion. Our mission is to revolutionize the robotics industry through cutting-edge technology and innovation. As we embark on this exciting journey, we are seeking a dynamic person to join our team and help us shape the future of autonomous robotic inspections.\n\nYour Contributions\n\n• PCB design experience\n\n• Rapid prototyping of electronics subsystem\n\n• Testing, verifying and documenting of your electronics subsystem\n\nYour Profile\n\n• Pursuing a Bachelor’s or Master’s degree in electrical/electronic engineering or similar\n\n• Excellent verbal and written communication skills in English\n\n• Proficient in C coding\n\n• Ability to use electronics instruments such as oscilloscope and multimeter\n\n• Good collaboration/teamwork skills, with ability to work independently\n\nBonus Points\n\n• Experience with PCB design\n\n• Hands-on experience with robotic systems and sensor integration\n\n• Experience with embedded systems tools (e.g. NVIDIA JetPack, Jetson AI lab)\n\n• Let us know of any relevant extra-curricular activities (e.g. student teams, personal hobbies, etc) :)\n\nPlease note that we are only able to consider applications from Schengen-Area citizens (or any student enrolled at ETH and EPFL who require compulsory internship). For residents outside of Switzerland, you will need to find your own accommodation in order to apply for the L or B work permit.\n\nWe offer you a very exciting and dynamic work environment, the opportunity to become part of a fast-growing company and an ambitious team that is on a mission to change the industrial inspection market, a chance to leverage your experience and bring in your own ideas, a fair market salary, an attractive employee stock ownership plan, and a job in the city of Zurich.\n\nAgency Policy: We are not currently partnering with external search firms or recruitment agencies. Any profiles or resumes submitted to ANYbotics employees without a prior written agreement will be considered public disclosure and the property of ANYbotics, involving no liability or fee for subsequent hiring.",
-        "de": "ANYbotics ist ein schnell wachsendes Technologieunternehmen, das sich der Gestaltung der Zukunft der mobilen Robotik in verschiedenen Branchen verschrieben hat. Schließen Sie sich unserem hochtalentierten und motivierten Team von mehr als 200 Mitarbeitern an und arbeiten Sie an modernster Robotertechnologie. Die Chance Sie werden unserem Solutions-Team beitreten, wo wir die Grenzen der autonomen Roboterinspektionsintelligenz erweitern. Sie werden modernste Sensortechnologien entwickeln, um die schwierigsten realen Bereitstellungsherausforderungen zu bewältigen. In Zusammenarbeit mit Ingenieuren und Partnern bewerten Sie neue Technologien, entwerfen einen Proof-of-Concept und übertragen schnell vielversprechende Ideen in unser Produkt. Wenn Sie von Entdeckungen und praktischen Experimenten profitieren und wissen, dass Ihre Arbeit Robotik und industrielle Inspektionen neu definieren kann, können Sie mit dieser Rolle einen echten Unterschied machen - für unsere Kunden und die Robotik-Community. Der Markt & unsere Technologie ANYbotics transformiert Industrieanlagen im Energie-, Prozess- und Versorgungssektor durch die Einführung der Robotik in ein breites Spektrum neuartiger Anwendungen, die bisher unerreichbar waren. Unsere Kunden sind große Anlagenbetreiber und Industriedienstleister, die den Einsatz von Robotiktechnologie für Inspektion und Wartung Pionierarbeit leisten. Unser mobiler Roboter ANYmal nutzt Beine für extreme Mobilität in komplexen Umgebungen, Kamera- und LIDAR-basierte Sensorik für vollständige Autonomie und Hindernisvermeidung sowie KI für qualitativ hochwertige und konsistente Inspektionsergebnisse. Wir entwickeln zahlreiche maßgeschneiderte Hardwaresysteme, darunter die gesamte Roboterplattform, Aktoren, Sensoren, Inspektionsnutzlasten, Ladesysteme und alle damit verbundenen mechanischen ANYbotics-Hardware. Über uns ANYbotics ist ein führendes Robotik-Unternehmen, das sich auf fortschrittliche autonome Systeme spezialisiert hat. Mit einer erfolgreichen Series-B-Finanzierungsrunde, die kürzlich abgeschlossen wurde, sind wir bereit für schnelles Wachstum und internationale Expansion. Unsere Mission ist es, die Robotikindustrie durch Spitzentechnologie und Innovation zu revolutionieren. Auf dieser aufregenden Reise suchen wir eine dynamische Person, die sich unserem Team anschließt und uns hilft, die Zukunft autonomer Roboterinspektionen zu gestalten. Ihre Beiträge\n• PCB-Designerfahrung\n• Rapid Prototyping des Elektronik-Subsystems\n• Test, Verifizierung und Dokumentation Ihres Elektronik-Subsystems Ihr Profil\n• Verfolgung eines Bachelor- oder Masterstudiums in Elektrotechnik oder ähnlichem\n• Hervorragende verbale und schriftliche Kommunikationsfähigkeiten in Englisch\n• Proficient in C-Codierung\n• Fähigkeit, elektronische Instrumente wie Oszilloskop und Multimeter zu verwenden\n• Gute Zusammenarbeit / Teamfähigkeit, mit der Fähigkeit, unabhängig zu arbeiten Bonuspunkte\n• Erfahrung mit PCB-Design\n• Praxiserfahrung mit Robotersystemen und Sensorintegration\n• Erfahrung mit Embedded System Tools (z.B. NVIDIA JetPack, Jetson AI lab)\n• Teilen Sie uns alle relevanten außerschulischen Aktivitäten mit (z. B. Studententeams, persönliche Hobbys usw.): Bitte beachten Sie, dass wir nur Bewerbungen von Schengen-Bürgern (oder von Studierenden der ETH und der EPFL, die ein Pflichtpraktikum benötigen) berücksichtigen können. Für Einwohner außerhalb der Schweiz müssen Sie eine eigene Unterkunft finden, um die Arbeitserlaubnis L oder B zu beantragen. Wir bieten Ihnen ein sehr spannendes und dynamisches Arbeitsumfeld, die Möglichkeit, Teil eines schnell wachsenden Unternehmens zu werden, und ein ambitioniertes Team, das den Markt für Industrieinspektionen verändern möchte, eine Chance, Ihre Erfahrungen zu nutzen und eigene Ideen einzubringen, ein faires Marktgehalt, einen attraktiven Mitarbeiteraktienplan und einen Job in der Stadt Zürich. Agenturpolitik: Wir arbeiten derzeit nicht mit externen Suchfirmen oder Rekrutierungsagenturen zusammen. Alle Profile oder Lebensläufe, die an ANYbotics-Mitarbeiter ohne vorherige schriftliche Vereinbarung eingereicht werden, gelten als öffentliche Offenlegung und als Eigentum von ANYbotics, ohne Haftung oder Gebühr für die spätere Einstellung.",
-        "fr": "Anybotics est une société technologique en croissance rapide dédiée à façonner l'avenir de la robotique mobile dans plusieurs industries. Rejoignez notre équipe hautement talentueuse et motivée de plus de 200 personnes et travaillez sur la technologie robot de pointe. L'opportunité Vous rejoindrez notre équipe Solutions, où nous repoussons les limites de l'intelligence d'inspection robotique autonome. Vous allez construire des technologies de détection de pointe pour relever les défis de déploiement les plus difficiles du monde réel. Collaborant avec des ingénieurs et des partenaires, vous évaluerez les nouvelles technologies, concevoirez une preuve de conception et transférerez rapidement des idées prometteuses à notre produit. Si vous prospèrez grâce à la découverte, à l'expérimentation pratique et que vous savez que votre travail peut redéfinir la robotique et les inspections industrielles, ce rôle vous permet de faire une réelle différence pour nos clients et la communauté robotique. Le marché et notre technologie Anybotics transforme des installations industrielles dans le secteur de l'énergie, des procédés et des services publics en introduisant la robotique dans un large éventail d'applications nouvelles qui étaient jusqu'à présent hors de portée. Nos clients sont de grands opérateurs d'actifs et fournisseurs de services industriels pionniers dans l'utilisation de la technologie robotique pour l'inspection et l'entretien. Notre robot mobile Anymal utilise des jambes pour une mobilité extrême dans des environnements complexes, la détection à base de caméra et de LIDAR pour une autonomie totale et l'évitement des obstacles, et l'IA pour des résultats d'inspection de haute qualité et cohérents. Nous développons de nombreux systèmes matériels personnalisés, dont l'ensemble de la plate-forme robotique, des actionneurs, des capteurs, des charges d'inspection, des systèmes de recharge et tout le matériel mécanique connexe. À propos de nous Anybotics est une entreprise robotique de premier plan spécialisée dans les systèmes autonomes avancés. Avec le succès du cycle de financement de la série B récemment clôturé, nous sommes prêts à une croissance rapide et à une expansion internationale. Notre mission est de révolutionner l'industrie robotique par la technologie et l'innovation de pointe. Alors que nous nous embarquons dans ce voyage passionnant, nous cherchons une personne dynamique pour rejoindre notre équipe et nous aider à façonner l'avenir des inspections robotiques autonomes. Vos contributions\n• Expérience de conception des PCB\n• Prototypage rapide du sous-système électronique\n• Test, vérification et documentation de votre sous-système électronique Votre profil\n• Poursuivant un baccalauréat ou un master en génie électrique/électronique ou similaire\n• Excellentes compétences en communication orale et écrite en anglais\n• Compétence en codage C\n• Capacité d'utiliser des instruments électroniques comme l'oscilloscope et le multimètre\n• Bonnes compétences en collaboration/travail d'équipe, avec capacité de travailler indépendamment Points bonus\n• Expérience de la conception des PCB\n• Expérience pratique avec les systèmes robotiques et l'intégration des capteurs\n• Expérience des outils de systèmes embarqués (p. ex. NVIDIA JetPack, Jetson AI lab)\n• Informez-nous des activités extrascolaires pertinentes (par exemple les équipes étudiantes, les passe-temps personnels, etc.) :) Veuillez noter que nous ne pouvons examiner que les candidatures des citoyens de la zone Schengen (ou de tout étudiant inscrit à l'ETH et à l'EPFL qui nécessite un stage obligatoire). Pour les résidents en dehors de la Suisse, vous devrez trouver votre propre logement afin de demander le permis de travail L ou B. Nous vous offrons un environnement de travail très excitant et dynamique, l'opportunité de faire partie d'une entreprise en croissance rapide et d'une équipe ambitieuse qui est en mission de changer le marché de l'inspection industrielle, une chance de tirer parti de votre expérience et d'apporter vos propres idées, un salaire équitable du marché, un plan attrayant d'actionnariat salarié, et un emploi dans la ville de Zurich. Politique de l'Agence : Nous ne sommes pas en partenariat avec des entreprises de recherche externes ou des agences de recrutement. Tous les profils ou curriculum vitae soumis à des employés d'Anybotics sans accord écrit préalable seront considérés comme une divulgation publique et la propriété d'Anybotics, ce qui n'implique aucune responsabilité ni aucun droit pour l'embauche ultérieure."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.lever.co/anybotics/ecdae57b-ce0f-40c1-b4b5-1ba75dd6ccf7",
-      "source": "ANYbotics Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:26:00.442Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Robotica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://jobs.lever.co/anybotics/ecdae57b-ce0f-40c1-b4b5-1ba75dd6ccf7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "electrical-engineering-internship-anybotics-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "electrical-engineering-internship-anybotics-ch"
-        ],
-        "de": [
-          "electrical-engineering-internship-anybotics-ch"
-        ],
-        "fr": [
-          "electrical-engineering-internship-anybotics-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:18:37.881Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
