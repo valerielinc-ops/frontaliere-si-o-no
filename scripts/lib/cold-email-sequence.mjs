@@ -9,4 +9,4 @@
  * SAME module instance, so the preview, the CLI send, and the web-UI send stay
  * byte-identical (AGENTS.md Non-Negotiable #6, no drift).
  */
-export { PRICE, OPTOUT_EMAIL, buildSequence } from '../../functions/src/coldEmailSequence.js';
+export { PRICE, OPTOUT_EMAIL, buildSequence, bodyToHtml } from '../../functions/src/coldEmailSequence.js';

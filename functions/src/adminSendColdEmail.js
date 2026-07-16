@@ -19,7 +19,7 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
-import { buildSequence } from './coldEmailSequence.js';
+import { buildSequence, bodyToHtml } from './coldEmailSequence.js';
 import { buildInsightsUrl } from './employerInsights.js';
 import { buildUnsubUrl } from './outreachUnsubscribe.js';
 
@@ -43,13 +43,13 @@ async function getDoc(db, collection, id) {
 
 /**
  * Core handler — `db` and `sendEmail` are injectable for unit tests.
- * Returns { status, body }. `sendEmail({ from, to, subject, text, unsubUrl })`
+ * Returns { status, body }. `sendEmail({ from, to, subject, text, html, unsubUrl })`
  * must resolve to { messageId } or throw.
  *
  * @param {{ companyKey?: string, touch?: number, force?: boolean,
  *           secret?: string, db: any,
- *           sendEmail: (msg: { from: string, to: string, subject: string,
- *                              text: string, unsubUrl: string }) => Promise<{ messageId?: string }> }} args
+ *           sendEmail: (msg: { from: string, to: string, subject: string, text: string,
+ *                              html: string, unsubUrl: string }) => Promise<{ messageId?: string }> }} args
  */
 export async function handleAdminSendColdEmail({ companyKey, touch, force, secret, db, sendEmail }) {
   const key = String(companyKey || '').trim();
@@ -101,6 +101,11 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   const text = message.body
     .split('{{INSIGHTS_URL}}').join(insightsUrl)
     .split('{{UNSUB_URL}}').join(unsubUrl);
+  // Same html part the CLI sends (send-cold-emails.mjs), so the web-UI send
+  // gains real <a href> links too instead of raw plain-text URLs.
+  const html = bodyToHtml(message.body)
+    .split('{{INSIGHTS_URL}}').join(insightsUrl)
+    .split('{{UNSUB_URL}}').join(unsubUrl);
 
   // Write a pre-send marker so the dedup gate stays active even if the
   // confirmed write below fails (Resend out → Firestore down → no touches
@@ -120,6 +125,7 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   try {
     result = await sendEmail({
       from: 'Valerie <valerie@frontaliereticino.ch>',
+      html,
       to: toEmail,
       subject: message.subject,
       text,

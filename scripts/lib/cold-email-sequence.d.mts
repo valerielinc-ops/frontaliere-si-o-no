@@ -19,3 +19,4 @@ export interface BuildSequenceArgs {
 }
 
 export function buildSequence(args: BuildSequenceArgs): ColdEmailTouch[];
+export function bodyToHtml(body: string): string;

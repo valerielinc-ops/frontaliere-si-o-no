@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error — plain .mjs helper, no types
-import { buildSequence as fromShared, OPTOUT_EMAIL } from '../scripts/lib/cold-email-sequence.mjs';
+import { buildSequence as fromShared, OPTOUT_EMAIL, bodyToHtml } from '../scripts/lib/cold-email-sequence.mjs';
 // @ts-expect-error — plain .mjs script re-exports the shared sequence
 import { buildSequence as fromGenerate, OPTOUT_EMAIL as OPTOUT_FROM_GENERATE } from '../scripts/generate-cold-emails.mjs';
 
@@ -35,5 +35,29 @@ describe('cold-email sequence: single shared source (no drift)', () => {
     expect(t1.body).toContain('Buongiorno,');
     expect(t1.body).toContain('pagina lavoro'); // generic role rejected
     expect(t1.body).not.toContain('pagina di "Lavora con noi"');
+  });
+});
+
+describe('bodyToHtml: single-source HTML builder (send-cold-emails.mjs + adminSendColdEmail.js)', () => {
+  it('wraps the {{INSIGHTS_URL}}/{{UNSUB_URL}} placeholders in real <a href> anchors', () => {
+    const [t1] = fromShared({ company: 'Casale SA', candidates: 49, periodLabel: 'Negli ultimi 3 mesi' });
+    const html = bodyToHtml(t1.body);
+    expect(html).toContain('<a href="{{INSIGHTS_URL}}"');
+    expect(html).toContain('<a href="{{UNSUB_URL}}"');
+  });
+
+  it('substituting the real URL after bodyToHtml fills both the href and the visible text', () => {
+    const [t1] = fromShared({ company: 'Casale SA', candidates: 49, periodLabel: 'Negli ultimi 3 mesi' });
+    const url = 'https://frontaliereticino.ch/azienda/casale-sa/?t=abc123';
+    const html = bodyToHtml(t1.body).split('{{INSIGHTS_URL}}').join(url);
+    expect(html).toContain(`<a href="${url}"`);
+    expect(html).toContain(`>${url}</a>`);
+  });
+
+  it('escapes HTML-significant characters in the body text', () => {
+    const html = bodyToHtml('Ciao <script>alert(1)</script> & co,\n\ntesto');
+    expect(html).not.toContain('<script>');
+    expect(html).toContain('&lt;script&gt;');
+    expect(html).toContain('&amp; co');
   });
 });

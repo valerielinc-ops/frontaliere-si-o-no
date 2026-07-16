@@ -38,6 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSequence, OPTOUT_EMAIL } from './generate-cold-emails.mjs';
+import { bodyToHtml } from './lib/cold-email-sequence.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
 import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
@@ -63,14 +64,6 @@ function arg(name, def) {
   return n && !n.startsWith('--') ? n : true;
 }
 const has = (name) => process.argv.includes(name);
-
-const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-/** Cold email = aspetto plain. HTML minimale: paragrafi, niente immagini/CTA grafiche. */
-function bodyToHtml(body) {
-  const paras = body.trim().split(/\n\n+/).map((p) => `<p style="margin:0 0 14px">${escapeHtml(p).replace(/\n/g, '<br>')}</p>`);
-  return `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#1a1a1a">${paras.join('')}</div>`;
-}
 
 function loadJson(p, def) { try { return JSON.parse(fs.readFileSync(path.resolve(p), 'utf8')); } catch { return def; } }
 

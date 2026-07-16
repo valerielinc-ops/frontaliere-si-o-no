@@ -65,6 +65,11 @@ describe('handleAdminSendColdEmail', () => {
     expect(sent[0].text).not.toContain('{{INSIGHTS_URL}}');
     expect(sent[0].text).not.toContain('{{UNSUB_URL}}');
     expect(sent[0].unsubUrl).toContain('/disiscrivi-outreach/?c=casale-sa&t=');
+    // html part mirrors the CLI (send-cold-emails.mjs): real <a href> links,
+    // not raw plain-text URLs (no leftover template tokens either).
+    expect(sent[0].html).toContain('<a href="https://frontaliereticino.ch/azienda/casale-sa/?t=');
+    expect(sent[0].html).not.toContain('{{INSIGHTS_URL}}');
+    expect(sent[0].html).not.toContain('{{UNSUB_URL}}');
     // Two writes to employer_outreach_sends: pending marker (pre-send) + confirmed (post-send).
     const sendsWrites = db.writes.filter((w) => w.coll === 'employer_outreach_sends');
     expect(sendsWrites).toHaveLength(2);
