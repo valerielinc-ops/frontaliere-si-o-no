@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-15T22:02:52.202Z",
+  "generatedAt": "2026-07-16T11:22:09.110Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21271,
-  "avgDurationMs": 21271,
+  "durationMs": 18417,
+  "avgDurationMs": 18417,
   "durationHistory": [
-    21271
+    18417
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
@@ -40,18 +41,18 @@
         "canton": "GE",
         "location": "Geneva"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-44afb9000147",
       "needsRetranslation": true,
-      "_qualityScore": 68,
+      "firstSeenAt": "2026-07-15T22:02:52.200Z",
+      "crawledAt": "",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
