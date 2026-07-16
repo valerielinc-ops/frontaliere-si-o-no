@@ -5535,6 +5535,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobSlug={selectedJob?.slug ?? null}
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
+ cantonCode={selectedJob?.canton ?? null}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -5546,7 +5547,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // one-tap subscribe so Firestore writes and PostHog counts reconcile.
  Analytics.trackJobAlertCreated({
  keywords: category || '',
- location: '',
+ location: selectedJob?.canton ?? '',
  frequency: 'weekly',
  surface: 'job_detail_prompt',
  });

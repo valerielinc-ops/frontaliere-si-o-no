@@ -30,7 +30,8 @@ const baseAlert = (): JobAlert => ({
 });
 
 interface RenderOpts {
-  subscribe?: () => Promise<JobAlert>;
+  subscribe?: (...args: unknown[]) => Promise<JobAlert>;
+  cantonCode?: string | null;
 }
 
 function renderPrompt(opts: RenderOpts = {}) {
@@ -39,22 +40,23 @@ function renderPrompt(opts: RenderOpts = {}) {
   const onDismissed = vi.fn();
   const onErrored = vi.fn();
   const onManage = vi.fn();
-  const subscribe = opts.subscribe ?? (async () => baseAlert());
+  const subscribe = opts.subscribe ?? vi.fn(async () => baseAlert());
   render(
     <JobDetailAlertPrompt
       category="Sanità"
       userId="user-1"
       email="foo@example.com"
       locale="it"
+      cantonCode={'cantonCode' in opts ? opts.cantonCode : 'TI'}
       onClose={onClose}
       onAccepted={onAccepted}
       onDismissed={onDismissed}
       onErrored={onErrored}
       onManage={onManage}
-      subscribe={subscribe}
+      subscribe={subscribe as never}
     />,
   );
-  return { onClose, onAccepted, onDismissed, onErrored, onManage };
+  return { onClose, onAccepted, onDismissed, onErrored, onManage, subscribe };
 }
 
 describe('JobDetailAlertPrompt', () => {
@@ -104,6 +106,36 @@ describe('JobDetailAlertPrompt', () => {
     });
     // manage link present
     expect(screen.getByText(/Gestisci alert/)).toBeTruthy();
+  });
+
+  it('passes the job\'s own canton code as the 6th subscribe argument (issue #4298)', async () => {
+    const { subscribe } = renderPrompt({ cantonCode: 'TI' });
+    await act(async () => {
+      fireEvent.click(screen.getByText(/Sì, attiva/));
+    });
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      'Sanità',
+      'it',
+      { slug: null, url: null, title: null },
+      'TI',
+    );
+  });
+
+  it('passes null canton when the job has none', async () => {
+    const { subscribe } = renderPrompt({ cantonCode: null });
+    await act(async () => {
+      fireEvent.click(screen.getByText(/Sì, attiva/));
+    });
+    expect(subscribe).toHaveBeenCalledWith(
+      'user-1',
+      'foo@example.com',
+      'Sanità',
+      'it',
+      { slug: null, url: null, title: null },
+      null,
+    );
   });
 
   it('transitions to error when subscribe rejects, and offers retry', async () => {
