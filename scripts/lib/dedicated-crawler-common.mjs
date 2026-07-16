@@ -1625,22 +1625,40 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       const location = String(job.addressLocality || job.location || '').trim();
       const nextSlug = slugifyLocalizedLabel([localizedTitle, company, location].filter(Boolean).join(' '));
       const isSlugMeaningful = localizedSlug && localizedSlug.length >= 15;
+      // Item #3 (follow-up #4206): registryPinnedLocaleSlug just rejected THIS
+      // locale's pin above (fell through instead of `continue`-ing) — check
+      // WHY. If it's demonstrably garbled (#4071 guard), none of the repair
+      // heuristics below are guaranteed to catch it: they each target a
+      // SPECIFIC known corruption shape (Italian mistranslation, boilerplate,
+      // company-name collision), not generic garbage sitting in an arbitrary
+      // locale slot. Real case: KSA's "logi-hyardfachfrau-…" lives in the `de`
+      // slot itself, so the foreign-word heuristic in the first loop (which
+      // only flags German words in NON-German locales) never fires for it,
+      // and none of these heuristics recognize it either — the same garbage
+      // slug would otherwise sit untouched, unhealed and un-bridged, forever.
+      const registryPinIsGarbled = isRegistryPinGarbled(registeredSlug, locale, sourceSlugPinContext(job, titleSourceLang));
       const shouldRefreshSlug =
         !localizedSlug ||
         (!isSlugMeaningful && localizedSlug === baseSlug) ||
         (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ||
         needsCanonicalCompanySlugRepair(localizedSlug, company) ||
-        needsBoilerplateSlugRepair(localizedSlug);
+        needsBoilerplateSlugRepair(localizedSlug) ||
+        registryPinIsGarbled;
 
       if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
         const reason = !localizedSlug ? 'missing'
           : (!isSlugMeaningful && localizedSlug === baseSlug) ? 'short_base_match'
           : (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ? 'italian_repair'
           : needsBoilerplateSlugRepair(localizedSlug) ? 'boilerplate_repair'
+          : registryPinIsGarbled ? 'garbled_pin_repair'
           : 'company_repair';
         // Skip replacement if existing slug is semantically equivalent (prevents churn)
-        // BUT always allow italian_repair and boilerplate_repair — those fix real quality issues
-        const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair';
+        // BUT always allow italian_repair, boilerplate_repair, and garbled_pin_repair —
+        // those fix real quality issues. garbled_pin_repair in particular MUST bypass the
+        // stability check: a garbage pin often still shares the company/location suffix
+        // token with its healthy replacement (that's exactly what makes it look "close
+        // enough" to isSlugStable), which would otherwise silently re-suppress the fix.
+        const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair' || reason === 'garbled_pin_repair';
         if (!isQualityRepair && localizedSlug && isSlugStable(localizedSlug, nextSlug, {
           threshold: 0.70,
           existingLocation: location,
