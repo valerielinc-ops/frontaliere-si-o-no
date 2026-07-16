@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-07-16T12:25:14.821Z",
-  "total": 10,
+  "generatedAt": "2026-07-16T22:24:04.366Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 1225,
-  "avgDurationMs": 1225,
+  "removedCount": 1,
+  "unchangedCount": 8,
+  "durationMs": 959,
+  "avgDurationMs": 959,
   "durationHistory": [
-    1225
+    959
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,7 +50,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Tecnico/a di supporto IT / di tecnica dei sistemi",
+      "slug": "tecnico-a-di-supporto-it-di-tecnica-dei-sistemi-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/tecnico-a-di-supporto-it-di-tecnica-dei-sistemi/78c2f9a2-3c55-415d-a105-239b9b407a64",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19599",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Zürich, Svizzera",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-07",
+      "validThrough": "2026-08-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-084714a56adc",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-07T12:10:49.085Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Responsabile Gruppo di ricerca Estensione orticoltura",
@@ -147,41 +183,6 @@
       "id": "agroscope-b70c4ffa6352",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-07T12:10:49.085Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Tecnico/a di supporto IT / di tecnica dei sistemi",
-      "slug": "tecnico-a-di-supporto-it-di-tecnica-dei-sistemi-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/tecnico-a-di-supporto-it-di-tecnica-dei-sistemi/78c2f9a2-3c55-415d-a105-239b9b407a64",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19599",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich, Svizzera",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-07",
-      "validThrough": "2026-08-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-084714a56adc",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-07T12:10:49.085Z",
       "_qualityScore": 87,
