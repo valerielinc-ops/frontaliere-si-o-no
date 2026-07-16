@@ -1156,6 +1156,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-informatico-iwb-basilea.title': 'Attacco informatico a IWB: 40\'000 clienti coinvolti a Basilea',
     'blog.article.attacco-informatico-iwb-basilea.excerpt': 'Violazione dei dati presso un fornitore esterno dell\'azienda elettrica di Basilea. Cosa è successo e quali informazioni sono state sottratte.',
     'blog.article.attacco-informatico-iwb-basilea.imageAlt': 'Sede dell\'azienda energetica IWB a Basilea',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.title': 'Frontalieri: richiesta la sospensione dell\'imposta all\'Italia',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.excerpt': 'Una nuova mozione parlamentare contesta la \'tassa sulla salute\' italiana, chiedendo al Consiglio di Stato di bloccare il riversamento delle imposte alla fonte.',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.imageAlt': 'Palazzo delle Orsoline a Bellinzona, sede del Gran Consiglio ticinese.',
 };
 
 export default blogMetaChIt;
