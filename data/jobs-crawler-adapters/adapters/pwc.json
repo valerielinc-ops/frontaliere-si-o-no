@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-07-16T11:42:25.449Z",
+  "updatedAt": "2026-07-16T22:32:08.431Z",
   "seedMetaByUrl": {
     "https://jobs.pwc.ch/job-vacancies/aktuar-in-intern-trainee-actuarial-services-6-monate/d9e899a4-d8d7-47be-a31f-92eb6b67dbaf": {
       "location": "Zürich",
@@ -132,12 +132,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-25"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-manager-cybersecurity-berater-und-pruefer/c58e7938-b06a-4c40-9594-a5dde80fccda": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-24"
     },
     "https://jobs.pwc.ch/job-vacancies/associate-pension-benefits/04c4e91f-a617-477c-9a4a-cb25f27529ff": {
       "location": "Zürich",
@@ -349,18 +343,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-04-20"
     },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-manager-in-sap-supply-chain-operations-consulting/6b6a8348-1adf-4367-9c9a-d4df81e92fb6": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-04-20"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-manager-director-in-sap-supply-chain-operations-consulting/4e275e71-0759-497b-88b1-8a103f822cf9": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-04-20"
-    },
     "https://jobs.pwc.ch/job-vacancies/senior-manager-director-beratung-gesundheitswesen-mit-fokus-krankenversicherung/5b6e3f91-c272-4706-baaf-f762490cefa5": {
       "location": "Zürich",
       "canton": "ZH",
@@ -397,12 +379,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-03-26"
     },
-    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-digitale-transformation-public-sector-strategy-transformation/6f051577-ff38-4d3d-8ba0-176b798e2e69": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-03-23"
-    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-digital-assurance-it-audit-and-process-analytics-financial-services/6b10dc61-aa75-4c25-bc81-afdbd2ce2a73": {
       "location": "Zürich",
       "canton": "ZH",
@@ -427,12 +403,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-03-10"
     },
-    "https://jobs.pwc.ch/job-vacancies/iam-architect/6e49544d-dc97-4e51-b7e7-5ba6812e2e0f": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-03-09"
-    },
     "https://jobs.pwc.ch/job-vacancies/director-in-quality-regulatory-management-advisory-services/9cef594b-b3b6-4cbc-b9a8-e4eaaddd8a45": {
       "location": "Basel",
       "canton": "BS",
@@ -445,12 +415,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-02-27"
     },
-    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-cloud-data-and-ai-cloud-ai-engineer/451c575f-654e-46bf-aee6-c57ab8e61a7c": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-02-26"
-    },
     "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a": {
       "location": "Geneva",
       "canton": "GE",
@@ -462,12 +426,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-02-26"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-cloud-data-ai-cloud-data-platform-architect/bc86bd6b-ebe8-4f6c-a79d-5ecd21b1103f": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-02-25"
     },
     "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/0049b2d6-5be2-4117-b328-42ff1a78294c": {
       "location": "Zürich",
@@ -493,12 +451,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-01-20"
     },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-cybersecurity-privacy/53d72d33-037d-4b93-a5fc-0e18f8b6537d": {
-      "location": "Geneva",
-      "canton": "GE",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-12-16"
-    },
     "https://jobs.pwc.ch/job-vacancies/manager-u-s-tax-private-clients/a37b390a-52e5-45e0-a813-72a0539c7106": {
       "location": "Zürich",
       "canton": "ZH",
@@ -523,24 +475,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2025-10-17"
     },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-supply-chain-cyber-security-specialist-cyber-risk-advisory/0c114d6f-2e98-4628-be55-4fdcc4108dfe": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-10-09"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-associate-data-protection-engineer/54bc094f-8c21-4183-9b22-b11b23219c97": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-10-02"
-    },
-    "https://jobs.pwc.ch/job-vacancies/senior-manager-capability-leader-data-security/3dd90e6a-dadc-47e7-b200-8f1b6f0b0580": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-10-02"
-    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/f0e7ad7e-a4c2-4b53-bb46-a87d942985e5": {
       "location": "Zug",
       "canton": "ZG",
@@ -552,12 +486,6 @@
       "canton": "VD",
       "company": "PwC Switzerland",
       "postedDate": "2025-09-24"
-    },
-    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-cloud-data-ai-data-engineering/39c46e16-634e-4c37-9a99-6c98d4ab8bdd": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-09-23"
     },
     "https://jobs.pwc.ch/job-vacancies/life-transformation-aktuar-in-manager-in/d3622a94-cf26-436a-8e27-7195a4582049": {
       "location": "Zürich",
@@ -595,23 +523,11 @@
       "company": "PwC Switzerland",
       "postedDate": "2025-08-03"
     },
-    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-senior-cyber-security-architect/65a9ca79-4d24-4657-8558-bce1b0bff993": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-08-03"
-    },
     "https://jobs.pwc.ch/job-vacancies/manager-capital-markets/27fe25d3-a97c-469d-98b2-fe8c3e675c0f": {
       "location": "Zurich",
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2025-06-11"
-    },
-    "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-cloud-data-ai-cd-ai-data-engineering/929c170a-1adc-46d2-9cc8-b070753beac6": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2025-06-04"
     },
     "https://jobs.pwc.ch/job-vacancies/senior-manager-cyber-cloud-security/ea108b45-046c-4c05-8cdc-a72f114e9717": {
       "location": "Zurich",
