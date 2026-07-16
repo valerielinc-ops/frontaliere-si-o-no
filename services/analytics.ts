@@ -594,7 +594,15 @@ function bindGlobalInteractionTracking() {
  if (now - lastCtaAt < CTA_THROTTLE_MS) return;
  const target = event.target as HTMLElement | null;
  if (!target) return;
- const actionable = target.closest('a,button,[role="button"],input[type="submit"]') as HTMLElement | null;
+ // Includes native form controls (select/input/textarea) and the <summary>
+ // disclosure element — all fully interactive without needing role="button".
+ // Widened per issue #4304: a live PostHog query showed these were the
+ // single largest source of custom dead_click false positives (a marital-
+ // status <select> alone accounted for ~474 of ~2,747 events/30d — opening
+ // a native dropdown is never a dead click).
+ const actionable = target.closest(
+ 'a,button,[role="button"],input[type="submit"],select,input,textarea,summary'
+ ) as HTMLElement | null;
 
  // Dead-click detection: user clicked on a non-interactive element
  // that visually looks clickable (has pointer cursor, card-like styling, etc.)
@@ -643,6 +651,15 @@ function bindGlobalInteractionTracking() {
 let _deadClickCount = 0;
 function detectDeadClick(target: HTMLElement): void {
  if (_deadClickCount >= 3) return;
+ // Exclude clicks inside known third-party-injected UI we don't own the
+ // markup or interactivity of: Google Funding Choices' consent-CMP widget
+ // (`fc-*` class namespace) and Google Translate's automatic-translation
+ // wrapper spans (`google-anno-*`, injected around already-instrumented
+ // first-party elements when a user enables page translation — sometimes
+ // breaking the DOM ancestor chain the click handler above relies on).
+ // Confirmed via live PostHog query (#4304): span.fc-slider-el alone
+ // accounted for ~110 of ~2,747 custom dead_click events/30d.
+ if (target.closest('[class*="fc-"]') || target.closest('[class^="google-anno"],[class*=" google-anno"]')) return;
  // Check if the element has pointer cursor or card-like appearance
  const style = window.getComputedStyle(target);
  const looksClickable = style.cursor === 'pointer'
