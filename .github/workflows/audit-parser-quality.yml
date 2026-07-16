@@ -1,11 +1,35 @@
 name: Audit Parser Quality
 
 on:
-  # Run daily after crawlers finish (orchestrator runs at 08:00 and 20:00 UTC)
+  # Reliability note (issue #4063 item 3 — audit non-racy): the `workflow_run`
+  # trigger below fires when the DISPATCHER (`orchestrate-crawlers.yml`,
+  # "Orchestrate Job Crawlers") completes, which only takes the few minutes it
+  # takes to fire 23 `gh workflow run` calls ~20s apart — NOT when the 23
+  # dispatched `crawler-group-*.yml` jobs it kicks off actually finish
+  # crawling AND pushing (each has its own hard `timeout-minutes: 340`, up to
+  # 5h40 — see scripts/generate-crawler-group-workflows.mjs JOB_TIMEOUT_MINUTES).
+  # So this trigger alone races the real crawl+push and can silently read
+  # pre-push data (documented in PR #4056 "Non implementato": a run on
+  # 2026-07-10 read stale data this way). Fixed with the same "staggered cron
+  # backstop" pattern translate-pending.yml already uses for the identical
+  # problem (its 13:00/01:00 crons + nightly retries around the same
+  # orchestrator waves): keep workflow_run as a cheap opportunistic early
+  # nudge (harmless — `cancel-in-progress` below means a later, correct run
+  # simply supersedes it) and add cron entries timed PAST crawler-group's own
+  # 340min ceiling for both daily dispatch waves (orchestrate-crawlers.yml
+  # dispatches at 09:00 / 21:00 UTC), so at least one run per wave is
+  # guaranteed to observe already-concluded (pushed-or-timed-out) jobs rather
+  # than guessing. `getDatasetProvenance()` in audit-parser-quality.mjs
+  # additionally stamps every report with the git SHA actually audited, so a
+  # stale read is distinguishable after the fact even if this schedule ever
+  # needs re-tuning.
   schedule:
-    - cron: '30 10 * * *'
+    - cron: '30 10 * * *' # early opportunistic pass — most (non-outlier) groups finish well under 340min
+    - cron: '15 15 * * *' # morning-wave backstop: 09:00 UTC dispatch + 340min ceiling + margin
+    - cron: '15 3 * * *' # evening-wave backstop: 21:00 UTC dispatch + 340min ceiling + margin (next day)
   workflow_dispatch:
-  # Run after orchestrator completes
+  # Opportunistic early trigger — see reliability note above; the cron
+  # backstops are what actually guarantees a post-crawl (not post-dispatch) read.
   workflow_run:
     workflows: ['Orchestrate Job Crawlers']
     types: [completed]
@@ -29,6 +53,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # fetch-depth: 50 (not the default 1) so getDatasetProvenance() in
+          # audit-parser-quality.mjs can `git log -- data/jobs/by-crawler` and
+          # find the last commit that actually touched the crawler dataset —
+          # a depth-1 shallow clone can only see HEAD itself and would leave
+          # the provenance annotation null whenever HEAD isn't that commit.
+          # Matches the same fetch-depth already used by crawler-group-*.yml
+          # for the same reason.
+          fetch-depth: 50
 
       - name: Setup Node
         uses: actions/setup-node@v5
