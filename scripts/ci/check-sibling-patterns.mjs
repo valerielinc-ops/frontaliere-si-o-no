@@ -26,10 +26,10 @@
  *   4. Per ogni token `git grep -lF` sui CODE_DIRS → file che lo contengono.
  *   5. Riporta i file NON toccati dal branch, rankati per # di token condivisi.
  *   6. Pass verbatim (issue #4260): estrae espressioni significative dalle sole
- *      righe rimosse (-) e le cerca con `git grep -F` (soglia ≤8 file, più
- *      stretta). Cattura i gemelli che condividono solo il vecchio anti-pattern
- *      rimosso, invisibili al token-match perché non importano ancora il helper
- *      NUOVO introdotto dal fix (il caso PR #4224 / PR #4199).
+ *      righe rimosse (-) e le cerca con `git grep -F` (stessa soglia MAX_FILES
+ *      del token-match). Cattura i gemelli che condividono solo il vecchio
+ *      anti-pattern rimosso, invisibili al token-match perché non importano
+ *      ancora il helper NUOVO introdotto dal fix (il caso PR #4224 / PR #4199).
  *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
@@ -141,7 +141,7 @@ function resolveBase() {
  * Pass supplementare rispetto a extractTokens (issue #4260): quando un fix
  * introduce un helper NUOVO, i gemelli non lo importano ancora → token-match
  * non li vede. Questo pass li trova cercando l'espressione verbatim con
- * `git grep -F` (threshold più bassa MAX_VERBATIM_FILES ≤8).
+ * `git grep -F` (stessa soglia MAX_FILES del token-match).
  *
  * Criteri di selezione:
  *   - Linea che inizia con `-` (non `---` header)
@@ -296,17 +296,19 @@ function main() {
     }
   }
 
-  // Pass verbatim (issue #4260): cerca le espressioni rimosse nei gemelli con
-  // soglia più stretta. Cattura i file che condividono solo il vecchio
-  // anti-pattern (non ancora l'helper introdotto dal fix corrente).
-  const MAX_VERBATIM_FILES = 8;
+  // Pass verbatim (issue #4260): cerca le espressioni rimosse nei gemelli.
+  // Stessa soglia MAX_FILES del token-match (15): il caso motivante di questo
+  // pass — PR #4224, `description: copy.description` verbatim in 14 sibling
+  // non-guardati — verrebbe scartato come "rumore" da una soglia più stretta,
+  // mentre è esattamente la classe di bug più ampia da sweepare (reviewer
+  // finding PR #4272 round 1).
   for (const expr of removedExprs) {
     const out = git(
       ['grep', '-l', '--fixed-strings', '-e', expr, '--', ...pathspecs],
       { allowFail: true },
     );
     const hits = out.split('\n').map((s) => s.trim()).filter(Boolean);
-    if (hits.length > MAX_VERBATIM_FILES) continue; // troppo comune → rumore
+    if (hits.length > MAX_FILES) continue; // troppo comune → rumore
     for (const f of hits) {
       if (changedSet.has(f)) continue;
       if (!isCodeFile(f)) continue;
