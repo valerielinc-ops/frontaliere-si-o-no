@@ -10,7 +10,7 @@ import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
-import { listCantonOptions, getCantonLabel, type CantonLocale } from '@/services/cantonList';
+import { listCantonOptions, getCantonLabel, CANTON_CODES, type CantonLocale } from '@/services/cantonList';
 import { ABOVE_MOBILE_NAV_BOTTOM } from '@/components/shared/mobileNavClearance';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
@@ -36,6 +36,16 @@ interface JobAlertFormProps {
  onRequireAuth?: () => void;
  /** Pre-fill the keyword from current search query */
  initialKeyword?: string;
+ /**
+  * Pre-fill the canton scope from the job board's current canton route (e.g.
+  * a /lavoro/vallese/ visit passes 'VS'). Issue #4298: the board already
+  * knows the visitor's canton context — asking them to re-pick it in the
+  * (opt-in, collapsed-by-default) "Filtri avanzati" canton picker is the same
+  * re-entry friction the 2026-05-19 keyword-only simplification targeted.
+  * Only seeds `selectedCantons` once (mirrors initialKeyword) so an explicit
+  * user edit afterwards is never clobbered by a later prop change.
+  */
+ initialCantonCode?: string | null;
 }
 
 // ── Constants ────────────────────────────────────────────────
@@ -58,7 +68,7 @@ const CONTRACT_TYPES = [
 
 // ── Component ────────────────────────────────────────────────
 
-export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '' }: JobAlertFormProps) {
+export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '', initialCantonCode = null }: JobAlertFormProps) {
  const { t, locale } = useTranslation();
  const [expanded, setExpanded] = useState(false);
  // 2026-05-19 simplification: open→accept funnel was 0/29 across all surfaces
@@ -84,6 +94,17 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  useEffect(() => {
  if (initialKeyword) setKeyword(initialKeyword);
  }, [initialKeyword]);
+
+ // Seed the canton scope from the board's current canton route, once —
+ // guarded so a later prop change (e.g. searchQuery-driven re-render) never
+ // overwrites a canton the user picked or cleared by hand in "Filtri avanzati".
+ const cantonSeededRef = useRef(false);
+ useEffect(() => {
+ if (cantonSeededRef.current) return;
+ if (!initialCantonCode || !CANTON_CODES.includes(initialCantonCode)) return;
+ cantonSeededRef.current = true;
+ setSelectedCantons([initialCantonCode]);
+ }, [initialCantonCode]);
 
  // Auto-expand after the user has completed ≥2 distinct non-empty searches
  // (debounced 800ms to avoid counting every keystroke). Once expanded via

@@ -17,6 +17,7 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
+const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
@@ -2861,6 +2862,62 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!jobMatchAlertVisible) return;
  Analytics.trackJobAlertCtaShown('job_match_pill', jobMatchAlertCategoryLabel);
  }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
+
+ // ── Job-board filter alert CTA (issue #4298) ─────────────────────────────
+ // Same one-tap pattern as the job-match pill above, but driven by the
+ // board's OWN active filters (profession dropdown + free-text search +
+ // canton route) instead of the inferred JM1 profile — for a visitor who
+ // filtered the list themselves without a personalization signal yet. List
+ // view only; job-detail already has its own one-tap surfaces.
+ const boardFilterAlertCantonCode = useMemo(() => {
+ // Same route-driven resolution the data-loading effect uses (initialFilterCanton
+ // → referrer-based default), not the JM1 survey profile the job-match pill uses.
+ const canton = initialFilterCanton || getDefaultCantonForVisit();
+ return canton && canton !== AGGREGATE_CANTON_CODE ? canton : null;
+ }, [initialFilterCanton]);
+
+ const boardFilterAlertKeywordLabel = useMemo(() => {
+ const categoryLabel = selectedCategory !== 'all' ? t(`jobBoard.filter.${selectedCategory}`) : '';
+ // Prefer the category label — validated taxonomy, same source the
+ // job-detail one-tap prompt already uses. Free-text search is a fallback.
+ return categoryLabel || searchQuery.trim();
+ }, [selectedCategory, searchQuery, t]);
+
+ // null = still checking (existing alerts / quota), false = hide, true = show.
+ const [boardFilterAlertEligible, setBoardFilterAlertEligible] = useState<boolean | null>(null);
+
+ useEffect(() => {
+ setBoardFilterAlertEligible(null);
+ if (!enableJobAlerts || !boardFilterAlertKeywordLabel || !userId || !userEmail || isJobDetailView) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
+ '@/services/jobAlertService'
+ );
+ const existing = await getUserAlerts(userId);
+ if (cancelled) return;
+ const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, boardFilterAlertKeywordLabel));
+ const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
+ if (alreadySubscribed) Analytics.trackJobAlertCtaSkipped('job_board_filters', 'already_subscribed');
+ else if (quotaFull) Analytics.trackJobAlertCtaSkipped('job_board_filters', 'quota_full');
+ setBoardFilterAlertEligible(!alreadySubscribed && !quotaFull);
+ } catch {
+ // best-effort — hide the CTA rather than risk a duplicate/broken alert
+ if (!cancelled) setBoardFilterAlertEligible(false);
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
+
+ const boardFilterAlertVisible = Boolean(
+ enableJobAlerts && boardFilterAlertKeywordLabel && userId && userEmail && !isJobDetailView && boardFilterAlertEligible,
+ );
+
+ useEffect(() => {
+ if (!boardFilterAlertVisible) return;
+ Analytics.trackJobAlertCtaShown('job_board_filters', boardFilterAlertKeywordLabel);
+ }, [boardFilterAlertVisible, boardFilterAlertKeywordLabel]);
 
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
@@ -8155,6 +8212,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
 
+ {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
+ {boardFilterAlertVisible && userId && userEmail && (
+ <Suspense fallback={null}>
+ <JobBoardFilterAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ keywordLabel={boardFilterAlertKeywordLabel}
+ cantonCode={boardFilterAlertCantonCode}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: boardFilterAlertKeywordLabel,
+ location: boardFilterAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_board_filters',
+ });
+ setBoardFilterAlertEligible(false);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
+ }}
+ />
+ </Suspense>
+ )}
+
  {/* FRO-332/353: Job Alert form (behind feature flag) */}
  {enableJobAlerts && (
  <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
@@ -8162,6 +8245,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  authUser={authUser}
  onRequireAuth={onRequireAuth}
  initialKeyword={searchQuery}
+ initialCantonCode={boardFilterAlertCantonCode}
  />
  </Suspense>
  )}
