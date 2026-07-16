@@ -154,6 +154,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <h2 className="text-2xl font-bold font-display">{t('taxReturn.title.italia')}</h2>
  </div>
  <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.italia')}</p>
+ <p className="text-on-accent/70 text-xs leading-relaxed mt-2 pt-2 border-t border-on-accent/20">{t('taxReturn.directAnswer.italia')}</p>
  </div>
  ) : (
  <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-on-accent">
@@ -162,6 +163,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <h2 className="text-2xl font-bold font-display">{t('taxReturn.title.svizzera')}</h2>
  </div>
  <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.svizzera')}</p>
+ <p className="text-on-accent/70 text-xs leading-relaxed mt-2 pt-2 border-t border-on-accent/20">{t('taxReturn.directAnswer.svizzera')}</p>
  </div>
  )}
 

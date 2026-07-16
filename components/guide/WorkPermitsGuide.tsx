@@ -13,6 +13,7 @@ interface PermitType {
  duration: string;
  forWhom: string;
  description: string;
+ directAnswer: string;
  requirements: string[];
  documents: string[];
  processingTime: string;
@@ -36,6 +37,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  duration: t('permits.g.duration'),
  forWhom: t('permits.g.forWhom'),
  description: t('permits.g.description'),
+ directAnswer: t('permits.g.directAnswer'),
  requirements: [
  t('permits.g.req1'),
  t('permits.g.req2'),
@@ -86,6 +88,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  duration: t('permits.b.duration'),
  forWhom: t('permits.b.forWhom'),
  description: t('permits.b.description'),
+ directAnswer: t('permits.b.directAnswer'),
  requirements: [
  t('permits.b.req1'),
  t('permits.b.req2'),
@@ -137,6 +140,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  duration: t('permits.c.duration'),
  forWhom: t('permits.c.forWhom'),
  description: t('permits.c.description'),
+ directAnswer: t('permits.c.directAnswer'),
  requirements: [
  t('permits.c.req1'),
  t('permits.c.req2'),
@@ -188,6 +192,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  duration: t('permits.l.duration'),
  forWhom: t('permits.l.forWhom'),
  description: t('permits.l.description'),
+ directAnswer: t('permits.l.directAnswer'),
  requirements: [
  t('permits.l.req1'),
  t('permits.l.req2'),
@@ -357,6 +362,7 @@ const WorkPermitsGuide: React.FC = () => {
  </div>
  </div>
  <p className="text-on-accent/90 text-sm leading-relaxed">{permit.description}</p>
+ <p className="text-on-accent/80 text-xs leading-relaxed mt-2 pt-2 border-t border-on-accent/20">{permit.directAnswer}</p>
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
  <div className="bg-on-accent/10 rounded-xl p-3">
  <Clock size={14} className="text-on-accent/70 mb-1" />
