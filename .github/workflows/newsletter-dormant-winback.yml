@@ -1,0 +1,99 @@
+name: Newsletter Dormant Win-back
+
+# Two-email re-engagement sequence for the engagement_level==='dormant'
+# cohort (#4299) — DISTINCT from Newsletter Sunset's narrower zombie-sunset
+# track (mutually exclusive by construction, see scripts/lib/dormantWinback.mjs).
+# stage1 -> stage2 -> sunset (same status:'inactive' transition sunset uses),
+# with reactivation clearing the sequence at any point real engagement returns.
+# Policy + thresholds live in scripts/lib/dormantWinback.mjs.
+on:
+  schedule:
+    # Weekly, Thursday 04:21 UTC — distinct day from Newsletter Sunset's
+    # Monday 04:11 UTC run (avoid both list-hygiene jobs mutating subscriber
+    # docs the same day) and well clear of the daily send (03:33 UTC) / QA
+    # (04:30 UTC) windows.
+    - cron: '21 4 * * 4'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (default, read-only scan), apply (status/stamp writes only), or send (also email stage1/stage2)'
+        required: false
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+          - send
+
+permissions:
+  contents: read
+  issues: write
+
+# Never overlap with itself (it mutates subscriber status/stage-timestamp
+# fields in batches).
+concurrency:
+  group: newsletter-dormant-winback
+  cancel-in-progress: false
+
+jobs:
+  dormant-winback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run dormant win-back
+        env:
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
+          # Scheduled runs apply transitions AND send stage1/stage2 emails;
+          # manual runs use the chosen mode (default dry-run — safe to
+          # inspect candidate counts before acting).
+          MODE: ${{ github.event_name == 'schedule' && 'send' || inputs.mode || 'dry-run' }}
+        run: |
+          echo "🌙 Newsletter dormant win-back mode=$MODE"
+          case "$MODE" in
+            send)  node scripts/newsletter-winback-campaign.mjs --apply --send ;;
+            apply) node scripts/newsletter-winback-campaign.mjs --apply ;;
+            *)     node scripts/newsletter-winback-campaign.mjs ;;
+          esac
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
