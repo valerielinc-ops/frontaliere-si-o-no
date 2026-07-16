@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "arosa-lenzerheide-bfdf2f6e660b",
-      "slug": "sales-manager-international-arosa-lenzerheide-lenzerheide",
+      "slug": "responsabile-vendite-international-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "de": "sales-manager-international-arosa-lenzerheide-lenzerheide",
-        "it": "sales-manager-international-arosa-lenzerheide-lenzerheide",
+        "it": "responsabile-vendite-international-arosa-lenzerheide-lenzerheide",
         "en": "sales-manager-international-arosa-lenzerheide-lenzerheide",
-        "fr": "sales-manager-international-arosa-lenzerheide-lenzerheide"
+        "fr": "directeur-des-ventes-international-arosa-lenzerheide-lenzerheide"
       },
       "company": "Arosa Lenzerheide",
       "companyKey": "arosa-lenzerheide",
@@ -65,7 +65,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:49:03.102Z"
+      "firstSeenAt": "2026-07-15T22:49:03.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-international-arosa-lenzerheide-lenzerheide"
+        ],
+        "fr": [
+          "sales-manager-international-arosa-lenzerheide-lenzerheide"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-international-arosa-lenzerheide-lenzerheide"
+      ]
     },
     {
       "id": "arosa-lenzerheide-f2008c0cb826",
@@ -118,13 +129,11 @@
       "requirementsByLocale": {},
       "externalId": "0024",
       "previousSlugs": [
-        "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide",
-        "autista-in-arosa-lenzerheide-lenzerheide"
+        "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide",
-          "autista-in-arosa-lenzerheide-lenzerheide"
+          "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide"
@@ -198,13 +207,11 @@
       "requirementsByLocale": {},
       "externalId": "0021",
       "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-beschneiung-arosa-lenzerheide"
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-beschneiung-arosa-lenzerheide"
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
@@ -279,14 +286,12 @@
       "externalId": "0018",
       "previousSlugs": [
         "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide",
-        "autista-del-parco-in-arosa-lenzerheide-lenzerheide",
-        "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide"
+        "autista-del-parco-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
           "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide",
-          "autista-del-parco-in-arosa-lenzerheide-lenzerheide",
-          "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide"
+          "autista-del-parco-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide"
@@ -362,14 +367,12 @@
       "previousSlugs": [
         "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
         "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
-        "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-          "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-          "azienda-elettrica-in-arosa-lenzerheide-lenzerheide"
+          "societa-elettricista-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "betriebselektriker-in-arosa-lenzerheide-lenzerheide"

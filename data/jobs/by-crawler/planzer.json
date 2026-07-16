@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-umschlag-mit-lkw-prufung-m-w-d-planzer-marstetten",
-        "collaboratore-trice-umschlag-con-lkw-prufung-m-w-d-planzer-marstetten"
+        "mitarbeiter-umschlag-mit-lkw-prufung-m-w-d-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-umschlag-mit-lkw-prufung-m-w-d-planzer-marstetten",
-          "collaboratore-trice-umschlag-con-lkw-prufung-m-w-d-planzer-marstetten"
+          "mitarbeiter-umschlag-mit-lkw-prufung-m-w-d-planzer-marstetten"
         ],
         "en": [
           "mitarbeiter-umschlag-mit-lkw-prufung-m-w-d-planzer-marstetten"
@@ -135,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kehrichtbelader-m-w-d-planzer-kallnach",
-        "vela-posteriore-m-f-d-planzer-kallnach"
+        "kehrichtbelader-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kehrichtbelader-m-w-d-planzer-kallnach",
-          "vela-posteriore-m-f-d-planzer-kallnach"
+          "kehrichtbelader-m-w-d-planzer-kallnach"
         ],
         "en": [
           "kehrichtbelader-m-w-d-planzer-kallnach"
@@ -216,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-        "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs"
+        "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs",
-          "chauffeur-cat-ce-regione-berna-mittelland-m-f-d-planzer-buchs"
+          "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
         ],
         "fr": [
           "chauffeur-kat-ce-region-bern-mittelland-m-w-d-planzer-buchs"
@@ -296,15 +290,13 @@
       "previousSlugs": [
         "chauffeur-kat-ce-m-w-d-planzer-seewen",
         "chauffeur-valoren-cat-ce-m-f-d-planzer-dallikon",
-        "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon",
-        "gatto-di-chauffeur-ce-m-f-d-planzer-seewen"
+        "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-ce-m-w-d-planzer-seewen",
           "chauffeur-valoren-cat-ce-m-f-d-planzer-dallikon",
-          "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon",
-          "gatto-di-chauffeur-ce-m-f-d-planzer-seewen"
+          "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
         ],
         "en": [
           "chauffeur-kat-ce-m-w-d-planzer-seewen"
@@ -383,13 +375,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeur-kat-be-m-w-d-planzer-seewen",
-        "gatto-di-chauffeur-be-m-f-d-planzer-seewen"
+        "chauffeur-kat-be-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-be-m-w-d-planzer-seewen",
-          "gatto-di-chauffeur-be-m-f-d-planzer-seewen"
+          "chauffeur-kat-be-m-w-d-planzer-seewen"
         ],
         "en": [
           "chauffeur-kat-be-m-w-d-planzer-seewen"
@@ -414,12 +404,12 @@
     },
     {
       "id": "planzer-9fc619e95ceb",
-      "slug": "teamleiter-logistik-m-w-d-planzer-seewen",
+      "slug": "team-leader-logistics-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "teamleiter-logistik-m-w-d-planzer-seewen",
-        "it": "teamleiter-logistik-m-w-d-planzer-seewen",
+        "it": "team-leader-logistics-m-f-d-planzer-seewen",
         "en": "teamleiter-logistik-m-w-d-planzer-seewen",
-        "fr": "teamleiter-logistik-m-w-d-planzer-seewen"
+        "fr": "chef-d-equipe-logistique-m-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -476,16 +466,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:01:41.689Z"
+      "firstSeenAt": "2026-07-15T22:01:41.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-logistik-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "teamleiter-logistik-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-logistik-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-54336674df3e",
-      "slug": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
+      "slug": "carico-generale-ausiliario-m-f-d-planzer-seewen",
       "slugByLocale": {
         "de": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "it": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "en": "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "fr": "nebendisponent-stuckgut-m-w-d-planzer-seewen"
+        "it": "carico-generale-ausiliario-m-f-d-planzer-seewen",
+        "en": "auxiliary-general-cargo-m-f-d-planzer-seewen",
+        "fr": "marchandises-generales-auxiliaires-m-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -548,33 +549,37 @@
           "distribuzione-del-carico-generale-m-f-d-planzer-seewen",
           "dispatch-of-general-cargo-m-f-d-planzer-seewen",
           "disponent-stuckgut-m-w-d-planzer-seewen",
-          "expedition-de-marchandises-generales-m-f-d-planzer-seewen"
+          "expedition-de-marchandises-generales-m-f-d-planzer-seewen",
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
         ],
         "en": [
-          "dispatch-of-general-cargo-m-f-d-planzer-seewen"
+          "dispatch-of-general-cargo-m-f-d-planzer-seewen",
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
         ],
         "de": [
           "disponent-stuckgut-m-w-d-planzer-seewen"
         ],
         "fr": [
-          "expedition-de-marchandises-generales-m-f-d-planzer-seewen"
+          "expedition-de-marchandises-generales-m-f-d-planzer-seewen",
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
         ]
       },
       "previousSlugs": [
         "distribuzione-del-carico-generale-m-f-d-planzer-seewen",
         "dispatch-of-general-cargo-m-f-d-planzer-seewen",
         "disponent-stuckgut-m-w-d-planzer-seewen",
-        "expedition-de-marchandises-generales-m-f-d-planzer-seewen"
+        "expedition-de-marchandises-generales-m-f-d-planzer-seewen",
+        "nebendisponent-stuckgut-m-w-d-planzer-seewen"
       ]
     },
     {
       "id": "planzer-40ef8dd16968",
-      "slug": "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
+      "slug": "autista-notturno-cat-b-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
-        "it": "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
-        "en": "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
-        "fr": "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
+        "it": "autista-notturno-cat-b-m-f-d-planzer-kallnach",
+        "en": "night-chauffeur-cat-b-m-f-d-planzer-kallnach",
+        "fr": "chauffeur-de-nuit-cat-b-m-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -631,7 +636,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:01:40.376Z"
+      "firstSeenAt": "2026-07-15T22:01:40.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
+          "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-4968bac7c89d",
@@ -685,13 +704,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lkw-mechaniker-m-w-d-planzer-dallikon",
-        "meccanico-hgv-m-f-d-planzer-dallikon"
+        "lkw-mechaniker-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lkw-mechaniker-m-w-d-planzer-dallikon",
-          "meccanico-hgv-m-f-d-planzer-dallikon"
+          "lkw-mechaniker-m-w-d-planzer-dallikon"
         ],
         "en": [
           "lkw-mechaniker-m-w-d-planzer-dallikon"
@@ -716,12 +733,12 @@
     },
     {
       "id": "planzer-0c3c5099657c",
-      "slug": "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
+      "slug": "veicoli-fabbri-carrozzeria-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
-        "it": "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
-        "en": "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
-        "fr": "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
+        "it": "veicoli-fabbri-carrozzeria-m-f-d-planzer-dallikon",
+        "en": "vehicle-locksmiths-bodywork-m-f-d-planzer-dallikon",
+        "fr": "serruriers-carcasses-de-vehicules-m-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -778,7 +795,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:01:38.933Z"
+      "firstSeenAt": "2026-07-15T22:01:38.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-598255ecdc03",

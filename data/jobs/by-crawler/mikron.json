@@ -27,8 +27,10 @@
       },
       "slug": "giovane-ingegnere-meccanico-madrelingua-francese-mikron",
       "slugByLocale": {
-        "en": "giovane-ingegnere-meccanico-madrelingua-francese-mikron",
-        "it": "giovane-ingegnere-meccanico-madrelingua-francese-mikron"
+        "en": "young-engineer-mechanic-mother-tongue-french-mikron-group-agno",
+        "it": "giovane-ingegnere-meccanico-madrelingua-francese-mikron",
+        "de": "junge-ingenieurin-mechanikerin-muttersprache-franzosisch-mikron-group-agno",
+        "fr": "jeune-ingenieur-mecanicien-langue-maternelle-francais-mikron-group-agno"
       },
       "sourceLang": "it",
       "category": "general",
@@ -84,10 +86,11 @@
         "de": "Produktionsplanungsexperte (Ordonnanceur)",
         "fr": "Expert en planification de la production (Ordonnanceur)"
       },
-      "slug": "production-planning-expert-ordonnanceur-mikron",
+      "slug": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry",
       "slugByLocale": {
         "en": "production-planning-expert-ordonnanceur-mikron",
-        "it": "production-planning-expert-ordonnanceur-mikron"
+        "it": "esperto-di-pianificazione-della-produzione-ordonnanceur-mikron-group-boudry",
+        "de": "produktionsplanungsexperte-ordonnanceur-mikron-group-boudry"
       },
       "sourceLang": "en",
       "category": "production",
@@ -116,7 +119,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:42:57.030Z"
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-planning-expert-ordonnanceur-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "production-planning-expert-ordonnanceur-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/quality-engineer-mfd",
@@ -140,10 +151,11 @@
         "it": "Ingegnere di qualità (m/f/d)",
         "de": "Qualitätsingenieur (m/w/d)"
       },
-      "slug": "quality-engineer-m-f-d-mikron",
+      "slug": "ingegnere-di-qualita-m-f-d-mikron-group-boudry",
       "slugByLocale": {
         "en": "quality-engineer-m-f-d-mikron",
-        "it": "quality-engineer-m-f-d-mikron"
+        "it": "ingegnere-di-qualita-m-f-d-mikron-group-boudry",
+        "de": "qualitatsingenieur-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "technology",
@@ -172,7 +184,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:42:57.030Z"
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-engineer-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "quality-engineer-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/technical-grinder-mikron-tool",
@@ -200,7 +220,9 @@
       "slug": "technical-grinder-mikron-tool-mikron",
       "slugByLocale": {
         "en": "technical-grinder-mikron-tool-mikron",
-        "it": "technical-grinder-mikron-tool-mikron"
+        "it": "technical-grinder-mikron-tool-mikron",
+        "de": "technisches-grinder-mikron-tool-mikron-group-agno",
+        "fr": "outil-technique-mikron-grinder-mikron-group-agno"
       },
       "sourceLang": "it",
       "category": "production",
@@ -289,20 +311,7 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
-          "formazione-di-apprendisti-mikron-group-boudry"
-        ],
-        "en": [
-          "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron"
-        ]
-      },
-      "previousSlugs": [
-        "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
-        "formazione-di-apprendisti-mikron-group-boudry"
-      ]
+      }
     },
     {
       "url": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
@@ -363,17 +372,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "quality-technician-specialist-m-f-d-mikron",
-          "specialista-tecnico-di-qualita-m-f-d-mikron-group-boudry"
-        ]
-      },
-      "previousSlugs": [
-        "quality-technician-specialist-m-f-d-mikron",
-        "specialista-tecnico-di-qualita-m-f-d-mikron-group-boudry"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://www.mikron.com/en/team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-dequipe-en-28-mf",
@@ -434,20 +433,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron",
-          "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry"
-        ],
-        "en": [
-          "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron"
-        ]
-      },
-      "previousSlugs": [
-        "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron",
-        "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
@@ -508,17 +494,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "warehouse-logistic-team-leader-m-f-d-mikron",
-          "magazzino-logistics-team-leader-m-f-d-mikron-group-boudry"
-        ]
-      },
-      "previousSlugs": [
-        "warehouse-logistic-team-leader-m-f-d-mikron",
-        "magazzino-logistics-team-leader-m-f-d-mikron-group-boudry"
-      ]
+      "crawlerMissStreak": 1
     }
   ]
 }
