@@ -1068,12 +1068,15 @@
       // FR_MAX_RELOADS ceiling). Post-propagation the refetched chunk set is consistent.
       // Keep the message regexes in sync with isVersionSkewError /
       // isModuleLinkSkewMessage in services/resilientImport.ts (this inline
-      // bootstrap script cannot import that module). The three CALL_TIME_SKEW
+      // bootstrap script cannot import that module). The CALL_TIME_SKEW
       // patterns below previously used a literal leading space instead of a
       // `\b` word boundary (e.g. `/ is not a function\b/` vs resilientImport's
       // `/\bis not a function\b/`) — a lexical drift within the same pattern
       // class this comment already calls out (issue #3216 item 1; AGENTS.md
       // §Non-Negotiables #6). Aligned to `\b` on both sides for byte-parity.
+      // Two more patterns added for issue #4304 (undefined lazy-proxy import
+      // at call time, e.g. Analytics.trackCalculation) — see inline comment
+      // on `skewCall` below.
       window.addEventListener('error', function(e) {
         // Resource (script/link) errors are handled by the capture-phase handler
         // above; this non-capture handler only inspects runtime errors.
@@ -1084,10 +1087,19 @@
         // — fall back to the event message so (b) is still detected.
         var name = (err && err.name) || '';
         var m = (err && err.message) || e.message || '';
+        // Last two: a lazy-proxy singleton import (e.g. Analytics from
+        // services/analyticsProxy.ts) bound to undefined by cross-chunk skew
+        // throws this shape instead of "is not a function". Anchored to the
+        // closed track*/init*/set* naming convention of every Analytics
+        // method so unrelated null-pointer bugs aren't masked. Keep in sync
+        // with CALL_TIME_SKEW_PATTERNS in services/resilientImport.ts
+        // (issue #4304; this inline bootstrap script cannot import that module).
         var skewCall = name === 'TypeError' && (
                    /\bis not a function\b/.test(m) ||
                    /\bis not a constructor\b/.test(m) ||
-                   /\bis not iterable\b/.test(m));
+                   /\bis not iterable\b/.test(m) ||
+                   /\bcannot read propert(?:y|ies) of undefined \(reading '(?:track|init|set)[A-Za-z]*'\)/i.test(m) ||
+                   /\bundefined is not an object \(evaluating '[^']*\.(?:track|init|set)[A-Za-z]*'\)/i.test(m));
         var skewLink = /does not provide an export named|import not found|indirect export|Importing binding name/.test(m);
         if (!skewCall && !skewLink) return;
         if (!frConsumeReloadBudget(m)) return;

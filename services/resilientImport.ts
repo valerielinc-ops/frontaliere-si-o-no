@@ -196,6 +196,19 @@ export const CALL_TIME_SKEW_PATTERNS: readonly RegExp[] = [
   /\bis not a function\b/,
   /\bis not a constructor\b/,
   /\bis not iterable\b/,
+  // Cross-chunk skew can also leave a lazy-proxy singleton import (e.g. the
+  // `Analytics` object from services/analyticsProxy.ts) bound to `undefined`
+  // at the call site, so `Analytics.trackCalculation(...)` throws instead of
+  // "is not a function" — see analyticsProxy.ts's doc comment, which cites
+  // this as the site's #1 runtime exception. Anchored to the closed
+  // track*/init*/set* naming convention shared by every Analytics method
+  // (services/analytics.ts) rather than a blanket property-name wildcard,
+  // so unrelated first-party null-pointer bugs elsewhere are not masked as
+  // version skew.
+  // V8/Chrome/Edge/Node: "Cannot read properties of undefined (reading 'trackCalculation')"
+  /\bcannot read propert(?:y|ies) of undefined \(reading '(?:track|init|set)[A-Za-z]*'\)/i,
+  // Safari/WebKit: "undefined is not an object (evaluating 't.Analytics.trackCalculation')"
+  /\bundefined is not an object \(evaluating '[^']*\.(?:track|init|set)[A-Za-z]*'\)/i,
 ];
 
 export function isVersionSkewError(err: unknown): boolean {
