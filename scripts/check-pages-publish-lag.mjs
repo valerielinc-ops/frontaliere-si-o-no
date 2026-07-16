@@ -123,9 +123,13 @@ async function ghJson(urlPath) {
   return res.json();
 }
 
-/** Newest-first deployments; returns the first one whose latest status is `success`. */
+/** Newest-first deployments; returns the first one whose latest status is `success`.
+ * per_page=100 (API max) rather than a small window: during a prolonged
+ * deploy-starvation stretch — the exact scenario this watchdog exists to
+ * catch — the most recent records can all be non-success, and a narrow
+ * window would fail-open (skip) instead of alerting. */
 async function findLastSuccessfulDeployment() {
-  const deployments = await ghJson(`/repos/${REPO}/deployments?environment=github-pages&per_page=10`);
+  const deployments = await ghJson(`/repos/${REPO}/deployments?environment=github-pages&per_page=100`);
   for (const d of deployments) {
     const statuses = await ghJson(`/repos/${REPO}/deployments/${d.id}/statuses?per_page=5`);
     if (statuses[0]?.state === 'success') {
@@ -135,9 +139,13 @@ async function findLastSuccessfulDeployment() {
   return null;
 }
 
+/** @returns {{ files: string[], truncated: boolean }} `truncated`: GitHub's
+ * Compare API caps the `files` list at 300 entries — during a long
+ * deploy-starvation stretch the real changed-file count can exceed that, so
+ * callers must surface (not silently swallow) an undercount. */
 async function getChangedFilesSince(baseSha, headRef) {
   const compare = await ghJson(`/repos/${REPO}/compare/${baseSha}...${headRef}`);
-  return (compare.files || []).map((f) => f.filename);
+  return { files: (compare.files || []).map((f) => f.filename), truncated: Boolean(compare.files?.length === 300) };
 }
 
 // ── Orchestration ───────────────────────────────────────────────────
@@ -154,17 +162,20 @@ async function main() {
 
   const last = await findLastSuccessfulDeployment();
   if (!last) {
-    console.log('⚠️ No successful github-pages deployment found in the last 10 — skipping (fail open)');
+    console.log('⚠️ No successful github-pages deployment found in the last 100 — skipping (fail open)');
     process.exit(0);
   }
 
   const ageMinutes = Math.round((Date.now() - Date.parse(last.publishedAt)) / 60000);
-  const changed = await getChangedFilesSince(last.sha, 'main');
+  const { files: changed, truncated } = await getChangedFilesSince(last.sha, 'main');
   const pending = filterUnignored(changed, globs);
 
   console.log('── Pages publish-lag report ──');
   console.log(`Last successful publish: ${last.sha.slice(0, 10)} at ${last.publishedAt} (${ageMinutes} min ago)`);
   console.log(`Dist-affecting file(s) changed on main since then: ${pending.length} (of ${changed.length} total)`);
+  if (truncated) {
+    console.log('⚠️ Compare API capped the changed-file list at 300 — real pending count may be higher than reported.');
+  }
   if (pending.length > 0) {
     console.log('Sample pending paths:');
     for (const f of pending.slice(0, 15)) console.log(`  - ${f}`);
@@ -179,6 +190,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) {
       const summary = [
         `Last successful GitHub Pages publish: ${last.sha.slice(0, 10)} at ${last.publishedAt} (${ageMinutes} min ago, threshold ${thresholdMin} min / ${lagHours}h).`,
+        truncated ? '⚠️ Compare API capped the changed-file list at 300 — real pending count may be higher than reported.' : '',
         `${pending.length} dist-affecting file(s) changed on main since then and are NOT yet confirmed live:`,
         ...pending.slice(0, 20).map((f) => `- ${f}`),
         pending.length > 20 ? `...and ${pending.length - 20} more.` : '',
