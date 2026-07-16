@@ -211,6 +211,22 @@ describe('parseRssItems', () => {
     const items = parseRssItems(noUrlRss);
     expect(items).toHaveLength(0);
   });
+
+  it('throws a clear, low-drama error instead of the opaque fast-xml-parser exception on unparseable input (#4246 sibling)', () => {
+    // Same class of failure as parseAristonSitemapFeed (#4246): a WAF/error page
+    // or a Jina `X-Return-Format: html` re-render fed into this strict XML parser
+    // produces deeply-unclosed HTML (a <br> per synthetic RSS item) that blows
+    // past fast-xml-parser's maxNestedTags instead of the well-formed Teamtailor
+    // RSS feed this parser expects.
+    const unclosedBrPerItem = Array.from(
+      { length: 120 },
+      (_, i) => `<div><h3><a href="https://jobs.badruttscareers.com/en-GB/jobs/${i}">Job ${i}</a></h3><br></div>`,
+    ).join('');
+    const malformedHtml = `<html><head><title>Jobs</title></head><body>${unclosedBrPerItem}</body></html>`;
+    expect(() => parseRssItems(malformedHtml)).toThrow(
+      /Badrutt's Palace RSS feed failed to parse as XML/,
+    );
+  });
 });
 
 // ─── RSS date parsing ───────────────────────────────────────────────────────────

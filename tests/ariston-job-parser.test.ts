@@ -26,6 +26,25 @@ describe('ariston job parser', () => {
     expect(isAristonTargetLocation(items[0].location)).toBe(true);
   });
 
+  it('throws a clear, low-drama error instead of the opaque fast-xml-parser exception on unparseable input (#4246)', () => {
+    // Reproduces the shape Jina's `X-Return-Format: html` fallback returns when
+    // careers.aristongroup.com's RSS/XML feed can't be reached directly from the
+    // CI runner: each of the ~180 RSS <item>s becomes an HTML <div> containing an
+    // unclosed void element (<br>), which never pops off fast-xml-parser's strict
+    // tag stack and blows past maxNestedTags (default 100) partway through.
+    const unclosedBrPerItem = Array.from(
+      { length: 120 },
+      (_, i) => `<div><h3><a href="https://careers.aristongroup.com/job/${i}/">Job ${i}</a></h3><br></div>`,
+    ).join('');
+    const jinaHtmlFallback = `<html><head><title>Careers</title></head><body>${unclosedBrPerItem}</body></html>`;
+    expect(() => parseAristonSitemapFeed(jinaHtmlFallback)).toThrow(
+      /Ariston sitemap feed failed to parse as XML/,
+    );
+    // The library's own opaque message must NOT be the only signal — it should be
+    // wrapped, not swallowed (still present in the cause, just not the whole story).
+    expect(() => parseAristonSitemapFeed(jinaHtmlFallback)).not.toThrow(/^Maximum nested tags exceeded$/);
+  });
+
   it('parses detail page metadata and description', () => {
     const html = `
       <html><head>

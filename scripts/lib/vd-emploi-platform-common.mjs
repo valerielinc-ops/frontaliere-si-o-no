@@ -99,7 +99,15 @@ async function fetchOffersJson(apiUrl) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      const payload = await res.json();
+      let payload;
+      try {
+        payload = await res.json();
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${apiUrl}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
       if (Array.isArray(payload)) return payload;
       if (Array.isArray(payload?.offers)) return payload.offers;
       return [];

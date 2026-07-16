@@ -87,6 +87,34 @@ describe('crawler fetch retry/backoff', () => {
     await expect(fetchJson('https://example.test/api', { retries: 0, retryBaseMs: 0 })).rejects.toThrow(/HTTP 503/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
+
+  // #4247: the Bucher + Suter WordPress REST job-listings endpoint returned
+  // HTTP 200 with an HTML WAF/challenge page body instead of JSON on a CI
+  // run, crashing the whole crawler with "Unexpected token '<' ... is not
+  // valid JSON" and no retry. fetchJson() must treat a 200-but-non-JSON body
+  // as retryable (NOT proxy through Jina — that always returns HTML too).
+  it('retries fetchJson on a 200 response with a non-JSON (WAF challenge) body, then succeeds', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(htmlResponse(200, '<html><head><title>Just a moment...</title></head></html>'))
+      .mockResolvedValueOnce(jsonResponse(200, [{ id: 1, title: { rendered: 'Job' } }]));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await fetchJson('https://example.test/wp-json/wp/v2/job-listings', { retryBaseMs: 0 });
+    expect(result).toEqual([{ id: 1, title: { rendered: 'Job' } }]);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('exhausts retries and throws after a persistent 200-but-non-JSON (WAF challenge) body', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(htmlResponse(200, '<html><head><title>Blocked</title></head></html>'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(
+      fetchJson('https://example.test/wp-json/wp/v2/job-listings', { retries: 2, retryBaseMs: 0 }),
+    ).rejects.toThrow(/Invalid JSON/);
+    // 1 initial attempt + 2 retries — still fails loudly, no silent data wipe.
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
 });
 
 function redirectResponse(status: number, location: string, setCookies: string[] = []) {

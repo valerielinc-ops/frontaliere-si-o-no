@@ -141,11 +141,19 @@ async function getJsonOnce(url, timeoutMs) {
     try {
       return await res.json();
     } catch (parseErr) {
-      throw new GreenhouseApiError(
+      // A 2xx status with a non-JSON body is the signature of a WAF/CDN
+      // "challenge" page served on an otherwise-OK status (#4247 Bucher +
+      // Suter — same class, different ATS). `statusCode` here is res.status
+      // (e.g. 200), which the isTransient predicate below does NOT retry on
+      // by default, so tag it explicitly retryable to route it through the
+      // same backoff loop as a 5xx instead of failing fast on one blip.
+      const err = new GreenhouseApiError(
         `Greenhouse API returned non-JSON body for ${url}: ${parseErr.message}`,
         res.status,
         { url },
       );
+      err.retryable = true;
+      throw err;
     }
   } catch (err) {
     if (err instanceof GreenhouseApiError) throw err;
@@ -236,17 +244,19 @@ export async function fetchGreenhouseJobs(boardToken, options = {}) {
 
   const url = buildGreenhouseApiUrl(boardToken, { includeContent, useDeprecatedApi });
 
-  // Retry only TRANSIENT classes (network/abort → statusCode 0, or 5xx) via the
-  // shared exponential-backoff helper. Persistent 4xx (404 board moved, 401/403
-  // private board) fail fast. Greenhouse always returns the full list in one
-  // call, so the retry is for the single request.
+  // Retry only TRANSIENT classes (network/abort → statusCode 0, 5xx, or a 2xx
+  // response whose body wasn't valid JSON — the WAF/CDN "challenge page on an
+  // OK status" signature, #4247) via the shared exponential-backoff helper.
+  // Persistent 4xx (404 board moved, 401/403 private board) fail fast.
+  // Greenhouse always returns the full list in one call, so the retry is for
+  // the single request.
   const payload = await fetchWithRetry(
     () => getJsonOnce(url, timeoutMs),
     {
       label: `greenhouse ${url}`,
       isTransient: (err) =>
         err instanceof GreenhouseApiError &&
-        (err.statusCode === 0 || err.statusCode >= 500),
+        (err.statusCode === 0 || err.statusCode >= 500 || err.retryable === true),
     },
   );
 

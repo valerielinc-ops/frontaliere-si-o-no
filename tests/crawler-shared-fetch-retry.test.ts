@@ -21,6 +21,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { fetchHtml as hospitalFetchHtml } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import { fetchGreenhouseJobs, GreenhouseApiError } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { fetchLeverJobs } from '../scripts/lib/ats-clients/lever-client.mjs';
+import { fetchWorkdayJobDetail } from '../scripts/lib/ats-clients/workday-client.mjs';
 
 // The PastaHR/GZO-Wetzikon/IGS-Bern case (#3255) is cross-origin between the
 // employer's career page (referer) and the widget endpoint (publicjobs.ch), so
@@ -133,6 +134,35 @@ describe('greenhouse-client.fetchGreenhouseJobs', () => {
     await expect(fetchGreenhouseJobs('gone')).rejects.toBeInstanceOf(GreenhouseApiError);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
+
+  // #4247 sibling: a 200 response with an HTML WAF/challenge body instead of
+  // JSON (same signature as the Bucher + Suter WP REST break) previously threw
+  // a GreenhouseApiError with statusCode=200, which this client's isTransient
+  // predicate (statusCode===0 || statusCode>=500) did NOT retry — failing fast
+  // on a transient blip. It must now self-heal via the shared backoff loop.
+  it('retries a 200 response with a non-JSON (WAF challenge) body, then succeeds', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(htmlResponse(200, '<html><head><title>Just a moment...</title></head></html>'))
+      .mockResolvedValueOnce(jsonResponse(200, { jobs: [{ id: 1, title: 'Dev', location: { name: 'Zurich' } }] }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchGreenhouseJobs('acme');
+    expect(jobs).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('exhausts retries and throws after a persistent 200-but-non-JSON (WAF challenge) body', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(htmlResponse(200, '<html><head><title>Blocked</title></head></html>'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchGreenhouseJobs('acme')).rejects.toBeInstanceOf(GreenhouseApiError);
+    // 1 initial attempt + the shared default of 3 retries = 4 total — still
+    // fails loudly (no silent empty-jobs swallow), just after self-heal attempts.
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+  });
 });
 
 describe('lever-client.fetchLeverJobs', () => {
@@ -158,6 +188,40 @@ describe('lever-client.fetchLeverJobs', () => {
 
     await expect(fetchLeverJobs('gone')).rejects.toThrow();
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+// #4247 sibling found via GitNexus impact analysis on the fetchJson rename:
+// fetchWorkdayJobDetail's `return await res.json();` had no try/catch, so a
+// 200-but-HTML WAF challenge body threw a bare SyntaxError that the shared
+// isTransientFetchError() classifier (used as the default here — no custom
+// isTransient override) does NOT recognise as transient — same root cause as
+// Bucher + Suter, different ATS. Must now self-heal via backoff instead of
+// degrading straight to null on one blip.
+describe('workday-client.fetchWorkdayJobDetail', () => {
+  it('retries a 200 response with a non-JSON (WAF challenge) body, then returns parsed detail', async () => {
+    withFastRetry();
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(htmlResponse(200, '<html><head><title>Just a moment...</title></head></html>'))
+      .mockResolvedValueOnce(jsonResponse(200, { jobPostingInfo: { title: 'Engineer' } }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const detail = await fetchWorkdayJobDetail('https://acme.wd1.myworkdayjobs.com/wday/cxs/acme/Careers', '/job/123');
+    expect(detail).toEqual({ jobPostingInfo: { title: 'Engineer' } });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('degrades to null (its designed safe-fail contract) after a persistent 200-but-non-JSON body', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(htmlResponse(200, '<html><head><title>Blocked</title></head></html>'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const detail = await fetchWorkdayJobDetail('https://acme.wd1.myworkdayjobs.com/wday/cxs/acme/Careers', '/job/123');
+    expect(detail).toBeNull();
+    // 1 initial attempt + the shared default of 3 retries = 4 total — the
+    // retry loop was actually exercised, not a fail-fast on attempt 1.
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 });
 

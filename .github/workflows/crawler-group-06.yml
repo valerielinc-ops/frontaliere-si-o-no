@@ -681,7 +681,7 @@ jobs:
 
           # ---- swatchgroup: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "⌚ Auto-update Swatch Group jobs (dedicated crawler)"'
+            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "⌚ Auto-update Swatch Group jobs (dedicated crawler)" data/jobs/by-crawler/comadur-swatch-group.json data/jobs-crawler-summaries/by-crawler/comadur-swatch-group.json data/jobs/by-crawler/eta-sa-swatch-group.json data/jobs-crawler-summaries/by-crawler/eta-sa-swatch-group.json data/jobs/by-crawler/nivarox-swatch-group.json data/jobs-crawler-summaries/by-crawler/nivarox-swatch-group.json data/jobs/by-crawler/swatch-group-assembly.json data/jobs-crawler-summaries/by-crawler/swatch-group-assembly.json data/jobs/by-crawler/swiss-timing-swatch-group.json data/jobs-crawler-summaries/by-crawler/swiss-timing-swatch-group.json data/jobs/by-crawler/rado.json data/jobs-crawler-summaries/by-crawler/rado.json'
             git_commit_exit=$?
           fi
 

@@ -168,7 +168,25 @@ async function fetchJsonWithRetry(url, options = {}) {
             err.retryable = RETRYABLE_STATUS.has(res.status);
             throw err;
           }
-          return await res.json();
+          const text = await res.text();
+          try {
+            return JSON.parse(text);
+          } catch (parseErr) {
+            // A 2xx status with a non-JSON body is the signature of a WAF/CDN
+            // "challenge" page served on an otherwise-OK status (#4247 Bucher +
+            // Suter — same class, different ATS). isTransientFetchError()
+            // checks `err.retryable` first, so tag it explicitly to route
+            // through the same backoff loop as a 5xx instead of failing fast
+            // on one blip (a bare SyntaxError from res.json() has no such
+            // signal and would otherwise fail immediately).
+            const err = new WorkdayApiError(
+              `Workday API returned non-JSON body for ${url}: ${parseErr?.message || parseErr}`,
+              res.status,
+              url,
+            );
+            err.retryable = true;
+            throw err;
+          }
         } finally {
           clearTimeout(timer);
         }
@@ -396,7 +414,18 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
           }
           return null; // persistent 4xx → no detail, keep the job
         }
-        return await res.json();
+        const text = await res.text();
+        try {
+          return JSON.parse(text);
+        } catch (parseErr) {
+          // Same WAF/CDN "challenge on a 2xx" signature as #4247 — tag
+          // retryable so the default shared classifier (isTransientFetchError,
+          // which checks `err.retryable` first) self-heals it instead of
+          // degrading straight to null on one blip.
+          const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
+          err.retryable = true;
+          throw err;
+        }
       } finally {
         clearTimeout(timer);
       }

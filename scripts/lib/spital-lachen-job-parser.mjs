@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -36,24 +36,11 @@ const LISTING_PAGE_CAP = 100;
 const REST_LISTING_URL = `https://spital-lachen.ch/wp-json/wp/v2/dcwi_jobs?per_page=${LISTING_PAGE_CAP}&_fields=id,slug,link,title,date,modified,unternehmensbereich`;
 const PUBLIC_CAREER_URL = 'https://spital-lachen.ch/jobs-karriere/offene-stellen/';
 
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
+// Listing fetch uses the shared fetchJson() (crawler-template.mjs): retries
+// transient failures (5xx/429, network blips, and a 200-but-non-JSON WAF
+// "challenge" body — the same class of intermittent block that broke the
+// Bucher + Suter WP REST listing, #4247) via exponential backoff instead of
+// hard-failing the whole crawler on one blip.
 
 export function isSpitalLachenJob(job) {
   if (job?.companyKey === SPITAL_LACHEN_KEY) return true;
@@ -129,7 +116,7 @@ export async function fetchAllSpitalLachenJobs() {
   console.log(`   REST listing: ${REST_LISTING_URL}`);
   console.log(`   Public:       ${PUBLIC_CAREER_URL}\n`);
 
-  const data = await fetchJson(REST_LISTING_URL);
+  const data = await fetchJson(REST_LISTING_URL, { label: 'Spital Lachen wp-json job-listings' });
   if (!Array.isArray(data)) {
     console.log('  ⚠ Unexpected REST response (not an array)');
     return [];

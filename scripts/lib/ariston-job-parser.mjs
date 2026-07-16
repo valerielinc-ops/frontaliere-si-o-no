@@ -71,7 +71,26 @@ export function parseAristonSitemapFeed(xml = '') {
     parseTagValue: false,
     trimValues: false,
   });
-  const parsed = parser.parse(xml);
+  // The genuine feed is well-formed RSS/XML (depth ~4, ~180 <item>s) and always
+  // parses cleanly. A parse-time throw here (fast-xml-parser's strict XMLParser,
+  // e.g. "Maximum nested tags exceeded") means `xml` is NOT the real feed — most
+  // likely fetchHtml's Jina fallback (crawler-template.mjs) fired on a
+  // connection-level failure / WAF-block status and Jina's `X-Return-Format: html`
+  // re-rendered the feed as an HTML DOM tree with unclosed void elements (<br>,
+  // <meta>) that never pop off fast-xml-parser's strict tag stack, so it grows
+  // unbounded across every item and blows past maxNestedTags (verified live:
+  // https://r.jina.ai/<feed> with X-Return-Format:html reproduces the exact
+  // error). Surface a clear, low-drama error instead of the opaque library
+  // exception and let it propagate the SAME way as the zero-feed guard below
+  // (thrown before fetchAristonListings' caller writes anything → safe-fail,
+  // existing dataset preserved) rather than crashing with an unrecognisable
+  // library-internal message (#4246).
+  let parsed;
+  try {
+    parsed = parser.parse(xml);
+  } catch (err) {
+    throw new Error(`Ariston sitemap feed failed to parse as XML: ${err?.message || err}`);
+  }
   const normalizedItems = assertRssChannelItems(parsed, { source: 'ariston' });
   return normalizedItems
     .map((item) => ({

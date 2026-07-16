@@ -65,7 +65,15 @@ export async function fetchBeehireCampaigns(slug) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
       return assertJsonListShape(data, { key: 'campaigns', source: 'beehire' });
     } finally {
       clearTimeout(timer);

@@ -33354,7 +33354,7 @@
           "env": {
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"⌚ Auto-update Swatch Group jobs (dedicated crawler)\""
+          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"⌚ Auto-update Swatch Group jobs (dedicated crawler)\" data/jobs/by-crawler/comadur-swatch-group.json data/jobs-crawler-summaries/by-crawler/comadur-swatch-group.json data/jobs/by-crawler/eta-sa-swatch-group.json data/jobs-crawler-summaries/by-crawler/eta-sa-swatch-group.json data/jobs/by-crawler/nivarox-swatch-group.json data/jobs-crawler-summaries/by-crawler/nivarox-swatch-group.json data/jobs/by-crawler/swatch-group-assembly.json data/jobs-crawler-summaries/by-crawler/swatch-group-assembly.json data/jobs/by-crawler/swiss-timing-swatch-group.json data/jobs-crawler-summaries/by-crawler/swiss-timing-swatch-group.json data/jobs/by-crawler/rado.json data/jobs-crawler-summaries/by-crawler/rado.json"
         },
         {
           "name": "Report failure to GitHub Issues",

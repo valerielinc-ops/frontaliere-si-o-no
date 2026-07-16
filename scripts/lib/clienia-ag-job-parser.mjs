@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -85,12 +85,13 @@ export function extractCleniaDetailContent(html) {
   return trimAt > 50 ? normalizeSpace(text.slice(0, trimAt)) : text;
 }
 
-async function fetchAllListings() {
-  const res = await fetch(API_URL, {
-    headers: { Accept: 'application/json', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' },
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${API_URL}`);
-  return await res.json();
+// Uses the shared fetchJson() (crawler-template.mjs): retries transient
+// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
+// body — the same class of intermittent block that broke the Bucher + Suter
+// WP REST listing, #4247) via exponential backoff instead of hard-failing
+// the whole crawler on one blip.
+function fetchAllListings() {
+  return fetchJson(API_URL, { label: 'Clienia AG wp-json job-listings' });
 }
 
 export async function fetchAllCleniaAgJobs() {
