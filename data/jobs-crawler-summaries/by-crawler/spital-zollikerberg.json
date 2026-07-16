@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-15T22:00:44.090Z",
+  "generatedAt": "2026-07-16T11:06:46.582Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35560,
-  "avgDurationMs": 35560,
+  "unchangedCount": 1,
+  "durationMs": 34265,
+  "avgDurationMs": 34265,
   "durationHistory": [
-    35560
+    34265
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-c5010b886784",
       "slug": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-spital-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
