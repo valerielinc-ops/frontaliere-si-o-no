@@ -11398,5 +11398,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-16T13:15:19.250Z",
+    "label": "before",
+    "total": 24745,
+    "needsRetranslation": 1719,
+    "suppressed": 47,
+    "incomplete": 119,
+    "complete": 24626,
+    "missingByLocale": {
+      "it": 74,
+      "en": 54,
+      "de": 42,
+      "fr": 57
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Manor AG",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-16T14:35:12.627Z",
+    "label": "after",
+    "total": 24745,
+    "needsRetranslation": 1526,
+    "suppressed": 35,
+    "incomplete": 104,
+    "complete": 24641,
+    "missingByLocale": {
+      "it": 61,
+      "en": 41,
+      "de": 40,
+      "fr": 44
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Manor AG",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      }
+    ]
   }
 ]

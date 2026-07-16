@@ -1171,6 +1171,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-programma-politico-consultazione-pubblica.title': 'Tessin pionnier : le programme politique 2027-2031 est décidé par les citoyens',
     'blog.article.ticino-programma-politico-consultazione-pubblica.excerpt': 'Avanti con Ticino&Lavoro soumet son programme de législature à une consultation publique avant son approbation définitive. Voici comment cela fonctionne.',
     'blog.article.ticino-programma-politico-consultazione-pubblica.imageAlt': 'Réunion publique à Bellinzona pour la consultation du programme politique',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Crise du détroit d\'Ormuz : retards et hausses pour les entreprises suisses',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'L\'association Swissmem signale des difficultés pour une entreprise industrielle sur quatre. Risque d\'approvisionnement et de coûts énergétiques',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Port fluvial de Bâle, plaque tournante logistique suisse',
 };
 
 export default blogMetaChFr;
