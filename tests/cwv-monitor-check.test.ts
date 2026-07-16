@@ -110,7 +110,7 @@ describe('evaluateConsecutiveRegression', () => {
 
 describe('recordSnapshot', () => {
   it('creates a new page entry and appends a week row', () => {
-    const history = { pages: {} };
+    const history: { pages: Record<string, any> } = { pages: {} };
     recordSnapshot(history, 'home', '/', '2026-07-08', { cls_p75: 0.05, cls_n: 100, inp_p75: 200, inp_n: 90 });
     expect(history.pages.home.path).toBe('/');
     expect(history.pages.home.weeks).toHaveLength(1);
@@ -118,7 +118,7 @@ describe('recordSnapshot', () => {
   });
 
   it('overwrites in place (does not duplicate) when the same date is recorded twice', () => {
-    const history = { pages: {} };
+    const history: { pages: Record<string, any> } = { pages: {} };
     recordSnapshot(history, 'home', '/', '2026-07-08', { cls_p75: 0.05, cls_n: 100, inp_p75: 200, inp_n: 90 });
     recordSnapshot(history, 'home', '/', '2026-07-08', { cls_p75: 0.09, cls_n: 150, inp_p75: 210, inp_n: 95 });
     expect(history.pages.home.weeks).toHaveLength(1);
@@ -126,7 +126,7 @@ describe('recordSnapshot', () => {
   });
 
   it('appends a second row for a new date, preserving history (never pruned)', () => {
-    const history = { pages: {} };
+    const history: { pages: Record<string, any> } = { pages: {} };
     recordSnapshot(history, 'home', '/', '2026-07-01', { cls_p75: 0.05, cls_n: 100, inp_p75: 200, inp_n: 90 });
     recordSnapshot(history, 'home', '/', '2026-07-08', { cls_p75: 0.06, cls_n: 110, inp_p75: 210, inp_n: 95 });
     expect(history.pages.home.weeks).toHaveLength(2);
