@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-16T11:15:39.986Z",
+  "assembledAt": "2026-07-16T22:55:50.618Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5476",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:36.844Z",
+      "crawledAt": "2026-07-16T22:55:47.438Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -74,15 +74,18 @@
       },
       "previousSlugs": [
         "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-lausanne",
-        "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "direttore-trice-generale-aggiunto-a-della-fiscalita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-lausanne",
-          "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "direttore-trice-generale-aggiunto-a-della-fiscalita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -127,7 +130,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5473",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:36.430Z",
+      "crawledAt": "2026-07-16T22:55:47.019Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -165,14 +168,17 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-systemes-d-information-metier-etat-de-vaud-prilly"
+        "responsable-des-systemes-d-information-metier-etat-de-vaud-prilly",
+        "responsabile-dei-sistemi-informativi-settore-etat-de-vaud-administration-cantonale-vaudoise-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-systemes-d-information-metier-etat-de-vaud-prilly"
+          "responsable-des-systemes-d-information-metier-etat-de-vaud-prilly",
+          "responsabile-dei-sistemi-informativi-settore-etat-de-vaud-administration-cantonale-vaudoise-prilly"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:24.207Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -217,7 +223,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:36.024Z",
+      "crawledAt": "2026-07-16T22:55:46.591Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -267,14 +273,17 @@
         ]
       },
       "previousSlugs": [
-        "agent-e-de-detention-etat-de-vaud-orbe"
+        "agent-e-de-detention-etat-de-vaud-orbe",
+        "agente-di-detenzione-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-de-detention-etat-de-vaud-orbe"
+          "agent-e-de-detention-etat-de-vaud-orbe",
+          "agente-di-detenzione-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -319,7 +328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:35.567Z",
+      "crawledAt": "2026-07-16T22:55:46.159Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -370,15 +379,18 @@
       },
       "previousSlugs": [
         "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-morges",
-        "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-morges",
-          "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges"
+          "adjoint-e-au-directeur-dagri-responsable-strategie-economie-rurale-etat-de-vaud-administration-cantonale-vaudoise-morges",
+          "assistente-al-direttore-dagri-responsabile-strategia-economia-rurale-etat-de-vaud-administration-cantonale-vaudoise"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:19.624Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -423,7 +435,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:35.162Z",
+      "crawledAt": "2026-07-16T22:55:45.746Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -467,14 +479,17 @@
         ]
       },
       "previousSlugs": [
-        "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle"
+        "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle",
+        "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle"
+          "responsable-d-equipe-profil-psychologue-post-obligatoire-etat-de-vaud-aigle",
+          "responsabile-di-squadra-profilo-psicologo-post-obbligatorio-etat-de-vaud-administration-cantonale-vaudoise-aigle"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.795Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -519,7 +534,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5494",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:34.712Z",
+      "crawledAt": "2026-07-16T22:55:45.325Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -569,14 +584,17 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-en-orientation-professionnelle-etat-de-vaud-yverdon-les-bains"
+        "conseiller-ere-en-orientation-professionnelle-etat-de-vaud-yverdon-les-bains",
+        "consulente-in-orientamento-professionale-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-en-orientation-professionnelle-etat-de-vaud-yverdon-les-bains"
+          "conseiller-ere-en-orientation-professionnelle-etat-de-vaud-yverdon-les-bains",
+          "consulente-in-orientamento-professionale-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:18.367Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -621,7 +639,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5381",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:34.299Z",
+      "crawledAt": "2026-07-16T22:55:44.896Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -659,14 +677,17 @@
         ]
       },
       "previousSlugs": [
-        "inspecteur-trice-du-travail-etat-de-vaud-lausanne"
+        "inspecteur-trice-du-travail-etat-de-vaud-lausanne",
+        "ispettore-trice-del-lavoro-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspecteur-trice-du-travail-etat-de-vaud-lausanne"
+          "inspecteur-trice-du-travail-etat-de-vaud-lausanne",
+          "ispettore-trice-del-lavoro-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.647Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -711,7 +732,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:33.895Z",
+      "crawledAt": "2026-07-16T22:55:44.484Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -752,15 +773,18 @@
       },
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-h-f-etat-de-vaud-palezieux",
-        "gestionnaire-de-dossiers-specialises-m-w-d-etat-de-vaud-administration-cantonale-vaudoise-palezieux"
+        "gestionnaire-de-dossiers-specialises-m-w-d-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
+        "gestore-di-pratiche-specializzate-h-f-etat-de-vaud-administration-cantonale-vaudoise-palezieux"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-h-f-etat-de-vaud-palezieux",
-          "gestionnaire-de-dossiers-specialises-m-w-d-etat-de-vaud-administration-cantonale-vaudoise-palezieux"
+          "gestionnaire-de-dossiers-specialises-m-w-d-etat-de-vaud-administration-cantonale-vaudoise-palezieux",
+          "gestore-di-pratiche-specializzate-h-f-etat-de-vaud-administration-cantonale-vaudoise-palezieux"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:16.234Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -805,7 +829,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:33.460Z",
+      "crawledAt": "2026-07-16T22:55:44.057Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -852,14 +876,17 @@
         ]
       },
       "previousSlugs": [
-        "assistant-e-rh-etat-de-vaud-lausanne"
+        "assistant-e-rh-etat-de-vaud-lausanne",
+        "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-rh-etat-de-vaud-lausanne"
+          "assistant-e-rh-etat-de-vaud-lausanne",
+          "assistente-rh-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:15.788Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -904,7 +931,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:33.057Z",
+      "crawledAt": "2026-07-16T22:55:43.641Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -923,11 +950,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
+        "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud",
+        "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
+          "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud",
+          "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "directeur-trice-de-l-etablissement-vaudois-d-accueil-des-migrants-evam-etat-de-vaud"
@@ -981,7 +1010,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5582",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:32.641Z",
+      "crawledAt": "2026-07-16T22:55:43.229Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1000,11 +1029,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
@@ -1058,7 +1089,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5565",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:32.233Z",
+      "crawledAt": "2026-07-16T22:55:42.815Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1077,11 +1108,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-d-unite-etat-de-vaud-lausanne"
+        "secretaire-d-unite-etat-de-vaud-lausanne",
+        "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-unite-etat-de-vaud-lausanne"
+          "secretaire-d-unite-etat-de-vaud-lausanne",
+          "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "secretaire-d-unite-etat-de-vaud-lausanne"
@@ -1135,7 +1168,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:31.819Z",
+      "crawledAt": "2026-07-16T22:55:42.403Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1154,11 +1187,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-d-unite-assurances-etat-de-vaud-lausanne"
+        "chef-fe-d-unite-assurances-etat-de-vaud-lausanne",
+        "capo-unita-di-assicurazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-d-unite-assurances-etat-de-vaud-lausanne"
+          "chef-fe-d-unite-assurances-etat-de-vaud-lausanne",
+          "capo-unita-di-assicurazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-d-unite-assurances-etat-de-vaud-lausanne"
@@ -1212,7 +1247,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5543",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:31.410Z",
+      "crawledAt": "2026-07-16T22:55:41.975Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1231,11 +1266,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "comptable-etat-de-vaud-renens-vd"
+        "comptable-etat-de-vaud-renens-vd",
+        "contabilita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "comptable-etat-de-vaud-renens-vd"
+          "comptable-etat-de-vaud-renens-vd",
+          "contabilita-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "comptable-etat-de-vaud-renens-vd"
@@ -1289,7 +1326,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:31.001Z",
+      "crawledAt": "2026-07-16T22:55:41.557Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1308,11 +1345,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+        "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+        "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
+          "responsable-de-laboratoire-igv-etat-de-vaud-lausanne",
+          "responsabile-laboratorio-igv-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-de-laboratoire-igv-etat-de-vaud-lausanne"
@@ -1366,7 +1405,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:30.567Z",
+      "crawledAt": "2026-07-16T22:55:41.151Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1385,11 +1424,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analyste-financier-ere-etat-de-vaud-lausanne"
+        "analyste-financier-ere-etat-de-vaud-lausanne",
+        "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyste-financier-ere-etat-de-vaud-lausanne"
+          "analyste-financier-ere-etat-de-vaud-lausanne",
+          "analista-finanziario-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "analyste-financier-ere-etat-de-vaud-lausanne"
@@ -1443,7 +1484,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:30.162Z",
+      "crawledAt": "2026-07-16T22:55:40.734Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1462,11 +1503,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-de-direction-etat-de-vaud-renens-vd"
+        "secretaire-de-direction-etat-de-vaud-renens-vd",
+        "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-de-direction-etat-de-vaud-renens-vd"
+          "secretaire-de-direction-etat-de-vaud-renens-vd",
+          "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "secretaire-de-direction-etat-de-vaud-renens-vd"
@@ -1494,7 +1537,7 @@
       "slug": "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "it": "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "juriste-au-support-juridique-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "prozesskostenhilfe-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "juriste-au-support-juridique-etat-de-vaud-lausanne"
       },
@@ -1504,7 +1547,7 @@
       "title": "Juriste au support juridique",
       "titleByLocale": {
         "it": "Aiuti di Stato",
-        "en": "Legal aid",
+        "en": "Juriste au support juridique",
         "de": "Prozesskostenhilfe",
         "fr": "Juriste au support juridique"
       },
@@ -1520,7 +1563,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:29.737Z",
+      "crawledAt": "2026-07-16T22:55:40.316Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1540,14 +1583,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "juriste-au-support-juridique-etat-de-vaud-lausanne",
+        "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "juriste-au-support-juridique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juriste-au-support-juridique-etat-de-vaud-lausanne"
+          "juriste-au-support-juridique-etat-de-vaud-lausanne",
+          "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "juriste-au-support-juridique-etat-de-vaud-lausanne",
+          "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "juriste-au-support-juridique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "de": [
@@ -1555,6 +1602,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1599,7 +1647,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:29.327Z",
+      "crawledAt": "2026-07-16T22:55:39.907Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1618,11 +1666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey"
+        "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+        "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey"
+          "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey",
+          "capo-del-gruppo-di-protezione-degli-adulti-etat-de-vaud-administration-cantonale-vaudoise-vevey"
         ],
         "en": [
           "chef-fe-de-groupe-de-la-protection-de-l-adulte-etat-de-vaud-vevey"
@@ -1676,7 +1726,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:28.921Z",
+      "crawledAt": "2026-07-16T22:55:39.500Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1696,12 +1746,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-assurances-etat-de-vaud-lausanne",
-        "gestionnaire-de-dossiers-assurances-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "gestionnaire-de-dossiers-assurances-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "gestione-delle-registrazioni-assicurative-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-assurances-etat-de-vaud-lausanne",
-          "gestionnaire-de-dossiers-assurances-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "gestionnaire-de-dossiers-assurances-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestione-delle-registrazioni-assicurative-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-de-dossiers-assurances-etat-de-vaud-lausanne"
@@ -1755,7 +1807,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5603",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:28.501Z",
+      "crawledAt": "2026-07-16T22:55:39.091Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1775,12 +1827,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-morges",
-        "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "traveling-specialist-file-manager-campo-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-morges",
-          "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-morges"
+          "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-administration-cantonale-vaudoise-morges",
+          "traveling-specialist-file-manager-campo-giudiziario-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "gestionnaire-de-dossiers-specialises-itinerant-e-domaine-judiciaire-etat-de-vaud-morges"
@@ -1834,7 +1888,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5588",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:28.087Z",
+      "crawledAt": "2026-07-16T22:55:38.674Z",
       "addressLocality": "Crassier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1853,11 +1907,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
+        "logopediste-en-milieu-scolaire-etat-de-vaud-crassier",
+        "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
+          "logopediste-en-milieu-scolaire-etat-de-vaud-crassier",
+          "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-crassier"
         ],
         "en": [
           "logopediste-en-milieu-scolaire-etat-de-vaud-crassier"
@@ -1911,7 +1967,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5641",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:27.671Z",
+      "crawledAt": "2026-07-16T22:55:38.259Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1930,11 +1986,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
+        "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne",
+        "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
+          "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne",
+          "direttore-delle-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "directeur-trice-des-ressources-humaines-etat-de-vaud-lausanne"
@@ -1988,7 +2046,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:27.246Z",
+      "crawledAt": "2026-07-16T22:55:37.837Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2007,11 +2065,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+        "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+          "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
@@ -2065,7 +2125,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5629",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:26.832Z",
+      "crawledAt": "2026-07-16T22:55:37.395Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2084,11 +2144,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrateur-trice-d-ecole-etat-de-vaud-morges"
+        "administrateur-trice-d-ecole-etat-de-vaud-morges",
+        "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-trice-d-ecole-etat-de-vaud-morges"
+          "administrateur-trice-d-ecole-etat-de-vaud-morges",
+          "amministratore-di-scuola-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "administrateur-trice-d-ecole-etat-de-vaud-morges"
@@ -2142,7 +2204,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5571",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:26.416Z",
+      "crawledAt": "2026-07-16T22:55:36.979Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2161,11 +2223,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+        "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+          "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+          "logopedista-della-scuola-etat-de-vaud-administration-cantonale-vaudoise-moudon"
         ],
         "en": [
           "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
@@ -2219,7 +2283,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5643",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:25.976Z",
+      "crawledAt": "2026-07-16T22:55:36.518Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2238,11 +2302,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
+        "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la",
+        "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
+          "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la",
+          "ingegnere-di-sicurezza-cfst-esperto-di-sicurezza-sul-lavoro-e-protezione-della-salute-etat-de-vaud-administration"
         ],
         "en": [
           "ingenieur-e-de-securite-cfst-expert-e-de-la-securite-au-travail-et-de-la-protection-de-la"
@@ -2296,7 +2362,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5640",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:25.570Z",
+      "crawledAt": "2026-07-16T22:55:36.106Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2315,11 +2381,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+        "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
+          "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne"
@@ -2346,34 +2414,34 @@
       "id": "etat-de-vaud-5642",
       "slug": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
-        "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges",
         "it": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges",
         "en": "coordinator-of-administrative-staff-etat-de-vaud-administration-cantonale-vaudoise-morges",
-        "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s",
       "titleByLocale": {
-        "fr": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s",
         "it": "Coordinatore del personale amministrativo",
         "en": "Coordinator of administrative staff",
-        "de": "Koordinator des Verwaltungspersonals"
+        "de": "Koordinator des Verwaltungspersonals",
+        "fr": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s"
       },
       "description": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Gli Uffici Regionali per l'Occupazione (ORP) del Cantone di Vaud allegati alla Direzione Generale per l'Occupazione e il Mercato del Lavoro (DGEM) sono responsabili dell'assistenza ai clienti nella loro ricerca sul lavoro e del sostegno ai datori di lavoro nel reclutamento del personale. Essi svolgono un ruolo chiave nell'attuazione della politica dell'occupazione e nella lotta contro la disoccupazione. Nella vostra capacità di coordinatore del personale amministrativo, svolgete un ruolo chiave nell'organizzazione delle attività e affrontate tutte le richieste relative ai servizi ORP. L'utente supervisiona le attività di back-office, tra cui il trattamento dei posti di lavoro e le registrazioni del mercato del lavoro (LMM). Sei anche responsabile della pianificazione e dell'organizzazione del lavoro del team amministrativo. Lei è il ruolo del Capo ufficio nella gestione operativa delle attività del team amministrativo e contribuisce alla fluidità dei processi interni. In contatto diretto con i clienti, si garantisce una ricezione professionale e rispondere efficacemente alle loro richieste. Partecipa anche alla gestione dei documenti elettronici (EDM), assicurando la digitalizzazione e il rigoroso trattamento dei documenti ricevuti.\n\n• Coordinate il team del personale amministrativo.\n• Richieste di processo relative ai servizi ORP.\n• Assicurare il coordinamento delle attività di back-office per il processo di elaborazione delle offerte di lavoro e le registrazioni del mercato del lavoro (LMM).\n• Assicurare il ricevimento dei clienti da ORP e rispondere alle loro richieste.\n• Scansiona tutti i documenti rilevanti che entrano nell'ORP ed eseguono qualsiasi altra attività o attività assegnate dalla gerarchia. Per ulteriori informazioni, si prega di consultare i Termini di riferimento cliccando qui o contattare la Sig.ra Teodora Ciobanu, HR Advisor, al 021 316 61 93.\n\n• SWC di dipendente commerciale, completato da esperienza lavorativa di almeno 5 anni.\n• Esperienza confermata nella gestione operativa di un team.\n• Eccellente capacità organizzative, con un alto senso di priorità.\n• Rapporto e sviluppo del senso di comunicazione; una persona coscienziosa, dotata di competenze interpersonali e di un forte orientamento del cliente.\n• Flessibile, empatico, efficace e in grado di gestire situazioni di stress.\n• L'esperienza nel reclutamento o nel collocamento è un bene.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "The Regional Employment Offices (ORP) of the canton of Vaud attached to the Directorate-General for Employment and Labour Market (DGEM) are responsible for assisting clients in their job search and supporting employers in the recruitment of staff. They play a key role in the implementation of employment policy and the fight against unemployment. In your capacity as coordinator of administrative staff, you play a key role in the organisation of activities and deal with all requests related to ORP services. You oversee back-office activities, including the processing of vacancies and labour market registrations (LMMs). You are also responsible for planning and organising the work of the administrative team. You are the role of the Head of Office in the operational management of the administrative team's activities and contribute to the fluidity of internal processes. In direct contact with clients, you ensure a professional reception and respond effectively to their requests. You also take part in electronic document management (EDM), ensuring the digitization and rigorous processing of documents received.\n\n• Coordinate the team of administrative staff.\n• Process requests related to ORP services.\n• Ensure the coordination of back-office activities for the process of processing vacancies and labour market registrations (LMMs).\n• Ensure receipt of clients from ORP and respond to their requests.\n• Scan all relevant documents entering the ORP and perform any other tasks or tasks assigned by the hierarchy. For further information, please consult the Terms of Reference by clicking here or contact Ms Teodora Ciobanu, HR Advisor, at 021 316 61 93.\n\n• SWC of commercial employee, supplemented by work experience of at least 5 years.\n• Experience confirmed in the operational management of a team.\n• Excellent organizational skills, with a high sense of priority.\n• Relationship and developed sense of communication; a conscientious person, equipped with interpersonal skills and a strong customer orientation.\n• Flexible, empathic, effective and able to manage stress situations.\n• Experience in recruitment or placement is an asset.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die regionalen Arbeitsämter (ORP) des Kantons Waadt der Generaldirektion Beschäftigung und Arbeitsmarkt (DGEM) sind für die Unterstützung der Mandanten bei der Stellensuche und die Unterstützung der Arbeitgeber bei der Personalrekrutierung zuständig. Sie spielen eine Schlüsselrolle bei der Umsetzung der Beschäftigungspolitik und der Bekämpfung der Arbeitslosigkeit. In Ihrer Eigenschaft als Koordinator des Verwaltungspersonals spielen Sie eine Schlüsselrolle bei der Organisation von Aktivitäten und bearbeiten alle Anfragen im Zusammenhang mit ORP-Services. Sie beaufsichtigen Backoffice-Aktivitäten, einschließlich der Bearbeitung von Stellenangeboten und Arbeitsmarktregistrierungen (LMMs). Sie sind auch für die Planung und Organisation der Arbeit des Verwaltungsteams verantwortlich. Sie sind die Rolle des Büroleiters im operativen Management der Aktivitäten des Verwaltungsteams und tragen zur Fluidität der internen Prozesse bei. Im direkten Kontakt mit Kunden sorgen Sie für einen professionellen Empfang und reagieren effektiv auf deren Anfragen. Sie beteiligen sich auch am elektronischen Dokumentenmanagement (EDM), wodurch die Digitalisierung und die strenge Verarbeitung der erhaltenen Dokumente sichergestellt wird.\n\n• Koordinieren Sie das Team des Verwaltungspersonals.\n• Prozessanfragen im Zusammenhang mit ORP-Diensten.\n• Gewährleistung der Koordinierung der Back-Office-Aktivitäten für den Prozess der Bearbeitung von offenen Stellen und Arbeitsmarktregistrierungen.\n• Stellen Sie sicher, dass Kunden von ORP empfangen werden und antworten Sie auf ihre Anfragen.\n• Scannen Sie alle relevanten Dokumente, die in die ORP eingegeben werden, und führen Sie alle anderen Aufgaben oder Aufgaben aus, die von der Hierarchie zugewiesen werden. Für weitere Informationen lesen Sie bitte die Nutzungsbedingungen, indem Sie hier klicken oder kontaktieren Sie Frau Teodora Ciobanu, HR Advisor, unter 021 316 61 93.\n\n• SWC von kaufmännischen Mitarbeiter, ergänzt durch Berufserfahrung von mindestens 5 Jahren.\n• Erfahrung bestätigt im operativen Management eines Teams.\n• Hervorragende organisatorische Fähigkeiten, mit einem hohen Sinn für Priorität.\n• Beziehung und entwickelter Kommunikationssinn; eine gewissenhafte Person, ausgestattet mit zwischenmenschlichen Fähigkeiten und einer starken Kundenorientierung.\n• Flexibel, empathisch, effektiv und in der Lage, Stresssituationen zu bewältigen.\n• Erfahrung in der Rekrutierung oder Platzierung ist ein Gewinn.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Die regionalen Arbeitsämter (ORP) des Kantons Waadt der Generaldirektion Beschäftigung und Arbeitsmarkt (DGEM) sind für die Unterstützung der Mandanten bei der Stellensuche und die Unterstützung der Arbeitgeber bei der Personalrekrutierung zuständig. Sie spielen eine Schlüsselrolle bei der Umsetzung der Beschäftigungspolitik und der Bekämpfung der Arbeitslosigkeit. In Ihrer Eigenschaft als Koordinator des Verwaltungspersonals spielen Sie eine Schlüsselrolle bei der Organisation von Aktivitäten und bearbeiten alle Anfragen im Zusammenhang mit ORP-Services. Sie beaufsichtigen Backoffice-Aktivitäten, einschließlich der Bearbeitung von Stellenangeboten und Arbeitsmarktregistrierungen (LMMs). Sie sind auch für die Planung und Organisation der Arbeit des Verwaltungsteams verantwortlich. Sie sind die Rolle des Büroleiters im operativen Management der Aktivitäten des Verwaltungsteams und tragen zur Fluidität der internen Prozesse bei. Im direkten Kontakt mit Kunden sorgen Sie für einen professionellen Empfang und reagieren effektiv auf deren Anfragen. Sie beteiligen sich auch am elektronischen Dokumentenmanagement (EDM), wodurch die Digitalisierung und die strenge Verarbeitung der erhaltenen Dokumente sichergestellt wird.\n\n• Koordinieren Sie das Team des Verwaltungspersonals.\n• Prozessanfragen im Zusammenhang mit ORP-Diensten.\n• Gewährleistung der Koordinierung der Back-Office-Aktivitäten für den Prozess der Bearbeitung von offenen Stellen und Arbeitsmarktregistrierungen.\n• Stellen Sie sicher, dass Kunden von ORP empfangen werden und antworten Sie auf ihre Anfragen.\n• Scannen Sie alle relevanten Dokumente, die in die ORP eingegeben werden, und führen Sie alle anderen Aufgaben oder Aufgaben aus, die von der Hierarchie zugewiesen werden. Für weitere Informationen lesen Sie bitte die Nutzungsbedingungen, indem Sie hier klicken oder kontaktieren Sie Frau Teodora Ciobanu, HR Advisor, unter 021 316 61 93.\n\n• SWC von kaufmännischen Mitarbeiter, ergänzt durch Berufserfahrung von mindestens 5 Jahren.\n• Erfahrung bestätigt im operativen Management eines Teams.\n• Hervorragende organisatorische Fähigkeiten, mit einem hohen Sinn für Priorität.\n• Beziehung und entwickelter Kommunikationssinn; eine gewissenhafte Person, ausgestattet mit zwischenmenschlichen Fähigkeiten und einer starken Kundenorientierung.\n• Flexibel, empathisch, effektiv und in der Lage, Stresssituationen zu bewältigen.\n• Erfahrung in der Rekrutierung oder Platzierung ist ein Gewinn.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Morges",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5642",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:25.166Z",
+      "crawledAt": "2026-07-16T22:55:35.692Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2390,9 +2458,24 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5642",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges",
+        "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges",
+          "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        ],
+        "en": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
+        ],
+        "de": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
+        ]
       },
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2404,55 +2487,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
-        ],
-        "en": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
-        ],
-        "de": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
-        ]
-      },
-      "previousSlugs": [
-        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-morges"
-      ]
+      }
     },
     {
       "id": "etat-de-vaud-5639",
       "slug": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne",
       "slugByLocale": {
-        "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne",
         "it": "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne",
         "en": "coordinator-of-administrative-staff-etat-de-vaud-administration-cantonale-vaudoise-payerne",
-        "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-payerne"
+        "de": "koordinator-des-verwaltungspersonals-etat-de-vaud-administration-cantonale-vaudoise-payerne",
+        "fr": "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s",
       "titleByLocale": {
-        "fr": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s",
         "it": "Coordinatore del personale amministrativo",
         "en": "Coordinator of administrative staff",
-        "de": "Koordinator des Verwaltungspersonals"
+        "de": "Koordinator des Verwaltungspersonals",
+        "fr": "Coordinateur·trice des collaborateur·trice·s administratif·ve·s"
       },
       "description": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "Gli Uffici Regionali per l'Occupazione (ORP) del Cantone di Vaud allegati alla Direzione Generale per l'Occupazione e il Mercato del Lavoro (DGEM) sono responsabili dell'assistenza ai clienti nella loro ricerca sul lavoro e del sostegno ai datori di lavoro nel reclutamento del personale. Essi svolgono un ruolo chiave nell'attuazione della politica dell'occupazione e nella lotta contro la disoccupazione. Nella vostra capacità di coordinatore del personale amministrativo, svolgete un ruolo chiave nell'organizzazione delle attività e affrontate tutte le richieste relative ai servizi ORP. L'utente supervisiona le attività di back-office, tra cui il trattamento dei posti di lavoro e le registrazioni del mercato del lavoro (LMM). Sei anche responsabile della pianificazione e dell'organizzazione del lavoro del team amministrativo. Lei è il ruolo del Capo ufficio nella gestione operativa delle attività del team amministrativo e contribuisce alla fluidità dei processi interni. In contatto diretto con i clienti, si garantisce una ricezione professionale e rispondere efficacemente alle loro richieste. Partecipa anche alla gestione dei documenti elettronici (EDM), assicurando la digitalizzazione e il rigoroso trattamento dei documenti ricevuti.\n\n• Coordinate il team del personale amministrativo.\n• Richieste di processo relative ai servizi ORP.\n• Assicurare il coordinamento delle attività di back-office per il processo di elaborazione delle offerte di lavoro e le registrazioni del mercato del lavoro (LMM).\n• Assicurare il ricevimento dei clienti da ORP e rispondere alle loro richieste.\n• Scansiona tutti i documenti rilevanti che entrano nell'ORP ed eseguono qualsiasi altra attività o attività assegnate dalla gerarchia. Per ulteriori informazioni, si prega di consultare i Termini di riferimento cliccando qui o contattare la Sig.ra Teodora Ciobanu, HR Advisor, al 021 316 61 93.\n\n• SWC di dipendente commerciale, completato da esperienza lavorativa di almeno 5 anni.\n• Esperienza confermata nella gestione operativa di un team.\n• Eccellente capacità organizzative, con un alto senso di priorità.\n• Rapporto e sviluppo del senso di comunicazione; una persona coscienziosa, dotata di competenze interpersonali e di un forte orientamento del cliente.\n• Flessibile, empatico, efficace e in grado di gestire situazioni di stress.\n• L'esperienza nel reclutamento o nel collocamento è un bene.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "The Regional Employment Offices (ORP) of the canton of Vaud attached to the Directorate-General for Employment and Labour Market (DGEM) are responsible for assisting clients in their job search and supporting employers in the recruitment of staff. They play a key role in the implementation of employment policy and the fight against unemployment. In your capacity as coordinator of administrative staff, you play a key role in the organisation of activities and deal with all requests related to ORP services. You oversee back-office activities, including the processing of vacancies and labour market registrations (LMMs). You are also responsible for planning and organising the work of the administrative team. You are the role of the Head of Office in the operational management of the administrative team's activities and contribute to the fluidity of internal processes. In direct contact with clients, you ensure a professional reception and respond effectively to their requests. You also take part in electronic document management (EDM), ensuring the digitization and rigorous processing of documents received.\n\n• Coordinate the team of administrative staff.\n• Process requests related to ORP services.\n• Ensure the coordination of back-office activities for the process of processing vacancies and labour market registrations (LMMs).\n• Ensure receipt of clients from ORP and respond to their requests.\n• Scan all relevant documents entering the ORP and perform any other tasks or tasks assigned by the hierarchy. For further information, please consult the Terms of Reference by clicking here or contact Ms Teodora Ciobanu, HR Advisor, at 021 316 61 93.\n\n• SWC of commercial employee, supplemented by work experience of at least 5 years.\n• Experience confirmed in the operational management of a team.\n• Excellent organizational skills, with a high sense of priority.\n• Relationship and developed sense of communication; a conscientious person, equipped with interpersonal skills and a strong customer orientation.\n• Flexible, empathic, effective and able to manage stress situations.\n• Experience in recruitment or placement is an asset.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die regionalen Arbeitsämter (ORP) des Kantons Waadt der Generaldirektion Beschäftigung und Arbeitsmarkt (DGEM) sind für die Unterstützung der Mandanten bei der Stellensuche und die Unterstützung der Arbeitgeber bei der Personalrekrutierung zuständig. Sie spielen eine Schlüsselrolle bei der Umsetzung der Beschäftigungspolitik und der Bekämpfung der Arbeitslosigkeit. In Ihrer Eigenschaft als Koordinator des Verwaltungspersonals spielen Sie eine Schlüsselrolle bei der Organisation von Aktivitäten und bearbeiten alle Anfragen im Zusammenhang mit ORP-Services. Sie beaufsichtigen Backoffice-Aktivitäten, einschließlich der Bearbeitung von Stellenangeboten und Arbeitsmarktregistrierungen (LMMs). Sie sind auch für die Planung und Organisation der Arbeit des Verwaltungsteams verantwortlich. Sie sind die Rolle des Büroleiters im operativen Management der Aktivitäten des Verwaltungsteams und tragen zur Fluidität der internen Prozesse bei. Im direkten Kontakt mit Kunden sorgen Sie für einen professionellen Empfang und reagieren effektiv auf deren Anfragen. Sie beteiligen sich auch am elektronischen Dokumentenmanagement (EDM), wodurch die Digitalisierung und die strenge Verarbeitung der erhaltenen Dokumente sichergestellt wird.\n\n• Koordinieren Sie das Team des Verwaltungspersonals.\n• Prozessanfragen im Zusammenhang mit ORP-Diensten.\n• Gewährleistung der Koordinierung der Back-Office-Aktivitäten für den Prozess der Bearbeitung von offenen Stellen und Arbeitsmarktregistrierungen.\n• Stellen Sie sicher, dass Kunden von ORP empfangen werden und antworten Sie auf ihre Anfragen.\n• Scannen Sie alle relevanten Dokumente, die in die ORP eingegeben werden, und führen Sie alle anderen Aufgaben oder Aufgaben aus, die von der Hierarchie zugewiesen werden. Für weitere Informationen lesen Sie bitte die Nutzungsbedingungen, indem Sie hier klicken oder kontaktieren Sie Frau Teodora Ciobanu, HR Advisor, unter 021 316 61 93.\n\n• SWC von kaufmännischen Mitarbeiter, ergänzt durch Berufserfahrung von mindestens 5 Jahren.\n• Erfahrung bestätigt im operativen Management eines Teams.\n• Hervorragende organisatorische Fähigkeiten, mit einem hohen Sinn für Priorität.\n• Beziehung und entwickelter Kommunikationssinn; eine gewissenhafte Person, ausgestattet mit zwischenmenschlichen Fähigkeiten und einer starken Kundenorientierung.\n• Flexibel, empathisch, effektiv und in der Lage, Stresssituationen zu bewältigen.\n• Erfahrung in der Rekrutierung oder Platzierung ist ein Gewinn.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Die regionalen Arbeitsämter (ORP) des Kantons Waadt der Generaldirektion Beschäftigung und Arbeitsmarkt (DGEM) sind für die Unterstützung der Mandanten bei der Stellensuche und die Unterstützung der Arbeitgeber bei der Personalrekrutierung zuständig. Sie spielen eine Schlüsselrolle bei der Umsetzung der Beschäftigungspolitik und der Bekämpfung der Arbeitslosigkeit. In Ihrer Eigenschaft als Koordinator des Verwaltungspersonals spielen Sie eine Schlüsselrolle bei der Organisation von Aktivitäten und bearbeiten alle Anfragen im Zusammenhang mit ORP-Services. Sie beaufsichtigen Backoffice-Aktivitäten, einschließlich der Bearbeitung von Stellenangeboten und Arbeitsmarktregistrierungen (LMMs). Sie sind auch für die Planung und Organisation der Arbeit des Verwaltungsteams verantwortlich. Sie sind die Rolle des Büroleiters im operativen Management der Aktivitäten des Verwaltungsteams und tragen zur Fluidität der internen Prozesse bei. Im direkten Kontakt mit Kunden sorgen Sie für einen professionellen Empfang und reagieren effektiv auf deren Anfragen. Sie beteiligen sich auch am elektronischen Dokumentenmanagement (EDM), wodurch die Digitalisierung und die strenge Verarbeitung der erhaltenen Dokumente sichergestellt wird.\n\n• Koordinieren Sie das Team des Verwaltungspersonals.\n• Prozessanfragen im Zusammenhang mit ORP-Diensten.\n• Gewährleistung der Koordinierung der Back-Office-Aktivitäten für den Prozess der Bearbeitung von offenen Stellen und Arbeitsmarktregistrierungen.\n• Stellen Sie sicher, dass Kunden von ORP empfangen werden und antworten Sie auf ihre Anfragen.\n• Scannen Sie alle relevanten Dokumente, die in die ORP eingegeben werden, und führen Sie alle anderen Aufgaben oder Aufgaben aus, die von der Hierarchie zugewiesen werden. Für weitere Informationen lesen Sie bitte die Nutzungsbedingungen, indem Sie hier klicken oder kontaktieren Sie Frau Teodora Ciobanu, HR Advisor, unter 021 316 61 93.\n\n• SWC von kaufmännischen Mitarbeiter, ergänzt durch Berufserfahrung von mindestens 5 Jahren.\n• Erfahrung bestätigt im operativen Management eines Teams.\n• Hervorragende organisatorische Fähigkeiten, mit einem hohen Sinn für Priorität.\n• Beziehung und entwickelter Kommunikationssinn; eine gewissenhafte Person, ausgestattet mit zwischenmenschlichen Fähigkeiten und einer starken Kundenorientierung.\n• Flexibel, empathisch, effektiv und in der Lage, Stresssituationen zu bewältigen.\n• Erfahrung in der Rekrutierung oder Platzierung ist ein Gewinn.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche d'emploi et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de coordinateur·trice des collaborateur·trice·s administratif·ve·s , vous assurez un rôle clé dans l’organisation des activités et traitez l'ensemble des demandes liées aux services de l'ORP. Vous supervisez les activités de back-office, notamment le traitement des postes vacants ainsi que les inscriptions aux mesures du marché du travail (MMT). Vous êtes également responsable de la planification et de l’organisation du travail de l’équipe administrative. Vous êtes le relais du·de la Chef·fe d'office dans la gestion opérationnelle des activités de l'équipe administrative et contribuez à la fluidité des processus internes. Au contact direct des client·e·s, vous assurez un accueil professionnel et répondez à leurs demandes avec efficacité. Vous prenez également part à la gestion électronique des documents (GED), en garantissant la numérisation et le traitement rigoureux des pièces reçues.\n\n• Assurer la coordination de l'équipe des collaborateur·trice·s administratif·ve·s.\n• Traiter les demandes liées aux services de l'ORP.\n• Assurer la coordination des activités de back-office pour le processus de traitement des postes vacants et des inscriptions en mesures du marché du travail (MMT).\n• Assurer la réception des client·e·s de l'ORP et répondre à leurs demandes.\n• Numériser tous les documents utiles entrant à l'ORP et exécuter toute autre tâche ou mission confiées par la hiérarchie. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Madame Teodora Ciobanu, Conseillère RH, au 021 316 61 93.\n\n• CFC d’employé·e de commerce, complété par une expérience professionnelle d’au moins 5 ans.\n• Expérience confirmée dans la gestion opérationnelle d’une équipe.\n• Excellentes capacités d’organisation, avec un sens aigu des priorités.\n• Aisance relationnelle et sens développé de la communication ; personne consciencieuse, dotée d’entregent et d’une forte orientation client.\n• Personnalité flexible, empathique, efficace et capable de gérer des situations de stress.\n• Une expérience dans le recrutement ou le placement constitue un atout.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Payerne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5639",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:24.183Z",
+      "crawledAt": "2026-07-16T22:55:35.263Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2469,9 +2537,24 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5639",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne",
+        "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne",
+          "coordinatore-del-personale-amministrativo-etat-de-vaud-administration-cantonale-vaudoise-payerne"
+        ],
+        "en": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
+        ],
+        "de": [
+          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
+        ]
       },
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2483,55 +2566,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
-        ],
-        "en": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
-        ],
-        "de": [
-          "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
-        ]
-      },
-      "previousSlugs": [
-        "coordinateur-trice-des-collaborateur-trice-s-administratif-ve-s-etat-de-vaud-payerne"
-      ]
+      }
     },
     {
       "id": "etat-de-vaud-5536",
       "slug": "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
         "it": "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "heating-technician-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "heizungstechniker-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "de": "heizungstechniker-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Technicien·ne spécialiste chauffage",
       "titleByLocale": {
-        "fr": "Technicien·ne spécialiste chauffage",
         "it": "Riscaldamento Tecnico",
         "en": "Heating Technician",
-        "de": "Heizungstechniker"
+        "de": "Heizungstechniker",
+        "fr": "Technicien·ne spécialiste chauffage"
       },
       "description": "La Direction de l'ingénierie et de la durabilité (DID) fournit une expertise technique et stratégique au sein de la Direction générale des immeubles et du patrimoine (DGIP) en matière énergétique et environnementale. En tant que technicien·ne spécialiste chauffage, vous contribuez au fonctionnement et à la qualité énergétique des installations de chauffage du parc immobilier de l’État de Vaud et assurer le lien technique entre l'ingénierie et l'exploitation des bâtiments.\n\n• Réaliser les visites techniques des installations de chauffage du parc immobilier cantonal, établir des états des lieux complets et documentés, évaluer l'état général des équipements, identifier les dysfonctionnements et formuler des recommandations\n• Élaborer des chiffrages techniques, réunir et vérifier les données techniques nécessaires au chiffrage et participer, en collaboration avec les chef·fe·s de projet ingénieur·e·s, à l'analyse des offres reçues\n• Mettre à jour et élaborer les schémas de principes à partir des relevés terrains\n• Assurer un appui technique sur le terrain en effectuant un contrôle ponctuel des installations, en appuyant les chef·fe·s de projet ingénieur·e·s et les équipes d'exploitation lors des mises en service et en participant aux séances de coordination de chantier\n• Gérer et assurer des interventions ponctuelles de dépannage sur les installations en panne. Pour des plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur André Moutinho Mucha, Responsable ingénierie au 021 316 37 27.\n\n• CFC de projeteur·euse en technique du bâtiment chauffage, diplôme ES en technique du bâtiment - orientation chauffage, ou formation jugée équivalente\n• Formations continues en énergies renouvelables ou optimisation énergétique\n• Expérience professionnelle d'au moins 10 ans en installation chauffage (conception, chiffrage, suivi de chantier) et d'au moins 5 ans dans le remplacement de production de chaleur avec intégration d'énergies renouvelables\n• Maitrise technique des installations de chauffage et du dessin technique chauffage (schéma de principe, relevés, codification et DAO), notions en système d'hypervision et interprétation des données de monitoring\n• Capacité à réaliser des chiffrages détaillés, expérience dans la conduite d'audits et la réalisation d'états des lieux techniques\n• Autonomie, capacité d'adaptation et de flexibilité, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "La Direction de l'ingénierie et de la durabilité (DID) fournit une expertise technique et stratégique au sein de la Direction générale des immeubles et du patrimoine (DGIP) en matière énergétique et environnementale. En tant que technicien·ne spécialiste chauffage, vous contribuez au fonctionnement et à la qualité énergétique des installations de chauffage du parc immobilier de l’État de Vaud et assurer le lien technique entre l'ingénierie et l'exploitation des bâtiments.\n\n• Réaliser les visites techniques des installations de chauffage du parc immobilier cantonal, établir des états des lieux complets et documentés, évaluer l'état général des équipements, identifier les dysfonctionnements et formuler des recommandations\n• Élaborer des chiffrages techniques, réunir et vérifier les données techniques nécessaires au chiffrage et participer, en collaboration avec les chef·fe·s de projet ingénieur·e·s, à l'analyse des offres reçues\n• Mettre à jour et élaborer les schémas de principes à partir des relevés terrains\n• Assurer un appui technique sur le terrain en effectuant un contrôle ponctuel des installations, en appuyant les chef·fe·s de projet ingénieur·e·s et les équipes d'exploitation lors des mises en service et en participant aux séances de coordination de chantier\n• Gérer et assurer des interventions ponctuelles de dépannage sur les installations en panne. Pour des plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur André Moutinho Mucha, Responsable ingénierie au 021 316 37 27.\n\n• CFC de projeteur·euse en technique du bâtiment chauffage, diplôme ES en technique du bâtiment - orientation chauffage, ou formation jugée équivalente\n• Formations continues en énergies renouvelables ou optimisation énergétique\n• Expérience professionnelle d'au moins 10 ans en installation chauffage (conception, chiffrage, suivi de chantier) et d'au moins 5 ans dans le remplacement de production de chaleur avec intégration d'énergies renouvelables\n• Maitrise technique des installations de chauffage et du dessin technique chauffage (schéma de principe, relevés, codification et DAO), notions en système d'hypervision et interprétation des données de monitoring\n• Capacité à réaliser des chiffrages détaillés, expérience dans la conduite d'audits et la réalisation d'états des lieux techniques\n• Autonomie, capacité d'adaptation et de flexibilité, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "La Direzione Ingegneria e Sostenibilità (DID) fornisce competenze tecniche e strategiche all'interno dell'Edifici e Patrimonio Branch (RPB) in materia energetica e ambientale. In qualità di tecnico del riscaldamento, contribuisce al funzionamento e alla qualità energetica degli impianti di riscaldamento del magazzino Vaud State e garantisce il collegamento tecnico tra l'ingegneria e l'edilizia.\n\n• Eseguire visite tecniche alle strutture di riscaldamento dello stock di alloggi cantonali, preparare i record di sito completi e documentati, valutare le condizioni generali dell'apparecchiatura, identificare i malfunzionamenti e fare raccomandazioni\n• Sviluppare figure tecniche, raccogliere e verificare i dati tecnici necessari per il costo e partecipare, in collaborazione con i project manager di ingegneria, all'analisi delle offerte ricevute\n• Aggiornamento e sviluppo dei diagrammi dei principi delle indagini sul campo\n• Fornire assistenza tecnica in campo conducendo il monitoraggio spot degli impianti, supportando i project manager di ingegneria e i team operativi quando si commissionano e partecipano a sessioni di coordinamento del sito\n• Gestire e garantire la risoluzione dei problemi ad hoc su strutture fallite. Per ulteriori informazioni, è possibile consultare le specifiche qui riportate o contattare il Sig. André Moutinho Mucha, Engineering Manager alle 021 316 37 27.\n\n• CFC del proiettore nella tecnologia degli edifici di riscaldamento, diploma ES nella tecnologia dell'edilizia - orientamento del riscaldamento, o formazione equivalente\n• Formazione continua nell'ottimizzazione delle energie rinnovabili o dell'energia\n• Esperienza lavorativa di almeno 10 anni nell'installazione di riscaldamento (design, costi, monitoraggio delle costruzioni) e di almeno 5 anni nella sostituzione della produzione di calore con l'integrazione delle energie rinnovabili\n• masterizzazione tecnica degli impianti di riscaldamento e della progettazione tecnica (programma di principio, letture, codificazione e DAO), concetti di sistema di ipervisione e interpretazione dei dati di monitoraggio\n• Capacità di eseguire costi dettagliati, esperienza nella conduzione di audit e realizzazione dello stato tecnico dell'arte\n• Autonomia, adattabilità e flessibilità, capacità di sviluppare scambi positivi all'interno di reti di stakeholder e specialisti, responsabilità ed etica del servizio pubblico.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "The Engineering and Sustainability Directorate (DID) provides technical and strategic expertise within the Buildings and Heritage Branch (RPB) in energy and environmental matters. As a heating technician, you contribute to the operation and energy quality of the heating facilities of the Vaud State housing stock and ensure the technical link between engineering and building operation.\n\n• Perform technical visits to the heating facilities of the cantonal housing stock, prepare complete and documented site records, assess the general condition of the equipment, identify malfunctions and make recommendations\n• Develop technical figures, collect and verify the technical data necessary for the costing and participate, in collaboration with the engineering project managers, in the analysis of the tenders received\n• Updating and developing principles diagrams from field surveys\n• Provide technical support in the field by conducting spot monitoring of installations, supporting engineering project managers and operational teams when commissioning and participating in site coordination sessions\n• Manage and ensure ad hoc troubleshooting on failed facilities. For more information, you can consult the specifications here or contact Mr André Moutinho Mucha, Engineering Manager at 021 316 37 27.\n\n• Projector's CFC in heating building technology, ES diploma in building technology - heating orientation, or equivalent training\n• Continuous training in renewable energy or energy optimisation\n• Work experience of at least 10 years in heating installation (design, costing, construction monitoring) and of at least 5 years in the replacement of heat production with the integration of renewable energies\n• Technical mastery of heating installations and technical design (schedule of principle, readings, codification and DAO), concepts of hypervision system and interpretation of monitoring data\n• Ability to perform detailed costing, experience in conducting audits and carrying out technical state of the art\n• Autonomy, adaptability and flexibility, ability to develop positive exchanges within networks of stakeholders and specialists, responsibility and ethics of the public service.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die Direktion für Technik und Nachhaltigkeit (DID) bietet technische und strategische Expertise in der Gebäude- und Kulturerbeabteilung (RPB) in Energie- und Umweltfragen. Als Heizungstechniker tragen Sie zum Betrieb und zur Energiequalität der Heizanlagen des Waadtstaatswohnungsbestandes bei und sorgen für die technische Verbindung zwischen Ingenieur- und Gebäudebetrieb.\n\n• Führen Sie technische Besuche in den Heizungsanlagen des kantonalen Wohnungsbestands durch, erstellen Sie vollständige und dokumentierte Standortaufzeichnungen, beurteilen Sie den allgemeinen Zustand der Geräte, identifizieren Sie Fehlfunktionen und geben Sie Empfehlungen ab\n• Erarbeiten Sie technische Zahlen, sammeln und verifizieren Sie die für die Kostenrechnung erforderlichen technischen Daten und beteiligen Sie sich in Zusammenarbeit mit den Projektmanagern an der Analyse der eingegangenen Angebote.\n• Aktualisieren und Entwickeln von Prinzipdiagrammen aus Felderhebungen\n• Bereitstellung technischer Unterstützung vor Ort durch die Durchführung von Ortsüberwachung von Anlagen, Unterstützung von Engineering-Projektmanagern und Betriebsteams bei der Inbetriebnahme und Teilnahme an Ortskoordinationssitzungen\n• Verwalten und gewährleisten Sie die Ad-hoc-Fehlerbehebung bei fehlgeschlagenen Einrichtungen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn André Moutinho Mucha, Engineering Manager unter 021 316 37 27 wenden.\n\n• Projektor CFC in Heizungsgebäudetechnik, ES Diplom in Gebäudetechnik - Heizungsorientierung oder gleichwertige Ausbildung\n• Weiterbildung in Erneuerbaren Energien oder Energieoptimierung\n• Berufserfahrung von mindestens 10 Jahren in der Heizungsinstallation (Design, Kalkulation, Bauüberwachung) und von mindestens 5 Jahren in der Ersetzung der Wärmeerzeugung durch die Integration erneuerbarer Energien\n• Technische Beherrschung von Heizungsanlagen und technischer Auslegung (Prinzipienverzeichnis, Messwerte, Kodifizierung und DAO), Konzepte des Hypervisionssystems und Interpretation von Überwachungsdaten\n• Fähigkeit zur Durchführung detaillierter Kostenrechnungen, Erfahrung bei der Durchführung von Audits und Durchführung des technischen Stands der Technik\n• Autonomie, Anpassungsfähigkeit und Flexibilität, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessenvertretern und Spezialisten zu entwickeln, Verantwortung und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Die Direktion für Technik und Nachhaltigkeit (DID) bietet technische und strategische Expertise in der Gebäude- und Kulturerbeabteilung (RPB) in Energie- und Umweltfragen. Als Heizungstechniker tragen Sie zum Betrieb und zur Energiequalität der Heizanlagen des Waadtstaatswohnungsbestandes bei und sorgen für die technische Verbindung zwischen Ingenieur- und Gebäudebetrieb.\n\n• Führen Sie technische Besuche in den Heizungsanlagen des kantonalen Wohnungsbestands durch, erstellen Sie vollständige und dokumentierte Standortaufzeichnungen, beurteilen Sie den allgemeinen Zustand der Geräte, identifizieren Sie Fehlfunktionen und geben Sie Empfehlungen ab\n• Erarbeiten Sie technische Zahlen, sammeln und verifizieren Sie die für die Kostenrechnung erforderlichen technischen Daten und beteiligen Sie sich in Zusammenarbeit mit den Projektmanagern an der Analyse der eingegangenen Angebote.\n• Aktualisieren und Entwickeln von Prinzipdiagrammen aus Felderhebungen\n• Bereitstellung technischer Unterstützung vor Ort durch die Durchführung von Ortsüberwachung von Anlagen, Unterstützung von Engineering-Projektmanagern und Betriebsteams bei der Inbetriebnahme und Teilnahme an Ortskoordinationssitzungen\n• Verwalten und gewährleisten Sie die Ad-hoc-Fehlerbehebung bei fehlgeschlagenen Einrichtungen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn André Moutinho Mucha, Engineering Manager unter 021 316 37 27 wenden.\n\n• Projektor CFC in Heizungsgebäudetechnik, ES Diplom in Gebäudetechnik - Heizungsorientierung oder gleichwertige Ausbildung\n• Weiterbildung in Erneuerbaren Energien oder Energieoptimierung\n• Berufserfahrung von mindestens 10 Jahren in der Heizungsinstallation (Design, Kalkulation, Bauüberwachung) und von mindestens 5 Jahren in der Ersetzung der Wärmeerzeugung durch die Integration erneuerbarer Energien\n• Technische Beherrschung von Heizungsanlagen und technischer Auslegung (Prinzipienverzeichnis, Messwerte, Kodifizierung und DAO), Konzepte des Hypervisionssystems und Interpretation von Überwachungsdaten\n• Fähigkeit zur Durchführung detaillierter Kostenrechnungen, Erfahrung bei der Durchführung von Audits und Durchführung des technischen Stands der Technik\n• Autonomie, Anpassungsfähigkeit und Flexibilität, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessenvertretern und Spezialisten zu entwickeln, Verantwortung und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "La Direction de l'ingénierie et de la durabilité (DID) fournit une expertise technique et stratégique au sein de la Direction générale des immeubles et du patrimoine (DGIP) en matière énergétique et environnementale. En tant que technicien·ne spécialiste chauffage, vous contribuez au fonctionnement et à la qualité énergétique des installations de chauffage du parc immobilier de l’État de Vaud et assurer le lien technique entre l'ingénierie et l'exploitation des bâtiments.\n\n• Réaliser les visites techniques des installations de chauffage du parc immobilier cantonal, établir des états des lieux complets et documentés, évaluer l'état général des équipements, identifier les dysfonctionnements et formuler des recommandations\n• Élaborer des chiffrages techniques, réunir et vérifier les données techniques nécessaires au chiffrage et participer, en collaboration avec les chef·fe·s de projet ingénieur·e·s, à l'analyse des offres reçues\n• Mettre à jour et élaborer les schémas de principes à partir des relevés terrains\n• Assurer un appui technique sur le terrain en effectuant un contrôle ponctuel des installations, en appuyant les chef·fe·s de projet ingénieur·e·s et les équipes d'exploitation lors des mises en service et en participant aux séances de coordination de chantier\n• Gérer et assurer des interventions ponctuelles de dépannage sur les installations en panne. Pour des plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur André Moutinho Mucha, Responsable ingénierie au 021 316 37 27.\n\n• CFC de projeteur·euse en technique du bâtiment chauffage, diplôme ES en technique du bâtiment - orientation chauffage, ou formation jugée équivalente\n• Formations continues en énergies renouvelables ou optimisation énergétique\n• Expérience professionnelle d'au moins 10 ans en installation chauffage (conception, chiffrage, suivi de chantier) et d'au moins 5 ans dans le remplacement de production de chaleur avec intégration d'énergies renouvelables\n• Maitrise technique des installations de chauffage et du dessin technique chauffage (schéma de principe, relevés, codification et DAO), notions en système d'hypervision et interprétation des données de monitoring\n• Capacité à réaliser des chiffrages détaillés, expérience dans la conduite d'audits et la réalisation d'états des lieux techniques\n• Autonomie, capacité d'adaptation et de flexibilité, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5536",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:23.751Z",
+      "crawledAt": "2026-07-16T22:55:34.813Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2548,9 +2616,24 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5536",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
+        "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne",
+          "riscaldamento-tecnico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
+        ]
       },
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2562,55 +2645,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "technicien-ne-specialiste-chauffage-etat-de-vaud-lausanne"
-      ]
+      }
     },
     {
       "id": "etat-de-vaud-5529",
-      "slug": "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
-        "it": "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "chef-fe-de-projet-architecte-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "architectural-project-leader-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "architektonischer-projektleiter-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "de": "architektonischer-projektleiter-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "fr": "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Chef·fe de projet architecte",
       "titleByLocale": {
-        "fr": "Chef·fe de projet architecte",
-        "it": "Leader del progetto architettonico",
+        "it": "Chef·fe de projet architecte",
         "en": "Architectural Project Leader",
-        "de": "Architektonischer Projektleiter"
+        "de": "Architektonischer Projektleiter",
+        "fr": "Chef·fe de projet architecte"
       },
       "description": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
-        "fr": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "La Direzione di Architettura ed Edifici (DAB) è responsabile della progettazione, programmazione, sviluppo, costruzione e manutenzione di tutti gli edifici di Vaud State. In un ambiente arricchente e dinamico, nella vostra capacità di project manager dell'architetto che rappresenta il maestro del lavoro, contribuite alla realizzazione di progetti entusiasmanti ed emblematici nel cantone di Vaud.\n\n• Coordinare e monitorare i progressi dei progetti secondo gli orientamenti della Direzione Generale per gli Edifici e i Beni e/o del Consiglio di Stato\n• Organizzare, gestire e portare i progetti a terzi garantendo qualità, costi e tempistiche\n• Progettazione e programmazione del mandato di piombo e gestione delle operazioni costruttive\n• Condurre progetti in stretta collaborazione con i servizi utente\n• condurre studi preliminari, gestire agenti e riunioni di presidenza\n• Rappresenta la Direzione Architettura ed Edifici con partner, terze parti, dipartimenti Vaud State e gruppi di lavoro. Per ulteriori informazioni, è possibile consultare le specifiche qui riportate o contattare il Sig. Claudio Iglesias, Direttore di Architettura e Edificio al 021 316 73 21.\n\n• Titolare di un EPF o HES Master in Architettura, Ingegneria o titolo equivalente\n• Esperienza professionale di almeno 10 anni nella gestione del progetto\n• Conoscenza eccellente nella gestione del progetto, economia e pianificazione territoriale\n• Conoscenza delle procedure di appalti pubblici\n• Buone competenze editoriali, ottima capacità organizzativa e progettuale\n• Autonomia, dinamismo, capacità di sviluppare scambi positivi all'interno di reti di stakeholder e specialisti, senso di responsabilità ed etica del servizio pubblico.\n\nPosizione nell'Amministrazione cantonale di Vaud (Stato di Vaud), Svizzera. Applicazione online sul portale di carriera ufficiale offre-emploi.vd.ch.",
         "en": "The Directorate of Architecture and Buildings (DAB) is responsible for the planning, programming, development, construction and maintenance of all buildings in Vaud State. In an enriching and dynamic environment, in your capacity as architect project manager representing the master of the work, you contribute to the realization of exciting and emblematic projects in the canton of Vaud.\n\n• Coordinate and monitor the progress of projects according to the guidelines of the Directorate General for Buildings and Heritage and/or the Council of State\n• Organize, manage and lead projects mandated to third parties by ensuring quality, cost and timeliness\n• Lead mandate planning and programming and manage constructive operations\n• Conduct projects in close collaboration with user services\n• Conduct preliminary studies, manage agents and chair meetings\n• Represent the Architecture and Buildings Directorate with partners, third parties, Vaud State departments and working groups. For more information, you can consult the specifications here or contact Mr Claudio Iglesias, Director of Architecture and Building at 021 316 73 21.\n\n• Holder of an EPF or HES Master in Architecture, Engineering, or equivalent title\n• Professional experience of at least 10 years in project management\n• Excellent knowledge in project management, economics and spatial planning\n• Knowledge of public procurement procedures\n• Good editorial skills, excellent organizational and planning capacity\n• Autonomy, dynamism, ability to develop positive exchanges within networks of stakeholders and specialists, sense of responsibility and ethics of the public service.\n\nPosition in the Cantonal Administration of Vaud (State of Vaud), Switzerland. Online application on the official career portal offers-emploi.vd.ch.",
-        "de": "Die Direktion für Architektur und Gebäude (DAB) ist für die Planung, Programmierung, Entwicklung, Bau und Instandhaltung aller Gebäude im Waadtstaat zuständig. In einem bereichernden und dynamischen Umfeld tragen Sie als Architektenprojektmanager, der den Meister des Werkes vertritt, zur Realisierung spannender und emblematischer Projekte im Kanton Waadt bei.\n\n• Koordinierung und Überwachung des Fortschritts von Projekten gemäß den Richtlinien der Generaldirektion für Gebäude und Kulturerbe und / oder des Staatsrates\n• Organisieren, verwalten und leiten Sie Projekte, die an Dritte vergeben werden, indem Sie Qualität, Kosten und Aktualität sicherstellen\n• Leitung der Mandatsplanung und -programmierung und Verwaltung konstruktiver Operationen\n• Durchführung von Projekten in enger Zusammenarbeit mit den Benutzerdiensten\n• Führen Sie Vorstudien durch, leiten Sie Agenten und Vorsitzende\n• Vertretung der Direktion Architektur und Gebäude mit Partnern, Dritten, Waadtstaatsabteilungen und Arbeitsgruppen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn Claudio Iglesias, Direktor für Architektur und Bau unter 021 316 73 21 wenden.\n\n• Inhaber eines EPF oder HES Master in Architektur, Ingenieurwesen oder gleichwertiger Titel\n• Berufserfahrung von mindestens 10 Jahren im Projektmanagement\n• Ausgezeichnete Kenntnisse in Projektmanagement, Wirtschaft und Raumplanung\n• Kenntnis der Verfahren zur Vergabe öffentlicher Aufträge\n• Gute redaktionelle Fähigkeiten, ausgezeichnete Organisations- und Planungskapazitäten\n• Autonomie, Dynamik, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessengruppen und Spezialisten zu entwickeln, Verantwortungsbewusstsein und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch."
+        "de": "Die Direktion für Architektur und Gebäude (DAB) ist für die Planung, Programmierung, Entwicklung, Bau und Instandhaltung aller Gebäude im Waadtstaat zuständig. In einem bereichernden und dynamischen Umfeld tragen Sie als Architektenprojektmanager, der den Meister des Werkes vertritt, zur Realisierung spannender und emblematischer Projekte im Kanton Waadt bei.\n\n• Koordinierung und Überwachung des Fortschritts von Projekten gemäß den Richtlinien der Generaldirektion für Gebäude und Kulturerbe und / oder des Staatsrates\n• Organisieren, verwalten und leiten Sie Projekte, die an Dritte vergeben werden, indem Sie Qualität, Kosten und Aktualität sicherstellen\n• Leitung der Mandatsplanung und -programmierung und Verwaltung konstruktiver Operationen\n• Durchführung von Projekten in enger Zusammenarbeit mit den Benutzerdiensten\n• Führen Sie Vorstudien durch, leiten Sie Agenten und Vorsitzende\n• Vertretung der Direktion Architektur und Gebäude mit Partnern, Dritten, Waadtstaatsabteilungen und Arbeitsgruppen. Für weitere Informationen können Sie die Spezifikationen hier einsehen oder sich an Herrn Claudio Iglesias, Direktor für Architektur und Bau unter 021 316 73 21 wenden.\n\n• Inhaber eines EPF oder HES Master in Architektur, Ingenieurwesen oder gleichwertiger Titel\n• Berufserfahrung von mindestens 10 Jahren im Projektmanagement\n• Ausgezeichnete Kenntnisse in Projektmanagement, Wirtschaft und Raumplanung\n• Kenntnis der Verfahren zur Vergabe öffentlicher Aufträge\n• Gute redaktionelle Fähigkeiten, ausgezeichnete Organisations- und Planungskapazitäten\n• Autonomie, Dynamik, Fähigkeit, einen positiven Austausch innerhalb von Netzwerken von Interessengruppen und Spezialisten zu entwickeln, Verantwortungsbewusstsein und Ethik des öffentlichen Dienstes.\n\nFunktion in der kantonalen Verwaltung Waadt (Staat Waadt), Schweiz. Online-Bewerbung auf dem offiziellen Karriereportal offers-emploi.vd.ch.",
+        "fr": "La Direction de l'architecture et des bâtiments (DAB) assure la planification, la programmation, le développement, la construction et l'entretien de tous les bâtiments de l’État de Vaud. Dans un environnement enrichissant et dynamique, en votre qualité de chef·fe de projet architecte représentant·e du maitre de l'ouvrage, vous contribuez à la réalisation de projets passionnants et emblématiques du canton de Vaud.\n\n• Coordonner et suivre le déroulement de projets selon les directives de la Direction générale des immeubles et du patrimoine et/ou du Conseil d’État\n• Organiser, piloter et diriger des projets mandatés à des tiers en assurant la qualité, le respect des coûts et des délais\n• Diriger la planification et la programmation de mandats et gérer les opérations constructives\n• Conduire les projets en étroite collaboration avec les services utilisateurs\n• Conduire les études préliminaires, gérer les mandataires et présider des séances\n• Représenter la Direction de l'architecture et des bâtiments auprès des partenaires, des tiers, des services de l’État de Vaud et des groupes de travail. Pour de plus amples informations, vous pouvez consulter le cahier des charges ici ou contacter Monsieur Claudio Iglesias, Directeur architecture et bâtiment au 021 316 73 21.\n\n• Titulaire d'un Master EPF ou HES dans le domaine de l'architecture, de l'ingénierie, ou titre jugé équivalent\n• Expérience professionnelle d'au moins 10 ans dans la conduite de projet\n• Excellentes connaissances en gestion de projet, en économie et en aménagement du territoire\n• Connaissance des procédure de marchés-publics\n• Bonnes compétences rédactionnelles, excellentes capacité d'organisation et de planification\n• Autonomie, dynamise, capacité à développer des échanges positifs au sein de réseaux d'intervenant·e·s et de spécialistes, sens des responsabilités et éthique du service public.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:15:23.132Z",
+      "crawledAt": "2026-07-16T22:55:34.385Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2627,9 +2695,25 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5529",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
+        "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne",
+          "leader-del-progetto-architettonico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
+        ]
       },
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2641,114 +2725,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-        ],
-        "en": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-        ],
-        "de": [
-          "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-projet-architecte-etat-de-vaud-lausanne"
-      ]
-    },
-    {
-      "id": "etat-de-vaud-5541",
-      "slug": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-      "slugByLocale": {
-        "it": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "en": "bailiff-head-of-an-enforcement-office-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "de": "gerichtsvollzieher-in-leiter-in-eines-vollstreckungsburos-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "fr": "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Huissier·ère chef·fe d’un Office des poursuites",
-      "titleByLocale": {
-        "it": "Ufficiale giudiziario capo di un Ufficio delle esecuzioni",
-        "en": "Bailiff Head of an Enforcement Office",
-        "de": "Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros",
-        "fr": "Huissier·ère chef·fe d’un Office des poursuites"
-      },
-      "description": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Descrizione Possiedi il certificato di formazione generale all'esecuzione forzata? La gestione di un settore e la gestione di pratiche complesse, in particolare realizzando operazioni esterne in contatto diretto con gli utenti ti motiva? Vuoi evolvere in un ambiente di lavoro stimolante? Unisciti a noi! Collegati all'Ordine giudiziario vodese, i dieci uffici delle esecuzioni del cantone sono responsabili della procedura di esecuzione, dalla notifica del comando di pagamento all'incasso del credito o alla consegna dell'atto di mancanza di beni. Tengono anche aggiornati diversi registri e ne rilasciano estratti. L'Ufficio delle esecuzioni del distretto della Riviera - Pays-d'Enhaut, che impiega quasi 30 collaboratori e collaboratrici, cerca un'ufficiale giudiziario capo di un ufficio delle esecuzioni. Missioni - Dirigere un settore di esecuzione forzata e contribuire alla formazione continua dei collaboratori e delle apprendiste. - Assicurare assistenza e supporto tecnico agli ufficiali giudiziari di un OPF per pratiche e casi complessi. - Procedere alle operazioni di esecuzione forzata necessarie per la risoluzione dei debiti dei debitori e effettuare gli interrogatori dei debitori. - Eseguire i sequestri, i sequestri e gli inventari per affitti. - Redigere i verbali destinati alle parti della procedura. - Gestire le pratiche di sequestro di redditi e vendite mobiliari. - Gestire le pratiche immobiliari.\n• Profilo ricercato - CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte. - Certificato di formazione generale all'esecuzione forzata o eventualmente moduli 1 e 2 con impegno a ottenere il modulo 3. - Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta. - Formazione in gestione di team o impegno a ottenerla. - Capacità di gestione dei conflitti, assertività. - Sensibilità al servizio pubblico, ottima resistenza allo stress. - Buona organizzazione, spirito d'iniziativa, rapidità, precisione. - Padronanza dell'ortografia e familiarità con gli strumenti informatici comuni. - Patente di guida e disponibilità di un veicolo privato desiderato.\n• Cosa offriamo - Esistono molte possibilità di evoluzione professionale e di formazione continua all'interno degli Uffici delle esecuzioni e delle bancarotte. - Nell'ambito della procedura di reclutamento, i candidati saranno invitati a presentare un estratto del registro delle esecuzioni e del casellario giudiziario di meno di 3 mesi. Contatto Posto all'interno dell'Amministrazione cantonale vodese (Stato di Vaud), Svizzera. Candidatura online sul portale carriera ufficiale offerte-emploi.vd.ch. Hai domande? Il Sig. Jérôme Grandjean, Responsabile delle esecuzioni, è a tua disposizione al 021 557 12 19. Ti ringraziamo di indicare nella tua lettera di motivazione il tasso di attività desiderato.",
-        "en": "Description Do you hold the general training certificate for forced execution? Are you motivated by managing a sector and handling complex cases, particularly by conducting external operations in direct contact with users? Do you wish to evolve in a stimulating work environment? Join us! Attached to the Vaud judicial order, the ten enforcement offices of the canton are responsible for the enforcement procedure, from notifying the payment order to collecting the debt or issuing the certificate of lack of assets. They also keep various registers up to date and issue extracts from them. The Enforcement Office of the Riviera - Pays-d'Enhaut district, which employs nearly 30 staff members, is looking for a bailiff head of an enforcement office. Missions - Lead a sector of forced execution and contribute to the ongoing training of staff and apprentices. - Provide assistance and technical support to bailiffs of an OPF for complex files and cases. - Carry out the necessary forced execution operations for settling debtors' debts and conduct debtor interrogations. - Execute seizures, attachments, and inventories for rents. - Draft minutes intended for the parties in the procedure. - Manage income seizure and movable sales files. - Manage real estate files.\n• Profile sought - CFC in commercial employee completed in an enforcement or bankruptcy office. - General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3. - 6 years of professional experience in the field of enforcement or bankruptcy. - Training in team management or commitment to obtain it. - Ability to manage conflicts, assertiveness. - Sense of public service, very good stress resistance. - Good organization, initiative, speed, precision. - Mastery of spelling and proficiency with common computer tools. - Driver's license and availability of a private vehicle desired.\n• What we offer - There are many opportunities for professional development and ongoing training within the Enforcement and Bankruptcy Offices. - As part of the recruitment process, candidates will be required to present an extract from the enforcement register and a criminal record of less than 3 months. Contact Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Online application on the official career portal offres-emploi.vd.ch. Do you have questions? Mr. Jérôme Grandjean, Enforcement Officer, is happy to assist you at 021 557 12 19. We thank you for indicating your desired workload in your cover letter.",
-        "de": "Beschreibung Haben Sie das Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung? Motiviert Sie die Leitung eines Bereichs und die Bearbeitung komplexer Fälle, insbesondere durch die Durchführung von Außenoperationen im direkten Kontakt mit den Nutzer·innen? Möchten Sie sich in einem stimulierenden Arbeitsumfeld weiterentwickeln? Kommen Sie zu uns! Die zehn Vollstreckungsbüros des Kantons sind dem Waadtländer Justizwesen angegliedert und verantwortlich für das Vollstreckungsverfahren, von der Zustellung des Zahlungsbefehls bis zur Einziehung der Forderung oder zur Ausstellung des Mangels an Vermögen. Sie führen auch verschiedene Register und stellen Auszüge daraus aus. Das Vollstreckungsbüro des Bezirks Riviera - Pays-d'Enhaut, das fast 30 Mitarbeiter·innen beschäftigt, sucht eine·n Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros.\n• Aufgaben - Leitung eines Bereichs der Zwangsvollstreckung und Mitwirkung an der kontinuierlichen Weiterbildung der Mitarbeiter·innen und Auszubildenden. - Sicherstellung der Unterstützung und technischen Hilfe für Gerichtsvollzieher·innen eines OPF bei komplexen Akten und Fällen. - Durchführung der notwendigen Zwangsvollstreckungsmaßnahmen zur Begleichung der Schulden der Schuldner·innen und Durchführung der Befragungen der Schuldner·innen. - Durchführung von Pfändungen, Beschlagnahmen und Inventuren für Mieten. - Erstellung von Protokollen für die Verfahrensbeteiligten. - Verwaltung von Akten über Einkommenspfändungen und bewegliche Verkäufe. - Verwaltung von Immobilienakten. Gesuchtes Profil - CFC als kaufmännische·r Angestellte·r in einem Vollstreckungs- oder Konkursbüro. - Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung oder eventuell Module 1 und 2 mit der Verpflichtung, Modul 3 zu erwerben. - 6 Jahre Berufserfahrung im Bereich der Zwangsvollstreckung oder des Konkurses. - Ausbildung in Teamführung oder die Verpflichtung, diese zu erwerben. - Fähigkeit zur Konfliktbewältigung, Durchsetzungsvermögen. - Sinn für den öffentlichen Dienst, sehr gute Stressresistenz. - Gute Organisation, Eigeninitiative, Schnelligkeit, Präzision. - Beherrschung der Rechtschreibung und sicherer Umgang mit gängigen Computerwerkzeugen. - Führerschein und Verfügbarkeit eines privaten Fahrzeugs gewünscht.\n• Was wir bieten - Es gibt viele Möglichkeiten zur beruflichen Weiterentwicklung und zur kontinuierlichen Weiterbildung innerhalb der Vollstreckungs- und Konkursbüros. - Im Rahmen des Rekrutierungsverfahrens werden die Kandidat·innen aufgefordert, einen Auszug aus dem Vollstreckungsregister und ein Strafregister von weniger als 3 Monaten vorzulegen. Kontakt Stelle innerhalb der Waadtländer Kantonsverwaltung (Staat Waadt), Schweiz. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch. Haben Sie Fragen? Herr Jérôme Grandjean, Vollstreckungsbeamter, steht Ihnen gerne unter 021 557 12 19 zur Verfügung. Wir danken Ihnen, dass Sie in Ihrem Bewerbungsschreiben den gewünschten Beschäftigungsgrad angeben.",
-        "fr": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Vevey",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:13:13.391Z",
-      "addressLocality": "Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1800",
-      "streetAddress": "Place du Château 1",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte.",
-          "Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta.",
-          "Formazione in gestione di team o impegno a ottenerla.",
-          "Capacità di gestione dei conflitti, assertività.",
-          "Sensibilità al servizio pubblico, ottima resistenza allo stress.",
-          "Buona organizzazione, spirito d'iniziativa, rapidità, precisione.",
-          "Patente di guida e disponibilità di un veicolo privato desiderato."
-        ],
-        "en": [
-          "CFC in commercial employee completed in an enforcement or bankruptcy office.",
-          "General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3.",
-          "6 years of professional experience in the field of enforcement or bankruptcy.",
-          "Training in team management or commitment to obtain it.",
-          "Ability to manage conflicts, assertiveness.",
-          "Sense of public service, very good stress resistance.",
-          "Good organization, initiative, speed, precision.",
-          "Mastery of spelling and proficiency with common computer tools."
-        ]
-      },
-      "previousSlugs": [
-        "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }

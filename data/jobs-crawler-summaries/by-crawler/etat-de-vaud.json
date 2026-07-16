@@ -1,41 +1,39 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-16T11:15:39.990Z",
-  "total": 33,
+  "generatedAt": "2026-07-16T22:55:50.621Z",
+  "total": 32,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19104,
-  "avgDurationMs": 19104,
+  "unchangedCount": 0,
+  "durationMs": 18568,
+  "avgDurationMs": 18568,
   "durationHistory": [
-    19104
+    18568
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5541",
-      "slug": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "id": "etat-de-vaud-5476",
+      "slug": "directeur-trice-general-e-adjoint-e-de-la-fiscalite-etat-de-vaud-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Huissier·ère chef·fe d’un Office des poursuites",
-      "location": "Vevey",
+      "title": "Directeur·trice général·e adjoint·e de la fiscalité",
+      "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T11:13:13.391Z",
-      "addressLocality": "Vevey",
+      "crawledAt": "2026-07-16T22:55:47.438Z",
+      "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1800",
+      "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Legale",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
@@ -43,18 +41,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
