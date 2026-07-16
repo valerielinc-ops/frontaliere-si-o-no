@@ -81,7 +81,22 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
     name: 'cf-hot-404-bridge',
     apply: 'build',
     enforce: 'post',
-    async closeBundle() {
+    // Issue #4263 item 4: this docblock's own "last position in the plugin array"
+    // safety claim (see file header) does not, by itself, guarantee this plugin's
+    // existsSync gap-fill checks run after every other page-producing/bridge
+    // plugin's closeBundle — Rollup's closeBundle is async-parallel by default, so
+    // registration order alone only decides DISPATCH order, not COMPLETION order.
+    // `order:'post'` + `sequential:true` makes Rollup await every previously-queued
+    // closeBundle promise (every plugin registered earlier, including
+    // eventsSeoPagesPlugin, legacyRedirectsPlugin, cantonOrphanRedirectsPlugin,
+    // jobOrphanBridgePlugin, locationHubBridgePlugin, companyHubBridgePlugin,
+    // legacyAliasPlugin — all of which this plugin's "never overwrites" guarantee
+    // depends on having already written) before this handler runs. Verified
+    // against the installed rollup package; mirrors hreflangPostprocessPlugin.ts.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
       const hotFile = path.resolve(rootDir, 'data/cf-hot-404s.json');
@@ -335,6 +350,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
             `[mem] heapUsed=${heapMb}MB after emit.`,
         );
       }
+      },
     },
   };
 }
