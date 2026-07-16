@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-07-15T22:14:35.520Z",
+  "assembledAt": "2026-07-16T11:52:03.307Z",
   "jobs": [
     {
       "title": "Zivilstandsbeamtin / Zivilstandsbeamter",
@@ -28,7 +28,7 @@
       "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
       "titleByLocale": {
         "it": "Ufficiale di stato civile",
-        "en": "Civil status officer",
+        "en": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
         "fr": "Spécialiste de l ' état civil"
       },
@@ -40,11 +40,11 @@
       },
       "slugByLocale": {
         "it": "ufficiale-di-stato-civile-stadt-chur-chur",
-        "en": "civil-status-officer-stadt-chur-chur",
+        "en": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-chur",
         "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
         "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:07:54.835Z",
+      "crawledAt": "2026-07-16T11:45:22.531Z",
       "id": "stadt-chur-8181a7de3772",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -61,12 +61,13 @@
       },
       "firstSeenAt": "2026-07-15T11:58:33.330Z",
       "previousSlugsByLocale": {
-        "it": [
-          "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-        ],
         "en": [
+          "civil-status-officer-stadt-chur-chur",
           "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
           "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-chur"
+        ],
+        "it": [
+          "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
         ],
         "fr": [
           "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
@@ -74,8 +75,10 @@
       },
       "previousSlugs": [
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+        "civil-status-officer-stadt-chur-chur",
         "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Stadtgeometer/-in und Verantwortliche/-r Landerwerb (80%)",
@@ -119,7 +122,7 @@
         "de": "stadtgeometer-in-und-verantwortliche-r-landerwerb-80-stadt-chur-1679",
         "fr": "geometre-urbain-et-acquisition-responsable-de-terres-80-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:09:01.594Z",
+      "crawledAt": "2026-07-16T11:46:29.291Z",
       "id": "stadt-chur-b0fbf56b6b57",
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -192,7 +195,7 @@
         "de": "dienststellenleiter-in-immobilien-und-hochbau-80-100-stadt-chur-1698",
         "fr": "gestionnaire-construction-immobiliere-et-immobiliere-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:10:08.353Z",
+      "crawledAt": "2026-07-16T11:47:36.051Z",
       "id": "stadt-chur-4c04fef428bd",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -267,7 +270,7 @@
         "de": "dienststellenleiter-in-stadtraum-und-umwelt-80-100-stadt-chur-1696",
         "fr": "gestionnaire-de-bureau-dans-l-espace-urbain-et-l-environnement-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:11:15.115Z",
+      "crawledAt": "2026-07-16T11:48:42.811Z",
       "id": "stadt-chur-198fc32154ec",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -340,7 +343,7 @@
         "de": "badmeister-in-saison-100-stadt-chur-1695",
         "fr": "badmaster-en-saison-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:12:21.874Z",
+      "crawledAt": "2026-07-16T11:49:49.570Z",
       "id": "stadt-chur-8abd0783429f",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -413,7 +416,7 @@
         "de": "sargtrager-in-stadt-chur-chur",
         "fr": "porte-cercueil-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:13:28.632Z",
+      "crawledAt": "2026-07-16T11:50:56.330Z",
       "id": "stadt-chur-4309d92c4ac7",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -490,7 +493,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-07-15T22:14:35.391Z",
+      "crawledAt": "2026-07-16T11:52:03.092Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "salaryMin": 57500,
       "salaryMax": 87000,
