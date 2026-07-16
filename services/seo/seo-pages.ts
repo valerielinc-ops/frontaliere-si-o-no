@@ -1639,6 +1639,47 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come richiedere il permesso G per frontalieri in Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "description": "Guida passo-passo per ottenere il permesso di lavoro G come frontaliere in Svizzera: requisiti, domanda, costi e rinnovo",
+ "totalTime": "P30D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Trova un datore di lavoro svizzero",
+ "text": "Ottieni un contratto di lavoro con un datore con sede in Svizzera: è il requisito di base per richiedere il permesso G."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Verifica il requisito di residenza",
+ "text": "Assicurati di risiedere nella fascia di 20 km dal confine svizzero (o in un comune concordatario) e di poter garantire il rientro settimanale nel Paese di residenza."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Il datore presenta la domanda",
+ "text": "Il datore di lavoro svizzero inoltra la domanda di permesso G all'Ufficio della migrazione del cantone in cui si trova la sede di lavoro."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Ricevi il permesso G",
+ "text": "Una volta approvata la domanda ricevi il permesso G: costa circa CHF 65-85 e ha validità 5 anni per i contratti a tempo indeterminato (pari alla durata del contratto se a termine).",
+ "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Rinnova alla scadenza",
+ "text": "Il rinnovo è automatico su richiesta del datore di lavoro, purché il rapporto di lavoro sia ancora in essere."
+ }
+ ]
+ },
+ {
+ "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
  {
