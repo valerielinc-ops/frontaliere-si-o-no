@@ -8556,6 +8556,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-traffico-2024.title': 'Tessin als Geisel des Verkehrs: Wer ausbeutet, zahlt',
     'blog.article.ticino-traffico-2024.excerpt': 'Das Tessin hat sich zu einem der wichtigsten Transitkorridore Europas entwickelt. Staus beeinträchtigen die Lebensqualität und die Wirtschaft.',
     'blog.article.ticino-traffico-2024.imageAlt': 'Lugano-see im Winter',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'Das Programm von Avanti con Ticino&Lavoro entscheiden auch die Tessiner',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'Die Partei Avanti con Ticino&Lavoro wird ihr Programm für die Legislaturperiode 2027–2031 den Realitäten des Territoriums vor seiner endgültigen Genehmigung vorlegen.',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panorama von Lugano mit dem See im Vordergrund',
 };
 
 export default blogMetaDe;
