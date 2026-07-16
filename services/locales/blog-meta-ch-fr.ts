@@ -1174,6 +1174,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Crise du détroit d\'Ormuz : retards et hausses pour les entreprises suisses',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'L\'association Swissmem signale des difficultés pour une entreprise industrielle sur quatre. Risque d\'approvisionnement et de coûts énergétiques',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Port fluvial de Bâle, plaque tournante logistique suisse',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'Prestations LPP en Suisse : comment elles sont taxées',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Les rentes de la prévoyance professionnelle (LPP) suivent le même régime fiscal que les rentes AVS : voilà ce qui change pour les bénéficiaires',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Retraité suisse vérifiant des documents fiscaux au bureau',
 };
 
 export default blogMetaChFr;

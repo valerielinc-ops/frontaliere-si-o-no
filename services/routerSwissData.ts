@@ -414,6 +414,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'accordo-smart-working-frontalieri-svizzera': { it: 'accordo-smart-working-frontalieri-svizzera', en: 'smart-working-agreement-swiss-cross-border-workers', de: 'smart-working-vereinbarung-grenzgaenger-schweiz', fr: 'accord-teletravail-frontaliers-suisse' },
  'ticino-programma-politico-consultazione-pubblica': { it: 'ticino-programma-politico-consultazione-pubblica', en: 'ticino-political-program-public-consultation', de: 'ticino-politisches-programm-offentliche-beratung', fr: 'ticino-programme-politique-consultation-publique' },
  'crisi-stretto-hormuz-economia-svizzera': { it: 'crisi-stretto-hormuz-economia-svizzera', en: 'hormuz-crisis-impact-swiss-economy', de: 'hormuz-krise-auswirkungen-schweizer-wirtschaft', fr: 'crise-hormuz-impact-economie-suisse' },
+ 'tassazione-prestazioni-lpp-svizzera': { it: 'tassazione-prestazioni-lpp-svizzera', en: 'taxation-lpp-benefits-switzerland', de: 'besteuerung-lpp-leistungen-schweiz', fr: 'imposition-prestations-lpp-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
