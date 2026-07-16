@@ -1257,6 +1257,11 @@ export function SubscriptionPreferencesController({
  setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
  }
  flashSaved(`alert:${alertId}`);
+ // Lazy import mirrors JobAlertForm.tsx's Analytics.trackJobAlertDeleted() call —
+ // keeps analytics out of this route's eager bundle.
+ import('@/services/analytics')
+ .then(({ Analytics }) => Analytics.trackJobAlertPauseToggled(nextActive))
+ .catch(() => {});
  } catch (err: any) {
  console.warn('[SubscriptionPreferencesController] Toggle pause failed:', err?.message);
  setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, active: previous.active } : a)));

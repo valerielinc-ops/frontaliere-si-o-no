@@ -1862,6 +1862,12 @@ export const Analytics = {
  log('job_alert_deleted', {});
  },
 
+ /** Issue #4298: alert management pause/resume toggle in /profilo/ and
+  * /preferenze-newsletter/. `nextActive: false` = paused, `true` = resumed. */
+ trackJobAlertPauseToggled: (nextActive: boolean) => {
+ log('job_alert_pause_toggled', { alert_active: nextActive });
+ },
+
  /**
   * User-intent interaction on a Job Alert conversion surface. Only fire for
   * actions the USER took (click, dismiss, accept, success, error).
