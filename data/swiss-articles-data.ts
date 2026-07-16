@@ -3500,6 +3500,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ticino-programma-politico-consultazione-pubblica',
+    category: 'novita',
+    date: '2026-07-16T12:26:27.281Z',
+    image: '/images/blog/ticino-programma-politico-consultazione-pubblica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

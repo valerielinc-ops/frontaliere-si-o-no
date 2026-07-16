@@ -897,6 +897,12 @@ export type SubscriptionAlertSummary = {
  locations: string[];
  sectors: string[];
  frequency: string;
+ /**
+  * `true` when the user manually pinned this cadence (frequency change or
+  * creation via this UI) — the adaptive-frequency engine leaves it alone.
+  * Absent/false on legacy alerts predating the engine: engine-managed.
+  */
+ frequencyOverride: boolean;
  active: boolean;
  createdAt: number | null;
 };
@@ -938,6 +944,7 @@ export async function getFullSubscriptionStatus(
  locations: Array.isArray(a.locations) ? a.locations.map(String) : [],
  sectors: Array.isArray(a.sectors) ? a.sectors.map(String) : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
+ frequencyOverride: a.frequencyOverride === true,
  active: a.active !== false,
  createdAt: typeof a.createdAt === 'number' ? a.createdAt : null,
  }))
@@ -1009,6 +1016,7 @@ export type JobAlertSummary = {
  locations: string[];
  sectors: string[];
  frequency: JobAlertFrequency | string;
+ frequencyOverride: boolean;
  active: boolean;
  createdAt: string | number | null;
  lastMatchedAt?: string | null;
@@ -1020,6 +1028,8 @@ export type JobAlertPatch = {
  locations?: string[];
  sectors?: string[];
  frequency?: JobAlertFrequency;
+ /** Use `in` semantics at the call site: pass `true` to pin, `false` to reset to engine-managed. */
+ frequencyOverride?: boolean;
  active?: boolean;
 };
 
@@ -1037,6 +1047,7 @@ function normalizeAlertResponse(a: any): JobAlertSummary {
  locations: Array.isArray(a?.locations) ? a.locations.map(String) : [],
  sectors: Array.isArray(a?.sectors) ? a.sectors.map(String) : [],
  frequency: typeof a?.frequency === 'string' ? a.frequency : 'weekly',
+ frequencyOverride: a?.frequencyOverride === true,
  active: a?.active !== false,
  createdAt: a?.createdAt ?? null,
  lastMatchedAt: a?.lastMatchedAt ?? null,
@@ -1067,6 +1078,10 @@ export async function updateJobAlert(
  if (patch.locations !== undefined) params.set('locations', patch.locations.join(','));
  if (patch.sectors !== undefined) params.set('sectors', patch.sectors.join(','));
  if (patch.frequency !== undefined) params.set('frequency', patch.frequency);
+ // `in` (not `!== undefined`) so callers can deliberately reset to
+ // engine-managed (`false`), not just pin (`true`) — see
+ // components/preferences/SubscriptionPreferencesController.tsx.
+ if ('frequencyOverride' in patch) params.set('frequency_override', patch.frequencyOverride ? 'true' : 'false');
  if (patch.active !== undefined) params.set('active', patch.active ? 'true' : 'false');
  const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
  const resp = await fetch(url);

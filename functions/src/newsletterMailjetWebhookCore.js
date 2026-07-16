@@ -4,6 +4,7 @@ import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
+import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -23,10 +24,6 @@ import { instantReactivationFields } from './lib/subscriberReactivation.js';
  * newsletter_subscribers/{email}/campaign_deliveries/{campaign-id}
  * newsletter_subscribers/{email} (status updates: bounced, unsubscribed, etc.)
  */
-
-function normalizeEmail(value) {
- return String(value || '').trim().toLowerCase();
-}
 
 // ── Event type mapping (Mailjet → our normalized types) ──────
 
@@ -67,7 +64,7 @@ function extractMessageId(eventData) {
 // ── Persist a single Mailjet event to Firestore ──────────────
 
 export async function persistMailjetEvent(db, eventData) {
- const email = normalizeEmail(eventData.email);
+ const email = normalizeEmailAddress(eventData.email);
  if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
 
  const mjEvent = eventData.event;

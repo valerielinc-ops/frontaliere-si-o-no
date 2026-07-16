@@ -172,6 +172,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     // Cathedral CH-wide geo scoping: empty selection = "all cantons", explicit codes scope it.
     cantonFilter: selectedCantons.length > 0 ? selectedCantons : null,
     frequency,
+    // Explicit choice from this form's selector — pin it. Alerts created by
+    // preset flows (One-Tap widget, job-specific alert) skip this and stay
+    // engine-managed instead (see jobAlertService.ts subscribeJobAlert*).
+    frequencyOverride: true,
     locale: locale as "it" | "en" | "de" | "fr",
   }), [keyword, selectedLocations, selectedContracts, selectedSectors, selectedCantons, frequency, locale]);
 
@@ -320,9 +324,31 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  }
  try {
  const { updateAlert } = await import('@/services/jobAlertService');
- await updateAlert(email, alertId, { frequency: newFrequency });
+ // A manual pick from this select is always a sticky pin — see
+ // frequencyOverride on services/jobAlertService.ts JobAlertConfig.
+ await updateAlert(email, alertId, { frequency: newFrequency, frequencyOverride: true });
  setAlerts((prev) =>
- prev.map((a) => (a.id === alertId ? { ...a, frequency: newFrequency } : a)),
+ prev.map((a) => (a.id === alertId ? { ...a, frequency: newFrequency, frequencyOverride: true } : a)),
+ );
+ setEditingAlertId(null);
+ showToast(t('jobAlert.updated') || 'Alert aggiornata.');
+ } catch {
+ showToast('Errore durante l\'aggiornamento.');
+ }
+ };
+
+ const handleResetToAuto = async (alertId: string) => {
+ const target = alerts.find((a) => a.id === alertId);
+ const email = target?.email || authUser?.email;
+ if (!email) {
+ showToast('Errore durante l\'aggiornamento.');
+ return;
+ }
+ try {
+ const { updateAlert } = await import('@/services/jobAlertService');
+ await updateAlert(email, alertId, { frequencyOverride: false });
+ setAlerts((prev) =>
+ prev.map((a) => (a.id === alertId ? { ...a, frequencyOverride: false } : a)),
  );
  setEditingAlertId(null);
  showToast(t('jobAlert.updated') || 'Alert aggiornata.');
@@ -621,6 +647,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </fieldset>
 
  {/* Frequency */}
+ <div>
  <div className="flex items-center gap-3">
  <label htmlFor="job-alert-frequency" className="text-xs font-medium text-subtle">
  {t('jobAlert.frequency') || 'Frequenza'}:
@@ -634,6 +661,10 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
  <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
  </select>
+ </div>
+ <p className="text-[11px] text-muted mt-1">
+ {t('jobAlert.frequencyCreateHint') || 'Potrai passare ad automatico (la cadenza si adatta a quanto apri o clicchi) dopo la creazione.'}
+ </p>
  </div>
 
  </div>
@@ -684,7 +715,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </div>
  </div>
  {editingAlertId === alert.id ? (
- <div className="flex items-center gap-2 mt-2 pt-2 border-t border-edge">
+ <div className="flex flex-wrap items-center gap-2 mt-2 pt-2 border-t border-edge">
  <label htmlFor={`alert-freq-${alert.id}`} className="text-xs text-muted">{t('jobAlert.frequency') || 'Frequenza'}:</label>
  <select
  id={`alert-freq-${alert.id}`}
@@ -695,9 +726,30 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
  <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
  </select>
+ {alert.frequencyOverride && (
+ <button
+ type="button"
+ onClick={() => handleResetToAuto(alert.id)}
+ className="text-xs text-accent underline underline-offset-2 hover:no-underline"
+ >
+ {t('jobAlert.resetToAuto') || 'Torna ad automatico'}
+ </button>
+ )}
  </div>
  ) : (
- <div className="text-xs text-muted mt-0.5">{alert.frequency === 'daily' ? (t('jobAlert.daily') || 'Giornaliera') : (t('jobAlert.weekly') || 'Settimanale')}</div>
+ <div className="text-xs text-muted mt-0.5 flex items-center gap-1.5 flex-wrap">
+ {alert.frequencyOverride ? (
+ <>
+ <span>{alert.frequency === 'daily' ? (t('jobAlert.daily') || 'Giornaliera') : (t('jobAlert.weekly') || 'Settimanale')}</span>
+ <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-surface-alt border border-edge">{t('jobAlert.pinned') || 'fissata manualmente'}</span>
+ </>
+ ) : (
+ <>
+ <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-accent-subtle text-accent border border-accent-border">{t('jobAlert.auto') || 'Automatico'}</span>
+ <span>{t('jobAlert.autoHint') || 'la cadenza si adatta a quanto apri/clicchi'}</span>
+ </>
+ )}
+ </div>
  )}
  </div>
  ))}

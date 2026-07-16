@@ -1168,6 +1168,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.accordo-smart-working-frontalieri-svizzera.title': 'Smart working frontaliers : ce que prévoit l\'accord',
     'blog.article.accordo-smart-working-frontalieri-svizzera.excerpt': 'Analyse de l\'accord sur le télétravail pour les frontaliers en Suisse : règles, délais et impact fiscal pour ceux qui travaillent au-delà des frontières.',
     'blog.article.accordo-smart-working-frontalieri-svizzera.imageAlt': 'Vue du bord du lac de Lugano avec des immeubles de bureaux modernes',
+    'blog.article.ticino-programma-politico-consultazione-pubblica.title': 'Tessin pionnier : le programme politique 2027-2031 est décidé par les citoyens',
+    'blog.article.ticino-programma-politico-consultazione-pubblica.excerpt': 'Avanti con Ticino&Lavoro soumet son programme de législature à une consultation publique avant son approbation définitive. Voici comment cela fonctionne.',
+    'blog.article.ticino-programma-politico-consultazione-pubblica.imageAlt': 'Réunion publique à Bellinzona pour la consultation du programme politique',
 };
 
 export default blogMetaChFr;
