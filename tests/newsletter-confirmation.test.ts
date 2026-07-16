@@ -9,6 +9,14 @@
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+// sendNewsletterConfirmationEmail bridges Remote Config → process.env before
+// checking provider config (2026-07-16, cascade-routed) — stub the bridge as
+// a no-op so these tests never touch real firebase-admin/remote-config (no
+// Firebase app is initialized in this test process).
+vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
+  bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
+}));
+
 // ── Server-side tests (mocked) ─────────────────────────────
 
 describe('newsletterConfirmationEmail', () => {
@@ -55,7 +63,6 @@ describe('newsletterConfirmationEmail', () => {
       email: 'not-an-email',
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: 'key',
       secret: 'secret',
       db: undefined,
       purpose: undefined,
@@ -64,7 +71,14 @@ describe('newsletterConfirmationEmail', () => {
     expect(result.error).toBe('invalid_email');
   });
 
-  it('sendNewsletterConfirmationEmail rejects missing API key', async () => {
+  // Cascade-routed (2026-07-16): the function no longer takes a resendApiKey
+  // param — it bridges Remote Config credentials for all 6 cascade providers
+  // into process.env and gates on "at least one configured", not on Resend
+  // specifically. Test env has none of the provider env vars set, so this
+  // exercises the real zero-providers-configured path (error string kept for
+  // wire-compat — no external consumer distinguishes "no Resend" from "no
+  // provider at all").
+  it('sendNewsletterConfirmationEmail rejects when no email provider configured', async () => {
     const { sendNewsletterConfirmationEmail } = await import(
       '../functions/src/newsletterConfirmationEmail.js'
     );
@@ -72,7 +86,6 @@ describe('newsletterConfirmationEmail', () => {
       email: 'test@example.com',
       locale: 'it',
       sourcePath: '/',
-      resendApiKey: '',
       secret: 'secret',
       db: undefined,
       purpose: undefined,
@@ -85,17 +98,23 @@ describe('newsletterConfirmationEmail', () => {
     const { sendNewsletterConfirmationEmail } = await import(
       '../functions/src/newsletterConfirmationEmail.js'
     );
-    const result = await sendNewsletterConfirmationEmail({
-      email: 'test@example.com',
-      locale: 'it',
-      sourcePath: '/',
-      resendApiKey: 'key',
-      secret: '',
-      db: undefined,
-      purpose: undefined,
-    });
-    expect(result.success).toBe(false);
-    expect(result.error).toBe('missing_newsletter_secret');
+    // Needs at least one provider "configured" to clear the provider gate and
+    // reach the secret check.
+    vi.stubEnv('RESEND_API_KEY', 'test-key');
+    try {
+      const result = await sendNewsletterConfirmationEmail({
+        email: 'test@example.com',
+        locale: 'it',
+        sourcePath: '/',
+        secret: '',
+        db: undefined,
+        purpose: undefined,
+      });
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('missing_newsletter_secret');
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 });
 

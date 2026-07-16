@@ -8558,6 +8558,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-traffico-2024.title': 'Tessin otage du trafic : ceux qui exploitent paient',
     'blog.article.ticino-traffico-2024.excerpt': 'Le Tessin est devenu l\'un des principaux couloirs de transit d\'Europe. La circulation congestionnée affecte la qualité de vie et l\'économie.',
     'blog.article.ticino-traffico-2024.imageAlt': 'Lac de Lugano en hiver',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'Le programme Avanti con Ticino&Lavoro est également décidé par les Tessinois',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'Le parti Avanti con Ticino&Lavoro soumettra son programme de législature 2027–2031 aux réalités du territoire avant son approbation définitive.',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panorama de Lugano avec le lac en arrière-plan',
 };
 
 export default blogMetaFr;

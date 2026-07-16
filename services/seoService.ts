@@ -4570,6 +4570,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ': { name: 'Telelavoro dei frontalieri tra Italia e', path: '/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ', parent: 'blog' },
     'blog-ticino-traffico-2024': { name: 'Ticino', path: '/articoli-frontaliere/ticino-traffico-2024', parent: 'blog' },
     'blog-tassazione-prestazioni-lpp-svizzera': { name: 'Tassazione LPP', path: '/articoli-svizzera/tassazione-prestazioni-lpp-svizzera/', parent: 'blog' },
+    'blog-il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi': { name: 'Il programma di Avanti con Ticino&Lavoro', path: '/articoli-frontaliere/il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

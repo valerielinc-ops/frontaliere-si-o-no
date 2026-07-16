@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sintetica",
-  "assembledAt": "2026-07-16T11:06:24.255Z",
+  "assembledAt": "2026-07-16T22:04:21.102Z",
   "jobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/804884/production-engineer-couvet-site-ch/sintetica",
@@ -150,7 +150,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -233,7 +234,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
@@ -308,7 +310,8 @@
           "maxValue": 169000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/788177/pharmaceutical-development-laboratory-project-manager-formulation-expert-mendrisio-site-ticino-ch/sintetica",
@@ -416,7 +419,7 @@
       "slugByLocale": {
         "it": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs",
-        "de": "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio",
+        "de": "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio",
         "fr": "qualite-control-microbiological-laboratory-technicien-mendrisio-site-ticino-sintetica-sa-mendrisio"
       },
       "category": "science",
@@ -434,6 +437,7 @@
       "previousSlugs": [
         "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
         "controllo-qualita-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio",
+        "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio",
         "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
@@ -444,6 +448,9 @@
         ],
         "en": [
           "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica"
+        ],
+        "de": [
+          "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio"
         ]
       },
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
@@ -523,6 +530,7 @@
       ],
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -598,7 +606,6 @@
           "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 60500,

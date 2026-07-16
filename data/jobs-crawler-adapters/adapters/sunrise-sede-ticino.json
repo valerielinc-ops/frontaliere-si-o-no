@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-16T11:23:42.413Z",
+  "updatedAt": "2026-07-16T22:07:21.584Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -32,12 +32,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-06-17"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-06-19"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
       "canton": "ZH",
@@ -49,6 +43,18 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-05-12"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036730/finance-business-partner-cto-50": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-10"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-06-19"
     },
     "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
       "location": "Pfäffikon SZ",
@@ -104,12 +110,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-13"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036579/sales-agent-uster-60-100": {
-      "location": "Uster",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-13"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036742/sales-agent-solothurn-60-100": {
       "location": "Solothurn",
       "canton": "SO",
@@ -145,6 +145,18 @@
       "canton": "SG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-16"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036764/marketing-manager-x-sell-fixed-term-contract-for-9-months-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-16"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036579/sales-agent-uster-60-100": {
+      "location": "Uster",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-07-13"
     }
   }
 }

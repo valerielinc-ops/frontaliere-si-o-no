@@ -57,25 +57,27 @@ const ROOT = path.resolve(__dirname, '..');
 const QA_DIR = path.resolve(ROOT, 'docs', 'newsletter-qa');
 const BASE_URL = 'https://frontaliereticino.ch';
 const ADMIN_EMAIL = process.env.NEWSLETTER_ADMIN_EMAIL || 'valerielinc@gmail.com';
-const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
-const BATCH_SIZE = 50;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// mailgun/mailjet/mailtrap/cloudflare = force a specific cascade provider
-// resend = Resend only (legacy fallback)
+// mailgun/mailjet/mailtrap/cloudflare/resend = force a specific cascade provider
+// resend forced-mode (2026-07-16) now routes through sendEmailCascade like every
+// other single-provider mode, instead of its own raw-fetch /emails/batch path —
+// that legacy path bypassed the cascade's dynamic-cap/cooldown/quota-sync
+// machinery entirely (sibling-pattern sweep, same class of bug as the direct
+// Resend bypasses fixed elsewhere in this task).
 // maileroo is intentionally excluded from force-select (#3135 item 1): the
 // manual override let an operator bypass the cascade's quota/rotation to
 // push all mail through a single provider on demand. Maileroo still runs as
 // an automatic cascade rotation tier (see PROVIDERS in lib/email-cascade.mjs)
 // — that role is separate and DKIM/DMARC-aligned as of #3154.
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'cloudflare'];
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'cloudflare', 'resend'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
 // The per-run cap tracks the FULL cascade capacity — the sum of every configured
 // provider's daily limit (getCascadeDailyCapacity, single source of truth in
@@ -1548,90 +1550,7 @@ async function persistDelivery(recipient, messageId, meta) {
   }
 }
 
-async function sendEmailBatchResend(emails, apiKey) {
-  if (!emails.length) return { sent: [], failed: [] };
-  const batches = [];
-  for (let i = 0; i < emails.length; i += BATCH_SIZE) {
-    batches.push(emails.slice(i, i + BATCH_SIZE));
-  }
-
-  const sent = [];
-  const failed = [];
-  // Resend's /emails/batch endpoint does not support scheduled send at all
-  // ("attachments and scheduled_at fields are not supported yet" per Resend's
-  // own batch docs) — and even the key we build (`scheduledAt`, camelCase) is
-  // not what the single-send endpoint expects either (`scheduled_at`). Posting
-  // it here is silently ignored by Resend, so strip it before building the
-  // batch body and warn once per run if we dropped it, so operators know these
-  // went out immediately instead of at the per-user preferred hour (#3798).
-  let scheduledDroppedCount = 0;
-
-  for (const batch of batches) {
-    let res;
-    try {
-      res = await fetch(RESEND_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify(batch.map((e) => {
-          const { scheduledAt, ...rest } = e.payload;
-          if (scheduledAt) scheduledDroppedCount += 1;
-          return rest;
-        })),
-      });
-    } catch (netErr) {
-      console.error(`\u274c Network error: ${netErr.message}`);
-      failed.push(...batch);
-      continue;
-    }
-
-    if (!res.ok) {
-      const err = await res.text().catch(() => '');
-      console.error(`\u274c Resend batch error: ${res.status} ${err.slice(0, 300)}`);
-      // On 429 (rate limit), stop sending — remaining emails go to failed
-      if (res.status === 429) {
-        console.warn('\u26a0\ufe0f  Rate limited — stopping. Remaining emails will be retried next run.');
-        failed.push(...batch);
-        // Also add all subsequent batches to failed
-        const currentIdx = batches.indexOf(batch);
-        for (let j = currentIdx + 1; j < batches.length; j++) failed.push(...batches[j]);
-        break;
-      }
-      failed.push(...batch);
-      continue;
-    }
-
-    const data = await res.json().catch(() => ({}));
-    const results = data?.data || [];
-
-    // Match each email with its Resend response to know exactly which succeeded
-    for (let i = 0; i < batch.length; i++) {
-      const item = batch[i];
-      const result = results[i];
-      const msgId = result?.id || null;
-
-      if (msgId) {
-        sent.push(item);
-        // Legacy Resend-only path: stamp provider so the A/B report buckets these
-        // under 'resend' instead of 'unknown' (cascade paths spread res.provider).
-        await persistDelivery(item.recipient, msgId, { ...item.meta, provider: 'resend' });
-      } else {
-        // Resend returned no ID for this email — treat as failed
-        failed.push(item);
-      }
-    }
-
-    console.log(`\u2705 Batch: ${batch.length} sent (${sent.length} confirmed so far)`);
-  }
-
-  if (scheduledDroppedCount > 0) {
-    console.warn(`\u26a0\ufe0f  provider=resend legacy batch path does not support scheduled send \u2014 ${scheduledDroppedCount} emails sent immediately`);
-  }
-
-  return { sent, failed };
-}
-
-
-async function sendEmailBatch(emails, apiKey, finalizeForProvider) {
+async function sendEmailBatch(emails, finalizeForProvider) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
   // so the delivery record + PostHog event reflect the provider's variant.
@@ -1676,13 +1595,10 @@ async function sendEmailBatch(emails, apiKey, finalizeForProvider) {
     logProviderSummary();
     return result;
   }
-  // Resend (legacy fallback)
-  if (!apiKey) {
-    console.error('❌ No email provider configured (need API keys in Remote Config)');
-    return { sent: [], failed: emails };
-  }
-  console.log(`📧 Sending via Resend (${emails.length} emails)`);
-  return sendEmailBatchResend(emails, apiKey);
+  // Any EMAIL_PROVIDER value must be 'cascade' or one of SINGLE_PROVIDERS —
+  // anything else is a config typo, not a legacy fallback (resend folded into
+  // SINGLE_PROVIDERS 2026-07-16, see comment above SINGLE_PROVIDERS).
+  throw new Error(`Unknown EMAIL_PROVIDER: "${EMAIL_PROVIDER}" (expected "cascade" or one of ${SINGLE_PROVIDERS.join(', ')})`);
 }
 
 // ─── Issue number (real campaign count) ─────────────────────
@@ -2408,7 +2324,7 @@ async function main() {
     } catch { /* leave payload unchanged */ }
   };
 
-  const { sent, failed } = await sendEmailBatch(cappedEmails, apiKey, finalizeForProvider);
+  const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider);
 
   // ── Track only confirmed-sent emails for resume ──
   const sentEmailList = sent.map(e => normalizeEmail(e.recipient.email));

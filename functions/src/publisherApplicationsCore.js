@@ -15,7 +15,8 @@
 
 import admin from 'firebase-admin';
 import { randomUUID } from 'node:crypto';
-import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const RETENTION_DAYS = 90;
@@ -112,11 +113,15 @@ export async function handleForwardApplication(appData, appId) {
   const to = String(apply.email || '').trim();
   if (!to) return { ok: false, error: 'no_publisher_email' };
 
-  const resendApiKey = await getRemoteConfigValue('RESEND_API_KEY');
-  if (!resendApiKey) return { ok: false, error: 'resend_key_missing' };
-
-  const { Resend } = await import('resend');
-  const resend = new Resend(resendApiKey);
+  // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
+  // fallback if Resend alone is exhausted. `replyTo` below is a Resend-only
+  // field on the cascade (other sendVia* fns silently ignore it) — an
+  // accepted degradation on fallback, since delivering the application
+  // without reply-to beats dropping it outright.
+  await bridgeEmailCascadeCredentialsToEnv();
+  if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
+    return { ok: false, error: 'resend_key_missing' };
+  }
 
   const jobTitle = job.title || '';
   const cvLink = await resolveCvLink(appData.cvUrl);
@@ -128,14 +133,18 @@ export async function handleForwardApplication(appData, appId) {
     (appData.message ? `<p><strong>Messaggio:</strong><br>${esc(appData.message)}</p>` : '') +
     `<hr><p style="font-size:12px;color:#666">Candidatura inviata tramite Frontaliere Ticino con consenso esplicito del candidato (${esc(appData.consentText || 'consenso registrato')}).</p>`;
 
-  const { error } = await resend.emails.send({
-    from: FROM_EMAIL,
-    to,
-    replyTo: appData.candidateEmail || undefined,
-    subject: `Candidatura: ${jobTitle}`,
-    html,
-  });
-  if (error) return { ok: false, error: `resend_failed:${error.message || 'unknown'}` };
+  const { failed } = await sendEmailCascade([{
+    payload: {
+      from: FROM_EMAIL,
+      to,
+      replyTo: appData.candidateEmail || undefined,
+      subject: `Candidatura: ${jobTitle}`,
+      html,
+    },
+    recipient: { email: to },
+    meta: {},
+  }]);
+  if (failed.length > 0) return { ok: false, error: `send_failed:${failed[0].error || 'unknown'}` };
 
   await db().collection('applications').doc(appId).set(
     { forwardedAt: admin.firestore.FieldValue.serverTimestamp() },

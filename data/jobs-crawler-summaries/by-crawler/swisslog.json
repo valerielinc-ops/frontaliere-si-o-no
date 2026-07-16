@@ -1,16 +1,16 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-07-16T11:07:25.390Z",
-  "total": 5,
+  "generatedAt": "2026-07-16T22:05:21.588Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7276,
-  "avgDurationMs": 7276,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5302,
+  "avgDurationMs": 5302,
   "durationHistory": [
-    7276
+    5302
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.swisslog.com/en-us/careers/openings/controls-software-service-engineer-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:07:22.954Z",
+      "crawledAt": "2026-07-16T22:05:19.169Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -64,7 +64,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/technical-project-manager-mwd-4182",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:07:22.955Z",
+      "crawledAt": "2026-07-16T22:05:19.170Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -102,7 +102,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:07:22.956Z",
+      "crawledAt": "2026-07-16T22:05:19.171Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -140,7 +140,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:07:22.957Z",
+      "crawledAt": "2026-07-16T22:05:19.172Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,8 +167,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "swisslog-c77d7eee7272",
       "slug": "collaboratore-trice-instandhaltung-m-w-d-swisslog-magenwil",
@@ -210,5 +209,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

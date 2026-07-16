@@ -1,18 +1,19 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-07-16T12:36:06.680Z",
+  "generatedAt": "2026-07-16T22:20:39.892Z",
   "total": 6,
-  "newCount": 2,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7392,
-  "avgDurationMs": 7392,
+  "durationMs": 6859,
+  "avgDurationMs": 6859,
   "durationHistory": [
-    7392
+    6859
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cordenpharma-77912a33aefd",
       "slug": "anlagenfuhrer-m-w-d-3-schicht-cordenpharma-ettingen",
@@ -25,7 +26,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20928/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:36:02.888Z",
+      "crawledAt": "2026-07-16T22:20:36.525Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://career.cordenpharma.com/de/p/ettingen/jobs/20928/anlagenfuhrer-mwd-3-schicht-ettingen-schweiz",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-16T12:36:02.888Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -61,7 +63,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:36:03.436Z",
+      "crawledAt": "2026-07-16T22:20:37.032Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-07-09",
       "applyUrl": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-07-16T12:36:03.436Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cordenpharma-176c94a12519",
       "slug": "laborant-100-m-w-d-cordenpharma-liestal",
@@ -99,7 +100,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20925/laborant-100-mwd-fachrichtung-chemie-prozessforschung-entwicklung-schwerpunkt-synthese",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:36:01.789Z",
+      "crawledAt": "2026-07-16T22:20:35.501Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -136,7 +137,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:36:00.707Z",
+      "crawledAt": "2026-07-16T22:20:34.504Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -173,7 +174,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20921/local-sites-it-operations-lead-mfd-switzerland-france-portugal",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T12:36:02.287Z",
+      "crawledAt": "2026-07-16T22:20:36.013Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -210,7 +211,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20846/head-of-development-mfd-innovative-synthesis-dual-role",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T12:36:01.205Z",
+      "crawledAt": "2026-07-16T22:20:35.002Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
