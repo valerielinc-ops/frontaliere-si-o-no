@@ -15150,6 +15150,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassazione-prestazioni-lpp-svizzera': {
+    title: 'Prestazioni LPP in Svizzera: come vengono tassate',
+    description: 'Guida completa alla tassazione delle rendite LPP in Svizzera: regime fiscale, deduzioni cantonali, confronto con AVS e casi pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, vengono, tassate, rendite',
+    ogTitle: 'Come vengono tassate le prestazioni LPP in Svizzera?',
+    ogDescription: 'Scopri il regime fiscale delle rendite della previdenza professionale svizzera e come sfruttare le deduzioni cantonali',
+    canonicalPath: '/articoli-svizzera/tassazione-prestazioni-lpp-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prestazioni LPP in Svizzera: come vengono tassate",
+      "description": "Guida completa alla tassazione delle rendite LPP in Svizzera: regime fiscale, deduzioni cantonali, confronto con AVS e casi pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassazione-prestazioni-lpp-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pensionato svizzero verifica documenti fiscali in ufficio"
+      },
+      "datePublished": "2026-07-16T21:05:06+00:00",
+      "dateModified": "2026-07-16T21:05:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassazione-prestazioni-lpp-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

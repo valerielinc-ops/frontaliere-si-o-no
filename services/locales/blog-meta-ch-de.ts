@@ -1174,6 +1174,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Hormuz-Krise: Schweizer Unternehmen betroffen',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'Der Verband Swissmem meldet Schwierigkeiten für jedes vierte Industrieunternehmen. Energieversorgungs- und -kostenrisiko',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Basler Rheinhafen, wichtiger Logistikknotenpunkt der Schweiz',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'BVG-Leistungen IN der Schweiz: Wie werden sie besteuert?',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Die Renten der beruflichen Vorsorge (BVG) folgen dem gleichen Steuersystem wie die AHV-Renten: Das ändert sich für die Begünstigten',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Schweizer Rentner prüft Steuerunterlagen im Büro',
 };
 
 export default blogMetaChDe;

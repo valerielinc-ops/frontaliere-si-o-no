@@ -1174,6 +1174,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Crisis in the Strait of Hormuz: delays and price increases for Swiss companies',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'The Swissmem association reports difficulties for one in four industrial companies. At risk of energy supplies and costs',
     'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Basel river port, Switzerland\'s crucial logistics hub',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'LPP services in Switzerland: how they are taxed',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Occupational pension (LPP) pensions follow the same tax regime as AVS pensions: this is what changes for beneficiaries',
+    'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Swiss retiree reviewing tax documents in office',
 };
 
 export default blogMetaChEn;
