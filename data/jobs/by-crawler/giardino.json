@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-07-15T11:22:48.370Z",
+  "assembledAt": "2026-07-16T22:08:41.216Z",
   "jobs": [
     {
       "id": "giardino-e983ec4646d9",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.438Z",
+      "crawledAt": "2026-07-16T22:08:37.542Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -70,97 +70,18 @@
           "Italienisch- und/oder Französischkenntnisse sind von Vorteil"
         ]
       },
+      "previousSlugs": [
+        "chef-de-rang-giardino-group-champfer",
+        "capo-di-grado-giardino-group-champfer"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-giardino-group-champfer",
+          "capo-di-grado-giardino-group-champfer"
+        ]
+      },
       "firstSeenAt": "2026-07-14T22:23:33.588Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-de-rang-giardino-group-champfer"
-        ]
-      },
-      "previousSlugs": [
-        "chef-de-rang-giardino-group-champfer"
-      ]
-    },
-    {
-      "id": "giardino-16a607a0c202",
-      "slug": "amministratore-giardino-group-champfer",
-      "slugByLocale": {
-        "it": "amministratore-giardino-group-champfer",
-        "en": "steward-giardino-group-champfer",
-        "de": "steward-giardino-group-champfer",
-        "fr": "steward-giardino-group-champfer"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Steward",
-      "titleByLocale": {
-        "it": "Amministratore",
-        "en": "Steward",
-        "de": "Steward",
-        "fr": "Steward"
-      },
-      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Giardino è alla ricerca di uno steward per il Monte Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno.\n\n## Compiti\nIn questa funzione, si è responsabili di tutta la pulizia nel back office e la cucina. Oltre a lavare piatti, pentole e posate, questo include anche la pulizia secondo HACCP in tutta la cucina, così come la pulizia di negozi freddi e smaltimento rifiuti.\n\n## Requisiti\n- Esperienza in una posizione equivalente\n- Resilienza, flessibilità ed entusiasmo\n- Sei anche un giocatore di squadra in situazioni frenetiche e non perdere la panoramica\n- Trattare con rispetto con colleghi e superiori\n\n## Vantaggi\n- Un luogo di lavoro innovativo e ben organizzato\n- L'opportunità di partecipare attivamente all'apertura, alle attività quotidiane e allo sviluppo aziendale\n- Comunicazione aperta e trasparente\n- Formazione regolare e formazione ulteriore, nonché numerosi vantaggi per i dipendenti\n- Facendo parte di un gruppo alberghiero svizzero contemporaneo e di carattere",
-        "en": "Giardino Group is looking for a steward for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno.\n\n## Tasks\nIn this function, you are responsible for all cleanliness in the back office and the kitchen. In addition to washing dishes, pans and cutlery, this also includes cleanliness according to HACCP in the entire kitchen area as well as cleaning cold stores and waste disposal.\n\n## Requirements\n- Experience in an equivalent position\n- Resilience, flexibility and enthusiasm\n- You are also a team player in hectic situations and do not lose the overview\n- Dealing respectfully with colleagues and superiors\n\n## Benefits\n- An innovative and well-organized workplace\n- The opportunity to actively participate in the opening, everyday business and corporate development\n- Open and transparent communication\n- Regular training and further education as well as numerous employee benefits\n- Being part of a contemporary and characterful Swiss hotel group",
-        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-        "fr": "Giardino Group est à la recherche d'un intendant pour le mont Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno.\n\n## Tâche\nDans cette fonction, vous êtes responsable de toute propreté dans le back office et la cuisine. En plus de laver les plats, les casseroles et les couverts, cela inclut également la propreté selon HACCP dans l'ensemble de la cuisine ainsi que le nettoyage des entrepôts frigorifiques et l'élimination des déchets.\n\n## Exigences\n- Expérience dans une position équivalente\n- Résilience, flexibilité et enthousiasme\n- Vous êtes également un joueur d'équipe dans des situations agitées et ne perdez pas l'aperçu\n- Respecter les collègues et les supérieurs\n\n## Avantages\n- Un milieu de travail novateur et bien organisé\n- L'occasion de participer activement à l'ouverture, au développement quotidien des affaires et des entreprises\n- Communication ouverte et transparente\n- Formation et perfectionnement réguliers ainsi que de nombreux avantages sociaux\n- Faire partie d'un groupe hôtelier suisse contemporain et de caractère"
-      },
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.438Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina / Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gm-steward/",
-      "requirements": [
-        "Erfahrung in einer gleichwertigen Position",
-        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
-        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Erfahrung in einer gleichwertigen Position",
-          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
-          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-        ]
-      },
-      "previousSlugs": [
-        "steward-giardino-group-champfer"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "steward-giardino-group-champfer"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T12:00:53.639Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -205,7 +126,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-chef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.438Z",
+      "crawledAt": "2026-07-16T22:08:37.542Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -241,14 +162,17 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-giardino-group-champfer"
+        "chef-de-partie-giardino-group-champfer",
+        "capopartita-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-giardino-group-champfer"
+          "chef-de-partie-giardino-group-champfer",
+          "capopartita-giardino-group-champfer"
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.640Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -269,7 +193,7 @@
         "it": "addetto-alle-pulizie-giardino-group-ascona",
         "en": "housekeeping-waiting-giardino-group-ascona",
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "fr": "employe-de-menage-giardino-group-ascona"
+        "fr": "housekeeping-attendant-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -279,7 +203,7 @@
         "it": "Addetto alle pulizie",
         "en": "Housekeeping Waiting",
         "de": "Housekeeping Attendant",
-        "fr": "Employé de ménage"
+        "fr": "Housekeeping Attendant"
       },
       "description": "Giardino Group sucht für das Giardino Ascona in Ascona eine/n Housekeeping Attendant. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du für die Reinigung von Hotelzimmern zuständig und hilfst in der Lingerie mit. Bei Bedarf hilfst du deinen Kollegen bei der Reinigung von öffentlichen Räumen.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position in der Luxushotellerie\n- Freude an der Pflege von schönen Materialien\n- Exaktes und verantwortungsbewusstes Arbeiten\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n- Gute Deutsch-und Englischkenntnisse\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
       "descriptionByLocale": {
@@ -293,7 +217,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-housekeeping-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.438Z",
+      "crawledAt": "2026-07-16T22:08:37.542Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -330,18 +254,23 @@
       },
       "previousSlugs": [
         "housekeeping-attendant-giardino-group-ascona",
-        "agent-de-menage-giardino-group-ascona"
+        "agent-de-menage-giardino-group-ascona",
+        "employe-de-menage-giardino-group-ascona",
+        "addetto-alle-pulizie-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeping-attendant-giardino-group-ascona"
+          "housekeeping-attendant-giardino-group-ascona",
+          "addetto-alle-pulizie-giardino-group-ascona"
         ],
         "fr": [
           "agent-de-menage-giardino-group-ascona",
+          "employe-de-menage-giardino-group-ascona",
           "housekeeping-attendant-giardino-group-ascona"
         ]
       },
       "firstSeenAt": "2026-06-19T21:49:01.621Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -351,6 +280,91 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "giardino-16a607a0c202",
+      "slug": "amministratore-giardino-group-champfer",
+      "slugByLocale": {
+        "it": "amministratore-giardino-group-champfer",
+        "en": "steward-giardino-group-champfer",
+        "de": "steward-giardino-group-champfer",
+        "fr": "steward-giardino-group-champfer"
+      },
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Steward",
+      "titleByLocale": {
+        "it": "Amministratore",
+        "en": "Steward",
+        "de": "Steward",
+        "fr": "Steward"
+      },
+      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Giardino è alla ricerca di uno steward per il Monte Giardino a Champfèr. Giardino Hotels è un affascinante gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno.\n\n## Compiti\nIn questa funzione, si è responsabili di tutta la pulizia nel back office e la cucina. Oltre a lavare piatti, pentole e posate, questo include anche la pulizia secondo HACCP in tutta la cucina, così come la pulizia di negozi freddi e smaltimento rifiuti.\n\n## Requisiti\n- Esperienza in una posizione equivalente\n- Resilienza, flessibilità ed entusiasmo\n- Sei anche un giocatore di squadra in situazioni frenetiche e non perdere la panoramica\n- Trattare con rispetto con colleghi e superiori\n\n## Vantaggi\n- Un luogo di lavoro innovativo e ben organizzato\n- L'opportunità di partecipare attivamente all'apertura, alle attività quotidiane e allo sviluppo aziendale\n- Comunicazione aperta e trasparente\n- Formazione regolare e formazione ulteriore, nonché numerosi vantaggi per i dipendenti\n- Facendo parte di un gruppo alberghiero svizzero contemporaneo e di carattere",
+        "en": "Giardino Group is looking for a steward for the Giardino Mountain in Champfèr. Giardino Hotels is a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno.\n\n## Tasks\nIn this function, you are responsible for all cleanliness in the back office and the kitchen. In addition to washing dishes, pans and cutlery, this also includes cleanliness according to HACCP in the entire kitchen area as well as cleaning cold stores and waste disposal.\n\n## Requirements\n- Experience in an equivalent position\n- Resilience, flexibility and enthusiasm\n- You are also a team player in hectic situations and do not lose the overview\n- Dealing respectfully with colleagues and superiors\n\n## Benefits\n- An innovative and well-organized workplace\n- The opportunity to actively participate in the opening, everyday business and corporate development\n- Open and transparent communication\n- Regular training and further education as well as numerous employee benefits\n- Being part of a contemporary and characterful Swiss hotel group",
+        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+        "fr": "Giardino Group est à la recherche d'un intendant pour le mont Giardino à Champfèr. Giardino Hotels est un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno.\n\n## Tâche\nDans cette fonction, vous êtes responsable de toute propreté dans le back office et la cuisine. En plus de laver les plats, les casseroles et les couverts, cela inclut également la propreté selon HACCP dans l'ensemble de la cuisine ainsi que le nettoyage des entrepôts frigorifiques et l'élimination des déchets.\n\n## Exigences\n- Expérience dans une position équivalente\n- Résilience, flexibilité et enthousiasme\n- Vous êtes également un joueur d'équipe dans des situations agitées et ne perdez pas l'aperçu\n- Respecter les collègues et les supérieurs\n\n## Avantages\n- Un milieu de travail novateur et bien organisé\n- L'occasion de participer activement à l'ouverture, au développement quotidien des affaires et des entreprises\n- Communication ouverte et transparente\n- Formation et perfectionnement réguliers ainsi que de nombreux avantages sociaux\n- Faire partie d'un groupe hôtelier suisse contemporain et de caractère"
+      },
+      "location": "Champfèr",
+      "canton": "GR",
+      "url": "https://giardinohotels.ch/en/jobs/gm-steward/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-16T22:08:37.541Z",
+      "addressLocality": "Champfèr",
+      "postalCode": "7512",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Cucina / Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/gm-steward/",
+      "requirements": [
+        "Erfahrung in einer gleichwertigen Position",
+        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+        "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
+        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Erfahrung in einer gleichwertigen Position",
+          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+          "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
+          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+        ]
+      },
+      "previousSlugs": [
+        "steward-giardino-group-champfer",
+        "amministratore-giardino-group-champfer"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "steward-giardino-group-champfer",
+          "amministratore-giardino-group-champfer"
+        ]
+      },
+      "firstSeenAt": "2026-07-10T12:00:53.639Z",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -370,7 +384,7 @@
       "title": "Reservations & Front Office Specialist (m/w)",
       "titleByLocale": {
         "it": "Reservations & Front Office Specialista (m/w)",
-        "en": "Reservations & Front Office Specialist (m/f)",
+        "en": "Reservations & Front Office Specialist (m/w)",
         "de": "Reservations & Front Office Spezialist (m/w)",
         "fr": "Reservations & Front Office Spécialiste (m/w)"
       },
@@ -386,7 +400,7 @@
       "url": "https://giardinohotels.ch/en/jobs/reservations-front-office-specialist/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.437Z",
+      "crawledAt": "2026-07-16T22:08:37.541Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -423,6 +437,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:17:48.134Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -467,7 +482,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.435Z",
+      "crawledAt": "2026-07-16T22:08:37.538Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -503,6 +518,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.637Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -531,7 +547,7 @@
       "title": "Marketing & PR Manager",
       "titleByLocale": {
         "it": "Marketing e PR Manager",
-        "en": "Marketing and PR Manager",
+        "en": "Marketing & PR Manager",
         "de": "Marketing & PR Manager",
         "fr": "Directeur du marketing et des relations publiques"
       },
@@ -547,7 +563,7 @@
       "url": "https://giardinohotels.ch/en/jobs/marketing-pr-manager-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T11:22:45.434Z",
+      "crawledAt": "2026-07-16T22:08:37.537Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -583,6 +599,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:14:52.237Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -595,98 +612,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "giardino-ba402c97ef94",
-      "slug": "demichef-pasticceria-giardino-group-champfer",
-      "slugByLocale": {
-        "de": "demichef-pastry-giardino-group-champfer",
-        "it": "demichef-pasticceria-giardino-group-champfer",
-        "en": "demichef-pastry-giardino-group-champfer",
-        "fr": "patisserie-giardino-group-champfer"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Demichef Pastry",
-      "titleByLocale": {
-        "de": "Demichef Pastry",
-        "it": "Demichef Pasticceria",
-        "en": "Demichef Pastry",
-        "fr": "Pâtisserie"
-      },
-      "description": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Demichef Pastry. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDie drei Restaurants des Hotels sorgen individuell für kulinarische Highlights; von modernen Kreationen inspiriert von Asien, Orient und Okzident im Hide & Seek, über Engadiner Spezialitäten im rustikalen Ambiente der Stüva, bis hin zur hohen Kunst der Sterneküche im Ecco St. Moritz. In dieser Funktion bist du im Restaurant Hide & Seek sowie unserer Engadiner Stüva verantwortlich für den reibungslosen Betriebsablauf in deinem Arbeitsbereich. Dazu gehören das Bestellwesen sowie die Kontrollen bezüglich Qualität, Hygiene und der Sicherheit. Du arbeitest in einem leistungsstarken und dynamischen Team und kochst auf einem hohen gastronomischen Niveau.\n\n## Anforderungen\n- Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie\n- Erfahrungen in einer vergleichbaren Position in der gehobenen Gastronomie\n- Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht\n- Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen\n- Eigenständigkeit, Zuverlässigkeit und Pflichtbewusstsein\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-      "descriptionByLocale": {
-        "de": "Giardino Group sucht für das Giardino Mountain in Champfèr eine/n Demichef Pastry. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nDie drei Restaurants des Hotels sorgen individuell für kulinarische Highlights; von modernen Kreationen inspiriert von Asien, Orient und Okzident im Hide & Seek, über Engadiner Spezialitäten im rustikalen Ambiente der Stüva, bis hin zur hohen Kunst der Sterneküche im Ecco St. Moritz. In dieser Funktion bist du im Restaurant Hide & Seek sowie unserer Engadiner Stüva verantwortlich für den reibungslosen Betriebsablauf in deinem Arbeitsbereich. Dazu gehören das Bestellwesen sowie die Kontrollen bezüglich Qualität, Hygiene und der Sicherheit. Du arbeitest in einem leistungsstarken und dynamischen Team und kochst auf einem hohen gastronomischen Niveau.\n\n## Anforderungen\n- Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie\n- Erfahrungen in einer vergleichbaren Position in der gehobenen Gastronomie\n- Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht\n- Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen\n- Eigenständigkeit, Zuverlässigkeit und Pflichtbewusstsein\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-        "it": "Il Gruppo Giardino cerca un demichef Pasticceria per il Giardino di Champfèr. Gli Hotel Giardino sono un gruppo di hotel di lusso svizzero con sedi a St. Moritz, Ascona e Locarno.\n\n## Compiti\nI tre ristoranti dell'hotel forniscono individualmente spunti culinari; di creazioni moderne ispirate all'Asia, all'Oriente e all'Occident nel Hide & Seek, oltre alle specialità Engadine nell'ambiente rustico della Stüva, fino all'alta arte della cucina stellata nel Ecco St. Moritz. In questa funzione, sarete responsabili del buon funzionamento del vostro spazio di lavoro nel ristorante Hide & Seek e del nostro ristorante Stüva. Questo include l'ordine e controlli per quanto riguarda la qualità, l'igiene e la sicurezza. Si lavora in un team potente e dinamico e cucinare a un alto livello gastronomico.\n\n## Requisiti\n- Formazione professionale completa come chef nel settore della gastronomia/hotel\n- Esperienza in una posizione paragonabile nella gastronomia di lusso\n- Sei anche un giocatore di squadra in situazioni frenetiche e non perdere la panoramica\n- Un aspetto ben curato e buone maniere\n- Indipendenza, affidabilità e senso del dovere\n- Resilienza, flessibilità ed entusiasmo\n- Trattamento rispettoso di colleghi e superiori\n\n## Vantaggi\n- Un luogo di lavoro innovativo e ben organizzato\n- L'opportunità di partecipare attivamente all'apertura, al business quotidiano e allo sviluppo aziendale\n- Comunicazione aperta e trasparente\n- Formazione regolare e formazione ulteriore, nonché numerosi vantaggi per i dipendenti\n- Facendo parte di un gruppo alberghiero svizzero contemporaneo e di carattere",
-        "en": "Giardino Group is looking for a demichef Pastry for the Giardino Mountain in Champfèr. The Giardino Hotels are a characterful Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno.\n\n## Tasks\nThe three restaurants of the hotel individually provide culinary highlights; of modern creations inspired by Asia, Orient and Occident in the Hide & Seek, over Engadine specialties in the rustic ambience of the Stüva, up to the high art of star cuisine in the Ecco St. Moritz. In this function, you will be responsible for the smooth operation of your workspace in the Hide & Seek restaurant and our Stüva restaurant. This includes ordering as well as controls regarding quality, hygiene and safety. You work in a powerful and dynamic team and cook at a high gastronomic level.\n\n## Requirements\n- Completed vocational training as a chef in the gastronomy/hotel industry\n- Experience in a comparable position in upscale gastronomy\n- You are also a team player in hectic situations and do not lose the overview\n- A well-groomed appearance and polite manners\n- Independence, reliability and sense of duty\n- Resilience, flexibility and enthusiasm\n- Respectful treatment of colleagues and superiors\n\n## Benefits\n- An innovative and well-organized workplace\n- The opportunity to actively participate in the opening, everyday business and corporate development\n- Open and transparent communication\n- Regular training and further education as well as numerous employee benefits\n- Being part of a contemporary and characterful Swiss hotel group",
-        "fr": "Giardino Group est à la recherche d'une pâtisserie démichef pour la montagne Giardino à Champfèr. Les Giardino Hotels sont un groupe hôtelier de luxe suisse de caractère avec des emplacements à St. Moritz, Ascona et Locarno.\n\n## Tâches\nLes trois restaurants de l'hôtel fournissent individuellement des points forts culinaires ; de créations modernes inspirées par l'Asie, l'Orient et l'Occident dans le Hide & Chercher, sur les spécialités Engadine dans l'ambiance rustique de la Stüva, jusqu'au haut art de la cuisine star dans l'Ecco St. Moritz. Dans cette fonction, vous serez responsable du bon fonctionnement de votre espace de travail dans le restaurant Hide & Seek et notre restaurant Stüva. Cela comprend la commande ainsi que les contrôles de qualité, d'hygiène et de sécurité. Vous travaillez dans une équipe puissante et dynamique et cuisinez à un niveau gastronomique élevé.\n\n## Exigences\n- Achevé la formation professionnelle en tant que chef dans l'industrie gastronomique / hôtelière\n- Expérience dans une position comparable dans la gastronomie haut de gamme\n- Vous êtes également un joueur d'équipe dans des situations agitées et ne perdez pas l'aperçu\n- Une apparence soignée et des manières polies\n- Indépendance, fiabilité et sens du devoir\n- Résilience, flexibilité et enthousiasme\n- Traitement respectueux des collègues et des supérieurs\n\n## Avantages\n- Un milieu de travail novateur et bien organisé\n- L'occasion de participer activement à l'ouverture, au développement quotidien des affaires et des entreprises\n- Communication ouverte et transparente\n- Formation et perfectionnement réguliers ainsi que de nombreux avantages sociaux\n- Faire partie d'un groupe hôtelier suisse contemporain et de caractère"
-      },
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/gm-demichef-pastry-m-w/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-14T11:18:42.650Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gm-demichef-pastry-m-w/",
-      "requirements": [
-        "Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie",
-        "Erfahrungen in einer vergleichbaren Position in der gehobenen Gastronomie",
-        "Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht",
-        "Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen",
-        "Eigenständigkeit, Zuverlässigkeit und Pflichtbewusstsein",
-        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Respektvollen Umgang mit Kollegen und Vorgesetzten"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Eine abgeschlossene Berufsausbildung als Koch in der Gastronomie/Hotellerie",
-          "Erfahrungen in einer vergleichbaren Position in der gehobenen Gastronomie",
-          "Du bist auch in hektischen Situationen ein Teamplayer und verlierst nicht die Übersicht",
-          "Ein gepflegtes Erscheinungsbild und höfliche Umgangsformen",
-          "Eigenständigkeit, Zuverlässigkeit und Pflichtbewusstsein",
-          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Respektvollen Umgang mit Kollegen und Vorgesetzten"
-        ]
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-14T11:18:42.650Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "demichef-pastry-giardino-group-champfer"
-        ],
-        "fr": [
-          "demichef-pastry-giardino-group-champfer"
-        ]
-      },
-      "previousSlugs": [
-        "demichef-pastry-giardino-group-champfer"
-      ],
-      "crawlerMissStreak": 2
     }
   ]
 }
