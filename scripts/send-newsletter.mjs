@@ -197,6 +197,14 @@ const NEWSLETTER_AI_CHAIN = [
   'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
   'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
+  // Absolute last resort — same AI_MODELS.CLAUDE_CLI_HAIKU used by
+  // create-article.mjs's DEFAULT_CHAIN. Routed through the local `claude` CLI
+  // using CLAUDE_CODE_OAUTH_TOKEN (Max-plan subscription, $0 marginal cost),
+  // never ANTHROPIC_API_KEY. Only reached once every free model above has
+  // failed (sortChainByScore always sinks it to the bottom); inert unless
+  // ENABLE_HAIKU_ARTICLE_FALLBACK + CLAUDE_CODE_OAUTH_TOKEN are both set (see
+  // "Setup Claude CLI Haiku fallback" step in send-newsletter.yml).
+  'claude-cli/claude-haiku-4-5-20251001',
 ];
 
 async function generateAIBriefing(ctx) {
