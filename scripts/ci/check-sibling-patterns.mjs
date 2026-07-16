@@ -25,6 +25,11 @@
  *   3. Dalle righe cambiate (+/-) estrae token distintivi (vedi extractTokens).
  *   4. Per ogni token `git grep -lF` sui CODE_DIRS → file che lo contengono.
  *   5. Riporta i file NON toccati dal branch, rankati per # di token condivisi.
+ *   6. Pass verbatim (issue #4260): estrae espressioni significative dalle sole
+ *      righe rimosse (-) e le cerca con `git grep -F` (soglia ≤8 file, più
+ *      stretta). Cattura i gemelli che condividono solo il vecchio anti-pattern
+ *      rimosso, invisibili al token-match perché non importano ancora il helper
+ *      NUOVO introdotto dal fix (il caso PR #4224 / PR #4199).
  *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
@@ -132,6 +137,42 @@ function resolveBase() {
 }
 
 /**
+ * Estrae espressioni verbatim dalle righe RIMOSSE del diff (prefisso `-`).
+ * Pass supplementare rispetto a extractTokens (issue #4260): quando un fix
+ * introduce un helper NUOVO, i gemelli non lo importano ancora → token-match
+ * non li vede. Questo pass li trova cercando l'espressione verbatim con
+ * `git grep -F` (threshold più bassa MAX_VERBATIM_FILES ≤8).
+ *
+ * Criteri di selezione:
+ *   - Linea che inizia con `-` (non `---` header)
+ *   - Contenuto ≥20 e ≤120 caratteri dopo strip
+ *   - NON è una riga di commento (`//`, `*`, `#`)
+ *   - NON è una riga di import/require/export-declaration
+ *   - Contiene almeno un pattern codice: chiamata `ident(` o assign `ident:`
+ *   - Trailing `,;` rimosso prima del confronto
+ */
+export function extractRemovedExpressions(diffText) {
+  const exprs = new Set();
+  for (const line of diffText.split('\n')) {
+    if (!line.startsWith('-') || line.startsWith('---')) continue;
+    const content = line.slice(1).trim();
+    if (!content) continue;
+    // Skip comment lines
+    if (/^(\/\/|\/\*|\*[\s/]|#)/.test(content)) continue;
+    // Skip import/require/export-declaration lines (surface too broad)
+    if (/\b(import\s|require\s*\(|export\s+(default\s+)?(function|class|const|let|var)\b)/.test(content)) continue;
+    // Must look like a code expression: function call or property assignment
+    if (!/[a-zA-Z_$][a-zA-Z0-9_$]*\s*[(:]/.test(content)) continue;
+    // Strip trailing punctuation
+    const cleaned = content.replace(/[,;]\s*$/, '').trim();
+    if (cleaned.length >= 20 && cleaned.length <= 120) {
+      exprs.add(cleaned);
+    }
+  }
+  return exprs;
+}
+
+/**
  * Estrae token distintivi da un blocco di righe diff (contenuto +/-).
  * Quattro classi, ciascuna scelta perché identifica un costrutto CONDIVISIBILE
  * tra gemelli (non rumore generico):
@@ -205,8 +246,9 @@ function main() {
     process.exit(0);
   }
 
-  // Raccoglie i token distintivi dalle righe cambiate dei file di codice.
+  // Raccoglie i token distintivi dalle righe cambiate e le espressioni rimosse.
   const tokenToChangedFiles = new Map(); // token -> Set(file che l'ha cambiato)
+  const removedExprs = new Set(); // espressioni verbatim da righe `-` (pass #6)
   for (const file of changedCode) {
     const diff = git(['diff', mergeBase, '--', file], { allowFail: true });
     const touched = diff
@@ -218,9 +260,13 @@ function main() {
       if (!tokenToChangedFiles.has(tok)) tokenToChangedFiles.set(tok, new Set());
       tokenToChangedFiles.get(tok).add(file);
     }
+    // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
+    for (const expr of extractRemovedExpressions(diff)) {
+      removedExprs.add(expr);
+    }
   }
 
-  if (tokenToChangedFiles.size === 0) {
+  if (tokenToChangedFiles.size === 0 && removedExprs.size === 0) {
     const msg =
       'check-sibling-patterns: nessun costrutto distintivo (costante/​helper/​modulo) ' +
       'estratto dalle righe cambiate — niente classe di pattern da sweepare.';
@@ -247,6 +293,26 @@ function main() {
       if (srcFiles.has(f)) continue;
       if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
       candidateTokens.get(f).add(tok);
+    }
+  }
+
+  // Pass verbatim (issue #4260): cerca le espressioni rimosse nei gemelli con
+  // soglia più stretta. Cattura i file che condividono solo il vecchio
+  // anti-pattern (non ancora l'helper introdotto dal fix corrente).
+  const MAX_VERBATIM_FILES = 8;
+  for (const expr of removedExprs) {
+    const out = git(
+      ['grep', '-l', '--fixed-strings', '-e', expr, '--', ...pathspecs],
+      { allowFail: true },
+    );
+    const hits = out.split('\n').map((s) => s.trim()).filter(Boolean);
+    if (hits.length > MAX_VERBATIM_FILES) continue; // troppo comune → rumore
+    for (const f of hits) {
+      if (changedSet.has(f)) continue;
+      if (!isCodeFile(f)) continue;
+      if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
+      const label = `removed:"${expr.length > 50 ? expr.slice(0, 47) + '…' : expr}"`;
+      candidateTokens.get(f).add(label);
     }
   }
 
