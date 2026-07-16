@@ -65,6 +65,7 @@ import { FX_HREF } from './shared/comparatorHref';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
   H1_STYLE,
   LEDE_STYLE,
@@ -380,7 +381,7 @@ function renderPage(opts: RenderOpts): RenderResult {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: H1,
-    description: META_DESCRIPTION,
+    description: guardArticleJsonLdDescription(META_DESCRIPTION),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: LOCALE,
     url: canonicalUrl,
