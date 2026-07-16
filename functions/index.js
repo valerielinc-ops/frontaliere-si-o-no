@@ -450,7 +450,7 @@ export const newsletterManageSubscription = onRequest(
  return;
  }
 
- const params = req.method === 'GET' ? req.query : req.body;
+ const params = req.method === 'GET' ? req.query : { ...req.query, ...req.body };
  const action = String(params.action || '').trim().toLowerCase();
  const email = String(params.email || '').trim();
  const token = String(params.token || '').trim();

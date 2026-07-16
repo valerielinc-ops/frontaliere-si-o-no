@@ -134,6 +134,7 @@ const CF_FN_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
 const UNSUB_PROXIES = {
   '/disiscrivi-alert': `${CF_FN_BASE}/jobAlertUnsubscribe`,
   '/disiscrivi-outreach': `${CF_FN_BASE}/outreachUnsubscribe`,
+  '/disiscrivi-newsletter': `${CF_FN_BASE}/newsletterManageSubscription`,
 };
 
 // Returns the upstream Cloud Function origin for an unsubscribe path (bare or
