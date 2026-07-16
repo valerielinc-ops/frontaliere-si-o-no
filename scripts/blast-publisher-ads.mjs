@@ -24,6 +24,7 @@ import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
+import { makeAuthenticatedActionUrl } from '../services/newsletterUrls.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -129,7 +130,7 @@ async function main() {
         recipientEmail: r.email,
         locale,
         adUrl: adUrlFor(locale),
-        unsubscribeUrl: `${SITE}/?action=unsubscribe&email=${encodeURIComponent(r.email)}`,
+        unsubscribeUrl: makeAuthenticatedActionUrl('unsubscribe', r.email),
         // Same label the CTA slug is built from → card city and linked page agree.
         locationLabel: firstLocationLabel,
       });

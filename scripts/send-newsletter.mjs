@@ -43,7 +43,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES } from '../services/emailSuppression.mjs';
-import { makeUnsubscribeUrl, makeResubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
+import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode } from '../services/newsletterUrls.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity, finiteDailyLimit, PROVIDERS as EMAIL_PROVIDERS } from './lib/email-cascade.mjs';
@@ -1364,7 +1364,7 @@ function buildEmailHeaders(email, campaign) {
   const campaignKey = slugifyHeaderValue(campaign);
   const emailKey = Buffer.from(String(email).toLowerCase()).toString('hex').slice(0, 24);
   return {
-    'List-Unsubscribe': `<${makeUnsubscribeUrl(email)}>, <${makeMailtoUnsubscribe(email)}>`,
+    'List-Unsubscribe': `<${makeOneClickUnsubscribeUrl(email)}>, <${makeMailtoUnsubscribe(email)}>`,
     'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
     'List-ID': `Frontaliere Weekly <weekly.frontaliereticino.ch>`,
     'Feedback-ID': `${campaignKey}:frontaliere-weekly:frontaliere-ticino`,

@@ -11,7 +11,7 @@
  * Pure + dependency-light (only the shared HMAC URL builders) so it is unit
  * testable. Table-based inline-styled HTML for email-client compatibility.
  */
-import { makeUnsubscribeUrl, makeAuthenticatedActionUrl } from './newsletterUrls.mjs';
+import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl } from './newsletterUrls.mjs';
 
 // Brand tokens — kept in sync with services/newsletter-template.mjs.
 const BRAND_ORANGE = '#f97316'; // accent / wordmark
@@ -85,8 +85,9 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
   // action instead of rejecting with "Link non valido".
   const stayUrl = makeAuthenticatedActionUrl('resubscribe', email);
   const footerUnsubUrl = makeAuthenticatedActionUrl('unsubscribe', email);
-  // Header List-Unsubscribe uses the token form (RFC 8058 one-click endpoint).
-  const unsubscribeUrl = makeUnsubscribeUrl(email);
+  // Header List-Unsubscribe uses the dedicated one-click endpoint (RFC 8058) —
+  // proxied straight to the Cloud Function, bypassing the SPA's `ac` requirement.
+  const unsubscribeUrl = makeOneClickUnsubscribeUrl(email);
 
   const html = `<!DOCTYPE html>
 <html lang="${l}">

@@ -75,6 +75,20 @@ routes = [
   # emitted link carries `?c=…&t=…`, so a non-wildcard route would silently miss
   # all real traffic (#2611). Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-outreach*", zone_name = "frontaliereticino.ch" },
+  # Newsletter one-click unsubscribe (RFC 8058). Same deliberate non-locale
+  # exception as /disiscrivi-alert above: the List-Unsubscribe header in
+  # newsletter emails MUST live on the sending domain (frontaliereticino.ch)
+  # or the URL↔From-domain mismatch trips spam filters. Previously the header
+  # pointed at the apex root (`/`), which Firebase Hosting's catch-all always
+  # serves as the SPA (index.html) — the Cloud Function was never reached, and
+  # the SPA itself rejects the plain token-only link for lack of an `ac`
+  # autologin credential. This dedicated path bypasses both: the Worker
+  # proxies it straight to the newsletterManageSubscription Cloud Function
+  # (in-code UNSUB_PROXIES branch — method + query + body preserved for the
+  # one-click POST). WILDCARD required: every emitted link carries
+  # `?action=…&email=…&token=…`, so a non-wildcard route would silently miss
+  # all real traffic (#2611). Look-alike paths rejected by the in-code guard.
+  { pattern = "frontaliereticino.ch/disiscrivi-newsletter*", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the
