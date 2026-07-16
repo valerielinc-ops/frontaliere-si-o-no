@@ -49,7 +49,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError, warnIfListingAtCap } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, warnIfListingAtCap, fetchJson } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -217,26 +217,11 @@ function buildDescriptionIt(title, contentText) {
 }
 
 /* ── Fetch jobs from WP REST API ───────────────────────────── */
-async function fetchJson(url, timeoutMs = 12000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent':
-          process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
+// Uses the shared fetchJson() (crawler-template.mjs): retries transient
+// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
+// body — the same class of intermittent block that broke the Bucher + Suter
+// WP REST listing, #4247) via exponential backoff instead of hard-failing
+// the whole crawler on one blip.
 async function fetchBancaSempioneJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
@@ -244,7 +229,7 @@ async function fetchBancaSempioneJobs() {
 
   let wpJobs;
   try {
-    wpJobs = await fetchJson(BANCA_SEMPIONE_API_URL, timeoutMs);
+    wpJobs = await fetchJson(BANCA_SEMPIONE_API_URL, { timeoutMs, label: 'Banca del Sempione wp-json job-listings' });
   } catch (err) {
     console.error(`❌ Failed to fetch WP REST API: ${err?.message || err}`);
     throw err;

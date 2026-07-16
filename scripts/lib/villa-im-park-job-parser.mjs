@@ -31,7 +31,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchJson } from './crawler-template.mjs';
 
 export const VILLA_IM_PARK_KEY = 'villa-im-park';
 export const VILLA_IM_PARK_COMPANY_NAME = 'Privatklinik Villa im Park';
@@ -41,8 +41,6 @@ const SMARTRECRUITERS_COMPANY = 'SwissMedicalNetwork1';
 const BRAND_VALUE_ID = 'PKV';
 const LIST_URL_BASE = `https://api.smartrecruiters.com/v1/companies/${SMARTRECRUITERS_COMPANY}/postings`;
 const CAREER_URL = 'https://www.swissmedical.net/de/karriere/stellenangebote?clinic=PKV';
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 const DEFAULT_CITY = 'Rothrist';
 const DEFAULT_CANTON = 'AG';
@@ -121,21 +119,13 @@ function detectEmploymentType(title = '', srType = '') {
   return 'OTHER';
 }
 
-async function fetchJson(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': USER_AGENT, Accept: 'application/json,*/*' },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
+// Uses the shared fetchJson() (crawler-template.mjs): retries transient
+// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
+// body — the same class of intermittent block that broke the Bucher + Suter
+// WP REST listing, #4247) via exponential backoff instead of hard-failing a
+// single page/detail fetch of the SmartRecruiters pagination loop. Same
+// no-retry ad-hoc raw-fetch anti-pattern as the WP REST siblings, just against
+// a different API surface (SmartRecruiters, not wp-json) — same bug class.
 
 function isPKVBrand(posting) {
   const cf = Array.isArray(posting?.customField) ? posting.customField : [];
@@ -246,7 +236,9 @@ export async function fetchAllVillaImParkJobs() {
   while (offset < totalFound && offset < 1000) {
     let data;
     try {
-      data = await fetchJson(`${LIST_URL_BASE}?limit=${limit}&offset=${offset}`);
+      data = await fetchJson(`${LIST_URL_BASE}?limit=${limit}&offset=${offset}`, {
+        label: `Villa im Park SmartRecruiters postings (offset=${offset})`,
+      });
     } catch (err) {
       console.warn(`⚠️ SmartRecruiters list fetch failed (offset=${offset}): ${err?.message || err}`);
       break;
@@ -267,7 +259,9 @@ export async function fetchAllVillaImParkJobs() {
   for (const posting of pkvOnly) {
     let detail;
     try {
-      detail = await fetchJson(`${LIST_URL_BASE}/${posting.id}`);
+      detail = await fetchJson(`${LIST_URL_BASE}/${posting.id}`, {
+        label: `Villa im Park SmartRecruiters posting detail (${posting.id})`,
+      });
     } catch (err) {
       console.warn(`⚠️ Detail fetch ${posting.id} failed: ${err?.message || err}`);
       detail = null;

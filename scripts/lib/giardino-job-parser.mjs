@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -44,9 +44,6 @@ export const GIARDINO_COMPANY_DOMAIN = 'giardinohotels.ch';
 const LISTING_PAGE_CAP = 50;
 const API_URL = `https://giardinohotels.ch/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 const SITE_BASE = 'https://giardinohotels.ch';
-const UA =
-  process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Hotel → location mapping ─────────────────────────────── */
 
@@ -310,25 +307,14 @@ export function buildPublicUrl(wpSlug) {
 /**
  * Fetch job listings from the WordPress REST API.
  */
-async function fetchJobListings() {
+// Uses the shared fetchJson() (crawler-template.mjs): retries transient
+// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
+// body — the same class of intermittent block that broke the Bucher + Suter
+// WP REST listing, #4247) via exponential backoff instead of hard-failing
+// the whole crawler on one blip.
+function fetchJobListings() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const res = await fetch(API_URL, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from WordPress API`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchJson(API_URL, { timeoutMs, label: 'Giardino Group wp-json job-listings' });
 }
 
 /* ── Main Fetch ───────────────────────────────────────────── */

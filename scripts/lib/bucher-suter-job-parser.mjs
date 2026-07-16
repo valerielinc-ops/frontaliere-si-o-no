@@ -54,7 +54,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, canonicalSwissCityName, findSwissCityInText } from './target-swiss-locations.mjs';
 import {
@@ -82,13 +82,19 @@ const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_
 
 /* ── Discovery: WordPress REST API listing metadata ─────────────────── */
 
+/**
+ * NOTE: this listing endpoint must use fetchJson() (crawler-template.mjs),
+ * NOT fetchHtml() (hospital-custom-html-helpers.mjs, used below for detail
+ * pages). fetchHtml() proxies through Jina Reader on IP-reputation WAF
+ * blocks / connection failures, and Jina always returns HTML — corrupting a
+ * JSON response instead of rescuing it. fetchJson() retries transient
+ * failures (5xx/429, network blips, and a 200-but-non-JSON "challenge" body)
+ * via the same backoff loop WITHOUT that HTML-returning proxy, so a
+ * transient block self-heals and a persistent one still fails loudly
+ * (#4247: "Unexpected token '<' ... is not valid JSON").
+ */
 async function fetchJobListingsMeta() {
-  const html = await fetchHtml(API_URL);
-  try {
-    return JSON.parse(html);
-  } catch (err) {
-    throw new Error(`Failed to parse WordPress job-listings JSON: ${err?.message || err}`);
-  }
+  return fetchJson(API_URL, { label: 'Bucher + Suter WP REST job-listings' });
 }
 
 /* ── Detail-page extraction ──────────────────────────────────────────── */
