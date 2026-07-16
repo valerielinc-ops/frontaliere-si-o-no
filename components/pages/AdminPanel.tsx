@@ -3617,7 +3617,7 @@ export default function AdminPanel() {
  {/* Contact + email-preview drawer */}
  {contactModalRow && (
  <div
- className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-0 sm:p-4"
+ className="fixed inset-0 z-[90] flex items-end sm:items-center justify-center bg-black/50 p-0 sm:p-4"
  role="dialog"
  aria-modal="true"
  aria-label={`Contatto e anteprima email per ${contactModalRow.companyName}`}
