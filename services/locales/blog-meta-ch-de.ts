@@ -1159,6 +1159,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sospensione-riversamento-imposta-frontalieri.title': 'Frontalieri: Antrag auf Steueraussetzung für Italien',
     'blog.article.sospensione-riversamento-imposta-frontalieri.excerpt': 'Eine neue parlamentarische Motion stellt die italienische "Gesundheitssteuer" in Frage und fordert den Staatsrat auf, die Rückführung der Steuern an die Quelle zu blockieren.',
     'blog.article.sospensione-riversamento-imposta-frontalieri.imageAlt': 'Palazzo delle Orsoline in Bellinzona, Sitz des Grossen Rates des Kantons Tessin.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'Mehr: US-Handelsvertreter lobt Schweizer Investitionen',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Der US-Handelsbeauftragte Jamieson Greer lobte die Schweizer Investitionen in den USA.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Der Handelsvertreter der Vereinigten Staaten, Jamieson Greer, spricht während einer Pressekonferenz in Genf.',
 };
 
 export default blogMetaChDe;

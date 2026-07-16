@@ -4554,6 +4554,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-berna-non-crea-attriti-con-litalia': { name: 'Collaborazione e rispetto tra la Svizzera', path: '/articoli-frontaliere/berna-non-crea-attriti-con-litalia', parent: 'blog' },
     'blog-attacco-informatico-iwb-basilea': { name: 'Sicurezza informatica', path: '/articoli-svizzera/attacco-informatico-iwb-basilea/', parent: 'blog' },
     'blog-sospensione-riversamento-imposta-frontalieri': { name: 'Frontalieri e Fisco', path: '/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/', parent: 'blog' },
+    'blog-rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': { name: 'Economia', path: '/articoli-svizzera/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

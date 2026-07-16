@@ -3473,6 +3473,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri',
+    category: 'fiscale',
+    date: '2026-07-16T07:22:28.600Z',
+    image: '/images/blog/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
