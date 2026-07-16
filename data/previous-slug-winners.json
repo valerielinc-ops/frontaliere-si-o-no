@@ -269,6 +269,15 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::en::dipl-care-specialist-hf-fh-complex-treatments-akutgeriatrie-and-neurological-disorders-department-142-spital-zofingen": {
+    "winnerJobIdentifier": "spital-zofingen-bdcdbc566e6b",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-abteilung-112-spital-zofingen-zofingen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2778,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::en::dipl-career-dipl-care-specialist-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch": {
     "winnerJobIdentifier": "pdag-1288352265c0",
     "winnerCanonical": "dipl-nurse-nurse-specialist-dependence-diseases-psychiatrische-dienste-aargau-pdag-windisch",
@@ -536,6 +545,15 @@
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2143,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::fr::dipl-specialiste-des-soins-hf-fh-traitements-complexes-akutgeriatrie-et-troubles-neurologiques-departement-142-spital": {
+    "winnerJobIdentifier": "spital-zofingen-bdcdbc566e6b",
+    "winnerCanonical": "dipl-carriere-hf-fh-departement-112-spital-zofingen-zofingen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2778,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -878,6 +896,15 @@
     "decidedAt": "2026-06-22T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
+  "AG::it::dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-und-neurologische": {
+    "winnerJobIdentifier": "spital-zofingen-aeb4dcd6de76",
+    "winnerCanonical": "dipl-pflegefachperson-hf-fh-komplexbehandlungen-akutgeriatrie-e-neurologische-bewegungsstorungen-abteilung-142-spital-zofingen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "AG"
   },
@@ -9179,6 +9206,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::de::verkaufer-in-food-coop-erlenbach-zurich": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::verkaufer-in-food-coop-genossenschaft-bern": {
     "winnerJobIdentifier": "company-ugpw0w",
     "winnerCanonical": "verkaufer-in-food-coop-bern-ugpw0w",
@@ -9194,6 +9230,15 @@
     "decidedAt": "2026-06-17T00:00:00.000Z",
     "lastSeenAt": "2026-06-17T00:00:00.000Z",
     "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-food-coop-genossenschaft-erlenbach-im-simmental-3o4bhu": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.8,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -9215,6 +9260,24 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::de::verkaufer-in-lebensmittel-coop-genossenschaft-erlenbach": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::verkaufer-in-lebensmittel-coop-genossenschaft-erlenbach-im-simmental": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "verkaufer-in-food-coop-erlenbach-im-simmental-bern-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern": {
     "winnerJobIdentifier": "company-p4im8l",
     "winnerCanonical": "verkaufsberater-in-deco-jumbo-bern-p4im8l",
@@ -9225,9 +9288,9 @@
     "canton": "BE"
   },
   "BE::de::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-bern-p4im8l": {
-    "winnerJobIdentifier": "jumbo-89a510bd-fb4",
+    "winnerJobIdentifier": "company-ibn3ix",
     "winnerCanonical": "verkausberater-in-garden-jumbo-division-der-coop-genossenschaft-bern-ibn3ix",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "decidedAt": "2026-07-15T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 1,
@@ -9549,7 +9612,7 @@
     "canton": "BE"
   },
   "BE::en::applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-vph86t": {
-    "winnerJobIdentifier": "interdiscount-f797453f-573",
+    "winnerJobIdentifier": "interdiscount-d88253d5-5ca",
     "winnerCanonical": "applikations-manager-in-sap-operations-senior-interdiscount-jegenstorf-bern-3dfiel",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
@@ -11357,6 +11420,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::verkaufer-in-food-coop-erlenbach-zurich": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "food-salesperson-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::verkaufer-in-food-coop-genossenschaft-bern": {
     "winnerJobIdentifier": "company-qmtnz3",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-interlaken",
@@ -11391,6 +11463,15 @@
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1333,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::en::verkaufer-in-lebensmittel-coop-genossenschaft-erlenbach": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "food-salesperson-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::en::verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-asegni": {
@@ -12915,9 +12996,9 @@
     "canton": "BE"
   },
   "BE::fr::responsable-des-applications-sap-operations-senior-interdiscount-jegenstorf": {
-    "winnerJobIdentifier": "interdiscount-f797453f-573",
-    "winnerCanonical": "gestionnaire-d-applications-dans-sap-operations-senior-interdiscount-jegenstorf",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "interdiscount-d88253d5-5ca",
+    "winnerCanonical": "responsable-de-l-application-sap-operations-senior-interdiscount-jegenstorf",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5455,
     "candidatesCount": 1,
@@ -13607,6 +13688,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::verkaufer-in-food-coop-erlenbach-zurich": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "vendeur-food-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::verkaufer-in-food-coop-genossenschaft-bern": {
     "winnerJobIdentifier": "company-ugpw0w",
     "winnerCanonical": "assistant-commercial-alimentaire-coop-genossenschaft-bern-7ba085",
@@ -13640,6 +13730,15 @@
     "decidedAt": "2026-07-08T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1333,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::verkaufer-in-lebensmittel-coop-genossenschaft-erlenbach": {
+    "winnerJobIdentifier": "company-3o4bhu",
+    "winnerCanonical": "vendeur-food-coop-genossenschaft-erlenbach-im-simmental-3o4bhu",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -20178,12 +20277,12 @@
     "canton": "GR"
   },
   "GR::de::stv-geschaftsfuhrer-in-coop-arosa-graubunden-p6gv2y": {
-    "winnerJobIdentifier": "company-rwqc6l",
-    "winnerCanonical": "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-graubunden-rwqc6l",
+    "winnerJobIdentifier": "company-gup9ju",
+    "winnerCanonical": "verkaufer-in-food-coop-arosa-graubunden-gup9ju",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw": {
@@ -22647,7 +22746,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-0ab88a59e4c8",
     "winnerCanonical": "pilote-postbus-in-postauto-chur",
     "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 3,
     "canton": "GR"
@@ -24510,7 +24609,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-0ab88a59e4c8",
     "winnerCanonical": "postbus-driver-in-postauto-chur",
     "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 3,
     "canton": "GR"
@@ -24618,7 +24717,7 @@
     "winnerJobIdentifier": "kulm-hotel-0d43a765b99f",
     "winnerCanonical": "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 1,
     "canton": "GR"
@@ -24723,11 +24822,11 @@
     "canton": "GR"
   },
   "GR::it::sozialarbeiter-in-kanton-gr-ch": {
-    "winnerJobIdentifier": "kanton-gr-a6e30cebd18c",
-    "winnerCanonical": "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
-    "decidedAt": "2026-07-14T00:00:00.000Z",
+    "winnerJobIdentifier": "kanton-gr-c7a2d1aa2314",
+    "winnerCanonical": "sozialarbeiter-in-kanton-gr-ch-2",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0,
+    "score": 0.8333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -27981,11 +28080,11 @@
     "canton": "LU"
   },
   "LU::it::verkaufer-in-food-coop-genossenschaft-luzern": {
-    "winnerJobIdentifier": "company-86b69k",
-    "winnerCanonical": "venditore-food-coop-genossenschaft-triengen",
+    "winnerJobIdentifier": "company-11qfce",
+    "winnerCanonical": "assistente-alle-vendite-alimentari-latticini-coop-genossenschaft-luzern",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.375,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -29691,11 +29790,11 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
-    "winnerJobIdentifier": "hoch-health-901981926fcb",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.8182,
+    "winnerJobIdentifier": "hoch-health-c2dde9fbfd5c",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -29709,12 +29808,12 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-uznach": {
-    "winnerJobIdentifier": "hoch-health-ae3d8db5ab3f",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-    "decidedAt": "2026-07-14T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-60-hoch-health-st-gallen": {
@@ -29763,10 +29862,10 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
-    "winnerJobIdentifier": "hoch-health-d65836bd3a65",
+    "winnerJobIdentifier": "hoch-health-c2dde9fbfd5c",
     "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
     "canton": "SG"
@@ -29979,12 +30078,12 @@
     "canton": "SG"
   },
   "SG::de::oberarztin-arzt-mbf-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-9696e9c2b85f",
-    "winnerCanonical": "oberarztin-arzt-mbf-100-hoch-health-uznach",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "oberarztin-arzt-50-100-hoch-health-wil",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::oberarztin-oberarzt-psgn-wil-sg": {
@@ -33048,12 +33147,12 @@
     "canton": "SG"
   },
   "SG::fr::medecin-chef-en-anesthesiologie-mbf-100-hoch-health-ostschweiz-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-9696e9c2b85f",
-    "winnerCanonical": "medecin-chef-en-anesthesiologie-mbf-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "medecin-senior-en-anesthesiologie-50-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::medecin-principal-psychiatrie-st-gallen-wil-sg": {
@@ -34887,7 +34986,7 @@
     "winnerJobIdentifier": "hoch-health-330a59d391c9",
     "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4667,
     "candidatesCount": 2,
     "canton": "SG"
@@ -34902,11 +35001,11 @@
     "canton": "SG"
   },
   "SG::it::medico-senior-50-100-hoch-health-ostschweiz-wil": {
-    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.4167,
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34965,11 +35064,11 @@
     "canton": "SG"
   },
   "SG::it::oberarztin-arzt-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-4d1556902ece",
-    "winnerCanonical": "medico-senior-dottore-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-06-27T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.4545,
+    "winnerJobIdentifier": "hoch-health-3475f52cafee",
+    "winnerCanonical": "primario-a-di-medicina-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34977,7 +35076,7 @@
     "winnerJobIdentifier": "hoch-health-330a59d391c9",
     "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 2,
     "canton": "SG"
@@ -34986,7 +35085,7 @@
     "winnerJobIdentifier": "hoch-health-330a59d391c9",
     "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2857,
     "candidatesCount": 2,
     "canton": "SG"
@@ -35001,21 +35100,21 @@
     "canton": "SG"
   },
   "SG::it::oberarztin-arzt-mbf-100-hoch-health-st-gallen": {
-    "winnerJobIdentifier": "hoch-health-9696e9c2b85f",
-    "winnerCanonical": "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::oberarztin-arzt-mbf-100-hoch-health-uznach": {
-    "winnerJobIdentifier": "hoch-health-9696e9c2b85f",
-    "winnerCanonical": "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::oberarztin-oberarzt-m-b-f-psgn-wil-sg": {
@@ -35100,12 +35199,12 @@
     "canton": "SG"
   },
   "SG::it::primario-di-anestesia-mbf-100-hoch-health-ostschweiz-uznach": {
-    "winnerJobIdentifier": "hoch-health-9696e9c2b85f",
-    "winnerCanonical": "primario-di-anestesia-mbf-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::sachbearbeitung-innendienst-rohbau-w-m-d-100-bms-building-ch": {
@@ -35262,11 +35361,11 @@
     "canton": "SG"
   },
   "SG::it::senior-doctor-50-100-hoch-health-ostschweiz-wil": {
-    "winnerJobIdentifier": "hoch-health-63ca7e87379a",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "winnerJobIdentifier": "hoch-health-330a59d391c9",
+    "winnerCanonical": "primario-a-di-anestesia-50-100-hoch-health-ostschweiz-st-gallen",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.4167,
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -37350,12 +37449,12 @@
     "canton": "SO"
   },
   "SO::de::lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "solothurner-spitaeler-04d7bd67b00a",
-    "winnerCanonical": "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-solothurn",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-cdfad9106588",
+    "winnerCanonical": "lagerungspflegerin-lagerungspfleger-w-m-d-solothurner-spitaler-soh-olten",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::de::mitarbeiterin-collaboratore-trice-drg-support-m-w-d-solothurner-spitaler-soh-solothurn": {
@@ -37386,12 +37485,12 @@
     "canton": "SO"
   },
   "SO::de::mpa-poliklinik-orthopadie-m-w-d-soh-solothurner-spitaeler-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-38c5d5d1e7de",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
     "winnerCanonical": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6364,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::de::nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch": {
@@ -37524,7 +37623,7 @@
     "winnerJobIdentifier": "soh-solothurner-spitaeler-34a5e06e0852",
     "winnerCanonical": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-verkurzt-2-jahre-w-m-d-soh-ch",
     "decidedAt": "2026-06-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 2,
     "canton": "SO"
@@ -37602,12 +37701,12 @@
     "canton": "SO"
   },
   "SO::de::radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-solothurner-spitaeler-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-db60d21d6b1e",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6667,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::de::rettungssanitaterin-rettungssanitater-w-m-d-soh-ch": {
@@ -37737,12 +37836,12 @@
     "canton": "SO"
   },
   "SO::de::specialiste-en-technique-operatoire-h-f-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5a958329572b",
-    "winnerCanonical": "fachfrau-fachmann-operationstechnik-im-pool-w-m-d-soh-ch",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.0526,
-    "candidatesCount": 1,
+    "score": 0.0588,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::de::verkaufer-in-lebensmittel-coop-genossenschaft-derendingen": {
@@ -37890,11 +37989,11 @@
     "canton": "SO"
   },
   "SO::en::collaboratore-volontario-m-f-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-9aee221615b6",
-    "winnerCanonical": "volunteer-in-nursing-f-m-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-eccf80736fb0",
+    "winnerCanonical": "medical-secretary-medical-secretary-neuropsychology-f-m-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -37944,12 +38043,12 @@
     "canton": "SO"
   },
   "SO::en::consultant-principal-m-j-solothurner-spitaler-soh-solothurn-7cbfb7": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-9aee221615b6",
-    "winnerCanonical": "volunteer-in-nursing-f-m-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 1,
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::cook-chef-efz-in-training-f-m-d-solothurner-spitaler-soh-olten": {
@@ -38007,12 +38106,12 @@
     "canton": "SO"
   },
   "SO::en::dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-93ed98ab9416",
+    "winnerJobIdentifier": "solothurner-spitaeler-7fe07452a5e1",
     "winnerCanonical": "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2105,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::diploma-in-nursing-dialysis-m-f-d-solothurner-spitaler-ag-soh-olten": {
@@ -38034,12 +38133,12 @@
     "canton": "SO"
   },
   "SO::en::drg-support-specialist-m-f-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-2afad8b529ea",
-    "winnerCanonical": "specialist-expert-in-nursing-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5714,
-    "candidatesCount": 1,
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen": {
@@ -38052,12 +38151,12 @@
     "canton": "SO"
   },
   "SO::en::emergency-medical-technician-male-female-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b80b71c10079",
+    "winnerJobIdentifier": "solothurner-spitaeler-995061b50544",
     "winnerCanonical": "emergency-medical-technician-male-female-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.9,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::esperta-o-di-anestesia-uomo-donna-solothurner-spitaler-soh-olten": {
@@ -38088,7 +38187,7 @@
     "canton": "SO"
   },
   "SO::en::expertin-experte-anasthesiepflege-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-169f78967809",
+    "winnerJobIdentifier": "solothurner-spitaeler-2f1a277946f6",
     "winnerCanonical": "expert-anesthesia-nurse-m-f-solothurner-spitaler-ag-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
@@ -38169,12 +38268,12 @@
     "canton": "SO"
   },
   "SO::en::healthcare-professional-in-training-somatic-4-years-male-female-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-dff979d97f49",
-    "winnerCanonical": "healthcare-professional-hf-in-training-somatic-shortened-2-3-4-years-m-f-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-91e1a9599575",
+    "winnerCanonical": "healthcare-professional-hf-in-training-somatic-4-years-m-f-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.55,
-    "candidatesCount": 1,
+    "score": 0.5556,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::impiegato-a-di-supporto-drg-m-f-d-solothurner-spitaler-soh-solothurn": {
@@ -38214,12 +38313,12 @@
     "canton": "SO"
   },
   "SO::en::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-38c5d5d1e7de",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
     "winnerCanonical": "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2857,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten": {
@@ -38268,12 +38367,12 @@
     "canton": "SO"
   },
   "SO::en::nursing-specialist-hf-in-training-somatik-4-years-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-8c03cfb86d7e",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
     "winnerCanonical": "nursing-specialist-m-f-d-in-training-4-years-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.7059,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::nursing-student-hf-somatic-4-years-m-f-d-solothurner-spitaler-soh-olten": {
@@ -38286,21 +38385,21 @@
     "canton": "SO"
   },
   "SO::en::oberarztin-oberarzt-medizin-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5c12c5ff6a34",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
     "winnerCanonical": "senior-physician-internal-medicine-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::operating-room-technician-m-f-d-solothurner-spitaler-soh-dornach-21af43": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5a958329572b",
+    "winnerJobIdentifier": "solothurner-spitaeler-3d0a9f2b96b8",
     "winnerCanonical": "operating-room-technician-in-pool-male-female-solothurner-spitaler-ag-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4375,
-    "candidatesCount": 1,
+    "candidatesCount": 3,
     "canton": "SO"
   },
   "SO::en::personnel-de-vente-avec-fonction-complete-otto-s-ag-bern": {
@@ -38367,12 +38466,12 @@
     "canton": "SO"
   },
   "SO::en::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-4ba3fc757f58",
+    "winnerJobIdentifier": "solothurner-spitaeler-91e1a9599575",
     "winnerCanonical": "healthcare-professional-hf-in-training-somatic-4-years-m-f-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2609,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch": {
@@ -38385,12 +38484,12 @@
     "canton": "SO"
   },
   "SO::en::postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-ag-soh-olten": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-d4519b37671b",
-    "winnerCanonical": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-31a48883518e",
+    "winnerCanonical": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7692,
-    "candidatesCount": 1,
+    "score": 0.9167,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::praktikantin-praktikant-kindertagesstatte-w-m-d-soh-ch": {
@@ -38412,28 +38511,28 @@
     "canton": "SO"
   },
   "SO::en::projektleiter-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-450dd14edd4f",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0",
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "postgraduate-anaesthesia-w-m-d-solothurner-spitaler-ag-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 1,
+    "score": 0.4167,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::projektleiter-m-d-solothurner-spitaler-soh-solothurn-d6958a": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-450dd14edd4f",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0",
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "postgraduate-anaesthesia-w-m-d-solothurner-spitaler-ag-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 1,
+    "score": 0.3846,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::projektleiter-m-d-solothurner-spitaler-soh-solothurn-w0mesm": {
     "winnerJobIdentifier": "soh-solothurner-spitaeler-450dd14edd4f",
     "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.7,
     "candidatesCount": 1,
     "canton": "SO"
@@ -38466,12 +38565,12 @@
     "canton": "SO"
   },
   "SO::en::projektleiter-m-w-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-450dd14edd4f",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 1,
+    "score": 0.4167,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten": {
@@ -38493,21 +38592,21 @@
     "canton": "SO"
   },
   "SO::en::radiology-fachfrau-radiology-fachmann-w-m-d-60-100-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-db60d21d6b1e",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b3b4db87a986",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
     "winnerCanonical": "nuclear-medicine-radiology-technologist-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5385,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::rettungssanitaterin-rettungssanitater-w-m-d-soh-ch": {
@@ -38520,12 +38619,12 @@
     "canton": "SO"
   },
   "SO::en::rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b80b71c10079",
-    "winnerCanonical": "emergency-medical-technician-male-female-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "postgraduate-anaesthesia-w-m-d-solothurner-spitaler-ag-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 1,
+    "score": 0.4615,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::sales-assistant-cash-registers-services-student-assistant-coop-genossenschaft-zurich": {
@@ -38619,12 +38718,12 @@
     "canton": "SO"
   },
   "SO::en::senior-consultant-m-d-solothurner-spitaler-ag-soh-olten": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-d4519b37671b",
-    "winnerCanonical": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-31a48883518e",
+    "winnerCanonical": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::senior-consultant-m-d-solothurner-spitaler-soh-dornach": {
@@ -38655,12 +38754,12 @@
     "canton": "SO"
   },
   "SO::en::senior-consultant-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-d4519b37671b",
+    "winnerJobIdentifier": "solothurner-spitaeler-ec7dc4465e18",
     "winnerCanonical": "postgraduate-hf-emergency-care-w-m-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4615,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7cbfb7": {
@@ -38745,12 +38844,12 @@
     "canton": "SO"
   },
   "SO::en::specialiste-en-technique-operatoire-h-f-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5a958329572b",
-    "winnerCanonical": "operating-room-technician-in-pool-male-female-solothurner-spitaler-ag-soh-dornach",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 1,
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::en::verkaufsberater-in-spielwaren-e-textil-coop-genossenschaft-olten": {
@@ -38934,12 +39033,12 @@
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-ag-soh-olten": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-d4519b37671b",
-    "winnerCanonical": "formation-postgrade-en-soins-infirmiers-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-31a48883518e",
+    "winnerCanonical": "soins-d-urgence-de-niveau-superieur-en-m-j-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.1579,
-    "candidatesCount": 1,
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-dornach": {
@@ -38970,30 +39069,30 @@
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-45cc3c3a4605",
-    "winnerCanonical": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
+    "winnerJobIdentifier": "solothurner-spitaeler-2f1a277946f6",
+    "winnerCanonical": "specialiste-en-soins-anesthesiques-h-f-solothurner-spitaler-ag-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.1765,
     "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-olten-acb83f": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-45cc3c3a4605",
-    "winnerCanonical": "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 1,
-    "canton": "SO"
-  },
-  "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-d4519b37671b",
-    "winnerCanonical": "formation-postgrade-en-soins-infirmiers-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-4f66ec5870fa",
+    "winnerCanonical": "medecin-specialiste-en-medecine-interne-h-f-solothurner-spitaler-ag-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2353,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-eccf80736fb0",
+    "winnerCanonical": "secretaire-medical-secretaire-medical-neuropsychologie-f-m-j-solothurner-spitaler-ag-soh-solothurn",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 4,
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd": {
@@ -39132,7 +39231,7 @@
     "canton": "SO"
   },
   "SO::fr::expertin-experte-anasthesiepflege-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-169f78967809",
+    "winnerJobIdentifier": "solothurner-spitaeler-2f1a277946f6",
     "winnerCanonical": "specialiste-en-soins-anesthesiques-h-f-solothurner-spitaler-ag-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
@@ -39204,12 +39303,12 @@
     "canton": "SO"
   },
   "SO::fr::infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-53d05ba96def",
-    "winnerCanonical": "infirmier-ere-diplome-e-de-nuit-h-f-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-995061b50544",
+    "winnerCanonical": "technicien-ne-en-soins-d-urgence-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.4706,
-    "candidatesCount": 1,
+    "score": 0.5333,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::medecin-generaliste-homme-femme-solothurner-spitaler-soh-solothurn": {
@@ -39267,12 +39366,12 @@
     "canton": "SO"
   },
   "SO::fr::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-38c5d5d1e7de",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
     "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten": {
@@ -39312,12 +39411,12 @@
     "canton": "SO"
   },
   "SO::fr::oberarztin-oberarzt-medizin-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5c12c5ff6a34",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
     "winnerCanonical": "medecin-chef-de-clinique-en-medecine-interne-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2105,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::operating-room-technician-m-f-d-solothurner-spitaler-soh-dornach-21af43": {
@@ -39402,12 +39501,12 @@
     "canton": "SO"
   },
   "SO::fr::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-4ba3fc757f58",
+    "winnerJobIdentifier": "solothurner-spitaeler-91e1a9599575",
     "winnerCanonical": "infirmier-infirmier-hf-en-formation-somatique-4-ans-h-f-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.125,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch": {
@@ -39420,12 +39519,12 @@
     "canton": "SO"
   },
   "SO::fr::physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-55528212cfed",
+    "winnerJobIdentifier": "solothurner-spitaeler-cec35b631bd4",
     "winnerCanonical": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::praktikantin-praktikant-kindertagesstatte-w-m-d-soh-ch": {
@@ -39438,12 +39537,12 @@
     "canton": "SO"
   },
   "SO::fr::professionnel-de-sante-en-formation-somatique-4-ans-homme-femme-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-70f1991c9522",
-    "winnerCanonical": "infirmier-infirmier-en-formation-hf-en-psychiatrie-4-ans-homme-femme-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
+    "winnerCanonical": "infirmier-infirmier-specialise-e-hf-en-formation-somatique-4-ans-h-f-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-d-solothurner-spitaler-soh-solothurn": {
@@ -39474,12 +39573,12 @@
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-m-j-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-38c5d5d1e7de",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
     "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3077,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-m-solothurner-spitaler-soh-dornach": {
@@ -39501,21 +39600,21 @@
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-w-d-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
-    "winnerCanonical": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-w-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
-    "winnerCanonical": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.2143,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::projektleiterin-projektleiter-bauherrenvertretung-m-w-d-solothurner-spitaler-soh-olten": {
@@ -39546,12 +39645,12 @@
     "canton": "SO"
   },
   "SO::fr::rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b80b71c10079",
+    "winnerJobIdentifier": "solothurner-spitaeler-995061b50544",
     "winnerCanonical": "technicien-ne-en-soins-d-urgence-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::sales-staff-in-with-all-round-function-otto-s-ag-bern": {
@@ -39645,30 +39744,30 @@
     "canton": "SO"
   },
   "SO::fr::specialista-di-tecnologia-operativa-m-w-d-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
-    "winnerCanonical": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.2353,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-db60d21d6b1e",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::specialiste-de-support-drg-h-f-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-eeddb8ecf71d",
-    "winnerCanonical": "medecin-specialiste-en-urologie-h-f-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
+    "winnerCanonical": "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 1,
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-olten": {
@@ -39681,30 +39780,30 @@
     "canton": "SO"
   },
   "SO::fr::specialiste-des-soins-infirmiers-hf-en-formation-somatik-4-ans-m-j-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-7743954170d6",
-    "winnerCanonical": "assistant-en-soins-infirmiers-en-formation-somatique-3-ans-br-reduit-a-2-ans-h-f-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
+    "winnerCanonical": "infirmier-infirmier-specialise-e-hf-en-formation-somatique-4-ans-h-f-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3462,
-    "candidatesCount": 1,
+    "score": 0.3913,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::specialiste-en-technique-operatoire-h-f-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5a958329572b",
-    "winnerCanonical": "specialiste-en-technique-operatoire-en-pool-h-f-solothurner-spitaler-ag-soh-dornach",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-db60d21d6b1e",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5714,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::verkaufer-dans-les-aliments-coop-genossenschaft-derendingen": {
@@ -39924,12 +40023,12 @@
     "canton": "SO"
   },
   "SO::it::consulente-senior-m-d-solothurner-spitaler-soh-dornach-b1ed46": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b1524e38c643",
-    "winnerCanonical": "consulente-alimentare-m-f-d-solothurner-spitaler-ag-soh-dornach",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
+    "winnerCanonical": "medico-senior-medicina-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5833,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::consulente-senior-m-d-solothurner-spitaler-soh-olten": {
@@ -39942,20 +40041,20 @@
     "canton": "SO"
   },
   "SO::it::consulente-senior-m-d-solothurner-spitaler-soh-olten-acb83f": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-45cc3c3a4605",
-    "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-olten",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
+    "winnerCanonical": "medico-senior-medicina-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 1,
+    "score": 0.4615,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::consulente-senior-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-71a999de6ff5",
-    "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-eccf80736fb0",
+    "winnerCanonical": "segretaria-o-di-studio-medico-neuropsicologia-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.2353,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -39969,12 +40068,12 @@
     "canton": "SO"
   },
   "SO::it::consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-71a999de6ff5",
+    "winnerJobIdentifier": "solothurner-spitaeler-8dfc47f841da",
     "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.9,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::consultant-principal-m-j-solothurner-spitaler-soh-olten": {
@@ -40221,12 +40320,12 @@
     "canton": "SO"
   },
   "SO::it::expertin-experte-anasthesiepflege-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-169f78967809",
+    "winnerJobIdentifier": "solothurner-spitaeler-2f1a277946f6",
     "winnerCanonical": "esperta-o-in-anestesia-infermieristica-l-m-solothurner-spitaler-ag-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1111,
-    "candidatesCount": 1,
+    "candidatesCount": 3,
     "canton": "SO"
   },
   "SO::it::expertin-experte-anasthesiepflege-w-m-d-soh-ch-2": {
@@ -40278,18 +40377,18 @@
     "winnerJobIdentifier": "soh-solothurner-spitaeler-6a860b131323",
     "winnerCanonical": "specialista-in-economia-alberghiera-e-domestica-in-formazione-f-m-d-solothurner-spitaler-ag-soh-olten",
     "decidedAt": "2026-07-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::fachfrau-fachmann-operationstechnik-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
-    "winnerCanonical": "fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2",
-    "decidedAt": "2026-06-18T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::it::fachfrau-fachmann-operationstechnik-w-m-d-soh-ch-2": {
@@ -40302,20 +40401,20 @@
     "canton": "SO"
   },
   "SO::it::freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-9aee221615b6",
-    "winnerCanonical": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-eccf80736fb0",
+    "winnerCanonical": "segretaria-o-di-studio-medico-neuropsicologia-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.9231,
+    "score": 0.1905,
     "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::it::freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-9aee221615b6",
-    "winnerCanonical": "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-pflege-m-w-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-eccf80736fb0",
+    "winnerCanonical": "segretaria-o-di-studio-medico-neuropsicologia-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.9231,
+    "score": 0.1905,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -40329,12 +40428,12 @@
     "canton": "SO"
   },
   "SO::it::hausarztin-hausarzt-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-4dd9b31fff36",
-    "winnerCanonical": "medico-di-base-uomo-donna-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-8dfc47f841da",
+    "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.0667,
-    "candidatesCount": 1,
+    "score": 0.3077,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::impiegato-a-di-supporto-drg-m-f-d-solothurner-spitaler-soh-solothurn": {
@@ -40356,12 +40455,12 @@
     "canton": "SO"
   },
   "SO::it::infermieristica-hf-in-formazione-somatik-4-anni-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-1f4403b85cfb",
-    "winnerCanonical": "infermiere-infermiere-di-formazione-in-psichiatria-3-anni-abbreviato-2-anni-u-m-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
+    "winnerCanonical": "infermiere-infermiere-specializzanda-o-hf-somatica-4-anni-m-f-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.4091,
-    "candidatesCount": 1,
+    "score": 0.45,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::kochin-koch-efz-in-ausbildung-w-m-d-soh-ch": {
@@ -40383,12 +40482,12 @@
     "canton": "SO"
   },
   "SO::it::lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "solothurner-spitaeler-04d7bd67b00a",
-    "winnerCanonical": "operatore-a-di-posizionamento-uomo-donna-solothurner-spitaler-soh-solothurn",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-cdfad9106588",
+    "winnerCanonical": "operatore-di-posizionamento-operatore-di-posizionamento-uomo-donna-solothurner-spitaler-ag-soh-olten",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.0625,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::it::lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen": {
@@ -40419,12 +40518,12 @@
     "canton": "SO"
   },
   "SO::it::mitarbeiterin-collaboratore-trice-drg-support-m-w-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-ae57fcc9c8be",
-    "winnerCanonical": "mitarbeiterin-collaboratore-trice-verlegerdienst-m-w-d-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.7692,
-    "candidatesCount": 1,
+    "score": 0.4375,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::mitarbeiterin-mitarbeiter-drg-support-w-m-d-soh-ch": {
@@ -40482,12 +40581,12 @@
     "canton": "SO"
   },
   "SO::it::nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-f3bcfaf7eeef",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-ag-soh-olten",
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5455,
-    "candidatesCount": 1,
+    "score": 0.6,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn": {
@@ -40536,12 +40635,12 @@
     "canton": "SO"
   },
   "SO::it::nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-71a999de6ff5",
+    "winnerJobIdentifier": "solothurner-spitaeler-8dfc47f841da",
     "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5385,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch": {
@@ -40554,21 +40653,21 @@
     "canton": "SO"
   },
   "SO::it::oberarztin-oberarzt-medizin-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-7a9fdd2810ed",
-    "winnerCanonical": "medico-specialista-oss-medicina-m-f-d-solothurner-spitaler-ag-soh-olten",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
+    "winnerCanonical": "medico-senior-medicina-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.1765,
-    "candidatesCount": 1,
+    "score": 0.2857,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::oberarztin-oberarzt-medizin-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5c12c5ff6a34",
+    "winnerJobIdentifier": "solothurner-spitaeler-d91f512d824c",
     "winnerCanonical": "medico-senior-medicina-w-m-d-solothurner-spitaler-soh-dornach",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2667,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::operating-room-technician-m-f-d-solothurner-spitaler-soh-dornach-21af43": {
@@ -40662,28 +40761,28 @@
     "canton": "SO"
   },
   "SO::it::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-8c03cfb86d7e",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
     "winnerCanonical": "infermiere-infermiere-specializzanda-o-hf-somatica-4-anni-m-f-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2174,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-4ba3fc757f58",
-    "winnerCanonical": "infermiere-infermiere-hf-in-formazione-somatica-4-anni-uomo-donna-solothurner-spitaler-soh-olten",
+    "winnerJobIdentifier": "solothurner-spitaeler-f5d073cb2b32",
+    "winnerCanonical": "infermiere-infermiere-specializzanda-o-hf-somatica-4-anni-m-f-d-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.1739,
-    "candidatesCount": 1,
+    "score": 0.2083,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-solothurner": {
     "winnerJobIdentifier": "soh-solothurner-spitaeler-4ba3fc757f58",
     "winnerCanonical": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-4-jahre-w-m-d-soh-ch-2",
     "decidedAt": "2026-06-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 2,
     "canton": "SO"
@@ -40692,18 +40791,18 @@
     "winnerJobIdentifier": "soh-solothurner-spitaeler-2a741305cff2",
     "winnerCanonical": "pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch-2",
     "decidedAt": "2026-06-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.9375,
     "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::pflegefachfrau-pflegefachmann-hf-in-ausbildung-somatik-verkurzt-2-3-4-jahre-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-dff979d97f49",
-    "winnerCanonical": "infermiere-infermiere-specializzanda-a-somatico-a-corso-abbreviato-2-anni-e-3-4-l-m-solothurner-spitaler-ag-soh",
+    "winnerJobIdentifier": "solothurner-spitaeler-331dfd8ea12e",
+    "winnerCanonical": "infermiere-infermiere-specializzato-a-hf-in-formazione-ridotto-2-3-4-anni-u-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.1786,
-    "candidatesCount": 1,
+    "score": 0.3077,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::pflegefachfrau-pflegefachmann-hf-in-ausbildung-verkurzt-2-jahre-w-m-d-soh-ch": {
@@ -40719,7 +40818,7 @@
     "winnerJobIdentifier": "soh-solothurner-spitaeler-a9add198d3a5",
     "winnerCanonical": "pflege-specialista-specialista-in-formazione-hf-ridotto-2-anni-u-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-06-16T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
     "canton": "SO"
@@ -40737,7 +40836,7 @@
     "winnerJobIdentifier": "soh-solothurner-spitaeler-8658164a0fa5",
     "winnerCanonical": "pharmaassistentin-pharmaassistent-o-drogistin-drogist-m-w-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-06-23T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 2,
     "canton": "SO"
@@ -40851,21 +40950,21 @@
     "canton": "SO"
   },
   "SO::it::radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b3b4db87a986",
-    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.6154,
-    "candidatesCount": 1,
+    "score": 0.6667,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-db60d21d6b1e",
-    "winnerCanonical": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3125,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::radiologiefachfrau-radiologiefachmann-w-m-d-soh-ch": {
@@ -40896,12 +40995,12 @@
     "canton": "SO"
   },
   "SO::it::rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b80b71c10079",
-    "winnerCanonical": "soccorritore-a-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-olten",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 1,
+    "score": 0.4545,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::sales-staff-in-with-all-round-function-otto-s-ag-bern": {
@@ -40977,12 +41076,12 @@
     "canton": "SO"
   },
   "SO::it::senior-consultant-m-d-solothurner-spitaler-soh-solothurn-7cbfb7": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-71a999de6ff5",
-    "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-cda36b3323e3",
+    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5833,
-    "candidatesCount": 1,
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::senior-consultant-w-m-d-solothurner-spitaler-soh-olten": {
@@ -40995,21 +41094,21 @@
     "canton": "SO"
   },
   "SO::it::soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b80b71c10079",
+    "winnerJobIdentifier": "solothurner-spitaeler-995061b50544",
     "winnerCanonical": "soccorritore-a-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::specialista-di-radiologia-specialista-di-radiologia-hf-medicina-nucleare-f-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-b3b4db87a986",
-    "winnerCanonical": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-solothurner-spitaler-ag-soh-solothurn",
+    "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
+    "winnerCanonical": "specialista-di-radiologia-specialista-di-radiologia-f-m-d-60-100-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.3889,
-    "candidatesCount": 1,
+    "score": 0.6667,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::specialista-di-tecnologia-operativa-m-w-d-solothurner-spitaler-soh-dornach": {
@@ -41049,12 +41148,12 @@
     "canton": "SO"
   },
   "SO::it::specialiste-en-technique-operatoire-h-f-solothurner-spitaler-soh-dornach": {
-    "winnerJobIdentifier": "soh-solothurner-spitaeler-5a958329572b",
-    "winnerCanonical": "specialista-di-tecnologia-operativa-nel-pool-uomo-donna-solothurner-spitaler-ag-soh-dornach",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2105,
-    "candidatesCount": 1,
+    "score": 0.1765,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::it::verkaufer-in-food-studentenaushilfe-coop-genossenschaft-zurich-es6dgu": {
@@ -44112,7 +44211,7 @@
     "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "TI"
@@ -44190,9 +44289,9 @@
     "canton": "TI"
   },
   "TI::de::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
-    "winnerJobIdentifier": "company-4333hw",
+    "winnerJobIdentifier": "company-4333hx",
     "winnerCanonical": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
@@ -44562,7 +44661,7 @@
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
     "canton": "TI"
@@ -44586,7 +44685,7 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
@@ -44967,7 +45066,7 @@
     "winnerJobIdentifier": "company-feezrk",
     "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 1,
     "canton": "TI"
@@ -45426,7 +45525,7 @@
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
     "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 1,
     "canton": "TI"
@@ -45459,9 +45558,9 @@
     "canton": "TI"
   },
   "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uikyun": {
-    "winnerJobIdentifier": "company-feexez",
+    "winnerJobIdentifier": "company-fef1bd",
     "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
@@ -45498,7 +45597,7 @@
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 1,
     "canton": "TI"
@@ -45522,11 +45621,11 @@
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333g2",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333g1",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -45549,9 +45648,9 @@
     "canton": "TI"
   },
   "TI::en::certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be": {
-    "winnerJobIdentifier": "company-4333g2",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333fb",
+    "winnerCanonical": "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
@@ -45819,29 +45918,29 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-4333g2",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333gx",
+    "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-4333g2",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333gx",
+    "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.6667,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-4333hs",
-    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333gx",
+    "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.4545,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46170,11 +46269,11 @@
     "canton": "TI"
   },
   "TI::en::nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-feezrj",
-    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzlh",
+    "winnerCanonical": "nursing-practitioner-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46353,17 +46452,17 @@
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
     "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hw",
-    "winnerCanonical": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333hx",
+    "winnerCanonical": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46431,11 +46530,11 @@
     "canton": "TI"
   },
   "TI::en::qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-02T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "company-4333g1",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -46956,7 +47055,7 @@
     "winnerJobIdentifier": "company-4333gx",
     "winnerCanonical": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "TI"
@@ -47403,11 +47502,11 @@
     "canton": "TI"
   },
   "TI::fr::infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uikz1n",
-    "winnerCanonical": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-06-09T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.4167,
+    "winnerJobIdentifier": "company-feezsa",
+    "winnerCanonical": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -47736,29 +47835,29 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333g2",
-    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "winnerJobIdentifier": "company-4333g1",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-050a3d": {
-    "winnerJobIdentifier": "company-4333g1",
-    "winnerCanonical": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.875,
+    "winnerJobIdentifier": "company-4333fb",
+    "winnerCanonical": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio-401a08": {
-    "winnerJobIdentifier": "company-4333g1",
-    "winnerCanonical": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-14T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
-    "score": 0.875,
+    "winnerJobIdentifier": "company-4333fb",
+    "winnerCanonical": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -47772,11 +47871,11 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil2ol",
-    "winnerCanonical": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-06-24T00:00:00.000Z",
-    "lastSeenAt": "2026-07-02T00:00:00.000Z",
-    "score": 0.4,
+    "winnerJobIdentifier": "company-4333g1",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -48591,9 +48690,9 @@
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hw",
+    "winnerJobIdentifier": "company-4333hx",
     "winnerCanonical": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
@@ -48609,45 +48708,45 @@
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n62": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n63": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6q": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -48897,7 +48996,7 @@
     "canton": "TI"
   },
   "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil169": {
-    "winnerJobIdentifier": "company-feey97",
+    "winnerJobIdentifier": "company-43343a",
     "winnerCanonical": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
@@ -48933,9 +49032,9 @@
     "canton": "TI"
   },
   "TI::it::infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-uil17z": {
-    "winnerJobIdentifier": "company-feezsb",
+    "winnerJobIdentifier": "company-feezsa",
     "winnerCanonical": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.9091,
     "candidatesCount": 1,
@@ -49347,9 +49446,9 @@
     "canton": "TI"
   },
   "TI::it::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hw",
+    "winnerJobIdentifier": "company-4333hx",
     "winnerCanonical": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 1,
@@ -49428,18 +49527,18 @@
     "canton": "TI"
   },
   "TI::it::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333hw",
+    "winnerJobIdentifier": "company-4333hx",
     "winnerCanonical": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-4333g2",
+    "winnerJobIdentifier": "company-4333g1",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
@@ -49644,27 +49743,27 @@
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172": {
-    "winnerJobIdentifier": "company-feezrj",
+    "winnerJobIdentifier": "company-feezrk",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil177": {
-    "winnerJobIdentifier": "company-feezrj",
+    "winnerJobIdentifier": "company-feezrk",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178": {
-    "winnerJobIdentifier": "company-feezrj",
+    "winnerJobIdentifier": "company-feezrk",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -49680,9 +49779,9 @@
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z": {
-    "winnerJobIdentifier": "company-feezrj",
+    "winnerJobIdentifier": "company-feezrk",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -49698,18 +49797,18 @@
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y": {
-    "winnerJobIdentifier": "company-4333g6",
+    "winnerJobIdentifier": "company-4333g5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5z": {
-    "winnerJobIdentifier": "company-4333g6",
+    "winnerJobIdentifier": "company-4333g5",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-07-15T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
@@ -54489,7 +54588,7 @@
     "winnerJobIdentifier": "jumbo-9ce594fe-cc0",
     "winnerCanonical": "abteilungsleiter-in-jumbo-retail-jumbo-zurich-annjkk",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -56034,12 +56133,12 @@
     "canton": "ZH"
   },
   "ZH::de::fresh-produce-salesperson-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "verkaufer-in-frischprodukte-coop-stafa-zurich-wkbfnk",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-pfaffikon-zurich-hu7062",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::fresh-produce-salesperson-coop-genossenschaft-zurich-1dc0ee": {
@@ -56178,19 +56277,19 @@
     "canton": "ZH"
   },
   "ZH::de::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
-    "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 4,
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s": {
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -56745,9 +56844,9 @@
     "canton": "ZH"
   },
   "ZH::de::mitarbeiter-verkauf-m-w-d-aldi-suisse-2": {
-    "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
     "winnerCanonical": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 2,
@@ -57744,12 +57843,12 @@
     "canton": "ZH"
   },
   "ZH::de::vendeur-de-produits-frais-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "verkaufer-in-frischprodukte-coop-stafa-zurich-wkbfnk",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.1538,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-pfaffikon-zurich-hu7062",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::vendeur-de-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
@@ -59202,12 +59301,12 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-7gondm",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-winterthur-zurich-7gondm",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-oartyo",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-oartyo",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg": {
@@ -61110,12 +61209,12 @@
     "canton": "ZH"
   },
   "ZH::en::fresh-produce-salesperson-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "fresh-produce-salesperson-coop-genossenschaft-stafa-4bf6f9",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-pfaffikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::fresh-produce-salesperson-coop-genossenschaft-winterthur": {
@@ -61290,19 +61389,19 @@
     "canton": "ZH"
   },
   "ZH::en::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
-    "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 4,
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1176,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s": {
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dietikon",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -62559,9 +62658,9 @@
     "canton": "ZH"
   },
   "ZH::en::sales-associate-m-w-d-aldi-suisse-uster": {
-    "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
-    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
+    "winnerCanonical": "sales-associate-m-w-d-aldi-suisse-meilen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
@@ -62852,7 +62951,7 @@
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8571,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::seller-fresh-products-coop-genossenschaft-zurich-1dc0ee": {
@@ -63063,12 +63162,12 @@
     "canton": "ZH"
   },
   "ZH::en::sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-124b2cdbddf7",
+    "winnerJobIdentifier": "postauto-124b2cdbddf7",
     "winnerCanonical": "security-specialist-in-public-transport-postauto-wallisellen",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "decidedAt": "2026-07-15T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::social-pedagogical-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich": {
@@ -63333,12 +63432,12 @@
     "canton": "ZH"
   },
   "ZH::en::vendeur-de-produits-frais-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "fresh-produce-salesperson-coop-genossenschaft-stafa-4bf6f9",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-pfaffikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::vendeur-de-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
@@ -64800,12 +64899,12 @@
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-7gondm",
-    "winnerCanonical": "seller-in-cash-registers-services-coop-genossenschaft-winterthur-929755",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-oartyo",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-oartyo",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg": {
@@ -66681,12 +66780,12 @@
     "canton": "ZH"
   },
   "ZH::fr::fresh-produce-salesperson-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "vendeur-de-produits-frais-coop-genossenschaft-stafa-4bf6f9",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "vendeur-produits-frais-coop-genossenschaft-pfaffikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::fresh-produce-salesperson-coop-genossenschaft-zurich-1dc0ee": {
@@ -66825,19 +66924,19 @@
     "canton": "ZH"
   },
   "ZH::fr::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
-    "winnerCanonical": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
-    "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-01T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 4,
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-assistant-e-en-pharmacie-cfc-dietikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s": {
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-assistant-e-en-pharmacie-cfc-dietikon",
     "decidedAt": "2026-07-15T00:00:00.000Z",
-    "lastSeenAt": "2026-07-15T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -68463,12 +68562,12 @@
     "canton": "ZH"
   },
   "ZH::fr::sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-124b2cdbddf7",
+    "winnerJobIdentifier": "postauto-124b2cdbddf7",
     "winnerCanonical": "specialiste-de-la-securite-dans-les-transports-publics-postauto-wallisellen",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "decidedAt": "2026-07-15T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.1429,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz": {
@@ -68715,12 +68814,12 @@
     "canton": "ZH"
   },
   "ZH::fr::vendeur-de-produits-frais-coop-genossenschaft-stafa-cgivhm": {
-    "winnerJobIdentifier": "company-wkbfnk",
-    "winnerCanonical": "vendeur-de-produits-frais-coop-genossenschaft-stafa-4bf6f9",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.7778,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-hu7062",
+    "winnerCanonical": "vendeur-produits-frais-coop-genossenschaft-pfaffikon",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::vendeur-de-produits-frais-coop-genossenschaft-winterthur": {
@@ -68936,7 +69035,7 @@
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8571,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::vendeur-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
@@ -68967,9 +69066,9 @@
     "canton": "ZH"
   },
   "ZH::fr::vendeur-se-m-w-d-aldi-suisse-uster": {
-    "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
-    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
+    "winnerCanonical": "vendeur-se-m-w-d-aldi-suisse-meilen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 2,
@@ -70272,12 +70371,12 @@
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-7gondm",
-    "winnerCanonical": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-winterthur-929755",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
-    "lastSeenAt": "2026-07-10T00:00:00.000Z",
-    "score": 0.2143,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-oartyo",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-oartyo",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg": {
@@ -70497,9 +70596,9 @@
     "canton": "ZH"
   },
   "ZH::it::abteilungsleiter-in-jumbo-retail-jumbo-zurich": {
-    "winnerJobIdentifier": "jumbo-9ce594fe-cc0",
+    "winnerJobIdentifier": "company-annjkk",
     "winnerCanonical": "capo-reparto-in-jumbo-retail-jumbo-division-der-coop-genossenschaft-zurich",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "decidedAt": "2026-07-15T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
@@ -72743,7 +72842,7 @@
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.2727,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::fresh-produce-salesperson-coop-genossenschaft-zurich-1dc0ee": {
@@ -72819,11 +72918,11 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6": {
-    "winnerJobIdentifier": "galenica-6363a42bc9fe",
-    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-bulach",
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-dietikon",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72876,7 +72975,7 @@
     "winnerJobIdentifier": "galenica-140c46587273",
     "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-dietikon",
     "decidedAt": "2026-07-01T00:00:00.000Z",
-    "lastSeenAt": "2026-07-08T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 4,
     "canton": "ZH"
@@ -72891,20 +72990,20 @@
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
-    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-zurich",
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-dietikon",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s": {
-    "winnerJobIdentifier": "galenica-1dd58cae5941",
-    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-zurich",
+    "winnerJobIdentifier": "galenica-140c46587273",
+    "winnerCanonical": "galenica-amavita-assistente-di-farmacia-afc-dietikon",
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -73899,18 +73998,18 @@
     "canton": "ZH"
   },
   "ZH::it::mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw": {
-    "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
-    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
+    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd": {
-    "winnerJobIdentifier": "aldi-suisse-68d4eb2aa905",
-    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
-    "decidedAt": "2026-07-08T00:00:00.000Z",
+    "winnerJobIdentifier": "aldi-suisse-507e9b557120",
+    "winnerCanonical": "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 2,
@@ -74798,6 +74897,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::seller-fresh-products-coop-genossenschaft-stafa": {
+    "winnerJobIdentifier": "company-uyjaqu",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-stafa-9dba37",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::seller-fresh-products-coop-genossenschaft-zurich-1dc0ee": {
     "winnerJobIdentifier": "company-stbp95",
     "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-bulach",
@@ -75099,7 +75207,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-124b2cdbddf7",
     "winnerCanonical": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
     "decidedAt": "2026-07-06T00:00:00.000Z",
-    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-15T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 2,
     "canton": "ZH"
@@ -75587,7 +75695,7 @@
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::vendeur-de-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
@@ -75788,6 +75896,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::vendeur-produits-frais-coop-genossenschaft-stafa": {
+    "winnerJobIdentifier": "company-uyjaqu",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-stafa-9dba37",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::vendeur-produits-frais-coop-genossenschaft-zurich-1dc0ee": {
     "winnerJobIdentifier": "company-stbp95",
     "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-bulach",
@@ -75902,7 +76019,7 @@
     "decidedAt": "2026-07-16T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
     "score": 0.8571,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::venditore-a-cassa-servizi-coop-genossenschaft-zurich": {
@@ -77093,6 +77210,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::verkaufer-in-frischprodukte-coop-stafa-zurich-cgivhm": {
+    "winnerJobIdentifier": "company-uyjaqu",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-stafa-9dba37",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::verkaufer-in-frischprodukte-coop-winterthur-zurich": {
     "winnerJobIdentifier": "company-phi1gu",
     "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-winterthur-62bc93",
@@ -77634,12 +77760,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-zurich-3kcj0z": {
-    "winnerJobIdentifier": "company-j69zes",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-horgen",
-    "decidedAt": "2026-06-16T00:00:00.000Z",
-    "lastSeenAt": "2026-06-18T00:00:00.000Z",
-    "score": 0.1667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-oartyo",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-oartyo",
+    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "lastSeenAt": "2026-07-16T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-zurich-jp46wh": {
@@ -77796,11 +77922,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufsberater-in-deco-jumbo-division-der-coop-genossenschaft-volketswil-zurich": {
-    "winnerJobIdentifier": "jumbo-f5244720-59a",
-    "winnerCanonical": "consulente-di-vendita-deco-jumbo-volketswil",
-    "decidedAt": "2026-07-16T00:00:00.000Z",
+    "winnerJobIdentifier": "company-u0fdt",
+    "winnerCanonical": "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-volketswil",
+    "decidedAt": "2026-07-15T00:00:00.000Z",
     "lastSeenAt": "2026-07-16T00:00:00.000Z",
-    "score": 0.2308,
+    "score": 0.5385,
     "candidatesCount": 1,
     "canton": "ZH"
   },
