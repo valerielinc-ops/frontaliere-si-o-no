@@ -38,7 +38,7 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
-import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
+import { runWithConcurrency, DEFAULT_LIVE_CHECK_TIMEOUT_MS } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -108,11 +108,20 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
 // crawl-time can be pulled/expired by an employer, or its per-locale SSG page
 // may not have deployed yet, before this script actually sends the alert.
-// Mirrors the HEAD-check pattern from check-journalist-article-links.mjs
-// (issue #3174) via scripts/lib/live-link-check.mjs — same HEAD → 405/501
-// ranged-GET fallback, same 8s timeout, same "network error = not-live, no
-// retry" semantics — so this preflight and that one can never silently drift
-// apart on what "live" means.
+//
+// This CANNOT reuse the plain HEAD-check from check-journalist-article-links.mjs
+// (scripts/lib/live-link-check.mjs checkLink): that helper checks EXTERNAL
+// URLs, which genuinely 404 when dead. Our own job pages never do — the site's
+// soft-404 policy (AGENTS.md "Static SEO Pages": no real 404s, always a bridge)
+// means an expired job's URL keeps returning 200 forever, rendering the
+// "Questa offerta di lavoro non è più attiva" soft-landing page instead
+// (build-plugins/jobsSeoPagesPlugin.ts buildSoftLandingHtml). So a HEAD/status
+// check alone is a no-op here — it was passing 200 for exactly the expired
+// jobs it was meant to catch. buildSoftLandingHtml is the ONLY template that
+// seeds `window.__EXPIRED_JOB_DATA__` (a live job page never does), so a GET +
+// body-marker check (checkJobPageLive below) is the real liveness signal for
+// our own URLs.
+const EXPIRED_JOB_MARKER = '__EXPIRED_JOB_DATA__=';
 const JOB_LIVE_CHECK_CONCURRENCY = 5;
 // Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
 // tool (a failed check just marks one outlink broken in a report — never
@@ -137,23 +146,38 @@ function jobPageUrl(job, locale) {
   return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
 }
 
+// GET (not HEAD) our own job page and treat it as dead when the request
+// fails/non-oks OR the body carries the expired-job soft-landing marker (see
+// the preflight comment above JOB_LIVE_CHECK_CONCURRENCY — HEAD/status alone
+// can never see this, our job pages always 200). Exported for tests.
+export async function checkJobPageLive(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS) {
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
+    if (!res.ok) return false;
+    const body = await res.text();
+    return !body.includes(EXPIRED_JOB_MARKER);
+  } catch {
+    return false;
+  }
+}
+
 /**
- * Filters `jobs` down to those whose live page resolves OK, checking each
- * distinct URL at most once per run via `cache` (shared across alerts/locales
- * so overlapping job pools aren't re-checked). Jobs with no resolvable slug
- * fall back to the site root in the email (always live) and are never
- * filtered. Exported for tests.
+ * Filters `jobs` down to those whose live page resolves OK AND is not the
+ * expired-job soft-landing bridge, checking each distinct URL at most once
+ * per run via `cache` (shared across alerts/locales so overlapping job pools
+ * aren't re-checked). Jobs with no resolvable slug fall back to the site root
+ * in the email (always live) and are never filtered. Exported for tests.
  */
 async function filterLiveJobs(jobs, locale, cache) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
   // single call (two jobs — e.g. two locale variants — can resolve to the
   // same page); otherwise a duplicate URL in the same batch would be
-  // HEAD-checked once per occurrence before either result lands in `cache`.
+  // checked once per occurrence before either result lands in `cache`.
   const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
   if (uniqueToCheck.length > 0) {
     await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      cache.set(url, await checkLink(url));
+      cache.set(url, await checkJobPageLive(url));
     });
   }
   const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));

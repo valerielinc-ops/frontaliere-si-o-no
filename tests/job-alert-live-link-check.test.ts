@@ -1,16 +1,32 @@
 /**
- * Guard for issue #3172: scripts/send-job-alerts.mjs must not embed a dead
- * job-page link in an alert email. data/jobs.json is a periodic crawl
- * snapshot — a job listed as "recent" at crawl-time can be pulled/expired,
- * or its per-locale SSG page may not have deployed yet, before the alert
- * actually sends. filterLiveJobs() HEAD-checks each job's live page (the
- * same URL buildAlertEmail() would embed) and drops the ones that don't
- * resolve, reusing the exact liveness semantics of
- * check-journalist-article-links.mjs (issue #3174) via
- * scripts/lib/live-link-check.mjs.
+ * Guard for issue #3172 (and the expired-job report resolved alongside it):
+ * scripts/send-job-alerts.mjs must not embed a dead OR expired job-page link
+ * in an alert email. data/jobs.json is a periodic crawl snapshot — a job
+ * listed as "recent" at crawl-time can be pulled/expired, or its per-locale
+ * SSG page may not have deployed yet, before the alert actually sends.
+ *
+ * filterLiveJobs() GETs each job's live page (the same URL buildAlertEmail()
+ * would embed) via checkJobPageLive() and drops jobs whose page doesn't
+ * resolve OK OR renders the expired-job soft-landing bridge
+ * (build-plugins/jobsSeoPagesPlugin.ts buildSoftLandingHtml, which seeds
+ * `window.__EXPIRED_JOB_DATA__` — the site never serves a real 404 for a
+ * once-known job slug, so HTTP status alone cannot tell a live job page from
+ * an expired one).
  */
 import { describe, expect, it, vi, afterEach } from 'vitest';
-import { filterLiveJobs, jobPageUrl } from '../scripts/send-job-alerts.mjs';
+import { filterLiveJobs, jobPageUrl, checkJobPageLive } from '../scripts/send-job-alerts.mjs';
+
+function liveResponse(status = 200, body = '<html>live job page</html>') {
+  return { status, ok: status >= 200 && status < 300, text: async () => body };
+}
+
+function expiredResponse() {
+  return {
+    status: 200,
+    ok: true,
+    text: async () => '<html><script>window.__EXPIRED_JOB_DATA__={"slug":"dead-job"};</script></html>',
+  };
+}
 
 function fixtureJob(overrides: Record<string, unknown> = {}) {
   return {
@@ -50,8 +66,8 @@ describe('filterLiveJobs', () => {
     const liveJob = fixtureJob({ slug: 'live-job' });
     const deadJob = fixtureJob({ slug: 'dead-job' });
     const fetchSpy = vi.fn(async (url: string) => {
-      if (String(url).includes('dead-job')) return { status: 404, ok: false };
-      return { status: 200, ok: true };
+      if (String(url).includes('dead-job')) return liveResponse(404, '');
+      return liveResponse();
     });
     vi.stubGlobal('fetch', fetchSpy);
 
@@ -62,14 +78,17 @@ describe('filterLiveJobs', () => {
     expect(out[0]).toBe(liveJob);
     expect(fetchSpy).toHaveBeenCalledWith(
       'https://frontaliereticino.ch/cerca-lavoro-ticino/live-job',
-      expect.objectContaining({ method: 'HEAD' }),
+      expect.any(Object),
     );
+    // GET, not HEAD — a HEAD response has no body to inspect for the expired marker.
+    const [, init] = fetchSpy.mock.calls.find(([url]) => String(url).includes('live-job')) as [string, RequestInit];
+    expect(init?.method).not.toBe('HEAD');
   });
 
   it('never re-checks the same URL twice in one run (shared cache)', async () => {
     const jobA = fixtureJob({ slug: 'shared-slug' });
     const jobB = fixtureJob({ slug: 'shared-slug' });
-    const fetchSpy = vi.fn().mockResolvedValue({ status: 200, ok: true });
+    const fetchSpy = vi.fn().mockResolvedValue(liveResponse());
     vi.stubGlobal('fetch', fetchSpy);
 
     const cache = new Map();
@@ -77,6 +96,28 @@ describe('filterLiveJobs', () => {
 
     expect(out).toHaveLength(2);
     expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('drops a job whose page is HTTP 200 but renders the expired-job soft-landing bridge', async () => {
+    const liveJob = fixtureJob({ slug: 'live-job' });
+    const expiredJob = fixtureJob({ slug: 'expired-job' });
+    const fetchSpy = vi.fn(async (url: string) => {
+      if (String(url).includes('expired-job')) return expiredResponse();
+      return liveResponse();
+    });
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const out = await filterLiveJobs([liveJob, expiredJob], 'it', new Map());
+
+    expect(out).toEqual([liveJob]);
+  });
+
+  it('checkJobPageLive: true for a plain 200 body, false when the body carries __EXPIRED_JOB_DATA__=', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(liveResponse()));
+    expect(await checkJobPageLive('https://frontaliereticino.ch/cerca-lavoro-ticino/live-job')).toBe(true);
+
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(expiredResponse()));
+    expect(await checkJobPageLive('https://frontaliereticino.ch/cerca-lavoro-ticino/expired-job')).toBe(false);
   });
 
   it('never drops a job with no resolvable slug (falls back to the site root, always live)', async () => {
@@ -111,27 +152,13 @@ describe('filterLiveJobs', () => {
     const jobs = Array.from({ length: 10 }, (_, i) => fixtureJob({ slug: `job-${i}` }));
     const fetchSpy = vi.fn(async (url: string) => {
       const idx = Number(String(url).match(/job-(\d+)/)?.[1]);
-      return idx < 4 ? { status: 200, ok: true } : { status: 404, ok: false };
+      return idx < 4 ? liveResponse() : liveResponse(404, '');
     });
     vi.stubGlobal('fetch', fetchSpy);
 
     const out = await filterLiveJobs(jobs, 'it', new Map());
 
     expect(out).toHaveLength(4);
-  });
-
-  it('falls back to a ranged GET when the origin rejects HEAD with 405 (mirrors check-journalist-article-links.mjs)', async () => {
-    const job = fixtureJob({ slug: 'head-rejected' });
-    const fetchSpy = vi.fn(async (_url: string, init?: RequestInit) => {
-      if (init?.method === 'HEAD') return { status: 405, ok: false };
-      return { status: 206, ok: false };
-    });
-    vi.stubGlobal('fetch', fetchSpy);
-
-    const out = await filterLiveJobs([job], 'it', new Map());
-
-    expect(out).toHaveLength(1);
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
   });
 });
 
