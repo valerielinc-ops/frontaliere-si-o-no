@@ -162,11 +162,19 @@ describe('AdBlockGate', () => {
     await screen.findByRole('dialog');
 
     Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'hidden' });
-    act(() => {
-      document.dispatchEvent(new Event('visibilitychange'));
-    });
 
-    expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
+    // The listener attaches in an effect keyed on `open`, committed only
+    // after the dialog's own state update flushes — a passive effect whose
+    // exact timing relative to `findByRole` resolving is a React-scheduler
+    // implementation detail, not a guarantee (flaked in CI: #4287). Retry
+    // the dispatch inside `waitFor` so the assertion doesn't depend on
+    // catching the listener on the very first attempt.
+    await waitFor(() => {
+      act(() => {
+        document.dispatchEvent(new Event('visibilitychange'));
+      });
+      expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'abandoned');
+    });
   });
 
   it('never resolves a bucket or runs detection for newsletter subscribers (#3655)', async () => {
