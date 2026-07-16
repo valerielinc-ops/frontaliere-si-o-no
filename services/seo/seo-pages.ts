@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3257,
+ "numberOfItems": 3261,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7932,7 +7932,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3254, "name": "Crisi nello Stretto di Hormuz: ritardi e rincar...", "url": `${BASE_URL}/articoli-frontaliere/crisi-stretto-hormuz-economia-svizzera` },
           { "@type": "ListItem", "position": 3255, "name": "730 precompilati 2026, le indicazioni del Fisco", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24` },
           { "@type": "ListItem", "position": 3256, "name": "EasyJet passa in mani statunitensi: cambiamenti...", "url": `${BASE_URL}/articoli-frontaliere/easyjet-castlelake-malpensa-ginevra-zurigo` },
-          { "@type": "ListItem", "position": 3257, "name": "Varese e Canton Ticino: il digitale avvicina i ...", "url": `${BASE_URL}/articoli-frontaliere/digitale-frontaliere-ticino-varese` }
+          { "@type": "ListItem", "position": 3257, "name": "Varese e Canton Ticino: il digitale avvicina i ...", "url": `${BASE_URL}/articoli-frontaliere/digitale-frontaliere-ticino-varese` },
+          { "@type": "ListItem", "position": 3258, "name": "Diritto all’indennità di maternità della lavora...", "url": `${BASE_URL}/articoli-frontaliere/diritto-allindennita-di-maternita-della-lavoratrice-frontaliera` },
+          { "@type": "ListItem", "position": 3259, "name": "Dividenti italiani, stop alle discriminazioni f...", "url": `${BASE_URL}/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri` },
+          { "@type": "ListItem", "position": 3260, "name": "Frontalieri, la flat tax entra nel Tuir: dal 20...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d` },
+          { "@type": "ListItem", "position": 3261, "name": "Telelavoro dei frontalieri tra Italia e Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ` }
  ]
  },
  {

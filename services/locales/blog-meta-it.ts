@@ -8543,6 +8543,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese e Canton Ticino: il digitale avvicina i frontalieri',
     'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Piattaforme online, infrastrutture veloci e procedure semplificate: ecco come la digitalizzazione trasforma la vita di chi lavora oltreconfine.',
     'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Panorama di Lugano con simboli di connettività digitale',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.title': 'Diritto all’indennità di maternità della lavoratrice frontaliera',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.excerpt': 'La Corte di Cassazione ha stabilito che le lavoratrici frontaliera italiane hanno diritto all\'indennità di maternità, indipendentemente dall\'attività lavorativa',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.imageAlt': 'Immagine editoriale relativa a: Diritto all’indennità di maternità della lavoratrice frontaliera',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.title': 'Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.excerpt': 'La Corte di cassazione afferma che gli enti esteri non possono subire un trattamento fiscale più gravoso per il solo fatto di essere costituiti secondo un',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.imageAlt': 'Immagine editoriale relativa a: Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.title': 'Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.excerpt': 'La flat tax entra nel Tuir: frontalieri possono optare per imposta sostitutiva al 25% delle imposte pagate in Svizzera a partire dal 2027.',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.imageAlt': 'Immagine editoriale relativa a: Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.title': 'Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.excerpt': 'Il telelavoro dei frontalieri tra Italia e Svizzera: chiarimenti sul Protocollo di modifica dell\'Accordo del 2020 per una disciplina coordinata tra fisco e',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.imageAlt': 'Immagine editoriale relativa a: Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
 };
 
 export default blogMetaIt;

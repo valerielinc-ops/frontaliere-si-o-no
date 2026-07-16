@@ -4564,6 +4564,10 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24': { name: 'Dichiarazione redditi 2026', path: '/articoli-frontaliere/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24', parent: 'blog' },
     'blog-easyjet-castlelake-malpensa-ginevra-zurigo': { name: 'EasyJet e frontalieri', path: '/articoli-frontaliere/easyjet-castlelake-malpensa-ginevra-zurigo', parent: 'blog' },
     'blog-digitale-frontaliere-ticino-varese': { name: 'Digitalizzazione', path: '/articoli-frontaliere/digitale-frontaliere-ticino-varese', parent: 'blog' },
+    'blog-diritto-allindennita-di-maternita-della-lavoratrice-frontaliera': { name: 'Diritto all’indennità di maternità della', path: '/articoli-frontaliere/diritto-allindennita-di-maternita-della-lavoratrice-frontaliera', parent: 'blog' },
+    'blog-dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri': { name: 'Dividenti italiani, stop alle', path: '/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri', parent: 'blog' },
+    'blog-frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d': { name: 'Frontalieri, la flat tax entra nel Tuir', path: '/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d', parent: 'blog' },
+    'blog-telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ': { name: 'Telelavoro dei frontalieri tra Italia e', path: '/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ', parent: 'blog' },
  };
 
  const info = sectionNames[section];

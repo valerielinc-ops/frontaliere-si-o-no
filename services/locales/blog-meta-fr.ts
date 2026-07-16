@@ -8543,6 +8543,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese et canton du Tessin : le numérique rapproche les frontaliers',
     'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Plateformes en ligne, infrastructures rapides et procédures simplifiées : voici comment la numérisation transforme la vie de ceux qui travaillent au-delà des frontières.',
     'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Panorama de Lugano avec des symboles de connectivité numérique',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.title': 'Droit à l\'allocation de maternité de la travailleuse frontalière',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.excerpt': 'La Cour de cassation a statué que les travailleuses frontalières italiennes ont droit à l\'allocation de maternité, quelle que soit leur activité professionnelle.',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.imageAlt': 'Image éditoriale relative à: Diritto all’indennità di maternità della lavoratrice frontaliera',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.title': 'Dividendes italiens, stop aux discriminations',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.excerpt': 'La Cour de cassation affirme que les entités étrangères ne peuvent subir un traitement fiscal plus lourd du seul fait qu\'elles sont constituées selon un',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.imageAlt': 'Image éditoriale relative à: Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.title': 'Flat tax au Tuir : 25% des impôts suisses à partir de 2027',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.excerpt': 'La flat tax entre dans le Tuir : les frontaliers peuvent opter pour une taxe de substitution à 25 % des impôts payés en Suisse à partir de 2027.',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.imageAlt': 'Image éditoriale relative à: Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.title': 'Télétravail frontalier: double seuil fiscalité et sécurité sociale',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.excerpt': 'Teletravail des navetteurs transfrontaliers entre l\'Italie et la Suisse : clarifications sur le Protocole d\'amendement à l\'Accord de 2020 visant une discipline coordonnée entre les autorités fiscales et la',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.imageAlt': 'Image éditoriale relative à: Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
 };
 
 export default blogMetaFr;
