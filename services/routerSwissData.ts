@@ -410,6 +410,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'attacco-informatico-iwb-basilea': { it: 'attacco-informatico-iwb-basilea', en: 'cyber-attack-iwb-basel', de: 'cyber-angriff-iwb-basel', fr: 'cyber-attaque-iwb-bale' },
  'sospensione-riversamento-imposta-frontalieri': { it: 'sospensione-riversamento-imposta-frontalieri', en: 'suspension-of-cross-border-tax-transfer', de: 'aussetzung-der-quellensteuer-transfer', fr: 'suspension-du-transfert-impot-frontaliers' },
  'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': { it: 'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri', en: 'us-trade-representative-praises-swiss-investments', de: 'handelsvertreter-der-vereinigten-staaten-lobt-schweizer-investitionen', fr: 'representant-commercial-des-etats-unis-elogie-investissements-suisse' },
+ 'banche-svizzere-truffe-online': { it: 'banche-svizzere-truffe-online', en: 'swiss-banks-online-scams', de: 'schweizer-banken-online-betrug', fr: 'banques-suisses-escroqueries-en-ligne' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
