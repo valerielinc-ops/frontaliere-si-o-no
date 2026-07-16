@@ -76,7 +76,7 @@ describe('SubscriptionPreferencesController — token mode', () => {
  />,
  );
  await waitFor(() => {
- expect(screen.getByText(/You have no active job alerts\./)).toBeTruthy();
+ expect(screen.getByText(/haven't saved any searches yet/)).toBeTruthy();
  });
  });
 
@@ -167,10 +167,10 @@ describe('SubscriptionPreferencesController — token mode', () => {
  />,
  );
  const matchers: Record<typeof locale, RegExp> = {
- it: /Non hai alert lavoro attivi\./,
- en: /You have no active job alerts\./,
- de: /Du hast keine aktiven Job-Alerts\./,
- fr: /Tu n\u2019as aucune alerte emploi active\./,
+ it: /nessuna ricerca salvata/,
+ en: /haven't saved any searches yet/,
+ de: /noch keine Suche gespeichert/,
+ fr: /aucune recherche enregistr\u00e9e/,
  };
  await waitFor(() => {
  expect(screen.getByText(matchers[locale])).toBeTruthy();
@@ -210,9 +210,54 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  'user@example.com',
  'abc123',
  'alert1',
- expect.objectContaining({ frequency: 'daily' }),
+ expect.objectContaining({ frequency: 'daily', frequencyOverride: true }),
  );
  });
+ });
+
+ it('shows the auto badge for engine-managed alerts and pins on manual frequency change', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'weekly', frequencyOverride: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily', frequencyOverride: true },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ expect(screen.getByText('Automatic')).toBeTruthy();
+
+ fireEvent.click(screen.getAllByRole('button', { name: /^daily$/ })[0]);
+ await waitFor(() => expect(screen.getByText('manually pinned')).toBeTruthy());
+ });
+
+ it('resets a pinned alert back to engine-managed via the reset-to-auto button', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ frequency: 'daily', frequencyOverride: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), frequency: 'daily', frequencyOverride: false },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('manually pinned')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /Switch back to automatic/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ expect.objectContaining({ frequencyOverride: false }),
+ );
+ });
+ await waitFor(() => expect(screen.getByText('Automatic')).toBeTruthy());
  });
 
  it('opens the edit form populated from the alert and saves on Save', async () => {

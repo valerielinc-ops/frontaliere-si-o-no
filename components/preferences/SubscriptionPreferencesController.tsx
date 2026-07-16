@@ -90,6 +90,12 @@ interface SectionStrings {
  sectorsPlaceholder: string;
  alertLimitReached: string;
  atLeastOneFilter: string;
+ frequencyAuto: string;
+ frequencyAutoHint: string;
+ frequencyPinned: string;
+ frequencyResetToAuto: string;
+ frequencyCreateHint: string;
+ addMoreSearchesHint: string;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -101,11 +107,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  newsletterStateOff: 'Non iscritto',
  alertsTitle: 'I tuoi avvisi lavoro',
  alertsDesc:
- 'Ti avvisiamo via email quando appaiono offerte che corrispondono ai tuoi criteri. Puoi eliminare i singoli avvisi qui.',
- alertsEmpty: 'Non hai alert lavoro attivi.',
+ 'Ti avvisiamo via email quando appaiono offerte che corrispondono ai tuoi criteri. Aggiungi più ricerche per non perderti occasioni: puoi sempre modificarle o metterle in pausa.',
+ alertsEmpty: 'Non hai ancora nessuna ricerca salvata. Aggiungine una per ricevere le offerte giuste via email.',
  alertDelete: 'Elimina',
  alertDeleting: 'Elimino…',
- alertConfirmDelete: 'Sicuro di voler eliminare questo avviso?',
+ alertConfirmDelete: 'Sicuro di voler eliminare questo avviso? Puoi anche modificarlo invece di rimuoverlo.',
  alertCancel: 'Annulla',
  frequencyDaily: 'giornaliero',
  frequencyWeekly: 'settimanale',
@@ -134,6 +140,13 @@ const STRINGS: Record<Locale, SectionStrings> = {
  sectorsPlaceholder: 'es. Banca / Finanza, IT',
  alertLimitReached: 'Hai raggiunto il limite di 10 alert',
  atLeastOneFilter: 'Inserisci almeno una parola chiave o un luogo',
+ frequencyAuto: 'Automatico',
+ frequencyAutoHint: 'la cadenza si adatta a quanto apri/clicchi',
+ frequencyPinned: 'fissata manualmente',
+ frequencyResetToAuto: 'Torna ad automatico',
+ frequencyCreateHint:
+ 'Potrai passare ad automatico (la cadenza si adatta a quanto apri o clicchi) dopo la creazione.',
+ addMoreSearchesHint: 'Più ricerche aggiungi, meno occasioni ti sfuggono.',
  },
  en: {
  newsletterTitle: 'Newsletter subscription',
@@ -143,11 +156,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  newsletterStateOff: 'Not subscribed',
  alertsTitle: 'Your job alerts',
  alertsDesc:
- 'We email you when matching jobs are posted. Manage individual alerts here.',
- alertsEmpty: 'You have no active job alerts.',
+ 'We email you when matching jobs are posted. Add more searches to catch every opportunity — you can always edit or pause them.',
+ alertsEmpty: "You haven't saved any searches yet. Add one to get matching jobs by email.",
  alertDelete: 'Delete',
  alertDeleting: 'Deleting…',
- alertConfirmDelete: 'Delete this alert?',
+ alertConfirmDelete: 'Delete this alert? You can edit it instead of removing it.',
  alertCancel: 'Cancel',
  frequencyDaily: 'daily',
  frequencyWeekly: 'weekly',
@@ -176,6 +189,13 @@ const STRINGS: Record<Locale, SectionStrings> = {
  sectorsPlaceholder: 'e.g. Banking / Finance, IT',
  alertLimitReached: "You've reached the 10-alert limit",
  atLeastOneFilter: 'Enter at least one keyword or location',
+ frequencyAuto: 'Automatic',
+ frequencyAutoHint: 'cadence adapts to how much you open/click',
+ frequencyPinned: 'manually pinned',
+ frequencyResetToAuto: 'Switch back to automatic',
+ frequencyCreateHint:
+ 'You can switch to automatic (cadence adapts to how much you open or click) after creating it.',
+ addMoreSearchesHint: 'The more searches you add, the fewer opportunities you miss.',
  },
  de: {
  newsletterTitle: 'Newsletter-Abo',
@@ -185,11 +205,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  newsletterStateOff: 'Nicht abonniert',
  alertsTitle: 'Deine Job-Alerts',
  alertsDesc:
- 'Wir benachrichtigen dich per E-Mail bei passenden Stellen. Verwalte einzelne Alerts hier.',
- alertsEmpty: 'Du hast keine aktiven Job-Alerts.',
+ 'Wir benachrichtigen dich per E-Mail bei passenden Stellen. Füge weitere Suchen hinzu, um keine Chance zu verpassen — du kannst sie jederzeit bearbeiten oder pausieren.',
+ alertsEmpty: 'Du hast noch keine Suche gespeichert. Füge eine hinzu, um passende Stellen per E-Mail zu erhalten.',
  alertDelete: 'Löschen',
  alertDeleting: 'Lösche…',
- alertConfirmDelete: 'Diesen Alert löschen?',
+ alertConfirmDelete: 'Diesen Alert löschen? Du kannst ihn stattdessen auch bearbeiten.',
  alertCancel: 'Abbrechen',
  frequencyDaily: 'täglich',
  frequencyWeekly: 'wöchentlich',
@@ -218,6 +238,13 @@ const STRINGS: Record<Locale, SectionStrings> = {
  sectorsPlaceholder: 'z. B. Bank / Finanz, IT',
  alertLimitReached: 'Du hast das Limit von 10 Alerts erreicht',
  atLeastOneFilter: 'Gib mindestens einen Suchbegriff oder Ort an',
+ frequencyAuto: 'Automatisch',
+ frequencyAutoHint: 'Häufigkeit passt sich an dein Öffnen/Klicken an',
+ frequencyPinned: 'manuell festgelegt',
+ frequencyResetToAuto: 'Zurück zu automatisch',
+ frequencyCreateHint:
+ 'Du kannst nach dem Erstellen auf automatisch umschalten (Häufigkeit passt sich an, wie oft du öffnest oder klickst).',
+ addMoreSearchesHint: 'Je mehr Suchen du hinzufügst, desto weniger Chancen verpasst du.',
  },
  fr: {
  newsletterTitle: 'Abonnement newsletter',
@@ -227,11 +254,11 @@ const STRINGS: Record<Locale, SectionStrings> = {
  newsletterStateOff: 'Non abonné',
  alertsTitle: 'Tes alertes emploi',
  alertsDesc:
- 'Nous t\u2019envoyons un email quand des offres correspondent. Gère chaque alerte ici.',
- alertsEmpty: 'Tu n\u2019as aucune alerte emploi active.',
+ 'Nous t\u2019envoyons un email quand des offres correspondent. Ajoute d\u2019autres recherches pour ne rater aucune opportunité — tu peux toujours les modifier ou les mettre en pause.',
+ alertsEmpty: 'Tu n\u2019as encore aucune recherche enregistrée. Ajoutes-en une pour recevoir les offres par email.',
  alertDelete: 'Supprimer',
  alertDeleting: 'Suppression…',
- alertConfirmDelete: 'Supprimer cette alerte ?',
+ alertConfirmDelete: 'Supprimer cette alerte ? Tu peux aussi la modifier au lieu de la supprimer.',
  alertCancel: 'Annuler',
  frequencyDaily: 'quotidien',
  frequencyWeekly: 'hebdomadaire',
@@ -260,6 +287,13 @@ const STRINGS: Record<Locale, SectionStrings> = {
  sectorsPlaceholder: 'ex. Banque / Finance, IT',
  alertLimitReached: 'Tu as atteint la limite de 10 alertes',
  atLeastOneFilter: 'Saisis au moins un mot-clé ou un lieu',
+ frequencyAuto: 'Automatique',
+ frequencyAutoHint: 'la fréquence s\'adapte à tes ouvertures/clics',
+ frequencyPinned: 'fixée manuellement',
+ frequencyResetToAuto: 'Repasser en automatique',
+ frequencyCreateHint:
+ 'Tu pourras passer en automatique (la fréquence s\'adapte à tes ouvertures/clics) après la création.',
+ addMoreSearchesHint: 'Plus tu ajoutes de recherches, moins tu rates d\u2019opportunités.',
  },
 };
 
@@ -318,6 +352,7 @@ async function authLoadFullStatus(email: string): Promise<{
  locations: Array.isArray(a.locations) ? a.locations.map(String) : [],
  sectors: Array.isArray(a.sectors) ? a.sectors.map(String) : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
+ frequencyOverride: a.frequencyOverride === true,
  active: a.active !== false,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : null,
@@ -438,6 +473,10 @@ async function authUpdateAlert(
  if (patch.locations !== undefined) update.locations = patch.locations;
  if (patch.sectors !== undefined) update.sectors = patch.sectors;
  if (patch.frequency !== undefined) update.frequency = patch.frequency;
+ // `in` (not `!== undefined`) so callers can deliberately reset to
+ // engine-managed (`false`), not just pin (`true`) — see
+ // handleResetToAuto below.
+ if ('frequencyOverride' in patch) update.frequencyOverride = patch.frequencyOverride === true;
  if (patch.active !== undefined) update.active = patch.active;
  await setDoc(ref, update, { merge: true });
 
@@ -459,6 +498,7 @@ async function authUpdateAlert(
  locations: Array.isArray(data?.locations) ? data.locations.map(String) : [],
  sectors: Array.isArray(data?.sectors) ? data.sectors.map(String) : [],
  frequency: typeof data?.frequency === 'string' ? data.frequency : 'weekly',
+ frequencyOverride: data?.frequencyOverride === true,
  active: data?.active !== false,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  };
@@ -485,6 +525,10 @@ async function authCreateAlert(
  locations: payload.locations,
  sectors: payload.sectors,
  frequency: payload.frequency,
+ // Creation always shows an explicit frequency picker — the pick is a
+ // manual pin from the start, same as the create_alert action handler
+ // in functions/src/newsletterSubscriptionManagement.js.
+ frequencyOverride: true,
  active: true,
  email: key,
  createdAt: serverTimestamp(),
@@ -512,6 +556,7 @@ async function authCreateAlert(
  locations: payload.locations,
  sectors: payload.sectors,
  frequency: payload.frequency,
+ frequencyOverride: true,
  active: true,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : Date.now(),
@@ -578,6 +623,9 @@ interface AlertEditorProps {
  initial: { keywords: string[]; locations: string[]; sectors: string[]; frequency: string };
  saving: boolean;
  showFrequency?: boolean;
+ /** Shows a forward-looking auto-frequency hint — create-only, since an
+ * existing alert's real auto/pinned state is already shown in AlertRow. */
+ isCreate?: boolean;
  onSave: (values: {
  keywords: string[];
  locations: string[];
@@ -606,6 +654,7 @@ const AlertEditor: React.FC<AlertEditorProps> = ({
  initial,
  saving,
  showFrequency = false,
+ isCreate = false,
  onSave,
  onCancel,
  requireAtLeastOneFilter = false,
@@ -682,6 +731,9 @@ const AlertEditor: React.FC<AlertEditorProps> = ({
  onChange={(next) => setFreq(next)}
  S={S}
  />
+ {isCreate && (
+ <p className="text-xs text-muted mt-1">{S.frequencyCreateHint}</p>
+ )}
  </div>
  )}
  {validationError && (
@@ -770,6 +822,7 @@ interface AlertRowProps {
  frequency: JobAlertFrequency;
  }) => void;
  onChangeFrequency: (next: JobAlertFrequency) => void;
+ onResetToAuto: () => void;
 }
 
 const AlertRow: React.FC<AlertRowProps> = ({
@@ -783,6 +836,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onCancelEdit,
  onSaveEdit,
  onChangeFrequency,
+ onResetToAuto,
 }) => {
  const [confirming, setConfirming] = useState(false);
 
@@ -809,7 +863,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onCancel={onCancelEdit}
  />
  ) : (
- <div className="flex items-start justify-between gap-3">
+ <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
  <div className="flex-1 min-w-0 space-y-2">
  {filterParts.length === 0 ? (
  <div className="text-sm text-muted italic">{S.noFilters}</div>
@@ -828,6 +882,28 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onChange={onChangeFrequency}
  S={S}
  />
+ {alert.frequencyOverride ? (
+ <>
+ <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-surface-raised text-muted border border-edge">
+ {S.frequencyPinned}
+ </span>
+ <button
+ type="button"
+ onClick={onResetToAuto}
+ disabled={saving}
+ className="text-xs text-accent underline underline-offset-2 hover:no-underline disabled:opacity-60"
+ >
+ {S.frequencyResetToAuto}
+ </button>
+ </>
+ ) : (
+ <>
+ <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded-full bg-accent-subtle text-accent border border-accent-border">
+ {S.frequencyAuto}
+ </span>
+ <span className="text-xs text-muted">{S.frequencyAutoHint}</span>
+ </>
+ )}
  {!alert.active && (
  <span className="px-2 py-0.5 bg-surface-raised text-muted text-xs font-bold rounded-md">
  {S.autologinOff}
@@ -835,7 +911,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  )}
  </div>
  </div>
- <div className="flex flex-col items-end gap-2">
+ <div className="flex flex-row sm:flex-col items-center sm:items-end justify-end gap-2 shrink-0">
  <button
  type="button"
  onClick={onStartEdit}
@@ -1057,30 +1133,74 @@ export function SubscriptionPreferencesController({
  };
 
  const handleChangeFrequency = async (alertId: string, next: JobAlertFrequency) => {
- // Optimistic flip + revert on error.
+ // Optimistic flip + revert on error. A manual frequency pick always pins
+ // the alert (frequencyOverride: true) — see handleResetToAuto below for
+ // the reverse.
  const previous = alerts.find((a) => a.id === alertId);
  if (!previous) return;
  if ((previous.frequency || '').toLowerCase() === next) return;
- setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, frequency: next } : a)));
+ setAlerts((prev) =>
+ prev.map((a) => (a.id === alertId ? { ...a, frequency: next, frequencyOverride: true } : a)),
+ );
  setSavingAlertId(alertId);
  setErrorMsg('');
  try {
  if (mode === 'token') {
  if (!token) throw new Error('missing_token');
- const result = await updateJobAlert(email, token, alertId, { frequency: next });
+ const result = await updateJobAlert(email, token, alertId, {
+ frequency: next,
+ frequencyOverride: true,
+ });
  if (!result.success) throw new Error(result.error || 'write_failed');
  if (result.alert) {
  setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
  }
  } else {
- const fresh = await authUpdateAlert(email, alertId, { frequency: next });
+ const fresh = await authUpdateAlert(email, alertId, { frequency: next, frequencyOverride: true });
  setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
  }
  flashSaved(`alert:${alertId}`);
  } catch (err: any) {
  console.warn('[SubscriptionPreferencesController] Change frequency failed:', err?.message);
  setAlerts((prev) =>
- prev.map((a) => (a.id === alertId ? { ...a, frequency: previous.frequency } : a)),
+ prev.map((a) =>
+ a.id === alertId
+ ? { ...a, frequency: previous.frequency, frequencyOverride: previous.frequencyOverride }
+ : a,
+ ),
+ );
+ reportError(S.saveError);
+ } finally {
+ setSavingAlertId(null);
+ }
+ };
+
+ const handleResetToAuto = async (alertId: string) => {
+ // Un-pin: hand the alert back to the engagement-tier engine.
+ const previous = alerts.find((a) => a.id === alertId);
+ if (!previous) return;
+ setAlerts((prev) =>
+ prev.map((a) => (a.id === alertId ? { ...a, frequencyOverride: false } : a)),
+ );
+ setSavingAlertId(alertId);
+ setErrorMsg('');
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await updateJobAlert(email, token, alertId, { frequencyOverride: false });
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ if (result.alert) {
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ }
+ } else {
+ const fresh = await authUpdateAlert(email, alertId, { frequencyOverride: false });
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
+ }
+ flashSaved(`alert:${alertId}`);
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Reset to auto failed:', err?.message);
+ setAlerts((prev) =>
+ prev.map((a) => (a.id === alertId ? { ...a, frequencyOverride: previous.frequencyOverride } : a)),
  );
  reportError(S.saveError);
  } finally {
@@ -1094,10 +1214,13 @@ export function SubscriptionPreferencesController({
  ) => {
  setSavingAlertId(alertId);
  setErrorMsg('');
+ // Editing always shows the frequency picker (showFrequency), so a save
+ // here is an explicit frequency affirmation — pin it.
+ const patch = { ...values, frequencyOverride: true };
  try {
  if (mode === 'token') {
  if (!token) throw new Error('missing_token');
- const result = await updateJobAlert(email, token, alertId, values);
+ const result = await updateJobAlert(email, token, alertId, patch);
  if (!result.success) throw new Error(result.error || 'write_failed');
  const updated = result.alert;
  setAlerts((prev) =>
@@ -1109,13 +1232,14 @@ export function SubscriptionPreferencesController({
  locations: values.locations,
  sectors: values.sectors,
  frequency: values.frequency,
+ frequencyOverride: true,
  ...(updated ? updated : {}),
  }
  : a,
  ),
  );
  } else {
- const fresh = await authUpdateAlert(email, alertId, values);
+ const fresh = await authUpdateAlert(email, alertId, patch);
  setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
  }
  flashSaved(`alert:${alertId}`);
@@ -1149,6 +1273,7 @@ export function SubscriptionPreferencesController({
  locations: created.locations,
  sectors: created.sectors,
  frequency: typeof created.frequency === 'string' ? created.frequency : 'weekly',
+ frequencyOverride: created.frequencyOverride === true,
  active: created.active !== false,
  createdAt: typeof created.createdAt === 'number' ? created.createdAt : null,
  },
@@ -1230,6 +1355,7 @@ export function SubscriptionPreferencesController({
  onCancelEdit={() => setEditingAlertId(null)}
  onSaveEdit={(values) => handleSaveEdit(alert.id, values)}
  onChangeFrequency={(next) => handleChangeFrequency(alert.id, next)}
+ onResetToAuto={() => handleResetToAuto(alert.id)}
  />
  ))}
  </div>
@@ -1244,6 +1370,7 @@ export function SubscriptionPreferencesController({
  initial={{ keywords: [], locations: [], sectors: [], frequency: 'weekly' }}
  saving={savingNewAlert}
  showFrequency
+ isCreate
  requireAtLeastOneFilter
  onSave={handleCreateAlert}
  onCancel={() => setCreatingAlert(false)}
@@ -1254,6 +1381,10 @@ export function SubscriptionPreferencesController({
  {S.alertLimitReached}
  </div>
  ) : (
+ <>
+ {alerts.length > 0 && (
+ <p className="text-xs text-muted mb-2">{S.addMoreSearchesHint}</p>
+ )}
  <button
  type="button"
  onClick={() => setCreatingAlert(true)}
@@ -1262,6 +1393,7 @@ export function SubscriptionPreferencesController({
  <Plus size={14} />
  {S.addNewAlert}
  </button>
+ </>
  )}
  {savedTickKey === 'new_alert' && (
  <span className="ml-2 inline-flex items-center gap-1 text-success text-xs">

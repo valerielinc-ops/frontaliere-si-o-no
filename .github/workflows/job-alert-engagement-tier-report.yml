@@ -1,0 +1,66 @@
+name: Job-Alert Engagement Tier Report
+
+# Control/monitoring workflow for the job-alert adaptive-frequency engine
+# (owner design 2026-07-16, scripts/lib/jobAlertEngagementTier.mjs). Read-only
+# report against production Firestore using the CI-side Firebase service
+# account — surfaces the manual-vs-engine-managed split, the live
+# daily/36h/weekly distribution, and cadence movement vs. the last
+# send-job-alerts.mjs run. Report-only: never fails the build.
+
+on:
+  schedule:
+    # Weekly, Monday 02:35 UTC — inside the same quiet 01:00-04:00 UTC
+    # concurrency window as send-job-alerts.yml / send-hour-impact-report.yml.
+    - cron: '35 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      json:
+        description: 'Emit machine-readable JSON instead of the table'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Run job-alert engagement tier report (read-only)
+        run: |
+          ARGS=""
+          if [ "${{ inputs.json }}" = "true" ]; then ARGS="--json"; fi
+          node scripts/report-job-alert-engagement-tiers.mjs $ARGS | tee /tmp/job-alert-engagement-tiers.txt | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: job-alert-engagement-tier-report
+          path: /tmp/job-alert-engagement-tiers.txt
+          if-no-files-found: ignore

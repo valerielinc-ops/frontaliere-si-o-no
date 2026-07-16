@@ -126,6 +126,7 @@ function serializeAlertDoc(id, data) {
  locations: Array.isArray(data?.locations) ? data.locations : [],
  sectors: Array.isArray(data?.sectors) ? data.sectors : [],
  frequency: typeof data?.frequency === 'string' ? data.frequency : 'weekly',
+ frequencyOverride: data?.frequencyOverride === true,
  active: data?.active !== false,
  email: typeof data?.email === 'string' ? data.email : null,
  createdAt: created && typeof created.toMillis === 'function'
@@ -137,7 +138,7 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, active = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -292,6 +293,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  locations: Array.isArray(a.locations) ? a.locations : [],
  sectors: Array.isArray(a.sectors) ? a.sectors : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
+ frequencyOverride: a.frequencyOverride === true,
  active: a.active !== false,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
@@ -393,6 +395,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  fields.push('frequency');
  }
 
+ // Explicit only — caller decides both directions: `true` pins the alert
+ // to the frequency just set (manual pick), `false` resets it back to
+ // engine-managed (see components/community/JobAlertForm.tsx's
+ // handleResetToAuto and services/jobAlertService.ts's updateAlert).
+ const frequencyOverrideBool = normalizeBool(frequencyOverride);
+ if (frequencyOverrideBool !== undefined) { patch.frequencyOverride = frequencyOverrideBool; fields.push('frequencyOverride'); }
+
  const activeBool = normalizeBool(active);
  if (activeBool !== undefined) { patch.active = activeBool; fields.push('active'); }
 
@@ -462,6 +471,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  locations: loc,
  sectors: sec,
  frequency: freq,
+ // Creation always shows an explicit frequency picker (see
+ // FrequencyToggle in the preferences UI) — the pick is a manual pin
+ // from the start, same as components/community/JobAlertForm.tsx.
+ frequencyOverride: true,
  active: true,
  email: normalizedEmail,
  createdAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -472,7 +485,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  email: normalizedEmail,
  event_type: 'job_alert_created',
  source_channel: 'preferences_link',
- meta: { alert_id: newRef.id, fields: ALERT_LIST_FIELDS.concat(['frequency']) },
+ meta: { alert_id: newRef.id, fields: ALERT_LIST_FIELDS.concat(['frequency', 'frequencyOverride']) },
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
  });

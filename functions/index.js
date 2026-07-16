@@ -462,6 +462,7 @@ export const newsletterManageSubscription = onRequest(
  const locations = params.locations;
  const sectors = params.sectors;
  const frequency = params.frequency;
+ const frequencyOverride = params.frequency_override;
  const active = params.active;
 
  try {
@@ -478,6 +479,7 @@ export const newsletterManageSubscription = onRequest(
  locations,
  sectors,
  frequency,
+ frequencyOverride,
  active,
  });
 

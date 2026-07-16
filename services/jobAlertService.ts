@@ -29,6 +29,14 @@ export interface JobAlertConfig {
    */
   cantonFilter?: string[] | null;
   frequency: 'daily' | 'weekly';
+  /**
+   * Sticky manual pin (owner design 2026-07-16): when `true`, `frequency`
+   * above is authoritative and `scripts/lib/jobAlertEngagementTier.mjs`
+   * never touches this alert's send cadence. When `false`/absent, the
+   * engagement engine decides the effective cadence (daily/36h/weekly)
+   * from the subscriber's own open/click recency at send time.
+   */
+  frequencyOverride?: boolean;
   locale: 'it' | 'en' | 'de' | 'fr';
   /**
    * Provenance of a one-tap subscription: the job-detail page the user was on
@@ -189,6 +197,7 @@ export async function createAlert(
     // preserving legacy subscriber semantics.
     cantonFilter,
     frequency: config.frequency,
+    frequencyOverride: config.frequencyOverride === true,
     locale: config.locale || 'it',
     // Provenance (one-tap subscriptions from the job-detail prompt). Only
     // written when provided — Firestore rejects `undefined`, so default to null.
@@ -212,6 +221,7 @@ export async function createAlert(
     email: normalizedEmail,
     ...config,
     cantonFilter,
+    frequencyOverride: config.frequencyOverride === true,
     active: true,
     createdAt: new Date(),
     lastMatchedAt: null,
@@ -253,6 +263,9 @@ export async function getUserAlerts(userId: string): Promise<JobAlert[]> {
       // treat the field as a single optional gate.
       cantonFilter: normalizeCantonFilter(d.cantonFilter),
       frequency: d.frequency || 'daily',
+      // Legacy alerts (pre-adaptive-frequency) have no `frequencyOverride`
+      // field — absent means engine-managed, not manually pinned.
+      frequencyOverride: d.frequencyOverride === true,
       locale: d.locale || 'it',
       active: d.active,
       createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
@@ -449,6 +462,11 @@ export async function updateAlert(
     updateData.cantonFilter = normalizeCantonFilter(changes.cantonFilter);
   }
   if (changes.frequency) updateData.frequency = changes.frequency;
+  // Use `in` so callers can deliberately reset to engine-managed (`false`),
+  // not just pin (`true`) — see components/community/JobAlertForm.tsx.
+  if ('frequencyOverride' in changes) {
+    updateData.frequencyOverride = changes.frequencyOverride === true;
+  }
   if (changes.locale) updateData.locale = changes.locale;
 
   if (Object.keys(updateData).length > 0) {
