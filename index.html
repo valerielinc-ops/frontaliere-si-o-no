@@ -989,7 +989,10 @@
           var tagType = e.target.tagName === 'SCRIPT' ? 'script' : 'link';
           var isAsset = src.indexOf('/assets/') !== -1;
           // Detect ad-blocker pattern
-          var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha/i.test(src);
+          // Keep in sync with AD_BLOCKER_TRIGGER_PATTERNS in services/resilientImport.ts
+          // (this inline bootstrap script cannot import a module — see the
+          // CHUNK_LOAD_ERROR_SUBSTRINGS comment there for why). issue #4304.
+          var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|t\.frontaliereticino\.ch/i.test(src);
 
           // Always store the resource error for analytics (even ad-blocked ones)
           try {
@@ -1119,7 +1122,9 @@
             reason.indexOf('Loading chunk') === -1 &&
             reason.indexOf('Loading CSS chunk') === -1 &&
             !/does not provide an export named|import not found|indirect export|Importing binding name/.test(reason)) return;
-        var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha/i.test(reason);
+        // Keep in sync with AD_BLOCKER_TRIGGER_PATTERNS in services/resilientImport.ts
+        // (this inline bootstrap script cannot import a module). issue #4304.
+        var isAdBlocked = /analytics|tracking|adsense|adsbygoogle|googletag|firebase|gtag|recaptcha|clarity\.ms|fundingchoices|cloudflareinsights|t\.frontaliereticino\.ch/i.test(reason);
 
         try {
           var errors = JSON.parse(sessionStorage.getItem('_resourceErrors') || '[]');

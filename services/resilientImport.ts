@@ -69,6 +69,56 @@ function escapeRegExpLiteral(s: string): string {
 export const CHUNK_LOAD_ERROR_PATTERN_SOURCE = CHUNK_LOAD_ERROR_SUBSTRINGS.map(escapeRegExpLiteral).join('|');
 
 /**
+ * SINGLE SOURCE OF TRUTH for the "this resource-load failure is a content/ad
+ * blocker, not a genuine bug" classifier used by the two pre-module bootstrap
+ * handlers in index.html (script/link load errors, dynamic-import rejections)
+ * and their mirrored copy in build-plugins/constants.ts (SELF_HEAL_SCRIPT_CONTENT,
+ * via `.map(r => r.source).join('|')` at BUILD TIME — same technique as
+ * CHUNK_LOAD_ERROR_PATTERN_SOURCE above). index.html's two copies are hand-synced
+ * (cannot `import` this module — see the comment on CHUNK_LOAD_ERROR_SUBSTRINGS).
+ *
+ * Confirmed via a live PostHog HogQL query (issue #4304, 2026-07-16): of 6,986
+ * `resource_load_error` events/30d, ~1,420 (~20%) were failed loads of
+ * THIRD-PARTY resources routinely blocked by ad/privacy blockers — Microsoft
+ * Clarity, Google Funding Choices (consent CMP), the Cloudflare Web Analytics
+ * beacon, and this site's own PostHog reverse-proxy subdomain (mirrors
+ * `POSTHOG_HOST` in services/posthog.ts and build-plugins/constants.ts) — but
+ * the pre-existing pattern list only covered generic tracking/ads keywords,
+ * missing all four, so those failures were misclassified `ad_blocker: false`
+ * (counted as genuine app errors), inflating the reported error rate. Each new
+ * entry is domain-anchored (not a bare keyword) so it cannot accidentally match
+ * a first-party chunk filename (e.g. services/clarity.ts's own lazy-loaded
+ * chunk has no `.ms` TLD in its name).
+ */
+export const AD_BLOCKER_TRIGGER_PATTERNS: readonly RegExp[] = [
+  /analytics/,
+  /tracking/,
+  /adsense/,
+  /adsbygoogle/,
+  /googletag/,
+  /firebase/,
+  /gtag/,
+  /recaptcha/,
+  /clarity\.ms/,
+  /fundingchoices/,
+  /cloudflareinsights/,
+  /t\.frontaliereticino\.ch/,
+];
+
+/**
+ * Regex-source (`|`-joined) form of AD_BLOCKER_TRIGGER_PATTERNS, for consumers
+ * that interpolate it into a raw script string (build-plugins/constants.ts) or
+ * build their own case-insensitive RegExp from it.
+ */
+export const AD_BLOCKER_TRIGGER_PATTERN_SOURCE = AD_BLOCKER_TRIGGER_PATTERNS.map((re) => re.source).join('|');
+
+/** True when `url` (a failed resource src, or an import()-rejection message
+ * carrying the failing URL) matches a known ad/privacy-blocker trigger. */
+export function isAdBlockerTriggerUrl(url: string): boolean {
+  return new RegExp(AD_BLOCKER_TRIGGER_PATTERN_SOURCE, 'i').test(url);
+}
+
+/**
  * A LINK-TIME ES-module mismatch SyntaxError — the cross-browser wordings the
  * browser throws when an importer chunk requests an export the (already loaded,
  * HTTP 200) dependency chunk does not provide. Used by isVersionSkewError below
