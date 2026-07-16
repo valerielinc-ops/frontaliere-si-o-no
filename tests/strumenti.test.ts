@@ -3,6 +3,7 @@
  * Tests core calculation logic exported by each component.
  */
 import { describe, it, expect } from 'vitest';
+import { cantonTaxBurdenPct } from '@/services/cantonSalary';
 
 // ── PayslipSimulator: test withholding tax rate logic ──
 // We can't directly import internal functions, so we test the same logic here
@@ -163,18 +164,17 @@ describe('LivabilityIndex scoring logic', () => {
 // ── SalaryCompare: test net calculations ──
 
 describe('SalaryCompare logic', () => {
-  function chWithholding(gross: number): number {
-    if (gross <= 30000) return gross * 0.03;
-    if (gross <= 60000) return gross * 0.065;
-    if (gross <= 100000) return gross * 0.10;
-    if (gross <= 150000) return gross * 0.14;
-    return gross * 0.18;
+  // Mirrors the production wrapper in SalaryCompare.tsx exactly; the actual
+  // per-canton tax curve lives only in services/cantonSalary.ts
+  // (cantonTaxBurdenPct) — no duplicated data table here.
+  function chWithholding(gross: number, canton?: string | null): number {
+    return gross * (cantonTaxBurdenPct(gross, canton) / 100);
   }
 
   const CH_SOCIAL_RATE = 0.136;
 
-  function calcNetCH(gross: number): number {
-    return Math.round(gross - gross * CH_SOCIAL_RATE - chWithholding(gross));
+  function calcNetCH(gross: number, canton?: string | null): number {
+    return Math.round(gross - gross * CH_SOCIAL_RATE - chWithholding(gross, canton));
   }
 
   it('calculates reasonable net for typical IT salary', () => {
@@ -203,10 +203,11 @@ describe('SalaryCompare logic', () => {
   // ── Per-canton net comparison (issue #3652: cantonNetRows) ──
   // Mirrors the production formula in SalaryCompare.tsx: gross is scaled by
   // the BFS-derived per-canton wage-level ratio (cantonGrossScale, #2068),
-  // net reuses the same calcNetCH curve for every canton.
-  function cantonNetRow(nationalGross: number, scale: number) {
+  // and net now also varies by canton via the ESTV-sourced withholding curve
+  // (cantonTaxBurdenPct) instead of one generic curve for every canton.
+  function cantonNetRow(nationalGross: number, scale: number, canton?: string | null) {
     const gross = Math.round(nationalGross * scale);
-    return { gross, net: calcNetCH(gross) };
+    return { gross, net: calcNetCH(gross, canton) };
   }
 
   it('national sentinel scale (1.0) reproduces the unscaled net figure', () => {
@@ -222,5 +223,19 @@ describe('SalaryCompare logic', () => {
     const highCanton = cantonNetRow(nationalGross, 1.15); // e.g. Zug-like ratio
     expect(highCanton.gross).toBeGreaterThan(lowCanton.gross);
     expect(highCanton.net).toBeGreaterThan(lowCanton.net);
+  });
+
+  it('applies a real ESTV-sourced withholding rate that differs by canton at the same gross', () => {
+    const gross = 100000;
+    const zg = cantonNetRow(gross, 1, 'ZG'); // Zug: lowest-tax canton capital
+    const ge = cantonNetRow(gross, 1, 'GE'); // Geneva: high-tax canton capital
+    expect(zg.gross).toBe(ge.gross);
+    expect(zg.net).toBeGreaterThan(ge.net);
+  });
+
+  it('falls back to the national-average curve for the CH sentinel and unmapped codes', () => {
+    const gross = 100000;
+    expect(calcNetCH(gross, 'CH')).toBe(calcNetCH(gross));
+    expect(calcNetCH(gross, 'not-a-canton')).toBe(calcNetCH(gross));
   });
 });

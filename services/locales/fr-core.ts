@@ -297,7 +297,7 @@ const frCore: Record<string, string> = {
  'salaryCompare.cantonAll': 'Suisse (moyenne nationale)',
  'salaryCompare.cantonNetTitle': 'Salaire net estimé par canton (CH)',
  'salaryCompare.cantonNetDesc': 'Estimation du salaire net suisse si le même profil travaillait dans un autre canton, basée sur les niveaux salariaux régionaux de l\'OFS (Office fédéral de la statistique).',
- 'salaryCompare.cantonNetDisclaimer': 'Attention : il s\'agit d\'une ESTIMATION, pas d\'un calcul fiscal officiel. Le brut par canton reflète le niveau salarial moyen régional (données OFS) ; le net utilise le même taux d\'imposition à la source indicatif pour tous les cantons et ne tient PAS compte des réelles différences de taux d\'imposition cantonal/communal, qui peuvent être importantes. Pour une estimation fiscale précise, consultez le calculateur officiel de votre canton de travail.',
+ 'salaryCompare.cantonNetDisclaimer': 'Attention : il s\'agit d\'une ESTIMATION, pas d\'un calcul fiscal officiel. Le brut par canton reflète le niveau salarial moyen régional (données OFS) ; le net utilise le taux de charge fiscale réel du chef-lieu de chaque canton (données officielles ESTV/AFC, personne seule sans enfant, année fiscale 2024) et reflète donc les véritables différences de charge fiscale cantonale/communale — mais ne tient pas compte de votre situation personnelle (état civil, enfants, déductions, commune exacte de résidence). Pour une estimation fiscale précise, consultez le calculateur officiel de votre canton de travail.',
  'salaryCompare.cantonNetColGross': 'Brut estimé',
  'salaryCompare.cantonNetColNet': 'Net estimé',
  'salaryCompare.cantonNetComuneNote': 'Vous cherchez une estimation pour votre commune de résidence en Italie ?',
@@ -3453,6 +3453,9 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3600.title': 'Précision fiscale par canton',
+  'whatsNew.v3600.cantonWithholding.title': 'Taux d\'imposition réel par canton dans le comparateur de salaires',
+  'whatsNew.v3600.cantonWithholding.desc': 'Le salaire net suisse par canton utilise désormais la charge fiscale réelle du chef-lieu de chacun des 26 cantons (données officielles ESTV/AFC), au lieu d\'un taux générique identique pour tous.',
   'whatsNew.v3590.title': 'Abonnement sans publicité repensé',
   'whatsNew.v3590.subscribeRedesign.title': 'Nouveau design pour la page d’abonnement et le popup AdBlock',
   'whatsNew.v3590.subscribeRedesign.desc': 'Page d’abonnement et popup AdBlock repensés : connexion standard (email, Google, LinkedIn), apparence cohérente avec le site et suivi complet des interactions.',

@@ -313,7 +313,7 @@ const translations: Record<string, string> = {
  'salaryCompare.cantonAll': 'Svizzera (media nazionale)',
  'salaryCompare.cantonNetTitle': 'Netto stimato per Cantone (CH)',
  'salaryCompare.cantonNetDesc': 'Stima del netto svizzero se lo stesso profilo lavorasse in un altro cantone, basata sui livelli salariali regionali UST (Ufficio Federale di Statistica).',
- 'salaryCompare.cantonNetDisclaimer': 'Attenzione: questa è una STIMA, non un calcolo fiscale ufficiale. Il lordo per cantone riflette il livello salariale medio regionale (dati UST); il netto usa un\'aliquota di imposta alla fonte indicativa uguale per tutti i cantoni e NON tiene conto delle reali differenze di aliquota fiscale cantonale/comunale, che possono essere significative. Per una stima fiscale accurata, consulta il calcolatore ufficiale del tuo cantone di lavoro.',
+ 'salaryCompare.cantonNetDisclaimer': 'Attenzione: questa è una STIMA, non un calcolo fiscale ufficiale. Il lordo per cantone riflette il livello salariale medio regionale (dati UST); il netto usa l\'aliquota di carico fiscale reale del capoluogo di ciascun cantone (dati ufficiali ESTV, persona sola senza figli, anno fiscale 2024), quindi riflette le vere differenze di carico fiscale cantonale/comunale — ma non tiene conto della tua situazione personale specifica (stato civile, figli, deduzioni, comune esatto di residenza). Per una stima fiscale accurata, consulta il calcolatore ufficiale del tuo cantone di lavoro.',
  'salaryCompare.cantonNetColGross': 'Lordo stimato',
  'salaryCompare.cantonNetColNet': 'Netto stimato',
  'salaryCompare.cantonNetComuneNote': 'Cerchi una stima per il tuo comune di residenza in Italia?',
@@ -3540,6 +3540,9 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3600.title': 'Precisione fiscale per cantone',
+  'whatsNew.v3600.cantonWithholding.title': 'Aliquota fiscale reale per cantone nel confronto stipendi',
+  'whatsNew.v3600.cantonWithholding.desc': 'Il netto svizzero per cantone ora usa il carico fiscale reale del capoluogo di ciascuno dei 26 cantoni (dati ufficiali ESTV), non più un\'aliquota generica uguale per tutti.',
   'whatsNew.v3590.title': 'Abbonamento senza pubblicità rinnovato',
   'whatsNew.v3590.subscribeRedesign.title': 'Nuovo design abbonamento e popup AdBlock',
   'whatsNew.v3590.subscribeRedesign.desc': 'Pagina abbonamento e popup AdBlock ridisegnati: accesso standard (email, Google, LinkedIn), grafica coerente col resto del sito e tracciamento completo delle interazioni.',

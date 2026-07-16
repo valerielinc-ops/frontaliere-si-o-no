@@ -297,7 +297,7 @@ const deCore: Record<string, string> = {
  'salaryCompare.cantonAll': 'Schweiz (nationaler Durchschnitt)',
  'salaryCompare.cantonNetTitle': 'Geschätzter Nettolohn nach Kanton (CH)',
  'salaryCompare.cantonNetDesc': 'Geschätzter Schweizer Nettolohn, falls dasselbe Profil in einem anderen Kanton arbeiten würde, basierend auf den BFS-Lohnniveaus (Bundesamt für Statistik) nach Grossregion.',
- 'salaryCompare.cantonNetDisclaimer': 'Hinweis: Dies ist eine SCHÄTZUNG, keine offizielle Steuerberechnung. Der Bruttolohn pro Kanton spiegelt das regionale Durchschnittslohnniveau (BFS-Daten) wider; die Nettoberechnung verwendet für alle Kantone denselben indikativen Quellensteuersatz und berücksichtigt NICHT die tatsächlichen kantonalen/kommunalen Steuersatzunterschiede, die erheblich sein können. Für eine genaue Steuerschätzung konsultieren Sie den offiziellen Rechner Ihres Arbeitskantons.',
+ 'salaryCompare.cantonNetDisclaimer': 'Hinweis: Dies ist eine SCHÄTZUNG, keine offizielle Steuerberechnung. Der Bruttolohn pro Kanton spiegelt das regionale Durchschnittslohnniveau (BFS-Daten) wider; die Nettoberechnung verwendet den realen Steuerbelastungssatz des jeweiligen Kantonshauptorts (offizielle ESTV-Daten, alleinstehende Person ohne Kinder, Steuerjahr 2024) und bildet damit die tatsächlichen kantonalen/kommunalen Steuerunterschiede ab — berücksichtigt aber nicht Ihre persönliche Situation (Zivilstand, Kinder, Abzüge, genaue Wohngemeinde). Für eine genaue Steuerschätzung konsultieren Sie den offiziellen Rechner Ihres Arbeitskantons.',
  'salaryCompare.cantonNetColGross': 'Geschätzter Bruttolohn',
  'salaryCompare.cantonNetColNet': 'Geschätzter Nettolohn',
  'salaryCompare.cantonNetComuneNote': 'Suchen Sie eine Schätzung für Ihre Wohngemeinde in Italien?',
@@ -3453,6 +3453,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3600.title': 'Steuerpräzision pro Kanton',
+  'whatsNew.v3600.cantonWithholding.title': 'Realer kantonaler Quellensteuersatz im Lohnvergleich',
+  'whatsNew.v3600.cantonWithholding.desc': 'Der Schweizer Nettolohn pro Kanton verwendet jetzt die reale Steuerbelastung des Hauptorts jedes der 26 Kantone (offizielle ESTV-Daten) statt eines generischen Satzes für alle Kantone.',
   'whatsNew.v3590.title': 'Werbefreies Abo überarbeitet',
   'whatsNew.v3590.subscribeRedesign.title': 'Neues Design für Abo-Seite und AdBlock-Popup',
   'whatsNew.v3590.subscribeRedesign.desc': 'Abo-Seite und AdBlock-Popup neu gestaltet: Standard-Login (E-Mail, Google, LinkedIn), einheitliches Erscheinungsbild und vollständiges Interaktions-Tracking.',
