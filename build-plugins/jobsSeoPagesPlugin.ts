@@ -7584,6 +7584,168 @@ ${staticAnalyticsHtml}
  }
  }
 
+ /* ── Company hub v2 shared data blocks (issue #4306) ──────────────────
+  * Additive, cross-tier helpers reused by Phase 3.3 (per-canton) and
+  * Phase 3.4 (per-canton × city) company hub loops below: a cross-canton
+  * hiring distribution (for "also hiring in" cross-links), a salary-range
+  * block, and a generic-but-per-company FAQ block. Every fact is derived
+  * from real per-job fields already present on `validJobs`
+  * (job.salaryMin/salaryMax, job.location, job.title, job.companyDomain) —
+  * no invented per-brand claims (see issue #4306 ask: real data, not
+  * identical boilerplate). Self-contained: does not touch
+  * searchConsoleCompat.ts (company hub URL shapes are unchanged — only the
+  * page body/JSON-LD gain content) and does not touch any other in-flight
+  * branch's additions to this file.
+  */
+ const COMPANY_HUB_ALSO_HIRING_MIN_JOBS = 3; // mirrors MIN_JOBS_PER_CANTON_COMPANY below — only cross-link to a canton when a real (non-bridge) hub page exists there.
+ const companyCantonDistribution: Map<string, Map<string, { name: string; count: number }>> = new Map();
+ for (const job of validJobs) {
+ const jc = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (!jc) continue;
+ const slug = companyHubSlugBuild(job.company, job.companyKey);
+ if (!slug) continue;
+ if (!companyCantonDistribution.has(slug)) companyCantonDistribution.set(slug, new Map());
+ const byCanton = companyCantonDistribution.get(slug)!;
+ const entry = byCanton.get(jc);
+ if (entry) entry.count++;
+ else byCanton.set(jc, { name: job.company, count: 1 });
+ }
+ const companyHubAlsoHiringLabel: Record<'it' | 'en' | 'de' | 'fr', string> = {
+ it: 'Altre sedi che assumono',
+ en: 'Also hiring in',
+ de: 'Weitere Standorte mit offenen Stellen',
+ fr: 'Recrute aussi à',
+ };
+ /** Cross-canton "also hiring in" links — only to cantons with a real (non-bridge) hub. */
+ const renderCompanyHubAlsoHiringHtml = (
+ slug: string,
+ currentCanton: string,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): string => {
+ const byCanton = companyCantonDistribution.get(slug);
+ if (!byCanton) return '';
+ const others = [...byCanton.entries()]
+ .filter(([canton, v]) => canton !== currentCanton && (canton === 'TI' || v.count >= COMPANY_HUB_ALSO_HIRING_MIN_JOBS))
+ .sort((a, b) => b[1].count - a[1].count)
+ .slice(0, 4);
+ if (others.length === 0) return '';
+ const prefix = companyRoutePrefix[locale];
+ const items = others.map(([canton, { count }]) => {
+ const cLabel = getCantonDisplayLabel(canton, locale);
+ const section = sharedResolveCantonSection(locale, canton);
+ const href = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${section}/${prefix}-${slug}`.replace(/\/+/g, '/'))}`;
+ const countLabel = locale === 'it' ? `${count} posizion${count === 1 ? 'e' : 'i'}`
+ : locale === 'en' ? `${count} role${count === 1 ? '' : 's'}`
+ : locale === 'de' ? `${count} Stelle${count === 1 ? '' : 'n'}`
+ : `${count} poste${count === 1 ? '' : 's'}`;
+ return `<li><a href="${href}">${esc(cLabel)} — ${esc(countLabel)}</a></li>`;
+ }).join('');
+ return `<section class="s-7uP4UM"><h2>${esc(companyHubAlsoHiringLabel[locale])}</h2><ul>${items}</ul></section>`;
+ };
+ /** Salary-range block — real job.salaryMin/salaryMax aggregate, omitted when no data exists. */
+ const renderCompanyHubSalaryRangeHtml = (
+ jobs: ReadonlyArray<any>,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): string => {
+ const values = jobs
+ .map((j: any) => ({ min: Number(j.salaryMin), max: Number(j.salaryMax), currency: String(j.currency || 'CHF') }))
+ .filter((v) => Number.isFinite(v.min) && v.min > 0);
+ if (values.length === 0) return '';
+ const overallMin = Math.min(...values.map((v) => v.min));
+ const overallMax = Math.max(...values.map((v) => (Number.isFinite(v.max) && v.max > v.min ? v.max : v.min)));
+ const currency = values[0].currency || 'CHF';
+ const fmt = (n: number) => `${(n / 1000).toFixed(0)}k`;
+ const rangeText = overallMax > overallMin
+ ? `${currency} ${fmt(overallMin)} – ${fmt(overallMax)}`
+ : `${currency} ${fmt(overallMin)}+`;
+ const heading = locale === 'it' ? 'Fascia stipendi indicativa'
+ : locale === 'en' ? 'Estimated salary range'
+ : locale === 'de' ? 'Geschätzte Gehaltsspanne'
+ : 'Fourchette salariale indicative';
+ const note = locale === 'it' ? `Stima basata su ${values.length} annunci con dato salariale, lordo/mese.`
+ : locale === 'en' ? `Estimate based on ${values.length} listings with salary data, gross/month.`
+ : locale === 'de' ? `Schätzung basierend auf ${values.length} Anzeigen mit Gehaltsangabe, brutto/Monat.`
+ : `Estimation basée sur ${values.length} annonces avec données salariales, brut/mois.`;
+ return `<section class="s-7uP4UM"><h2>${esc(heading)}</h2><p><strong>${esc(rangeText)}</strong></p><p>${esc(note)}</p></section>`;
+ };
+ type CompanyHubFaqItem = { q: string; a: string };
+ /** Per-company FAQ items — real job count/roles/salary data; the frontalieri answer reuses the same factual statement already used verbatim in `marketSection` elsewhere in this file, not a per-employer claim. */
+ const buildCompanyHubFaqItems = (
+ companyName: string,
+ scopeLabel: string,
+ jobs: ReadonlyArray<any>,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): CompanyHubFaqItem[] => {
+ const items: CompanyHubFaqItem[] = [];
+ const roleTitles = [...new Set(jobs.map((j: any) => String(j?.titleByLocale?.[locale] || j?.title || '').trim()).filter(Boolean))].slice(0, 5);
+ const count = jobs.length;
+ if (roleTitles.length > 0) {
+ const q = locale === 'it' ? `Quali posizioni offre ${companyName} in questo momento?`
+ : locale === 'en' ? `What roles is ${companyName} currently hiring for?`
+ : locale === 'de' ? `Welche Stellen bietet ${companyName} aktuell an?`
+ : `Quels postes ${companyName} propose-t-il actuellement ?`;
+ const a = locale === 'it' ? `${companyName} ha attualmente ${count} posizioni aperte in ${scopeLabel}, tra cui: ${roleTitles.join(', ')}.`
+ : locale === 'en' ? `${companyName} currently has ${count} open positions in ${scopeLabel}, including: ${roleTitles.join(', ')}.`
+ : locale === 'de' ? `${companyName} hat derzeit ${count} offene Stellen in ${scopeLabel}, darunter: ${roleTitles.join(', ')}.`
+ : `${companyName} compte actuellement ${count} postes ouverts à ${scopeLabel}, dont : ${roleTitles.join(', ')}.`;
+ items.push({ q, a });
+ }
+ const salaryMins = jobs.map((j: any) => Number(j.salaryMin)).filter((n) => Number.isFinite(n) && n > 0);
+ if (salaryMins.length > 0) {
+ const minV = Math.min(...salaryMins);
+ const salaryMaxCandidates = jobs.map((j: any) => Number(j.salaryMax)).filter((n) => Number.isFinite(n) && n > 0);
+ const maxV = salaryMaxCandidates.length > 0 ? Math.max(...salaryMaxCandidates) : minV;
+ const q = locale === 'it' ? `Quanto paga ${companyName}?`
+ : locale === 'en' ? `What salary does ${companyName} pay?`
+ : locale === 'de' ? `Wie viel zahlt ${companyName}?`
+ : `Combien paie ${companyName} ?`;
+ const a = locale === 'it' ? `In base agli annunci pubblicati, la fascia stipendiale indicativa presso ${companyName} va da circa CHF ${(minV / 1000).toFixed(0)}k a CHF ${(maxV / 1000).toFixed(0)}k lordi al mese, in base al ruolo. Si tratta di una stima automatica, non di una comunicazione ufficiale dell'azienda.`
+ : locale === 'en' ? `Based on published listings, the indicative salary range at ${companyName} runs from about CHF ${(minV / 1000).toFixed(0)}k to CHF ${(maxV / 1000).toFixed(0)}k gross per month, depending on role. This is an automated estimate, not an official company disclosure.`
+ : locale === 'de' ? `Basierend auf veröffentlichten Anzeigen liegt die geschätzte Gehaltsspanne bei ${companyName} zwischen etwa CHF ${(minV / 1000).toFixed(0)}k und CHF ${(maxV / 1000).toFixed(0)}k brutto pro Monat, je nach Rolle. Dies ist eine automatische Schätzung, keine offizielle Angabe des Unternehmens.`
+ : `Sur la base des annonces publiées, la fourchette salariale indicative chez ${companyName} va d'environ CHF ${(minV / 1000).toFixed(0)}k à CHF ${(maxV / 1000).toFixed(0)}k brut par mois, selon le poste. Il s'agit d'une estimation automatique, non d'une communication officielle de l'entreprise.`;
+ items.push({ q, a });
+ }
+ const qFr = locale === 'it' ? `${companyName} assume anche frontalieri?`
+ : locale === 'en' ? `Does ${companyName} hire cross-border workers (frontalieri)?`
+ : locale === 'de' ? `Stellt ${companyName} auch Grenzgänger ein?`
+ : `${companyName} embauche-t-il aussi des frontaliers ?`;
+ const aFr = locale === 'it' ? `Come per tutti i datori di lavoro in Svizzera, i lavoratori frontalieri con Permesso G possono candidarsi alle posizioni ${companyName}. La Svizzera applica l'imposta alla fonte sul reddito lordo dei frontalieri: usa il nostro simulatore fiscale gratuito per stimare lo stipendio netto.`
+ : locale === 'en' ? `As with all Swiss employers, cross-border workers with a G Permit can apply to ${companyName} positions. Switzerland applies withholding tax on cross-border workers' gross income: use our free tax simulator to estimate your net salary.`
+ : locale === 'de' ? `Wie bei allen Schweizer Arbeitgebern können Grenzgänger mit G-Bewilligung sich bei ${companyName} bewerben. Die Schweiz erhebt eine Quellensteuer auf das Bruttoeinkommen von Grenzgängern: Nutzen Sie unseren kostenlosen Steuersimulator, um Ihr Nettogehalt zu schätzen.`
+ : `Comme pour tous les employeurs suisses, les travailleurs frontaliers titulaires d'un permis G peuvent postuler aux postes chez ${companyName}. La Suisse applique un impôt à la source sur le revenu brut des frontaliers : utilisez notre simulateur fiscal gratuit pour estimer votre salaire net.`;
+ items.push({ q: qFr, a: aFr });
+ return items;
+ };
+ /** Renders the FAQ HTML block + matching FAQPage JSON-LD (content parity — rich-result requirement). */
+ const renderCompanyHubFaqHtml = (
+ items: ReadonlyArray<CompanyHubFaqItem>,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): { html: string; ld: string } => {
+ if (items.length === 0) return { html: '', ld: '' };
+ const heading = locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Häufig gestellte Fragen' : 'Questions fréquentes';
+ const html = `<section class="s-7uP4UM"><h2>${esc(heading)}</h2>${items.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}</section>`;
+ const ld = inlineScriptJson({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ inLanguage: locale,
+ mainEntity: items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+ });
+ return { html, ld };
+ };
+ /** Real (non-invented) Organization LD extras: sameAs from job.companyDomain, logo only from the curated map (never the generic OG placeholder or an initials SVG). */
+ const resolveCompanyHubOrgExtras = (
+ jobs: ReadonlyArray<any>,
+ ): { sameAs?: string; logo?: string } => {
+ const withDomain = jobs.find((j: any) => String(j?.companyDomain || '').trim().length > 0);
+ const sameAs = withDomain ? `https://${String((withDomain as any).companyDomain).replace(/^https?:\/\//, '').trim()}` : undefined;
+ const sampleJob = jobs[0];
+ const rawLogo = sampleJob ? companyLogo(sampleJob) : COMPANY_LOGO_PLACEHOLDER;
+ const logo = rawLogo && rawLogo !== COMPANY_LOGO_PLACEHOLDER
+ ? (rawLogo.startsWith('http') ? rawLogo : `${BASE_URL}${rawLogo}`)
+ : undefined;
+ return { sameAs, logo };
+ };
+
  /* ── Per-canton company hubs (Phase 3.3) ─────────────────────
   * Additive: for every non-TI canton, for every company with ≥ 3 jobs in
   * that canton, emit /cerca-lavoro-{cantonSlug}/azienda-{companySlug}/ —
@@ -7747,9 +7909,14 @@ ${staticAnalyticsHtml}
  itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
- // Light Organization JSON-LD — derived from job data (no curated overlay).
+ // Organization JSON-LD — derived from job data (no curated overlay).
+ // sameAs/logo (issue #4306) are real, derived values only: sameAs from
+ // job.companyDomain, logo only from the curated CRAWLED_COMPANY_LOGOS map
+ // (never the generic OG placeholder or an initials SVG) — see
+ // resolveCompanyHubOrgExtras above.
  const companyLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const primaryLocation = companyLocations[0] || '';
+ const { sameAs: companyHubSameAs, logo: companyHubLogo } = resolveCompanyHubOrgExtras(cappedJobs);
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'Organization',
@@ -7765,6 +7932,8 @@ ${staticAnalyticsHtml}
  value: companyJobs.length,
  unitText: openPositionsUnit[locale],
  },
+ ...(companyHubSameAs ? { sameAs: companyHubSameAs } : {}),
+ ...(companyHubLogo ? { logo: companyHubLogo } : {}),
  };
  const organizationLd = inlineScriptJson(orgLdObj);
  const listHtml = jobCardListBody(cappedJobs, locale);
@@ -7781,7 +7950,16 @@ ${staticAnalyticsHtml}
  return `<section class="s-7uP4UM"><h2>Travailler chez ${esc(companyName)} à ${esc(cDisplay)}</h2><p>${esc(companyName)} fait partie des entreprises qui recrutent à ${esc(cDisplay)}. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ // Company hub v2 data blocks (issue #4306): salary range + cross-canton
+ // "also hiring" + FAQ, all real-data-derived — placed after the primary
+ // open-positions list (already above the fold) and before the longer
+ // prose sections, per AGENTS.md SEO landing order (data area before
+ // "prose lunga").
+ const salaryBlockHtml = renderCompanyHubSalaryRangeHtml(cappedJobs, locale);
+ const alsoHiringHtml = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
+ const faqItems = buildCompanyHubFaqItems(companyName, cDisplay, cappedJobs, locale);
+ const { html: faqHtml, ld: faqLd } = renderCompanyHubFaqHtml(faqItems, locale);
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -7799,7 +7977,7 @@ ${staticAnalyticsHtml}
  canonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
+ jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd, ...(faqLd ? [faqLd] : [])],
  bodyHtml,
  distDir,
  });
@@ -8027,6 +8205,9 @@ ${staticAnalyticsHtml}
  itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
+ // sameAs/logo (issue #4306) — real, derived values only. See
+ // resolveCompanyHubOrgExtras above (shared with Phase 3.3).
+ const { sameAs: companyCitySameAs, logo: companyCityLogo } = resolveCompanyHubOrgExtras(cappedJobs);
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'Organization',
@@ -8042,6 +8223,8 @@ ${staticAnalyticsHtml}
  value: ccJobs.length,
  unitText: openPositionsUnit[locale],
  },
+ ...(companyCitySameAs ? { sameAs: companyCitySameAs } : {}),
+ ...(companyCityLogo ? { logo: companyCityLogo } : {}),
  };
  const organizationLd = inlineScriptJson(orgLdObj);
  const listHtml = jobCardListBody(cappedJobs, locale);
@@ -8052,7 +8235,13 @@ ${staticAnalyticsHtml}
  return `<p>${ccJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Mises à jour quotidiennement.</p>`;
  })();
  const openAllLabel = locale === 'it' ? `Vedi tutte le offerte presso ${companyName}` : locale === 'en' ? `View all jobs at ${companyName}` : locale === 'de' ? `Alle Stellen bei ${companyName}` : `Voir toutes les offres chez ${companyName}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
+ // Company hub v2 data blocks (issue #4306) — same shared helpers as
+ // Phase 3.3, scoped to this canton×city bucket's job set.
+ const salaryBlockHtmlCC = renderCompanyHubSalaryRangeHtml(cappedJobs, locale);
+ const alsoHiringHtmlCC = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
+ const faqItemsCC = buildCompanyHubFaqItems(companyName, cityDisplay, cappedJobs, locale);
+ const { html: faqHtmlCC, ld: faqLdCC } = renderCompanyHubFaqHtml(faqItemsCC, locale);
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtmlCC}\n${alsoHiringHtmlCC}\n${faqHtmlCC}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const html = buildSeoPageHtml({
  locale,
@@ -8061,7 +8250,7 @@ ${staticAnalyticsHtml}
  canonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
+ jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd, ...(faqLdCC ? [faqLdCC] : [])],
  bodyHtml,
  distDir,
  });
