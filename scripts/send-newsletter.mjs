@@ -52,6 +52,7 @@ import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
+import { localePathPrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -864,72 +865,10 @@ function buildPublishedAtLookup() {
   return (id) => map.get(id) || null;
 }
 
-// Capture group for a single-quoted string literal that allows escaped chars
-// (e.g. `'L\'incertezza...'`). The previous `'([^']*)'` truncated at the
-// first `\'` so excerpts containing apostrophes were cut to their first
-// character.
-const QUOTED_RE_SRC = `'((?:\\\\.|[^'\\\\])*)'`;
-
-function unescapeJsString(s) {
-  return s.replace(/\\(.)/g, (_m, ch) => {
-    if (ch === 'n') return '\n';
-    if (ch === 't') return '\t';
-    if (ch === 'r') return '\r';
-    return ch;
-  });
-}
-
-/**
- * Resolve an article ID to its localized slug from routerBlogData.ts.
- * Falls back to the article ID itself if the slug map can't be read.
- */
-function getBlogSlug(articleId, locale = 'it') {
-  try {
-    const rdPath = new URL('../services/routerBlogData.ts', import.meta.url);
-    const raw = fs.readFileSync(rdPath, 'utf8');
-    const escaped = articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // Try requested locale first, fall back to Italian
-    for (const lang of [locale, 'it']) {
-      const regex = new RegExp(`'${escaped}':\\s*\\{[^}]*?${lang}:\\s*${QUOTED_RE_SRC}`);
-      const match = raw.match(regex);
-      if (match) return unescapeJsString(match[1]);
-    }
-    return articleId;
-  } catch {
-    return articleId;
-  }
-}
-
-/**
- * Load localized blog metadata for a given article ID.
- * Returns { title, excerpt } or null if not found.
- * Falls back to Italian if the requested locale file doesn't exist or lacks the article.
- */
-function loadBlogMeta(articleId, locale = 'it') {
-  for (const lang of [locale, 'it']) {
-    try {
-      const metaPath = new URL(`../services/locales/blog-meta-${lang}.ts`, import.meta.url);
-      const raw = fs.readFileSync(metaPath, 'utf8');
-      const titleKey = `blog.article.${articleId}.title`;
-      const excerptKey = `blog.article.${articleId}.excerpt`;
-      const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*${QUOTED_RE_SRC}`));
-      const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*${QUOTED_RE_SRC}`));
-      if (titleMatch) {
-        return {
-          title: unescapeJsString(titleMatch[1]),
-          excerpt: excerptMatch ? unescapeJsString(excerptMatch[1]) : '',
-        };
-      }
-    } catch {
-      // Try next locale
-    }
-  }
-  console.warn(`\u26a0\ufe0f Blog meta not found for "${articleId}" in ${locale}/it`);
-  return null;
-}
-
-/** Blog section URL path per locale (matches router.ts SLUG_TABLES) */
-const BLOG_SECTION_PATH = { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' };
+// getBlogSlug / loadBlogMeta / localizeArticle / localePathPrefix /
+// loadArticlePerformanceWinners live in ./lib/articleContent.mjs (shared with
+// the dormant-tier win-back runner, scripts/newsletter-winback-campaign.mjs,
+// so the slug/meta-file parsing logic can't drift between the two senders).
 
 /** Newsletter preferences slug per locale (matches router.ts SLUG_TABLES) */
 const PREFERENCES_SLUG = {
@@ -939,32 +878,7 @@ const PREFERENCES_SLUG = {
   fr: 'preferences-newsletter',
 };
 
-/** Build the locale URL prefix — empty for IT (canonical), `/{lang}` otherwise. */
-function localePathPrefix(locale) {
-  return locale === 'it' ? '' : `/${locale}`;
-}
-
 const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
-
-/**
- * Build a localized article object for a given article ID and locale.
- */
-function localizeArticle(articleId, locale) {
-  const blogPath = BLOG_SECTION_PATH[locale] || BLOG_SECTION_PATH.it;
-  const slug = getBlogSlug(articleId, locale);
-  const meta = loadBlogMeta(articleId, locale);
-  if (!meta) return null;
-  const prefix = localePathPrefix(locale);
-  return {
-    title: meta.title,
-    excerpt: meta.excerpt,
-    // `url` — matches renderArticle's destructured param and directUrl()
-    // call in services/newsletter-template.mjs (the live template; NOT
-    // scripts/newsletter-template.mjs, which is dead/unimported).
-    url: `${prefix}/${blogPath}/${slug}/`,
-    badge: true,
-  };
-}
 
 /**
  * Pick the best featured article for the newsletter.
@@ -1159,25 +1073,7 @@ async function pickFeaturedArticle() {
   return getArticle;
 }
 
-// ─── Per-segment article content (#4299) ───────────────────────────────
-// data/article-performance.json `.winners` — real click/scroll-depth winners
-// per cluster (pratico/fiscale/novita perform, generic doesn't, see the
-// issue). Loaded once and cached; a missing/unreadable file degrades to an
-// empty pool, so segment content assembly always falls back to the single
-// globally-rotated featuredArticle rather than throwing.
-let _articlePerformanceWinners = null;
-function loadArticlePerformanceWinners() {
-  if (_articlePerformanceWinners) return _articlePerformanceWinners;
-  try {
-    const raw = fs.readFileSync(new URL('../data/article-performance.json', import.meta.url), 'utf8');
-    const data = JSON.parse(raw);
-    _articlePerformanceWinners = Array.isArray(data.winners) ? data.winners : [];
-  } catch (e) {
-    console.warn('⚠️ article-performance.json unavailable, segment articles fall back to the global pick:', e.message);
-    _articlePerformanceWinners = [];
-  }
-  return _articlePerformanceWinners;
-}
+// loadArticlePerformanceWinners lives in ./lib/articleContent.mjs (imported above).
 
 /**
  * Resolve per-subscriber article content for the newsletter body:
