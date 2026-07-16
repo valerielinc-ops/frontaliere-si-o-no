@@ -11,103 +11,103 @@
     "https://www.hoval.it/it_IT/jobs"
   ],
   "notes": "Dedicated Hoval crawler uses SAP Hybris JSON API (/jobs/results?q=:sortIndex:country:Switzerland) filtered by country. Extracts description from detail pages. ATS: Umantis (recruitingapp-2710.umantis.com).",
-  "updatedAt": "2026-07-15T22:25:41.003Z",
+  "updatedAt": "2026-07-16T11:23:41.603Z",
   "seedMetaByUrl": {
     "https://www.hoval.it/it_IT/job/3925": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3946": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3977": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3975": {
       "location": "Wil",
       "canton": "SG",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3912": {
       "location": "Ostschweiz Wil",
       "canton": "SG",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3990": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3965": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3953": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3982": {
       "location": "RC Mitte",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3963": {
       "location": "Härkingen",
       "canton": "SO",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3969": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3981": {
       "location": "Feldmeilen",
       "canton": "CH",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3989": {
       "location": "Crissier",
       "canton": "VD",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3973": {
       "location": "Crissier",
       "canton": "VD",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3903": {
       "location": "RC Ticino",
       "canton": "TI",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     },
     "https://www.hoval.it/it_IT/job/3795": {
       "location": "Ticino",
       "canton": "TI",
       "company": "Hoval",
-      "postedDate": "2026-07-15"
+      "postedDate": "2026-07-16"
     }
   }
 }
