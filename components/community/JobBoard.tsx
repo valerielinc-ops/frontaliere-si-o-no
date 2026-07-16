@@ -55,6 +55,7 @@ import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals }
 import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
+import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
@@ -96,6 +97,7 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugEntriesLoaded, isJobSlugReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
@@ -3933,6 +3935,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  return suggestions.slice(0, 5);
  }, [deferredSearchQuery, sortedJobs, locale]);
+
+ // Smart 0-results (issue #4301): candidate pool of real job titles/
+ // locations for fuzzy "did you mean" suggestions when the query matches
+ // nothing (autocompleteSuggestions above only catches startsWith matches,
+ // so a typo or an unrelated-but-close term surfaces nothing there).
+ const zeroResultCandidatePool = useMemo(() => {
+ if (filteredJobs.length !== 0) return [];
+ const seen = new Set<string>();
+ const out: string[] = [];
+ for (const job of sortedJobs) {
+ const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title).split(/[-–—|•·]/)[0]?.trim() || '';
+ const location = String(job.location || '').trim();
+ for (const candidate of [title, location]) {
+ if (!candidate) continue;
+ const key = candidate.toLowerCase();
+ if (seen.has(key)) continue;
+ seen.add(key);
+ out.push(candidate);
+ }
+ if (out.length >= 300) break;
+ }
+ return out;
+ }, [filteredJobs.length, sortedJobs, locale]);
+
+ const zeroResultSuggestions = useMemo(() => {
+ const q = deferredSearchQuery.trim();
+ if (filteredJobs.length !== 0 || q.length < 2) return [];
+ return suggestSimilarTerms(q, zeroResultCandidatePool, 5);
+ }, [filteredJobs.length, deferredSearchQuery, zeroResultCandidatePool]);
 
  const editorialLandingSections = useMemo(() => {
  // Build slug→job index for O(1) lookups (Vercel rule 7.13)
@@ -8155,6 +8186,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
 
+ {/* Popular internal-search chips — real mined terms, issue #4301.
+ Self-contained component + single mount point (renders null below its
+ own minimum-terms threshold). id is the scroll target for the
+ 0-results "get an alert" CTA below (lands next to the always-mounted
+ JobAlertForm just under it). */}
+ <div id="jobboard-search-utilities">
+ <PopularSearchChips onSelect={applySearchQuery} activeTerm={searchQuery} />
+ </div>
+
  {/* FRO-332/353: Job Alert form (behind feature flag) */}
  {enableJobAlerts && (
  <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
@@ -8583,6 +8623,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <Briefcase className="w-10 h-10 mx-auto mb-3 opacity-30" />
  <p className="font-medium">{t('jobBoard.noResults')}</p>
  <p className="text-sm mt-1">{t('jobBoard.noResultsHint')}</p>
+
+ {/* Smart 0-results: fuzzy "did you mean" suggestions (issue #4301) */}
+ {zeroResultSuggestions.length > 0 && (
+ <div className="mt-4">
+ <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">
+ {t('jobBoard.zeroResults.suggestionsLabel')}
+ </p>
+ <div className="flex flex-wrap justify-center gap-2">
+ {zeroResultSuggestions.map((term) => (
+ <button
+ key={term}
+ type="button"
+ onClick={() => applySearchQuery(term)}
+ className="px-3 py-1.5 min-h-11 rounded-full text-xs font-medium bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
+ >
+ {term}
+ </button>
+ ))}
+ </div>
+ </div>
+ )}
+
+ {/* 0-results job-alert CTA: points at the already-mounted JobAlertForm
+ above (id="jobboard-search-utilities" anchor), already prefilled via
+ its initialKeyword={searchQuery} prop — no second form instance. */}
+ {enableJobAlerts && deferredSearchQuery.trim() && (
+ <button
+ type="button"
+ onClick={() => document.getElementById('jobboard-search-utilities')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+ className="mt-5 inline-flex items-center gap-1.5 px-4 py-2.5 min-h-11 rounded-xl text-sm font-semibold bg-accent-strong text-on-accent hover:opacity-90 transition-opacity"
+ >
+ {t('jobBoard.zeroResults.alertCta', { query: deferredSearchQuery.trim() })}
+ </button>
+ )}
  </div>
  )}
  </div>
