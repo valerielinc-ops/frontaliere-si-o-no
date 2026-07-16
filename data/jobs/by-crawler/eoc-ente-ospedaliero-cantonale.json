@@ -929,13 +929,13 @@
       "source": "Company Careers Crawler",
       "companyKey": "eoc-ente-ospedaliero-cantonale",
       "companyDomain": "eoc.ch",
-      "crawledAt": "2026-07-15T22:22:02.017Z",
+      "crawledAt": "2026-07-15T11:27:01.565Z",
       "firstSeenAt": "2026-07-15T11:27:01.565Z",
       "slugByLocale": {
-        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -960,33 +960,33 @@
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
+        "en": [
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "fr": [
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
         "it": [
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
           "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2"
-        ],
-        "en": [
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
+          "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
-        ],
-        "fr": [
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g1",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-80-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -1004,8 +1004,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-4333fc",
