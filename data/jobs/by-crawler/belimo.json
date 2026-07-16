@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-wochenendschicht-belimo-hinwil",
-        "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
+        "logistiker-in-wochenendschicht-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-wochenendschicht-belimo-hinwil",
-          "impiegata-impiegato-in-logistica-wochenendschicht-belimo-hinwil"
+          "logistiker-in-wochenendschicht-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-wochenendschicht-belimo-hinwil"
@@ -84,12 +82,12 @@
     },
     {
       "id": "belimo-2a34b448e7b3",
-      "slug": "logistician-temporary-belimo-hinwil",
+      "slug": "logisticista-temporaneo-belimo-hinwil",
       "slugByLocale": {
         "en": "logistician-temporary-belimo-hinwil",
-        "it": "logistician-temporary-belimo-hinwil",
-        "de": "logistician-temporary-belimo-hinwil",
-        "fr": "logistician-temporary-belimo-hinwil"
+        "it": "logisticista-temporaneo-belimo-hinwil",
+        "de": "logistiker-vorubergehend-belimo-hinwil",
+        "fr": "logistique-temporaire-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -146,7 +144,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T12:37:09.755Z"
+      "firstSeenAt": "2026-07-16T12:37:09.755Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistician-temporary-belimo-hinwil"
+        ],
+        "de": [
+          "logistician-temporary-belimo-hinwil"
+        ],
+        "fr": [
+          "logistician-temporary-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "logistician-temporary-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-24c351acfe38",
@@ -154,8 +166,8 @@
       "slugByLocale": {
         "de": "logistiker-in-temporar-belimo-hinwil",
         "it": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil",
-        "en": "logistiker-in-temporar-belimo-hinwil",
-        "fr": "logistiker-in-temporar-belimo-hinwil"
+        "en": "logistician-in-temporary-belimo-hinwil",
+        "fr": "logisticien-in-temporaire-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -202,6 +214,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-temporar-belimo-hinwil"
+        ],
+        "en": [
+          "logistiker-in-temporar-belimo-hinwil"
+        ],
+        "fr": [
           "logistiker-in-temporar-belimo-hinwil"
         ]
       },
@@ -477,13 +495,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montagemitarbeiter-in-temporar-belimo-hinwil",
-        "personale-di-montaggio-in-temporaneo-belimo-hinwil"
+        "montagemitarbeiter-in-temporar-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagemitarbeiter-in-temporar-belimo-hinwil",
-          "personale-di-montaggio-in-temporaneo-belimo-hinwil"
+          "montagemitarbeiter-in-temporar-belimo-hinwil"
         ],
         "en": [
           "montagemitarbeiter-in-temporar-belimo-hinwil"
@@ -638,13 +654,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "strategic-project-buyer-mechanics-belimo-hinwil",
-          "strategic-procurement-project-expert-mechanics-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil"
         ],
         "it": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-          "strategic-project-buyer-mechanics-belimo-hinwil",
-          "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
+          "strategic-project-buyer-mechanics-belimo-hinwil"
         ],
         "en": [
           "strategic-procurement-project-expert-mechanics-belimo-hinwil"
@@ -655,8 +669,7 @@
       },
       "previousSlugs": [
         "strategic-procurement-project-expert-mechanics-belimo-hinwil",
-        "strategic-project-buyer-mechanics-belimo-hinwil",
-        "meccanica-degli-esperti-del-progetto-di-approvvigionamento-strategico-belimo-hinwil"
+        "strategic-project-buyer-mechanics-belimo-hinwil"
       ],
       "firstSeenAt": "2026-07-12T22:18:02.869Z",
       "salaryMin": 73500,
@@ -853,17 +866,14 @@
       "firstSeenAt": "2026-07-12T22:18:09.204Z",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
-          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
         ],
         "de": [
-          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
-          "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+          "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil",
-        "specialist-manufacturing-production-processing-assembly-belimo-hinwil"
+        "stellvertretung-teamleitung-montage-tagschicht-100-belimo-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -993,13 +1003,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "export-specialist-belimo-hinwil",
-        "export-specialista-belimo-hinwil"
+        "export-specialist-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "export-specialist-belimo-hinwil",
-          "export-specialista-belimo-hinwil"
+          "export-specialist-belimo-hinwil"
         ],
         "fr": [
           "export-specialist-belimo-hinwil"
@@ -1341,13 +1349,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "logistiker-in-nachtschicht-100-belimo-hinwil",
-        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
-        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-nachtschicht-100-belimo-hinwil",
-          "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil"
+          "logistiker-in-nachtschicht-100-belimo-hinwil"
         ],
         "en": [
           "logistiker-in-nachtschicht-100-belimo-hinwil"
@@ -1423,13 +1429,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil",
-        "aide-aux-vacances-dans-l-industrie-manufacturiere-80-100-belimo-hinwil",
-        "assistenza-per-le-vacanze-nella-produzione-80-100-belimo-hinwil"
+        "aide-aux-vacances-dans-l-industrie-manufacturiere-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil",
-          "assistenza-per-le-vacanze-nella-produzione-80-100-belimo-hinwil"
+          "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil"
         ],
         "en": [
           "ferienaushilfe-in-der-fertigung-80-100-belimo-hinwil"
@@ -1576,13 +1580,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systems-architect-80-100-belimo-hinwil",
-        "systems-architetto-80-100-belimo-hinwil"
+        "systems-architect-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systems-architect-80-100-belimo-hinwil",
-          "systems-architetto-80-100-belimo-hinwil"
+          "systems-architect-80-100-belimo-hinwil"
         ],
         "fr": [
           "systems-architect-80-100-belimo-hinwil"
@@ -1717,13 +1719,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
-        "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
+        "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil",
-          "attuatori-esperti-di-ingegneria-del-prodotto-80-100-belimo-hinwil"
+          "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
         ],
         "de": [
           "product-engineering-expert-damper-actuators-80-100-belimo-hinwil"
@@ -1798,13 +1798,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiter-in-montage-abendschicht-belimo-hinwil",
-        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil",
-        "team-leader-in-assemblea-turno-serale-belimo-hinwil"
+        "chef-d-equipe-en-soiree-d-assemblee-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-montage-abendschicht-belimo-hinwil",
-          "team-leader-in-assemblea-turno-serale-belimo-hinwil"
+          "teamleiter-in-montage-abendschicht-belimo-hinwil"
         ],
         "en": [
           "teamleiter-in-montage-abendschicht-belimo-hinwil"
@@ -1879,13 +1877,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistics-systems-specialist-100-belimo-hinwil",
-        "logistica-systems-specialista-100-belimo-hinwil"
+        "logistics-systems-specialist-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistics-systems-specialist-100-belimo-hinwil",
-          "logistica-systems-specialista-100-belimo-hinwil"
+          "logistics-systems-specialist-100-belimo-hinwil"
         ],
         "fr": [
           "logistics-systems-specialist-100-belimo-hinwil"
@@ -1956,13 +1952,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-buyer-valve-technology-80-100-belimo-hinwil",
-        "tecnologia-della-valvola-dell-acquirente-strategica-80-100-belimo-hinwil"
+        "strategic-buyer-valve-technology-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "strategic-buyer-valve-technology-80-100-belimo-hinwil",
-          "tecnologia-della-valvola-dell-acquirente-strategica-80-100-belimo-hinwil"
+          "strategic-buyer-valve-technology-80-100-belimo-hinwil"
         ],
         "fr": [
           "strategic-buyer-valve-technology-80-100-belimo-hinwil"
@@ -1988,8 +1982,8 @@
       "slugByLocale": {
         "it": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2",
         "en": "strategic-buyer-valve-technology-80-100-belimo-hinwil",
-        "de": "strategische-ventiltechnologie-des-kaufers-80-100-belimo-hinwil",
-        "fr": "technologie-de-vanne-d-achat-strategique-80-100-belimo-hinwil"
+        "de": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2",
+        "fr": "strategic-buyer-valve-technology-80-100-belimo-hinwil-2"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -2179,14 +2173,12 @@
       "previousSlugs": [
         "teamleitung-fertigung-wochenende-tag-belimo-hinwil",
         "team-management-manifattura-giorno-fine-settimana-belimo-hinwil",
-        "gestion-d-equipe-fabrication-week-end-jour-belimo-hinwil",
-        "gestione-del-team-belimo-hinwil"
+        "gestion-d-equipe-fabrication-week-end-jour-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-fertigung-wochenende-tag-belimo-hinwil",
-          "team-management-manifattura-giorno-fine-settimana-belimo-hinwil",
-          "gestione-del-team-belimo-hinwil"
+          "team-management-manifattura-giorno-fine-settimana-belimo-hinwil"
         ],
         "en": [
           "teamleitung-fertigung-wochenende-tag-belimo-hinwil"
@@ -2262,14 +2254,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facility-manager-80-100-belimo-hinwil",
-        "responsabile-della-facilita-80-100-belimo-hinwil",
-        "gestione-delle-strutture-80-100-belimo-hinwil"
+        "responsabile-della-facilita-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facility-manager-80-100-belimo-hinwil",
-          "responsabile-della-facilita-80-100-belimo-hinwil",
-          "gestione-delle-strutture-80-100-belimo-hinwil"
+          "responsabile-della-facilita-80-100-belimo-hinwil"
         ],
         "fr": [
           "facility-manager-80-100-belimo-hinwil"
@@ -2340,13 +2330,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trade-compliance-expert-belimo-hinwil",
-        "esperto-di-conformita-commerciale-belimo-hinwil"
+        "trade-compliance-expert-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-compliance-expert-belimo-hinwil",
-          "esperto-di-conformita-commerciale-belimo-hinwil"
+          "trade-compliance-expert-belimo-hinwil"
         ],
         "fr": [
           "trade-compliance-expert-belimo-hinwil"
@@ -2486,9 +2474,6 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-80-100-belimo-hinwil"
-        ],
-        "en": [
-          "senior-project-manager-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-12T22:18:03.952Z",
@@ -2557,14 +2542,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experienced-professional-procurement-sensors-80-100-belimo-hinwil",
-        "provato-professional-procurement-sensori-80-100-belimo-hinwil",
-        "appalti-professionali-sperimentati-sensori-80-100-belimo-hinwil"
+        "provato-professional-procurement-sensori-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experienced-professional-procurement-sensors-80-100-belimo-hinwil",
-          "provato-professional-procurement-sensori-80-100-belimo-hinwil",
-          "appalti-professionali-sperimentati-sensori-80-100-belimo-hinwil"
+          "provato-professional-procurement-sensori-80-100-belimo-hinwil"
         ],
         "fr": [
           "experienced-professional-procurement-sensors-80-100-belimo-hinwil"
@@ -2636,13 +2619,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
-        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil",
-        "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
+        "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-team-leader-procurement-plastic-solutions-belimo-hinwil",
-          "global-capo-squadra-procurement-plastic-solutions-belimo-hinwil"
+          "global-team-leader-procurement-plastic-solutions-belimo-hinwil"
         ],
         "fr": [
           "approvisionnement-chef-d-equipe-mondial-solutions-plastiques-belimo-hinwil"
@@ -2787,20 +2768,15 @@
       "previousSlugs": [
         "hvac-building-automation-expert-80-100-belimo-hinwil",
         "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
-        "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
-        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
+        "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil",
-          "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil"
+          "hvac-building-automation-expert-80-100-belimo-hinwil"
         ],
         "fr": [
           "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
           "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil"
-        ],
-        "de": [
-          "hvac-building-automation-expert-80-100-belimo-hinwil"
         ]
       },
       "firstSeenAt": "2026-07-12T22:18:00.190Z",
@@ -2869,13 +2845,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "working-student-ipx-40-belimo-hinwil",
-        "etudiant-en-travail-ipx-40-belimo-hinwil",
-        "studente-di-lavoro-ipx-40-belimo-hinwil"
+        "etudiant-en-travail-ipx-40-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "working-student-ipx-40-belimo-hinwil",
-          "studente-di-lavoro-ipx-40-belimo-hinwil"
+          "working-student-ipx-40-belimo-hinwil"
         ],
         "fr": [
           "working-student-ipx-40-belimo-hinwil",
@@ -2948,13 +2922,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsfachmann-frau-100-belimo-hinwil",
-        "professionnel-d-entretien-100-belimo-hinwil",
-        "manutenzione-professionale-100-belimo-hinwil"
+        "professionnel-d-entretien-100-belimo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsfachmann-frau-100-belimo-hinwil",
-          "manutenzione-professionale-100-belimo-hinwil"
+          "instandhaltungsfachmann-frau-100-belimo-hinwil"
         ],
         "en": [
           "instandhaltungsfachmann-frau-100-belimo-hinwil"

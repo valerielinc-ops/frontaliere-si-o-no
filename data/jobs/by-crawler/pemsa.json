@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-riscaldamento-con-attestato-cfc-o-con-vasta-esperienza-pemsa-fribourg",
-        "en": "installatore-di-impianti-di-riscaldamento-con-attestato-cfc-o-con-vasta-esperienza-pemsa-fribourg",
-        "de": "installatore-di-impianti-di-riscaldamento-con-attestato-cfc-o-con-vasta-esperienza-pemsa-fribourg",
-        "fr": "installatore-di-impianti-di-riscaldamento-con-attestato-cfc-o-con-vasta-esperienza-pemsa-fribourg"
+        "en": "installer-of-heating-systems-with-cfc-certificate-or-with-extensive-experience-pemsa-fribourg",
+        "de": "installateur-von-heizungssystemen-mit-fckw-zertifikat-oder-mit-umfangreicher-erfahrung-pemsa-fribourg",
+        "fr": "installateur-de-systemes-de-chauffage-avec-certificat-cfc-ou-avec-une-vaste-experience-pemsa-fribourg"
       },
       "id": "pemsa-0d33d0025031",
       "needsRetranslation": true,
@@ -97,9 +97,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-afc-pemsa-romont-fr",
-        "en": "elettricista-afc-pemsa-romont-fr",
-        "de": "elettricista-afc-pemsa-romont-fr",
-        "fr": "elettricista-afc-pemsa-romont-fr"
+        "en": "electricity-afc-pemsa-romont-fr",
+        "de": "strom-afc-pemsa-romont-fr",
+        "fr": "electricite-afc-pemsa-romont-fr"
       },
       "id": "pemsa-96182be67bac",
       "needsRetranslation": true,
@@ -1162,7 +1162,7 @@
         "it": "verniciatore-di-carrozzerie-m-f-pemsa-la-chaux-de-fonds",
         "en": "car-dealer-m-f-pemsa-la-chaux-de-fonds",
         "de": "autohandler-m-f-pemsa-la-chaux-de-fonds",
-        "fr": "carrossier-peintre-h-f-pemsa-la-chaux-de-fonds"
+        "fr": "concessionnaire-automobile-m-f-pemsa-la-chaux-de-fonds"
       },
       "id": "pemsa-4934b4408094",
       "salaryMin": 60500,
@@ -1181,12 +1181,10 @@
       "firstSeenAt": "2026-07-14T22:07:06.968Z",
       "previousSlugsByLocale": {
         "fr": [
-          "concessionnaire-automobile-m-f-pemsa-la-chaux-de-fonds",
           "carrossier-peintre-h-f-pemsa-la-chaux-de-fonds"
         ]
       },
       "previousSlugs": [
-        "concessionnaire-automobile-m-f-pemsa-la-chaux-de-fonds",
         "carrossier-peintre-h-f-pemsa-la-chaux-de-fonds"
       ]
     },
@@ -2861,7 +2859,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
+        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -2878,14 +2876,6 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-sigirino"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-sigirino"
-      ],
       "needsRetranslation": true
     },
     {
@@ -4603,7 +4593,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "carpentiere-m-f-pemsa-fontaines-ne",
+        "de": "kapitel-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -4621,14 +4611,6 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "kapitel-m-f-pemsa-fontaines-ne"
-        ]
-      },
-      "previousSlugs": [
-        "kapitel-m-f-pemsa-fontaines-ne"
-      ],
       "needsRetranslation": true
     },
     {
@@ -8197,11 +8179,9 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "tiler-efz-eba-m-f-d-pemsa-basel"
         ],
         "fr": [
-          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "plaquiste-efz-eba-h-f-d-pemsa-basel"
         ],
         "it": [

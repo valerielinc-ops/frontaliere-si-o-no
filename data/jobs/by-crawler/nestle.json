@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nestle-1410122633",
-      "slug": "team-leader-maintenance-h-f-d-nestle-ch",
+      "slug": "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
       "slugByLocale": {
         "fr": "team-leader-maintenance-h-f-d-nestle-ch",
-        "it": "team-leader-maintenance-h-f-d-nestle-ch",
+        "it": "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
         "en": "team-leader-maintenance-h-f-d-nestle-ch",
-        "de": "team-leader-maintenance-h-f-d-nestle-ch"
+        "de": "wartung-des-teamleiters-h-f-d-nestle-avenches-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -63,7 +63,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-16T11:33:55.352Z"
+      "firstSeenAt": "2026-07-16T11:33:55.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-maintenance-h-f-d-nestle-ch"
+        ],
+        "de": [
+          "team-leader-maintenance-h-f-d-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-maintenance-h-f-d-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1269789201",
@@ -4604,13 +4615,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "accounting-reporting-intern-nestle-ch",
-        "accounting-reporting-tirocinante-nestle-vevey-ch"
+        "accounting-reporting-intern-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accounting-reporting-intern-nestle-ch",
-          "accounting-reporting-tirocinante-nestle-vevey-ch"
+          "accounting-reporting-intern-nestle-ch"
         ],
         "de": [
           "accounting-reporting-intern-nestle-ch"
