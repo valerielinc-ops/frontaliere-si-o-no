@@ -1,49 +1,18 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-07-16T11:17:02.313Z",
+  "generatedAt": "2026-07-16T23:08:20.906Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1225,
-  "avgDurationMs": 1225,
+  "durationMs": 1025,
+  "avgDurationMs": 1025,
   "durationHistory": [
-    1225
+    1025
   ],
-  "newJobs": [
-    {
-      "title": "Impiegato/a amministrativo-contabile",
-      "slug": "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb",
-      "url": "https://tinext.kenjo.io/backoffthb",
-      "applyUrl": "https://tinext.kenjo.io/backoffthb",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-07-16",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 63,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Security & Network Engineer",
@@ -80,6 +49,41 @@
         "richness": 20,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Impiegato/a amministrativo-contabile",
+      "slug": "impiegato-a-amministrativo-contabile-tinext-lugano-backoffthb",
+      "url": "https://tinext.kenjo.io/backoffthb",
+      "applyUrl": "https://tinext.kenjo.io/backoffthb",
+      "company": "Tinext SA",
+      "companyKey": "tinext",
+      "companyDomain": "tinext.com",
+      "location": "Morbio",
+      "addressLocality": "Morbio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "IT & Digital Transformation",
+      "sector": "IT & Digital Transformation",
+      "source": "tinext-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-07-16",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "tinext-02ce24a236a5",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-16T11:17:02.312Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
