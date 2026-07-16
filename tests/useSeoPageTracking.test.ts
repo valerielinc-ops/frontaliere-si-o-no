@@ -128,6 +128,47 @@ describe('useSeoPageTracking', () => {
     expect(window.history.replaceState).toBe(originalReplaceState);
   });
 
+  it('does not throw when the pre-existing pushState/replaceState is not a function at mount time (issue #4304)', () => {
+    // Simulates the live PostHog cluster: "Cannot read properties of
+    // undefined (reading 'apply')". A stale/tampered `history.pushState`
+    // (e.g. from an interleaved mount/unmount with useUIState's own history
+    // patch, or third-party tampering) means the closed-over
+    // original*State captured at hook-mount time can be non-function — the
+    // wrapper must degrade to a no-op instead of throwing. (With no native
+    // implementation to delegate to, the URL itself cannot change — this
+    // only asserts the wrapper survives the call instead of crashing the
+    // whole app to the top-level ErrorBoundary.)
+    window.history.replaceState({}, '', '/');
+    // Force the pre-existing implementations to a non-function value before
+    // the hook captures them.
+    (window.history as unknown as { pushState: unknown }).pushState = undefined;
+    (window.history as unknown as { replaceState: unknown }).replaceState = undefined;
+
+    const { unmount } = renderHook(() => useSeoPageTracking());
+    posthogMock.mockClear();
+
+    try {
+      expect(() => {
+        act(() => {
+          window.history.pushState({}, '', '/premi-cassa-malati/ticino/');
+        });
+      }).not.toThrow();
+
+      expect(() => {
+        act(() => {
+          window.history.replaceState({}, '', '/permessi-di-lavoro/');
+        });
+      }).not.toThrow();
+    } finally {
+      // The hook's own cleanup restores to whatever it captured (undefined,
+      // in this test) — explicitly re-restore the true originals afterward
+      // so later tests in this file don't inherit a poisoned history object.
+      unmount();
+      window.history.pushState = originalPushState;
+      window.history.replaceState = originalReplaceState;
+    }
+  });
+
   it('does not emit when navigating to an untagged path', () => {
     window.history.replaceState({}, '', '/');
     renderHook(() => useSeoPageTracking());

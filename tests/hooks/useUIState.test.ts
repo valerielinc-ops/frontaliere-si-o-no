@@ -28,6 +28,7 @@ vi.mock('@/services/analyticsProxy', () => ({
     initGlobalErrorTracking: vi.fn(),
   },
   unlockAchievement: vi.fn(),
+  fireCalcEntryIfNeeded: vi.fn(),
 }));
 
 vi.mock('@/hooks/seoHelpers', () => ({
@@ -123,5 +124,38 @@ describe('useUIState', () => {
     });
 
     expect(result.current.isFocusMode).toBe(true);
+  });
+
+  describe('history.pushState monkeypatch (issue #4304)', () => {
+    const originalPushState = history.pushState;
+
+    afterEach(() => {
+      // Guard against a test leaving history.pushState patched if unmount failed.
+      history.pushState = originalPushState;
+    });
+
+    it('does not throw on navigation when the pre-existing pushState is not a function at mount time', () => {
+      // Simulates the live PostHog cluster: "Cannot read properties of
+      // undefined (reading 'apply')". A stale/tampered `history.pushState`
+      // (e.g. from an interleaved mount/unmount with useSeoPageTracking's own
+      // history patch, or third-party tampering) means the closed-over
+      // originalPushState captured at hook-mount time can be non-function —
+      // the wrapper must degrade to a no-op instead of throwing.
+      (history as unknown as { pushState: unknown }).pushState = undefined;
+
+      const { unmount } = renderHook(() => useUIState('calculator'));
+      vi.clearAllMocks();
+
+      expect(() => {
+        act(() => {
+          history.pushState({}, '', '/premi-cassa-malati/ticino/');
+        });
+      }).not.toThrow();
+
+      // The tracking side-effect still runs despite the missing original.
+      expect(Analytics.trackPageView).toHaveBeenCalled();
+
+      unmount();
+    });
   });
 });

@@ -161,7 +161,17 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const originalPushState = history.pushState;
 
  history.pushState = function (...args) {
- const ret = originalPushState.apply(this, args as any);
+ // Defensive guard (issue #4304): a live PostHog cluster showed
+ // "Cannot read properties of undefined (reading 'apply')" here.
+ // history.pushState/replaceState is also independently patched by
+ // useSeoPageTracking on the same App tree — under React StrictMode
+ // double-invocation or an interleaved mount/unmount ordering, the
+ // captured `originalPushState` reference can go stale. Falling back
+ // to a no-op preserves the return-shape contract without crashing
+ // the whole app to the top-level ErrorBoundary over a tracking call.
+ const ret = typeof originalPushState === 'function'
+ ? originalPushState.apply(this, args as any)
+ : undefined;
  trackCurrentLocation();
  return ret;
  } as History['pushState'];
