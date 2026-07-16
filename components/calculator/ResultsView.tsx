@@ -125,6 +125,23 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
  e.stopPropagation();
  setMobileTooltipIdx((prev) => (prev === idx ? null : idx));
  }}
+ // hasSubItems rows are a real interactive accordion trigger (cursor-pointer
+ // below), but were a plain <div onClick> with no semantic/keyboard
+ // affordance — PostHog's custom dead_click detector flags any non-actionable
+ // "looks clickable" element unconditionally, so every click here (82
+ // events/30d across sub-element variants) was misreported as dead even
+ // though it correctly toggled the accordion. role="button" both fixes the
+ // a11y gap (keyboard users could not expand this) and matches the
+ // detector's actionable allowlist (issue #4304).
+ role={hasSubItems ? 'button' : undefined}
+ tabIndex={hasSubItems ? 0 : undefined}
+ aria-expanded={hasSubItems ? isExpanded : undefined}
+ onKeyDown={hasSubItems ? (e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ e.stopPropagation();
+ setExpandedIdx(prev => prev === idx ? null : idx);
+ } : undefined}
  className={`flex items-center justify-between py-3 border-b border-dashed border-edge last:border-0 hover:bg-surface-raised px-3 rounded-lg transition-colors group relative ${isNet ? 'bg-success-subtle/50 mt-2 rounded-xl border-none' : ''} ${hasSubItems ? 'cursor-pointer' : 'cursor-default'}`}
  >
  {/* Label Section */}
