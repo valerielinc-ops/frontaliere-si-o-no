@@ -1,0 +1,40 @@
+{
+  "id": "easyjet-castlelake-malpensa-ginevra-zurigo",
+  "slug": "easyjet-castlelake-malpensa-ginevra-zurigo",
+  "publishedAt": "2026-07-16T16:27:32.572Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.8661724941437794,
+    "confidence": 0.8,
+    "finalScore": 3.092937995315024,
+    "topK": [
+      {
+        "slug": "sciopero-easyjet-malpensa-11-maggio-2026",
+        "cosine": 0.8601015188309968
+      },
+      {
+        "slug": "addio-passaporto-usa-berna",
+        "cosine": 0.85878222231923
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8551646358562831
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8550141805851075
+      },
+      {
+        "slug": "votazioni-federali-14-giugno-2026",
+        "cosine": 0.854407971847055
+      }
+    ],
+    "score": 3.092937995315024,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

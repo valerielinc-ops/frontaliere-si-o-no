@@ -8537,6 +8537,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.title': '730 pré-remplis 2026, les indications du fisc',
     'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.excerpt': 'Il est désormais possible de télécharger les 730 pré-remplis pour la déclaration de revenus 2026. Voici les indications du fisc.',
     'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.imageAlt': 'Un frontalier complète sa déclaration de revenus',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.title': 'EasyJet passe aux États-Unis : changements pour les voyages Ticino-Italie',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.excerpt': 'Le fonds Castlelake rachète EasyJet pour 5,6 milliards de francs. Emplacements garantis à Malpensa et Genève, flotte renouvelée : impact sur les navetteurs aériens.',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.imageAlt': 'Airbus A320neo d\'EasyJet en phase d\'atterrissage à Milan Malpensa',
 };
 
 export default blogMetaFr;

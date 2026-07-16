@@ -25649,6 +25649,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'easyjet-castlelake-malpensa-ginevra-zurigo',
+ category: 'novita',
+ date: '2026-07-16T16:27:28.840Z',
+ image: '/images/blog/easyjet-castlelake-malpensa-ginevra-zurigo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
