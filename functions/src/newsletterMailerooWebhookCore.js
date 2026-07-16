@@ -5,6 +5,7 @@ import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
+import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -23,10 +24,6 @@ import { instantReactivationFields } from './lib/subscriberReactivation.js';
  *   newsletter_subscribers/{email} (status updates: bounced, complained)
  *   job_alert_subscribers/{email} (when tagged type=job-alert)
  */
-
-function normalizeEmail(value) {
-  return String(value || '').trim().toLowerCase();
-}
 
 // ── Signature verification ───────────────────────────────────
 // HMAC-SHA256(rawBody, secret) → hex, compared against x-maileroo-signature.
@@ -75,7 +72,7 @@ function extractCampaignId(event) {
 
 function getRecipient(event) {
   const data = event.event_data || {};
-  return normalizeEmail(data.to || event.to);
+  return normalizeEmailAddress(data.to || event.to);
 }
 
 function isJobAlertEvent(event) {

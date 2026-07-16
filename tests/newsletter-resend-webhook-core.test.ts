@@ -461,3 +461,24 @@ describe('newsletterResendWebhookCore', () => {
     expect(result).toMatchObject({ handled: false, reason: 'missing_recipient' });
   });
 });
+
+describe('newsletterResendWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
+  it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
+    const db = createFakeDb();
+
+    const result = await applyResendWebhookEvent({
+      type: 'email.sent',
+      data: {
+        email: 'Mario Rossi <mario.rossi@example.com>',
+        email_id: 'msg_456',
+        tags: [{ name: 'campaign_id', value: 'weekly_2026-07-16' }],
+      },
+    }, { db: db as any });
+
+    expect(result).toMatchObject({ handled: true, email: 'mario.rossi@example.com', type: 'send' });
+    expect(db.__sets.some(
+      (entry) => entry.collection === 'newsletter_subscribers' && entry.docId === 'mario.rossi@example.com',
+    )).toBe(true);
+    expect(db.__sets.some((entry) => entry.docId.includes('<'))).toBe(false);
+  });
+});

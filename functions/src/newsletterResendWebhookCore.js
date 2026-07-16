@@ -6,10 +6,7 @@ import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimen
 import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import { instantReactivationFields } from './lib/subscriberReactivation.js';
-
-function normalizeEmail(value) {
- return String(value || '').trim().toLowerCase();
-}
+import { normalizeEmailAddress } from './lib/parseEmailField.js';
 
 function sanitizeString(value) {
  const normalized = String(value || '').trim();
@@ -119,7 +116,7 @@ const TERMINAL_NEGATIVE_STATUSES = new Set(['complained', 'suppressed', 'bounced
 function buildSubscriberUpdate(eventType, data, currentStatus) {
  const FieldValue = admin.firestore.FieldValue;
  const update = {
- email: normalizeEmail(data.email),
+ email: normalizeEmailAddress(data.email),
  updated_at: admin.firestore.FieldValue.serverTimestamp(),
  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
  };
@@ -199,7 +196,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
 
  const data = rawEvent?.data || {};
  const tags = extractTagMap(data.tags);
- const email = normalizeEmail(
+ const email = normalizeEmailAddress(
  data.email
  || data.to?.[0]
  || data.to

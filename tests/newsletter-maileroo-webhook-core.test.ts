@@ -381,3 +381,21 @@ describe('verifyMailerooSignature', () => {
     expect(verifyMailerooSignature({ payload, signature: goodSig, signingSecret: '' })).toBe(false);
   });
 });
+
+describe('newsletterMailerooWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
+  it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'delivered',
+      event_data: { to: 'Mario Rossi <mario.rossi@example.com>' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'delivered', email: 'mario.rossi@example.com' });
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'mario.rossi@example.com',
+    );
+    expect(subscriberSet).toBeTruthy();
+    expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
+  });
+});
