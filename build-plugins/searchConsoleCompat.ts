@@ -57,14 +57,16 @@ const SELF_MAPPABLE_EDITORIAL_SLUGS: ReadonlySet<string> = (() => {
  return s;
 })();
 
-// Per-canton sector-hub slugs (jobsSeoPagesPlugin.ts Phase 3.2 for the 24
+// Per-canton sector-hub slugs (jobsSeoPagesPlugin.ts Phase 3.2 for the 23
 // non-TI canton sections, jobSectorPagesPlugin.ts for the TI legacy section)
 // are emitted for EVERY (canton section × sector × locale) combo
-// unconditionally — either the full hub page or a below-floor noindex bridge
-// (canton-level MIN_JOBS_FOR_CANTON_PAGE floor AND the finer per-sector
-// MIN_JOBS_PER_CANTON_SECTOR floor both bridge, issue #3747) — so a URL
-// matching a locale's OWN sector slug under a non-aggregate canton section
-// always has a live target at the SAME path today. The national aggregate
+// unconditionally, real self-canonical page — no job-count floor anywhere
+// (owner decision 2026-07-16: PR #4254 gave TI no floor, PR follow-up removed
+// the matching canton-level MIN_JOBS_FOR_CANTON_PAGE / per-sector
+// MIN_JOBS_PER_CANTON_SECTOR floors that used to bridge the other 23 canton
+// sections, issue #3747) — so a URL matching a locale's OWN sector slug
+// under a non-aggregate canton section always has a live target at the SAME
+// path today. The national aggregate
 // sections (resolveCantonSection(locale, AGGREGATE_KEY), e.g.
 // /cerca-lavoro-svizzera/) get NO sector pages from either plugin and are
 // excluded via AGGREGATE_SECTIONS below. Per-locale Sets so a cross-locale
