@@ -30,7 +30,6 @@
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-winterthur-687912",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-winterthur-687915",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-zurich-705584",
-    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-adliswil-676692",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-chur-712397",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-chur-712402",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-dubendorf-714399",
@@ -81,7 +80,6 @@
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-stans-697837",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-zurich-678486",
     "https://team.lidl.ch/de/jobs/it-service-and-support-mitarbeiter-in-m-w-d-80-100-weinfelden-701870",
-    "https://team.lidl.ch/de/jobs/junior-manager-technisches-facility-management-m-w-d-80-100-weinfelden-683691",
     "https://team.lidl.ch/de/jobs/kassierer-kassiererin-m-w-d-40-60-bern-704778",
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-40-60-sevaz-708264",
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-60-sevaz-707160",
@@ -320,14 +318,21 @@
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-h-f-d-80-100-lausanne-676093",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-h-f-d-80-100-neuchatel-664033",
     "https://team.lidl.ch/fr/jobs/gerant-gerante-de-magasin-suppleant-e-h-f-d-80-100-sierre-656566",
+    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-chatel-saint-denis-720184",
+    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-mont-sur-lausanne-721077",
     "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-sierre-710439",
     "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-petit-lancy-705752",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-60-yverdon-les-bains-707735",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-aigle-708471",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-chatel-saint-denis-696171",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-fribourg-721195",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-700669",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-705849",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-720826",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-marly-695473",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-ecublens-721080",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-etoy-705929",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-705931",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-bulle-695660",
@@ -336,11 +341,11 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-sierre-656579",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259",
-    "https://team.lidl.ch/it/jobs/ch-lavoro-per-studenti-vendita-m-f-d-20-60-biasca-679101",
-    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-720376"
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194",
+    "https://team.lidl.ch/it/jobs/ch-lavoro-per-studenti-vendita-m-f-d-20-60-biasca-679101"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-07-15T22:01:11.097Z",
+  "updatedAt": "2026-07-16T11:07:07.317Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaufer-verkauferin-m-w-d-20-60-kreuzlingen-695002": {
       "location": "Kreuzlingen",
@@ -450,15 +455,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/junior-manager-technisches-facility-management-m-w-d-80-100-weinfelden-683691": {
-      "location": "Weinfelden",
-      "addressLocality": "Weinfelden",
-      "canton": "TG",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/de/jobs/manager-culture-and-engagement-m-w-d-80-100-weinfelden-709450": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
@@ -477,7 +473,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/sachbearbeiter-hr-administration-m-w-d-80-100-weinfelden-711149": {
+    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -486,7 +482,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/de/jobs/manager-nachhaltigkeit-einkauf-80-100-m-w-d-weinfelden-711714": {
+    "https://team.lidl.ch/de/jobs/sachbearbeiter-hr-administration-m-w-d-80-100-weinfelden-711149": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
       "canton": "TG",
@@ -1576,15 +1572,6 @@
       "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-adliswil-693703": {
-      "location": "Adliswil",
-      "addressLocality": "Adliswil",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-adliswil-676692": {
       "location": "Adliswil",
       "addressLocality": "Adliswil",
       "canton": "ZH",
@@ -2934,6 +2921,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-fribourg-721195": {
+      "location": "Fribourg",
+      "addressLocality": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/kommissionierer-kommissioniererin-m-w-d-60-sevaz-707160": {
       "location": "Sévaz",
       "addressLocality": "Sévaz",
@@ -2973,6 +2969,24 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-marly-669259": {
       "location": "Marly",
       "addressLocality": "Marly",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-721194": {
+      "location": "Matran",
+      "addressLocality": "Matran",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-matran-721192": {
+      "location": "Matran",
+      "addressLocality": "Matran",
       "canton": "FR",
       "country": "CH",
       "company": "Lidl Svizzera",
@@ -3060,6 +3074,24 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-chatel-saint-denis-720184": {
+      "location": "Châtel-Saint-Denis",
+      "addressLocality": "Châtel-Saint-Denis",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-mont-sur-lausanne-721077": {
+      "location": "Mont-sur-Lausanne",
+      "addressLocality": "Mont-sur-Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228": {
       "location": "Arbedo-Castione",
       "addressLocality": "Arbedo-Castione",
@@ -3068,6 +3100,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-ecublens-721080": {
+      "location": "Ecublens",
+      "addressLocality": "Ecublens",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-lausanne-671929": {
       "location": "Lausanne",
@@ -3222,15 +3263,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/it/jobs/venditore-venditrice-m-f-d-20-40-lugano-720376": {
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-collombey-muraz-709685": {
       "location": "Collombey-Muraz",
       "addressLocality": "Collombey-Muraz",
@@ -3258,6 +3290,15 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-720826": {
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "canton": "GE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-martigny-693901": {
       "location": "Martigny",
       "addressLocality": "Martigny",
@@ -3277,6 +3318,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-705849": {
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "canton": "GE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-700669": {
       "location": "Genève",
       "addressLocality": "Genève",
       "canton": "GE",
