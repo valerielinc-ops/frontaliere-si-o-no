@@ -64,7 +64,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-13T12:13:00.393Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "permanent-member-at-40-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "standiges-mitglied-bei-40-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "membre-permanent-a-40-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "permanent-member-at-40-citta-di-mendrisio-mendrisio",
+        "standiges-mitglied-bei-40-citta-di-mendrisio-mendrisio",
+        "membre-permanent-a-40-citta-di-mendrisio-mendrisio"
+      ]
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=f782998e-9bc4-442a-8fb7-8538673bbf50",
@@ -128,7 +144,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-13T12:13:00.393Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "100-judge-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "100-richter-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "100-juge-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "100-judge-citta-di-mendrisio-mendrisio",
+        "100-richter-citta-di-mendrisio-mendrisio",
+        "100-juge-citta-di-mendrisio-mendrisio"
+      ]
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=b73e0e64-5744-4538-aa9e-51144606f363",
@@ -192,7 +224,23 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-10T22:02:33.547Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "100-legal-practitioners-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "100-juristen-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "100-praticiens-du-droit-citta-di-mendrisio-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "100-legal-practitioners-citta-di-mendrisio-mendrisio",
+        "100-juristen-citta-di-mendrisio-mendrisio",
+        "100-praticiens-du-droit-citta-di-mendrisio-mendrisio"
+      ]
     }
   ]
 }
