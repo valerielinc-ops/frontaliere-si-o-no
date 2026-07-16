@@ -198,8 +198,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const tags = extractTagMap(data.tags);
  const email = normalizeEmailAddress(
  data.email
- || data.to?.[0]
- || data.to
+ || (Array.isArray(data.to) ? data.to[0] : data.to)
  || data.recipient
  || data.rcpt_to,
  );
