@@ -70,8 +70,8 @@
       "id": "nestle-1269789201",
       "slug": "produktions-spezialist-in-nestle-ch",
       "slugByLocale": {
-        "it": "produktions-spezialist-in-nestle-ch",
         "en": "produktions-spezialist-in-nestle-ch",
+        "it": "produktions-spezialist-in-nestle-ch",
         "de": "produktions-spezialist-in-nestle-ch",
         "fr": "produktions-spezialist-in-nestle-basel-ch"
       },
@@ -80,15 +80,15 @@
       "companyDomain": "nestle.com",
       "title": "Produktions-Spezialist/-in",
       "titleByLocale": {
-        "it": "Produktions-Spezialist/-in",
         "en": "Produktions-Spezialist/-in",
-        "de": "Produktions-Spezialist/-in",
-        "fr": "Produktions-Spezialist/-in"
+        "fr": "Produktions-Spézaliste/-in",
+        "it": "Produktions-Spezialist/-in",
+        "de": "Produktions-Spezialist/-in"
       },
       "description": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nKey details:\n• Location: Basel, CH, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
-        "it": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nDettagli chiave:\n• Ubicazione: Basilea, CH, Canton BS, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale carriera Nestlé\n\nQuesto elenco fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto di squadra, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
         "en": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nKey details:\n• Location: Basel, CH, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "it": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nDettagli chiave:\n• Ubicazione: Basilea, CH, Canton BS, Svizzera\n• Datore di lavoro: Nestlé — la più grande azienda di cibo e bevande del mondo\n• Applicare su: portale carriera Nestlé\n\nQuesto elenco fa parte del feed ufficiale della carriera svizzera di Nestlé. Rivedere i requisiti di ruolo, il contesto di squadra, i dettagli del contratto e le istruzioni di applicazione direttamente sulla pagina di lavoro Nestlé prima di applicare. La posizione è mantenuta in questo dataset solo mentre il portale ufficiale delle carriere mantiene attiva la requisizione.",
         "de": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nWichtigste Angaben:\n• Standort: Basel, CH, Kanton BS, Schweiz\n• Arbeitgeber: Nestlé – das weltweit größte Lebensmittel- und Getränkeunternehmen\n• Bewerben Sie sich auf: Nestlé Karriereportal\n\nDiese Auflistung ist Teil des offiziellen Schweizer Karriere-Feeds von Nestlé. Überprüfen Sie die Rollenanforderungen, den Teamkontext, Vertragsdetails und Anwendungsanweisungen direkt auf der Nestlé-Jobseite, bevor Sie sich bewerben. Die Position wird in diesem Datensatz nur gehalten, während das offizielle Karriereportal die Anforderung aktiv hält.",
         "fr": "Produktions-Spezialist/-in — Nestlé, Bâle, CH.\n\nPrincipaux détails:\n• Lieu: Bâle, CH, canton de BS, Suisse\n• Employeur: Nestlé — la plus grande entreprise mondiale d'alimentation et de boissons\n• Postuler sur: Portail des carrières de Nestlé\n\nCette liste fait partie du fil officiel des carrières suisses de Nestlé. Examiner les exigences relatives au rôle, le contexte de l'équipe, les détails du contrat et les instructions de demande directement sur la page de travail de Nestlé avant de postuler. La position est maintenue dans cet ensemble de données seulement pendant que le portail officiel des carrières maintient la demande active."
       },
@@ -97,7 +97,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Produktions-Spezialist-in/1269789201/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:33:54.630Z",
+      "crawledAt": "2026-07-15T22:28:41.150Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,9 +111,9 @@
       "postedDate": "2026-04-23",
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Produktions-Spezialist-in/1269789201/",
       "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T22:28:41.150Z",
+      "requirementsByLocale": {
+        "en": []
+      },
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -126,7 +126,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-07-15T22:28:41.150Z"
     },
     {
       "id": "nestle-1409459833",

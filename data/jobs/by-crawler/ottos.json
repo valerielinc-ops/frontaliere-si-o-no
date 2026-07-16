@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ottos",
-  "assembledAt": "2026-07-16T11:36:24.808Z",
+  "assembledAt": "2026-07-16T10:29:31.129Z",
   "jobs": [
     {
       "id": "ottos-1696aede804e",
@@ -5259,7 +5259,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4036679",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:35:28.344Z",
+      "crawledAt": "2026-07-15T22:48:02.587Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5283,18 +5283,29 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
-        "aiuto-venditore-in-food-non-food-otto-s-ag-grenchen"
+        "assistente-assistente-vendite-food-non-food-otto-s-ag-interlaken",
+        "help-seller-in-food-non-food-otto-s-ag-interlaken",
+        "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
+        "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
-          "aiuto-venditore-in-food-non-food-otto-s-ag-grenchen"
+          "assistente-assistente-vendite-food-non-food-otto-s-ag-interlaken",
+          "help-seller-in-food-non-food-otto-s-ag-interlaken",
+          "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
+          "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-interlaken"
         ],
         "en": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-grenchen"
+          "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
+          "help-seller-in-food-non-food-otto-s-ag-interlaken"
         ],
         "fr": [
-          "aushilfe-verkaufer-in-food-non-food-ottos-grenchen"
+          "aushilfe-verkaufer-in-food-non-food-ottos-grenchen",
+          "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-interlaken"
+        ],
+        "de": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-interlaken"
         ]
       },
       "firstSeenAt": "2026-07-13T12:42:42.953Z",
@@ -9173,9 +9184,9 @@
       "slug": "personale-di-vendita-in-mobili-otto-s-ag-koniz",
       "slugByLocale": {
         "it": "personale-di-vendita-in-mobili-otto-s-ag-koniz",
-        "en": "furniture-sales-associate-otto-s-ag-koniz",
+        "en": "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-koniz",
-        "fr": "conseiller-ere-de-vente-en-meubles-otto-s-ag-koniz"
+        "fr": "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9200,7 +9211,7 @@
       "url": "https://live.solique.ch/ottosag/job/details/4034190",
       "source": "OTTO'S AG Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:35:01.527Z",
+      "crawledAt": "2026-07-15T22:47:34.238Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9225,23 +9236,33 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-mobel-ottos-koniz",
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
-        "personale-di-vendita-in-mobili-otto-s-ag-koniz",
         "furniture-sales-associate-otto-s-ag-koniz",
-        "conseiller-ere-de-vente-en-meubles-otto-s-ag-koniz"
+        "conseiller-ere-de-vente-en-meubles-otto-s-ag-koniz",
+        "personale-di-vendita-in-mobili-otto-s-ag-zollikofen",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-zollikofen",
+        "verkaufsmitarbeiter-in-mobel-ottos-zollikofen",
+        "sales-associate-for-furniture-otto-s-ag-zollikofen",
+        "vendeur-de-meubles-otto-s-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-mobel-ottos-koniz",
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
-          "personale-di-vendita-in-mobili-otto-s-ag-koniz"
+          "personale-di-vendita-in-mobili-otto-s-ag-zollikofen",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-zollikofen",
+          "verkaufsmitarbeiter-in-mobel-ottos-zollikofen",
+          "sales-associate-for-furniture-otto-s-ag-zollikofen",
+          "vendeur-de-meubles-otto-s-ag-zollikofen"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
-          "furniture-sales-associate-otto-s-ag-koniz"
+          "furniture-sales-associate-otto-s-ag-koniz",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-zollikofen"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
           "conseiller-ere-de-vente-en-meubles-otto-s-ag-koniz"
+        ],
+        "de": [
+          "verkaufsmitarbeiter-in-mobel-ottos-zollikofen"
         ]
       },
       "firstSeenAt": "2026-07-07T16:10:53.130Z",
