@@ -95,12 +95,12 @@
         "en": "Stv. Teamleader Delivery Letters and Packages",
         "fr": "Stv. Teamleader Lettres de livraison et colis"
       },
-      "slug": "stv-teamleader-zustellung-briefe-und-pakete-post",
+      "slug": "stv-teamleader-zustellung-lettere-e-pacchi-die-schweizerische-post-arosa",
       "slugByLocale": {
-        "it": "stv-teamleader-zustellung-briefe-und-pakete-post",
-        "en": "stv-teamleader-zustellung-briefe-und-pakete-post",
+        "it": "stv-teamleader-zustellung-lettere-e-pacchi-die-schweizerische-post-arosa",
+        "en": "stv-teamleader-delivery-letters-and-packages-die-schweizerische-post-arosa",
         "de": "stv-teamleader-zustellung-briefe-und-pakete-post",
-        "fr": "stv-teamleader-zustellung-briefe-und-pakete-post"
+        "fr": "stv-teamleader-lettres-de-livraison-et-colis-die-schweizerische-post-arosa"
       },
       "sourceLang": "de",
       "department": "",
@@ -134,7 +134,21 @@
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-16T11:17:35.709Z"
+      "firstSeenAt": "2026-07-16T11:17:35.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleader-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "stv-teamleader-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "stv-teamleader-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleader-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Business-Intelligence-und-Data-Analyst/74300-de_DE",

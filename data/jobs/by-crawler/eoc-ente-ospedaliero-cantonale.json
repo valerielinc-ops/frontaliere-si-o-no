@@ -624,9 +624,9 @@
       },
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "requirementsByLocale": {
         "it": [
@@ -655,12 +655,10 @@
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z"
         ],
         "en": [
-          "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-feezrk",
-          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-feezrk"
         ],
         "de": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-feezrk",
-          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
           "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
@@ -740,9 +738,9 @@
       },
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
@@ -761,12 +759,10 @@
           "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1"
         ],
         "de": [
-          "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-feezsa",
-          "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-feezsa"
         ],
         "fr": [
-          "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-feezsa",
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-feezsa"
         ]
       },
       "previousSlugs": [
@@ -1113,8 +1109,8 @@
       "firstSeenAt": "2026-07-16T11:26:28.448Z",
       "slugByLocale": {
         "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -1141,11 +1137,9 @@
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "en": [
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
           "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
@@ -1163,8 +1157,6 @@
         ]
       },
       "previousSlugs": [
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g2",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -6793,7 +6785,7 @@
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -6860,7 +6852,6 @@
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
@@ -6894,7 +6885,6 @@
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
           "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       }
@@ -6925,7 +6915,7 @@
         "it": "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
         "en": "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
         "de": "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "fr": "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Medico Capoclinica – Anestesiologia",
@@ -6971,7 +6961,6 @@
         "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-uil1ys",
         "candidat-medical-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "country": "CH",
@@ -6983,7 +6972,6 @@
           "phd-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ],
         "fr": [
-          "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
           "doctorat-anestesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
         ]
       }
@@ -7713,16 +7701,12 @@
         "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona-uil1ss",
         "vor-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
         "pre-supsi-ausbildungs-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "pre-supsi-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
+        "pre-supsi-praktikum-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
           "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona-uil1ss"
-        ],
-        "en": [
-          "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },

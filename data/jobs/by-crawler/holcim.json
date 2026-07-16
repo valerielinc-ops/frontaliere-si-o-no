@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeure-chauffeuse-holcim-ch",
-        "cuffie-cameriere-holcim-group-st-gallen"
+        "chauffeure-chauffeuse-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-chauffeuse-holcim-ch",
-          "cuffie-cameriere-holcim-group-st-gallen"
+          "chauffeure-chauffeuse-holcim-ch"
         ],
         "en": [
           "chauffeure-chauffeuse-holcim-ch"
@@ -125,14 +123,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "camion-driver-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
-          "lastwagenfuhrer-in-holcim-group-oberdorf",
-          "camion-driver-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
         ],
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
@@ -203,13 +199,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-in-holcim-ch",
-        "allrounder-holcim-group-ingenbohl-brunnen"
+        "allrounder-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-holcim-ch",
-          "allrounder-holcim-group-ingenbohl-brunnen"
+          "allrounder-in-holcim-ch"
         ],
         "fr": [
           "allrounder-in-holcim-ch"
@@ -231,12 +225,12 @@
     },
     {
       "id": "holcim-68f18d3bd0c0",
-      "slug": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
+      "slug": "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen",
       "slugByLocale": {
         "de": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
-        "it": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
-        "en": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
-        "fr": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        "it": "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen",
+        "en": "shift-specialist-shift-specialist-in-siggenthal-holcim-group-wurenlingen",
+        "fr": "specialiste-du-poste-specialiste-du-poste-a-siggenthal-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -290,7 +284,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:25:18.606Z"
+      "firstSeenAt": "2026-07-16T11:25:18.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        ],
+        "en": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        ],
+        "fr": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+      ]
     },
     {
       "id": "holcim-0c635c1fceff",
@@ -340,13 +348,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-        "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-          "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
         ],
         "en": [
           "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
@@ -418,14 +424,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch",
-        "baumaschinenfuhrer-in-holcim-group-untervaz",
-        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
+        "baumaschinenfuhrer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch",
-          "baumaschinenfuhrer-in-holcim-group-untervaz",
-          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-holcim-group-untervaz"
@@ -496,13 +500,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "matrose-in-holcim-ch",
-        "marinaio-in-holcim-group-birsfelden"
+        "matrose-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "matrose-in-holcim-ch",
-          "marinaio-in-holcim-group-birsfelden"
+          "matrose-in-holcim-ch"
         ],
         "en": [
           "matrose-in-holcim-ch"
@@ -650,13 +652,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-holcim-ch",
-        "anlagen-e-apparatebauer-in-holcim-group-untervaz"
+        "anlagen-und-apparatebauer-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-holcim-ch",
-          "anlagen-e-apparatebauer-in-holcim-group-untervaz"
+          "anlagen-und-apparatebauer-in-holcim-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-holcim-ch"
@@ -738,15 +738,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "fr": [
-          "materiel-electrique-80-100-holcim-group-eclepens"
-        ]
-      },
-      "previousSlugs": [
-        "materiel-electrique-80-100-holcim-group-eclepens"
-      ]
+      }
     },
     {
       "id": "holcim-f26ec4eb52d4",
@@ -796,13 +788,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
@@ -873,13 +863,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-holcim-ch",
-        "responsabile-del-progetto-holcim-group-eclepens"
+        "project-manager-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-holcim-ch",
-          "responsabile-del-progetto-holcim-group-eclepens"
+          "project-manager-holcim-ch"
         ],
         "de": [
           "project-manager-holcim-ch"
@@ -948,14 +936,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-        "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
+        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
-          "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
         ],
         "en": [
           "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
@@ -1027,13 +1013,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
-        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
-        "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
-          "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
         ],
         "en": [
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
@@ -1104,13 +1088,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machiniste-polyvalent-biere-holcim-ch",
-        "macchinista-multiuso-birra-holcim-group-biere"
+        "machiniste-polyvalent-biere-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machiniste-polyvalent-biere-holcim-ch",
-          "macchinista-multiuso-birra-holcim-group-biere"
+          "machiniste-polyvalent-biere-holcim-ch"
         ],
         "en": [
           "machiniste-polyvalent-biere-holcim-ch"
@@ -1183,14 +1165,12 @@
       "previousSlugsByLocale": {
         "de": [
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-          "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
         ],
         "it": [
           "operations-excellence-manager-agg-80-100-holcim-ch",
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-          "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
         ],
         "fr": [
           "operations-excellence-manager-agg-80-100-holcim-ch"
@@ -1199,9 +1179,7 @@
       "previousSlugs": [
         "operations-excellence-manager-agg-80-100-holcim-ch",
         "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-        "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
-        "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
       ],
       "firstSeenAt": "2026-07-08T22:25:51.964Z",
       "salaryMin": 85500,
@@ -1265,13 +1243,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-counsel-80-100-holcim-ch",
-        "consigliere-giuridico-80-100-holcim-group-zurich"
+        "legal-counsel-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-80-100-holcim-ch",
-          "consigliere-giuridico-80-100-holcim-group-zurich"
+          "legal-counsel-80-100-holcim-ch"
         ],
         "fr": [
           "legal-counsel-80-100-holcim-ch"
@@ -1339,13 +1315,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-80-100-holcim-ch",
-        "meccanica-80-100-holcim-group-wurenlingen"
+        "mechaniker-in-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-80-100-holcim-ch",
-          "meccanica-80-100-holcim-group-wurenlingen"
+          "mechaniker-in-80-100-holcim-ch"
         ],
         "en": [
           "mechaniker-in-80-100-holcim-ch"
@@ -1488,13 +1462,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
-        "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
+        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
-          "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
         ],
         "en": [
           "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
@@ -1565,13 +1537,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-          "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
         ],
         "en": [
           "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
@@ -1642,13 +1612,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-personalrestaurant-60-70-holcim-ch",
-        "chef-staff-ristorante-60-70-holcim-group-untervaz"
+        "koch-kochin-personalrestaurant-60-70-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-personalrestaurant-60-70-holcim-ch",
-          "chef-staff-ristorante-60-70-holcim-group-untervaz"
+          "koch-kochin-personalrestaurant-60-70-holcim-ch"
         ],
         "en": [
           "koch-kochin-personalrestaurant-60-70-holcim-ch"
@@ -1719,13 +1687,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-        "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
+        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
-          "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
@@ -1873,15 +1839,13 @@
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch-2",
         "baumaschinenfuhrer-in-holcim-ch",
-        "baumaschinenfuhrer-in-holcim-group-untervaz",
-        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee"
+        "baumaschinenfuhrer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch-2",
           "baumaschinenfuhrer-in-holcim-ch",
-          "baumaschinenfuhrer-in-holcim-group-untervaz",
-          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee"
+          "baumaschinenfuhrer-in-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-holcim-group-untervaz"
@@ -1953,14 +1917,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schichtverantwortliche-r-60-100-holcim-ch",
-        "schichtverantwortliche-r-60-100-holcim-group-untervaz",
-        "rischio-responsabile-60-100-holcim-group-untervaz"
+        "schichtverantwortliche-r-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtverantwortliche-r-60-100-holcim-ch",
-          "schichtverantwortliche-r-60-100-holcim-group-untervaz",
-          "rischio-responsabile-60-100-holcim-group-untervaz"
+          "schichtverantwortliche-r-60-100-holcim-group-untervaz"
         ],
         "en": [
           "schichtverantwortliche-r-60-100-holcim-group-untervaz"
@@ -2032,14 +1994,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-beton-holcim-ch",
-        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
-        "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
+        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-beton-holcim-ch",
-          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
-          "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
+          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
         ],
         "en": [
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
@@ -2110,13 +2070,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
-        "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
-          "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
         ],
         "en": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
@@ -2188,14 +2146,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-holcim-ch",
-        "verkaufer-in-holcim-group-wil",
-        "venditore-in-holcim-group-wil"
+        "verkaufer-in-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-holcim-ch",
-          "verkaufer-in-holcim-group-wil",
-          "venditore-in-holcim-group-wil"
+          "verkaufer-in-holcim-group-wil"
         ],
         "en": [
           "verkaufer-in-holcim-group-wil"
@@ -2335,13 +2291,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-80-100-holcim-ch",
-        "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
+        "projektleiter-in-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-holcim-ch",
-          "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
+          "projektleiter-in-80-100-holcim-ch"
         ],
         "en": [
           "projektleiter-in-80-100-holcim-ch"
@@ -2412,13 +2366,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
-        "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
-          "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
         ],
         "en": [
           "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
@@ -2562,14 +2514,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenmechaniker-in-holcim-ch",
-        "baumaschinenmechaniker-in-holcim-group-wurenlingen",
-        "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenmechaniker-in-holcim-ch",
-          "baumaschinenmechaniker-in-holcim-group-wurenlingen",
-          "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
+          "baumaschinenmechaniker-in-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
@@ -2716,13 +2666,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-communications-intern-for-6-months-holcim-ch",
-        "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
+        "corporate-communications-intern-for-6-months-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-communications-intern-for-6-months-holcim-ch",
-          "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
+          "corporate-communications-intern-for-6-months-holcim-ch"
         ],
         "fr": [
           "corporate-communications-intern-for-6-months-holcim-ch"
@@ -2791,13 +2739,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-logistics-central-eastern-europe-cee-holcim-ch",
-        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug",
-        "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
+        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-logistics-central-eastern-europe-cee-holcim-ch",
-          "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
+          "head-of-logistics-central-eastern-europe-cee-holcim-ch"
         ],
         "fr": [
           "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
@@ -2865,13 +2811,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "innovation-process-engineer-thermal-holcim-ch",
-        "innovation-process-ingegnere-thermal-holcim-group-zug"
+        "innovation-process-engineer-thermal-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-process-engineer-thermal-holcim-ch",
-          "innovation-process-ingegnere-thermal-holcim-group-zug"
+          "innovation-process-engineer-thermal-holcim-ch"
         ],
         "de": [
           "innovation-process-engineer-thermal-holcim-ch"
@@ -2942,13 +2886,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-ready-to-operate-ccus-holcim-ch",
-        "responsabile-ready-to-operate-ccus-holcim-group-zug"
+        "head-of-ready-to-operate-ccus-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ready-to-operate-ccus-holcim-ch",
-          "responsabile-ready-to-operate-ccus-holcim-group-zug"
+          "head-of-ready-to-operate-ccus-holcim-ch"
         ],
         "de": [
           "head-of-ready-to-operate-ccus-holcim-ch"
