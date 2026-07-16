@@ -1206,6 +1206,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  const germanCantonPrep = (dc: string): string => {
  if (['Tessin', 'Wallis', 'Jura'].includes(dc)) return `im ${dc}`;
+ // 'Schweiz' (the AGGREGATE_KEY / national-hub display label, see
+ // getCantonDisplayLabel) needs the feminine article — "in Schweiz" is
+ // ungrammatical. Every caller of this shared helper benefits (title/lede
+ // generators, breadcrumbs, editorial headers), not just the item-3 canton
+ // hub title fixed alongside this. jobEditorialLanding.ts has its own
+ // independent copy of this helper but never receives 'Schweiz' (that
+ // plugin has no AGGREGATE_KEY branch — verified, not a sibling to fix).
+ if (dc === 'Schweiz') return 'in der Schweiz';
  return `in ${dc}`;
  };
  const cantonSectionName = (locale: 'it' | 'en' | 'de' | 'fr', cantonDisplay: string): string => {
@@ -9455,9 +9463,23 @@ ${staticAnalyticsHtml}
           ctaLabel: `View all listings`,
         };
        case 'de':
+         // Issue #4303 item 3: this generator feeds the canton-hub <title>
+         // (line ~10398) and header lede (line ~10306) for every DE-locale
+         // /jobs-im-tessin/{kanton}/-style page — including the aggregate
+         // "Schweiz" hub, together ~137.9k GSC impressions parked at
+         // position 12. The prior copy ("Jobs in Zürich" / "Job-Board-
+         // Übersicht für den Kanton Zürich.") is a literal IT/EN mirror with
+         // zero Grenzgänger terminology, even though the DE-locale audience
+         // is overwhelmingly real German-speaking Grenzgänger (esp. the
+         // Basel↔Lörrach/Weil am Rhein commute belt) — a different search
+         // intent than the IT-locale "frontaliere italiano" reader, and the
+         // DE body prose already targets it (see buildCantonContextProse's
+         // "als Grenzgänger" H2 + "Grenzgängerinnen und Grenzgänger" copy
+         // above). Rewritten to match that intent instead of translating
+         // the generic "job board index" framing.
          return {
-          title: buildTitleWithBrand(`Jobs ${germanCantonPrep(display)}`),
-          lede: `Job-Board-Übersicht für den Kanton ${display}.`,
+          title: buildTitleWithBrand(`Grenzgänger-Jobs ${germanCantonPrep(display)}`),
+          lede: `Aktuelle Stellenangebote für Grenzgänger ${germanCantonPrep(display)} — täglich aktualisiert.`,
           ctaLabel: `Alle Stellen anzeigen`,
         };
        case 'fr':
