@@ -690,15 +690,14 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Home & Ménage) 60%",
-        "en": "Collaborateur/trice vente (Home & Ménage) 60%",
+        "en": "Current collaborator (Home & Ménage) 60%",
         "de": "Collaborateur/trice vente (Home & Ménage) 60%",
         "fr": "Collaborateur/trice vente (Home & Ménage) 60%"
       },
       "sourceLang": "it",
-      "id": "manor-29f1509b7de7",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-15T12:02:19.603Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-29f1509b7de7",
       "salaryMin": 43200,
       "salaryMax": 66600,
       "currency": "CHF",
@@ -715,7 +714,8 @@
       "addressLocality": "Genève 1 Collaborateurtrice vente",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-07-15T12:02:19.603Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf 10%",
@@ -984,7 +984,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice Warenausgang 100%",
         "de": "Mitarbeiter Warenausgang 100%",
-        "en": "Mitarbeiter Warenausgang 100%",
+        "en": "Outgoing goods employee 100%",
         "fr": "Mitarbeiter Warenausgang 100%"
       },
       "sourceLang": "it",
@@ -1008,8 +1008,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-07-15T12:02:19.603Z",
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-07-15T12:02:19.603Z"
     },
     {
       "title": "Collaborateur/trice vente (Lingerie) 60%",
