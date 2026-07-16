@@ -1,18 +1,19 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-15T22:42:57.033Z",
+  "generatedAt": "2026-07-16T11:12:31.120Z",
   "total": 8,
-  "newCount": 4,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 17461,
-  "avgDurationMs": 17461,
+  "durationMs": 17722,
+  "avgDurationMs": 17722,
   "durationHistory": [
-    17461
+    17722
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
       "applyUrl": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -36,15 +37,16 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Agno",
       "addressCountry": "CH",
       "addressRegion": "TI",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 23,
         "completeness": 15
       }
     },
@@ -71,14 +73,15 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 66,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 25,
         "completeness": 15
       }
     },
@@ -105,14 +108,15 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Boudry",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "_qualityScore": 66,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
+        "translation": 21,
         "completeness": 15
       }
     },
@@ -139,19 +143,18 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "firstSeenAt": "2026-07-15T22:42:57.030Z",
       "addressLocality": "Agno",
       "addressCountry": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 68,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 8,
+        "translation": 23,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
       "applyUrl": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens-0",
@@ -220,7 +223,7 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -260,7 +263,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -299,7 +302,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
