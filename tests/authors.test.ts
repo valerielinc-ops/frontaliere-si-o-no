@@ -27,6 +27,16 @@ describe('authors registry (Google News A1)', () => {
     }
   });
 
+  it('every author with a cvPath has a PDF file that exists in public/', () => {
+    for (const author of AUTHORS) {
+      if (!author.cvPath) continue;
+      expect(author.cvPath.startsWith('/documents/authors/')).toBe(true);
+      expect(author.cvPath.endsWith('.pdf')).toBe(true);
+      const abs = path.join(PUBLIC_DIR, author.cvPath.replace(/^\//, ''));
+      expect(fs.existsSync(abs), `missing CV for ${author.slug} at ${abs}`).toBe(true);
+    }
+  });
+
   it('every author has a public LinkedIn URL', () => {
     for (const author of AUTHORS) {
       expect(author.social.linkedin, `missing linkedin for ${author.slug}`).toBeTruthy();
