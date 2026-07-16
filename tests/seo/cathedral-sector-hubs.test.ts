@@ -64,6 +64,61 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     expect(anyHub, 'No per-canton sector hub emitted under any sampled non-TI canton').toBe(true);
   });
 
+  it('non-TI canton × sector hubs have no job-count floor — every sampled combo is a real, indexed page, never a noindex bridge (owner decision 2026-07-16)', () => {
+    if (!fs.existsSync(DIST)) return;
+    const nonTiSections = [
+      'cerca-lavoro-zurigo',
+      'cerca-lavoro-ginevra',
+      'cerca-lavoro-vaud',
+      'cerca-lavoro-berna',
+      'cerca-lavoro-argovia',
+      'cerca-lavoro-san-gallo',
+      'cerca-lavoro-lucerna',
+    ];
+    const sectorSlugs = [
+      'infermieri',
+      'case-anziani',
+      'educatori',
+      'ingegneri',
+      'autisti',
+      'sviluppatori',
+      'ristorazione',
+      'operatori-socio-sanitari',
+      'logistica',
+      'apprendistato',
+    ];
+    const missing: string[] = [];
+    const bridged: string[] = [];
+    let checked = 0;
+    for (const sec of nonTiSections) {
+      const dir = path.join(DIST, sec);
+      if (!fs.existsSync(dir)) continue;
+      for (const slug of sectorSlugs) {
+        const f = path.join(dir, slug, 'index.html');
+        if (!fs.existsSync(f)) {
+          missing.push(`${sec}/${slug}`);
+          continue;
+        }
+        checked++;
+        const html = fs.readFileSync(f, 'utf-8');
+        // A below-floor bridge would noindex and canonicalize at the canton
+        // section root instead of at its own slug — assert neither happens.
+        if (/name=["']?robots["']?[^>]*noindex/i.test(html)) {
+          bridged.push(`${sec}/${slug} (noindex)`);
+        }
+        const selfCanonical = new RegExp(
+          `<link\\s+rel=["']?canonical["']?\\s+href=["']?https://frontaliereticino\\.ch/${sec}/${slug}/["']?`,
+        );
+        if (!selfCanonical.test(html)) {
+          bridged.push(`${sec}/${slug} (canonical not self)`);
+        }
+      }
+    }
+    if (checked === 0) return; // dist built without these sections/sectors — nothing to assert
+    expect(missing, `sector-hub pages missing for sampled non-TI combos:\n${missing.join('\n')}`).toEqual([]);
+    expect(bridged, `sector-hub pages bridged (floor should be removed):\n${bridged.join('\n')}`).toEqual([]);
+  });
+
   it('TI sector hubs at /cerca-lavoro-ticino/{sectorSlug}/ stay intact', () => {
     if (!fs.existsSync(DIST)) return;
     // Pick a TI sector hub that the legacy emit owns. infermieri is the

@@ -41,8 +41,7 @@ import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug, careClusterSlug } from './jobEditorialLanding';
-import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, jobMatchesSector as jobMatchesSectorImpl, type SectorHubKey } from './jobSectorLanding';
-import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, type SectorHubKey } from './jobSectorLanding';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJobsHub';
 
@@ -1301,15 +1300,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   * actually wrote (e.g. sector hubs use `ingegneri` whereas the explore nav
   * was historically wired to `categoria-ingegneria`).
   *
-  * Fix: pre-compute the per-canton link set (sector hubs gated by ≥3 matching
-  * jobs, editorial slot pages gated by ≥MIN_JOBS_FOR_CANTON_PAGE, top company
-  * hubs gated MIN=3, city hubs from `getCantonCities`), then push a single
-  * collapsible `<details>` navigator on every TI hub (locale-aware) that links
-  * all 23 non-TI cantons' leaves. Since the TI hub is at depth 1 from `/`
-  * and is always `index,follow`, every leaf lifts to BFS depth 2. Page weight
-  * is bounded by gates: per-canton ≤7 editorial + ≤10 sector + ≤6 company +
-  * ≤8 city = ~31 anchors × 23 cantons = ~720 anchors total, all inside a
-  * collapsed `<details>` so mobile fold stays clean (CLAUDE.md #15/#16).
+  * Fix: pre-compute the per-canton link set (sector hubs capped at 10 —
+  * see below, all 49 have real pages since 2026-07-16, PR #4254 + follow-up,
+  * but every sector still has a real page reachable via the canton's own
+  * `/settori/` hub regardless of what this widget links; editorial slot
+  * pages always emitted (7 slots), top company hubs gated MIN=3, city hubs
+  * from `getCantonCities`), then push a single collapsible `<details>`
+  * navigator on every TI hub (locale-aware) that links all 23 non-TI
+  * cantons' leaves. Since the TI hub is at depth 1 from `/` and is always
+  * `index,follow`, every leaf lifts to BFS depth 2.
+  *
+  * Sector cap rationale: this exact anchor pattern was the page-weight gate
+  * breaker behind issue #1887 (`/cerca-lavoro-ticino/` measured 208,874 B
+  * against the 215 KB `audit-page-weight.mjs` cap — ~6 KB headroom). Linking
+  * all 49 SECTOR_HUB_KEYS unconditionally here (vs. the old ≥3-job filter,
+  * which self-limited to a data-dependent subset) would add ~900+ guaranteed
+  * anchors and risk blowing that budget for zero reachability gain — every
+  * sector hub is already deep-linked unconditionally from the canton's own
+  * `/settori/` hub (`seoHubsPlugin.ts` via `hasCantonSectorPage`), so this
+  * widget is a depth-2 shortcut, not the only path. Capped at the first 10
+  * of `SECTOR_HUB_KEYS` (deterministic, no job-count check — selection here
+  * has no bearing on which pages exist).
+  * Page weight per canton: ≤7 editorial + ≤10 sector + ≤6 company + ≤8 city
+  * ≈ 31 anchors × 23 cantons ≈ 720 anchors total, all inside a collapsed
+  * `<details>` so mobile fold stays clean (CLAUDE.md #15/#16).
   */
  type NonTiNavLocale = 'it' | 'en' | 'de' | 'fr';
  type NonTiCantonNavEntry = {
@@ -1319,7 +1333,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    labels: Record<NonTiNavLocale, string>;
    /** Editorial slot slugs per locale (oggi/infermieri/lavoro-part-time/cliniche/case-anziani/oss/educatori). */
    editorialSlots: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
-   /** Sector hub slugs per locale (ingegneri, autisti, …) — only those with ≥3 matching jobs. */
+   /** Sector hub slugs per locale (ingegneri, autisti, …) — first 10 of SECTOR_HUB_KEYS, deterministic page-weight cap; the rest are still real pages, reachable via the canton's own /settori/ hub. */
    sectorSlugs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
    /** Top company hubs (≥3 jobs, top 6) — slug is `azienda-{cSlug}` per locale prefix. */
    companyHubs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
@@ -1379,23 +1393,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        if (code === 'TI') continue;
        const jobs = cantonJobs.get(code) ?? [];
        if (jobs.length === 0) continue;
-       // ── sector hubs: gate ≥3 matching jobs (mirror MIN_JOBS_PER_CANTON_SECTOR
-       //    at jobsSeoPagesPlugin.ts:6052) AND ≥MIN_JOBS_FOR_CANTON_PAGE total
-       //    (mirror line 6080); reuse jobMatchesSector for accuracy.
+       // ── sector hubs: first 10 of SECTOR_HUB_KEYS, deterministic — no
+       //    job-count gate (owner decision 2026-07-16, PR #4254 + follow-up,
+       //    removed the floor at jobsSeoPagesPlugin.ts Phase 3.2, so every
+       //    (canton, sector) combo has a real page regardless of match
+       //    count). Capped here purely for page-weight (see docstring above,
+       //    issue #1887) — the remaining sectors are still real pages,
+       //    reachable via the canton's own /settori/ hub either way.
        const sectorSlugsPerLocale: Record<NonTiNavLocale, Array<{ slug: string; label: string }>> = { it: [], en: [], de: [], fr: [] };
-       if (jobs.length >= MIN_JOBS_FOR_CANTON_PAGE) {
-         for (const sector of SECTOR_HUB_KEYS) {
-           let n = 0;
-           for (const j of jobs) {
-             // Lazy import shape: pass through type since the helper checks each field individually.
-             if (jobMatchesSectorImpl(j as never, sector)) n++;
-             if (n >= 3) break;
-           }
-           if (n >= 3) {
-             for (const loc of ['it', 'en', 'de', 'fr'] as const) {
-               sectorSlugsPerLocale[loc].push({ slug: SECTOR_HUB_SLUG[loc][sector], label: SECTOR_LABEL_NAV[loc][sector] });
-             }
-           }
+       for (const sector of SECTOR_HUB_KEYS.slice(0, 10)) {
+         for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+           sectorSlugsPerLocale[loc].push({ slug: SECTOR_HUB_SLUG[loc][sector], label: SECTOR_LABEL_NAV[loc][sector] });
          }
        }
        // ── editorial slots: ALWAYS emitted for every cathedral canton
