@@ -14,6 +14,7 @@
 import { describe, it, expect } from 'vitest';
 
 import json from '../data/swiss-canton-salary-index.json';
+import taxBurdenJson from '../data/swiss-canton-tax-burden.json';
 import {
   GROSSREGION_MEDIAN_MONTHLY,
   CANTON_TO_GROSSREGION,
@@ -24,6 +25,10 @@ import {
   TICINO_MEDIAN_MONTHLY,
   NATIONAL_MEDIAN_MONTHLY,
   cantonSalaryFactor,
+  TAX_BRACKETS,
+  TAX_BURDEN_PCT_BY_CANTON,
+  cantonGrossSalaryBand,
+  cantonNetSalaryBandForCode,
 } from '@/build-plugins/shared/cantonSalaryIndex';
 import {
   getCantonSalaryFactor,
@@ -106,5 +111,44 @@ describe('resolveSalaryBand applies the national GAV sector floor (non-TI)', () 
     expect(band.minValue).toBeGreaterThanOrEqual(
       STATUTORY_MIN_WAGE_ANNUAL.GE ?? UNIVERSAL_FLOOR_ANNUAL,
     );
+  });
+});
+
+describe('swiss-canton-tax-burden parity (TS literals === JSON)', () => {
+  it('income brackets match', () => {
+    expect([...TAX_BRACKETS]).toEqual(taxBurdenJson.incomeBracketsCHF);
+  });
+  it('per-canton tax burden % match for all 26 cantons', () => {
+    expect(TAX_BURDEN_PCT_BY_CANTON).toEqual(taxBurdenJson.totalTaxBurdenPctByCanton);
+    expect(Object.keys(taxBurdenJson.totalTaxBurdenPctByCanton)).toHaveLength(26);
+  });
+});
+
+describe('cantonGrossSalaryBand / cantonNetSalaryBandForCode use real per-canton withholding', () => {
+  it('Zug (low-tax) shows a higher net than Geneva (high-tax) at the same gross', () => {
+    const zg = cantonNetSalaryBandForCode('ZG', 90000, 110000);
+    const ge = cantonNetSalaryBandForCode('GE', 90000, 110000);
+    expect(zg.netSingleLow).toBeGreaterThan(ge.netSingleLow);
+    expect(zg.netSingleHigh).toBeGreaterThan(ge.netSingleHigh);
+  });
+
+  it('an unmapped canton code falls back to the national-average curve (same as no code)', () => {
+    expect(cantonNetSalaryBandForCode('XX', 90000, 110000)).toEqual(
+      cantonNetSalaryBandForCode(null, 90000, 110000),
+    );
+  });
+
+  it('the couple figure stays above the single figure (family deduction), for every canton', () => {
+    for (const code of Object.keys(taxBurdenJson.totalTaxBurdenPctByCanton)) {
+      const band = cantonNetSalaryBandForCode(code, 85000, 110000);
+      expect(band.netCoupleLow).toBeGreaterThan(band.netSingleLow);
+      expect(band.netCoupleHigh).toBeGreaterThan(band.netSingleHigh);
+    }
+  });
+
+  it('cantonGrossSalaryBand differentiates net pay by canton display name (previously identical for every canton)', () => {
+    const zug = cantonGrossSalaryBand('Zug');
+    const geneve = cantonGrossSalaryBand('Genève');
+    expect(zug.netSingleLow).not.toBe(geneve.netSingleLow);
   });
 });

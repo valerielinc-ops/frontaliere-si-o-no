@@ -1625,22 +1625,40 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       const location = String(job.addressLocality || job.location || '').trim();
       const nextSlug = slugifyLocalizedLabel([localizedTitle, company, location].filter(Boolean).join(' '));
       const isSlugMeaningful = localizedSlug && localizedSlug.length >= 15;
+      // Item #3 (follow-up #4206): registryPinnedLocaleSlug just rejected THIS
+      // locale's pin above (fell through instead of `continue`-ing) — check
+      // WHY. If it's demonstrably garbled (#4071 guard), none of the repair
+      // heuristics below are guaranteed to catch it: they each target a
+      // SPECIFIC known corruption shape (Italian mistranslation, boilerplate,
+      // company-name collision), not generic garbage sitting in an arbitrary
+      // locale slot. Real case: KSA's "logi-hyardfachfrau-…" lives in the `de`
+      // slot itself, so the foreign-word heuristic in the first loop (which
+      // only flags German words in NON-German locales) never fires for it,
+      // and none of these heuristics recognize it either — the same garbage
+      // slug would otherwise sit untouched, unhealed and un-bridged, forever.
+      const registryPinIsGarbled = isRegistryPinGarbled(registeredSlug, locale, sourceSlugPinContext(job, titleSourceLang));
       const shouldRefreshSlug =
         !localizedSlug ||
         (!isSlugMeaningful && localizedSlug === baseSlug) ||
         (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ||
         needsCanonicalCompanySlugRepair(localizedSlug, company) ||
-        needsBoilerplateSlugRepair(localizedSlug);
+        needsBoilerplateSlugRepair(localizedSlug) ||
+        registryPinIsGarbled;
 
       if (shouldRefreshSlug && nextSlug && nextSlug !== localizedSlug) {
         const reason = !localizedSlug ? 'missing'
           : (!isSlugMeaningful && localizedSlug === baseSlug) ? 'short_base_match'
           : (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ? 'italian_repair'
           : needsBoilerplateSlugRepair(localizedSlug) ? 'boilerplate_repair'
+          : registryPinIsGarbled ? 'garbled_pin_repair'
           : 'company_repair';
         // Skip replacement if existing slug is semantically equivalent (prevents churn)
-        // BUT always allow italian_repair and boilerplate_repair — those fix real quality issues
-        const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair';
+        // BUT always allow italian_repair, boilerplate_repair, and garbled_pin_repair —
+        // those fix real quality issues. garbled_pin_repair in particular MUST bypass the
+        // stability check: a garbage pin often still shares the company/location suffix
+        // token with its healthy replacement (that's exactly what makes it look "close
+        // enough" to isSlugStable), which would otherwise silently re-suppress the fix.
+        const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair' || reason === 'garbled_pin_repair';
         if (!isQualityRepair && localizedSlug && isSlugStable(localizedSlug, nextSlug, {
           threshold: 0.70,
           existingLocation: location,
@@ -5357,34 +5375,106 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
   // ("informatico") and MUST stay pinned, or every crawler would churn indexed
   // URLs (harden-registry-pin-quality-repair guardrail). A real translation
   // always shares a token with its own locale title, so it is never refused.
-  // Both witnesses (per-locale title + canonicalSlug) are required — without
-  // them we never refuse (conservative: no churn). Callers that omit
-  // opts.titleByLocale keep the prior unconditional pin behavior.
-  const localeTitle = opts && opts.titleByLocale && typeof opts.titleByLocale === 'object'
-    ? String(opts.titleByLocale[locale] || '').trim()
-    : '';
+  //
+  // Follow-up #4206 hardening (adversarial review of #4071/#4201):
+  //  - item #1: a caller that DID opt into validation (passed titleByLocale)
+  //    but has NEITHER witness at all for this locale — no title ever
+  //    recorded here AND the registry entry carries no canonicalSlug — used to
+  //    fall through silently and honor the pin exactly like a caller that
+  //    never opted in, so a locale whose title slot is never populated could
+  //    freeze a garbled pin forever, immune to the guard. Refuse instead:
+  //    "cannot validate" must not mean "assume it's fine". A SINGLE witness
+  //    present (either one) still requires BOTH to even attempt judgment —
+  //    that "no second witness → no churn" behavior (tested, see
+  //    registry-pinned-locale-slug.test.ts) is unchanged.
+  //  - item #2: a genuinely short but legitimate title/canonical (1-2 short
+  //    words, stripped by slugTokenSet's 3-char/stop-word floor) can tokenize
+  //    to an EMPTY set even though real text was supplied — indistinguishable
+  //    from "shares nothing" but NOT positive evidence of garbage. Only
+  //    refuse when at least one witness produced actual tokens to compare
+  //    against; otherwise default to ACCEPT, same "not judgeable → keep"
+  //    principle as the pinTokens-empty branch below.
+  // Callers that omit opts.titleByLocale entirely keep the prior unconditional
+  // pin behavior (hasTitleContext false short-circuits everything below).
+  const hasTitleContext = !!(opts && opts.titleByLocale && typeof opts.titleByLocale === 'object');
+  const localeTitle = hasTitleContext ? String(opts.titleByLocale[locale] || '').trim() : '';
   const canonical = normalizeSpace(String(registered.canonicalSlug || ''));
-  if (localeTitle && canonical) {
-    const noise = slugTokenSet(slugify(
-      `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
-    ));
-    const pinTokens = [...slugTokenSet(regLoc)].filter((t) => !noise.has(t));
-    // A pin with no title token of its own (pure company/location) is not
-    // judgeable — keep it rather than risk churning a legitimate short slug.
-    if (pinTokens.length > 0) {
+  const noise = slugTokenSet(slugify(
+    `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
+  ));
+  const pinTokens = [...slugTokenSet(regLoc)].filter((t) => !noise.has(t));
+  // A pin with no title token of its own (pure company/location) is not
+  // judgeable — keep it rather than risk churning a legitimate short slug.
+  if (pinTokens.length > 0) {
+    if (hasTitleContext && !localeTitle && !canonical) return null; // item #1
+    if (localeTitle && canonical) {
       const titleTokens = new Set(
         [...slugTokenSet(slugify(localeTitle))].filter((t) => !noise.has(t)),
       );
       const canonicalTokens = new Set(
         [...slugTokenSet(canonical)].filter((t) => !noise.has(t)),
       );
-      const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
-      const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
-      if (!sharesTitle && !sharesCanonical) return null;
+      if (titleTokens.size > 0 || canonicalTokens.size > 0) { // item #2
+        const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
+        const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
+        if (!sharesTitle && !sharesCanonical) return null;
+      }
     }
   }
 
   return regLoc;
+}
+
+/**
+ * Item #3 (follow-up #4206): does `registered` carry a per-locale slug that
+ * `registryPinnedLocaleSlug` would refuse SPECIFICALLY because it is
+ * demonstrably corrupt (issue #4071's garbage-pin guard) — as opposed to a
+ * source-copy / unknown-source rejection, which means "no real translation
+ * yet" and must NOT be force-healed the same way (the fresh crawl's own
+ * title-derived slug is not necessarily better, just unverified).
+ *
+ * hardenJobLocaleFields uses this to force a fresh title-based re-derivation
+ * for a locale whose registry pin is confirmed garbage, bypassing the
+ * narrower stale-slug heuristics that can miss same-locale corruption (e.g.
+ * the KSA German nursing titles: the corrupt slot IS locale `de`, so the
+ * foreign-word heuristic — which only flags German words in NON-German
+ * locales — never fires for it; see hardenJobLocaleFields's registry-pin
+ * re-check). Without this, a rejected pin can leave the garbage slug in
+ * place untouched: no re-derivation, no previousSlugs bridge — the same 404
+ * risk the guard exists to prevent.
+ *
+ * @param {object} registered  registry entry from getRegisteredSlug()
+ * @param {string} locale      target locale
+ * @param {object} opts        same shape as registryPinnedLocaleSlug's opts
+ *   (must carry opts.titleByLocale — callers without title context can never
+ *   demonstrate garbage, so this returns false for them)
+ * @returns {boolean}
+ */
+function isRegistryPinGarbled(registered, locale, opts = {}) {
+  if (!registered || !registered.slugByLocale || typeof registered.slugByLocale !== 'object') return false;
+  const regLoc = normalizeSpace(String(registered.slugByLocale[locale] || ''));
+  if (!regLoc) return false;
+  const hasTitleContext = !!(opts && opts.titleByLocale && typeof opts.titleByLocale === 'object');
+  if (!hasTitleContext) return false;
+  const localeTitle = String(opts.titleByLocale[locale] || '').trim();
+  const canonical = normalizeSpace(String(registered.canonicalSlug || ''));
+  const noise = slugTokenSet(slugify(
+    `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
+  ));
+  const pinTokens = [...slugTokenSet(regLoc)].filter((t) => !noise.has(t));
+  if (pinTokens.length === 0) return false;
+  if (!localeTitle && !canonical) return true; // item #1: no witness at all
+  if (!(localeTitle && canonical)) return false; // single witness → not judgeable
+  const titleTokens = new Set(
+    [...slugTokenSet(slugify(localeTitle))].filter((t) => !noise.has(t)),
+  );
+  const canonicalTokens = new Set(
+    [...slugTokenSet(canonical)].filter((t) => !noise.has(t)),
+  );
+  if (titleTokens.size === 0 && canonicalTokens.size === 0) return false; // item #2
+  const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
+  const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
+  return !sharesTitle && !sharesCanonical;
 }
 
 /**
@@ -6109,6 +6199,30 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // OR >1 fresh job we skip the bridge entirely and let those jobs re-index with
   // their own fresh identity — correctness over equity-preservation for an
   // inherently ambiguous set.
+  //
+  // DESIGN DECISION — FINAL, not deferred (follow-up #4063 item 2, closing the
+  // "eventuale dedup e una decisione di design da issue dedicata" scope-owed
+  // item left open by PR #4056): "dedup" is not the applicable fix here. A
+  // matchKey collision means two GENUINELY DIFFERENT job postings hash to the
+  // same key (an imperfect stable-ID/slug-bridge extraction heuristic, not a
+  // repeated posting) — there is no duplicate to collapse. Skipping the bridge
+  // does not create duplicate content in the dataset: no job is dropped and
+  // none are merged into each other; both colliding jobs simply pass through
+  // as their own fresh entries (see the `mergedFresh` map below — an
+  // unmatched-because-ambiguous `fresh` is returned as-is). The only cost is
+  // that those specific jobs lose cross-run continuity (fresh.id does not
+  // inherit old.id, so previousSlugs/firstSeenAt/translation-carryover reset)
+  // for as long as their key keeps colliding — an intentional trade because
+  // guessing which of N colliding old records belongs to which of M colliding
+  // fresh ones would risk exactly the cross-contamination this guard exists
+  // to prevent, and would be strictly worse than a clean re-index. Actual
+  // same-run duplicate elimination (one job emitted twice by a single crawl,
+  // e.g. the Bosch/banca-cler snapshot-diff-vs-Map class, #4063 item 1) is a
+  // different, already-established fix pattern applied upstream in the
+  // per-crawler layer before jobs ever reach this shared merge helper — not
+  // this function's responsibility, and not something to duplicate here.
+  // Covered by the "skips the bridge for a colliding (non-injective) matchKey
+  // instead of cross-contaminating" test in dedicated-crawler-common.test.ts.
   const ambiguousKeys = new Set();
   const seenExistingKeys = new Set();
   for (const job of existingJobs) {

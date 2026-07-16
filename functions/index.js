@@ -181,12 +181,13 @@ export const adminSendColdEmail = onRequest(
         return;
       }
       const resend = new Resend(resendApiKey);
-      const sendEmail = async ({ from, to, subject, text, unsubUrl }) => {
+      const sendEmail = async ({ from, to, subject, text, html, unsubUrl }) => {
         const { data, error } = await resend.emails.send({
           from,
           to,
           subject,
           text,
+          html,
           headers: {
             'List-Unsubscribe': `<${unsubUrl}>`,
             'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',

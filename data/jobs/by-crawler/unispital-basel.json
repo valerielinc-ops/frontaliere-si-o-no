@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-07-16T11:30:44.069Z",
+  "assembledAt": "2026-07-16T10:53:02.758Z",
   "jobs": [
     {
       "id": "unispital-basel-43bf9c5d75fd",
@@ -5779,7 +5779,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistenzaerztin-assistenzarzt-notfallmedizin/2a9815e1-73ab-49cc-bf85-127c8f18dadf",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:29:56.707Z",
+      "crawledAt": "2026-07-15T22:08:17.778Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5799,18 +5799,25 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
-          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
+          "pharma-assistent-in-unispital-basel-ch"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
           "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
-          "assistente-medico-assistente-medico-medicina-di-emergenza-universitatsspital-basel-basel"
+          "assistente-medico-universitatsspital-basel-basel",
+          "pharmaceutical-assistant-universitatsspital-basel-basel",
+          "pharma-assistent-in-unispital-basel-ch",
+          "assistant-pharmaceutique-universitatsspital-basel-basel",
+          "assistente-medico-springerpool-universitatsspital-basel-basel",
+          "assistente-medico-mpa-universitatsspital-basel-basel"
         ],
         "en": [
-          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
+          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
+          "pharmaceutical-assistant-universitatsspital-basel-basel"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
+          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
+          "assistant-pharmaceutique-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
@@ -5818,7 +5825,12 @@
         "assistenzarzt-assistenzarztin-pneumologie-universitatsspital-basel-basel",
         "assistenzarzt-assistenzarztin-pneumologie-unispital-basel-ch",
         "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
-        "assistente-medico-assistente-medico-medicina-di-emergenza-universitatsspital-basel-basel"
+        "assistente-medico-universitatsspital-basel-basel",
+        "pharmaceutical-assistant-universitatsspital-basel-basel",
+        "pharma-assistent-in-unispital-basel-ch",
+        "assistant-pharmaceutique-universitatsspital-basel-basel",
+        "assistente-medico-springerpool-universitatsspital-basel-basel",
+        "assistente-medico-mpa-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T00:38:44.886Z",
       "salaryMin": 62000,

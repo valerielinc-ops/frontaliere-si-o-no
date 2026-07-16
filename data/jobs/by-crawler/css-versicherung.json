@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-07-16T11:25:36.959Z",
+  "assembledAt": "2026-07-16T09:58:29.266Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -1368,7 +1368,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/22909245-af4b-4fc2-989e-b8ca8a4c1ea9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:20.546Z",
+      "crawledAt": "2026-07-15T23:01:32.462Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1388,16 +1388,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-thun",
-        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-thun"
+        "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-b2e565",
+        "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565",
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
+        "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-b2e565",
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-thun",
-          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-thun"
+          "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-b2e565",
+          "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565",
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
+          "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-b2e565",
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2"
+        ],
+        "en": [
+          "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565"
+        ],
+        "de": [
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern"
+        ],
+        "fr": [
+          "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-b2e565"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:32.514Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
