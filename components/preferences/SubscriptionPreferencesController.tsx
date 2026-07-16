@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X } from 'lucide-react';
+import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -96,6 +96,9 @@ interface SectionStrings {
  frequencyResetToAuto: string;
  frequencyCreateHint: string;
  addMoreSearchesHint: string;
+ alertPaused: string;
+ alertPause: string;
+ alertResume: string;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -147,6 +150,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Potrai passare ad automatico (la cadenza si adatta a quanto apri o clicchi) dopo la creazione.',
  addMoreSearchesHint: 'Più ricerche aggiungi, meno occasioni ti sfuggono.',
+ alertPaused: 'In pausa',
+ alertPause: 'Metti in pausa',
+ alertResume: 'Riattiva',
  },
  en: {
  newsletterTitle: 'Newsletter subscription',
@@ -196,6 +202,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'You can switch to automatic (cadence adapts to how much you open or click) after creating it.',
  addMoreSearchesHint: 'The more searches you add, the fewer opportunities you miss.',
+ alertPaused: 'Paused',
+ alertPause: 'Pause',
+ alertResume: 'Resume',
  },
  de: {
  newsletterTitle: 'Newsletter-Abo',
@@ -245,6 +254,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Du kannst nach dem Erstellen auf automatisch umschalten (Häufigkeit passt sich an, wie oft du öffnest oder klickst).',
  addMoreSearchesHint: 'Je mehr Suchen du hinzufügst, desto weniger Chancen verpasst du.',
+ alertPaused: 'Pausiert',
+ alertPause: 'Pausieren',
+ alertResume: 'Fortsetzen',
  },
  fr: {
  newsletterTitle: 'Abonnement newsletter',
@@ -294,6 +306,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Tu pourras passer en automatique (la fréquence s\'adapte à tes ouvertures/clics) après la création.',
  addMoreSearchesHint: 'Plus tu ajoutes de recherches, moins tu rates d\u2019opportunités.',
+ alertPaused: 'En pause',
+ alertPause: 'Mettre en pause',
+ alertResume: 'Réactiver',
  },
 };
 
@@ -344,7 +359,8 @@ async function authLoadFullStatus(email: string): Promise<{
  const alerts: SubscriptionAlertSummary[] = [];
  alertsSnap.forEach((d) => {
  const a = d.data() || {};
- if (a.active === false) return;
+ // Issue #4298: paused alerts (active===false, set via pause toggle) must stay
+ // visible so the user can resume them — only a real deleteDoc() removes a doc.
  const created = a.createdAt;
  alerts.push({
  id: d.id,
@@ -823,6 +839,7 @@ interface AlertRowProps {
  }) => void;
  onChangeFrequency: (next: JobAlertFrequency) => void;
  onResetToAuto: () => void;
+ onTogglePause: () => void;
 }
 
 const AlertRow: React.FC<AlertRowProps> = ({
@@ -837,6 +854,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onSaveEdit,
  onChangeFrequency,
  onResetToAuto,
+ onTogglePause,
 }) => {
  const [confirming, setConfirming] = useState(false);
 
@@ -906,12 +924,22 @@ const AlertRow: React.FC<AlertRowProps> = ({
  )}
  {!alert.active && (
  <span className="px-2 py-0.5 bg-surface-raised text-muted text-xs font-bold rounded-md">
- {S.autologinOff}
+ {S.alertPaused}
  </span>
  )}
  </div>
  </div>
  <div className="flex flex-row sm:flex-col items-center sm:items-end justify-end gap-2 shrink-0">
+ <button
+ type="button"
+ onClick={onTogglePause}
+ disabled={saving || deleting}
+ aria-label={alert.active ? S.alertPause : S.alertResume}
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60"
+ >
+ {alert.active ? <Pause size={12} /> : <Play size={12} />}
+ {alert.active ? S.alertPause : S.alertResume}
+ </button>
  <button
  type="button"
  onClick={onStartEdit}
@@ -1208,6 +1236,36 @@ export function SubscriptionPreferencesController({
  }
  };
 
+ const handleTogglePause = async (alertId: string, nextActive: boolean) => {
+ // Issue #4298: pause/resume — flips `active`, never deletes the doc.
+ // Same optimistic-update + revert-on-error shape as handleChangeFrequency.
+ const previous = alerts.find((a) => a.id === alertId);
+ if (!previous) return;
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, active: nextActive } : a)));
+ setSavingAlertId(alertId);
+ setErrorMsg('');
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await updateJobAlert(email, token, alertId, { active: nextActive });
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ if (result.alert) {
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ }
+ } else {
+ const fresh = await authUpdateAlert(email, alertId, { active: nextActive });
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
+ }
+ flashSaved(`alert:${alertId}`);
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Toggle pause failed:', err?.message);
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, active: previous.active } : a)));
+ reportError(S.saveError);
+ } finally {
+ setSavingAlertId(null);
+ }
+ };
+
  const handleSaveEdit = async (
  alertId: string,
  values: { keywords: string[]; locations: string[]; sectors: string[]; frequency: JobAlertFrequency },
@@ -1356,6 +1414,7 @@ export function SubscriptionPreferencesController({
  onSaveEdit={(values) => handleSaveEdit(alert.id, values)}
  onChangeFrequency={(next) => handleChangeFrequency(alert.id, next)}
  onResetToAuto={() => handleResetToAuto(alert.id)}
+ onTogglePause={() => handleTogglePause(alert.id, !alert.active)}
  />
  ))}
  </div>

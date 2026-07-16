@@ -284,8 +284,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const alerts = [];
  alertsSnap.forEach((d) => {
  const a = d.data() || {};
- // Skip soft-deleted alerts (active === false set by deleteAlert).
- if (a.active === false) return;
+ // Issue #4298: previously skipped active===false docs here (stale comment claimed
+ // deleteAlert soft-deletes by setting active:false — it does not, delete_alert does
+ // a hard Firestore delete). active===false is the PAUSE flag written by
+ // update_alert/authUpdateAlert; it must stay visible so the user can resume it.
  const created = a.createdAt;
  alerts.push({
  id: d.id,
