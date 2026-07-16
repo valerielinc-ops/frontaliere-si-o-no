@@ -8553,6 +8553,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.title': 'Telelavoro: doppia soglia tra fisco e previdenza',
     'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.excerpt': 'Die Telearbeit von Grenzgängern zwischen Italien und der Schweiz: Erläuterungen zum Änderungsprotokoll zum Abkommen von 2020 für eine koordinierte Regelung zwischen Steuer- und',
     'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.imageAlt': 'Redaktionelles Bild zu: Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
+    'blog.article.ticino-traffico-2024.title': 'Tessin als Geisel des Verkehrs: Wer ausbeutet, zahlt',
+    'blog.article.ticino-traffico-2024.excerpt': 'Das Tessin hat sich zu einem der wichtigsten Transitkorridore Europas entwickelt. Staus beeinträchtigen die Lebensqualität und die Wirtschaft.',
+    'blog.article.ticino-traffico-2024.imageAlt': 'Lugano-see im Winter',
 };
 
 export default blogMetaDe;
