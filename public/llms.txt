@@ -129,74 +129,91 @@ Plus regional surcharge (addizionale regionale): e.g., Lombardia ~1.58%
 
 ## Available Tools & Pages
 
+All URLs below are canonical (`https://frontaliereticino.ch`), trailing-slash-terminated. Italian is the primary locale; swap `/` for `/en/`, `/de/`, `/fr/` for other locales where the page has a locale-specific slug (see "Other Languages" above for the llms.txt equivalents; per-page locale slugs are linked from each Italian page itself).
+
 ### Tax & Salary Calculators
-- **Tax Simulator** — `/calcola-stipendio` — Calculate net salary comparing old vs new fiscal agreement
-- **Payslip Simulator** — `/calcola-stipendio/simula-busta-paga` — Detailed Swiss payslip with all deductions
-- **What-If Scenarios** — `/calcola-stipendio/cosa-cambia-se` — Impact of life changes on taxes
-- **RAL Comparison** — `/calcola-stipendio/confronta-retribuzione-ral` — Gross-to-net Italy vs Switzerland
-- **Bonus Calculator** — `/calcola-stipendio/stima-bonus-frontaliere` — 13th month, overtime, bonuses
-- **Parental Leave** — `/calcola-stipendio/verifica-congedo-parentale` — Maternity/paternity entitlements
-- **Residency Simulator** — `/calcola-stipendio/simula-cambio-residenza` — Cost of moving CH↔IT
-- **Permit G vs B** — `/calcola-stipendio/confronta-permesso-g-vs-b` — Fiscal comparison between permits
+- **Tax Simulator** — [/calcola-stipendio/](https://frontaliereticino.ch/calcola-stipendio/) — Calculate net salary comparing old vs new fiscal agreement
+- **Payslip Simulator** — [/calcola-stipendio/simula-busta-paga/](https://frontaliereticino.ch/calcola-stipendio/simula-busta-paga/) — Detailed Swiss payslip with all deductions
+- **What-If Scenarios** — [/calcola-stipendio/cosa-cambia-se/](https://frontaliereticino.ch/calcola-stipendio/cosa-cambia-se/) — Impact of life changes on taxes
+- **RAL Comparison** — [/calcola-stipendio/confronta-retribuzione-ral/](https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral/) — Gross-to-net Italy vs Switzerland
+- **Bonus Calculator** — [/calcola-stipendio/stima-bonus-frontaliere/](https://frontaliereticino.ch/calcola-stipendio/stima-bonus-frontaliere/) — 13th month, overtime, bonuses
+- **Parental Leave** — [/calcola-stipendio/verifica-congedo-parentale/](https://frontaliereticino.ch/calcola-stipendio/verifica-congedo-parentale/) — Maternity/paternity entitlements
+- **Residency Simulator** — [/calcola-stipendio/simula-cambio-residenza/](https://frontaliereticino.ch/calcola-stipendio/simula-cambio-residenza/) — Cost of moving CH↔IT
+- **Permit G vs B** — [/calcola-stipendio/confronta-permesso-g-vs-b/](https://frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b/) — Fiscal comparison between permits
 
 ### Service Comparators
-- **Currency Exchange** — `/compara-servizi/cambio-franco-euro` — Live CHF/EUR rates across providers
-- **Health Insurance** — `/compara-servizi/confronta-casse-malati` — LAMal premiums from 14 insurers, 7 cantons
-- **Bank Comparison** — `/compara-servizi/confronta-banche` — CH/IT bank accounts for frontalieri
-- **Mobile Operators** — `/compara-servizi/confronta-operatori-mobili` — Plans with CH-IT roaming
-- **Job Comparator** — `/compara-servizi/confronta-offerte-lavoro` — Compare job offers by real net salary
-- **Shopping Calculator** — `/compara-servizi/confronta-prezzi-spesa` — Cross-border grocery prices
-- **Cost of Living** — `/compara-servizi/costo-della-vita` — CH vs IT border city comparison
-- **Renovation Bonuses** — `/compara-servizi/calcola-bonus-ristrutturazione` — Italian tax deductions
+- **Currency Exchange** — [/compara-servizi/cambio-franco-euro/](https://frontaliereticino.ch/compara-servizi/cambio-franco-euro/) — Live CHF/EUR rates across providers
+- **Health Insurance** — [/compara-servizi/confronta-casse-malati/](https://frontaliereticino.ch/compara-servizi/confronta-casse-malati/) — LAMal premiums from 14 insurers, 7 cantons
+- **Bank Comparison** — [/compara-servizi/confronta-banche/](https://frontaliereticino.ch/compara-servizi/confronta-banche/) — CH/IT bank accounts for frontalieri
+- **Mobile Operators** — [/compara-servizi/confronta-operatori-mobili/](https://frontaliereticino.ch/compara-servizi/confronta-operatori-mobili/) — Plans with CH-IT roaming
+- **Job Comparator** — [/compara-servizi/confronta-offerte-lavoro/](https://frontaliereticino.ch/compara-servizi/confronta-offerte-lavoro/) — Compare job offers by real net salary
+- **Shopping Calculator** — [/compara-servizi/confronta-prezzi-spesa/](https://frontaliereticino.ch/compara-servizi/confronta-prezzi-spesa/) — Cross-border grocery prices
+- **Cost of Living** — [/compara-servizi/costo-della-vita/](https://frontaliereticino.ch/compara-servizi/costo-della-vita/) — CH vs IT border city comparison
+- **Renovation Bonuses** — [/compara-servizi/calcola-bonus-ristrutturazione/](https://frontaliereticino.ch/compara-servizi/calcola-bonus-ristrutturazione/) — Italian tax deductions
 
 ### Tax & Pension
-- **Tax Return Guide** — `/tasse-e-pensione/dichiarazione-redditi` — Step-by-step 730/Modello Redditi guide
-- **Fiscal Calendar** — `/tasse-e-pensione/scadenze-fiscali` — 2026 tax deadlines CH + IT
-- **Holidays** — `/tasse-e-pensione/festivita-ticino` — Public holidays Canton Ticino
-- **Ristorni Tracker** — `/tasse-e-pensione/ristorni-fiscali` — Swiss-to-Italian fiscal transfers
-- **Pension Planner** — `/tasse-e-pensione/calcola-previdenza` — AVS + LPP + INPS projection
-- **3rd Pillar Simulator** — `/tasse-e-pensione/simula-terzo-pilastro` — Tax savings calculator
-- **Fiscal Quiz** — `/tasse-e-pensione/quiz-fiscale` — Test tax knowledge
+- **Tax Return Guide** — [/tasse-e-pensione/dichiarazione-redditi/](https://frontaliereticino.ch/tasse-e-pensione/dichiarazione-redditi/) — Step-by-step 730/Modello Redditi guide
+- **Fiscal Calendar** — [/tasse-e-pensione/scadenze-fiscali/](https://frontaliereticino.ch/tasse-e-pensione/scadenze-fiscali/) — 2026 tax deadlines CH + IT
+- **Holidays** — [/tasse-e-pensione/festivita-ticino/](https://frontaliereticino.ch/tasse-e-pensione/festivita-ticino/) — Public holidays Canton Ticino
+- **Ristorni Tracker** — [/tasse-e-pensione/ristorni-fiscali/](https://frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali/) — Swiss-to-Italian fiscal transfers
+- **Pension Planner** — [/tasse-e-pensione/calcola-previdenza/](https://frontaliereticino.ch/tasse-e-pensione/calcola-previdenza/) — AVS + LPP + INPS projection
+- **3rd Pillar Simulator** — [/tasse-e-pensione/simula-terzo-pilastro/](https://frontaliereticino.ch/tasse-e-pensione/simula-terzo-pilastro/) — Tax savings calculator
+- **Fiscal Quiz** — [/tasse-e-pensione/quiz-fiscale/](https://frontaliereticino.ch/tasse-e-pensione/quiz-fiscale/) — Test tax knowledge
 
 ### Practical Guides
-- **First Day Checklist** — `/guida-frontaliere/primo-giorno-lavoro` — Step-by-step first day guide
-- **Work Permits** — `/guida-frontaliere/permessi-di-lavoro` — G, B, C, L permit guide
-- **Border Crossings** — `/guida-frontaliere/tempi-attesa-dogana` — Wait times and alternative routes
-- **Unemployment** — `/guida-frontaliere/disoccupazione-transfrontaliera` — Rights and procedures
-- **Car Transfer** — `/guida-frontaliere/trasferire-auto-svizzera` — Vehicle registration CH↔IT
-- **Commute Costs** — `/guida-frontaliere/costo-auto-pendolare` — Full transport cost calculator
-- **Border Municipalities** — `/guida-frontaliere/comuni-di-frontiera` — 200+ municipalities with regime classification
-- **Border Map** — `/guida-frontaliere/mappa-confine` — Interactive map of crossings and municipalities
+- **First Day Checklist** — [/guida-frontaliere/primo-giorno-lavoro/](https://frontaliereticino.ch/guida-frontaliere/primo-giorno-lavoro/) — Step-by-step first day guide
+- **Work Permits** — [/guida-frontaliere/permessi-di-lavoro/](https://frontaliereticino.ch/guida-frontaliere/permessi-di-lavoro/) — G, B, C, L permit guide
+- **Border Crossings** — [/guida-frontaliere/tempi-attesa-dogana/](https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/) — Wait times and alternative routes
+- **Unemployment** — [/guida-frontaliere/disoccupazione-transfrontaliera/](https://frontaliereticino.ch/guida-frontaliere/disoccupazione-transfrontaliera/) — Rights and procedures
+- **Car Transfer** — [/guida-frontaliere/trasferire-auto-svizzera/](https://frontaliereticino.ch/guida-frontaliere/trasferire-auto-svizzera/) — Vehicle registration CH↔IT
+- **Commute Costs** — [/guida-frontaliere/costo-auto-pendolare/](https://frontaliereticino.ch/guida-frontaliere/costo-auto-pendolare/) — Full transport cost calculator
+- **Border Municipalities** — [/guida-frontaliere/comuni-di-frontiera/](https://frontaliereticino.ch/guida-frontaliere/comuni-di-frontiera/) — 200+ municipalities with regime classification
+- **Border Map** — [/guida-frontaliere/mappa-confine/](https://frontaliereticino.ch/guida-frontaliere/mappa-confine/) — Interactive map of crossings and municipalities
 
 ### Life in Ticino
-- **Living in Switzerland** — `/vivere-in-ticino/vivere-in-svizzera` — Comprehensive relocation guide
-- **Living in Italy** — `/vivere-in-ticino/vivere-in-italia` — Pros and cons of commuting from Italy
-- **Companies** — `/vivere-in-ticino/aziende-svizzera-italiana` — Major Ticino employers by sector
-- **Schools** — `/vivere-in-ticino/scuole-svizzera-italiana` — School system for frontaliere families
-- **Nurseries** — `/vivere-in-ticino/confronta-asili-nido` — Childcare comparison
-- **Attractions** — `/vivere-in-ticino/attrazioni-svizzera-italiana` — Places to visit
-- **Transport** — `/vivere-in-ticino/trasporti-frontalieri` — Cross-border transport options
+- **Living in Switzerland** — [/vivere-in-ticino/vivere-in-svizzera/](https://frontaliereticino.ch/vivere-in-ticino/vivere-in-svizzera/) — Comprehensive relocation guide
+- **Living in Italy** — [/vivere-in-ticino/vivere-in-italia/](https://frontaliereticino.ch/vivere-in-ticino/vivere-in-italia/) — Pros and cons of commuting from Italy
+- **Companies** — [/vivere-in-ticino/aziende-svizzera-italiana/](https://frontaliereticino.ch/vivere-in-ticino/aziende-svizzera-italiana/) — Major Ticino employers by sector
+- **Schools** — [/vivere-in-ticino/scuole-svizzera-italiana/](https://frontaliereticino.ch/vivere-in-ticino/scuole-svizzera-italiana/) — School system for frontaliere families
+- **Nurseries** — [/vivere-in-ticino/confronta-asili-nido/](https://frontaliereticino.ch/vivere-in-ticino/confronta-asili-nido/) — Childcare comparison
+- **Attractions** — [/vivere-in-ticino/attrazioni-svizzera-italiana/](https://frontaliereticino.ch/vivere-in-ticino/attrazioni-svizzera-italiana/) — Places to visit
+- **Transport** — [/vivere-in-ticino/trasporti-frontalieri/](https://frontaliereticino.ch/vivere-in-ticino/trasporti-frontalieri/) — Cross-border transport options
 
 ### Statistics
-- **Overview** — `/statistiche` — BFS/UST data on cross-border workers and salary trends
-- **Salary Comparison** — `/statistiche/confronta-stipendi` — CH vs IT by sector
-- **Livability Ranking** — `/statistiche/migliori-comuni-frontiera` — Best border municipalities
-- **Border Traffic** — `/statistiche/traffico-dogane` — Real-time traffic data
+- **Overview** — [/statistiche/](https://frontaliereticino.ch/statistiche/) — BFS/UST data on cross-border workers and salary trends
+- **Salary Comparison** — [/statistiche/confronta-stipendi/](https://frontaliereticino.ch/statistiche/confronta-stipendi/) — CH vs IT by sector
+- **Livability Ranking** — [/statistiche/migliori-comuni-frontiera/](https://frontaliereticino.ch/statistiche/migliori-comuni-frontiera/) — Best border municipalities
+- **Border Traffic** — [/statistiche/traffico-dogane/](https://frontaliereticino.ch/statistiche/traffico-dogane/) — Real-time traffic data
 
 ### Additional Resources
-- **Morning Dashboard** — `/buongiorno-frontaliere` — Daily briefing with CHF/EUR rate, traffic, weather
-- **Job Board** — `/cerca-lavoro-ticino` — 1,500+ curated job listings from 100+ Ticino employers, updated every 12 hours via automated crawlers, searchable by sector/location/contract type, available in IT/EN/DE/FR
-- **Community Forum** — `/community` — Q&A for cross-border workers
-- **Consulting** — `/consulenza` — Professional fiscal consulting
-- **Partner Services** — `/servizi-partner` — Verified accountants, insurance brokers, real estate
-- **Contact** — `/contattaci` — Contact the Frontaliere Ticino team
-- **Feedback** — `/supporto` — Report issues, suggest features, or give feedback
-- **714+ Blog Articles** — `/articoli-frontaliere` — In-depth articles on cross-border taxation (2026 New Agreement), permits, pension planning, health insurance, and daily life for frontalieri
+- **Morning Dashboard** — [/buongiorno-frontaliere/](https://frontaliereticino.ch/buongiorno-frontaliere/) — Daily briefing with CHF/EUR rate, traffic, weather
+- **Job Board** — [/cerca-lavoro-ticino/](https://frontaliereticino.ch/cerca-lavoro-ticino/) — 1,500+ curated job listings from 100+ Ticino employers, updated every 12 hours via automated crawlers, searchable by sector/location/contract type, available in IT/EN/DE/FR
+- **Community Forum** — [/community/](https://frontaliereticino.ch/community/) — Q&A for cross-border workers
+- **Consulting** — [/consulenza/](https://frontaliereticino.ch/consulenza/) — Professional fiscal consulting
+- **Partner Services** — [/servizi-partner/](https://frontaliereticino.ch/servizi-partner/) — Verified accountants, insurance brokers, real estate
+- **Contact** — [/contattaci/](https://frontaliereticino.ch/contattaci/) — Contact the Frontaliere Ticino team
+- **Feedback** — [/supporto/](https://frontaliereticino.ch/supporto/) — Report issues, suggest features, or give feedback
+- **714+ Blog Articles** — [/articoli-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/) — In-depth articles on cross-border taxation (2026 New Agreement), permits, pension planning, health insurance, and daily life for frontalieri
   - **Pillar Guides (in-depth)**:
-    - G Permit: Pros & Cons — `/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/`
-    - LAMal vs SSN: How to Choose — `/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/`
-    - Finding Work in Ticino — `/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/`
-    - Complete Guide to Becoming a Cross-Border Worker — `/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/`
+    - G Permit: Pros & Cons — [/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/)
+    - LAMal vs SSN: How to Choose — [/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/)
+    - Finding Work in Ticino — [/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/](https://frontaliereticino.ch/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/)
+    - Complete Guide to Becoming a Cross-Border Worker — [/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/](https://frontaliereticino.ch/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/)
+
+---
+
+## Public Datasets (JSON)
+
+Machine-readable datasets, offloaded to a dedicated CDN so they can be fetched directly without loading the full application. Updated on the cadence noted per file; all are public, no auth required.
+
+- **Job Listings — Italian** — [https://cdn.frontaliereticino.ch/data/jobs-it-index.json](https://cdn.frontaliereticino.ch/data/jobs-it-index.json) — Full live index of active job postings in Canton Ticino (Italian locale), refreshed continuously by the crawler pipeline
+- **Job Listings — English** — [https://cdn.frontaliereticino.ch/data/jobs-en-index.json](https://cdn.frontaliereticino.ch/data/jobs-en-index.json) — Same job index, English locale
+- **Job Listings — German** — [https://cdn.frontaliereticino.ch/data/jobs-de-index.json](https://cdn.frontaliereticino.ch/data/jobs-de-index.json) — Same job index, German locale
+- **Job Listings — French** — [https://cdn.frontaliereticino.ch/data/jobs-fr-index.json](https://cdn.frontaliereticino.ch/data/jobs-fr-index.json) — Same job index, French locale
+- **Job Market Stats (compact)** — [https://cdn.frontaliereticino.ch/data/jobs-stats.json](https://cdn.frontaliereticino.ch/data/jobs-stats.json) — Aggregate job-market snapshot (active jobs, active companies, active locations, daily added/updated/removed counts, 7d/30d rollups) — lighter alternative to the full index for citing current job-market size (~18,900 active jobs, ~800 active employers as of July 2026)
+- **Unemployment Rate (Switzerland)** — [https://cdn.frontaliereticino.ch/data/switzerland-unemployment-rate.json](https://cdn.frontaliereticino.ch/data/switzerland-unemployment-rate.json) — Monthly SECO unemployment rate with history (current: 2.9%, 2026-06)
+- **Border Wait Times Ranking** — [https://cdn.frontaliereticino.ch/data/border-wait-ranking.json](https://cdn.frontaliereticino.ch/data/border-wait-ranking.json) — 7-day rolling average wait time per Ticino/Lombardy border crossing, ranked fastest to slowest
+- **Fuel Prices (Italy/Switzerland)** — [https://cdn.frontaliereticino.ch/data/fuel-prices.json](https://cdn.frontaliereticino.ch/data/fuel-prices.json) — Daily fuel price comparison across Italian (MIMIT Open Data) and Swiss stations near the border, for commute-cost calculations
 
 ---
 
