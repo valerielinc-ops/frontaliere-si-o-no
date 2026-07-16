@@ -4,14 +4,20 @@
  * lookahead ceiling on the free/default plan (issue #3798, Phase 0 "Non
  * implementato" item).
  *
+ * RESOLVED 2026-07-16: real ceiling confirmed EXACT at 72h (3 days). A live
+ * `--send --days 7` against this account/domain was rejected with "scheduled
+ * delivery time must not be farther than 72h0m0s from now" — matching
+ * `scripts/lib/email-cascade.mjs` PROVIDERS.mailgun.scheduledSend.maxLookaheadMs`
+ * exactly, so no clamp change was needed. Script kept for future
+ * re-verification if Mailgun changes plan/account limits.
+ *
  * Why this exists: `docs/NEWSLETTER-SEND-TIME-PERSONALIZATION.md`'s provider
- * matrix clamps Mailgun's `o:deliverytime` lookahead to a conservative 3 days
- * (`scripts/lib/email-cascade.mjs` PROVIDERS.mailgun.scheduledSend.maxLookaheadMs`)
- * because Mailgun's own free-plan docs page for this limit returns 403 when
- * fetched programmatically — the real ceiling has never been confirmed
- * against the live account. This script sends (or dry-run previews) an
- * actual `o:deliverytime`-scheduled test message so the real limit can be
- * read off Mailgun's own accept/reject response instead of guessed.
+ * matrix clamped Mailgun's `o:deliverytime` lookahead to 3 days because
+ * Mailgun's own free-plan docs page for this limit returns 403 when fetched
+ * programmatically — the real ceiling couldn't be read from docs, only from
+ * a live send. This script sends (or dry-run previews) an actual
+ * `o:deliverytime`-scheduled test message so the real limit can be read off
+ * Mailgun's own accept/reject response instead of guessed.
  *
  * ⚠️  WARNING — `--send` fires ONE REAL EMAIL through the production Mailgun
  * account to whatever `--to` address you give it. This is a manual,
