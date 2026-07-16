@@ -2,7 +2,7 @@
   "companyKey": "banca-dello-stato-del-canton-ticino",
   "companyName": "Banca dello Stato del Canton Ticino",
   "companyHost": "bancastato.ch",
-  "enabled": true,
+  "enabled": false,
   "priority": 0,
   "crawlerModes": [
     "generic_ats",
@@ -10,13 +10,8 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://www.bancastato.ch/careers",
-    "https://www.bancastato.ch/career",
-    "https://www.bancastato.ch/jobs",
-    "https://www.bancastato.ch/karriere",
-    "https://www.bancastato.ch/offene-stellen",
-    "https://www.bancastato.ch/lavora-con-noi"
+    "https://www.bancastato.ch/carriere"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.926Z"
+  "notes": "DISABLED 2026-07-16 (issue #3797 audit): the previous seedUrls (/careers, /career, /jobs, /karriere, /offene-stellen, /lavora-con-noi) were unverified default guesses — none is the real path. The real official careers page is https://www.bancastato.ch/carriere (301-redirect target of the page indexed by search engines, /su-di-noi/chi-siamo/informazioni-utili/posti-vacanti-e-carriera.html). Verified live 2026-07-16 via direct curl (realistic browser UA) AND an independent Jina Reader render (r.jina.ai, handles client-side content) of /carriere and its only 3 sub-pages — /carriere/candidatura-spontanea, /carriere/crescita-formazione-e-opportunita, /carriere/percorsi-di-formazione (confirmed the full and only set via sitemap.xml): none contains a job-listing structure. BancaStato runs a spontaneous-application-only model ('candidatura spontanea') and has never published individual open positions on its own site. scripts/detect-ats.mjs finds no ATS signature (unknown, 0 confidence). No jobup.ch or jobs.ch company page exists for 'bancastato' (404 after locale-prefix redirect). Confirmed open reqs (e.g. 'Responsabile Registro Centrale') surface only on LinkedIn, which has no reliable crawl path in this codebase (see dot-life.json for the same LinkedIn-guest-API dead end, tested live the same day). No viable structured source to build a dedicated crawler against.",
+  "updatedAt": "2026-07-16T00:00:00.000Z"
 }
