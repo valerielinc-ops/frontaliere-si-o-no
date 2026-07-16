@@ -1,16 +1,87 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-07-16T11:36:22.078Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-07-16T22:29:59.459Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 30800,
+  "avgDurationMs": 30800,
+  "durationHistory": [
+    30800
+  ],
+  "newJobs": [
+    {
+      "title": "Client Advisor - Giorgio Armani Zurich",
+      "slug": "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich",
+      "url": "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5132",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=5132&company=3397177P",
+      "company": "Giorgio Armani S.p.A.",
+      "companyKey": "giorgio-armani",
+      "companyDomain": "armani.com",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Moda & Lusso",
+      "source": "giorgio-armani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-07-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "removedJobs": [
+    {
+      "title": "Sales Associate - Armani Outlet Mendrisio Seasonal Contract",
+      "slug": "sales-associate-armani-outlet-mendrisio-seasonal-contract-giorgio-armani-s-p-a-mendrisio-seasonal-contract",
+      "url": "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5074",
+      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=5074&company=3397177P",
+      "company": "Giorgio Armani S.p.A.",
+      "companyKey": "giorgio-armani",
+      "companyDomain": "armani.com",
+      "location": "Mendrisio Seasonal Contract",
+      "addressLocality": "Mendrisio Seasonal Contract",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Moda & Lusso",
+      "source": "giorgio-armani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "giorgio-armani-bd99884585c2",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-21T12:00:36.685Z",
+      "postalCode": "1700",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
+  "unchangedJobs": []
 }
