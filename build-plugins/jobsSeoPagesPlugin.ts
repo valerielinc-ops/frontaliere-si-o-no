@@ -634,6 +634,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const ALL_CANTON_CODES: readonly string[] = Object.freeze(Object.keys(cantonSlugFile.cantons).sort());
  const AGGREGATE_KEY = '_AGGREGATE_';
 
+ /** Cantons with real-data enrichment (Issue #4303 item 1 — median salary by
+  * sector, cost-of-living vs Ticino, permit-G guidance, top employers). Single
+  * source of truth reused by: (a) the real-data block precompute below, and
+  * (b) the item-2 "stessa professione in altri cantoni" cross-links on TI job
+  * detail pages, so those links always land on a hub carrying genuine data
+  * instead of a bare thin combo shell. */
+ const REAL_DATA_ENRICHED_CANTONS = ['ZH', 'BE', 'BASILEA'] as const;
+
  /**
   * Member BFS code → URL group key (e.g. 'AI' → 'APPENZELLO'). Built once
   * from cantonSlugFile.cantonGroups so the URL/shard emission boundary can
@@ -3404,6 +3412,28 @@ ${staticAnalyticsHtml}
  const label = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
  const prefix = locale === 'it' || locale === 'fr' ? `${sectorCopy[locale]} ${label}` : `${sectorCopy[locale]} ${label}`;
  links.push(`<a href="${href}" class="pill pill-w">${esc(prefix)} &rarr;</a>`);
+ }
+ // Issue #4303 item 2: from a Ticino job detail, link the same profession's
+ // combo page in the real-data-enriched cantons (REAL_DATA_ENRICHED_CANTONS
+ // — item 1). Every non-TI-canton × SECTOR_HUB_KEYS combo page is emitted
+ // unconditionally (no floor, PR #4254) later in this same closeBundle run
+ // (~line 7400), so the target always exists by build end even though the
+ // cantonSectorPageRegistry isn't populated yet at this earlier point in
+ // execution — checking the registry here would be a false negative, not a
+ // real "does it exist" answer.
+ if (matchedSector && jobCanton === 'TI') {
+ const crossCantonCopy: Record<string, string> = { it: 'stessa professione a', en: 'same role in', de: 'gleiche Stelle in', fr: 'même métier à' };
+ const sectorLabel = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
+ const sectorSlug = SECTOR_HUB_SLUG[locale as never]?.[matchedSector];
+ if (sectorSlug) {
+ for (const otherCanton of REAL_DATA_ENRICHED_CANTONS) {
+ const section = sharedResolveCantonSection(locale as never, otherCanton);
+ if (!section) continue;
+ const href = withSlash(`${localePrefix[locale]}/${section}/${sectorSlug}`.replace(/\/+/g, '/'));
+ const cantonLabel = getCantonDisplayLabel(otherCanton, locale as never);
+ links.push(`<a href="${href}" class="pill pill-a">${esc(sectorLabel)} — ${esc(crossCantonCopy[locale] || crossCantonCopy.it)} ${esc(cantonLabel)} &rarr;</a>`);
+ }
+ }
  }
  return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div class="pillrow">${links.join('')}</div></section>`;
  })();
@@ -9502,7 +9532,7 @@ ${staticAnalyticsHtml}
    // existing tiles+listing+editorial body unchanged. LAMal medians are
    // computed once (build-time file read) and reused across all 4×4
    // (canton×locale) entries below instead of re-reading per entry.
-   const REAL_DATA_TARGET_KEYS = new Set<string>(['ZH', 'BE', 'BASILEA', AGGREGATE_KEY]);
+   const REAL_DATA_TARGET_KEYS = new Set<string>([...REAL_DATA_ENRICHED_CANTONS, AGGREGATE_KEY]);
    // BASILEA is the merged half-canton URL group (BS+BL); cantonSalaryFactor/
    // isBorderCanton and the LAMal lookup both need a real 2-letter BFS/BAG
    // code, so this maps the group key to its representative code (Basel-Stadt
