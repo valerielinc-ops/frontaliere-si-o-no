@@ -1153,6 +1153,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Border teleworking: agreement in force since 2024',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Border workers can work from home for up to 25% of their annual time with no tax changes. Here are the details of the agreement between Switzerland and Italy.',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'View of Lugano and modern office for professionals',
+    'blog.article.attacco-informatico-iwb-basilea.title': 'IWB cyberattack: 40,000 customers involved in Basel',
+    'blog.article.attacco-informatico-iwb-basilea.excerpt': 'Data breach at an external supplier of the Basel electricity company. What happened and what information was stolen.',
+    'blog.article.attacco-informatico-iwb-basilea.imageAlt': 'IWB energy company headquarters in Basel',
 };
 
 export default blogMetaChEn;

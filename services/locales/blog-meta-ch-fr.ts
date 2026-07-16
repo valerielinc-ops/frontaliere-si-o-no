@@ -1153,6 +1153,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.title': 'Télétravail frontalier : accord en vigueur depuis 2024',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.excerpt': 'Les frontaliers peuvent travailler à domicile jusqu\'à 25 % du temps annuel sans modification fiscale. Voici les détails de l\'accord entre la Suisse et l\'Italie.',
     'blog.article.intesa-telelavoro-frontalieri-svizzera-italia.imageAlt': 'Vue sur Lugano et bureau moderne pour les professionnels',
+    'blog.article.attacco-informatico-iwb-basilea.title': 'Cyberattaque sur IWB : 40\'000 clients impliqués à Bâle',
+    'blog.article.attacco-informatico-iwb-basilea.excerpt': 'Violation de données chez un fournisseur externe de la compagnie d\'électricité de Bâle. Ce qui s\'est passé et quelles informations ont été volées.',
+    'blog.article.attacco-informatico-iwb-basilea.imageAlt': 'Siège de l\'entreprise énergétique IWB à Bâle',
 };
 
 export default blogMetaChFr;

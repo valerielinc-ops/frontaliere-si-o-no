@@ -14877,6 +14877,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-informatico-iwb-basilea': {
+    title: 'Attacco informatico a IWB: 40\'000 clienti coinvolti a Basilea',
+    description: 'Violazione dati presso un fornitore di IWB a Basilea: 40\'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, informatico, clienti, coinvolti',
+    ogTitle: 'Attacco informatico IWB Basilea: 40\'000 clienti coinvolti',
+    ogDescription: 'Violazione dati presso un fornitore di IWB a Basilea: 40\'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe.',
+    canonicalPath: '/articoli-svizzera/attacco-informatico-iwb-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco informatico a IWB: 40'000 clienti coinvolti a Basilea",
+      "description": "Violazione dati presso un fornitore di IWB a Basilea: 40'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-informatico-iwb-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede dell'azienda energetica IWB a Basilea"
+      },
+      "datePublished": "2026-07-16T01:48:50+00:00",
+      "dateModified": "2026-07-16T01:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-informatico-iwb-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
