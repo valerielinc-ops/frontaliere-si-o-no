@@ -81,7 +81,14 @@ async function fetchJson(url, { timeoutMs } = {}) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      return await res.json();
+      try {
+        return await res.json();
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
     } finally {
       clearTimeout(timer);
     }

@@ -467,6 +467,15 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * Fetch JSON with timeout and error handling.
  * When `body` is a plain object/array, it is auto-serialised and Content-Type
  * is set to application/json — no need to stringify or set headers manually.
+ *
+ * A 200 response whose body is NOT valid JSON (the signature of a WAF/CDN
+ * "challenge" page served on an otherwise-OK status, e.g. a WordPress REST
+ * listing intermittently returning `<html>…` — #4247 Bucher + Suter) is
+ * tagged retryable and re-attempted through the SAME backoff loop as a
+ * transient HTTP status, instead of failing the whole crawler on one blip.
+ * This does NOT proxy through Jina Reader (unlike fetchHtml() below) —
+ * Jina always returns HTML, which would corrupt every retry of a JSON
+ * response too, so a plain same-URL retry is the only safe rescue here.
  * @param {string} url
  * @param {Object} [options] — { method, headers, body, timeoutMs }
  */
@@ -495,7 +504,15 @@ export async function fetchJson(url, options = {}) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      return await res.json();
+      const text = await res.text();
+      try {
+        return JSON.parse(text);
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
     } finally {
       clearTimeout(timer);
     }

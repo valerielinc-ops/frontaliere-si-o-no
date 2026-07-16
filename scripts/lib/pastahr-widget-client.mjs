@@ -319,7 +319,16 @@ export async function fetchPastaHrWidgetPage(params, { referer, origin, timeoutM
         body: params.toString(),
         signal: controller.signal,
       });
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        try {
+          return await res.json();
+        } catch (parseErr) {
+          const err = new Error(`Invalid JSON from ${PASTAHR_ENDPOINT}: ${parseErr?.message || parseErr}`);
+          err.retryable = true;
+          err.cause = parseErr;
+          throw err;
+        }
+      }
       firstStatus = res.status;
       const err = new Error(`HTTP ${res.status} from ${PASTAHR_ENDPOINT}`);
       err.status = res.status;
@@ -418,7 +427,16 @@ export async function fetchPostWidgetWithAntiBotHardening(body, endpoint, { refe
         body: bodyString,
         signal: controller.signal,
       });
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        try {
+          return await res.json();
+        } catch (parseErr) {
+          const err = new Error(`Invalid JSON from ${endpoint}: ${parseErr?.message || parseErr}`);
+          err.retryable = true;
+          err.cause = parseErr;
+          throw err;
+        }
+      }
       firstStatus = res.status;
       const err = new Error(`HTTP ${res.status} from ${endpoint}`);
       err.status = res.status;

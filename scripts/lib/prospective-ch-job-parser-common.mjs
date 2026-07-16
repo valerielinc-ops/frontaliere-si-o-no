@@ -57,7 +57,14 @@ async function fetchPage(apiUrl) {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      return await res.json();
+      try {
+        return await res.json();
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${apiUrl}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
     } finally {
       clearTimeout(timer);
     }

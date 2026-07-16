@@ -1,17 +1,17 @@
 {
   "companyKey": "dot-life",
   "companyName": "DOT Life SA",
-  "companyHost": "www.linkedin.com",
-  "enabled": true,
+  "companyHost": "dotlifestyle.ch",
+  "enabled": false,
   "priority": 12,
   "crawlerModes": [
     "html"
   ],
   "seedUrls": [
-    "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?f_C=9425984&geoId=92000000&start=0",
-    "https://www.linkedin.com/jobs/search/?f_C=9425984&geoId=92000000"
+    "https://www.dotlifestyle.ch",
+    "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?f_C=9425984&geoId=92000000&start=0"
   ],
-  "notes": "Dedicated DOT Life crawler uses LinkedIn public guest endpoints for company 9425984 (DOT Life SA). No login required. Guest listing: https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?f_C=9425984&geoId=92000000&start=0. Guest detail: https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{jobId}. Canonicalizes to /jobs/view/{jobId}/ URLs.",
-  "updatedAt": "2026-05-17T21:31:57.350Z",
+  "notes": "DISABLED 2026-07-16 (issue #3797 audit, live re-verification, not a re-read of old notes): parent site dotlifestyle.ch has no dedicated careers page — its own footer 'Careers' link points directly to LinkedIn (https://it.linkedin.com/company/dot-life-sa), i.e. the company itself has no in-house listing. Checked live: (1) the LinkedIn guest jobs API in seedUrls above returns a 200 with an empty bot-blocked shell (26-byte body, no job data) via direct curl with a realistic browser UA + Referer; the LinkedIn company /jobs/ page 301-redirects to a login wall — confirms the 'fragile LinkedIn' read from the original audit with a fresh test, not a stale assumption. (2) Checked DOT Life's 4 hospitality properties individually: Villa Principe Leopoldo's old jobs page (leopoldohotel.com/en/jobs/) now 301-redirects to the hotel homepage (dead, no jobs page); Villa Sassa (villasassa.ch) and Kurhaus Cademario (kurhauscademario.com) have no careers link anywhere on their homepages; Park Hotel Principe (parkhotelprincipe.com) links to thgmanagement.ch/en/careers/ (Ticino Hotels Group's management-company careers page) but that domain has been squatted and now serves an unrelated online-casino site (confirmed page title 'BDMbet ... Casino-Website in der Schweiz') — the group's centralized HR portal is defunct. (3) No jobup.ch or jobs.ch company page exists for 'dot-life-sa' or 'villa-principe-leopoldo' (404 after locale-prefix redirect). No viable structured source found anywhere across the parent site, all 4 property sites, the group HR domain, and the 2 major CH job portals.",
+  "updatedAt": "2026-07-16T00:00:00.000Z",
   "seedMetaByUrl": {}
 }

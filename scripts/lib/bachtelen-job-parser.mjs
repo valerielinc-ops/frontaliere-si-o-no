@@ -21,7 +21,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, warnIfListingAtCap } from './crawler-template.mjs';
+import { slugify, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -29,7 +29,6 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
-  USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -65,25 +64,22 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-async function fetchJson(url, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
-        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
-        Referer: PUBLIC_CAREER_URL,
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
+// Uses the shared fetchJson() (crawler-template.mjs): retries transient
+// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
+// body — the same class of intermittent block that broke the Bucher + Suter
+// WP REST listing, #4247) via exponential backoff instead of hard-failing
+// the whole crawler on one blip. Site-specific headers (Accept/Referer) are
+// preserved as-is via `options.headers`.
+function fetchBachtelenListingJson(url, timeoutMs = 20000) {
+  return fetchJson(url, {
+    timeoutMs,
+    label: 'Bachtelen wp-json job-listings',
+    headers: {
+      Accept: 'application/json,text/html;q=0.9,*/*;q=0.5',
+      'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
+      Referer: PUBLIC_CAREER_URL,
+    },
+  });
 }
 
 function pickLocationHints(rawLocation = '') {
@@ -101,7 +97,7 @@ export async function fetchAllBachtelenJobs() {
 
   let records;
   try {
-    records = await fetchJson(API_URL, timeoutMs);
+    records = await fetchBachtelenListingJson(API_URL, timeoutMs);
   } catch (err) {
     throw new Error(`Failed to fetch Bachtelen WP REST: ${err?.message || err}`);
   }
