@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3264,
+ "numberOfItems": 3265,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7939,7 +7939,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3261, "name": "Telelavoro dei frontalieri tra Italia e Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ` },
           { "@type": "ListItem", "position": 3262, "name": "Ticino ostaggio del traffico: chi sfrutta paghi", "url": `${BASE_URL}/articoli-frontaliere/ticino-traffico-2024` },
           { "@type": "ListItem", "position": 3263, "name": "Prestazioni LPP in Svizzera: come vengono tassate", "url": `${BASE_URL}/articoli-frontaliere/tassazione-prestazioni-lpp-svizzera` },
-          { "@type": "ListItem", "position": 3264, "name": "Il programma di Avanti con Ticino&Lavoro lo dec...", "url": `${BASE_URL}/articoli-frontaliere/il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi` }
+          { "@type": "ListItem", "position": 3264, "name": "Il programma di Avanti con Ticino&Lavoro lo dec...", "url": `${BASE_URL}/articoli-frontaliere/il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi` },
+          { "@type": "ListItem", "position": 3265, "name": "Mercato ipotecario svizzero da record: superato...", "url": `${BASE_URL}/articoli-frontaliere/mercato-ipoteche-svizzera-record-2025` }
  ]
  },
  {
