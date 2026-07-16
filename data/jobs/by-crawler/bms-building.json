@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-07-16T12:00:13.650Z",
+  "assembledAt": "2026-07-16T09:23:37.766Z",
   "jobs": [
     {
       "id": "bms-building-b3b773b4166e",
@@ -1944,7 +1944,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/157-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:59:49.699Z",
+      "crawledAt": "2026-07-15T22:21:46.470Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -1989,15 +1989,21 @@
         ]
       },
       "previousSlugs": [
-        "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
+        "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch",
+        "fachberatung-ausstellung-sanitar-e-platten-m-w-d-100-bms-building-materials-basel",
+        "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch"
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch",
+          "fachberatung-ausstellung-sanitar-e-platten-m-w-d-100-bms-building-materials-basel",
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-3"
+        ],
+        "en": [
+          "fachberatung-ausstellung-sanitar-und-platten-w-m-d-100-bms-building-ch-3"
         ]
       },
       "firstSeenAt": "2026-07-10T12:58:12.902Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {

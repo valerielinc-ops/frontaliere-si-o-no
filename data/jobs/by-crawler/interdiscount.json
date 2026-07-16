@@ -1,6 +1,6 @@
 {
   "crawlerKey": "interdiscount",
-  "assembledAt": "2026-07-16T11:08:57.691Z",
+  "assembledAt": "2026-07-16T10:12:30.575Z",
   "jobs": [
     {
       "id": "interdiscount-fd70f2be-6ba",
@@ -428,7 +428,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/ab591451-35c8-4640-a18d-843aab067463",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:08:55.507Z",
+      "crawledAt": "2026-07-15T22:47:53.114Z",
       "addressLocality": "Mels",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -462,20 +462,25 @@
       "previousSlugsByLocale": {
         "de": [
           "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-brig"
         ],
         "it": [
           "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-mels",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
+          "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-interdiscount-jegensdorf",
+          "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-brig",
+          "retail-specialist-efz-designing-shopping-experiences-interdiscount-jegensdorf",
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-g28ra3"
         ],
         "en": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels",
-          "retail-specialist-mann-efz-shape-of-shopping-experiences-interdiscount-mels"
+          "retail-specialist-mann-efz-shape-of-shopping-experiences-interdiscount-mels",
+          "retail-specialist-efz-designing-shopping-experiences-interdiscount-jegensdorf"
         ],
         "fr": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-mels",
-          "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-interdiscount-mels"
+          "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-interdiscount-mels",
+          "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-interdiscount-jegensdorf"
         ]
       },
       "previousSlugs": [
@@ -484,11 +489,12 @@
         "retail-specialist-mann-efz-shape-of-shopping-experiences-interdiscount-mels",
         "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-interdiscount-mels",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-2",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-5sv86f"
+        "specialiste-du-commerce-de-detail-efz-concevoir-des-experiences-d-achat-interdiscount-jegensdorf",
+        "detailhandelsfachfrau-mann-efz-34-gestalten-von-einkaufserlebnissen-34-interdiscount-brig",
+        "retail-specialist-efz-designing-shopping-experiences-interdiscount-jegensdorf",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf-g28ra3"
       ],
       "firstSeenAt": "2026-06-30T12:10:36.088Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
