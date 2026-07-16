@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-15T22:03:50.796Z",
+  "generatedAt": "2026-07-16T22:12:06.303Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10186,
-  "avgDurationMs": 10186,
+  "durationMs": 10090,
+  "avgDurationMs": 10090,
   "durationHistory": [
-    10186
+    10090
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,52 +51,16 @@
       }
     },
     {
-      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "title": "Conseiller:ère clientèle privée, Lausanne",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-06-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": false,
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "id": "postfinance-1ee349fcd573",
-      "firstSeenAt": "2026-06-16T14:08:25.964Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
-      "title": "Conseiller:ère clientèle en placement, Lausanne",
+      "title": "Stellendetails",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Lausanne",
       "canton": "VD",
       "country": "CH",
-      "slug": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
-      "sourceLang": "fr",
+      "slug": "stellendetails-postfinance",
+      "sourceLang": "it",
       "department": "",
       "category": "servizi-finanziari",
       "datePosted": "2026-06-16",
@@ -106,7 +70,7 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": {
         "canton": "VD",
         "location": "Lausanne"
@@ -114,10 +78,46 @@
       "id": "postfinance-fa3df90b1ead",
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
       "crawledAt": "",
-      "_qualityScore": 77,
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "title": "Stellendetails",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "sourceLang": "it",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-06-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "id": "postfinance-1ee349fcd573",
+      "firstSeenAt": "2026-06-16T14:08:25.964Z",
+      "crawledAt": "",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
         "translation": 25,
         "completeness": 9
       }
