@@ -49,3 +49,34 @@ export async function getNewsletterSecrets() {
  ]);
  return { resendApiKey, resendWebhookSecret, newsletterSecret };
 }
+
+// Same Remote Config param names scripts/load-rc-env.mjs's RC_TO_ENV bridges
+// into process.env for the scripts/ side (verified 2026-07-16 — confirms
+// these RC params actually exist and are populated, since load-rc-env.mjs
+// already successfully feeds the scripts/ cascade from them in CI).
+const EMAIL_CASCADE_RC_KEYS = [
+ 'RESEND_API_KEY',
+ 'MAILJET_API_KEY', 'MAILJET_SECRET_KEY',
+ 'MAILGUN_API_KEY', 'MAILGUN_DOMAIN',
+ 'MAILTRAP_API_TOKEN',
+ 'MAILEROO_API_KEY',
+ 'CLOUDFLARE_EMAIL_API_TOKEN', 'CF_ACCOUNT_ID',
+];
+
+/**
+ * Mirror the email-cascade provider credentials from Remote Config into
+ * process.env, so functions/src/emailCascade.js's synchronous process.env.*
+ * reads (isProviderConfigured, sendVia*, fetch*DailyUsage) see the same
+ * values the scripts/ side already gets via load-rc-env.mjs — Cloud
+ * Functions fetch secrets async (Remote Config), the cascade module reads
+ * them sync, so this bridge is the prerequisite for calling sendEmailCascade
+ * from any functions/src/*.js file. Skips keys already set (env/secret
+ * takes precedence) and is idempotent — safe to call before every send.
+ */
+export async function bridgeEmailCascadeCredentialsToEnv() {
+ await Promise.all(EMAIL_CASCADE_RC_KEYS.map(async (key) => {
+ if (process.env[key]) return;
+ const value = await getRemoteConfigValue(key);
+ if (value) process.env[key] = value;
+ }));
+}
