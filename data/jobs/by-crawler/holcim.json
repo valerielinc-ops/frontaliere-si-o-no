@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-07-16T11:25:23.994Z",
+  "assembledAt": "2026-07-16T22:57:02.286Z",
   "jobs": [
     {
       "id": "holcim-031c669f5cde",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/St_-Gallen-ChauffeureChauffeuse-St_-9000/1365498457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:20.016Z",
+      "crawledAt": "2026-07-16T22:56:57.957Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chauffeure-chauffeuse-holcim-ch"
+        "chauffeure-chauffeuse-holcim-ch",
+        "cuffie-cameriere-holcim-group-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-chauffeuse-holcim-ch"
+          "chauffeure-chauffeuse-holcim-ch",
+          "cuffie-cameriere-holcim-group-st-gallen"
         ],
         "en": [
           "chauffeure-chauffeuse-holcim-ch"
@@ -105,7 +107,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:19.545Z",
+      "crawledAt": "2026-07-16T22:56:57.516Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -123,12 +125,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf"
+        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "camion-driver-in-holcim-group-oberdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
-          "lastwagenfuhrer-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf",
+          "camion-driver-in-holcim-group-oberdorf"
         ],
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
@@ -182,7 +186,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:19.071Z",
+      "crawledAt": "2026-07-16T22:56:57.070Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -199,17 +203,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-in-holcim-ch"
+        "allrounder-in-holcim-ch",
+        "allrounder-holcim-group-ingenbohl-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-holcim-ch"
+          "allrounder-in-holcim-ch",
+          "allrounder-holcim-group-ingenbohl-brunnen"
         ],
         "fr": [
           "allrounder-in-holcim-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:53.801Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -227,9 +234,9 @@
       "id": "holcim-68f18d3bd0c0",
       "slug": "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen",
       "slugByLocale": {
-        "de": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
         "it": "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen",
         "en": "shift-specialist-shift-specialist-in-siggenthal-holcim-group-wurenlingen",
+        "de": "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
         "fr": "specialiste-du-poste-specialiste-du-poste-a-siggenthal-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
@@ -237,16 +244,16 @@
       "companyDomain": "holcim.com",
       "title": "Schichtfachmann / Schichtfachfrau in Siggenthal",
       "titleByLocale": {
-        "de": "Schichtfachmann / Schichtfachfrau in Siggenthal",
         "it": "Specialista a turni / specialista a turni in Siggenthal",
         "en": "Shift specialist / shift specialist in Siggenthal",
+        "de": "Schichtfachmann / Schichtfachfrau in Siggenthal",
         "fr": "Spécialiste du poste / spécialiste du poste à Siggenthal"
       },
       "description": "Du behältst auch im Schichtbetrieb den Überblick, arbeitest gerne im Team und sorgst mit deinem technischen Verständnis für einen reibungslosen Produktionsablauf? Dann werde Teil unseres Teams und bring unsere Produktion zuverlässig ins Rollen.\n\nWas dich erwartet:\n\n• Bedienung, Überwachung sowie Wartung und Reinigung unserer Produktionsanlagen unter Einhaltung aller Sicherheits-, Qualitäts- und Umweltstandards\n\n• Sicherstellung einer reibungslosen Schichtübergabe sowie Dokumentation von Ereignissen und Störungen\n\n• Kontrolle der Anlagenparamenter und Durchführung manueller Probenahmen bei Bedarf\n\n• Enge Zusammenarbeit mit Instandhaltung, Produktion und Qualitätsmanagement\n\n• Unterstützung bei Stillständen, Revisionen und weiteren Instandhaltungsmaßnahmen\n\n• Übernahme weiterer betrieblicher Aufgaben nach Bedarf\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung sowie idealerweise Erfahrung im industriellen Schichtbetrieb\n\n• Technisches Verständnis mit Grundkenntnissen in Mechanik, Elektrik und IT\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Sicherheitsbewusstsein sowie lösungs- und prozessorientiertes Denken\n\n• Teamgeist, Kommunikationsstärke und Offenheit für neue Technologien\n\n• Gute Deutschkenntnisse und Bereitschaft zur Schichtarbeit\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
-        "de": "Du behältst auch im Schichtbetrieb den Überblick, arbeitest gerne im Team und sorgst mit deinem technischen Verständnis für einen reibungslosen Produktionsablauf? Dann werde Teil unseres Teams und bring unsere Produktion zuverlässig ins Rollen.\n\nWas dich erwartet:\n\n• Bedienung, Überwachung sowie Wartung und Reinigung unserer Produktionsanlagen unter Einhaltung aller Sicherheits-, Qualitäts- und Umweltstandards\n\n• Sicherstellung einer reibungslosen Schichtübergabe sowie Dokumentation von Ereignissen und Störungen\n\n• Kontrolle der Anlagenparamenter und Durchführung manueller Probenahmen bei Bedarf\n\n• Enge Zusammenarbeit mit Instandhaltung, Produktion und Qualitätsmanagement\n\n• Unterstützung bei Stillständen, Revisionen und weiteren Instandhaltungsmaßnahmen\n\n• Übernahme weiterer betrieblicher Aufgaben nach Bedarf\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung sowie idealerweise Erfahrung im industriellen Schichtbetrieb\n\n• Technisches Verständnis mit Grundkenntnissen in Mechanik, Elektrik und IT\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Sicherheitsbewusstsein sowie lösungs- und prozessorientiertes Denken\n\n• Teamgeist, Kommunikationsstärke und Offenheit für neue Technologien\n\n• Gute Deutschkenntnisse und Bereitschaft zur Schichtarbeit\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "it": "Tenere anche una panoramica delle operazioni a turni, godere di lavorare come team e garantire un processo di produzione regolare con la vostra comprensione tecnica? Poi diventare parte del nostro team e ottenere la nostra produzione rotolare in modo affidabile.\n\nCosa aspettarsi:\n\n• Funzionamento, monitoraggio, manutenzione e pulizia dei nostri impianti produttivi in conformità a tutti gli standard di sicurezza, qualità e ambiente\n\n• Garantire un trasferimento a turni e la documentazione di eventi e disturbi\n\n• Controllo dei parametri di installazione e campionamento manuale se necessario\n\n• stretta collaborazione con manutenzione, produzione e gestione della qualità\n\n• Assistenza in caso di fermo, revisioni e altre misure di manutenzione\n\n• Assunzione di ulteriori compiti operativi come richiesto\n\nCosa porti:\n\n• Formazione professionale tecnica completa e esperienza ideale nelle operazioni a turni industriali\n\n• Comprensione tecnica con conoscenze di base in meccanica, elettrico e IT\n\n• Metodo di lavoro indipendente, strutturato e affidabile\n\n• L'alta consapevolezza della sicurezza e il pensiero orientato alla soluzione e al processo\n\n• Spirito di squadra, forza di comunicazione e apertura alle nuove tecnologie\n\n• Buona conoscenza del tedesco e disponibilità a turni di lavoro\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
         "en": "You also keep an overview in shift operations, enjoy working as a team and ensure a smooth production process with your technical understanding? Then become part of our team and get our production rolling reliably.\n\nWhat to expect:\n\n• Operation, monitoring, maintenance and cleaning of our production facilities in compliance with all safety, quality and environmental standards\n\n• Ensuring smooth shift transfer and documentation of events and disturbances\n\n• Control of installation parameters and manual sampling if necessary\n\n• Close cooperation with maintenance, production and quality management\n\n• Assistance in the event of downtime, revisions and other maintenance measures\n\n• Assumption of further operational tasks as required\n\nWhat you bring:\n\n• Completed technical vocational training and ideally experience in industrial shift operations\n\n• Technical understanding with basic knowledge in mechanics, electrics and IT\n\n• Independent, structured and reliable working method\n\n• High security awareness as well as solution- and process-oriented thinking\n\n• Team spirit, communication strength and openness to new technologies\n\n• Good knowledge of German and willingness to work shifts\n\nOur offer:\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+        "de": "Du behältst auch im Schichtbetrieb den Überblick, arbeitest gerne im Team und sorgst mit deinem technischen Verständnis für einen reibungslosen Produktionsablauf? Dann werde Teil unseres Teams und bring unsere Produktion zuverlässig ins Rollen.\n\nWas dich erwartet:\n\n• Bedienung, Überwachung sowie Wartung und Reinigung unserer Produktionsanlagen unter Einhaltung aller Sicherheits-, Qualitäts- und Umweltstandards\n\n• Sicherstellung einer reibungslosen Schichtübergabe sowie Dokumentation von Ereignissen und Störungen\n\n• Kontrolle der Anlagenparamenter und Durchführung manueller Probenahmen bei Bedarf\n\n• Enge Zusammenarbeit mit Instandhaltung, Produktion und Qualitätsmanagement\n\n• Unterstützung bei Stillständen, Revisionen und weiteren Instandhaltungsmaßnahmen\n\n• Übernahme weiterer betrieblicher Aufgaben nach Bedarf\n\nWas du mitbringst:\n\n• Abgeschlossene technische Berufsausbildung sowie idealerweise Erfahrung im industriellen Schichtbetrieb\n\n• Technisches Verständnis mit Grundkenntnissen in Mechanik, Elektrik und IT\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Sicherheitsbewusstsein sowie lösungs- und prozessorientiertes Denken\n\n• Teamgeist, Kommunikationsstärke und Offenheit für neue Technologien\n\n• Gute Deutschkenntnisse und Bereitschaft zur Schichtarbeit\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
         "fr": "Vous gardez également un aperçu des opérations de quart, aimez travailler en équipe et assurer un processus de production en douceur avec votre compréhension technique? Faites ensuite partie de notre équipe et faites rouler notre production de manière fiable.\n\nÀ quoi s'attendre :\n\n• Fonctionnement, surveillance, entretien et nettoyage de nos installations de production conformément à toutes les normes de sécurité, de qualité et d'environnement\n\n• Assurer un transfert en douceur et la documentation des événements et des perturbations\n\n• Contrôle des paramètres d'installation et prélèvement manuel si nécessaire\n\n• Coopération étroite avec la maintenance, la production et la gestion de la qualité\n\n• Assistance en cas d'arrêt, de révision et d'autres mesures d'entretien\n\n• Hypothèse de nouvelles tâches opérationnelles selon les besoins\n\nCe que vous apportez:\n\n• Formation professionnelle technique achevée et expérience idéale dans les opérations de travail posté\n\n• Connaissance technique de base en mécanique, électrique et informatique\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Haute sensibilisation à la sécurité ainsi qu'une réflexion axée sur les solutions et les processus\n\n• Esprit d'équipe, force de communication et ouverture aux nouvelles technologies\n\n• Bonne connaissance de l'allemand et volonté de travailler\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
       },
       "location": "Würenlingen",
@@ -254,7 +261,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:18.606Z",
+      "crawledAt": "2026-07-16T22:56:56.628Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -269,9 +276,24 @@
       "postedDate": "2026-07-16",
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
+        "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
+          "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
+        ],
+        "en": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        ],
+        "fr": [
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
+        ]
       },
+      "firstSeenAt": "2026-07-16T11:25:18.606Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -283,22 +305,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-16T11:25:18.606Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
-        ],
-        "en": [
-          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
-        ],
-        "fr": [
-          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
-        ]
-      },
-      "previousSlugs": [
-        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
-      ]
+      }
     },
     {
       "id": "holcim-0c635c1fceff",
@@ -331,7 +338,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:25:18.127Z",
+      "crawledAt": "2026-07-16T22:56:56.188Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,11 +355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+        "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
+          "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
         ],
         "en": [
           "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
@@ -406,7 +415,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-GR-7204/1361159157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:17.638Z",
+      "crawledAt": "2026-07-16T22:56:55.737Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -424,12 +433,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch",
-        "baumaschinenfuhrer-in-holcim-group-untervaz"
+        "baumaschinenfuhrer-in-holcim-group-untervaz",
+        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch",
-          "baumaschinenfuhrer-in-holcim-group-untervaz"
+          "baumaschinenfuhrer-in-holcim-group-untervaz",
+          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-holcim-group-untervaz"
@@ -483,7 +494,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Birsfelden-Matrosein-BL-4127/1352166957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:17.162Z",
+      "crawledAt": "2026-07-16T22:56:55.290Z",
       "addressLocality": "Birsfelden",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -500,11 +511,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "matrose-in-holcim-ch"
+        "matrose-in-holcim-ch",
+        "marinaio-in-holcim-group-birsfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "matrose-in-holcim-ch"
+          "matrose-in-holcim-ch",
+          "marinaio-in-holcim-group-birsfelden"
         ],
         "en": [
           "matrose-in-holcim-ch"
@@ -558,7 +571,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-Werkstudentin-Nachhaltigkeit-&-Prozessoptimierung-80-100-AG-5303/1361236157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:16.700Z",
+      "crawledAt": "2026-07-16T22:56:54.844Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -635,7 +648,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:16.224Z",
+      "crawledAt": "2026-07-16T22:56:54.406Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -652,11 +665,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-holcim-ch"
+        "anlagen-und-apparatebauer-in-holcim-ch",
+        "anlagen-e-apparatebauer-in-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-holcim-ch"
+          "anlagen-und-apparatebauer-in-holcim-ch",
+          "anlagen-e-apparatebauer-in-holcim-group-untervaz"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-holcim-ch"
@@ -710,7 +725,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:25:15.741Z",
+      "crawledAt": "2026-07-16T22:56:53.958Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -738,7 +753,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "materiel-electrique-80-100-holcim-group-eclepens"
+        ]
+      },
+      "previousSlugs": [
+        "materiel-electrique-80-100-holcim-group-eclepens"
+      ]
     },
     {
       "id": "holcim-f26ec4eb52d4",
@@ -771,7 +794,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:15.287Z",
+      "crawledAt": "2026-07-16T22:56:53.506Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -788,11 +811,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
+          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
@@ -846,7 +871,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Project-Manager-VD-1312/1366460257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:25:14.795Z",
+      "crawledAt": "2026-07-16T22:56:53.057Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -863,17 +888,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-holcim-ch"
+        "project-manager-holcim-ch",
+        "responsabile-del-progetto-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-holcim-ch"
+          "project-manager-holcim-ch",
+          "responsabile-del-progetto-holcim-group-eclepens"
         ],
         "de": [
           "project-manager-holcim-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T22:57:57.231Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -918,7 +946,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-Baumaschinenf%C3%BChrerin-Allrounderin-NW-6365/1366127957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:14.320Z",
+      "crawledAt": "2026-07-16T22:56:52.613Z",
       "addressLocality": "Kehrsiten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -936,12 +964,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
+        "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
+        "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-allrounder-in-holcim-ch",
-          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
+          "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten",
+          "operatore-di-macchine-da-costruzione-in-allrounder-in-holcim-group-kehrsiten"
         ],
         "en": [
           "baumaschinenfuhrer-in-allrounder-in-holcim-group-kehrsiten"
@@ -995,7 +1025,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mitarbeiterin-f%C3%BCr-Betriebsstoffgruppe-AG-5303/1365752557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:13.858Z",
+      "crawledAt": "2026-07-16T22:56:52.169Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1013,11 +1043,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
-        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
+        "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen",
+        "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch"
+          "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-ch",
+          "collaboratore-trice-per-betriebsstoffgruppe-holcim-group-wurenlingen"
         ],
         "en": [
           "mitarbeiter-in-fur-betriebsstoffgruppe-holcim-group-wurenlingen"
@@ -1071,7 +1103,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Bi%C3%A8re-Machiniste-polyvalent-Bi%C3%A8re-VD-1145/1366311957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:25:13.393Z",
+      "crawledAt": "2026-07-16T22:56:51.732Z",
       "addressLocality": "Bière",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1088,11 +1120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machiniste-polyvalent-biere-holcim-ch"
+        "machiniste-polyvalent-biere-holcim-ch",
+        "macchinista-multiuso-birra-holcim-group-biere"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machiniste-polyvalent-biere-holcim-ch"
+          "machiniste-polyvalent-biere-holcim-ch",
+          "macchinista-multiuso-birra-holcim-group-biere"
         ],
         "en": [
           "machiniste-polyvalent-biere-holcim-ch"
@@ -1130,7 +1164,7 @@
       "title": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
       "titleByLocale": {
         "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Specialist:in processing technology 80-100% (Operations Excellence Manager:in)",
+        "en": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "de": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
@@ -1146,7 +1180,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:12.935Z",
+      "crawledAt": "2026-07-16T22:56:51.281Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1165,12 +1199,14 @@
       "previousSlugsByLocale": {
         "de": [
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+          "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen"
         ],
         "it": [
           "operations-excellence-manager-agg-80-100-holcim-ch",
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+          "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
         ],
         "fr": [
           "operations-excellence-manager-agg-80-100-holcim-ch"
@@ -1179,9 +1215,12 @@
       "previousSlugs": [
         "operations-excellence-manager-agg-80-100-holcim-ch",
         "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
+        "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
+        "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
       ],
       "firstSeenAt": "2026-07-08T22:25:51.964Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1191,78 +1230,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "holcim-ca7c0c096d1c",
-      "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
-      "slugByLocale": {
-        "it": "consigliere-giuridico-80-100-holcim-group-zurich",
-        "en": "legal-counsel-80-100-holcim-ch",
-        "de": "legal-counsel-80-100-holcim-ch",
-        "fr": "conseiller-juridique-80-100-holcim-group-zurich"
-      },
-      "company": "Holcim Group",
-      "companyKey": "holcim",
-      "companyDomain": "holcim.com",
-      "title": "Legal Counsel 80-100%",
-      "titleByLocale": {
-        "it": "Consigliere giuridico 80-100 %",
-        "en": "Legal Counsel 80-100 %",
-        "de": "Legal Counsel 80-100%",
-        "fr": "Conseiller juridique 80-100 %"
-      },
-      "description": "Bei Holcim Central Europe West (Schweiz, Italien, Süddeutschland und Haut-Rhin) erwarten dich spannende juristische Herausforderungen in einem dynamischen Umfeld. Als Legal Counsel wirst du zur vertrauensvollen Ansprechperson für unsere Business Partner in der Schweiz und unterstützt den General Counsel direkt bei wegweisenden Projekten – von der Dekarbonisierung bis zur digitalen Transformation der Rechtsabteilung. Bring deine Expertise ein und bewege mit uns die Welt von morgen!\n\nWas dich erwartet:\n\n•\n Umfassende Rechtsberatung: Du berätst und unterstützt unsere Schweizer Business Partner eigenverantwortlich in zentralen Themenbereichen wie Litigation, M&A, Wettbewerbsrecht, Real Estate und komplexen kommerziellen Verträgen.\n\n•\n Strategische Fallführung: Du leitest Gerichtsfälle und Verfahren inklusive der Strategieentwicklung und steuerst externe Anwälte.\n\n•\n Zukunftsprojekte begleiten: Du unterstützt die rechtliche Leitung und Verhandlungsführung bei strategischen Projekten und Initiativen, insbesondere bei unseren wegweisenden industriellen Dekarbonisierungs-Grossprojekten.\n\n•\n Rechtliche Infrastruktur optimieren: Du entwirfst, prüfst und überarbeitest Verträge, Standardvorlagen sowie Protokolle und stehst sämtlichen Abteilungen bei allgemeinen Rechtsfragen beratend zur Seite.\n\n•\n Legal Tech & Innovation: Du treibst die Digitalisierung der Rechtsabteilung des Clusters Central Europe West aktiv voran und entwickelst digitale Tools zur nachhaltigen Prozessoptimierung weiter.\n\nWas du mitbringst:\n\n•\n Fundierte Ausbildung: Du hast dein Universitätsstudium der Rechtswissenschaften erfolgreich abgeschlossen und besitzt das Schweizer Rechtsanwaltspatent (Zulassung als Rechtsanwalt/Rechtsanwältin in der Schweiz).\n\n•\n Einschlägige Erfahrung: Du bringst mindestens 3 bis 5 Jahre relevante Berufserfahrung im juristischen Umfeld mit, die du idealerweise in einer Wirtschaftskanzlei oder als In-House Counsel gesammelt hast.\n\n•\n Digitale Affinität: Neben dem sicheren Umgang mit MS Office und Google Tools hast du eine ausgeprägte Begeisterung für Legal Tech und die Optimierung digitaler Arbeitsabläufe.\n\n•\n Starke Persönlichkeit: Du zeichnest dich durch eine lösungsorientierte, pragmatische Arbeitsweise, hohe Flexibilität sowie ausgeprägtes Durchsetzungsvermögen und echten Teamgeist aus.\n\n•\n Sprachkompetenz: Du kommunizierst verhandlungssicher und stilsicher in Deutsch und Englisch (in Wort und Schrift); gute Französisch- und/oder Italienischkenntnisse sind ein willkommener Vorteil.\n\nUnser Angebot:\n\n•\n Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n•\n Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n•\n Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n•\n Flexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n•\n Attraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse.\n\n•\n Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst.\n\n•\n Gesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen.",
-      "descriptionByLocale": {
-        "it": "A Holcim Central Europe West (Svizzera, Italia, Germania Meridionale e Haut-Rhin), emozionanti sfide legali vi aspettano in un ambiente dinamico. In qualità di consulente legale, diventerai un contatto di fiducia per i nostri partner commerciali in Svizzera e supporterai il consiglio generale direttamente con progetti innovativi – dalla decarbonizzazione alla trasformazione digitale del dipartimento legale. Porta la tua esperienza e sposta il mondo di domani con noi!\n\nCosa aspettarsi:\n\n•\nConsulenza legale completa: Lei consiglierà e supporterà i nostri partner commerciali svizzeri in modo indipendente in settori chiave come contenzioso, M&A, diritto di concorrenza, contratti immobiliari e commerciali complessi.\n\n•\nGestione strategica del caso: Lei conduce casi e procedimenti giudiziari tra cui lo sviluppo di strategia e la gestione di avvocati esterni.\n\n•\nAccompagnate i progetti futuri: sostenete la gestione legale e la negoziazione di progetti e iniziative strategici, soprattutto nei nostri progetti di decarbonizzazione industriale innovativi.\n\n•\nOttimizza l'infrastruttura legale: progetta, esamina e revisiona contratti, modelli standard e protocolli e consiglia tutti i dipartimenti su questioni legali generali.\n\n•\nLegal Tech & Innovation: Stai attivamente guidando la digitalizzazione del dipartimento legale del cluster occidentale dell'Europa centrale e sviluppando strumenti digitali per l'ottimizzazione dei processi sostenibili.\n\nCosa porti:\n\n•\nFormazione approfondita: hai completato con successo i tuoi studi universitari in diritto e hai il brevetto dell’avvocato svizzero (ammissione come avvocato in Svizzera).\n\n•\nEsperienza rilevante: Porti almeno 3-5 anni di esperienza legale rilevante, che hai idealmente guadagnato in uno studio legale commerciale o come consulente interno.\n\n•\nAffinità digitale: Oltre a utilizzare MS Office e Google Tools in modo sicuro, hai un forte entusiasmo per la tecnologia legale e ottimizzare i flussi di lavoro digitali.\n\n•\nForte personalità: Lei è caratterizzato da un modo di lavoro orientato alla soluzione, pragmatico, ad alta flessibilità e forte assertivitÃ e vero spirito di squadra.\n\n•\nCompetenza linguistica: Lei comunica con fiducia nella negoziazione e nello stile in tedesco e inglese (in parola e scrittura); Buona conoscenza del francese e/o dell'italiano è un vantaggio di benvenuto.\n\nLa nostra offerta:\n\n•\nOnboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n•\nCarriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n•\nApprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n•\nFlessibilità & Work-Life-Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25 giorni festivi, acquisto di vacanza, prolungato congedo di maternità e paternità\n\n•\nCompensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione.\n\n•\nVantaggi del dipendente: Da Reka controlli e azioni a un prezzo preferenziale al mondo vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti.\n\n•\nSalute e Affari Sociali: Ci impegniamo alla vostra salute e la promuoviamo attraverso misure preventive.",
-        "en": "At Holcim Central Europe West (Switzerland, Italy, Southern Germany and Haut-Rhin), exciting legal challenges await you in a dynamic environment. As a legal counsel, you will become a trusted contact for our business partners in Switzerland and support the general counsel directly with groundbreaking projects – from decarbonisation to the digital transformation of the legal department. Bring your expertise and move the world of tomorrow with us!\n\nWhat to expect:\n\n•\nComprehensive legal advice: You will advise and support our Swiss business partners independently in key areas such as litigation, M&A, competition law, real estate and complex commercial contracts.\n\n•\nStrategic case management: You lead court cases and proceedings including strategy development and manage external lawyers.\n\n•\nAccompany future projects: You support the legal management and negotiation of strategic projects and initiatives, especially in our groundbreaking industrial decarbonization projects.\n\n•\nOptimize legal infrastructure: You design, review and revise contracts, standard templates and protocols and advise all departments on general legal issues.\n\n•\nLegal Tech & Innovation: You are actively driving the digitization of the legal department of the Central Europe West Cluster and developing digital tools for sustainable process optimization.\n\nWhat you bring:\n\n•\nIn-depth training: You have successfully completed your university studies in law and hold the Swiss attorney’s patent (admission as a lawyer in Switzerland).\n\n•\nRelevant experience: You bring at least 3 to 5 years of relevant legal professional experience, which you have ideally gained in a commercial law firm or as an in-house counsel.\n\n•\nDigital Affinity: In addition to using MS Office and Google Tools securely, you have a strong enthusiasm for legal tech and optimizing digital workflows.\n\n•\nStrong personality: You are characterized by a solution-oriented, pragmatic way of working, high flexibility as well as strong assertiveness and real team spirit.\n\n•\nLanguage Competence: You communicate with confidence in negotiation and style in German and English (in word and writing); Good knowledge of French and/or Italian is a welcome advantage.\n\nOur offer:\n\n•\nOnboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n•\nCareer & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n•\nAppreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n•\nFlexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25 days holidays, holiday purchase, extended maternity and paternity leave\n\n•\nAttractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund.\n\n•\nEmployee benefits: From Reka checks and shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services.\n\n•\nHealth and Social Affairs: We are committed to your health and promote it through preventive measures.",
-        "de": "Bei Holcim Central Europe West (Schweiz, Italien, Süddeutschland und Haut-Rhin) erwarten dich spannende juristische Herausforderungen in einem dynamischen Umfeld. Als Legal Counsel wirst du zur vertrauensvollen Ansprechperson für unsere Business Partner in der Schweiz und unterstützt den General Counsel direkt bei wegweisenden Projekten – von der Dekarbonisierung bis zur digitalen Transformation der Rechtsabteilung. Bring deine Expertise ein und bewege mit uns die Welt von morgen!\n\nWas dich erwartet:\n\n•\nUmfassende Rechtsberatung: Du berätst und unterstützt unsere Schweizer Business Partner eigenverantwortlich in zentralen Themenbereichen wie Litigation, M&A, Wettbewerbsrecht, Real Estate und komplexen kommerziellen Verträgen.\n\n•\nStrategische Fallführung: Du leitest Gerichtsfälle und Verfahren inklusive der Strategieentwicklung und steuerst externe Anwälte.\n\n•\nZukunftsprojekte begleiten: Du unterstützt die rechtliche Leitung und Verhandlungsführung bei strategischen Projekten und Initiativen, insbesondere bei unseren wegweisenden industriellen Dekarbonisierungs-Grossprojekten.\n\n•\nRechtliche Infrastruktur optimieren: Du entwirfst, prüfst und überarbeitest Verträge, Standardvorlagen sowie Protokolle und stehst sämtlichen Abteilungen bei allgemeinen Rechtsfragen beratend zur Seite.\n\n•\nLegal Tech & Innovation: Du treibst die Digitalisierung der Rechtsabteilung des Clusters Central Europe West aktiv voran und entwickelst digitale Tools zur nachhaltigen Prozessoptimierung weiter.\n\nWas du mitbringst:\n\n•\nFundierte Ausbildung: Du hast dein Universitätsstudium der Rechtswissenschaften erfolgreich abgeschlossen und besitzt das Schweizer Rechtsanwaltspatent (Zulassung als Rechtsanwalt/Rechtsanwältin in der Schweiz).\n\n•\nEinschlägige Erfahrung: Du bringst mindestens 3 bis 5 Jahre relevante Berufserfahrung im juristischen Umfeld mit, die du idealerweise in einer Wirtschaftskanzlei oder als In-House Counsel gesammelt hast.\n\n•\nDigitale Affinität: Neben dem sicheren Umgang mit MS Office und Google Tools hast du eine ausgeprägte Begeisterung für Legal Tech und die Optimierung digitaler Arbeitsabläufe.\n\n•\nStarke Persönlichkeit: Du zeichnest dich durch eine lösungsorientierte, pragmatische Arbeitsweise, hohe Flexibilität sowie ausgeprägtes Durchsetzungsvermögen und echten Teamgeist aus.\n\n•\nSprachkompetenz: Du kommunizierst verhandlungssicher und stilsicher in Deutsch und Englisch (in Wort und Schrift); gute Französisch- und/oder Italienischkenntnisse sind ein willkommener Vorteil.\n\nUnser Angebot:\n\n•\nOnboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n•\nKarriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n•\nWertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n•\nFlexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n•\nAttraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse.\n\n•\nMitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst.\n\n•\nGesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen.",
-        "fr": "À Holcim Europe centrale Ouest (Suisse, Italie, Allemagne du Sud et Haut-Rhin), des défis juridiques passionnants vous attendent dans un environnement dynamique. En tant que conseiller juridique, vous deviendrez un contact de confiance pour nos partenaires commerciaux en Suisse et accompagnerez directement le conseiller général dans des projets révolutionnaires – de la décarbonisation à la transformation numérique du service juridique. Apportez votre expertise et déplacez le monde de demain avec nous !\n\nÀ quoi s'attendre :\n\n•\nConseil juridique complet: Vous conseillerez et accompagnerez nos partenaires commerciaux suisses de manière indépendante dans des domaines clés tels que les litiges, les fusions et acquisitions, le droit de la concurrence, l'immobilier et les contrats commerciaux complexes.\n\n•\nGestion stratégique des affaires : Vous dirigez les affaires judiciaires et les procédures, y compris l'élaboration de stratégies et la gestion d'avocats externes.\n\n•\nAccompagner de futurs projets : Vous soutenez la gestion juridique et la négociation de projets et d'initiatives stratégiques, en particulier dans nos projets de décarbonisation industrielle révolutionnaires.\n\n•\nOptimiser l'infrastructure juridique : Vous concevez, examinez et révisez les contrats, les modèles et protocoles normalisés et conseillez tous les ministères sur les questions juridiques générales.\n\n•\nLegal Tech & Innovation: Vous dirigez activement la numérisation du département juridique du pôle Europe centrale Ouest et développez des outils numériques pour l'optimisation durable des processus.\n\nCe que vous apportez:\n\n•\nFormation approfondie : Vous avez réussi vos études universitaires en droit et vous êtes titulaire du brevet d'avocat suisse (admission en tant qu'avocat en Suisse).\n\n•\nExpérience pertinente: Vous apportez au moins 3 à 5 ans d'expérience professionnelle juridique pertinente, que vous avez idéalement acquis dans un cabinet d'avocats commerciaux ou en tant que conseiller interne.\n\n•\naffinité numérique: En plus d'utiliser MS Office et Google Tools en toute sécurité, vous avez un vif enthousiasme pour la technologie juridique et l'optimisation des flux de travail numériques.\n\n•\nPersonnalité forte : Vous êtes caractérisés par une façon de travailler pragmatique et orientée vers la solution, une grande flexibilité ainsi qu'une forte assurance et un esprit d'équipe réel.\n\n•\nCompétence linguistique: Vous communiquez avec confiance dans la négociation et le style en allemand et en anglais (en paroles et en écriture); Une bonne connaissance du français et/ou de l'italien est un avantage bienvenu.\n\nNotre offre :\n\n•\nÀ bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n•\nCarrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n•\nAppréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n•\nFlexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des opportunités à temps partiel, 25 jours de vacances, achat de vacances, congé de maternité et de paternité prolongée\n\n•\nIndemnisation attrayante: Nous offrons à nos employés une rémunération attrayante avec de nombreux avantages supplémentaires et une très bonne caisse de retraite.\n\n•\nAvantages sociaux: De Reka vérifie et partage à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants.\n\n•\nSanté et affaires sociales : Nous nous engageons à votre santé et à la promouvoir par des mesures préventives."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
-      "source": "Holcim Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:12.468Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Materiali da costruzione / Cemento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "legal-counsel-80-100-holcim-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "legal-counsel-80-100-holcim-ch"
-        ],
-        "fr": [
-          "legal-counsel-80-100-holcim-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:25:44.753Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1298,7 +1265,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-80-100-AG-5303/829324802/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:12.015Z",
+      "crawledAt": "2026-07-16T22:56:50.844Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1315,11 +1282,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-80-100-holcim-ch"
+        "mechaniker-in-80-100-holcim-ch",
+        "meccanica-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-80-100-holcim-ch"
+          "mechaniker-in-80-100-holcim-ch",
+          "meccanica-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "mechaniker-in-80-100-holcim-ch"
@@ -1357,7 +1326,7 @@
       "title": "Specialist Cash Collection & Debitoren",
       "titleByLocale": {
         "it": "Specialista Cash Collection & Debitoren",
-        "en": "Specialist Cash Collection & Debitors",
+        "en": "Specialist Cash Collection & Debitoren",
         "de": "Spezialist Cash Collection & Debitoren",
         "fr": "Spécialiste Cash Collection & Debitoren"
       },
@@ -1373,7 +1342,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Specialist-Cash-Collection-&-Debitoren-CH-%C2%AD8050/1363033857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:11.554Z",
+      "crawledAt": "2026-07-16T22:56:50.390Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1401,6 +1370,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:51.030Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1445,7 +1415,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Pr%C3%A4ventive-Instandhaltung-80-100-AG-5303/1360175157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:11.076Z",
+      "crawledAt": "2026-07-16T22:56:49.932Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1462,11 +1432,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+        "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
+        "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
+          "spezialist-in-praventive-instandhaltung-80-100-holcim-ch",
+          "specialista-in-manutenzione-preventiva-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "spezialist-in-praventive-instandhaltung-80-100-holcim-ch"
@@ -1520,7 +1492,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Allrounder-Betriebsstoffe-Baumaschinenf%C3%BChrer-80-100-AG-5303/1360174757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:10.611Z",
+      "crawledAt": "2026-07-16T22:56:49.494Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1537,11 +1509,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+        "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
+        "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
+          "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
+          "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch"
@@ -1595,7 +1569,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Koch-K%C3%B6chin-Personalrestaurant-60-70-GR-7204/1361996657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:10.147Z",
+      "crawledAt": "2026-07-16T22:56:49.056Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1612,11 +1586,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-personalrestaurant-60-70-holcim-ch"
+        "koch-kochin-personalrestaurant-60-70-holcim-ch",
+        "chef-staff-ristorante-60-70-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-personalrestaurant-60-70-holcim-ch"
+          "koch-kochin-personalrestaurant-60-70-holcim-ch",
+          "chef-staff-ristorante-60-70-holcim-group-untervaz"
         ],
         "en": [
           "koch-kochin-personalrestaurant-60-70-holcim-ch"
@@ -1670,7 +1646,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-60-100-GR-7204/1354410157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:09.688Z",
+      "crawledAt": "2026-07-16T22:56:48.605Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1687,11 +1663,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+        "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
+        "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
+          "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
+          "operatore-di-macchine-da-costruzione-nella-cava-60-100-holcim-group-untervaz"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch"
@@ -1745,7 +1723,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:09.222Z",
+      "crawledAt": "2026-07-16T22:56:48.136Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1776,6 +1754,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:25:47.422Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1820,7 +1799,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-GR-7204/1364250757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:08.743Z",
+      "crawledAt": "2026-07-16T22:56:47.699Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1839,13 +1818,15 @@
       "previousSlugs": [
         "baumaschinenfuhrer-in-holcim-ch-2",
         "baumaschinenfuhrer-in-holcim-ch",
-        "baumaschinenfuhrer-in-holcim-group-untervaz"
+        "baumaschinenfuhrer-in-holcim-group-untervaz",
+        "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenfuhrer-in-holcim-ch-2",
           "baumaschinenfuhrer-in-holcim-ch",
-          "baumaschinenfuhrer-in-holcim-group-untervaz"
+          "baumaschinenfuhrer-in-holcim-group-untervaz",
+          "operatore-di-macchine-da-costruzione-in-holcim-group-untervaz-f583ee"
         ],
         "en": [
           "baumaschinenfuhrer-in-holcim-group-untervaz"
@@ -1899,7 +1880,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Schichtverantwortlicher-60-100-GR-7204/1364122157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:08.273Z",
+      "crawledAt": "2026-07-16T22:56:47.252Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1917,12 +1898,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schichtverantwortliche-r-60-100-holcim-ch",
-        "schichtverantwortliche-r-60-100-holcim-group-untervaz"
+        "schichtverantwortliche-r-60-100-holcim-group-untervaz",
+        "rischio-responsabile-60-100-holcim-group-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtverantwortliche-r-60-100-holcim-ch",
-          "schichtverantwortliche-r-60-100-holcim-group-untervaz"
+          "schichtverantwortliche-r-60-100-holcim-group-untervaz",
+          "rischio-responsabile-60-100-holcim-group-untervaz"
         ],
         "en": [
           "schichtverantwortliche-r-60-100-holcim-group-untervaz"
@@ -1976,7 +1959,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:07.810Z",
+      "crawledAt": "2026-07-16T22:56:46.808Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1994,12 +1977,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-beton-holcim-ch",
-        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
+        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
+        "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-beton-holcim-ch",
-          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
+          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
+          "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
         ],
         "en": [
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
@@ -2053,7 +2038,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:07.334Z",
+      "crawledAt": "2026-07-16T22:56:46.358Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2070,11 +2055,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+        "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+          "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
         ],
         "en": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
@@ -2128,7 +2115,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verk%C3%A4uferin-St_-9500/1361660257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:06.869Z",
+      "crawledAt": "2026-07-16T22:56:45.893Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2146,12 +2133,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufer-in-holcim-ch",
-        "verkaufer-in-holcim-group-wil"
+        "verkaufer-in-holcim-group-wil",
+        "venditore-in-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-holcim-ch",
-          "verkaufer-in-holcim-group-wil"
+          "verkaufer-in-holcim-group-wil",
+          "venditore-in-holcim-group-wil"
         ],
         "en": [
           "verkaufer-in-holcim-group-wil"
@@ -2205,7 +2194,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:06.386Z",
+      "crawledAt": "2026-07-16T22:56:45.445Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2274,7 +2263,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:05.905Z",
+      "crawledAt": "2026-07-16T22:56:44.990Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2291,11 +2280,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-80-100-holcim-ch"
+        "projektleiter-in-80-100-holcim-ch",
+        "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-holcim-ch"
+          "projektleiter-in-80-100-holcim-ch",
+          "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "projektleiter-in-80-100-holcim-ch"
@@ -2349,7 +2340,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Laborantin-Bindemitteltechnologie-80-100-AG-5303/1359795357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:05.424Z",
+      "crawledAt": "2026-07-16T22:56:44.536Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2366,11 +2357,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+        "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+        "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
+          "laborant-in-bindemitteltechnologie-80-100-holcim-ch",
+          "laboratorio-nella-tecnologia-del-legante-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "laborant-in-bindemitteltechnologie-80-100-holcim-ch"
@@ -2408,7 +2401,7 @@
       "title": "Health & Safety (H&S) Project Manager 80-100%",
       "titleByLocale": {
         "it": "Direttore del progetto Salute e sicurezza (H&S) 80-100%",
-        "en": "Health & Safety (H&S) Project Manager 80-100 %",
+        "en": "Health & Safety (H&S) Project Manager 80-100%",
         "de": "Health & Safety (H&S) Project Manager 80-100%",
         "fr": "Gestionnaire de projet Santé et sécurité (S et S) 80-100%"
       },
@@ -2424,7 +2417,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:04.948Z",
+      "crawledAt": "2026-07-16T22:56:44.105Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2452,6 +2445,7 @@
         "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
       ],
       "firstSeenAt": "2026-07-08T22:25:42.496Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2496,7 +2490,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:04.486Z",
+      "crawledAt": "2026-07-16T22:56:43.660Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2514,12 +2508,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenmechaniker-in-holcim-ch",
-        "baumaschinenmechaniker-in-holcim-group-wurenlingen"
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen",
+        "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenmechaniker-in-holcim-ch",
-          "baumaschinenmechaniker-in-holcim-group-wurenlingen"
+          "baumaschinenmechaniker-in-holcim-group-wurenlingen",
+          "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
@@ -2573,7 +2569,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-H&S-Koordinatorin-Kies-&-Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:25:04.029Z",
+      "crawledAt": "2026-07-16T22:56:43.209Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -2649,7 +2645,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Corporate-Communications-intern-for-6-months-6300/1362016757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:25:03.569Z",
+      "crawledAt": "2026-07-16T22:56:42.742Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2666,11 +2662,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corporate-communications-intern-for-6-months-holcim-ch"
+        "corporate-communications-intern-for-6-months-holcim-ch",
+        "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-communications-intern-for-6-months-holcim-ch"
+          "corporate-communications-intern-for-6-months-holcim-ch",
+          "corporate-communications-tirocinante-for-6-months-holcim-group-zug"
         ],
         "fr": [
           "corporate-communications-intern-for-6-months-holcim-ch"
@@ -2721,7 +2719,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Logistics-Central-Eastern-Europe-%28CEE%29-6300/1365323157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:25:03.086Z",
+      "crawledAt": "2026-07-16T22:56:42.294Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2739,11 +2737,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-logistics-central-eastern-europe-cee-holcim-ch",
-        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
+        "responsable-logistique-central-eastern-europe-cee-holcim-group-zug",
+        "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-logistics-central-eastern-europe-cee-holcim-ch"
+          "head-of-logistics-central-eastern-europe-cee-holcim-ch",
+          "responsabile-logistica-central-eastern-europe-cee-holcim-group-zug"
         ],
         "fr": [
           "responsable-logistique-central-eastern-europe-cee-holcim-group-zug"
@@ -2794,7 +2794,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Innovation-Process-Engineer-Thermal-6300/1358364657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:25:02.632Z",
+      "crawledAt": "2026-07-16T22:56:41.843Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2811,11 +2811,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "innovation-process-engineer-thermal-holcim-ch"
+        "innovation-process-engineer-thermal-holcim-ch",
+        "innovation-process-ingegnere-thermal-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-process-engineer-thermal-holcim-ch"
+          "innovation-process-engineer-thermal-holcim-ch",
+          "innovation-process-ingegnere-thermal-holcim-group-zug"
         ],
         "de": [
           "innovation-process-engineer-thermal-holcim-ch"
@@ -2869,7 +2871,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Head-of-Ready-to-Operate-CCUS-6300/1357793157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:25:02.119Z",
+      "crawledAt": "2026-07-16T22:56:41.388Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2886,11 +2888,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-ready-to-operate-ccus-holcim-ch"
+        "head-of-ready-to-operate-ccus-holcim-ch",
+        "responsabile-ready-to-operate-ccus-holcim-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ready-to-operate-ccus-holcim-ch"
+          "head-of-ready-to-operate-ccus-holcim-ch",
+          "responsabile-ready-to-operate-ccus-holcim-group-zug"
         ],
         "de": [
           "head-of-ready-to-operate-ccus-holcim-ch"
@@ -2912,6 +2916,79 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "holcim-ca7c0c096d1c",
+      "slug": "consigliere-giuridico-80-100-holcim-group-zurich",
+      "slugByLocale": {
+        "it": "consigliere-giuridico-80-100-holcim-group-zurich",
+        "en": "legal-counsel-80-100-holcim-ch",
+        "de": "legal-counsel-80-100-holcim-ch",
+        "fr": "conseiller-juridique-80-100-holcim-group-zurich"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "Legal Counsel 80-100%",
+      "titleByLocale": {
+        "it": "Consigliere giuridico 80-100 %",
+        "en": "Legal Counsel 80-100 %",
+        "de": "Legal Counsel 80-100%",
+        "fr": "Conseiller juridique 80-100 %"
+      },
+      "description": "Bei Holcim Central Europe West (Schweiz, Italien, Süddeutschland und Haut-Rhin) erwarten dich spannende juristische Herausforderungen in einem dynamischen Umfeld. Als Legal Counsel wirst du zur vertrauensvollen Ansprechperson für unsere Business Partner in der Schweiz und unterstützt den General Counsel direkt bei wegweisenden Projekten – von der Dekarbonisierung bis zur digitalen Transformation der Rechtsabteilung. Bring deine Expertise ein und bewege mit uns die Welt von morgen!\n\nWas dich erwartet:\n\n•\n Umfassende Rechtsberatung: Du berätst und unterstützt unsere Schweizer Business Partner eigenverantwortlich in zentralen Themenbereichen wie Litigation, M&A, Wettbewerbsrecht, Real Estate und komplexen kommerziellen Verträgen.\n\n•\n Strategische Fallführung: Du leitest Gerichtsfälle und Verfahren inklusive der Strategieentwicklung und steuerst externe Anwälte.\n\n•\n Zukunftsprojekte begleiten: Du unterstützt die rechtliche Leitung und Verhandlungsführung bei strategischen Projekten und Initiativen, insbesondere bei unseren wegweisenden industriellen Dekarbonisierungs-Grossprojekten.\n\n•\n Rechtliche Infrastruktur optimieren: Du entwirfst, prüfst und überarbeitest Verträge, Standardvorlagen sowie Protokolle und stehst sämtlichen Abteilungen bei allgemeinen Rechtsfragen beratend zur Seite.\n\n•\n Legal Tech & Innovation: Du treibst die Digitalisierung der Rechtsabteilung des Clusters Central Europe West aktiv voran und entwickelst digitale Tools zur nachhaltigen Prozessoptimierung weiter.\n\nWas du mitbringst:\n\n•\n Fundierte Ausbildung: Du hast dein Universitätsstudium der Rechtswissenschaften erfolgreich abgeschlossen und besitzt das Schweizer Rechtsanwaltspatent (Zulassung als Rechtsanwalt/Rechtsanwältin in der Schweiz).\n\n•\n Einschlägige Erfahrung: Du bringst mindestens 3 bis 5 Jahre relevante Berufserfahrung im juristischen Umfeld mit, die du idealerweise in einer Wirtschaftskanzlei oder als In-House Counsel gesammelt hast.\n\n•\n Digitale Affinität: Neben dem sicheren Umgang mit MS Office und Google Tools hast du eine ausgeprägte Begeisterung für Legal Tech und die Optimierung digitaler Arbeitsabläufe.\n\n•\n Starke Persönlichkeit: Du zeichnest dich durch eine lösungsorientierte, pragmatische Arbeitsweise, hohe Flexibilität sowie ausgeprägtes Durchsetzungsvermögen und echten Teamgeist aus.\n\n•\n Sprachkompetenz: Du kommunizierst verhandlungssicher und stilsicher in Deutsch und Englisch (in Wort und Schrift); gute Französisch- und/oder Italienischkenntnisse sind ein willkommener Vorteil.\n\nUnser Angebot:\n\n•\n Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n•\n Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n•\n Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n•\n Flexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n•\n Attraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse.\n\n•\n Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst.\n\n•\n Gesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen.",
+      "descriptionByLocale": {
+        "it": "A Holcim Central Europe West (Svizzera, Italia, Germania Meridionale e Haut-Rhin), emozionanti sfide legali vi aspettano in un ambiente dinamico. In qualità di consulente legale, diventerai un contatto di fiducia per i nostri partner commerciali in Svizzera e supporterai il consiglio generale direttamente con progetti innovativi – dalla decarbonizzazione alla trasformazione digitale del dipartimento legale. Porta la tua esperienza e sposta il mondo di domani con noi!\n\nCosa aspettarsi:\n\n•\nConsulenza legale completa: Lei consiglierà e supporterà i nostri partner commerciali svizzeri in modo indipendente in settori chiave come contenzioso, M&A, diritto di concorrenza, contratti immobiliari e commerciali complessi.\n\n•\nGestione strategica del caso: Lei conduce casi e procedimenti giudiziari tra cui lo sviluppo di strategia e la gestione di avvocati esterni.\n\n•\nAccompagnate i progetti futuri: sostenete la gestione legale e la negoziazione di progetti e iniziative strategici, soprattutto nei nostri progetti di decarbonizzazione industriale innovativi.\n\n•\nOttimizza l'infrastruttura legale: progetta, esamina e revisiona contratti, modelli standard e protocolli e consiglia tutti i dipartimenti su questioni legali generali.\n\n•\nLegal Tech & Innovation: Stai attivamente guidando la digitalizzazione del dipartimento legale del cluster occidentale dell'Europa centrale e sviluppando strumenti digitali per l'ottimizzazione dei processi sostenibili.\n\nCosa porti:\n\n•\nFormazione approfondita: hai completato con successo i tuoi studi universitari in diritto e hai il brevetto dell’avvocato svizzero (ammissione come avvocato in Svizzera).\n\n•\nEsperienza rilevante: Porti almeno 3-5 anni di esperienza legale rilevante, che hai idealmente guadagnato in uno studio legale commerciale o come consulente interno.\n\n•\nAffinità digitale: Oltre a utilizzare MS Office e Google Tools in modo sicuro, hai un forte entusiasmo per la tecnologia legale e ottimizzare i flussi di lavoro digitali.\n\n•\nForte personalità: Lei è caratterizzato da un modo di lavoro orientato alla soluzione, pragmatico, ad alta flessibilità e forte assertivitÃ e vero spirito di squadra.\n\n•\nCompetenza linguistica: Lei comunica con fiducia nella negoziazione e nello stile in tedesco e inglese (in parola e scrittura); Buona conoscenza del francese e/o dell'italiano è un vantaggio di benvenuto.\n\nLa nostra offerta:\n\n•\nOnboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n•\nCarriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n•\nApprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n•\nFlessibilità & Work-Life-Balance: Offriamo orari di lavoro flessibili, 41 ore, opportunità part-time, 25 giorni festivi, acquisto di vacanza, prolungato congedo di maternità e paternità\n\n•\nCompensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione.\n\n•\nVantaggi del dipendente: Da Reka controlli e azioni a un prezzo preferenziale al mondo vantaggio Swibeco - ci assicuriamo che ti senti a tuo agio e beneficia di servizi aggiuntivi attraenti.\n\n•\nSalute e Affari Sociali: Ci impegniamo alla vostra salute e la promuoviamo attraverso misure preventive.",
+        "en": "At Holcim Central Europe West (Switzerland, Italy, Southern Germany and Haut-Rhin), exciting legal challenges await you in a dynamic environment. As a legal counsel, you will become a trusted contact for our business partners in Switzerland and support the general counsel directly with groundbreaking projects – from decarbonisation to the digital transformation of the legal department. Bring your expertise and move the world of tomorrow with us!\n\nWhat to expect:\n\n•\nComprehensive legal advice: You will advise and support our Swiss business partners independently in key areas such as litigation, M&A, competition law, real estate and complex commercial contracts.\n\n•\nStrategic case management: You lead court cases and proceedings including strategy development and manage external lawyers.\n\n•\nAccompany future projects: You support the legal management and negotiation of strategic projects and initiatives, especially in our groundbreaking industrial decarbonization projects.\n\n•\nOptimize legal infrastructure: You design, review and revise contracts, standard templates and protocols and advise all departments on general legal issues.\n\n•\nLegal Tech & Innovation: You are actively driving the digitization of the legal department of the Central Europe West Cluster and developing digital tools for sustainable process optimization.\n\nWhat you bring:\n\n•\nIn-depth training: You have successfully completed your university studies in law and hold the Swiss attorney’s patent (admission as a lawyer in Switzerland).\n\n•\nRelevant experience: You bring at least 3 to 5 years of relevant legal professional experience, which you have ideally gained in a commercial law firm or as an in-house counsel.\n\n•\nDigital Affinity: In addition to using MS Office and Google Tools securely, you have a strong enthusiasm for legal tech and optimizing digital workflows.\n\n•\nStrong personality: You are characterized by a solution-oriented, pragmatic way of working, high flexibility as well as strong assertiveness and real team spirit.\n\n•\nLanguage Competence: You communicate with confidence in negotiation and style in German and English (in word and writing); Good knowledge of French and/or Italian is a welcome advantage.\n\nOur offer:\n\n•\nOnboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n•\nCareer & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n•\nAppreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n•\nFlexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25 days holidays, holiday purchase, extended maternity and paternity leave\n\n•\nAttractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund.\n\n•\nEmployee benefits: From Reka checks and shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services.\n\n•\nHealth and Social Affairs: We are committed to your health and promote it through preventive measures.",
+        "de": "Bei Holcim Central Europe West (Schweiz, Italien, Süddeutschland und Haut-Rhin) erwarten dich spannende juristische Herausforderungen in einem dynamischen Umfeld. Als Legal Counsel wirst du zur vertrauensvollen Ansprechperson für unsere Business Partner in der Schweiz und unterstützt den General Counsel direkt bei wegweisenden Projekten – von der Dekarbonisierung bis zur digitalen Transformation der Rechtsabteilung. Bring deine Expertise ein und bewege mit uns die Welt von morgen!\n\nWas dich erwartet:\n\n•\nUmfassende Rechtsberatung: Du berätst und unterstützt unsere Schweizer Business Partner eigenverantwortlich in zentralen Themenbereichen wie Litigation, M&A, Wettbewerbsrecht, Real Estate und komplexen kommerziellen Verträgen.\n\n•\nStrategische Fallführung: Du leitest Gerichtsfälle und Verfahren inklusive der Strategieentwicklung und steuerst externe Anwälte.\n\n•\nZukunftsprojekte begleiten: Du unterstützt die rechtliche Leitung und Verhandlungsführung bei strategischen Projekten und Initiativen, insbesondere bei unseren wegweisenden industriellen Dekarbonisierungs-Grossprojekten.\n\n•\nRechtliche Infrastruktur optimieren: Du entwirfst, prüfst und überarbeitest Verträge, Standardvorlagen sowie Protokolle und stehst sämtlichen Abteilungen bei allgemeinen Rechtsfragen beratend zur Seite.\n\n•\nLegal Tech & Innovation: Du treibst die Digitalisierung der Rechtsabteilung des Clusters Central Europe West aktiv voran und entwickelst digitale Tools zur nachhaltigen Prozessoptimierung weiter.\n\nWas du mitbringst:\n\n•\nFundierte Ausbildung: Du hast dein Universitätsstudium der Rechtswissenschaften erfolgreich abgeschlossen und besitzt das Schweizer Rechtsanwaltspatent (Zulassung als Rechtsanwalt/Rechtsanwältin in der Schweiz).\n\n•\nEinschlägige Erfahrung: Du bringst mindestens 3 bis 5 Jahre relevante Berufserfahrung im juristischen Umfeld mit, die du idealerweise in einer Wirtschaftskanzlei oder als In-House Counsel gesammelt hast.\n\n•\nDigitale Affinität: Neben dem sicheren Umgang mit MS Office und Google Tools hast du eine ausgeprägte Begeisterung für Legal Tech und die Optimierung digitaler Arbeitsabläufe.\n\n•\nStarke Persönlichkeit: Du zeichnest dich durch eine lösungsorientierte, pragmatische Arbeitsweise, hohe Flexibilität sowie ausgeprägtes Durchsetzungsvermögen und echten Teamgeist aus.\n\n•\nSprachkompetenz: Du kommunizierst verhandlungssicher und stilsicher in Deutsch und Englisch (in Wort und Schrift); gute Französisch- und/oder Italienischkenntnisse sind ein willkommener Vorteil.\n\nUnser Angebot:\n\n•\nOnboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n•\nKarriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n•\nWertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n•\nFlexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n•\nAttraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse.\n\n•\nMitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst.\n\n•\nGesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen.",
+        "fr": "À Holcim Europe centrale Ouest (Suisse, Italie, Allemagne du Sud et Haut-Rhin), des défis juridiques passionnants vous attendent dans un environnement dynamique. En tant que conseiller juridique, vous deviendrez un contact de confiance pour nos partenaires commerciaux en Suisse et accompagnerez directement le conseiller général dans des projets révolutionnaires – de la décarbonisation à la transformation numérique du service juridique. Apportez votre expertise et déplacez le monde de demain avec nous !\n\nÀ quoi s'attendre :\n\n•\nConseil juridique complet: Vous conseillerez et accompagnerez nos partenaires commerciaux suisses de manière indépendante dans des domaines clés tels que les litiges, les fusions et acquisitions, le droit de la concurrence, l'immobilier et les contrats commerciaux complexes.\n\n•\nGestion stratégique des affaires : Vous dirigez les affaires judiciaires et les procédures, y compris l'élaboration de stratégies et la gestion d'avocats externes.\n\n•\nAccompagner de futurs projets : Vous soutenez la gestion juridique et la négociation de projets et d'initiatives stratégiques, en particulier dans nos projets de décarbonisation industrielle révolutionnaires.\n\n•\nOptimiser l'infrastructure juridique : Vous concevez, examinez et révisez les contrats, les modèles et protocoles normalisés et conseillez tous les ministères sur les questions juridiques générales.\n\n•\nLegal Tech & Innovation: Vous dirigez activement la numérisation du département juridique du pôle Europe centrale Ouest et développez des outils numériques pour l'optimisation durable des processus.\n\nCe que vous apportez:\n\n•\nFormation approfondie : Vous avez réussi vos études universitaires en droit et vous êtes titulaire du brevet d'avocat suisse (admission en tant qu'avocat en Suisse).\n\n•\nExpérience pertinente: Vous apportez au moins 3 à 5 ans d'expérience professionnelle juridique pertinente, que vous avez idéalement acquis dans un cabinet d'avocats commerciaux ou en tant que conseiller interne.\n\n•\naffinité numérique: En plus d'utiliser MS Office et Google Tools en toute sécurité, vous avez un vif enthousiasme pour la technologie juridique et l'optimisation des flux de travail numériques.\n\n•\nPersonnalité forte : Vous êtes caractérisés par une façon de travailler pragmatique et orientée vers la solution, une grande flexibilité ainsi qu'une forte assurance et un esprit d'équipe réel.\n\n•\nCompétence linguistique: Vous communiquez avec confiance dans la négociation et le style en allemand et en anglais (en paroles et en écriture); Une bonne connaissance du français et/ou de l'italien est un avantage bienvenu.\n\nNotre offre :\n\n•\nÀ bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n•\nCarrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n•\nAppréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n•\nFlexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des opportunités à temps partiel, 25 jours de vacances, achat de vacances, congé de maternité et de paternité prolongée\n\n•\nIndemnisation attrayante: Nous offrons à nos employés une rémunération attrayante avec de nombreux avantages supplémentaires et une très bonne caisse de retraite.\n\n•\nAvantages sociaux: De Reka vérifie et partage à un prix préférentiel à l'avantage Swibeco monde - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants.\n\n•\nSanté et affaires sociales : Nous nous engageons à votre santé et à la promouvoir par des mesures préventives."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-16T11:25:12.468Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-25",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Legal-Counsel-80-100-CH-%C2%AD8050/1364817557/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "legal-counsel-80-100-holcim-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-80-100-holcim-ch"
+        ],
+        "fr": [
+          "legal-counsel-80-100-holcim-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-08T22:25:44.753Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
