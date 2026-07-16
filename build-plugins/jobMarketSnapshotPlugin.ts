@@ -99,7 +99,10 @@ import {
   renderEntityCard,
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
-import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
+import {
+  resolveCantonSection as sharedResolveCantonSection,
+  resolveJobCanton as sharedResolveJobCanton,
+} from './shared/cantonSection';
 import { getCantonCities } from './shared/cantonCities';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 
@@ -3230,6 +3233,15 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       } catch (err) {
         console.warn('[job-market-snapshot] failed to read data/jobs.json', err);
       }
+
+      // Every page emitted from `jobs` in this plugin (legacy TI hub/weekly/
+      // monthly snapshot AND the per-sector "mercato-lavoro-ticino" pages
+      // below) is TI-branded. `data/jobs.json` holds jobs from all of
+      // Switzerland, so scope it to canton Ticino here — same fix/primitive
+      // as the TI sector-hub count bug in jobSectorPagesPlugin.ts (#4254,
+      // reusing #3232's `resolveJobCanton`) — before any counting/aggregation
+      // below runs.
+      jobs = jobs.filter((job) => sharedResolveJobCanton(job) === 'TI');
 
       const knownSlugs = loadKnownCompanySlugs(rootDir);
       const { pages, noindexPaths, degraded, pathAlternates } = generateJobMarketSnapshotPages({
