@@ -8529,6 +8529,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Polizeivertrag: Die Silp Cgil unterzeichnet, bestreitet jedoch die Erhöhungen',
     'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Die Gewerkschaft Silp Cgil unterzeichnet die Erneuerung des Polizeivertrags, klagt jedoch unangemessene Nettoerhöhungen und einen Kaufkraftverlust für die Agenten an.',
     'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Uniform der italienischen Staatspolizei in einem Spind',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Schließung der sechsten Eisenbrücke: Straßenführung',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Vom 20. bis 26. Juli bleibt die Eisenbrücke wegen Wartungsarbeiten geschlossen. Aktivierung eines kostenlosen Bootes und Änderungen an der Buslinie V125 zwischen Varese und Arona.',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Die Eisenbrücke über den Fluss Tessin in Sesto Calende',
 };
 
 export default blogMetaDe;

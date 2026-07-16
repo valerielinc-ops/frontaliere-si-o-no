@@ -8531,6 +8531,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Contrat Police : le Silp Cgil signe mais conteste les augmentations',
     'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Le syndicat Silp Cgil signe le renouvellement du contrat de police mais dénonce des augmentations nettes inadéquates et une perte de pouvoir d\'achat pour les agents.',
     'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Uniforme de la police d\'État italienne dans un casier',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Fermeture du pont en fer sixième calendriers : guide de voirie',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Du 20 au 26 juillet, le pont de fer est fermé pour maintenance. Activation d\'un bateau gratuit et modifications de la ligne de bus V125 entre Varese et Arona.',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Le Pont de Fer sur la rivière Tessin à Sesto Calende',
 };
 
 export default blogMetaFr;
