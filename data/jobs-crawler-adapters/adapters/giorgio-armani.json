@@ -12,13 +12,13 @@
     "https://career5.successfactors.eu/career?company=3397177P&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH"
   ],
   "notes": "Dedicated Giorgio Armani crawler renders the SuccessFactors SPA (company=3397177P) with a headless browser (Playwright): paginates the hydrated job listing, filters for Switzerland-based positions (TI/GR), and parses the hydrated detail .joqReqDescription. The listing/detail pages are no longer curl-fetchable (DWR-rendered SPA).",
-  "updatedAt": "2026-07-16T11:36:22.075Z",
+  "updatedAt": "2026-07-16T22:29:59.347Z",
   "seedMetaByUrl": {
-    "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5074": {
-      "location": "Mendrisio Seasonal Contract",
-      "canton": "FR",
+    "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5132": {
+      "location": "Zurich",
+      "canton": "ZH",
       "company": "Giorgio Armani S.p.A.",
-      "postedDate": "2026-06-08"
+      "postedDate": "2026-07-16"
     }
   }
 }
