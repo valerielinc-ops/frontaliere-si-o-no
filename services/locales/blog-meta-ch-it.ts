@@ -1171,6 +1171,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-programma-politico-consultazione-pubblica.title': 'Ticino pionere: il programma politico 2027-2031 lo decidono i cittadini',
     'blog.article.ticino-programma-politico-consultazione-pubblica.excerpt': 'Avanti con Ticino&Lavoro sottopone il proprio programma di legislatura a una consultazione pubblica prima dell\'approvazione definitiva. Ecco come funziona.',
     'blog.article.ticino-programma-politico-consultazione-pubblica.imageAlt': 'Riunione pubblica a Bellinzona per consultazione programma politico',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Crisi nello Stretto di Hormuz: ritardi e rincari per le imprese svizzere',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'L\'associazione Swissmem segnala difficoltà per un\'impresa industriale su quattro. A rischio approvvigionamenti e costi energetici',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Porto fluviale di Basilea, nodo logistico cruciale per la Svizzera',
 };
 
 export default blogMetaChIt;

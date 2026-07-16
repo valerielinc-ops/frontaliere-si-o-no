@@ -3509,6 +3509,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'crisi-stretto-hormuz-economia-svizzera',
+    category: 'novita',
+    date: '2026-07-16T14:12:36.109Z',
+    image: '/images/blog/crisi-stretto-hormuz-economia-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

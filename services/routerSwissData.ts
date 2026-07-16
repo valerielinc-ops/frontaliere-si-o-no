@@ -413,6 +413,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'banche-svizzere-truffe-online': { it: 'banche-svizzere-truffe-online', en: 'swiss-banks-online-scams', de: 'schweizer-banken-online-betrug', fr: 'banques-suisses-escroqueries-en-ligne' },
  'accordo-smart-working-frontalieri-svizzera': { it: 'accordo-smart-working-frontalieri-svizzera', en: 'smart-working-agreement-swiss-cross-border-workers', de: 'smart-working-vereinbarung-grenzgaenger-schweiz', fr: 'accord-teletravail-frontaliers-suisse' },
  'ticino-programma-politico-consultazione-pubblica': { it: 'ticino-programma-politico-consultazione-pubblica', en: 'ticino-political-program-public-consultation', de: 'ticino-politisches-programm-offentliche-beratung', fr: 'ticino-programme-politique-consultation-publique' },
+ 'crisi-stretto-hormuz-economia-svizzera': { it: 'crisi-stretto-hormuz-economia-svizzera', en: 'hormuz-crisis-impact-swiss-economy', de: 'hormuz-krise-auswirkungen-schweizer-wirtschaft', fr: 'crise-hormuz-impact-economie-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

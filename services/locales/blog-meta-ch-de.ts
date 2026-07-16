@@ -1171,6 +1171,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-programma-politico-consultazione-pubblica.title': 'Ticino Pionier: Bürger wählen 2027-2031',
     'blog.article.ticino-programma-politico-consultazione-pubblica.excerpt': 'Avanti con Ticino&Lavoro unterbreitet sein Legislaturprogramm einer öffentlichen Konsultation vor der endgültigen Genehmigung. So funktioniert es.',
     'blog.article.ticino-programma-politico-consultazione-pubblica.imageAlt': 'Öffentliches Treffen in Bellinzona zur politischen Programmbberatung',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Hormuz-Krise: Schweizer Unternehmen betroffen',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'Der Verband Swissmem meldet Schwierigkeiten für jedes vierte Industrieunternehmen. Energieversorgungs- und -kostenrisiko',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Basler Rheinhafen, wichtiger Logistikknotenpunkt der Schweiz',
 };
 
 export default blogMetaChDe;
