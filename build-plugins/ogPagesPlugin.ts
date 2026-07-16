@@ -23,6 +23,7 @@ import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
+import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -696,9 +697,19 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
  fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
  };
- const metaDescRaw = (localeForMeta && localizedDesc.length < 150)
+ const metaDescPadded = (localeForMeta && localizedDesc.length < 150)
  ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
  : localizedDesc;
+ // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
+ // the Google News verbatim-match rule above, so the description is the only
+ // safe place to add a freshness/year signal for articles. Additive-only —
+ // never rewrites existing text, no-ops when a year is already present or
+ // there's no room before the clamp below.
+ const metaDescRaw = boostDescriptionForCtr(
+ metaDescPadded,
+ (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
+ { maxLength: 155 },
+ );
  // Truncate to ≤155 chars for Bing/Google snippet display
  const metaDesc = metaDescRaw.length > 155
  ? truncateCodeUnits(metaDescRaw, 152) + '…'
