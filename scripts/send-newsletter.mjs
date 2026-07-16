@@ -53,7 +53,10 @@ import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
-import { localePathPrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
+// localePathPrefix aliased to the `localePrefix` name this script has always
+// used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
+// guards its presence here) — the implementation is the canonical shared helper.
+import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -578,7 +581,7 @@ async function generateAISubject(ctx) {
 function makePreferencesUrl(email, locale = 'it') {
   const secret = process.env.NEWSLETTER_SECRET;
   const slug = PREFERENCES_SLUG[locale] || PREFERENCES_SLUG.it;
-  const prefix = localePathPrefix(locale);
+  const prefix = localePrefix(locale);
   const base = `${BASE_URL}${prefix}/${slug}?email=${encodeURIComponent(email.toLowerCase())}`;
   if (!secret) return base;
   const token = createHmac('sha256', secret).update(email.toLowerCase()).digest('hex');
@@ -1961,7 +1964,10 @@ async function main() {
 
   // ── Preview mode ──
   if (mode === 'preview') {
-    const locale = 'it';
+    // --locale <it|en|de|fr> lets segment/content previews be inspected in any
+    // supported locale (same idiom as newsletter-winback-campaign.mjs --preview
+    // --locale); unknown values normalize to 'it' via nlNormLocale.
+    const locale = nlNormLocale(readArgValue('--locale') || 'it');
     const previewFeaturedTool = getFeaturedToolForLocale(locale);
     const previewJobs = validateJobUrls(
       matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4),
