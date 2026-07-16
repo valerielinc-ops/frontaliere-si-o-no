@@ -16406,12 +16406,6 @@
         ],
         "de": [
           "medical-director-cvm-roche-ch"
-        ],
-        "en": [
-          "medical-director-cvm-roche-ch"
-        ],
-        "fr": [
-          "medical-director-cvm-roche-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
@@ -20910,9 +20904,9 @@
     },
     {
       "id": "roche-e651a228bab5",
-      "slug": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+      "slug": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
       "slugByLocale": {
-        "it": "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland",
+        "it": "specialista-dell-assistenza-tecnica-specialista-roche-poland",
         "en": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "de": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
         "fr": "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch"
@@ -20956,12 +20950,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-        "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+        "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -82461,9 +82455,9 @@
     },
     {
       "id": "roche-7a674a4f1ed9",
-      "slug": "pasante-de-comunicacion-interna-roche-ch",
+      "slug": "rete-di-comunicazione-internazionale-roche-mexico-city",
       "slugByLocale": {
-        "it": "pasante-de-comunicacion-interna-roche-ch",
+        "it": "rete-di-comunicazione-internazionale-roche-mexico-city",
         "en": "pasante-de-comunicacion-interna-roche-ch",
         "de": "pasante-de-comunicacion-interna-roche-ch",
         "fr": "pasante-de-comunicacion-interna-roche-ch"
@@ -82519,7 +82513,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "pasante-de-comunicacion-interna-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pasante-de-comunicacion-interna-roche-ch"
+      ]
     },
     {
       "id": "roche-58a3df90fa75",
@@ -87839,9 +87841,9 @@
     },
     {
       "id": "roche-eb91c2850c73",
-      "slug": "estagio-em-estrategia-comercial-roche-ch",
+      "slug": "stazione-in-strategia-commerciale-roche-sao-paulo",
       "slugByLocale": {
-        "it": "estagio-em-estrategia-comercial-roche-ch",
+        "it": "stazione-in-strategia-commerciale-roche-sao-paulo",
         "en": "estagio-em-estrategia-comercial-roche-ch",
         "de": "estagio-em-estrategia-comercial-roche-ch",
         "fr": "estagio-em-estrategia-comercial-roche-ch"
@@ -87897,7 +87899,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagio-em-estrategia-comercial-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "estagio-em-estrategia-comercial-roche-ch"
+      ]
     },
     {
       "id": "roche-68bc8de8edbd",

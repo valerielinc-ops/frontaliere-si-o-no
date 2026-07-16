@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "giardino-e983ec4646d9",
-      "slug": "chef-de-rang-giardino-group-champfer",
+      "slug": "capo-di-grado-giardino-group-champfer",
       "slugByLocale": {
-        "it": "chef-de-rang-giardino-group-champfer",
+        "it": "capo-di-grado-giardino-group-champfer",
         "en": "chef-de-rang-giardino-group-champfer",
         "de": "chef-de-rang-giardino-group-champfer",
         "fr": "chef-de-rang-giardino-group-champfer"
@@ -83,7 +83,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-16a607a0c202",

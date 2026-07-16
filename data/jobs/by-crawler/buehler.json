@@ -12509,10 +12509,10 @@
     },
     {
       "id": "buehler-08d3b39a28dd",
-      "slug": "estagio-em-ppcp-planejamento-buehler-blumenau",
+      "slug": "stazione-in-ppcp-aereo-buhler-group-blumenau",
       "slugByLocale": {
         "fr": "estagio-em-ppcp-planejamento-buehler-blumenau",
-        "it": "estagio-em-ppcp-planejamento-buehler-blumenau",
+        "it": "stazione-in-ppcp-aereo-buhler-group-blumenau",
         "en": "estagio-em-ppcp-planejamento-buehler-blumenau",
         "de": "estagio-em-ppcp-planejamento-buehler-blumenau"
       },
@@ -12571,7 +12571,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T23:14:53.986Z"
+      "firstSeenAt": "2026-07-15T23:14:53.986Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagio-em-ppcp-planejamento-buehler-blumenau"
+        ]
+      },
+      "previousSlugs": [
+        "estagio-em-ppcp-planejamento-buehler-blumenau"
+      ]
     },
     {
       "id": "buehler-239561366c68",
