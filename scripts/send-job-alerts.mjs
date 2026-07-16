@@ -38,7 +38,7 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
-import { runWithConcurrency, DEFAULT_LIVE_CHECK_TIMEOUT_MS } from './lib/live-link-check.mjs';
+import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -110,18 +110,17 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // may not have deployed yet, before this script actually sends the alert.
 //
 // This CANNOT reuse the plain HEAD-check from check-journalist-article-links.mjs
-// (scripts/lib/live-link-check.mjs checkLink): that helper checks EXTERNAL
-// URLs, which genuinely 404 when dead. Our own job pages never do — the site's
-// soft-404 policy (AGENTS.md "Static SEO Pages": no real 404s, always a bridge)
-// means an expired job's URL keeps returning 200 forever, rendering the
-// "Questa offerta di lavoro non è più attiva" soft-landing page instead
-// (build-plugins/jobsSeoPagesPlugin.ts buildSoftLandingHtml). So a HEAD/status
-// check alone is a no-op here — it was passing 200 for exactly the expired
-// jobs it was meant to catch. buildSoftLandingHtml is the ONLY template that
-// seeds `window.__EXPIRED_JOB_DATA__` (a live job page never does), so a GET +
-// body-marker check (checkJobPageLive below) is the real liveness signal for
-// our own URLs.
-const EXPIRED_JOB_MARKER = '__EXPIRED_JOB_DATA__=';
+// (scripts/lib/live-link-check.mjs checkLink): that check is blind to our own
+// job pages — the site's soft-404 policy (AGENTS.md "Static SEO Pages": no
+// real 404s, always a bridge) means an expired job's URL keeps returning 200
+// forever, rendering the "Questa offerta di lavoro non è più attiva"
+// soft-landing page instead (build-plugins/jobsSeoPagesPlugin.ts
+// buildSoftLandingHtml). So a HEAD/status check alone is a no-op here — it
+// was passing 200 for exactly the expired jobs it was meant to catch.
+// checkPageBodyLive (scripts/lib/live-link-check.mjs, shared with
+// check-journalist-article-links.mjs) is the real liveness signal: GET + look
+// for the `window.__EXPIRED_JOB_DATA__` marker buildSoftLandingHtml alone
+// seeds.
 const JOB_LIVE_CHECK_CONCURRENCY = 5;
 // Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
 // tool (a failed check just marks one outlink broken in a report — never
@@ -146,20 +145,10 @@ function jobPageUrl(job, locale) {
   return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
 }
 
-// GET (not HEAD) our own job page and treat it as dead when the request
-// fails/non-oks OR the body carries the expired-job soft-landing marker (see
-// the preflight comment above JOB_LIVE_CHECK_CONCURRENCY — HEAD/status alone
-// can never see this, our job pages always 200). Exported for tests.
-export async function checkJobPageLive(url, timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS) {
-  try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(timeoutMs) });
-    if (!res.ok) return false;
-    const body = await res.text();
-    return !body.includes(EXPIRED_JOB_MARKER);
-  } catch {
-    return false;
-  }
-}
+// Delegates to the shared checkPageBodyLive (scripts/lib/live-link-check.mjs)
+// — kept as its own export/name here since it's the job-alerts-specific
+// liveness check callers and tests reach for. Exported for tests.
+export const checkJobPageLive = checkPageBodyLive;
 
 /**
  * Filters `jobs` down to those whose live page resolves OK AND is not the
