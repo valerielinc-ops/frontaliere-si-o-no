@@ -8274,6 +8274,25 @@ async function main() {
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
   let headlines = null;
 
+  // Disk space pre-flight: when LOCAL_LLM_ENABLED the model (e.g. qwen2.5:14b,
+  // ~9GB) can fill the runner disk, causing ENOSPC on later stdout writes instead
+  // of a clear error. Detect and abort early with an actionable message.
+  // Root fix: change ARTICLE_LOCAL_MODEL repo variable to qwen2.5:7b (~5GB).
+  if (isLocalLlmEnabled()) {
+    try {
+      const dfOut = execSync("df -k . | tail -1 | awk '{print $4}'").toString().trim();
+      const freeKB = parseInt(dfOut, 10);
+      if (Number.isFinite(freeKB) && freeKB < 500 * 1024) {
+        const freeMB = Math.round(freeKB / 1024);
+        const model = process.env.LOCAL_LLM_MODEL || '(unset)';
+        console.error(`❌ Disk critically low: ${freeMB}MB free with local LLM model "${model}" loaded.`);
+        console.error('   Fix: change ARTICLE_LOCAL_MODEL repo variable to qwen2.5:7b');
+        console.error('   (GitHub Settings → Secrets and variables → Actions → Variables)');
+        process.exit(1);
+      }
+    } catch { /* ignore — df unavailable or parse error */ }
+  }
+
   // ── Auto-scan mode: no URL provided → scan news sources first, then evergreen fallback ──
   if (!url) {
     // Evergreen quota counter (2026-05-07): the 30% hard-skip was reverted
@@ -9940,7 +9959,16 @@ const invokedDirectly = (() => {
   }
 })();
 
-if (invokedDirectly)
+if (invokedDirectly) {
+  // When LOCAL_LLM_ENABLED and the model fills the runner disk, even
+  // process.stdout writes fail with ENOSPC — Node.js crashes with an unhandled
+  // 'error' event on WriteStream, masking the real cause. Handle it explicitly
+  // so the process exits non-zero with a clear message instead.
+  process.stdout.on('error', (err) => {
+    if (err.code !== 'ENOSPC') return;
+    try { process.stderr.write('[create-article] ENOSPC: disk full. Reduce ARTICLE_LOCAL_MODEL to qwen2.5:7b\n'); } catch {}
+    process.exitCode = 1;
+  });
   main().catch((e) => {
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
@@ -9969,3 +9997,4 @@ if (invokedDirectly)
   console.error(`\n❌ Errore: ${e.message}`);
   process.exit(1);
 });
+}
