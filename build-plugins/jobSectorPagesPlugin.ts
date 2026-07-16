@@ -2,9 +2,10 @@
  * Vite build plugin that emits static HTML for the 3 sector-based job hubs
  * (Infermieri / Case Anziani / Educatori) in all 4 locales — 12 pages total.
  *
- * Filters `data/jobs.json` by sector keyword pattern (title/description/
- * category/tags) and emits a dedicated landing that consolidates the signal
- * for high-intent GSC queries that currently land on random job detail pages.
+ * Filters `data/jobs.json` to canton TI (via `resolveJobCanton`), then by
+ * sector keyword pattern (title/description/category/tags), and emits a
+ * dedicated landing that consolidates the signal for high-intent GSC queries
+ * that currently land on random job detail pages.
  *
  * Writes `sitemap-sector.xml` and patches `sitemap.xml`.
  *
@@ -62,6 +63,7 @@ import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
+import { resolveJobCanton as sharedResolveJobCanton } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -483,6 +485,11 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       } catch (err) {
         console.warn('[job-sector-pages] failed to read data/jobs.json', err);
       }
+
+      // These pages are branded "Cerca lavoro in Ticino" — scope to TI jobs only.
+      // Without this, sector counts/listings ingest every canton in Switzerland
+      // (same bug class as #3232, fixed for employer hubs in jobsSeoPagesPlugin.ts).
+      jobs = jobs.filter((job) => sharedResolveJobCanton(job) === 'TI');
 
       const counts = countSectorJobsByLocale(jobs);
       const sectorProseData = loadSectorProseData(rootDir);
