@@ -1,19 +1,21 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-07-15T22:41:55.854Z",
-  "total": 29,
+  "generatedAt": "2026-07-16T11:15:39.990Z",
+  "total": 33,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 18454,
-  "avgDurationMs": 18454,
+  "unchangedCount": 1,
+  "durationMs": 19104,
+  "avgDurationMs": 19104,
   "durationHistory": [
-    18454
+    19104
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5541",
       "slug": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
