@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisslog",
-  "assembledAt": "2026-07-15T22:02:37.120Z",
+  "assembledAt": "2026-07-16T11:07:25.389Z",
   "jobs": [
     {
       "id": "swisslog-5a6e970a5f45",
@@ -33,7 +33,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:02:33.425Z",
+      "crawledAt": "2026-07-16T11:07:22.957Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -69,6 +69,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.497Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -113,7 +114,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:02:33.423Z",
+      "crawledAt": "2026-07-16T11:07:22.956Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -179,7 +180,7 @@
       "title": "Technical Project Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile del progetto tecnico (m/f/d)",
-        "en": "Technical Project Manager (m/f/d)",
+        "en": "Technical Project Manager (m/w/d)",
         "de": "Technical Project Manager (m/w/d)",
         "fr": "Gestionnaire de projet technique (m/f/d)"
       },
@@ -195,7 +196,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/technical-project-manager-mwd-4182",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:02:33.422Z",
+      "crawledAt": "2026-07-16T11:07:22.955Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -228,6 +229,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:41:26.494Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -272,7 +274,7 @@
       "url": "https://www.swisslog.com/en-us/careers/openings/controls-software-service-engineer-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:02:33.419Z",
+      "crawledAt": "2026-07-16T11:07:22.954Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -402,7 +404,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
