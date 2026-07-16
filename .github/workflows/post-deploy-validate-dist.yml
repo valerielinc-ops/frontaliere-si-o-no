@@ -35,6 +35,17 @@ name: Post-deploy Validate (dist)
 # `validate-dist-report` centralizes the GitHub Issues bookkeeping so a
 # success in one job can never race-close an issue tracking a real failure
 # in the other.
+#
+# Revert-risk note (PR #4278 review): the ~60min estimate assumes both jobs
+# get scheduled onto free runners immediately. If org/repo concurrent-runner
+# capacity is contended, GitHub may queue one job behind other in-flight
+# work instead of starting it in parallel, eroding some of this win — that
+# is a scheduling-layer risk this PR cannot control or measure from the diff
+# alone. The actual number will be confirmed by comparing the next real
+# validate-dist run's wall time against the 29489094286 baseline; if the
+# jobs are consistently getting serialized by runner contention rather than
+# genuinely running concurrently, revert to a single job rather than
+# carrying the split's extra duplicated-prefix maintenance cost for no gain.
 on:
   workflow_call:
     inputs:
@@ -224,14 +235,21 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
-      # Locale-shard and Ticino-shard rehydrate merged into ONE step, run
-      # CONCURRENTLY as backgrounded shell functions instead of two
-      # sequential steps. Both are independent I/O-bound loops (gh run
-      # download / git clone against disjoint dist/ subtrees, no shared
-      # state, no read dependency on each other), so there is no
-      # correctness reason to serialize them — only their original steps'
-      # accidental step-boundary did. Each function keeps its ORIGINAL
-      # error-handling contract byte-for-byte: rehydrate_locale is
+      # Locale-shard and Ticino-shard rehydrate merged into ONE step (still
+      # two background-shell functions rather than two sequential steps), but
+      # rehydrate_ticino is deliberately started only AFTER rehydrate_locale
+      # has fully finished — NOT concurrently with it. For en/de/fr,
+      # rehydrate_ticino writes into `dist/$loc/<ticino-subpath>` (e.g.
+      # `dist/en/find-jobs-ticino`), a path nested INSIDE `dist/$loc`. The
+      # locale shard artifact/repo does NOT include the Ticino subtree
+      # (stripped separately by strip-ticino-subtree.sh), so if
+      # rehydrate_locale's `rm -rf "dist/$loc"` + repopulate for that same
+      # locale ran while rehydrate_ticino was still writing there, it would
+      # silently wipe whatever Ticino content had just landed — scheduling-
+      # dependent, so it would not reproduce on every run. Caught in PR #4278
+      # review before merge; sequencing them removes the race while still
+      # collapsing both loops into one step. Each function keeps its
+      # ORIGINAL error-handling contract byte-for-byte: rehydrate_locale is
       # hard-fail (`set -euo pipefail` — an incomplete/missing shard is a
       # real gate and must fail the job), rehydrate_ticino is soft-fail
       # (`set -uo pipefail`, no `-e` — emits `::warning::` and continues,
@@ -271,7 +289,7 @@ jobs:
       # Before the tar artifact existed, all 4 legs paid the git-clone path
       # unconditionally: ~12min combined wall on run 28564001685 (~250k
       # files/clone × 4, sequential).
-      - name: Rehydrate locale + Ticino shards into dist/ (parallel, when sharding active)
+      - name: Rehydrate locale then Ticino shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -425,16 +443,10 @@ jobs:
           }
 
           LOCALE_PID=""
-          TICINO_PID=""
 
           if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
             rehydrate_locale &
             LOCALE_PID=$!
-          fi
-
-          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_ticino &
-            TICINO_PID=$!
           fi
 
           LOCALE_RC=0
@@ -442,9 +454,15 @@ jobs:
             wait "$LOCALE_PID" || LOCALE_RC=$?
           fi
 
-          # Ticino is soft-fail by design (warnings only) — always wait for it
-          # to finish so its log output is fully flushed before the step ends,
-          # but never let its exit code affect the job.
+          # Ticino starts only once locale has fully finished (see the
+          # rehydrate_ticino/rehydrate_locale ordering note above) — not
+          # backgrounded alongside it. Soft-fail by design (warnings only) —
+          # never let its exit code affect the job.
+          TICINO_PID=""
+          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
+            rehydrate_ticino &
+            TICINO_PID=$!
+          fi
           if [ -n "$TICINO_PID" ]; then
             wait "$TICINO_PID" || true
           fi
@@ -743,7 +761,7 @@ jobs:
       # change — each of the two jobs runs on its own fresh runner and needs
       # its own copy of dist/ rehydrated identically, since the post-build
       # audits below walk the same logical site as the source validators do.
-      - name: Rehydrate locale + Ticino shards into dist/ (parallel, when sharding active)
+      - name: Rehydrate locale then Ticino shards into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -849,16 +867,10 @@ jobs:
           }
 
           LOCALE_PID=""
-          TICINO_PID=""
 
           if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
             rehydrate_locale &
             LOCALE_PID=$!
-          fi
-
-          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_ticino &
-            TICINO_PID=$!
           fi
 
           LOCALE_RC=0
@@ -866,6 +878,14 @@ jobs:
             wait "$LOCALE_PID" || LOCALE_RC=$?
           fi
 
+          # Ticino starts only once locale has fully finished (see
+          # validate-dist-source's copy of this step for the full ordering
+          # rationale) — not backgrounded alongside it.
+          TICINO_PID=""
+          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
+            rehydrate_ticino &
+            TICINO_PID=$!
+          fi
           if [ -n "$TICINO_PID" ]; then
             wait "$TICINO_PID" || true
           fi
