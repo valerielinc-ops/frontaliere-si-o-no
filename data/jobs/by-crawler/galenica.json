@@ -52,7 +52,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -105,11 +104,10 @@
         "it": "Pharmacien / Pharmacienne (f/m/d)",
         "en": "Pharmacien / Pharmacienne (f/h/d)",
         "de": "Pharmacien / Pharmacienne (f/h/d)",
-        "fr": "Pharmacien / Pharmacienne (f/h/d)"
+        "fr": "Pharmacien / Pharmacien (f/h/d)"
       },
       "id": "galenica-baac2a595af7",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -174,7 +172,6 @@
         "galenica-galenica-ag-data-engineer-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -224,7 +221,7 @@
         "fr": "pharma-assistant-m-m-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent (w/m)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant (m/m)"
@@ -248,7 +245,6 @@
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -298,7 +294,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -320,7 +316,6 @@
         "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -377,7 +372,6 @@
       },
       "id": "galenica-729b984ed7f9",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -429,7 +423,7 @@
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-e80c232406a5",
@@ -452,7 +446,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -502,7 +495,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-d7dda1"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -516,6 +509,12 @@
         ],
         "fr": [
           "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -524,7 +523,6 @@
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -589,7 +587,6 @@
         "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -641,7 +638,7 @@
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-b0193cc53432",
@@ -658,7 +655,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -708,14 +704,13 @@
         "fr": "gestionnaire-principal-de-categorie-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Senior Category Manager (w/m/d)",
+        "it": "Senior Categoria Manager (w/m/d)",
         "en": "Senior Category Manager (w/m/d)",
         "de": "Senior Category Manager (w/m/d)",
         "fr": "Gestionnaire de catégorie principal (m/j)"
       },
       "id": "galenica-3481ae77898b",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "currency": "CHF",
@@ -765,7 +760,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -777,13 +772,18 @@
         ],
         "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -854,7 +854,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -919,7 +918,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -969,7 +967,7 @@
         "fr": "gestionnaire-de-logiciels-et-gestionnaire-de-logiciels-principal-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
+        "it": "Software seniorentwickler/Softwareentwicklerin (w/m/d)",
         "en": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
         "de": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
         "fr": "Gestionnaire de logiciels principal / Gestionnaire de logiciels (w/m/d)"
@@ -989,7 +987,6 @@
         "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -1039,7 +1036,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -1049,6 +1046,12 @@
         "it": [
           "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -1056,7 +1059,6 @@
         "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1113,7 +1115,6 @@
       },
       "id": "galenica-473305f6b449",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1170,7 +1171,6 @@
       },
       "id": "galenica-a513010727b9",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "currency": "CHF",
@@ -1220,7 +1220,7 @@
         "fr": "proprietaire-de-la-demande-de-crm-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "CRM Application Owner (w/m/d)",
+        "it": "Titolare dell'applicazione CRM (w/m/d)",
         "en": "CRM Application Owner (w/m/d)",
         "de": "CRM Application Owner (w/m/d)",
         "fr": "Propriétaire de la demande de CRM (w/m/d)"
@@ -1241,7 +1241,6 @@
         "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1291,7 +1290,7 @@
         "fr": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie  (f/h/d)",
+        "it": "Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie (f/h/d)",
         "de": "Assistante en pharmacie (f/h/d)",
         "fr": "Assistante en pharmacie (f/h/d)"
@@ -1324,8 +1323,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter / Mitarbeiterin Kundendienst (w/m/d)",
@@ -1358,7 +1356,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice / Mitarbeiterin Kundendienst (w/m/d)",
         "en": "Mitarbeiter / Mitarbeiterin Kundendienst (w/m/d)",
-        "de": "Mitarbeiter / Mitarbeiterin Kundendienst (w/m/d)",
+        "de": "Mitarbeiter/Mitarbeiterin Kundendienst (w/m/d)",
         "fr": "Mitarbeiter / Mitarbeiterin Kundendienst (m/d)"
       },
       "id": "galenica-3b34bc98cca9",
@@ -1371,7 +1369,6 @@
         "galenica-galenica-ag-mitarbeiter-mitarbeiterin-kundendienst-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1436,7 +1433,6 @@
         "galenica-galenica-ag-mitarbeiter-parfumerie-mitarbeiterin-parfumerie-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1501,7 +1497,6 @@
         "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1553,7 +1548,7 @@
       "titleByLocale": {
         "it": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung e Inkasso (w/m/d)",
         "en": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
-        "de": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
+        "de": "Sachbearbeiter/Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)",
         "fr": "Sachbearbeiter / Sachbearbeiterin Debitorenbuchhaltung und Inkasso (w/m/d)"
       },
       "id": "galenica-2749492b40d5",
@@ -1566,7 +1561,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "currency": "CHF",
@@ -1616,7 +1610,7 @@
         "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie (f/h/d)",
+        "it": "Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie (f/h/d)",
         "de": "Assistentin und Apotheke (f/h/d)",
         "fr": "Assistant en pharmacie (f/h/d)"
@@ -1661,8 +1655,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Talent Acquisition Specialist (w/m/d)",
@@ -1700,7 +1693,6 @@
       },
       "id": "galenica-f97eb5db448c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1765,7 +1757,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1830,7 +1821,6 @@
         "galenica-galenica-ag-head-of-marketing-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "currency": "CHF",
@@ -1895,7 +1885,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1963,7 +1952,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2020,7 +2008,6 @@
       },
       "id": "galenica-e6d34af6f521",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -2077,7 +2064,6 @@
       },
       "id": "galenica-ff92fa676df6",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2129,7 +2115,7 @@
       "titleByLocale": {
         "it": "Apotheker/Apothekerin o Arzt/Ärztin (Medizinisches Cannabis) (w/m/d)",
         "en": "Apotheker/Apothekerin oder Arzt/Ärztin (Medizinisches Cannabis) (w/m/d)",
-        "de": "Apotheker/Apothekerin oder Arzt/Ärztin (Medizinisches Cannabis) (w/m/d)",
+        "de": "Apotheker/Apothekerin oder Arzt/Ärztin (Medizinisches Cannabis) (m/m/d)",
         "fr": "Apotheker/Apothekerin oder Arzt/Ärztin (Medizinisches Cannabis) (m/d)"
       },
       "id": "galenica-7e859350c259",
@@ -2142,7 +2128,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2192,9 +2177,9 @@
         "fr": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
       },
       "titleByLocale": {
-        "it": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
+        "it": "Sachbearbeiter / Sachbearbeiterin Inchiostro frontale. Teamleitung (w/m/d)",
         "en": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
-        "de": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
+        "de": "Sachbearbeiter/Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)",
         "fr": "Sachbearbeiter / Sachbearbeiterin Frontoffice inkl. Teamleitung (w/m/d)"
       },
       "id": "galenica-be81defa5af0",
@@ -2207,7 +2192,6 @@
         "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -2264,7 +2248,6 @@
       },
       "id": "galenica-443ba1deff26",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2400,7 +2383,7 @@
         "fr": "assistant-en-pharmacie-assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie / Assistante en pharmacie (f/h/d)",
+        "it": "Assistente in farmacia / Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie / Assistante en pharmacie (f/h/d)",
         "de": "Assistante en pharmacie / Assistante en pharmacie (f/h/d)",
         "fr": "Assistant en pharmacie / Assistant en pharmacie (f/h/d)"
@@ -2420,7 +2403,6 @@
         "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2473,10 +2455,9 @@
         "it": "Apotheker (w/m/d)",
         "en": "Apotheker (w/m/d)",
         "de": "Apotheker (w/m/d)",
-        "fr": "Apotheker (w/m/d)"
+        "fr": "Époqueur (m/j)"
       },
       "id": "galenica-9df4e83533e5",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2496,7 +2477,20 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-w-m-d-bern-ny8b49",
+          "apothequer-m-j-galenica-ag-galenica-bern"
+        ],
+        "fr": [
+          "apothequer-m-j-galenica-ag-galenica-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-w-m-d-bern-ny8b49",
+        "apothequer-m-j-galenica-ag-galenica-bern"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2550,8 +2544,7 @@
       "addressLocality": "Cossonay-Ville",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2605,8 +2598,7 @@
       "addressLocality": "Le Lignon",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2660,8 +2652,7 @@
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2715,8 +2706,7 @@
       "addressLocality": "Cheseaux-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2770,8 +2760,7 @@
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2825,8 +2814,7 @@
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2880,8 +2868,7 @@
       "addressLocality": "Weinfelden",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2937,8 +2924,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2992,8 +2978,7 @@
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3049,7 +3034,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -3104,8 +3088,7 @@
       "addressLocality": "Le Landeron",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3159,7 +3142,6 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -3214,7 +3196,6 @@
       "addressRegion": "GE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -3269,8 +3250,7 @@
       "addressLocality": "Valbirse",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3324,8 +3304,7 @@
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3379,8 +3358,7 @@
       "addressLocality": "Bussigny-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3434,8 +3412,7 @@
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3489,8 +3466,7 @@
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3587,8 +3563,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3642,8 +3617,7 @@
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3697,8 +3671,7 @@
       "addressLocality": "Egerkingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3752,8 +3725,7 @@
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatore/trice informatico/a AFC",
@@ -3784,7 +3756,7 @@
         "fr": "galenica-galenica-ag-operateur-operatrice-en-informatique-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Operatore/trice informatico/a AFC",
+        "it": "Operatore/trice informatica/a AFC",
         "en": "ICT-Fachmann/-frau EFZ",
         "de": "ICT-Fachmann/-frau EFZ",
         "fr": "Opérateur/Opératrice en informatique CFC"
@@ -3809,8 +3781,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3864,8 +3835,7 @@
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3919,8 +3889,7 @@
       "addressLocality": "Marly",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3974,8 +3943,7 @@
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4029,8 +3997,7 @@
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4084,8 +4051,7 @@
       "addressLocality": "Erlenbach ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4139,8 +4105,7 @@
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4194,8 +4159,7 @@
       "addressLocality": "Kerzers",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4249,7 +4213,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -4306,8 +4269,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4361,8 +4323,7 @@
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4416,8 +4377,7 @@
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4622,8 +4582,7 @@
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4677,8 +4636,7 @@
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4732,8 +4690,7 @@
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4787,7 +4744,6 @@
       "addressRegion": "NE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -4842,7 +4798,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -4897,8 +4852,7 @@
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4952,8 +4906,7 @@
       "addressLocality": "Davos Dorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5007,7 +4960,6 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -5062,8 +5014,7 @@
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5117,8 +5068,7 @@
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5172,8 +5122,7 @@
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5227,8 +5176,7 @@
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5282,8 +5230,7 @@
       "addressLocality": "Niederrohrdorf",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5337,8 +5284,7 @@
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5392,8 +5338,7 @@
       "addressLocality": "Rolle",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5447,8 +5392,7 @@
       "addressLocality": "Verbier",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5502,7 +5446,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -5557,8 +5500,7 @@
       "addressLocality": "Bachenbülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5612,8 +5554,7 @@
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5667,8 +5608,7 @@
       "addressLocality": "Prilly-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5722,8 +5662,7 @@
       "addressLocality": "Plaffeien",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5777,8 +5716,7 @@
       "addressLocality": "Haag",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5832,8 +5770,7 @@
       "addressLocality": "Les Acacias",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Impiegato/a di commercio AFC",
@@ -5951,8 +5888,7 @@
       "addressLocality": "Feuerthalen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Impiegato/a in logistica AFC",
@@ -6075,8 +6011,7 @@
       "addressLocality": "St-Imier",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6130,8 +6065,7 @@
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6185,7 +6119,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -6240,8 +6173,7 @@
       "addressLocality": "Tramelan",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6295,8 +6227,7 @@
       "addressLocality": "Romont",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6350,8 +6281,7 @@
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6405,8 +6335,7 @@
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6460,8 +6389,7 @@
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6525,8 +6453,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6580,8 +6507,7 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6635,7 +6561,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -6690,8 +6615,7 @@
       "addressLocality": "Montreux",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6745,8 +6669,7 @@
       "addressLocality": "Glattpark (Opfikon)",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6800,8 +6723,7 @@
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6855,8 +6777,7 @@
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6910,8 +6831,7 @@
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6965,8 +6885,7 @@
       "addressLocality": "Romanel-s-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7020,8 +6939,7 @@
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7075,7 +6993,6 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -7130,8 +7047,7 @@
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7185,8 +7101,7 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7240,8 +7155,7 @@
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7295,8 +7209,7 @@
       "addressLocality": "Rümlang",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7350,8 +7263,7 @@
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7405,7 +7317,6 @@
       "addressRegion": "BS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -7460,8 +7371,7 @@
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7515,8 +7425,7 @@
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7570,7 +7479,6 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -7625,8 +7533,7 @@
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7680,8 +7587,7 @@
       "addressLocality": "Bassecourt",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7735,8 +7641,7 @@
       "addressLocality": "Villars-sur-Glâne 1",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7790,8 +7695,7 @@
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7845,8 +7749,7 @@
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7900,8 +7803,7 @@
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7955,8 +7857,7 @@
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8010,8 +7911,7 @@
       "addressLocality": "Vallorbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8065,8 +7965,7 @@
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8120,8 +8019,7 @@
       "addressLocality": "Rickenbach b",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8175,8 +8073,7 @@
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8230,8 +8127,7 @@
       "addressLocality": "Neyruz FR",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8285,8 +8181,7 @@
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8340,8 +8235,7 @@
       "addressLocality": "Carouge GE",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8395,8 +8289,7 @@
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8450,8 +8343,7 @@
       "addressLocality": "Wil SG 1",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8513,8 +8405,7 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8568,8 +8459,7 @@
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8623,8 +8513,7 @@
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8678,8 +8567,7 @@
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8733,8 +8621,7 @@
       "addressLocality": "St. Gallen (Shopping Arena)",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8788,8 +8675,7 @@
       "addressLocality": "Dottikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8843,8 +8729,7 @@
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8898,8 +8783,7 @@
       "addressLocality": "Montagny-Yverdon",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8953,8 +8837,7 @@
       "addressLocality": "Huttwil",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Impiegato/a in logistica AFC",
@@ -9089,8 +8972,7 @@
       "addressLocality": "Urtenen - Schönbühl BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9144,8 +9026,7 @@
       "addressLocality": "Derendingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9199,8 +9080,7 @@
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9254,8 +9134,7 @@
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9309,7 +9188,6 @@
       "addressRegion": "NE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -9364,8 +9242,7 @@
       "addressLocality": "Oberengstringen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9419,8 +9296,7 @@
       "addressLocality": "Seewen SZ",
       "addressRegion": "SZ",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9474,8 +9350,7 @@
       "addressLocality": "Avry-sur-Matran",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9529,8 +9404,7 @@
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9584,8 +9458,7 @@
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9639,8 +9512,7 @@
       "addressLocality": "Versoix",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9694,8 +9566,7 @@
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9749,8 +9620,7 @@
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9804,8 +9674,7 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9859,7 +9728,6 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -9914,8 +9782,7 @@
       "addressLocality": "Vernier",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9969,8 +9836,7 @@
       "addressLocality": "Kaiseraugst",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10024,8 +9890,7 @@
       "addressLocality": "Granges-Paccot",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10079,7 +9944,6 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -10134,7 +9998,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -10189,8 +10052,7 @@
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10244,8 +10106,7 @@
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10299,8 +10160,7 @@
       "addressLocality": "Crans-Montana 1",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10354,8 +10214,7 @@
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10409,8 +10268,7 @@
       "addressLocality": "Wohlen AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10464,8 +10322,7 @@
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10519,8 +10376,7 @@
       "addressLocality": "Fontainemelon",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10574,8 +10430,7 @@
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10629,8 +10484,7 @@
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10684,8 +10538,7 @@
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10739,8 +10592,7 @@
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10794,8 +10646,7 @@
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Informatico/a AFC sviluppo di applicazioni",
@@ -10851,8 +10702,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10906,7 +10756,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -10963,8 +10812,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11018,8 +10866,7 @@
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11081,8 +10928,7 @@
       "addressLocality": "Canobbio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11136,8 +10982,7 @@
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Impiegato/a in logistica AFC",
@@ -11260,8 +11105,7 @@
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11315,8 +11159,7 @@
       "addressLocality": "Tavannes",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11370,8 +11213,7 @@
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11425,8 +11267,7 @@
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11480,8 +11321,7 @@
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11535,7 +11375,6 @@
       "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -11590,8 +11429,7 @@
       "addressLocality": "Widnau",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mediamatico/a AFC",
@@ -11647,8 +11485,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11702,8 +11539,7 @@
       "addressLocality": "Chêne-Bourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11757,8 +11593,7 @@
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11812,8 +11647,7 @@
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11867,8 +11701,7 @@
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11922,8 +11755,7 @@
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11977,8 +11809,7 @@
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12032,8 +11863,7 @@
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12087,8 +11917,7 @@
       "addressLocality": "Jegenstorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12142,8 +11971,7 @@
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12197,8 +12025,7 @@
       "addressLocality": "Wabern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12252,8 +12079,7 @@
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12330,8 +12156,7 @@
       "addressLocality": "Ascona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12385,8 +12210,7 @@
       "addressLocality": "Signy",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12440,8 +12264,7 @@
       "addressLocality": "Le Locle",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12495,8 +12318,7 @@
       "addressLocality": "Grindelwald",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12550,8 +12372,7 @@
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12605,8 +12426,7 @@
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Droghiere/a AFC",
@@ -12637,7 +12457,7 @@
         "fr": "galenica-amavita-droguiste-cfc-tavannes"
       },
       "titleByLocale": {
-        "it": "Droghiere/a AFC",
+        "it": "Droghiere/AFC",
         "en": "Drogist/in EFZ",
         "de": "Drogist/in EFZ",
         "fr": "Droguiste CFC"
@@ -12660,8 +12480,7 @@
       "addressLocality": "Tavannes",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12738,8 +12557,7 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12793,8 +12611,7 @@
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Impiegato/a di commercio AFC",
@@ -12910,8 +12727,7 @@
       "addressLocality": "Küssnacht am Rigi",
       "addressRegion": "SZ",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12965,8 +12781,7 @@
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13020,8 +12835,7 @@
       "addressLocality": "Echallens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13075,8 +12889,7 @@
       "addressLocality": "Vésenaz",
       "addressRegion": "GE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13130,8 +12943,7 @@
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13208,8 +13020,7 @@
       "addressLocality": "Balerna",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13263,8 +13074,7 @@
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13318,8 +13128,7 @@
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13373,8 +13182,7 @@
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13428,8 +13236,7 @@
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13483,8 +13290,7 @@
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13538,8 +13344,7 @@
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13593,8 +13398,7 @@
       "addressLocality": "Savigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13648,8 +13452,7 @@
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13703,8 +13506,7 @@
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13848,8 +13650,7 @@
       "addressLocality": "Ecublens",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13903,8 +13704,7 @@
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13958,8 +13758,7 @@
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14013,8 +13812,7 @@
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14068,8 +13866,7 @@
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14123,7 +13920,6 @@
       "addressRegion": "BL",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -14190,8 +13986,7 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14245,8 +14040,7 @@
       "addressLocality": "Collombey",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14300,8 +14094,7 @@
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14355,8 +14148,7 @@
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14422,8 +14214,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14477,8 +14268,7 @@
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14612,8 +14402,7 @@
       "addressLocality": "Tenero",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14667,8 +14456,7 @@
       "addressLocality": "Martigny 1",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14722,8 +14510,7 @@
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14777,8 +14564,7 @@
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14832,8 +14618,7 @@
       "addressLocality": "Altdorf UR",
       "addressRegion": "UR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14887,8 +14672,7 @@
       "addressLocality": "S",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14942,8 +14726,7 @@
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14997,8 +14780,7 @@
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15052,8 +14834,7 @@
       "addressLocality": "Ardon",
       "addressRegion": "VS",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15107,8 +14888,7 @@
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15162,8 +14942,7 @@
       "addressLocality": "Dietlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15217,8 +14996,7 @@
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
@@ -15285,8 +15063,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d)",
@@ -15320,7 +15097,7 @@
         "it": "Collaborateur parfumerie / Collaboratrice parfumerie (f/m/d)",
         "en": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d)",
         "de": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d)",
-        "fr": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d)"
+        "fr": "Travailleur parfumerie / Travailleur parfumerie (f/h/d)"
       },
       "id": "galenica-864fbc1ffca5",
       "previousSlugs": [
@@ -15351,8 +15128,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Management Assistant (w/m/d)",
@@ -15386,7 +15162,7 @@
         "it": "Assistente di gestione (w/m/d)",
         "en": "Management Assistant (w/m/d)",
         "de": "Management Assistent (w/m/d)",
-        "fr": "Management Assistant (w/m/d)"
+        "fr": "Assistant de gestion (m/j)"
       },
       "id": "galenica-69ced60d1945",
       "previousSlugsByLocale": {
@@ -15424,8 +15200,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

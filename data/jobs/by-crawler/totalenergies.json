@@ -65,8 +65,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "totalenergies-cf16f75636e9",
@@ -274,8 +273,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "totalenergies-52d23f0013f7",
@@ -353,8 +351,7 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "totalenergies-8f9f5b121b77",
@@ -713,7 +710,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:28.103Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
