@@ -49914,6 +49914,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diritto-allindennita-di-maternita-della-lavoratrice-frontaliera': {
+    title: 'Diritto all’indennità di maternità della lavoratrice frontaliera',
+    description: 'La Corte di Cassazione ha stabilito che le lavoratrici frontaliera italiane hanno diritto all\'indennità di maternità, indipendentemente dall\'attività lavorativa',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, indennità, maternità, lavoratrice',
+    ogTitle: 'Diritto all’indennità di maternità della lavoratrice frontaliera',
+    ogDescription: 'La Corte di Cassazione ha stabilito che le lavoratrici frontaliera italiane hanno diritto all\'indennità di maternità, indipendentemente dall\'attività lavorativa',
+    canonicalPath: '/articoli-frontaliere/diritto-allindennita-di-maternita-della-lavoratrice-frontaliera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto all’indennità di maternità della lavoratrice frontaliera",
+      "description": "La Corte di Cassazione ha stabilito che le lavoratrici frontaliera italiane hanno diritto all'indennità di maternità, indipendentemente dall'attività lavorativa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lago-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Diritto all’indennità di maternità della lavoratrice frontaliera"
+      },
+      "datePublished": "2026-07-16T18:08:24+00:00",
+      "dateModified": "2026-07-16T18:08:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diritto-allindennita-di-maternita-della-lavoratrice-frontaliera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri': {
+    title: 'Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    description: 'La Corte di cassazione afferma che gli enti esteri non possono subire un trattamento fiscale più gravoso per il solo fatto di essere costituiti secondo un',
+    keywords: 'frontalieri, ticino, svizzera, italia, dividenti, italiani, stop, alle',
+    ogTitle: 'Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    ogDescription: 'La Corte di cassazione afferma che gli enti esteri non possono subire un trattamento fiscale più gravoso per il solo fatto di essere costituiti secondo un',
+    canonicalPath: '/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri",
+      "description": "La Corte di cassazione afferma che gli enti esteri non possono subire un trattamento fiscale più gravoso per il solo fatto di essere costituiti secondo un",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri"
+      },
+      "datePublished": "2026-07-16T18:09:11+00:00",
+      "dateModified": "2026-07-16T18:09:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d': {
+    title: 'Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    description: 'La flat tax entra nel Tuir: frontalieri possono optare per imposta sostitutiva al 25% delle imposte pagate in Svizzera a partire dal 2027. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, flat, entra, tuir, 2027',
+    ogTitle: 'Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    ogDescription: 'La flat tax entra nel Tuir: frontalieri possono optare per imposta sostitutiva al 25% delle imposte pagate in Svizzera a partire dal 2027. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera",
+      "description": "La flat tax entra nel Tuir: frontalieri possono optare per imposta sostitutiva al 25% delle imposte pagate in Svizzera a partire dal 2027. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera"
+      },
+      "datePublished": "2026-07-16T18:09:55+00:00",
+      "dateModified": "2026-07-16T18:09:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ': {
+    title: 'Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
+    description: 'Il telelavoro dei frontalieri tra Italia e Svizzera: chiarimenti sul Protocollo di modifica dell\'Accordo del 2020 per una disciplina coordinata tra fisco e',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, doppia, soglia, fisco',
+    ogTitle: 'Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
+    ogDescription: 'Il telelavoro dei frontalieri tra Italia e Svizzera: chiarimenti sul Protocollo di modifica dell\'Accordo del 2020 per una disciplina coordinata tra fisco e',
+    canonicalPath: '/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza",
+      "description": "Il telelavoro dei frontalieri tra Italia e Svizzera: chiarimenti sul Protocollo di modifica dell'Accordo del 2020 per una disciplina coordinata tra fisco e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/places/monte-san-salvatore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza"
+      },
+      "datePublished": "2026-07-16T18:10:34+00:00",
+      "dateModified": "2026-07-16T18:10:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

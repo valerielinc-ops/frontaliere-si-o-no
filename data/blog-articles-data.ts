@@ -25667,6 +25667,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'diritto-allindennita-di-maternita-della-lavoratrice-frontaliera',
+ category: 'fiscale',
+ date: '2026-07-16T18:08:24.141Z',
+ image: '/images/places/lago-lugano.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri',
+ category: 'fiscale',
+ date: '2026-07-16T18:09:11.789Z',
+ image: '/images/places/lugano-view.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d',
+ category: 'fiscale',
+ date: '2026-07-16T18:09:55.646Z',
+ image: '/images/places/mendrisio.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ',
+ category: 'fiscale',
+ date: '2026-07-16T18:10:34.056Z',
+ image: '/images/places/monte-san-salvatore.webp',
+ hasCalculator: false,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

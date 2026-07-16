@@ -8541,6 +8541,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese und Kanton Tessin: Digital bringt Grenzgänger näher zusammen',
     'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Online-Plattformen, schnelle Infrastrukturen und vereinfachte Abläufe: So verändert die Digitalisierung das Leben von Menschen, die über Grenzen hinweg arbeiten.',
     'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Lugano Panorama mit digitalen Konnektivitätssymbolen',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.title': 'Anspruch auf Mutterschaftsgeld der Grenzgängerin',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.excerpt': 'Der Kassationsgerichtshof hat entschieden, dass italienische Grenzgängerinnen unabhängig von ihrer Berufstätigkeit Anspruch auf Mutterschaftsentschädigung haben',
+    'blog.article.diritto-allindennita-di-maternita-della-lavoratrice-frontaliera.imageAlt': 'Redaktionelles Bild zu: Diritto all’indennità di maternità della lavoratrice frontaliera',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.title': 'Stop Steuerdiskriminierung ausländischer Körperschaften',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.excerpt': 'Der Kassationsgerichtshof stellt fest, dass ausländische Körperschaften keine schwerere steuerliche Behandlung erfahren können, nur weil sie nach einem',
+    'blog.article.dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri.imageAlt': 'Redaktionelles Bild zu: Dividenti italiani, stop alle discriminazioni fiscali per gli enti esteri',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.title': 'Flat Tax im Tuir: 25% der Schweizer Steuern ab 2027',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.excerpt': 'Die Flat Tax tritt in den Tuir ein: Grenzgänger können sich ab 2027 für eine Ersatzsteuer in Höhe von 25% der in der Schweiz gezahlten Steuern entscheiden.',
+    'blog.article.frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d.imageAlt': 'Redaktionelles Bild zu: Frontalieri, la flat tax entra nel Tuir: dal 2027 imposta sostitutiva pari al 25% delle imposte pagate in Svizzera',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.title': 'Telelavoro: doppia soglia tra fisco e previdenza',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.excerpt': 'Die Telearbeit von Grenzgängern zwischen Italien und der Schweiz: Erläuterungen zum Änderungsprotokoll zum Abkommen von 2020 für eine koordinierte Regelung zwischen Steuer- und',
+    'blog.article.telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ.imageAlt': 'Redaktionelles Bild zu: Telelavoro dei frontalieri tra Italia e Svizzera: doppia soglia tra fisco e previdenza',
 };
 
 export default blogMetaDe;
