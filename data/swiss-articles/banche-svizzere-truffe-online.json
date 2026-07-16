@@ -1,0 +1,40 @@
+{
+  "id": "banche-svizzere-truffe-online",
+  "slug": "banche-svizzere-truffe-online",
+  "publishedAt": "2026-07-16T09:05:16.120Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.891264191655252,
+    "confidence": 0.8,
+    "finalScore": 4.713011353324202,
+    "topK": [
+      {
+        "slug": "servizio-clienti-bancario-promossi-bocciati",
+        "cosine": 0.8416091702364646
+      },
+      {
+        "slug": "comco-indaga-pubblicita-motori-ricerca",
+        "cosine": 0.8413752056719562
+      },
+      {
+        "slug": "sfruttamento-corsieri-ticino-2026",
+        "cosine": 0.840177429065467
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.838249931679176
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8380226019357236
+      }
+    ],
+    "score": 1.1782528383310504,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

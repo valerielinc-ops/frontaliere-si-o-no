@@ -1162,6 +1162,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'Di più: Rappresentante per il commercio USA elogia investimenti svizzeri',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, ha elogiato gli investimenti svizzeri negli Stati Uniti.',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, parla durante una conferenza stampa a Ginevra.',
+    'blog.article.banche-svizzere-truffe-online.title': 'Di più Fondazione consumatori: più supporto banche contro truffe online',
+    'blog.article.banche-svizzere-truffe-online.excerpt': 'La Fondazione svizzero-tedesca per la protezione dei consumatori ha condotto uno studio sui sistemi di protezione delle banche svizzere contro le truffe online.',
+    'blog.article.banche-svizzere-truffe-online.imageAlt': 'Un bancomat in una banca svizzera',
 };
 
 export default blogMetaChIt;

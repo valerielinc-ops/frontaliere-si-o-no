@@ -1162,6 +1162,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'Mehr: US-Handelsvertreter lobt Schweizer Investitionen',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Der US-Handelsbeauftragte Jamieson Greer lobte die Schweizer Investitionen in den USA.',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Der Handelsvertreter der Vereinigten Staaten, Jamieson Greer, spricht während einer Pressekonferenz in Genf.',
+    'blog.article.banche-svizzere-truffe-online.title': 'Mehr Consumer Foundation: Mehr Bankenunterstützung gegen Online-Betrug',
+    'blog.article.banche-svizzere-truffe-online.excerpt': 'Die Deutschschweizerische Stiftung für Verbraucherschutz hat eine Studie über die Schutzsysteme von Schweizer Banken gegen Online-Betrug durchgeführt.',
+    'blog.article.banche-svizzere-truffe-online.imageAlt': 'Ein Bankautomat in einer Schweizer Bank',
 };
 
 export default blogMetaChDe;

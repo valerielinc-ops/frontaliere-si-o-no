@@ -1162,6 +1162,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'USA salue les investissements suisses',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Le représentant américain au commerce, Jamieson Greer, a fait l\'éloge des investissements suisses aux États-Unis.',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Le représentant commercial des États-Unis, Jamieson Greer, parle lors d\'une conférence de presse à Genève.',
+    'blog.article.banche-svizzere-truffe-online.title': 'Plus Fondation: Soutien aux banques contre les escroqueries en ligne',
+    'blog.article.banche-svizzere-truffe-online.excerpt': 'La Fondation suisse-allemande pour la protection des consommateurs a mené une étude sur les systèmes de protection des banques suisses contre les escroqueries en ligne.',
+    'blog.article.banche-svizzere-truffe-online.imageAlt': 'Un distributeur automatique dans une banque suisse',
 };
 
 export default blogMetaChFr;

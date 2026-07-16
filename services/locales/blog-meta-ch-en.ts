@@ -1162,6 +1162,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'More: U.S. Trade Representative Praises Swiss Investments',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'U.S. Trade Representative Jamieson Greer praised Swiss investments in the United States.',
     'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'The US Trade Representative, Jamieson Greer, speaks during a press conference in Geneva.',
+    'blog.article.banche-svizzere-truffe-online.title': 'More Consumer Foundation: more support for banks against online scams',
+    'blog.article.banche-svizzere-truffe-online.excerpt': 'The Swiss-German Consumer Protection Foundation conducted a study on Swiss banks\' protection systems against online scams.',
+    'blog.article.banche-svizzere-truffe-online.imageAlt': 'A Swiss bank ATM',
 };
 
 export default blogMetaChEn;

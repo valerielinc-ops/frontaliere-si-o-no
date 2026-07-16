@@ -14994,6 +14994,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-svizzere-truffe-online': {
+    title: 'Di più Fondazione consumatori: più supporto banche contro truffe online',
+    description: 'La Fondazione svizzero-tedesca per la protezione dei consumatori ha condotto uno studio sui sistemi di protezione delle banche svizzere contro le truffe online.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, consumatori, supporto, banche',
+    ogTitle: 'Banche svizzere e truffe online: Fondazione consumatori rileva carenze',
+    ogDescription: 'La Fondazione svizzero-tedesca per la protezione dei consumatori ha condotto uno studio sui sistemi di protezione delle banche svizzere contro le truffe online.',
+    canonicalPath: '/articoli-svizzera/banche-svizzere-truffe-online/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Fondazione consumatori: più supporto banche contro truffe online",
+      "description": "La Fondazione svizzero-tedesca per la protezione dei consumatori ha condotto uno studio sui sistemi di protezione delle banche svizzere contro le truffe online.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banche-svizzere-truffe-online.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un bancomat in una banca svizzera"
+      },
+      "datePublished": "2026-07-16T09:05:12+00:00",
+      "dateModified": "2026-07-16T09:05:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banche-svizzere-truffe-online/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
