@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-07-16T11:23:06.264Z",
+  "assembledAt": "2026-07-16T22:28:21.377Z",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:23:03.050Z",
+      "crawledAt": "2026-07-16T22:28:18.467Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -81,16 +81,21 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "bauingenieur-in-fachhochschule-graubunden-chur"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch"
+          "bauingenieur-in-fhgr-ch",
+          "ingegnere-civile-fachhochschule-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch"
+        "bauingenieur-in-fhgr-ch",
+        "bauingenieur-in-fachhochschule-graubunden-chur",
+        "ingegnere-civile-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -136,7 +141,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/801/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:23:01.871Z",
+      "crawledAt": "2026-07-16T22:28:17.481Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -156,12 +161,14 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "studentische-hilfskrafte-als-codierer-innen-fhgr-ch",
-        "studentische-hilfskrafte-als-codierer-innen-fachhochschule-graubunden-chur"
+        "studentische-hilfskrafte-als-codierer-innen-fachhochschule-graubunden-chur",
+        "studentische-hilfskrafte-come-codierer-innen-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studentische-hilfskrafte-als-codierer-innen-fhgr-ch",
-          "studentische-hilfskrafte-als-codierer-innen-fachhochschule-graubunden-chur"
+          "studentische-hilfskrafte-als-codierer-innen-fachhochschule-graubunden-chur",
+          "studentische-hilfskrafte-come-codierer-innen-fachhochschule-graubunden-chur"
         ],
         "en": [
           "studentische-hilfskrafte-als-codierer-innen-fhgr-ch"
@@ -191,7 +198,7 @@
       "slugByLocale": {
         "it": "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur",
         "en": "student-assistants-as-coders-fachhochschule-graubunden-chur",
-        "de": "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
+        "de": "student-assistants-as-coders-fhgr-ch",
         "fr": "assistants-etudiants-comme-coders-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
@@ -201,14 +208,14 @@
       "titleByLocale": {
         "it": "Assistenti degli studenti come Coders",
         "en": "Student Assistants as Coders",
-        "de": "Studentische Assistenten als Programmierer",
+        "de": "Student Assistants as Coders",
         "fr": "Assistants étudiants comme Coders"
       },
       "description": "As a university, the University of Applied Sciences of the Grisons promotes dynamic thinking and a proactive approach. We support more than 2,400 students in degree and continuing education programmes in becoming responsible individuals. In our inter- and transdisciplinary research, we focus on Applied Future Technologies, Alpine Region Development and Entrepreneurial Management. As an employer, we promote equal opportunity and diversity. For our project «Analysis of the SRG online offering», starting in September 2026, we are looking for | In this role, you will support an interdisciplinary team in conducting a multilingual content analysis of the SRG online platform. The assignment is scheduled to run from September 2026 through, tentatively, the end of December 2026. | Your Profile\n• Excellent language skills in German and/or English, as well as at least one other language listed above (French, Italian, or Romansh)\n• Willingness to work approximately 3 to 13 hours per week (depending heavily on the language(s)) | Your benefits\n• Compensation in accordance with the FHGR regulations for student assistants (CHF 27.50.-/hour at the BSc level, CHF 34.-/hour at the MSc level).\n• A behind-the-scenes look at a research project\n• Interdisciplinary collaboration in a collegial team\n• Experience in quantitative content analysis\n• Flexible work hours and location A mandatory 2-day training session will take place on August 31 and September 1, 2026 . Successful completion of the training is a prerequisite for employment on the project and will be compensated.",
       "descriptionByLocale": {
         "it": "Come università, l'Università di Scienze Applicate dei Grigioni promuove il pensiero dinamico e un approccio proattivo. Sosteniamo oltre 2.400 studenti in corsi di laurea e di formazione continua nel diventare individui responsabili. Nella nostra ricerca interdisciplinare e transdisciplinare, ci concentriamo sulle tecnologie applicate future, sullo sviluppo delle regioni alpine e sulla gestione imprenditoriale. Come datore di lavoro, promuoviamo pari opportunità e diversità. Per il nostro progetto «Analisi dell'offerta online SRG», a partire dal settembre 2026, stiamo cercando | In questo ruolo, supporterai un team interdisciplinare nella conduzione di un'analisi multilingue dei contenuti della piattaforma online SRG. L'assegnazione è prevista per l'esecuzione dal settembre 2026 alla fine del dicembre 2026. | Il tuo profilo\n• Competenze linguistiche eccellenti in tedesco e/o inglese, nonché almeno un'altra lingua sopra indicata (francese, italiano o romancio)\n• Volontà di lavorare circa 3 a 13 ore settimanali (a seconda della lingua) | I vantaggi\n• Compensazione secondo le normative FHGR per gli assistenti degli studenti (CHF 27.50.-/ora a livello BSc, CHF 34.-/ora a livello MSc).\n• Un progetto di ricerca dietro le quinte\n• Collaborazione interdisciplinare in un team collegiale\n• Esperienza nell'analisi quantitativa dei contenuti\n• Ore di lavoro flessibili e posizione Una sessione di formazione obbligatoria di 2 giorni avrà luogo il 31 agosto e il 1 settembre 2026 . Il successo della formazione è un prerequisito per l'occupazione nel progetto e sarà compensato.",
         "en": "As a university, the University of Applied Sciences of the Grisons promotes dynamic thinking and a proactive approach. We support more than 2,400 students in degree and continuing education programmes in becoming responsible individuals. In our inter- and transdisciplinary research, we focus on Applied Future Technologies, Alpine Region Development and Entrepreneurial Management. As an employer, we promote equal opportunity and diversity. For our project «Analysis of the SRG online offering», starting in September 2026, we are looking for | In this role, you will support an interdisciplinary team in conducting a multilingual content analysis of the SRG online platform. The assignment is scheduled to run from September 2026 through, tentatively, the end of December 2026. | Your Profile\n• Excellent language skills in German and/or English, as well as at least one other language listed above (French, Italian, or Romansh)\n• Willingness to work approximately 3 to 13 hours per week (depending heavily on the language(s)) | Your benefits\n• Compensation in accordance with the FHGR regulations for student assistants (CHF 27.50.-/hour at the BSc level, CHF 34.-/hour at the MSc level).\n• A behind-the-scenes look at a research project\n• Interdisciplinary collaboration in a collegial team\n• Experience in quantitative content analysis\n• Flexible work hours and location A mandatory 2-day training session will take place on August 31 and September 1, 2026 . Successful completion of the training is a prerequisite for employment on the project and will be compensated.",
-        "de": "Als Hochschule fördert die Fachhochschule Graubünden dynamisches Denken und einen proaktiven Ansatz. Wir unterstützen mehr als 2.400 Studierende in Studien- und Weiterbildungsprogrammen dabei, verantwortungsbewusste Menschen zu werden. In unserer inter- und transdisziplinären Forschung konzentrieren wir uns auf Applied Future Technologies, Alpine Region Development und Entrepreneurial Management. Als Arbeitgeber fördern wir Chancengleichheit und Vielfalt. Für unser Projekt «Analyse des SRG Online-Angebots», ab September 2026, suchen wir | In dieser Funktion unterstützen Sie ein interdisziplinäres Team bei der Durchführung einer mehrsprachigen Inhaltsanalyse der SRG Online-Plattform. Der Auftrag soll vom September 2026 bis vorläufig Ende Dezember 2026 laufen. | Ihr Profil\n• Hervorragende Sprachkenntnisse in Deutsch und/oder Englisch sowie mindestens einer anderen oben aufgeführten Sprache (Französisch, Italienisch oder Romanisch)\n• Bereitschaft, etwa 3 bis 13 Stunden pro Woche zu arbeiten (abhängig von der Sprache(n)) | Ihre Vorteile\n• Vergütung nach FHGR-Vorschriften für studentische Hilfskräfte (CHF 27.50.-/Stunde auf BSc-Niveau, CHF 34.-/Stunde auf MSc-Niveau).\n• Ein Blick hinter die Kulissen auf ein Forschungsprojekt\n• Interdisziplinäre Zusammenarbeit in einem kollegialen Team\n• Erfahrung in der quantitativen Inhaltsanalyse\n• Flexible Arbeitszeiten und Standort Eine obligatorische 2-tägige Schulung findet am 31. August und 1. September 2026 statt. Der erfolgreiche Abschluss der Ausbildung ist eine Voraussetzung für die Beschäftigung im Projekt und wird kompensiert.",
+        "de": "As a university, the University of Applied Sciences of the Grisons promotes dynamic thinking and a proactive approach. We support more than 2,400 students in degree and continuing education programmes in becoming responsible individuals. In our inter- and transdisciplinary research, we focus on Applied Future Technologies, Alpine Region Development and Entrepreneurial Management. As an employer, we promote equal opportunity and diversity. For our project «Analysis of the SRG online offering», starting in September 2026, we are looking for | In this role, you will support an interdisciplinary team in conducting a multilingual content analysis of the SRG online platform. The assignment is scheduled to run from September 2026 through, tentatively, the end of December 2026. | Your Profile\n• Excellent language skills in German and/or English, as well as at least one other language listed above (French, Italian, or Romansh)\n• Willingness to work approximately 3 to 13 hours per week (depending heavily on the language(s)) | Your benefits\n• Compensation in accordance with the FHGR regulations for student assistants (CHF 27.50.-/hour at the BSc level, CHF 34.-/hour at the MSc level).\n• A behind-the-scenes look at a research project\n• Interdisciplinary collaboration in a collegial team\n• Experience in quantitative content analysis\n• Flexible work hours and location A mandatory 2-day training session will take place on August 31 and September 1, 2026 . Successful completion of the training is a prerequisite for employment on the project and will be compensated.",
         "fr": "En tant qu'université, l'Université des sciences appliquées des Grisons favorise une pensée dynamique et une approche proactive. Nous soutenons plus de 2 400 étudiants dans des programmes de diplôme et de formation continue pour devenir des individus responsables. Dans notre recherche interdisciplinaire et transdisciplinaire, nous nous concentrons sur les technologies d'avenir appliquées, le développement de la région alpine et la gestion entrepreneuriale. En tant qu'employeur, nous favorisons l'égalité des chances et la diversité. Pour notre projet «Analyse de l'offre en ligne SRG», à partir de septembre 2026, nous recherchons Dans ce rôle, vous soutiendrez une équipe interdisciplinaire dans la conduite d'une analyse multilingue du contenu de la plateforme en ligne SRG. La mission devrait se dérouler de septembre 2026 à la fin de décembre 2026. Votre profil\n• Excellentes compétences linguistiques en allemand et/ou en anglais, ainsi qu'au moins une autre langue mentionnée ci-dessus (français, italien ou romanche)\n• Volonté de travailler environ 3 à 13 heures par semaine (selon la ou les langues) Vos avantages\n• Compensation conformément au règlement FHGR pour les assistants étudiants (CHF 27.50.-/heure au niveau BSc, CHF 34.-/heure au niveau MSC).\n• Un regard sur un projet de recherche\n• Collaboration interdisciplinaire dans une équipe collégiale\n• Expérience en analyse quantitative du contenu\n• Horaires de travail flexibles et lieu de travail Une séance de formation obligatoire de deux jours aura lieu le 31 août et le 1er septembre 2026. La réussite de la formation est une condition préalable à l'emploi dans le projet et sera compensée."
       },
       "location": "Chur",
@@ -216,7 +223,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/802/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T11:23:00.675Z",
+      "crawledAt": "2026-07-16T22:28:16.467Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -236,19 +243,24 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
+          "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
           "student-assistants-as-coders-fhgr-ch"
         ],
         "it": [
-          "student-assistants-as-coders-fhgr-ch"
+          "student-assistants-as-coders-fhgr-ch",
+          "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
         ],
         "fr": [
           "student-assistants-as-coders-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "student-assistants-as-coders-fhgr-ch"
+        "student-assistants-as-coders-fhgr-ch",
+        "studentische-assistenten-als-programmierer-fachhochschule-graubunden-chur",
+        "assistenti-degli-studenti-come-coders-fachhochschule-graubunden-chur"
       ],
       "firstSeenAt": "2026-07-01T22:12:45.479Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -294,7 +306,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/800/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:22:59.471Z",
+      "crawledAt": "2026-07-16T22:28:15.677Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -314,12 +326,14 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
-        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
+        "personale-del-progetto-scientifico-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
-          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur",
+          "personale-del-progetto-scientifico-fachhochschule-graubunden-chur"
         ],
         "en": [
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
