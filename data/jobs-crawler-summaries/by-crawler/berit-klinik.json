@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-16T12:16:45.533Z",
-  "total": 9,
+  "generatedAt": "2026-07-16T22:48:18.253Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2837,
-  "avgDurationMs": 2837,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2466,
+  "avgDurationMs": 2466,
   "durationHistory": [
-    2837
+    2466
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Praktikant:In Berit Sportslab",
       "slug": "tirocinante-in-berit-sportslab-berit-klinik-st-gallen",
@@ -345,7 +344,6 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -354,5 +352,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
