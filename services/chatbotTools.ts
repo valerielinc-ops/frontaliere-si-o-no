@@ -19,6 +19,7 @@
 import { buildPath } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { expandKeywordsWithSynonyms } from '@/services/professionSynonyms';
 
 // ─── Types ────────────────────────────────────────────────────────────────
 
@@ -298,6 +299,10 @@ export async function searchJobs(
  if (!extracted.keywords || extracted.keywords.length === 0) {
  extracted = { ...extracted, keywords: tokenise(query) };
  }
+
+ // Expand keywords with cross-locale profession synonyms so a query in one
+ // language ("nurse") matches job titles written in another ("Infermiera").
+ extracted = { ...extracted, keywords: expandKeywordsWithSynonyms(extracted.keywords) };
 
  // Score every job; drop zero-score entries so the caller never sees noise.
  const scored: ScoredJob[] = [];
