@@ -27,6 +27,22 @@ function startsWithAny(path, prefixes) {
   return prefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
+/**
+ * Impressions-weighted average GSC position. Shared by aggregateRowsByTemplate()
+ * below and scripts/lib/seo-ctr-curve.mjs's aggregateFamilyRows() (issue #4300)
+ * so the weighted-position formula can't drift between the two call sites
+ * (AGENTS.md sibling-pattern discipline — same divide-by-zero-guarded ratio
+ * construct previously duplicated in both files).
+ */
+export function weightedAveragePosition(weightedPositionSum, impressions) {
+  return impressions > 0 ? weightedPositionSum / impressions : 0;
+}
+
+/** Click-through rate as a fraction (0-1), guarded against zero impressions. */
+export function computeCtr(clicks, impressions) {
+  return impressions > 0 ? clicks / impressions : 0;
+}
+
 // Canton-aware job-board root check (mirrors scripts/lib/jobBoardSections.mjs).
 // A TI-only literal list here meant every non-TI canton job page fell through
 // to the generic content-group buckets below, skewing analytics-opportunity
@@ -162,8 +178,8 @@ export function aggregateRowsByTemplate(rows = [], metricShape = 'gsc') {
         : {
             clicks: entry.clicks,
             impressions: entry.impressions,
-            ctr: entry.impressions > 0 ? Number(((entry.clicks / entry.impressions) * 100).toFixed(2)) : 0,
-            avgPosition: entry.impressions > 0 ? Number((entry.weightedPosition / entry.impressions).toFixed(1)) : 0,
+            ctr: Number((computeCtr(entry.clicks, entry.impressions) * 100).toFixed(2)),
+            avgPosition: Number(weightedAveragePosition(entry.weightedPosition, entry.impressions).toFixed(1)),
           }),
     }))
     .sort((a, b) => (metricShape === 'ga4' ? b.views - a.views : b.impressions - a.impressions));

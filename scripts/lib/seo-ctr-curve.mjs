@@ -13,7 +13,15 @@
  * Backlinko aggregate curves). It is intentionally coarse — this is a
  * "is this family systematically underperforming its position" signal,
  * not a precise per-query prediction.
+ *
+ * The weighted-position/CTR ratio math reuses
+ * scripts/lib/analytics-opportunity-utils.mjs's weightedAveragePosition() /
+ * computeCtr() — the same divide-by-zero-guarded formula
+ * aggregateRowsByTemplate() there uses, extracted so the two independent
+ * GSC row-aggregation call sites can't drift apart.
  */
+
+import { weightedAveragePosition, computeCtr } from './analytics-opportunity-utils.mjs';
 
 // Index 0 unused — GSC positions are 1-based. Values are CTR fractions
 // (0.316 === 31.6%).
@@ -101,10 +109,11 @@ export function aggregateFamilyRows(rows, { underperformRatio = 0.6, minImpressi
   const eligible = rows.filter((r) => Number(r.impressions || 0) >= minImpressions);
   const totalClicks = eligible.reduce((sum, r) => sum + Number(r.clicks || 0), 0);
   const totalImpressions = eligible.reduce((sum, r) => sum + Number(r.impressions || 0), 0);
+  const weightedPositionSum = eligible.reduce((sum, r) => sum + Number(r.position || 0) * Number(r.impressions || 0), 0);
   const weightedPosition = totalImpressions > 0
-    ? eligible.reduce((sum, r) => sum + Number(r.position || 0) * Number(r.impressions || 0), 0) / totalImpressions
+    ? weightedAveragePosition(weightedPositionSum, totalImpressions)
     : null;
-  const avgCtr = totalImpressions > 0 ? totalClicks / totalImpressions : null;
+  const avgCtr = totalImpressions > 0 ? computeCtr(totalClicks, totalImpressions) : null;
 
   const belowCurve = eligible
     .map((r) => ({
