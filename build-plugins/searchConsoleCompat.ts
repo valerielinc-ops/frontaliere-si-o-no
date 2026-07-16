@@ -11,6 +11,7 @@ import {
  type FuelType,
 } from './fuelDailyData';
 import { isProfessionCantonPath } from './professionCantonData';
+import { isProfessionCityPath } from './professionCityData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
@@ -444,6 +445,19 @@ export function resolveSearchConsoleCompatTarget(
  // never sees the plugin's own route table otherwise) stops reporting it
  // unresolvable.
  if (isProfessionCantonPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Same self-map rationale as isProfessionCantonPath above, for the
+ // (TI city × profession) family (professionCityLandings.ts, issue #4301):
+ // professionCityData.ts's isProfessionCityPath already checks a
+ // module-load-precomputed Map (PATH_INDEX), so this stays O(1) per call —
+ // no per-call Set/Map construction inside the 150k+-path compat loop.
+ if (isProfessionCityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

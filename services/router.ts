@@ -58,6 +58,7 @@ import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } fr
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
 import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePillarPath } from '../build-plugins/frontalierePillarData';
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
+import { isProfessionCityPath, parseProfessionCityPath } from '../build-plugins/professionCityData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
@@ -2804,6 +2805,15 @@ export function parsePath(pathname: string): ParseResult {
  // the job board so the SPA doesn't replace the per-canton/profession content.
  if (isProfessionCantonPath(pathname)) {
    const parsed = parseProfessionCantonPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
+   }
+ }
+
+ // Profession x TI-city landings (/lavoro-{city}-{role}/ + locale variants,
+ // issue #4301). Same static-overlay pattern as the per-canton family above.
+ if (isProfessionCityPath(pathname)) {
+   const parsed = parseProfessionCityPath(pathname);
    if (parsed) {
      return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
    }
