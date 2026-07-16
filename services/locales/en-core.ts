@@ -294,7 +294,7 @@ const enCore: Record<string, string> = {
  'salaryCompare.cantonAll': 'Switzerland (national average)',
  'salaryCompare.cantonNetTitle': 'Estimated Net Salary by Canton (CH)',
  'salaryCompare.cantonNetDesc': 'Estimated Swiss net salary if the same profile worked in a different canton, based on FSO (Federal Statistical Office) regional wage levels.',
- 'salaryCompare.cantonNetDisclaimer': 'Note: this is an ESTIMATE, not an official tax calculation. Gross-by-canton reflects the regional average wage level (FSO data); the net figure uses the same indicative withholding-tax rate for every canton and does NOT account for real cantonal/communal tax-rate differences, which can be significant. For an accurate tax estimate, consult the official calculator of your work canton.',
+ 'salaryCompare.cantonNetDisclaimer': 'Note: this is an ESTIMATE, not an official tax calculation. Gross-by-canton reflects the regional average wage level (FSO data); the net figure uses the real tax-burden rate of each canton\'s capital city (official ESTV data, single taxpayer with no children, tax year 2024), so it reflects real cantonal/communal tax-burden differences — but it does not account for your specific personal situation (marital status, children, deductions, exact municipality of residence). For an accurate tax estimate, consult the official calculator of your work canton.',
  'salaryCompare.cantonNetColGross': 'Estimated gross',
  'salaryCompare.cantonNetColNet': 'Estimated net',
  'salaryCompare.cantonNetComuneNote': 'Looking for an estimate for your municipality of residence in Italy?',
@@ -3455,6 +3455,9 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3600.title': 'Per-canton tax precision',
+  'whatsNew.v3600.cantonWithholding.title': 'Real per-canton withholding rate in the salary comparator',
+  'whatsNew.v3600.cantonWithholding.desc': 'The Swiss net-by-canton figure now uses the real tax burden of each of the 26 cantons\' capital cities (official ESTV data), instead of one generic rate for every canton.',
   'whatsNew.v3590.title': 'Ad-free subscription revamped',
   'whatsNew.v3590.subscribeRedesign.title': 'New subscription page and AdBlock popup design',
   'whatsNew.v3590.subscribeRedesign.desc': 'Redesigned subscription page and AdBlock popup: standard sign-in (email, Google, LinkedIn), consistent site-wide look, and full interaction tracking.',

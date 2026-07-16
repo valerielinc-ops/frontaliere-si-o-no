@@ -33,6 +33,7 @@ import {
   GROSSREGION_MEDIAN_MONTHLY,
   NATIONAL_MEDIAN_MONTHLY,
   CANTON_TO_GROSSREGION,
+  cantonNetSalaryBandForCode,
 } from './shared/cantonSalaryIndex';
 import {
   SALARY_STATS_LOCALES,
@@ -236,21 +237,24 @@ export function renderSalaryStatsPage(opts: {
   const vsNational = Math.round((monthly / NATIONAL_MEDIAN_MONTHLY) * 100);
   const monthlyStr = `CHF ${fmtChf(monthly, locale)}`;
 
-  // Derive the gross/net band + sector figures from the SAME region median as
+  // Derive the gross band + sector figures from the SAME region median as
   // the headline tile (via cantonKey → BFS code → Grossregion), NOT from the
   // localized display name — the half-canton groups (APPENZELLO/BASILEA) have
   // no bare display form in the index's display→region table, which would
   // silently fall back to national figures and make a single page show
-  // inconsistent numbers. Formulas mirror cantonSalaryIndex.cantonGrossSalaryBand
-  // / cantonFaqMedianAnnual (anchored to the national-average band).
+  // inconsistent numbers. Net figures use the real ESTV per-canton
+  // withholding curve via cantonNetSalaryBandForCode (see
+  // cantonSalaryIndex.cantonGrossSalaryBand for the shared formula and
+  // cantonTaxBurdenPct in services/cantonSalary.ts for the SPA-side twin).
   const natScale = monthly / NATIONAL_MEDIAN_MONTHLY;
   const r5000 = (n: number) => Math.round((n * natScale) / 5000) * 5000;
   const r1000 = (n: number) => Math.round((n * natScale) / 1000) * 1000;
-  const r100 = (n: number) => Math.round((n * natScale) / 100) * 100;
+  const grossLow = r5000(85000);
+  const grossHigh = r5000(110000);
   const band = {
-    grossLow: r5000(85000), grossHigh: r5000(110000),
-    netSingleLow: r100(5400), netSingleHigh: r100(6600),
-    netCoupleLow: r100(5800), netCoupleHigh: r100(7200),
+    grossLow,
+    grossHigh,
+    ...cantonNetSalaryBandForCode(localeFactorCode(cantonKey), grossLow, grossHigh),
   };
   const faq = { it: r1000(95000), finance: r1000(110000), pharma: r1000(105000), retail: r1000(55000) };
 

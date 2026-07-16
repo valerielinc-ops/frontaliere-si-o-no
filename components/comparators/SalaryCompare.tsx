@@ -12,7 +12,7 @@ import {
  type SalaryLevel,
 } from '@/data/salaryData';
 import { lazyRetry } from '@/services/lazyRetry';
-import { cantonGrossScale, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
+import { cantonGrossScale, cantonTaxBurdenPct, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
 import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { buildPath } from '@/services/router';
 
@@ -24,12 +24,8 @@ const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'))
 const PPP_FACTOR = 0.65;
 const CH_SOCIAL_RATE = 0.136;
 
-function chWithholding(gross: number): number {
- if (gross <= 30000) return gross * 0.03;
- if (gross <= 60000) return gross * 0.065;
- if (gross <= 100000) return gross * 0.10;
- if (gross <= 150000) return gross * 0.14;
- return gross * 0.18;
+function chWithholding(gross: number, canton?: string | null): number {
+ return gross * (cantonTaxBurdenPct(gross, canton) / 100);
 }
 
 function itIrpef(gross: number): number {
@@ -49,8 +45,8 @@ function itIrpef(gross: number): number {
  return tax + gross * 0.0919 + taxable * 0.025;
 }
 
-function calcNetCH(gross: number): number {
- return Math.round(gross - gross * CH_SOCIAL_RATE - chWithholding(gross));
+function calcNetCH(gross: number, canton?: string | null): number {
+ return Math.round(gross - gross * CH_SOCIAL_RATE - chWithholding(gross, canton));
 }
 
 function calcNetIT(gross: number): number {
@@ -91,7 +87,7 @@ export default function SalaryCompare() {
  const chGrossNational = getSectorMedian(s, selectedLevel, 'ch');
  const chGross = scaleCh(chGrossNational);
  const itGross = getSectorMedian(s, selectedLevel, 'it');
- const chNet = calcNetCH(chGross);
+ const chNet = calcNetCH(chGross, selectedCanton);
  const itNet = calcNetIT(itGross);
  const chNetEUR = Math.round(chNet * exchangeRate);
  const ppp = Math.round(chNet * PPP_FACTOR * exchangeRate);
@@ -103,16 +99,14 @@ export default function SalaryCompare() {
  professions: s.professions,
  };
  });
- }, [selectedSector, selectedLevel, t, exchangeRate, cantonScale]);
+ }, [selectedSector, selectedLevel, t, exchangeRate, cantonScale, selectedCanton]);
 
  // ── Per-canton net comparison ──
  // Reuses the same national gross baseline (currently filtered sector/level)
  // and the official BFS per-canton wage-level scaling from cantonGrossScale
- // (PR #2068), applied through the existing calcNetCH curve. This is an
- // ESTIMATE: only the gross wage level varies by canton here — the
- // withholding-tax curve itself is the same generic curve for every canton
- // (see disclaimer below), since no official per-canton withholding table is
- // available for the 26 cantons.
+ // (PR #2068). Net is computed with cantonTaxBurdenPct (ESTV-sourced,
+ // per-canton-capital withholding curve) — both gross AND the tax rate now
+ // vary by canton, not just the gross wage level.
  const cantonNetRows = useMemo(() => {
  if (sectorTableData.length === 0) return [];
  const avgNationalGrossCh = Math.round(
@@ -125,7 +119,7 @@ export default function SalaryCompare() {
  code,
  label: getCantonLabel(code, locale as CantonLocale),
  gross,
- net: calcNetCH(gross),
+ net: calcNetCH(gross, code),
  };
  }).sort((a, b) => b.net - a.net);
  }, [sectorTableData, locale]);
@@ -491,7 +485,7 @@ export default function SalaryCompare() {
  {r.professions.map((p) => {
  const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number]; // [min, median, max]
  const it = p.it[selectedLevel]; // [min, median, max]
- const chNet = calcNetCH(ch[1]);
+ const chNet = calcNetCH(ch[1], selectedCanton);
  const itNet = calcNetIT(it[1]);
  const deltaEUR = Math.round(chNet * exchangeRate) - itNet;
  const deltaPct = itNet > 0 ? Math.round((deltaEUR / itNet) * 100) : 0;
@@ -667,7 +661,7 @@ export default function SalaryCompare() {
  </span>
  </td>
  <td className="py-2 px-3 text-right text-xs font-mono text-body">
- CHF {calcNetCH(ch[1]).toLocaleString()}
+ CHF {calcNetCH(ch[1], selectedCanton).toLocaleString()}
  </td>
  <td className="py-2 px-3 text-right text-xs font-mono text-body">
  {'\u20AC'} {calcNetIT(it[1]).toLocaleString()}
@@ -676,7 +670,7 @@ export default function SalaryCompare() {
  {(() => {
  const d =
  Math.round(
- calcNetCH(ch[1]) * exchangeRate,
+ calcNetCH(ch[1], selectedCanton) * exchangeRate,
  ) - calcNetIT(it[1]);
  return (
  (d > 0 ? '+' : '') +
@@ -773,7 +767,7 @@ export default function SalaryCompare() {
  {filteredProfessions.map((p) => {
  const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number];
  const it = p.it[selectedLevel];
- const chNetMedian = calcNetCH(ch[1]);
+ const chNetMedian = calcNetCH(ch[1], selectedCanton);
  const itNetMedian = calcNetIT(it[1]);
  const deltaEUR =
  Math.round(chNetMedian * exchangeRate) - itNetMedian;
