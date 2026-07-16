@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berner-montage",
-  "assembledAt": "2026-07-16T11:10:43.200Z",
+  "assembledAt": "2026-07-16T22:31:03.897Z",
   "jobs": [
     {
       "id": "berner-montage-03f6b9937af1",
@@ -17,7 +17,7 @@
       "title": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
       "titleByLocale": {
         "it": "Merchandiser (m/w/d) nel settore dell'auto - Regione Berna/Friburgo/Solothurn",
-        "en": "Merchandiser (m/f/d) in the automotive sector - Bern/Fribourg/Solothurn region",
+        "en": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
         "de": "Merchandiser (m/w/d) im Kfz-Handwerk - Region Bern/Fribourg/Solothurn",
         "fr": "Merchandiser (m/w/d) dans le secteur automobile - Région Berne/Fribourg/Soleure"
       },
@@ -33,7 +33,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:41.218Z",
+      "crawledAt": "2026-07-16T22:31:00.830Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -109,7 +110,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:40.325Z",
+      "crawledAt": "2026-07-16T22:30:59.875Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -140,6 +141,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -185,7 +187,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:39.444Z",
+      "crawledAt": "2026-07-16T22:30:58.945Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -221,6 +223,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -242,7 +245,7 @@
         "it": "collaboratore-trice-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
         "en": "employees-m-f-d-sales-shop-montagetechnik-berner-ag-visp",
         "de": "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch",
-        "fr": "employes-m-f-d-montagetechnik-berner-ag-visp"
+        "fr": "employe-de-magasin-de-vente-m-w-d-montagetechnik-berner-ag-visp"
       },
       "company": "Montagetechnik BERNER AG",
       "companyKey": "berner-montage",
@@ -266,7 +269,7 @@
       "url": "https://shop.berner.eu/ch-de/Mit-Shop",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:38.557Z",
+      "crawledAt": "2026-07-16T22:30:57.986Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -285,6 +288,7 @@
       "previousSlugs": [
         "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch",
         "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
+        "employes-m-f-d-montagetechnik-berner-ag-visp",
         "collaboratore-trice-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
@@ -296,7 +300,8 @@
           "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
+          "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
+          "employes-m-f-d-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-06-15T13:58:50.900Z",
@@ -345,7 +350,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:36.865Z",
+      "crawledAt": "2026-07-16T22:30:57.020Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -376,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -421,7 +427,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:35.520Z",
+      "crawledAt": "2026-07-16T22:30:56.033Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -455,6 +461,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -500,7 +507,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:34.627Z",
+      "crawledAt": "2026-07-16T22:30:55.131Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -531,6 +538,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -576,7 +584,7 @@
       "url": "https://shop.berner.eu/ch-de/Innen-VK",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:33.718Z",
+      "crawledAt": "2026-07-16T22:30:54.149Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -648,7 +656,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Mobil-Vaud-Fribourg",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:10:32.766Z",
+      "crawledAt": "2026-07-16T22:30:52.998Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -697,7 +705,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "id": "berner-montage-ff0962713571",
@@ -730,7 +739,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:10:31.741Z",
+      "crawledAt": "2026-07-16T22:30:51.961Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -763,6 +772,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -808,7 +818,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:10:30.797Z",
+      "crawledAt": "2026-07-16T22:30:51.013Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -842,6 +852,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -887,7 +898,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:29.773Z",
+      "crawledAt": "2026-07-16T22:30:49.690Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -918,6 +929,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -963,7 +975,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Sui-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:10:28.847Z",
+      "crawledAt": "2026-07-16T22:30:48.685Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
