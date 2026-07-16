@@ -42,6 +42,7 @@ import {
   normalizeText,
   stemToken,
 } from './lib/profession-taxonomy.mjs';
+import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data/jobs.json');
@@ -178,14 +179,10 @@ function loadGscByProfession() {
 }
 
 // ── Coverage ─────────────────────────────────────────────────────────────
-
-/** Extract the quoted strings of `export const <NAME> = [ ... ] as const;`. */
-function extractTsStringArray(filePath, constName) {
-  const src = fs.readFileSync(filePath, 'utf-8');
-  const m = src.match(new RegExp(`export const ${constName}\\s*=\\s*\\[([^\\]]*)\\]`));
-  if (!m) throw new Error(`Cannot find ${constName} in ${filePath} — coverage extraction is load-bearing, refusing to run blind`);
-  return [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]);
-}
+//
+// extractTsStringArray lives in scripts/lib/ts-array-extract.mjs — shared
+// with scripts/mine-search-location-gaps.mjs (issue #4301) so the two
+// scripts don't fork the same TS-array-literal regex (AGENTS.md #6).
 
 /**
  * Build the covered-profession set. A taxonomy entry is covered when a
