@@ -7,7 +7,11 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
-import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import {
+ resolveSearchConsoleCompatTarget,
+ JOB_BOARD_PAGINATION_PATTERN,
+ SEARCH_COMBO_SEGMENT_PATTERN,
+} from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import {
  resolveCantonSection,
@@ -474,6 +478,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return Array.from(out);
  })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
+ // Search-combo slugs and out-of-range pagination leaves are job-section-prefixed
+ // (e.g. /cerca-lavoro-svizzera/ricerca-fondo-arbon/) but NEITHER is handled by
+ // jobsSeoPagesPlugin or seoHubsPlugin: jobsSeoPagesPlugin explicitly excludes
+ // searchComboPattern from its own tracking, and out-of-range individual pagination
+ // leaves (a canton's page count shrinking build-over-build) get no bridge from
+ // seoHubsPlugin either. Without this exemption isJobPath's skip below makes this
+ // resolver's correct handling for both shapes permanently dead code, and the URL
+ // is left unresolvable (real 404) — see build-plugins/searchConsoleCompat.ts.
+ const isCompatResolvableUnderJobPrefix = (p: string): boolean =>
+ SEARCH_COMBO_SEGMENT_PATTERN.test(p) || JOB_BOARD_PAGINATION_PATTERN.test(p);
  let skippedJobPaths = 0;
  {
  const compatPaths = readCompatPaths(rootDir).paths;
@@ -481,17 +495,41 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
  const from = normalize(String(compatPathRaw || ''));
+ // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always
+ // unconditionally emitted (e.g. an events canton hub only exists when that canton
+ // has an upcoming event THIS build — see fallbackPath doc in searchConsoleCompat.ts).
+ // This plugin runs in closeBundle() AFTER eventsSeoPagesPlugin (vite.config.ts plugin
+ // order), so distDir already reflects this build's real output — verify before
+ // redirecting there, falling back to the resolver-provided fallbackPath (the
+ // Swiss-wide events index, unconditionally emitted whenever any event exists) rather
+ // than pointing a bridge page at another 404. Must run BEFORE the self-reference
+ // check below, mirroring cfHot404BridgePlugin.ts's identical gap-fill: an unresolved
+ // fallback can otherwise land back on `from` itself.
+ let to = resolution.canonicalPath;
+ if (resolution.fallbackPath) {
+ const targetFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ if (!fs.existsSync(targetFile)) {
+ to = resolution.fallbackPath;
+ // The fallback itself is not unconditionally emitted either (e.g. the
+ // Swiss-wide events index is skipped when zero events exist sitewide
+ // this build, not just for one canton) — verify it too, otherwise this
+ // bridges to another 404 (review finding on PR #4252's re-review round).
+ const fallbackFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ if (!fs.existsSync(fallbackFile)) continue;
+ }
+ }
  // Skip self-references (normalize strips trailing slash, canonicalPath may have it)
  const fromNorm = from.replace(/\/+$/, '');
- const toNorm = resolution.canonicalPath.replace(/\/+$/, '');
+ const toNorm = to.replace(/\/+$/, '');
  if (from === '/' || fromNorm === toNorm) continue;
- // Skip job paths — handled by jobsSeoPagesPlugin with enriched content
- if (isJobPath(from)) { skippedJobPaths++; continue; }
+ // Skip job paths — handled by jobsSeoPagesPlugin with enriched content, EXCEPT
+ // search-combo/pagination shapes which no plugin ever bridges (see comment above).
+ if (isJobPath(from) && !isCompatResolvableUnderJobPrefix(from)) { skippedJobPaths++; continue; }
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
  if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
- const html = buildCompatHtml(from, resolution.canonicalPath, resolution.kind);
+ const html = buildCompatHtml(from, to, resolution.kind);
  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
  const flatPath = from.replace(/\/+$/, '');
  if (flatPath) {
