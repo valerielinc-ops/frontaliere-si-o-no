@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-07-15T22:05:50.129Z",
+  "assembledAt": "2026-07-16T11:18:14.719Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -558,7 +558,8 @@
         "fr": [
           "audio-recording-specialist-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (Bertha Certified)",
@@ -631,7 +632,8 @@
       "previousSlugs": [
         "autonomer-fahrzeugfuhrer-bertha-zertifiziert-tsmg-geneva-7972e86b",
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (T1 Certified)",
@@ -1066,7 +1068,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1135,7 +1138,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1204,7 +1208,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1273,7 +1278,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1342,7 +1348,8 @@
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1411,7 +1418,8 @@
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1480,7 +1488,8 @@
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1549,7 +1558,8 @@
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous vehicle Test Operator",
@@ -1676,7 +1686,8 @@
         }
       },
       "postalCode": "9000",
-      "firstSeenAt": "2026-07-06T22:18:11.220Z"
+      "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations)",
@@ -1735,7 +1746,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-07-06T22:18:11.220Z"
+      "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "needsRetranslation": true
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations)",
@@ -2202,7 +2214,8 @@
         ]
       },
       "slugDisambiguator": "c23075ac",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -2311,7 +2324,8 @@
         ]
       },
       "slugDisambiguator": "dfa1adf1",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -2379,7 +2393,8 @@
       },
       "streetAddress": "",
       "postalCode": "9200",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -2447,7 +2462,8 @@
       },
       "streetAddress": "",
       "postalCode": "9000",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -2515,7 +2531,8 @@
       },
       "streetAddress": "",
       "postalCode": "8500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -2610,7 +2627,8 @@
         ]
       },
       "slugDisambiguator": "061cc5b5",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -2705,7 +2723,8 @@
         ]
       },
       "slugDisambiguator": "661cb622",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -2773,7 +2792,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -2841,7 +2861,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -2909,7 +2930,8 @@
       },
       "streetAddress": "",
       "postalCode": "9500",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -2977,7 +2999,8 @@
       },
       "streetAddress": "",
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -3049,7 +3072,8 @@
       },
       "streetAddress": "",
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -3150,7 +3174,8 @@
         ]
       },
       "slugDisambiguator": "677ef911",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -3240,7 +3265,8 @@
       },
       "streetAddress": "",
       "postalCode": "7000",
-      "firstSeenAt": "2026-05-17T11:16:47.206Z"
+      "firstSeenAt": "2026-05-17T11:16:47.206Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -3308,7 +3334,8 @@
       },
       "streetAddress": "",
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -3376,7 +3403,8 @@
       },
       "streetAddress": "",
       "postalCode": "6003",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -3444,7 +3472,8 @@
       },
       "streetAddress": "",
       "postalCode": "8400",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -4226,7 +4255,8 @@
       "previousSlugs": [
         "head-of-autonomous-vehicle-operations-avos-tsmg-zurich-456e5536",
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-zurich-456e5536"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Responsable des opérations véhicules autonomes (AVOS / Autonomous Vehicle Operations Lead)",
@@ -4300,7 +4330,8 @@
       "previousSlugs": [
         "head-of-autonomous-vehicle-operations-avos-tsmg-st-gallen-9c2a0eab",
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-st-gallen-9c2a0eab"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Responsable des opérations véhicules autonomes (AVOS / Autonomous Vehicle Operations Lead)",
@@ -4374,7 +4405,8 @@
       "previousSlugs": [
         "head-of-autonomous-vehicle-operations-avos-tsmg-geneva-aed62f25",
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Responsable des opérations véhicules autonomes (AVOS / Autonomous Vehicle Operations Lead)",
@@ -4448,7 +4480,8 @@
       "previousSlugs": [
         "head-of-autonomous-vehicle-operations-avos-tsmg-bern-e56f2196",
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-bern-e56f2196"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Robotics AI Data Collection Operator",
@@ -5750,7 +5783,8 @@
       },
       "previousSlugs": [
         "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Teleoperations Lead",
@@ -5820,7 +5854,8 @@
       },
       "previousSlugs": [
         "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
