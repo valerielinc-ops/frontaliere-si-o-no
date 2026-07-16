@@ -8557,6 +8557,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-traffico-2024.title': 'Ticino traffic hostage: those who exploit pay',
     'blog.article.ticino-traffico-2024.excerpt': 'Ticino has become one of the main transit corridors in Europe. Congested traffic affects the quality of life and the economy.',
     'blog.article.ticino-traffico-2024.imageAlt': 'Lugano lake in winter',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'The program of Avanti con Ticino&Lavoro is also decided by the people of Ticino',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'The Avanti con Ticino&Lavoro party will submit its 2027-2031 legislative program to the realities of the territory before its final approval.',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panorama of Lugano with the lake in the foreground',
 };
 
 export default blogMetaEn;

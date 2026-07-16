@@ -8558,6 +8558,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-traffico-2024.title': 'Ticino ostaggio del traffico: chi sfrutta paghi',
     'blog.article.ticino-traffico-2024.excerpt': 'Il Ticino è diventato uno dei principali corridoi di transito d\'Europa. Il traffico congestionato incide sulla qualità della vita e sull\'economia.',
     'blog.article.ticino-traffico-2024.imageAlt': 'Lago di Lugano in inverno',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'Il programma di Avanti con Ticino&Lavoro lo decidono anche i ticinesi',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'Il partito Avanti con Ticino&Lavoro sottoporrà il proprio programma di legislatura 2027–2031 alle realtà del territorio prima della sua approvazione definitiva.',
+    'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panoramica di Lugano con il lago in primo piano',
 };
 
 export default blogMetaIt;
