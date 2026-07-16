@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-07-15T22:18:21.329Z",
+  "assembledAt": "2026-07-16T11:23:18.078Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Praktikum-Performance---Marketing-Management_R-0006095",
@@ -48,21 +48,24 @@
       "jobReqId": "R-0006095",
       "id": "swisscom-sede-ticino-34845a3eedb0",
       "previousSlugs": [
-        "internship-performance-marketing-management-swisscom-zurich-drxha9"
+        "internship-performance-marketing-management-swisscom-zurich-drxha9",
+        "gestione-delle-prestazioni-e-del-marketing-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "internship-performance-marketing-management-swisscom-zurich-drxha9",
+          "gestione-delle-prestazioni-e-del-marketing-swisscom-sede-ticino-zurich"
+        ],
+        "en": [
           "internship-performance-marketing-management-swisscom-zurich-drxha9"
         ],
         "fr": [
-          "internship-performance-marketing-management-swisscom-zurich-drxha9"
-        ],
-        "en": [
           "internship-performance-marketing-management-swisscom-zurich-drxha9"
         ]
       },
       "firstSeenAt": "2026-07-15T11:24:09.817Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -125,11 +128,13 @@
       "jobReqId": "R-0006124",
       "id": "swisscom-sede-ticino-32fc4893d660",
       "previousSlugs": [
-        "account-manager-b2b-swisscom-lausanne-drxgpm"
+        "account-manager-b2b-swisscom-lausanne-drxgpm",
+        "area-sales-manager-swisscom-lausanne-drxgpm"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-manager-b2b-swisscom-lausanne-drxgpm"
+          "account-manager-b2b-swisscom-lausanne-drxgpm",
+          "area-sales-manager-swisscom-lausanne-drxgpm"
         ]
       },
       "firstSeenAt": "2026-07-14T22:06:22.673Z",
@@ -148,7 +153,8 @@
         }
       },
       "addressRegion": "VD",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Escalation-Manager-Operation-Control-Center_R-0004579-1",
@@ -198,12 +204,14 @@
       "previousSlugs": [
         "escalation-manager-operation-control-center-swisscom-bern-6d9h79",
         "centre-de-controle-d-exploitation-du-gestionnaire-d-escalation-swisscom-sede-ticino-bern",
-        "escalation-manager-operation-control-center-swisscom-bern-rp5mxc"
+        "escalation-manager-operation-control-center-swisscom-bern-rp5mxc",
+        "centro-di-controllo-operativo-del-responsabile-dell-escalation-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "escalation-manager-operation-control-center-swisscom-bern-6d9h79",
-          "escalation-manager-operation-control-center-swisscom-bern-rp5mxc"
+          "escalation-manager-operation-control-center-swisscom-bern-rp5mxc",
+          "centro-di-controllo-operativo-del-responsabile-dell-escalation-swisscom-sede-ticino-bern"
         ],
         "en": [
           "escalation-manager-operation-control-center-swisscom-bern-6d9h79"
@@ -277,11 +285,13 @@
       "jobReqId": "R-0005812",
       "id": "swisscom-sede-ticino-0744e67c629e",
       "previousSlugs": [
-        "solution-manager-iam-swisscom-bern-r6klv3"
+        "solution-manager-iam-swisscom-bern-r6klv3",
+        "gestione-soluzioni-iam-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "solution-manager-iam-swisscom-bern-r6klv3"
+          "solution-manager-iam-swisscom-bern-r6klv3",
+          "gestione-soluzioni-iam-swisscom-sede-ticino-bern"
         ],
         "en": [
           "solution-manager-iam-swisscom-bern-r6klv3"
@@ -292,6 +302,7 @@
       },
       "firstSeenAt": "2026-07-13T12:33:50.983Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -302,82 +313,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE",
-      "addressCountry": "CH"
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-esBill_R-0005887",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-esBill_R-0005887",
-      "title": "DevOps Engineer esBill",
-      "company": "Swisscom (sede Ticino)",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "# DevOps Engineer esBill\n\n## Il tuo futuro inizia qui\nDu leistest einen spürbaren Beitrag zur Entwicklung und zum Betrieb unserer Applikation esBill. Wir sind ein DevOps-Team mit Mitarbeitenden in der Schweiz, in unserem DevOps Center in Rotterdam sowie mit Mitarbeitenden der externen Firma Adesso. Gemeinsam schaffen wir für unsere Kundschaft Mehrwert durch Teamarbeit, Fachwissen und eine agile Arbeitsweise. Qualität, Verantwortung und klare Kommunikation prägen unsere Zusammenarbeit. Dich erwartet ein eingespieltes Team mit gutem Teamgeist und hilfsbereiten Mitarbeitenden.\n- Du entwickelst und betreibst esBill und stellst Wirtschaftlichkeit, Qualität und Wartbarkeit sicher\n- Du behältst den Überblick über den ganzen Prozess von Entwicklung bis Betrieb\n- Du setzt Lösungen rund um esBill um und dokumentierst sie\n- Du arbeitest standortübergreifend mit dem Team in der Schweiz und in Rotterdam sowie mit der externen Firma Adesso zusammen\n\n## Deine Skills\n- Abschluss (ETH/Uni/FH/HF) in Informatik oder in einer ähnlichen Fachrichtung\n- Erfahrung mit relationalen Datenbanken, z. B. PostgreSQL\n- Mehrjährige Erfahrung im DevOps-Umfeld mit Java\n- Erfahrung mit hybriden Infrastrukturen\n- Du denkst konzeptionell und bewahrst in hektischen Situationen die Ruhe\n- Du bist engagiert, neugierig und lernbereit und hast einen hohen Qualitätsanspruch\n- Du hast Freude an Teamarbeit und kommunizierst klar und offen\n- Du bist bereit für Einsätze ausserhalb der üblichen Arbeitszeit und für sporadischen Pikettdienst und verfügst über gute Englischkenntnisse\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Entdecke deine Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "# DevOps Engineer esBill ## Il tuo futuro inizia Si contribuisce significativamente allo sviluppo e al funzionamento della nostra applicazione esBill. Siamo un team DevOps con dipendenti in Svizzera, nel nostro DevOps Center di Rotterdam e con dipendenti della società esterna Adesso. Insieme, creiamo valore aggiunto per i nostri clienti attraverso il lavoro di squadra, la competenza e un modo agile di lavorare. Qualità, responsabilità e comunicazione chiara caratterizzano la nostra cooperazione. Ci si può aspettare un team esperto con buon spirito di squadra e dipendenti utili. - Sviluppi e gestisciloBill e assicurati efficienza, qualità e manutenbilità - Tieni traccia dell'intero processo dallo sviluppo al funzionamento - Si implementano soluzioni intorno esBill e li documentano - Lavori in diverse località con il team in Svizzera e Rotterdam e con la società esterna Adesso ## Le tue competenze - Laurea (ETH/Uni/FH/HF) in informatica o in una disciplina simile - Esperienza con database relazionali, come PostgreSQL - Diversi anni di esperienza nell'ambiente DevOps con Java - Esperienza con infrastrutture ibride - Pensi concettualmente e mantieni la calma nelle situazioni frenetiche - Sei impegnato, curioso e disposto ad imparare e avere uno standard di alta qualità - Vi piace il lavoro di squadra e comunicare chiaramente e apertamente - Siete pronti per le assegnazioni al di fuori delle ore di lavoro abituali e per il piketting sporadico e hanno buone abilità inglesi Con noi avete la possibilità di lavorare in uno dei nostri uffici in Svizzera o in ufficio. Verrete a contatto con metodi di lavoro agili e le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza lavorativa. Questo include un ambiente di lavoro piacevole, benefici finanziari e interessanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi. ## E' compatibile? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum manda dalle agenzie. Vi chiediamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a un curriculum non richiesto. ## Persona di contatto ## La tua base operativa",
-        "en": "# DevOps Engineer esBill ## Il tuo futuro inizia You make a significant contribution to the development and operation of our esBill application. We are a DevOps team with employees in Switzerland, in our DevOps Center in Rotterdam and with employees of the external company Adesso. Together, we create added value for our customers through teamwork, expertise and an agile way of working. Quality, responsibility and clear communication characterise our cooperation. You can expect an experienced team with good team spirit and helpful employees. - You develop and operate itBill and ensure efficiency, quality and maintainability - You keep track of the whole process from development to operation - You implement solutions around esBill and document them - You work across locations with the team in Switzerland and Rotterdam as well as with the external company Adesso ## Your skills - Degree (ETH/Uni/FH/HF) in computer science or in a similar discipline - Experience with relational databases, such as PostgreSQL - Several years of experience in the DevOps environment with Java - Experience with hybrid infrastructures - You think conceptually and keep calm in hectic situations - You are committed, curious and willing to learn and have a high quality standard - You enjoy teamwork and communicate clearly and openly - You are ready for assignments outside the usual working hours and for sporadic piketting and have good English skills With us you have the opportunity to work in one of our offices in Switzerland or in the home office. You will come into contact with agile working methods and the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. This includes a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "de": "# DevOps Engineer esBill ## Il tuo futuro inizia qui Du leistest einen spürbaren Beitrag zur Entwicklung und zum Betrieb unserer Applikation esBill. Wir sind ein DevOps-Team mit Mitarbeitenden in der Schweiz, in unserem DevOps Center in Rotterdam sowie mit Mitarbeitenden der externen Firma Adesso. Gemeinsam schaffen wir für unsere Kundschaft Mehrwert durch Teamarbeit, Fachwissen und eine agile Arbeitsweise. Qualität, Verantwortung und klare Kommunikation prägen unsere Zusammenarbeit. Dich erwartet ein eingespieltes Team mit gutem Teamgeist und hilfsbereiten Mitarbeitenden. - Du entwickelst und betreibst esBill und stellst Wirtschaftlichkeit, Qualität und Wartbarkeit sicher - Du behältst den Überblick über den ganzen Prozess von Entwicklung bis Betrieb - Du setzt Lösungen rund um esBill um und dokumentierst sie - Du arbeitest standortübergreifend mit dem Team in der Schweiz und in Rotterdam sowie mit der externen Firma Adesso zusammen ## Deine Skills - Abschluss (ETH/Uni/FH/HF) in Informatik oder in einer ähnlichen Fachrichtung - Erfahrung mit relationalen Datenbanken, z. B. PostgreSQL - Mehrjährige Erfahrung im DevOps-Umfeld mit Java - Erfahrung mit hybriden Infrastrukturen - Du denkst konzeptionell und bewahrst in hektischen Situationen die Ruhe - Du bist engagiert, neugierig und lernbereit und hast einen hohen Qualitätsanspruch - Du hast Freude an Teamarbeit und kommunizierst klar und offen - Du bist bereit für Einsätze ausserhalb der üblichen Arbeitszeit und für sporadischen Pikettdienst und verfügst über gute Englischkenntnisse Bei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Entdecke deine Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "fr": "# Ingénieur DevOps esBill ## Il tuo futuro inizia Vous contribuez de manière significative au développement et au fonctionnement de notre application esBill. Nous sommes une équipe DevOps avec des employés en Suisse, dans notre DevOps Center à Rotterdam et avec des employés de l'entreprise externe Adesso. Ensemble, nous créons une valeur ajoutée pour nos clients par le travail d'équipe, l'expertise et une façon agile de travailler. La qualité, la responsabilité et la communication claire caractérisent notre coopération. Vous pouvez vous attendre à une équipe expérimentée avec un bon esprit d'équipe et des employés serviables. - Vous développez et exploitez Bill et assurez l'efficacité, la qualité et la maintenance - Vous gardez la trace de tout le processus du développement à l'exploitation - Vous implémentez des solutions autour d'esBill et les documentez - Vous travaillez à travers des sites avec l'équipe en Suisse et Rotterdam ainsi qu'avec la société externe Adesso ##\n• Vos compétences - Diplôme (ETH/Uni/FH/HF) en informatique ou dans une discipline similaire - Expérience des bases de données relationnelles, comme PostgreSQL - Plusieurs années d'expérience dans l'environnement DevOps avec Java - Expérience des infrastructures hybrides - Vous pensez conceptuellement et restez calme dans des situations agitées - Vous êtes engagé, curieux et prêt à apprendre et avez un niveau de qualité élevé - Vous aimez le travail d'équipe et communiquer clairement et ouvertement - Vous êtes prêt pour des affectations en dehors des heures de travail habituelles et pour des randonnées sporadiques et avez de bonnes compétences en anglais Avec nous, vous avez l'occasion de travailler dans l'un de nos bureaux en Suisse ou à domicile. Vous entrerez en contact avec les méthodes de travail agiles et les dernières technologies.\n• Nous offrons des horaires de travail flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Cela comprend un environnement de travail agréable, des avantages financiers et des possibilités intéressantes de perfectionnement professionnel. Découvrez vos avantages. ## C'est une correspondance ? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande ? Qui Troverai risposte alle domande più importanti e frendi. A tutte le agenzie di reclutamamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventi spese legate a curriculum non richiesti. ## Personnes ## La tua base opérativa"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "titleByLocale": {
-        "it": "DevOps Ingegnere esBill",
-        "en": "DevOps Engineer esBill",
-        "de": "DevOps Ingenieur esBill",
-        "fr": "DevOps Ingénieur esBill"
-      },
-      "slug": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
-      "slugByLocale": {
-        "it": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
-        "en": "devops-engineer-esbill-swisscom-sede-ticino-bern",
-        "de": "devops-engineer-esbill-swisscom-bern-sdfnw0",
-        "fr": "devops-engineer-esbill-swisscom-bern-sdfnw0"
-      },
-      "category": "technology",
-      "datePosted": "2026-06-29",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "sourceLang": "de",
-      "jobReqId": "R-0005887",
-      "id": "swisscom-sede-ticino-690bcfc4f296",
-      "previousSlugs": [
-        "devops-engineer-esbill-swisscom-bern-sdfnw0",
-        "devops-engineer-esbill-swisscom-bern-drxyd1"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-esbill-swisscom-bern-sdfnw0",
-          "devops-engineer-esbill-swisscom-bern-drxyd1"
-        ],
-        "en": [
-          "devops-engineer-esbill-swisscom-bern-sdfnw0"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T14:09:44.850Z",
-      "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -433,12 +368,14 @@
         "data-platform-engineer-swisscom-bern-r9srzr",
         "data-platform-engineer-swisscom-sede-ticino-bern",
         "devops-engineer-data-platform-swisscom-bern-r9srzr",
-        "devops-engineer-data-platform-swisscom-sede-ticino-bern"
+        "devops-engineer-data-platform-swisscom-sede-ticino-bern",
+        "data-platform-ingegnere-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-platform-engineer-swisscom-bern-r9srzr",
-          "devops-engineer-data-platform-swisscom-bern-r9srzr"
+          "devops-engineer-data-platform-swisscom-bern-r9srzr",
+          "data-platform-ingegnere-swisscom-sede-ticino-bern"
         ],
         "en": [
           "data-platform-engineer-swisscom-bern-r9srzr",
@@ -514,11 +451,13 @@
       "id": "swisscom-sede-ticino-9d99bfa9b385",
       "previousSlugs": [
         "devops-engineer-swisscom-sede-ticino-bern",
-        "devops-engineer-swisscom-bern-drxyjx"
+        "devops-engineer-swisscom-bern-drxyjx",
+        "devops-ingegnere-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-swisscom-bern-drxyjx"
+          "devops-engineer-swisscom-bern-drxyjx",
+          "devops-ingegnere-swisscom-sede-ticino-bern"
         ],
         "en": [
           "devops-engineer-swisscom-sede-ticino-bern"
@@ -532,6 +471,7 @@
       },
       "firstSeenAt": "2026-07-10T10:23:46.957Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -594,11 +534,13 @@
       "jobReqId": "R-0005846",
       "id": "swisscom-sede-ticino-81f7f6b0dc06",
       "previousSlugs": [
-        "servicenow-consultant-swisscom-zurich-drxygi"
+        "servicenow-consultant-swisscom-zurich-drxygi",
+        "servicenow-consulente-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-consultant-swisscom-zurich-drxygi"
+          "servicenow-consultant-swisscom-zurich-drxygi",
+          "servicenow-consulente-swisscom-sede-ticino-zurich"
         ],
         "en": [
           "servicenow-consultant-swisscom-zurich-drxygi"
@@ -674,11 +616,13 @@
       "jobReqId": "R-0005800",
       "id": "swisscom-sede-ticino-5110a1e23db2",
       "previousSlugs": [
-        "devops-engineer-ddi-services-swisscom-bern-drxyk4"
+        "devops-engineer-ddi-services-swisscom-bern-drxyk4",
+        "devops-ingegnere-ddi-services-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-ddi-services-swisscom-bern-drxyk4"
+          "devops-engineer-ddi-services-swisscom-bern-drxyk4",
+          "devops-ingegnere-ddi-services-swisscom-sede-ticino-bern"
         ],
         "en": [
           "devops-engineer-ddi-services-swisscom-bern-drxyk4"
@@ -755,12 +699,14 @@
       "id": "swisscom-sede-ticino-d563d0cd5961",
       "previousSlugs": [
         "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9",
-        "devops-engineer-cloud-solutions-swisscom-zurich-r9sp0z"
+        "devops-engineer-cloud-solutions-swisscom-zurich-r9sp0z",
+        "devops-ingegnere-bca-cloud-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9",
-          "devops-engineer-cloud-solutions-swisscom-zurich-r9sp0z"
+          "devops-engineer-cloud-solutions-swisscom-zurich-r9sp0z",
+          "devops-ingegnere-bca-cloud-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9"
@@ -817,7 +763,7 @@
         "it": "controller-aziendale-senior-swisscom-sede-ticino-bern",
         "en": "senior-business-controller-swisscom-bern-drxhi4",
         "de": "senior-business-controller-swisscom-bern-drxhi4",
-        "fr": "controleur-principal-des-entreprises-swisscom-sede-ticino-bern"
+        "fr": "senior-business-controller-swisscom-sede-ticino-bern"
       },
       "category": "finance",
       "datePosted": "2026-06-30",
@@ -834,18 +780,23 @@
       "id": "swisscom-sede-ticino-513763d405fd",
       "previousSlugs": [
         "senior-business-controller-swisscom-bern-drxhi4",
+        "controleur-principal-des-entreprises-swisscom-sede-ticino-bern",
+        "controller-aziendale-senior-swisscom-sede-ticino-bern",
         "senior-business-controller-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-controller-swisscom-bern-drxhi4"
+          "senior-business-controller-swisscom-bern-drxhi4",
+          "controller-aziendale-senior-swisscom-sede-ticino-bern"
         ],
         "fr": [
+          "controleur-principal-des-entreprises-swisscom-sede-ticino-bern",
           "senior-business-controller-swisscom-sede-ticino-bern"
         ]
       },
       "firstSeenAt": "2026-06-30T23:28:29.592Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 175000,
       "salaryMax": 307500,
       "currency": "CHF",
@@ -910,12 +861,14 @@
       "previousSlugs": [
         "internship-it-audit-swisscom-bern-u408v8",
         "verification-informatique-des-stages-swisscom-sede-ticino-bern",
-        "internship-it-audit-swisscom-bern-drym44"
+        "internship-it-audit-swisscom-bern-drym44",
+        "tirocinio-in-audit-it-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "internship-it-audit-swisscom-bern-u408v8",
-          "internship-it-audit-swisscom-bern-drym44"
+          "internship-it-audit-swisscom-bern-drym44",
+          "tirocinio-in-audit-it-swisscom-sede-ticino-bern"
         ],
         "en": [
           "internship-it-audit-swisscom-bern-u408v8"
@@ -990,12 +943,14 @@
       "id": "swisscom-sede-ticino-e86555e3b270",
       "previousSlugs": [
         "solution-sales-b2b-swisscom-zurich-7ixo0n",
-        "solution-sales-b2b-swisscom-zurich-drxzti"
+        "solution-sales-b2b-swisscom-zurich-drxzti",
+        "soluzione-vendite-b2b-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "solution-sales-b2b-swisscom-zurich-7ixo0n",
-          "solution-sales-b2b-swisscom-zurich-drxzti"
+          "solution-sales-b2b-swisscom-zurich-drxzti",
+          "soluzione-vendite-b2b-swisscom-sede-ticino-zurich"
         ],
         "en": [
           "solution-sales-b2b-swisscom-zurich-7ixo0n"
@@ -1006,6 +961,7 @@
       },
       "firstSeenAt": "2026-06-05T22:58:54.516Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
@@ -1071,12 +1027,14 @@
         "senior-sap-technology-consultant-swisscom-zurich-6txn43",
         "senior-sap-solution-architetto-swisscom-sede-ticino-zurich",
         "senior-sap-solution-architect-swisscom-zurich-r8r4ib",
-        "senior-sap-technology-berater-swisscom-sede-ticino-zurich"
+        "senior-sap-technology-berater-swisscom-sede-ticino-zurich",
+        "senior-sap-technology-consulente-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sap-technology-consultant-swisscom-zurich-6txn43",
-          "senior-sap-solution-architect-swisscom-zurich-r8r4ib"
+          "senior-sap-solution-architect-swisscom-zurich-r8r4ib",
+          "senior-sap-technology-consulente-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-sap-technology-consultant-swisscom-zurich-6txn43",
@@ -1085,6 +1043,7 @@
       },
       "firstSeenAt": "2026-05-29T00:55:24.315Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1148,12 +1107,14 @@
       "id": "swisscom-sede-ticino-2c4cb48dc018",
       "previousSlugs": [
         "devops-engineer-pam-pki-swisscom-bern-jdh6dq",
-        "devops-engineer-pam-swisscom-bern-dry2yh"
+        "devops-engineer-pam-swisscom-bern-dry2yh",
+        "devops-ingegnere-pam-pki-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-pam-pki-swisscom-bern-jdh6dq",
-          "devops-engineer-pam-swisscom-bern-dry2yh"
+          "devops-engineer-pam-swisscom-bern-dry2yh",
+          "devops-ingegnere-pam-pki-swisscom-sede-ticino-bern"
         ],
         "de": [
           "devops-engineer-pam-pki-swisscom-bern-jdh6dq"
@@ -1164,6 +1125,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1230,12 +1192,14 @@
         "devops-engineer-swisscom-bern-manv40",
         "devops-ingegnere-swisscom-sede-ticino-bern",
         "devops-engineer-swisscom-bern-r9vbxv",
-        "devops-engineer-swisscom-sede-ticino-bern"
+        "devops-engineer-swisscom-sede-ticino-bern",
+        "devops-ingegnere-swisscom-sede-ticino-bern-d524ff"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-swisscom-bern-on9t50",
-          "devops-engineer-swisscom-bern-r9vbxv"
+          "devops-engineer-swisscom-bern-r9vbxv",
+          "devops-ingegnere-swisscom-sede-ticino-bern-d524ff"
         ],
         "en": [
           "devops-engineer-swisscom-sede-ticino-bern"
@@ -1312,12 +1276,14 @@
       "id": "swisscom-sede-ticino-95152c492865",
       "previousSlugs": [
         "system-architect-ansible-swisscom-bern-5dk2mo",
-        "system-architect-ansible-swisscom-bern-dry0qc"
+        "system-architect-ansible-swisscom-bern-dry0qc",
+        "system-architetto-ansible-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-architect-ansible-swisscom-bern-5dk2mo",
-          "system-architect-ansible-swisscom-bern-dry0qc"
+          "system-architect-ansible-swisscom-bern-dry0qc",
+          "system-architetto-ansible-swisscom-sede-ticino-bern"
         ],
         "fr": [
           "system-architect-ansible-swisscom-bern-5dk2mo"
@@ -1325,6 +1291,7 @@
       },
       "firstSeenAt": "2026-05-13T23:10:51.072Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1389,12 +1356,14 @@
       "previousSlugs": [
         "devops-engineer-pki-swisscom-bern-7g85ru",
         "devops-ingenieur-pki-swisscom-sede-ticino-bern",
-        "devops-engineer-pki-swisscom-bern-dry0qa"
+        "devops-engineer-pki-swisscom-bern-dry0qa",
+        "devops-ingegnere-pki-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-pki-swisscom-bern-7g85ru",
-          "devops-engineer-pki-swisscom-bern-dry0qa"
+          "devops-engineer-pki-swisscom-bern-dry0qa",
+          "devops-ingegnere-pki-swisscom-sede-ticino-bern"
         ],
         "fr": [
           "devops-ingenieur-pki-swisscom-sede-ticino-bern"
@@ -1402,6 +1371,7 @@
       },
       "firstSeenAt": "2026-05-13T23:10:51.072Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1465,99 +1435,17 @@
       "id": "swisscom-sede-ticino-79a60d7c9894",
       "previousSlugs": [
         "product-owner-kubernetes-platform-swisscom-zurich-1pni4g",
-        "technical-product-owner-kubernetes-platform-swisscom-zurich-dry3p6"
+        "technical-product-owner-kubernetes-platform-swisscom-zurich-dry3p6",
+        "proprietario-del-prodotto-piattaforma-kubernetes-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-owner-kubernetes-platform-swisscom-zurich-1pni4g",
-          "technical-product-owner-kubernetes-platform-swisscom-zurich-dry3p6"
+          "technical-product-owner-kubernetes-platform-swisscom-zurich-dry3p6",
+          "proprietario-del-prodotto-piattaforma-kubernetes-swisscom-sede-ticino-zurich"
         ]
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
-      "crawledAt": "",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "addressCountry": "CH"
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner-OpenShift_R-0005125",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner-OpenShift_R-0005125",
-      "title": "Technical Product Owner OpenShift",
-      "company": "Swisscom (sede Ticino)",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "description": "# Technical Product Owner OpenShift\n\n## Il tuo futuro inizia qui\nDu verantwortest die OpenShift-Plattform und die dazugehörigen Services über den gesamten Lifecycle. Gemeinsam mit dem Team sowie dem Product Management legst du Vision und Roadmap fest, priorisierst das Product Backlog und treibst die Umsetzung voran. Dabei nutzt du klare Prozesse sowie agile Methoden. So entwickelst du die Plattform mittels DevOps Praktiken kontinuierlich weiter und sorgst für Stabilität, Sicherheit und Effizienz.\nHighlights der Stelle\n- Verantwortung über den gesamten Lifecycle von Vision bis Betrieb und Optimierung\n- Kombination aus Product Ownership und Mitarbeit in der Umsetzung mit dem Team\n- Enge Zusammenarbeit mit internen Stakeholdern, der Kundschaft der Plattform und weiteren Product Ownern\n- Nutzung moderner Methoden und Automatisierung im Red‑Hat‑ und CNCF‑Ökosystem (z. B. Operators, ArgoCD, Prometheus)\n- Wirkung mit grossem Gestaltungsspielraum in einem motivierten Team\n\nDeine Skills – Fachlich\n- Abschluss (Uni/FH/HF) in Informatik oder Betriebswirtschaft oder gleichwertiger Abschluss\n- Erfahrung als Product Owner, Service Owner oder in einer vergleichbaren Rolle in einem technischen Umfeld\n- Praxis im Plattformbetrieb und in Container-Orchestrierung, idealerweise mit OpenShift\n- Fähigkeit, technische und fachliche Anforderungen zu verbinden und priorisiert umzusetzen\n\nDeine Skills – Persönlich und Sprachen\n- Ausgeprägte Kommunikations- und Koordinationsfähigkeiten sowie Freude an Zusammenarbeit\n- Eigenverantwortlich, strukturiert und zuverlässig\n- Du leistest Pikettdienst und hast Wohnsitz in der Schweiz\n- Sehr gutes Deutsch und Englisch; weitere Landessprachen von Vorteil\n\nBei uns hast du die Möglichkeit, im Office in Zürich und bis zu drei Tage pro Woche im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "Titolare del prodotto tecnico OpenShift Il tuo futuro inizia qui Sei responsabile della piattaforma OpenShift e dei servizi correlati durante il ciclo di vita. Insieme con il team e la gestione dei prodotti, definisci la visione e la roadmap, priorità backlog del prodotto e implementazione del drive. Si utilizzano processi chiari e metodi agili. Questo consente di sviluppare continuamente la piattaforma utilizzando le pratiche di DevOp e garantire stabilità, sicurezza ed efficienza. In evidenza del luogo - Responsabilità sull'intero ciclo di vita dalla visione al funzionamento e all'ottimizzazione - Combinazione di Product Ownership e collaborazione in implementazione con il team - Una stretta collaborazione con gli stakeholder interni, i clienti delle piattaforme e altri proprietari di prodotti - Utilizzo di metodi e automazione moderni nell'ecosistema Red-Hat e CNCF (ad esempio operatori, ArgoCD, Prometheus) - Effetto con grande sala giochi di design in un team motivato Le tue abilità – Professional - completamento (unità/FH/HF) in scienze informatiche o in grado equivalente - Esperienza come Product Owner, Service Owner o in un ruolo paragonabile in un ambiente tecnico - Pratica nel funzionamento della piattaforma e nell'orchestrazione dei container, idealmente con OpenShift - capacità di combinare e priorità requisiti tecnici e tecnici Le tue competenze – Personale e Lingue - Capacità di comunicazione e coordinamento pressate e gioia nella cooperazione - responsabilità propria, strutturata e affidabile - Siete un servizio piquet e siete residenti in Svizzera - Molto buono tedesco e inglese; altre lingue nazionali di vantaggio Con noi avete la possibilità di lavorare in ufficio a Zurigo e fino a tre giorni alla settimana in ufficio. Ti metterai in contatto con metodi di lavoro agili e le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza di lavoro. Questi includono un ambiente di lavoro piacevole, vantaggi finanziari e interessanti opportunità di sviluppo professionale. Benefici. E' compatibile?",
-        "en": "Technical Product Owner OpenShift Il tuo futuro inizia qui You are responsible for the OpenShift platform and related services throughout the lifecycle. Together with the team and product management, you define vision and roadmap, prioritize product backlog and drive implementation. You use clear processes and agile methods. This allows you to continuously develop the platform using DevOp's practices and ensure stability, security and efficiency. Highlights of the place - Responsibility over the entire lifecycle from vision to operation and optimization - Combination of Product Ownership and collaboration in implementation with the team - Close cooperation with internal stakeholders, platform customers and other product owners - Use of modern methods and automation in the Red-Hat and CNCF ecosystem (e.g. operators, ArgoCD, Prometheus) - Effect with great design playroom in a motivated team Your Skills – Professional - completion (uni/FH/HF) in computer science or business or equivalent degree - Experience as Product Owner, Service Owner or in a comparable role in a technical environment - Practice in platform operation and in container orchestration, ideally with OpenShift - ability to combine and prioritize technical and technical requirements Your Skills – Personal and Languages - Impressed communication and coordination skills and joy in cooperation - Own responsibility, structured and reliable - You are a piquet service and you are a resident of Switzerland - Very good German and English; other national languages of advantage With us you have the opportunity to work at the office in Zurich and up to three days a week at home office. You will get in touch with agile working methods and the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. These include a pleasant working environment, financial advantages and exciting opportunities for professional development. Benefits. Is it a match?",
-        "de": "# Technical Product Owner OpenShift ## Il tuo futuro inizia qui Du verantwortest die OpenShift-Plattform und die dazugehörigen Services über den gesamten Lifecycle. Gemeinsam mit dem Team sowie dem Product Management legst du Vision und Roadmap fest, priorisierst das Product Backlog und treibst die Umsetzung voran. Dabei nutzt du klare Prozesse sowie agile Methoden. So entwickelst du die Plattform mittels DevOps Praktiken kontinuierlich weiter und sorgst für Stabilität, Sicherheit und Effizienz. Highlights der Stelle - Verantwortung über den gesamten Lifecycle von Vision bis Betrieb und Optimierung - Kombination aus Product Ownership und Mitarbeit in der Umsetzung mit dem Team - Enge Zusammenarbeit mit internen Stakeholdern, der Kundschaft der Plattform und weiteren Product Ownern - Nutzung moderner Methoden und Automatisierung im Red‑Hat‑ und CNCF‑Ökosystem (z. B. Operators, ArgoCD, Prometheus) - Wirkung mit grossem Gestaltungsspielraum in einem motivierten Team Deine Skills – Fachlich - Abschluss (Uni/FH/HF) in Informatik oder Betriebswirtschaft oder gleichwertiger Abschluss - Erfahrung als Product Owner, Service Owner oder in einer vergleichbaren Rolle in einem technischen Umfeld - Praxis im Plattformbetrieb und in Container-Orchestrierung, idealerweise mit OpenShift - Fähigkeit, technische und fachliche\n• Anforderungen zu verbinden und priorisiert umzusetzen Deine Skills – Persönlich und Sprachen - Ausgeprägte Kommunikations- und Koordinationsfähigkeiten sowie Freude an Zusammenarbeit - Eigenverantwortlich, strukturiert und zuverlässig - Du leistest Pikettdienst und hast Wohnsitz in der Schweiz - Sehr gutes Deutsch und Englisch; weitere Landessprachen von Vorteil Bei uns hast du die Möglichkeit, im Office in Zürich und bis zu drei Tage pro Woche im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "fr": "Propriétaire du produit technique OpenShift Il tuo futuro inizia qui Vous êtes responsable de la plateforme OpenShift et des services connexes tout au long du cycle de vie. Avec l'équipe et la gestion des produits, vous définissez la vision et la feuille de route, priorisez l'arriéré de produits et dirigez la mise en œuvre. Vous utilisez des processus clairs et des méthodes agiles. Cela vous permet de développer continuellement la plateforme en utilisant les pratiques de DevOp et d'assurer la stabilité, la sécurité et l'efficacité. Faits saillants de l'endroit - Responsabilité sur l'ensemble du cycle de vie de la vision à l'exploitation et l'optimisation - Combinaison de la propriété du produit et collaboration avec l'équipe - Coopération étroite avec les intervenants internes, les clients des plateformes et les autres propriétaires de produits - Utilisation de méthodes modernes et d'automatisation dans l'écosystème Red-Hat et CNCF (par exemple opérateurs, ArgoCD, Prométhée) - Effet avec grande salle de jeu design dans une équipe motivée\n• Vos compétences – Professionnel - achèvement (uni/FH/HF) en informatique ou en affaires ou diplôme équivalent - Expérience en tant que propriétaire de produit, propriétaire de service ou dans un rôle comparable dans un environnement technique - Pratique dans le fonctionnement de la plate-forme et dans l'orchestration de conteneurs, idéalement avec OpenShift - capacité de combiner et de hiérarchiser les exigences techniques\n• Vos compétences – Personnel et langues - Capacités de communication et de coordination réduites et joie dans la coopération - Responsabilité propre, structurée et fiable - Vous êtes un service de piquet et vous êtes un résident de Suisse - Très bon allemand et anglais; autres langues nationales d'intérêt Avec nous, vous avez la possibilité de travailler au bureau de Zurich et jusqu'à trois jours par semaine au bureau à domicile. Vous serez en contact avec les méthodes de travail agiles et les dernières technologies.\n• Nous offrons des horaires flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Il s'agit notamment d'un environnement de travail agréable, d'avantages financiers et de possibilités intéressantes de perfectionnement professionnel. Avantages. C'est une correspondance ?"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "titleByLocale": {
-        "it": "Titolare del prodotto tecnico OpenShift",
-        "en": "Technical Product Owner OpenShift",
-        "de": "Technischer Eigentümer OpenShift",
-        "fr": "Propriétaire du produit technique OpenShift"
-      },
-      "slug": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
-      "slugByLocale": {
-        "it": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
-        "en": "technical-product-owner-openshift-swisscom-sede-ticino-zurich",
-        "de": "technical-product-owner-openshift-swisscom-zurich-s7ze68",
-        "fr": "proprietaire-du-produit-technique-openshift-swisscom-sede-ticino-zurich"
-      },
-      "category": "production",
-      "datePosted": "2026-05-12",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "sourceLang": "de",
-      "jobReqId": "R-0005125",
-      "id": "swisscom-sede-ticino-df7c22d95521",
-      "previousSlugs": [
-        "product-owner-openshift-swisscom-sede-ticino-zurich",
-        "technical-product-owner-openshift-swisscom-zurich-s7ze68",
-        "technischer-eigentumer-openshift-swisscom-sede-ticino-zurich",
-        "proprietario-del-prodotto-openshift-swisscom-sede-ticino-zurich",
-        "product-owner-openshift-swisscom-zurich-s7ze68",
-        "technical-product-owner-openshift-swisscom-zurich-dry3p4"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-owner-openshift-swisscom-sede-ticino-zurich",
-          "technical-product-owner-openshift-swisscom-zurich-s7ze68",
-          "technical-product-owner-openshift-swisscom-zurich-dry3p4"
-        ],
-        "de": [
-          "technischer-eigentumer-openshift-swisscom-sede-ticino-zurich"
-        ],
-        "fr": [
-          "technical-product-owner-openshift-swisscom-zurich-s7ze68"
-        ]
-      },
-      "firstSeenAt": "2026-05-12T23:06:10.710Z",
       "crawledAt": "",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1639,6 +1527,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1722,12 +1611,14 @@
       "previousSlugs": [
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo",
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-dry26r",
-        "servicenow-business-senior-consultant-swisscom-sede-ticino-geneva-geneve"
+        "servicenow-business-senior-consultant-swisscom-sede-ticino-geneva-geneve",
+        "servicenow-business-senior-consulente-swisscom-sede-ticino-geneva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo",
-          "servicenow-business-senior-consultant-swisscom-geneva-geneve-dry26r"
+          "servicenow-business-senior-consultant-swisscom-geneva-geneve-dry26r",
+          "servicenow-business-senior-consulente-swisscom-sede-ticino-geneva-geneve"
         ],
         "en": [
           "servicenow-business-senior-consultant-swisscom-sede-ticino-geneva-geneve"
@@ -1741,6 +1632,7 @@
       },
       "firstSeenAt": "2026-05-17T11:13:08.028Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1804,12 +1696,14 @@
       "id": "swisscom-sede-ticino-4b78d6f21241",
       "previousSlugs": [
         "devops-engineer-microsoft-swisscom-bern-9zsbj8",
-        "devops-engineer-microsoft-swisscom-bern-dry2t8"
+        "devops-engineer-microsoft-swisscom-bern-dry2t8",
+        "devops-ingegnere-microsoft-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-microsoft-swisscom-bern-9zsbj8",
-          "devops-engineer-microsoft-swisscom-bern-dry2t8"
+          "devops-engineer-microsoft-swisscom-bern-dry2t8",
+          "devops-ingegnere-microsoft-swisscom-sede-ticino-bern"
         ]
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
@@ -1877,16 +1771,19 @@
       "id": "swisscom-sede-ticino-c60ec9dc9849",
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej",
-        "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j"
+        "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j",
+        "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej",
-          "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j"
+          "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j",
+          "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
         ]
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1951,13 +1848,15 @@
       "previousSlugs": [
         "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29",
         "consulente-senior-avaloq-credito-esperto-swisscom-sede-ticino-zurich",
-        "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh"
+        "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh",
+        "senior-avaloq-consulente-expert-credit-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29",
           "consulente-senior-avaloq-credito-esperto-swisscom-sede-ticino-zurich",
-          "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh"
+          "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh",
+          "senior-avaloq-consulente-expert-credit-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29"
@@ -1979,7 +1878,8 @@
         }
       },
       "addressRegion": "ZH",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/SAP-Senior-Business-Consultant-Manufacturing_R-0000213",
@@ -2028,12 +1928,14 @@
       "id": "swisscom-sede-ticino-4088fe2174e3",
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m",
-        "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz"
+        "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz",
+        "senior-consulente-sap-for-utilities-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m",
-          "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz"
+          "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz",
+          "senior-consulente-sap-for-utilities-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
@@ -2044,6 +1946,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -2059,6 +1962,168 @@
       },
       "addressRegion": "ZH",
       "addressCountry": "CH"
+    },
+    {
+      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-esBill_R-0005887",
+      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-esBill_R-0005887",
+      "title": "DevOps Engineer esBill",
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "# DevOps Engineer esBill\n\n## Il tuo futuro inizia qui\nDu leistest einen spürbaren Beitrag zur Entwicklung und zum Betrieb unserer Applikation esBill. Wir sind ein DevOps-Team mit Mitarbeitenden in der Schweiz, in unserem DevOps Center in Rotterdam sowie mit Mitarbeitenden der externen Firma Adesso. Gemeinsam schaffen wir für unsere Kundschaft Mehrwert durch Teamarbeit, Fachwissen und eine agile Arbeitsweise. Qualität, Verantwortung und klare Kommunikation prägen unsere Zusammenarbeit. Dich erwartet ein eingespieltes Team mit gutem Teamgeist und hilfsbereiten Mitarbeitenden.\n- Du entwickelst und betreibst esBill und stellst Wirtschaftlichkeit, Qualität und Wartbarkeit sicher\n- Du behältst den Überblick über den ganzen Prozess von Entwicklung bis Betrieb\n- Du setzt Lösungen rund um esBill um und dokumentierst sie\n- Du arbeitest standortübergreifend mit dem Team in der Schweiz und in Rotterdam sowie mit der externen Firma Adesso zusammen\n\n## Deine Skills\n- Abschluss (ETH/Uni/FH/HF) in Informatik oder in einer ähnlichen Fachrichtung\n- Erfahrung mit relationalen Datenbanken, z. B. PostgreSQL\n- Mehrjährige Erfahrung im DevOps-Umfeld mit Java\n- Erfahrung mit hybriden Infrastrukturen\n- Du denkst konzeptionell und bewahrst in hektischen Situationen die Ruhe\n- Du bist engagiert, neugierig und lernbereit und hast einen hohen Qualitätsanspruch\n- Du hast Freude an Teamarbeit und kommunizierst klar und offen\n- Du bist bereit für Einsätze ausserhalb der üblichen Arbeitszeit und für sporadischen Pikettdienst und verfügst über gute Englischkenntnisse\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Entdecke deine Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+      "descriptionByLocale": {
+        "it": "# DevOps Engineer esBill ## Il tuo futuro inizia Si contribuisce significativamente allo sviluppo e al funzionamento della nostra applicazione esBill. Siamo un team DevOps con dipendenti in Svizzera, nel nostro DevOps Center di Rotterdam e con dipendenti della società esterna Adesso. Insieme, creiamo valore aggiunto per i nostri clienti attraverso il lavoro di squadra, la competenza e un modo agile di lavorare. Qualità, responsabilità e comunicazione chiara caratterizzano la nostra cooperazione. Ci si può aspettare un team esperto con buon spirito di squadra e dipendenti utili. - Sviluppi e gestisciloBill e assicurati efficienza, qualità e manutenbilità - Tieni traccia dell'intero processo dallo sviluppo al funzionamento - Si implementano soluzioni intorno esBill e li documentano - Lavori in diverse località con il team in Svizzera e Rotterdam e con la società esterna Adesso ## Le tue competenze - Laurea (ETH/Uni/FH/HF) in informatica o in una disciplina simile - Esperienza con database relazionali, come PostgreSQL - Diversi anni di esperienza nell'ambiente DevOps con Java - Esperienza con infrastrutture ibride - Pensi concettualmente e mantieni la calma nelle situazioni frenetiche - Sei impegnato, curioso e disposto ad imparare e avere uno standard di alta qualità - Vi piace il lavoro di squadra e comunicare chiaramente e apertamente - Siete pronti per le assegnazioni al di fuori delle ore di lavoro abituali e per il piketting sporadico e hanno buone abilità inglesi Con noi avete la possibilità di lavorare in uno dei nostri uffici in Svizzera o in ufficio. Verrete a contatto con metodi di lavoro agili e le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza lavorativa. Questo include un ambiente di lavoro piacevole, benefici finanziari e interessanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi. ## E' compatibile? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum manda dalle agenzie. Vi chiediamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a un curriculum non richiesto. ## Persona di contatto ## La tua base operativa",
+        "en": "# DevOps Engineer esBill ## Il tuo futuro inizia You make a significant contribution to the development and operation of our esBill application. We are a DevOps team with employees in Switzerland, in our DevOps Center in Rotterdam and with employees of the external company Adesso. Together, we create added value for our customers through teamwork, expertise and an agile way of working. Quality, responsibility and clear communication characterise our cooperation. You can expect an experienced team with good team spirit and helpful employees. - You develop and operate itBill and ensure efficiency, quality and maintainability - You keep track of the whole process from development to operation - You implement solutions around esBill and document them - You work across locations with the team in Switzerland and Rotterdam as well as with the external company Adesso ## Your skills - Degree (ETH/Uni/FH/HF) in computer science or in a similar discipline - Experience with relational databases, such as PostgreSQL - Several years of experience in the DevOps environment with Java - Experience with hybrid infrastructures - You think conceptually and keep calm in hectic situations - You are committed, curious and willing to learn and have a high quality standard - You enjoy teamwork and communicate clearly and openly - You are ready for assignments outside the usual working hours and for sporadic piketting and have good English skills With us you have the opportunity to work in one of our offices in Switzerland or in the home office. You will come into contact with agile working methods and the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. This includes a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
+        "de": "# DevOps Engineer esBill ## Il tuo futuro inizia qui Du leistest einen spürbaren Beitrag zur Entwicklung und zum Betrieb unserer Applikation esBill. Wir sind ein DevOps-Team mit Mitarbeitenden in der Schweiz, in unserem DevOps Center in Rotterdam sowie mit Mitarbeitenden der externen Firma Adesso. Gemeinsam schaffen wir für unsere Kundschaft Mehrwert durch Teamarbeit, Fachwissen und eine agile Arbeitsweise. Qualität, Verantwortung und klare Kommunikation prägen unsere Zusammenarbeit. Dich erwartet ein eingespieltes Team mit gutem Teamgeist und hilfsbereiten Mitarbeitenden. - Du entwickelst und betreibst esBill und stellst Wirtschaftlichkeit, Qualität und Wartbarkeit sicher - Du behältst den Überblick über den ganzen Prozess von Entwicklung bis Betrieb - Du setzt Lösungen rund um esBill um und dokumentierst sie - Du arbeitest standortübergreifend mit dem Team in der Schweiz und in Rotterdam sowie mit der externen Firma Adesso zusammen ## Deine Skills - Abschluss (ETH/Uni/FH/HF) in Informatik oder in einer ähnlichen Fachrichtung - Erfahrung mit relationalen Datenbanken, z. B. PostgreSQL - Mehrjährige Erfahrung im DevOps-Umfeld mit Java - Erfahrung mit hybriden Infrastrukturen - Du denkst konzeptionell und bewahrst in hektischen Situationen die Ruhe - Du bist engagiert, neugierig und lernbereit und hast einen hohen Qualitätsanspruch - Du hast Freude an Teamarbeit und kommunizierst klar und offen - Du bist bereit für Einsätze ausserhalb der üblichen Arbeitszeit und für sporadischen Pikettdienst und verfügst über gute Englischkenntnisse Bei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Entdecke deine Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
+        "fr": "# Ingénieur DevOps esBill ## Il tuo futuro inizia Vous contribuez de manière significative au développement et au fonctionnement de notre application esBill. Nous sommes une équipe DevOps avec des employés en Suisse, dans notre DevOps Center à Rotterdam et avec des employés de l'entreprise externe Adesso. Ensemble, nous créons une valeur ajoutée pour nos clients par le travail d'équipe, l'expertise et une façon agile de travailler. La qualité, la responsabilité et la communication claire caractérisent notre coopération. Vous pouvez vous attendre à une équipe expérimentée avec un bon esprit d'équipe et des employés serviables. - Vous développez et exploitez Bill et assurez l'efficacité, la qualité et la maintenance - Vous gardez la trace de tout le processus du développement à l'exploitation - Vous implémentez des solutions autour d'esBill et les documentez - Vous travaillez à travers des sites avec l'équipe en Suisse et Rotterdam ainsi qu'avec la société externe Adesso ##\n• Vos compétences - Diplôme (ETH/Uni/FH/HF) en informatique ou dans une discipline similaire - Expérience des bases de données relationnelles, comme PostgreSQL - Plusieurs années d'expérience dans l'environnement DevOps avec Java - Expérience des infrastructures hybrides - Vous pensez conceptuellement et restez calme dans des situations agitées - Vous êtes engagé, curieux et prêt à apprendre et avez un niveau de qualité élevé - Vous aimez le travail d'équipe et communiquer clairement et ouvertement - Vous êtes prêt pour des affectations en dehors des heures de travail habituelles et pour des randonnées sporadiques et avez de bonnes compétences en anglais Avec nous, vous avez l'occasion de travailler dans l'un de nos bureaux en Suisse ou à domicile. Vous entrerez en contact avec les méthodes de travail agiles et les dernières technologies.\n• Nous offrons des horaires de travail flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Cela comprend un environnement de travail agréable, des avantages financiers et des possibilités intéressantes de perfectionnement professionnel. Découvrez vos avantages. ## C'est une correspondance ? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande ? Qui Troverai risposte alle domande più importanti e frendi. A tutte le agenzie di reclutamamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventi spese legate a curriculum non richiesti. ## Personnes ## La tua base opérativa"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "titleByLocale": {
+        "it": "DevOps Ingegnere esBill",
+        "en": "DevOps Engineer esBill",
+        "de": "DevOps Ingenieur esBill",
+        "fr": "DevOps Ingénieur esBill"
+      },
+      "slug": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
+      "slugByLocale": {
+        "it": "devops-ingegnere-esbill-swisscom-sede-ticino-bern",
+        "en": "devops-engineer-esbill-swisscom-sede-ticino-bern",
+        "de": "devops-engineer-esbill-swisscom-bern-sdfnw0",
+        "fr": "devops-engineer-esbill-swisscom-bern-sdfnw0"
+      },
+      "category": "technology",
+      "datePosted": "2026-06-29",
+      "source": "swisscom-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Tecnologia & IT",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "de",
+      "jobReqId": "R-0005887",
+      "id": "swisscom-sede-ticino-690bcfc4f296",
+      "previousSlugs": [
+        "devops-engineer-esbill-swisscom-bern-sdfnw0",
+        "devops-engineer-esbill-swisscom-bern-drxyd1"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-esbill-swisscom-bern-sdfnw0",
+          "devops-engineer-esbill-swisscom-bern-drxyd1"
+        ],
+        "en": [
+          "devops-engineer-esbill-swisscom-bern-sdfnw0"
+        ]
+      },
+      "firstSeenAt": "2026-06-29T14:09:44.850Z",
+      "crawledAt": "",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner-OpenShift_R-0005125",
+      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner-OpenShift_R-0005125",
+      "title": "Technical Product Owner OpenShift",
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "# Technical Product Owner OpenShift\n\n## Il tuo futuro inizia qui\nDu verantwortest die OpenShift-Plattform und die dazugehörigen Services über den gesamten Lifecycle. Gemeinsam mit dem Team sowie dem Product Management legst du Vision und Roadmap fest, priorisierst das Product Backlog und treibst die Umsetzung voran. Dabei nutzt du klare Prozesse sowie agile Methoden. So entwickelst du die Plattform mittels DevOps Praktiken kontinuierlich weiter und sorgst für Stabilität, Sicherheit und Effizienz.\nHighlights der Stelle\n- Verantwortung über den gesamten Lifecycle von Vision bis Betrieb und Optimierung\n- Kombination aus Product Ownership und Mitarbeit in der Umsetzung mit dem Team\n- Enge Zusammenarbeit mit internen Stakeholdern, der Kundschaft der Plattform und weiteren Product Ownern\n- Nutzung moderner Methoden und Automatisierung im Red‑Hat‑ und CNCF‑Ökosystem (z. B. Operators, ArgoCD, Prometheus)\n- Wirkung mit grossem Gestaltungsspielraum in einem motivierten Team\n\nDeine Skills – Fachlich\n- Abschluss (Uni/FH/HF) in Informatik oder Betriebswirtschaft oder gleichwertiger Abschluss\n- Erfahrung als Product Owner, Service Owner oder in einer vergleichbaren Rolle in einem technischen Umfeld\n- Praxis im Plattformbetrieb und in Container-Orchestrierung, idealerweise mit OpenShift\n- Fähigkeit, technische und fachliche Anforderungen zu verbinden und priorisiert umzusetzen\n\nDeine Skills – Persönlich und Sprachen\n- Ausgeprägte Kommunikations- und Koordinationsfähigkeiten sowie Freude an Zusammenarbeit\n- Eigenverantwortlich, strukturiert und zuverlässig\n- Du leistest Pikettdienst und hast Wohnsitz in der Schweiz\n- Sehr gutes Deutsch und Englisch; weitere Landessprachen von Vorteil\n\nBei uns hast du die Möglichkeit, im Office in Zürich und bis zu drei Tage pro Woche im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+      "descriptionByLocale": {
+        "it": "Titolare del prodotto tecnico OpenShift Il tuo futuro inizia qui Sei responsabile della piattaforma OpenShift e dei servizi correlati durante il ciclo di vita. Insieme con il team e la gestione dei prodotti, definisci la visione e la roadmap, priorità backlog del prodotto e implementazione del drive. Si utilizzano processi chiari e metodi agili. Questo consente di sviluppare continuamente la piattaforma utilizzando le pratiche di DevOp e garantire stabilità, sicurezza ed efficienza. In evidenza del luogo - Responsabilità sull'intero ciclo di vita dalla visione al funzionamento e all'ottimizzazione - Combinazione di Product Ownership e collaborazione in implementazione con il team - Una stretta collaborazione con gli stakeholder interni, i clienti delle piattaforme e altri proprietari di prodotti - Utilizzo di metodi e automazione moderni nell'ecosistema Red-Hat e CNCF (ad esempio operatori, ArgoCD, Prometheus) - Effetto con grande sala giochi di design in un team motivato Le tue abilità – Professional - completamento (unità/FH/HF) in scienze informatiche o in grado equivalente - Esperienza come Product Owner, Service Owner o in un ruolo paragonabile in un ambiente tecnico - Pratica nel funzionamento della piattaforma e nell'orchestrazione dei container, idealmente con OpenShift - capacità di combinare e priorità requisiti tecnici e tecnici Le tue competenze – Personale e Lingue - Capacità di comunicazione e coordinamento pressate e gioia nella cooperazione - responsabilità propria, strutturata e affidabile - Siete un servizio piquet e siete residenti in Svizzera - Molto buono tedesco e inglese; altre lingue nazionali di vantaggio Con noi avete la possibilità di lavorare in ufficio a Zurigo e fino a tre giorni alla settimana in ufficio. Ti metterai in contatto con metodi di lavoro agili e le ultime tecnologie.\n• Offriamo orari di lavoro flessibili per soddisfare le vostre esigenze personali. In qualità di dipendente di Swisscom, puoi aspettarti una varietà di servizi interessanti che arricchiranno la tua esperienza di lavoro. Questi includono un ambiente di lavoro piacevole, vantaggi finanziari e interessanti opportunità di sviluppo professionale. Benefici. E' compatibile?",
+        "en": "Technical Product Owner OpenShift Il tuo futuro inizia qui You are responsible for the OpenShift platform and related services throughout the lifecycle. Together with the team and product management, you define vision and roadmap, prioritize product backlog and drive implementation. You use clear processes and agile methods. This allows you to continuously develop the platform using DevOp's practices and ensure stability, security and efficiency. Highlights of the place - Responsibility over the entire lifecycle from vision to operation and optimization - Combination of Product Ownership and collaboration in implementation with the team - Close cooperation with internal stakeholders, platform customers and other product owners - Use of modern methods and automation in the Red-Hat and CNCF ecosystem (e.g. operators, ArgoCD, Prometheus) - Effect with great design playroom in a motivated team Your Skills – Professional - completion (uni/FH/HF) in computer science or business or equivalent degree - Experience as Product Owner, Service Owner or in a comparable role in a technical environment - Practice in platform operation and in container orchestration, ideally with OpenShift - ability to combine and prioritize technical and technical requirements Your Skills – Personal and Languages - Impressed communication and coordination skills and joy in cooperation - Own responsibility, structured and reliable - You are a piquet service and you are a resident of Switzerland - Very good German and English; other national languages of advantage With us you have the opportunity to work at the office in Zurich and up to three days a week at home office. You will get in touch with agile working methods and the latest technologies.\n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive services that will enrich your work experience. These include a pleasant working environment, financial advantages and exciting opportunities for professional development. Benefits. Is it a match?",
+        "de": "# Technical Product Owner OpenShift ## Il tuo futuro inizia qui Du verantwortest die OpenShift-Plattform und die dazugehörigen Services über den gesamten Lifecycle. Gemeinsam mit dem Team sowie dem Product Management legst du Vision und Roadmap fest, priorisierst das Product Backlog und treibst die Umsetzung voran. Dabei nutzt du klare Prozesse sowie agile Methoden. So entwickelst du die Plattform mittels DevOps Praktiken kontinuierlich weiter und sorgst für Stabilität, Sicherheit und Effizienz. Highlights der Stelle - Verantwortung über den gesamten Lifecycle von Vision bis Betrieb und Optimierung - Kombination aus Product Ownership und Mitarbeit in der Umsetzung mit dem Team - Enge Zusammenarbeit mit internen Stakeholdern, der Kundschaft der Plattform und weiteren Product Ownern - Nutzung moderner Methoden und Automatisierung im Red‑Hat‑ und CNCF‑Ökosystem (z. B. Operators, ArgoCD, Prometheus) - Wirkung mit grossem Gestaltungsspielraum in einem motivierten Team Deine Skills – Fachlich - Abschluss (Uni/FH/HF) in Informatik oder Betriebswirtschaft oder gleichwertiger Abschluss - Erfahrung als Product Owner, Service Owner oder in einer vergleichbaren Rolle in einem technischen Umfeld - Praxis im Plattformbetrieb und in Container-Orchestrierung, idealerweise mit OpenShift - Fähigkeit, technische und fachliche\n• Anforderungen zu verbinden und priorisiert umzusetzen Deine Skills – Persönlich und Sprachen - Ausgeprägte Kommunikations- und Koordinationsfähigkeiten sowie Freude an Zusammenarbeit - Eigenverantwortlich, strukturiert und zuverlässig - Du leistest Pikettdienst und hast Wohnsitz in der Schweiz - Sehr gutes Deutsch und Englisch; weitere Landessprachen von Vorteil Bei uns hast du die Möglichkeit, im Office in Zürich und bis zu drei Tage pro Woche im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt.\n• Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
+        "fr": "Propriétaire du produit technique OpenShift Il tuo futuro inizia qui Vous êtes responsable de la plateforme OpenShift et des services connexes tout au long du cycle de vie. Avec l'équipe et la gestion des produits, vous définissez la vision et la feuille de route, priorisez l'arriéré de produits et dirigez la mise en œuvre. Vous utilisez des processus clairs et des méthodes agiles. Cela vous permet de développer continuellement la plateforme en utilisant les pratiques de DevOp et d'assurer la stabilité, la sécurité et l'efficacité. Faits saillants de l'endroit - Responsabilité sur l'ensemble du cycle de vie de la vision à l'exploitation et l'optimisation - Combinaison de la propriété du produit et collaboration avec l'équipe - Coopération étroite avec les intervenants internes, les clients des plateformes et les autres propriétaires de produits - Utilisation de méthodes modernes et d'automatisation dans l'écosystème Red-Hat et CNCF (par exemple opérateurs, ArgoCD, Prométhée) - Effet avec grande salle de jeu design dans une équipe motivée\n• Vos compétences – Professionnel - achèvement (uni/FH/HF) en informatique ou en affaires ou diplôme équivalent - Expérience en tant que propriétaire de produit, propriétaire de service ou dans un rôle comparable dans un environnement technique - Pratique dans le fonctionnement de la plate-forme et dans l'orchestration de conteneurs, idéalement avec OpenShift - capacité de combiner et de hiérarchiser les exigences techniques\n• Vos compétences – Personnel et langues - Capacités de communication et de coordination réduites et joie dans la coopération - Responsabilité propre, structurée et fiable - Vous êtes un service de piquet et vous êtes un résident de Suisse - Très bon allemand et anglais; autres langues nationales d'intérêt Avec nous, vous avez la possibilité de travailler au bureau de Zurich et jusqu'à trois jours par semaine au bureau à domicile. Vous serez en contact avec les méthodes de travail agiles et les dernières technologies.\n• Nous offrons des horaires flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez vous attendre à une variété de services attrayants qui enrichiront votre expérience de travail. Il s'agit notamment d'un environnement de travail agréable, d'avantages financiers et de possibilités intéressantes de perfectionnement professionnel. Avantages. C'est une correspondance ?"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "titleByLocale": {
+        "it": "Titolare del prodotto tecnico OpenShift",
+        "en": "Technical Product Owner OpenShift",
+        "de": "Technischer Eigentümer OpenShift",
+        "fr": "Propriétaire du produit technique OpenShift"
+      },
+      "slug": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
+      "slugByLocale": {
+        "it": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
+        "en": "technical-product-owner-openshift-swisscom-sede-ticino-zurich",
+        "de": "technical-product-owner-openshift-swisscom-zurich-s7ze68",
+        "fr": "proprietaire-du-produit-technique-openshift-swisscom-sede-ticino-zurich"
+      },
+      "category": "production",
+      "datePosted": "2026-05-12",
+      "source": "swisscom-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Tecnologia & IT",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "sourceLang": "de",
+      "jobReqId": "R-0005125",
+      "id": "swisscom-sede-ticino-df7c22d95521",
+      "previousSlugs": [
+        "product-owner-openshift-swisscom-sede-ticino-zurich",
+        "technical-product-owner-openshift-swisscom-zurich-s7ze68",
+        "technischer-eigentumer-openshift-swisscom-sede-ticino-zurich",
+        "proprietario-del-prodotto-openshift-swisscom-sede-ticino-zurich",
+        "product-owner-openshift-swisscom-zurich-s7ze68",
+        "technical-product-owner-openshift-swisscom-zurich-dry3p4"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-openshift-swisscom-sede-ticino-zurich",
+          "technical-product-owner-openshift-swisscom-zurich-s7ze68",
+          "technical-product-owner-openshift-swisscom-zurich-dry3p4"
+        ],
+        "de": [
+          "technischer-eigentumer-openshift-swisscom-sede-ticino-zurich"
+        ],
+        "fr": [
+          "technical-product-owner-openshift-swisscom-zurich-s7ze68"
+        ]
+      },
+      "firstSeenAt": "2026-05-12T23:06:10.710Z",
+      "crawledAt": "",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "crawlerMissStreak": 1
     }
   ]
 }
