@@ -301,7 +301,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -449,7 +448,6 @@
       "pensum": "100%",
       "sfJobId": "1376392933",
       "firstSeenAt": "2026-07-04T12:22:49.137Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -462,7 +460,28 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "kauffrau-kaufmann-efz-alle-geschlechter-100-suva-solothurn",
+          "kauffrau-kaufmann-efz-all-genders-100-suva-solothurn",
+          "kauffrau-kaufmann-efz-tous-les-sexes-100-suva-solothurn"
+        ],
+        "en": [
+          "kauffrau-kaufmann-efz-all-genders-100-suva-solothurn"
+        ],
+        "de": [
+          "kauffrau-kaufmann-efz-alle-geschlechter-100-suva-solothurn"
+        ],
+        "fr": [
+          "kauffrau-kaufmann-efz-tous-les-sexes-100-suva-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "kauffrau-kaufmann-efz-alle-geschlechter-100-suva-solothurn",
+        "kauffrau-kaufmann-efz-all-genders-100-suva-solothurn",
+        "kauffrau-kaufmann-efz-tous-les-sexes-100-suva-solothurn"
+      ]
     },
     {
       "id": "suva-8cfeb210d5bd",
@@ -1063,7 +1082,6 @@
       "pensum": "80-100%",
       "sfJobId": "1397715233",
       "firstSeenAt": "2026-07-04T12:22:46.317Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
