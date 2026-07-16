@@ -1775,6 +1775,10 @@ export function computeSimilarJobs(source: JobListing, pool: JobListing[], limit
  .map((x) => x.job);
 }
 
+// NOTE: currently unreferenced elsewhere in this file (pre-existing —
+// related-jobs uses computeSimilarJobs' field-based scoring, not query
+// text). Kept in sync with the live matchers below so it's ready if a
+// query-driven caller is wired up later.
 function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolean {
  const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean);
  if (queryTokens.length === 0) return true;
