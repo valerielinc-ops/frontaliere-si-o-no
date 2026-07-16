@@ -1,35 +1,35 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-16T12:09:46.066Z",
-  "total": 369,
+  "generatedAt": "2026-07-16T22:21:39.847Z",
+  "total": 372,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 106130,
-  "avgDurationMs": 106130,
+  "durationMs": 103796,
+  "avgDurationMs": 103796,
   "durationHistory": [
-    106130
+    103796
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "title": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d)",
+      "title": "Apotheker / Apothekerin als Springer (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3119657.4033268",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3112725.4019978",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Collaborateur parfumerie / Collaboratrice parfumerie (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Apotheker / Apothekerin als Springer (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-collaborateur-parfumerie-collaboratrice-parfumerie-f-h-d-bern",
-      "id": "galenica-864fbc1ffca5",
+      "slug": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
+      "id": "galenica-eafeaf0fb14c",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -40,12 +40,12 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     }
