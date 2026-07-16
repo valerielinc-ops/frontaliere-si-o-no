@@ -1,0 +1,108 @@
+name: Pages Publish-Lag Watchdog
+
+# Watchdog for the deploy→PUBLISH gap (see scripts/check-pages-publish-lag.mjs
+# for the full mechanism). deploy.yml only builds; deploy-publish.yml does the
+# actual actions/deploy-pages publish under a single-slot concurrency group
+# (cancel-in-progress: false), so a burst of push-triggered builds routinely
+# supersedes most pending publish attempts — deploy-starvation, the failure
+# class deploy.yml's own paths-ignore comment names. Content isn't lost (a
+# later successful publish carries every earlier commit forward) but can sit
+# built-and-not-live for hours with zero visibility. 2026-07-16: two published
+# articles weren't visible for hours and only surfaced because a journalist
+# personally asked. This workflow catches that gap automatically instead.
+#
+# Same shape as border-live-data-watchdog.yml / app-auth-health-monitor.yml:
+# scheduled cron, dedup issue on degraded (scripts/lib/github-issue-creator.mjs
+# stable-title dedup), auto-resolve on recovery, self-alert if the monitor
+# itself crashes instead of taking the intentional degraded path.
+
+on:
+  schedule:
+    - cron: '15 * * * *' # hourly, offset so it doesn't land exactly on other :00 cron jobs
+  workflow_dispatch:
+    inputs:
+      lag_hours:
+        description: 'Override LAG_HOURS threshold for this run'
+        required: false
+
+concurrency:
+  group: pages-publish-lag-watchdog
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Check publish lag
+        id: check
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LAG_HOURS: ${{ github.event.inputs.lag_hours }}
+        run: node scripts/check-pages-publish-lag.mjs
+
+      # Degraded → open (or comment on) canonical issue. Helper dedups on the
+      # stable title, so consecutive degraded runs comment on the same issue
+      # instead of spawning duplicates.
+      - name: Open / dedup degraded issue
+        if: steps.check.outcome == 'failure' && steps.check.outputs.summary != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Pages publish lag: built content not yet live" \
+            --description "${{ steps.check.outputs.summary }}
+
+          ### Why this happens
+          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of push-triggered builds can supersede most pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
+
+          ### What to check
+          - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for a run of skipped/cancelled conclusions in this window.
+          - \`gh api repos/${{ github.repository }}/deployments?environment=github-pages\` for the actual publish cadence.
+          - If publishes are stuck (not just delayed), investigate \`deploy-publish.yml\`'s concurrency group directly.
+
+          Issue auto-resolves on the next watchdog run once the lag clears." \
+            --priority 2 \
+            --label automation \
+            --workflow "${{ github.workflow }}"
+
+      # Healthy → close canonical issue if it was open (idempotent no-op
+      # otherwise), so a recovered watchdog never leaves a stale open issue.
+      - name: Resolve issue on recovery
+        if: steps.check.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Pages publish lag: built content not yet live" \
+            --workflow "${{ github.workflow }}" \
+            --resolve
+
+      # Watcher-del-watcher: if the check step failed WITHOUT going through
+      # the intentional degraded path (no `summary` output — a crash, not a
+      # real lag reading), page separately so the monitor's own breakage
+      # doesn't silently disable detection.
+      - name: Alert on monitor crash
+        if: steps.check.outcome == 'failure' && steps.check.outputs.summary == ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Pages publish-lag monitor crashed" \
+            --description "The run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} failed without producing an intentional degraded reading (no 'summary' output). The monitor itself is broken — until fixed, publish-lag regressions won't be caught. Read the run log and fix the root cause." \
+            --priority 2 \
+            --label automation \
+            --workflow "${{ github.workflow }}"

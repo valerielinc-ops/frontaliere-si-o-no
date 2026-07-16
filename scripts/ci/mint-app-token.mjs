@@ -21,6 +21,7 @@
  */
 import { createSign } from 'node:crypto';
 import { appendFileSync } from 'node:fs';
+import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 
 const API = 'https://api.github.com';
 
@@ -47,12 +48,7 @@ export function buildAppJwt(appId, privateKeyPem, nowSec) {
 async function ghJson(path, { token, method = 'GET', body } = {}) {
   const res = await fetch(`${API}${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent': 'mint-app-token',
-    },
+    headers: githubApiHeaders(token, { 'User-Agent': 'mint-app-token' }),
     body: body ? JSON.stringify(body) : undefined,
   });
   return { status: res.status, body: await res.json().catch(() => null) };

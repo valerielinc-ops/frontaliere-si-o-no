@@ -30,6 +30,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -380,11 +381,7 @@ async function triggerRedeploy(failedPages) {
       'https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/actions/workflows/deploy.yml/dispatches',
       {
         method: 'POST',
-        headers: {
-          Authorization: `Bearer ${pat}`,
-          Accept: 'application/vnd.github+json',
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
+        headers: githubApiHeaders(pat),
         body: JSON.stringify({ ref: 'main' }),
       }
     );

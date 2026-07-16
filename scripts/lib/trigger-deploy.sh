@@ -27,6 +27,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
+
 write_output() {
   local key="$1"
   local value="$2"
@@ -62,7 +64,7 @@ read_ref_sha() {
     "https://api.github.com/repos/${REPO}/commits/${ref}" \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: 2022-11-28" \
+    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
     | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{try{const j=JSON.parse(d);if(j&&typeof j.sha==="string")process.stdout.write(j.sha);}catch{}});'
 }
 
@@ -126,7 +128,7 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
   "https://api.github.com/repos/${REPO}/actions/workflows/deploy.yml/dispatches" \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${TOKEN}" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
   -d "$PAYLOAD")
 
 if [ "$HTTP_CODE" = "204" ]; then
