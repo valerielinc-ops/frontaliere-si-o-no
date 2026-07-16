@@ -31,6 +31,10 @@ describe('ti-market-snapshot-sector-canton-scope', () => {
 
     const tiOut = generateSectorSnapshotPages({ history: null, jobs: tiJobs as never });
     const allOut = generateSectorSnapshotPages({ history: null, jobs: jobs as never });
+    // ^ two full generateSectorSnapshotPages passes (TI subset + all-CH) over
+    // an ever-growing data/jobs.json (80+ dedicated crawlers, several updates
+    // daily) — the default 15s testTimeout is no longer enough headroom; see
+    // the explicit per-test override below.
 
     // At least one sector must show fewer TI-only matches than all-Switzerland
     // matches — proves the filter (applied in closeBundle(), before this
@@ -52,5 +56,5 @@ describe('ti-market-snapshot-sector-canton-scope', () => {
         `${sector} TI-scoped count exceeds the total TI job pool`,
       ).toBeLessThanOrEqual(tiJobs.length);
     }
-  });
+  }, 30_000);
 });
