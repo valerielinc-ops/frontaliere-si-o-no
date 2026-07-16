@@ -412,6 +412,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': { it: 'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri', en: 'us-trade-representative-praises-swiss-investments', de: 'handelsvertreter-der-vereinigten-staaten-lobt-schweizer-investitionen', fr: 'representant-commercial-des-etats-unis-elogie-investissements-suisse' },
  'banche-svizzere-truffe-online': { it: 'banche-svizzere-truffe-online', en: 'swiss-banks-online-scams', de: 'schweizer-banken-online-betrug', fr: 'banques-suisses-escroqueries-en-ligne' },
  'accordo-smart-working-frontalieri-svizzera': { it: 'accordo-smart-working-frontalieri-svizzera', en: 'smart-working-agreement-swiss-cross-border-workers', de: 'smart-working-vereinbarung-grenzgaenger-schweiz', fr: 'accord-teletravail-frontaliers-suisse' },
+ 'ticino-programma-politico-consultazione-pubblica': { it: 'ticino-programma-politico-consultazione-pubblica', en: 'ticino-political-program-public-consultation', de: 'ticino-politisches-programm-offentliche-beratung', fr: 'ticino-programme-politique-consultation-publique' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

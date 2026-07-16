@@ -4559,6 +4559,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contratto-polizia-silp-cgil-critiche': { name: 'Contratto Polizia', path: '/articoli-frontaliere/contratto-polizia-silp-cgil-critiche', parent: 'blog' },
     'blog-chiusura-ponte-ferro-sesto-calende': { name: 'Viabilità frontalieri', path: '/articoli-frontaliere/chiusura-ponte-ferro-sesto-calende', parent: 'blog' },
     'blog-accordo-smart-working-frontalieri-svizzera': { name: 'Smart working frontalieri', path: '/articoli-svizzera/accordo-smart-working-frontalieri-svizzera/', parent: 'blog' },
+    'blog-ticino-programma-politico-consultazione-pubblica': { name: 'Politica cantonale', path: '/articoli-svizzera/ticino-programma-politico-consultazione-pubblica/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
