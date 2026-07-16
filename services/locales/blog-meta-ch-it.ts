@@ -1159,6 +1159,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sospensione-riversamento-imposta-frontalieri.title': 'Frontalieri: richiesta la sospensione dell\'imposta all\'Italia',
     'blog.article.sospensione-riversamento-imposta-frontalieri.excerpt': 'Una nuova mozione parlamentare contesta la \'tassa sulla salute\' italiana, chiedendo al Consiglio di Stato di bloccare il riversamento delle imposte alla fonte.',
     'blog.article.sospensione-riversamento-imposta-frontalieri.imageAlt': 'Palazzo delle Orsoline a Bellinzona, sede del Gran Consiglio ticinese.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'Di più: Rappresentante per il commercio USA elogia investimenti svizzeri',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, ha elogiato gli investimenti svizzeri negli Stati Uniti.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, parla durante una conferenza stampa a Ginevra.',
 };
 
 export default blogMetaChIt;

@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3247,
+ "numberOfItems": 3248,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7922,7 +7922,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3244, "name": "Italia-Svizzera: scambio automatico informazion...", "url": `${BASE_URL}/articoli-frontaliere/scambio-automatico-informazioni-fiscali` },
           { "@type": "ListItem", "position": 3245, "name": "Berna non vuole creare attriti con l'Italia | RSI", "url": `${BASE_URL}/articoli-frontaliere/berna-non-crea-attriti-con-litalia` },
           { "@type": "ListItem", "position": 3246, "name": "Attacco informatico a IWB: 40'000 clienti coinv...", "url": `${BASE_URL}/articoli-frontaliere/attacco-informatico-iwb-basilea` },
-          { "@type": "ListItem", "position": 3247, "name": "Frontalieri: richiesta la sospensione dell'impo...", "url": `${BASE_URL}/articoli-frontaliere/sospensione-riversamento-imposta-frontalieri` }
+          { "@type": "ListItem", "position": 3247, "name": "Frontalieri: richiesta la sospensione dell'impo...", "url": `${BASE_URL}/articoli-frontaliere/sospensione-riversamento-imposta-frontalieri` },
+          { "@type": "ListItem", "position": 3248, "name": "Di più: Rappresentante per il commercio USA elo...", "url": `${BASE_URL}/articoli-frontaliere/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri` }
  ]
  },
  {

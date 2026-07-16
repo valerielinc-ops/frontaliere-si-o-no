@@ -1159,6 +1159,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sospensione-riversamento-imposta-frontalieri.title': 'Frontaliers : demande de suspension de la taxe à l\'Italie',
     'blog.article.sospensione-riversamento-imposta-frontalieri.excerpt': 'Une nouvelle motion parlementaire conteste la « taxe sur la santé » italienne, demandant au Conseil d\'État de bloquer le versement des impôts à la source.',
     'blog.article.sospensione-riversamento-imposta-frontalieri.imageAlt': 'Palazzo delle Orsoline à Bellinzone, siège du Grand Conseil tessinois.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.title': 'USA salue les investissements suisses',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.excerpt': 'Le représentant américain au commerce, Jamieson Greer, a fait l\'éloge des investissements suisses aux États-Unis.',
+    'blog.article.rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.imageAlt': 'Le représentant commercial des États-Unis, Jamieson Greer, parle lors d\'une conférence de presse à Genève.',
 };
 
 export default blogMetaChFr;

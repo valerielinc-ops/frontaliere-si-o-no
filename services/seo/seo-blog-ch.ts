@@ -14955,6 +14955,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': {
+    title: 'Di più: Rappresentante per il commercio USA elogia investimenti svizzeri',
+    description: 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, ha elogiato gli investimenti svizzeri negli Stati Uniti. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, rappresentante, commercio, elogia, investimenti',
+    ogTitle: 'Rappresentante per il commercio USA elogia investimenti svizzeri',
+    ogDescription: 'Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, ha elogiato gli investimenti svizzeri negli Stati Uniti.',
+    canonicalPath: '/articoli-svizzera/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più: Rappresentante per il commercio USA elogia investimenti svizzeri",
+      "description": "Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, ha elogiato gli investimenti svizzeri negli Stati Uniti. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il rappresentante per il commercio degli Stati Uniti, Jamieson Greer, parla durante una conferenza stampa a Ginevra."
+      },
+      "datePublished": "2026-07-16T07:22:28+00:00",
+      "dateModified": "2026-07-16T07:22:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
