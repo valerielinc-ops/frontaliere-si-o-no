@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-hq",
-  "assembledAt": "2026-07-16T11:30:04.314Z",
+  "assembledAt": "2026-07-16T22:09:33.523Z",
   "jobs": [
     {
       "id": "migros-hq-08e572dcba28",
@@ -33,7 +33,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/fachbereichsleiterin-bauherrenvertretung-bau-und-infrastruktur/266ff7f1-f9d4-408d-9b91-f68d889e3d80",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.865Z",
+      "crawledAt": "2026-07-16T22:09:30.172Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -95,7 +95,7 @@
       "title": "(Senior) Fullstack Software Engineer (w/m/d)",
       "titleByLocale": {
         "it": "(Senior) Fullstack Software Ingegnere (w/m/d)",
-        "en": "(Senior) Fullstack Software Engineer (f/m/d)",
+        "en": "(Senior) Fullstack Software Engineer (w/m/d)",
         "de": "(Senior) Fullstack Software Ingenieur (w/m/d)",
         "fr": "(Senior) Fullstack Software Ingénieur (w/m/d)"
       },
@@ -111,7 +111,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.863Z",
+      "crawledAt": "2026-07-16T22:09:30.170Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -145,6 +145,7 @@
         "ingegnere-software-fullstack-senior-m-w-d-migros-genossenschafts-bund-zurich-6tysqi"
       ],
       "firstSeenAt": "2026-07-08T11:17:49.458Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -154,85 +155,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "migros-hq-d1f26a21a02f",
-      "slug": "ingegnere-di-collaudo-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p",
-      "slugByLocale": {
-        "it": "ingegnere-di-collaudo-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p",
-        "en": "test-engineer-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p",
-        "de": "testingenieur-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p",
-        "fr": "ingenieur-d-essai-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p"
-      },
-      "company": "Migros HQ Zürich",
-      "companyKey": "migros-hq",
-      "companyDomain": "migros.ch",
-      "title": "Test Engineer Tosca (w/m/d)",
-      "titleByLocale": {
-        "it": "Ingegnere di collaudo Tosca (f/m/d)",
-        "en": "Test Engineer Tosca (f/m/d)",
-        "de": "Test Ingenieur Tosca (w/m/d)",
-        "fr": "Ingénieur d'essai Tosca (f/m/d)"
-      },
-      "description": "Als Test Engineer hebst du gemeinsam mit den agilen Teams die Testautomatisierung auf das nächste Level. Mit deiner technischen Expertise in Tricentis Tosca implementierst du robuste, automatisierte Regressionstests und integrierst sie in die bestehenden Delivery-Prozesse. Dabei befähigst du jeweils eine*n Team-Buddy, diese Tests zu betreiben, zu warten und weiterzuentwickeln.\n\n## Mansioni\n- Automatisieren von Regressionstests und Testprozessen mit dem Testing Tool Tosca\n- Beratung und Unterstützung der agilen Teams bzgl. Testing Tool und Automatisierung\n- Analysieren, Prüfen und Bewerten von Benutzeranforderungen, Spezifikationen und Modellen hinsichtlich Testbarkeit\n- Analysieren der Produkt-Risikoanalyse zur Festlegung der Testtiefe und bestimmen von Restrisiken nach Ausführung der Tests\n- Erstellen von Testspezifikationen basierend auf einer detaillierten technischen Analyse sowohl der funktionalen als auch der nicht-funktionalen Anforderungen (Zuverlässigkeit, Effizienz, Benutzbarkeit usw.)\n\n## Requisiti\n- Fundierte Berufserfahrung: im Bereich Softwaretesting (Tricentis Tosca)\n- Eidg. Fachausweis: mind. höhere Berufsausbildung im Bereich Informatik\n- Analytische und konzeptionelle Fähigkeiten sowie ein hohes Mass an Eigenständigkeit\n- Souveräner Umgang mit relevanten digitalen Tools sowie Interesse an zukünftigen Technologien\n- Offen für bereichsübergreifende Zusammenarbeit mit Teams und Units mit einem agilen Mindset (SAFe, Scrum)\n- Starke Lösungsorientierung – Herausforderungen proaktiv anpacken statt aufschieben\n- Deutsch (verhandlungssicher)\n\n## Cosa offriamo\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Moderne Infrastruktur: Vielfältige Arbeitszonen und moderne Co-Working-Spaces mit fortschrittlicher Ausstattung\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n- Freizeit- und Kulturangebote: Als Hauptsponsor bei Läufen und Events bietet Migros den Mitarbeitenden beschränkte Plätze zum halben Preis an.\n- Mobilität: Kostenbeteiligung am öffentlichen Verkehr (GA, ZVV Bonus Pass) und Mobility CarSharing\n\n## Contatto\n## Bewerbung & Kontakt Robin Maurer Leiter Recruiting - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche\n\n**Grado di occupazione:** 34%",
-      "descriptionByLocale": {
-        "it": "In qualità di ingegnere di test, porterai l'automazione dei test al livello successivo insieme ai team agili. Con la tua esperienza tecnica in Tricentis Tosca, implementerai test di regressione robusti e automatizzati e li integrerai nei processi di consegna esistenti. In tal modo, consenti a un membro del team di gestire, mantenere e sviluppare ulteriormente questi test.\n\nMansioni\n- Automatizza i test di regressione e i processi di test con lo strumento di test Tosca\n- Consulenza e supporto per team agili in merito agli strumenti di test e all'automazione\n- Analizzare, testare e valutare i requisiti degli utenti, le specifiche e i modelli di testabilità\n- Analizzare l'analisi dei rischi del prodotto per determinare la profondità del test e determinare i rischi residui dopo l'esecuzione dei test\n- Creazione di specifiche di test basate su un'analisi tecnica dettagliata dei requisiti sia funzionali che non funzionali (affidabilità, efficienza, usabilità, ecc.)\n\nOggetti di scena\n- Approfondita esperienza professionale: nell'area del testing del software (Tricentis Tosca)\n- Certificato federale di specializzazione: formazione professionale almeno superiore nel campo dell'informatica\n- Capacità analitiche e concettuali nonché un elevato grado di indipendenza\n- Utilizzo sicuro degli strumenti digitali pertinenti e interesse per le tecnologie future\n- Aperto alla collaborazione interfunzionale con team e unità con una mentalità agile (SAFe, Scrum)\n- Forte orientamento alla soluzione: affrontare le sfide in modo proattivo invece di rinviarle\n- Tedesco (fluente per gli affari)\n\nCosa offriamo\n- Luogo di lavoro centrale: Luogo di lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke)\n- Infrastrutture moderne: diverse zone di lavoro e moderni spazi di coworking con attrezzature avanzate\n- Modello di lavoro mobile-flessibile: flessibilità di tempo e spazio nell'adempimento della funzione (40% home office a titolo indicativo)\n- Previdenza professionale: prestazioni superiori alla media e tre diversi piani di risparmio adatti alla vostra situazione di vita individuale\n- Offerte per il tempo libero e culturali: in qualità di sponsor principale di corse ed eventi, la Migros offre ai collaboratori posti limitati a metà prezzo.\n- Mobilità: compartecipazione ai costi per il trasporto pubblico (GA, Abbonamento Bonus ZVV) e Mobility CarSharing\n\nContatto\nCandidatura e contatto Robin Maurer Responsabile reclutamento - LinkedIn ## Processo di reclutamento Invia documenti di candidatura Per una candidatura completa, abbiamo bisogno del tuo CV, certificati e diplomi. Non sono necessarie una foto nel CV e una lettera di motivazione. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per te, menzionalo nel tuo dossier di domanda. Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al gestore per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offre ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane di discussione tecnica con presentazione del caso. Le conoscenze specialistiche specifiche vengono testate utilizzando un caso o altri strumenti di valutazione. Dopo l'elaborazione, il risultato viene presentato al responsabile e poi discusso insieme. Di solito anche la squadra è rappresentata alla presentazione. Di norma, le discussioni vengono condotte dal superiore, senza un rappresentante delle risorse umane. Durata fino al feedback: fino a tre settimane Offerta e emissione del contratto (digitale) Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti verranno nuovamente verificati.\n\nUna volta concordato, il contratto verrà redatto e inviato via email per la firma digitale. Durata fino al feedback: fino a una settimana\n\nTasso di occupazione: 34%",
-        "en": "As a test engineer, you will take test automation to the next level together with the agile teams. With your technical expertise in Tricentis Tosca, you will implement robust, automated regression tests and integrate them into existing delivery processes. In doing so, you empower one team buddy to operate, maintain and further develop these tests.\n\nMansioni\n- Automate regression tests and testing processes with the testing tool Tosca\n- Advice and support for agile teams regarding testing tools and automation\n- Analyze, test and evaluate user requirements, specifications and models for testability\n- Analyzing the product risk analysis to determine the test depth and determine residual risks after the tests have been carried out\n- Creating test specifications based on a detailed technical analysis of both functional and non-functional requirements (reliability, efficiency, usability, etc.)\n\nProps\n- Profound professional experience: in the area of software testing (Tricentis Tosca)\n- Federal specialist certificate: at least higher professional training in the field of computer science\n- Analytical and conceptual skills as well as a high degree of independence\n- Confident use of relevant digital tools and interest in future technologies\n- Open to cross-functional collaboration with teams and units with an agile mindset (SAFe, Scrum)\n- Strong solution orientation – tackling challenges proactively instead of postponing them\n- German (business fluent)\n\nCosa offriamo\n- Central place of work: Central place of work in the city of Zurich (Limmatplatz or near Hardbrücke)\n- Modern infrastructure: Diverse work zones and modern co-working spaces with advanced equipment\n- Mobile-flexible working model: Time and space flexibility when fulfilling the",
-        "de": "Als Test Engineer hebst du gemeinsam mit den agilen Teams die Testautomatisierung auf das nächste Level. Mit deiner technischen Expertise in Tricentis Tosca implementierst du robuste, automatisierte Regressionstests und integrierst sie in die bestehenden Delivery-Prozesse. Dabei befähigst du jeweils eine*n Team-Buddy, diese Tests zu betreiben, zu warten und weiterzuentwickeln.\n\n## Mansioni\n- Automatisieren von Regressionstests und Testprozessen mit dem Testing Tool Tosca\n- Beratung und Unterstützung der agilen Teams bzgl. Testing Tool und Automatisierung\n- Analysieren, Prüfen und Bewerten von Benutzeranforderungen, Spezifikationen und Modellen hinsichtlich Testbarkeit\n- Analysieren der Produkt-Risikoanalyse zur Festlegung der Testtiefe und bestimmen von Restrisiken nach Ausführung der Tests\n- Erstellen von Testspezifikationen basierend auf einer detaillierten technischen Analyse sowohl der funktionalen als auch der nicht-funktionalen Anforderungen (Zuverlässigkeit, Effizienz, Benutzbarkeit usw.)\n\n## Requisiti\n- Fundierte Berufserfahrung: im Bereich Softwaretesting (Tricentis Tosca)\n- Eidg. Fachausweis: mind. höhere Berufsausbildung im Bereich Informatik\n- Analytische und konzeptionelle Fähigkeiten sowie ein hohes Mass an Eigenständigkeit\n- Souveräner Umgang mit relevanten digitalen Tools sowie Interesse an zukünftigen Technologien\n- Offen für bereichsübergreifende Zusammenarbeit mit Teams und Units mit einem agilen Mindset (SAFe, Scrum)\n- Starke Lösungsorientierung – Herausforderungen proaktiv anpacken statt aufschieben\n- Deutsch (verhandlungssicher)\n\n## Cosa offriamo\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Moderne Infrastruktur: Vielfältige Arbeitszonen und moderne Co-Working-Spaces mit fortschrittlicher Ausstattung\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n- Freizeit- und Kulturangebote: Als Hauptsponsor bei Läufen und Events bietet Migros den Mitarbeitenden beschränkte Plätze zum halben Preis an.\n- Mobilität: Kostenbeteiligung am öffentlichen Verkehr (GA, ZVV Bonus Pass) und Mobility CarSharing\n\n## Contatto\n## Bewerbung & Kontakt Robin Maurer Leiter Recruiting - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche\n\n**Grado di occupazione:** 34%",
-        "fr": "En tant qu'ingénieur de test, vous ferez passer l'automatisation des tests au niveau supérieur en collaboration avec les équipes agiles. Grâce à votre expertise technique dans Tricentis Tosca, vous mettrez en œuvre des tests de régression robustes et automatisés et les intégrerez dans les processus de livraison existants. Ce faisant, vous donnez à un membre de l’équipe les moyens d’exploiter, de maintenir et de développer davantage ces tests.\n\nManoir\n- Automatisez les tests de régression et les processus de test avec l'outil de test Tosca\n- Conseil et accompagnement des équipes agiles concernant les outils de tests et l'automatisation\n- Analyser, tester et évaluer les besoins des utilisateurs, les spécifications et les modèles pour la testabilité\n- Analyser l'analyse des risques produits pour déterminer la profondeur des tests et déterminer les risques résiduels après la réalisation des tests\n- Création de spécifications de tests basées sur une analyse technique détaillée des exigences fonctionnelles et non fonctionnelles (fiabilité, efficacité, convivialité, etc.)\n\nAccessoires\n- Expérience professionnelle approfondie : dans le domaine des tests de logiciels (Tricentis Tosca)\n- Brevet fédéral de spécialiste : au moins formation professionnelle supérieure dans le domaine de l'informatique\n- Compétences analytiques et conceptuelles ainsi qu'un haut degré d'indépendance\n- Utilisation en toute confiance des outils numériques pertinents et intérêt pour les technologies futures\n- Ouvert à la collaboration transversale avec des équipes et unités avec un état d'esprit agile (SAFe, Scrum)\n- Forte orientation vers les solutions – relever les défis de manière proactive au lieu de les reporter\n- Allemand (courant des affaires)\n\nCosa offriamo\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Infrastructure moderne : zones de travail diversifiées et espaces de coworking modernes dotés d'équipements de pointe\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Prévoyance professionnelle : prestations supérieures à la moyenne et trois plans d'épargne différents adaptés à votre situation de vie individuelle\n- Offres de loisirs et culturelles : en tant que sponsor principal de courses et d'événements, Migros propose à ses collaborateurs des places limitées à moitié prix.\n- Mobilité : partage des coûts pour les transports publics (GA, ZVV Bonus Pass) et Mobility CarSharing\n\nContact\nCandidature et contact Robin Maurer Responsable du recrutement - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : Jusqu'à trois semaines de discussion technique avec présentation de cas. Les connaissances spécialisées spécifiques sont testées à l'aide d'un cas ou d'autres instruments d'évaluation. Après traitement, le résultat est présenté au manager puis discuté ensemble. L'équipe est généralement également représentée lors de la présentation. En règle générale, les discussions sont menées par le supérieur hiérarchique, sans représentant des RH. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés.\n\nUne fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'au retour : jusqu'à une semaine\n\nTaux d'occupation : 34%"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/test-engineer-tosca-wmd/cfec46f8-78b1-4e07-a0fc-bd4c821aaf34",
-      "source": "Migros HQ Zürich Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.862Z",
-      "addressLocality": "Zürich",
-      "streetAddress": "Limmatstrasse 152",
-      "postalCode": "8005",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-05",
-      "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/test-engineer-tosca-wmd/cfec46f8-78b1-4e07-a0fc-bd4c821aaf34",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "test-engineer-tosca-w-m-d-migros-hq-ch",
-          "testingenieur-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p"
-        ],
-        "it": [
-          "test-engineer-tosca-w-m-d-migros-hq-ch",
-          "ingegnere-di-collaudo-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p"
-        ]
-      },
-      "previousSlugs": [
-        "test-engineer-tosca-w-m-d-migros-hq-ch",
-        "testingenieur-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p",
-        "ingegnere-di-collaudo-tosca-m-w-d-migros-genossenschafts-bund-zurich-8rcz6p"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T11:17:49.456Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -268,7 +190,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-data-engineer-beschaffung-logistik-wmd/89d6b64c-1257-4082-bd93-ec8e89d52bd5",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.861Z",
+      "crawledAt": "2026-07-16T22:09:30.169Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -345,7 +267,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-automatisierung-anlagen-und-logistik/cb447da7-1318-4e75-b069-13e7d80a8619",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.859Z",
+      "crawledAt": "2026-07-16T22:09:30.168Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -423,7 +345,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-projektleiterin-bauherrenvertretung-bau-und-infrastruktur/e687a82e-f5d7-4821-ad27-485c45d57e9a",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.857Z",
+      "crawledAt": "2026-07-16T22:09:30.167Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -485,7 +407,7 @@
       "title": "ServiceNow Developer (w/m/d)",
       "titleByLocale": {
         "it": "ServiceNow Sviluppatore (w/m/d)",
-        "en": "ServiceNow Developer (f/m/d)",
+        "en": "ServiceNow Developer (w/m/d)",
         "de": "ServiceNow Entwickler (w/m/d)",
         "fr": "ServiceNow Développeur (w/m/d)"
       },
@@ -501,7 +423,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/servicenow-developer-wmd/fb867787-714c-433b-8116-6a1ae924a0f8",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.856Z",
+      "crawledAt": "2026-07-16T22:09:30.166Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -564,7 +486,7 @@
       "title": "Product Owner - IT Service Management Prozesse (w/m/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto - Processi di gestione dei servizi IT (f/m/d)",
-        "en": "Product Owner - IT Service Management Processes (f/m/d)",
+        "en": "Product Owner - IT Service Management Prozesse (w/m/d)",
         "de": "Product Owner - IT Service Management Prozesse (w/m/d)",
         "fr": "Propriétaire du produit - Processus de gestion des services de TI (f/m/d)"
       },
@@ -580,7 +502,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.853Z",
+      "crawledAt": "2026-07-16T22:09:30.165Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -612,6 +534,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:17:49.448Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -640,7 +563,7 @@
       "title": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto \"ServiceNow Platform Basis\" (f/m/d)",
-        "en": "Product Owner \"ServiceNow Platform Basis\" (f/m/d)",
+        "en": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
         "de": "Product Owner \"ServiceNow Plattform Basis\" (w/m/d)",
         "fr": "Propriétaire du produit \"ServiceNow Platform Base\" (f/m/d)"
       },
@@ -656,7 +579,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:30:01.847Z",
+      "crawledAt": "2026-07-16T22:09:30.156Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -694,6 +617,7 @@
         "proprietario-del-prodotto-servicenow-platform-basis-f-m-d-migros-hq-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-08T11:17:49.437Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
