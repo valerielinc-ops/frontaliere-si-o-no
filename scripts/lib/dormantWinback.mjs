@@ -43,6 +43,7 @@
  */
 import { calculateEngagementScore } from '../../functions/src/lib/engagementScore.js';
 import { SUNSET_MIN_SENDS, SUNSET_MIN_AGE_DAYS } from './subscriberSunset.mjs';
+import { toMillis } from './firestoreTimestamp.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -62,15 +63,6 @@ const MAILABLE_STATUSES = new Set(['active', 'confirmed', '']);
 function num(v) {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
-}
-
-function toMillis(v) {
-  if (!v) return null;
-  if (typeof v === 'object' && typeof v.toMillis === 'function') return v.toMillis();
-  if (typeof v === 'object' && typeof v.toDate === 'function') return v.toDate().getTime();
-  if (typeof v === 'object' && typeof v._seconds === 'number') return v._seconds * 1000;
-  const t = new Date(v).getTime();
-  return Number.isFinite(t) ? t : null;
 }
 
 function norm(s) {
