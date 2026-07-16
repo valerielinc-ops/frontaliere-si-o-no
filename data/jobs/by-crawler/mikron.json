@@ -284,9 +284,9 @@
         "de": "Lehrkraft für Lernende Polymaschinenmechaniker",
         "fr": "Formateur d’apprentissage pour former les apprentis polymécaniciens"
       },
-      "slug": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+      "slug": "formatore-di-apprendistici-per-formare-i-polimeccanici-mikron-group-boudry",
       "slugByLocale": {
-        "it": "formazione-di-apprendisti-mikron-group-boudry",
+        "it": "formatore-di-apprendistici-per-formare-i-polimeccanici-mikron-group-boudry",
         "en": "apprenticeship-trainer-to-train-apprentices-mikron-group-boudry",
         "de": "lehrlingsausbildung-zur-ausbildung-von-auszubildenden-mikron-group-boudry",
         "fr": "formazione-di-apprendisti-mikron-group-boudry"
@@ -320,8 +320,15 @@
         }
       },
       "previousSlugs": [
-        "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron"
-      ]
+        "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+        "formazione-di-apprendisti-mikron-group-boudry"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "formazione-di-apprendisti-mikron-group-boudry",
+          "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron"
+        ]
+      }
     },
     {
       "url": "https://www.mikron.com/en/quality-technician-specialist-mfd-0",
@@ -411,9 +418,9 @@
         "de": "Teamleiter der Polymaschinen für die Fertigung – Teamzeit 2×8 (m/w)",
         "fr": "Team Leader des polymécaniciens pour le département fabrication – horaire d’équipe en 2×8 (m/f)"
       },
-      "slug": "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron",
+      "slug": "team-leader-dei-polimacchinisti-per-il-dipartimento-produzione-orario-di-squadra-in-2-8-m-f-mikron-group-boudry",
       "slugByLocale": {
-        "it": "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry",
+        "it": "team-leader-dei-polimacchinisti-per-il-dipartimento-produzione-orario-di-squadra-in-2-8-m-f-mikron-group-boudry",
         "en": "team-leader-of-polymechanics-for-the-manufacturing-department-team-schedule-in-2-8-m-f-mikron-group-boudry",
         "de": "teamleiter-polymechanik-fur-die-fertigungsabteilung-teamplan-in-2-8-m-w-mikron-group-boudry",
         "fr": "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry"
@@ -448,8 +455,15 @@
       },
       "crawlerMissStreak": 1,
       "previousSlugs": [
-        "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron"
-      ]
+        "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron",
+        "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-di-polymechanics-per-il-reparto-manifatturiero-programma-di-squadra-in-2-8-m-f-mikron-group-boudry",
+          "team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-d-equipe-en-2-8-m-f-mikron"
+        ]
+      }
     },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",

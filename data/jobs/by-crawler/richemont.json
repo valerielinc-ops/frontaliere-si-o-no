@@ -7042,10 +7042,10 @@
     },
     {
       "id": "richemont-4c4f80db70bc",
-      "slug": "stagiaire-ingenieur-achats-richemont-le-sentier",
+      "slug": "apprendista-ingegnere-degli-acquisti-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
         "en": "stagiaire-ingenieur-achats-richemont-le-sentier",
-        "it": "stagiaire-ingenieur-achats-richemont-le-sentier",
+        "it": "apprendista-ingegnere-degli-acquisti-jaeger-lecoultre-le-sentier",
         "de": "stagiaire-ingenieur-achats-richemont-le-sentier",
         "fr": "stagiaire-ingenieur-achats-jaeger-lecoultre-le-sentier"
       },
@@ -7103,7 +7103,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T22:13:56.911Z"
+      "firstSeenAt": "2026-07-15T22:13:56.911Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-ingenieur-achats-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-ingenieur-achats-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-b0fe4723f39d",
