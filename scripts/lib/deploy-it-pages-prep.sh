@@ -504,11 +504,21 @@ step_push_cdn() {
   # Force-push a single fresh commit → CDN repo history never accumulates.
   # Content is additive (prior assets/ merged above), so the force-push no
   # longer clobbers in-flight entry hashes — it just flattens history.
-  if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
+  _push_delay=5; _push_ok=0
+  for _try in 1 2 3; do
+    if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
+      _push_ok=1; break
+    fi
+    if [ "$_try" -lt 3 ]; then
+      echo "::warning::CDN push attempt $_try/3 failed — retrying in ${_push_delay}s"
+      sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
+    fi
+  done
+  if [ "$_push_ok" = 1 ]; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     echo "✅ pushed assets to frontaliere-cdn"
   else
-    echo "⚠️ CDN push failed — offload skipped, og/data stay in dist"
+    echo "⚠️ CDN push failed after 3 attempts — offload skipped, og/data stay in dist"
   fi
   rm -f "$keyfile"
   # Return to the prep cwd (the IT shard dist root) for the steps that follow,

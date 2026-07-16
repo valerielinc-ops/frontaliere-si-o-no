@@ -161,7 +161,17 @@ push_ticino_shard() {
     else
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "ticino-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
-      git push -f "$SHARD_REPO" main
+      _push_delay=5; _push_ok=0
+      for _try in 1 2 3; do
+        if git push -f "$SHARD_REPO" main; then
+          _push_ok=1; break
+        fi
+        if [ "$_try" -lt 3 ]; then
+          echo "::warning::push attempt $_try/3 failed — retrying in ${_push_delay}s"
+          sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
+        fi
+      done
+      [ "$_push_ok" = 1 ] || { echo "::error::ticino-$loc shard push failed after 3 attempts"; exit 1; }
     fi
   )
   rc=$?

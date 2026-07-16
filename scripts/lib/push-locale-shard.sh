@@ -209,7 +209,17 @@ push_shard() {
       # Orphan fallback: force-push the single fresh commit (full tree) as
       # before. `-f` is harmless on the incremental ff-path and required on
       # the orphan path, so use it for both.
-      git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
+      _push_delay=5; _push_ok=0
+      for _try in 1 2 3; do
+        if git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main; then
+          _push_ok=1; break
+        fi
+        if [ "$_try" -lt 3 ]; then
+          echo "::warning::push attempt $_try/3 failed — retrying in ${_push_delay}s"
+          sleep "$_push_delay"; _push_delay=$(( _push_delay * 2 ))
+        fi
+      done
+      [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts"; exit 1; }
     fi
   )
   rc=$?
