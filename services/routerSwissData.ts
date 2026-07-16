@@ -403,6 +403,12 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-disoccupati': { it: 'frontalieri-disoccupati', en: 'frontaliers-unemployed', de: 'frontalier-ohne-arbeit', fr: 'frontaliers-sans-emploi' },
  'incontro-fiscale-roma-giugno': { it: 'incontro-fiscale-roma-giugno', en: 'switzerland-italy-fiscal-meeting-rome', de: 'schweiz-italien-steuerliches-treffen-rom', fr: 'suisse-italie-rencontre-fiscale-rome' },
  'disoccupazione-frontalieri-nuove-regole-ue': { it: 'disoccupazione-frontalieri-nuove-regole-ue', en: 'cross-border-unemployment-eu-rules', de: 'grenzgaenger-arbeitslosigkeit-eu-regeln', fr: 'chomage-frontaliers-nouvelles-regles-ue' },
+ 'svizzera-disoccupazione-frontalieri-ue': { it: 'svizzera-disoccupazione-frontalieri-ue', en: 'switzerland-cross-border-unemployment-eu', de: 'schweiz-arbeitslosigkeit-grenzgaenger-eu', fr: 'suisse-chomage-frontaliers-ue' },
+ 'iniziativa-alimentazione-sicura-voto': { it: 'iniziativa-alimentazione-sicura-voto', en: 'secure-food-supply-initiative-vote', de: 'initiative-sichere-ernaehrung-abstimmung', fr: 'initiative-alimentation-sure-vote' },
+ 'giugno-pernottamenti-calo': { it: 'giugno-pernottamenti-calo', en: 'june-hotel-stays-decline', de: 'juni-hotelbuchungen-ruckgang', fr: 'nuitees-hotelieres-en-juin-decroissance' },
+ 'intesa-telelavoro-frontalieri-svizzera-italia': { it: 'intesa-telelavoro-frontalieri-svizzera-italia', en: 'cross-border-telework-agreement-switzerland-italy', de: 'telearbeit-vereinbarung-grenzganger-schweiz-italien', fr: 'accord-teletravail-frontaliers-suisse-italie' },
+ 'attacco-informatico-iwb-basilea': { it: 'attacco-informatico-iwb-basilea', en: 'cyber-attack-iwb-basel', de: 'cyber-angriff-iwb-basel', fr: 'cyber-attaque-iwb-bale' },
+ 'sospensione-riversamento-imposta-frontalieri': { it: 'sospensione-riversamento-imposta-frontalieri', en: 'suspension-of-cross-border-tax-transfer', de: 'aussetzung-der-quellensteuer-transfer', fr: 'suspension-du-transfert-impot-frontaliers' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -8516,6 +8516,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Frontalieri in Ticino: flussi, mobilità e aree di provenienza',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontaliere su due arriva da Como. Analisi sui flussi, le destinazioni e l\'uso dell\'auto basata sull\'indagine del Dipartimento del territorio.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Traffico mattutino al valico di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Frontalieri disoccupati: diritti e accesso agli URC',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'I frontalieri disoccupati hanno il diritto di iscriversi agli Uffici regionali di collocamento (URC) svizzeri. Ecco come funziona la procedura.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Veduta di Lugano con il lago e le montagne sullo sfondo.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. I ristorni diventano pedine negoziali nelle dispute fiscali e olimpiche.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande di Bellinzona, sede del governo ticinese',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italia-Svizzera: scambio automatico informazioni fiscali',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analisi sul funzionamento dello scambio automatico di informazioni fiscali tra Italia e Svizzera tramite CRS e DAC per i lavoratori frontalieri.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Veduta panoramica di Lugano con il lago e le montagne.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berna non vuole creare attriti con l\'Italia | RSI',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'La Svizzera e l\'Italia si incontrano al confine del Ticino, in un contesto di collaborazione e rispetto reciproco.',
 };
 
 export default blogMetaIt;

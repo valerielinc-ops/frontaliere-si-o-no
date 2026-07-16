@@ -4544,6 +4544,16 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incontro-fiscale-roma-giugno': { name: 'Accordo fiscale Roma', path: '/articoli-svizzera/incontro-fiscale-roma-giugno/', parent: 'blog' },
     'blog-traffico-frontalieri-como-ticino': { name: 'Mobilità frontalieri', path: '/articoli-frontaliere/traffico-frontalieri-como-ticino', parent: 'blog' },
     'blog-disoccupazione-frontalieri-nuove-regole-ue': { name: 'Disoccupazione frontalieri', path: '/articoli-svizzera/disoccupazione-frontalieri-nuove-regole-ue/', parent: 'blog' },
+    'blog-svizzera-disoccupazione-frontalieri-ue': { name: 'Politica e Lavoro', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-ue/', parent: 'blog' },
+    'blog-iniziativa-alimentazione-sicura-voto': { name: 'Votazioni federali', path: '/articoli-svizzera/iniziativa-alimentazione-sicura-voto/', parent: 'blog' },
+    'blog-frontalieri-disoccupati-urc-diritti': { name: 'Frontalieri disoccupati', path: '/articoli-frontaliere/frontalieri-disoccupati-urc-diritti', parent: 'blog' },
+    'blog-ristorni-frontalieri-arma-politica': { name: 'Ristorni frontalieri', path: '/articoli-frontaliere/ristorni-frontalieri-arma-politica', parent: 'blog' },
+    'blog-giugno-pernottamenti-calo': { name: 'Pernottamenti in calo a giugno', path: '/articoli-svizzera/giugno-pernottamenti-calo/', parent: 'blog' },
+    'blog-intesa-telelavoro-frontalieri-svizzera-italia': { name: 'Telelavoro frontalieri', path: '/articoli-svizzera/intesa-telelavoro-frontalieri-svizzera-italia/', parent: 'blog' },
+    'blog-scambio-automatico-informazioni-fiscali': { name: 'Scambio Fiscale', path: '/articoli-frontaliere/scambio-automatico-informazioni-fiscali', parent: 'blog' },
+    'blog-berna-non-crea-attriti-con-litalia': { name: 'Collaborazione e rispetto tra la Svizzera', path: '/articoli-frontaliere/berna-non-crea-attriti-con-litalia', parent: 'blog' },
+    'blog-attacco-informatico-iwb-basilea': { name: 'Sicurezza informatica', path: '/articoli-svizzera/attacco-informatico-iwb-basilea/', parent: 'blog' },
+    'blog-sospensione-riversamento-imposta-frontalieri': { name: 'Frontalieri e Fisco', path: '/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

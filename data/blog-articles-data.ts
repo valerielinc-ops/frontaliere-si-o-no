@@ -25586,6 +25586,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-disoccupati-urc-diritti',
+ category: 'pratico',
+ date: '2026-07-15T12:28:22.453Z',
+ image: '/images/blog/frontalieri-disoccupati-urc-diritti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'ristorni-frontalieri-arma-politica',
+ category: 'fiscale',
+ date: '2026-07-15T13:21:36.452Z',
+ image: '/images/blog/ristorni-frontalieri-arma-politica.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'scambio-automatico-informazioni-fiscali',
+ category: 'fiscale',
+ date: '2026-07-15T23:07:59.129Z',
+ image: '/images/blog/scambio-automatico-informazioni-fiscali.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'berna-non-crea-attriti-con-litalia',
+ category: 'fiscale',
+ date: '2026-07-15T23:44:15.781Z',
+ image: '/images/blog/berna-non-crea-attriti-con-litalia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

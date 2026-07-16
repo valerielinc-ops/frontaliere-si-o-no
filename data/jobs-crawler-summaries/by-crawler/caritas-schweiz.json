@@ -1,16 +1,16 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-07-14T22:04:37.718Z",
+  "generatedAt": "2026-07-15T22:09:48.152Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7289,
-  "avgDurationMs": 7289,
+  "unchangedCount": 1,
+  "durationMs": 6882,
+  "avgDurationMs": 6882,
   "durationHistory": [
-    7289
+    6882
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/126757/2332/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:34.559Z",
+      "crawledAt": "2026-07-15T22:09:44.898Z",
       "addressLocality": "Waldibrücke, Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/126757/2320/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:04:34.114Z",
+      "crawledAt": "2026-07-15T22:09:44.474Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://apply.refline.ch/126757/2329/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:04:31.307Z",
+      "crawledAt": "2026-07-15T22:09:42.288Z",
       "addressLocality": "Syrien",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://apply.refline.ch/126757/2330/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:35.478Z",
+      "crawledAt": "2026-07-15T22:09:45.766Z",
       "addressLocality": "Gulu / Uganda",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://apply.refline.ch/126757/2326/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:33.227Z",
+      "crawledAt": "2026-07-15T22:09:43.620Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,7 +227,7 @@
       "url": "https://apply.refline.ch/126757/2327/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:33.670Z",
+      "crawledAt": "2026-07-15T22:09:44.053Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://apply.refline.ch/126757/2249/pub/14/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:32.761Z",
+      "crawledAt": "2026-07-15T22:09:43.173Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -307,7 +307,7 @@
       "url": "https://apply.refline.ch/126757/2325/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:35.004Z",
+      "crawledAt": "2026-07-15T22:09:45.321Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       "url": "https://apply.refline.ch/126757/2299/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:32.226Z",
+      "crawledAt": "2026-07-15T22:09:42.736Z",
       "addressLocality": "Zentralschweiz",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -373,21 +373,23 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "caritas-schweiz-75f78f58a1c8",
-      "slug": "smo-head-80-100-m-w-d-caritas-schweiz-luzern",
+      "slug": "testa-smo-80-100-lunedi-f-g-caritas-schweiz-luzern",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
       "companyDomain": "caritas.ch",
       "title": "SMO Head 80 - 100 % (m/w/d)",
-      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://apply.refline.ch/126757/2281/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:04:31.756Z",
+      "crawledAt": "2026-07-15T11:33:50.477Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -406,15 +408,16 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-06-16T13:00:15.365Z",
-      "_qualityScore": 85,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

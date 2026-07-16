@@ -11,8 +11,20 @@
     "https://ohws.prospective.ch/public/v1/medium/1000626/jobs?lang=it&f=verwaltungseinheit:1083812"
   ],
   "notes": "Dedicated Agroscope crawler — CH-wide (all 26 cantons). Uses Prospective.ch API (medium 1000626, verwaltungseinheit 1083812 — the Agroscope org unit, NOT a canton facet, so the listing is already national). Swiss federal center of competence for agricultural research, part of DEFR. Research sites across CH: Posieux (FR), Reckenholz/Zürich (ZH), Changins/Nyon (VD), Conthey (VS), Cadenazzo (TI), Tänikon (TG), etc. Keeps every job that resolves to a Swiss canton (inferAnyCanton); drops foreign \"Estero\" postings. Full job data in API response, no detail page fetching needed.",
-  "updatedAt": "2026-07-14T23:01:52.925Z",
+  "updatedAt": "2026-07-15T22:22:00.831Z",
   "seedMetaByUrl": {
+    "https://jobs.admin.ch/posti-vacanti/responsabile-gruppo-di-ricerca-estensione-orticoltura/25996d96-c146-41a0-8acf-eb48fb41dc56": {
+      "location": "8046 Zürich",
+      "canton": "ZH",
+      "company": "Agroscope",
+      "postedDate": "2026-07-14"
+    },
+    "https://jobs.admin.ch/posti-vacanti/praticante-scuola-universitaria-scuola-universitaria-professionale-informazione-e-documentazione/f9bc2602-9fef-4b89-bf34-70a6c623248d": {
+      "location": "Zurigo, Svizzera",
+      "canton": "ZH",
+      "company": "Agroscope",
+      "postedDate": "2026-07-15"
+    },
     "https://jobs.admin.ch/posti-vacanti/dottorando-a-trasferimento-dei-pfas-da-suolo-e-foraggi-a-latte-e-carne-di-ruminanti/d5a2a564-08cb-4159-9864-2a83f7cb6511": {
       "location": "Posieux, Svizzera",
       "canton": "FR",

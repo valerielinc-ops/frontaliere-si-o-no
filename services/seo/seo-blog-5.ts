@@ -49563,6 +49563,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati-urc-diritti': {
+    title: 'Frontalieri disoccupati: diritti e accesso agli URC',
+    description: 'I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare e la procedura corretta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, diritti, accesso, agli',
+    ogTitle: 'Frontalieri disoccupati: diritti e accesso agli URC',
+    ogDescription: 'I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupati-urc-diritti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri disoccupati: diritti e accesso agli URC",
+      "description": "I frontalieri disoccupati possono iscriversi agli URC svizzeri. Scopri come funziona il diritto di iscrizione complementare e la procedura corretta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupati-urc-diritti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con il lago e le montagne sullo sfondo."
+      },
+      "datePublished": "2026-07-15T12:28:22+00:00",
+      "dateModified": "2026-07-15T12:28:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-urc-diritti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ristorni-frontalieri-arma-politica': {
+    title: 'Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia',
+    description: 'Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. Analisi sulle nuove tensioni fiscali tra Svizzera e Lombardia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, ristorni, nuova, arma, politica',
+    ogTitle: 'Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia',
+    ogDescription: 'Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. Analisi sulle nuove tensioni fiscali tra Svizzera e Lombardia.',
+    canonicalPath: '/articoli-frontaliere/ristorni-frontalieri-arma-politica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ristorni frontalieri: la nuova arma politica tra Svizzera e Italia",
+      "description": "Il Ticino blocca 50,2 milioni di franchi e i Grigioni minacciano ritorsioni. Analisi sulle nuove tensioni fiscali tra Svizzera e Lombardia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-arma-politica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande di Bellinzona, sede del governo ticinese"
+      },
+      "datePublished": "2026-07-15T13:21:36+00:00",
+      "dateModified": "2026-07-15T13:21:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ristorni-frontalieri-arma-politica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scambio-automatico-informazioni-fiscali': {
+    title: 'Italia-Svizzera: scambio automatico informazioni fiscali',
+    description: 'Scopri come funziona lo scambio automatico di informazioni fiscali tra Italia e Svizzera tramite CRS e DAC per i lavoratori frontalieri nel Canton Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, italia-svizzera, scambio, automatico, informazioni',
+    ogTitle: 'Italia-Svizzera: scambio automatico informazioni fiscali',
+    ogDescription: 'Approfondimento sul funzionamento dello scambio automatico di informazioni fiscali (CRS e DAC) tra Italia e Svizzera per i lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/scambio-automatico-informazioni-fiscali',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Italia-Svizzera: scambio automatico informazioni fiscali",
+      "description": "Scopri come funziona lo scambio automatico di informazioni fiscali tra Italia e Svizzera tramite CRS e DAC per i lavoratori frontalieri nel Canton Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scambio-automatico-informazioni-fiscali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano con il lago e le montagne."
+      },
+      "datePublished": "2026-07-15T23:07:59+00:00",
+      "dateModified": "2026-07-15T23:07:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scambio-automatico-informazioni-fiscali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-non-crea-attriti-con-litalia': {
+    title: 'Berna non vuole creare attriti con l\'Italia | RSI',
+    description: 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, vuole, creare, attriti',
+    ogTitle: 'Berna non crea attriti con l\'Italia | RSI',
+    ogDescription: 'La Svizzera non vuole creare attriti con l\'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese.',
+    canonicalPath: '/articoli-frontaliere/berna-non-crea-attriti-con-litalia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna non vuole creare attriti con l'Italia | RSI",
+      "description": "La Svizzera non vuole creare attriti con l'Italia, ma vuole invece collaborare e rispettare la sovranità del nostro paese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-non-crea-attriti-con-litalia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Svizzera e l'Italia si incontrano al confine del Ticino, in un contesto di collaborazione e rispetto reciproco."
+      },
+      "datePublished": "2026-07-15T23:44:15+00:00",
+      "dateModified": "2026-07-15T23:44:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-non-crea-attriti-con-litalia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -1,18 +1,54 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-07-14T22:20:11.869Z",
-  "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
+  "generatedAt": "2026-07-15T22:22:12.450Z",
+  "total": 9,
+  "newCount": 1,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3498,
-  "avgDurationMs": 3498,
+  "unchangedCount": 1,
+  "durationMs": 4170,
+  "avgDurationMs": 4170,
   "durationHistory": [
-    3498
+    4170
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle Fachperson Hotellerie Hauswirtschaft Efz",
+      "slug": "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_fachperson_hotellerie_hauswirtschaft_efz_aa2294f67b.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-15",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_lehrstelle_fachperson_hotellerie_hauswirtschaft_efz_aa2294f67b.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Dipl. Fachperson Op Technik 80–100%",
@@ -163,43 +199,6 @@
       }
     },
     {
-      "title": "Praktikant:In Berit Sportslab",
-      "slug": "praktikant-in-berit-sportslab-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf"
-      },
-      "id": "berit-klinik-4eb29cd9fb19",
-      "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "title": "Koch, 100%",
       "slug": "koch-100-berit-klinik",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_k_chin_koch_100__3caee99d09.pdf",
@@ -312,5 +311,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Praktikant:In Berit Sportslab",
+      "slug": "tirocinante-in-berit-sportslab-berit-klinik-st-gallen",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf"
+      },
+      "id": "berit-klinik-4eb29cd9fb19",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "salaryMin": 73000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }

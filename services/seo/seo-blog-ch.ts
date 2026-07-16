@@ -14721,6 +14721,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-disoccupazione-frontalieri-ue': {
+    title: 'Disoccupazione frontalieri: l\'UDC si oppone alle nuove regole UE',
+    description: 'L\'UDC si oppone alla riforma UE sulla disoccupazione dei frontalieri: la Svizzera rischia costi per un miliardo. Ecco i dettagli della mozione parlamentare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, oppone, alle, nuove',
+    ogTitle: 'Disoccupazione frontalieri: l\'UDC si oppone alle nuove regole UE',
+    ogDescription: 'L\'UDC si oppone alla riforma UE sulla disoccupazione dei frontalieri: la Svizzera rischia costi per un miliardo. Ecco i dettagli della mozione parlamentare.',
+    canonicalPath: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri: l'UDC si oppone alle nuove regole UE",
+      "description": "L'UDC si oppone alla riforma UE sulla disoccupazione dei frontalieri: la Svizzera rischia costi per un miliardo. Ecco i dettagli della mozione parlamentare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-disoccupazione-frontalieri-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica della città svizzera con edifici governativi"
+      },
+      "datePublished": "2026-07-15T05:09:51+00:00",
+      "dateModified": "2026-07-15T05:09:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-disoccupazione-frontalieri-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-alimentazione-sicura-voto': {
+    title: 'Iniziativa per un\'alimentazione sicura: cosa cambia il 27 settembre',
+    description: 'Il 27 settembre si vota sull\'iniziativa per un\'alimentazione sicura: obiettivo 70% di autosufficienza. Analisi, prospettive e dati per i residenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, alimentazione, sicura, cosa',
+    ogTitle: 'Iniziativa alimentazione sicura: voto 27 settembre',
+    ogDescription: 'Il 27 settembre si vota sull\'iniziativa per un\'alimentazione sicura: obiettivo 70% di autosufficienza. Analisi, prospettive e dati per i residenti.',
+    canonicalPath: '/articoli-svizzera/iniziativa-alimentazione-sicura-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa per un'alimentazione sicura: cosa cambia il 27 settembre",
+      "description": "Il 27 settembre si vota sull'iniziativa per un'alimentazione sicura: obiettivo 70% di autosufficienza. Analisi, prospettive e dati per i residenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-alimentazione-sicura-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero con Alpi sullo sfondo"
+      },
+      "datePublished": "2026-07-15T11:58:22+00:00",
+      "dateModified": "2026-07-15T11:58:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-alimentazione-sicura-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giugno-pernottamenti-calo': {
+    title: 'Pernottamenti in calo a giugno | Frontaliere Ticino',
+    description: 'La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, pernottamenti, calo, giugno, domanda',
+    ogTitle: 'Pernottamenti in calo a giugno: dati ufficiali',
+    ogDescription: 'La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%',
+    canonicalPath: '/articoli-svizzera/giugno-pernottamenti-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pernottamenti in calo a giugno",
+      "description": "La domanda estera scende del 4,4% in giugno, mentre gli ospiti provenienti dalla Confederazione fanno segnare -0,1%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giugno-pernottamenti-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I dati dei pernottamenti in Svizzera per giugno"
+      },
+      "datePublished": "2026-07-15T13:34:08+00:00",
+      "dateModified": "2026-07-15T13:34:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giugno-pernottamenti-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-intesa-telelavoro-frontalieri-svizzera-italia': {
+    title: 'Telelavoro frontalieri: intesa in vigore dal 2024',
+    description: 'È entrata in vigore l\'intesa sul telelavoro per i frontalieri: fino al 25% di lavoro da casa senza cambiare status fiscale. Ecco le regole e le sanzioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, intesa, vigore, 2024',
+    ogTitle: 'Telelavoro frontalieri: intesa in vigore dal 2024',
+    ogDescription: 'Nuove regole per il telelavoro dei frontalieri: fino al 25% da casa in vigore. Scopri cosa cambia per lavoratori e aziende.',
+    canonicalPath: '/articoli-svizzera/intesa-telelavoro-frontalieri-svizzera-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro frontalieri: intesa in vigore dal 2024",
+      "description": "È entrata in vigore l'intesa sul telelavoro per i frontalieri: fino al 25% di lavoro da casa senza cambiare status fiscale. Ecco le regole e le sanzioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/intesa-telelavoro-frontalieri-svizzera-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista su Lugano e ufficio moderno per professionisti"
+      },
+      "datePublished": "2026-07-15T15:25:23+00:00",
+      "dateModified": "2026-07-15T15:25:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/intesa-telelavoro-frontalieri-svizzera-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-attacco-informatico-iwb-basilea': {
+    title: 'Attacco informatico a IWB: 40\'000 clienti coinvolti a Basilea',
+    description: 'Violazione dati presso un fornitore di IWB a Basilea: 40\'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, informatico, clienti, coinvolti',
+    ogTitle: 'Attacco informatico IWB Basilea: 40\'000 clienti coinvolti',
+    ogDescription: 'Violazione dati presso un fornitore di IWB a Basilea: 40\'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe.',
+    canonicalPath: '/articoli-svizzera/attacco-informatico-iwb-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco informatico a IWB: 40'000 clienti coinvolti a Basilea",
+      "description": "Violazione dati presso un fornitore di IWB a Basilea: 40'000 clienti coinvolti. Nessun rischio bancario, ma massima cautela contro truffe. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attacco-informatico-iwb-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede dell'azienda energetica IWB a Basilea"
+      },
+      "datePublished": "2026-07-16T01:48:50+00:00",
+      "dateModified": "2026-07-16T01:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-informatico-iwb-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sospensione-riversamento-imposta-frontalieri': {
+    title: 'Frontalieri: richiesta la sospensione dell\'imposta all\'Italia',
+    description: 'Mozione in Gran Consiglio: richiesta la sospensione del riversamento d\'imposta all\'Italia per contrastare la \'tassa sulla salute\' sui frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, sospensione, dell, imposta',
+    ogTitle: 'Frontalieri: mozione per sospendere l\'imposta all\'Italia',
+    ogDescription: 'Nuova mozione in Gran Consiglio contro la tassa sanitaria italiana: si chiede la sospensione dei riversamenti fiscali.',
+    canonicalPath: '/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: richiesta la sospensione dell'imposta all'Italia",
+      "description": "Mozione in Gran Consiglio: richiesta la sospensione del riversamento d'imposta all'Italia per contrastare la 'tassa sulla salute' sui frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sospensione-riversamento-imposta-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo delle Orsoline a Bellinzona, sede del Gran Consiglio ticinese."
+      },
+      "datePublished": "2026-07-16T04:44:29+00:00",
+      "dateModified": "2026-07-16T04:44:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

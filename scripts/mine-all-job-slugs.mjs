@@ -438,11 +438,23 @@ function main() {
 
   // Merge all mined slugs
   const allSlugs = new Map(); // slug → { locales: { it?, en?, de?, fr? } }
+  // Track slugs seen from any non-git source — used for size-cap pruning below.
+  const nonGitSourceSlugs = new Set();
+  // Track slugs from high-value primary sources (active/expired jobs, slug registry,
+  // orphan data). Used for tier-2 size-cap pruning: compat-path-only echoes that
+  // don't appear in any primary source are the safest entries to drop when the
+  // tracking file grows toward GitHub's 100 MiB limit.
+  const highValueSlugs = new Set();
+  const HIGH_VALUE_SOURCES = new Set(['Active jobs', 'Expired jobs', 'Slug registry', 'Orphan data']);
 
   for (const { name, fn } of sources) {
     const mined = fn();
+    const isGit = name === 'Git history (removed slugs)';
+    const isHighValue = HIGH_VALUE_SOURCES.has(name);
     console.log(`  📦 ${name}: ${mined.size} slugs`);
     for (const [slug, data] of mined) {
+      if (!isGit) nonGitSourceSlugs.add(slug);
+      if (isHighValue) highValueSlugs.add(slug);
       if (!allSlugs.has(slug)) {
         allSlugs.set(slug, { locales: {} });
       }
@@ -461,6 +473,8 @@ function main() {
     if (!allSlugs.has(slug)) {
       allSlugs.set(slug, data);
     }
+    nonGitSourceSlugs.add(slug); // fuzzy-matched orphans are GSC-indexed — keep
+    highValueSlugs.add(slug);   // fuzzy-matched = GSC-indexed, treat as high value
   }
   if (fuzzyRecovered.size > 0) {
     console.log(`  📊 After fuzzy reconciliation: ${allSlugs.size}`);
@@ -510,7 +524,9 @@ function main() {
     }
 
     if (!tracking[slug]) {
-      tracking[slug] = localePaths;
+      tracking[slug] = nonGitSourceSlugs.has(slug)
+        ? localePaths
+        : { ...localePaths, _gitOnly: true };
       added++;
     } else {
       // Patch missing locales in existing entry
@@ -522,6 +538,10 @@ function main() {
         }
       }
       if (didPatch) patched++;
+      // Upgrade: slug previously marked git-only but now visible from a non-git source.
+      if (tracking[slug]._gitOnly && nonGitSourceSlugs.has(slug)) {
+        delete tracking[slug]._gitOnly;
+      }
     }
   }
 
@@ -550,7 +570,52 @@ function main() {
 
   // Write outputs
   if (!DRY_RUN) {
-    fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
+    // Size guard: GitHub rejects files ≥ 100 MiB (~104 MB). Two-tier prune.
+    // All consumers use JSON.parse() so compact JSON (no indent) is fine.
+    //
+    // Tier 1 — remove `_gitOnly` entries (removed slugs from git history, lowest
+    //   signal: not present in any live data source). These are marked at first-add
+    //   time and are the first to drop when the file grows.
+    // Tier 2 — if tier 1 alone is insufficient (e.g. 0 _gitOnly entries remain after
+    //   previous runs already pruned them), remove entries NOT seen from any high-value
+    //   primary source in *this run* (active/expired jobs, slug registry, orphan data,
+    //   fuzzy-matched orphans). These are "compat-path echoes" — slugs that were mined
+    //   FROM the compat file itself and never (re)appeared in primary data. Pruning
+    //   them from tracking drops their soft-landing pages but their compat-paths remain,
+    //   so 404 compat redirects are preserved until prune-404-compat-paths.ts cleans up.
+    const SIZE_CAP = 95 * 1024 * 1024; // 95 MiB — headroom under GitHub's ~100 MiB limit
+    let serialized = JSON.stringify(tracking);
+    if (serialized.length > SIZE_CAP) {
+      const preMB = (serialized.length / 1e6).toFixed(1);
+
+      // Tier 1: prune git-history-only entries
+      let pruned1 = 0;
+      for (const slug of Object.keys(tracking)) {
+        if (tracking[slug]?._gitOnly === true) {
+          delete tracking[slug];
+          pruned1++;
+        }
+      }
+      if (pruned1 > 0) serialized = JSON.stringify(tracking);
+      console.log(`\n  ✂️  Size cap tier 1: pruned ${pruned1} git-history-only entries (${preMB} MB → ${(serialized.length / 1e6).toFixed(1)} MB)`);
+
+      // Tier 2: if still over cap, prune compat-path-only echoes
+      if (serialized.length > SIZE_CAP) {
+        let pruned2 = 0;
+        for (const slug of Object.keys(tracking)) {
+          if (!highValueSlugs.has(slug)) {
+            delete tracking[slug];
+            pruned2++;
+          }
+        }
+        serialized = JSON.stringify(tracking);
+        console.log(`  ✂️  Size cap tier 2: pruned ${pruned2} compat-path-only entries (→ ${(serialized.length / 1e6).toFixed(1)} MB)`);
+        if (serialized.length > SIZE_CAP) {
+          console.warn(`  ⚠️  Still over ${(SIZE_CAP / 1e6).toFixed(0)} MB after two-tier prune — high-value sources are the growth driver`);
+        }
+      }
+    }
+    fs.writeFileSync(trackingFile, serialized + '\n');
     const updatedCompat = {
       ...compat,
       paths: [...existingCompat].filter((p) => typeof p === 'string' && p.startsWith('/')).sort(),

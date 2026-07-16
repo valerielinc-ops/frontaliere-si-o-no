@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-07-14T22:28:52.378Z",
+  "assembledAt": "2026-07-15T22:41:55.852Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5476",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5476",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:49.099Z",
+      "crawledAt": "2026-07-15T22:41:52.841Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5473",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:48.694Z",
+      "crawledAt": "2026-07-15T22:41:52.365Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -223,7 +223,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5458",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:48.266Z",
+      "crawledAt": "2026-07-15T22:41:51.889Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5515",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:47.818Z",
+      "crawledAt": "2026-07-15T22:41:51.404Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5495",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:47.395Z",
+      "crawledAt": "2026-07-15T22:41:50.912Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -534,7 +534,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5494",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:46.979Z",
+      "crawledAt": "2026-07-15T22:41:50.438Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -639,7 +639,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5381",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:46.550Z",
+      "crawledAt": "2026-07-15T22:41:49.955Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -732,7 +732,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5553",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:46.137Z",
+      "crawledAt": "2026-07-15T22:41:49.486Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -829,7 +829,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5564",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:45.707Z",
+      "crawledAt": "2026-07-15T22:41:49.010Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -901,100 +901,6 @@
       }
     },
     {
-      "id": "etat-de-vaud-5541",
-      "slug": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-      "slugByLocale": {
-        "it": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "en": "bailiff-head-of-an-enforcement-office-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "de": "gerichtsvollzieher-in-leiter-in-eines-vollstreckungsburos-etat-de-vaud-administration-cantonale-vaudoise-vevey",
-        "fr": "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
-      },
-      "company": "État de Vaud (Administration cantonale vaudoise)",
-      "companyKey": "etat-de-vaud",
-      "companyDomain": "vd.ch",
-      "title": "Huissier·ère chef·fe d’un Office des poursuites",
-      "titleByLocale": {
-        "it": "Ufficiale giudiziario capo di un Ufficio delle esecuzioni",
-        "en": "Bailiff Head of an Enforcement Office",
-        "de": "Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros",
-        "fr": "Huissier·ère chef·fe d’un Office des poursuites"
-      },
-      "description": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-      "descriptionByLocale": {
-        "it": "Descrizione Possiedi il certificato di formazione generale all'esecuzione forzata? La gestione di un settore e la gestione di pratiche complesse, in particolare realizzando operazioni esterne in contatto diretto con gli utenti ti motiva? Vuoi evolvere in un ambiente di lavoro stimolante? Unisciti a noi! Collegati all'Ordine giudiziario vodese, i dieci uffici delle esecuzioni del cantone sono responsabili della procedura di esecuzione, dalla notifica del comando di pagamento all'incasso del credito o alla consegna dell'atto di mancanza di beni. Tengono anche aggiornati diversi registri e ne rilasciano estratti. L'Ufficio delle esecuzioni del distretto della Riviera - Pays-d'Enhaut, che impiega quasi 30 collaboratori e collaboratrici, cerca un'ufficiale giudiziario capo di un ufficio delle esecuzioni. Missioni - Dirigere un settore di esecuzione forzata e contribuire alla formazione continua dei collaboratori e delle apprendiste. - Assicurare assistenza e supporto tecnico agli ufficiali giudiziari di un OPF per pratiche e casi complessi. - Procedere alle operazioni di esecuzione forzata necessarie per la risoluzione dei debiti dei debitori e effettuare gli interrogatori dei debitori. - Eseguire i sequestri, i sequestri e gli inventari per affitti. - Redigere i verbali destinati alle parti della procedura. - Gestire le pratiche di sequestro di redditi e vendite mobiliari. - Gestire le pratiche immobiliari.\n• Profilo ricercato - CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte. - Certificato di formazione generale all'esecuzione forzata o eventualmente moduli 1 e 2 con impegno a ottenere il modulo 3. - Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta. - Formazione in gestione di team o impegno a ottenerla. - Capacità di gestione dei conflitti, assertività. - Sensibilità al servizio pubblico, ottima resistenza allo stress. - Buona organizzazione, spirito d'iniziativa, rapidità, precisione. - Padronanza dell'ortografia e familiarità con gli strumenti informatici comuni. - Patente di guida e disponibilità di un veicolo privato desiderato.\n• Cosa offriamo - Esistono molte possibilità di evoluzione professionale e di formazione continua all'interno degli Uffici delle esecuzioni e delle bancarotte. - Nell'ambito della procedura di reclutamento, i candidati saranno invitati a presentare un estratto del registro delle esecuzioni e del casellario giudiziario di meno di 3 mesi. Contatto Posto all'interno dell'Amministrazione cantonale vodese (Stato di Vaud), Svizzera. Candidatura online sul portale carriera ufficiale offerte-emploi.vd.ch. Hai domande? Il Sig. Jérôme Grandjean, Responsabile delle esecuzioni, è a tua disposizione al 021 557 12 19. Ti ringraziamo di indicare nella tua lettera di motivazione il tasso di attività desiderato.",
-        "en": "Description Do you hold the general training certificate for forced execution? Are you motivated by managing a sector and handling complex cases, particularly by conducting external operations in direct contact with users? Do you wish to evolve in a stimulating work environment? Join us! Attached to the Vaud judicial order, the ten enforcement offices of the canton are responsible for the enforcement procedure, from notifying the payment order to collecting the debt or issuing the certificate of lack of assets. They also keep various registers up to date and issue extracts from them. The Enforcement Office of the Riviera - Pays-d'Enhaut district, which employs nearly 30 staff members, is looking for a bailiff head of an enforcement office. Missions - Lead a sector of forced execution and contribute to the ongoing training of staff and apprentices. - Provide assistance and technical support to bailiffs of an OPF for complex files and cases. - Carry out the necessary forced execution operations for settling debtors' debts and conduct debtor interrogations. - Execute seizures, attachments, and inventories for rents. - Draft minutes intended for the parties in the procedure. - Manage income seizure and movable sales files. - Manage real estate files.\n• Profile sought - CFC in commercial employee completed in an enforcement or bankruptcy office. - General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3. - 6 years of professional experience in the field of enforcement or bankruptcy. - Training in team management or commitment to obtain it. - Ability to manage conflicts, assertiveness. - Sense of public service, very good stress resistance. - Good organization, initiative, speed, precision. - Mastery of spelling and proficiency with common computer tools. - Driver's license and availability of a private vehicle desired.\n• What we offer - There are many opportunities for professional development and ongoing training within the Enforcement and Bankruptcy Offices. - As part of the recruitment process, candidates will be required to present an extract from the enforcement register and a criminal record of less than 3 months. Contact Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Online application on the official career portal offres-emploi.vd.ch. Do you have questions? Mr. Jérôme Grandjean, Enforcement Officer, is happy to assist you at 021 557 12 19. We thank you for indicating your desired workload in your cover letter.",
-        "de": "Beschreibung Haben Sie das Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung? Motiviert Sie die Leitung eines Bereichs und die Bearbeitung komplexer Fälle, insbesondere durch die Durchführung von Außenoperationen im direkten Kontakt mit den Nutzer·innen? Möchten Sie sich in einem stimulierenden Arbeitsumfeld weiterentwickeln? Kommen Sie zu uns! Die zehn Vollstreckungsbüros des Kantons sind dem Waadtländer Justizwesen angegliedert und verantwortlich für das Vollstreckungsverfahren, von der Zustellung des Zahlungsbefehls bis zur Einziehung der Forderung oder zur Ausstellung des Mangels an Vermögen. Sie führen auch verschiedene Register und stellen Auszüge daraus aus. Das Vollstreckungsbüro des Bezirks Riviera - Pays-d'Enhaut, das fast 30 Mitarbeiter·innen beschäftigt, sucht eine·n Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros.\n• Aufgaben - Leitung eines Bereichs der Zwangsvollstreckung und Mitwirkung an der kontinuierlichen Weiterbildung der Mitarbeiter·innen und Auszubildenden. - Sicherstellung der Unterstützung und technischen Hilfe für Gerichtsvollzieher·innen eines OPF bei komplexen Akten und Fällen. - Durchführung der notwendigen Zwangsvollstreckungsmaßnahmen zur Begleichung der Schulden der Schuldner·innen und Durchführung der Befragungen der Schuldner·innen. - Durchführung von Pfändungen, Beschlagnahmen und Inventuren für Mieten. - Erstellung von Protokollen für die Verfahrensbeteiligten. - Verwaltung von Akten über Einkommenspfändungen und bewegliche Verkäufe. - Verwaltung von Immobilienakten. Gesuchtes Profil - CFC als kaufmännische·r Angestellte·r in einem Vollstreckungs- oder Konkursbüro. - Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung oder eventuell Module 1 und 2 mit der Verpflichtung, Modul 3 zu erwerben. - 6 Jahre Berufserfahrung im Bereich der Zwangsvollstreckung oder des Konkurses. - Ausbildung in Teamführung oder die Verpflichtung, diese zu erwerben. - Fähigkeit zur Konfliktbewältigung, Durchsetzungsvermögen. - Sinn für den öffentlichen Dienst, sehr gute Stressresistenz. - Gute Organisation, Eigeninitiative, Schnelligkeit, Präzision. - Beherrschung der Rechtschreibung und sicherer Umgang mit gängigen Computerwerkzeugen. - Führerschein und Verfügbarkeit eines privaten Fahrzeugs gewünscht.\n• Was wir bieten - Es gibt viele Möglichkeiten zur beruflichen Weiterentwicklung und zur kontinuierlichen Weiterbildung innerhalb der Vollstreckungs- und Konkursbüros. - Im Rahmen des Rekrutierungsverfahrens werden die Kandidat·innen aufgefordert, einen Auszug aus dem Vollstreckungsregister und ein Strafregister von weniger als 3 Monaten vorzulegen. Kontakt Stelle innerhalb der Waadtländer Kantonsverwaltung (Staat Waadt), Schweiz. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch. Haben Sie Fragen? Herr Jérôme Grandjean, Vollstreckungsbeamter, steht Ihnen gerne unter 021 557 12 19 zur Verfügung. Wir danken Ihnen, dass Sie in Ihrem Bewerbungsschreiben den gewünschten Beschäftigungsgrad angeben.",
-        "fr": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
-      },
-      "location": "Vevey",
-      "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
-      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:45.298Z",
-      "addressLocality": "Vevey",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1800",
-      "streetAddress": "Place du Château 1",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte.",
-          "Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta.",
-          "Formazione in gestione di team o impegno a ottenerla.",
-          "Capacità di gestione dei conflitti, assertività.",
-          "Sensibilità al servizio pubblico, ottima resistenza allo stress.",
-          "Buona organizzazione, spirito d'iniziativa, rapidità, precisione.",
-          "Patente di guida e disponibilità di un veicolo privato desiderato."
-        ],
-        "en": [
-          "CFC in commercial employee completed in an enforcement or bankruptcy office.",
-          "General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3.",
-          "6 years of professional experience in the field of enforcement or bankruptcy.",
-          "Training in team management or commitment to obtain it.",
-          "Ability to manage conflicts, assertiveness.",
-          "Sense of public service, very good stress resistance.",
-          "Good organization, initiative, speed, precision.",
-          "Mastery of spelling and proficiency with common computer tools."
-        ]
-      },
-      "previousSlugs": [
-        "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey",
-        "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey",
-          "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey"
-        ]
-      },
-      "firstSeenAt": "2026-07-05T11:43:14.929Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "etat-de-vaud-5591",
       "slug": "direttore-dell-ente-di-accoglienza-migrante-vaudiano-evam-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
@@ -1025,7 +931,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5591",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:44.884Z",
+      "crawledAt": "2026-07-15T22:41:48.540Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1104,7 +1010,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5582",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:44.449Z",
+      "crawledAt": "2026-07-15T22:41:48.073Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1183,7 +1089,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5565",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:44.044Z",
+      "crawledAt": "2026-07-15T22:41:47.596Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1262,7 +1168,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5551",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:43.627Z",
+      "crawledAt": "2026-07-15T22:41:47.129Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1341,7 +1247,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5543",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:43.219Z",
+      "crawledAt": "2026-07-15T22:41:46.660Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1420,7 +1326,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5606",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:42.801Z",
+      "crawledAt": "2026-07-15T22:41:46.189Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1499,7 +1405,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5593",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:42.388Z",
+      "crawledAt": "2026-07-15T22:41:45.714Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1578,7 +1484,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5590",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:41.955Z",
+      "crawledAt": "2026-07-15T22:41:45.219Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1657,7 +1563,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5566",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:41.544Z",
+      "crawledAt": "2026-07-15T22:41:44.740Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1678,7 +1584,8 @@
       "previousSlugs": [
         "juriste-au-support-juridique-etat-de-vaud-lausanne",
         "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "aiuti-di-stato-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "juriste-au-support-juridique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1687,7 +1594,8 @@
         ],
         "en": [
           "juriste-au-support-juridique-etat-de-vaud-lausanne",
-          "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "legal-aid-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "juriste-au-support-juridique-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "juriste-au-support-juridique-etat-de-vaud-lausanne"
@@ -1739,7 +1647,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5318",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:41.130Z",
+      "crawledAt": "2026-07-15T22:41:44.265Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1818,7 +1726,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5614",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:40.724Z",
+      "crawledAt": "2026-07-15T22:41:43.797Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1899,7 +1807,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5603",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:40.315Z",
+      "crawledAt": "2026-07-15T22:41:43.319Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1980,7 +1888,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5588",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:39.900Z",
+      "crawledAt": "2026-07-15T22:41:42.826Z",
       "addressLocality": "Crassier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2059,7 +1967,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5641",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:39.462Z",
+      "crawledAt": "2026-07-15T22:41:42.341Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2138,7 +2046,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:38.752Z",
+      "crawledAt": "2026-07-15T22:41:41.864Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2217,7 +2125,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5629",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:38.313Z",
+      "crawledAt": "2026-07-15T22:41:41.383Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2296,7 +2204,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5571",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:37.888Z",
+      "crawledAt": "2026-07-15T22:41:40.897Z",
       "addressLocality": "Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2375,7 +2283,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5643",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:37.441Z",
+      "crawledAt": "2026-07-15T22:41:40.390Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2454,7 +2362,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5640",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-14T22:28:36.996Z",
+      "crawledAt": "2026-07-15T22:41:39.898Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2501,6 +2409,99 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-5541",
+      "slug": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+      "slugByLocale": {
+        "it": "ufficiale-giudiziario-capo-di-un-ufficio-delle-esecuzioni-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "en": "bailiff-head-of-an-enforcement-office-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "de": "gerichtsvollzieher-in-leiter-in-eines-vollstreckungsburos-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "fr": "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Huissier·ère chef·fe d’un Office des poursuites",
+      "titleByLocale": {
+        "it": "Ufficiale giudiziario capo di un Ufficio delle esecuzioni",
+        "en": "Bailiff Head of an Enforcement Office",
+        "de": "Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros",
+        "fr": "Huissier·ère chef·fe d’un Office des poursuites"
+      },
+      "description": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "it": "Descrizione Possiedi il certificato di formazione generale all'esecuzione forzata? La gestione di un settore e la gestione di pratiche complesse, in particolare realizzando operazioni esterne in contatto diretto con gli utenti ti motiva? Vuoi evolvere in un ambiente di lavoro stimolante? Unisciti a noi! Collegati all'Ordine giudiziario vodese, i dieci uffici delle esecuzioni del cantone sono responsabili della procedura di esecuzione, dalla notifica del comando di pagamento all'incasso del credito o alla consegna dell'atto di mancanza di beni. Tengono anche aggiornati diversi registri e ne rilasciano estratti. L'Ufficio delle esecuzioni del distretto della Riviera - Pays-d'Enhaut, che impiega quasi 30 collaboratori e collaboratrici, cerca un'ufficiale giudiziario capo di un ufficio delle esecuzioni. Missioni - Dirigere un settore di esecuzione forzata e contribuire alla formazione continua dei collaboratori e delle apprendiste. - Assicurare assistenza e supporto tecnico agli ufficiali giudiziari di un OPF per pratiche e casi complessi. - Procedere alle operazioni di esecuzione forzata necessarie per la risoluzione dei debiti dei debitori e effettuare gli interrogatori dei debitori. - Eseguire i sequestri, i sequestri e gli inventari per affitti. - Redigere i verbali destinati alle parti della procedura. - Gestire le pratiche di sequestro di redditi e vendite mobiliari. - Gestire le pratiche immobiliari.\n• Profilo ricercato - CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte. - Certificato di formazione generale all'esecuzione forzata o eventualmente moduli 1 e 2 con impegno a ottenere il modulo 3. - Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta. - Formazione in gestione di team o impegno a ottenerla. - Capacità di gestione dei conflitti, assertività. - Sensibilità al servizio pubblico, ottima resistenza allo stress. - Buona organizzazione, spirito d'iniziativa, rapidità, precisione. - Padronanza dell'ortografia e familiarità con gli strumenti informatici comuni. - Patente di guida e disponibilità di un veicolo privato desiderato.\n• Cosa offriamo - Esistono molte possibilità di evoluzione professionale e di formazione continua all'interno degli Uffici delle esecuzioni e delle bancarotte. - Nell'ambito della procedura di reclutamento, i candidati saranno invitati a presentare un estratto del registro delle esecuzioni e del casellario giudiziario di meno di 3 mesi. Contatto Posto all'interno dell'Amministrazione cantonale vodese (Stato di Vaud), Svizzera. Candidatura online sul portale carriera ufficiale offerte-emploi.vd.ch. Hai domande? Il Sig. Jérôme Grandjean, Responsabile delle esecuzioni, è a tua disposizione al 021 557 12 19. Ti ringraziamo di indicare nella tua lettera di motivazione il tasso di attività desiderato.",
+        "en": "Description Do you hold the general training certificate for forced execution? Are you motivated by managing a sector and handling complex cases, particularly by conducting external operations in direct contact with users? Do you wish to evolve in a stimulating work environment? Join us! Attached to the Vaud judicial order, the ten enforcement offices of the canton are responsible for the enforcement procedure, from notifying the payment order to collecting the debt or issuing the certificate of lack of assets. They also keep various registers up to date and issue extracts from them. The Enforcement Office of the Riviera - Pays-d'Enhaut district, which employs nearly 30 staff members, is looking for a bailiff head of an enforcement office. Missions - Lead a sector of forced execution and contribute to the ongoing training of staff and apprentices. - Provide assistance and technical support to bailiffs of an OPF for complex files and cases. - Carry out the necessary forced execution operations for settling debtors' debts and conduct debtor interrogations. - Execute seizures, attachments, and inventories for rents. - Draft minutes intended for the parties in the procedure. - Manage income seizure and movable sales files. - Manage real estate files.\n• Profile sought - CFC in commercial employee completed in an enforcement or bankruptcy office. - General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3. - 6 years of professional experience in the field of enforcement or bankruptcy. - Training in team management or commitment to obtain it. - Ability to manage conflicts, assertiveness. - Sense of public service, very good stress resistance. - Good organization, initiative, speed, precision. - Mastery of spelling and proficiency with common computer tools. - Driver's license and availability of a private vehicle desired.\n• What we offer - There are many opportunities for professional development and ongoing training within the Enforcement and Bankruptcy Offices. - As part of the recruitment process, candidates will be required to present an extract from the enforcement register and a criminal record of less than 3 months. Contact Position within the Vaud Cantonal Administration (State of Vaud), Switzerland. Online application on the official career portal offres-emploi.vd.ch. Do you have questions? Mr. Jérôme Grandjean, Enforcement Officer, is happy to assist you at 021 557 12 19. We thank you for indicating your desired workload in your cover letter.",
+        "de": "Beschreibung Haben Sie das Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung? Motiviert Sie die Leitung eines Bereichs und die Bearbeitung komplexer Fälle, insbesondere durch die Durchführung von Außenoperationen im direkten Kontakt mit den Nutzer·innen? Möchten Sie sich in einem stimulierenden Arbeitsumfeld weiterentwickeln? Kommen Sie zu uns! Die zehn Vollstreckungsbüros des Kantons sind dem Waadtländer Justizwesen angegliedert und verantwortlich für das Vollstreckungsverfahren, von der Zustellung des Zahlungsbefehls bis zur Einziehung der Forderung oder zur Ausstellung des Mangels an Vermögen. Sie führen auch verschiedene Register und stellen Auszüge daraus aus. Das Vollstreckungsbüro des Bezirks Riviera - Pays-d'Enhaut, das fast 30 Mitarbeiter·innen beschäftigt, sucht eine·n Gerichtsvollzieher·in Leiter·in eines Vollstreckungsbüros.\n• Aufgaben - Leitung eines Bereichs der Zwangsvollstreckung und Mitwirkung an der kontinuierlichen Weiterbildung der Mitarbeiter·innen und Auszubildenden. - Sicherstellung der Unterstützung und technischen Hilfe für Gerichtsvollzieher·innen eines OPF bei komplexen Akten und Fällen. - Durchführung der notwendigen Zwangsvollstreckungsmaßnahmen zur Begleichung der Schulden der Schuldner·innen und Durchführung der Befragungen der Schuldner·innen. - Durchführung von Pfändungen, Beschlagnahmen und Inventuren für Mieten. - Erstellung von Protokollen für die Verfahrensbeteiligten. - Verwaltung von Akten über Einkommenspfändungen und bewegliche Verkäufe. - Verwaltung von Immobilienakten. Gesuchtes Profil - CFC als kaufmännische·r Angestellte·r in einem Vollstreckungs- oder Konkursbüro. - Zertifikat für die allgemeine Ausbildung zur Zwangsvollstreckung oder eventuell Module 1 und 2 mit der Verpflichtung, Modul 3 zu erwerben. - 6 Jahre Berufserfahrung im Bereich der Zwangsvollstreckung oder des Konkurses. - Ausbildung in Teamführung oder die Verpflichtung, diese zu erwerben. - Fähigkeit zur Konfliktbewältigung, Durchsetzungsvermögen. - Sinn für den öffentlichen Dienst, sehr gute Stressresistenz. - Gute Organisation, Eigeninitiative, Schnelligkeit, Präzision. - Beherrschung der Rechtschreibung und sicherer Umgang mit gängigen Computerwerkzeugen. - Führerschein und Verfügbarkeit eines privaten Fahrzeugs gewünscht.\n• Was wir bieten - Es gibt viele Möglichkeiten zur beruflichen Weiterentwicklung und zur kontinuierlichen Weiterbildung innerhalb der Vollstreckungs- und Konkursbüros. - Im Rahmen des Rekrutierungsverfahrens werden die Kandidat·innen aufgefordert, einen Auszug aus dem Vollstreckungsregister und ein Strafregister von weniger als 3 Monaten vorzulegen. Kontakt Stelle innerhalb der Waadtländer Kantonsverwaltung (Staat Waadt), Schweiz. Online-Bewerbung über das offizielle Karriereportal offres-emploi.vd.ch. Haben Sie Fragen? Herr Jérôme Grandjean, Vollstreckungsbeamter, steht Ihnen gerne unter 021 557 12 19 zur Verfügung. Wir danken Ihnen, dass Sie in Ihrem Bewerbungsschreiben den gewünschten Beschäftigungsgrad angeben.",
+        "fr": "Vous êtes titulaire du certificat de formation générale à l’exécution forcée ? La conduite d’un secteur et la gestion de dossiers complexes, notamment en réalisant des opérations extérieures en contact direct avec les usager·ère·s vous motive ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les dix offices des poursuites du canton sont en charge de la procédure de poursuite, de la notification du commandement de payer à l'encaissement de la créance ou à la délivrance de l'acte de défaut de biens. Ils tiennent également à jour différents registres et en délivrent des extraits. Office des poursuites du district de la Riviera - Pays-d'Enhaut, qui emploie près de 30 collaboratrices et collaborateurs, recherche un·e huissier·ère chef·fe d’un office des poursuites.\n\n• Diriger un secteur d'exécution forcée et contribuer à la formation continue des collaborateur·trice·s et des apprenti·e·s.\n• Assurer l’assistance et l’appui technique auprès des huissiers·ière·s d’un OPF pour les dossiers et cas complexes.\n• Procéder aux opérations d'exécution forcée nécessaires au règlement des dettes des débiteurs et effectuer les interrogatoires des débiteurs.\n• Exécuter les saisies, les séquestres et les inventaires pour loyers.\n• Rédiger les procès-verbaux destinés aux parties à la procédure\n• Gérer les dossiers de saisie de revenus et de ventes mobilières.\n• Gérer les dossiers immobiliers. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? M. Jérôme Grandjean, Préposé aux poursuites, se tient volontiers à votre disposition au 021 557 12 19. Nous vous remercions d'indiquer dans votre lettre de motivation le taux d'activité souhaité.\n\n• CFC d'employé·e de commerce effectué dans un office de poursuites ou de faillites.\n• Certificat de formation générale à l'exécution forcée ou éventuellement modules 1 et 2 avec engagement à obtenir le module 3.\n• Expérience professionnelle de 6 ans dans le domaine de la poursuite ou de la faillite.\n• Formation en gestion d'équipe ou engagement à l’obtenir.\n• Aptitude à la gestion de conflits, assertivité.\n• Sens du service public, très bonne résistance au stress.\n• Bonne organisation, esprit d'initiative, rapidité, précision.\n• Maîtrise de l'orthographe et aisance avec les outils informatiques courants.\n• Permis de conduire et mise à disposition du véhicule privé souhaité. De nombreuses possibilités d’évolution professionnelle et de formation continue existent au sein des Office des poursuites et des faillites. Dans le cadre de la procédure de recrutement, les candidat-e-s seront amené-e-s à présenter un extrait du registre des poursuites et du casier judiciaire de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Vevey",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-15T11:13:13.391Z",
+      "addressLocality": "Vevey",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1800",
+      "streetAddress": "Place du Château 1",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5541",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "CFC di impiegato commerciale effettuato in un ufficio delle esecuzioni o delle bancarotte.",
+          "Esperienza professionale di 6 anni nel campo dell'esecuzione o della bancarotta.",
+          "Formazione in gestione di team o impegno a ottenerla.",
+          "Capacità di gestione dei conflitti, assertività.",
+          "Sensibilità al servizio pubblico, ottima resistenza allo stress.",
+          "Buona organizzazione, spirito d'iniziativa, rapidità, precisione.",
+          "Patente di guida e disponibilità di un veicolo privato desiderato."
+        ],
+        "en": [
+          "CFC in commercial employee completed in an enforcement or bankruptcy office.",
+          "General training certificate for forced execution or possibly modules 1 and 2 with a commitment to obtain module 3.",
+          "6 years of professional experience in the field of enforcement or bankruptcy.",
+          "Training in team management or commitment to obtain it.",
+          "Ability to manage conflicts, assertiveness.",
+          "Sense of public service, very good stress resistance.",
+          "Good organization, initiative, speed, precision.",
+          "Mastery of spelling and proficiency with common computer tools."
+        ]
+      },
+      "previousSlugs": [
+        "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "huissier-ere-chef-fe-d-un-office-des-poursuites-etat-de-vaud-vevey"
+        ]
+      },
+      "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

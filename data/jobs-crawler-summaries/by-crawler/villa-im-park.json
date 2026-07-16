@@ -1,16 +1,16 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-07-14T22:09:03.487Z",
-  "total": 3,
+  "generatedAt": "2026-07-15T22:05:10.118Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3251,
-  "avgDurationMs": 3251,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3773,
+  "avgDurationMs": 3773,
   "durationHistory": [
-    3251
+    3773
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000137508569-fachperson-fur-lagerungspflege-60-80-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:09:01.219Z",
+      "crawledAt": "2026-07-15T22:05:07.376Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -64,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:09:01.682Z",
+      "crawledAt": "2026-07-15T22:05:07.859Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -91,8 +91,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "villa-im-park-6babee64765b",
       "slug": "dipl-cura-di-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
@@ -125,7 +124,7 @@
       "firstSeenAt": "2026-06-19T22:49:55.291Z",
       "salaryMin": 55800,
       "salaryMax": 84600,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -134,5 +133,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

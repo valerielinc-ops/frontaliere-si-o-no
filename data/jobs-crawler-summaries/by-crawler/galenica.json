@@ -1,40 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-14T22:48:14.822Z",
-  "total": 376,
+  "generatedAt": "2026-07-15T22:18:30.820Z",
+  "total": 371,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 94542,
-  "avgDurationMs": 94542,
+  "unchangedCount": 0,
+  "durationMs": 97236,
+  "avgDurationMs": 97236,
   "durationHistory": [
-    94542
+    97236
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-      "company": "Galenica (Galenica)",
+      "title": "Management Assistant (w/m/d)",
+      "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3114101.4022635",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3116027.4026055",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Pharma-Assistent / Pharma-Assistentin (w/m/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "category": "management",
+      "descriptionIt": "Management Assistant (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-      "id": "galenica-da3efd9831f6",
+      "slug": "assistente-di-gestione-w-m-d-galenica-ag-galenica-bern",
+      "id": "galenica-69ced60d1945",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
       "streetAddress": "Untermattweg 8",
       "postalCode": "3027",
@@ -51,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

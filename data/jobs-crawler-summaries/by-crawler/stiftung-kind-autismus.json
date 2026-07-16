@@ -1,16 +1,16 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-07-14T22:07:43.185Z",
-  "total": 3,
+  "generatedAt": "2026-07-15T22:42:46.324Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6284,
-  "avgDurationMs": 6284,
+  "unchangedCount": 0,
+  "durationMs": 6539,
+  "avgDurationMs": 6539,
   "durationHistory": [
-    6284
+    6539
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/100/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:07:39.136Z",
+      "crawledAt": "2026-07-15T22:42:42.754Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:07:39.828Z",
+      "crawledAt": "2026-07-15T22:42:43.294Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -92,46 +92,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "stiftung-kind-autismus-3a72454bcdc5",
-      "slug": "vorpraktikum-o-praticantato-nel-settore-sociale-stiftung-kind-und-autismus-urdorf",
-      "company": "Stiftung Kind und Autismus",
-      "companyKey": "stiftung-kind-autismus",
-      "companyDomain": "kind-autismus.ch",
-      "title": "Vorpraktikum oder Praktikum im Sozialwesen",
-      "location": "Urdorf",
-      "canton": "ZH",
-      "url": "https://app.reflinejobs.io/2044/0081/pub/68/index.html",
-      "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:28:04.060Z",
-      "addressLocality": "Urdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8902",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sociale / Educazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://app.reflinejobs.io/2044/0081/pub/68/index.html",
-      "externalId": "0081",
-      "firstSeenAt": "2026-05-19T16:19:01.980Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

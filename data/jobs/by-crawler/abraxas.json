@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-14T10:59:18.274Z",
+  "assembledAt": "2026-07-15T22:13:01.662Z",
   "jobs": [
     {
       "id": "abraxas-5dccc3b1e7f6",
@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Working student Customer Service (Sales Support) 60–70%",
+        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudent-customer-service-sales-support-60-70-1268",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:13.858Z",
+      "crawledAt": "2026-07-15T22:12:58.782Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -80,6 +81,90 @@
       }
     },
     {
+      "id": "abraxas-5b88e643ab96",
+      "slug": "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen",
+      "slugByLocale": {
+        "it": "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen",
+        "en": "solution-architect-in-cross-sectional-services-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen",
+        "fr": "solution-architecte-dans-les-services-transversaux-80-100-abraxas-informatik-ag-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Solution Architekt:in Querschnittservices 80–100 %",
+      "titleByLocale": {
+        "it": "Soluzione Architetto: nei servizi di sezione trasversale 80-100%",
+        "en": "Solution Architect: in cross-sectional services 80-100%",
+        "de": "Solution Architekt:in Querschnittservices 80–100 %",
+        "fr": "Solution Architecte: dans les services transversaux 80-100%"
+      },
+      "description": "Du bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\nDeine Rolle\n• Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n• Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n• Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n• Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n• Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n• Du unterstützt in der Erstellung von Offerten\n• Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n• Du stellst den Status quo in Frage und erweiterst die IT-Architektur\nDein Profil\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n• Idealerweise bringst du Erfahrung im Bereich DevOps mit\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+      "descriptionByLocale": {
+        "it": "Pensi anche che l'architettura di un software sia uno dei fattori chiave di successo? Sei un produttore e visionario che contribuisce attivamente e vuole avanzare la nostra nuova soluzione software? Vuoi essere coinvolto nello sviluppo di un nuovo prodotto in una fase iniziale? Allora hai proprio ragione con noi! Ci siamo posti l'obiettivo di creare la migliore soluzione fiscale in Svizzera e per questo abbiamo bisogno di un supporto attivo. Quanto è ampio e vario questo campo, noi, tutti i commissari non-tassi, notiamo ogni giorno di nuovo. Il vostro settore principale è l'architettura dei servizi trasversali, dei servizi di base e del supporto nella ricerca di soluzioni di overarching nell'architettura.\nIl tuo ruolo\n• Sei l'architetto di diversi servizi di sezione trasversale, che sono richiesti dai diversi domini specializzati\n• Sosteni le squadre in cui è necessario supportarle nell'implementazione della soluzione\n• Sei parte del team di architettura, che chiarisce i problemi cross-domain\n• Si creano concetti grezzi come requisiti specialistici per il sistema globale sono implementati\n• Partecipa attivamente alla pianificazione delle versioni specifiche del cliente\n• Supporti nella creazione di offerte\n• Mantenete una stretta collaborazione con i vostri colleghi nell'analisi aziendale, nello sviluppo e nei clienti\n• Metti in discussione lo status quo e espandi l'architettura IT\nIl tuo profilo\n• Sei un giocatore di squadra e una personalità comunicativa con un alto livello di iniziativa, che ama sviluppare tecnicamente e metodicamente\n• Porti diversi anni di esperienza come architetto nella progettazione e nel funzionamento di una complessa architettura microservice\n• Idealmente, si porterà esperienza nel campo di DevOps\n• Ottima conoscenza delle seguenti tecnologie: Java, Kafka, REST, Angular o altri framework frontend\n• Molto buone competenze linguistiche in tedesco e inglese\n• Laurea in informatica o istruzione equivalente e comprovata esperienza professionale\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nPronto ad aiutare a plasmare l’applicazione fiscale di domani? Attendiamo con ansia la vostra applicazione! A e manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo",
+        "en": "Do you also think that the architecture of a software is one of the key success factors? You are a maker and visionary who actively contributes and wants to advance our new software solution? Do you want to be involved in the development of a new product at an early stage? Then you are exactly right with us! We have set ourselves the goal of creating THE best tax solution in Switzerland and for this we need active support. How broad and varied this field is, we, all non-tax commissioners, notice every day anew. Your main field is the architecture of cross-sectional services, basic services and support in finding overarching solutions in architecture.\nYour role\n• You are the architect of several cross-sectional services, which are required by the different specialist domains\n• You support the teams where needed to support them in the implementation of the solution\n• You are part of the architecture team, which clarifies cross-domain issues\n• You create rough concepts as specialist requirements for the overall system are implemented\n• You actively participate in the planning of customer-specific versions\n• You support in the creation of offers\n• You maintain a close cooperation with your colleagues in business analysis, development and customers\n• You question the status quo and expand the IT architecture\nYour profile\n• You are a team player and a communicative personality with a high level of initiative, who likes to develop technically and methodically\n• You bring several years of experience as an architect in the design and operation of a complex microservice architecture\n• Ideally, you will bring experience in the field of DevOps\n• Very good knowledge of the following technologies: Java, Kafka, REST, Angular or other frontend frameworks\n• Very good language skills in German and English\n• Graduate degree in computer science or equivalent education and proven professional experience\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nReady to help shape tomorrow’s tax application? We look forward to your application! At and we maintain an open you culture – so feel free to send us your application directly in the you form",
+        "de": "Du bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\nDeine Rolle\n• Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n• Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n• Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n• Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n• Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n• Du unterstützt in der Erstellung von Offerten\n• Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n• Du stellst den Status quo in Frage und erweiterst die IT-Architektur\nDein Profil\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n• Idealerweise bringst du Erfahrung im Bereich DevOps mit\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+        "fr": "Pensez-vous également que l'architecture d'un logiciel est l'un des principaux facteurs de succès? Vous êtes un créateur et visionnaire qui contribue activement et veut faire avancer notre nouvelle solution logicielle? Voulez-vous participer au développement d'un nouveau produit à un stade précoce? Alors tu as raison avec nous ! Nous nous sommes fixé l'objectif de créer la meilleure solution fiscale en Suisse et nous avons besoin d'un soutien actif pour cela. Comme ce domaine est vaste et varié, nous, tous les commissaires non fiscaux, nous le remarquons chaque jour à nouveau. Votre domaine principal est l'architecture des services transversaux, des services de base et du soutien pour trouver des solutions globales dans l'architecture.\nVotre rôle\n• Vous êtes l'architecte de plusieurs services transversaux, qui sont requis par les différents domaines spécialisés\n• Vous aidez les équipes lorsque nécessaire pour les soutenir dans la mise en œuvre de la solution\n• Vous faites partie de l'équipe d'architecture, qui clarifie les questions interdomaines\n• Vous créez des concepts grossiers comme les exigences spécialisées pour le système global sont mises en œuvre\n• Vous participez activement à la planification de versions spécifiques au client\n• Vous soutenez dans la création d'offres\n• Vous maintenez une coopération étroite avec vos collègues dans l'analyse des affaires, le développement et les clients\n• Vous questionnez le statu quo et élargissez l'architecture informatique\nVotre profil\n• Vous êtes un joueur d'équipe et une personnalité communicative avec un haut niveau d'initiative, qui aime développer techniquement et méthodiquement\n• Vous apportez plusieurs années d'expérience en tant qu'architecte dans la conception et le fonctionnement d'une architecture complexe de microservice\n• Idéalement, vous apporterez une expérience dans le domaine de DevOps\n• Très bonne connaissance des technologies suivantes: Java, Kafka, REST, Angulaire ou autres cadres frontaux\n• Très bonnes compétences linguistiques en allemand et en anglais\n• Diplôme d'études supérieures en informatique ou formation équivalente et expérience professionnelle prouvée\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nPrêt à aider à façonner demain l'application fiscale? Nous nous réjouissons de votre candidature! Chez et nous maintenons une culture ouverte vous – alors n'hésitez pas à nous envoyer votre demande directement dans le formulaire"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-9285",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-15T22:12:58.303Z",
+      "needsRetranslation": false,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-15",
+      "applyUrl": "https://apply.refline.ch/215876/2325/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2325",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "previousSlugs": [
+        "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen",
+        "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen",
+          "soluzione-architetto-nei-servizi-di-sezione-trasversale-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen"
+        ],
+        "fr": [
+          "solution-architekt-in-querschnittservices-80-100-abraxas-st-gallen"
+        ]
+      },
+      "firstSeenAt": "2026-07-15T11:27:04.148Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "abraxas-a11f069b2f2f",
       "slug": "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -94,7 +179,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -110,7 +195,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:13.356Z",
+      "crawledAt": "2026-07-15T22:12:57.823Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -174,7 +260,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -190,7 +276,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:12.869Z",
+      "crawledAt": "2026-07-15T22:12:57.339Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -240,73 +327,6 @@
       }
     },
     {
-      "id": "abraxas-53a04654cf35",
-      "slug": "software-architekt-in-80-100-abraxas-st-gallen",
-      "slugByLocale": {
-        "it": "software-architekt-in-80-100-abraxas-st-gallen",
-        "en": "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "software-architekt-in-80-100-abraxas-st-gallen",
-        "fr": "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Software Architekt:in 80–100 %",
-      "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
-        "en": "Software Architect 80–100 %",
-        "de": "Software Architekt:in 80–100 %",
-        "fr": "Architecte Logiciel 80–100 %"
-      },
-      "description": "Du bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\nDeine Rolle\n• Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n• Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n• Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n• Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n• Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n• Du unterstützt in der Erstellung von Offerten\n• Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n• Du stellst den Status quo in Frage und erweiterst die IT-Architektur\nDein Profil\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n• Idealerweise bringst du Erfahrung im Bereich DevOps mit\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nSe anche tu condividi l'opinione che l'architettura di un software sia uno dei fattori chiave del successo? Sei un praticante e visionario che si impegna attivamente e desidera promuovere la nostra nuova soluzione software? Vuoi partecipare allo sviluppo di un nuovo prodotto in una fase iniziale? Allora sei nel posto giusto! Il nostro obiettivo è creare la migliore soluzione fiscale in Svizzera e per farlo abbiamo bisogno di un supporto energico. La vastità e la varietà di questo campo si manifestano ogni giorno, anche per noi, tutti non fiscalisti. Il tuo campo principale è l'architettura di servizi trasversali, servizi di base e il supporto nella definizione di soluzioni integrate nell'architettura.\n\nIl tuo ruolo\n\n- Sei l'architetto di più servizi trasversali necessari da diversi domini di competenza\n- Supporti i team dove necessario, aiutandoli a implementare le soluzioni\n- Fai parte del team di architettura che chiarisce questioni intersettoriali\n- Crea concetti di alto livello su come vengono implementate le esigenze funzionali nel sistema complessivo\n- Partecipa attivamente alla pianificazione di personalizzazioni per i clienti\n- Supporti nella preparazione di offerte\n- Mantieni una stretta collaborazione con i colleghi dell'analisi aziendale, dello sviluppo e dei clienti\n- Metti in discussione lo status quo e ampli l'architettura IT\n\nIl tuo profilo\n\n- Sei un giocatore di squadra e una persona comunicativa con alta iniziativa personale, che desidera svilupparsi tecnicamente e metodologicamente\n- Hai diversi anni di esperienza come architetto nel design e nell'operatività di un'architettura complessa di microservizi\n- Idealmente hai esperienza nel campo DevOps\n- Ottima conoscenza delle seguenti tecnologie: Java, Kafka, REST, Angular o altri framework frontend\n- Ottima conoscenza del tedesco e dell'inglese\n- Laurea universitaria o di Fachhochschule in informatica o formazione equivalente, con comprovata esperienza professionale\n\nI tuoi benefici\n\n- Fino al 60% di lavoro da casa possibile con un impegno del 100%\n- Acquisto di ferie (2 settimane all'anno)\n- Settimana di 41 ore con orari di lavoro flessibili a tempo pieno\n- Minimo 25 giorni di ferie all'anno\n- Supporto alle formazioni al 100% finanziato o temporizzato\n- Abbonamento SBB-Halbtax gratuito per tutti i dipendenti\n\nContatto\n\nPronto a contribuire a plasmare l'applicazione fiscale di domani? Siamo ansiosi di ricevere la tua candidatura! Da noi, manteniamo una cultura aperta e informale – sentiti libero di inviarci la tua candidatura direttamente in forma informale.",
-        "en": "Description\n\nDo you also believe that software architecture is one of the central success factors? Are you a doer and visionary who actively contributes and wants to drive our new software solution forward? Would you like to be involved in the development of a new product at an early stage? Then you are exactly right with us! Our goal is to create the best tax solution in Switzerland, and for that we need energetic support. The breadth and diversity of this field become clear to us, all non-tax commissioners, every day anew. Your main area is the architecture of cross-sectional services, core services, and supporting the development of overarching solutions in architecture.\n\nYour Role\n\n- You are the architect of several cross-sectional services needed by different domain areas\n- You support teams where needed to help them implement solutions\n- You are part of the architecture team that clarifies cross-domain questions\n- You create high-level concepts on how functional requirements are implemented in the overall system\n- You actively participate in planning customer-specific configurations\n- You assist in preparing offers\n- You maintain close collaboration with your colleagues in business analysis, development, and clients\n- You challenge the status quo and expand the IT architecture\n\nYour Profile\n\n- You are a team player and a communicative personality with high initiative, eager to develop technically and methodologically\n- You bring several years of experience as an architect in designing and operating a complex microservice architecture\n- Ideally, you have experience in the DevOps field\n- Very good knowledge of the following technologies: Java, Kafka, REST, Angular or other frontend frameworks\n- Excellent language skills in German and English\n- University or Fachhochschule degree in computer science or comparable education, with proven professional experience\n\nYour Benefits\n\n- Up to 60% home office possible with a 100% workload\n- Vacation purchase (2 weeks per year)\n- 41-hour week with flexible working hours for full-time employment\n- Minimum of 25 days of vacation per year\n- Support for further education fully financed or time-based\n- Free SBB-Halbtax subscription for all employees\n\nContact\n\nReady to help shape the tax application of tomorrow? We look forward to your application! We maintain an open and informal culture – feel free to send us your application directly in the informal 'du' form.",
-        "de": "Beschreibung\n\nDu bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\n\nDeine Rolle\n\n- Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n- Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n- Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n- Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n- Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n- Du unterstützt in der Erstellung von Offerten\n- Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n- Du stellst den Status quo in Frage und erweiterst die IT-Architektur\n\nDein Profil\n\n- Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n- Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n- Idealerweise bringst du Erfahrung im Bereich DevOps mit\n- Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n- Sehr gute Sprachkenntnisse in Deutsch und Englisch\n- Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\n\nDeine Benefits\n\n- Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n- Ferienkauf (2 Wochen pro Jahr)\n- 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n- Mind. 25 Tage Ferien pro Jahr\n- Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n- Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\n\nKontakt\n\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-        "fr": "Description\n\nPartagez-vous également l'opinion que l'architecture d'un logiciel est l'un des facteurs clés de succès ? Êtes-vous un acteur et un visionnaire qui s'investit activement et souhaite faire avancer notre nouvelle solution logicielle ? Souhaitez-vous participer au développement d'un nouveau produit dès ses premières phases ? Alors, vous êtes au bon endroit ! Notre objectif est de créer la meilleure solution fiscale en Suisse, et pour cela, nous avons besoin d'un soutien énergique. La diversité et la richesse de ce domaine se révèlent chaque jour, à nous tous, non-fiscalistes. Votre domaine principal concerne l'architecture des services transversaux, des services de base, et le soutien dans la recherche de solutions globales en architecture.\n\nVotre rôle\n\n- Vous êtes l'architecte de plusieurs services transversaux nécessaires aux différentes domaines de compétence\n- Vous soutenez les équipes là où c'est nécessaire pour les aider à mettre en œuvre les solutions\n- Vous faites partie de l'équipe d'architecture qui clarifie les questions inter-domaines\n- Vous élaborez des concepts globaux sur la manière dont les exigences fonctionnelles sont mises en œuvre dans le système global\n- Vous participez activement à la planification des configurations spécifiques aux clients\n- Vous aidez à la préparation des offres\n- Vous entretenez une collaboration étroite avec vos collègues en analyse commerciale, développement et clients\n- Vous remettez en question le statu quo et élargissez l'architecture informatique\n\nVotre profil\n\n- Vous êtes un joueur d'équipe et une personne communicative avec une forte initiative personnelle, souhaitant évoluer techniquement et méthodologiquement\n- Vous avez plusieurs années d'expérience en tant qu'architecte dans la conception et l'exploitation d'une architecture microservices complexe\n- Idéalement, vous avez une expérience dans le domaine DevOps\n- Excellentes connaissances des technologies suivantes : Java, Kafka, REST, Angular ou autres frameworks frontend\n- Excellentes compétences linguistiques en allemand et en anglais\n- Diplôme universitaire ou de Fachhochschule en informatique ou formation équivalente, avec une expérience professionnelle avérée\n\nVos avantages\n\n- Jusqu'à 60 % de télétravail possible avec un emploi à 100 %\n- Achat de congés (2 semaines par an)\n- Semaine de 41 heures avec des horaires de travail flexibles à temps plein\n- Minimum 25 jours de congé par an\n- Soutien à la formation continue financé à 100 % ou en temps\n- Abonnement SBB-Halbtax gratuit pour tous les employés\n\nContact\n\nPrêt à contribuer à façonner l'application fiscale de demain ? Nous attendons votre candidature avec impatience ! Chez nous, nous cultivons une culture ouverte et informelle – n'hésitez pas à nous envoyer votre candidature directement en utilisant la formule informelle 'tu'."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:51.477Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2325/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2325",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:05.103Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "abraxas-f90530a90f84",
       "slug": "servicenow-ingegnere-ki-automation-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -321,7 +341,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -337,7 +357,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:11.904Z",
+      "crawledAt": "2026-07-15T22:12:56.857Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -401,7 +422,7 @@
       "title": "Senior Software Engineer C#/.NET 80–100 %",
       "titleByLocale": {
         "it": "Senior Software Ingegnere C#/.NET 80–100 %",
-        "en": "Senior Software Engineer C#/.NET 80-100%",
+        "en": "Senior Software Engineer C#/.NET 80–100 %",
         "de": "Senior Software Ingenieur C#/.NET 80–100 %",
         "fr": "Senior Software Ingénieur C#/.NET 80–100 %"
       },
@@ -417,7 +438,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-cnet-80-100-3342",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:11.430Z",
+      "crawledAt": "2026-07-15T22:12:56.389Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -481,7 +503,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -497,7 +519,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:10.956Z",
+      "crawledAt": "2026-07-15T22:12:55.896Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -561,7 +584,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -577,7 +600,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-3394",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:10.460Z",
+      "crawledAt": "2026-07-15T22:12:55.426Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -600,17 +624,19 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
-      "firstSeenAt": "2026-07-13T22:26:48.864Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen"
         ]
       },
+      "firstSeenAt": "2026-07-13T22:26:48.864Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -655,7 +681,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:09.984Z",
+      "crawledAt": "2026-07-15T22:12:54.962Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -738,7 +765,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:09.506Z",
+      "crawledAt": "2026-07-15T22:12:54.493Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -822,7 +849,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:09.027Z",
+      "crawledAt": "2026-07-15T22:12:54.023Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -904,7 +931,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:08.546Z",
+      "crawledAt": "2026-07-15T22:12:53.546Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -988,7 +1015,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:08.058Z",
+      "crawledAt": "2026-07-15T22:12:53.076Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1039,7 +1067,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -1055,7 +1083,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:07.555Z",
+      "crawledAt": "2026-07-15T22:12:52.607Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1135,7 +1164,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-sicherheitsbeauftragter-60-90-4777",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:07.074Z",
+      "crawledAt": "2026-07-15T22:12:52.145Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1203,7 +1232,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1219,7 +1248,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:06.593Z",
+      "crawledAt": "2026-07-15T22:12:51.643Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1286,7 +1316,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:06.054Z",
+      "crawledAt": "2026-07-15T22:12:51.173Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1353,7 +1384,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-5708",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:05.506Z",
+      "crawledAt": "2026-07-15T22:12:50.708Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1417,7 +1449,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1433,7 +1465,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:05.001Z",
+      "crawledAt": "2026-07-15T22:12:50.211Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1484,7 +1517,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1500,7 +1533,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:04.500Z",
+      "crawledAt": "2026-07-15T22:12:49.738Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1580,7 +1614,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-8003",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:04.006Z",
+      "crawledAt": "2026-07-15T22:12:49.268Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1605,17 +1639,19 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+        "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
       ],
-      "firstSeenAt": "2026-07-13T22:26:41.978Z",
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
+          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
+          "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
         ]
       },
+      "firstSeenAt": "2026-07-13T22:26:41.978Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1660,7 +1696,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:03.521Z",
+      "crawledAt": "2026-07-15T22:12:48.779Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1728,7 +1764,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "Responsabile Trasformazione AIOps 80-100%",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80- 100%"
       },
@@ -1736,7 +1772,7 @@
       "descriptionByLocale": {
         "it": "Disegna l'IT del futuro – con AIOps, AI e capacità di attuazione\n\nDescrizione\nLe moderne infrastrutture IT diventano sempre più complesse – i metodi di monitoraggio tradizionali non sono più sufficienti. Come Responsabile della Trasformazione AIOps, unisci IT-Operations, Data Science, automazione e osservabilità, rendendo la nostra gestione IT più intelligente, proattiva ed efficiente.\nIncorpora l'intelligenza artificiale miratamente nei nostri servizi, riconosci potenzialità e implementa soluzioni sostenibili insieme ai team di settore – con una visione strategica e una mentalità da realizzatori.\nCon piattaforme AIOps, Machine Learning e analisi Big Data, individui anomalie precocemente, riduci il fatica da allarmi, abbrevii il MTTR e rafforzi disponibilità, resilienza ed efficienza dei nostri servizi IT.\nInoltre, promuovi innovazioni basate su AI che rendono utilizzabili conoscenza operativa, log di cambiamento, informazioni architetturali e guide alla risoluzione dei problemi da ticket, log e dati operativi.\n\nIl tuo ruolo\n- Costruire AIOps & Observability: sviluppo, introduzione e miglioramento dell'approccio AIOps nel settore più grande dell'azienda. Identificazione e priorizzazione di potenzialità di automazione e AI nel settore IT.\n- Progettare e sviluppare soluzioni per la raccolta, normalizzazione e analisi di dati operativi come eventi, metriche, log, tracce e ticket ITSM.\n- Abilitare analisi assistite da AI: utilizzare Machine Learning, analisi predittive e AI generativa per riconoscere anomalie, pattern e cause più rapidamente e migliorare le analisi delle cause radice.\n- Automatizzare i processi di incident management: supportare il riconoscimento automatico, la categorizzazione, la priorizzazione e la risoluzione degli incidenti, sviluppando workflow di auto-riparazione per problemi ricorrenti.\n- Rendere efficace in modo sostenibile l'AIOps: validare modelli in produzione, ridurre falsi allarmi, migliorare la qualità dei dati e garantire un uso intelligente della conoscenza operativa.\n- Gestire interfacce e governance: collaborare strettamente con IT-Operations, DevOps, architettura cloud, sicurezza, ITSM e Data Science, assicurando che le soluzioni siano conformi a governance, compliance e privacy.\n- Promuovere il design e l'adozione dei servizi: integrare nuove capacità AIOps nei processi ITIL-4 e ITSM esistenti, supportare i team Service Desk e Operations nel cambiamento e rafforzare la fiducia nei workflow basati su AI.\n\nIl tuo profilo\n- Fondamenta: laurea in informatica, informatica gestionale o qualifiche equivalenti, con esperienza pluriennale in gestione IT moderna, come ITOps, DevOps o SRE.\n- Conoscenze di cloud, piattaforme e automazione: esperienza pratica con architetture cloud, preferibilmente in ambienti ibridi o multi-cloud, e con Kubernetes, Docker, OpenShift o piattaforme di automazione come Ansible.\n- Osservabilità e strumenti: ottima conoscenza di piattaforme di monitoraggio e osservabilità come CheckMk, Dynatrace, Splunk, Datadog, Prometheus o ELK-Stack.\n- Competenze di Data & AI: buona comprensione di Machine Learning, analisi di serie temporali, riconoscimento di pattern e anomalie, e esperienza con linguaggi di scripting come Python o PowerShell.\n- ITSM e framework: familiarità con piattaforme di gestione servizi IT come ServiceNow e solida esperienza pratica in ITIL 4, in particolare incident, problem, change e miglioramento continuo.\n- Conoscenza operativa e di provider: esperienza in un fornitore di servizi IT o Managed Service Provider è un vantaggio, specialmente in ambienti complessi di clienti e operativi.\n- Metodo di lavoro e impatto: pensiero analitico, capacità di riconoscere rapidamente relazioni in sistemi complessi e di tradurre contenuti tecnici tra IT-Operations, Data Science e management.\n- Trasformazione e mentalità: qualità da realizzatore, capacità di moderazione e convincimento, e piacere nel sperimentare AI, LLM e sistemi agentici in modo pratico, contribuendo allo sviluppo dei processi operativi.\n- Lingue: fluente in tedesco e molto buona conoscenza dell'inglese scritto e parlato.\n\nI tuoi benefici\n- Spazio alla progettazione: partecipazione attiva alla nostra iniziativa AI con alta rilevanza strategica. Un ruolo di grande impatto in un ambiente innovativo, dove plasmi attivamente l'IT del futuro.\n- Stack tecnologico aggiornato: lavoro con tecnologie moderne in multi-cloud, AI generativa, AI agentica, Big Data, osservabilità, automazione e ITSM.\n- Sviluppo professionale: supporto per certificazioni, conferenze di settore e apprendimento continuo in ambito cloud, Data Science e AIOps.\n- Cultura: team dinamico, agile, con comunicazione diretta e spazio per nuove idee.\n- Fino al 60% di smart working con un impegno full-time.\n- Acquisto ferie (2 settimane all'anno).\n- Settimana lavorativa di 41 ore con orari flessibili.\n- Minimo 25 giorni di ferie all'anno.\n- Supporto per formazione e aggiornamento finanziato al 100%.\n- Abbonamento SBB-Halbtax gratuito per tutti i dipendenti.\n\nContatto\nDiventa parte del nostro #TeamAbraxas. Ti aspetta un ambiente di lavoro orientato al futuro, con spazi di lavoro moderni, ottimi collegamenti di trasporto, regole di smart working generose e eccellenti opportunità di formazione.\nPromuoviamo una cultura aperta e informale – inviaci la tua candidatura in modo diretto e colloquiale.",
         "en": "Design the IT operation of the future – with AIOps, AI and implementation power\n\nDescription Modern IT landscapes become more complex – classical monitoring approaches are no longer enough. As AIOp's Transformation Lead, you connect IT operations, data science, automation and visibility and make our IT operations smarter, more proactive and more efficient. You anchor artificial intelligence specifically in our service delivery, recognize potential and implement sustainable solutions together with the specialist teams – with a strategic view and a true creator mentality.\n\nAIOps platforms, machine learning and big data analytics help you identify anomalies early, reduce alert fat, shorten MTTR and increase availability, resilience and efficiency of our IT-Services. You also drive AI-based innovations that make operational knowledge, change logs, architecture information and troubleshooting instructions from tickets, logs and operating data usable.\n\nBuilding your role – AIOps & Observability: Building, implementing and developing the AIOps approach in the largest area of the company. Identifying and prioritizing automation and AI potentials in IT operations. You design and develop solutions for the collection, normalization and analysis of operational data such as events, metrics, logs, tracks and ITSM tickets. - Allow AI-based analytics: You use machine learning, predictive analyses and generic AI to detect anomalies, patterns and causes faster and improve root-to-line analysis.\n\n- Automate incident processes: You support automatic detection, categorization, prioritization and correction of incident and develop self-healing workflows for recurring faults. - Making AIOps sustainable: You revitalize models in operation, reduce false alarms, improve data quality and make operational knowledge usable in a smart way.\n\n- Design interfaces & governance: You work closely with IT operations, DevOps, cloud architecture, security, ITSM and data science and ensure that solutions are implemented in compliance with Ents, ints and data protection. - Promote Service Design &42: You integrate new AIOps capabilities into existing ITIL-4 and ITSM processes, support Service Desk and Operations teams in the change and strengthen confidence in AI-supported workflows.\n\nYour profile - Foundation: Completed studies in computer science, business IT or comparable qualifications, as well as several years of experience in modern IT operations, such as ITOps, DevOps or SRE. - Cloud, platform & automation know-how: Practical experience with cloud architectures, ideally in hybrid or multi-cloud environments, as well as with kubernetes, Docker, OpenShift or automation platforms such as Ansible. -obbility & Tooling: Very good knowledge in monitoring and obrability platforms such as CheckMk, Dynatrace, Splunk, Datadog, Prometheus or ELK stack.\n\n- Data & AI Skills: Good understanding of machine learning, time series analysis, sample and anomaly detection, and experience with scripting languages such as Python or PowerShell. - ITSM & Frameworks: Safe handling of IT service management platforms such as Service 07 and in-depth practical experience in ITIL 4 Practices, especially Incident, Problem, Change and Continuous 107. - Business and provider understanding: Experience with an IT service provider or a service provider is beneficial, especially in complex customer and operating environments.\n\n- Work mode & effect: You think analytically, quickly recognize connections in complex system landscapes and can translate technical content step by step between IT operations, data science and management. - Transformation & Mindset: You bring together the skills of creators, moderation and persuasion and enjoy testing AI, LLMs and agentic systems in a practical manner and significantly develop operational processes. - Languages: Flowing German and very good English knowledge in word and writing.\n\nYours, the scope for design: the active co-design of our AI initiative with high strategic relevance. A role with a high impact in an environment driven by the company, in which you actively influence the IT operation of the future. - Current Tech Stack: Working with modern technologies in multi-cloud, generic AI, Agentic AI, Big Data, obrability, automation and ITSM. - Further development: Support for certifications, specialist conferences and continuous learning in the cloud, data science and AIOps environment.\n\n- Culture: A dedicated, short-distance team of adresses, open cooperation and space for new ideas. - Up to 60% home office with a 100% workload possible - holiday purchase (2 weeks per year) - 41h week with flexible working hours at a full-time fund - Minimum 25 days of holidays per year - Promotion of training at 100% financial or time - Free SBB half-tax subscription for all employees\n\nContact Become part of our #TeamAbra Scae. A future-oriented working environment with modern workplace design, excellent transport connections, generous HomeOffice regulations and excellent training opportunities awaits you. We maintain an open du culture – so send us your application directly in the du-form.",
-        "de": "Gestalte den IT-Betrieb der Zukunft – mit AIOps, KI und Umsetzungskraft\n\nBeschreibung\nModerne IT-Landschaften werden komplexer – klassische Monitoring-Ansätze reichen dafür nicht mehr aus. Als AIOps Transformation Lead verbindest du IT-Operations, Data Science, Automatisierung und Observability und machst unseren IT-Betrieb intelligenter, proaktiver und effizienter.\nDu verankerst Künstliche Intelligenz gezielt in unserer Leistungserbringung, erkennst Potenziale und setzt tragfähige Lösungen gemeinsam mit den Fachteams um – mit strategischem Blick und echter Macher-Mentalität.\nMit AIOps-Plattformen, Machine Learning und Big-Data-Analysen erkennst du Anomalien frühzeitig, reduzierst Alert Fatigue, verkürzt die MTTR und stärkst Verfügbarkeit, Resilienz und Effizienz unserer IT-Services.\nZudem treibst du KI-basierte Innovationen voran, die Betriebswissen, Change-Logs, Architekturinformationen und Troubleshooting-Anleitungen aus Tickets, Logs und Betriebsdaten nutzbar machen.\n\nDeine Rolle\n- AIOps & Observability aufbauen: Aufbau, Einführung und Weiterentwicklung des AIOps-Ansatzes im grössten Bereich des Unternehmens. Identifikation und Priorisierung von Automatisierungs- und AI-Potenzialen im IT-Betrieb. Du konzipierst und entwickelst Lösungen zur Erfassung, Normalisierung und Analyse operativer Daten wie Events, Metriken, Logs, Traces und ITSM-Tickets.\n- KI-gestützte Analysen ermöglichen: Du nutzt Machine Learning, prädiktive Analysen und Generative KI, um Anomalien, Muster und Ursachen schneller zu erkennen und Root-Cause-Analysen zu verbessern.\n- Incident-Prozesse automatisieren: Du unterstützt die automatische Erkennung, Kategorisierung, Priorisierung und Behebung von Incidents und entwickelst Self-Healing-Workflows für wiederkehrende Störungen.\n- AIOps nachhaltig wirksam machen: Du validierst Modelle im Betrieb, reduzierst Fehlalarme, verbesserst die Datenqualität und sorgst dafür, dass Betriebswissen intelligent nutzbar wird.\n- Schnittstellen & Governance gestalten: Du arbeitest eng mit IT-Operations, DevOps, Cloud-Architektur, Security, ITSM und Data Science zusammen und stellst sicher, dass Lösungen governance-, compliance- und datenschutzkonform umgesetzt werden.\n- Service Design & Adoption vorantreiben: Du integrierst neue AIOps-Fähigkeiten in bestehende ITIL-4- und ITSM-Prozesse, begleitest Service Desk- und Operations-Teams im Change und stärkst das Vertrauen in KI-gestützte Workflows.\n\nDein Profil\n- Fundament: Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation sowie mehrjährige Erfahrung im modernen IT-Betrieb, etwa in ITOps, DevOps oder SRE.\n- Cloud-, Plattform- & Automatisierungs-Know-how: Praxiserfahrung mit Cloud-Architekturen, idealerweise in hybriden oder Multi-Cloud-Umgebungen, sowie mit Kubernetes, Docker, OpenShift oder Automatisierungsplattformen wie Ansible.\n- Observability & Tooling: Sehr gute Kenntnisse in Monitoring- und Observability-Plattformen wie CheckMk, Dynatrace, Splunk, Datadog, Prometheus oder ELK-Stack.\n- Data & AI Skills: Gutes Verständnis von Machine Learning, Zeitreihenanalyse, Muster- und Anomalie Erkennung sowie Erfahrung mit Skriptsprachen wie Python oder PowerShell.\n- ITSM & Frameworks: Sicherer Umgang mit IT-Service-Management-Plattformen wie ServiceNow sowie fundierte Praxiserfahrung in ITIL 4 Practices, insbesondere Incident, Problem, Change und Continual Improvement.\n- Betriebs- und Provider-Verständnis: Erfahrung bei einem IT-Dienstleister oder Managed Service Provider ist von Vorteil, insbesondere in komplexen Kunden- und Betriebsumgebungen.\n- Arbeitsweise & Wirkung: Du denkst analytisch, erkennst Zusammenhänge in komplexen Systemlandschaften schnell und kannst technische Inhalte stufengerecht zwischen IT-Betrieb, Data Science und Management übersetzen.\n- Transformation & Mindset: Du bringst Macher-Qualitäten, Moderations- und Überzeugungsfähigkeit mit und hast Freude daran, KI, LLMs und agentische Systeme praxisnah zu erproben und Betriebsprozesse spürbar weiterzuentwickeln.\n- Sprachen: Fliessende Deutsch- und sehr gute Englischkenntnisse in Wort und Schrift.\n\nDeine Benefits\n- Gestaltungsspielraum: Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz. Eine Rolle mit hoher Wirkung in einem innovationsgetriebenen Umfeld, in dem du den IT-Betrieb der Zukunft aktiv mitprägst.\n- Aktueller Tech-Stack: Arbeiten mit modernen Technologien in Multi-Cloud, Generative AI, Agentic AI, Big Data, Observability, Automatisierung und ITSM.\n- Weiterentwicklung: Unterstützung für Zertifizierungen, Fachkonferenzen und kontinuierliches Lernen im Cloud-, Data-Science- und AIOps-Umfeld.\n- Kultur: Ein engagiertes, agiles Team mit kurzen Wegen, offener Zusammenarbeit und Raum für neue Ideen.\n- Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n- Ferienkauf (2 Wochen pro Jahr)\n- 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n- Mind. 25 Tage Ferien pro Jahr\n- Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n- Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\n\nKontakt\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
+        "de": "Gestalte den IT-Betrieb der Zukunft – mit AIOps, KI und Umsetzungskraft\nModerne IT-Landschaften werden komplexer – klassische Monitoring-Ansätze reichen dafür nicht mehr aus. Als AIOps Transformation Lead verbindest du IT-Operations, Data Science, Automatisierung und Observability und machst unseren IT-Betrieb intelligenter, proaktiver und effizienter.\nDu verankerst Künstliche Intelligenz gezielt in unserer Leistungserbringung, erkennst Potenziale und setzt tragfähige Lösungen gemeinsam mit den Fachteams um – mit strategischem Blick und echter Macher-Mentalität.\nMit AIOps-Plattformen, Machine Learning und Big-Data-Analysen erkennst du Anomalien frühzeitig, reduzierst Alert Fatigue, verkürzt die MTTR und stärkst Verfügbarkeit, Resilienz und Effizienz unserer IT-Services.\nZudem treibst du KI-basierte Innovationen voran, die Betriebswissen, Change-Logs, Architekturinformationen und Troubleshooting-Anleitungen aus Tickets, Logs und Betriebsdaten nutzbar machen.\nDeine Rolle\n• AIOps & Observability aufbauen: Aufbau, Einführung und Weiterentwicklung des AIOps-Ansatzes im grössten Bereich des Unternehmens. Identifikation und Priorisierung von Automatisierungs- und AI-Potenzialen im IT-Betrieb. Du konzipierst und entwickelst Lösungen zur Erfassung, Normalisierung und Analyse operativer Daten wie Events, Metriken, Logs, Traces und ITSM-Tickets.\n• KI-gestützte Analysen ermöglichen: Du nutzt Machine Learning, prädiktive Analysen und Generative KI, um Anomalien, Muster und Ursachen schneller zu erkennen und Root-Cause-Analysen zu verbessern.\n• Incident-Prozesse automatisieren: Du unterstützt die automatische Erkennung, Kategorisierung, Priorisierung und Behebung von Incidents und entwickelst Self-Healing-Workflows für wiederkehrende Störungen.\n• AIOps nachhaltig wirksam machen: Du validierst Modelle im Betrieb, reduzierst Fehlalarme, verbesserst die Datenqualität und sorgst dafür, dass Betriebswissen intelligent nutzbar wird.\n• Schnittstellen & Governance gestalten: Du arbeitest eng mit IT-Operations, DevOps, Cloud-Architektur, Security, ITSM und Data Science zusammen und stellst sicher, dass Lösungen governance-, compliance- und datenschutzkonform umgesetzt werden.\n• Service Design & Adoption vorantreiben: Du integrierst neue AIOps-Fähigkeiten in bestehende ITIL-4- und ITSM-Prozesse, begleitest Service Desk- und Operations-Teams im Change und stärkst das Vertrauen in KI-gestützte Workflows.\nDein Profil\n• Fundament: Abgeschlossenes Studium in Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation sowie mehrjährige Erfahrung im modernen IT-Betrieb, etwa in ITOps, DevOps oder SRE.\n• Cloud-, Plattform- & Automatisierungs-Know-how: Praxiserfahrung mit Cloud-Architekturen, idealerweise in hybriden oder Multi-Cloud-Umgebungen, sowie mit Kubernetes, Docker, OpenShift oder Automatisierungsplattformen wie Ansible.\n• Observability & Tooling: Sehr gute Kenntnisse in Monitoring- und Observability-Plattformen wie CheckMk, Dynatrace, Splunk, Datadog, Prometheus oder ELK-Stack.\n• Data & AI Skills: Gutes Verständnis von Machine Learning, Zeitreihenanalyse, Muster- und Anomalie Erkennung sowie Erfahrung mit Skriptsprachen wie Python oder PowerShell.\n• ITSM & Frameworks: Sicherer Umgang mit IT-Service-Management-Plattformen wie ServiceNow sowie fundierte Praxiserfahrung in ITIL 4 Practices, insbesondere Incident, Problem, Change und Continual Improvement.\n• Betriebs- und Provider-Verständnis: Erfahrung bei einem IT-Dienstleister oder Managed Service Provider ist von Vorteil, insbesondere in komplexen Kunden- und Betriebsumgebungen.\n• Arbeitsweise & Wirkung: Du denkst analytisch, erkennst Zusammenhänge in komplexen Systemlandschaften schnell und kannst technische Inhalte stufengerecht zwischen IT-Betrieb, Data Science und Management übersetzen.\n• Transformation & Mindset: Du bringst Macher-Qualitäten, Moderations- und Überzeugungsfähigkeit mit und hast Freude daran, KI, LLMs und agentische Systeme praxisnah zu erproben und Betriebsprozesse spürbar weiterzuentwickeln.\n• Sprachen: Fliessende Deutsch- und sehr gute Englischkenntnisse in Wort und Schrift.\nDeine Benefits\n• Gestaltungsspielraum: Die aktive Mitgestaltung unserer KI-Initiative mit hoher strategischer Relevanz. Eine Rolle mit hoher Wirkung in einem innovationsgetriebenen Umfeld, in dem du den IT-Betrieb der Zukunft aktiv mitprägst.\n• Aktueller Tech-Stack: Arbeiten mit modernen Technologien in Multi-Cloud, Generative AI, Agentic AI, Big Data, Observability, Automatisierung und ITSM.\n• Weiterentwicklung: Unterstützung für Zertifizierungen, Fachkonferenzen und kontinuierliches Lernen im Cloud-, Data-Science- und AIOps-Umfeld.\n• Kultur: Ein engagiertes, agiles Team mit kurzen Wegen, offener Zusammenarbeit und Raum für neue Ideen.\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWerde Teil unseres #TeamAbraxas. Dich erwartet ein zukunftsorientiertes Arbeitsumfeld mit moderner Arbeitsplatzgestaltung, sehr guter Verkehrsanbindung, grosszügiger Homeoffice-Regelung und ausgezeichneten Weiterbildungsmöglichkeiten.\nWir pflegen eine offene Du-Kultur – sende uns deine Bewerbung deshalb gerne direkt in der Du-Form.",
         "fr": "Concevoir le fonctionnement informatique du futur – avec les AIOps, l'IA et la puissance de mise en œuvre\n\nDescription Les paysages informatiques modernes deviennent plus complexes – les approches de surveillance classiques ne suffisent plus. En tant que responsable de la transformation d'AIOp, vous connectez les opérations informatiques, la science des données, l'automatisation et la visibilité et rendez nos opérations informatiques plus intelligentes, plus proactives et plus efficaces.\n\nLes plateformes AIOps, l'apprentissage automatique et l'analyse des mégadonnées vous aident à identifier les anomalies tôt, à réduire les graisses d'alerte, à raccourcir la MTTR et à augmenter la disponibilité, la résilience et l'efficacité de nos services informatiques.\n\nDévelopper votre rôle – AIOps & Observability: Construire, mettre en œuvre et développer l'approche AIOps dans le plus grand domaine de l'entreprise. Identifier et prioriser les potentiels d'automatisation et d'IA dans les opérations informatiques. Vous concevez et développez des solutions pour la collecte, la normalisation et l'analyse de données opérationnelles telles que les événements, les métriques, les journaux, les pistes et les billets ITSM. - Permettre l'analyse basée sur l'IA: Vous utilisez l'apprentissage automatique, les analyses prédictives et l'IA générique pour détecter les anomalies, les motifs et les causes plus rapidement et améliorer l'analyse root-to-line.\n\n- Automatiser les processus d'incidents : Vous supportez la détection automatique, la catégorisation, la priorisation et la correction des incidents et développez des flux de travail autoguérisants pour les défauts récurrents. - Rendre AIOps durable : Vous revitalisez les modèles en fonctionnement, réduisez les fausses alarmes, améliorez la qualité des données et rendez les connaissances opérationnelles utilisables de manière intelligente.\n\n- Interfaces de conception et gouvernance : Vous travaillez en étroite collaboration avec les opérations informatiques, DevOps, architecture cloud, sécurité, ITSM et science des données et vous assurez que les solutions sont mises en œuvre conformément aux Ents, aux ITS et à la protection des données. - Promotion de la conception de service &42 : Vous intégrez de nouvelles capacités AIOps dans les processus ITIL-4 et ITSM existants, supportez les équipes Service Desk et Operations dans le changement et renforcez la confiance dans les workflows soutenus par l'IA.\n\nVotre profil - Fondation : Études terminées en informatique, informatique d'entreprise ou qualifications comparables, ainsi que plusieurs années d'expérience dans les opérations informatiques modernes, telles que ITOps, DevOps ou SRE. - Savoir-faire Cloud, plate-forme & automatisation : Expérience pratique avec les architectures cloud, idéalement dans des environnements hybrides ou multiclouds, ainsi que avec les kubernetes, les dockers, OpenShift ou les plateformes d'automatisation telles qu'Ansible. -obbilité & Tooling : Très bonne connaissance en monitoring et obrabilité telles que CheckMk, Dynatrace, Splunk, Datadog, Prometheus ou ELK empil.\n\n- Compétences en données et en intelligence artificielle : bonne compréhension de l'apprentissage automatique, analyse des séries chronologiques, détection d'échantillons et d'anomalies, et expérience avec des langages de scripts tels que Python ou PowerShell. - ITSM & Frameworks : gestion sécuritaire des plateformes de gestion de services informatiques telles que Service 07 et expérience pratique approfondie dans ITIL 4 Pratiques, en particulier Incident, Problème, Changement et Continu 107. - Compréhension des entreprises et des fournisseurs : l'expérience avec un fournisseur de services informatiques ou un fournisseur de services est bénéfique, en particulier dans des environnements complexes de clients et d'exploitation.\n\n- Mode de travail & effet : Vous pensez analytiquement, reconnaître rapidement les connexions dans des paysages complexes de systèmes et peut traduire le contenu technique étape par étape entre les opérations informatiques, la science des données et la gestion. - Transformation & Mindset : Vous rassemblez les compétences des créateurs, la modération et la persuasion et appréciez tester l'IA, les LLM et les systèmes agentsiques de manière pratique et développer de façon significative les processus opérationnels. - Langues : Flux allemand et très bonne connaissance de l'anglais en paroles et en écriture.\n\nVotre, la portée de la conception : la co-conception active de notre initiative AI avec une haute pertinence stratégique. Un rôle avec un impact élevé dans un environnement animé par l'entreprise, dans lequel vous influencez activement le fonctionnement informatique de l'avenir. - Support technique actuel : Travailler avec les technologies modernes en multi-cloud, générique AI, Agentic AI, Big Data, obrabilité, automatisation et ITSM. - Développement ultérieur : Support pour les certifications, conférences spécialisées et apprentissage continu dans l'environnement cloud, data science et AIOps.\n\n- Culture : Une équipe dédiée et de courte distance, de coopération ouverte et d'espace pour de nouvelles idées. - Jusqu'à 60% de bureau à domicile avec une charge de travail de 100% possible - achat de vacances (2 semaines par an) - 41h semaine avec des heures de travail flexibles dans un fonds à temps plein - minimum 25 jours de vacances par an - Promotion de la formation à 100% financière ou temporelle - Abonnement gratuit aux CFF demi-taxe pour tous les salariés\n\nContact Devenez membre de notre équipeAbra Scae. Un environnement de travail orienté vers l'avenir avec un design moderne du lieu de travail, d'excellents transports, de généreux règlements HomeOffice et d'excellentes opportunités de formation vous attendent."
       },
       "location": "St. Gallen",
@@ -1744,7 +1780,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:40.929Z",
+      "crawledAt": "2026-07-15T22:12:48.297Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1767,11 +1804,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "aiops-transformation-lead-80-100-abraxas-st-gallen"
+        "aiops-transformation-lead-80-100-abraxas-st-gallen",
+        "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aiops-transformation-lead-80-100-abraxas-st-gallen"
+          "aiops-transformation-lead-80-100-abraxas-st-gallen",
+          "aiops-trasformazione-piombo-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "aiops-transformation-lead-80-100-abraxas-st-gallen"
@@ -1822,7 +1861,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:02.512Z",
+      "crawledAt": "2026-07-15T22:12:47.824Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1906,7 +1945,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:02.028Z",
+      "crawledAt": "2026-07-15T22:12:47.354Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1990,7 +2029,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:01.441Z",
+      "crawledAt": "2026-07-15T22:12:46.870Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2074,7 +2113,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T10:59:00.837Z",
+      "crawledAt": "2026-07-15T22:12:46.402Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2128,116 +2167,37 @@
       }
     },
     {
-      "id": "abraxas-5dc4f61fd5f2",
-      "slug": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+      "id": "abraxas-e12391c35b27",
+      "slug": "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
       "slugByLocale": {
-        "it": "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-        "en": "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "de": "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "fr": "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+        "it": "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
+        "en": "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
+        "de": "abacus-berater-in-bpe-rest-abareport-80-100-abraxas-st-gallen",
+        "fr": "consultant-en-abacus-dans-bpe-rest-abareport-80-100-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
       "companyDomain": "abraxas.ch",
-      "title": "System Engineer – DevOps (Deutsch) 80–100 %",
+      "title": "Abacus Berater:in BPE, REST & AbaReport 80–100 %",
       "titleByLocale": {
-        "it": "System Ingegnere – DevOps (Deutsch) 80–100 %",
-        "en": "System Engineer – DevOps (Deutsch) 80–100 %",
-        "de": "System Ingenieur – DevOps (Deutsch) 80–100 %",
-        "fr": "System Ingénieur – DevOps (Deutsch) 80–100 %"
+        "it": "Consulente Abacus: in BPE, REST & AbaReport 80-100%",
+        "en": "Abacus consultant: in BPE, REST & AbaReport 80-100%",
+        "de": "Abacus Berater:in BPE, REST & AbaReport 80–100 %",
+        "fr": "Consultant en Abacus: dans BPE, REST & AbaReport 80-100%"
       },
-      "description": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "description": "Dich begeistert es, wenn Systeme miteinander sprechen, Daten intelligent genutzt werden und aus Anforderungen funktionierende Lösungen entstehen? Du bewegst dich gerne an der Schnittstelle zwischen Fachbereich und Technik und möchtest Unternehmen dabei unterstützen, das volle Potenzial von Abacus auszuschöpfen? Dann komm zu uns, bei uns übernimmst du Verantwortung für moderne Integrationen und digitale Prozesse – als Persönlichkeit, die aktiv mitgestaltet und echten Mehrwert schafft.\nDeine Rolle\n• Konzeption und Umsetzung von Integrationen über die Abacus REST-Schnittstellen\n• Analyse von Kundenanforderungen und Entwicklung passender technischer Lösungskonzepte\n• Erstellung und Weiterentwicklung von Reports, Auswertungen und Dashboards mit AbaReport\n• Beratung von Kunden bei der Digitalisierung und Automatisierung ihrer Geschäftsprozesse BPE (Business Process Engine)\n• Mitarbeit in spannenden Einführungs-, Optimierungs- und Integrationsprojekten\n• Testing, Dokumentation und Qualitätssicherung der entwickelten Lösungen\n• Unterstützung unserer Kunden als kompetente Ansprechperson für technische Fragestellungen\nDein Profil\n• Erfahrung mit Abacus erforderlich, insbesondere in den Bereichen BPE, REST und/oder AbaReport\n• Verständnis für Datenstrukturen, Schnittstellen und Systemintegrationen\n• Analytisches Denkvermögen und Freude daran, komplexe Anforderungen in praxisnahe Lösungen zu übersetzen\n• Eine selbstständige und strukturierte Arbeitsweise\n• Kommunikationsstärke und Freude am Austausch mit Kunden und Kolleginnen und Kollegen\n• Sehr gute Deutschkenntnisse\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "it": "In questo entusiasmante ruolo, si assicura il funzionamento stabile della nostra infrastruttura e lavorare attivamente sulle soluzioni moderne intorno a CARI, il principale ERP per i trasporti su strada e gli uffici di trasporto in Svizzera. Sosteni i nostri clienti con l'introduzione di nuove tecnologie e contribuisce così direttamente al progresso digitale del settore pubblico nel settore della mobilità. Se si desidera assumersi la responsabilità, sono tecnicamente ampia e apprezzare un ambiente con cultura di startup e spirito di squadra, sei una soluzione perfetta per noi. Il tuo ruolo\n• Assicurare un'infrastruttura interna sempre disponibile e funzionante.\n• Soluzioni di implementazione e installazioni direttamente con i nostri clienti.\n• Gestione delle infrastrutture e dei progetti tecnici, sviluppo di concetti operativi e creazione di documentazione tecnica.\n• Fornitura e sviluppo di infrastrutture di sviluppo (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fornire competenze per la prevenzione e la soluzione efficiente dei problemi tecnici.\n• Una stretta collaborazione con il servizio clienti, i team di sviluppo e i responsabili operativi delle nostre soluzioni. Il tuo profilo\n• Apprendistato completo o formazione professionale superiore in informatica.\n• Conoscenza approfondita dei sistemi UNIX e Windows.\n• Esperienza nel trattare con i database ORACLE.\n• Diversi anni di esperienza professionale come ingegnere di sistema o responsabile di account tecnico.\n• Buona conoscenza delle reti, firewall, VPN.\n• Flusso in tedesco; tecnico inglese, francese benefico.\n• Alta flessibilità e disponibilità per viaggi d'affari regolari per la posizione di Morges e appuntamenti dei clienti in tutta la Svizzera. I tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "In this exciting role, you ensure the stable operation of our infrastructure and actively work on modern solutions around CARI, the leading ERP for road transport and shipping offices in Switzerland. You support our customers with the introduction of new technologies and thus directly contribute to the digital progress of the public sector in the mobility sector. If you want to take on responsibility, are technically broad and appreciate an environment with startup culture and team spirit, you are a perfect fit for us. Your role\n• Ensure an always available and smoothly functioning internal infrastructure.\n• Implement solutions and installations directly with our customers.\n• Managing infrastructure and technical projects as well as developing operational concepts and creating technical documentation.\n• Provision and development of development infrastructures (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Providing expertise for the prevention and efficient solution of technical problems.\n• Close cooperation with customer service, development teams and the operational managers of our solutions. Your profile\n• Completed apprenticeship or higher vocational training in computer science.\n• In-depth knowledge of UNIX and Windows systems.\n• Experience in dealing with ORACLE databases.\n• Several years of professional experience as a system engineer or technical account manager.\n• Good knowledge of networks, firewall, VPN.\n• Flowing in German; technical English, French beneficial.\n• High flexibility and readiness for regular business trips to the Morges location as well as customer appointments throughout Switzerland. Your Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "In dieser spannenden Rolle stellst du den stabilen Betrieb unserer Infrastruktur sicher und arbeitest aktiv an modernen Lösungen rund um CARI, dem führenden ERP für Strassenverkehrs und Schifffahrtsämter in der Schweiz. Du unterstützt unsere Kunden bei der Einführung neuer Technologien und trägst damit direkt zum digitalen Fortschritt der öffentlichen Hand im Mobilitätsbereich bei. Wenn du Verantwortung übernehmen möchtest, technisch breit aufgestellt bist und ein Umfeld mit Startup Kultur und Teamgeist schätzt, passt du perfekt zu uns.\nDeine Rolle\n• Sicherstellen einer stets verfügbaren und reibungslos funktionierenden internen Infrastruktur.\n• Implementieren von Lösungen und Installationen direkt bei unseren Kunden.\n• Leiten von Infrastruktur und technischen Projekten sowie erarbeiten von Betriebskonzepten und Erstellen der technischen Dokumentation.\n• Bereitstellen und Weiterentwickeln von Entwicklungsinfrastrukturen (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Einbringen von Expertise zur Prävention und effizienten Lösung technischer Probleme.\n• Enge Zusammenarbeit mit dem Kundenservice, den Entwicklungsteams und den Betriebsverantwortlichen unserer Lösungen.\nDein Profil\n• Abgeschlossene Lehre oder höhere Berufsausbildung im Bereich Informatik.\n• Fundierte Kenntnisse in UNIX- und Windows Systemen.\n• Erfahrung im Umgang mit ORACLE Datenbanken.\n• Mehrjährige Berufserfahrung als System Engineer oder Technical Account Manager.\n• Gute Kenntnisse in Netzwerken, Firewall, VPN.\n• Fliessend in Deutsch; technisches Englisch, Französisch von Vorteil.\n• Hohe Flexibilität und Bereitschaft zu regelmässigen Dienstreisen an den Standort Morges sowie zu Kundenterminen in der ganzen Schweiz.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Dans ce rôle passionnant, vous assurez le fonctionnement stable de notre infrastructure et travaillez activement sur des solutions modernes autour de CARI, le premier ERP pour le transport routier et les bureaux de navigation en Suisse. Vous aidez nos clients à introduire de nouvelles technologies et contribuez ainsi directement au progrès numérique du secteur public dans le secteur de la mobilité. Si vous voulez prendre des responsabilités, être techniquement large et apprécier un environnement avec la culture de démarrage et l'esprit d'équipe, vous êtes parfait pour nous. Votre rôle\n• Assurer une infrastructure interne toujours disponible et en bon état de fonctionnement.\n• Implémenter des solutions et des installations directement avec nos clients.\n• Gestion des infrastructures et des projets techniques, élaboration de concepts opérationnels et création de documentation technique.\n• Fourniture et développement d'infrastructures de développement (CI/CD, Docker, Kubernetes, Atlassian JIRA / Bitbucket / Bamboo, Kanban).\n• Fournir une expertise pour la prévention et la solution efficace des problèmes techniques.\n• Coopération étroite avec le service client, les équipes de développement et les responsables opérationnels de nos solutions. Votre profil\n• Apprentissage ou formation professionnelle supérieure en informatique.\n• Connaissance approfondie des systèmes UNIX et Windows.\n• Expérience dans le traitement des bases de données ORACLE.\n• Plusieurs années d'expérience professionnelle en tant qu'ingénieur système ou gestionnaire de compte technique.\n• Bonne connaissance des réseaux, pare-feu, VPN.\n• Flux en allemand; anglais technique, français bénéfique.\n• Haute flexibilité et disponibilité pour des voyages d'affaires réguliers à destination de Morges ainsi que des rendez-vous clients dans toute la Suisse. Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/system-engineer-devops-deutsch-80-100-2472",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:53.048Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "entry",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2155/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2155",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "system-engineer-devops-deutsch-80-100-abraxas-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
-        ],
-        "fr": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:06.686Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "abraxas-74772a464903",
-      "slug": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "gestione-senior-del-progetto-nel-settore-delle-soluzioni-fiscali-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "senior-project-management-in-the-field-of-tax-solutions-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
-        "fr": "haute-direction-de-projet-dans-le-domaine-des-solutions-fiscales-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
-      "titleByLocale": {
-        "it": "Gestione senior del progetto nel settore delle soluzioni fiscali 80-100%",
-        "en": "Senior project management in the field of tax solutions 80-100%",
-        "de": "Senior Projektleitung im Bereich Steuerlösungen 80–100 %",
-        "fr": "Haute direction de projet dans le domaine des solutions fiscales 80-100%"
-      },
-      "description": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Siete impegnati nei vostri progetti e il vostro impulso è azione auto-responsabile? Hai esperienza con progetti di sviluppo software agile e lo capisci come responsabile:r project manager:in per i clienti pubblici per garantire la portata contrattuale dei tuoi progetti? Allora vorremmo darvi il benvenuto a #Team Abraxas! Ci siamo posti l'obiettivo di essere il fornitore leader di soluzioni fiscali in Svizzera e per questo abbiamo bisogno del vostro sostegno attivo. E' quello che fai.\n• Gestire progetti complessi ed esigenti dei clienti nel settore dello sviluppo software e integrare le nostre soluzioni di controllo con i nostri clienti\n• Stabilire l'organizzazione del progetto e guidare i team di progetto in più sedi con team di sviluppo locali o vicini e in stretta collaborazione con il cliente\n• Definire le linee guida e gli strumenti necessari per l'implementazione del progetto, lungo il processo di sviluppo e nelle specifiche aziendali\n• Responsabilità e rappresentanza del vostro progetto nel comitato interno e di progetto del cliente\n• Valutare i fornitori necessari o componenti di terze parti e condurre negoziati insieme al nostro dipartimento di acquisto centrale Questo ti distingue\n• Grado di istruzione superiore o superiore in informatica o formazione comparabile e esperienza professionale e certificazione rilevanti (ad esempio HERMES, IPMA, PRINCE2)\n• Almeno 10 anni di esperienza come project manager: in, idealmente nello sviluppo software in un ambiente agile. Di cui gestione di almeno 3 progetti oltre 1 milione di CHF, tra cui almeno un progetto secondo HERMES e uno nel settore dell'amministrazione fiscale\n• Conoscenza approfondita della fiscalità, dei processi di raccolta delle imposte e dell'esperienza nella gestione contrattuale dei progetti dei clienti\n• Alta competenza tecnica, metodologica e sociale, preferibilmente con certificazione HERMES Advanced\n• Forte comunicazione, auto-azione della personalità con capacità analitiche, concettuali e conoscenza dei metodi di sviluppo agili\n• Tedesco in lingua madre o livello C1, buone competenze in inglese, altre lingue di vantaggio Questo è ciò che vi offriamo\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You are committed to your projects and your drive is self-responsible action? You have experience with agile software development projects and understand it as responsible:r project manager:in for public customers to ensure the contractual scope of your projects? Then we would like to welcome you to #Team Abraxas! We have set ourselves the goal of being the leading provider of tax solutions in Switzerland and for this we need your active support. That's what you do.\n• Managing complex and demanding customer projects in the area of software development and integrating our control solutions with our customers\n• Establish project organization and lead project teams across multiple locations with local or nearshoring development teams and in close cooperation with the customer\n• Define the necessary guidelines and instruments for project implementation, along the development process and within the company specifications\n• Responsibility and representation of your project in the customer’s internal and project committee\n• Evaluating necessary suppliers or third-party components and conducting negotiations together with our central purchasing department This sets you apart\n• Higher or higher education degree in computer science or comparable education and relevant professional experience and certification (e.g. HERMES, IPMA, PRINCE2)\n• At least 10 years of experience as a project manager: in, ideally in software development in an agile environment. Of which management of at least 3 projects over 1 million CHF, including at least one project according to HERMES and one in the field of tax administration\n• In-depth knowledge in taxation, tax collection processes and experience in contract-compliant handling of customer projects\n• High level of technical, methodological and social competence, preferably with HERMES Advanced certification\n• Strong communication, self-acting personality with analytical, conceptual skills and knowledge of agile development methods\n• German at native language or C1 level, good English skills, other languages of advantage This is what we offer you\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDas bewirkst du\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDas zeichnet dich aus\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie einschlägige Berufserfahrung und Zertifizierungen (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter:in, idealerweise in der Softwareentwicklung im agilen Umfeld. Davon Leitung von mindestens 3 Projekten über 1 Mio. CHF, inklusive mindestens einem Projekt nach HERMES und einem im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen, Steuererhebungsprozessen sowie Erfahrung in vertragskonformer Abwicklung von Kundenprojekten\n• Hohe Fach-, Methoden- und Sozialkompetenz, bevorzugt mit HERMES Advanced Zertifizierung\n• Kommunikationsstarke, eigeninitiativ handelnde Persönlichkeit mit analytischen, konzeptionellen Fähigkeiten und Kenntnissen agiler Entwicklungsmethoden\n• Deutsch auf Muttersprache- oder C1-Niveau, gute Englischkenntnisse, weitere Sprachen von Vorteil\nDas bieten wir dir\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous êtes engagé dans vos projets et votre énergie est une action auto-responsable? Vous avez de l'expérience avec des projets de développement logiciel agile et le comprenez comme responsable:r gestionnaire de projet:in pour les clients publics pour assurer la portée contractuelle de vos projets? Alors nous aimerions vous accueillir à #Team Abraxas! Nous nous sommes fixé l'objectif d'être le premier fournisseur de solutions fiscales en Suisse et pour cela nous avons besoin de votre soutien actif. C'est ce que tu fais.\n• Gérer des projets clients complexes et exigeants dans le domaine du développement logiciel et intégrer nos solutions de contrôle à nos clients\n• Mettre en place une organisation de projet et des équipes de projet à plusieurs endroits avec des équipes de développement locales ou proches et en étroite collaboration avec le client\n• Définir les lignes directrices et les instruments nécessaires pour la mise en œuvre des projets, le long du processus de développement et dans les spécifications de l'entreprise\n• Responsabilité et représentation de votre projet au sein du comité interne du client et du projet\n• Évaluer les fournisseurs ou les composants tiers nécessaires et mener des négociations avec notre service central d'achat Cela vous distingue\n• Diplôme d'enseignement supérieur en informatique ou enseignement comparable et expérience professionnelle pertinente et certification (par exemple HERMES, IPMA, PRINCE2)\n• Au moins 10 ans d'expérience en tant que gestionnaire de projet : idéalement dans le développement de logiciels dans un environnement agile. Dont gestion d'au moins 3 projets de plus d'un million de francs, dont au moins un projet selon HERMES et un dans le domaine de l'administration fiscale\n• Connaissance approfondie de la fiscalité, des processus de recouvrement des impôts et de l'expérience de la gestion contractuelle des projets clients\n• Haute compétence technique, méthodologique et sociale, de préférence avec HERMES Certification avancée\n• Une communication forte, une personnalité auto-agir avec des compétences analytiques, conceptuelles et une connaissance des méthodes de développement agile\n• L'allemand au niveau de la langue maternelle ou C1, de bonnes compétences en anglais, d'autres langues d'avantage C'est ce que nous vous offrons.\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+        "it": "Sei entusiasta quando i sistemi si parlano a vicenda, i dati vengono utilizzati in modo intelligente e le soluzioni nascono dai requisiti? Ti piace passare all'interfaccia tra reparto e tecnologia e vorrebbe aiutare le aziende a sfruttare il pieno potenziale di Abacus? Allora unisciti a noi, con noi ti assumerai la responsabilità di integrazioni moderne e processi digitali – come personalità che forma attivamente e crea un valore aggiunto reale.\nIl tuo ruolo\n• Progettazione e realizzazione di integrazioni tramite le interfacce Abacus REST\n• Analisi dei requisiti del cliente e sviluppo di concetti di soluzioni tecniche adeguate\n• Creazione e sviluppo di report, valutazioni e dashboard con AbaReport\n• Consulenza clienti per la digitalizzazione e l'automazione dei processi aziendali BPE (Business Process Engine)\n• Partecipazione a progetti di implementazione, ottimizzazione e integrazione entusiasmanti\n• Test, documentazione e garanzia di qualità delle soluzioni sviluppate\n• Sostenere i nostri clienti come referente competente per questioni tecniche\nIl tuo profilo\n• Esperienza con Abacus richiesta, soprattutto in BPE, REST e/o AbaReport\n• Comprensione delle strutture, delle interfacce e delle integrazioni di sistema\n• Il pensiero analitico e la gioia di tradurre requisiti complessi in soluzioni pratiche\n• Un metodo di lavoro indipendente e strutturato\n• Forza di comunicazione e piacere nello scambio con clienti e colleghi\n• Molto buona conoscenza del tedesco\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "Are you thrilled when systems talk to each other, data is used intelligently and solutions arise from requirements? Do you like to move at the interface between department and technology and would like to help companies exploit the full potential of Abacus? Then join us, with us you take responsibility for modern integrations and digital processes – as a personality who actively shapes and creates real added value.\nYour role\n• Design and implementation of integrations via the Abacus REST interfaces\n• Analysis of customer requirements and development of suitable technical solution concepts\n• Creation and further development of reports, evaluations and dashboards with AbaReport\n• Advising customers on the digitalization and automation of their business processes BPE (Business Process Engine)\n• Participation in exciting implementation, optimization and integration projects\n• Testing, documentation and quality assurance of the developed solutions\n• Support our customers as a competent contact person for technical issues\nYour profile\n• Experience with Abacus required, especially in BPE, REST and/or AbaReport\n• Understanding data structures, interfaces and system integrations\n• Analytical thinking and the joy of translating complex requirements into practical solutions\n• An independent and structured working method\n• Communication strength and pleasure in the exchange with customers and colleagues\n• Very good knowledge of German\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Dich begeistert es, wenn Systeme miteinander sprechen, Daten intelligent genutzt werden und aus Anforderungen funktionierende Lösungen entstehen? Du bewegst dich gerne an der Schnittstelle zwischen Fachbereich und Technik und möchtest Unternehmen dabei unterstützen, das volle Potenzial von Abacus auszuschöpfen? Dann komm zu uns, bei uns übernimmst du Verantwortung für moderne Integrationen und digitale Prozesse – als Persönlichkeit, die aktiv mitgestaltet und echten Mehrwert schafft.\nDeine Rolle\n• Konzeption und Umsetzung von Integrationen über die Abacus REST-Schnittstellen\n• Analyse von Kundenanforderungen und Entwicklung passender technischer Lösungskonzepte\n• Erstellung und Weiterentwicklung von Reports, Auswertungen und Dashboards mit AbaReport\n• Beratung von Kunden bei der Digitalisierung und Automatisierung ihrer Geschäftsprozesse BPE (Business Process Engine)\n• Mitarbeit in spannenden Einführungs-, Optimierungs- und Integrationsprojekten\n• Testing, Dokumentation und Qualitätssicherung der entwickelten Lösungen\n• Unterstützung unserer Kunden als kompetente Ansprechperson für technische Fragestellungen\nDein Profil\n• Erfahrung mit Abacus erforderlich, insbesondere in den Bereichen BPE, REST und/oder AbaReport\n• Verständnis für Datenstrukturen, Schnittstellen und Systemintegrationen\n• Analytisches Denkvermögen und Freude daran, komplexe Anforderungen in praxisnahe Lösungen zu übersetzen\n• Eine selbstständige und strukturierte Arbeitsweise\n• Kommunikationsstärke und Freude am Austausch mit Kunden und Kolleginnen und Kollegen\n• Sehr gute Deutschkenntnisse\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Êtes-vous ravi lorsque les systèmes se parlent, les données sont utilisées intelligemment et les solutions découlent des exigences? Aimeriez-vous vous déplacer à l'interface entre le département et la technologie et aider les entreprises à exploiter tout le potentiel d'Abacus ? Puis rejoignez-nous, avec nous vous prenez en charge les intégrations modernes et les processus numériques – en tant que personnalité qui façonne activement et crée une réelle valeur ajoutée.\nVotre rôle\n• Conception et mise en œuvre des intégrations via les interfaces Abacus REST\n• Analyse des besoins des clients et développement de concepts de solutions techniques appropriées\n• Création et développement de rapports, d'évaluations et de tableaux de bord avec AbaReport\n• Conseiller les clients sur la numérisation et l'automatisation de leurs processus d'affaires BPE (Business Process Engine)\n• Participation à des projets passionnants de mise en œuvre, d'optimisation et d'intégration\n• Essais, documentation et assurance qualité des solutions développées\n• Soutenir nos clients en tant que personne de contact compétente pour les questions techniques\nVotre profil\n• Expérience requise avec Abacus, en particulier dans BPE, REST et/ou AbaReport\n• Comprendre les structures de données, les interfaces et les intégrations de systèmes\n• La pensée analytique et la joie de traduire des exigences complexes en solutions pratiques\n• Une méthode de travail indépendante et structurée\n• Force de communication et plaisir dans l'échange avec les clients et collègues\n• Très bonne connaissance de l'allemand\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
       },
       "location": "St. Gallen",
       "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-7406",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:49.905Z",
+      "crawledAt": "2026-07-15T22:12:45.836Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2248,46 +2208,100 @@
       "category": "IT / Sviluppo software",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "IT / Informatica per la pubblica amministrazione",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2184/index.html?lang=de&cid=1",
+      "postedDate": "2026-07-15",
+      "applyUrl": "https://apply.refline.ch/215876/2383/index.html?lang=de&cid=1",
       "requirements": [],
       "requirementsByLocale": {},
-      "externalId": "215876-2184",
+      "externalId": "215876-2383",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "previousSlugs": [
-        "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:00:04.050Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "firstSeenAt": "2026-07-15T11:26:50.976Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "abraxas-53a04654cf35",
+      "slug": "software-architekt-in-80-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "it": "software-architekt-in-80-100-abraxas-st-gallen",
+        "en": "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "software-architekt-in-80-100-abraxas-st-gallen",
+        "fr": "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Software Architekt:in 80–100 %",
+      "titleByLocale": {
+        "it": "Software Architekt:in 80–100 %",
+        "en": "Software Architect 80–100 %",
+        "de": "Software Architekt:in 80–100 %",
+        "fr": "Architecte Logiciel 80–100 %"
+      },
+      "description": "Du bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\nDeine Rolle\n• Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n• Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n• Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n• Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n• Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n• Du unterstützt in der Erstellung von Offerten\n• Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n• Du stellst den Status quo in Frage und erweiterst die IT-Architektur\nDein Profil\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n• Idealerweise bringst du Erfahrung im Bereich DevOps mit\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+      "descriptionByLocale": {
+        "it": "Descrizione\n\nSe anche tu condividi l'opinione che l'architettura di un software sia uno dei fattori chiave del successo? Sei un praticante e visionario che si impegna attivamente e desidera promuovere la nostra nuova soluzione software? Vuoi partecipare allo sviluppo di un nuovo prodotto in una fase iniziale? Allora sei nel posto giusto! Il nostro obiettivo è creare la migliore soluzione fiscale in Svizzera e per farlo abbiamo bisogno di un supporto energico. La vastità e la varietà di questo campo si manifestano ogni giorno, anche per noi, tutti non fiscalisti. Il tuo campo principale è l'architettura di servizi trasversali, servizi di base e il supporto nella definizione di soluzioni integrate nell'architettura.\n\nIl tuo ruolo\n\n- Sei l'architetto di più servizi trasversali necessari da diversi domini di competenza\n- Supporti i team dove necessario, aiutandoli a implementare le soluzioni\n- Fai parte del team di architettura che chiarisce questioni intersettoriali\n- Crea concetti di alto livello su come vengono implementate le esigenze funzionali nel sistema complessivo\n- Partecipa attivamente alla pianificazione di personalizzazioni per i clienti\n- Supporti nella preparazione di offerte\n- Mantieni una stretta collaborazione con i colleghi dell'analisi aziendale, dello sviluppo e dei clienti\n- Metti in discussione lo status quo e ampli l'architettura IT\n\nIl tuo profilo\n\n- Sei un giocatore di squadra e una persona comunicativa con alta iniziativa personale, che desidera svilupparsi tecnicamente e metodologicamente\n- Hai diversi anni di esperienza come architetto nel design e nell'operatività di un'architettura complessa di microservizi\n- Idealmente hai esperienza nel campo DevOps\n- Ottima conoscenza delle seguenti tecnologie: Java, Kafka, REST, Angular o altri framework frontend\n- Ottima conoscenza del tedesco e dell'inglese\n- Laurea universitaria o di Fachhochschule in informatica o formazione equivalente, con comprovata esperienza professionale\n\nI tuoi benefici\n\n- Fino al 60% di lavoro da casa possibile con un impegno del 100%\n- Acquisto di ferie (2 settimane all'anno)\n- Settimana di 41 ore con orari di lavoro flessibili a tempo pieno\n- Minimo 25 giorni di ferie all'anno\n- Supporto alle formazioni al 100% finanziato o temporizzato\n- Abbonamento SBB-Halbtax gratuito per tutti i dipendenti\n\nContatto\n\nPronto a contribuire a plasmare l'applicazione fiscale di domani? Siamo ansiosi di ricevere la tua candidatura! Da noi, manteniamo una cultura aperta e informale – sentiti libero di inviarci la tua candidatura direttamente in forma informale.",
+        "en": "Description\n\nDo you also believe that software architecture is one of the central success factors? Are you a doer and visionary who actively contributes and wants to drive our new software solution forward? Would you like to be involved in the development of a new product at an early stage? Then you are exactly right with us! Our goal is to create the best tax solution in Switzerland, and for that we need energetic support. The breadth and diversity of this field become clear to us, all non-tax commissioners, every day anew. Your main area is the architecture of cross-sectional services, core services, and supporting the development of overarching solutions in architecture.\n\nYour Role\n\n- You are the architect of several cross-sectional services needed by different domain areas\n- You support teams where needed to help them implement solutions\n- You are part of the architecture team that clarifies cross-domain questions\n- You create high-level concepts on how functional requirements are implemented in the overall system\n- You actively participate in planning customer-specific configurations\n- You assist in preparing offers\n- You maintain close collaboration with your colleagues in business analysis, development, and clients\n- You challenge the status quo and expand the IT architecture\n\nYour Profile\n\n- You are a team player and a communicative personality with high initiative, eager to develop technically and methodologically\n- You bring several years of experience as an architect in designing and operating a complex microservice architecture\n- Ideally, you have experience in the DevOps field\n- Very good knowledge of the following technologies: Java, Kafka, REST, Angular or other frontend frameworks\n- Excellent language skills in German and English\n- University or Fachhochschule degree in computer science or comparable education, with proven professional experience\n\nYour Benefits\n\n- Up to 60% home office possible with a 100% workload\n- Vacation purchase (2 weeks per year)\n- 41-hour week with flexible working hours for full-time employment\n- Minimum of 25 days of vacation per year\n- Support for further education fully financed or time-based\n- Free SBB-Halbtax subscription for all employees\n\nContact\n\nReady to help shape the tax application of tomorrow? We look forward to your application! We maintain an open and informal culture – feel free to send us your application directly in the informal 'du' form.",
+        "de": "Beschreibung\n\nDu bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\n\nDeine Rolle\n\n- Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n- Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n- Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n- Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n- Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n- Du unterstützt in der Erstellung von Offerten\n- Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n- Du stellst den Status quo in Frage und erweiterst die IT-Architektur\n\nDein Profil\n\n- Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n- Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n- Idealerweise bringst du Erfahrung im Bereich DevOps mit\n- Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n- Sehr gute Sprachkenntnisse in Deutsch und Englisch\n- Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\n\nDeine Benefits\n\n- Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n- Ferienkauf (2 Wochen pro Jahr)\n- 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n- Mind. 25 Tage Ferien pro Jahr\n- Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n- Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\n\nKontakt\n\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
+        "fr": "Description\n\nPartagez-vous également l'opinion que l'architecture d'un logiciel est l'un des facteurs clés de succès ? Êtes-vous un acteur et un visionnaire qui s'investit activement et souhaite faire avancer notre nouvelle solution logicielle ? Souhaitez-vous participer au développement d'un nouveau produit dès ses premières phases ? Alors, vous êtes au bon endroit ! Notre objectif est de créer la meilleure solution fiscale en Suisse, et pour cela, nous avons besoin d'un soutien énergique. La diversité et la richesse de ce domaine se révèlent chaque jour, à nous tous, non-fiscalistes. Votre domaine principal concerne l'architecture des services transversaux, des services de base, et le soutien dans la recherche de solutions globales en architecture.\n\nVotre rôle\n\n- Vous êtes l'architecte de plusieurs services transversaux nécessaires aux différentes domaines de compétence\n- Vous soutenez les équipes là où c'est nécessaire pour les aider à mettre en œuvre les solutions\n- Vous faites partie de l'équipe d'architecture qui clarifie les questions inter-domaines\n- Vous élaborez des concepts globaux sur la manière dont les exigences fonctionnelles sont mises en œuvre dans le système global\n- Vous participez activement à la planification des configurations spécifiques aux clients\n- Vous aidez à la préparation des offres\n- Vous entretenez une collaboration étroite avec vos collègues en analyse commerciale, développement et clients\n- Vous remettez en question le statu quo et élargissez l'architecture informatique\n\nVotre profil\n\n- Vous êtes un joueur d'équipe et une personne communicative avec une forte initiative personnelle, souhaitant évoluer techniquement et méthodologiquement\n- Vous avez plusieurs années d'expérience en tant qu'architecte dans la conception et l'exploitation d'une architecture microservices complexe\n- Idéalement, vous avez une expérience dans le domaine DevOps\n- Excellentes connaissances des technologies suivantes : Java, Kafka, REST, Angular ou autres frameworks frontend\n- Excellentes compétences linguistiques en allemand et en anglais\n- Diplôme universitaire ou de Fachhochschule en informatique ou formation équivalente, avec une expérience professionnelle avérée\n\nVos avantages\n\n- Jusqu'à 60 % de télétravail possible avec un emploi à 100 %\n- Achat de congés (2 semaines par an)\n- Semaine de 41 heures avec des horaires de travail flexibles à temps plein\n- Minimum 25 jours de congé par an\n- Soutien à la formation continue financé à 100 % ou en temps\n- Abonnement SBB-Halbtax gratuit pour tous les employés\n\nContact\n\nPrêt à contribuer à façonner l'application fiscale de demain ? Nous attendons votre candidature avec impatience ! Chez nous, nous cultivons une culture ouverte et informelle – n'hésitez pas à nous envoyer votre candidature directement en utilisant la formule informelle 'tu'."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-13T22:26:51.477Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://apply.refline.ch/215876/2325/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2325",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "firstSeenAt": "2026-07-04T10:00:05.103Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

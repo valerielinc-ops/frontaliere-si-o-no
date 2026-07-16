@@ -768,7 +768,7 @@ function applyToTracking(filtered) {
     }
   }
   if (added > 0) {
-    fs.writeFileSync(TRACKING_PATH, `${JSON.stringify(tracking, null, 2)}\n`, 'utf8');
+    fs.writeFileSync(TRACKING_PATH, JSON.stringify(tracking) + '\n', 'utf8');
   }
   if (reservedHubsSkipped > 0) {
     console.log(`  🛡️  Skipped ${reservedHubsSkipped} reserved hub slug(s) (would clobber sector/city hub HTML)`);

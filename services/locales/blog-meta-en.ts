@@ -8515,6 +8515,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Border crossers in Ticino: flows, mobility and areas of origin',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'One out of two border crossers arrives from Como. Analysis of the flows, destinations and use of the car based on the survey of the Department of the territory.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Morning traffic at the Swiss-Italian border crossing',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Unemployed frontier workers: rights and access to URCs',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Unemployed frontier workers have the right to register with the Swiss Regional Employment Offices (RPOs). Here\'s how the procedure works.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'View of Lugano with the lake and mountains in the background.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Border refurbishments: the new political weapon between Switzerland and Italy',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Ticino blocks 50.2 million francs and Graubünden threatens retaliation. Refreshments become negotiating pawns in tax and Olympic disputes.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande castle in Bellinzona, seat of the Ticino government',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italy-Switzerland: automatic exchange of tax information',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analysis of the operation of the automatic exchange of tax information between Italy and Switzerland through CRS and DAC for frontier workers.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Panoramic view of Lugano with the lake and mountains.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Bern does not want to create friction with Italy | CSR',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'Switzerland does not want to create friction with Italy, but instead wants to cooperate and respect the sovereignty of our country.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'The Swiss and Italian borders meet in Ticino, in a context of collaboration and mutual respect.',
 };
 
 export default blogMetaEn;

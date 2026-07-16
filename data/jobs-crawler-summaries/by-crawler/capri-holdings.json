@@ -1,18 +1,56 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-07-14T21:59:47.041Z",
+  "generatedAt": "2026-07-15T22:02:52.202Z",
   "total": 7,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 17960,
-  "avgDurationMs": 17960,
+  "unchangedCount": 0,
+  "durationMs": 21271,
+  "avgDurationMs": 21271,
   "durationHistory": [
-    17960
+    21271
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Geneva/fix-term-Sales-Associate--Geneva---Part-Time_R_785478",
+      "title": "fix term Sales Associate, Geneva - Part Time",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "fix-term-sales-associate-geneva-part-time-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-07-15",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Coordinator--Store-Development-EMEA---FTC_R_785314",
@@ -246,48 +284,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-PT-16h-MICHAEL-KORS-Landquart_R_785435",
-      "title": "Sales Associate PT 16h MICHAEL KORS Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "vendite-associate-pt-16h-michael-kors-capri-holdings-michael-kors-versace-graubunden",
-      "category": "retail",
-      "datePosted": "2026-07-09",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "id": "capri-holdings-fa76f91d6306",
-      "firstSeenAt": "2026-07-09T12:16:11.980Z",
-      "crawledAt": "",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

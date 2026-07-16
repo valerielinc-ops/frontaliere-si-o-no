@@ -8516,6 +8516,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Frontières au Tessin : flux, mobilité et zones de provenance',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Un frontalier sur deux vient de Côme. Analyse des flux, des destinations et de l\'utilisation de la voiture basée sur l\'enquête du Département du territoire.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Trafic matinal au poste frontière entre l\'Italie et la Suisse',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Chômeurs frontaliers : droits et accès aux URC',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Les frontaliers chômeurs ont le droit de s\'inscrire auprès des Offices régionaux de placement (ORP) suisses. Voici comment fonctionne la procédure.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Vue de Lugano avec le lac et les montagnes en arrière-plan.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Restaurants frontaliers : la nouvelle arme politique entre la Suisse et l\'Italie',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Le Tessin bloque 50,2 millions de francs et les Grisons menacent de représailles. Les restaurants deviennent des pions de négociation dans les litiges fiscaux et olympiques.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Château de Castelgrande à Bellinzone, siège du gouvernement tessinois',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italie-Suisse : échange automatique d\'informations fiscales',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analyse du fonctionnement de l\'échange automatique d\'informations fiscales entre l\'Italie et la Suisse via CRS et DAC pour les travailleurs frontaliers.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Berne ne veut pas créer de frictions avec l\'Italie | RSE',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'La Suisse ne veut pas créer de frictions avec l\'Italie, mais veut plutôt collaborer et respecter la souveraineté de notre pays.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'Les frontières suisses et italiennes se rencontrent au Tessin, dans un contexte de collaboration et de respect mutuel.',
 };
 
 export default blogMetaFr;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stryker",
-  "assembledAt": "2026-07-14T22:58:57.612Z",
+  "assembledAt": "2026-07-15T22:54:46.568Z",
   "jobs": [
     {
       "id": "stryker-3fca627c6018",
@@ -34,7 +34,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:55.467Z",
+      "crawledAt": "2026-07-15T22:54:44.610Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -129,7 +129,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:54.730Z",
+      "crawledAt": "2026-07-15T22:54:43.916Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -224,7 +224,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R565378",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:54.005Z",
+      "crawledAt": "2026-07-15T22:54:43.189Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -303,7 +303,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regional-Sales-Manager--m-w-d--Endoscopy-Schweiz_R567199-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:53.293Z",
+      "crawledAt": "2026-07-15T22:54:42.499Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Vienna-Austria/Regional-Sales-Manager--Peripheral-Vascular---Switzerland---Austria_R567401",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:58:52.010Z",
+      "crawledAt": "2026-07-15T22:54:41.594Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -455,7 +455,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Berufsbildner--m-w-d-_R568814",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:51.222Z",
+      "crawledAt": "2026-07-15T22:54:40.834Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -534,7 +534,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lean-Specialist--m-w-d----Process-Improvement_R566531",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:58:50.377Z",
+      "crawledAt": "2026-07-15T22:54:40.141Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -610,7 +610,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:58:49.501Z",
+      "crawledAt": "2026-07-15T22:54:39.351Z",
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -627,10 +627,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R561546",
-      "firstSeenAt": "2026-07-14T11:58:45.203Z",
+      "previousSlugs": [
+        "regulatory-affairs-specialist-stryker-ch",
+        "regulatory-affairs-specialista-stryker-biberist"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-specialist-stryker-ch"
+          "regulatory-affairs-specialist-stryker-ch",
+          "regulatory-affairs-specialista-stryker-biberist"
         ],
         "de": [
           "regulatory-affairs-specialist-stryker-ch"
@@ -639,9 +643,7 @@
           "regulatory-affairs-specialist-stryker-ch"
         ]
       },
-      "previousSlugs": [
-        "regulatory-affairs-specialist-stryker-ch"
-      ],
+      "firstSeenAt": "2026-07-14T11:58:45.203Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

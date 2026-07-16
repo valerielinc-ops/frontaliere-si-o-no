@@ -12,13 +12,13 @@
     "https://jobs.amag-group.ch/it"
   ],
   "notes": "Dedicated AMAG Group crawler fetches Italian listing (pre-filtered to Ticino) + German full listing for TI/GR jobs, enriches with JSON-LD JobPosting from detail pages.",
-  "updatedAt": "2026-07-14T22:12:41.727Z",
+  "updatedAt": "2026-07-15T22:42:48.718Z",
   "seedMetaByUrl": {
-    "https://jobs.amag-group.ch/Consulente-tecnico-motoveicoli-mf-100-it-j23121.html": {
-      "location": "Breganzona",
+    "https://jobs.amag-group.ch/Carrozziere-verniciatore-mf-Contratto-determinato-100-it-j23080.html": {
+      "location": "Lugano",
       "canton": "TI",
       "company": "AMAG Group",
-      "postedDate": "2026-07-09"
+      "postedDate": "2026-07-15"
     }
   }
 }

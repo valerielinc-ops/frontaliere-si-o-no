@@ -1,16 +1,16 @@
 {
   "key": "klinik-adelheid",
   "label": "Klinik Adelheid",
-  "generatedAt": "2026-07-14T22:36:05.137Z",
-  "total": 9,
+  "generatedAt": "2026-07-15T23:01:11.200Z",
+  "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6568,
-  "avgDurationMs": 6568,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7064,
+  "avgDurationMs": 7064,
   "durationHistory": [
-    6568
+    7064
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.klinik-adelheid.ch/job/mitarbeiter-in-empfang-ca-50-63/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:35:59.656Z",
+      "crawledAt": "2026-07-15T23:01:05.281Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.klinik-adelheid.ch/job/mitarbeiter-in-bettendisposition-80-100-50/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:00.050Z",
+      "crawledAt": "2026-07-15T23:01:05.707Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.klinik-adelheid.ch/job/berufsbildner-in-80-100-64/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:00.444Z",
+      "crawledAt": "2026-07-15T23:01:06.135Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.klinik-adelheid.ch/job/dipl-pflegefachfrau-mann-hf-60-100-46/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:00.832Z",
+      "crawledAt": "2026-07-15T23:01:06.557Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.klinik-adelheid.ch/job/fachfrau-mann-gesundheit-efz-80-100-5/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:01.221Z",
+      "crawledAt": "2026-07-15T23:01:06.979Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://www.klinik-adelheid.ch/job/studium-zur-dipl-pflegefachperson-hf-4/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:01.605Z",
+      "crawledAt": "2026-07-15T23:01:07.402Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://www.klinik-adelheid.ch/job/zivildienstleistende-im-pflege-und-therapiebereich-39/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:02.005Z",
+      "crawledAt": "2026-07-15T23:01:07.821Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://www.klinik-adelheid.ch/job/lernende-n-als-koechin-koch-efz-3/",
       "source": "Klinik Adelheid Dedicated Parser (bespoke CMS)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:36:02.419Z",
+      "crawledAt": "2026-07-15T23:01:08.245Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -311,8 +311,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-adelheid-0dea9f3072e1",
       "slug": "cuoco-cuoca-100-klinik-adelheid-unterageri",
@@ -344,7 +343,7 @@
       "firstSeenAt": "2026-06-24T22:15:11.881Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -353,5 +352,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

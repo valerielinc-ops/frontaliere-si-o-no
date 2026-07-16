@@ -1,18 +1,53 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-07-14T22:36:38.573Z",
+  "generatedAt": "2026-07-15T22:23:13.779Z",
   "total": 5,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3247,
-  "avgDurationMs": 3247,
+  "durationMs": 2531,
+  "avgDurationMs": 2531,
   "durationHistory": [
-    3247
+    2531
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "mistral-ai-d809e115916d",
+      "slug": "research-software-engineer-mistral-ai-ch",
+      "company": "Mistral AI",
+      "companyKey": "mistral-ai",
+      "companyDomain": "mistral.ai",
+      "title": "Research Software Engineer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
+      "source": "Mistral AI Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-15T22:23:11.789Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Intelligenza Artificiale / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
+      "firstSeenAt": "2026-07-14T22:36:36.718Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
     {
       "id": "mistral-ai-6111928c148b",
       "slug": "applied-scientist-research-engineer-ai4engineering-mistral-ai-ch",
@@ -25,7 +60,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:36:36.711Z",
+      "crawledAt": "2026-07-15T22:23:11.795Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,11 +73,12 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-14T22:36:36.711Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -58,7 +94,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:36:36.714Z",
+      "crawledAt": "2026-07-15T22:23:11.798Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,11 +107,12 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-14T22:36:36.714Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -91,7 +128,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:36:36.716Z",
+      "crawledAt": "2026-07-15T22:23:11.802Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,44 +141,12 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-14T22:36:36.716Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "mistral-ai-d809e115916d",
-      "slug": "research-software-engineer-mistral-ai-ch",
-      "company": "Mistral AI",
-      "companyKey": "mistral-ai",
-      "companyDomain": "mistral.ai",
-      "title": "Research Software Engineer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
-      "source": "Mistral AI Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:36:36.718Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Intelligenza Artificiale / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -157,7 +162,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-14T22:36:36.705Z",
+      "crawledAt": "2026-07-15T22:23:11.799Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,16 +175,16 @@
       "featured": false,
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-07-14T22:36:36.705Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

@@ -39,10 +39,11 @@
     "https://jobs.ruag.ch/offene-stellen/human-resources-business-partner-mutterschaftsvertretung/4959e140-19a9-489f-8713-e028eb207b8e",
     "https://jobs.ruag.ch/offene-stellen/cyber-security-specialist-c5i/416172ed-e99c-4dc1-a7c8-b94dfed2ae1a",
     "https://jobs.ruag.ch/offene-stellen/principal-system-engineering-c5i/b7442824-223a-425e-95e2-b238924212da",
-    "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856"
+    "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856",
+    "https://jobs.ruag.ch/offene-stellen/bauleiterin-hochbau/b71a07a8-5b0d-4aa6-8152-7ef481f5cedb"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-14T22:17:42.877Z",
+  "updatedAt": "2026-07-15T22:40:44.811Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -221,6 +222,12 @@
     "https://jobs.ruag.ch/offene-stellen/software-engineer-tactical-communications/921b2141-f6eb-4424-81e4-1391a7fa1856": {
       "location": "Emmen",
       "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-15"
+    },
+    "https://jobs.ruag.ch/offene-stellen/bauleiterin-hochbau/b71a07a8-5b0d-4aa6-8152-7ef481f5cedb": {
+      "location": "Altdorf",
+      "canton": "UR",
       "company": "RUAG AG",
       "postedDate": "2026-07-15"
     }

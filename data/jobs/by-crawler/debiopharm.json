@@ -1,6 +1,6 @@
 {
   "crawlerKey": "debiopharm",
-  "assembledAt": "2026-07-14T22:14:04.926Z",
+  "assembledAt": "2026-07-15T22:12:23.069Z",
   "jobs": [
     {
       "title": "T2608 - Personalised Medicine Intern (12-months assignment)",
@@ -93,6 +93,14 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "t2608-personalised-medicine-tirocinante-12-months-assignment-debiopharm-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "t2608-personalised-medicine-tirocinante-12-months-assignment-debiopharm-lausanne"
+      ],
       "needsRetranslation": true
     },
     {
@@ -154,6 +162,16 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "t2607-biostatistician-stagiaire-12-months-debiopharm-lausanne",
+          "t2607-biostatistician-tirocinante-12-months-debiopharm-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "t2607-biostatistician-stagiaire-12-months-debiopharm-lausanne",
+        "t2607-biostatistician-tirocinante-12-months-debiopharm-lausanne"
+      ],
       "needsRetranslation": true
     },
     {

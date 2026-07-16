@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-07-14T23:05:01.317Z",
+  "generatedAt": "2026-07-15T23:10:24.873Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3551,
-  "avgDurationMs": 3551,
+  "durationMs": 3433,
+  "avgDurationMs": 3433,
   "durationHistory": [
-    3551
+    3433
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,10 +32,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-07-14",
+      "validThrough": "2026-07-15",
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -237,45 +237,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Product Owner, Integrated Business Planning",
-      "slug": "product-owner-pianificazione-aziendale-integrata-board-international-chiasso-switzerland",
-      "url": "https://boardinternationalsa.applytojob.com/apply/I61ALhTjY1/Product-Owner-Integrated-Business-Planning",
-      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/I61ALhTjY1/Product-Owner-Integrated-Business-Planning",
-      "company": "Board International",
-      "companyKey": "board-international",
-      "companyDomain": "board.com",
-      "location": "Chiasso, Switzerland",
-      "addressLocality": "Chiasso, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "board-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-06",
-      "employmentType": "full time",
-      "contractType": "full-time",
-      "validThrough": "2026-08-04",
-      "id": "board-international-c5d53d3b1190",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6830",
-      "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Associate AI Engineer (6-month contract)",

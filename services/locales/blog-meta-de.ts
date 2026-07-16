@@ -8514,6 +8514,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-frontalieri-como-ticino.title': 'Grenzgänger im Tessin: Ströme, Mobilität und Herkunftsgebiete',
     'blog.article.traffico-frontalieri-como-ticino.excerpt': 'Jeder zweite Grenzgänger kommt aus Como. Analyse der Flüsse, Ziele und Nutzung des Autos auf der Grundlage der Umfrage des Department of Territory.',
     'blog.article.traffico-frontalieri-como-ticino.imageAlt': 'Morgendlicher Verkehr am Grenzübergang zwischen Italien und der Schweiz',
+    'blog.article.frontalieri-disoccupati-urc-diritti.title': 'Arbeitslose Grenzgänger: Rechte und Zugang zu den RAVs',
+    'blog.article.frontalieri-disoccupati-urc-diritti.excerpt': 'Arbeitslose Grenzgängerinnen und Grenzgänger haben das Recht, sich bei den regionalen Arbeitsvermittlungsstellen (RAV) der Schweiz anzumelden. So funktioniert das Verfahren.',
+    'blog.article.frontalieri-disoccupati-urc-diritti.imageAlt': 'Blick auf Lugano mit dem See und den Bergen im Hintergrund.',
+    'blog.article.ristorni-frontalieri-arma-politica.title': 'Grenzrestaurants: die neue politische Waffe zwischen der Schweiz und Italien',
+    'blog.article.ristorni-frontalieri-arma-politica.excerpt': 'Das Tessin blockiert 50,2 Millionen Franken und Graubünden droht mit Vergeltung. Rückerstattungen werden zu Spielfiguren in Steuer- und Olympiastreitigkeiten.',
+    'blog.article.ristorni-frontalieri-arma-politica.imageAlt': 'Castelgrande in Bellinzona, Sitz der Tessiner Regierung',
+    'blog.article.scambio-automatico-informazioni-fiscali.title': 'Italien-Schweiz: Automatischer Austausch von Steuerinformationen',
+    'blog.article.scambio-automatico-informazioni-fiscali.excerpt': 'Analyse der Funktionsweise des automatischen Austauschs von Steuerinformationen zwischen Italien und der Schweiz über CRS und DAC für Grenzgänger.',
+    'blog.article.scambio-automatico-informazioni-fiscali.imageAlt': 'Panoramablick auf Lugano mit dem See und den Bergen.',
+    'blog.article.berna-non-crea-attriti-con-litalia.title': 'Bern will keine Reibungen mit Italien schaffen | RSI',
+    'blog.article.berna-non-crea-attriti-con-litalia.excerpt': 'Die Schweiz will keine Spannungen mit Italien schaffen, sondern kooperieren und die Souveränität unseres Landes respektieren.',
+    'blog.article.berna-non-crea-attriti-con-litalia.imageAlt': 'Die Schweiz und Italien treffen sich an der Grenze von Ticino, in einem Kontext der Zusammenarbeit und gegenseitigen Achtung.',
 };
 
 export default blogMetaDe;

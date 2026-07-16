@@ -1,18 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-07-14T22:34:08.864Z",
+  "generatedAt": "2026-07-15T22:31:15.138Z",
   "total": 2,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5297,
-  "avgDurationMs": 5297,
+  "unchangedCount": 2,
+  "durationMs": 4838,
+  "avgDurationMs": 4838,
   "durationHistory": [
-    5297
+    4838
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-cf081dc653a5",
       "title": "Consulente Alla Clientela Commerciale Ipotecaria",
@@ -34,25 +37,25 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-14T22:34:05.339Z",
+      "crawledAt": "2026-07-15T22:31:11.982Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
-      "_qualityScore": 69,
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "firstSeenAt": "2026-07-14T22:34:05.339Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "bps-suisse-ec1de76eae01",
       "title": "Collaboratore Trice Gestione Crediti",
@@ -74,9 +77,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-07-14",
+      "postedDate": "2026-07-15",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-07-14T22:34:06.554Z",
+      "crawledAt": "2026-07-15T22:31:13.349Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
