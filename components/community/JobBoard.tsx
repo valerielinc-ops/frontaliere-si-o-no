@@ -2104,6 +2104,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
+ // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
+ // read), not a user interaction — but every memo below that consumes them
+ // re-scores the full loaded job list (up to ~12k on the Switzerland-wide
+ // aggregator) via computePersonalScore. If that recompute lands while the
+ // user taps a job card or filter, the click's own processing queues behind
+ // it, inflating that unrelated interaction's INP (field p75 2064ms on
+ // /cerca-lavoro-svizzera/, #4302). Deferring these enhancement-only inputs
+ // lets React schedule the rescoring at low priority so it yields to a
+ // concurrent click instead of blocking it — output is unchanged, only the
+ // scheduling shifts.
+ const deferredBehaviorData = useDeferredValue(behaviorData);
+ const deferredJobMatchProfile = useDeferredValue(jobMatchProfile);
+ const deferredUserProfile = useDeferredValue(userProfile);
  const popularity = popularityData as Record<string, number>;
 
  // Load behavior data on mount and update last visit
@@ -2144,11 +2157,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enablePersonalization, deferredSearchQuery]);
 
  // New jobs counter
+ // computeNewJobsCount + the personal-score filter below iterate the full
+ // job list — deferred so a behaviorData/jobMatchProfile update from the
+ // post-mount effect doesn't block a concurrent click (see deferred* comment
+ // above).
  const newJobsInfo = useMemo(() => {
- if (!enablePersonalization || !behaviorData) return { total: 0, matching: 0 };
+ if (!enablePersonalization || !deferredBehaviorData) return { total: 0, matching: 0 };
  const lastVisit = getLastVisitTimestamp();
- return computeNewJobsCount(jobs, lastVisit, behaviorData, userProfile ?? null, jobMatchProfile);
- }, [enablePersonalization, behaviorData, jobs, userProfile, jobMatchProfile]);
+ return computeNewJobsCount(jobs, lastVisit, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile);
+ }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
 
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
@@ -2161,9 +2178,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // tax/onboarding profile, or job-match survey profile). Feeds both the
  // "Personalizzato per te" pill and the job_match_impression analytics event.
  const matchedJobCount = useMemo(() => {
- if (!enablePersonalization || !behaviorData) return 0;
- return jobs.filter((j) => computePersonalScore(j, behaviorData, userProfile ?? null, jobMatchProfile).score > 0).length;
- }, [enablePersonalization, behaviorData, jobs, userProfile, jobMatchProfile]);
+ if (!enablePersonalization || !deferredBehaviorData) return 0;
+ return jobs.filter((j) => computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile).score > 0).length;
+ }, [enablePersonalization, deferredBehaviorData, jobs, deferredUserProfile, deferredJobMatchProfile]);
 
  // Whether personalization is actively changing sort order (any job scored > 0)
  const isPersonalizationActive = matchedJobCount > 0;
@@ -3115,6 +3132,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  }, [selectedJob]);
 
+ // sortedJobs re-scores + re-sorts every loaded job (up to ~12k on the
+ // Switzerland-wide aggregator) as one synchronous block; it reads the
+ // deferred* personalization inputs declared above so this resort yields to
+ // a concurrent click instead of blocking it (see comment there, #4302).
  const sortedJobs = useMemo(() => {
  // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
  const swissJobs = jobs.filter(j => {
@@ -3135,7 +3156,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
 
- const shouldPersonalize = enablePersonalization && behaviorData;
+ const shouldPersonalize = enablePersonalization && deferredBehaviorData;
 
  const withMeta = swissJobs.map(j => ({
  job: j,
@@ -3147,7 +3168,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  day: dayTs(j.crawledAt || j.postedDate),
  qs: j.qualityScore ?? 0,
  personal: shouldPersonalize
- ? computePersonalScore(j, behaviorData, userProfile ?? null, jobMatchProfile)
+ ? computePersonalScore(j, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile)
  : { score: 0, topSignal: '' },
  }));
  withMeta.sort((a, b) =>
@@ -3158,7 +3179,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || (b.qs - a.qs)
  );
  return withMeta.map(({ job }) => job);
- }, [jobs, enablePersonalization, behaviorData, userProfile, jobMatchProfile]);
+ }, [jobs, enablePersonalization, deferredBehaviorData, deferredUserProfile, deferredJobMatchProfile]);
 
  // Pre-built search index: caches normalised haystack per job so
  // queryMatchesJob doesn't recompute expensive string normalisation on every keystroke.
