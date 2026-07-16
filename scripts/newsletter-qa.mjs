@@ -98,7 +98,9 @@ function buildQaHtml(opts = {}) {
   const defaultArticle = {
     title: 'Votazioni cantonali Ticino 2026: cosa cambia per i frontalieri',
     excerpt: 'SSR, imposizione individuale, fondo climatico: 4 temi su cui voti (o dovresti). Ecco cosa significa per il tuo portafoglio.',
-    url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026',
+    // `url` — matches renderArticle's destructured param and directUrl()
+    // call in services/newsletter-template.mjs (the live template).
+    url: '/articoli-frontaliere/votazioni-imposizione-ticino-2026/',
     badge: '🗳️ Voto 18 maggio',
   };
 

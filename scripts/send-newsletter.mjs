@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
+import { describeSegment, selectArticleCandidates, CONTENT_STRATEGIES } from '../services/newsletter-segments.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
@@ -957,6 +958,9 @@ function localizeArticle(articleId, locale) {
   return {
     title: meta.title,
     excerpt: meta.excerpt,
+    // `url` — matches renderArticle's destructured param and directUrl()
+    // call in services/newsletter-template.mjs (the live template; NOT
+    // scripts/newsletter-template.mjs, which is dead/unimported).
     url: `${prefix}/${blogPath}/${slug}/`,
     badge: true,
   };
@@ -1153,6 +1157,100 @@ async function pickFeaturedArticle() {
   getArticle.articleId = bestId;
   getArticle.persistRotation = () => saveRecentlyFeaturedArticle(bestId);
   return getArticle;
+}
+
+// ─── Per-segment article content (#4299) ───────────────────────────────
+// data/article-performance.json `.winners` — real click/scroll-depth winners
+// per cluster (pratico/fiscale/novita perform, generic doesn't, see the
+// issue). Loaded once and cached; a missing/unreadable file degrades to an
+// empty pool, so segment content assembly always falls back to the single
+// globally-rotated featuredArticle rather than throwing.
+let _articlePerformanceWinners = null;
+function loadArticlePerformanceWinners() {
+  if (_articlePerformanceWinners) return _articlePerformanceWinners;
+  try {
+    const raw = fs.readFileSync(new URL('../data/article-performance.json', import.meta.url), 'utf8');
+    const data = JSON.parse(raw);
+    _articlePerformanceWinners = Array.isArray(data.winners) ? data.winners : [];
+  } catch (e) {
+    console.warn('⚠️ article-performance.json unavailable, segment articles fall back to the global pick:', e.message);
+    _articlePerformanceWinners = [];
+  }
+  return _articlePerformanceWinners;
+}
+
+/**
+ * Resolve per-subscriber article content for the newsletter body:
+ *   - hot/warm         → a single novelty pick matched to the subscriber's
+ *     inferred interest (jobs / articles / utility), from real winners.
+ *   - cool/cold/dormant → the single best-ranked winner from the flat
+ *     (non-cluster-preferred) candidate list, same for dormant since the
+ *     win-back sequence is a SEPARATE additional send
+ *     (scripts/newsletter-winback-campaign.mjs), not a substitute for this
+ *     regular weekly one.
+ * The live template (services/newsletter-template.mjs, NOT the dead/unimported
+ * scripts/newsletter-template.mjs) only renders a single `data.article`
+ * object — there is no multi-article digest section — so every strategy
+ * resolves to one article; `selectArticleCandidates`'s 'digest' mode still
+ * differentiates cool/cold from hot/warm (flat vs cluster-preferred ranking),
+ * we just take its top candidate instead of a multi-item list.
+ * Falls back to the single globally-rotated `featuredArticleFn` whenever no
+ * performance-ranked winner localizes for the subscriber's locale (missing
+ * blog meta, etc.) — so the section is never left broken/empty.
+ *
+ * @param {Record<string, any>} subscriber
+ * @param {string} locale
+ * @param {(locale: string) => object|null} featuredArticleFn
+ * @returns {{ segment: string, article: object|null }}
+ */
+function resolveArticleContent(subscriber, locale, featuredArticleFn) {
+  const segmentInfo = describeSegment(subscriber);
+  const winners = loadArticlePerformanceWinners();
+  // Content strategy: dormant gets the same candidate ranking as cool/cold for
+  // THIS regular send (segment id stays 'dormant' for tagging/reporting).
+  const contentInfo = segmentInfo.strategy === CONTENT_STRATEGIES.WINBACK
+    ? { strategy: CONTENT_STRATEGIES.DIGEST, interest: null }
+    : segmentInfo;
+  const selection = selectArticleCandidates(contentInfo, winners);
+
+  let article = null;
+  if (selection.mode !== 'none') {
+    for (const slug of selection.slugs) {
+      const localized = localizeArticle(slug, locale);
+      if (localized) { article = localized; break; }
+    }
+  }
+  if (!article) article = featuredArticleFn(locale);
+
+  return { segment: segmentInfo.segmentId, article };
+}
+
+/**
+ * Build a synthetic subscriber whose engagement level + acquisition signals
+ * resolve (via describeSegment) to the requested segment id — used ONLY by
+ * `--preview --segment=<id>` so segment content assembly can be inspected
+ * without a matching Firestore row. Not used by the real send path.
+ *
+ * @param {string} segmentId e.g. "hot_jobs", "warm_articles", "digest", "dormant"
+ */
+function synthesizeSubscriberForSegment(segmentId) {
+  const base = {
+    email: 'preview@example.com',
+    sourceChannel: 'newsletter_page',
+    locationInterest: null,
+    sectorInterest: null,
+    preferences: { jobs: true, taxUpdates: true },
+  };
+  if (segmentId === 'digest') return { ...base, engagementLevel: 'cool' };
+  if (segmentId === 'dormant') return { ...base, engagementLevel: 'dormant' };
+  const [level, interest] = segmentId.split('_');
+  const INTEREST_SIGNALS = {
+    jobs: { sourceComponent: 'JobBoard' },
+    articles: { sourceRouteFamily: 'article_detail' },
+    utility: { sourceComponent: 'TaxCalendar' },
+    general: {},
+  };
+  return { ...base, engagementLevel: level || 'hot', ...(INTEREST_SIGNALS[interest] || {}) };
 }
 
 function getWeeklyFact(locale = 'it') {
@@ -1492,6 +1590,10 @@ async function persistDelivery(recipient, messageId, meta) {
       provider: meta.provider || null,
       variant: meta.variant || null,
       subject: meta.subject || null,
+      // Content segment (#4299) — engagement level x inferred interest, e.g.
+      // "hot_jobs" / "digest" / "dormant". Powers the per-segment
+      // open/click/GA4-sessions report (scripts/newsletter-ab-report.mjs).
+      segment: meta.segment || null,
       // Per-user send-time (#3798): scheduled_for is the cascade's
       // authoritative scheduledFor (null when the provider doesn't support
       // scheduling, or the run didn't request it) — NOT the requested
@@ -1542,6 +1644,7 @@ async function persistDelivery(recipient, messageId, meta) {
       provider: meta.provider,
       campaignId: meta.campaignId,
       locale,
+      segment: meta.segment,
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
@@ -1857,6 +1960,11 @@ async function main() {
   const digestOnly = args.includes('--digest-only');
   const targetEmail = readArgValue('--target-email');
   const subjectOverride = readArgValue('--subject');
+  // --segment=<id> (preview mode only, #4299): synthesize a subscriber whose
+  // engagement level / acquisition signals resolve to the requested segment
+  // (e.g. hot_jobs, warm_articles, digest, dormant) so QA can inspect real
+  // per-segment content assembly without needing a matching Firestore row.
+  const segmentOverride = readArgValue('--segment');
 
   console.log(`\ud83d\udce7 Newsletter v2 | mode: ${mode} | AI: ${!noAI} | digestOnly: ${digestOnly}`);
 
@@ -1961,12 +2069,18 @@ async function main() {
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
     briefing = injectToolLinks(briefing, locale);
 
+    const previewSubscriber = segmentOverride
+      ? synthesizeSubscriberForSegment(segmentOverride)
+      : { engagementLevel: 'hot' }; // legacy default profile when --segment is omitted
+    const articleContent = resolveArticleContent(previewSubscriber, locale, featuredArticle);
+    if (segmentOverride) console.error(`🎯 Preview segment: ${articleContent.segment}`);
+
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
       matchedJobs: previewJobs,
       totalJobs: jobs.length,
-      article: featuredArticle(locale),
+      article: articleContent.article,
       featuredTool: previewFeaturedTool,
       weeklyFact: getWeeklyFact(locale),
       metrics: loadDashboardMetrics(),
@@ -2254,12 +2368,19 @@ async function main() {
       || subjectMap.get(subjectKey(locale, variantIds[0]))
       || getVariantFallback(variant, locale);
 
+    // Segment content assembly (#4299): engagement level x inferred interest
+    // picks the best-ranked article from real article-performance winners —
+    // cluster-preferred for hot/warm, flat-ranked for cool/cold/dormant —
+    // falling back to the globally-rotated featuredArticle when nothing
+    // localizes.
+    const articleContent = resolveArticleContent(subscriber, locale, featuredArticle);
+
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
       matchedJobs,
       totalJobs: jobs.length,
-      article: featuredArticle(locale),
+      article: articleContent.article,
       featuredTool: getFeaturedToolForLocale(locale),
       weeklyFact: getWeeklyFact(locale),
       metrics,
@@ -2306,7 +2427,7 @@ async function main() {
 
     emails.push({
       recipient: subscriber,
-      meta: { campaignId, subject, variant, sendTimeSource },
+      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],
