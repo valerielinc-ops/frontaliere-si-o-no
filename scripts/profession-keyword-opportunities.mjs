@@ -43,6 +43,7 @@ import {
   stemToken,
 } from './lib/profession-taxonomy.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
+import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data/jobs.json');
@@ -73,38 +74,15 @@ const WINDOW_DAYS = Math.max(1, Number(opt('window-days', '60')) || 60);
 const MARKDOWN_OUT = opt('markdown-out', '');
 
 // ── Signal A: on-site search (PostHog HogQL) ─────────────────────────────
+// Query + auth handling live in scripts/lib/posthog-search-terms.mjs —
+// shared with scripts/mine-search-location-gaps.mjs (issue #4301).
 
 async function fetchOnsiteSearchTerms() {
   if (SKIP_POSTHOG) {
     console.error('[signal A] --skip-posthog: on-site search signal disabled');
     return null;
   }
-  const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
-  const PID = process.env.POSTHOG_PROJECT_ID;
-  const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
-  if (!KEY || !PID) {
-    throw new Error(
-      'POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID missing — load via scripts/load-rc-env.mjs or pass --skip-posthog',
-    );
-  }
-  const query = `
-    SELECT lower(toString(properties.search_term)) AS term, count() AS n
-    FROM events
-    WHERE event = 'search'
-      AND notEmpty(toString(properties.search_term))
-      AND timestamp > now() - INTERVAL ${WINDOW_DAYS} DAY
-    GROUP BY term
-    ORDER BY n DESC
-    LIMIT 1000
-  `.trim();
-  const r = await fetch(`${HOST}/api/projects/${PID}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!r.ok) throw new Error(`PostHog ${r.status}: ${(await r.text()).slice(0, 400)}`);
-  const json = await r.json();
-  return (json.results || []).map(([term, n]) => ({ term: String(term), count: Number(n) || 0 }));
+  return fetchOnsiteSearchTermsShared({ windowDays: WINDOW_DAYS, limit: 1000 });
 }
 
 // ── Signal B: crawler job titles ─────────────────────────────────────────
