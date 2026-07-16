@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-07-15T22:52:56.118Z",
+  "generatedAt": "2026-07-16T12:31:57.286Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4260,
-  "avgDurationMs": 4260,
+  "unchangedCount": 1,
+  "durationMs": 5694,
+  "avgDurationMs": 5694,
   "durationHistory": [
-    4260
+    5694
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:52:53.820Z",
+      "crawledAt": "2026-07-16T12:31:54.605Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:52:53.820Z",
+      "crawledAt": "2026-07-16T12:31:54.605Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:52:53.819Z",
+      "crawledAt": "2026-07-16T12:31:54.604Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -114,40 +114,6 @@
         "richness": 10,
         "translation": 25,
         "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-1cf42e9f66b7",
-      "slug": "anlageningenieur-in-all-100-alpiq-niedergosgen",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Anlageningenieur/in (all) 100%",
-      "location": "Niedergösgen",
-      "canton": "",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressLocality": "Niedergösgen",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9547",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9547&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:52:53.819Z",
-      "firstSeenAt": "2026-06-29T21:34:24.959Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 14
       }
     },
     {
@@ -174,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:52:53.818Z",
+      "crawledAt": "2026-07-16T12:31:54.603Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "_qualityScore": 54,
@@ -212,7 +178,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:52:53.820Z",
+      "crawledAt": "2026-07-16T12:31:54.605Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "_qualityScore": 81,
@@ -247,7 +213,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:52:53.820Z",
+      "crawledAt": "2026-07-16T12:31:54.605Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "_qualityScore": 81,
@@ -282,7 +248,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:52:53.819Z",
+      "crawledAt": "2026-07-16T12:31:54.604Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "_qualityScore": 77,
@@ -320,12 +286,15 @@
       "crawledAt": "2026-07-15T22:52:53.819Z",
       "firstSeenAt": "2026-06-29T21:34:24.959Z",
       "country": "CH",
-      "_qualityScore": 74,
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -352,7 +321,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:52:53.818Z",
+      "crawledAt": "2026-07-16T12:31:54.603Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",
