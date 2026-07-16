@@ -2892,6 +2892,21 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
     name: 'events-seo-pages',
     apply: 'build',
     enforce: 'post',
+    // Issue #4263 item 4: this plugin is a pure PRODUCER (its closeBundle body has
+    // no fs.existsSync gap-fill check against any sibling plugin's output). The
+    // CONSUMERS that gap-fill against ITS dist output (legacyRedirectsPlugin,
+    // cantonOrphanRedirectsPlugin, jobOrphanBridgePlugin, locationHubBridgePlugin,
+    // companyHubBridgePlugin, legacyAliasPlugin, cfHot404BridgePlugin) are the ones
+    // that need `order:'post'` + `sequential:true` to await this handler before
+    // running theirs. Adding the same wrapper here too was tried and reverted:
+    // Rollup's getSortedValidatedPlugins buckets closeBundle hooks by hook-level
+    // `order`, independently of Vite's plugin-level `enforce` — giving BOTH this
+    // producer and its consumers the identical `order:'post'` moves them into the
+    // SAME hook bucket, where relative position is inherited from the incoming
+    // (Vite enforce-sorted) plugin array, i.e. unchanged from today — so it adds a
+    // spurious `sequential:true` wait here (nothing depends on this plugin running
+    // LATE) without fixing anything. Verified via an isolated reproduction against
+    // the installed rollup package. Left as a plain closeBundle.
     async closeBundle() {
       if (process.env.SKIP_EVENTS_PAGES === '1') {
         console.log('\x1b[36m[events-pages]\x1b[0m skipped (SKIP_EVENTS_PAGES=1)');

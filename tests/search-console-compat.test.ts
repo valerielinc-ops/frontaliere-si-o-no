@@ -319,6 +319,52 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Issue #4263 item 3: half-canton codes (BL/BS -> BASILEA, AI/AR -> APPENZELLO)
+  // are grouped under one merged URL-group hub by eventsSeoPagesPlugin (see
+  // resolveCantonUrlKey in scripts/lib/events-utils.mjs), so a stale/expired
+  // event-detail leaf under either half-canton's slug must canonicalize to
+  // that SAME merged hub, with a fallbackPath to the Swiss-wide events index
+  // for the case where the hub itself isn't live this build (no upcoming
+  // event for that canton group).
+  it('resolves half-canton event-detail leaves to their merged URL-group hub (BL/BS -> basilea, AI/AR -> appenzello)', () => {
+    expect(resolveSearchConsoleCompatTarget('/eventi/basilea/lugano/concerto-passato')).toEqual({
+      canonicalPath: '/eventi/basilea/',
+      kind: 'legacy',
+      locale: 'it',
+      fallbackPath: '/eventi/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/events/basel/some-comune/some-event')).toEqual({
+      canonicalPath: '/en/events/basel/',
+      kind: 'legacy',
+      locale: 'en',
+      fallbackPath: '/en/events/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/de/veranstaltungen/basel/some-comune/some-event')).toEqual({
+      canonicalPath: '/de/veranstaltungen/basel/',
+      kind: 'legacy',
+      locale: 'de',
+      fallbackPath: '/de/veranstaltungen/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/evenements/bale/some-comune/some-event')).toEqual({
+      canonicalPath: '/fr/evenements/bale/',
+      kind: 'legacy',
+      locale: 'fr',
+      fallbackPath: '/fr/evenements/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/eventi/appenzello/some-comune/some-event')).toEqual({
+      canonicalPath: '/eventi/appenzello/',
+      kind: 'legacy',
+      locale: 'it',
+      fallbackPath: '/eventi/',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/events/appenzell/some-comune/some-event')).toEqual({
+      canonicalPath: '/en/events/appenzell/',
+      kind: 'legacy',
+      locale: 'en',
+      fallbackPath: '/en/events/',
+    });
+  });
+
   it('routes listing pagination leaves to the canton listing root', () => {
     expect(resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/alle/page-1022')).toEqual({
       canonicalPath: '/de/jobs-im-tessin/',

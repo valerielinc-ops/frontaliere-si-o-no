@@ -185,7 +185,18 @@ export function cantonOrphanRedirectsPlugin(options: PluginOptions = {}): Plugin
  configResolved(config) {
  distDir = path.resolve(config.root, config.build?.outDir || 'dist');
  },
- closeBundle() {
+ // Issue #4263 item 4 (sibling of the eventsSeoPagesPlugin/legacyRedirectsPlugin/
+ // cfHot404BridgePlugin race): the existsSync check below ("never overwrite a
+ // real page emitted by a higher-priority plugin") only holds if those
+ // higher-priority producers have actually finished writing by the time this
+ // runs, which plain registration order does not guarantee under Rollup's
+ // default async-parallel closeBundle. `order:'post'` + `sequential:true` makes
+ // Rollup await every earlier-queued closeBundle promise first. Verified against
+ // the installed rollup package; mirrors hreflangPostprocessPlugin.ts.
+ closeBundle: {
+   order: 'post',
+   sequential: true,
+   handler: () => {
  const redirects = enumerateCantonOrphanRedirects();
  let emitted = 0;
  let skipped = 0;
@@ -211,6 +222,7 @@ export function cantonOrphanRedirectsPlugin(options: PluginOptions = {}): Plugin
  `\x1b[36m[canton-orphan-redirects]\x1b[0m ${emitted} redirect pages emitted ` +
  `(${skipped} skipped — real page already present, ${redirects.length} total combinations)`,
  );
+   },
  },
  };
 }
