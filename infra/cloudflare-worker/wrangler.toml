@@ -156,6 +156,15 @@ routes = [
   # a non-wildcard route would silently miss all real traffic (#2611).
   # Look-alike paths rejected by the in-code guard.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-salvati*", zone_name = "frontaliereticino.ch" },
+  # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
+  # locale-router.js EDGE_PUSHED_FILES). Exact path, NO wildcard: sitemap
+  # fetchers (GSC/bots) never append a query string to this URL, so unlike the
+  # unsub-proxy/section routes above (#2611) there is no real traffic to miss.
+  # A look-alike with a query string simply bypasses the Worker (harmless —
+  # same passthrough behavior as before this route existed). Adding the next
+  # pushed path is a one-line addition here + one object-literal entry in
+  # EDGE_PUSHED_FILES, no other code change.
+  { pattern = "frontaliereticino.ch/sitemap-blog-ch.xml", zone_name = "frontaliereticino.ch" },
   # NOTE: the /assets/* /data/* /og/* CDN-proxy routes were removed (2026-06-10).
   # Since #1665 the shard locale HTML references those static paths CDN-absolute
   # (cdn.frontaliereticino.ch/...), so the browser fetches them straight from the

@@ -55,6 +55,10 @@
  * requests bypass this Worker entirely.
  *
  *   /rss-en.xml, /sitemap-*  -> tiny root files kept in the main repo (passthrough)
+ *   EXCEPT the handful of exact paths in EDGE_PUSHED_FILES below (issue #4881
+ *   Fase 3) — these are served from a pushable R2 origin when a fresher copy
+ *   has been PUT there by the fast-publish path, falling open to the same
+ *   passthrough above on any miss/error.
  */
 
 const SHARD_ORIGIN = {
@@ -621,7 +625,13 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // CDN-offloaded (see comment above recoverCantonDriftOrphan). MIRRORS the
 // literal in public/404.html — duplicated, not imported, same reason as
 // JOB_DETAIL_RE above (standalone Worker runtime, not part of the Vite bundle).
-const JOB_CANON_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+// Renamed from JOB_CANON_CDN_BASE (issue #4881 Fase 3): the value is the
+// generic R2/CDN custom domain, not job-canon-specific — servePushedEdgeFile
+// below reads a second, unrelated key family (sitemap/rss/llms.txt) from the
+// same base, so a job-canon-scoped name would be misleading. One constant,
+// reused, instead of a second copy of the literal (which would itself trip
+// check-sibling-patterns.mjs).
+const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
 // Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
 // shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
@@ -652,7 +662,7 @@ async function recoverCantonDriftOrphan(url, locale) {
   const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
   let map;
   try {
-    const mapUrl = new URL(`/job-canon/${sk}.json`, JOB_CANON_CDN_BASE);
+    const mapUrl = new URL(`/job-canon/${sk}.json`, CDN_BASE);
     const resp = await fetch(mapUrl.toString(), {
       signal: controller.signal,
       cf: { cacheEverything: true, cacheTtl: JOB_CANON_CACHE_TTL },
@@ -680,6 +690,84 @@ async function recoverCantonDriftOrphan(url, locale) {
     status: 301,
     headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
   });
+}
+
+// Pushable-origin edge files (issue #4881 Fase 3, fast-publish path).
+//
+// scripts/create-article.mjs already regenerates sitemap/RSS/llms.txt in the
+// SAME commit as a fast-published article — the content is correct the moment
+// that commit lands. What is NOT fast is where it's SERVED from: today these
+// apex paths are pure Cloudflare passthrough straight to the monolithic
+// GitHub Pages deploy (see the file-header comment "/rss-en.xml, /sitemap-*
+// -> tiny root files kept in the main repo (passthrough)"), which can lag the
+// fast-published commit by hours. scripts/publish-edge-files.mjs PUTs the
+// freshly-regenerated file to R2 (via scripts/lib/upload-cdn-file.sh) right
+// after the fast-publish commit; this table lets the matching apex path be
+// served from that R2 copy instead of waiting for the next full deploy.
+//
+// Rollout is one path at a time (starting with /sitemap-blog-ch.xml,
+// deliberately the lowest-traffic sitemap) — adding a path is a config-only
+// addition to this object, no dispatch-logic change.
+//
+// Exact-path-first, same shape as UNSUB_PROXIES/unsubProxyOrigin above: these
+// are apex files, not locale/section paths, so they are checked in fetch()
+// BEFORE matchSection/LOCALE_RE or they would fall through unmatched anyway
+// (harmlessly, to the same passthrough — see servePushedEdgeFile's fail-open
+// note below).
+const EDGE_PUSHED_FILES = {
+  '/sitemap-blog-ch.xml': { cdnKey: '/edge/sitemap-blog-ch.xml', contentType: 'application/xml; charset=utf-8' },
+};
+const EDGE_PUSHED_FETCH_TIMEOUT_MS = 2000;
+// Short TTL by design, and NOT a substitute for the purge below: the zone's
+// it-apex-html-cache Cache Rule (scripts/cf-locale-failover-setup.mjs) matches
+// on host + method + empty query string + path-prefix only — it has no
+// content-type/extension condition, so it is NOT scoped to HTML and DOES
+// match this apex path too, with edge_ttl `override_origin` default 86400
+// (24h) that would win over this 5-min value if the zone cache layer is
+// consulted for this response. Whether a Worker-routed response is actually
+// written to that cache layer on the normal (non-fail-open) path is not
+// something this comment asserts either way (see "Workers run before the
+// cache" at the top of this file) — worst case is bounded at 24h regardless.
+// scripts/publish-edge-files.mjs fires a targeted `cf-purge-cache.mjs
+// --files=` purge for the live + CDN URL right after the PUT, which is what
+// actually keeps the typical staleness window short — this TTL is only the
+// worst-case ceiling if that purge is skipped/fails.
+const EDGE_PUSHED_CACHE_TTL = 300; // 5 min
+
+// Returns a 200 Response served from the R2-pushed copy of `pathname`, or
+// null when the path is not in EDGE_PUSHED_FILES, the object hasn't been
+// published yet (R2 miss), or the subrequest fails/times out. Mirrors
+// recoverCantonDriftOrphan's defensive posture exactly: best-effort, fail
+// open on ANY error — the caller (fetch() below) then falls through to the
+// existing dispatch chain, which lands on the SAME origin passthrough that
+// already serves this file today. An entry whose R2 object is absent is
+// therefore byte-identical in behavior to before this table existed.
+async function servePushedEdgeFile(pathname) {
+  const entry = EDGE_PUSHED_FILES[pathname];
+  if (!entry) return null;
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), EDGE_PUSHED_FETCH_TIMEOUT_MS);
+  try {
+    const cdnUrl = new URL(entry.cdnKey, CDN_BASE);
+    const resp = await fetch(cdnUrl.toString(), {
+      signal: controller.signal,
+      cf: { cacheEverything: true, cacheTtl: EDGE_PUSHED_CACHE_TTL },
+    });
+    if (!resp.ok) return null; // not yet published (or purged/expired) → origin passthrough
+    const body = await resp.arrayBuffer();
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': entry.contentType,
+        'Cache-Control': `public, max-age=${EDGE_PUSHED_CACHE_TTL}`,
+      },
+    });
+  } catch {
+    return null; // timeout / network error → origin passthrough
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 // Returns a within-locale 301 Response when the requested path is a company-hub
@@ -1037,6 +1125,15 @@ export default {
       }
     }
 
+    // Pushable-origin edge files (issue #4881 Fase 3) — exact apex paths, not
+    // locale/section prefixed, so (like the unsub proxy above) must be
+    // checked before the locale/section dispatch or they'd fall through
+    // unmatched. servePushedEdgeFile fails open (returns null) on any R2
+    // miss/timeout/error, so this is a pure addition: nothing changes for a
+    // path that never had a fast R2-published copy.
+    const pushedEdgeResponse = await servePushedEdgeFile(url.pathname);
+    if (pushedEdgeResponse) return pushedEdgeResponse;
+
     // Section shard — checked BEFORE the locale match so an /en|/de|/fr section
     // path (e.g. /en/find-jobs-ticino/..., /en/find-jobs-zurich/...) resolves to
     // its carved-out section shard, instead of origin-{loc}. Each section's IT
@@ -1051,12 +1148,15 @@ export default {
 
     if (!match) {
       // IT + shared (sitemaps, robots, rss, favicon, /...) — passthrough.
-      // DEFENSIVE / CURRENTLY UNREACHABLE: wrangler.toml scopes the Worker to
-      // locale routes only (/en, /de, /fr) so IT traffic bypasses the Worker
-      // entirely as a pure CF passthrough and never reaches this branch.  The
-      // timeout+retry guard mirrors the shard-origin layer and is ready if the
-      // route scope is ever expanded to cover IT traffic. No cf caching opts:
-      // IT passthrough must respect the zone's own cache rules.
+      // MOSTLY UNREACHABLE, no longer strictly DEFENSIVE: wrangler.toml scopes
+      // the Worker to locale routes + section prefixes + the exact
+      // EDGE_PUSHED_FILES paths above (issue #4881 Fase 3), so this branch is
+      // only reached today by (a) an EDGE_PUSHED_FILES path whose R2 copy
+      // missed/errored just above, falling through here on purpose, or (b) a
+      // route scope expansion. Every other IT path bypasses the Worker
+      // entirely as a pure CF passthrough. The timeout+retry guard mirrors the
+      // shard-origin layer. No cf caching opts: this passthrough must respect
+      // the zone's own cache rules.
       try {
         return await fetchOriginWithRetry(url, request);
       } catch {
