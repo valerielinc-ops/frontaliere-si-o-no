@@ -80,7 +80,8 @@ jobs:
           df -h /
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
             /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
-            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+            /usr/local/share/chromium /usr/local/lib/node_modules \
+            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
           sudo docker image prune -af 2>/dev/null || true
           df -h /
 
