@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-        "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+        "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens",
-          "radiologia-medica-tecnico-trm-clinique-cic-clarens-clarens"
+          "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
         ],
         "en": [
           "technicien-ne-en-radiologie-medicale-trm-clinique-cic-clarens"
@@ -129,13 +127,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
-        "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens"
+        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
-          "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens"
+          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
@@ -205,13 +201,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-clinique-cic-clarens",
-        "infermiera-clinique-cic-clarens-clarens"
+        "infirmier-ere-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-clinique-cic-clarens",
-          "infermiera-clinique-cic-clarens-clarens"
+          "infirmier-ere-clinique-cic-clarens"
         ],
         "en": [
           "infirmier-ere-clinique-cic-clarens"
@@ -236,10 +230,10 @@
     },
     {
       "id": "clinique-cic-eb5c9362bf28",
-      "slug": "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
+      "slug": "assistente-medico-80-cdd-clinique-cic-clarens-clarens",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
-        "it": "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
+        "it": "assistente-medico-80-cdd-clinique-cic-clarens-clarens",
         "en": "assistant-e-medical-e-80-cdd-clinique-cic-clarens",
         "de": "assistant-e-medical-e-80-cdd-clinique-cic-clarens"
       },
@@ -296,7 +290,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:08:39.336Z"
+      "firstSeenAt": "2026-07-16T11:08:39.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-80-cdd-clinique-cic-clarens"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-80-cdd-clinique-cic-clarens"
+      ]
     }
   ]
 }
