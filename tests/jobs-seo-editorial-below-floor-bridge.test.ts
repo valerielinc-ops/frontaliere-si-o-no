@@ -51,9 +51,9 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
     expect(source).not.toContain('if (italianCareModel.totalJobs === 0) continue;');
   });
 
-  it('defines the per-canton sector-hub below-floor bridge helper and wires it in', () => {
-    expect(source).toContain('const emitSectorHubBelowFloorBridge = (locale: \'it\' | \'en\' | \'de\' | \'fr\', canton: string, slug: string): void => {');
-    expect(source).toContain('emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);');
+  it('no longer defines a per-canton sector-hub below-floor bridge — the sector-hub floor was removed entirely (owner decision 2026-07-16, PR #4254 follow-up)', () => {
+    expect(source).not.toContain('const emitSectorHubBelowFloorBridge');
+    expect(source).not.toContain('emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);');
   });
 
   it('does not contain the bare-continue 404 bug pattern for the sector-hub canton floor', () => {
@@ -76,7 +76,6 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
   it('every below-floor bridge points at the canton-root hub section via buildCantonAwareSection, matching the unconditionally-emitted canton hub', () => {
     for (const helperStart of [
       "const emitEditorialBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {",
-      "const emitSectorHubBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {",
       "const emitCompanyCantonBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
       "const emitCompanyCityBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, fullSlug: string): void => {",
     ]) {
@@ -137,7 +136,6 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       'emitLocationBelowFloorBridge(locale, location);',
       'emitLocationTypeBelowFloorBridge(locale, location, typeKey);',
       'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);',
-      'emitSectorHubBelowFloorBridge(locale, canton,',
       'emitCompanyCantonBelowFloorBridge(locale, canton,',
       'emitCompanyCityBelowFloorBridge(locale, canton,',
     ];
@@ -146,10 +144,9 @@ describe('jobsSeoPagesPlugin editorial-canton below-floor bridges', () => {
       'emitLocationBelowFloorBridge(locale, location);': 1,
       'emitLocationTypeBelowFloorBridge(locale, location, typeKey);': 1,
       'emitLocationSectorBelowFloorBridge(locale, location, sectorKey);': 1,
-      // 2 sites since #3747: the canton-level MIN_JOBS_FOR_CANTON_PAGE floor
-      // AND the finer per-sector MIN_JOBS_PER_CANTON_SECTOR floor both bridge.
-      'emitSectorHubBelowFloorBridge(locale, canton,': 2,
-      // Per-canton company hub / company×city hub floors (#3747).
+      // Per-canton company hub / company×city hub floors (#3747). The
+      // sector-hub floor (and its bridge) was removed entirely (owner
+      // decision 2026-07-16, PR #4254 follow-up) — no call sites left.
       'emitCompanyCantonBelowFloorBridge(locale, canton,': 1,
       'emitCompanyCityBelowFloorBridge(locale, canton,': 1,
     };
