@@ -8540,6 +8540,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.title': 'EasyJet passa in mani statunitensi: cambiamenti per viaggi Ticino-Italia',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.excerpt': 'Il fondo Castlelake rileva EasyJet per 5,6 miliardi di franchi. Garantiti slot a Malpensa e Ginevra, flotta rinnovata: impatto sui pendolari aerei.',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.imageAlt': 'Airbus A320neo EasyJet in fase di atterraggio a Milano Malpensa',
+    'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese e Canton Ticino: il digitale avvicina i frontalieri',
+    'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Piattaforme online, infrastrutture veloci e procedure semplificate: ecco come la digitalizzazione trasforma la vita di chi lavora oltreconfine.',
+    'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Panorama di Lugano con simboli di connettività digitale',
 };
 
 export default blogMetaIt;

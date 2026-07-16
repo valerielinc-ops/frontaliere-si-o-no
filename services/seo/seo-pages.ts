@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3256,
+ "numberOfItems": 3257,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7931,7 +7931,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3253, "name": "Ticino pionere: il programma politico 2027-2031...", "url": `${BASE_URL}/articoli-frontaliere/ticino-programma-politico-consultazione-pubblica` },
           { "@type": "ListItem", "position": 3254, "name": "Crisi nello Stretto di Hormuz: ritardi e rincar...", "url": `${BASE_URL}/articoli-frontaliere/crisi-stretto-hormuz-economia-svizzera` },
           { "@type": "ListItem", "position": 3255, "name": "730 precompilati 2026, le indicazioni del Fisco", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24` },
-          { "@type": "ListItem", "position": 3256, "name": "EasyJet passa in mani statunitensi: cambiamenti...", "url": `${BASE_URL}/articoli-frontaliere/easyjet-castlelake-malpensa-ginevra-zurigo` }
+          { "@type": "ListItem", "position": 3256, "name": "EasyJet passa in mani statunitensi: cambiamenti...", "url": `${BASE_URL}/articoli-frontaliere/easyjet-castlelake-malpensa-ginevra-zurigo` },
+          { "@type": "ListItem", "position": 3257, "name": "Varese e Canton Ticino: il digitale avvicina i ...", "url": `${BASE_URL}/articoli-frontaliere/digitale-frontaliere-ticino-varese` }
  ]
  },
  {

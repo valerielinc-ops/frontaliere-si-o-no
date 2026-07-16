@@ -8538,6 +8538,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.title': 'EasyJet geht in US-Hände über: Änderungen für Reisen Tessin-Italien',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.excerpt': 'Der Castlelake-Fonds übernimmt EasyJet für 5,6 Milliarden Franken. Garantierte Slots in Malpensa und Genf, erneuerte Flotte: Auswirkungen auf Flugpendler.',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.imageAlt': 'EasyJet Airbus A320neo landet am Flughafen Mailand-Malpensa',
+    'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese und Kanton Tessin: Digital bringt Grenzgänger näher zusammen',
+    'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Online-Plattformen, schnelle Infrastrukturen und vereinfachte Abläufe: So verändert die Digitalisierung das Leben von Menschen, die über Grenzen hinweg arbeiten.',
+    'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Lugano Panorama mit digitalen Konnektivitätssymbolen',
 };
 
 export default blogMetaDe;

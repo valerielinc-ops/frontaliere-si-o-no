@@ -4563,6 +4563,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-crisi-stretto-hormuz-economia-svizzera': { name: 'Economia', path: '/articoli-svizzera/crisi-stretto-hormuz-economia-svizzera/', parent: 'blog' },
     'blog-dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24': { name: 'Dichiarazione redditi 2026', path: '/articoli-frontaliere/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24', parent: 'blog' },
     'blog-easyjet-castlelake-malpensa-ginevra-zurigo': { name: 'EasyJet e frontalieri', path: '/articoli-frontaliere/easyjet-castlelake-malpensa-ginevra-zurigo', parent: 'blog' },
+    'blog-digitale-frontaliere-ticino-varese': { name: 'Digitalizzazione', path: '/articoli-frontaliere/digitale-frontaliere-ticino-varese', parent: 'blog' },
  };
 
  const info = sectionNames[section];

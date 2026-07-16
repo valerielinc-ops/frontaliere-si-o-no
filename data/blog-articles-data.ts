@@ -25658,6 +25658,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'digitale-frontaliere-ticino-varese',
+ category: 'pratico',
+ date: '2026-07-16T17:58:46.502Z',
+ image: '/images/blog/digitale-frontaliere-ticino-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
