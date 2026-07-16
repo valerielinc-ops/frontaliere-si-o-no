@@ -676,7 +676,9 @@ jobs:
 
           # ---- swatchgroup: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            (node scripts/cleanup-jobs.mjs) || true
+            (for f in data/jobs/by-crawler/comadur-swatch-group.json data/jobs/by-crawler/eta-sa-swatch-group.json data/jobs/by-crawler/nivarox-swatch-group.json data/jobs/by-crawler/swatch-group-assembly.json data/jobs/by-crawler/swiss-timing-swatch-group.json data/jobs/by-crawler/rado.json; do
+              JOBS_SLICE_FILE="$f" node scripts/cleanup-jobs.mjs
+            done) || true
           fi
 
           # ---- swatchgroup: Commit and push (verbatim, only if crawler succeeded) ----

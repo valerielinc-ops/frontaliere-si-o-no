@@ -25640,6 +25640,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24',
+ category: 'fiscale',
+ date: '2026-07-16T15:05:27.289Z',
+ image: '/images/blog/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'easyjet-castlelake-malpensa-ginevra-zurigo',
+ category: 'novita',
+ date: '2026-07-16T16:27:28.840Z',
+ image: '/images/blog/easyjet-castlelake-malpensa-ginevra-zurigo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

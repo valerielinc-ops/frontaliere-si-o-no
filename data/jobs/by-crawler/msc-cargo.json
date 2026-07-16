@@ -206,7 +206,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T11:36:14.531Z"
+      "firstSeenAt": "2026-07-16T11:36:14.531Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
+          "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+        ],
+        "it": [
+          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "de": [
+          "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-1a2c16e6e5dc",
@@ -331,12 +349,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva",
+        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva",
+          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-07-15T11:17:51.491Z",
@@ -761,7 +781,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-full-funnel-analyst-msc-geneva",
-        "marketing-full-funnel-analista-msc-group-geneva"
+        "marketing-full-funnel-analista-msc-group-geneva",
+        "marketing-full-funnell-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -770,6 +791,9 @@
         ],
         "fr": [
           "marketing-full-funnel-analyst-msc-geneva"
+        ],
+        "en": [
+          "marketing-full-funnell-analyst-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-07-14T22:14:06.644Z",

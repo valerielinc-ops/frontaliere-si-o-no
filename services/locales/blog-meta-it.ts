@@ -8534,6 +8534,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Chiusura ponte di ferro sesto calende: guida viabilità',
     'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Dal 20 al 26 luglio il Ponte di Ferro resta chiuso per manutenzione. Attivato un battello gratuito e modifiche alla linea bus V125 tra Varese e Arona.',
     'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Il Ponte di Ferro sul fiume Ticino a Sesto Calende',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.title': '730 precompilati 2026, le indicazioni del Fisco',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.excerpt': 'Ora è possibile scaricare i 730 precompilati per la dichiarazione dei redditi 2026. Ecco le indicazioni del Fisco.',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.imageAlt': 'Un frontaliere compila la dichiarazione dei redditi',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.title': 'EasyJet passa in mani statunitensi: cambiamenti per viaggi Ticino-Italia',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.excerpt': 'Il fondo Castlelake rileva EasyJet per 5,6 miliardi di franchi. Garantiti slot a Malpensa e Ginevra, flotta rinnovata: impatto sui pendolari aerei.',
+    'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.imageAlt': 'Airbus A320neo EasyJet in fase di atterraggio a Milano Malpensa',
 };
 
 export default blogMetaIt;

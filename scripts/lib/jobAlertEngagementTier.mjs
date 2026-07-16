@@ -14,9 +14,10 @@
  *
  * Tier priority (highest engagement wins, independent of which is more
  * recent — a click within the lookback is always the strongest signal):
- *   'daily'  — clicked within JOB_ALERT_ENGAGEMENT_LOOKBACK_DAYS
- *   '36h'    — no recent click, but opened within the lookback
- *   'weekly' — neither opened nor clicked within the lookback (or never)
+ *   'daily'           — clicked within JOB_ALERT_ENGAGEMENT_LOOKBACK_DAYS
+ *   'every-other-day' — no recent click, but opened within the lookback
+ *                        (gate is 36h but cron runs once/day → effectively every other day)
+ *   'weekly'          — neither opened nor clicked within the lookback (or never)
  *
  * Terminal stage stays scripts/lib/jobAlertSunset.mjs, unchanged and strictly
  * downstream: a subscriber only reaches sunset once the LIST-LEVEL
@@ -29,7 +30,7 @@ export const JOB_ALERT_ENGAGEMENT_LOOKBACK_DAYS = 14;
 
 export const JOB_ALERT_ENGAGEMENT_TIERS = Object.freeze({
   DAILY: 'daily',
-  OPEN_36H: '36h',
+  OPEN_EVERY_OTHER_DAY: 'every-other-day',
   WEEKLY: 'weekly',
 });
 
@@ -43,7 +44,7 @@ function toMillis(v) {
 }
 
 /**
- * @typedef {{ tier: 'daily'|'36h'|'weekly', reason: string }} JobAlertEngagementVerdict
+ * @typedef {{ tier: 'daily'|'every-other-day'|'weekly', reason: string }} JobAlertEngagementVerdict
  */
 
 /**
@@ -68,7 +69,7 @@ export function classifyJobAlertEngagementTier(sub, nowMs) {
 
   if (lastOpen != null && nowMs - lastOpen <= lookbackMs) {
     return {
-      tier: JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H,
+      tier: JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY,
       reason: `opened ${Math.floor((nowMs - lastOpen) / DAY_MS)}d ago, no recent click`,
     };
   }
@@ -85,7 +86,7 @@ export function classifyJobAlertEngagementTier(sub, nowMs) {
  * Resolve the tier that should actually gate this alert's send cadence:
  * the engine tier, unless the alert has a sticky manual override, in which
  * case the user's pinned `frequency` wins verbatim (only 'daily'/'weekly'
- * are pinnable from the UI — there is no manual 36h option).
+ * are pinnable from the UI — there is no manual every-other-day option).
  *
  * @param {{ frequency?: string, frequencyOverride?: boolean }} alert
  * @param {object} sub Firestore job_alert_subscribers doc fields

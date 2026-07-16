@@ -183,6 +183,15 @@ export const SEARCH_STOP_WORDS = new Set([
 /**
  * Match a free-text string (search term or job title) against the taxonomy.
  * Returns the matched profession id or null. Longest alias wins.
+ *
+ * Tie-break (equal-length candidate aliases, e.g. "zimmermann"/"carpenter"
+ * legitimately listed under both `falegname` and `carpentiere`): the FIRST
+ * entry encountered in `PROFESSION_TAXONOMY` declaration order wins. This is
+ * intentional, not incidental — `>` (strict) below keeps the first `best`
+ * instead of overwriting it on a same-length match. Depended on by
+ * tests/profession-taxonomy.test.ts's "every alias resolves back to its own
+ * entry" collision guard. Don't change to `>=`/reorder resolution without
+ * updating that test's KNOWN_AMBIGUOUS_ALIASES expectations.
  */
 export function matchProfession(text) {
   const norm = normalizeText(text);
@@ -203,6 +212,8 @@ export function matchProfession(text) {
       } else {
         matched = tokens.some((t) => tokenMatchesAlias(t, alias));
       }
+      // Strict `>`: on an equal-length tie, keep the already-set `best`
+      // (first-declared-wins — see function doc comment above).
       if (matched && (!best || alias.length > best.aliasLength)) {
         best = { id: entry.id, aliasLength: alias.length };
       }

@@ -1418,7 +1418,9 @@ async function main() {
   // Coincidentally the same magnitude as NEWSLETTER_COOLDOWN_MS above and
   // send-newsletter.mjs's JOB_ALERT_COOLDOWN_MS, but a distinct guard: those
   // two are cross-channel send dedup, this is the per-alert engagement tier.
-  const ENGAGEMENT_TIER_36H_INTERVAL_MS = 36 * 60 * 60 * 1000;
+  // The gate is 36h but cron runs once/day → effective cadence is every other
+  // day (~48h). Tier and constant are named accordingly (OPEN_EVERY_OTHER_DAY).
+  const ENGAGEMENT_TIER_EVERY_OTHER_DAY_INTERVAL_MS = 36 * 60 * 60 * 1000;
   alerts = alerts.filter((alert) => {
     const emailKey = alert.email.toLowerCase();
     const verdict = resolveEffectiveJobAlertTier(alert, jobAlertProfiles.get(emailKey) || null, now);
@@ -1432,8 +1434,8 @@ async function main() {
     if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY) {
       return now - lastSent >= WEEKLY_INTERVAL_MS;
     }
-    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H) {
-      return now - lastSent >= ENGAGEMENT_TIER_36H_INTERVAL_MS;
+    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY) {
+      return now - lastSent >= ENGAGEMENT_TIER_EVERY_OTHER_DAY_INTERVAL_MS;
     }
     return true; // daily tier — no interval gate, same as legacy daily behavior
   });
@@ -1669,7 +1671,7 @@ async function main() {
     // Adaptive-frequency observability: when a subscriber has >1 alert whose
     // effective tiers differ (e.g. one pinned daily, one engine-managed
     // weekly), surface the highest-cadence tier reached this run.
-    const TIER_PRIORITY = { daily: 0, '36h': 1, weekly: 2 };
+    const TIER_PRIORITY = { daily: 0, 'every-other-day': 1, weekly: 2 };
     const effectiveTierByEmail = new Map();
     for (const email of emailsToSend) {
       const key = email.to.toLowerCase();

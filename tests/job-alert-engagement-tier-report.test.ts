@@ -21,7 +21,7 @@ function alert(overrides: Record<string, unknown> = {}) {
 
 describe('aggregateEngagementTiers', () => {
   it('starts from an all-zero distribution', () => {
-    expect(emptyDistribution()).toEqual({ daily: 0, '36h': 0, weekly: 0 });
+    expect(emptyDistribution()).toEqual({ daily: 0, 'every-other-day': 0, weekly: 0 });
   });
 
   it('counts a manually pinned alert without consulting the engine', () => {
@@ -40,7 +40,7 @@ describe('aggregateEngagementTiers', () => {
       ['c@x.com', {}],
     ]);
     const result = aggregateEngagementTiers(alerts, profiles, NOW);
-    expect(result.engineDistribution).toEqual({ daily: 1, '36h': 1, weekly: 1 });
+    expect(result.engineDistribution).toEqual({ daily: 1, 'every-other-day': 1, weekly: 1 });
     expect(result.totalAlerts).toBe(3);
   });
 
