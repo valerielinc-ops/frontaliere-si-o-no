@@ -89,4 +89,18 @@ describe('salary-hub evergreen articles — Article JSON-LD', () => {
       expect(schema!.headline).toBe(article.titles.it);
     }
   });
+
+  it('omits the description field instead of emitting "" for a blank locale entry', () => {
+    const blankDescArticle = { ...taxHub, descriptions: { ...taxHub.descriptions, it: '   ' } };
+    const html = generateArticleHtml(blankDescArticle, 'it', EMPTY_DATA, NO_DIST);
+    const schema = articleSchemaOf(html)!;
+    expect('description' in schema).toBe(false);
+  });
+
+  it('caps an over-length description at the JSON-LD practical limit', () => {
+    const longDescArticle = { ...taxHub, descriptions: { ...taxHub.descriptions, it: 'a'.repeat(6000) } };
+    const html = generateArticleHtml(longDescArticle, 'it', EMPTY_DATA, NO_DIST);
+    const schema = articleSchemaOf(html)!;
+    expect((schema.description as string).length).toBe(5000);
+  });
 });
