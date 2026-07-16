@@ -158,3 +158,22 @@ describe('newsletterMailgunWebhookCore — job alert bounce handling', () => {
     expect(subscriberSet!.data.status).toBe('bounced');
   });
 });
+
+describe('newsletterMailgunWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
+  it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailgunEvent(db as any, {
+      event: 'delivered',
+      recipient: 'Mario Rossi <mario.rossi@example.com>',
+      timestamp: 1700000300,
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'delivered', email: 'mario.rossi@example.com' });
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'mario.rossi@example.com',
+    );
+    expect(subscriberSet).toBeTruthy();
+    expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
+  });
+});

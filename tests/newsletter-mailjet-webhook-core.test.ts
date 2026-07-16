@@ -485,3 +485,22 @@ describe('newsletterMailjetWebhookCore', () => {
     });
   });
 });
+
+describe('newsletterMailjetWebhookCore — malformed "Name <email>" recipient (root-cause fix)', () => {
+  it('keys the subscriber doc by the bare address, not the raw "Name <email>" string', async () => {
+    const db = createFakeDb();
+
+    const result = await persistMailjetEvent(db as any, {
+      event: 'sent',
+      email: 'Mario Rossi <mario.rossi@example.com>',
+      time: 1700000300,
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'send', email: 'mario.rossi@example.com' });
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === 'mario.rossi@example.com',
+    );
+    expect(subscriberSet).toBeTruthy();
+    expect(db.__sets.some((s) => s.docId.includes('<'))).toBe(false);
+  });
+});
