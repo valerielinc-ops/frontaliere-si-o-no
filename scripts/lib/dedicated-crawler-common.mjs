@@ -6199,6 +6199,30 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   // OR >1 fresh job we skip the bridge entirely and let those jobs re-index with
   // their own fresh identity — correctness over equity-preservation for an
   // inherently ambiguous set.
+  //
+  // DESIGN DECISION — FINAL, not deferred (follow-up #4063 item 2, closing the
+  // "eventuale dedup e una decisione di design da issue dedicata" scope-owed
+  // item left open by PR #4056): "dedup" is not the applicable fix here. A
+  // matchKey collision means two GENUINELY DIFFERENT job postings hash to the
+  // same key (an imperfect stable-ID/slug-bridge extraction heuristic, not a
+  // repeated posting) — there is no duplicate to collapse. Skipping the bridge
+  // does not create duplicate content in the dataset: no job is dropped and
+  // none are merged into each other; both colliding jobs simply pass through
+  // as their own fresh entries (see the `mergedFresh` map below — an
+  // unmatched-because-ambiguous `fresh` is returned as-is). The only cost is
+  // that those specific jobs lose cross-run continuity (fresh.id does not
+  // inherit old.id, so previousSlugs/firstSeenAt/translation-carryover reset)
+  // for as long as their key keeps colliding — an intentional trade because
+  // guessing which of N colliding old records belongs to which of M colliding
+  // fresh ones would risk exactly the cross-contamination this guard exists
+  // to prevent, and would be strictly worse than a clean re-index. Actual
+  // same-run duplicate elimination (one job emitted twice by a single crawl,
+  // e.g. the Bosch/banca-cler snapshot-diff-vs-Map class, #4063 item 1) is a
+  // different, already-established fix pattern applied upstream in the
+  // per-crawler layer before jobs ever reach this shared merge helper — not
+  // this function's responsibility, and not something to duplicate here.
+  // Covered by the "skips the bridge for a colliding (non-injective) matchKey
+  // instead of cross-contaminating" test in dedicated-crawler-common.test.ts.
   const ambiguousKeys = new Set();
   const seenExistingKeys = new Set();
   for (const job of existingJobs) {
