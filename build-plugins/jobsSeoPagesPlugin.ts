@@ -7349,10 +7349,13 @@ ${staticAnalyticsHtml}
  }
 
  /* ── Per-canton sector hubs (Phase 3.2) ──────────────────────
-  * Additive: for every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE active
-  * jobs and ≥ 3 jobs matching a given sector (infermieri, case-anziani,
-  * educatori, ingegneri, autisti, sviluppatori, ristorazione, oss,
-  * logistica, apprendistato), emit /cerca-lavoro-{cantonSlug}/{sectorSlug}/.
+  * Additive: for every non-TI canton, emit /cerca-lavoro-{cantonSlug}/{sectorSlug}/
+  * for every sector (infermieri, case-anziani, educatori, ingegneri, autisti,
+  * sviluppatori, ristorazione, oss, logistica, apprendistato) — no job-count
+  * floor (owner decision 2026-07-16: same treatment as TI, PR #4254). Every
+  * (canton, sector, locale) combo gets a real self-canonical page, even at
+  * 0 matching jobs; fixed prose (renderJobBoardListingDensityProse +
+  * commuter/tax context) clears the thin-content floor regardless of count.
   *
   * TI sector hubs are owned by jobSectorPagesPlugin.ts (legacy URL
   * /cerca-lavoro-ticino/{sectorSlug}/) and are NOT touched here — this loop
@@ -7364,16 +7367,13 @@ ${staticAnalyticsHtml}
   * minimal SEO-funnel shell with the live job count baked in.
   */
  {
- const MIN_JOBS_PER_CANTON_SECTOR = 3;
  const SECTOR_JOB_LIST_CAP = 30;
  // Group validJobs by (canton, sector).
  const cantonSectorBuckets: Map<string, Map<SectorHubKey, typeof validJobs>> = new Map();
- const cantonTotalSec: Map<string, number> = new Map();
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- cantonTotalSec.set(c, (cantonTotalSec.get(c) ?? 0) + 1);
  for (const sector of SECTOR_HUB_KEYS) {
  if (!jobMatchesSector(job as never, sector)) continue;
  if (!cantonSectorBuckets.has(c)) cantonSectorBuckets.set(c, new Map());
@@ -7387,60 +7387,11 @@ ${staticAnalyticsHtml}
  };
  const sectorHubSitemapEntries: string[] = [];
  let sectorHubPagesCount = 0;
- let sectorHubBelowFloorBridges = 0;
- const emitSectorHubBelowFloorBridge = (locale: 'it' | 'en' | 'de' | 'fr', canton: string, slug: string): void => {
- const section = buildCantonAwareSection(locale, canton);
- const targetPath = withSlash(`${localePrefix[locale]}/${section}`.replace(/\/+/g, '/'));
- const canonicalPath = withSlash(`${localePrefix[locale]}/${section}/${slug}`.replace(/\/+/g, '/'));
- const html = buildCanonicalBridgePage({
- canonicalUrl: `${BASE_URL}${targetPath}`,
- pathLabel: targetPath,
- lang: locale,
- noindex: true,
- });
- const relPath = canonicalPath.slice(1).replace(/\/$/, '');
- const dir = np.join(distDir, relPath);
- const dirIndex = np.join(dir, 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
- _md(dir);
- _qw(dirIndex, html);
- }
- const flatFile = np.join(distDir, relPath + '.html');
- if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
- _md(np.dirname(flatFile));
- _qwFlat(flatFile, html);
- }
- sectorHubBelowFloorBridges++;
- };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
- const cantonTotal = cantonTotalSec.get(canton) ?? 0;
- if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) {
- for (const sector of SECTOR_HUB_KEYS) {
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);
- }
- }
- continue;
- }
  const bySector = cantonSectorBuckets.get(canton);
  for (const sector of SECTOR_HUB_KEYS) {
  const sJobs = bySector?.get(sector) ?? [];
- if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) {
- // Below-floor bridge (#3747, AGENTS.md § Static SEO Pages): this
- // per-sector floor is FINER than the canton-level MIN_JOBS_FOR_CANTON_PAGE
- // branch above — a (canton, sector) count that fluctuates under the floor
- // between builds would otherwise hard-404 a previously-emitted (and
- // possibly indexed) URL on GH Pages. Emit the same noindex,follow bridge
- // the canton-level branch uses, pointing at the always-live canton
- // section root. Self-mapped in searchConsoleCompat.ts (sector-hub slugs).
- for (const locale of localeList) {
- if (!shouldEmitLocale(locale)) continue;
- emitSectorHubBelowFloorBridge(locale, canton, SECTOR_HUB_SLUG[locale][sector]);
- }
- continue;
- }
  // Source of truth for seoHubsPlugin's canton `settori` hub: record that a
  // crawlable `/{section}/{sectorSlug}/` page exists for this (canton, sector)
  // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
@@ -7622,9 +7573,6 @@ ${staticAnalyticsHtml}
  }
  }
  }
- if (sectorHubBelowFloorBridges > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m P8 sector-hub below-floor bridges: ${sectorHubBelowFloorBridges} (per-canton sector hubs)`);
- }
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);
  logBuildMem('jobsSeoPages: after sector-hubs', collector);
@@ -7683,7 +7631,8 @@ ${staticAnalyticsHtml}
  // builds would otherwise hard-404 a previously-emitted (and possibly
  // indexed) /azienda-{slug}/ URL on GH Pages. Emit a noindex,follow bridge
  // at the same URL, pointing at the always-live canton section root — same
- // pattern as emitSectorHubBelowFloorBridge (PR #3594). Company slugs are
+ // bridge pattern the sector hubs used before their floor was removed
+ // (PR #3594; sector hubs went floor-less in PR #4254). Company slugs are
  // data-driven (not enumerable at module load), so searchConsoleCompat.ts
  // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
  // resolves any residual company-hub 404 (kind 'company').
@@ -7956,8 +7905,9 @@ ${staticAnalyticsHtml}
  // MIN_JOBS_PER_CANTON_COMPANY_CITY between builds would otherwise hard-404
  // a previously-emitted (and possibly indexed) /azienda-{slug}-{city}/ URL
  // on GH Pages. Emit a noindex,follow bridge at the same URL, pointing at
- // the always-live canton section root — same pattern as
- // emitSectorHubBelowFloorBridge (PR #3594). Company×city slugs are
+ // the always-live canton section root — same bridge pattern the sector
+ // hubs used before their floor was removed (PR #3594; sector hubs went
+ // floor-less in PR #4254). Company×city slugs are
  // data-driven (not enumerable at module load), so searchConsoleCompat.ts
  // does NOT self-map them; its COMPANY_COMPAT_PATTERN branch already
  // resolves any residual 404 of this shape (kind 'company').
