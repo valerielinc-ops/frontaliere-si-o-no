@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-16T23:14:55.813Z",
+  "windowDays": 7,
+  "totalAiSessions": 588,
+  "totalSiteSessions": 18128,
+  "aiSharePercent": 3.24,
+  "channels": {
+    "ChatGPT": {
+      "sessions": 563,
+      "users": 516,
+      "engaged": 439
+    },
+    "Perplexity": {
+      "sessions": 13,
+      "users": 13,
+      "engaged": 11
+    },
+    "Gemini": {
+      "sessions": 11,
+      "users": 10,
+      "engaged": 11
+    },
+    "Claude": {
+      "sessions": 1,
+      "users": 1,
+      "engaged": 1
+    }
+  }
+}

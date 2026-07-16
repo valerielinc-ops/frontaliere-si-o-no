@@ -46,6 +46,27 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
 const SERP_HISTORY_PATH = resolve(__dirname, '..', 'data', 'seo-serp-experiment-history.json');
 const SERP_LAST_RUN_PATH = resolve(__dirname, '..', 'data', 'seo-serp-autopilot-last-run.json');
+const AI_REFERRER_BASELINE_PATH = resolve(__dirname, '..', 'data', 'ai-referrer-baseline.json');
+
+// Known AI/LLM chat referrer hostnames (issue #4305 scope item 6). GA4's
+// `sessionSource` dimension carries hostname-only values (no path), so every
+// entry here must be a real hostname — never a hostname+path combo (Bing
+// Copilot chat, for example, cannot be distinguished from organic Bing
+// search via `sessionSource` alone; `edgeservices.bing.com` below is the
+// real Copilot-chat referrer hostname and stays distinct from `bing.com`
+// organic search, which is intentionally NOT in this list).
+const AI_REFERRER_DOMAINS = [
+  { match: 'chatgpt.com', channel: 'ChatGPT' },
+  { match: 'chat.openai.com', channel: 'ChatGPT' },
+  { match: 'openai.com', channel: 'ChatGPT' },
+  { match: 'perplexity.ai', channel: 'Perplexity' },
+  { match: 'gemini.google.com', channel: 'Gemini' },
+  { match: 'bard.google.com', channel: 'Gemini' },
+  { match: 'claude.ai', channel: 'Claude' },
+  { match: 'anthropic.com', channel: 'Claude' },
+  { match: 'copilot.microsoft.com', channel: 'Copilot' },
+  { match: 'edgeservices.bing.com', channel: 'Copilot' },
+];
 
 // ── CLI Args ────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -1123,6 +1144,125 @@ async function reportGA4(token) {
       }
     }
   } catch (e) { log('⚠️', `GA4 sources: ${e.message}`); }
+
+  // ── 3c-bis. AI/LLM referrer traffic (issue #4305 scope item 6) ─────
+  try {
+    const res = await fetchRetry(
+      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          ...baseRequest,
+          dimensions: [{ name: 'sessionSource' }],
+          metrics: [
+            { name: 'sessions' },
+            { name: 'totalUsers' },
+            { name: 'engagedSessions' },
+          ],
+          dimensionFilter: {
+            orGroup: {
+              expressions: AI_REFERRER_DOMAINS.map(({ match }) => ({
+                filter: {
+                  fieldName: 'sessionSource',
+                  stringFilter: { matchType: 'CONTAINS', value: match },
+                },
+              })),
+            },
+          },
+          orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+          limit: 50,
+        }),
+      }
+    );
+
+    if (res.ok) {
+      const data = await res.json();
+      const rows = data.rows || [];
+
+      const channelOf = (source) => {
+        const hit = AI_REFERRER_DOMAINS.find(({ match }) => source.includes(match));
+        return hit ? hit.channel : 'Altro AI';
+      };
+
+      const byChannel = {};
+      for (const r of rows) {
+        const source = r.dimensionValues[0].value;
+        const sessions = parseInt(r.metricValues[0].value, 10);
+        const users = parseInt(r.metricValues[1].value, 10);
+        const engaged = parseInt(r.metricValues[2].value, 10);
+        const channel = channelOf(source);
+        if (!byChannel[channel]) {
+          byChannel[channel] = { channel, sessions: 0, users: 0, engaged: 0, sources: [] };
+        }
+        byChannel[channel].sessions += sessions;
+        byChannel[channel].users += users;
+        byChannel[channel].engaged += engaged;
+        byChannel[channel].sources.push(source);
+      }
+
+      const channels = Object.values(byChannel).sort((a, b) => b.sessions - a.sessions);
+      const totalAiSessions = channels.reduce((s, c) => s + c.sessions, 0);
+      const totalSiteSessions = result.summary?.sessions || 0;
+      const aiSharePercent = totalSiteSessions > 0
+        ? Number(((totalAiSessions / totalSiteSessions) * 100).toFixed(2))
+        : 0;
+
+      const prevBaseline = readJsonSafe(AI_REFERRER_BASELINE_PATH, null);
+
+      result.aiReferrers = {
+        channels,
+        totalAiSessions,
+        totalSiteSessions,
+        aiSharePercent,
+        baseline: {
+          previous: prevBaseline
+            ? {
+                generatedAt: prevBaseline.generatedAt,
+                totalAiSessions: prevBaseline.totalAiSessions,
+                aiSharePercent: prevBaseline.aiSharePercent,
+              }
+            : null,
+          deltaSessions: prevBaseline ? totalAiSessions - prevBaseline.totalAiSessions : null,
+        },
+      };
+
+      const currentBaseline = {
+        generatedAt: new Date().toISOString(),
+        windowDays: DAYS,
+        totalAiSessions,
+        totalSiteSessions,
+        aiSharePercent,
+        channels: Object.fromEntries(
+          channels.map((c) => [c.channel, { sessions: c.sessions, users: c.users, engaged: c.engaged }])
+        ),
+      };
+      try {
+        writeFileSync(AI_REFERRER_BASELINE_PATH, JSON.stringify(currentBaseline, null, 2));
+      } catch (writeErr) {
+        log('⚠️', `AI referrer baseline write fallita: ${writeErr.message}`);
+      }
+
+      if (!flags.json) {
+        log('', '');
+        log('🤖', 'Traffico da AI/LLM (chatgpt/perplexity/gemini/claude/copilot):');
+        if (channels.length === 0) {
+          log('', '  Nessuna sessione da referrer AI/LLM rilevata nella finestra corrente.');
+        } else {
+          for (const c of channels) {
+            const share = totalSiteSessions > 0 ? ((c.sessions / totalSiteSessions) * 100).toFixed(2) : '0.00';
+            log('', `  ${c.channel.padEnd(12)} ${fmtNum(c.sessions).padStart(6)} sessioni (${share}% del totale) | ${fmtNum(c.users)} utenti | ${fmtNum(c.engaged)} engaged`);
+          }
+          log('', `  Totale AI: ${fmtNum(totalAiSessions)} sessioni = ${aiSharePercent}% del traffico (${fmtNum(totalSiteSessions)} sessioni totali)`);
+          if (prevBaseline) {
+            const d = totalAiSessions - prevBaseline.totalAiSessions;
+            const arrow = d > 0 ? '↑' : d < 0 ? '↓' : '→';
+            log('', `  vs baseline precedente (${(prevBaseline.generatedAt || '').slice(0, 10) || '?'}): ${arrow}${Math.abs(d)} sessioni`);
+          }
+        }
+      }
+    }
+  } catch (e) { log('⚠️', `GA4 AI referrers: ${e.message}`); }
 
   // ── 3d. Daily users trend ───────────────
   try {
