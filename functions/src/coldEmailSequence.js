@@ -12,6 +12,10 @@
  * `{{UNSUB_URL}}` / `{{INSIGHTS_URL}}` are placeholders substituted at send time
  * by the sender (send-cold-emails.mjs or adminSendColdEmail): the real tokenized
  * one-click unsubscribe link and the per-company stats-page link.
+ *
+ * `bodyToHtml` also lives here (not just in send-cold-emails.mjs) so the web-UI
+ * sender (adminSendColdEmail.js) builds the SAME html part as the CLI instead of
+ * sending text-only — same single-source rationale as buildSequence.
  */
 
 export const PRICE = 'CHF 49 al mese per annuncio';
@@ -85,4 +89,27 @@ Valerie`,
   ];
   // Append the opt-out footer to every touch so drafts and real sends match.
   return seq.map((m) => ({ ...m, body: m.body + footer }));
+}
+
+const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// Wraps the two known placeholder tokens in <a>. Runs BEFORE {{UNSUB_URL}} /
+// {{INSIGHTS_URL}} are substituted for the real signed URLs (send-cold-emails.mjs
+// / adminSendColdEmail.js), so that later substitution fills in both the href
+// and the visible text — turning the plain-text link into a real hyperlink.
+// Muted color on the opt-out link keeps it a footer aside, not a second CTA,
+// so the compliance-required unsubscribe doesn't read as mass-email chrome.
+function linkifyPlaceholders(escaped) {
+  return escaped
+    .split('{{INSIGHTS_URL}}').join('<a href="{{INSIGHTS_URL}}" style="color:#4f46e5">{{INSIGHTS_URL}}</a>')
+    .split('{{UNSUB_URL}}').join('<a href="{{UNSUB_URL}}" style="color:#6b7280">{{UNSUB_URL}}</a>');
+}
+
+/** Cold email = aspetto plain. HTML minimale: paragrafi, link reali, niente immagini/CTA grafiche. */
+export function bodyToHtml(body) {
+  const paras = body.trim().split(/\n\n+/).map((p) => {
+    const escaped = escapeHtml(p).replace(/\n/g, '<br>');
+    return `<p style="margin:0 0 14px">${linkifyPlaceholders(escaped)}</p>`;
+  });
+  return `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#1a1a1a">${paras.join('')}</div>`;
 }
