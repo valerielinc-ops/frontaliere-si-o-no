@@ -150,8 +150,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-c7788835ccde",
@@ -325,7 +324,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice de Vente-80%",
       "titleByLocale": {
-        "it": "Collaborateur*trice de Vente-80%",
+        "it": "Cooperazione commerciale-80%",
         "en": "Sales co-operative-80%",
         "de": "Vertriebsgenossenschaft-80%",
         "fr": "Collaborateur*trice de Vente-80%"
@@ -376,7 +375,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:21:15.561Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "baseSalary": {
@@ -404,7 +402,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice de Vente-20%",
       "titleByLocale": {
-        "it": "Collaborateur*trice de Vente-20%",
+        "it": "Collaboratore di vendita* 20%",
         "en": "Collaborator*seller-20%",
         "de": "Mitarbeiter*Verkäufer-20%",
         "fr": "Collaborateur*trice de Vente-20%"
@@ -470,7 +468,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:21:15.559Z",
-      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "baseSalary": {
@@ -630,8 +627,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-5811bbc780c1",
@@ -700,7 +696,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.296Z",
-      "needsRetranslation": true,
       "salaryMin": 37200,
       "salaryMax": 56400,
       "baseSalary": {
@@ -1164,8 +1159,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ikea-4f802ec90931",
@@ -1297,18 +1291,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
-        "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach"
+        "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach",
+        "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
+        "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
+        "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
+        "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
-          "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach"
+          "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach",
+          "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
+          "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
+          "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
+          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch"
+          "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
+          "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch"
+          "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
+          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T22:02:46.318Z",
@@ -2187,7 +2194,7 @@
       "id": "ikea-7a66eddf61cd",
       "slug": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-cuisine-ikea-40-ikea-aubonne",
+        "it": "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "en": "cuisine-ikea-40-team-member-ikea-aubonne",
         "de": "koch-kellnerin-ikea-40-ikea-aubonne",
         "fr": "collaborateur-trice-cuisine-ikea-40-ikea-ch"
@@ -2197,7 +2204,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice Cuisine IKEA 40%",
       "titleByLocale": {
-        "it": "Collaborateur*trice Cuisine IKEA 40%",
+        "it": "Contributatore da cucina IKEA 40%",
         "en": "IKEA Kitchen Collaborator 40%",
         "de": "IKEA Küchenmitarbeiter 40%",
         "fr": "Collaborateur*trice Cuisine IKEA 40%"
@@ -2239,7 +2246,6 @@
         "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "ikea-cuisine-collaborateur-40-ikea-aubonne",
-        "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
         "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
@@ -2251,7 +2257,6 @@
           "mitarbeiter-in-restaurant-kuche-ikea-20-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
           "ikea-cuisine-collaborateur-40-ikea-aubonne",
-          "contributatore-da-cucina-ikea-40-ikea-aubonne-vaud-switzerland",
           "collaborateur-trice-cuisine-ikea-40-ikea-aubonne"
         ],
         "fr": [
@@ -2259,7 +2264,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.696Z",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -2423,7 +2427,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "baseSalary": {
@@ -2644,7 +2647,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:23:31.690Z",
-      "needsRetranslation": true,
       "salaryMin": 34800,
       "salaryMax": 53000,
       "baseSalary": {

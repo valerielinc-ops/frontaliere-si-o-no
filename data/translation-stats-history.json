@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-28T09:59:41.309Z",
-    "label": "after",
-    "total": 17808,
-    "needsRetranslation": 2396,
-    "suppressed": 497,
-    "incomplete": 893,
-    "complete": 16915,
-    "missingByLocale": {
-      "it": 398,
-      "en": 278,
-      "de": 490,
-      "fr": 117
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 813
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 20
-      },
-      {
-        "company": "Manor AG",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "IKEA",
-        "pending": 2
-      },
-      {
-        "company": "Implenia",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-28T12:14:59.548Z",
-    "label": "before",
-    "total": 17589,
-    "needsRetranslation": 4509,
-    "suppressed": 471,
-    "incomplete": 868,
-    "complete": 16721,
-    "missingByLocale": {
-      "it": 394,
-      "en": 274,
-      "de": 470,
-      "fr": 117
-    },
-    "topPending": [
-      {
-        "company": "Two Spice AG",
-        "pending": 789
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 20
-      },
-      {
-        "company": "Manor AG",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 3
-      },
-      {
-        "company": "Bürgenstock Hotels AG",
-        "pending": 2
-      },
-      {
-        "company": "IKEA",
-        "pending": 2
-      },
-      {
-        "company": "Roche",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-28T13:18:15.312Z",
     "label": "after",
     "total": 17589,
@@ -11396,6 +11282,120 @@
       {
         "company": "Bürgenstock Hotels AG",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-16T06:42:26.491Z",
+    "label": "before",
+    "total": 24884,
+    "needsRetranslation": 8640,
+    "suppressed": 47,
+    "incomplete": 179,
+    "complete": 24705,
+    "missingByLocale": {
+      "it": 132,
+      "en": 99,
+      "de": 60,
+      "fr": 111
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "LANDI",
+        "pending": 19
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 7
+      },
+      {
+        "company": "Sulzer",
+        "pending": 6
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-16T06:53:03.677Z",
+    "label": "after",
+    "total": 24884,
+    "needsRetranslation": 1657,
+    "suppressed": 47,
+    "incomplete": 179,
+    "complete": 24705,
+    "missingByLocale": {
+      "it": 132,
+      "en": 99,
+      "de": 60,
+      "fr": 111
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "LANDI",
+        "pending": 19
+      },
+      {
+        "company": "Two Spice AG",
+        "pending": 18
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 16
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 7
+      },
+      {
+        "company": "Sulzer",
+        "pending": 6
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Roche",
+        "pending": 5
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 5
       }
     ]
   }
