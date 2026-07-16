@@ -206,7 +206,15 @@ async function fetchStellenList() {
         err.retryable = RETRYABLE_STATUS.has(res.status);
         throw err;
       }
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        const err = new Error(`Invalid JSON from ${API_URL}: ${parseErr?.message || parseErr}`);
+        err.retryable = true;
+        err.cause = parseErr;
+        throw err;
+      }
       if (!Array.isArray(data)) throw new Error('Unexpected KSML ws/stellen/ shape (not an array)');
       return data;
     } finally {
