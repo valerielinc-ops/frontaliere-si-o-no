@@ -25,10 +25,11 @@ import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
 import { handleAdminEmployerInsights, assertAdmin } from './src/adminEmployerInsights.js';
 import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './src/emailCascade.js';
+import { bridgeEmailCascadeCredentialsToEnv } from './src/remoteConfigSecrets.js';
 import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
-import { Resend } from 'resend';
 import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
@@ -175,26 +176,37 @@ export const adminSendColdEmail = onRequest(
         res.status(auth.status).json({ ok: false, error: auth.error });
         return;
       }
-      const { resendApiKey, newsletterSecret } = await getNewsletterSecrets();
-      if (!resendApiKey) {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      // Cascade-routed (2026-07-16, was a direct Resend client) — pacing +
+      // fallback if Resend alone is exhausted. Cloud Functions source secrets
+      // async via Remote Config; the cascade reads sync process.env.*, so the
+      // bridge must run first.
+      await bridgeEmailCascadeCredentialsToEnv();
+      if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
         res.status(503).json({ ok: false, error: 'resend_key_missing' });
         return;
       }
-      const resend = new Resend(resendApiKey);
+      // handleAdminSendColdEmail's pending-marker rollback requires sendEmail
+      // to THROW on failure (sendEmailCascade itself never throws — it
+      // returns { sent, failed }), so that contract is preserved here.
       const sendEmail = async ({ from, to, subject, text, html, unsubUrl }) => {
-        const { data, error } = await resend.emails.send({
-          from,
-          to,
-          subject,
-          text,
-          html,
-          headers: {
-            'List-Unsubscribe': `<${unsubUrl}>`,
-            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+        const { sent, failed } = await sendEmailCascade([{
+          payload: {
+            from,
+            to,
+            subject,
+            text,
+            html,
+            headers: {
+              'List-Unsubscribe': `<${unsubUrl}>`,
+              'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+            },
           },
-        });
-        if (error) throw new Error(error.message || 'resend_error');
-        return { messageId: (data && data.id) || '' };
+          recipient: { email: to },
+          meta: {},
+        }]);
+        if (failed.length > 0) throw new Error(failed[0].error || 'send_error');
+        return { messageId: sent[0]?.messageId || '' };
       };
       const body = req.body || {};
       const { status, body: out } = await handleAdminSendColdEmail({
@@ -527,12 +539,11 @@ export const newsletterSendConfirmation = onRequest(
  }
 
  try {
- const { resendApiKey, newsletterSecret } = await getNewsletterSecrets();
+ const { newsletterSecret } = await getNewsletterSecrets();
  const result = await sendNewsletterConfirmationEmail({
  email,
  locale,
  sourcePath,
- resendApiKey,
  secret: newsletterSecret,
  purpose,
  });
@@ -563,14 +574,12 @@ export const sendCalculatorReport = onRequest(
  const locale = String(req.body?.locale || 'it').trim();
  const sourcePath = String(req.body?.sourcePath || '/').trim();
  try {
- const { resendApiKey } = await getNewsletterSecrets();
  const result = await handleSendCalculatorReport({
  email,
  pdfBase64,
  resultSummary,
  locale,
  sourcePath,
- resendApiKey,
  });
  res.status(result.status).type('json').json(result.body);
  } catch (error) {

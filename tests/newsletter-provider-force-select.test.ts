@@ -10,7 +10,7 @@ import { resolve } from 'node:path';
  * because, at the time, its DKIM/DNS wasn't verified (tracked in #3066).
  *
  * Maileroo's participation as an AUTOMATIC cascade rotation tier (see
- * PROVIDERS in scripts/lib/email-cascade.mjs) is a separate mechanism that
+ * PROVIDERS in functions/src/emailCascade.js) is a separate mechanism that
  * was re-enabled and DKIM/DMARC-verified in #3154 — this test asserts that
  * role stays intact while the manual force-select path stays closed.
  */
@@ -18,7 +18,11 @@ import { resolve } from 'node:path';
 const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_SRC = readFileSync(resolve(ROOT, '.github/workflows/send-newsletter.yml'), 'utf-8');
 const SEND_NEWSLETTER_SRC = readFileSync(resolve(ROOT, 'scripts/send-newsletter.mjs'), 'utf-8');
-const EMAIL_CASCADE_SRC = readFileSync(resolve(ROOT, 'scripts/lib/email-cascade.mjs'), 'utf-8');
+// Canonical cascade impl lives in functions/src/emailCascade.js (relocated
+// 2026-07-16 so no-bundler Cloud Functions can import it directly);
+// scripts/lib/email-cascade.mjs is now just a re-export shim with no source
+// text of its own to match against.
+const EMAIL_CASCADE_SRC = readFileSync(resolve(ROOT, 'functions/src/emailCascade.js'), 'utf-8');
 
 /** Extracts the YAML list items under a `provider:` -> `options:` block. */
 function extractProviderOptions(yaml: string): string[] {
@@ -49,7 +53,7 @@ describe('scripts/send-newsletter.mjs — SINGLE_PROVIDERS force-select allowlis
     expect(match, 'SINGLE_PROVIDERS array literal not found').not.toBeNull();
     const providers = match![1].split(',').map((s) => s.trim().replace(/^'|'$/g, '')).filter(Boolean);
     expect(providers).not.toContain('maileroo');
-    expect(providers).toEqual(expect.arrayContaining(['mailgun', 'mailjet', 'mailtrap', 'cloudflare']));
+    expect(providers).toEqual(expect.arrayContaining(['mailgun', 'mailjet', 'mailtrap', 'cloudflare', 'resend']));
   });
 });
 

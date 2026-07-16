@@ -30,6 +30,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -274,11 +275,17 @@ function detectPersistentFailures(history, currentFailedUrls) {
   return persistent;
 }
 
-// ── Email Alert via Resend ──────────────────────────────────
+// ── Email Alert via cascade ─────────────────────────────────
 async function sendEmailAlert({ results, failedPages, persistentFailures, sample }) {
-  const resendKey = process.env.RESEND_API_KEY;
-  if (!resendKey) {
-    log('ℹ️', 'RESEND_API_KEY not set — skipping email alert');
+  // Cascade-routed (2026-07-16, was a direct Resend fetch) — pacing +
+  // fallback if Resend alone is exhausted (sibling-pattern sweep, same class
+  // of bug as the direct Resend bypasses fixed elsewhere in this task). This
+  // is a scripts/-side CI script (not a Cloud Function) — its credentials
+  // already reach process.env.* via `node scripts/load-rc-env.mjs`, which
+  // monitor-gsc-seo.yml runs before invoking this script, so no async
+  // Remote Config bridge is needed here.
+  if (!PROVIDERS.some((p) => isProviderConfigured(p.id))) {
+    log('ℹ️', 'No email provider configured — skipping email alert');
     return;
   }
 
@@ -334,28 +341,20 @@ async function sendEmailAlert({ results, failedPages, persistentFailures, sample
     '</div>'
   );
 
-  try {
-    const res = await fetchWithTimeout('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Frontaliere Ticino <alerts@frontaliereticino.ch>',
-        to: [ALERT_EMAIL],
-        subject,
-        html: html.join('\n'),
-      }),
-    });
-    if (res.ok) {
-      log('📧', `Email alert sent to ${ALERT_EMAIL}`);
-    } else {
-      const body = await res.text().catch(() => '');
-      log('⚠️', `Email send failed (${res.status}): ${body.slice(0, 100)}`);
-    }
-  } catch (err) {
-    log('⚠️', `Email alert error: ${err.message}`);
+  const { sent, failed } = await sendEmailCascade([{
+    payload: {
+      from: 'Frontaliere Ticino <alerts@frontaliereticino.ch>',
+      to: ALERT_EMAIL,
+      subject,
+      html: html.join('\n'),
+    },
+    recipient: { email: ALERT_EMAIL },
+    meta: {},
+  }]);
+  if (failed.length > 0) {
+    log('⚠️', `Email alert failed: ${failed[0].error || 'unknown'}`);
+  } else {
+    log('📧', `Email alert sent to ${ALERT_EMAIL} via ${sent[0]?.provider || 'unknown'}`);
   }
 }
 

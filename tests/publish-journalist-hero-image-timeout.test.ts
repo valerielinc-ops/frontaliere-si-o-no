@@ -27,8 +27,14 @@ describe('publish-journalist-article.mjs fetch calls are all bounded (issue #320
     expect(src).toMatch(/fetch\(rawImage,\s*\{\s*signal:\s*AbortSignal\.timeout\(\d+\)\s*\}\)/);
   });
 
-  it('bounds the "article is live" notification email fetch with AbortSignal.timeout(...) too', () => {
-    expect(notifySrc).toMatch(/signal:\s*AbortSignal\.timeout\(\d+\),?\s*\n\s*\}\)/);
+  it('bounds the "article is live" notification email send with AbortSignal.timeout(...) too', () => {
+    // The send moved from a raw fetch() to sendEmailCascade() (2026-07-16,
+    // routed through the cascade for pacing/fallback) — the AbortSignal is
+    // now constructed here and passed as opts.signal, forwarded by the
+    // cascade to whichever provider's fetch() actually runs (see
+    // functions/src/emailCascade.js). Accepts either a literal ms value or a
+    // named constant (LIVE_CHECK_TIMEOUT_MS) — both prove a real bound exists.
+    expect(notifySrc).toMatch(/signal:\s*AbortSignal\.timeout\((\d+|[A-Z_][A-Z0-9_]*)\)/);
   });
 });
 
