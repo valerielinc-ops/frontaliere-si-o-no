@@ -18,6 +18,23 @@ name: Post-deploy Validate (dist)
 #   • the parent `build` job has job-level concurrency on
 #     `pages-deploy` so the lock is released as soon as build finishes,
 #     and the next deploy can start while validate-dist + deploy run.
+#
+# Job split (this file): run 29489094286 measured ~92.9 min wall on a single
+# `validate-dist` job, almost entirely two serialized critical paths that
+# don't share state: "Run source validators" (dominated by gate:seo-source,
+# ~29 min) then "Post-build validations + SEO audits" (dominated by the
+# audit:all → audit:max-bfs-depth → audit:orphan-sitemap-pages chain,
+# ~50 min). Splitting into `validate-dist-source` and `validate-dist-postbuild`
+# — each with its own runner and its own copy of the common
+# checkout/download/extract/rehydrate prefix — lets both paths run
+# CONCURRENTLY instead of sequentially, cutting wall time to roughly the
+# slower of the two (~60 min) instead of their sum. This is a genuine
+# job-level (additional-runner) speedup, unlike same-runner background-step
+# tricks which were measured to be a wash for CPU-bound work on one runner
+# (see docs/GITNEXUS.md history / reference_gha_parallel_steps_syntax memory).
+# `validate-dist-report` centralizes the GitHub Issues bookkeeping so a
+# success in one job can never race-close an issue tracking a real failure
+# in the other.
 on:
   workflow_call:
     inputs:
@@ -36,11 +53,10 @@ on:
         default: ''
 
 jobs:
-  validate-dist:
+  validate-dist-source:
     runs-on: ubuntu-latest
     permissions:
-      actions: read     # for download-artifact same-run (github-pages, sitemaps)
-      issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
+      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v5
@@ -149,7 +165,7 @@ jobs:
       # like validate:translation-completeness still need the master file
       # with titleByLocale / descriptionByLocale. We download it back to
       # data/jobs.json so the resolve-data-path lookup picks it up.
-      - name: Download master jobs.json (for source validators)
+      - name: Download master jobs.json
         uses: actions/download-artifact@v7
         with:
           name: jobs-master-${{ inputs.deploy_run_id }}
@@ -208,6 +224,23 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
+      # Locale-shard and Ticino-shard rehydrate merged into ONE step, run
+      # CONCURRENTLY as backgrounded shell functions instead of two
+      # sequential steps. Both are independent I/O-bound loops (gh run
+      # download / git clone against disjoint dist/ subtrees, no shared
+      # state, no read dependency on each other), so there is no
+      # correctness reason to serialize them — only their original steps'
+      # accidental step-boundary did. Each function keeps its ORIGINAL
+      # error-handling contract byte-for-byte: rehydrate_locale is
+      # hard-fail (`set -euo pipefail` — an incomplete/missing shard is a
+      # real gate and must fail the job), rehydrate_ticino is soft-fail
+      # (`set -uo pipefail`, no `-e` — emits `::warning::` and continues,
+      # degrading coverage for that locale without aborting the run).
+      # Booleans come in via `env:` (not inlined into the script body via
+      # ${{ }}) to avoid templating untrusted values into bash, matching
+      # the DEPLOY_RUN_ID/GH_TOKEN pattern already used elsewhere in this
+      # file.
+      #
       # When LOCALE_SHARDS_LIVE is on, the published github-pages artifact has the
       # en/de/fr subtrees stripped (they're served from the frontaliere-{loc}
       # shard repos via the Cloudflare Worker, same URLs). The sitemaps, however,
@@ -218,179 +251,207 @@ jobs:
       # site and every audit keeps FULL coverage (incl. thin-content / hreflang
       # on locales) — no per-audit special-casing, no lowered gate. The shard was
       # force-pushed THIS build (deploy.yml shard-push runs before the artifact
-      # upload), so its content matches what the sitemaps reference. Cloned shallow
-      # one-at-a-time and deleted right after the copy to bound peak disk. Only
-      # locales actually absent from the artifact are rehydrated (a locale whose
-      # shard push failed stays in the main artifact and is left untouched).
-      - name: Rehydrate locale shards into dist/ (when sharding active)
-        if: ${{ vars.LOCALE_SHARDS_LIVE == 'true' }}
+      # upload), so its content matches what the sitemaps reference. Cloned
+      # shallow one-at-a-time and deleted right after the copy to bound peak
+      # disk. Only locales actually absent from the artifact are rehydrated (a
+      # locale whose shard push failed stays in the main artifact and is left
+      # untouched).
+      #
+      # Mirrors the locale rehydrate above for the carved-out Ticino section.
+      # deploy.yml strips dist/<ticino-subtree> from the apex/locale artifacts
+      # (strip-ticino-subtree.sh) and publishes ONE Pages repo PER LOCALE
+      # (frontaliere-ticino-<loc>, push-ticino-shard.sh). Restore each subtree
+      # so validators that walk dist for the Ticino URLs don't false-flag them
+      # missing. PRIMARY: same-run per-locale tar artifact (`ticino-dist-
+      # <loc>-<run>`, "Pack Ticino shard dist" step in deploy.yml) built from
+      # push-ticino-shard.sh's already-offloaded staged copy — byte-identical
+      # to what was force-pushed. Fetched via `gh run download` (same-run, no
+      # API lag). FALLBACK: full `git clone` of the shard repo when the
+      # artifact is missing/corrupt — a locale is NEVER silently un-validated.
+      # Before the tar artifact existed, all 4 legs paid the git-clone path
+      # unconditionally: ~12min combined wall on run 28564001685 (~250k
+      # files/clone × 4, sequential).
+      - name: Rehydrate locale + Ticino shards into dist/ (parallel, when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
         run: |
-          set -euo pipefail
-          for loc in en de fr; do
-            # Skip rehydrate only when BOTH the locale dir AND its homepage
-            # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
-            # couples this guard to the implicit assumption that the strip in
-            # deploy.yml always removes dir + homepage together (true today). If
-            # a future strip refactor decoupled them, a dir-only check would skip
-            # rehydrate while `/{loc}` stayed missing → locale homepage 404 = SEO
-            # loss. Verifying both decouples the guard from that assumption (#1607).
-            if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
-              echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
-              continue
-            fi
-
-            # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
-            # build-locale shard uploaded from its already-pruned, CDN-offloaded
-            # dist (byte-identical to what push-locale-shard.sh force-pushed).
-            # Fetched with `gh run download` (same-run, no API propagation lag) so
-            # the ~14min git clone collapses to a small artifact download. `gh` in
-            # the `if` condition is exempt from `set -e`, so a missing/failed
-            # download simply falls through to the git-clone FALLBACK below — a
-            # locale is NEVER silently un-validated.
-            #
-            # The artifact is a SINGLE tar (`locale-dist-<loc>.tar`, packed
-            # `-C dist`, members `<loc>/` + `<loc>.html`) — see deploy.yml "Pack
-            # locale shard dist (tar)". It used to be the raw ~410k-file tree, but
-            # upload-artifact@v7 stack-overflowed enumerating that many files so
-            # the artifact was never produced and this fast path was dead (every
-            # deploy paid the git-clone fallback). We untar straight into dist/ —
-            # no intermediate `cp -r` (the git-clone path's extra full-tree copy).
-            dl="$RUNNER_TEMP/locale-dist-$loc"
-            rm -rf "$dl"; mkdir -p "$dl"
-            if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
-              rm -rf "dist/$loc" "dist/$loc.html"
-              # Completeness, not just existence (#2761 item 2): `[ -d dist/$loc ]`
-              # alone only proves SOME files landed, not that extraction finished —
-              # a truncated/corrupted tar can still leave a partially-populated
-              # dist/$loc/ that passes a bare directory check with no fallback.
-              # `tar -tf` lists what the archive itself claims to contain (empty
-              # on a corrupt header); comparing that count to what actually landed
-              # on disk after extraction catches a short read the old check missed.
-              # `|| true` throughout: any anomaly here must fall through to the
-              # git-clone fallback below, not abort the rehydrate step under `set -e`.
-              expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-              tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
-              rm -rf "$dl"
-              actual_n=0
-              if [ -d "dist/$loc" ]; then
-                actual_n=$(find "dist/$loc" -type f | wc -l)
-                [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
-              fi
-              if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+          rehydrate_locale() {
+            set -euo pipefail
+            for loc in en de fr; do
+              # Skip rehydrate only when BOTH the locale dir AND its homepage
+              # `dist/$loc.html` (= `/{loc}`) are present. Checking just the dir
+              # couples this guard to the implicit assumption that the strip in
+              # deploy.yml always removes dir + homepage together (true today). If
+              # a future strip refactor decoupled them, a dir-only check would skip
+              # rehydrate while `/{loc}` stayed missing → locale homepage 404 = SEO
+              # loss. Verifying both decouples the guard from that assumption (#1607).
+              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
+                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
                 continue
               fi
-              rm -rf "dist/$loc" "dist/$loc.html"
-              echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
-            else
-              rm -rf "$dl"
-              echo "[rehydrate] $loc artifact absent — falling back to git clone"
-            fi
 
-            tmp="$RUNNER_TEMP/rehydrate-$loc"
-            rm -rf "$tmp"
-            git clone --depth 1 --single-branch --branch main \
-              "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
-            [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
-            # Remove any partial pre-existing dir first: with the dir+homepage
-            # guard above, we can reach here with `dist/$loc` already present
-            # (dir kept, homepage stripped). `cp -r src existing-dir` would nest
-            # as `dist/$loc/$loc` instead of replacing — so clear it for a clean
-            # rehydrate. No-op in the common case (dir was fully stripped).
-            rm -rf "dist/$loc"
-            cp -r "$tmp/$loc" "dist/$loc"
-            if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
-            echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
-            rm -rf "$tmp"
-          done
-          # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
-          # stat-walk of ~1.27M files just for a log line). df is instant and is
-          # the metric that actually matters after rehydrating ~27G into dist/.
-          df -h / | tail -1
+              # PRIMARY: the same-run per-locale shard-dist artifact the en/de/fr
+              # build-locale shard uploaded from its already-pruned, CDN-offloaded
+              # dist (byte-identical to what push-locale-shard.sh force-pushed).
+              # Fetched with `gh run download` (same-run, no API propagation lag) so
+              # the ~14min git clone collapses to a small artifact download. `gh` in
+              # the `if` condition is exempt from `set -e`, so a missing/failed
+              # download simply falls through to the git-clone FALLBACK below — a
+              # locale is NEVER silently un-validated.
+              #
+              # The artifact is a SINGLE tar (`locale-dist-<loc>.tar`, packed
+              # `-C dist`, members `<loc>/` + `<loc>.html`) — see deploy.yml "Pack
+              # locale shard dist (tar)". It used to be the raw ~410k-file tree, but
+              # upload-artifact@v7 stack-overflowed enumerating that many files so
+              # the artifact was never produced and this fast path was dead (every
+              # deploy paid the git-clone fallback). We untar straight into dist/ —
+              # no intermediate `cp -r` (the git-clone path's extra full-tree copy).
+              dl="$RUNNER_TEMP/locale-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+                rm -rf "dist/$loc" "dist/$loc.html"
+                # Completeness, not just existence (#2761 item 2): `[ -d dist/$loc ]`
+                # alone only proves SOME files landed, not that extraction finished —
+                # a truncated/corrupted tar can still leave a partially-populated
+                # dist/$loc/ that passes a bare directory check with no fallback.
+                # `tar -tf` lists what the archive itself claims to contain (empty
+                # on a corrupt header); comparing that count to what actually landed
+                # on disk after extraction catches a short read the old check missed.
+                # `|| true` throughout: any anomaly here must fall through to the
+                # git-clone fallback below, not abort the rehydrate step under `set -e`.
+                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$loc" ]; then
+                  actual_n=$(find "dist/$loc" -type f | wc -l)
+                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
+                fi
+                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$loc" "dist/$loc.html"
+                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] $loc artifact absent — falling back to git clone"
+              fi
 
-      - name: Rehydrate Ticino shards into dist/ (when Ticino split active)
-        # Mirrors the locale rehydrate above for the carved-out Ticino section.
-        # deploy.yml strips dist/<ticino-subtree> from the apex/locale artifacts
-        # (strip-ticino-subtree.sh) and publishes ONE Pages repo PER LOCALE
-        # (frontaliere-ticino-<loc>, push-ticino-shard.sh). Restore each subtree
-        # so validators that walk dist for the Ticino URLs don't false-flag
-        # them missing.
-        #
-        # PRIMARY: same-run per-locale tar artifact (`ticino-dist-<loc>-<run>`,
-        # "Pack Ticino shard dist" step in deploy.yml) built from
-        # push-ticino-shard.sh's already-offloaded staged copy — byte-identical
-        # to what was force-pushed. Fetched via `gh run download` (same-run, no
-        # API lag), same pattern as the locale rehydrate above. FALLBACK: full
-        # `git clone` of the shard repo when the artifact is missing/corrupt —
-        # a locale is NEVER silently un-validated. Before the tar artifact
-        # existed, all 4 legs paid the git-clone path unconditionally: ~12min
-        # combined wall on run 28564001685 (~250k files/clone × 4, sequential).
-        if: ${{ vars.TICINO_SHARD_LIVE == 'true' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
-        run: |
-          set -uo pipefail
-          declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
-          for loc in it en de fr; do
-            sub="${TICINO_SUB[$loc]}"
-            if [ -d "dist/$sub" ]; then
-              echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
-              continue
-            fi
+              tmp="$RUNNER_TEMP/rehydrate-$loc"
+              rm -rf "$tmp"
+              git clone --depth 1 --single-branch --branch main \
+                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
+              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+              # Remove any partial pre-existing dir first: with the dir+homepage
+              # guard above, we can reach here with `dist/$loc` already present
+              # (dir kept, homepage stripped). `cp -r src existing-dir` would nest
+              # as `dist/$loc/$loc` instead of replacing — so clear it for a clean
+              # rehydrate. No-op in the common case (dir was fully stripped).
+              rm -rf "dist/$loc"
+              cp -r "$tmp/$loc" "dist/$loc"
+              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+              rm -rf "$tmp"
+            done
+            # Cheap disk-pressure readout instead of `du -sh dist` (a ~70s full
+            # stat-walk of ~1.27M files just for a log line). df is instant and is
+            # the metric that actually matters after rehydrating ~27G into dist/.
+            df -h / | tail -1
+          }
 
-            dl="$RUNNER_TEMP/ticino-dist-$loc"
-            rm -rf "$dl"; mkdir -p "$dl"
-            if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
-              mkdir -p "dist/$(dirname "$sub")"
-              rm -rf "dist/$sub"
-              # Completeness, not just existence (#2761 item 2, mirrors the locale
-              # rehydrate above): `[ -d dist/$sub ]` alone only proves SOME files
-              # landed, not that extraction finished. Compare what the tar itself
-              # claims to contain (`tar -tf`, empty on a corrupt header) against
-              # what actually landed on disk after extraction — catches a
-              # truncated/corrupted tar that a bare directory check would miss.
-              # `|| true` throughout: any anomaly here must fall through to the
-              # git-clone fallback below, not abort under `set -e`.
-              expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-              tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
-              rm -rf "$dl"
-              actual_n=0
+          rehydrate_ticino() {
+            set -uo pipefail
+            declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+            for loc in it en de fr; do
+              sub="${TICINO_SUB[$loc]}"
               if [ -d "dist/$sub" ]; then
-                actual_n=$(find "dist/$sub" -type f | wc -l)
-              fi
-              if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
                 continue
               fi
-              rm -rf "dist/$sub"
-              echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
-            else
-              rm -rf "$dl"
-              echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
-            fi
 
-            tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
-            rm -rf "$tmp"
-            if ! git clone --depth 1 --single-branch --branch main \
-                 "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
-              echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
-              continue
-            fi
-            if [ -d "$tmp/$sub" ]; then
-              mkdir -p "dist/$(dirname "$sub")"
-              rm -rf "dist/$sub"
-              cp -r "$tmp/$sub" "dist/$sub"
-              echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
-            else
-              echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
-            fi
-            rm -rf "$tmp"
-          done
-          df -h / | tail -1
+              dl="$RUNNER_TEMP/ticino-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                # Completeness, not just existence (#2761 item 2, mirrors the locale
+                # rehydrate above): `[ -d dist/$sub ]` alone only proves SOME files
+                # landed, not that extraction finished. Compare what the tar itself
+                # claims to contain (`tar -tf`, empty on a corrupt header) against
+                # what actually landed on disk after extraction — catches a
+                # truncated/corrupted tar that a bare directory check would miss.
+                # `|| true` throughout: any anomaly here must fall through to the
+                # git-clone fallback below, not abort under `set -e`.
+                expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$sub" ]; then
+                  actual_n=$(find "dist/$sub" -type f | wc -l)
+                fi
+                if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$sub"
+                echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+              rm -rf "$tmp"
+              if ! git clone --depth 1 --single-branch --branch main \
+                   "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+                continue
+              fi
+              if [ -d "$tmp/$sub" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                cp -r "$tmp/$sub" "dist/$sub"
+                echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+              else
+                echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+              fi
+              rm -rf "$tmp"
+            done
+            df -h / | tail -1
+          }
+
+          LOCALE_PID=""
+          TICINO_PID=""
+
+          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
+            rehydrate_locale &
+            LOCALE_PID=$!
+          fi
+
+          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
+            rehydrate_ticino &
+            TICINO_PID=$!
+          fi
+
+          LOCALE_RC=0
+          if [ -n "$LOCALE_PID" ]; then
+            wait "$LOCALE_PID" || LOCALE_RC=$?
+          fi
+
+          # Ticino is soft-fail by design (warnings only) — always wait for it
+          # to finish so its log output is fully flushed before the step ends,
+          # but never let its exit code affect the job.
+          if [ -n "$TICINO_PID" ]; then
+            wait "$TICINO_PID" || true
+          fi
+
+          if [ "$LOCALE_RC" -ne 0 ]; then
+            exit "$LOCALE_RC"
+          fi
 
       - name: Migrate all-known-job-slugs to canton-aware paths
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
@@ -523,6 +584,298 @@ jobs:
       - name: Sitemap diff vs live deployed site (informational)
         continue-on-error: true
         run: node scripts/diff-sitemaps.mjs
+
+  validate-dist-postbuild:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+    steps:
+      - name: Checkout (build SHA via deploy_ref, else caller default)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
+
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # Hydrate the runner env with secrets pulled from Firebase Remote Config
+      # so the social-media post steps below see FB_PAGE_ACCESS_TOKEN /
+      # FB_PAGE_ID / LINKEDIN_POST_* etc. as `process.env.*`. Without this
+      # step, post-to-facebook.mjs reads `process.env.FB_PAGE_ACCESS_TOKEN`,
+      # finds nothing, and silently exits with the "⚠️ FB_PAGE_ACCESS_TOKEN
+      # or FB_PAGE_ID not set — skipping Facebook post" log line. The
+      # `Post to Facebook Page` and `Post to LinkedIn Company Page` steps
+      # appear green in the UI but never publish.
+      #
+      # load-rc-env.mjs is best-effort: if Firebase credentials are missing
+      # or RC fetch fails, it warns and exits 0, leaving env vars unset and
+      # downstream posting steps to perform their own "missing token" skip.
+      # That is the same fail-soft contract the deploy.yml pipeline already
+      # relies on (see deploy.yml step "Load secrets from Remote Config").
+      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+        run: node scripts/load-rc-env.mjs
+
+      # Download GitHub Pages artifact + run source validators sequentially.
+      #
+      # Previously the 4 source validators were launched as `run_bg ... &` in
+      # parallel with the artifact download, to save ~30-60s. That race
+      # caused `validate:translation-completeness` and
+      # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
+      # `data/jobs-crawler-summaries.json` from the unpacked artifact) to
+      # fail in <1s with "file not found" — the tar -xf hadn't run yet.
+      # The whole step exited 1 before the post-build pool could start, the
+      # validate job rolled back, and the BFS-depth gate never got tested.
+      # Run 25419353305 (sha e9f03ab9) was the last to confirm this race
+      # under the previous parallel layout.
+      #
+      # Sequential layout: download → tar → run each validator one at a time
+      # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
+      # deterministic, easier to reason about, and avoids the race entirely.
+      # Artifact download keyed on `deploy_run_id` (the BUILD run that produced
+      # them). When the caller IS that run (deploy_run_id == github.run_id) this
+      # is a same-run read; when the caller is deploy-publish.yml (workflow_run),
+      # the same `run-id` + token fetches them cross-run from the build run.
+      - name: Download GitHub Pages artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: /tmp/github-pages-artifact
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download pre-deploy sitemap snapshot (optional)
+        uses: actions/download-artifact@v7
+        continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
+        with:
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          path: /tmp/pre-deploy-snapshot
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download master jobs.json
+        uses: actions/download-artifact@v7
+        with:
+          name: jobs-master-${{ inputs.deploy_run_id }}
+          path: /tmp/jobs-master
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download previous-slug winners (optional)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/winners
+          if gh run download "${{ inputs.deploy_run_id }}" \
+               --name "winners-${{ inputs.deploy_run_id }}" \
+               --dir /tmp/winners 2>/dev/null; then
+            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+          else
+            echo "[winners] artifact not present (file unchanged this build) — skipping"
+          fi
+
+      - name: Extract dist/ + restore data files from artifact
+        run: |
+          # Pages artifact wraps a single artifact.tar — extract into dist/.
+          rm -rf dist && mkdir -p dist
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+
+          # Restore master data/jobs.json from the dedicated artifact
+          # (jobsJsonDistCleanupPlugin strips it from dist/ to clear the
+          # 10 GB GH Pages cap — validators still need the master copy
+          # with titleByLocale / descriptionByLocale).
+          mkdir -p data
+          cp -f /tmp/jobs-master/jobs.json data/jobs.json
+          # Expose jobs.json to scripts that expect public/data/jobs.json.
+          mkdir -p public/data
+          cp -f data/jobs.json public/data/jobs.json
+          # validate:crawler-summaries reads data/jobs-crawler-summaries.json
+          # (gitignored, assembled at build). Its dist/data/ copy is offloaded
+          # to the CDN repo AND deleted from dist by offload-generated-images-
+          # cdn.mjs (PR #1288), so it is NOT in the Pages artifact — restore it
+          # from the jobs-master artifact (same channel as jobs.json above).
+          cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
+
+          # Optional artifacts — copy if present.
+          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+      # Same merged locale+Ticino rehydrate as validate-dist-source (see that
+      # job's step for the full rationale). Duplicated rather than factored
+      # out into a composite action so this PR stays a surgical CI-speed
+      # change — each of the two jobs runs on its own fresh runner and needs
+      # its own copy of dist/ rehydrated identically, since the post-build
+      # audits below walk the same logical site as the source validators do.
+      - name: Rehydrate locale + Ticino shards into dist/ (parallel, when sharding active)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+        run: |
+          rehydrate_locale() {
+            set -euo pipefail
+            for loc in en de fr; do
+              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
+                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
+                continue
+              fi
+
+              dl="$RUNNER_TEMP/locale-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+                rm -rf "dist/$loc" "dist/$loc.html"
+                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$loc" ]; then
+                  actual_n=$(find "dist/$loc" -type f | wc -l)
+                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
+                fi
+                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$loc" "dist/$loc.html"
+                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] $loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-$loc"
+              rm -rf "$tmp"
+              git clone --depth 1 --single-branch --branch main \
+                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
+              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+              rm -rf "dist/$loc"
+              cp -r "$tmp/$loc" "dist/$loc"
+              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+              rm -rf "$tmp"
+            done
+            df -h / | tail -1
+          }
+
+          rehydrate_ticino() {
+            set -uo pipefail
+            declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+            for loc in it en de fr; do
+              sub="${TICINO_SUB[$loc]}"
+              if [ -d "dist/$sub" ]; then
+                echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
+                continue
+              fi
+
+              dl="$RUNNER_TEMP/ticino-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$sub" ]; then
+                  actual_n=$(find "dist/$sub" -type f | wc -l)
+                fi
+                if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$sub"
+                echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+              rm -rf "$tmp"
+              if ! git clone --depth 1 --single-branch --branch main \
+                   "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+                continue
+              fi
+              if [ -d "$tmp/$sub" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                cp -r "$tmp/$sub" "dist/$sub"
+                echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+              else
+                echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+              fi
+              rm -rf "$tmp"
+            done
+            df -h / | tail -1
+          }
+
+          LOCALE_PID=""
+          TICINO_PID=""
+
+          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
+            rehydrate_locale &
+            LOCALE_PID=$!
+          fi
+
+          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
+            rehydrate_ticino &
+            TICINO_PID=$!
+          fi
+
+          LOCALE_RC=0
+          if [ -n "$LOCALE_PID" ]; then
+            wait "$LOCALE_PID" || LOCALE_RC=$?
+          fi
+
+          if [ -n "$TICINO_PID" ]; then
+            wait "$TICINO_PID" || true
+          fi
+
+          if [ "$LOCALE_RC" -ne 0 ]; then
+            exit "$LOCALE_RC"
+          fi
+
+      - name: Migrate all-known-job-slugs to canton-aware paths
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       # Validation pool.
       # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
@@ -830,8 +1183,45 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  validate-dist-report:
+    # Centralizes the GitHub Issues bookkeeping so the two independent jobs
+    # above can't race each other into a wrong state — e.g. postbuild
+    # succeeding and resolving the tracking issue while source is still
+    # failing (or vice versa). `if: always()` so this still runs (and
+    # correctly reports failure) even if one of the two jobs above failed
+    # or was itself skipped by an upstream `if:` — only an actual cancel of
+    # BOTH jobs leaves neither branch below matching, mirroring the original
+    # single-job behavior where `if: failure()` / `if: success()` steps
+    # don't fire on a cancelled run either.
+    needs: [validate-dist-source, validate-dist-postbuild]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write     # for github-issue-creator on validation failure (run 26592389280 surfaced "Resource not accessible by integration (createIssue)")
+    steps:
+      - name: Checkout (build SHA via deploy_ref, else caller default)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: needs.validate-dist-source.result == 'failure' || needs.validate-dist-postbuild.result == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -851,6 +1241,8 @@ jobs:
           **Validation run #:** ${{ github.run_number }}
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Source job:** ${{ needs.validate-dist-source.result }}
+          **Post-build job:** ${{ needs.validate-dist-postbuild.result }}
           **Branch:** ${{ github.ref_name }}
           **SHA:** ${{ github.sha }}" \
             --priority 1 \
@@ -859,12 +1251,12 @@ jobs:
             --workflow "Post-deploy Validate Dist"
 
       - name: Resolve GitHub Issue on success
-        if: success()
+        if: needs.validate-dist-source.result == 'success' && needs.validate-dist-postbuild.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Mirror of the failure reporter: every gating step above passed, so
+          # Mirror of the failure reporter: both gating jobs above passed, so
           # close the canonical "Validation Failure (dist)" issue if it is open.
           # Without this the issue stays open while the state is already green
           # (stale-issue churn). Idempotent no-op when nothing is open; the
