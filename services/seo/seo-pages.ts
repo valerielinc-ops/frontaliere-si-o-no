@@ -4674,7 +4674,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3253,
+ "numberOfItems": 3254,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7928,7 +7928,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3250, "name": "Contratto Polizia: il Silp Cgil firma ma contes...", "url": `${BASE_URL}/articoli-frontaliere/contratto-polizia-silp-cgil-critiche` },
           { "@type": "ListItem", "position": 3251, "name": "Chiusura ponte di ferro sesto calende: guida vi...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-ponte-ferro-sesto-calende` },
           { "@type": "ListItem", "position": 3252, "name": "Smart working frontalieri: cosa prevede l'accordo", "url": `${BASE_URL}/articoli-frontaliere/accordo-smart-working-frontalieri-svizzera` },
-          { "@type": "ListItem", "position": 3253, "name": "Ticino pionere: il programma politico 2027-2031...", "url": `${BASE_URL}/articoli-frontaliere/ticino-programma-politico-consultazione-pubblica` }
+          { "@type": "ListItem", "position": 3253, "name": "Ticino pionere: il programma politico 2027-2031...", "url": `${BASE_URL}/articoli-frontaliere/ticino-programma-politico-consultazione-pubblica` },
+          { "@type": "ListItem", "position": 3254, "name": "Crisi nello Stretto di Hormuz: ritardi e rincar...", "url": `${BASE_URL}/articoli-frontaliere/crisi-stretto-hormuz-economia-svizzera` }
  ]
  },
  {

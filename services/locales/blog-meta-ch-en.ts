@@ -1171,6 +1171,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-programma-politico-consultazione-pubblica.title': 'Pioneering Ticino: the 2027-2031 political program is decided by the citizens',
     'blog.article.ticino-programma-politico-consultazione-pubblica.excerpt': 'Forward with Ticino&Lavoro submits its legislative program to a public consultation before final approval. Here\'s how it works.',
     'blog.article.ticino-programma-politico-consultazione-pubblica.imageAlt': 'Public meeting in Bellinzona for political program consultation',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.title': 'Crisis in the Strait of Hormuz: delays and price increases for Swiss companies',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.excerpt': 'The Swissmem association reports difficulties for one in four industrial companies. At risk of energy supplies and costs',
+    'blog.article.crisi-stretto-hormuz-economia-svizzera.imageAlt': 'Basel river port, Switzerland\'s crucial logistics hub',
 };
 
 export default blogMetaChEn;
