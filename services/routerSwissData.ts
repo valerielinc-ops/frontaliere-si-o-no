@@ -411,6 +411,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sospensione-riversamento-imposta-frontalieri': { it: 'sospensione-riversamento-imposta-frontalieri', en: 'suspension-of-cross-border-tax-transfer', de: 'aussetzung-der-quellensteuer-transfer', fr: 'suspension-du-transfert-impot-frontaliers' },
  'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri': { it: 'rappresentante-per-il-commercio-usa-elogia-investimenti-svizzeri', en: 'us-trade-representative-praises-swiss-investments', de: 'handelsvertreter-der-vereinigten-staaten-lobt-schweizer-investitionen', fr: 'representant-commercial-des-etats-unis-elogie-investissements-suisse' },
  'banche-svizzere-truffe-online': { it: 'banche-svizzere-truffe-online', en: 'swiss-banks-online-scams', de: 'schweizer-banken-online-betrug', fr: 'banques-suisses-escroqueries-en-ligne' },
+ 'accordo-smart-working-frontalieri-svizzera': { it: 'accordo-smart-working-frontalieri-svizzera', en: 'smart-working-agreement-swiss-cross-border-workers', de: 'smart-working-vereinbarung-grenzgaenger-schweiz', fr: 'accord-teletravail-frontaliers-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

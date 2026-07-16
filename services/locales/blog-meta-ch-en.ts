@@ -1165,6 +1165,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banche-svizzere-truffe-online.title': 'More Consumer Foundation: more support for banks against online scams',
     'blog.article.banche-svizzere-truffe-online.excerpt': 'The Swiss-German Consumer Protection Foundation conducted a study on Swiss banks\' protection systems against online scams.',
     'blog.article.banche-svizzere-truffe-online.imageAlt': 'A Swiss bank ATM',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.title': 'Smart border workers: what the agreement provides for',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.excerpt': 'Analysis of the agreement on teleworking for border workers in Switzerland: rules, time thresholds and tax impact for those working across borders.',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.imageAlt': 'View of Lugano lakefront with modern office buildings',
 };
 
 export default blogMetaChEn;

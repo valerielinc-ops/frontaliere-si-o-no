@@ -1165,6 +1165,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.banche-svizzere-truffe-online.title': 'Plus Fondation: Soutien aux banques contre les escroqueries en ligne',
     'blog.article.banche-svizzere-truffe-online.excerpt': 'La Fondation suisse-allemande pour la protection des consommateurs a mené une étude sur les systèmes de protection des banques suisses contre les escroqueries en ligne.',
     'blog.article.banche-svizzere-truffe-online.imageAlt': 'Un distributeur automatique dans une banque suisse',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.title': 'Smart working frontaliers : ce que prévoit l\'accord',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.excerpt': 'Analyse de l\'accord sur le télétravail pour les frontaliers en Suisse : règles, délais et impact fiscal pour ceux qui travaillent au-delà des frontières.',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.imageAlt': 'Vue du bord du lac de Lugano avec des immeubles de bureaux modernes',
 };
 
 export default blogMetaChFr;

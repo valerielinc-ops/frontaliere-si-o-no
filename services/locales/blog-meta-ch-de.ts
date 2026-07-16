@@ -1165,6 +1165,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banche-svizzere-truffe-online.title': 'Mehr Consumer Foundation: Mehr Bankenunterstützung gegen Online-Betrug',
     'blog.article.banche-svizzere-truffe-online.excerpt': 'Die Deutschschweizerische Stiftung für Verbraucherschutz hat eine Studie über die Schutzsysteme von Schweizer Banken gegen Online-Betrug durchgeführt.',
     'blog.article.banche-svizzere-truffe-online.imageAlt': 'Ein Bankautomat in einer Schweizer Bank',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.title': 'Smart Border Working: Was die Vereinbarung vorsieht',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.excerpt': 'Analyse der Vereinbarung über Telearbeit für Grenzgänger in der Schweiz: Regeln, Fristen und steuerliche Auswirkungen für Grenzgänger.',
+    'blog.article.accordo-smart-working-frontalieri-svizzera.imageAlt': 'Blick auf das Seeufer von Lugano mit modernen Bürogebäuden',
 };
 
 export default blogMetaChDe;
