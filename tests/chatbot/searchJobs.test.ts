@@ -205,4 +205,18 @@ describe('chatbotTools › searchJobs', () => {
  expect(results.length).toBeGreaterThan(0);
  expect(results[0].slug).toBe('software-engineer-zurich-ubs');
  });
+
+ it('cross-locale synonym: English "nurse" surfaces an Italian-titled nursing job (issue #4253)', async () => {
+ // Locale 'it' → the scored title is the Italian "Infermiere SSR...", which
+ // contains no English text at all. Without profession-taxonomy synonym
+ // expansion the keyword "nurse" would match nothing here.
+ const results = await searchJobs({
+ query: 'nurse',
+ locale: 'it',
+ jobs: FIXTURES,
+ limit: 5,
+ });
+ expect(results.length).toBeGreaterThan(0);
+ expect(results.map((r) => r.slug)).toContain('infermiere-lugano-ospedale-regionale');
+ });
 });

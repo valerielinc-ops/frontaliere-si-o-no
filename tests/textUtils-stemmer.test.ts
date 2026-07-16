@@ -4,6 +4,7 @@ import {
   stemSearchToken,
   buildStemmedHaystack,
 } from '@/services/textUtils';
+import { professionSynonymText } from '@/services/professionSynonyms';
 
 /** Repro of the matching used in JobBoard.indexedQueryMatch. */
 function matches(haystack: string, query: string): boolean {
@@ -135,5 +136,33 @@ describe('JobBoard search — sector keyword matching (regression for ?q=Pulizie
     // 'banana' stems to 'banan'; query 'ana' (3 chars, untouched) must NOT match
     const haystack = buildStemmedHaystack('Lavoro produzione banana');
     expect(matches(haystack, 'ana')).toBe(false);
+  });
+});
+
+describe('JobBoard search — cross-locale profession synonyms (issue #4253)', () => {
+  /** Mirrors how JobBoard's haystack builders append professionSynonymText(title). */
+  function haystackWithSynonyms(title: string, rest: string): string {
+    return buildStemmedHaystack(`${title} ${rest} ${professionSynonymText(title)}`);
+  }
+
+  it('?q=nurse (EN) matches an Italian-titled "Infermiera" job', () => {
+    const haystack = haystackWithSynonyms('Infermiera SSR', 'EOC Lugano TI reparto cardiologia');
+    expect(matches(haystack, 'nurse')).toBe(true);
+  });
+
+  it('?q=pflegefachfrau (DE) matches an Italian-titled "Infermiere" job', () => {
+    const haystack = haystackWithSynonyms('Infermiere di reparto', 'Casa anziani Bellinzona TI');
+    expect(matches(haystack, 'pflegefachfrau')).toBe(true);
+  });
+
+  it('?q=infirmier (FR) matches an English-titled "Registered Nurse" job', () => {
+    const haystack = haystackWithSynonyms('Registered Nurse', 'Lugano Regional Hospital TI');
+    expect(matches(haystack, 'infirmier')).toBe(true);
+  });
+
+  it('does not introduce false positives for a title matching no known profession', () => {
+    const haystack = haystackWithSynonyms('Addetto imballaggio stagionale', 'Mendrisio TI');
+    expect(matches(haystack, 'nurse')).toBe(false);
+    expect(matches(haystack, 'pflegefachfrau')).toBe(false);
   });
 });
