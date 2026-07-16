@@ -53,16 +53,19 @@
 
 // scheduledSend.maxLookaheadMs is the single source of truth for how far in
 // the future a per-message `scheduledAt` may be scheduled with each provider
-// (verified against live docs 2026-07-11). Mailgun/Maileroo's real ceiling is
-// either short (3d default plan) or undocumented — clamped conservatively
-// rather than risk a silent-drop by the provider past its real limit.
+// (verified against live docs 2026-07-11). Maileroo's real ceiling is
+// undocumented — clamped conservatively rather than risk a silent-drop by
+// the provider past its real limit. Mailgun's ceiling is confirmed exact
+// (see below).
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 const PROVIDERS = [
   { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000,
     // o:deliverytime, RFC 2822 with an explicit +0000 offset (NOT toUTCString(),
-    // which emits "GMT"). Lookahead clamped to 3 days (default-plan cap; the
-    // free-plan real ceiling is unverified, so this is the conservative floor).
+    // which emits "GMT"). Lookahead clamped to 3 days — confirmed EXACT via a
+    // live API probe on 2026-07-16 (scripts/probe-mailgun-scheduled.mjs): a
+    // real +7d send to this account/domain was rejected with "scheduled
+    // delivery time must not be farther than 72h0m0s from now". Not a guess.
     scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   // resend: paid plan activated 2026-07-06 (50000/mo, owner request), bulk
   // workhorse of the cascade. No self-imposed dailyLimit (owner request
