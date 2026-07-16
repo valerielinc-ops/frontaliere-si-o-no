@@ -12,6 +12,7 @@ import { useTranslation } from '@/services/i18n';
 import { buildOggiPath, type BorderWaitLocale, type BorderCrossingSlug } from '@/build-plugins/borderWaitData';
 import { reportCaughtError } from '@/services/errorReporter';
 import { MAP_COLORS } from '@/services/mapColors';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 const borderCrossings = centralizedCrossings.map(c => ({
  ...c,
@@ -176,6 +177,16 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  const slowest = sortedTraffic[sortedTraffic.length - 1];
 
  const mapCenter: [number, number] = [45.92, 8.97];
+
+ // INP (#4302 sibling of the BorderMunicipalitiesMap fix): the mobile
+ // (`lg:hidden`) and desktop (`hidden lg:grid`) layouts below each render
+ // their OWN <MapContainer>, and Tailwind's responsive classes only toggle
+ // CSS `display` — both React-Leaflet map instances (tile layer + every
+ // crossing Marker) mounted unconditionally, doubling the real init cost on
+ // a page (/traffico-dogane/<crossing>/oggi/) that only ever shows one of
+ // them. Mount only the viewport-matching one; wrapper divs keep their
+ // layout either way, so this does not reintroduce CLS.
+ const isDesktopViewport = useMediaQuery('(min-width: 1024px)');
 
  const getTrafficForCrossing = (name: string) =>
  trafficData.find(t => t.crossingName === name);
@@ -384,6 +395,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {chiassoEditorial}
 
  {/* Map */}
+ {isDesktopViewport === false && (
  <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
  <MapContainer
  center={mapCenter}
@@ -429,6 +441,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  })}
  </MapContainer>
  </div>
+ )}
 
  {legend}
 
@@ -505,6 +518,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Right column — sticky map */}
  <div className="sticky top-4 space-y-3 self-start">
+ {isDesktopViewport === true && (
  <div className="rounded-xl overflow-hidden border-2 border-edge shadow-lg h-[70vh] min-h-[500px]">
  <MapContainer
  center={mapCenter}
@@ -550,6 +564,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  })}
  </MapContainer>
  </div>
+ )}
  {legend}
  </div>
  </div>
