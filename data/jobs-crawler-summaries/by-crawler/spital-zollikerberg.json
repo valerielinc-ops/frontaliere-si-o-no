@@ -1,41 +1,39 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-16T11:06:46.582Z",
-  "total": 7,
+  "generatedAt": "2026-07-16T22:04:45.371Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 34265,
-  "avgDurationMs": 34265,
+  "unchangedCount": 0,
+  "durationMs": 35862,
+  "avgDurationMs": 35862,
   "durationHistory": [
-    34265
+    35862
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-c5010b886784",
-      "slug": "ernahrungsberaterin-ernahrungsberater-hf-bsc-therapie-e-beratung-spital-zollikerberg",
+      "id": "spital-zollikerberg-7120c5419eed",
+      "slug": "berufsbildner-berufsbildnerin-per-dipl-fachfrau-dipl-fachmann-operationstechnik-e-operationspflege-medizintechnische-bereiche-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Ernährungsberaterin / Ernährungsberater (HF/BSc) Therapie und Beratung",
-      "needsRetranslation": true,
+      "title": "Berufsbildner / Berufsbildnerin für Dipl. Fachfrau / Dipl. Fachmann Operationstechnik und Operationspflege Medizintechnische Bereiche",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0944e3dc-8983-44f3-9e48-6592b589cd5c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:57:08.567Z",
+      "crawledAt": "2026-07-16T22:04:42.665Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8125",
-      "category": "Risorse Umane",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -43,18 +41,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fd50825d-0326-4a12-9e89-dbc3a132c87a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=0944e3dc-8983-44f3-9e48-6592b589cd5c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
