@@ -218,6 +218,13 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  // Route them to the IT job-board listing as a safe fallback (canton-aware slug
  // resolution happens in the section/company patterns below).
  { pattern: /^\/cerca-lavoro(?!-)\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
+ // Legacy top-level search-page prefix, pre-dating the per-canton /ricerca-<term>-<city>/
+ // combo structure (e.g. /ricerca/offerte-lavoro-infermieri-mendrisio/). Every sampled
+ // 404 in this family is a TI-era slug (no canton encoded in the URL), so the safe
+ // fallback is the same TI listing root as the bare `/cerca-lavoro/` case above. Note
+ // this needs its OWN entry because SEARCH_COMBO_SEGMENT_PATTERN requires a hyphen
+ // after "ricerca" (`/ricerca-`), so it does not match this slash-separated legacy shape.
+ { pattern: /^\/ricerca\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
  // Localized sections
  { pattern: /^\/en\/cross-border-articles\//, canonical: '/en/cross-border-articles/', locale: 'en' },
  { pattern: /^\/de\/grenzgaenger-artikel\//, canonical: '/de/grenzgaenger-artikel/', locale: 'de' },
@@ -369,10 +376,24 @@ const JOB_BOARD_SECTION_COMPAT_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JO
 // Listing pagination leaves (e.g. /de/jobs-im-tessin/alle/page-1022) — historical deep
 // page numbers Google still crawls after the listing shrank. Capture group 2 = the canton
 // section in the URL → canonicalize to that listing root (NOT a re-derived TI fallback).
-const JOB_BOARD_PAGINATION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(?:alle|tutti|tutte|all|tous|toutes)\\/page-\\d+\\/?$`);
+// Exported: legacyRedirectsPlugin's isJobPath() skip must NOT swallow these — no plugin
+// emits a bridge for individual out-of-range pagination leaves, so without this exemption
+// the path is silently unresolvable even though this resolver handles it correctly below.
+export const JOB_BOARD_PAGINATION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(?:alle|tutti|tutte|all|tous|toutes)\\/page-\\d+\\/?$`);
 // Expired job-detail leaves with a trailing numeric job id (e.g. /de/jobs-im-tessin/<slug>/3594).
 // Two segments after the section, so the single-segment job pattern above never matches them.
 const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/[^/]+\\/\\d+\\/?$`);
+// Search-combo slug segment (ricerca-/search-/suche-/recherche-). Exported for the same
+// reason as JOB_BOARD_PAGINATION_PATTERN above: jobsSeoPagesPlugin explicitly EXCLUDES
+// these slugs from its own tracking (searchComboPattern in jobsSeoPagesPlugin.ts), so
+// legacyRedirectsPlugin's job-prefix skip must not also swallow them here.
+export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-/;
+// Event-detail leaves past the plugin's own noindex grace window (eventsSeoPagesPlugin
+// stops emitting a bridge EVENT_PAST_GRACE_DAYS after the event ends) or dropped
+// pre-emptively (rescheduled/cancelled at source, so never even entered the grace
+// window). Capture group 3 = the canton segment (e.g. "ticino") → canonicalize one
+// level up to that canton's event hub, which always exists once any event does.
+const EVENTS_SECTION_PATTERN = /^\/(?:(en|de|fr)\/)?(eventi|events|veranstaltungen|evenements)\/([^/]+)\//;
 
 export function resolveSearchConsoleCompatTarget(
  inputPath: string,
@@ -406,7 +427,7 @@ export function resolveSearchConsoleCompatTarget(
  };
  }
 
- if (/\/(ricerca|search|suche|recherche)-/.test(path)) {
+ if (SEARCH_COMBO_SEGMENT_PATTERN.test(path)) {
  // Legacy per-canton cluster URL with a KNOWN live target: recover the
  // SPECIFIC live national cluster (verified at map-generation time) instead
  // of the generic canton-listing fallback below. Entries that had no live
@@ -430,6 +451,19 @@ export function resolveSearchConsoleCompatTarget(
  return {
  canonicalPath,
  kind: 'search',
+ locale,
+ };
+ }
+
+ // Event-detail leaves (past the noindex grace window, or dropped pre-emptively on
+ // reschedule/cancellation — see EVENTS_SECTION_PATTERN comment above). match[0] IS
+ // already the canton hub root (pattern is anchored through the trailing slash after
+ // the canton segment), so no further path construction is needed.
+ const eventsMatch = EVENTS_SECTION_PATTERN.exec(path);
+ if (eventsMatch) {
+ return {
+ canonicalPath: eventsMatch[0],
+ kind: 'legacy',
  locale,
  };
  }

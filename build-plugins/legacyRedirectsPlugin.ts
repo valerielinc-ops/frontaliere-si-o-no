@@ -7,7 +7,11 @@ import path from 'path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
-import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+import {
+ resolveSearchConsoleCompatTarget,
+ JOB_BOARD_PAGINATION_PATTERN,
+ SEARCH_COMBO_SEGMENT_PATTERN,
+} from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import {
  resolveCantonSection,
@@ -474,6 +478,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  return Array.from(out);
  })();
  const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
+ // Search-combo slugs and out-of-range pagination leaves are job-section-prefixed
+ // (e.g. /cerca-lavoro-svizzera/ricerca-fondo-arbon/) but NEITHER is handled by
+ // jobsSeoPagesPlugin or seoHubsPlugin: jobsSeoPagesPlugin explicitly excludes
+ // searchComboPattern from its own tracking, and out-of-range individual pagination
+ // leaves (a canton's page count shrinking build-over-build) get no bridge from
+ // seoHubsPlugin either. Without this exemption isJobPath's skip below makes this
+ // resolver's correct handling for both shapes permanently dead code, and the URL
+ // is left unresolvable (real 404) — see build-plugins/searchConsoleCompat.ts.
+ const isCompatResolvableUnderJobPrefix = (p: string): boolean =>
+ SEARCH_COMBO_SEGMENT_PATTERN.test(p) || JOB_BOARD_PAGINATION_PATTERN.test(p);
  let skippedJobPaths = 0;
  {
  const compatPaths = readCompatPaths(rootDir).paths;
@@ -485,8 +499,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  const fromNorm = from.replace(/\/+$/, '');
  const toNorm = resolution.canonicalPath.replace(/\/+$/, '');
  if (from === '/' || fromNorm === toNorm) continue;
- // Skip job paths — handled by jobsSeoPagesPlugin with enriched content
- if (isJobPath(from)) { skippedJobPaths++; continue; }
+ // Skip job paths — handled by jobsSeoPagesPlugin with enriched content, EXCEPT
+ // search-combo/pagination shapes which no plugin ever bridges (see comment above).
+ if (isJobPath(from) && !isCompatResolvableUnderJobPrefix(from)) { skippedJobPaths++; continue; }
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
  // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
