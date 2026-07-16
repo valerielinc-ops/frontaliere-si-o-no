@@ -33,6 +33,7 @@ import {
  type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
+import { professionSynonymText } from '@/services/professionSynonyms';
 import { cantonSearchTokens, CANTON_CODES } from '@/services/cantonList';
 import {
  type BehaviorData,
@@ -226,8 +227,9 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
   if (cached && cached.locale === locale) return cached.hay;
   const description = job.descriptionByLocale?.[locale] ?? job.description;
   const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+  const synonyms = professionSynonymText(localizedTitle);
   const hay = buildStemmedHaystack(
-    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description || ''}`,
+    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description || ''} ${synonyms}`,
   );
   broadenHaystackCache.set(job, { locale, hay });
   return hay;
@@ -1778,7 +1780,10 @@ function queryMatchesJob(job: JobListing, query: string, locale: Locale): boolea
  if (queryTokens.length === 0) return true;
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description}`);
+ // Profession-taxonomy synonyms (it/de/fr/en) so a query in one language
+ // matches a job title written in another (e.g. "nurse" ↔ "Infermiera").
+ const synonyms = professionSynonymText(localizedTitle);
+ const haystack = normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`);
  return queryTokens.every((token) => haystack.includes(token));
 }
 
@@ -3169,7 +3174,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Stemmed + space-padded haystack so query matching tolerates Italian
  // plural/feminine variants (pulizie ↔ pulizia, infermieri ↔ infermiera)
  // while still requiring word-boundary alignment (cas ≠ cassa).
- map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description}`));
+ // Also folds in profession-taxonomy synonyms (it/de/fr/en) so a query
+ // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
+ const synonyms = professionSynonymText(localizedTitle);
+ map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
  }
  if (i < sortedJobs.length) {
  requestAnimationFrame(processChunk);
