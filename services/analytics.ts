@@ -1159,6 +1159,7 @@ export const Analytics = {
  cssUrl: info.href || '',
  delayMs: info.delayMs || 3000,
  pagePath: info.pagePath || '/',
+ visibilityState: info.visibilityState || 'unknown',
  });
  }
  } catch { /* ignore */ }
@@ -1242,8 +1243,22 @@ export const Analytics = {
  * GA4 event: css_fallback
  *
  * Fires when the 3-second setTimeout had to force CSS media='all' because
- * the onload handler was stripped by a content blocker. This means the user
- * saw unstyled content for 3 seconds.
+ * the `onload` handler never fired within the window (content blocker
+ * stripping the handler is ONE possible cause, not the only one — see
+ * issue #4304 triage below). This means the user saw unstyled content
+ * (behind the render-blocking critical CSS, so not a blank page) for up
+ * to 3 seconds.
+ *
+ * Issue #4304 triage (956 events/30d, ~1% of sessions): live breakdown showed
+ * NO single-browser-engine concentration (Chrome/Android and Mobile
+ * Safari/iOS both contribute roughly proportional to their overall mobile
+ * traffic share) and 93% of events report `connection_type` `'4g'` — against
+ * both a single-engine onload bug and a simple slow-network read of this
+ * event, since `effectiveType` is a soft heuristic that defaults to `'4g'`
+ * absent contrary evidence. `visibility_state` (added this triage) lets a
+ * background-tab-throttling root cause be confirmed/ruled out from the next
+ * data pull — a `hidden` skew would explain a cross-engine, "network looked
+ * fine" pattern that a single-onload-bug theory does not.
  *
  * If this count is HIGH → consider inlining more critical CSS or using
  * a different async loading strategy.
@@ -1252,11 +1267,13 @@ export const Analytics = {
  cssUrl?: string;
  delayMs?: number;
  pagePath?: string;
+ visibilityState?: string;
  }) => {
  log('css_fallback', {
  css_url: truncate(info.cssUrl || '', 200),
  delay_ms: info.delayMs ?? 3000,
  page_path: truncate(info.pagePath || window.location.pathname, 180),
+ visibility_state: truncate(info.visibilityState || 'unknown', 20),
  user_agent: truncate(navigator.userAgent || '', 150),
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,

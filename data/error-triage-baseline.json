@@ -1,0 +1,286 @@
+{
+  "_meta": {
+    "issue": 4304,
+    "title": "fix(stability): error rate 3,8% -> <1% ed eliminazione dei 25k dead click mensili",
+    "generatedAt": "2026-07-16T20:45:00+02:00",
+    "source": "PostHog HogQL, project eu.posthog.com, live query, 30-day rolling window ending 2026-07-16",
+    "purpose": "Baseline snapshot used to triage and fix issue #4304. NOT an accumulator — re-run the same HogQL queries for future audits rather than appending here.",
+    "totals30d": {
+      "$dead_click": { "n": 25689, "users": 5843, "note": "PostHog's own dead-click autocapture (not the custom dead_click event below)." },
+      "exception": { "n": 8376, "users": 1716 },
+      "app_error": { "n": 8314, "users": 1716 },
+      "resource_load_error": { "n": 7001, "users": 1549, "adBlockerTrue": { "n": 927, "users": 592 }, "adBlockerFalse": { "n": 6074, "users": 1267 } },
+      "dead_click_custom": { "n": 2747, "users": 1375, "note": "First-party detectDeadClick() event in services/analytics.ts, distinct from PostHog's autocapture." },
+      "force_reload": { "n": 1175, "users": 883 },
+      "$exception": { "n": 958, "users": 385, "note": "PostHog native $exception autocapture, filtered by services/posthog-error-filter.ts before_send." },
+      "css_fallback": { "n": 956, "users": 743 },
+      "error_page_view": { "n": 783, "users": 477 },
+      "chunk_retry": { "n": 449, "users": 189 }
+    }
+  },
+
+  "top10ErrorClusters": [
+    {
+      "rank": 1,
+      "type": "sw_cache_stale",
+      "message": "Stale chunk: https://cdn.frontaliereticino.ch/assets/seo-static.css",
+      "events": 471,
+      "users": 345,
+      "status": "already-self-healing",
+      "rootCause": "Service worker served a CSS chunk hash from before the latest deploy. This is the DIAGNOSTIC event emitted by the pre-existing self-heal path (services/resilientImport.ts / recoverFromStaleChunk) when it successfully detects and recovers from post-deploy cache skew, not an unrecovered crash.",
+      "action": "None needed this session — working as designed. Volume scales with deploy frequency."
+    },
+    {
+      "rank": 2,
+      "type": "sw_cache_stale",
+      "message": "Stale chunk: https://cdn.frontaliereticino.ch/assets/index.css",
+      "events": 216,
+      "users": 200,
+      "status": "already-self-healing",
+      "rootCause": "Same mechanism as rank 1, different chunk.",
+      "action": "None needed."
+    },
+    {
+      "rank": 3,
+      "type": "error_boundary",
+      "message": "[SilentBoundary:newsletter-popup] TypeError: Failed to fetch dynamically imported module: .../NewsletterPopup.js",
+      "events": 138,
+      "users": 108,
+      "status": "already-contained",
+      "rootCause": "Chunk-load failure on an optional, non-critical component wrapped in a SilentBoundary — does not crash the app or block the funnel.",
+      "action": "None needed."
+    },
+    {
+      "rank": 4,
+      "type": "$exception",
+      "message": "Error: Script error.",
+      "events": 114,
+      "users": 40,
+      "status": "stale-pre-fix-data-in-30d-window",
+      "rootCause": "Cross-origin script error with no detail (browser security masking). Already matched by UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts and dropped by services/posthog-error-filter.ts's before_send. Verified live: day-bucketed HogQL query (this session) shows this + 3 sibling benign patterns spiking to 33 events on 2026-07-04 (pre-fix backlog) then trailing to 1-4/day from 2026-07-07 onward and ZERO on 2026-07-15/16 — confirms the filter is working in production; the 30-day rolling average is dominated by stale pre-fix data.",
+      "action": "None needed — filter already correct and live."
+    },
+    {
+      "rank": 5,
+      "type": "sw_cache_stale",
+      "message": "Stale chunk: https://cdn.frontaliereticino.ch/assets/NewsletterPopup.js",
+      "events": 88,
+      "users": 79,
+      "status": "already-self-healing",
+      "rootCause": "Same mechanism as rank 1.",
+      "action": "None needed."
+    },
+    {
+      "rank": 6,
+      "type": "exception",
+      "message": "TypeError: Importing a module script failed.",
+      "events": 73,
+      "users": 42,
+      "status": "already-self-healing",
+      "rootCause": "Covered by CHUNK_LOAD_ERROR_SUBSTRINGS / self-heal pattern matching in services/resilientImport.ts — routes through recoverFromStaleChunk().",
+      "action": "None needed."
+    },
+    {
+      "rank": 7,
+      "type": "exception",
+      "message": "SyntaxError: Unexpected token ?",
+      "path": "/glossario-frontaliere/",
+      "events": 66,
+      "users": 35,
+      "status": "not-fixed-this-session",
+      "rootCause": "Not root-caused — sample volume concentrated on one page, but stack unavailable (synthetic/no frames in the sampled events). Plausible stale-chunk-adjacent parse failure (partial/truncated JS response cached by SW or CDN) but not confirmed.",
+      "action": "NOT IMPLEMENTED — needs a live reproduction (Playwright + network throttling/cache poisoning simulation) or a resolved stack sample before a safe fix can be written. Flagged for follow-up."
+    },
+    {
+      "rank": 8,
+      "type": "exception",
+      "message": "RangeError: Maximum call stack size exceeded.",
+      "events": 58,
+      "users": 16,
+      "status": "not-fixed-this-session",
+      "rootCause": "Not root-caused. synthetic:true (window.onerror generic capture, no stack) across many unrelated pages — not page-specific, so likely a global recursive function. Coincides with elevated force_reload (1175/883) and chunk_retry (449/189) counts, suggesting a possible self-heal retry loop under specific timing (not confirmed).",
+      "action": "NOT IMPLEMENTED — no stack trace available (synthetic error) and multi-page pattern rules out a single component; needs live reproduction to pin down safely. Flagged for follow-up rather than guessed at."
+    },
+    {
+      "rank": 9,
+      "type": "unhandled_rejection",
+      "message": "Unknown rejection",
+      "events": 30,
+      "users": 30,
+      "status": "diagnosed-low-actionability",
+      "rootCause": "services/analytics.ts's global unhandledrejection handler (~line 1070) fires on ANY Promise rejecting with a falsy/non-Error reason (e.g. `Promise.reject()`, `Promise.reject(null)`). No stack trace by design (the rejection reason itself carries none). 1:1 events:users pattern with no path/UA concentration — scattered, low-signal.",
+      "action": "None applied. Root-causing which specific reject() call needs a first-party source audit for bare `Promise.reject()`/`.reject(falsy)` call sites — out of proportion to 30 events/30 users relative to the rest of the triage. Documented, not fixed."
+    },
+    {
+      "rank": 10,
+      "type": "exception",
+      "message": "TypeError: Cannot read properties of undefined (reading 'trackCalculation')",
+      "events": 27,
+      "users": 18,
+      "status": "fixed-this-session",
+      "rootCause": "Cross-chunk version skew left the Analytics lazy-proxy (services/analyticsProxy.ts) bound to undefined at the call site in a stale cached chunk.",
+      "action": "FIXED — commit ab4d3890b9b: extended CALL_TIME_SKEW_PATTERNS in services/resilientImport.ts with V8 + Safari undefined-lazy-proxy TypeError shapes, anchored to the track*/init*/set* Analytics method naming convention. Mirrored in index.html's inline pre-module bootstrap. Routes through the existing recoverFromStaleChunk() self-heal instead of a dead top-level error screen."
+    }
+  ],
+
+  "additionalFixedThisSession": [
+    {
+      "message": "TypeError: Cannot read properties of undefined (reading 'apply')",
+      "events": 19,
+      "users": 14,
+      "status": "fixed-this-session",
+      "rootCause": "hooks/useUIState.ts and hooks/useSeoPageTracking.ts independently monkeypatch history.pushState/replaceState; under React StrictMode double-invocation or interleaved mount/unmount, the captured original*State reference could go stale by the time a navigation fired, throwing at .apply() and crashing to the top-level ErrorBoundary over a tracking call.",
+      "action": "FIXED — commit 6cac44e3ce0: guarded all 3 .apply() call sites (grep-verified exhaustive across services/components/hooks) with typeof === 'function' checks, no-op fallback. Regression tests added to tests/hooks/useUIState.test.ts and tests/useSeoPageTracking.test.ts."
+    }
+  ],
+
+  "deadClickTriage": {
+    "totalCustomEvent30d": { "n": 2747, "users": 1375 },
+    "topClusters": [
+      {
+        "rank": 1,
+        "path": "/",
+        "tag": "select",
+        "text": "Celibe/Nubile / Sposato/a / Divorziato/a / Vedovo/a",
+        "events": 409,
+        "users": 170,
+        "status": "fixed-this-session",
+        "rootCause": "The detector's `actionable` allowlist excluded native <select> (and <input>, <textarea>, <summary>), so every click on a fully-interactive native marital-status dropdown was unconditionally flagged dead regardless of whether the picker opened. Largest single cluster (~17% of all custom dead_click events).",
+        "action": "FIXED — commit a8af38ef3f3: widened actionable allowlist to select/input/textarea/summary."
+      },
+      {
+        "rank": 2,
+        "path": "/",
+        "tag": "svg",
+        "events": 98,
+        "users": 72,
+        "status": "fixed-as-side-effect",
+        "rootCause": "components/calculator/ResultsView.tsx's BreakdownTable accordion row rendered a ChevronRight icon (lucide-react <svg>) inside a clickable div lacking role=button, so keyboard/AT-invisible clicks landing on the icon's <svg>/<path> resolved to a non-actionable element under the old detector allowlist. SVG className is an SVGAnimatedString, not a string, compounding the false-classification.",
+        "action": "FIXED as a side effect of commit 87d2e4ccae6 (role=button/tabIndex/onKeyDown added to the wrapping div) — clicks on the icon now correctly resolve via target.closest('[role=\"button\"]')."
+      },
+      {
+        "rank": 3,
+        "path": "/",
+        "tag": "span",
+        "classes": "fc-slider-el",
+        "events": 93,
+        "users": 31,
+        "status": "fixed-this-session",
+        "rootCause": "Google Funding Choices (consent CMP) slider widget — third-party markup we do not own.",
+        "action": "FIXED — commit a8af38ef3f3: excluded via class-namespace guard (fc- prefix) in detectDeadClick()."
+      },
+      {
+        "rank": 4,
+        "path": "/calcola-stipendio/cosa-cambia-se/",
+        "tag": "input",
+        "classes": "... cursor-pointer accent-...",
+        "events": 47,
+        "users": 14,
+        "status": "fixed-this-session",
+        "rootCause": "input[type=range] slider — native, fully interactive, excluded from the old allowlist.",
+        "action": "FIXED — commit a8af38ef3f3 (allowlist widened to include input)."
+      },
+      {
+        "rank": 5,
+        "path": "/",
+        "tag": "div",
+        "text": "IRPEF Italia (Saldo)",
+        "events": 61,
+        "users": 46,
+        "status": "fixed-as-side-effect",
+        "note": "Combines the 33/27 and 28/21 rows (same accordion row, two DOM sub-targets).",
+        "rootCause": "Same BreakdownTable accordion row as rank 2 — a clickable div without role=button/tabIndex/keyboard handler.",
+        "action": "FIXED as a side effect of commit 87d2e4ccae6."
+      },
+      {
+        "rank": 6,
+        "path": "/guida-frontaliere/mappa-confine/",
+        "tag": "path",
+        "events": 27,
+        "users": 15,
+        "status": "investigated-no-actionable-defect-found",
+        "rootCause": "Traced route to components/guide/BorderMunicipalitiesMap.tsx. Confirmed: no <svg>/cursor-pointer usage in the file at all; all 4 onClick handlers are on genuine semantic <button> elements already covered by the actionable allowlist; the municipality comparison cards (grid at line 704) are read-only display divs with NO onClick handler — selection happens via a <select> dropdown (compareMunicipality), not by clicking cards. The cards' className (bg-surface rounded-xl p-4 border ...) does not contain the literal substring 'card' or 'banner', so the detector's own looksClickable heuristic (cursor:pointer OR class*=card OR class*=banner) should not even match them.",
+        "action": "NOT FIXED — no missing-interactivity defect found in this component. Most likely explanation: mis-taps on decorative icons (Award/TrendingUp/TrendingDown/Building2) inside the read-only comparison cards, or a detector heuristic edge case not reproducible via static analysis. Needs live session-replay review to pin down further; low volume (~1% of custom dead-click total) does not justify a speculative code change."
+      },
+      {
+        "rank": 7,
+        "path": "*",
+        "tag": "summary",
+        "events": "~63 combined across multiple FAQ/accordion pages",
+        "status": "not-a-bug",
+        "rootCause": "Native <details>/<summary> disclosure widgets — already fully interactive/keyboard-accessible by browser default. Confirmed false positive on manual read (documented in commit 87d2e4ccae6's message: 'Remaining ~20 candidates ... backdrop/scrim dismiss-click, modal-content stopPropagation guards, third-party Google-Sign-In button container').",
+        "action": "None needed."
+      },
+      {
+        "rank": 8,
+        "path": "/",
+        "tag": "span",
+        "classes": "google-anno-sa-qtx google-anno-skip",
+        "events": 12,
+        "users": 10,
+        "status": "fixed-this-session",
+        "rootCause": "Google Translate's DOM-wrapping spans around already-instrumented first-party elements.",
+        "action": "FIXED — commit a8af38ef3f3: excluded via google-anno-* class-namespace guard."
+      }
+    ]
+  },
+
+  "resourceLoadError": {
+    "total30d": { "n": 7001, "users": 1549 },
+    "adBlockerFlagTotals": { "true": { "n": 927, "users": 592 }, "false": { "n": 6074, "users": 1267 } },
+    "note": "adBlockerFlagTotals reflects the CURRENT classifier post-fix (commit c935d883d41). Top false-classified-as-genuine-app-error resources identified in live triage and now correctly tagged ad_blocker=true: adsbygoogle.js, Microsoft Clarity (clarity.ms), Google Funding Choices CMP (fundingchoicesmessages.google.com), Cloudflare Web Analytics beacon (static.cloudflareinsights.com), our own PostHog reverse-proxy (t.frontaliereticino.ch), gstatic pub-*.js.",
+    "action": "FIXED — commit c935d883d41: extracted the previously copy-pasted ad-blocker keyword regex (2x in index.html's pre-module bootstrap, 2x embedded in build-plugins/constants.ts's SELF_HEAL_SCRIPT_CONTENT template) into one canonical AD_BLOCKER_TRIGGER_PATTERNS array in services/resilientImport.ts, generated at build time into constants.ts (same technique as CALL_TIME_SKEW/MODULE_LINK_SKEW/CHUNK_LOAD_ERROR). ~1,420 of 6,986 resource_load_error events/30d (~20%) were previously miscounted as genuine app errors.",
+    "topGenuineResourceErrors": [
+      { "url": "https://cdn.frontaliereticino.ch/assets/index.css", "n": 998, "users": 535, "adBlocker": false },
+      { "url": "https://cdn.frontaliereticino.ch/assets/seo-static.css", "n": 811, "users": 402, "adBlocker": false, "note": "Same stale-chunk/CDN-propagation-lag family as the sw_cache_stale clusters above; already self-healing." }
+    ]
+  },
+
+  "cssFallback": {
+    "total30d": { "n": 956, "users": 743, "note": "Fires when the media=print async-CSS swap's onload never fires within the site-wide 3s belt-and-braces setTimeout fallback." },
+    "byConnectionType": [
+      { "conn": "4g", "n": 893, "users": 683, "avgDelayMs": 3000 },
+      { "conn": "unknown", "n": 32, "users": 32, "avgDelayMs": 3000 },
+      { "conn": "3g", "n": 31, "users": 29, "avgDelayMs": 3000 },
+      { "conn": "slow-2g", "n": 2, "users": 2, "avgDelayMs": 3000 }
+    ],
+    "byBrowserOs": [
+      { "browser": "Chrome", "os": "Android", "device": "Mobile", "n": 461, "users": 340 },
+      { "browser": "Mobile Safari", "os": "iOS", "device": "Mobile", "n": 388, "users": 316 },
+      { "browser": "Firefox", "os": "Windows", "device": "Desktop", "n": 54, "users": 35 },
+      { "browser": "Chrome", "os": "Windows", "device": "Desktop", "n": 16, "users": 16 },
+      { "browser": "other (7 buckets)", "n": 37, "users": 37 }
+    ],
+    "byPagePath": "Scattered across 25+ job-detail/hub URLs, none dominating (top: /cerca-lavoro-ticino/infermieri/, 26/17). No single page or template concentrates the failures.",
+    "diagnosis": {
+      "ruledOut": "Single-browser-engine onload bug — the Chrome-Android/Mobile-Safari-iOS split (461 vs 388) is roughly proportional to the site's actual mobile traffic mix, not concentrated in one rendering engine.",
+      "weakened": "Pure slow-network cause — 93% of events self-report navigator.connection.effectiveType='4g', but this API is a Chromium-only (not Safari/Firefox) SOFT HEURISTIC that defaults to '4g' absent contrary evidence, not a hard measurement, so it does not conclusively rule out network-related causes on the ~44% of events from Mobile Safari (which has no Network Information API support at all and is silently bucketed 'unknown' or defaults elsewhere).",
+      "openHypothesis": "Background-tab throttling — mobile OSes deprioritize timers/fetches for backgrounded tabs, which could delay both the onload firing AND (less likely) the setTimeout fallback itself. NOT verifiable with existing telemetry (no visibility-state dimension existed before this session)."
+    },
+    "action": "MITIGATED (diagnostic-only, no behavior change) — commit pending in this session: added `visibilityState: document.visibilityState` to the _cssFallbackInfo payload (build-plugins/htmlTemplate.ts's ASYNC_CSS_FALLBACK_SCRIPT, drained by services/analytics.ts's trackCssFallback). document.visibilityState (Page Visibility API) is universally supported, unlike Network Information API. Deliberately did NOT change the 3000ms timeout value — no evidence a different value would help, and changing it risks worsening FOUC for the majority (893/956, ~93%) of unaffected fast-connection sessions. Re-query cssFallbackByVisibilityState once this instrumentation has ~7-14 days of live data to confirm/rule out the background-tab-throttling hypothesis.",
+    "siblingPatternFixThisSession": "Discovered AGENTS.md #6 violation: build-plugins/ogPagesPlugin.ts and build-plugins/staticPagesPlugin.ts had literal byte-for-byte duplicate copies of the ASYNC_CSS_FALLBACK_SCRIPT setTimeout text instead of importing the shared build-plugins/htmlTemplate.ts constant (the two copies had already drifted before this fix). Refactored both to import ASYNC_CSS_FALLBACK_SCRIPT; added a regression test (tests/build-plugins/asyncCssLandings.test.ts) locking the import in place. Verified the SPA's own build-plugins/asyncCssPlugin.ts does NOT emit this telemetry at all — all 956/30d events originate exclusively from static SEO page emitters."
+  },
+
+  "notImplemented": [
+    {
+      "item": "SyntaxError 'Unexpected token ?' on /glossario-frontaliere/ (66 events/35 users)",
+      "reason": "No resolved stack trace in sampled events; needs live reproduction before a safe fix can be written."
+    },
+    {
+      "item": "RangeError 'Maximum call stack size exceeded' (58 events/16 users)",
+      "reason": "synthetic:true, no stack trace, scattered across many unrelated pages — cannot be safely attributed to a specific component without live reproduction."
+    },
+    {
+      "item": "unhandled_rejection 'Unknown rejection' (30 events/30 users)",
+      "reason": "Diagnosed as a generic falsy-reason Promise rejection at services/analytics.ts's global handler; pinning the exact reject() call site needs a first-party source audit disproportionate to the volume (30/30 out of 5,843 total dead-click/error-affected users)."
+    },
+    {
+      "item": "Dead-click cluster on /guida-frontaliere/mappa-confine/ (path element, 27 events/15 users)",
+      "reason": "Investigated exhaustively (see deadClickTriage rank 6) — no missing-interactivity code defect found. Cards are correctly non-interactive; selection happens via a <select>. Likely mis-taps on decorative icons, not a fixable code bug."
+    },
+    {
+      "item": "background-tab-throttling hypothesis for css_fallback",
+      "reason": "New visibilityState diagnostic dimension added this session but has zero data yet — needs 7-14 days of live collection before the hypothesis can be confirmed or ruled out. No behavior change (timeout value) made without evidence."
+    }
+  ]
+}
