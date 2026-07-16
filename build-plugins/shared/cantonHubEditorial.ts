@@ -38,6 +38,20 @@ import { paginatedPath } from '../seoHubsData';
 import type { HubLocale as ArchiveHubLocale } from '../seoHubsData';
 import { cantonFaqMedianAnnual } from './cantonSalaryIndex';
 
+// ── Real-data block (issue #4303 item 1) ──────────────────────────────
+// Adds a sourced-data section for the enriched cathedral canton hubs
+// (Zurigo, Berna, Basilea, + the national Svizzera aggregate). All figures
+// come from real, already-vetted build-time sources — nothing here is
+// invented: sector medians are computed from live `data/jobs.json`
+// baseSalary fields (BFS LSE has no per-profession breakdown, only the
+// 7-Grossregion wage level already used by `cantonSalaryIndex.ts`),
+// wage-level + LAMal premium are the two real cross-canton axes for a
+// "cost of living vs Ticino" comparison (no cross-canton rent/CPI dataset
+// exists in-repo — `data/seo/fso-rental-medians.json` is Ticino-only), and
+// the employer list reuses the same live `data/jobs.json` company field
+// that `weeklyEmployersData.ts` and the existing per-canton company-hub
+// navigator (`jobsSeoPagesPlugin.ts`) already draw from.
+
 /** Format a CHF integer with the '.' thousands separator used in this editorial. */
 function fmtChfDot(n: number): string {
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -205,4 +219,191 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   }
 
   return out;
+}
+
+// ── Real-data block (issue #4303 item 1) ──────────────────────────────
+
+export interface CantonRealDataSectorRow {
+  /** Locale-resolved sector display label (SECTOR_HUB_DISPLAY[locale][sector]). */
+  label: string;
+  /** Median annual gross salary in CHF, computed from live job salaryMin/salaryMax for this canton×sector. */
+  medianAnnualChf: number;
+  /** Canonical job count backing the median (caller only passes rows that clear a stability floor). */
+  jobCount: number;
+  /** Href to the canton×sector landing page, or null when no such self-canonical page exists (aggregate hub). */
+  href: string | null;
+}
+
+export interface CantonRealDataEmployer {
+  name: string;
+  jobCount: number;
+  /** Href to the company hub page, or null when no such page exists (aggregate hub — plain text). */
+  href: string | null;
+}
+
+export interface CantonRealDataBlockOpts {
+  locale: ArchiveHubLocale;
+  /** Display label, e.g. 'Zurigo', 'Berna', 'Basilea', 'Svizzera'. */
+  display: string;
+  isAggregate: boolean;
+  /** Top sector rows, already sorted desc by jobCount and capped by the caller. */
+  sectorRows: CantonRealDataSectorRow[];
+  /** Wage-level factor vs Ticino (1.0 = same as Ticino), from cantonSalaryFactor(). */
+  wageFactorVsTicino: number;
+  /** Canton's own median monthly LAMal premium (standard adult 26+), CHF. */
+  lamalMonthlyChf: number;
+  /** Ticino's median monthly LAMal premium, CHF (comparison baseline). */
+  lamalMonthlyTicinoChf: number;
+  /** Whether the canton borders a foreign country, per cantonSalaryIndex.BORDER_CANTONS. */
+  isBorderCanton: boolean;
+  /** Top employers, already sorted desc by jobCount and capped by the caller. */
+  employers: CantonRealDataEmployer[];
+}
+
+const REAL_DATA_H2: Record<ArchiveHubLocale, (display: string) => string> = {
+  it: (d) => `Dati reali per chi lavora a ${d}`,
+  en: (d) => `Real data for working in ${d}`,
+  de: (d) => `Echte Daten für die Arbeit in ${d}`,
+  fr: (d) => `Données réelles pour travailler à ${d}`,
+};
+
+const REAL_DATA_SUBHEAD: Record<ArchiveHubLocale, { salary: string; cost: string; permit: string; employers: string }> = {
+  it: { salary: 'Salari mediani per professione', cost: 'Costo della vita vs Ticino', permit: 'Permesso G e zona di confine', employers: 'Aziende che assumono' },
+  en: { salary: 'Median salary by profession', cost: 'Cost of living vs Ticino', permit: 'G permit and border zone', employers: 'Companies hiring' },
+  de: { salary: 'Medianlohn nach Beruf', cost: 'Lebenshaltungskosten vs. Tessin', permit: 'G-Bewilligung und Grenzzone', employers: 'Unternehmen, die einstellen' },
+  fr: { salary: 'Salaire médian par profession', cost: 'Coût de la vie vs Tessin', permit: 'Permis G et zone frontalière', employers: 'Entreprises qui recrutent' },
+};
+
+const REAL_DATA_JOBS_WORD: Record<ArchiveHubLocale, (n: number) => string> = {
+  it: (n) => `${n} offert${n === 1 ? 'a' : 'e'}`,
+  en: (n) => `${n} job${n === 1 ? '' : 's'}`,
+  de: (n) => `${n} Stelle${n === 1 ? '' : 'n'}`,
+  fr: (n) => `${n} offre${n === 1 ? '' : 's'}`,
+};
+
+const REAL_DATA_PER_YEAR: Record<ArchiveHubLocale, string> = {
+  it: '/anno', en: '/year', de: '/Jahr', fr: '/an',
+};
+
+/** Cost-of-living comparison paragraph — wage-level factor + LAMal premium delta vs Ticino. Both real, sourced axes (BFS LSE Grossregion wage index + BAG/UFSP LAMal medians); no fabricated CPI/rent index. */
+function costOfLivingParagraph(
+  locale: ArchiveHubLocale,
+  display: string,
+  wageFactorVsTicino: number,
+  lamalMonthlyChf: number,
+  lamalMonthlyTicinoChf: number,
+): string {
+  const wagePct = Math.round((wageFactorVsTicino - 1) * 100);
+  const lamalDelta = lamalMonthlyChf - lamalMonthlyTicinoChf;
+  const lamalPct = lamalMonthlyTicinoChf > 0 ? Math.round((lamalDelta / lamalMonthlyTicinoChf) * 100) : 0;
+  const wageChf = fmtChfDot(lamalMonthlyChf);
+  const tiChf = fmtChfDot(lamalMonthlyTicinoChf);
+  switch (locale) {
+    case 'en': {
+      const wageDir = wagePct >= 0 ? 'about' : 'about';
+      const lamalDir = lamalDelta >= 0 ? 'higher' : 'lower';
+      return `The median gross salary in ${display} is ${wageDir} ${Math.abs(wagePct)}% ${wagePct >= 0 ? 'higher' : 'lower'} than in Ticino (BFS LSE 2024 regional wage-level data). The median LAMal health-insurance premium is also ${lamalDir}: CHF ${wageChf}/month vs CHF ${tiChf}/month in Ticino (${Math.abs(lamalPct)}% ${lamalDir}, BAG/UFSP data) — a real extra cost to factor into your net income.`;
+    }
+    case 'de': {
+      const dir = wagePct >= 0 ? 'höher' : 'niedriger';
+      const lamalDir = lamalDelta >= 0 ? 'höher' : 'niedriger';
+      return `Der Medianlohn brutto in ${display} liegt rund ${Math.abs(wagePct)}% ${dir} als im Tessin (BFS-LSE-2024-Lohnniveau nach Grossregion). Auch die mediane LAMal-Krankenkassenprämie ist ${lamalDir}: CHF ${wageChf}/Monat gegenüber CHF ${tiChf}/Monat im Tessin (${Math.abs(lamalPct)}% ${lamalDir}, BAG-Daten) — ein realer Zusatzkosten-Faktor für das Nettoeinkommen.`;
+    }
+    case 'fr': {
+      const dir = wagePct >= 0 ? 'supérieur' : 'inférieur';
+      const lamalDir = lamalDelta >= 0 ? 'plus élevée' : 'plus basse';
+      return `Le salaire brut médian à ${display} est environ ${Math.abs(wagePct)}% ${dir} par rapport au Tessin (niveau salarial régional BFS LSE 2024). La prime LAMal médiane est aussi ${lamalDir}: CHF ${wageChf}/mois contre CHF ${tiChf}/mois au Tessin (${Math.abs(lamalPct)}%, données OFSP) — un coût réel à intégrer dans le calcul du net.`;
+    }
+    default: {
+      const dir = wagePct >= 0 ? 'più alto' : 'più basso';
+      const lamalDir = lamalDelta >= 0 ? 'più alto' : 'più basso';
+      return `Il salario mediano lordo a ${display} è circa il ${Math.abs(wagePct)}% ${dir} rispetto al Ticino (dato BFS LSE 2024 sul livello salariale regionale). Anche il premio mediano di cassa malati (LAMal) è ${lamalDir}: CHF ${wageChf}/mese contro CHF ${tiChf}/mese in Ticino (${Math.abs(lamalPct)}%, dato UFSP/BAG) — un costo reale da considerare nel calcolo del netto.`;
+    }
+  }
+}
+
+/** G-permit / border-zone paragraph. Deliberately does NOT reuse the existing generic 20km-Italy prose (that already runs on every non-TI canton hub, see buildCantonContextProse) — this adds canton-specific context instead. No fabricated km figures for non-Italy borders: only the real BORDER_CANTONS classification already used elsewhere in cantonSalaryIndex.ts. */
+function gPermitParagraph(locale: ArchiveHubLocale, display: string, isAggregate: boolean, isBorderCanton: boolean): string {
+  const copy: Record<ArchiveHubLocale, { aggregate: string; border: string; interior: string }> = {
+    it: {
+      aggregate: `Il permesso G per frontalieri è riservato a chi risiede in un Comune di confine di un Paese limitrofo alla Svizzera e rientra quotidianamente al domicilio: per i residenti in Italia questo vale soprattutto per Ticino, Grigioni e Vallese. Per le offerte in cantoni più lontani dal confine italiano — come quelle di questo elenco — la soluzione più comune è un permesso B (dimorante) o il trasferimento della residenza in Svizzera.`,
+      border: `${display} confina con Germania e Francia, non con l'Italia: il permesso G frontaliere qui è tipicamente rilasciato a residenti tedeschi o francesi delle zone di confine. Chi vive in Italia e valuta un'offerta a ${display} normalmente opta per un permesso B (dimorante) piuttosto che lo status di frontaliere, riservato a chi risiede in un Comune di confine del Paese limitrofo.`,
+      interior: `Il permesso G per frontalieri richiede la residenza in un Comune di confine di un Paese limitrofo alla Svizzera e il rientro quotidiano al domicilio. ${display} non confina con l'Italia: chi vive in Italia e valuta un'offerta qui affronta un tragitto quotidiano molto più lungo rispetto al Ticino e in pratica opta per un permesso B (dimorante) o il trasferimento della residenza in Svizzera, non lo status di frontaliere.`,
+    },
+    en: {
+      aggregate: `The G cross-border permit is reserved for residents of a border municipality in a country neighbouring Switzerland who return home daily: for Italian residents that mainly means Ticino, Graubünden and Valais. For roles in cantons farther from the Italian border — like the ones listed here — the common path is a B residence permit or relocating to Switzerland.`,
+      border: `${display} borders Germany and France, not Italy: the G permit here is typically issued to German or French residents of the border zone. Italian residents considering a role in ${display} usually apply for a B residence permit instead of cross-border-commuter status, which is reserved for residents of a border municipality in the neighbouring country.`,
+      interior: `The G cross-border permit requires residency in a border municipality of a country neighbouring Switzerland and a daily return home. ${display} does not border Italy: Italian residents considering a role here face a much longer commute than in Ticino and in practice opt for a B residence permit or relocation to Switzerland, not cross-border-commuter status.`,
+    },
+    de: {
+      aggregate: `Die G-Grenzgängerbewilligung ist Bewohnern einer Grenzgemeinde eines Nachbarlands vorbehalten, die täglich heimkehren: für Personen aus Italien betrifft das vor allem Tessin, Graubünden und Wallis. Für Stellen in weiter von der italienischen Grenze entfernten Kantonen — wie in dieser Liste — ist eine B-Bewilligung oder der Wohnsitzwechsel in die Schweiz der übliche Weg.`,
+      border: `${display} grenzt an Deutschland und Frankreich, nicht an Italien: Die G-Bewilligung wird hier meist an deutsche oder französische Bewohner der Grenzzone vergeben. Wer in Italien wohnt und eine Stelle in ${display} prüft, beantragt üblicherweise eine B-Bewilligung statt des Grenzgängerstatus, der Bewohnern einer Grenzgemeinde im Nachbarland vorbehalten ist.`,
+      interior: `Die G-Grenzgängerbewilligung setzt Wohnsitz in einer Grenzgemeinde eines Nachbarlands der Schweiz sowie tägliche Heimkehr voraus. ${display} grenzt nicht an Italien: Wer in Italien wohnt und eine Stelle hier prüft, hat einen deutlich längeren Arbeitsweg als im Tessin und wählt in der Praxis eine B-Bewilligung oder den Wohnsitzwechsel in die Schweiz statt des Grenzgängerstatus.`,
+    },
+    fr: {
+      aggregate: `Le permis frontalier G est réservé aux résidents d'une commune frontalière d'un pays voisin qui rentrent chaque jour: pour les résidents italiens, cela concerne surtout le Tessin, les Grisons et le Valais. Pour les postes dans des cantons plus éloignés de la frontière italienne — comme ceux listés ici — la voie courante est un permis B ou un transfert de domicile en Suisse.`,
+      border: `${display} touche l'Allemagne et la France, pas l'Italie: le permis G y est généralement délivré à des résidents allemands ou français de la zone frontalière. Qui réside en Italie et envisage un poste à ${display} opte en général pour un permis B plutôt que le statut de frontalier, réservé aux résidents d'une commune frontalière du pays voisin.`,
+      interior: `Le permis frontalier G exige une résidence dans une commune frontalière d'un pays voisin de la Suisse et un retour quotidien au domicile. ${display} ne touche pas l'Italie: qui réside en Italie et envisage un poste ici affronte un trajet bien plus long qu'au Tessin et opte en pratique pour un permis B (séjour) ou un transfert de domicile en Suisse, pas le statut de frontalier.`,
+    },
+  };
+  const t = copy[locale] || copy.it;
+  return isAggregate ? t.aggregate : isBorderCanton ? t.border : t.interior;
+}
+
+/**
+ * Real-data block for the item 1 cathedral canton hubs (Zurigo, Berna,
+ * Basilea, + the Svizzera aggregate). Placed AFTER the data/listing area
+ * (mobile-first — see the caller's insertion point in jobsSeoPagesPlugin.ts,
+ * right after `cantonEditorialSection`). Every figure is sourced from a
+ * real build-time dataset — see the module-header comment above for the
+ * per-axis source rationale.
+ */
+export function buildCantonRealDataBlock(opts: CantonRealDataBlockOpts): string {
+  const { locale, display, isAggregate, sectorRows, wageFactorVsTicino, lamalMonthlyChf, lamalMonthlyTicinoChf, isBorderCanton, employers } = opts;
+  const sub = REAL_DATA_SUBHEAD[locale] || REAL_DATA_SUBHEAD.it;
+  const jobsWord = REAL_DATA_JOBS_WORD[locale] || REAL_DATA_JOBS_WORD.it;
+  const perYear = REAL_DATA_PER_YEAR[locale] || REAL_DATA_PER_YEAR.it;
+  const h2 = (REAL_DATA_H2[locale] || REAL_DATA_H2.it)(display);
+
+  const parts: string[] = [`<h2 class="s-h0yI7F">${esc(h2)}</h2>`];
+
+  if (sectorRows.length > 0) {
+    parts.push(`<h3 class="s-8S_vke">${esc(sub.salary)}</h3>`);
+    parts.push(
+      `<ul class="s-N93mPe">` +
+      sectorRows
+        .map((r) => {
+          const text = `${esc(r.label)}: CHF ${fmtChfDot(r.medianAnnualChf)}${esc(perYear)} · ${esc(jobsWord(r.jobCount))}`;
+          return r.href
+            ? `<li><a class="s-7DS5hj" href="${esc(r.href)}">${text}</a></li>`
+            : `<li><span class="s-7DS5hj">${text}</span></li>`;
+        })
+        .join('') +
+      `</ul>`,
+    );
+  }
+
+  parts.push(`<h3 class="s-8S_vke">${esc(sub.cost)}</h3>`);
+  parts.push(`<p class="s-L9sOKI">${costOfLivingParagraph(locale, display, wageFactorVsTicino, lamalMonthlyChf, lamalMonthlyTicinoChf)}</p>`);
+
+  parts.push(`<h3 class="s-8S_vke">${esc(sub.permit)}</h3>`);
+  parts.push(`<p class="s-L9sOKI">${gPermitParagraph(locale, display, isAggregate, isBorderCanton)}</p>`);
+
+  if (employers.length > 0) {
+    parts.push(`<h3 class="s-8S_vke">${esc(sub.employers)}</h3>`);
+    parts.push(
+      `<ul class="s-N93mPe">` +
+      employers
+        .map((e) => {
+          const text = `${esc(e.name)} · ${esc(jobsWord(e.jobCount))}`;
+          return e.href
+            ? `<li><a class="s-7DS5hj" href="${esc(e.href)}">${text}</a></li>`
+            : `<li><span class="s-7DS5hj">${text}</span></li>`;
+        })
+        .join('') +
+      `</ul>`,
+    );
+  }
+
+  return `<section class="s-IE_H9o" data-canton-real-data>${parts.join('')}</section>`;
 }

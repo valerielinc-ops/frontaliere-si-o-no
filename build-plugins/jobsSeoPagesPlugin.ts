@@ -126,7 +126,18 @@ import {
  type SectorHubKey,
 } from './jobSectorLanding';
 import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
-import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
+// Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
+// real-data block (wage-level factor + LAMal premium vs Ticino; no
+// fabricated cross-canton rent/CPI index exists in-repo).
+import {
+  cantonSalaryFactor,
+  isBorderCanton as cantonIsBorderCanton,
+  NATIONAL_MEDIAN_MONTHLY,
+  TICINO_MEDIAN_MONTHLY,
+} from './shared/cantonSalaryIndex';
+import { aggregateLamalCantonMedians } from './comparisonsHubAggregate';
+import type { CantonRealDataSectorRow, CantonRealDataEmployer } from './shared/cantonHubEditorial';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
@@ -9485,6 +9496,49 @@ ${staticAnalyticsHtml}
      }
    };
 
+   // ── Issue #4303 item 1 — real-data block precompute ──────────────────
+   // Scoped to the 4 cathedral hubs this issue targets (Zurigo, Berna,
+   // Basilea, + the Svizzera aggregate) — every other canton keeps its
+   // existing tiles+listing+editorial body unchanged. LAMal medians are
+   // computed once (build-time file read) and reused across all 4×4
+   // (canton×locale) entries below instead of re-reading per entry.
+   const REAL_DATA_TARGET_KEYS = new Set<string>(['ZH', 'BE', 'BASILEA', AGGREGATE_KEY]);
+   // BASILEA is the merged half-canton URL group (BS+BL); cantonSalaryFactor/
+   // isBorderCanton and the LAMal lookup both need a real 2-letter BFS/BAG
+   // code, so this maps the group key to its representative code (Basel-Stadt
+   // — the urban half-canton, economically dominant of the pair).
+   const REAL_DATA_SALARY_CODE: Record<string, string> = { ZH: 'ZH', BE: 'BE', BASILEA: 'BS' };
+   const realDataLamalYear = new Date().getFullYear();
+   const realDataLamalRows = aggregateLamalCantonMedians(rootDir, realDataLamalYear);
+   // aggregateLamalCantonMedians() returns IT-locale display labels (its own
+   // internal CANTON_LABEL_IT table isn't exported) — reverse-map only the
+   // 5 labels this block actually needs.
+   const REAL_DATA_LAMAL_LABEL_TO_CODE: Record<string, string> = {
+     Zurigo: 'ZH', Berna: 'BE', 'Basilea-Città': 'BS', 'Basilea-Campagna': 'BL', Ticino: 'TI',
+   };
+   const realDataLamalByCode = new Map<string, number>();
+   for (const row of realDataLamalRows) {
+     const code = REAL_DATA_LAMAL_LABEL_TO_CODE[row.canton];
+     if (code) realDataLamalByCode.set(code, row.medianMonthlyCHF);
+   }
+   // BAG_FALLBACK TI=425 inside aggregateLamalCantonMedians already covers
+   // the missing-snapshot case; this literal only guards the (untested)
+   // case where the TI row itself is absent from the returned array.
+   const realDataLamalTicino = realDataLamalByCode.get('TI') ?? 425;
+   const medianOf = (nums: readonly number[]): number => {
+     if (nums.length === 0) return 0;
+     const sorted = [...nums].sort((a, b) => a - b);
+     const mid = Math.floor(sorted.length / 2);
+     return sorted.length % 2 === 0 ? Math.round((sorted[mid - 1] + sorted[mid]) / 2) : sorted[mid];
+   };
+   // Stability floors — mirror the codebase's existing >=3 convention for
+   // "enough samples to show a number" (MIN_JOBS_PER_CANTON_COMPANY at
+   // jobsSeoPagesPlugin.ts:7608, MIN_JOBS_PER_COMPANY_IN_CITY in
+   // weeklyEmployersData.ts). Not imported directly — both are scoped
+   // constants private to their own block/module.
+   const REAL_DATA_SECTOR_MIN_JOBS = 3;
+   const REAL_DATA_EMPLOYER_MIN_JOBS = 3;
+
    for (const entry of cantonsToEmit) {
      const display = getCantonDisplayLabel(entry.key, entry.locale);
      const path = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
@@ -9578,6 +9632,28 @@ ${staticAnalyticsHtml}
            Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
        )
        .slice(0, 12);
+
+     // Issue #4303 items 1+5 — sharedResolveJobCanton() (used by
+     // cantonJobsAll above) never returns AGGREGATE_KEY, it always falls
+     // back to 'TI' for unmatched jobs — so cantonJobsAll is structurally
+     // EMPTY for the Svizzera aggregate hub. That starved the ItemList
+     // schema below (cantonCollectionLd was gated on cantonJobs.length>0,
+     // silently empty for this one hub) and would equally starve the new
+     // real-data block's sector/employer aggregation. Scoped fallback only
+     // — cantonJobsAll/totalJobs/avgSalary/tileGrid/listingGrid stay exactly
+     // as before for every canton, including AGGREGATE_KEY (unrelated to
+     // this issue, not touched here).
+     const realDataJobPool = entry.key === AGGREGATE_KEY ? validJobs : cantonJobsAll;
+     const collectionListJobs = entry.key === AGGREGATE_KEY
+       ? [...validJobs]
+           .sort(
+             (a, b) =>
+               Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
+               Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
+           )
+           .slice(0, 12)
+       : cantonJobs;
+     const collectionListTotal = entry.key === AGGREGATE_KEY ? validJobs.length : undefined;
 
      // Aggregate stats for the tile grid.
      const totalJobs = cantonJobsAll.length;
@@ -10081,6 +10157,111 @@ ${staticAnalyticsHtml}
        }
      }
 
+     // ── Issue #4303 item 1 — real-data block (Zurigo, Berna, Basilea,
+     // Svizzera aggregate only) ──────────────────────────────────────────
+     // Sector medians + employer counts are computed fresh from
+     // `realDataJobPool` (live data/jobs.json baseSalary/company fields —
+     // see the module-header rationale in shared/cantonHubEditorial.ts for
+     // why weeklyEmployersData.ts itself can't be reused: it only defines
+     // Ticino-city keys, no ZH/BE/BS entries exist there). Placed AFTER
+     // exploreSection so it slots into bodyHtml right before the long-form
+     // prose (mobile-first: data first, filler below).
+     let cantonRealDataSection = '';
+     if (REAL_DATA_TARGET_KEYS.has(entry.key)) {
+       const sectorRowsRaw: Array<{ sector: SectorHubKey; medianAnnualChf: number; jobCount: number; href: string | null }> = [];
+       for (const sector of SECTOR_HUB_KEYS) {
+         const salaries: number[] = [];
+         let matchCount = 0;
+         for (const j of realDataJobPool) {
+           if (!jobMatchesSector(j as never, sector)) continue;
+           matchCount++;
+           const jt = j as { salaryMin?: number | string | null; salaryMax?: number | string | null };
+           const min = Number(jt.salaryMin);
+           const max = Number(jt.salaryMax);
+           const hasMin = Number.isFinite(min) && min > 0;
+           const hasMax = Number.isFinite(max) && max > 0;
+           const mid = hasMin && hasMax ? (min + max) / 2 : hasMin ? min : hasMax ? max : NaN;
+           if (Number.isFinite(mid) && mid > 0) {
+             // Mirrors comparisonsHubAggregate.aggregateSalaryBySector's own
+             // heuristic: sub-10k figures are monthly, not annual — annualise
+             // ×13 (Swiss 13th-salary convention) before taking the median.
+             salaries.push(mid < 10000 ? mid * 13 : mid);
+           }
+         }
+         if (matchCount < REAL_DATA_SECTOR_MIN_JOBS || salaries.length < REAL_DATA_SECTOR_MIN_JOBS) continue;
+         const medianAnnualChf = medianOf(salaries);
+         if (medianAnnualChf <= 0) continue;
+         // AGGREGATE_KEY has no self-canonical /cerca-lavoro-{canton}/{sector}/
+         // combo page (that loop iterates SHARED_ALL_CANTON_CODES only, never
+         // AGGREGATE_KEY) — link to the real canton-agnostic national sector
+         // hub instead. ZH/BE/BASILEA link to their own real combo page
+         // (same URL formula as the canton×sector hub loop above).
+         const href = entry.key === AGGREGATE_KEY
+           ? buildSectorHubPath(entry.locale, sector)
+           : withSlash(
+               `${localePrefix[entry.locale]}/${sharedResolveCantonSection(entry.locale, entry.key)}/${SECTOR_HUB_SLUG[entry.locale][sector]}`.replace(/\/+/g, '/'),
+             );
+         sectorRowsRaw.push({ sector, medianAnnualChf, jobCount: matchCount, href });
+       }
+       sectorRowsRaw.sort((a, b) => b.jobCount - a.jobCount);
+       const sectorRows: CantonRealDataSectorRow[] = sectorRowsRaw.slice(0, 8).map((r) => ({
+         label: SECTOR_HUB_DISPLAY[entry.locale][r.sector],
+         medianAnnualChf: r.medianAnnualChf,
+         jobCount: r.jobCount,
+         href: r.href,
+       }));
+
+       // Top employers by live job count. Always unlinked (href: null) —
+       // the existing per-canton company-hub navigator (companyHubs, above)
+       // is block-scoped to `if (meetsThreshold && entry.key !== AGGREGATE_KEY)`
+       // and unreachable from here; recomputing its MIN_JOBS_PER_CANTON_COMPANY
+       // threshold locally would duplicate a drift-prone constant (AGENTS.md
+       // sibling-pattern rule), so this list stays independent plain text.
+       const employerCounts = new Map<string, { name: string; count: number }>();
+       for (const j of realDataJobPool) {
+         const jt = j as { company?: string; companyKey?: string };
+         const key = String(jt.companyKey || jt.company || '').trim().toLowerCase();
+         if (!key) continue;
+         const cur = employerCounts.get(key);
+         if (cur) cur.count++;
+         else employerCounts.set(key, { name: String(jt.company || key), count: 1 });
+       }
+       const employers: CantonRealDataEmployer[] = [...employerCounts.values()]
+         .filter((v) => v.count >= REAL_DATA_EMPLOYER_MIN_JOBS)
+         .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+         .slice(0, 6)
+         .map((v) => ({ name: v.name, jobCount: v.count, href: null }));
+
+       const salaryCode = REAL_DATA_SALARY_CODE[entry.key];
+       const isAggregateEntry = entry.key === AGGREGATE_KEY;
+       // National wage-level factor (NATIONAL_MEDIAN_MONTHLY / TICINO_MEDIAN_MONTHLY)
+       // is itself a real BFS LSE 2024 figure — not fabricated — same source
+       // family as cantonSalaryFactor() for the 3 concrete cantons.
+       const wageFactorVsTicino = isAggregateEntry
+         ? NATIONAL_MEDIAN_MONTHLY / TICINO_MEDIAN_MONTHLY
+         : cantonSalaryFactor(salaryCode);
+       const isBorderCantonFlag = !isAggregateEntry && cantonIsBorderCanton(salaryCode);
+       const lamalMonthlyChf = isAggregateEntry
+         // No single national LAMal premium exists (premiums are set per
+         // canton) — fall back to the Ticino baseline so the cost-of-living
+         // paragraph reports a neutral (~0%) LAMal delta for the aggregate
+         // hub rather than an invented number.
+         ? realDataLamalTicino
+         : (realDataLamalByCode.get(salaryCode) ?? realDataLamalTicino);
+
+       cantonRealDataSection = buildCantonRealDataBlock({
+         locale: entry.locale,
+         display,
+         isAggregate: isAggregateEntry,
+         sectorRows,
+         wageFactorVsTicino,
+         lamalMonthlyChf,
+         lamalMonthlyTicinoChf: realDataLamalTicino,
+         isBorderCanton: isBorderCantonFlag,
+         employers,
+       });
+     }
+
      const bodyHtml = [
        // #974: drop `seo-static-content` from this INNER <main> (keep the
        // `s-LFxJYv` layout class). buildSeoPageHtml wraps bodyHtml in the OUTER
@@ -10104,6 +10285,11 @@ ${staticAnalyticsHtml}
        // ABOVE the prose so internal navigation stays close to the data
        // area; the long filler stays after.
        exploreSection,
+       // Issue #4303 item 1 — sourced sector/cost-of-living/G-permit/employer
+       // data block. Empty string for every canton except Zurigo, Berna,
+       // Basilea and the Svizzera aggregate. Sits ABOVE the long-form prose
+       // (mobile-first: structured real data before filler).
+       cantonRealDataSection,
        // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
        // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
        // uplift brings text/HTML from 1.7-2.2 % to ~12 % so
@@ -10126,7 +10312,11 @@ ${staticAnalyticsHtml}
      // page's correct primary type is CollectionPage, exactly as TI. The list
      // is rebuilt every deploy so the linked job URLs stay fresh (same jHref
      // formula as the visible listing grid above).
-     const cantonCollectionLd = (meetsThreshold && cantonJobs.length > 0)
+     // Issue #4303 item 5: `collectionListJobs`/`collectionListTotal` fall
+     // back to a fresh validJobs sample for AGGREGATE_KEY (see the
+     // realDataJobPool comment above) so the Svizzera hub gets a real
+     // ItemList instead of silently shipping breadcrumb-only schema.
+     const cantonCollectionLd = (meetsThreshold && collectionListJobs.length > 0)
        ? inlineScriptJson({
            '@context': 'https://schema.org',
            '@type': 'CollectionPage',
@@ -10139,13 +10329,13 @@ ${staticAnalyticsHtml}
            provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
            mainEntity: {
              '@type': 'ItemList',
-             numberOfItems: totalJobs,
+             numberOfItems: collectionListTotal ?? totalJobs,
              itemListOrder: 'https://schema.org/ItemListOrderDescending',
              // PR #2229 adversarial-check #2: skip jobs whose slug is empty —
              // their href would degrade to the bare canton section and collide
              // with this listing page itself. numberOfItems still reports the
              // real total (schema.org subset pattern).
-             itemListElement: cantonJobs
+             itemListElement: collectionListJobs
                .filter((j) => {
                  const jt = j as { slugByLocale?: Record<string, string>; slug?: string };
                  return Boolean(jt.slugByLocale?.[entry.locale] || jt.slug);
