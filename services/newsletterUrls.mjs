@@ -14,6 +14,12 @@ import { createHmac } from 'node:crypto';
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs.
 const BASE_URL = 'https://frontaliereticino.ch';
 
+// Dedicated path proxied straight to the newsletterManageSubscription Cloud
+// Function by the CF Worker (infra/cloudflare-worker/locale-router.js) — bypasses
+// the SPA/index.html catch-all and its `ac` autologin requirement entirely, so
+// both a mail client's automated POST and a manual GET click work end-to-end.
+const ONE_CLICK_BASE_URL = `${BASE_URL}/disiscrivi-newsletter/`;
+
 function signedEmailToken(email) {
   const secret = process.env.NEWSLETTER_SECRET;
   if (!secret) return null;
@@ -22,11 +28,26 @@ function signedEmailToken(email) {
 
 /**
  * @param {string} email
- * @returns {string} one-click unsubscribe URL (RFC 8058 List-Unsubscribe target)
+ * @returns {string} unsubscribe URL for links the SPA processes client-side
+ * (e.g. the email body footer link, which gets the `ac` autologin code
+ * injected separately at send time). NOT a valid List-Unsubscribe header
+ * target — use makeOneClickUnsubscribeUrl for that.
  */
 export function makeUnsubscribeUrl(email) {
   const token = signedEmailToken(email);
   const base = `${BASE_URL}/?action=unsubscribe&email=${encodeURIComponent(email)}`;
+  return token ? `${base}&token=${token}` : base;
+}
+
+/**
+ * @param {string} email
+ * @returns {string} the actual RFC 8058 List-Unsubscribe one-click target —
+ * routed directly to the Cloud Function (GET and POST), no SPA/autologin
+ * dependency. Use this for the List-Unsubscribe header only.
+ */
+export function makeOneClickUnsubscribeUrl(email) {
+  const token = signedEmailToken(email);
+  const base = `${ONE_CLICK_BASE_URL}?action=unsubscribe&email=${encodeURIComponent(email)}`;
   return token ? `${base}&token=${token}` : base;
 }
 

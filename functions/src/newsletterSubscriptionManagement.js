@@ -15,6 +15,11 @@ import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+// Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
+// infra/cloudflare-worker/locale-router.js) — bypasses the SPA/index.html
+// catch-all so the confirmation page's own resubscribe link doesn't loop
+// back into the `ac`-autologin dead end (App.tsx rejects a plain token link).
+const ONE_CLICK_BASE_URL = `${BASE_URL}/disiscrivi-newsletter/`;
 const BRAND_BLUE = '#2563EB';
 const BRAND_DARK = '#0f172a';
 const LIGHT_BG = '#f3f4f6';
@@ -44,7 +49,7 @@ function buildResponseHtml({ title, message, showResubscribe, email, token, loca
  const resubscribeBlock = showResubscribe
  ? `<table width="100%" cellpadding="0" cellspacing="0" style="margin-top:20px;">
  <tr><td align="center">
- <a href="${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}&lang=${lang}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;">
+ <a href="${ONE_CLICK_BASE_URL}?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}&lang=${lang}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:700;">
  ${t(lang, 'manageResubscribeLink')}
  </a>
  </td></tr>
