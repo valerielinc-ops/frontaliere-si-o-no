@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-07-15T22:13:01.662Z",
+  "assembledAt": "2026-07-16T12:12:28.616Z",
   "jobs": [
     {
       "id": "abraxas-5dccc3b1e7f6",
@@ -17,7 +17,7 @@
       "title": "Werkstudent Customer Service (Sales Support) 60–70 %",
       "titleByLocale": {
         "it": "Werkstudent Servizio Clienti (Sales Support) 60–70 %",
-        "en": "Working student Customer Service (Sales Support) 60–70%",
+        "en": "Werkstudent Customer Service (Sales Support) 60–70 %",
         "de": "Werkstudent Kundendienst (Sales Support) 60–70 %",
         "fr": "Werkstudent Service Client (Sales Support) 60–70 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/werkstudent-customer-service-sales-support-60-70-1268",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:58.782Z",
+      "crawledAt": "2026-07-16T12:12:25.517Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -110,7 +111,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/solution-architektin-querschnittservices-80-100-9285",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:58.303Z",
+      "crawledAt": "2026-07-16T12:12:25.032Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -178,7 +179,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -194,7 +195,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-9347",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:57.823Z",
+      "crawledAt": "2026-07-16T12:12:24.548Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -258,7 +260,7 @@
       "title": "Software Engineer C#/.net 80–100 %",
       "titleByLocale": {
         "it": "Software Ingegnere C#/.net 80–100 %",
-        "en": "Software Engineer C#/.net 80-100%",
+        "en": "Software Engineer C#/.net 80–100 %",
         "de": "Software Ingenieur C#/.net 80–100 %",
         "fr": "Software Ingénieur C#/.net 80–100 %"
       },
@@ -274,7 +276,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-cnet-80-100-8664",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:57.339Z",
+      "crawledAt": "2026-07-16T12:12:24.052Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -338,7 +341,7 @@
       "title": "ServiceNow Engineer KI & Automation 80-100%",
       "titleByLocale": {
         "it": "ServiceNow Ingegnere KI & Automation 80-100%",
-        "en": "ServiceNow Engineer KI & Automation 80-100 %",
+        "en": "ServiceNow Engineer KI & Automation 80-100%",
         "de": "ServiceNow Ingenieur KI & Automation 80-100%",
         "fr": "ServiceNow Ingénieur KI & Automation 80-100%"
       },
@@ -354,7 +357,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-engineer-ki-amp-automation-80-100-3223",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:56.857Z",
+      "crawledAt": "2026-07-16T12:12:23.571Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -418,7 +422,7 @@
       "title": "Senior Software Engineer C#/.NET 80–100 %",
       "titleByLocale": {
         "it": "Senior Software Ingegnere C#/.NET 80–100 %",
-        "en": "Senior Software Engineer C#/.NET 80-100%",
+        "en": "Senior Software Engineer C#/.NET 80–100 %",
         "de": "Senior Software Ingenieur C#/.NET 80–100 %",
         "fr": "Senior Software Ingénieur C#/.NET 80–100 %"
       },
@@ -434,7 +438,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-cnet-80-100-3342",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:56.389Z",
+      "crawledAt": "2026-07-16T12:12:23.092Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -498,7 +503,7 @@
       "title": "Senior OpenStack Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior OpenStack Ingegnere 80–100 %",
-        "en": "Senior OpenStack Engineer 80-100%",
+        "en": "Senior OpenStack Engineer 80–100 %",
         "de": "Senior OpenStack Ingenieur 80–100 %",
         "fr": "Senior OpenStack Ingénieur 80–100 %"
       },
@@ -514,7 +519,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-1267",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:55.896Z",
+      "crawledAt": "2026-07-16T12:12:22.570Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -578,7 +584,7 @@
       "title": "Senior Cyber Security Analyst / Engineer 80–100 %",
       "titleByLocale": {
         "it": "Senior Cyber Security Analista / Ingegnere 80–100 %",
-        "en": "Senior Cyber Security Analyst / Engineer 80-100%",
+        "en": "Senior Cyber Security Analyst / Engineer 80–100 %",
         "de": "Senior Cyber Security Analyst / Ingenieur 80–100 %",
         "fr": "Senior Cyber Security Analyste / Ingénieur 80–100 %"
       },
@@ -594,7 +600,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-cyber-security-analyst-engineer-80-100-3394",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:55.426Z",
+      "crawledAt": "2026-07-16T12:12:22.090Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -674,7 +681,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/security-architect-mit-schwerpunkt-ai-security-80-100-9038",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:54.962Z",
+      "crawledAt": "2026-07-16T12:12:21.609Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -757,7 +765,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/projekt-management-officer-pmo-im-bereich-dgf-40-60-2400",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:54.493Z",
+      "crawledAt": "2026-07-16T12:12:21.129Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -811,6 +819,84 @@
       }
     },
     {
+      "id": "abraxas-bc3e6930a65a",
+      "slug": "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen",
+      "slugByLocale": {
+        "de": "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
+        "it": "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen",
+        "en": "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
+        "fr": "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Leiter:in Solution Architektur 80–100 %",
+      "titleByLocale": {
+        "de": "Leiter:in Solution Architektur 80–100 %",
+        "it": "Responsabile Solution Architektur 80–100 %",
+        "en": "Leiter:in Solution Architektur 80–100 %",
+        "fr": "Leiter:in Solution Architektur 80–100 %"
+      },
+      "description": "Wir vernetzen Schweizer Verwaltungen, Behörden, Unternehmen und die Bevölkerung mit effizienten, sicheren und durchgängigen IT-Lösungen und Dienstleistungen. Für den weiteren Ausbau unserer Architektur- und Consulting-Kompetenz suchen wir eine führungsstarke, unternehmerisch denkende und technisch versierte Persönlichkeit als Leiter:in Solution Architektur. In dieser Schlüsselrolle übernimmst du die fachliche und personelle Führung eines Teams von 5 Solution Architekt:innen. Gemeinsam mit deinem Team gestaltest du zukunftsfähige IT-Architekturen, Cloud- und Outsourcing-Lösungen sowie technische Konzepte für unsere Kunden im öffentlichen Umfeld – insbesondere für Bund, Kantone, Gemeinden und weitere Institutionen des Public Sectors.\nAls Mitglied des Extended Sales Boardes bringst du die Perspektive der Solution Architecture aktiv in strategische, operative und geschäftsrelevante Diskussionen ein. Du verbindest technische Exzellenz mit Leadership, Kundenorientierung und unternehmerischem Denken.\nDeine Rolle\n• Personelle und fachliche Führung von 5 Solution Architekt:innen inklusive Coaching, Entwicklung, Priorisierung und Ressourcensteuerung\n• Weiterentwicklung der Solution-Architektur-Kompetenzen innerhalb von Consulting Services – sowohl methodisch, technologisch als auch in Bezug auf Angebots- und Kundensituationen\n• Design (IT-Architekturen, IT-Standards und technische Konzepte für Offerten) von On-Premise & Cloud-Lösungen (Privat-, Hybrid und Public-Cloud aus Microsoft, AWS oder Google)\n• Bearbeiten von öffentlichen Ausschreibungen und Angeboten (Techn. Lead, Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Mitarbeit im Design von neuen IT-Lösungen und zukünftige Services\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben, Architekturfragen und strategischen Technologieentscheidungen\n• Ausarbeitung von Konzepten komplexer IT-Plattformen in Zusammenarbeit mit unseren Engineers sowie externen Partnern\n• Identifikation und Einführung neuer Innovationen, Technologien und Tools, die den Unternehmenserfolg fördern\n• Aktive Mitarbeit im Extended Sales Board mit Fokus auf strategische Angebotsfähigkeit, Innovationspotenziale und Weiterentwicklung\nDein Profil\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik (FH/Uni/ETH) oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung in der Teamführung, fachlichen Leitung oder Entwicklung von Architektur-, Consulting- oder technischen Expertenteams\n• Mehrjährige Berufserfahrung in der IT-Architektur, idealerweise in der Entwicklung komplexer IT-Systeme\n• Fundierte Kenntnisse in Cloud-Technologien (z. B. Azure/Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten, um komplexe technische Inhalte verständlich zu vermitteln sowie analytisches Denken, Problemlösungsfähigkeit und ein hoher Qualitätsanspruch\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1-Level) und gute Englischkenntnisse\n• Zertifizierungen im Bereich der Public Cloud oder IT Architekturen (z.B Azure Solutions Architect Expert / Enterprise Administrator Expert) oder Togaf runden dein Profil ab.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich sowie aktive Unterstützung bei Zertifizierungen\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Wir vernetzen Schweizer Verwaltungen, Behörden, Unternehmen und die Bevölkerung mit effizienten, sicheren und durchgängigen IT-Lösungen und Dienstleistungen. Für den weiteren Ausbau unserer Architektur- und Consulting-Kompetenz suchen wir eine führungsstarke, unternehmerisch denkende und technisch versierte Persönlichkeit als Leiter:in Solution Architektur. In dieser Schlüsselrolle übernimmst du die fachliche und personelle Führung eines Teams von 5 Solution Architekt:innen. Gemeinsam mit deinem Team gestaltest du zukunftsfähige IT-Architekturen, Cloud- und Outsourcing-Lösungen sowie technische Konzepte für unsere Kunden im öffentlichen Umfeld – insbesondere für Bund, Kantone, Gemeinden und weitere Institutionen des Public Sectors.\nAls Mitglied des Extended Sales Boardes bringst du die Perspektive der Solution Architecture aktiv in strategische, operative und geschäftsrelevante Diskussionen ein. Du verbindest technische Exzellenz mit Leadership, Kundenorientierung und unternehmerischem Denken.\nDeine Rolle\n• Personelle und fachliche Führung von 5 Solution Architekt:innen inklusive Coaching, Entwicklung, Priorisierung und Ressourcensteuerung\n• Weiterentwicklung der Solution-Architektur-Kompetenzen innerhalb von Consulting Services – sowohl methodisch, technologisch als auch in Bezug auf Angebots- und Kundensituationen\n• Design (IT-Architekturen, IT-Standards und technische Konzepte für Offerten) von On-Premise & Cloud-Lösungen (Privat-, Hybrid und Public-Cloud aus Microsoft, AWS oder Google)\n• Bearbeiten von öffentlichen Ausschreibungen und Angeboten (Techn. Lead, Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Mitarbeit im Design von neuen IT-Lösungen und zukünftige Services\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben, Architekturfragen und strategischen Technologieentscheidungen\n• Ausarbeitung von Konzepten komplexer IT-Plattformen in Zusammenarbeit mit unseren Engineers sowie externen Partnern\n• Identifikation und Einführung neuer Innovationen, Technologien und Tools, die den Unternehmenserfolg fördern\n• Aktive Mitarbeit im Extended Sales Board mit Fokus auf strategische Angebotsfähigkeit, Innovationspotenziale und Weiterentwicklung\nDein Profil\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik (FH/Uni/ETH) oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung in der Teamführung, fachlichen Leitung oder Entwicklung von Architektur-, Consulting- oder technischen Expertenteams\n• Mehrjährige Berufserfahrung in der IT-Architektur, idealerweise in der Entwicklung komplexer IT-Systeme\n• Fundierte Kenntnisse in Cloud-Technologien (z. B. Azure/Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten, um komplexe technische Inhalte verständlich zu vermitteln sowie analytisches Denken, Problemlösungsfähigkeit und ein hoher Qualitätsanspruch\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1-Level) und gute Englischkenntnisse\n• Zertifizierungen im Bereich der Public Cloud oder IT Architekturen (z.B Azure Solutions Architect Expert / Enterprise Administrator Expert) oder Togaf runden dein Profil ab.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich sowie aktive Unterstützung bei Zertifizierungen\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Wir vernetzen Schweizer Verwaltungen, Behörden, Unternehmen und die Bevölkerung mit effizienten, sicheren und durchgängigen IT-Lösungen und Dienstleistungen. Für den weiteren Ausbau unserer Architektur- und Consulting-Kompetenz suchen wir eine führungsstarke, unternehmerisch denkende und technisch versierte Persönlichkeit als Leiter:in Solution Architektur. In dieser Schlüsselrolle übernimmst du die fachliche und personelle Führung eines Teams von 5 Solution Architekt:innen. Gemeinsam mit deinem Team gestaltest du zukunftsfähige IT-Architekturen, Cloud- und Outsourcing-Lösungen sowie technische Konzepte für unsere Kunden im öffentlichen Umfeld – insbesondere für Bund, Kantone, Gemeinden und weitere Institutionen des Public Sectors.\nAls Mitglied des Extended Sales Boardes bringst du die Perspektive der Solution Architecture aktiv in strategische, operative und geschäftsrelevante Diskussionen ein. Du verbindest technische Exzellenz mit Leadership, Kundenorientierung und unternehmerischem Denken.\nDeine Rolle\n• Personelle und fachliche Führung von 5 Solution Architekt:innen inklusive Coaching, Entwicklung, Priorisierung und Ressourcensteuerung\n• Weiterentwicklung der Solution-Architektur-Kompetenzen innerhalb von Consulting Services – sowohl methodisch, technologisch als auch in Bezug auf Angebots- und Kundensituationen\n• Design (IT-Architekturen, IT-Standards und technische Konzepte für Offerten) von On-Premise & Cloud-Lösungen (Privat-, Hybrid und Public-Cloud aus Microsoft, AWS oder Google)\n• Bearbeiten von öffentlichen Ausschreibungen und Angeboten (Techn. Lead, Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Mitarbeit im Design von neuen IT-Lösungen und zukünftige Services\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben, Architekturfragen und strategischen Technologieentscheidungen\n• Ausarbeitung von Konzepten komplexer IT-Plattformen in Zusammenarbeit mit unseren Engineers sowie externen Partnern\n• Identifikation und Einführung neuer Innovationen, Technologien und Tools, die den Unternehmenserfolg fördern\n• Aktive Mitarbeit im Extended Sales Board mit Fokus auf strategische Angebotsfähigkeit, Innovationspotenziale und Weiterentwicklung\nDein Profil\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik (FH/Uni/ETH) oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung in der Teamführung, fachlichen Leitung oder Entwicklung von Architektur-, Consulting- oder technischen Expertenteams\n• Mehrjährige Berufserfahrung in der IT-Architektur, idealerweise in der Entwicklung komplexer IT-Systeme\n• Fundierte Kenntnisse in Cloud-Technologien (z. B. Azure/Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten, um komplexe technische Inhalte verständlich zu vermitteln sowie analytisches Denken, Problemlösungsfähigkeit und ein hoher Qualitätsanspruch\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1-Level) und gute Englischkenntnisse\n• Zertifizierungen im Bereich der Public Cloud oder IT Architekturen (z.B Azure Solutions Architect Expert / Enterprise Administrator Expert) oder Togaf runden dein Profil ab.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich sowie aktive Unterstützung bei Zertifizierungen\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Wir vernetzen Schweizer Verwaltungen, Behörden, Unternehmen und die Bevölkerung mit effizienten, sicheren und durchgängigen IT-Lösungen und Dienstleistungen. Für den weiteren Ausbau unserer Architektur- und Consulting-Kompetenz suchen wir eine führungsstarke, unternehmerisch denkende und technisch versierte Persönlichkeit als Leiter:in Solution Architektur. In dieser Schlüsselrolle übernimmst du die fachliche und personelle Führung eines Teams von 5 Solution Architekt:innen. Gemeinsam mit deinem Team gestaltest du zukunftsfähige IT-Architekturen, Cloud- und Outsourcing-Lösungen sowie technische Konzepte für unsere Kunden im öffentlichen Umfeld – insbesondere für Bund, Kantone, Gemeinden und weitere Institutionen des Public Sectors.\nAls Mitglied des Extended Sales Boardes bringst du die Perspektive der Solution Architecture aktiv in strategische, operative und geschäftsrelevante Diskussionen ein. Du verbindest technische Exzellenz mit Leadership, Kundenorientierung und unternehmerischem Denken.\nDeine Rolle\n• Personelle und fachliche Führung von 5 Solution Architekt:innen inklusive Coaching, Entwicklung, Priorisierung und Ressourcensteuerung\n• Weiterentwicklung der Solution-Architektur-Kompetenzen innerhalb von Consulting Services – sowohl methodisch, technologisch als auch in Bezug auf Angebots- und Kundensituationen\n• Design (IT-Architekturen, IT-Standards und technische Konzepte für Offerten) von On-Premise & Cloud-Lösungen (Privat-, Hybrid und Public-Cloud aus Microsoft, AWS oder Google)\n• Bearbeiten von öffentlichen Ausschreibungen und Angeboten (Techn. Lead, Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Mitarbeit im Design von neuen IT-Lösungen und zukünftige Services\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben, Architekturfragen und strategischen Technologieentscheidungen\n• Ausarbeitung von Konzepten komplexer IT-Plattformen in Zusammenarbeit mit unseren Engineers sowie externen Partnern\n• Identifikation und Einführung neuer Innovationen, Technologien und Tools, die den Unternehmenserfolg fördern\n• Aktive Mitarbeit im Extended Sales Board mit Fokus auf strategische Angebotsfähigkeit, Innovationspotenziale und Weiterentwicklung\nDein Profil\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik (FH/Uni/ETH) oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung in der Teamführung, fachlichen Leitung oder Entwicklung von Architektur-, Consulting- oder technischen Expertenteams\n• Mehrjährige Berufserfahrung in der IT-Architektur, idealerweise in der Entwicklung komplexer IT-Systeme\n• Fundierte Kenntnisse in Cloud-Technologien (z. B. Azure/Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten, um komplexe technische Inhalte verständlich zu vermitteln sowie analytisches Denken, Problemlösungsfähigkeit und ein hoher Qualitätsanspruch\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1-Level) und gute Englischkenntnisse\n• Zertifizierungen im Bereich der Public Cloud oder IT Architekturen (z.B Azure Solutions Architect Expert / Enterprise Administrator Expert) oder Togaf runden dein Profil ab.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich sowie aktive Unterstützung bei Zertifizierungen\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Wir vernetzen Schweizer Verwaltungen, Behörden, Unternehmen und die Bevölkerung mit effizienten, sicheren und durchgängigen IT-Lösungen und Dienstleistungen. Für den weiteren Ausbau unserer Architektur- und Consulting-Kompetenz suchen wir eine führungsstarke, unternehmerisch denkende und technisch versierte Persönlichkeit als Leiter:in Solution Architektur. In dieser Schlüsselrolle übernimmst du die fachliche und personelle Führung eines Teams von 5 Solution Architekt:innen. Gemeinsam mit deinem Team gestaltest du zukunftsfähige IT-Architekturen, Cloud- und Outsourcing-Lösungen sowie technische Konzepte für unsere Kunden im öffentlichen Umfeld – insbesondere für Bund, Kantone, Gemeinden und weitere Institutionen des Public Sectors.\nAls Mitglied des Extended Sales Boardes bringst du die Perspektive der Solution Architecture aktiv in strategische, operative und geschäftsrelevante Diskussionen ein. Du verbindest technische Exzellenz mit Leadership, Kundenorientierung und unternehmerischem Denken.\nDeine Rolle\n• Personelle und fachliche Führung von 5 Solution Architekt:innen inklusive Coaching, Entwicklung, Priorisierung und Ressourcensteuerung\n• Weiterentwicklung der Solution-Architektur-Kompetenzen innerhalb von Consulting Services – sowohl methodisch, technologisch als auch in Bezug auf Angebots- und Kundensituationen\n• Design (IT-Architekturen, IT-Standards und technische Konzepte für Offerten) von On-Premise & Cloud-Lösungen (Privat-, Hybrid und Public-Cloud aus Microsoft, AWS oder Google)\n• Bearbeiten von öffentlichen Ausschreibungen und Angeboten (Techn. Lead, Design und Ausarbeitung der technischen Lösung, Preiskalkulation, Präsentation der Lösung bei unseren Kunden)\n• Mitarbeit im Design von neuen IT-Lösungen und zukünftige Services\n• Beratung und Begleitung unserer Kunden bei ihren IT-Vorhaben, Architekturfragen und strategischen Technologieentscheidungen\n• Ausarbeitung von Konzepten komplexer IT-Plattformen in Zusammenarbeit mit unseren Engineers sowie externen Partnern\n• Identifikation und Einführung neuer Innovationen, Technologien und Tools, die den Unternehmenserfolg fördern\n• Aktive Mitarbeit im Extended Sales Board mit Fokus auf strategische Angebotsfähigkeit, Innovationspotenziale und Weiterentwicklung\nDein Profil\n• Abgeschlossenes Studium in Informatik oder Wirtschaftsinformatik (FH/Uni/ETH) oder gleichwertige Ausbildung\n• Mehrjährige Erfahrung in der Teamführung, fachlichen Leitung oder Entwicklung von Architektur-, Consulting- oder technischen Expertenteams\n• Mehrjährige Berufserfahrung in der IT-Architektur, idealerweise in der Entwicklung komplexer IT-Systeme\n• Fundierte Kenntnisse in Cloud-Technologien (z. B. Azure/Microsoft 365, Google, AWS) und deren Architekturprinzipien\n• Ausgeprägte Kommunikations- und Moderationsfähigkeiten, um komplexe technische Inhalte verständlich zu vermitteln sowie analytisches Denken, Problemlösungsfähigkeit und ein hoher Qualitätsanspruch\n• Sehr gute Kommunikations- und Präsentationsskills in Deutsch (C1-Level) und gute Englischkenntnisse\n• Zertifizierungen im Bereich der Public Cloud oder IT Architekturen (z.B Azure Solutions Architect Expert / Enterprise Administrator Expert) oder Togaf runden dein Profil ab.\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich sowie aktive Unterstützung bei Zertifizierungen\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-16T12:12:20.649Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://apply.refline.ch/215876/2486/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2486",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-solution-architektur-80-100-abraxas-st-gallen"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T12:12:20.649Z"
+    },
+    {
       "id": "abraxas-09aff185f8e4",
       "slug": "kundenbetreuer-in-per-applikationssupport-finanzen-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -841,7 +927,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/kundenbetreuerin-fuer-applikationssupport-finanzen-80-100-4516",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:54.023Z",
+      "crawledAt": "2026-07-16T12:12:20.167Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -923,7 +1009,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/junior-solution-architekt-80-100-9473",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:53.546Z",
+      "crawledAt": "2026-07-16T12:12:19.681Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1007,7 +1093,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/it-services-engineer-windows-server-100-8548",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:53.076Z",
+      "crawledAt": "2026-07-16T12:12:19.157Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1058,7 +1145,7 @@
       "title": "ICT-System Engineer 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere 80–100 %",
-        "en": "ICT System Engineer 80-100%",
+        "en": "ICT-System Engineer 80–100 %",
         "de": "ICT-System Ingenieur 80–100 %",
         "fr": "ICT-System Ingénieur 80–100 %"
       },
@@ -1074,7 +1161,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-3625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:52.607Z",
+      "crawledAt": "2026-07-16T12:12:18.651Z",
+      "needsRetranslation": true,
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1098,25 +1186,25 @@
       "pensum": "100%",
       "previousSlugs": [
         "ict-system-engineer-80-100-abraxas-bern",
-        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
         "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
         "system-engineer-devops-deutsch-80-100-abraxas-bern",
-        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-80-100-abraxas-bern",
-          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
           "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
           "system-engineer-devops-deutsch-80-100-abraxas-bern",
-          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern"
+        ],
+        "de": [
+          "system-engineer-devops-deutsch-80-100-abraxas-bern"
         ],
         "fr": [
           "ict-system-engineer-80-100-abraxas-bern",
           "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
-        ],
-        "de": [
-          "system-engineer-devops-deutsch-80-100-abraxas-bern"
         ]
       },
       "firstSeenAt": "2026-07-04T10:00:00.855Z",
@@ -1164,7 +1252,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-sicherheitsbeauftragter-60-90-4777",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:52.145Z",
+      "crawledAt": "2026-07-16T12:12:18.146Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1232,7 +1320,7 @@
       "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere con Projektleitungserfahrung 80–100 %",
-        "en": "ICT System Engineer with project management experience 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
         "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
         "fr": "ICT System Ingénieur mit Projektleitungserfahrung 80–100 %"
       },
@@ -1248,7 +1336,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-1145",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:51.643Z",
+      "crawledAt": "2026-07-16T12:12:17.658Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1315,7 +1404,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:51.173Z",
+      "crawledAt": "2026-07-16T12:12:17.167Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1382,7 +1472,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-80-100-5708",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:50.708Z",
+      "crawledAt": "2026-07-16T12:12:16.685Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1446,7 +1537,7 @@
       "title": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
       "titleByLocale": {
         "it": "ICT System Ingegnere – IAM (WAF/IDP) 80%–100 %",
-        "en": "ICT System Engineer – IAM (WAF/IDP) 80%-100%",
+        "en": "ICT System Engineer – IAM (WAF/IDP) 80%–100 %",
         "de": "ICT System Ingenieur – IAM (WAF/IDP) 80%–100 %",
         "fr": "ICT System Ingénieur – IAM (WAF/IDP) 80%–100 %"
       },
@@ -1462,7 +1553,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-7949",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:50.211Z",
+      "crawledAt": "2026-07-16T12:12:16.206Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1513,7 +1605,7 @@
       "title": "DevOps Engineer 80–100 %",
       "titleByLocale": {
         "it": "DevOps Ingegnere 80–100 %",
-        "en": "DevOps Engineer 80-100%",
+        "en": "DevOps Engineer 80–100 %",
         "de": "DevOps Ingenieur 80–100 %",
         "fr": "DevOps Ingénieur 80–100 %"
       },
@@ -1529,7 +1621,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/devops-engineer-80-100-7012",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:49.738Z",
+      "crawledAt": "2026-07-16T12:12:15.715Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1609,7 +1702,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-8003",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:49.268Z",
+      "crawledAt": "2026-07-16T12:12:15.190Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1691,7 +1784,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5077",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:48.779Z",
+      "crawledAt": "2026-07-16T12:12:14.704Z",
       "needsRetranslation": false,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1759,7 +1852,7 @@
       "title": "AIOps Transformation Lead 80-100%",
       "titleByLocale": {
         "it": "Responsabile Trasformazione AIOps 80-100%",
-        "en": "AIOps Transformation Lead 80-100 %",
+        "en": "AIOps Transformation Lead 80-100%",
         "de": "AIOps Transformation Lead 80-100%",
         "fr": "AIOps Transformation plomb 80- 100%"
       },
@@ -1775,7 +1868,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/aiops-transformation-lead-80-100-7995",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:48.297Z",
+      "crawledAt": "2026-07-16T12:12:14.181Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1825,6 +1919,76 @@
       }
     },
     {
+      "id": "abraxas-e311678c2f5d",
+      "slug": "ai-solution-consultant-80-100-abraxas-bern",
+      "slugByLocale": {
+        "de": "ai-solution-consultant-80-100-abraxas-bern",
+        "it": "ai-solution-consultant-80-100-abraxas-bern",
+        "en": "ai-solution-consultant-80-100-abraxas-bern",
+        "fr": "ai-solution-consultant-80-100-abraxas-bern"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "AI Solution Consultant 80–100 %",
+      "titleByLocale": {
+        "de": "AI Solution Berater 80–100 %",
+        "en": "AI Solution Consultant 80–100 %",
+        "it": "AI Solution Consulente 80–100 %",
+        "fr": "AI Solution Consultant 80–100 %"
+      },
+      "description": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Künstliche Intelligenz bietet der öffentlichen Verwaltung neue Möglichkeiten, Dienstleistungen effizienter zu gestalten und Mitarbeitende gezielt zu entlasten. Damit aus Ideen konkrete Vorhaben werden, braucht es Menschen, die Bedürfnisse verstehen, strukturieren und gemeinsam mit Fachbereichen in umsetzbare Lösungen überführen.\nAls AI Solution Consultant begleitest du Organisationen der öffentlichen Verwaltung bei ihren ersten Schritten im KI-Umfeld – von der Identifikation relevanter Anwendungsfälle über die Konkretisierung von Anforderungen bis hin zur Vorbereitung von Projekten und deren Umsetzung. Du bewegst dich an der Schnittstelle zwischen Kunden, Vertrieb, Fachabteilungen und Delivery-Teams.\nDeine Rolle\n• Beratung von Gemeinden, Kantonen und weiteren Organisationen der öffentlichen Verwaltung bei Fragestellungen rund um KI und Digitalisierung\n• Aufnahme, Strukturierung und Konkretisierung von Kundenbedürfnissen sowie Unterstützung bei der Formulierung von Anforderungen und Zielbildern\n• Begleitung von Kunden bei der Identifikation, Priorisierung und Ausarbeitung von KI-Use-Cases\n• Durchführung von Workshops, Assessments und Ideation-Formaten zur Entwicklung konkreter Lösungsansätze\n• Unterstützung bei der Qualifizierung und Weiterentwicklung von Leads sowie Überführung von Opportunitäten in konkrete Projekte\n• Erarbeitung von Business Cases, Grobkonzepten, Entscheidungsgrundlagen und Entwicklung von kundenspezifischen Value Propositions\n• Erstellung von Angeboten, Leistungsbeschreibungen und Projektaufträgen\n• Aufbau von Methoden, Templates und Beratungsleistungen im Umfeld von KI für die öffentliche Verwaltung\nDein Profil\n• Hochschulabschluss in Wirtschaftsinformatik, Informatik oder einer vergleichbaren Fachrichtung sowie Weiterbildung im Bereich Artificial Intelligence, Data Science, Digitalisierung oder Innovation (z. B. CAS/MAS oder vergleichbar)\n• Mehrjährige Erfahrung im Consulting, Business Development oder in Digitalisierungsprojekten – idealerweise im Umfeld der öffentlichen Verwaltung\n• Ausgeprägtes Verständnis für die Herausforderungen und Rahmenbedingungen von Gemeinden, Kantonen und öffentlichen Institutionen\n• Erfahrung in der Bedürfnisanalyse sowie deren Strukturierung und der Überführung in konkrete Projektvorhaben\n• Nachweisbare praktische Erfahrung bei der Identifikation, Konzeption oder Einführung von KI-Lösungen, GenAI-Anwendungen, Daten- oder Automatisierungsvorhaben\n• Ausgeprägte Kommunikations- und Moderationskompetenz sowie Freude am Austausch mit Fachbereichen und Entscheidungsträgern\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie sehr gute Deutschkenntnisse (C1-Level) in Wort und Schrift\nDeine Benefits\n• Attraktive Entwicklungsperspektiven im Consulting und KI-Umfeld\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ai-solution-consultant-80-100-9539",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-16T12:12:13.650Z",
+      "needsRetranslation": true,
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "streetAddress": "",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://apply.refline.ch/215876/2499/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2499",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T12:12:13.650Z"
+    },
+    {
       "id": "abraxas-8c0b4a1c216a",
       "slug": "agile-test-manager-in-80-100-abraxas-informatik-ag-frauenfeld",
       "slugByLocale": {
@@ -1855,7 +2019,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/agile-testmanagerin-80-100-2201",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:47.824Z",
+      "crawledAt": "2026-07-16T12:12:13.171Z",
       "needsRetranslation": false,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1939,7 +2103,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:47.354Z",
+      "crawledAt": "2026-07-16T12:12:12.691Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2023,7 +2187,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-3900",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:46.870Z",
+      "crawledAt": "2026-07-16T12:12:12.167Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2107,7 +2271,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:46.402Z",
+      "crawledAt": "2026-07-16T12:12:11.580Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2191,7 +2355,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:12:45.836Z",
+      "crawledAt": "2026-07-16T12:12:10.991Z",
       "needsRetranslation": false,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2227,74 +2391,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "abraxas-53a04654cf35",
-      "slug": "software-architekt-in-80-100-abraxas-st-gallen",
-      "slugByLocale": {
-        "it": "software-architekt-in-80-100-abraxas-st-gallen",
-        "en": "software-architect-in-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "software-architekt-in-80-100-abraxas-st-gallen",
-        "fr": "architecte-logiciel-en-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Software Architekt:in 80–100 %",
-      "titleByLocale": {
-        "it": "Software Architetto: in 80-100%",
-        "en": "Software Architect 80–100 %",
-        "de": "Software Architekt:in 80–100 %",
-        "fr": "Architecte Logiciel 80–100 %"
-      },
-      "description": "Du bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\nDeine Rolle\n• Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n• Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n• Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n• Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n• Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n• Du unterstützt in der Erstellung von Offerten\n• Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n• Du stellst den Status quo in Frage und erweiterst die IT-Architektur\nDein Profil\n• Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n• Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n• Idealerweise bringst du Erfahrung im Bereich DevOps mit\n• Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n• Sehr gute Sprachkenntnisse in Deutsch und Englisch\n• Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nSe anche tu condividi l'opinione che l'architettura di un software sia uno dei fattori chiave del successo? Sei un praticante e visionario che si impegna attivamente e desidera promuovere la nostra nuova soluzione software? Vuoi partecipare allo sviluppo di un nuovo prodotto in una fase iniziale? Allora sei nel posto giusto! Il nostro obiettivo è creare la migliore soluzione fiscale in Svizzera e per farlo abbiamo bisogno di un supporto energico. La vastità e la varietà di questo campo si manifestano ogni giorno, anche per noi, tutti non fiscalisti. Il tuo campo principale è l'architettura di servizi trasversali, servizi di base e il supporto nella definizione di soluzioni integrate nell'architettura.\n\nIl tuo ruolo\n\n- Sei l'architetto di più servizi trasversali necessari da diversi domini di competenza\n- Supporti i team dove necessario, aiutandoli a implementare le soluzioni\n- Fai parte del team di architettura che chiarisce questioni intersettoriali\n- Crea concetti di alto livello su come vengono implementate le esigenze funzionali nel sistema complessivo\n- Partecipa attivamente alla pianificazione di personalizzazioni per i clienti\n- Supporti nella preparazione di offerte\n- Mantieni una stretta collaborazione con i colleghi dell'analisi aziendale, dello sviluppo e dei clienti\n- Metti in discussione lo status quo e ampli l'architettura IT\n\nIl tuo profilo\n\n- Sei un giocatore di squadra e una persona comunicativa con alta iniziativa personale, che desidera svilupparsi tecnicamente e metodologicamente\n- Hai diversi anni di esperienza come architetto nel design e nell'operatività di un'architettura complessa di microservizi\n- Idealmente hai esperienza nel campo DevOps\n- Ottima conoscenza delle seguenti tecnologie: Java, Kafka, REST, Angular o altri framework frontend\n- Ottima conoscenza del tedesco e dell'inglese\n- Laurea universitaria o di Fachhochschule in informatica o formazione equivalente, con comprovata esperienza professionale\n\nI tuoi benefici\n\n- Fino al 60% di lavoro da casa possibile con un impegno del 100%\n- Acquisto di ferie (2 settimane all'anno)\n- Settimana di 41 ore con orari di lavoro flessibili a tempo pieno\n- Minimo 25 giorni di ferie all'anno\n- Supporto alle formazioni al 100% finanziato o temporizzato\n- Abbonamento SBB-Halbtax gratuito per tutti i dipendenti\n\nContatto\n\nPronto a contribuire a plasmare l'applicazione fiscale di domani? Siamo ansiosi di ricevere la tua candidatura! Da noi, manteniamo una cultura aperta e informale – sentiti libero di inviarci la tua candidatura direttamente in forma informale.",
-        "en": "Description\n\nDo you also believe that software architecture is one of the central success factors? Are you a doer and visionary who actively contributes and wants to drive our new software solution forward? Would you like to be involved in the development of a new product at an early stage? Then you are exactly right with us! Our goal is to create the best tax solution in Switzerland, and for that we need energetic support. The breadth and diversity of this field become clear to us, all non-tax commissioners, every day anew. Your main area is the architecture of cross-sectional services, core services, and supporting the development of overarching solutions in architecture.\n\nYour Role\n\n- You are the architect of several cross-sectional services needed by different domain areas\n- You support teams where needed to help them implement solutions\n- You are part of the architecture team that clarifies cross-domain questions\n- You create high-level concepts on how functional requirements are implemented in the overall system\n- You actively participate in planning customer-specific configurations\n- You assist in preparing offers\n- You maintain close collaboration with your colleagues in business analysis, development, and clients\n- You challenge the status quo and expand the IT architecture\n\nYour Profile\n\n- You are a team player and a communicative personality with high initiative, eager to develop technically and methodologically\n- You bring several years of experience as an architect in designing and operating a complex microservice architecture\n- Ideally, you have experience in the DevOps field\n- Very good knowledge of the following technologies: Java, Kafka, REST, Angular or other frontend frameworks\n- Excellent language skills in German and English\n- University or Fachhochschule degree in computer science or comparable education, with proven professional experience\n\nYour Benefits\n\n- Up to 60% home office possible with a 100% workload\n- Vacation purchase (2 weeks per year)\n- 41-hour week with flexible working hours for full-time employment\n- Minimum of 25 days of vacation per year\n- Support for further education fully financed or time-based\n- Free SBB-Halbtax subscription for all employees\n\nContact\n\nReady to help shape the tax application of tomorrow? We look forward to your application! We maintain an open and informal culture – feel free to send us your application directly in the informal 'du' form.",
-        "de": "Beschreibung\n\nDu bist auch der Meinung, dass die Architektur einer Software zu den zentralen Erfolgsfaktoren gehört? Du bist ein Macher und Visionär, der sich aktiv einbringt und unsere neue Software-Lösung vorantreiben möchte? Möchtest du bei der Entwicklung von einem neuen Produkt in einer frühen Phase dabei sein? Dann bist du bei uns genau richtig! Wir haben es uns zum Ziel gesetzt DIE beste Steuerlösung in der Schweiz zu erschaffen und dafür benötigen wir tatkräftige Unterstützung. Wie breit und abwechslungsreich dieses Feld ist, stellen wir, alle Nicht-Steuer-Kommissäre, jeden Tag aufs Neue fest. Dein Hauptfeld ist die Architektur von Querschnittsservices, Basisdiensten und die Unterstützung bei der Findung von übergreifenden Lösungen in der Architektur.\n\nDeine Rolle\n\n- Du bist der Architekt von mehreren Querschnittsservices, welche von den unterschiedlichen Fachdomänen benötigt werden\n- Du unterstützt wo benötigt die Teams, um sie wiederum damit bei der Umsetzung der Lösung zu unterstützen\n- Du bist Teil vom Architekturteam, welches domänenübergreifende Fragestellungen klärt\n- Du erstellst Grobkonzepte wie Fachanforderungen an das Gesamtsystem umgesetzt werden\n- Du nimmst aktiv an der Planung von kundenspezifischen Ausprägungen teil\n- Du unterstützt in der Erstellung von Offerten\n- Du pflegst eine enge Zusammenarbeit mit deinen Kollegen der Business Analyse, der Entwicklung und den Kunden\n- Du stellst den Status quo in Frage und erweiterst die IT-Architektur\n\nDein Profil\n\n- Du bist ein Teamplayer und eine kommunikative Persönlichkeit mit hoher Eigeninitiative, die sich gern technisch und methodisch weiterentwickelt\n- Du bringst mehrjährige Erfahrung als Architekt beim Design und Betrieb einer komplexen Microservice-Architektur mit\n- Idealerweise bringst du Erfahrung im Bereich DevOps mit\n- Sehr gute Kenntnisse in den folgenden Technologien: Java, Kafka, REST, Angular oder anderen Frontendframeworks\n- Sehr gute Sprachkenntnisse in Deutsch und Englisch\n- Hochschul- oder Fachhochschulabschluss in Informatik oder vergleichbare Ausbildung sowie ausgewiesene Berufserfahrung\n\nDeine Benefits\n\n- Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n- Ferienkauf (2 Wochen pro Jahr)\n- 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n- Mind. 25 Tage Ferien pro Jahr\n- Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n- Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\n\nKontakt\n\nBereit, die Steuerapplikation von morgen mitzugestalten? Wir freuen uns auf deine Bewerbung! Bei und pflegen wir eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken",
-        "fr": "Description\n\nPartagez-vous également l'opinion que l'architecture d'un logiciel est l'un des facteurs clés de succès ? Êtes-vous un acteur et un visionnaire qui s'investit activement et souhaite faire avancer notre nouvelle solution logicielle ? Souhaitez-vous participer au développement d'un nouveau produit dès ses premières phases ? Alors, vous êtes au bon endroit ! Notre objectif est de créer la meilleure solution fiscale en Suisse, et pour cela, nous avons besoin d'un soutien énergique. La diversité et la richesse de ce domaine se révèlent chaque jour, à nous tous, non-fiscalistes. Votre domaine principal concerne l'architecture des services transversaux, des services de base, et le soutien dans la recherche de solutions globales en architecture.\n\nVotre rôle\n\n- Vous êtes l'architecte de plusieurs services transversaux nécessaires aux différentes domaines de compétence\n- Vous soutenez les équipes là où c'est nécessaire pour les aider à mettre en œuvre les solutions\n- Vous faites partie de l'équipe d'architecture qui clarifie les questions inter-domaines\n- Vous élaborez des concepts globaux sur la manière dont les exigences fonctionnelles sont mises en œuvre dans le système global\n- Vous participez activement à la planification des configurations spécifiques aux clients\n- Vous aidez à la préparation des offres\n- Vous entretenez une collaboration étroite avec vos collègues en analyse commerciale, développement et clients\n- Vous remettez en question le statu quo et élargissez l'architecture informatique\n\nVotre profil\n\n- Vous êtes un joueur d'équipe et une personne communicative avec une forte initiative personnelle, souhaitant évoluer techniquement et méthodologiquement\n- Vous avez plusieurs années d'expérience en tant qu'architecte dans la conception et l'exploitation d'une architecture microservices complexe\n- Idéalement, vous avez une expérience dans le domaine DevOps\n- Excellentes connaissances des technologies suivantes : Java, Kafka, REST, Angular ou autres frameworks frontend\n- Excellentes compétences linguistiques en allemand et en anglais\n- Diplôme universitaire ou de Fachhochschule en informatique ou formation équivalente, avec une expérience professionnelle avérée\n\nVos avantages\n\n- Jusqu'à 60 % de télétravail possible avec un emploi à 100 %\n- Achat de congés (2 semaines par an)\n- Semaine de 41 heures avec des horaires de travail flexibles à temps plein\n- Minimum 25 jours de congé par an\n- Soutien à la formation continue financé à 100 % ou en temps\n- Abonnement SBB-Halbtax gratuit pour tous les employés\n\nContact\n\nPrêt à contribuer à façonner l'application fiscale de demain ? Nous attendons votre candidature avec impatience ! Chez nous, nous cultivons une culture ouverte et informelle – n'hésitez pas à nous envoyer votre candidature directement en utilisant la formule informelle 'tu'."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-80-100-4606",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:51.477Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Infrastruttura",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2325/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2325",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "firstSeenAt": "2026-07-04T10:00:05.103Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

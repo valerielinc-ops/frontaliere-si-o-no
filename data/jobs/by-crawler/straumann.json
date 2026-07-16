@@ -1,6 +1,6 @@
 {
   "crawlerKey": "straumann",
-  "assembledAt": "2026-07-15T22:00:27.251Z",
+  "assembledAt": "2026-07-16T11:17:30.236Z",
   "jobs": [
     {
       "id": "straumann-5a4978ad822e",
@@ -33,13 +33,13 @@
       "url": "https://careers.straumann.com/global/en/job/21558/development-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:24.207Z",
+      "crawledAt": "2026-07-16T11:17:27.657Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Corporate & Support Functions",
+      "category": "Research & Development",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "development-engineer-straumann-ch"
+        "development-engineer-straumann-ch",
+        "development-ingegnere-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "development-engineer-straumann-ch"
+          "development-engineer-straumann-ch",
+          "development-ingegnere-straumann-basel"
         ],
         "de": [
           "development-engineer-straumann-ch"
@@ -65,15 +67,15 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:04:15.756Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 72500,
+      "salaryMax": 110500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 72500,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       }
@@ -109,7 +111,7 @@
       "url": "https://careers.straumann.com/global/en/job/21557/global-medical-education-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:23.903Z",
+      "crawledAt": "2026-07-16T11:17:27.318Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -127,11 +129,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-medical-education-demo-materials-manager-straumann-ch"
+        "global-medical-education-demo-materials-manager-straumann-ch",
+        "responsabile-dei-materiali-dimostrativi-per-la-formazione-medica-globale-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-medical-education-demo-materials-manager-straumann-ch"
+          "global-medical-education-demo-materials-manager-straumann-ch",
+          "responsabile-dei-materiali-dimostrativi-per-la-formazione-medica-globale-straumann-basel"
         ],
         "de": [
           "global-medical-education-demo-materials-manager-straumann-ch"
@@ -185,7 +189,7 @@
       "url": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:23.618Z",
+      "crawledAt": "2026-07-16T11:17:26.991Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -203,11 +207,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-development-engineer-straumann-ch"
+        "packaging-development-engineer-straumann-ch",
+        "packaging-development-ingegnere-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-development-engineer-straumann-ch"
+          "packaging-development-engineer-straumann-ch",
+          "packaging-development-ingegnere-straumann-basel"
         ],
         "de": [
           "packaging-development-engineer-straumann-ch"
@@ -245,7 +251,7 @@
       "title": "Lehrstelle als Interactive Media Designer EFZ (m/w/d) ab August 2027",
       "titleByLocale": {
         "it": "Apprendista Designer di Media Interattivi EFZ (m/f/d) da agosto 2027",
-        "en": "Apprenticeship as Interactive Media Designer EFZ (m/f/d) from August 2027",
+        "en": "Lehrstelle als Interactive Media Designer EFZ (m/w/d) ab August 2027",
         "de": "Lehrstelle als Interactive Media Designer EFZ (m/w/d) ab August 2027",
         "fr": "Apprenti(e) Designer Multimédia Interactif EFZ (h/f/d) à partir d'août 2027"
       },
@@ -261,7 +267,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:00:23.330Z",
+      "crawledAt": "2026-07-16T11:17:26.621Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -279,17 +285,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
         ]
       },
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
+      "needsRetranslation": true,
       "salaryMin": 52500,
       "salaryMax": 92500,
       "baseSalary": {
@@ -334,7 +343,7 @@
       "url": "https://careers.straumann.com/global/en/job/21493/intern-rdi-academy-clinical-research",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:23.045Z",
+      "crawledAt": "2026-07-16T11:17:26.172Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -352,11 +361,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "intern-rdi-academy-clinical-research-straumann-ch"
+        "intern-rdi-academy-clinical-research-straumann-ch",
+        "tirocinante-rdi-academy-clinical-ricerca-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-rdi-academy-clinical-research-straumann-ch"
+          "intern-rdi-academy-clinical-research-straumann-ch",
+          "tirocinante-rdi-academy-clinical-ricerca-straumann-basel"
         ],
         "de": [
           "intern-rdi-academy-clinical-research-straumann-ch"
@@ -386,7 +397,7 @@
         "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "en": "procurement-business-partner-villeret-straumann-ch",
         "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
-        "fr": "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret"
+        "fr": "procurement-business-partner-villeret-straumann-villeret"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -396,7 +407,7 @@
         "it": "Procurement Business Partner Villeret",
         "en": "Procurement Business Partner Villeret",
         "de": "Einkaufs-Partner Villeret",
-        "fr": "Approvisionnement Partenaire d'affaires Villeret"
+        "fr": "Procurement Business Partner Villeret"
       },
       "description": "<br><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Are you ready to unlock your potential?</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">At Straumann Group we’re on an exciting journey of growth, innovation, and impact - driven by our mission to improve oral health and transform millions of lives worldwide. United by purpose, we bring our best selves to work every day, embracing a high-performance, player-learner culture that inspires collaboration, curiosity, and ambition. Here, you’ll have the opportunity to take charge of your own career, harnessing your skills, passion, and enthusiasm for learning to continually grow and progress. Together, we’re not just shaping brighter smiles, we’re unlocking the potential of people everywhere, including our own.</p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Introduction</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">As Procurement Lead for our Villeret manufacturing site, you will play a pivotal role in ensuring the reliable, compliant, and cost-effective supply of goods and services that support our operations. Acting as the primary procurement business partner to the site leadership team, you will connect global procurement strategies with local execution, helping drive operational excellence, product innovation, and regulatory compliance.</p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">This is a highly visible role within the Villeret Site Leadership Team, offering the opportunity to collaborate across Operations, Quality, Engineering, Finance, and Global Procurement while making a direct impact on manufacturing performance and business success.</p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Your Role</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">As Procurement Lead, you will:</p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Business Partnering & Operational Support</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Serve as the primary procurement partner to the Villeret Site Leadership Team. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Support production priorities by ensuring a secure and reliable supply of materials and services. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Identify and mitigate supply risks to maintain operational continuity. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Contribute to site performance objectives and key operational metrics. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Supplier Management & Performance</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Manage strategic supplier relationships and performance. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Monitor and improve supplier delivery, quality, and cost performance. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Lead supplier issue resolution and recovery planning when required. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Foster collaborative partnerships that support long-term business goals. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Quality & Regulatory Compliance</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Ensure procurement activities align with quality management system requirements and applicable regulations. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Support supplier audits, corrective and preventive actions (CAPA), and change control processes. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Maintain procurement documentation and audit readiness. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Product Lifecycle & Engineering Collaboration</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Partner with Engineering and cross-functional teams to support new product introductions and product changes. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Contribute to design-to-cost initiatives and sourcing strategies. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Ensure supplier readiness for industrialization and production scaling. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Cost Management & Procurement Excellence</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Deliver sustainable cost savings and value-creation initiatives. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Execute global procurement strategies at site level. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Provide transparent reporting and tracking of procurement performance. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Support procurement transformation initiatives and continuous improvement efforts. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Cross-Functional Collaboration</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Build strong partnerships with Operations, Quality, Engineering, Finance, and Global Procurement teams. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Act as a key link between site requirements and global procurement priorities. </span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Your \n• Profile</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Must-Have \n• Qualifications</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Master's degree in Supply Chain, Engineering, Business, or a related discipline. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Significant experience in procurement within a manufacturing environment. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Experience managing supplier relationships and driving supplier performance. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Knowledge of quality management systems and regulated manufacturing environments. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Experience supporting product lifecycle management (PLM), product changes, or new product introductions. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Strong stakeholder management and influencing skills. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Ability to analyze complex situations, prioritize effectively, and drive results</span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\"><span style=\"font-family: Calibri; font-size: 11pt;\">Strong knowledge of French and English</span></span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Nice-to-Have \n• Qualifications</span></p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"margin-top: 0.0in; margin-bottom: 0.0in;\" type=\"disc\"><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Experience within medical devices, healthcare, or other highly regulated industries. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Experience leading procurement transformation or continuous improvement initiatives. </span></li><li style=\"margin-top: 0.0; margin-bottom: 0.0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Familiarity with ISO 13485 or comparable quality standards.</span></li></ul><p style=\"margin: 0.0in; margin-left: 0.375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0.0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">Tous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.</p><br>",
       "descriptionByLocale": {
@@ -410,7 +421,7 @@
       "url": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:22.763Z",
+      "crawledAt": "2026-07-16T11:17:25.817Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -436,14 +447,18 @@
       },
       "previousSlugs": [
         "procurement-business-partner-villeret-straumann-ch",
+        "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
+        "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "procurement-business-partner-villeret-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-business-partner-villeret-straumann-ch"
+          "procurement-business-partner-villeret-straumann-ch",
+          "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret"
         ],
         "fr": [
           "procurement-business-partner-villeret-straumann-ch",
+          "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
           "procurement-business-partner-villeret-straumann-villeret"
         ]
       },
@@ -493,7 +508,7 @@
       "url": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:00:22.483Z",
+      "crawledAt": "2026-07-16T11:17:25.514Z",
       "addressLocality": "Berneck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -543,18 +558,21 @@
       "previousSlugs": [
         "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
         "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
-        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
+        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck",
+        "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
-          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck"
+          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
+          "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
         ],
         "de": [
           "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.719Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -574,7 +592,7 @@
       "slugByLocale": {
         "it": "steward-dei-dati-principali-straumann-villeret",
         "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
-        "de": "stammdatenverwalter-straumann-villeret",
+        "de": "master-data-steward-straumann-villeret",
         "fr": "master-data-steward-straumann-ch"
       },
       "company": "Straumann",
@@ -584,7 +602,7 @@
       "titleByLocale": {
         "it": "Master Data Steward",
         "en": "Master Data Steward",
-        "de": "Stammdatenverwalter",
+        "de": "Master Data Steward",
         "fr": "Master Data Steward"
       },
       "description": "<br><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Êtes-vous prêt(e) à libérer votre potentiel ?</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">Chez Straumann Group, nous vivons une période passionnante de croissance, d’innovation et d’impact, guidée par notre mission d’améliorer la santé bucco-dentaire et de transformer la vie de millions de personnes dans le monde. Unis par une même raison d’être, nous donnons chaque jour le meilleur de nous-mêmes dans une culture de performance et d’apprentissage qui favorise la collaboration, la curiosité et l’ambition. Ici, vous aurez l’opportunité de prendre en main votre parcours professionnel, en développant continuellement vos compétences, votre passion et votre envie d’apprendre. Ensemble, nous ne façonnons pas seulement de plus beaux sourires : nous révélons le potentiel de chacun, y compris le vôtre.</p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Introduction</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">Dans ce rôle clé, vous contribuez à la fiabilité et à la qualité des données de référence qui soutiennent les opérations industrielles de Straumann. En tant que Master Data Steward, vous garantissez la cohérence, la conformité et la traçabilité des données tout au long de leur cycle de vie au sein de SAP, MES, PLM et des systèmes associés.</p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">Vous travaillez au cœur des interactions entre la Production, l’Industrialisation, les Méthodes, la Qualité, la Supply Chain, le Contrôle de gestion et l’Informatique afin de garantir que les données reflètent fidèlement les processus métiers et les exigences réglementaires. Votre contribution participe directement à l’efficacité opérationnelle, à la qualité des produits et à l’amélioration continue dans un environnement industriel réglementé.</p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Votre rôle</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Gestion des Master Data</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;\" type=\"disc\"><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Créer, maintenir et faire évoluer les données de référence dans SAP et les systèmes associés (articles, nomenclatures, gammes, postes de travail, données MES, PLM, informations achats et données de planification). </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Garantir l’exactitude, l’intégrité, la cohérence et la conformité des données tout au long du cycle de vie des produits. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Collaborer avec les équipes métiers afin de traduire les besoins opérationnels en données fiables et exploitables. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Identifier les écarts ou anomalies, analyser leurs causes et coordonner les actions correctives. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Participer aux projets de modification de produits, procédés ou équipements en évaluant les impacts sur les données de référence. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Accompagner les activités de phase-out et assurer une désactivation cohérente et traçable des données. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Fournir un support aux utilisateurs sur les processus et règles de gestion liés aux Master Data. </span></li></ul><p style=\"margin: 0in; margin-left: .375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Gouvernance et amélioration continue</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;\" type=\"disc\"><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Développer et maintenir les procédures, modes opératoires et workflows associés aux données de référence. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Contribuer à la standardisation et à l’optimisation des pratiques de gestion des données. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Participer à la modélisation et à l’amélioration des processus métier. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Soutenir les initiatives de gouvernance des données et les évolutions de systèmes. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Promouvoir les bonnes pratiques de qualité des données auprès des parties prenantes. </span></li></ul><p style=\"margin: 0in; margin-left: .375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Analyse de données et reporting</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;\" type=\"disc\"><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Réaliser des analyses permettant d’évaluer la qualité des référentiels et d’identifier des opportunités d’amélioration. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Développer et suivre des indicateurs liés aux Master Data. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Contribuer à la création et à l’évolution de tableaux de bord Power BI. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Collaborer avec les équipes Data, IT et métiers pour structurer et valoriser les données. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Participer à la définition des besoins métiers liés aux outils, workflows et reportings. </span></li></ul><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">\n• Votre profil</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">\n• Exigences essentielles</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;\" type=\"disc\"><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Formation en informatique, systèmes d’information, informatique de gestion, data ou domaine équivalent. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Expérience en gestion des Master Data dans un environnement industriel structuré. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Bonne connaissance de SAP et des données de production telles que les articles, nomenclatures, gammes de fabrication ou postes de travail. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Compréhension des exigences de qualité, de conformité, de traçabilité et de gouvernance des données. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Expérience en analyse de données et reporting. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Maîtrise avancée d’Excel et bonnes connaissances de Power BI, SQL et DAX. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Capacité à documenter des processus, rédiger des procédures et formaliser des règles de gestion. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Excellentes compétences en communication et en collaboration avec des interlocuteurs variés. </span></li></ul><p style=\"margin: 0in; margin-left: .375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"><span style=\"font-weight: bold;\">Atouts appréciés</span></p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><ul style=\"direction: ltr; unicode-bidi: embed; margin-top: 0in; margin-bottom: 0in;\" type=\"disc\"><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Expérience dans le secteur des dispositifs médicaux ou dans un environnement réglementé. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Connaissance de systèmes MES, PLM ou d’outils documentaires. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Expérience en Business Process Modeling (BPM). </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Connaissance de SharePoint, des workflows de validation ou d’outils similaires. </span></li><li style=\"margin-top: 0; margin-bottom: 0; vertical-align: middle; color: #201f1e;\"><span style=\"font-family: Calibri; font-size: 11.0pt;\">Familiarité avec Snowflake ou d’autres plateformes de données modernes.</span></li></ul><p style=\"margin: 0in; margin-left: .375in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\"> </p><p style=\"margin: 0in; font-family: Calibri; font-size: 11.0pt; color: #201f1e;\">Tous les candidats qualifiés seront considérés pour un emploi sans distinction de race, couleur, religion, sexe, orientation sexuelle, identité de genre, origine nationale ou handicap.</p><br>",
@@ -599,7 +617,7 @@
       "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:00:22.170Z",
+      "crawledAt": "2026-07-16T11:17:25.188Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -618,14 +636,18 @@
       "previousSlugs": [
         "master-data-steward-straumann-ch",
         "maitre-de-la-garde-des-donnees-straumann-villeret",
+        "stammdatenverwalter-straumann-villeret",
+        "steward-dei-dati-principali-straumann-villeret",
         "master-data-steward-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-data-steward-straumann-ch"
+          "master-data-steward-straumann-ch",
+          "steward-dei-dati-principali-straumann-villeret"
         ],
         "de": [
           "master-data-steward-straumann-ch",
+          "stammdatenverwalter-straumann-villeret",
           "master-data-steward-straumann-villeret"
         ],
         "fr": [
@@ -678,7 +700,7 @@
       "url": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-15T22:00:21.660Z",
+      "crawledAt": "2026-07-16T11:17:24.858Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -696,11 +718,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
+        "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
+        "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch"
+          "senior-global-growth-lead-single-tooth-solutions-sdis-temporary-straumann-ch",
+          "senior-global-growth-lead-soluzioni-per-singoli-denti-sdis-temporaneo-straumann-basel"
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.723Z",
@@ -715,7 +739,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "straumann-53f1f679bfa5",
@@ -748,7 +773,7 @@
       "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:00:21.387Z",
+      "crawledAt": "2026-07-16T11:17:24.572Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -766,11 +791,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
-        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
+        "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden",
+        "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch"
+          "mitarbeiter-supply-chain-management-w-m-d-straumann-ch",
+          "collaboratore-supply-chain-management-f-m-d-straumann-rheinfelden"
         ],
         "fr": [
           "collaborateur-supply-chain-management-w-m-d-straumann-rheinfelden"
@@ -822,7 +849,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-15T22:00:21.036Z",
+      "crawledAt": "2026-07-16T11:17:24.103Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -839,11 +866,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
+        "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
+          "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
         ]
       },
       "needsRetranslation": true,

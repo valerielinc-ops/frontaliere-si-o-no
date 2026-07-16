@@ -38,8 +38,9 @@ import {
 } from './lib/alert-sent-jobs.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
-import { checkLink, runWithConcurrency } from './lib/live-link-check.mjs';
+import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
+import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -108,11 +109,19 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // data/jobs.json is a periodic crawl snapshot; a job listed as "recent" at
 // crawl-time can be pulled/expired by an employer, or its per-locale SSG page
 // may not have deployed yet, before this script actually sends the alert.
-// Mirrors the HEAD-check pattern from check-journalist-article-links.mjs
-// (issue #3174) via scripts/lib/live-link-check.mjs — same HEAD → 405/501
-// ranged-GET fallback, same 8s timeout, same "network error = not-live, no
-// retry" semantics — so this preflight and that one can never silently drift
-// apart on what "live" means.
+//
+// This CANNOT reuse the plain HEAD-check from check-journalist-article-links.mjs
+// (scripts/lib/live-link-check.mjs checkLink): that check is blind to our own
+// job pages — the site's soft-404 policy (AGENTS.md "Static SEO Pages": no
+// real 404s, always a bridge) means an expired job's URL keeps returning 200
+// forever, rendering the "Questa offerta di lavoro non è più attiva"
+// soft-landing page instead (build-plugins/jobsSeoPagesPlugin.ts
+// buildSoftLandingHtml). So a HEAD/status check alone is a no-op here — it
+// was passing 200 for exactly the expired jobs it was meant to catch.
+// checkPageBodyLive (scripts/lib/live-link-check.mjs, shared with
+// check-journalist-article-links.mjs) is the real liveness signal: GET + look
+// for the `window.__EXPIRED_JOB_DATA__` marker buildSoftLandingHtml alone
+// seeds.
 const JOB_LIVE_CHECK_CONCURRENCY = 5;
 // Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
 // tool (a failed check just marks one outlink broken in a report — never
@@ -137,23 +146,28 @@ function jobPageUrl(job, locale) {
   return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
 }
 
+// Delegates to the shared checkPageBodyLive (scripts/lib/live-link-check.mjs)
+// — kept as its own export/name here since it's the job-alerts-specific
+// liveness check callers and tests reach for. Exported for tests.
+export const checkJobPageLive = checkPageBodyLive;
+
 /**
- * Filters `jobs` down to those whose live page resolves OK, checking each
- * distinct URL at most once per run via `cache` (shared across alerts/locales
- * so overlapping job pools aren't re-checked). Jobs with no resolvable slug
- * fall back to the site root in the email (always live) and are never
- * filtered. Exported for tests.
+ * Filters `jobs` down to those whose live page resolves OK AND is not the
+ * expired-job soft-landing bridge, checking each distinct URL at most once
+ * per run via `cache` (shared across alerts/locales so overlapping job pools
+ * aren't re-checked). Jobs with no resolvable slug fall back to the site root
+ * in the email (always live) and are never filtered. Exported for tests.
  */
 async function filterLiveJobs(jobs, locale, cache) {
   const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
   // Dedupe by URL both across calls (via the shared `cache`) AND within this
   // single call (two jobs — e.g. two locale variants — can resolve to the
   // same page); otherwise a duplicate URL in the same batch would be
-  // HEAD-checked once per occurrence before either result lands in `cache`.
+  // checked once per occurrence before either result lands in `cache`.
   const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cache.has(url)))];
   if (uniqueToCheck.length > 0) {
     await runWithConcurrency(uniqueToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      cache.set(url, await checkLink(url));
+      cache.set(url, await checkJobPageLive(url));
     });
   }
   const results = withUrls.map(({ job, url }) => ({ job, live: !url || cache.get(url) !== false }));
@@ -1393,16 +1407,35 @@ async function main() {
     console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
   }
 
-  // 2c. Skip weekly alerts if last sent within 7 days
+  // 2c. Resolve each alert's effective cadence tier, then gate on it.
+  // Engine-managed by default — recency of last_open_at/last_click_at on the
+  // root job_alert_subscribers/{email} doc (scripts/lib/jobAlertEngagementTier.mjs,
+  // owner design 2026-07-16) — unless the alert carries a sticky manual
+  // `frequencyOverride`, in which case the pinned frequency wins verbatim.
+  // `effectiveTier` is stamped onto each alert so the post-send batch below
+  // can persist it for observability (last_engagement_tier).
   const WEEKLY_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
+  // Coincidentally the same magnitude as NEWSLETTER_COOLDOWN_MS above and
+  // send-newsletter.mjs's JOB_ALERT_COOLDOWN_MS, but a distinct guard: those
+  // two are cross-channel send dedup, this is the per-alert engagement tier.
+  const ENGAGEMENT_TIER_36H_INTERVAL_MS = 36 * 60 * 60 * 1000;
   alerts = alerts.filter((alert) => {
-    if (alert.frequency === 'weekly' && alert.lastMatchedAt) {
-      const lastSent = typeof alert.lastMatchedAt.toMillis === 'function'
-        ? alert.lastMatchedAt.toMillis()
-        : new Date(alert.lastMatchedAt).getTime();
-      if (now - lastSent < WEEKLY_INTERVAL_MS) return false;
+    const emailKey = alert.email.toLowerCase();
+    const verdict = resolveEffectiveJobAlertTier(alert, jobAlertProfiles.get(emailKey) || null, now);
+    alert.effectiveTier = verdict.tier;
+
+    if (!alert.lastMatchedAt) return true; // never sent — no interval to respect
+    const lastSent = typeof alert.lastMatchedAt.toMillis === 'function'
+      ? alert.lastMatchedAt.toMillis()
+      : new Date(alert.lastMatchedAt).getTime();
+
+    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY) {
+      return now - lastSent >= WEEKLY_INTERVAL_MS;
     }
-    return true;
+    if (verdict.tier === JOB_ALERT_ENGAGEMENT_TIERS.OPEN_36H) {
+      return now - lastSent >= ENGAGEMENT_TIER_36H_INTERVAL_MS;
+    }
+    return true; // daily tier — no interval gate, same as legacy daily behavior
   });
 
   // 3. Match alerts to jobs
@@ -1560,6 +1593,7 @@ async function main() {
       text,
       alertId: alert.id,
       ref: alert.ref,
+      effectiveTier: alert.effectiveTier,
       matchCount: matched.length,
       sentMap,
       sentJobs,
@@ -1632,6 +1666,18 @@ async function main() {
         .map((email) => email.to.toLowerCase())
         .filter((email) => !failedEmailSet.has(email)),
     )];
+    // Adaptive-frequency observability: when a subscriber has >1 alert whose
+    // effective tiers differ (e.g. one pinned daily, one engine-managed
+    // weekly), surface the highest-cadence tier reached this run.
+    const TIER_PRIORITY = { daily: 0, '36h': 1, weekly: 2 };
+    const effectiveTierByEmail = new Map();
+    for (const email of emailsToSend) {
+      const key = email.to.toLowerCase();
+      const existing = effectiveTierByEmail.get(key);
+      if (!existing || TIER_PRIORITY[email.effectiveTier] < TIER_PRIORITY[existing]) {
+        effectiveTierByEmail.set(key, email.effectiveTier);
+      }
+    }
     if (sentEmails.length > 0) {
       await commitInChunks(db, sentEmails, (batch, email) => {
         // Per-user send-time observability (#3798 follow-up): mirror what the
@@ -1644,6 +1690,7 @@ async function main() {
           last_sent_at: FieldValue.serverTimestamp(),
           last_scheduled_for: outcome?.scheduledFor ?? null,
           last_send_time_source: outcome?.sendTimeSource ?? null,
+          last_engagement_tier: effectiveTierByEmail.get(email) ?? null,
         }, { merge: true });
       });
       console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);

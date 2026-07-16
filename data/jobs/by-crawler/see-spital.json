@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-07-15T22:40:11.579Z",
+  "assembledAt": "2026-07-16T11:56:19.931Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -34,7 +34,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:40:09.318Z",
+      "crawledAt": "2026-07-16T11:56:17.803Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -55,11 +55,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "pj-absolvens-in-chirurgie-see-spital-horgen"
+        "pj-absolvens-in-chirurgie-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -114,7 +116,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:08.292Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:16.697Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -142,11 +145,13 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
@@ -198,7 +203,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/794/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:07.284Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:15.563Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -220,11 +226,13 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+        "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+        "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch"
+          "fachfrauen-manner-gesundheit-fur-den-pflegepool-max-60-see-spital-ch",
+          "specialisti-salute-per-il-pool-di-assistenza-max-60-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
@@ -273,7 +281,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:06.318Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:14.410Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -321,11 +330,13 @@
         "assistente-di-cura-in-medicina-see-spital-horgen",
         "medical-care-assistant-see-spital-horgen",
         "pflegeassistent-in-medizin-see-spital-ch",
-        "assistant-de-soins-medicaux-see-spital-horgen"
+        "assistant-de-soins-medicaux-see-spital-horgen",
+        "assistente-assistente-di-medicina-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+          "assistente-assistente-di-medicina-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
@@ -374,7 +385,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:05.296Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:13.302Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -419,12 +431,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+        "dipl-infermiere-re-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-tertianum-see-spital-ch",
+          "dipl-infermiere-re-notturno-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
@@ -473,7 +487,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:04.274Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:12.141Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -514,11 +529,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+        "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+        "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch"
+          "dipl-fachfrau-mann-operationstechnik-hf-see-spital-ch",
+          "specialista-in-tecnica-chirurgica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
@@ -567,7 +584,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:03.274Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:11.001Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -613,11 +631,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+        "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+        "studente-esperto-anestesia-nds-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch"
+          "studierende-r-experte-anasthesiepflege-nds-hf-see-spital-ch",
+          "studente-esperto-anestesia-nds-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
@@ -650,7 +670,7 @@
       "title": "Dipl. Pflegefachperson HF Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Persona di Cura HF Chirurgia",
-        "en": "Dipl. Care professional HF surgery",
+        "en": "Dipl. Pflegefachperson HF Chirurgie",
         "de": "Dipl. Pflegefachperson HF Chirurgie",
         "fr": "Dipl. Professionnel de Soins HF Chirurgie"
       },
@@ -666,7 +686,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:02.275Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:09.839Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -717,11 +738,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
-        "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+        "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
+          "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
@@ -773,7 +796,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:01.291Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:08.689Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -823,11 +847,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "rettungssanitater-in-in-ausbildung-see-spital-ch"
+        "rettungssanitater-in-in-ausbildung-see-spital-ch",
+        "sanitario-di-emergenza-in-formazione-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-in-ausbildung-see-spital-ch"
+          "rettungssanitater-in-in-ausbildung-see-spital-ch",
+          "sanitario-di-emergenza-in-formazione-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -876,7 +902,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:40:00.353Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:07.516Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -923,11 +950,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+        "radiologo-a-formatore-a-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-radiologiefachfrau-mann-hf-see-spital-ch",
+          "radiologo-a-formatore-a-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
@@ -976,7 +1005,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:59.406Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:06.396Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1018,12 +1048,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+        "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+        "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-stationsleitung-akutgeriatrie-see-spital-ch",
-          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch"
+          "stellvertretung-stationsleitung-akutgeriatrie-tertianum-see-spital-ch",
+          "vice-direttore-di-sezione-di-geriatria-acuta-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
@@ -1072,7 +1104,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:58.449Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:05.257Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1122,11 +1155,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-see-spital-ch"
+        "dipl-expert-in-anasthesiepflege-see-spital-ch",
+        "esperto-a-di-anestesia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-see-spital-ch"
+          "dipl-expert-in-anasthesiepflege-see-spital-ch",
+          "esperto-a-di-anestesia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
@@ -1159,7 +1194,7 @@
       "title": "Dipl. Pflegefachperson HF Excellence",
       "titleByLocale": {
         "it": "Dipl. Persona di Cura HF Excellence",
-        "en": "Dipl. Care professional HF Excellence",
+        "en": "Dipl. Pflegefachperson HF Excellence",
         "de": "Dipl. Pflegefachperson HF Excellence",
         "fr": "Dipl. Professionnel de Soins HF Excellence"
       },
@@ -1175,7 +1210,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:57.485Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:04.120Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1226,14 +1262,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+          "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+          "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-excellence-see-spital-ch"
+        "dipl-pflegefachperson-hf-excellence-see-spital-ch",
+        "dipl-pflegefachperson-hf-exzellenz-see-spital-horgen",
+        "dipl-persona-di-cura-hf-excellence-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
       "salaryMin": 73500,
@@ -1281,7 +1321,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:56.522Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:02.968Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1331,12 +1372,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1369,7 +1412,7 @@
       "title": "Dipl. Pflegefachperson HF Medizin",
       "titleByLocale": {
         "it": "Specialista infermieristico qualificato Medicina HF",
-        "en": "Dipl. Nurse HF Medicine",
+        "en": "Dipl. Pflegefachperson HF Medizin",
         "de": "Dipl. Pflegefachperson HF Medizin",
         "fr": "Dipl. Pflegefachperson HF Médecine"
       },
@@ -1385,7 +1428,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:55.533Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:01.815Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1435,11 +1479,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+        "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+        "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-see-spital-ch"
+          "dipl-pflegefachperson-hf-medizin-see-spital-ch",
+          "specialista-infermieristico-qualificato-medicina-hf-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-medizin-see-spital-ch"
@@ -1491,7 +1537,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:54.554Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:56:00.662Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1531,12 +1578,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "sportarztin-arzt-see-spital-ch",
-        "sportarztin-arzt-policlinic-see-spital-ch"
+        "sportarztin-arzt-policlinic-see-spital-ch",
+        "medico-dello-sport-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportarztin-arzt-see-spital-ch",
-          "sportarztin-arzt-policlinic-see-spital-ch"
+          "sportarztin-arzt-policlinic-see-spital-ch",
+          "medico-dello-sport-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
@@ -1585,7 +1634,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:53.586Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:59.481Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1629,12 +1679,14 @@
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
         "medico-di-medicina-interna-nefrologia-see-spital-horgen",
         "assistant-physician-nephrology-see-spital-horgen",
-        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen",
+        "infermiere-a-specializzato-a-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "medico-di-medicina-interna-nefrologia-see-spital-horgen"
+          "medico-di-medicina-interna-nefrologia-see-spital-horgen",
+          "infermiere-a-specializzato-a-see-spital-horgen"
         ],
         "en": [
           "assistant-physician-nephrology-see-spital-horgen"
@@ -1692,7 +1744,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:52.612Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:58.322Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1741,11 +1794,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "studierende-r-operationstechnik-hf-see-spital-ch"
+        "studierende-r-operationstechnik-hf-see-spital-ch",
+        "studente-operatore-tecnico-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-operationstechnik-hf-see-spital-ch"
+          "studierende-r-operationstechnik-hf-see-spital-ch",
+          "studente-operatore-tecnico-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
@@ -1794,7 +1849,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:51.630Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:57.185Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1843,12 +1899,14 @@
         "healthcare-professional-efz-medicine-see-spital-horgen",
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "professionnel-de-sante-efz-medecine-see-spital-horgen",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "fachinfermiere-efz-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1897,7 +1955,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:51.116Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:56.062Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1945,11 +2004,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+        "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+        "studente-studente-di-infermieristica-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch"
+          "studierende-r-pflegefachfrau-mann-hf-see-spital-ch",
+          "studente-studente-di-infermieristica-hf-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
@@ -1998,7 +2059,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:50.166Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:54.922Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2048,11 +2110,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
+        "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
+        "medico-direttore-pneumologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-r-arzt-arztin-pneumologie-see-spital-ch"
+          "leitende-r-arzt-arztin-pneumologie-see-spital-ch",
+          "medico-direttore-pneumologia-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.373Z",
@@ -2101,7 +2165,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:49.206Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:53.821Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2148,11 +2213,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+        "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-persona-di-cura-hf-interdisciplinare-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
@@ -2185,7 +2252,7 @@
       "title": "Klinische*r Fachspezialist*in / Physician Associate",
       "titleByLocale": {
         "it": "Fachspezialist*in Clinico / Physician Associate",
-        "en": "Clinical Specialist / Physician Associate",
+        "en": "Klinische*r Fachspezialist*in / Physician Associate",
         "de": "Klinische*r Fachspezialist*in / Physician Associate",
         "fr": "Spécialiste Clinique / Associé Médecin"
       },
@@ -2201,7 +2268,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:48.271Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:52.724Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2249,14 +2317,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen"
         ],
         "it": [
-          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+          "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+          "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
+        "klinische-r-fachspezialist-in-physician-associate-see-spital-ch",
+        "klinische-r-fachspezialist-in-arzt-associate-see-spital-horgen",
+        "fachspezialist-in-clinico-physician-associate-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
       "salaryMin": 73500,
@@ -2304,7 +2376,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:47.308Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:51.577Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2349,14 +2422,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "op-lagerungspfleger-in-see-spital-ch"
+          "op-lagerungspfleger-in-see-spital-ch",
+          "op-lagerungspfleger-in-see-spital-horgen"
         ],
         "it": [
-          "op-lagerungspfleger-in-see-spital-ch"
+          "op-lagerungspfleger-in-see-spital-ch",
+          "operatore-di-preparazione-operatoria-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "op-lagerungspfleger-in-see-spital-ch"
+        "op-lagerungspfleger-in-see-spital-ch",
+        "op-lagerungspfleger-in-see-spital-horgen",
+        "operatore-di-preparazione-operatoria-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:47.293Z",
       "salaryMin": 73500,
@@ -2388,7 +2465,7 @@
       "title": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
       "titleByLocale": {
         "it": "Esperto/a di Emergenza NDS o Specialista di Assistenza Infermieristica con Esperienza in Emergenza",
-        "en": "Dipl. Expert*in Emergency Care NDS or Dipl. Nurse HF with emergency experience",
+        "en": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
         "de": "Dipl. Expert*in Notfallpflege NDS oder Dipl. Pflegefachperson HF mit Notfallerfahrung",
         "fr": "Expert en Soins d'Urgence NDS ou Spécialiste en Soins Infirmiers avec Expérience en Urgence"
       },
@@ -2404,7 +2481,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:46.358Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:50.433Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2452,14 +2530,18 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfall-see-spital-horgen"
         ],
         "it": [
-          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
+          "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
+          "esperto-a-di-emergenza-nds-o-specialista-di-assistenza-infermieristica-con-esperienza-in-emergenza-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
+        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see",
+        "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfall-see-spital-horgen",
+        "esperto-a-di-emergenza-nds-o-specialista-di-assistenza-infermieristica-con-esperienza-in-emergenza-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:46.690Z",
       "salaryMin": 73500,
@@ -2478,9 +2560,9 @@
     },
     {
       "id": "see-spital-b31b0f026929",
-      "slug": "specialista-di-radiologia-hf-see-spital-horgen",
+      "slug": "radiologiefachfrau-mann-hf-see-spital-horgen",
       "slugByLocale": {
-        "it": "specialista-di-radiologia-hf-see-spital-horgen",
+        "it": "radiologiefachfrau-mann-hf-see-spital-horgen",
         "en": "radiologist-hf-see-spital-horgen",
         "de": "radiologiefachfrau-mann-hf-see-spital-ch",
         "fr": "radiologue-hf-see-spital-horgen"
@@ -2490,7 +2572,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Radiologiefachfrau*mann HF",
       "titleByLocale": {
-        "it": "Specialista di radiologia* HF",
+        "it": "Radiologiefachfrau*mann HF",
         "en": "Radiologist HF",
         "de": "Radiologiefachfrau*mann HF",
         "fr": "Radiologue HF"
@@ -2507,7 +2589,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:45.373Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:49.315Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2557,12 +2640,14 @@
       "previousSlugs": [
         "radiologiefachfrau-mann-hf-see-spital-ch",
         "specialista-in-radiologia-hf-see-spital-horgen",
+        "specialista-di-radiologia-hf-see-spital-horgen",
         "radiologiefachfrau-mann-hf-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-mann-hf-see-spital-ch",
           "specialista-in-radiologia-hf-see-spital-horgen",
+          "specialista-di-radiologia-hf-see-spital-horgen",
           "radiologiefachfrau-mann-hf-see-spital-horgen"
         ]
       },
@@ -2613,7 +2698,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:44.359Z",
+      "crawledAt": "2026-07-16T11:55:48.167Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2693,7 +2778,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:43.429Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:47.046Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2774,7 +2860,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:42.470Z",
+      "crawledAt": "2026-07-16T11:55:45.896Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2793,11 +2879,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+        "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+        "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
+          "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch",
+          "segretario-del-dottore-in-medicina-con-focus-sulla-gastroenterologia-see-spital-horgen"
         ],
         "en": [
           "arztsekretar-in-medizin-mit-schwerpunkt-gastroenterologie-see-spital-ch"
@@ -2853,7 +2941,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:41.462Z",
+      "crawledAt": "2026-07-16T11:55:44.753Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2874,7 +2962,8 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-aemp-see-spital-ch",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "praxisassistent-in-see-spital-ch"
         ],
         "it": [
           "praxisassistent-in-see-spital-ch",
@@ -2883,7 +2972,8 @@
           "assistant-in-aemp-see-spital-horgen",
           "assistent-in-aemp-see-spital-ch",
           "assistant-en-aemp-see-spital-horgen",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen",
@@ -2905,7 +2995,8 @@
         "assistant-in-aemp-see-spital-horgen",
         "assistent-in-aemp-see-spital-ch",
         "assistant-en-aemp-see-spital-horgen",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen"
       ],
       "firstSeenAt": "2026-06-29T14:13:58.523Z",
       "salaryMin": 73500,
@@ -2953,7 +3044,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1270/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:39:40.512Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:43.624Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3018,7 +3110,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:39.485Z",
+      "crawledAt": "2026-07-16T11:55:42.525Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3037,11 +3129,13 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "med-praxisassistent-in-onkologie-see-spital-ch"
+        "med-praxisassistent-in-onkologie-see-spital-ch",
+        "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-onkologie-see-spital-ch"
+          "med-praxisassistent-in-onkologie-see-spital-ch",
+          "med-assistente-di-pratica-in-oncologia-see-spital-horgen"
         ],
         "en": [
           "med-praxisassistent-in-onkologie-see-spital-ch"
@@ -3097,7 +3191,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:38.495Z",
+      "crawledAt": "2026-07-16T11:55:41.393Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3116,11 +3210,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+        "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+          "dipl-cura-professionale-hf-oncologia-see-spital-horgen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
@@ -3176,7 +3272,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:37.545Z",
+      "crawledAt": "2026-07-16T11:55:40.259Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3195,11 +3291,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-arzt-onkologie-see-spital-ch"
+        "oberarztin-arzt-onkologie-see-spital-ch",
+        "oncologia-del-medico-senior-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-onkologie-see-spital-ch"
+          "oberarztin-arzt-onkologie-see-spital-ch",
+          "oncologia-del-medico-senior-see-spital-horgen"
         ],
         "en": [
           "oberarztin-arzt-onkologie-see-spital-ch"
@@ -3255,7 +3353,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-07-15T22:39:36.549Z",
+      "crawledAt": "2026-07-16T11:55:39.114Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3278,7 +3376,8 @@
         "praxisassistent-in-see-spital-ch",
         "praxisassistent-in-see-spital-horgen",
         "praxisassistent-in-policlinic-see-spital-ch-2",
-        "praxisassistent-in-policlinic-see-spital-ch"
+        "praxisassistent-in-policlinic-see-spital-ch",
+        "assistente-pratico-see-spital-horgen-79c446"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3286,7 +3385,8 @@
           "praxisassistent-in-see-spital-ch",
           "praxisassistent-in-see-spital-horgen",
           "praxisassistent-in-policlinic-see-spital-ch-2",
-          "praxisassistent-in-policlinic-see-spital-ch"
+          "praxisassistent-in-policlinic-see-spital-ch",
+          "assistente-pratico-see-spital-horgen-79c446"
         ],
         "en": [
           "praxisassistent-in-see-spital-horgen"
@@ -3314,92 +3414,57 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-e8c9cc2ea223",
-      "slug": "wundexpert-in-see-spital-horgen",
+      "id": "see-spital-42e60e42909f",
+      "slug": "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
       "slugByLocale": {
-        "it": "wundexpert-in-see-spital-horgen",
-        "en": "wound-expert-see-spital-horgen",
-        "de": "wundexpert-in-see-spital-ch",
-        "fr": "specialiste-des-plaies-see-spital-horgen"
+        "de": "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+        "it": "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+        "en": "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch",
+        "fr": "applikationsverantwortliche-r-klinisches-informationssystem-kis-see-spital-ch"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
-      "title": "Wundexpert*in",
+      "title": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
       "titleByLocale": {
-        "it": "Wundexpert * in",
-        "en": "Wound expert*",
-        "de": "Wundexpert*in",
-        "fr": "Spécialiste des plaies"
+        "de": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
+        "en": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
+        "it": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)",
+        "fr": "Applikationsverantwortliche*r - Klinisches Informationssystem (KIS)"
       },
-      "description": "Ihr Aufgabengebiet:\n\n• Aufbau und Mitgestaltung unseres neuen Wundambulatoriums gemeinsam mit unserer erfahrenen Wundexpertin\n• Verantwortung für die Versorgung von Wunden sowohl im Ambulatorium als auch auf den Bettenstationen\n• Sichere Anwendung medizinischer Verrichtungen unter Einhaltung aktueller Standards\n\nIhr Profil:\n\n• abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Idealerweise Erfahrung oder abgeschlossene Ausbildung als Wundexpert*in\n• Freude an Neuem und am Aufbau von Strukturen\n• Teamfähigkeit und konstruktive Zusammenarbeit\n• Wirtschaftliches und prozessorientiertes Denken\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+      "description": "Ihr Aufgabengebiet:\n\n• Sicherstellung des stabilen und anwenderorientierten Betriebs unseres Klinischen Informationssystems (KIS)\n• Koordination von Stammdaten, Workflows, Formularen, Berechtigungen und Systemparametern\n• Schnittstellenmanagement zwischen Fachbereichen, IT, Providern und Herstellern\n• Begleitung von Changes, Releases, Tests und Systemanpassungen\n• Unterstützung von Key Usern und Anwender*innen bei fachlichen Fragestellungen sowie Erstellung von Dokumentationen und Schulungsunterlagen\n• Mitarbeit bei KIS-Projekten, Prozessoptimierungen sowie Themen rund um Datenschutz und Informationssicherheit\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder Weiterbildung in Informatik, Medizininformatik, Wirtschaftsinformatik oder vergleichbarer Fachrichtung\n• Erfahrung in der Betreuung von Applikationen, idealerweise im Gesundheitswesen\n• Kenntnisse im Applikationsbetrieb, Support sowie Change- und Testmanagement\n• Verständnis für klinische Prozesse, Schnittstellen und Datenflüsse\n• Dienstleistungsorientierte, strukturierte und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
-        "it": "Il tuo campo di attività:\n• Costruzione e co-creazione del nostro nuovo ambulatorio per ferite insieme alla nostra esperta di ferite\n• Responsabilità per la cura delle ferite sia nell'ambulatorio che nelle stazioni di letto\n• Applicazione sicura di procedure mediche in conformità con gli standard attuali Il tuo profilo:\n• Formazione come Dipl. Pflegefachperson HF\n• Idealmente esperienza o formazione come Wundexpert*in\n• Appassionato di nuove sfide e della creazione di strutture\n• Capacità di lavorare in team e collaborazione costruttiva\n• Pensiero economico e orientato ai processi Cosa ti offriamo:\n• Lavoro autonomo in una squadra motivata e collaborativa che si supporta a vicenda.\n• Un luogo di lavoro ben collegato ai trasporti pubblici e parcheggi per il personale a costi ridotti.\n• Infrastruttura moderna e un ambiente di lavoro che ti farà sentire a tuo agio – incluso una vista sul lago.\n• Diversi benefici – da sconti per i dipendenti a offerte di formazione.\n• Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che offre molto sia professionalmente che privatamente. Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\n• Construction and co-creation of our new wound clinic together with our experienced wound specialist\n• Responsibility for the care of wounds both in the clinic and on the ward stations\n• Safe application of medical procedures in accordance with current standards Your profile:\n• Completed training as Dipl. Pflegefachperson HF\n• Ideally experience or completed training as a Wound Specialist\n• Enthusiastic about new challenges and the creation of structures\n• Teamwork and constructive cooperation\n• Economic and process-oriented thinking What we offer you:\n• Self-responsible work in a motivated and collegial team that supports each other.\n• A workplace with excellent public transport connections and cost-effective staff parking.\n• Modern infrastructure and a working environment that makes you feel comfortable – including a lake view.\n• Diverse benefits – from great employee discounts to training offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which offers a lot both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n\n• Aufbau und Mitgestaltung unseres neuen Wundambulatoriums gemeinsam mit unserer erfahrenen Wundexpertin\n• Verantwortung für die Versorgung von Wunden sowohl im Ambulatorium als auch auf den Bettenstationen\n• Sichere Anwendung medizinischer Verrichtungen unter Einhaltung aktueller Standards\n\nIhr Profil:\n\n• abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Idealerweise Erfahrung oder abgeschlossene Ausbildung als Wundexpert*in\n• Freude an Neuem und am Aufbau von Strukturen\n• Teamfähigkeit und konstruktive Zusammenarbeit\n• Wirtschaftliches und prozessorientiertes Denken\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Votre domaine de responsabilité:\n• Construction et co-création de notre nouveau centre de soins des plaies avec notre spécialiste des plaies expérimentée\n• Responsabilité pour les soins des plaies tant au centre que dans les stations de soins\n• Application sûre des procédures médicales conformément aux normes actuelles Votre profil:\n• Formation complète en tant que Dipl. Pflegefachperson HF\n• Idéalement expérience ou formation complète en tant que Spécialiste des plaies\n• Passionné par les nouveaux défis et la création de structures\n• Travail d'équipe et coopération constructive\n• Pensée économique et orientée vers les processus Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et collaborative qui se soutient mutuellement.\n• Un lieu de travail bien connecté aux transports en commun et des places de parking pour le personnel à coût réduit.\n• Une infrastructure moderne et un environnement de travail qui vous rendra à l'aise – y compris une vue sur le lac.\n• Diverses prestations – des réductions d'employés excellentes aux offres de formation.\n• Un environnement de travail agréable dans un lieu attrayant près de Zurich, qui offre beaucoup à la fois professionnellement et privé. Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
+        "de": "Ihr Aufgabengebiet:\n\n• Sicherstellung des stabilen und anwenderorientierten Betriebs unseres Klinischen Informationssystems (KIS)\n• Koordination von Stammdaten, Workflows, Formularen, Berechtigungen und Systemparametern\n• Schnittstellenmanagement zwischen Fachbereichen, IT, Providern und Herstellern\n• Begleitung von Changes, Releases, Tests und Systemanpassungen\n• Unterstützung von Key Usern und Anwender*innen bei fachlichen Fragestellungen sowie Erstellung von Dokumentationen und Schulungsunterlagen\n• Mitarbeit bei KIS-Projekten, Prozessoptimierungen sowie Themen rund um Datenschutz und Informationssicherheit\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder Weiterbildung in Informatik, Medizininformatik, Wirtschaftsinformatik oder vergleichbarer Fachrichtung\n• Erfahrung in der Betreuung von Applikationen, idealerweise im Gesundheitswesen\n• Kenntnisse im Applikationsbetrieb, Support sowie Change- und Testmanagement\n• Verständnis für klinische Prozesse, Schnittstellen und Datenflüsse\n• Dienstleistungsorientierte, strukturierte und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "it": "Ihr Aufgabengebiet:\n\n• Sicherstellung des stabilen und anwenderorientierten Betriebs unseres Klinischen Informationssystems (KIS)\n• Koordination von Stammdaten, Workflows, Formularen, Berechtigungen und Systemparametern\n• Schnittstellenmanagement zwischen Fachbereichen, IT, Providern und Herstellern\n• Begleitung von Changes, Releases, Tests und Systemanpassungen\n• Unterstützung von Key Usern und Anwender*innen bei fachlichen Fragestellungen sowie Erstellung von Dokumentationen und Schulungsunterlagen\n• Mitarbeit bei KIS-Projekten, Prozessoptimierungen sowie Themen rund um Datenschutz und Informationssicherheit\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder Weiterbildung in Informatik, Medizininformatik, Wirtschaftsinformatik oder vergleichbarer Fachrichtung\n• Erfahrung in der Betreuung von Applikationen, idealerweise im Gesundheitswesen\n• Kenntnisse im Applikationsbetrieb, Support sowie Change- und Testmanagement\n• Verständnis für klinische Prozesse, Schnittstellen und Datenflüsse\n• Dienstleistungsorientierte, strukturierte und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "en": "Ihr Aufgabengebiet:\n\n• Sicherstellung des stabilen und anwenderorientierten Betriebs unseres Klinischen Informationssystems (KIS)\n• Koordination von Stammdaten, Workflows, Formularen, Berechtigungen und Systemparametern\n• Schnittstellenmanagement zwischen Fachbereichen, IT, Providern und Herstellern\n• Begleitung von Changes, Releases, Tests und Systemanpassungen\n• Unterstützung von Key Usern und Anwender*innen bei fachlichen Fragestellungen sowie Erstellung von Dokumentationen und Schulungsunterlagen\n• Mitarbeit bei KIS-Projekten, Prozessoptimierungen sowie Themen rund um Datenschutz und Informationssicherheit\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder Weiterbildung in Informatik, Medizininformatik, Wirtschaftsinformatik oder vergleichbarer Fachrichtung\n• Erfahrung in der Betreuung von Applikationen, idealerweise im Gesundheitswesen\n• Kenntnisse im Applikationsbetrieb, Support sowie Change- und Testmanagement\n• Verständnis für klinische Prozesse, Schnittstellen und Datenflüsse\n• Dienstleistungsorientierte, strukturierte und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "fr": "Ihr Aufgabengebiet:\n\n• Sicherstellung des stabilen und anwenderorientierten Betriebs unseres Klinischen Informationssystems (KIS)\n• Koordination von Stammdaten, Workflows, Formularen, Berechtigungen und Systemparametern\n• Schnittstellenmanagement zwischen Fachbereichen, IT, Providern und Herstellern\n• Begleitung von Changes, Releases, Tests und Systemanpassungen\n• Unterstützung von Key Usern und Anwender*innen bei fachlichen Fragestellungen sowie Erstellung von Dokumentationen und Schulungsunterlagen\n• Mitarbeit bei KIS-Projekten, Prozessoptimierungen sowie Themen rund um Datenschutz und Informationssicherheit\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder Weiterbildung in Informatik, Medizininformatik, Wirtschaftsinformatik oder vergleichbarer Fachrichtung\n• Erfahrung in der Betreuung von Applikationen, idealerweise im Gesundheitswesen\n• Kenntnisse im Applikationsbetrieb, Support sowie Change- und Testmanagement\n• Verständnis für klinische Prozesse, Schnittstellen und Datenflüsse\n• Dienstleistungsorientierte, strukturierte und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden."
       },
       "location": "Horgen",
       "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1273/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-14T22:16:53.263Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-07-16T11:55:37.994Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Application/CheckLogin/1",
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1273/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
-        "it": [
-          "Formazione come Dipl. Pflegefachperson HF",
-          "Idealmente esperienza o formazione come Wundexpert*in",
-          "Appassionato di nuove sfide e della creazione di strutture",
-          "Capacità di lavorare in team e collaborazione costruttiva",
-          "Pensiero economico e orientato ai processi",
-          "Idealmente esperienza o formazione completata come esperto di ferite"
-        ],
-        "en": [
-          "Completed training as Dipl. Pflegefachperson HF",
-          "Ideally experience or completed training as a Wound Specialist",
-          "Enthusiastic about new challenges and the creation of structures",
-          "Teamwork and constructive cooperation",
-          "Economic and process-oriented thinking",
-          "Setting up and helping to design our new wound clinic together with our experienced wound expert",
-          "Ideally experience or completed training as a wound expert"
-        ],
-        "fr": [
-          "Formation complète en tant que Dipl. Pflegefachperson HF",
-          "Idéalement expérience ou formation complète en tant que Spécialiste des plaies",
-          "Passionné par les nouveaux défis et la création de structures",
-          "Travail d'équipe et coopération constructive",
-          "Pensée économique et orientée vers les processus"
-        ]
+        "de": []
       },
       "department": "See-Spital",
       "contractDuration": "permanent",
-      "previousSlugsByLocale": {
-        "de": [
-          "wundexperte-in-see-spital-horgen"
-        ],
-        "it": [
-          "wundexpert-in-see-spital-ch"
-        ]
-      },
-      "previousSlugs": [
-        "wundexpert-in-see-spital-ch",
-        "wundexperte-in-see-spital-horgen"
-      ],
-      "firstSeenAt": "2026-05-26T14:55:44.594Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3413,7 +3478,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-07-16T11:55:37.994Z"
     }
   ]
 }
