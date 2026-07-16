@@ -45,6 +45,16 @@ describe('cfHot404BridgePlugin', () => {
     fs.mkdirSync(preDir, { recursive: true });
     fs.writeFileSync(path.join(preDir, 'index.html'), '<html>RICHER</html>');
 
+    // Pagination fallbackPath targets (section listing roots) — in real builds
+    // these are always-live canton/locale hub pages generated well before this
+    // plugin runs; the fallback-existence gap-fill (PR #4252 review round 2)
+    // requires them to actually be on disk, same as any other bridge target.
+    for (const root of ['cerca-lavoro-argovia', 'en/find-jobs-zurich']) {
+      const rootDir = path.join(tmp, 'dist', root);
+      fs.mkdirSync(rootDir, { recursive: true });
+      fs.writeFileSync(path.join(rootDir, 'index.html'), '<html>SECTION ROOT</html>');
+    }
+
     const plugin = cfHot404BridgePlugin(tmp);
     await (plugin.closeBundle as () => Promise<void>)();
   });

@@ -508,7 +508,15 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  let to = resolution.canonicalPath;
  if (resolution.fallbackPath) {
  const targetFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
- if (!fs.existsSync(targetFile)) to = resolution.fallbackPath;
+ if (!fs.existsSync(targetFile)) {
+ to = resolution.fallbackPath;
+ // The fallback itself is not unconditionally emitted either (e.g. the
+ // Swiss-wide events index is skipped when zero events exist sitewide
+ // this build, not just for one canton) — verify it too, otherwise this
+ // bridges to another 404 (review finding on PR #4252's re-review round).
+ const fallbackFile = path.join(distDir, withSlash(to).slice(1), 'index.html');
+ if (!fs.existsSync(fallbackFile)) continue;
+ }
  }
  // Skip self-references (normalize strips trailing slash, canonicalPath may have it)
  const fromNorm = from.replace(/\/+$/, '');

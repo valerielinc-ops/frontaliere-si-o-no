@@ -217,7 +217,15 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         // the raw canonicalPath would wrongly skip the whole bridge.
         if (resolution.fallbackPath) {
           const pageFile = path.join(distDir, to.slice(1), 'index.html');
-          if (!fs.existsSync(pageFile)) to = withSlash(resolution.fallbackPath);
+          if (!fs.existsSync(pageFile)) {
+            to = withSlash(resolution.fallbackPath);
+            // The fallback itself is not unconditionally emitted either (e.g. the
+            // Swiss-wide events index is skipped when zero events exist sitewide
+            // this build, not just for one canton) — verify it too, otherwise this
+            // bridges to another 404 (review finding on PR #4252's re-review round).
+            const fallbackFile = path.join(distDir, to.slice(1), 'index.html');
+            if (!fs.existsSync(fallbackFile)) { skippedUnresolved++; continue; }
+          }
         }
         const toNorm = to.replace(/\/+$/, '');
         if (from === '/' || fromNorm === toNorm) continue; // never self-reference
