@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Linkedin, Twitter, Mail, Award, Globe } from 'lucide-react';
+import { ArrowLeft, Linkedin, Twitter, Mail, Award, Globe, FileText } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { getAuthorBySlug, type Author } from '@/data/authors';
 import { getMergedAuthor } from '@/services/authorProfileService';
@@ -185,7 +185,13 @@ function Section({
 }
 
 function SocialLinks({ author }: { author: Author }) {
-  const items: Array<{ key: string; href: string; label: string; Icon: React.FC<{ size?: number; className?: string }> }> = [];
+  const items: Array<{
+    key: string;
+    href: string;
+    label: string;
+    Icon: React.FC<{ size?: number; className?: string }>;
+    download?: boolean;
+  }> = [];
   if (author.social.linkedin) {
     items.push({
       key: 'linkedin',
@@ -210,15 +216,25 @@ function SocialLinks({ author }: { author: Author }) {
       Icon: Mail,
     });
   }
+  if (author.cvPath) {
+    items.push({
+      key: 'cv',
+      href: author.cvPath,
+      label: `Scarica il CV di ${author.name} (PDF)`,
+      Icon: FileText,
+      download: true,
+    });
+  }
   if (items.length === 0) return null;
   return (
     <ul className="flex items-center gap-3 mt-3">
-      {items.map(({ key, href, label, Icon }) => (
+      {items.map(({ key, href, label, Icon, download }) => (
         <li key={key}>
           <a
             href={href}
             target={href.startsWith('mailto:') ? undefined : '_blank'}
-            rel={href.startsWith('mailto:') ? undefined : 'noopener me'}
+            rel={href.startsWith('mailto:') ? undefined : download ? 'noopener noreferrer' : 'noopener me'}
+            download={download || undefined}
             aria-label={label}
             title={label}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-info text-on-accent hover:opacity-90 transition-opacity"

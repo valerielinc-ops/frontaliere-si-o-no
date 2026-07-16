@@ -20,6 +20,7 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -697,11 +698,12 @@ export function generateArticleHtml(
   // valid freshness signal — the net figures in the body are recomputed from the
   // simulation engine on every build — without churning every sub-second deploy.
   const articleStamp = buildDayStampIso();
+  const articleDescription = guardArticleJsonLdDescription(description);
   const articleSchema = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
-    description,
+    description: articleDescription,
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

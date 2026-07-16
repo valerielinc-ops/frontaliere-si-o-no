@@ -102,6 +102,7 @@ import {
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
+import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 
 // ── Escape ─────────────────────────────────────────────────────────
 
@@ -317,7 +318,7 @@ function renderPage(opts: {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: h1,
-    description,
+    description: guardArticleJsonLdDescription(description),
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,

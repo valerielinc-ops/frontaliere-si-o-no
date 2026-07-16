@@ -309,12 +309,15 @@ jobs:
           PID_GSC=$!
           timeout 90 node scripts/verify-post-deploy-seo.mjs &
           PID_SEO=$!
+          timeout 90 npx tsx scripts/monitor-ti-sector-coverage.mjs &
+          PID_TI_SECTOR=$!
 
           FAIL=0
           wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
           wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
           wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
           wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
+          wait $PID_TI_SECTOR || { echo "⚠️ TI sector coverage check failed"; FAIL=1; }
 
           if [ $FAIL -ne 0 ]; then
             echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
