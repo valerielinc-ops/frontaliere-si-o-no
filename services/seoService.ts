@@ -4568,6 +4568,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri': { name: 'Dividenti italiani, stop alle', path: '/articoli-frontaliere/dividenti-italiani-stop-alle-discriminazioni-fiscali-per-gli-enti-esteri', parent: 'blog' },
     'blog-frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d': { name: 'Frontalieri, la flat tax entra nel Tuir', path: '/articoli-frontaliere/frontalieri-la-flat-tax-entra-nel-tuir-dal-2027-imposta-sostitutiva-pari-al-25-d', parent: 'blog' },
     'blog-telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ': { name: 'Telelavoro dei frontalieri tra Italia e', path: '/articoli-frontaliere/telelavoro-dei-frontalieri-tra-italia-e-svizzera-doppia-soglia-tra-fisco-e-previ', parent: 'blog' },
+    'blog-ticino-traffico-2024': { name: 'Ticino', path: '/articoli-frontaliere/ticino-traffico-2024', parent: 'blog' },
  };
 
  const info = sectionNames[section];
