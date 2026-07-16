@@ -8534,6 +8534,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Fermeture du pont en fer sixième calendriers : guide de voirie',
     'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Du 20 au 26 juillet, le pont de fer est fermé pour maintenance. Activation d\'un bateau gratuit et modifications de la ligne de bus V125 entre Varese et Arona.',
     'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Le Pont de Fer sur la rivière Tessin à Sesto Calende',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.title': '730 pré-remplis 2026, les indications du fisc',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.excerpt': 'Il est désormais possible de télécharger les 730 pré-remplis pour la déclaration de revenus 2026. Voici les indications du fisc.',
+    'blog.article.dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24.imageAlt': 'Un frontalier complète sa déclaration de revenus',
 };
 
 export default blogMetaFr;

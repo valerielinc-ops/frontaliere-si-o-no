@@ -4561,6 +4561,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-accordo-smart-working-frontalieri-svizzera': { name: 'Smart working frontalieri', path: '/articoli-svizzera/accordo-smart-working-frontalieri-svizzera/', parent: 'blog' },
     'blog-ticino-programma-politico-consultazione-pubblica': { name: 'Politica cantonale', path: '/articoli-svizzera/ticino-programma-politico-consultazione-pubblica/', parent: 'blog' },
     'blog-crisi-stretto-hormuz-economia-svizzera': { name: 'Economia', path: '/articoli-svizzera/crisi-stretto-hormuz-economia-svizzera/', parent: 'blog' },
+    'blog-dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24': { name: 'Dichiarazione redditi 2026', path: '/articoli-frontaliere/dichiarazione-redditi-2026-or-disponibili-730-precompilati-le-indicazioni-del-fisco-sky-tg24', parent: 'blog' },
  };
 
  const info = sectionNames[section];
