@@ -1,18 +1,19 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-07-15T22:49:05.456Z",
+  "generatedAt": "2026-07-16T11:10:50.839Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7907,
-  "avgDurationMs": 7907,
+  "durationMs": 8110,
+  "avgDurationMs": 8110,
   "durationHistory": [
-    7907
+    8110
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "arosa-lenzerheide-bfdf2f6e660b",
       "slug": "sales-manager-international-arosa-lenzerheide-lenzerheide",
@@ -20,13 +21,13 @@
       "companyKey": "arosa-lenzerheide",
       "companyDomain": "arosalenzerheide.swiss",
       "title": "Sales Manager international",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lenzerheide",
       "canton": "GR",
       "url": "https://app.reflinejobs.io/3316/0030/pub/19/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:49:03.102Z",
+      "crawledAt": "2026-07-16T11:10:48.652Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "postedDate": "2026-07-15",
       "applyUrl": "https://app.reflinejobs.io/3316/0030/pub/19/index.html",
       "externalId": "0030",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-07-15T22:49:03.102Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "arosa-lenzerheide-9d49b2d99658",
       "slug": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
@@ -65,7 +65,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/9/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:49:00.509Z",
+      "crawledAt": "2026-07-16T11:10:45.549Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://app.reflinejobs.io/3316/0018/pub/13/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:49:01.115Z",
+      "crawledAt": "2026-07-16T11:10:46.640Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:49:01.771Z",
+      "crawledAt": "2026-07-16T11:10:47.247Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -179,7 +179,7 @@
       "url": "https://app.reflinejobs.io/3316/0024/pub/15/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:49:02.403Z",
+      "crawledAt": "2026-07-16T11:10:47.812Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
