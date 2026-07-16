@@ -49875,6 +49875,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-digitale-frontaliere-ticino-varese': {
+    title: 'Varese e Canton Ticino: il digitale avvicina i frontalieri',
+    description: 'Scopri come piattaforme online e infrastrutture digitali rivoluzionano la vita dei frontalieri tra Varese e Canton Ticino: meno burocrazia, più efficienza.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, canton, digitale, avvicina',
+    ogTitle: 'Varese-Ticino: il digitale cancella i confini per i frontalieri',
+    ogDescription: 'Piattaforme online e reti veloci trasformano la vita oltreconfine. Scopri i vantaggi pratici per lavoro, sanità e trasporti.',
+    canonicalPath: '/articoli-frontaliere/digitale-frontaliere-ticino-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese e Canton Ticino: il digitale avvicina i frontalieri",
+      "description": "Scopri come piattaforme online e infrastrutture digitali rivoluzionano la vita dei frontalieri tra Varese e Canton Ticino: meno burocrazia, più efficienza.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/digitale-frontaliere-ticino-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con simboli di connettività digitale"
+      },
+      "datePublished": "2026-07-16T17:58:46+00:00",
+      "dateModified": "2026-07-16T17:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/digitale-frontaliere-ticino-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

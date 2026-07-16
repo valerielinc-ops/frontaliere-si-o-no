@@ -8539,6 +8539,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.title': 'EasyJet passes into US hands: changes for Ticino-Italy trips',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.excerpt': 'The Castlelake fund takes over EasyJet for CHF 5.6 billion. Guaranteed slots in Malpensa and Geneva, renewed fleet: impact on air commuters.',
     'blog.article.easyjet-castlelake-malpensa-ginevra-zurigo.imageAlt': 'EasyJet Airbus A320neo landing at Milan Malpensa Airport',
+    'blog.article.digitale-frontaliere-ticino-varese.title': 'Varese and Canton Ticino: digital brings border workers closer',
+    'blog.article.digitale-frontaliere-ticino-varese.excerpt': 'Online platforms, fast infrastructures and simplified procedures: this is how digitization transforms the lives of those who work across borders.',
+    'blog.article.digitale-frontaliere-ticino-varese.imageAlt': 'Lugano skyline with digital connectivity symbols',
 };
 
 export default blogMetaEn;
