@@ -8530,6 +8530,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Police Contract: Silp Cgil signs but disputes the increases',
     'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'The Silp CGIL union signs the renewal of the Police contract but denounces inadequate net increases and a loss of purchasing power for the agents.',
     'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Italian State Police uniform in a locker',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Closure of the sixth calende iron bridge: road guide',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'From 20 to 26 July the Iron Bridge is closed for maintenance. Activated a free boat and changes to the V125 bus line between Varese and Arona.',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'The Iron Bridge over the Ticino river in Sesto Calende',
 };
 
 export default blogMetaEn;

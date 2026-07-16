@@ -8531,6 +8531,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contratto-polizia-silp-cgil-critiche.title': 'Contratto Polizia: il Silp Cgil firma ma contesta gli aumenti',
     'blog.article.contratto-polizia-silp-cgil-critiche.excerpt': 'Il sindacato Silp Cgil firma il rinnovo del contratto di Polizia ma denuncia aumenti netti inadeguati e una perdita di potere d\'acquisto per gli agenti.',
     'blog.article.contratto-polizia-silp-cgil-critiche.imageAlt': 'Divisa della Polizia di Stato in un armadietto',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.title': 'Chiusura ponte di ferro sesto calende: guida viabilità',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.excerpt': 'Dal 20 al 26 luglio il Ponte di Ferro resta chiuso per manutenzione. Attivato un battello gratuito e modifiche alla linea bus V125 tra Varese e Arona.',
+    'blog.article.chiusura-ponte-ferro-sesto-calende.imageAlt': 'Il Ponte di Ferro sul fiume Ticino a Sesto Calende',
 };
 
 export default blogMetaIt;
