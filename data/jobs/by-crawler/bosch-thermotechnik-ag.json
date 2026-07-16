@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-07-15T22:48:23.423Z",
+  "assembledAt": "2026-07-16T11:10:21.096Z",
   "jobs": [
     {
       "title": "Servicetechniker im Aussendienst - Bereich Industriehydraulik 100% (w/m/div.) REF271176Q",
@@ -293,7 +293,8 @@
         "apprendistato-kauffrau-kaufmann-ref279222f-bosch-thermotechnik-ag-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-ref279222f-bosch-st-niklaus",
         "lehrstelle-kauffrau-kaufmann-2027-ref289852b-bosch-st-niklaus"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle Informatiker (w/m/div.) 2027 - REF289882W",
@@ -320,7 +321,7 @@
       "description": "## Your tasks\n\n- Als angehender Informatiker / angehende Informatikerin führst du kleinere Hardware-Reparaturen durch - Bei Hard- und Software-Problemen unterstützt du Mitarbeitende und Abteilungsleitende - Installationen und Konfigurationen von IT-Endgeräten gehören zu deinem Aufgabengebiet - Die Software-Entwicklung rundet dein Aufgabengebiet ab\n\n## Your profile\n\n- Du besuchst die Orientierungsschule oder verfügst bereits über einen Schulabschluss und hast vorzugsweise gute Leistungen in den naturwissenschaftlichen und mathematischen Fächern - Du hast ein ausgeprägtes Interesse für Technik und Informatik - Die deutsche Sprache beherrschst du in Wort und Schrift, gute Englischkenntnisse begrüssen wir - Du bist eine teamfähige, geduldige und engagierte Persönlichkeit mit einer raschen Auffassungsgabe sowie einem logischen und abstrakten Denkvermögen\n\n## Contact & additional information\n\nBenefits - Neben der fachlichen Horizonterweiterung liegt uns deine persönliche Entwicklung sehr am Herzen, weswegen wir offen auf deine Inputs und Initiativen reagieren - Jährliche Lernenden-Ausflüge erwarten dich sowie ein familiäres Betriebsklima und ein guter Teamspirit - Auf bis zu sieben Wochen Ferien pro Jahr kannst du dich freuen - Du kannst von einem Generalabonnement «GA» mit grossen Vergünstigungen und weiteren Bosch Benefits profitieren - Vergünstigtes Mittagessen für Lernende in unserem Personalrestaurant - Freue dich auf einen eigenen Arbeitslaptop für die Schule sowie finanzieller Anreiz bis zu 25% für gute Schul- und Arbeitsleistungen Möchtest du schnuppern oder dich bewerben? Melde dich per E-Mail oder Telefon für einen spannenden Einblick in den Beruf oder bewirb dich jetzt für eine vielseitige Ausbildung mit Perspektive bei Bosch. Scintilla AG Nathanael Pollinger Talstrasse 1 027 955 13 68 3924 St. Niklaus Berufsbildung.nip@bosch.com Bewerben via www.bosch.ch/karriere Work #LikeABosch Scintilla AG\n\n## Do you need technical support?\n\nWe look forward to your inquiry.",
       "titleByLocale": {
         "it": "Apprendistato Informatiker (w/m/div.) 2027 - REF289882W",
-        "en": "Computer Scientist apprenticeship (f/m/div.) 2027 - REF289882 W",
+        "en": "Lehrstelle Informatiker (w/m/div.) 2027 - REF289882W",
         "de": "Lehrstelle Informatiker (w/m/div.) 2027 - REF289882W",
         "fr": "Spécialiste de l'informatique (f/m/div.) 2027 - REF289882 W"
       },
@@ -332,7 +333,7 @@
       },
       "slugByLocale": {
         "it": "apprendistato-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus",
-        "en": "computer-scientist-apprenticeship-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus",
+        "en": "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus",
         "de": "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-st-niklaus",
         "fr": "specialiste-de-l-informatique-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus"
       },
@@ -354,6 +355,7 @@
       "previousSlugsByLocale": {
         "en": [
           "computer-scientist-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus",
+          "computer-scientist-apprenticeship-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus",
           "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-st-niklaus",
           "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus"
         ],
@@ -365,10 +367,12 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-st-niklaus",
         "computer-scientist-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus",
+        "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-st-niklaus",
+        "computer-scientist-apprenticeship-f-m-div-2027-ref289882-w-bosch-thermotechnik-ag-st-niklaus",
         "lehrstelle-informatiker-w-m-div-2027-ref289882w-bosch-thermotechnik-ag-st-niklaus"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle Polymechaniker (w/m/div.) 2027 - REF289873F",
@@ -552,7 +556,7 @@
         "it": "Apprendistato Automatiker (w/m/div.) 2027 - REF289864E",
         "en": "Automatic apprenticeship (f/m/div.) 2027 - REF289864 EE",
         "de": "Lehrstelle Automatiker (w/m/div.) 2027 - REF289864E",
-        "fr": "Apprentissage automatique (f/m/div.) 2027 - REF289864 EE"
+        "fr": "Lehrstelle Automatiker (w/m/div.) 2027 - REF289864E"
       },
       "descriptionByLocale": {
         "it": "##\n• I tuoi compiti - Come potenziale automatista, si arriva a conoscere componenti elettrici e meccanici - Costruisci sistemi di controllo elettrico, armadi di controllo, macchine e sistemi di automazione, collegarli e metterli in funzione - Sviluppi soluzioni per le attività di controllo e automazione - Eseguire riparazioni sugli impianti esistenti fanno parte del tuo compito ## Il tuo profilo - Frequenti la scuola di orientamento o già hai una laurea scolastica e preferibilmente hai buone prestazioni nella scienza naturale e materie matematiche - Hai un forte interesse per l'ingegneria elettrica e la meccanica - Si padroneggia la lingua tedesca in parola e scrittura - Sei un team-capable, paziente e personalità impegnata con l'artigianato e un metodo di lavoro preciso e attento ## Contatto e informazioni aggiuntive Benefici - Oltre all'espansione professionale dell'orizzonte, siamo molto preoccupati per il vostro sviluppo personale, motivo per cui reagiamo apertamente ai vostri input e iniziative - Le escursioni annuali degli studenti vi aspettano, così come un'atmosfera di lavoro familiare e un buon spirito di squadra - Si può aspettare fino a sette settimane di vacanze all'anno - Si può beneficiare di un abbonamento generale \"GA\" con grandi sconti e altri vantaggi Bosch - pranzo scontato per gli studenti del nostro ristorante personale - Guardare avanti per il proprio lavoro Iscrivetevi via e-mail o telefono per un'entusiasmante visione della professione o per un'educazione versatile con una prospettiva a Bosch. Scintilla AG Nathanael Pollinger Talstrasse 1 027 955 13 68 3924 St. Niklaus Vocational Training.nip@bosch.com Applicare via www.bosch.ch/karriere Work #LikeABosch Scintilla AG ## Hai bisogno di supporto tecnico? Attendiamo con ansia la vostra richiesta.",
@@ -564,7 +568,7 @@
         "it": "apprendistato-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus",
         "en": "automatic-apprenticeship-f-m-div-2027-ref289864-ee-bosch-thermotechnik-ag-st-niklaus",
         "de": "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-st-niklaus",
-        "fr": "apprentissage-automatique-f-m-div-2027-ref289864-ee-bosch-thermotechnik-ag-st-niklaus"
+        "fr": "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus"
       },
       "id": "bosch-thermotechnik-ag-b2cd7cd05c9c",
       "salaryMin": 49000,
@@ -583,6 +587,7 @@
       "firstSeenAt": "2026-07-08T22:16:12.017Z",
       "previousSlugsByLocale": {
         "fr": [
+          "apprentissage-automatique-f-m-div-2027-ref289864-ee-bosch-thermotechnik-ag-st-niklaus",
           "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-st-niklaus",
           "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus"
         ],
@@ -595,8 +600,10 @@
       },
       "previousSlugs": [
         "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-st-niklaus",
+        "apprentissage-automatique-f-m-div-2027-ref289864-ee-bosch-thermotechnik-ag-st-niklaus",
         "lehrstelle-automatiker-w-m-div-2027-ref289864e-bosch-thermotechnik-ag-st-niklaus"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
