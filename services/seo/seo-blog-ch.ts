@@ -15189,6 +15189,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-ipoteche-svizzera-record-2025': {
+    title: 'Mercato ipotecario svizzero da record: superato 1300 miliardi di franchi nel 2025',
+    description: 'Crescita del 3,1% trainata da bassi tassi e prezzi immobiliari. Ma i margini delle banche si riducono. Dati, analisi e consigli pratici per mutuatari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, ipotecario, svizzero, record',
+    ogTitle: 'Mercato ipotecario svizzero da record: superati 1300 miliardi nel 2025',
+    ogDescription: 'Crescita del 3,1% trainata da bassi tassi e prezzi immobiliari. Ma i margini delle banche si riducono. Dati, analisi e consigli pratici per mutuatari.',
+    canonicalPath: '/articoli-svizzera/mercato-ipoteche-svizzera-record-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato ipotecario svizzero da record: superato 1300 miliardi di franchi nel 2025",
+      "description": "Crescita del 3,1% trainata da bassi tassi e prezzi immobiliari. Ma i margini delle banche si riducono. Dati, analisi e consigli pratici per mutuatari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-ipoteche-svizzera-record-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Zurigo con condomini moderni e cantieri edili, simbolo del mercato immobiliare in crescita"
+      },
+      "datePublished": "2026-07-16T23:18:42+00:00",
+      "dateModified": "2026-07-16T23:18:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-ipoteche-svizzera-record-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

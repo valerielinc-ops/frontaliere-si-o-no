@@ -415,6 +415,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ticino-programma-politico-consultazione-pubblica': { it: 'ticino-programma-politico-consultazione-pubblica', en: 'ticino-political-program-public-consultation', de: 'ticino-politisches-programm-offentliche-beratung', fr: 'ticino-programme-politique-consultation-publique' },
  'crisi-stretto-hormuz-economia-svizzera': { it: 'crisi-stretto-hormuz-economia-svizzera', en: 'hormuz-crisis-impact-swiss-economy', de: 'hormuz-krise-auswirkungen-schweizer-wirtschaft', fr: 'crise-hormuz-impact-economie-suisse' },
  'tassazione-prestazioni-lpp-svizzera': { it: 'tassazione-prestazioni-lpp-svizzera', en: 'taxation-lpp-benefits-switzerland', de: 'besteuerung-lpp-leistungen-schweiz', fr: 'imposition-prestations-lpp-suisse' },
+ 'mercato-ipoteche-svizzera-record-2025': { it: 'mercato-ipoteche-svizzera-record-2025', en: 'swiss-mortgage-market-record-2025', de: 'schweizer-hypothekenmarkt-rekord-2025', fr: 'marche-hypothecaire-suisse-record-2025' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -1177,6 +1177,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'Prestations LPP en Suisse : comment elles sont taxées',
     'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Les rentes de la prévoyance professionnelle (LPP) suivent le même régime fiscal que les rentes AVS : voilà ce qui change pour les bénéficiaires',
     'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Retraité suisse vérifiant des documents fiscaux au bureau',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Marché hypothécaire suisse record : dépassé 1300 milliards de francs en 2025',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': 'Croissance de 3,1 % tirée par des taux bas et des prix immobiliers en hausse. Mais les marges des banques se réduisent. Voici les données et les implications pratiques.',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Vue aérienne de Zurich avec des copropriétés modernes et des grues de construction, symbolisant le marché immobilier suisse en expansion',
 };
 
 export default blogMetaChFr;
