@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-07-16T11:29:32.759Z",
+  "assembledAt": "2026-07-16T22:12:00.727Z",
   "jobs": [
     {
       "title": "Due operatrici/tori socioassistenziali (50%-70%) presso Fonte 3 o Fonte 6",
@@ -103,7 +103,7 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "en": "intern-fondazione-la-fonte-luganese-malcantone",
         "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
@@ -116,6 +116,7 @@
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "en": [
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
           "intern-fondazione-la-fonte-luganese-malcantone"
         ],
         "fr": [
@@ -126,10 +127,11 @@
         ]
       },
       "previousSlugs": [
-        "intern-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-la-fonte-luganese-malcantone",
-        "apprendistato-fondazione-la-fonte-lugano"
+        "apprendistato-fondazione-la-fonte-lugano",
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "intern-fondazione-la-fonte-luganese-malcantone"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
