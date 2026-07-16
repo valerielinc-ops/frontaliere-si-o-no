@@ -97,7 +97,10 @@ import {
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { capSearchStatsLandingTitle } from './jobsSeoPagesPlugin';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
-import { resolveCantonSection as sharedResolveCantonSection } from './shared/cantonSection';
+import {
+  resolveCantonSection as sharedResolveCantonSection,
+  resolveJobCanton as sharedResolveJobCanton,
+} from './shared/cantonSection';
 import { getCityCanton } from './shared/cantonCities';
 import { EMPLOYER_BRANDS } from '../services/employerBrands';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDataNormalization';
@@ -4215,8 +4218,22 @@ export function weeklyEmployersPlugin(rootDir: string): Plugin {
       const dateStamp = today.toISOString().slice(0, 10);
 
       const __tLoadJobs = __weProfStart();
-      const jobs = loadAllJobs(rootDir);
+      const allJobs = loadAllJobs(rootDir);
       __weProfRecord('load-jobs', __tLoadJobs);
+      // `data/jobs.json` (+ by-crawler slices) holds jobs from all of
+      // Switzerland. Every page this plugin emits — including the
+      // regional 'ticino' aggregate bucket in partitionWeeklyEmployerJobs
+      // (jobMatchesCity short-circuits `city === 'ticino' -> true` for
+      // every job on the assumption the input is already TI-only) — is
+      // TI-branded (WEEKLY_EMPLOYERS_CITIES is Lugano/Mendrisio/Chiasso/
+      // Stabio/Bellinzona/Locarno + 'ticino', no non-TI city exists here).
+      // Without this filter the regional hub counts/lists every canton in
+      // Switzerland under a TI-branded URL — same bug class as #4254/#4262
+      // (jobSectorPagesPlugin.ts / jobMarketSnapshotPlugin.ts), found via
+      // the mandatory sibling grep after fixing #4262. Per-city buckets
+      // (lugano, mendrisio, ...) already narrow via exact city-name match
+      // in jobMatchesCity and are unaffected either way.
+      const jobs = allJobs.filter((job) => sharedResolveJobCanton(job) === 'TI');
       const __tLoadSnap = __weProfStart();
       const snapshots = readSnapshotHistory(rootDir);
       __weProfRecord('load-snapshots', __tLoadSnap);

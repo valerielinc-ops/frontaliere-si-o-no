@@ -1906,12 +1906,15 @@ function injectHubLinkIntoSectionLanding(
 
   // Build-time page-weight guard. This injection is the last known mutator
   // of the job-board landing, the only repeat offender of the post-deploy
-  // audit:page-weight gate (215 KB; broke at 200 KB on run 26112128794,
-  // again at 215 KB on run 27386112992 → issue #1887). Failing HERE turns
-  // "deploy → validate-dist red → rollback → prod frozen on a stale build"
-  // into a build-job failure that never reaches deploy and names the page.
-  // 205 KB (10 KB under the audit budget) so the build fails before the
-  // audit ever can. Do NOT raise either limit to pass a build — trim the
+  // audit:page-weight gate (broke at 200 KB on run 26112128794, again at
+  // 215 KB on run 27386112992 → issue #1887; gate raised again 215->260 KB
+  // for the unrelated /tutti/ pagination-ladder headroom, issue #4209(b) —
+  // this landing-page guard is intentionally NOT raised alongside it, see
+  // below). Failing HERE turns "deploy → validate-dist red → rollback →
+  // prod frozen on a stale build" into a build-job failure that never
+  // reaches deploy and names the page. Kept at a fixed 205 KB (independent
+  // of the shared audit budget above) so the build fails before the audit
+  // ever can. Do NOT raise this guard to pass a build — trim the
   // data-driven blocks instead (see .jbx-* in seo-static.css for the
   // 119 KB inline-style precedent).
   const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
@@ -1919,7 +1922,8 @@ function injectHubLinkIntoSectionLanding(
   if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
     throw new Error(
       `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
-      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (audit:page-weight budget is 215 KB). ` +
+      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (fixed, independent of the shared ` +
+      `audit:page-weight budget in scripts/audit-page-weight.mjs). ` +
       `A data-driven block on this landing grew past its headroom — trim the offending block ` +
       `(do not raise this guard or the audit budget; non-negotiable #1).`,
     );
