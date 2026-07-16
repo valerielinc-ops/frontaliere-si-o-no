@@ -14916,6 +14916,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sospensione-riversamento-imposta-frontalieri': {
+    title: 'Frontalieri: richiesta la sospensione dell\'imposta all\'Italia',
+    description: 'Mozione in Gran Consiglio: richiesta la sospensione del riversamento d\'imposta all\'Italia per contrastare la \'tassa sulla salute\' sui frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, richiesta, sospensione, dell, imposta',
+    ogTitle: 'Frontalieri: mozione per sospendere l\'imposta all\'Italia',
+    ogDescription: 'Nuova mozione in Gran Consiglio contro la tassa sanitaria italiana: si chiede la sospensione dei riversamenti fiscali.',
+    canonicalPath: '/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: richiesta la sospensione dell'imposta all'Italia",
+      "description": "Mozione in Gran Consiglio: richiesta la sospensione del riversamento d'imposta all'Italia per contrastare la 'tassa sulla salute' sui frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sospensione-riversamento-imposta-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo delle Orsoline a Bellinzona, sede del Gran Consiglio ticinese."
+      },
+      "datePublished": "2026-07-16T04:44:29+00:00",
+      "dateModified": "2026-07-16T04:44:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sospensione-riversamento-imposta-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

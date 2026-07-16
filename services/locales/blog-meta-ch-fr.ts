@@ -1156,6 +1156,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.attacco-informatico-iwb-basilea.title': 'Cyberattaque sur IWB : 40\'000 clients impliqués à Bâle',
     'blog.article.attacco-informatico-iwb-basilea.excerpt': 'Violation de données chez un fournisseur externe de la compagnie d\'électricité de Bâle. Ce qui s\'est passé et quelles informations ont été volées.',
     'blog.article.attacco-informatico-iwb-basilea.imageAlt': 'Siège de l\'entreprise énergétique IWB à Bâle',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.title': 'Frontaliers : demande de suspension de la taxe à l\'Italie',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.excerpt': 'Une nouvelle motion parlementaire conteste la « taxe sur la santé » italienne, demandant au Conseil d\'État de bloquer le versement des impôts à la source.',
+    'blog.article.sospensione-riversamento-imposta-frontalieri.imageAlt': 'Palazzo delle Orsoline à Bellinzone, siège du Grand Conseil tessinois.',
 };
 
 export default blogMetaChFr;
