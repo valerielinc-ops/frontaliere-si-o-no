@@ -152,7 +152,18 @@ export function parseRssItems(xml = '') {
     processEntities: false,
   });
 
-  const parsed = parser.parse(xml);
+  // Same unguarded-strict-XML-parse construct as parseAristonSitemapFeed
+  // (ariston-job-parser.mjs) — a parse-time throw (fast-xml-parser's strict
+  // XMLParser, e.g. "Maximum nested tags exceeded") means `xml` isn't the real
+  // Teamtailor RSS feed (WAF/error page, truncated body, etc). Surface a clear,
+  // low-drama error instead of the opaque library exception so it fails loudly
+  // and legibly (AGENTS.md #6 sibling-pattern fix alongside #4246).
+  let parsed;
+  try {
+    parsed = parser.parse(xml);
+  } catch (err) {
+    throw new Error(`Badrutt's Palace RSS feed failed to parse as XML: ${err?.message || err}`);
+  }
   const normalizedItems = assertRssChannelItems(parsed, { source: 'badrutts-palace' });
 
   return normalizedItems
