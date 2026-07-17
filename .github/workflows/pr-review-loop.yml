@@ -55,7 +55,7 @@ permissions:
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 360
     env:
       # Non-code paths (Tier-2 token-lever): dati/static rigenerati + lockfile +
       # snapshot + asset binari. Sia il re-review guard sia la tier-decision li
@@ -277,7 +277,9 @@ jobs:
         # Bump fleet-wide di tutti i tier (cap = anti-runaway sopra il p99 dei
         # run sani, non budget di lavoro; un run che muore al cap brucia la
         # quota intera e lascia la PR ferma, peggio di qualche turno in più).
-        # 40 turni ≈ ~5.5 min; 60 ≈ ~8.5 min, ancora dentro il timeout 15 min.
+        # 40 turni ≈ ~5.5 min; 60 ≈ ~8.5 min. Timeout 15min→360min (2026-07-17,
+        # #4341): era il vincolo più stretto, uccideva review a metà pass
+        # (num_turns morto ma minuti di CI esauriti prima) — vedi job timeout-minutes.
         run: |
           set -euo pipefail
           set_tier() {
