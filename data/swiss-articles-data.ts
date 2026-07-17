@@ -3599,6 +3599,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni',
+    category: 'fiscale',
+    date: '2026-07-17T16:11:24.401Z',
+    image: '/images/blog/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
