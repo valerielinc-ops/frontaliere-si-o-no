@@ -3140,7 +3140,17 @@ export function parsePath(pathname: string): ParseResult {
  }
  // Border crossing deep link: guida/border/<crossing-id>
  if (sub === 'border' && third && BORDER_CROSSING_ID_SET.has(third)) {
- return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId }, locale };
+ return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId, staticOverlay: true }, locale };
+ }
+ // /guida-frontaliere/tempi-attesa-dogana/ (hub) and /guida-frontaliere/mappa-confine/
+ // are emitted via buildSeoPageHtml's `guideSlugs` skeleton in staticPagesPlugin.ts.
+ // Without staticOverlay the SPA replaces that small skeleton with FrontierGuide's
+ // full interactive border section (filters + 500px map + 20+ crossing cards) or
+ // BorderMunicipalitiesMap's two-column layout on hydrate — a large CLS jump
+ // (field p75 1.94 on tempi-attesa-dogana, 0.53 on mappa-confine). Mirrors the
+ // mappa-live-valichi / F8 staticOverlay pattern above.
+ if (sub === 'border' || sub === 'border-map') {
+ return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab, staticOverlay: true }, locale };
  }
  return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab }, locale };
  }

@@ -52,6 +52,40 @@ const waitForFirstPaint = () =>
  requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
  });
 
+/**
+ * Resolve once `el`'s rendered height stops changing for `quietMs`, or after
+ * `maxWaitMs` regardless. Used to release the CLS-reserve min-height floor
+ * (see mountApp below) only after any still-pending React.lazy/Suspense
+ * content inside it has actually settled — a flat post-paint timer releases
+ * too early when a tab's content is code-split (FiscoTabContent wraps every
+ * fisco sub-tab, including NewFrontierTaxSimHub, in
+ * `<Suspense fallback={<SkeletonFisco />}>`): the floor would drop to the
+ * shorter fallback's height, then #root grows again once the dynamic
+ * import() resolves — a collapse-then-expand double shift (#4302, field CLS
+ * 0.38 on /tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/).
+ */
+const waitForHeightStable = (el: HTMLElement, quietMs = 150, maxWaitMs = 3000) =>
+ new Promise<void>((resolve) => {
+ let settled = false;
+ let quietTimer: ReturnType<typeof setTimeout> | null = null;
+ const finish = () => {
+   if (settled) return;
+   settled = true;
+   observer.disconnect();
+   if (quietTimer) clearTimeout(quietTimer);
+   clearTimeout(hardCap);
+   resolve();
+ };
+ const armQuietTimer = () => {
+   if (quietTimer) clearTimeout(quietTimer);
+   quietTimer = setTimeout(finish, quietMs);
+ };
+ const observer = new ResizeObserver(() => armQuietTimer());
+ observer.observe(el);
+ const hardCap = setTimeout(finish, maxWaitMs);
+ armQuietTimer();
+ });
+
 const waitForAsyncStylesheet = async () => {
  const cssLink = document.querySelector<HTMLLinkElement>('link[media="print"][href*="/assets/"]');
  if (!cssLink) return;
@@ -188,19 +222,17 @@ const mountApp = async () => {
  // Fade the React content back in
  rootElement.style.transition = 'opacity 120ms ease-in';
  rootElement.style.opacity = '1';
- // Clean up inline styles after the transition completes. Release the
- // reserved min-height now that the React content has painted and set its
- // own height (same page → heights match → no shift on release).
- // Safety timeout: if transitionend doesn't fire (prefers-reduced-motion,
- // DOM removal, browser quirk) the minHeight floor would persist for the
- // whole SPA session, pushing AdSense units off-viewport on shorter pages.
- const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
- rootElement.addEventListener('transitionend', () => {
-   clearTimeout(t);
-   rootElement.style.transition = '';
-   rootElement.style.opacity = '';
-   rootElement.style.minHeight = '';
- }, { once: true });
+ // Release the reserved min-height only once #root's height has settled
+ // (see waitForHeightStable) instead of on a flat timer, so a still-
+ // pending lazy Suspense chunk can finish growing #root before the floor
+ // drops rather than colliding with an in-between fallback height.
+ // waitForHeightStable has its own safety cap so this can never hold the
+ // floor for the whole SPA session (prefers-reduced-motion, DOM removal,
+ // or a chunk that never resolves).
+ await waitForHeightStable(rootElement);
+ rootElement.style.transition = '';
+ rootElement.style.opacity = '';
+ rootElement.style.minHeight = '';
  }
 
  document.getElementById('loading-shell')?.remove();

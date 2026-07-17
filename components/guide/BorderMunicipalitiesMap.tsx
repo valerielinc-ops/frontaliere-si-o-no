@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useTranslation } from '@/services/i18n';
 import { borderCrossings } from '@/data/borderCrossings';
 import { MUNICIPALITIES, findMunicipality, type Municipality } from '@/data/municipalities';
@@ -49,6 +50,15 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const deferredSortField = useDeferredValue(sortField);
  const deferredSortDir = useDeferredValue(sortDir);
  const deferredCompareMunicipality = useDeferredValue(compareMunicipality);
+ // INP (#4302, field p75 856ms on /guida-frontaliere/mappa-confine/): the
+ // mobile (`lg:hidden`) and desktop (`hidden lg:grid`) layouts below each
+ // render their OWN <MapContainer>, and Tailwind's responsive classes only
+ // toggle CSS `display` — both React-Leaflet map instances (tile layer +
+ // every CircleMarker) mounted unconditionally, doubling the real init cost
+ // for a map that is only ever visible on one of them. Mount only the one
+ // matching the active viewport; the wrapper divs keep their fixed
+ // min-height either way, so this does not reintroduce CLS.
+ const isDesktopViewport = useMediaQuery('(min-width: 1024px)');
  // Prefill salary from user profile
  useEffect(() => {
  if (userProfile?.grossSalary) {
@@ -206,6 +216,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  {/* MAP — immediately visible on mobile */}
  <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
+ {isDesktopViewport === false && (
  <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -249,6 +260,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </CircleMarker>
  ))}
  </MapContainer>
+ )}
  </div>
 
  {/* Selected municipality card (mobile) */}
@@ -593,6 +605,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="space-y-4">
  {/* Map */}
  <div className="rounded-xl overflow-hidden border border-edge h-full min-h-[500px]">
+ {isDesktopViewport === true && (
  <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -636,6 +649,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  </CircleMarker>
  ))}
  </MapContainer>
+ )}
  </div>
 
  {/* Selected municipality detail card */}
