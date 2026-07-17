@@ -3572,6 +3572,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'assicurazione-rc-auto-svizzera-differenze-italia-frontalieri',
+    category: 'fiscale',
+    date: '2026-07-17T14:11:20.704Z',
+    image: '/images/blog/assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

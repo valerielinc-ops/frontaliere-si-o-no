@@ -1192,6 +1192,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'Masques pour ex-frontières : exigences et calcul',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Le nouvel accord frontalier prévoit l\'introduction du ruban adhésif pour les frontaliers en Suisse. Voici les exigences, le calcul du montant, la durée et comment postuler.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Image d\'un frontalière dans une situation similaire',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto : différences entre la Suisse et l\'Italie pour les frontaliers',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'L\'assurance RC auto en Suisse pour les frontaliers : ce qui change par rapport à la police italienne, bonus-malus, immatriculation du véhicule',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'Une voiture immatriculée en Suisse garée dans une rue de Lugano',
 };
 
 export default blogMetaChFr;

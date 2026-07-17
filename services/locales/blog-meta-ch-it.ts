@@ -1192,6 +1192,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI per ex-frontalieri: requisiti e calcolo',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare domanda.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Immagine di un frontaliere che si trova in una situazione simile',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differenze tra Svizzera e Italia per i frontalieri',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'L\'assicurazione RC auto in Svizzera per i frontalieri: cosa cambia rispetto alla polizza italiana, bonus-malus, immatricolazione del veicolo',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'Un\'auto con immatricolazione svizzera parcheggiata in una strada di Lugano',
 };
 
 export default blogMetaChIt;
