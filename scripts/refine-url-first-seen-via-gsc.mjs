@@ -29,6 +29,9 @@
  *   --dry-run               compute + log stats, don't write file
  */
 import { readFileSync, writeFileSync } from 'node:fs';
+import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
+
+const GSC_READONLY_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 
 const DEFAULTS = {
   in: 'data/url-first-seen.json',
@@ -78,20 +81,6 @@ function* daysFrom(startDate, endDate) {
   }
 }
 
-async function getServiceAccountToken() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set');
-  }
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({
-    scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
-  });
-  const client = await auth.getClient();
-  if (client.email) console.log(`[refine] using SA: ${client.email}`);
-  const { token } = await client.getAccessToken();
-  return token;
-}
-
 async function fetchDayPages(token, site, dayStr) {
   const url = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(site)}/searchAnalytics/query`;
   const all = [];
@@ -136,7 +125,8 @@ async function main() {
     return;
   }
 
-  const token = await getServiceAccountToken();
+  const token = await getServiceAccountToken([GSC_READONLY_SCOPE]);
+  if (!token) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or service account auth failed');
 
   // GSC has a 2-day lag — query window ends 2 days ago.
   const today = new Date();
