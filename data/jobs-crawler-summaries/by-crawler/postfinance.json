@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-16T22:12:06.303Z",
+  "generatedAt": "2026-07-17T22:24:08.865Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10090,
-  "avgDurationMs": 10090,
+  "unchangedCount": 2,
+  "durationMs": 9120,
+  "avgDurationMs": 9120,
   "durationHistory": [
-    10090
+    9120
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -49,7 +49,10 @@
         "translation": 25,
         "completeness": 9
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
@@ -70,7 +73,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "VD",
         "location": "Lausanne"
@@ -78,12 +80,19 @@
       "id": "postfinance-fa3df90b1ead",
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
       "crawledAt": "",
-      "_qualityScore": 62,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     },
     {
@@ -106,7 +115,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "VD",
         "location": "Lausanne"
@@ -114,15 +122,20 @@
       "id": "postfinance-1ee349fcd573",
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
       "crawledAt": "",
-      "_qualityScore": 62,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
