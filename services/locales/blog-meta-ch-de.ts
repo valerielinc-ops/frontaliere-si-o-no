@@ -1183,6 +1183,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Steuererklärung Landwirtschaft: Achten Sie auf die Kulturen',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Kulturveränderungen beeinflussen die Steuererklärung 2026. Hier ist, was für eine ordnungsgemäße Steuerverwaltung des landwirtschaftlichen Betriebs zu überwachen ist.',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Landwirtschaftliche Felder in einer Schweizer Landschaft',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Verkehr in der Schweiz: Was das für Schweizerinnen und Schweizer bedeutet',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Der Verkehr in der Schweiz verursachte gemäss einem Bericht des Bundesamtes für Statistik im Jahr 2023 Kosten von rund 117 Milliarden Franken.',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Bild von zunehmendem Verkehr in einer Stadt des Tessins',
 };
 
 export default blogMetaChDe;
