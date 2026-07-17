@@ -1,0 +1,121 @@
+name: CWV Monitor
+
+# Weekly real-user CLS/INP regression watchdog for the #4302 money-page
+# target list (dogana/valichi, mappa confine, job boards, weekly employer
+# hub, tax simulator, homepage). Queries PostHog `$web_vitals` field data,
+# persists a weekly snapshot to data/cwv-monitor-history.json (kept
+# unpruned — see project convention on tracking files), and opens/dedupes
+# a GitHub backlog issue via the shared "top-N over threshold" sync
+# (scripts/lib/error-issue-sync.mjs) when a page/metric has been over its
+# target on two consecutive recorded weeks.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
+#
+# Auth: POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID / POSTHOG_HOST live in
+# Firebase Remote Config, loaded via scripts/load-rc-env.mjs (same mechanism
+# as monitor-cls-posthog.mjs / posthog-error-monitor.yml).
+
+on:
+  schedule:
+    # Weekly, Wednesday 07:40 UTC — clear of the other 07:xx crons
+    # (posthog-error-monitor Tuesday 07:25, GA4 app-error sync Monday
+    # 07:00 inside analytics.yml, dmarc-monitor/app-auth-health-monitor/
+    # funnel-metrics-snapshot/gsc-frontaliere-monitor Monday).
+    - cron: '40 7 * * 3'
+  workflow_dispatch:
+    inputs:
+      windowDays:
+        description: 'HogQL look-back window in days (per query)'
+        required: false
+        type: string
+        default: '7'
+
+concurrency:
+  group: cwv-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin from node_modules to read
+        # Remote Config; the monitor itself only uses node built-ins + gh CLI.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check CWV regressions + record weekly snapshot
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CWV_MONITOR_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+        run: node scripts/cwv-monitor-check.mjs
+
+      - name: Commit weekly snapshot if changed
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cwv-monitor-history.json
+          if git diff --cached --quiet; then
+            echo "No change to cwv-monitor-history.json"
+            exit 0
+          fi
+          git commit -m "chore: record weekly CWV snapshot"
+
+          # Push with rebase-and-retry. Re-querying PostHog on a retry can
+          # shift the recorded values slightly (later data point, same day
+          # key) — the script overwrites-in-place per today's date, so a
+          # regenerate-on-rebase retry stays safe and idempotent per day.
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/cwv-monitor-check.mjs && git add data/cwv-monitor-history.json"
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CWV_MONITOR_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

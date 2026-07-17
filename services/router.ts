@@ -3152,6 +3152,13 @@ export function parsePath(pathname: string): ParseResult {
  if (sub === 'border' && third && BORDER_CROSSING_ID_SET.has(third)) {
  return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId }, locale };
  }
+ // NB (review PR #4324): NIENTE staticOverlay per border/border-map — le loro
+ // pagine statiche sono emesse DENTRO #root dal fallback shell di
+ // staticPagesPlugin (nessun main.seo-static-content fuori dal root):
+ // con staticOverlay l'hydration cancella il contenuto e App.tsx non monta
+ // il <main> SPA → pagina permanentemente vuota per gli utenti JS.
+ // Il fix CLS per queste route richiede prima il contratto overlay vero
+ // (emissione fuori da #root), tracciato come follow-up.
  return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab }, locale };
  }
  }

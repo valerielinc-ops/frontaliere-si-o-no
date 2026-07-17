@@ -10,6 +10,20 @@
  * - fluid in-article: ~220px → 220px
  * - auto display: ~250-300px → 280px
  *
+ * `format: 'auto'` + `fullWidthResponsive: true` slots (#4302, 2026-07-16):
+ * raised 280 → 336px. Field CLS on pages that interleave several of these
+ * per page (e.g. weekly-employer ranked lists via infeedAdListItemHtml —
+ * up to ~9 on one page) was disproportionately high (p75 0.66 on
+ * /aziende-che-assumono/ticino/settimana-corrente/) versus pages with only
+ * 1-2 ad units, consistent with each responsive unit under-reserving in
+ * narrow/mobile in-feed containers where Google can pick a taller creature
+ * shape (compounds ×N when several are stacked in one list). 336px is a
+ * conservative estimate (no lab/PostHog attribution data available to pin
+ * the exact median, unlike the 400→1100 HOMEPAGE_MID_DISPLAY fix below) —
+ * over-reservation is CLS-safe by construction, so this can only help or be
+ * neutral. Re-check against scripts/monitor-cls-posthog.mjs field data
+ * post-deploy and adjust up/down once real numbers are in.
+ *
  * Pruned 2026-04-20: 14 low-earner slots (30d AdSense report showed €0.00-0.10 each).
  * Auto-ads (Anchor €16.01, In-page €10.42) cover those placements more effectively.
  *
@@ -55,7 +69,7 @@ export const AD_SLOTS = {
  slot: '8164676143',
  format: 'auto',
  fullWidthResponsive: true,
- placeholderMinHeight: 280,
+ placeholderMinHeight: 336,
  },
  /** Job listing: mobile in-feed (responsive DISPLAY).
   *  Switched 2026-06-25 from the FEED native unit (6979586981, ~45% fill, RPM
@@ -68,7 +82,7 @@ export const AD_SLOTS = {
  slot: '3205029282',
  format: 'auto',
  fullWidthResponsive: true,
- placeholderMinHeight: 280,
+ placeholderMinHeight: 336,
  },
  /** Job listing: end-of-list multiplex */
  JOBLIST_END_MULTIPLEX: {
@@ -82,7 +96,7 @@ export const AD_SLOTS = {
  slot: '8164676143',
  format: 'auto',
  fullWidthResponsive: true,
- placeholderMinHeight: 280,
+ placeholderMinHeight: 336,
  },
  /** Job detail: end multiplex */
  JOBDETAIL_END_MULTIPLEX: {
@@ -158,7 +172,7 @@ export const AD_SLOTS = {
  slot: '3205029282',
  format: 'auto',
  fullWidthResponsive: true,
- placeholderMinHeight: 280,
+ placeholderMinHeight: 336,
  },
  /** Job detail: auth gate — end multiplex below content */
  AUTHGATE_END_MULTIPLEX: {

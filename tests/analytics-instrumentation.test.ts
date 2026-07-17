@@ -150,6 +150,23 @@ describe('errorReporter.ts — api_error fallbacks', () => {
   });
 });
 
+describe('analytics.ts — dead-click detector allowlist (#4304)', () => {
+  it('treats native form controls and <summary> as actionable (not dead-click candidates)', () => {
+    const block = analyticsSrc.match(/const actionable = target\.closest\(\s*[\s\S]*?\)\s*as HTMLElement \| null;/);
+    expect(block).not.toBeNull();
+    for (const tag of ['select', 'input', 'textarea', 'summary']) {
+      expect(block![0]).toMatch(new RegExp(`\\b${tag}\\b`));
+    }
+  });
+
+  it('excludes clicks inside the Funding Choices consent widget and Google Translate wrapper spans', () => {
+    const block = analyticsSrc.match(/function detectDeadClick\(target: HTMLElement\): void \{[\s\S]*?\n\}/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/\[class\*="fc-"\]/);
+    expect(block![0]).toMatch(/google-anno/);
+  });
+});
+
 describe('callsite hygiene — no empty trackFunnelStep()', () => {
   it('every `trackFunnelStep(` callsite in app code passes a step argument', () => {
     const emptyCalls: string[] = [];

@@ -703,11 +703,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const [filterType, setFilterType] = useState<'all' | 'new' | 'old'>('all');
  const [filterProvince, setFilterProvince] = useState<string>('all');
  const [municipalitySearch, setMunicipalitySearch] = useState('');
- // INP fix: the input stays bound to the immediate value (typing paints
- // instantly), but the expensive filter/sort + 518-card/518-marker re-render
- // reads a DEFERRED copy so it runs at low priority off the keystroke's
- // critical path. Real-user INP p75 on this page was ~1728ms.
+ // INP fix: the input/buttons stay bound to the immediate value (typing/click
+ // paints instantly), but the expensive filter/sort + 518-card/518-marker
+ // re-render reads DEFERRED copies so it runs at low priority off the
+ // interaction's critical path. Real-user INP p75 on this page was ~1728ms
+ // pre-fix (#2795); only `municipalitySearch` was deferred there — the sort/
+ // filter-chip buttons (sortBy, filterType, filterProvince) fed the same
+ // heavy `filteredMunicipalities` memo undeferred, which field data (#4302,
+ // INP p75 1696ms) shows still dominates since chip clicks are at least as
+ // common as typing a search query.
  const deferredMunicipalitySearch = useDeferredValue(municipalitySearch);
+ const deferredSortBy = useDeferredValue(sortBy);
+ const deferredFilterType = useDeferredValue(filterType);
+ const deferredFilterProvince = useDeferredValue(filterProvince);
  const [borderFilter, setBorderFilter] = useState<'all' | 'low-traffic' | '24h' | 'morning' | 'evening'>('all');
  const [selectedTime, setSelectedTime] = useState<'morning' | 'evening' | 'night'>('morning');
  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
@@ -768,16 +776,16 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  .filter(m => {
  const q = deferredMunicipalitySearch.trim().toLowerCase();
  if (q && !`${m.name} ${m.province} ${m.borderCrossing}`.toLowerCase().includes(q)) return false;
- if (filterProvince !== 'all' && m.province !== PROVINCE_NAMES[filterProvince]) return false;
- if (filterType === 'all') return true;
- if (filterType === 'new') return m.type === 'new' || m.type === 'both';
- if (filterType === 'old') return m.type === 'old' || m.type === 'both';
+ if (deferredFilterProvince !== 'all' && m.province !== PROVINCE_NAMES[deferredFilterProvince]) return false;
+ if (deferredFilterType === 'all') return true;
+ if (deferredFilterType === 'new') return m.type === 'new' || m.type === 'both';
+ if (deferredFilterType === 'old') return m.type === 'old' || m.type === 'both';
  return true;
  })
  .sort((a, b) => {
- if (sortBy === 'distance') return a.distance - b.distance;
+ if (deferredSortBy === 'distance') return a.distance - b.distance;
  return b.population - a.population;
- }), [lombardyMunicipalities, filterProvince, filterType, sortBy, deferredMunicipalitySearch]);
+ }), [lombardyMunicipalities, deferredFilterProvince, deferredFilterType, deferredSortBy, deferredMunicipalitySearch]);
  const selectedMunicipalityIndex = selectedMunicipality
  ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
  : -1;

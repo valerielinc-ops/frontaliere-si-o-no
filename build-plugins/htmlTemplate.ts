@@ -60,10 +60,25 @@ export function asyncCssLink(href: string): string {
  * telemetry here — identical to the sibling fallbacks — is what makes the
  * post-deploy revert-trigger observable on every page that goes through
  * `asyncCssHeadBlock` (job-detail, collection/faq, soft-landing, recency,
- * sector, hub).
+ * sector, hub). Also used verbatim (imported, not copy-pasted — AGENTS.md §6)
+ * by `ogPagesPlugin.ts` and `staticPagesPlugin.ts`'s hand-rolled heads, which
+ * don't go through `asyncCssHeadBlock` itself.
+ *
+ * `visibilityState` (issue #4304 triage, 956 events/30d): captures
+ * `document.visibilityState` at the moment the timer fires. Live PostHog data
+ * showed this event is NOT concentrated in one browser engine (Chrome/Android
+ * and Mobile Safari/iOS both contribute proportionally to their traffic
+ * share) and 93% of events report `navigator.connection.effectiveType`
+ * `'4g'` — evidence against both a single-engine onload bug and a simple
+ * slow-network explanation, since `effectiveType` is a soft heuristic that
+ * defaults to `'4g'` absent contrary evidence, not a hard measurement. A
+ * strong remaining candidate is background-tab throttling (mobile OSes
+ * deprioritize timers/fetches for backgrounded tabs — consistent with a
+ * cross-engine, "network looked fine" pattern); `visibilityState` lets that
+ * be confirmed or ruled out from the next data pull instead of guessing.
  */
 export const ASYNC_CSS_FALLBACK_SCRIPT =
-  `<script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
+  `<script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,visibilityState:document.visibilityState||'unknown',ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
 
 /**
  * Full CSS `<head>` block for static SEO landing pages:
