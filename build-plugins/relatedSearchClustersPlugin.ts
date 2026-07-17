@@ -47,7 +47,7 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL } from './constants';
+import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
@@ -132,6 +132,27 @@ const MIN_JOB_COUNT = 1;
 const MIN_MATCHING_JOBS = 0;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;
+
+// MIN_JOBS_FOR_INDEXABLE_CLUSTER (issue #4303 item 4) — distinct from
+// MIN_MATCHING_JOBS above. MIN_MATCHING_JOBS=0 controls EMISSION (never
+// return a 404 for a rotated-out candidate); this constant controls
+// INDEXABILITY. Every cluster now canonicalizes under the Switzerland-wide
+// aggregate section (`cantonGroup = AGGREGATE_KEY`, see ClusterContext
+// docstring) regardless of the query's canton signal, so thin/near-empty
+// clusters (<3 real matching jobs) previously stacked up as separate
+// `index,follow` pages under `/cerca-lavoro-svizzera/ricerca-*/` — GSC
+// showed 2.132 such pages averaging position 25.4 (issue #4303), well
+// below the per-canton families that already gate+bridge (Zurigo 16.7,
+// Berna 11.0). Below this floor, `renderClusterPage` emits a real
+// `buildCanonicalBridgePage` bridge (200 OK, noindex,follow, canonical →
+// the Svizzera hub) instead of a thin near-duplicate page — same pattern
+// as `emitCantonHubBelowFloorBridge` (seoHubsPlugin.ts) and
+// professionCantonLandings.ts's below-floor path. This does NOT reinstate
+// the `return null` (→ 404) suppression a past reviewer rejected here (see
+// the MIN_MATCHING_JOBS=0 comment above matchingJobs.length check below):
+// the URL still resolves 200 with live, crawlable content: it just stops
+// competing with the hub and real per-canton clusters for the same query.
+const MIN_JOBS_FOR_INDEXABLE_CLUSTER = 3;
 
 // STRIP_CLUSTER_SEO_PROSE: when ON (default), drops the per-cluster
 // commuter-context block (~5 KB raw: crawler methodology + Permesso G +
@@ -1069,6 +1090,78 @@ interface PageOutput {
   loc: string;
 }
 
+// Below-floor bridge copy (issue #4303 item 4) — kept deliberately short
+// since these pages are noindex,follow (not competing for SERP real
+// estate, no word-count floor to hit). One paragraph per locale,
+// interpolating the cluster's own keyword so the redirect page reads as a
+// direct answer ("few results for X — here's the full board") rather than
+// a generic stub.
+const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
+  title: string;
+  description: string;
+  body: (keyword: string) => string;
+  cta: string;
+}> = {
+  it: {
+    title: 'Offerte di lavoro in Svizzera | Frontaliere Ticino',
+    description: 'Consulta tutte le offerte di lavoro attive in Svizzera sulla nostra job board aggiornata quotidianamente.',
+    body: (q) => `Al momento ci sono pochi annunci diretti per "${q}". Apri la job board completa della Svizzera per filtrare tutte le posizioni aperte per cantone, settore e stipendio.`,
+    cta: 'Apri la job board Svizzera',
+  },
+  en: {
+    title: 'Jobs in Switzerland | Frontaliere Ticino',
+    description: 'Browse every active job opening in Switzerland on our daily-updated job board.',
+    body: (q) => `There are only a few direct listings for "${q}" right now. Open the full Switzerland job board to filter every open position by canton, sector and salary.`,
+    cta: 'Open the Switzerland job board',
+  },
+  de: {
+    title: 'Stellenangebote in der Schweiz | Frontaliere Ticino',
+    description: 'Durchsuchen Sie alle aktiven Stellenangebote in der Schweiz auf unserem täglich aktualisierten Job Board.',
+    body: (q) => `Für „${q}" gibt es derzeit nur wenige direkte Treffer. Öffnen Sie das vollständige Job Board der Schweiz und filtern Sie alle offenen Stellen nach Kanton, Branche und Lohn.`,
+    cta: 'Job Board Schweiz öffnen',
+  },
+  fr: {
+    title: 'Offres d\'emploi en Suisse | Frontaliere Ticino',
+    description: 'Consultez toutes les offres d\'emploi actives en Suisse sur notre job board mis à jour quotidiennement.',
+    body: (q) => `Il y a peu d'annonces directes pour « ${q} » pour l'instant. Ouvrez le job board complet de la Suisse pour filtrer toutes les offres par canton, secteur et salaire.`,
+    cta: 'Ouvrir le job board Suisse',
+  },
+};
+
+/**
+ * Below-floor bridge (issue #4303 item 4): consolidates clusters with
+ * fewer than MIN_JOBS_FOR_INDEXABLE_CLUSTER matching jobs into the
+ * Switzerland-wide hub instead of emitting a thin near-duplicate page.
+ * Mirrors the established pattern (`emitCantonHubBelowFloorBridge` in
+ * seoHubsPlugin.ts, professionCantonLandings.ts's below-floor path):
+ * still a real 200 OK page at the cluster's own `urlPath` (never a 404),
+ * `noindex,follow` + `<link rel="canonical">` pointing at the live hub so
+ * link equity and crawl budget consolidate there. Self-mapped in
+ * `searchConsoleCompat.ts` (SEARCH_COMBO_SEGMENT_PATTERN already resolves
+ * this URL shape — see the comment added there).
+ */
+function renderClusterBelowFloorBridge(
+  locale: Locale,
+  urlPath: string,
+  canonicalUrl: string,
+  keyword: string,
+): PageOutput {
+  const hubPath = `${LOCALE_PREFIX[locale]}/${resolveCantonSection(locale as CantonLocale, AGGREGATE_KEY)}/`.replace(/\/+/g, '/');
+  const hubUrl = `${BASE_URL}${hubPath}`;
+  const copy = BELOW_FLOOR_BRIDGE_COPY[locale] || BELOW_FLOOR_BRIDGE_COPY.it;
+  const html = buildCanonicalBridgePage({
+    canonicalUrl: hubUrl,
+    pathLabel: hubPath,
+    title: copy.title,
+    description: copy.description,
+    body: copy.body(keyword),
+    ctaLabel: copy.cta,
+    lang: locale,
+    noindex: true,
+  });
+  return { urlPath, html, loc: canonicalUrl };
+}
+
 /**
  * Build the canonical URL path for a cluster page.
  *
@@ -1418,6 +1511,28 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
 
   const urlPath = buildClusterPath(locale, candidate.slug, ctx.cantonGroup);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
+
+  // Issue #4303 item 4: below MIN_JOBS_FOR_INDEXABLE_CLUSTER, consolidate
+  // into the Svizzera hub instead of emitting yet another thin
+  // near-duplicate `index,follow` page. Short-circuits before the rest of
+  // the rich-content build below — see MIN_JOBS_FOR_INDEXABLE_CLUSTER
+  // docstring for why this is distinct from MIN_MATCHING_JOBS=0.
+  //
+  // Exempt AI-enriched clusters (`enriched.intro` present) from the floor:
+  // a past reviewer explicitly rejected suppressing n=0 clusters that carry
+  // unique AI-authored content ("flagged 🔴 in PR review... those pages no
+  // longer list off-topic jobs, not that they vanish from the index" — see
+  // buildDescription's n=0 handling below and
+  // tests/related-search-clusters-shell.test.ts's "keeps the full SEO
+  // shell" test). Only 6,538 of 349,579 unique cluster slugs have an
+  // enriched entry (data/related-search-enriched.json), so this exemption
+  // is narrow — it doesn't blunt the consolidation for the bulk of
+  // generic, non-enriched below-floor clusters the issue targets.
+  const hasEnrichedIntro = Boolean(enriched?.intro && enriched.intro.trim());
+  if (!hasEnrichedIntro && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER) {
+    return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword);
+  }
+
   const headline = buildHeadline(ctx.keyword, ctx.city);
   const description = buildDescription(ctx, locale);
 
