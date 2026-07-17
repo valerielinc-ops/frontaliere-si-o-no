@@ -8573,6 +8573,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Vivre à Côme et travailler au Tessin : guide pratique pour les frontaliers',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Temps de trajet, coût de la vie comparé, quartiers stratégiques et avantages/inconvénients du train par rapport à la voiture. Tout ce que vous devez savoir avant de devenir frontalier Côme-Tessin.',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Navetteurs à la gare de Chiasso tôt le matin, symbole du trajet quotidien Côme-Tessin',
+    'blog.article.frontalieri-e-indennita.title': 'Frontières et indemnités : un thème brûlant',
+    'blog.article.frontalieri-e-indennita.excerpt': 'La décision prise à Bruxelles sur les indemnités de chômage des frontaliers pourrait avoir d\'importantes répercussions financières et politiques pour la Suisse',
+    'blog.article.frontalieri-e-indennita.imageAlt': 'Frontaliers en Suisse et en Italie',
 };
 
 export default blogMetaFr;

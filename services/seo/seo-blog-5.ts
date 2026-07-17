@@ -50304,6 +50304,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-e-indennita': {
+    title: 'Frontalieri e indennità: un tema che scotta | Frontaliere Ticino',
+    description: 'La decisione presa a Bruxelles sulle indennità di disoccupazione dei frontalieri potrebbe avere importanti ripercussioni finanziarie e politiche per la Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, tema, scotta, decisione',
+    ogTitle: 'Frontalieri e indennità: un tema che scotta',
+    ogDescription: 'La decisione presa a Bruxelles sulle indennità di disoccupazione dei frontalieri potrebbe avere importanti ripercussioni finanziarie e politiche per la Svizzera',
+    canonicalPath: '/articoli-frontaliere/frontalieri-e-indennita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e indennità: un tema che scotta",
+      "description": "La decisione presa a Bruxelles sulle indennità di disoccupazione dei frontalieri potrebbe avere importanti ripercussioni finanziarie e politiche per la Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-e-indennita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in Svizzera e Italia"
+      },
+      "datePublished": "2026-07-17T14:30:01+00:00",
+      "dateModified": "2026-07-17T14:30:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-e-indennita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

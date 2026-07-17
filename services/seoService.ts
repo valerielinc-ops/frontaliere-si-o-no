@@ -4581,6 +4581,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-naspi-frontalieri-italia-requisiti-calcolo-domanda': { name: 'NASpI Frontalieri', path: '/articoli-frontaliere/naspi-frontalieri-italia-requisiti-calcolo-domanda', parent: 'blog' },
     'blog-vivere-como-lavorare-ticino-frontaliere': { name: 'Guida Frontalieri', path: '/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere', parent: 'blog' },
     'blog-assicurazione-rc-auto-svizzera-differenze-italia-frontalieri': { name: 'Assicurazione RC auto svizzera: differenze', path: '/articoli-svizzera/assicurazione-rc-auto-svizzera-differenze-italia-frontalieri/', parent: 'blog' },
+    'blog-frontalieri-e-indennita': { name: 'Frontalieri e indennità', path: '/articoli-frontaliere/frontalieri-e-indennita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

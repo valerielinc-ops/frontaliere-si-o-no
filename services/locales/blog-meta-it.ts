@@ -8573,6 +8573,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Vivere a Como e lavorare in Ticino: guida pratica per frontalieri',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Tempi di percorrenza, costo della vita a confronto, quartieri strategici e pro/contro di treno vs auto. Tutto ciò che devi sapere prima di diventare frontaliere Como-Ticino.',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Pendolari alla stazione di Chiasso al mattino presto, simbolo del tragitto quotidiano Como-Ticino',
+    'blog.article.frontalieri-e-indennita.title': 'Frontalieri e indennità: un tema che scotta',
+    'blog.article.frontalieri-e-indennita.excerpt': 'La decisione presa a Bruxelles sulle indennità di disoccupazione dei frontalieri potrebbe avere importanti ripercussioni finanziarie e politiche per la Svizzera',
+    'blog.article.frontalieri-e-indennita.imageAlt': 'Frontalieri in Svizzera e Italia',
 };
 
 export default blogMetaIt;
