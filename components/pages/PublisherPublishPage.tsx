@@ -34,13 +34,23 @@ import {
  addDoc,
  doc,
  getDoc,
+ getDocs,
  setDoc,
+ query,
+ where,
  serverTimestamp,
  deleteField,
 } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
 import { renderPublisherMarkdown, stripPublisherMarkdown } from '@/services/publisherMarkdown';
-import { priceForCart, PRICE_PER_UNIT_CHF, PRICING_CURRENCY } from '@/services/publisherPricing';
+import {
+ priceForCart,
+ priceForUnits,
+ sumRemainingUnits,
+ PRICE_PER_UNIT_CHF,
+ PRICING_CURRENCY,
+ type PrepaidOrderCredit,
+} from '@/services/publisherPricing';
 import { listCantonOptions } from '@/services/cantonList';
 import type {
  ApplyMode,
@@ -52,6 +62,8 @@ import type {
 
 const CREATE_CHECKOUT_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
+const ATTACH_PUBLISHER_JOB_ENDPOINT =
+ 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/attachPublisherJob';
 const GEMINI_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate';
 
@@ -228,7 +240,7 @@ function isValidEmail(value: string): boolean {
  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
-type SubmitStatus = 'idle' | 'submitting' | 'redirecting' | 'published' | 'edited' | 'error';
+type SubmitStatus = 'idle' | 'submitting' | 'attached' | 'published' | 'edited' | 'error';
 
 /**
  * Build the distinct PublisherJobLocation[] from a cart item's rows, attaching
@@ -262,6 +274,89 @@ function buildJobLocations(rows: LocationRow[]): PublisherJobLocation[] {
  return out;
 }
 
+/**
+ * Build one publisher_jobs-shaped ad record from a cart item — same fields
+ * `addDoc` writes today, minus `createdAt`/`updatedAt` (the `serverTimestamp()`
+ * sentinel used there isn't JSON-serializable; the addDoc caller adds its own,
+ * the attachPublisherJob CF stamps its own server-side). Shared by the
+ * free-tier addDoc loop and the paid-tier attachPublisherJob payload so both
+ * stay byte-identical in shape.
+ */
+function buildAdFields(
+ ad: CartItem,
+ uid: string,
+ tier: PublisherTier,
+ status: PublisherJobStatus,
+ company: { name: string; legalForm: PublisherLegalForm; domain?: string; logoUrl?: string },
+): Record<string, unknown> {
+ const jobLocations = buildJobLocations(ad.locations);
+ const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
+ const parsedSalaryMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
+ const isFreeTier = tier === 'free';
+ // Sponsored: `description` stays PLAIN text (JSON-LD / meta / search all
+ // consume it); the markdown source ships separately as `descriptionMd`.
+ const plainDesc = isFreeTier ? ad.description.trim() : stripPublisherMarkdown(ad.description);
+ const mdDesc = !isFreeTier && ad.description.trim() && ad.description.trim() !== plainDesc
+ ? ad.description.trim() : null;
+ return {
+ publisherUid: uid,
+ tier,
+ status,
+ title: ad.title.trim(),
+ description: plainDesc,
+ ...(mdDesc ? { descriptionMd: mdDesc } : {}),
+ sourceLang: 'it',
+ company,
+ locations: jobLocations,
+ employmentType: ad.employmentType,
+ ...(ad.category.trim() ? { category: ad.category.trim() } : {}),
+ ...(ad.sector.trim() ? { sector: ad.sector.trim() } : {}),
+ ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
+ ...(parsedSalaryMin != null && Number.isFinite(parsedSalaryMin) ? { salaryMin: parsedSalaryMin } : {}),
+ ...(parsedSalaryMax != null && Number.isFinite(parsedSalaryMax) ? { salaryMax: parsedSalaryMax } : {}),
+ // Featured is a sponsored-only benefit; never persist it on free ads.
+ ...(!isFreeTier && ad.featured ? { featured: true } : { featured: false }),
+ currency: 'CHF',
+ apply: {
+ mode: ad.apply.mode,
+ ...(ad.apply.mode === 'external_url' ? { url: ad.apply.url.trim() } : {}),
+ ...(ad.apply.mode === 'forward_email' || ad.apply.mode === 'in_house' ? { email: ad.apply.email.trim() } : {}),
+ ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
+ },
+ };
+}
+
+/** Purchased tier + remaining prepaid units, derived from active `orders` docs. */
+interface PublisherCredits {
+ remainingUnits: number | null; // null = azienda unlimited
+ tier: PublisherTier | null; // purchased tier; null = no active prepaid credit
+}
+
+/**
+ * Fetch the publisher's prepaid credits. Single equality `where` (no composite
+ * index needed) — status/prepaid filtered client-side, matching the
+ * sponsored/azienda split the CF derives from `orders.plan`.
+ */
+async function loadPublisherCredits(uid: string): Promise<PublisherCredits> {
+ const db = getFirestore(await getApp());
+ const snap = await getDocs(query(collection(db, 'orders'), where('publisherUid', '==', uid)));
+ const active: PrepaidOrderCredit[] = [];
+ let sawAzienda = false;
+ snap.forEach(docSnap => {
+ const d = docSnap.data() as Record<string, unknown>;
+ if (d.status !== 'active' || d.prepaid !== true) return;
+ const isAzienda = d.plan === 'azienda';
+ if (isAzienda) sawAzienda = true;
+ active.push({
+ plan: isAzienda ? 'azienda' : undefined,
+ unitsPurchased: typeof d.unitsPurchased === 'number' ? d.unitsPurchased : null,
+ unitsUsed: typeof d.unitsUsed === 'number' ? d.unitsUsed : 0,
+ });
+ });
+ if (active.length === 0) return { remainingUnits: 0, tier: null };
+ return { remainingUnits: sumRemainingUnits(active), tier: sawAzienda ? 'azienda' : 'sponsored' };
+}
+
 const PublisherPublishPage: React.FC = () => {
  const { t, locale } = useTranslation();
  const { user, loading } = useAuth();
@@ -283,6 +378,22 @@ const PublisherPublishPage: React.FC = () => {
  // sponsored → paid subscription (featured/blast/all apply modes), Stripe checkout.
  const [tier, setTier] = useState<PublisherTier>('sponsored');
  const isFree = tier === 'free';
+
+ // ── Pay-first prepaid credits ────────────────────────────────
+ // null = not yet fetched (loading); { remainingUnits: 0, tier: null } = fetched,
+ // no active credit. hasCredits only needs `credits`, so it's declared here
+ // (available to the checkout-return polling effect further down).
+ const [credits, setCredits] = useState<PublisherCredits | null>(null);
+ const hasCredits = credits !== null && (credits.remainingUnits === null || credits.remainingUnits > 0);
+ // "Buy more locations" forces the Plan phase even though hasCredits is true.
+ const [manualPlanPhase, setManualPlanPhase] = useState(false);
+ // Plan-phase sponsored units selector (1-20 "sedi") + its own checkout state.
+ const [planUnits, setPlanUnits] = useState(1);
+ const [planPayBusy, setPlanPayBusy] = useState(false);
+ const [planPayError, setPlanPayError] = useState('');
+ // Checkout-return polling (webhook that flips the order to 'active' is async).
+ const [pollCount, setPollCount] = useState(0);
+ const [pollGaveUp, setPollGaveUp] = useState(false);
 
  // ── Form state ──────────────────────────────────────────────
  const [companyName, setCompanyName] = useState('');
@@ -440,6 +551,24 @@ const PublisherPublishPage: React.FC = () => {
  );
  }, []);
 
+ // ── Checkout-return polling ──────────────────────────────────
+ // The Stripe webhook that flips the order to 'active' is async — poll
+ // credits every 2s (max 15×, ~30s) until it lands, instead of a hard error.
+ useEffect(() => {
+ if (!checkoutSuccess || !user || hasCredits) return;
+ if (pollCount >= 15) { setPollGaveUp(true); return; }
+ const timer = window.setTimeout(async () => {
+ try {
+ const result = await loadPublisherCredits(user.uid);
+ setCredits(result);
+ } catch (error) {
+ reportCaughtError(error, 'publisher.pollCredits');
+ }
+ setPollCount((n) => n + 1);
+ }, 2000);
+ return () => window.clearTimeout(timer);
+ }, [checkoutSuccess, user, hasCredits, pollCount]);
+
  // ── Implicit newsletter subscribe on social sign-in ─────────
  // When a visitor authenticates via Google/LinkedIn through the gate, also
  // record them as a newsletter subscriber (owner policy: all three access
@@ -509,6 +638,32 @@ const PublisherPublishPage: React.FC = () => {
  useEffect(() => {
  if (isFree && applyMode !== 'external_url') setApplyMode('external_url');
  }, [isFree, applyMode]);
+
+ // ── Prepaid credits (pay-first funnel) ───────────────────────
+ // Skipped in edit mode: an existing ad's payment state is already fixed.
+ useEffect(() => {
+ if (!user || isEdit) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const result = await loadPublisherCredits(user.uid);
+ if (!cancelled) setCredits(result);
+ } catch (error) {
+ if (!cancelled) setCredits({ remainingUnits: 0, tier: null });
+ reportCaughtError(error, 'publisher.loadCredits');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [user, isEdit]);
+
+ // Once prepaid credits are active, lock the authoring form to the purchased
+ // tier (its price/perks were already paid for) — mirrors the `?tier=`
+ // prefill guard above: only nudges away from a paid default, never
+ // overrides an explicit 'free' choice (the reachability escape hatch).
+ useEffect(() => {
+ if (!credits || !credits.tier) return;
+ setTier((v) => (v === 'free' ? v : (credits.tier as PublisherTier)));
+ }, [credits]);
 
  // ── Edit-mode load ──────────────────────────────────────────
  // Read `?edit=<id>` once the user is known. If the doc exists AND belongs to
@@ -656,6 +811,99 @@ const PublisherPublishPage: React.FC = () => {
  [cart, distinctLocations],
  );
 
+ // ── Pay-first derived flags ──────────────────────────────────
+ // True once the authoring form is unlocked because prepaid credits cover
+ // it — gates the tier lock, the old recurring price preview, and the
+ // submit CTA copy.
+ const payFirstActive = !isEdit && !isFree && hasCredits;
+ // Paid tier picked, no active credits yet (or "Buy more locations") → show
+ // the Plan/payment step instead of the ad-authoring form.
+ const showPlanPhase = !isEdit && !isFree && credits !== null && (!hasCredits || manualPlanPhase);
+ // null = azienda unlimited (no cap). Cart-wide distinct locations (price.units)
+ // must stay ≤ remainingCap.
+ const remainingCap = payFirstActive && credits ? credits.remainingUnits : null;
+ const capReached = remainingCap != null && price.units >= remainingCap;
+ const overCap = remainingCap != null && price.units > remainingCap;
+ const creditsBannerTitle = checkoutSuccess
+ ? t('publisher.payFirst.postPayTitle')
+ : tier === 'azienda'
+ ? t('publisher.payFirst.aziendaUnlimited')
+ : t('publisher.payFirst.creditsBanner', { count: credits?.remainingUnits ?? 0 });
+
+ // Tier-picker card grid — shared by the authoring form's selector and the
+ // Plan-phase (pay-first) screen so both stay in lockstep.
+ const renderTierCards = (disabled: boolean) => (
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+ {([
+ { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
+ { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
+ { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} 299`, priceNote: t('publisher.tier.azienda.priceNote') },
+ ] as const).map(opt => {
+ const selected = tier === opt.value;
+ const isSponsoredCard = opt.value === 'sponsored';
+ const isAziendaCard = opt.value === 'azienda';
+ // Three distinct identities so the options read at a glance: sponsored = warm
+ // "gold" (Star), azienda = accent "premium" (Illimitato), free = neutral.
+ const selectedRing = isSponsoredCard
+ ? 'border-warning ring-2 ring-warning-border bg-warning-subtle'
+ : isAziendaCard
+ ? 'border-accent ring-2 ring-accent-border bg-accent-subtle'
+ : 'border-strong/50 ring-2 ring-edge bg-surface-alt';
+ const idleRing = isSponsoredCard
+ ? 'border-warning-border bg-warning-subtle/40 hover:border-warning'
+ : isAziendaCard
+ ? 'border-accent-border bg-accent-subtle/40 hover:border-accent'
+ : 'border-edge bg-surface-alt hover:border-strong/40';
+ return (
+ <button
+ key={opt.value}
+ type="button"
+ aria-pressed={selected}
+ disabled={disabled}
+ aria-disabled={disabled}
+ onClick={() => { if (!disabled) setTier(opt.value as PublisherTier); }}
+ className={`relative text-left p-5 rounded-2xl border transition-all ${selected ? selectedRing : idleRing} ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
+ >
+ {isSponsoredCard && (
+ <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-warning text-on-accent shadow-sm">
+ <Star className="w-3 h-3 fill-current" aria-hidden="true" />
+ {t('publisherLanding.plan.sponsored.badge')}
+ </span>
+ )}
+ {isAziendaCard && (
+ <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-accent text-on-accent shadow-sm">
+ {t('publisherLanding.plan.azienda.badge')}
+ </span>
+ )}
+ <span className="flex items-center justify-between gap-2">
+ <span className={`text-sm font-bold font-display ${isSponsoredCard ? 'text-warning' : 'text-strong'}`}>
+ {t(opt.titleKey)}
+ </span>
+ <span
+ className={`inline-flex items-center justify-center w-5 h-5 rounded-full border transition-colors ${selected ? (isSponsoredCard ? 'bg-warning border-warning text-on-accent' : 'bg-accent border-accent text-on-accent') : 'border-edge text-transparent'}`}
+ aria-hidden="true"
+ >
+ <Check className="w-3.5 h-3.5" />
+ </span>
+ </span>
+ <span className="mt-2 flex items-baseline gap-1.5">
+ <span className="text-2xl font-bold font-display text-strong">{opt.price}</span>
+ {opt.priceNote && <span className="text-xs text-subtle">{opt.priceNote}</span>}
+ </span>
+ <span className="mt-3 block space-y-1.5">
+ {TIER_PERKS[opt.value].map(perkKey => (
+ <span key={perkKey} className="flex items-start gap-2 text-xs text-body">
+ <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isSponsoredCard ? 'text-warning' : 'text-success'}`} aria-hidden="true" />
+ {t(perkKey)}
+ </span>
+ ))}
+ </span>
+ </button>
+ );
+ })}
+ </div>
+ );
+
  // ── Location helpers ────────────────────────────────────────
  const updateLocation = (index: number, patch: Partial<LocationRow>) => {
  setLocations(prev => prev.map((loc, i) => (i === index ? { ...loc, ...patch } : loc)));
@@ -747,9 +995,47 @@ const PublisherPublishPage: React.FC = () => {
 
  const removeCartItem = (id: string) => setCart(prev => prev.filter(item => item.id !== id));
 
+ // Plan phase → prepaid Stripe checkout. Creates NO ad yet — the ad-authoring
+ // form (and attachPublisherJob) only run after this checkout completes and
+ // credits land (see the checkout-return polling effect above).
+ const handlePrepaidCheckout = async () => {
+ if (!user || planPayBusy) return;
+ setPlanPayBusy(true);
+ setPlanPayError('');
+ try {
+ const idToken = await user.getIdToken();
+ const res = await fetch(CREATE_CHECKOUT_ENDPOINT, {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ Authorization: `Bearer ${idToken}`,
+ },
+ body: JSON.stringify({
+ prepaid: true,
+ units: tier === 'azienda' ? 1 : planUnits,
+ ...(tier === 'azienda' ? { plan: 'azienda' } : {}),
+ successUrl: `${window.location.origin}${window.location.pathname}?publisher_checkout=success`,
+ cancelUrl: window.location.href,
+ }),
+ });
+ const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string; error?: string };
+ if (!res.ok || !data.ok || !data.url) {
+ throw new Error(`prepaid_checkout_failed:${data.error ?? `http_${res.status}`}`);
+ }
+ Analytics.trackUIInteraction('publisher', 'payFirst', 'checkout', 'success');
+ window.location.assign(data.url);
+ } catch (error) {
+ console.error('Error creating prepaid publisher checkout:', error);
+ setPlanPayError(t('publisher.error'));
+ setPlanPayBusy(false);
+ Analytics.trackUIInteraction('publisher', 'payFirst', 'checkout', 'error');
+ reportCaughtError(error, 'publisher.prepaidCheckout');
+ }
+ };
+
  const handleSubmit = async (e: React.FormEvent) => {
  e.preventDefault();
- if (status === 'submitting' || status === 'redirecting') return;
+ if (status === 'submitting') return;
  if (!user) return;
 
  // Company is shared across the whole purchase; validate it once.
@@ -864,46 +1150,15 @@ const PublisherPublishPage: React.FC = () => {
  return;
  }
 
- // Write one publisher_jobs doc per ad (same shape as before). The CF sums
- // distinct locations across ALL of them for billing + volume discount.
- // status 'pending_payment' — only the Stripe webhook (Admin SDK) may set 'paid'.
+ if (isFree) {
+ // Write one publisher_jobs doc per ad — free tier only. Paid tiers no
+ // longer write a client-side doc at all: attachPublisherJob (below)
+ // creates the ad(s) server-side, already `paid`, against the publisher's
+ // prepaid order (pay-first: payment happens BEFORE this form unlocks).
  const jobIds: string[] = [];
  for (const ad of ads) {
- const jobLocations = buildJobLocations(ad.locations);
- const parsedSalaryMin = ad.salaryMin.trim() ? Number(ad.salaryMin) : undefined;
- const parsedSalaryMax = ad.salaryMax.trim() ? Number(ad.salaryMax) : undefined;
- // Sponsored: `description` stays PLAIN text (JSON-LD / meta / search all
- // consume it); the markdown source ships separately as `descriptionMd`.
- const plainDesc = isFree ? ad.description.trim() : stripPublisherMarkdown(ad.description);
- const mdDesc = !isFree && ad.description.trim() && ad.description.trim() !== plainDesc
- ? ad.description.trim() : null;
-
  const docRef = await addDoc(collection(db, 'publisher_jobs'), {
- publisherUid: user.uid,
- tier,
- // free → live immediately as a plain listing; sponsored → awaits Stripe.
- status: isFree ? 'published' : 'pending_payment',
- title: ad.title.trim(),
- description: plainDesc,
- ...(mdDesc ? { descriptionMd: mdDesc } : {}),
- sourceLang: 'it',
- company,
- locations: jobLocations,
- employmentType: ad.employmentType,
- ...(ad.category.trim() ? { category: ad.category.trim() } : {}),
- ...(ad.sector.trim() ? { sector: ad.sector.trim() } : {}),
- ...(ad.contractType.trim() ? { contractType: ad.contractType.trim() } : {}),
- ...(parsedSalaryMin != null && Number.isFinite(parsedSalaryMin) ? { salaryMin: parsedSalaryMin } : {}),
- ...(parsedSalaryMax != null && Number.isFinite(parsedSalaryMax) ? { salaryMax: parsedSalaryMax } : {}),
- // Featured is a sponsored-only benefit; never persist it on free ads.
- ...(!isFree && ad.featured ? { featured: true } : { featured: false }),
- currency: 'CHF',
- apply: {
- mode: ad.apply.mode,
- ...(ad.apply.mode === 'external_url' ? { url: ad.apply.url.trim() } : {}),
- ...(ad.apply.mode === 'forward_email' || ad.apply.mode === 'in_house' ? { email: ad.apply.email.trim() } : {}),
- ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
- },
+ ...buildAdFields(ad, user.uid, tier, 'published', company),
  createdAt: serverTimestamp(),
  updatedAt: serverTimestamp(),
  });
@@ -915,49 +1170,84 @@ const PublisherPublishPage: React.FC = () => {
  const { doc: fDoc, setDoc: fSet } = await import('firebase/firestore');
  await fSet(
  fDoc(db, 'publishers', user.uid),
- {
- email: user.email || null,
- company,
- updatedAt: serverTimestamp(),
- },
+ { email: user.email || null, company, updatedAt: serverTimestamp() },
  { merge: true },
  );
  } catch {
  // non-fatal — the ad is already created
  }
 
- // Free tier: no payment — the ad is already 'published' and the sync
- // workflow will pick it up into the crawler slice. Done.
- if (isFree) {
  Analytics.trackUIInteraction('publisher', 'form', 'submit', 'published_free');
  setStatus('published');
  return;
  }
 
- // Sponsored: authenticated call to the checkout Cloud Function.
+ // Paid tier (sponsored/azienda): the form is only reachable once prepaid
+ // credits are active (see payFirstActive gate below the JSX) — no
+ // client-side pending_payment doc, no checkout redirect here. Build the
+ // SAME shape addDoc would have written and hand it to attachPublisherJob,
+ // which creates the ad(s) server-side already `paid` and triggers
+ // publication (~1h), debiting the publisher's prepaid order.
  const idToken = await user.getIdToken();
- setStatus('redirecting');
- const res = await fetch(CREATE_CHECKOUT_ENDPOINT, {
+ const res = await fetch(ATTACH_PUBLISHER_JOB_ENDPOINT, {
  method: 'POST',
  headers: {
  'Content-Type': 'application/json',
  Authorization: `Bearer ${idToken}`,
  },
  body: JSON.stringify({
- jobIds,
- ...(tier === 'azienda' ? { plan: 'azienda' } : {}),
- successUrl: `${window.location.origin}${window.location.pathname}?publisher_checkout=success`,
- cancelUrl: window.location.href,
+ ads: ads.map(ad => buildAdFields(ad, user.uid, tier, 'paid', company)),
+ recaptchaToken: token,
  }),
  });
 
- const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string; error?: string };
- if (!res.ok || !data.ok || !data.url) {
- throw new Error(`checkout_failed:${data.error ?? `http_${res.status}`}`);
+ const data = (await res.json().catch(() => ({}))) as {
+ ok?: boolean;
+ jobIds?: string[];
+ remainingUnits?: number | null;
+ error?: string;
+ message?: string;
+ };
+
+ if (res.status === 402 || data.error === 'no_credits') {
+ // Credits ran out between page-load and submit (e.g. two tabs) — send
+ // the publisher back to the plan/payment step instead of a dead end.
+ setCredits({ remainingUnits: 0, tier: null });
+ setManualPlanPhase(true);
+ setPlanPayError(t('publisher.payFirst.insufficientUnits', { count: 0 }));
+ setStatus('idle');
+ Analytics.trackUIInteraction('publisher', 'form', 'submit', 'no_credits');
+ return;
+ }
+ if (res.status === 409 || data.error === 'insufficient_units') {
+ const remaining = typeof data.remainingUnits === 'number' ? data.remainingUnits : 0;
+ setCredits(prev => (prev ? { ...prev, remainingUnits: remaining } : prev));
+ setErrorMessage(t('publisher.payFirst.insufficientUnits', { count: remaining }));
+ setStatus('error');
+ Analytics.trackUIInteraction('publisher', 'form', 'submit', 'insufficient_units');
+ return;
+ }
+ if (!res.ok || !data.ok) {
+ throw new Error(`attach_failed:${data.error ?? `http_${res.status}`}`);
  }
 
- Analytics.trackUIInteraction('publisher', 'form', 'submit', 'success');
- window.location.assign(data.url);
+ // Save the company profile so the next ad prefills (best-effort, non-blocking).
+ try {
+ const { doc: fDoc, setDoc: fSet } = await import('firebase/firestore');
+ await fSet(
+ fDoc(db, 'publishers', user.uid),
+ { email: user.email || null, company, updatedAt: serverTimestamp() },
+ { merge: true },
+ );
+ } catch {
+ // non-fatal — the ad is already created
+ }
+
+ const nextRemaining = typeof data.remainingUnits === 'number' || data.remainingUnits === null
+ ? data.remainingUnits : undefined;
+ setCredits(prev => (prev && nextRemaining !== undefined ? { ...prev, remainingUnits: nextRemaining } : prev));
+ Analytics.trackUIInteraction('publisher', 'form', 'submit', 'attached');
+ setStatus('attached');
  } catch (error) {
  console.error('Error creating publisher checkout:', error);
  setStatus('error');
@@ -1020,26 +1310,25 @@ const PublisherPublishPage: React.FC = () => {
  }
  };
 
- // ── Stripe checkout success ─────────────────────────────────
+ // ── Stripe checkout success (pay-first prepaid) ──────────────
  // Takes priority over the auth gate: the param is the source of truth and
- // auth may still be resolving on this fresh page load. The ad already exists
- // (created before the redirect); send the user to their dashboard, not a form.
- if (checkoutSuccess) {
+ // auth may still be resolving on this fresh page load. No ad exists yet —
+ // this checkout only bought prepaid credits. The webhook that flips the
+ // order to 'active' is async, so poll (see the polling effect above) and
+ // show a soft "still processing" message rather than a hard error; once
+ // credits land, fall through to the unlocked authoring form below.
+ if (checkoutSuccess && !hasCredits) {
  return (
  <div className="max-w-2xl mx-auto px-4 py-12">
  <div className="text-center space-y-4">
- <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-success-subtle">
- <CheckCircle2 className="w-8 h-8 text-success" />
- </div>
- <h2 className="text-2xl font-bold font-display text-strong">{t('publisher.checkoutSuccess.title')}</h2>
- <p className="text-subtle max-w-md mx-auto">{t('publisher.checkoutSuccess.message')}</p>
- <a
- href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
- className="mt-2 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
- >
- <Briefcase className="w-4 h-4" />
- {t('publisher.checkoutSuccess.cta')}
- </a>
+ <div
+ className="animate-spin rounded-full h-10 w-10 border-2 border-edge border-t-accent mx-auto"
+ role="status"
+ aria-label={t('publisher.payFirst.confirmingPayment')}
+ />
+ <p className="text-subtle max-w-md mx-auto">
+ {pollGaveUp ? t('publisher.payFirst.paymentProcessing') : t('publisher.payFirst.confirmingPayment')}
+ </p>
  </div>
  </div>
  );
@@ -1192,6 +1481,120 @@ const PublisherPublishPage: React.FC = () => {
  );
  }
 
+ // ── Paid-tier ad attached (pay-first submit success) ─────────
+ if (status === 'attached') {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-16">
+ <div className="text-center space-y-4 animate-fade-in-up">
+ <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-success-subtle ring-8 ring-success-subtle/40">
+ <PartyPopper className="w-10 h-10 text-success" aria-hidden="true" />
+ </div>
+ <h2 className="text-2xl sm:text-3xl font-bold font-display text-strong">{t('publisher.payFirst.attachedTitle')}</h2>
+ <p className="text-subtle max-w-md mx-auto">{t('publisher.payFirst.attachedBody')}</p>
+ <div className="pt-2">
+ <a
+ href={buildPath({ activeTab: 'publisher-dashboard' }, locale)}
+ className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors no-underline"
+ >
+ <Briefcase className="w-4 h-4" />
+ {t('publisher.published.viewDashboard')}
+ </a>
+ </div>
+ </div>
+ </div>
+ );
+ }
+
+ // ── Prepaid credits still loading (paid tier, not edit) ───────
+ // Avoids flashing the Plan phase then flipping to the unlocked form once
+ // the single equality query above resolves.
+ if (!isEdit && !isFree && credits === null) {
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-24 flex flex-col items-center justify-center text-center">
+ <div
+ className="animate-spin rounded-full h-8 w-8 border-2 border-edge border-t-accent"
+ role="status"
+ aria-label={t('publisher.loadingAuth')}
+ />
+ <span className="sr-only">{t('publisher.loadingAuth')}</span>
+ </div>
+ );
+ }
+
+ // ── Plan phase (paid tier, no active credits yet) ─────────────
+ // Pick a plan + (sponsored) number of locations, pay immediately via a
+ // prepaid Stripe checkout. No ad is created here — the ad-authoring form
+ // below only unlocks once credits are active.
+ if (showPlanPhase) {
+ const planPrice = priceForUnits(planUnits);
+ return (
+ <div className="max-w-2xl mx-auto px-4 py-8">
+ <div className="text-center mb-8">
+ <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-subtle mb-4">
+ <Briefcase className="w-7 h-7 text-link" />
+ </div>
+ <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2">
+ {t('publisher.payFirst.stepPayTitle')}
+ </h1>
+ <p className="text-subtle max-w-lg mx-auto">{t('publisher.subtitle')}</p>
+ </div>
+
+ <section>
+ <h2 className={sectionTitleClass}>{t('publisher.tier.section')}</h2>
+ {renderTierCards(false)}
+ </section>
+
+ {tier === 'sponsored' && (
+ <section className="mt-6">
+ <label htmlFor="pub-plan-units" className={labelClass}>{t('publisher.payFirst.unitsLabel')}</label>
+ <input
+ id="pub-plan-units"
+ type="number"
+ min={1}
+ max={20}
+ value={planUnits}
+ onChange={e => setPlanUnits(Math.min(20, Math.max(1, Number(e.target.value) || 1)))}
+ className={inputClass}
+ />
+ <p className="text-xs text-muted mt-1.5">{t('publisher.payFirst.unitsHelp')}</p>
+ <div className="mt-3 rounded-xl border border-edge bg-surface-alt p-4">
+ <p className="text-2xl font-bold text-strong">{PRICING_CURRENCY} {planPrice.netChf}</p>
+ <p className="text-sm text-subtle mt-1">{t('publisher.price.units', { n: planPrice.units })}</p>
+ {planPrice.discountRate > 0 && (
+ <p className="text-sm text-success mt-1">
+ {t('publisher.price.discount', { pct: Math.round(planPrice.discountRate * 100), amount: planPrice.discountChf })}
+ </p>
+ )}
+ </div>
+ </section>
+ )}
+
+ {planPayError && (
+ <div className="mt-4 flex items-center gap-2 p-3 rounded-xl bg-danger-subtle border border-danger-border">
+ <AlertTriangle className="w-4 h-4 text-danger flex-shrink-0" />
+ <p className="text-sm text-danger">{planPayError}</p>
+ </div>
+ )}
+
+ {tier !== 'free' && (
+ <button
+ type="button"
+ onClick={handlePrepaidCheckout}
+ disabled={planPayBusy}
+ className="mt-6 w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover disabled:bg-surface-muted disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
+ >
+ {planPayBusy ? (
+ <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+ ) : (
+ <Send className="w-4 h-4" />
+ )}
+ {t('publisher.payFirst.payCta')}
+ </button>
+ )}
+ </div>
+ );
+ }
+
  return (
  <div className="max-w-2xl mx-auto px-4 py-8">
  {/* Header */}
@@ -1209,76 +1612,25 @@ const PublisherPublishPage: React.FC = () => {
  {/* ── Tier selector (plan cards) ─────────────────────── */}
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.tier.section')}</h2>
- <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
- {([
- { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
- { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
- { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} 299`, priceNote: t('publisher.tier.azienda.priceNote') },
- ] as const).map(opt => {
- const selected = tier === opt.value;
- const isSponsoredCard = opt.value === 'sponsored';
- const isAziendaCard = opt.value === 'azienda';
- // Three distinct identities so the options read at a glance: sponsored = warm
- // "gold" (Star), azienda = accent "premium" (Illimitato), free = neutral.
- const selectedRing = isSponsoredCard
- ? 'border-warning ring-2 ring-warning-border bg-warning-subtle'
- : isAziendaCard
- ? 'border-accent ring-2 ring-accent-border bg-accent-subtle'
- : 'border-strong/50 ring-2 ring-edge bg-surface-alt';
- const idleRing = isSponsoredCard
- ? 'border-warning-border bg-warning-subtle/40 hover:border-warning'
- : isAziendaCard
- ? 'border-accent-border bg-accent-subtle/40 hover:border-accent'
- : 'border-edge bg-surface-alt hover:border-strong/40';
- return (
- <button
- key={opt.value}
- type="button"
- aria-pressed={selected}
- disabled={isEdit}
- aria-disabled={isEdit}
- onClick={() => { if (!isEdit) setTier(opt.value as PublisherTier); }}
- className={`relative text-left p-5 rounded-2xl border transition-all ${selected ? selectedRing : idleRing} ${isEdit ? 'opacity-60 cursor-not-allowed' : ''}`}
- >
- {isSponsoredCard && (
- <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-warning text-on-accent shadow-sm">
- <Star className="w-3 h-3 fill-current" aria-hidden="true" />
- {t('publisherLanding.plan.sponsored.badge')}
- </span>
- )}
- {isAziendaCard && (
- <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-accent text-on-accent shadow-sm">
- {t('publisherLanding.plan.azienda.badge')}
- </span>
- )}
- <span className="flex items-center justify-between gap-2">
- <span className={`text-sm font-bold font-display ${isSponsoredCard ? 'text-warning' : 'text-strong'}`}>
- {t(opt.titleKey)}
- </span>
- <span
- className={`inline-flex items-center justify-center w-5 h-5 rounded-full border transition-colors ${selected ? (isSponsoredCard ? 'bg-warning border-warning text-on-accent' : 'bg-accent border-accent text-on-accent') : 'border-edge text-transparent'}`}
- aria-hidden="true"
- >
- <Check className="w-3.5 h-3.5" />
- </span>
- </span>
- <span className="mt-2 flex items-baseline gap-1.5">
- <span className="text-2xl font-bold font-display text-strong">{opt.price}</span>
- {opt.priceNote && <span className="text-xs text-subtle">{opt.priceNote}</span>}
- </span>
- <span className="mt-3 block space-y-1.5">
- {TIER_PERKS[opt.value].map(perkKey => (
- <span key={perkKey} className="flex items-start gap-2 text-xs text-body">
- <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isSponsoredCard ? 'text-warning' : 'text-success'}`} aria-hidden="true" />
- {t(perkKey)}
- </span>
- ))}
- </span>
- </button>
- );
- })}
- </div>
+ {renderTierCards(isEdit || payFirstActive)}
  </section>
+ {/* ── Pay-first credits banner ─────────────────────────── */}
+ {payFirstActive && (
+ <div className="rounded-2xl border border-edge bg-success-subtle/40 p-4 flex items-start gap-3">
+ <CheckCircle2 className="w-5 h-5 text-success flex-shrink-0 mt-0.5" aria-hidden="true" />
+ <div className="flex-1 min-w-0">
+ <p className="text-sm font-semibold text-strong">{creditsBannerTitle}</p>
+ {checkoutSuccess && <p className="text-xs text-subtle mt-1">{t('publisher.payFirst.postPayBody')}</p>}
+ </div>
+ <button
+ type="button"
+ onClick={() => setManualPlanPhase(true)}
+ className="flex-shrink-0 text-xs font-medium text-link hover:underline"
+ >
+ {t('publisher.payFirst.buyMore')}
+ </button>
+ </div>
+ )}
  {/* ── Company ────────────────────────────────────────── */}
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.company.section')}</h2>
@@ -1582,6 +1934,11 @@ const PublisherPublishPage: React.FC = () => {
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.locations.section')}</h2>
  <p className="text-xs text-muted mb-3">{t('publisher.locations.hint')}</p>
+ {payFirstActive && remainingCap != null && (
+ <p className="text-xs text-link font-medium mb-3">
+ {t('publisher.payFirst.remaining', { count: Math.max(0, remainingCap - price.units) })}
+ </p>
+ )}
  <div className="space-y-4">
  {locations.map((loc, index) => (
  <div key={index} className="rounded-2xl border border-edge bg-surface-alt p-4 space-y-3">
@@ -1665,7 +2022,8 @@ const PublisherPublishPage: React.FC = () => {
  <button
  type="button"
  onClick={addLocation}
- className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl hover:bg-surface-alt transition-colors"
+ disabled={capReached}
+ className={`mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl transition-colors ${capReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-surface-alt'}`}
  >
  <Plus className="w-4 h-4" />
  {t('publisher.locations.add')}
@@ -1752,7 +2110,8 @@ const PublisherPublishPage: React.FC = () => {
  <button
  type="button"
  onClick={handleAddToCart}
- className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-link border border-dashed border-edge rounded-xl hover:bg-surface-alt transition-colors"
+ disabled={capReached}
+ className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-link border border-dashed border-edge rounded-xl transition-colors ${capReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-surface-alt'}`}
  >
  <Plus className="w-4 h-4" />
  {t('publisher.cart.add')}
@@ -1797,6 +2156,9 @@ const PublisherPublishPage: React.FC = () => {
  )}
 
  {/* ── Price preview ──────────────────────────────────── */}
+ {/* Hidden once prepaid credits already cover this ad — the recurring
+ "auto-renews" copy would be factually wrong post-payment. */}
+ {!payFirstActive && (
  <section className="rounded-2xl border border-edge bg-surface-alt p-5">
  <h2 className="text-base font-semibold font-display text-strong mb-2">
  {t('publisher.price.title')}
@@ -1827,6 +2189,7 @@ const PublisherPublishPage: React.FC = () => {
  </>
  )}
  </section>
+ )}
 
  {/* ── Validation errors ──────────────────────────────── */}
  {errors.length > 0 && (
@@ -1857,18 +2220,24 @@ const PublisherPublishPage: React.FC = () => {
  {/* ── Submit ─────────────────────────────────────────── */}
  <button
  type="submit"
- disabled={status === 'submitting' || status === 'redirecting'}
+ disabled={status === 'submitting' || (payFirstActive && overCap)}
  className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover disabled:bg-surface-muted disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
  >
- {status === 'submitting' || status === 'redirecting' ? (
+ {status === 'submitting' ? (
  <>
  <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
- {status === 'redirecting' ? t('publisher.redirecting') : t('publisher.submitting')}
+ {t('publisher.submitting')}
  </>
  ) : (
  <>
  <Send className="w-4 h-4" />
- {isEdit ? t('publisher.editSubmit') : isFree ? t('publisher.submitFree') : t('publisher.submit')}
+ {isEdit
+ ? t('publisher.editSubmit')
+ : isFree
+ ? t('publisher.submitFree')
+ : payFirstActive
+ ? t('publisher.payFirst.submitCta')
+ : t('publisher.submit')}
  </>
  )}
  </button>

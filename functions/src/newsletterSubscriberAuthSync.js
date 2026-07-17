@@ -15,8 +15,10 @@
  */
 
 import admin from 'firebase-admin';
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Pragmatic email shape check (server-side) — single source of truth shared
+// with adminEmployerInsights.js, journalistRoleCore.js and
+// stripePublisherCore.js.
+import { EMAIL_RE } from './lib/emailValidation.js';
 
 /**
  * @param {string} rawEmail  the newsletter_subscribers/{email} doc id (or an email field)
