@@ -180,6 +180,33 @@ jobs:
           fi
           echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
+      - name: Check for resumable WIP branch (zero-Claude)
+        id: resume
+        if: steps.preflight.outputs.already_resolved != 'true'
+        # Problem A (#4337, confermato via GitHub API + run log): prima di questo
+        # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
+        # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
+        # NULLA veniva mai pushato: 71 turni, $6.58 spesi, edit reali a
+        # `build-plugins/staticPagesPlugin.ts`, ma `fix/issue-4337` mai esistito
+        # su GitHub (404). 100% del lavoro perso, retry costretto a ridiagnosticare
+        # da zero senza sapere che un tentativo precedente era arrivato lì. Ora il
+        # prompt fa un checkpoint WIP (commit+push) appena il fix è applicato,
+        # PRIMA del gate test (vedi step 4 del prompt) — quindi un run morto dopo
+        # quel punto lascia un branch `fix/issue-<N>` reale su origin. Questo step
+        # lo rileva deterministicamente (zero token Claude) così il prompt (step 1)
+        # sa se deve riprendere da lì invece di ricreare un branch fresh.
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          if git ls-remote --exit-code --heads origin "fix/issue-${ISSUE_NUMBER}" >/dev/null 2>&1; then
+            echo "resume=true" >> "$GITHUB_OUTPUT"
+            echo "Branch fix/issue-${ISSUE_NUMBER} già presente su origin → resume da checkpoint WIP."
+          else
+            echo "resume=false" >> "$GITHUB_OUTPUT"
+            echo "Nessun branch fix/issue-${ISSUE_NUMBER} su origin → fresh start."
+          fi
+
       - name: Configure git identity
         if: steps.preflight.outputs.already_resolved != 'true'
         run: |
@@ -196,7 +223,7 @@ jobs:
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
-        # l'agent ha gia' aperto la PR (passo 7) NON e' un fallimento del run:
+        # l'agent ha gia' aperto la PR (passo 9) NON e' un fallimento del run:
         # campione 7gg (#1951) = 4/11 fail issue-fix avevano una PR creata (3
         # gia' MERGED) ma la CLI moriva al cap turni DOPO `gh pr create` → job
         # RED = false-failure che gonfia il failure-rate del loop-health. Stessa
@@ -241,14 +268,16 @@ jobs:
             - **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }} (count=${{ steps.tier.outputs.agg_count }}):** se `is_aggregate=true` questa issue ha ${{ steps.tier.outputs.agg_count }} item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI (per una issue *sweep/batch* "item" = UN singolo target/file: es. "~30 crawlers" → fixa 1 crawler, deferisci gli altri 29). Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato` (motivo `follow-up`/`blocked`) → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
 
             **Fix flow (vedi ISSUES.md):**
-            1. Branch isolato: `git checkout -b fix/issue-$ISSUE_NUMBER`.
-            2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body.
+            1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
+               **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v5` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
+            2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
-            4. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
-            5. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** prima di committare/aprire la PR, gira i test che coprono l'area che hai toccato: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi; rosso introdotto da te → fixa la root cause e ri-gira fino a verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. **Perché:** la review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`). Una PR coi test rossi NON riceve review e resta ferma — e tu sei già terminato → spreco di un ciclo. Test d'area verdi = la suite CI passa al primo colpo e la review parte subito.
-            6. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
-            7. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
-            8. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
+            4. **Checkpoint WIP — commit+push IMMEDIATO (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"` e pusha SUBITO: `git push -u origin fix/issue-$ISSUE_NUMBER`. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Con questo checkpoint, se il run muore DOPO questo punto il branch sopravvive su GitHub col diff reale — recuperabile dal prossimo retry via la resume-logic del passo 1, invece di una perdita totale.
+            5. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
+            6. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** gira UNA VOLTA i test che coprono l'area toccata: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi al passo 7. Rosso → NON ri-lanciare l'intero file/suite da capo: rigira SOLO il test fallito con `-t <pattern che matcha il nome del test>`, fixa la root cause, ri-verifica scoped, ripeti finché verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. NON lanciare un `npx tsc --noEmit` full-repo a meno che il fix tocchi davvero type definitions condivise ampiamente (`types/`, interfacce esportate cross-modulo) — per un fix scoped il vitest sull'area toccata basta. **Perché la tightening:** #4263 (aggregate già ristretto a 1 item dal circuit-breaker) ha bruciato il budget 50 turni su ~25 di diagnosi + DUE pass completi di `npx vitest run` sull'intero file + un `npx tsc --noEmit` full-repo + ~6 turni finali di un ciclo patch→worktree mai completato (vedi passo 1) — zero PR consegnata. Test scoping disciplinato = turni per il fix vero, non per ripetere verifiche già fatte. La review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`): una PR coi test rossi non riceve review e resta ferma — spreco di un ciclo.
+            7. Commit (SOLO se ci sono cambi oltre il checkpoint WIP del passo 4, es. fix ai test rossi del passo 6): identity canonica già configurata, messaggio conventional, in fondo nessuna email non-canonica. Se dal passo 4 non è cambiato altro, questo passo è un no-op — non serve squashare: una storia wip+fix sul branch va bene.
+            8. Push (aggiorna il branch già pushato al passo 4 col commit più recente, se presente): `git push -u origin fix/issue-$ISSUE_NUMBER`.
+            9. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
                ```
                ## Implementato
                - <cosa fa il fix>
@@ -257,7 +286,7 @@ jobs:
                ## Non implementato (ancora)
                - <scope NON fatto + motivo: out of scope / follow-up / blocked / posposto>
                ```
-            9. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
+            10. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
 
             **Constraint:**
             - Changes chirurgiche, root-cause, una issue alla volta.
@@ -267,7 +296,7 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.
             - Se il fix richiede credenziali/segreti non disponibili in CI → documenta in commento e TERMINA senza PR.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 7) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
+            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
 
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
