@@ -1183,6 +1183,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Déclaration revenus agriculture : attention aux cultures',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Les variations des cultures influencent la déclaration de revenus 2026. Voici ce qu\'il faut surveiller pour une bonne gestion fiscale de l\'exploitation agricole.',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Champs agricoles dans un paysage rural suisse',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Trafic en Suisse : ce que cela signifie pour les Suisses',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Le trafic en Suisse a généré des coûts d\'environ 117 milliards de francs en 2023, selon un rapport de l\'Office fédéral de la statistique.',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Image d\'un trafic en augmentation dans une ville du Tessin',
 };
 
 export default blogMetaChFr;

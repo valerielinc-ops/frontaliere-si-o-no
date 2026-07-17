@@ -15267,6 +15267,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-aumenta-costi-crescono-svizzera': {
+    title: 'Traffico in Svizzera: cosa significa per gli svizzeri',
+    description: 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi nel 2023, secondo un rapporto dell\'Ufficio federale di statistica. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, cosa, significa, svizzeri',
+    ogTitle: 'Il traffico in Svizzera aumenta e i costi crescono',
+    ogDescription: 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi nel 2023.',
+    canonicalPath: '/articoli-svizzera/traffico-aumenta-costi-crescono-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico in Svizzera: cosa significa per gli svizzeri",
+      "description": "Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi nel 2023, secondo un rapporto dell'Ufficio federale di statistica. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-aumenta-costi-crescono-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un traffico in aumento in una città del Ticino"
+      },
+      "datePublished": "2026-07-17T08:11:16+00:00",
+      "dateModified": "2026-07-17T08:11:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/traffico-aumenta-costi-crescono-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
