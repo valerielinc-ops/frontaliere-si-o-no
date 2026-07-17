@@ -35,6 +35,8 @@ export interface Author {
   photoPath: string;
   /** Optional contact email. */
   email?: string;
+  /** Firebase Auth uid for guest journalists — trusted for byline attribution over topic guessing (see pickAuthorForTopic). */
+  uid?: string;
   /** Optional downloadable CV, e.g. `/documents/authors/marco-ferrari-cv.pdf`. */
   cvPath?: string;
   /** Social profiles for `sameAs` JSON-LD signals. */
@@ -110,6 +112,7 @@ export const AUTHORS: ReadonlyArray<Author> = Object.freeze([
   {
     slug: 'samuele-valente',
     name: 'Samuele Valente',
+    uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
     role: 'Autore ospite — fiscalità transfrontaliera',
     bio: "Samuele Valente è un professionista esperto di fiscalità internazionale e transfrontaliera tra Italia e Svizzera. Collabora con Frontaliere Ticino come autore ospite, proponendo analisi e commenti sulla prassi dell'Agenzia delle Entrate e sull'applicazione del nuovo Accordo tra Italia e Svizzera sui lavoratori frontalieri, entrato in vigore dal 1° gennaio 2024. Nei suoi contributi approfondisce in particolare le risposte a interpello, i requisiti dell'area di frontiera, la nozione di residenza fiscale e i meccanismi di imposizione concorrente che riguardano i frontalieri del Canton Ticino e delle regioni italiane di confine. Il suo obiettivo è tradurre la normativa e i documenti di prassi in indicazioni chiare e operative per i lavoratori e le imprese interessati dalla disciplina convenzionale.",
     photoPath: '/images/authors/samuele-valente.webp',

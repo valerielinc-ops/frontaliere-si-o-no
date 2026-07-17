@@ -835,6 +835,7 @@ const AUTHORS = Object.freeze([
   Object.freeze({
     slug: 'samuele-valente',
     name: 'Samuele Valente',
+    uid: 'rAaDN0AvhkUjvRxN2TJijgYodm22',
     linkedinUrl: 'https://www.linkedin.com/in/samuele-valente-9b8a4335b/',
     // 'frontalieri' deliberately excluded: optimizeSeoMetadata()'s baseKeywords
     // (line ~5998) appends it to literally every article's seo.keywords, which
@@ -898,6 +899,19 @@ function pickAuthorForTopic(articleSection, articleId) {
     : _authorRoundRobinIdx++ % AUTHORS.length;
   const a = AUTHORS[idx];
   return { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl };
+}
+
+/**
+ * Looks up a registered guest journalist by Firebase Auth uid (see the `uid`
+ * field on data/authors.ts's AUTHORS + this file's mirror). Returns
+ * `undefined` if no author in the registry has that uid — callers must not
+ * fall back to pickAuthorForTopic() for a known human submitter; see
+ * scripts/publish-journalist-article.mjs's resolveJournalistAuthor().
+ */
+function getAuthorByUid(uid) {
+  if (!uid) return undefined;
+  const a = AUTHORS.find((author) => author.uid === uid);
+  return a ? { slug: a.slug, name: a.name, linkedinUrl: a.linkedinUrl } : undefined;
 }
 
 /** Tiny FNV-1a-ish hash for stable author bucketing. Not cryptographic. */
@@ -9936,7 +9950,7 @@ export { buildBodyFile };
 // own en/de/fr slugs (deriveLocaleSlugs()) but, before this fix, never
 // validated them against the registry — the same gap that historically only
 // existed for the IT slug in the AI path.
-export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions };
+export { translateArticle, enforceStrongInternalLinks, findBestFallbackImage, pickAuthorForTopic, getAuthorByUid, sanitizeBoldFormatting, validateAndEnforceCTA, optimizeSeoMetadata, checkTranslatedSlugCollisions };
 
 // Redazione redesign (issue #3174 follow-up): the journalist now authors only
 // {title, body}; these derive the title-casing/excerpt/body1-3/cover-image
