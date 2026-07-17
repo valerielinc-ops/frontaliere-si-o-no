@@ -22,6 +22,10 @@ export interface JobDetailAlertPromptProps {
   sourceJobUrl?: string | null;
   /** Title of that job — stored as subscription provenance. */
   sourceJobTitle?: string | null;
+  /** Canton code of the job being viewed (e.g. "TI") — prefills the alert's
+   * canton filter. Issue #4298: the job-detail one-tap alert previously only
+   * scoped by category, dropping the canton the visitor is already looking at. */
+  cantonCode?: string | null;
   /** Called once the toast should disappear (any reason). */
   onClose: () => void;
   /** Called when the user clicks "Sì, attiva" and the create succeeds. */
@@ -47,6 +51,7 @@ export default function JobDetailAlertPrompt({
   sourceJobSlug,
   sourceJobUrl,
   sourceJobTitle,
+  cantonCode,
   onClose,
   onAccepted,
   onDismissed,
@@ -60,18 +65,25 @@ export default function JobDetailAlertPrompt({
   const handleAccept = useCallback(async () => {
     setStatus('submitting');
     try {
-      await subscribe(userId, email, category, locale, {
-        slug: sourceJobSlug ?? null,
-        url: sourceJobUrl ?? null,
-        title: sourceJobTitle ?? null,
-      });
+      await subscribe(
+        userId,
+        email,
+        category,
+        locale,
+        {
+          slug: sourceJobSlug ?? null,
+          url: sourceJobUrl ?? null,
+          title: sourceJobTitle ?? null,
+        },
+        cantonCode ?? null,
+      );
       setStatus('success');
       onAccepted();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle]);
+  }, [category, email, locale, onAccepted, onErrored, subscribe, userId, sourceJobSlug, sourceJobUrl, sourceJobTitle, cantonCode]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();

@@ -1269,6 +1269,16 @@ async function main() {
     return { id: doc.id, ref: doc.ref, ...data, email: data.email || parentEmail };
   });
 
+  // Issue #4298 follow-up fix: `paused` is a dedicated flag, orthogonal to
+  // `active` (which stays SOLELY the soft-delete flag — see
+  // functions/src/newsletterSubscriptionManagement.js). A paused alert must
+  // never send; skip it here before any downstream matching/logging.
+  const beforePauseFilter = alerts.length;
+  alerts = alerts.filter((a) => a.paused !== true);
+  if (alerts.length !== beforePauseFilter) {
+    console.log(`   ⏸️  Paused alerts skipped: ${beforePauseFilter - alerts.length}`);
+  }
+
   // Filter to allowed emails during testing phase
   if (ALLOWED_EMAILS) {
     const before = alerts.length;

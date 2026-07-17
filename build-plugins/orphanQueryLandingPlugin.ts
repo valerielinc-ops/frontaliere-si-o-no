@@ -543,8 +543,14 @@ function renderPage(opts: {
     'The Swiss labour market offers attractive economic and legal conditions for Italian cross-border workers.',
   );
 
-  // Stats for the editorial block
+  // Stats for the editorial block. medianSalary is rendered hardcoded
+  // "CHF {value}" at every call site below — exclude EUR-denominated postings
+  // from the pool first, same exclusion Bug I applies to the job-board salary
+  // filter and jobsSeoPagesPlugin.ts's company-hub salary FAQ (review PR
+  // #4338, bug I sibling): mixing raw EUR salaryMin figures into a
+  // CHF-labeled median silently understates/overstates it.
   const salaries: number[] = matchingJobs
+    .filter((j) => String(j.currency || 'CHF') !== 'EUR')
     .map((j) => Number(j.salaryMin || 0))
     .filter((n) => n >= 20000 && n <= 300000);
   const medianSalary = median(salaries);

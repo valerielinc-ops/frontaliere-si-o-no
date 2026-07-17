@@ -17,6 +17,7 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
+const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
@@ -59,8 +60,7 @@ import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
-import type { SimulationResult } from '@/types';
-import { DEFAULT_INPUTS } from '@/constants';
+import type { JobNetEstimate } from '@/services/jobNetEstimate';
 import {
  ArrowLeft,
  ArrowUpRight,
@@ -97,6 +97,9 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+// Type-only: jobAlertService itself is always dynamically imported below (code
+// splitting) — this import is erased at build time, no bundle/runtime impact.
+import type { JobAlert } from '@/services/jobAlertService';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
@@ -235,6 +238,56 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
   );
   broadenHaystackCache.set(job, { locale, hay });
   return hay;
+}
+
+// ── Job-alert CTA eligibility: shared getUserAlerts cache + shown-once guard ──
+// (review PR #4338, bug G). The job-match-pill and job-board-filter CTAs each
+// run an eligibility effect that fetches getUserAlerts(userId) to compute
+// already-subscribed/quota-full. The board-filter effect depends on
+// boardFilterAlertKeywordLabel, which falls back to the free-text search box —
+// every debounced keystroke re-ran the whole effect, re-fetching Firestore and
+// re-emitting the 'shown' impression event on every character typed. Caching
+// the fetch per userId for the session (module state, not persisted — a fresh
+// load always re-checks server-side) and gating the impression event behind a
+// "once per surface per session" guard fixes both halves without changing what
+// the user sees. Applied to BOTH sibling CTAs (job_match_pill, job_board_filters)
+// since they share the identical construct; NOT applied to job_detail_prompt's
+// own getUserAlerts read/shown-event (line ~3008/3046 below) — that effect is
+// keyed on selectedJob?.id and fires once per DISTINCT job navigation, a
+// genuinely new impression each time, not a re-fire of the same one. A
+// session-wide once-guard there would silently suppress real per-job
+// impressions, an actual regression beyond this bug's scope — left untouched.
+let cachedUserAlerts: { userId: string; promise: Promise<JobAlert[]> } | null = null;
+
+function fetchUserAlertsCached(
+  userId: string,
+  getUserAlerts: (userId: string) => Promise<JobAlert[]>,
+): Promise<JobAlert[]> {
+  if (cachedUserAlerts && cachedUserAlerts.userId === userId) return cachedUserAlerts.promise;
+  const promise = getUserAlerts(userId);
+  cachedUserAlerts = { userId, promise };
+  // Don't cache a rejected fetch — let the next caller retry rather than replay
+  // a stale failure for the rest of the session.
+  promise.catch(() => {
+    if (cachedUserAlerts?.promise === promise) cachedUserAlerts = null;
+  });
+  return promise;
+}
+
+// Invalidate after ANY successful alert creation in this file (job-match pill,
+// board-filter CTA, job-detail button, job-detail prompt) — all four mutate
+// the same underlying list every cached read reflects, so a stale cache after
+// one surface's subscribe could wrongly show/hide another surface's CTA.
+function invalidateUserAlertsCache(): void {
+  cachedUserAlerts = null;
+}
+
+const shownAlertCtaSurfaces = new Set<string>();
+
+function trackJobAlertCtaShownOnce(surface: 'job_match_pill' | 'job_board_filters', keyword: string): void {
+  if (shownAlertCtaSurfaces.has(surface)) return;
+  shownAlertCtaSurfaces.add(surface);
+  Analytics.trackJobAlertCtaShown(surface, keyword);
 }
 
 // Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
@@ -1658,6 +1711,27 @@ function readPageFromUrl(): number {
  }
 }
 
+/**
+ * Salary-range filter (issue #4307 scope item 3 — calculator's reverse
+ * bridge: "Offerte nella tua fascia (±15%) in <cantone>"). `?salarioMin=`/
+ * `?salarioMax=` are CHF annual figures; `max` is dropped (treated as
+ * unset) unless it is a finite number >= `min`, so a malformed pair never
+ * silently filters out every job.
+ */
+function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
+ if (typeof window === 'undefined') return { min: null, max: null };
+ try {
+ const params = new URLSearchParams(window.location.search || '');
+ const minRaw = parseInt(params.get('salarioMin') || '', 10);
+ const maxRaw = parseInt(params.get('salarioMax') || '', 10);
+ const min = Number.isFinite(minRaw) && minRaw > 0 ? minRaw : null;
+ const max = Number.isFinite(maxRaw) && maxRaw > 0 ? maxRaw : null;
+ return { min, max: (min !== null && max !== null && max >= min) ? max : null };
+ } catch {
+ return { min: null, max: null };
+ }
+}
+
 /** Update URL query params without pushing to history (avoids bloating back stack). */
 function syncQueryParamsToUrl(updates: Record<string, string | null>) {
  if (typeof window === 'undefined') return;
@@ -2276,6 +2350,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setShowNewOnly(false);
  }, []);
  const [page, setPage] = useState(() => readPageFromUrl());
+ // Salary-range filter from the calculator's reverse bridge (issue #4307).
+ const [salaryRangeFilter, setSalaryRangeFilter] = useState(() => readSalaryRangeFromUrl());
+ const clearSalaryRangeFilter = useCallback(() => {
+ setSalaryRangeFilter({ min: null, max: null });
+ syncQueryParamsToUrl({ salarioMin: null, salarioMax: null });
+ }, []);
  // Counter incremented on page/search changes to force ad slot remount
  const [adRefreshKey, setAdRefreshKey] = useState(0);
  // Mobile load-more: accumulate jobs instead of paginating
@@ -2849,6 +2929,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // null = still checking (existing alerts / quota), false = hide (already
  // subscribed to this category or at the 3-alert cap), true = show.
  const [jobMatchAlertEligible, setJobMatchAlertEligible] = useState<boolean | null>(null);
+ // Bug F (review PR #4338): onSubscribed used to call setJobMatchAlertEligible(false)
+ // synchronously, unmounting JobMatchAlertCta in the same batch as its own
+ // setStatus('success') — the "Alert attivato ✓" checkmark never painted. Delay
+ // the hide so the child's success state has time to render first.
+ const jobMatchAlertHideTimerRef = useRef<number | null>(null);
 
  useEffect(() => {
  setJobMatchAlertEligible(null);
@@ -2859,7 +2944,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
  '@/services/jobAlertService'
  );
- const existing = await getUserAlerts(userId);
+ // Shared, session-scoped cache (review PR #4338, bug G) — see the
+ // module-level comment near fetchUserAlertsCached above.
+ const existing = await fetchUserAlertsCached(userId, getUserAlerts);
  if (cancelled) return;
  const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, jobMatchAlertCategoryLabel));
  const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
@@ -2869,7 +2956,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!cancelled) setJobMatchAlertEligible(false);
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+ cancelled = true;
+ // Clear any pending post-subscribe hide (Bug F) so a stale timer never
+ // fires against a freshly re-evaluated CTA, and so it's cleared on unmount.
+ if (jobMatchAlertHideTimerRef.current !== null) {
+ window.clearTimeout(jobMatchAlertHideTimerRef.current);
+ jobMatchAlertHideTimerRef.current = null;
+ }
+ };
  }, [enablePersonalization, enableJobAlerts, jobMatchAlertCategoryLabel, userId, userEmail]);
 
  const jobMatchAlertVisible = Boolean(
@@ -2878,8 +2973,85 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!jobMatchAlertVisible) return;
- Analytics.trackJobAlertCtaShown('job_match_pill', jobMatchAlertCategoryLabel);
+ // At most once per surface per session (review PR #4338, bug G) — see the
+ // module-level comment near trackJobAlertCtaShownOnce above.
+ trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel);
  }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
+
+ // ── Job-board filter alert CTA (issue #4298) ─────────────────────────────
+ // Same one-tap pattern as the job-match pill above, but driven by the
+ // board's OWN active filters (profession dropdown + free-text search +
+ // canton route) instead of the inferred JM1 profile — for a visitor who
+ // filtered the list themselves without a personalization signal yet. List
+ // view only; job-detail already has its own one-tap surfaces.
+ const boardFilterAlertCantonCode = useMemo(() => {
+ // Same route-driven resolution the data-loading effect uses (initialFilterCanton
+ // → referrer-based default), not the JM1 survey profile the job-match pill uses.
+ const canton = initialFilterCanton || getDefaultCantonForVisit();
+ return canton && canton !== AGGREGATE_CANTON_CODE ? canton : null;
+ }, [initialFilterCanton]);
+
+ const boardFilterAlertKeywordLabel = useMemo(() => {
+ const categoryLabel = selectedCategory !== 'all' ? t(`jobBoard.filter.${selectedCategory}`) : '';
+ // Prefer the category label — validated taxonomy, same source the
+ // job-detail one-tap prompt already uses. Free-text search is a fallback.
+ return categoryLabel || searchQuery.trim();
+ }, [selectedCategory, searchQuery, t]);
+
+ // null = still checking (existing alerts / quota), false = hide, true = show.
+ const [boardFilterAlertEligible, setBoardFilterAlertEligible] = useState<boolean | null>(null);
+ // Bug F (review PR #4338): onSubscribed used to call setBoardFilterAlertEligible(false)
+ // synchronously, unmounting JobBoardFilterAlertCta in the same batch as its own
+ // setStatus('success') — the "Alert attivato ✓" checkmark never painted. Delay
+ // the hide so the child's success state has time to render first.
+ const boardFilterAlertHideTimerRef = useRef<number | null>(null);
+
+ useEffect(() => {
+ setBoardFilterAlertEligible(null);
+ if (!enableJobAlerts || !boardFilterAlertKeywordLabel || !userId || !userEmail || isJobDetailView) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
+ '@/services/jobAlertService'
+ );
+ // Shared, session-scoped cache (review PR #4338, bug G) — dedupes the
+ // Firestore read across every debounced search-text keystroke, which
+ // previously re-ran this whole effect on every character typed. See the
+ // module-level comment near fetchUserAlertsCached above.
+ const existing = await fetchUserAlertsCached(userId, getUserAlerts);
+ if (cancelled) return;
+ const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, boardFilterAlertKeywordLabel));
+ const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
+ if (alreadySubscribed) Analytics.trackJobAlertCtaSkipped('job_board_filters', 'already_subscribed');
+ else if (quotaFull) Analytics.trackJobAlertCtaSkipped('job_board_filters', 'quota_full');
+ setBoardFilterAlertEligible(!alreadySubscribed && !quotaFull);
+ } catch {
+ // best-effort — hide the CTA rather than risk a duplicate/broken alert
+ if (!cancelled) setBoardFilterAlertEligible(false);
+ }
+ })();
+ return () => {
+ cancelled = true;
+ // Clear any pending post-subscribe hide (Bug F) so a stale timer never
+ // fires against a freshly re-evaluated CTA, and so it's cleared on unmount.
+ if (boardFilterAlertHideTimerRef.current !== null) {
+ window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = null;
+ }
+ };
+ }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
+
+ const boardFilterAlertVisible = Boolean(
+ enableJobAlerts && boardFilterAlertKeywordLabel && userId && userEmail && !isJobDetailView && boardFilterAlertEligible,
+ );
+
+ useEffect(() => {
+ if (!boardFilterAlertVisible) return;
+ // At most once per surface per session (review PR #4338, bug G) — see the
+ // module-level comment near trackJobAlertCtaShownOnce above.
+ trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel);
+ }, [boardFilterAlertVisible, boardFilterAlertKeywordLabel]);
 
  useEffect(() => {
  try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
@@ -2922,7 +3094,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  let existing: Awaited<ReturnType<typeof getUserAlerts>>;
  try {
- existing = await getUserAlerts(userId);
+ // Shared, session-scoped cache (review PR #4338, bug G) — same
+ // getUserAlerts(userId) read the job-match-pill/board-filter CTAs
+ // already cache; reusing it here dedupes the Firestore read when
+ // multiple surfaces resolve for the same user in one session. The
+ // shown-once analytics guard is intentionally NOT applied to this
+ // surface (see the module-level comment near trackJobAlertCtaShownOnce
+ // above) — only the fetch is shared.
+ existing = await fetchUserAlertsCached(userId, getUserAlerts);
  } catch {
  // Fail closed — never badger users on a degraded network. Emit a skip
  // signal so this silent drop shows up in GA4 (was an invisible 0-impression).
@@ -3267,8 +3446,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
+ if (salaryRangeFilter.min !== null) {
+ // `?salarioMin=`/`?salarioMax=` are CHF annual figures (see readSalaryRangeFromUrl's
+ // docblock above); job.salaryMin/salaryMax are raw numbers with no currency
+ // normalization. An EUR-denominated posting's raw figures aren't CHF-comparable —
+ // same mismatch the net-estimate widget already excludes via
+ // `selectedJob.currency === 'EUR'` (below, ~line 5590). Apply the identical
+ // exclusion here rather than silently comparing EUR numbers against a CHF band
+ // (review PR #4338, bug I).
+ if (job.currency === 'EUR') return false;
+ const jobMinRaw = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
+ if (!jobMinRaw || !Number.isFinite(jobMinRaw)) return false; // no salary data → can't match a salary-range filter
+ const jobMaxRaw = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);
+ const jobMax = (jobMaxRaw && Number.isFinite(jobMaxRaw) && jobMaxRaw > jobMinRaw) ? jobMaxRaw : jobMinRaw;
+ const rangeMax = salaryRangeFilter.max ?? salaryRangeFilter.min;
+ // Overlap test: job's [jobMinRaw, jobMax] must intersect the requested [min, rangeMax] band.
+ if (jobMax < salaryRangeFilter.min || jobMinRaw > rangeMax) return false;
+ }
  return true;
- }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, salaryRangeFilter]);
 
  // strictFilteredJobs: AND-match on every search token (current behavior).
  // The OR-fallback layer below kicks in when this is empty for a
@@ -5391,49 +5587,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [locale, onJobRouteChange]);
 
  // ── Salary estimate widgets (frontaliere vs CH resident) ───────────────
- const [salaryEstimates, setSalaryEstimates] = useState<{
- salaryMin: number; salaryMax: number | null;
- frontaliere: { min: number; max: number | null };
- resident: { min: number; max: number | null };
- } | null>(null);
+ // Net figures come from the SAME fiscal logic as the calculator — see
+ // services/jobNetEstimate.ts (issue #4307). Never reimplement the
+ // tax/contribution math here.
+ const [salaryEstimates, setSalaryEstimates] = useState<JobNetEstimate | null>(null);
  useEffect(() => {
  if (!selectedJob) { setSalaryEstimates(null); return; }
+ // EUR-denominated postings aren't a CHF net estimate — hide the widget
+ // rather than mislabel a currency mismatch.
+ if (selectedJob.currency === 'EUR') { setSalaryEstimates(null); return; }
  const minRaw = Number(selectedJob.salaryMin) || Number(selectedJob.baseSalary?.value?.minValue);
  const maxRaw = Number(selectedJob.salaryMax) || Number(selectedJob.baseSalary?.value?.maxValue);
- if (!minRaw || !Number.isFinite(minRaw)) { setSalaryEstimates(null); return; }
- const salaryMin = minRaw;
- const salaryMax = (maxRaw && Number.isFinite(maxRaw) && maxRaw > minRaw) ? maxRaw : null;
  let cancelled = false;
- import('@/services/calculationService').then(({ calculateSimulation }) => {
+ import('@/services/jobNetEstimate').then(({ estimateJobNetSalary }) => {
  if (cancelled) return;
- const run = (annual: number): SimulationResult | null => {
- try { return calculateSimulation({ ...DEFAULT_INPUTS, annualIncomeCHF: annual }); }
- catch { return null; }
- };
- const resMin = run(salaryMin);
- const resMax = salaryMax ? run(salaryMax) : null;
- if (!resMin) { setSalaryEstimates(null); return; }
- setSalaryEstimates({
- salaryMin, salaryMax,
- frontaliere: { min: Math.round(resMin.itResident.netIncomeMonthly), max: resMax ? Math.round(resMax.itResident.netIncomeMonthly) : null },
- resident: { min: Math.round(resMin.chResident.netIncomeMonthly), max: resMax ? Math.round(resMax.chResident.netIncomeMonthly) : null },
- });
+ const estimate = estimateJobNetSalary(minRaw, maxRaw);
+ setSalaryEstimates(estimate);
+ if (estimate) Analytics.trackJobNetWidgetImpression(selectedJob.id);
  }).catch(() => setSalaryEstimates(null));
  return () => { cancelled = true; };
  }, [selectedJob]);
 
  const fmtNet = (v: number) => `CHF ${v.toLocaleString('de-CH')}`;
 
+ // Deep-link into the calculator prefilled with this job's salary + canton
+ // (issue #4307 scope item 2 — ?reddito=&cantone=, read back by the
+ // reverse-bridge on the calculator side).
  const salaryCalcHref = salaryEstimates
- ? buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${salaryEstimates.salaryMax || salaryEstimates.salaryMin}`
+ ? buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${salaryEstimates.salaryMax || salaryEstimates.salaryMin}&cantone=${encodeURIComponent(selectedJob?.canton || '')}`
  : '';
- const goToCalc = (e: React.MouseEvent) => {
+ const goToCalc = (e: React.MouseEvent, variant: 'frontaliere' | 'resident' | 'cta') => {
  e.preventDefault();
  // SPA navigation: push route + apply query string, avoid full page reload / 404 flash
  const reddito = salaryEstimates?.salaryMax || salaryEstimates?.salaryMin;
+ if (selectedJob) Analytics.trackJobNetWidgetClick(selectedJob.id, variant);
  nav.navigateTo('calculator');
  if (reddito) {
- const url = buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${reddito}`;
+ const url = buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${reddito}&cantone=${encodeURIComponent(selectedJob?.canton || '')}`;
  history.replaceState(history.state, '', url);
  }
  };
@@ -5447,7 +5637,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Frontaliere (Permit G) */}
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'frontaliere')}
  className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-warning-subtle transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-warning mb-1">
@@ -5462,7 +5652,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* CH Resident (Permit B) */}
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'resident')}
  className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-success-subtle transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-success mb-1">
@@ -5478,7 +5668,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="mt-2 text-xs text-muted">{t('jobBoard.salaryEstimate.note')}</p>
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'cta')}
  className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold bg-warning-strong hover:bg-warning-strong-hover text-on-accent rounded-lg transition-colors"
  >
  <Calculator size={14} />
@@ -5530,6 +5720,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobSlug={selectedJob?.slug ?? null}
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
+ cantonCode={selectedJob?.canton ?? null}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -5541,10 +5732,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // one-tap subscribe so Firestore writes and PostHog counts reconcile.
  Analytics.trackJobAlertCreated({
  keywords: category || '',
- location: '',
+ location: selectedJob?.canton ?? '',
  frequency: 'weekly',
  surface: 'job_detail_prompt',
  });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
+ // this surface just created a new alert every other surface's cached
+ // eligibility read needs to see.
+ invalidateUserAlertsCache();
  import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
  const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
  saveGatingState(next);
@@ -7919,6 +8114,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
  Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
+ // this surface just created a new alert every other surface's cached
+ // eligibility read needs to see.
+ invalidateUserAlertsCache();
  }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'error', selectedJob.title);
@@ -8207,6 +8406,42 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
 
+ {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
+ {boardFilterAlertVisible && userId && userEmail && (
+ <Suspense fallback={null}>
+ <JobBoardFilterAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ keywordLabel={boardFilterAlertKeywordLabel}
+ cantonCode={boardFilterAlertCantonCode}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: boardFilterAlertKeywordLabel,
+ location: boardFilterAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_board_filters',
+ });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct.
+ invalidateUserAlertsCache();
+ // Bug F: delay hiding the CTA so JobBoardFilterAlertCta's own
+ // "Alert attivato ✓" success state (setStatus('success'), same render
+ // batch as this callback) has time to actually paint before the parent
+ // unmounts it via boardFilterAlertVisible flipping false.
+ if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
+ boardFilterAlertHideTimerRef.current = null;
+ setBoardFilterAlertEligible(false);
+ }, 2500);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
+ }}
+ />
+ </Suspense>
+ )}
+
  {/* Popular internal-search chips — real mined terms, issue #4301.
  Self-contained component + single mount point (renders null below its
  own minimum-terms threshold). id is the scroll target for the
@@ -8223,6 +8458,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  authUser={authUser}
  onRequireAuth={onRequireAuth}
  initialKeyword={searchQuery}
+ initialCantonCode={boardFilterAlertCantonCode}
  />
  </Suspense>
  )}
@@ -8476,7 +8712,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  surface: 'job_match_pill',
  });
  Analytics.trackJobMatchAlertSignup(jobMatchAlertCategoryLabel, jobMatchAlertCantonCode);
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct.
+ invalidateUserAlertsCache();
+ // Bug F sibling (review PR #4338): JobMatchAlertCta has the identical
+ // idle/submitting/success/error state machine as JobBoardFilterAlertCta —
+ // delay hiding it so its own "Alert attivato ✓" success state has time
+ // to actually paint before the parent unmounts it via
+ // jobMatchAlertVisible flipping false.
+ if (jobMatchAlertHideTimerRef.current !== null) window.clearTimeout(jobMatchAlertHideTimerRef.current);
+ jobMatchAlertHideTimerRef.current = window.setTimeout(() => {
+ jobMatchAlertHideTimerRef.current = null;
  setJobMatchAlertEligible(false);
+ }, 2500);
  }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('job_match_pill', 'error', jobMatchAlertCategoryLabel);
@@ -8514,6 +8761,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  {!isMobile && renderPagination()}
  </div>
+
+ {salaryRangeFilter.min !== null && (
+ <div className="flex items-center gap-2 text-xs text-muted -mt-1 mb-1">
+ <span>
+ {t('jobBoard.salaryRangeFilter.active', {
+ min: salaryRangeFilter.min.toLocaleString('de-CH'),
+ max: (salaryRangeFilter.max ?? salaryRangeFilter.min).toLocaleString('de-CH'),
+ })}
+ </span>
+ <button type="button" onClick={clearSalaryRangeFilter} className="underline hover:text-link">
+ {t('jobBoard.salaryRangeFilter.clear')}
+ </button>
+ </div>
+ )}
 
  <div className="space-y-3 min-h-[600px]">
  {/* While the authoritative results are still resolving (provisional
