@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-07-16T23:12:32.116Z",
+  "generatedAt": "2026-07-17T11:58:23.908Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5680,
-  "avgDurationMs": 5680,
+  "unchangedCount": 1,
+  "durationMs": 3891,
+  "avgDurationMs": 3891,
   "durationHistory": [
-    5680
+    3891
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-16T23:12:28.963Z",
+      "crawledAt": "2026-07-17T11:58:21.365Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
@@ -43,7 +43,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Apprendistato - Impiegato/a di commercio AFC Banca",
       "company": "PKB Private Bank SA",
@@ -66,15 +69,20 @@
       "crawledAt": "2026-07-16T23:12:29.310Z",
       "id": "pkb-private-bank-272b22e48816",
       "firstSeenAt": "2026-07-10T10:40:32.532Z",
-      "_qualityScore": 88,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
