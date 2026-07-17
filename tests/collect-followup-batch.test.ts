@@ -118,12 +118,12 @@ describe('hasTriageComment (idempotency)', () => {
 describe('maxTurnsFor', () => {
   it('never drops below the original floor of 20 (AGENTS.md: mai abbassare)', () => {
     expect(maxTurnsFor(0)).toBeGreaterThanOrEqual(20);
-    expect(maxTurnsFor(1)).toBe(26);
+    expect(maxTurnsFor(1)).toBe(34);
   });
   it('scales with batch size', () => {
-    expect(maxTurnsFor(5)).toBe(50);
+    expect(maxTurnsFor(5)).toBe(66);
   });
-  it('caps at 60', () => {
-    expect(maxTurnsFor(20)).toBe(60);
+  it('caps at 80', () => {
+    expect(maxTurnsFor(20)).toBe(80);
   });
 });

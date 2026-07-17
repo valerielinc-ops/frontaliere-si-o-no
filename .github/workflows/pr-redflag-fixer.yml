@@ -97,7 +97,8 @@ jobs:
     needs: preflight
     if: needs.preflight.outputs.actionable == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -227,16 +228,18 @@ jobs:
             exit 0
           fi
 
-          # Tier (mirror di pr-review-loop / issue-fix): high (claude-sonnet-5) se la PR
+          # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal (sonnet) altrimenti.
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
+          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
@@ -319,7 +322,9 @@ jobs:
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
           # (rationale completo: post-merge-followup.yml claude_args comment, stesso
           # fix, evita drift tra copie duplicate).
-          claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
+          # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
+          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
