@@ -15,18 +15,22 @@
       "companyDomain": "alpiq.com",
       "title": "Product Manager - Trading and Origination (all) 100%",
       "titleByLocale": {
-        "it": "Product Manager - Trading and Origination (tutti) 100%",
-        "de": "Produktmanager - Handel und Herkunft (alle) 100%",
-        "fr": "Gestionnaire de produits - Trading et origine (tous) 100%"
+        "it": "Product Manager - Trading e Origination (100%)",
+        "de": "Product Manager - Trading und Origination (100%)",
+        "fr": "Product Manager - Trading et Origination (100%)",
+        "en": "Product Manager - Trading and Origination (all) 100%"
       },
       "description": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager &ndash; Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Product Manager - Trading and Origination (tutti) 100%\n\nIn Alpiq, stiamo cercando un Product Manager – Trading e Origination per aderire al nuovo team di implementazione del prodotto. In questo ruolo, gestirete le attività del ciclo di vita del prodotto con una forte attenzione al nuovo design del prodotto, alla rappresentazione dell'affare accurata e all'implementazione. Si assicurerà un strutturato…\n\nOlten - 100%\nPermanente",
-        "de": "Produktmanager - Handel und Herkunft (alle) 100%\n\nBei Alpiq suchen wir einen Product Manager – Trading and Origination, der sich dem New Product Implementation Team anschließt. In dieser Rolle verwalten Sie die Produktlebenszyklusaktivitäten mit einem starken Fokus auf neues Produktdesign, genaue Deal-Darstellung und Implementierung. Sie werden eine strukturierte & hellip sicherstellen;\n\nOlten - 100%\nDauerhaft",
-        "fr": "Gestionnaire de produits - Trading et origine (tous) 100%\n\nChez Alpiq, nous sommes à la recherche d'un gestionnaire de produits – Trading and Origination pour rejoindre l'équipe de mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie des produits en mettant fortement l'accent sur la conception de nouveaux produits, la représentation précise des offres et la mise en œuvre. Vous assurerez une structure et une couverture;\n\nOlten - 100%\nPermanent"
+        "it": "Product Manager - Trading e Origine (tutti) 100%\n\nIn Alpiq siamo alla ricerca di un Product Manager – Trading and Origination che entri a far parte del team New Product Implementation. In questo ruolo, gestirai le attività del ciclo di vita del prodotto con una forte attenzione alla progettazione di nuovi prodotti, alla rappresentazione accurata delle trattative e all'implementazione. Garantirai una strutturata...\n\nOlten - 100%\nPermanente",
+        "de": "Produktmanager - Handel und Herstellung (alle) 100% Bei Alpiq suchen wir einen Produktmanager – Handel und Herstellung (alle) zum Team der neuen Produktimplementierung. In dieser Funktion werden Sie die Produktlebenszyklusaktivitäten mit einem starken Fokus auf neues Produktdesign, genaue Darstellung und Umsetzung der Deals leiten. Sie werden eine strukturierte,...",
+        "fr": "Product Manager - Trading and Origination (all) 100% Chez Alpiq, nous recherchons un Product Manager – Trading and Origination pour rejoindre l'équipe de la mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie du produit en mettant fortement l'accent sur la conception du nouveau produit, la représentation précise des offres et la mise en œuvre.",
+        "en": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager – Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured…\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": []
+      },
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -44,9 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-17T22:26:35.715Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-17T11:43:13.714Z",
+      "crawledAt": "2026-07-17T11:43:13.714Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -59,7 +61,10 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-17T11:43:13.714Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "alpiq-3fa36ed9c713",
@@ -67,7 +72,8 @@
       "slugByLocale": {
         "it": "structured-products-trader-spanish-market-alpiq-olten",
         "de": "structured-products-trader-spanischer-markt-alpiq-olten",
-        "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten"
+        "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten",
+        "en": "structured-products-trader-spanish-market-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -75,19 +81,21 @@
       "title": "Structured Products Trader - Spanish market",
       "titleByLocale": {
         "it": "Prodotti Strutturati Trader - Mercato spagnolo",
-        "en": "Structured Products Trader - Spanish market",
         "de": "Strukturierter Produkte-Handelsmann - spanischer Markt",
-        "fr": "Négociateur de produits structurés - marché espagnol"
+        "fr": "Négociateur de produits structurés - marché espagnol",
+        "en": "Structured Products Trader - Spanish market"
       },
       "description": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
         "it": "Titolo professionale\nCommerciante di prodotti strutturati - Mercato spagnolo\n\nDescrizione\nSiamo alla ricerca di un trader di prodotti strutturati che si unisca al nostro desk di trading strutturato, con una forte attenzione agli argomenti orientati all'opzionalità nell'Europa meridionale. In questo ruolo, lavorerai a stretto contatto con i team di Origination in Spagna (e back-up per l'Italia) gestendo il trading di energia e gas...\n\nResponsabilità\n- Gestire il trading di energia e gas\n- Lavorare a stretto contatto con i team di Origination in Spagna (e back-up per l'Italia)\n\nRequisiti\n- Olten - 100%\n- Permanente\n\nCosa offriamo",
-        "en": "Job Title\nStructured Products Trader - Spanish market\n\nDescription\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading…\n\nResponsibilities\n- Managing the power and gas trading\n- Working closely with Origination teams in Spain (and back-up for Italy)\n\nRequirements\n- Olten - 100%\n- Permanent\n\nWhat we offer",
         "de": "Job Title Structured Products Trader - Spanish market Beschreibung Wir suchen einen Structured Products Trader, der sich unserem Structured Trading Desk anschließt, mit einem starken Fokus auf optionalitätsgetriebene Themen in Südeuropa. In dieser Rolle werden Sie eng mit Origination Teams in Spanien (und Back-up für Italien) zusammenarbeiten, die den Strom- und Gashandel steuern....",
-        "fr": "Titre de l'emploi Trafic structuré - Marché espagnol Description Nous recherchons un trader structuré pour rejoindre notre Bureau de trading structuré, avec un accent fort sur les sujets optionnels en Europe du Sud. Dans ce rôle, vous travaillerez en étroite collaboration avec les équipes d'origine en Espagne (et de sauvegarde pour l'Italie) gérant le commerce de l'électricité et du gaz..."
+        "fr": "Titre de l'emploi Trafic structuré - Marché espagnol Description Nous recherchons un trader structuré pour rejoindre notre Bureau de trading structuré, avec un accent fort sur les sujets optionnels en Europe du Sud. Dans ce rôle, vous travaillerez en étroite collaboration avec les équipes d'origine en Espagne (et de sauvegarde pour l'Italie) gérant le commerce de l'électricité et du gaz...",
+        "en": "Job Title\nStructured Products Trader - Spanish market\n\nDescription\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading…\n\nResponsibilities\n- Managing the power and gas trading\n- Working closely with Origination teams in Spain (and back-up for Italy)\n\nRequirements\n- Olten - 100%\n- Permanent\n\nWhat we offer"
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "it": []
+      },
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -105,8 +113,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-17T22:26:35.716Z",
-      "firstSeenAt": "2026-07-16T23:01:54.449Z",
+      "crawledAt": "2026-07-16T23:01:54.449Z",
       "country": "CH",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -119,7 +126,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-16T23:01:54.449Z"
     },
     {
       "id": "alpiq-6f6e2e4039a0",
