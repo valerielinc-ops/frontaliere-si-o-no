@@ -277,6 +277,43 @@ export const HOWTO_TRANSLATIONS: HowToLocaleMap = {
  { name: "Exportez la fiche de paie en PDF", text: "Telechargez le recapitulatif de la simulation en PDF avec toutes les deductions AVS, AC, AANP, IJM, LPP et l'impot a la source : utile pour la comparer a la vraie fiche de paie remise par l'employeur." }
  ]
  }
+ },
+
+ // ── HowTo 7: Apply for the G permit (cross-border work permit) ──
+ "Come richiedere il permesso G per frontalieri in Svizzera": {
+ en: {
+ name: "How to apply for the G permit for cross-border workers in Switzerland",
+ description: "Step-by-step guide to obtaining the G work permit as a cross-border worker in Switzerland: requirements, application, costs and renewal.",
+ steps: [
+ { name: "Find a Swiss employer", text: "Secure an employment contract with an employer based in Switzerland: this is the basic requirement to apply for the G permit." },
+ { name: "Check the residence requirement", text: "Make sure you reside within the 20 km border zone (or a concordat municipality) and can guarantee a weekly return to your country of residence." },
+ { name: "The employer submits the application", text: "The Swiss employer submits the G permit application to the cantonal Migration Office where the workplace is located." },
+ { name: "Receive the G permit", text: "Once approved, you receive the G permit: it costs about CHF 65-85 and is valid for 5 years for open-ended contracts (matching the contract term for fixed-term contracts)." },
+ { name: "Renew at expiry", text: "Renewal is automatic on the employer's request, as long as the employment relationship is still active." }
+ ]
+ },
+ de: {
+ name: "So beantragen Sie die G-Bewilligung fuer Grenzgaenger in der Schweiz",
+ description: "Schritt-fuer-Schritt-Anleitung zur G-Bewilligung als Grenzgaenger in der Schweiz: Voraussetzungen, Antrag, Kosten und Verlaengerung.",
+ steps: [
+ { name: "Schweizer Arbeitgeber finden", text: "Sichern Sie sich einen Arbeitsvertrag mit einem Arbeitgeber mit Sitz in der Schweiz: das ist die Grundvoraussetzung fuer die G-Bewilligung." },
+ { name: "Wohnsitzvoraussetzung pruefen", text: "Stellen Sie sicher, dass Sie in der 20-km-Grenzzone (oder einer Konkordatsgemeinde) wohnen und woechentlich in Ihr Wohnsitzland zurueckkehren koennen." },
+ { name: "Arbeitgeber reicht den Antrag ein", text: "Der Schweizer Arbeitgeber reicht den Antrag auf die G-Bewilligung beim kantonalen Migrationsamt am Arbeitsort ein." },
+ { name: "G-Bewilligung erhalten", text: "Nach Genehmigung erhalten Sie die G-Bewilligung: sie kostet rund CHF 65-85 und ist bei unbefristeten Vertraegen 5 Jahre gueltig (bei befristeten Vertraegen entsprechend der Vertragsdauer)." },
+ { name: "Bei Ablauf verlaengern", text: "Die Verlaengerung erfolgt automatisch auf Antrag des Arbeitgebers, solange das Arbeitsverhaeltnis weiterhin besteht." }
+ ]
+ },
+ fr: {
+ name: "Comment demander le permis G pour frontaliers en Suisse",
+ description: "Guide etape par etape pour obtenir le permis de travail G en tant que frontalier en Suisse : conditions, demande, couts et renouvellement.",
+ steps: [
+ { name: "Trouvez un employeur suisse", text: "Obtenez un contrat de travail aupres d'un employeur base en Suisse : c'est la condition de base pour demander le permis G." },
+ { name: "Verifiez la condition de residence", text: "Assurez-vous de resider dans la zone frontaliere de 20 km (ou une commune concordataire) et de pouvoir garantir un retour hebdomadaire dans votre pays de residence." },
+ { name: "L'employeur depose la demande", text: "L'employeur suisse depose la demande de permis G aupres de l'Office cantonal des migrations du lieu de travail." },
+ { name: "Recevez le permis G", text: "Une fois approuve, vous recevez le permis G : il coute environ CHF 65-85 et est valable 5 ans pour les contrats a duree indeterminee (correspondant a la duree du contrat pour les contrats a duree determinee)." },
+ { name: "Renouvelez a l'echeance", text: "Le renouvellement est automatique sur demande de l'employeur, tant que la relation de travail est toujours active." }
+ ]
+ }
  }
 };
 

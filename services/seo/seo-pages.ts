@@ -1619,8 +1619,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  permits: {
- title: 'Permessi Lavoro Svizzera G, B, C, L | Guida Completa 2026',
- description: 'Il permesso G richiede residenza entro 20 km dal confine, contratto svizzero e rientro settimanale; dura 5 anni. Confronta G, B, C e L: requisiti e costi.',
+ title: 'Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni',
+ description: 'Permesso G frontaliere 2026: residenza entro 20 km dal confine, contratto svizzero, rientro settimanale, durata 5 anni. Confronta requisiti e costi con B, C e L.',
  keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
  ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
  ogDescription: 'Permesso G: residenza entro 20 km, contratto CH, rientro settimanale, durata 5 anni. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',
@@ -1629,13 +1629,54 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "Article",
- "headline": "Permessi Lavoro Svizzera G, B, C, L - Guida Completa 2026",
+ "headline": "Permesso G Svizzera 2026: Requisiti, Costi e Durata 5 Anni",
  "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
  "description": "Guida completa ai permessi di lavoro in Svizzera: G (frontalieri), B (dimora), C (domicilio), L (breve durata)",
  "inLanguage": "it",
  "author": {"@id": "https://frontaliereticino.ch/#organization"},
  "datePublished": "2026-01-01T00:00:00+01:00",
  "dateModified": BUILD_DATE_ISO
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "HowTo",
+ "name": "Come richiedere il permesso G per frontalieri in Svizzera",
+ "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro/`,
+ "description": "Guida passo-passo per ottenere il permesso di lavoro G come frontaliere in Svizzera: requisiti, domanda, costi e rinnovo",
+ "totalTime": "P30D",
+ "step": [
+ {
+ "@type": "HowToStep",
+ "position": 1,
+ "name": "Trova un datore di lavoro svizzero",
+ "text": "Ottieni un contratto di lavoro con un datore con sede in Svizzera: è il requisito di base per richiedere il permesso G."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 2,
+ "name": "Verifica il requisito di residenza",
+ "text": "Assicurati di risiedere nella fascia di 20 km dal confine svizzero (o in un comune concordatario) e di poter garantire il rientro settimanale nel Paese di residenza."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 3,
+ "name": "Il datore presenta la domanda",
+ "text": "Il datore di lavoro svizzero inoltra la domanda di permesso G all'Ufficio della migrazione del cantone in cui si trova la sede di lavoro."
+ },
+ {
+ "@type": "HowToStep",
+ "position": 4,
+ "name": "Ricevi il permesso G",
+ "text": "Una volta approvata la domanda ricevi il permesso G: costa circa CHF 65-85 e ha validità 5 anni per i contratti a tempo indeterminato (pari alla durata del contratto se a termine).",
+ "url": `${BASE_URL}/guida-frontaliere/primo-giorno-lavoro/`
+ },
+ {
+ "@type": "HowToStep",
+ "position": 5,
+ "name": "Rinnova alla scadenza",
+ "text": "Il rinnovo è automatico su richiesta del datore di lavoro, purché il rapporto di lavoro sia ancora in essere."
+ }
+ ]
  },
  {
  "@context": "https://schema.org",
@@ -1719,8 +1760,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  pillar3: {
- title: 'Simulatore 3° Pilastro Svizzera | Calcolo Risparmio Fiscale',
- description: 'Calcola il risparmio fiscale e la crescita del tuo 3° pilastro svizzero (3a e 3b). Proiezione a lungo termine con rendimento composto, deducibilità fiscale.',
+ title: '3° Pilastro Svizzera 2026: Risparmio Fiscale fino a CHF 7\'258',
+ description: '3° pilastro svizzero 2026: calcola risparmio fiscale e crescita di 3a e 3b, fino a CHF 7\'258 deducibili l\'anno. Proiezione con rendimento composto.',
  keywords: 'terzo pilastro svizzera, pilastro 3a calcolo, pilastro 3b, risparmio fiscale svizzera, previdenza privata svizzera, deduzione fiscale pilastro 3a, investimento pilastro svizzera',
  ogTitle: 'Simulatore 3° Pilastro | Risparmio Fiscale Svizzera',
  ogDescription: '💰 Calcola quanto risparmi con il 3° pilastro: deducibilità fiscale, proiezione rendimento e confronto 3a vs 3b.',
@@ -2803,8 +2844,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  carTransfer: {
- title: 'Trasferire Auto in Svizzera | Frontaliere Ticino',
- description: 'Guida completa per immatricolare la tua auto in Svizzera: sdoganamento BAZG, collaudo MFK, targhe svizzere, cambio patente e assicurazione RC obbligatoria.',
+ title: 'Trasferire Auto in Svizzera 2026: Dogana, Targhe e Costi',
+ description: 'Trasferire l\'auto in Svizzera 2026: sdoganamento BAZG, collaudo MFK, targhe svizzere, cambio patente e assicurazione RC obbligatoria. Passaggi e costi reali.',
  keywords: 'trasferire auto svizzera, immatricolare auto ticino, targhe svizzere, cambio patente svizzera, dogana veicolo, MFK collaudo, assicurazione auto svizzera, PRA radiazione',
  ogTitle: 'Trasferire Auto in Svizzera | Guida Completa',
  ogDescription: '🚗 Come immatricolare la tua auto in Svizzera: dogana, targhe TI, cambio patente, assicurazione RC e costi.',
@@ -3061,8 +3102,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'permit-compare': {
- title: 'Confronto Permesso G vs B Costo Vita | Frontaliere Ticino',
- description: 'Confronto permesso G vs B costo vita: tasse, contributi e vantaggi Svizzera vs Italia. Simulazione fiscale frontalieri 2026 con calcolo netto e spese.',
+ title: 'Permesso G vs B 2026: Tasse, Contributi e Costo della Vita',
+ description: 'Permesso G o B nel 2026? Confronta tasse, contributi e costo della vita Svizzera-Italia con la simulazione fiscale: calcolo netto e spese reali.',
  keywords: 'permesso G vs B, confronto permesso frontaliere dimora, tasse permesso G, tasse permesso B svizzera, conviene trasferirsi svizzera, frontaliere vs residente',
  ogTitle: 'Confronto Permesso G vs B Costo Vita | Conviene Trasferirsi?',
  ogDescription: '⚖️ Confronto permesso G vs B costo vita: tasse, contributi e spese. Conviene vivere in Svizzera o pendolare?',
@@ -3129,8 +3170,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  firstDay: {
- title: 'Primo Giorno da Frontaliere | Frontaliere Ticino',
- description: 'Guida interattiva per il primo giorno da frontaliere: checklist gamificata con tutti i passaggi necessari. Permesso G, AIRE, conto bancario svizzero.',
+ title: 'Primo Giorno da Frontaliere 2026: Checklist Permesso G e AIRE',
+ description: 'Primo giorno da frontaliere 2026: checklist interattiva con ogni passaggio, permesso G, iscrizione AIRE, conto bancario svizzero e assicurazione LAMal.',
  keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
  ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
  ogDescription: '🚀 Checklist gamificata per il primo giorno da frontaliere: tutti i passaggi da seguire passo per passo.',
@@ -3304,8 +3345,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  taxCredit: {
- title: 'Credito d\'Imposta Doppia Imposizione | Frontaliere Ticino',
- description: 'Calcola il credito d\'imposta per evitare la doppia tassazione Svizzera-Italia. Scopri quanto puoi recuperare dalle imposte italiane come frontaliere.',
+ title: 'Credito d\'Imposta Frontalieri 2026: Calcolo Doppia Imposizione',
+ description: 'Credito d\'imposta frontalieri 2026: calcola quanto recuperi dalle imposte italiane per evitare la doppia tassazione Svizzera-Italia. Simulatore gratuito.',
  keywords: 'credito imposta frontalieri, doppia imposizione svizzera italia, imposta alla fonte credito, IRPEF frontaliere, tasse frontaliere 2026',
  ogTitle: 'Credito d\'Imposta Doppia Imposizione | Frontaliere Ticino',
  ogDescription: 'Calcola il credito d\'imposta per evitare la doppia tassazione come frontaliere. Scopri quanto risparmi con il nostro calcolatore gratuito.',
@@ -3941,8 +3982,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'tax-return-svizzera': {
- title: 'Dichiarazione Fiscale Svizzera Frontalieri',
- description: 'Guida completa alla dichiarazione fiscale svizzera per frontalieri: imposta alla fonte, TDR (rettifica tariffa), deduzioni cantonali Ticino, pillar 3a e.',
+ title: 'Dichiarazione Fiscale Svizzera 2026: TDR, Aliquote e Deduzioni',
+ description: 'Dichiarazione fiscale svizzera 2026 per frontalieri: imposta alla fonte, TDR (rettifica tariffa), deduzioni cantonali Ticino e versamenti al pillar 3a.',
  keywords: 'dichiarazione fiscale svizzera frontaliere, imposta alla fonte ticino, TDR frontaliere, rettifica quellensteuer, deduzioni cantonali ticino, pillar 3a, LPP, tariffa doganale ridotta frontaliere',
  ogTitle: 'Dichiarazione Fiscale Svizzera Frontalieri',
  ogDescription: 'Guida alla dichiarazione fiscale svizzera per frontalieri: imposta alla fonte, TDR, rettifica e deduzioni cantonali Ticino.',
@@ -4416,8 +4457,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  ristorni: {
- title: 'Ristorni Fiscali Frontalieri | Statistiche Comuni Italiani',
- description: 'Statistiche sui ristorni fiscali dei frontalieri: importi per comune italiano, andamento storico, confronto tra province. Dati aggiornati sui compensi.',
+ title: 'Ristorni Fiscali Frontalieri 2026: Importi per Comune Italiano',
+ description: 'Ristorni fiscali frontalieri 2026: importi aggiornati per comune italiano, andamento storico e confronto tra le province di confine con la Svizzera.',
  keywords: 'ristorni fiscali frontalieri, compensi fiscali svizzera italia, ristorni comuni italiani, ristorni como varese, ristorni frontalieri importo',
  ogTitle: 'Ristorni Fiscali Frontalieri | Statistiche per Comune',
  ogDescription: '💶 Statistiche sui ristorni fiscali: importi per comune, andamento storico e confronto tra province.',
@@ -9268,8 +9309,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  guidaCompleta: {
- title: 'Guida Lavoro Frontaliere Svizzera 2026',
- description: 'Guida definitiva al lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione nuovo accordo, AVS/LPP, LAMal, pendolarismo e dichiarazione redditi.',
+ title: 'Lavoro Frontaliere Svizzera 2026: Permesso G, Tasse e Stipendio Netto',
+ description: 'Lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione Nuovo Accordo, stipendio netto, AVS/LPP, LAMal e dichiarazione redditi in un\'unica guida.',
  keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
  ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
  ogDescription: 'La guida definitiva per frontalieri Svizzera-Italia: permessi, tasse, previdenza, sanità, trasporti e dichiarazione dei redditi. Aggiornata 2026.',
@@ -9278,7 +9319,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "Article",
- "headline": "Guida Completa al Lavoro Frontaliere in Svizzera 2026",
+ "headline": "Lavoro Frontaliere Svizzera 2026: Permesso G, Tasse e Stipendio Netto",
  "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi. Aggiornata al 2026.",
  "url": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/`,
  "datePublished": "2026-03-31T08:00:00+02:00",
@@ -9887,7 +9928,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'lamal-frontalieri': {
- title: 'LAMal Frontalieri 2026: Guida Assicurazione Malattia Svizzera',
+ title: 'LAMal Frontalieri 2026: Premi, 14 Casse Malati e Diritto d\'Opzione',
  h1: 'LAMal frontalieri 2026 — diritto d\'opzione, premi, casse malati, come scegliere',
  description: 'LAMal frontalieri 2026: diritto d\'opzione tra assicurazione svizzera e SSN italiano, premi delle 14 casse malati Ticino, franchigie, rimborsi e scadenze.',
  keywords: 'lamal frontalieri, assicurazione malattia frontalieri, casse malati frontalieri, diritto di opzione lamal, premi lamal ticino, franchigia lamal, SSN o lamal frontalieri',
@@ -10120,8 +10161,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  // ── Sprint 2 pillar pages ─────────────────────────────────────
  pillarTasseSvizzere: {
- title: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
- description: 'Tasse svizzere per frontalieri italiani 2026: imposta alla fonte Ticino, Nuovo Accordo, doppia imposizione, credito d\'imposta. Aliquote, esempi, FAQ.',
+ title: 'Tasse Svizzere Frontalieri 2026: Aliquote e Credito d\'Imposta',
+ description: 'Tasse svizzere frontalieri 2026: imposta alla fonte Ticino, aliquote del Nuovo Accordo, doppia imposizione e credito d\'imposta, con esempi pratici e FAQ.',
  keywords: 'tasse svizzere, tasse frontalieri, imposta alla fonte ticino, nuovo accordo 2026, doppia imposizione italia svizzera, dichiarazione redditi frontaliere, credito imposta frontaliere',
  ogTitle: 'Tasse Svizzere per Frontalieri 2026 — Guida Completa',
  ogDescription: 'Imposta alla fonte Ticino, Nuovo Accordo 2026, doppia imposizione e credito d\'imposta: tutto quello che serve a un frontaliere italiano per capire le tasse svizzere.',
@@ -10130,7 +10171,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  {
  "@context": "https://schema.org",
  "@type": "Article",
- "headline": "Tasse Svizzere per Frontalieri 2026 — Guida Completa",
+ "headline": "Tasse Svizzere Frontalieri 2026: Aliquote e Credito d'Imposta",
  "description": "Guida completa alle tasse svizzere per frontalieri italiani: imposta alla fonte, Nuovo Accordo 2026, dichiarazione in Italia, credito d'imposta.",
  "author": { "@type": "Organization", "name": "Frontaliere Ticino" },
  "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
