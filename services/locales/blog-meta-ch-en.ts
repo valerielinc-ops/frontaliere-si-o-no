@@ -1180,6 +1180,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Record-breaking Swiss mortgage market: exceeded CHF 1.3 trillion in 2025',
     'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': '3.1% growth driven by low rates and rising real estate prices. But banks\' margins are shrinking. Here are the facts and practical implications.',
     'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Aerial view of Zurich with modern condominiums and construction cranes, symbolizing Switzerland\'s growing real estate market',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Agricultural income tax return: look at the crops',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Crop variations affect the 2026 tax return. Here\'s what to monitor for proper farm tax management.',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Agricultural fields in a Swiss rural landscape',
 };
 
 export default blogMetaChEn;

@@ -416,6 +416,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'crisi-stretto-hormuz-economia-svizzera': { it: 'crisi-stretto-hormuz-economia-svizzera', en: 'hormuz-crisis-impact-swiss-economy', de: 'hormuz-krise-auswirkungen-schweizer-wirtschaft', fr: 'crise-hormuz-impact-economie-suisse' },
  'tassazione-prestazioni-lpp-svizzera': { it: 'tassazione-prestazioni-lpp-svizzera', en: 'taxation-lpp-benefits-switzerland', de: 'besteuerung-lpp-leistungen-schweiz', fr: 'imposition-prestations-lpp-suisse' },
  'mercato-ipoteche-svizzera-record-2025': { it: 'mercato-ipoteche-svizzera-record-2025', en: 'swiss-mortgage-market-record-2025', de: 'schweizer-hypothekenmarkt-rekord-2025', fr: 'marche-hypothecaire-suisse-record-2025' },
+ 'dichiarazione-redditi-agricoltura-variazioni': { it: 'dichiarazione-redditi-agricoltura-variazioni', en: 'tax-return-agriculture-crop-variations', de: 'steuererklaerung-landwirtschaft-kulturwechsel', fr: 'declaration-revenus-agriculture-variations-cultures' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

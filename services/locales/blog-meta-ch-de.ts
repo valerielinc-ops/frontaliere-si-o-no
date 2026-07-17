@@ -1180,6 +1180,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Schweizer Hypothekmarkt 2025: 1300 Mrd. Francs',
     'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': 'Ein Wachstum von 3,1%, angetrieben von niedrigen Zinsen und steigenden Immobilienpreisen. Doch die Margen der Banken schrumpfen. Hier sind die Daten und die praktischen Auswirkungen.',
     'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Luftaufnahme von Zürich mit modernen Wohnanlagen und Baukränen, Symbol für den wachsenden Immobilienmarkt der Schweiz',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Steuererklärung Landwirtschaft: Achten Sie auf die Kulturen',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Kulturveränderungen beeinflussen die Steuererklärung 2026. Hier ist, was für eine ordnungsgemäße Steuerverwaltung des landwirtschaftlichen Betriebs zu überwachen ist.',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Landwirtschaftliche Felder in einer Schweizer Landschaft',
 };
 
 export default blogMetaChDe;
