@@ -419,6 +419,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dichiarazione-redditi-agricoltura-variazioni': { it: 'dichiarazione-redditi-agricoltura-variazioni', en: 'tax-return-agriculture-crop-variations', de: 'steuererklaerung-landwirtschaft-kulturwechsel', fr: 'declaration-revenus-agriculture-variations-cultures' },
  'traffico-aumenta-costi-crescono-svizzera': { it: 'traffico-aumenta-costi-crescono-svizzera', en: 'traffic-switzerland-increasing-costs-rise', de: 'verkehr-schweiz-zunehmend-kosten-steigen', fr: 'traffic-suisse-augmentation-couts-croissent' },
  'traffico-da-record': { it: 'traffico-da-record', en: 'slug-traffico-da-record', de: 'slug-traffico-da-record', fr: 'slug-traffico-da-record' },
+ 'naspi-frontendalieri-requisiti-calcolo-2024': { it: 'naspi-frontendalieri-requisiti-calcolo-2024', en: 'naspi-frontalier-requisites-calculation', de: 'naspi-frontalier-requisiten-berechnung', fr: 'naspi-frontalier-requisits-calcul' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

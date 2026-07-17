@@ -1189,6 +1189,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.traffico-da-record.title': 'Traffico da record: costi per 117 miliardi di franchi e auto sempre in testa',
     'blog.article.traffico-da-record.excerpt': 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi. L\'automobile è il mezzo di trasporto dominante.',
     'blog.article.traffico-da-record.imageAlt': 'Lugano, vista panoramica della città.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI per ex-frontalieri: requisiti e calcolo',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Il Nuovo Accordo Frontalieri prevede l\'introduzione del NASPI per i frontalieri in Svizzera. Ecco i requisiti, il calcolo dell\'importo, la durata e come fare domanda.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Immagine di un frontaliere che si trova in una situazione simile',
 };
 
 export default blogMetaChIt;

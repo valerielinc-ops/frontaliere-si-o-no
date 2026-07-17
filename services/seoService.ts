@@ -4577,6 +4577,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-da-record': { name: 'Traffico in Svizzera', path: '/articoli-svizzera/traffico-da-record/', parent: 'blog' },
     'blog-frontalieri-nuova-imposta-sostitutiva-2024': { name: 'Fisco 2024', path: '/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024', parent: 'blog' },
     'blog-servo-aiuto-pi-lavori-commissioni': { name: 'Lavori nelle commissioni', path: '/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni', parent: 'blog' },
+    'blog-naspi-frontendalieri-requisiti-calcolo-2024': { name: 'NASPI per ex-frontalieri', path: '/articoli-svizzera/naspi-frontendalieri-requisiti-calcolo-2024/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
