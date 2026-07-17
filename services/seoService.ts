@@ -4583,6 +4583,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-assicurazione-rc-auto-svizzera-differenze-italia-frontalieri': { name: 'Assicurazione RC auto svizzera: differenze', path: '/articoli-svizzera/assicurazione-rc-auto-svizzera-differenze-italia-frontalieri/', parent: 'blog' },
     'blog-frontalieri-e-indennita': { name: 'Frontalieri e indennità', path: '/articoli-frontaliere/frontalieri-e-indennita', parent: 'blog' },
     'blog-secondo-pilastro-lpp-frontalieri-prelievo': { name: 'Secondo pilastro LPP', path: '/articoli-svizzera/secondo-pilastro-lpp-frontalieri-prelievo/', parent: 'blog' },
+    'blog-ricercatore-parlamentare-ticino-gran-consiglio': { name: 'Ricercatore parlamentare', path: '/articoli-frontaliere/ricercatore-parlamentare-ticino-gran-consiglio', parent: 'blog' },
  };
 
  const info = sectionNames[section];

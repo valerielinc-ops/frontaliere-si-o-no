@@ -8575,6 +8575,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-e-indennita.title': 'Frontier workers and allowances: a burning issue',
     'blog.article.frontalieri-e-indennita.excerpt': 'The decision taken in Brussels on unemployment benefits for border workers could have important financial and political repercussions for Switzerland',
     'blog.article.frontalieri-e-indennita.imageAlt': 'Frontaliers in Switzerland and Italy',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino evaluates a Parliamentary Researcher to support the Grand Council',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'PLR proposal to introduce a technical figure to support the Commissions: more legislative quality and institutional continuity',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Gran Consiglio chamber in Bellinzona with deputies in session',
 };
 
 export default blogMetaEn;

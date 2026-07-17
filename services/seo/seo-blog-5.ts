@@ -50343,6 +50343,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricercatore-parlamentare-ticino-gran-consiglio': {
+    title: 'Ticino valuta un Ricercatore parlamentare per supportare il Gran Consiglio',
+    description: 'Il Gran Consiglio valuta una figura tecnica a supporto delle Commissioni. Potenziali benefici per accordi fiscali, previdenza e infrastrutture frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, valuta, ricercatore, parlamentare, supportare',
+    ogTitle: 'Ticino valuta un Ricercatore parlamentare: implicazioni per i frontalieri',
+    ogDescription: 'Proposta PLR per supportare tecnicamente il Gran Consiglio. Quali benefici per lavoratori transfrontalieri e normative su fiscalità e previdenza?',
+    canonicalPath: '/articoli-frontaliere/ricercatore-parlamentare-ticino-gran-consiglio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino valuta un Ricercatore parlamentare per supportare il Gran Consiglio",
+      "description": "Il Gran Consiglio valuta una figura tecnica a supporto delle Commissioni. Potenziali benefici per accordi fiscali, previdenza e infrastrutture frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricercatore-parlamentare-ticino-gran-consiglio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala del Gran Consiglio a Bellinzona con deputati durante una sessione"
+      },
+      "datePublished": "2026-07-17T14:58:46+00:00",
+      "dateModified": "2026-07-17T14:58:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricercatore-parlamentare-ticino-gran-consiglio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -8576,6 +8576,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-e-indennita.title': 'Frontalieri e indennità: un tema che scotta',
     'blog.article.frontalieri-e-indennita.excerpt': 'La decisione presa a Bruxelles sulle indennità di disoccupazione dei frontalieri potrebbe avere importanti ripercussioni finanziarie e politiche per la Svizzera',
     'blog.article.frontalieri-e-indennita.imageAlt': 'Frontalieri in Svizzera e Italia',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino valuta un Ricercatore parlamentare per supportare il Gran Consiglio',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'Proposta PLR per introdurre una figura tecnica a supporto delle Commissioni: più qualità legislativa e continuità istituzionale',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Sala del Gran Consiglio a Bellinzona con deputati durante una sessione',
 };
 
 export default blogMetaIt;

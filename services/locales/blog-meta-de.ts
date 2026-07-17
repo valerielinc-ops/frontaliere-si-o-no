@@ -8574,6 +8574,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-e-indennita.title': 'Grenzgänger und Zulagen: ein brennendes Thema',
     'blog.article.frontalieri-e-indennita.excerpt': 'Die in Brüssel getroffene Entscheidung über die Arbeitslosenunterstützung für Grenzgänger könnte erhebliche finanzielle und politische Auswirkungen auf die Schweiz haben',
     'blog.article.frontalieri-e-indennita.imageAlt': 'Frontalier in der Schweiz und Italien',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino bewertet einen Parlamentsforscher',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'PLR-Vorschlag zur Einführung einer technischen Figur zur Unterstützung der Ausschüsse: mehr legislative Qualität und institutionelle Kontinuität',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Sitzungssaal des Grossen Rates in Bellinzona mit Abgeordneten',
 };
 
 export default blogMetaDe;
