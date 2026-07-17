@@ -26,7 +26,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -107,7 +107,7 @@ function extractDetailBody(html) {
 }
 
 function extractH1(html) {
-  const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const m = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (!m) return '';
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }

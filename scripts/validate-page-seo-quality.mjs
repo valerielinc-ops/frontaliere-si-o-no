@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 
 /**
  * Deploy validation: checks generated HTML pages in dist/ for SEO issues
@@ -264,7 +265,7 @@ function hasMetaViewport(html) {
 
 // Extract <title> tag content
 function extractTitle(html) {
-  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const match = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   return match ? match[1].trim() : '';
 }
 

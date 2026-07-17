@@ -45,7 +45,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -256,7 +256,8 @@ async function fetchDetailDescription(url) {
 
   // Extract main content — find the area after the title heading
   // The page has the job title as an H1, then content divs with the description
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const titleText = titleMatch ? stripHtml(titleMatch[1]).trim() : '';
 
   // Try to extract the main content body

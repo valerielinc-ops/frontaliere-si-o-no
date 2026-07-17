@@ -30,7 +30,7 @@
  *   - HEINEKEN_CH_KEY / HEINEKEN_CH_COMPANY_NAME / HEINEKEN_CH_COMPANY_DOMAIN
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 import {
@@ -230,8 +230,9 @@ export function extractTotalResults(html) {
 export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
-  const titleMatch = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
+    || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   let descriptionHtml = '';

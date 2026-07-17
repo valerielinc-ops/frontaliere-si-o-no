@@ -19,7 +19,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -102,7 +102,7 @@ export function parseListing(html = '') {
 
 export function parseDetail(html = '') {
   if (!html) return { title: '', body: '' };
-  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const titleMatch = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   const titleRaw = titleMatch ? decodeEntities(titleMatch[1]).trim() : '';
   const title = cleanSfsTitle(titleRaw);
   // Body: everything between the H1 "Die Suchtfachstelle Zürich als

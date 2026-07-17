@@ -20,7 +20,7 @@
  * Source: https://www.wurth-international.com/wurth-international-group/Karriere/Job-Portal/Jobs.php
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -138,7 +138,7 @@ export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
   // Extract title from h1
-  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
   if (!title || title.length < 3) return null;
 

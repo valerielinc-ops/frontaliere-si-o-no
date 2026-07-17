@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { callLLM, isAnyModelAvailable, getPreferredModel, getStats as getAiStats, initScoreStore, flushScores, printRunSummary } from './ai-models.mjs';
 import { validateJobUrls } from './validate-job-url.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -3936,11 +3937,11 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
 }
 
 function extractTitleFromHtml(html) {
-  return normalizeSpace(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+  return normalizeSpace(stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
 function extractH1FromHtml(html = '') {
-  return normalizeSpace(stripHtml(String(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
+  return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
 }
 
 function extractMetaContent(html, attr, value) {

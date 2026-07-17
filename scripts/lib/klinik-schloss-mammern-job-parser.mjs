@@ -17,7 +17,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -88,7 +88,7 @@ export function extractKsmDetail(html = '') {
   if (!html) return { title: '', description: '' };
 
   // Title from the first elementor heading
-  const h1 = html.match(/<h1\s+class="elementor-heading-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
+  const h1 = stripScriptsAndStyles(html).match(/<h1\s+class="elementor-heading-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/);
   const title = h1 ? normalizeSpace(decodeEntities(h1[1].replace(/<[^>]+>/g, ' '))) : '';
 
   // Convert body to lines

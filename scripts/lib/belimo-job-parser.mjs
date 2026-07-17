@@ -50,7 +50,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { parseSuccessFactorsPostedDate } from './ats-clients/successfactors-client.mjs';
 
@@ -247,7 +247,8 @@ export function parseBelimoDetailPage(html = '') {
     return m ? normalizeSpace(m[1]) : '';
   };
 
-  const titleMatch = html.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Description: from the itemprop="description" container up to the bottom

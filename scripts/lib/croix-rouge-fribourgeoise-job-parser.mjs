@@ -63,7 +63,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -308,7 +308,7 @@ async function fetchJobDetail(href) {
   const detailUrl = `https://${ATS_HOST}${href}`;
   try {
     const html = await fetchHtml(detailUrl);
-    const titleMatch = html.match(/<h1>([^<]*)<\/h1>/);
+    const titleMatch = stripScriptsAndStyles(html).match(/<h1>([^<]*)<\/h1>/);
     const title = titleMatch ? normalizeSpace(decodeNumericEntities(titleMatch[1])) : '';
     const richTextHtml = extractRichTextBlock(html);
     const description = normalizeSpace(stripHtml(richTextHtml));

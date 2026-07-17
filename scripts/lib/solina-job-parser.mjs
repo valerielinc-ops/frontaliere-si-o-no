@@ -36,7 +36,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -114,7 +114,7 @@ export function parseSolinaListing(html) {
 }
 
 function extractTitle(html) {
-  const m = html.match(/<h1[^>]*page-title[^>]*>([\s\S]*?)<\/h1>/i);
+  const m = stripScriptsAndStyles(html).match(/<h1[^>]*page-title[^>]*>([\s\S]*?)<\/h1>/i);
   if (!m) return '';
   return normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' ')));
 }

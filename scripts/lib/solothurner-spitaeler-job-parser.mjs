@@ -26,7 +26,7 @@
  *   - SOLOTHURNER_SPITAELER_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
+import { slugify, normalizeSpace, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -290,8 +290,9 @@ export function parseSohDetailPage(html = '') {
   }
 
   // Detail page H2 title (fall back to listing card if missing)
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
   const detailTitle = titleMatch
     ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1])))
     : '';

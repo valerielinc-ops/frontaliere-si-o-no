@@ -12,7 +12,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -194,7 +194,8 @@ function parseDetailPage(html = '') {
   if (!html) return null;
 
   // Title from <h1>
-  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const h1Match = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
 
   // Try multiple extraction patterns for the job description content

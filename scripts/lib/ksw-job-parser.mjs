@@ -22,7 +22,7 @@
  *   - KSW_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -218,7 +218,7 @@ export function parseKswDetailPage(html = '') {
   const blocks = [];
 
   // Page-level title (more authoritative than the listing card sometimes)
-  const h1Match = html.match(/<h1[^>]*class="[^"]*jobtitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*class="[^"]*jobtitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
   const detailTitle = h1Match
     ? normalizeSpace(decodeEntities(stripHtml(h1Match[1])))
     : '';

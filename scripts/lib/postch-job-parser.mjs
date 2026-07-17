@@ -27,6 +27,7 @@
  * `parsePostJobDetail` automatically falls back from JSON-LD to the token
  * structure so existing callers keep working.
  */
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -85,7 +86,7 @@ function extractMeta(html, name) {
  * Extract <title> from HTML.
  */
 function extractTitle(html) {
-  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const match = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   return match ? decodeHtml(normalizeSpace(match[1])) : '';
 }
 

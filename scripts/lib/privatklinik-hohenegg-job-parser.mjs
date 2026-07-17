@@ -16,6 +16,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { extractReflineDetailTitle } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -180,10 +181,7 @@ export function parseHoheneggReflineListing(html = '') {
 export function parseReflineDetail(html = '') {
   if (!html) return { title: '', description: '' };
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+  const title = extractReflineDetailTitle(html);
 
   const cleaned = html
     .replace(/<script[\s\S]*?<\/script>/gi, '')

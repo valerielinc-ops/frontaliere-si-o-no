@@ -1,5 +1,5 @@
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
@@ -125,7 +125,7 @@ export function parseBaronieDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
   // Extract title from h1 inside article
-  const h1Match = html.match(/<h1[^>]*class="[^"]*s-text-medium-large[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*class="[^"]*s-text-medium-large[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
   const detailTitle = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
 
   // Extract intro text from <p class="s-text-medium">

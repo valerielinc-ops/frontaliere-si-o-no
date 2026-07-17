@@ -27,7 +27,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
@@ -255,7 +255,7 @@ function parseJobDetail(html = '', url = '') {
 
   // Title from <h1> as fallback
   if (!result.title) {
-    const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
     if (h1Match) {
       result.title = normalizeSpace(h1Match[1].replace(/<[^>]+>/g, ''));
     }

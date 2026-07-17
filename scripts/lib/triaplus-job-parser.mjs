@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -85,12 +85,12 @@ export function parseListingPage(html) {
 function parseJobDetail(html) {
   // Title comes from the H1 (`<h1 class="… jobtitel">…</h1>`) or the <title>.
   let title = '';
-  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (h1Match) {
     title = normalizeSpace(decodeEntities(htmlToText(h1Match[1])));
   }
   if (!title) {
-    const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+    const titleMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/i);
     if (titleMatch) {
       title = normalizeSpace(decodeEntities(titleMatch[1]))
         .replace(/\s*\|\s*Triaplus AG\s*$/i, '');

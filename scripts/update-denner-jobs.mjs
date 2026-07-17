@@ -18,7 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
@@ -244,7 +244,7 @@ async function fetchAndParseDetailPages(urls) {
       const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
       if (jsonLdMatch) { try { jsonLd = JSON.parse(jsonLdMatch[1]); } catch {} }
 
-      const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+      const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
       const rawTitle = jsonLd?.title || (h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : '');
       if (!rawTitle) continue;
 

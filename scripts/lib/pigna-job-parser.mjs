@@ -29,6 +29,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { extractReflineDetailTitle } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 export const PIGNA_KEY = 'pigna';
@@ -94,10 +95,7 @@ export function parsePignaReflineListing(html) {
 
 export function parseReflineDetail(html = '') {
   if (!html) return { title: '', description: '' };
-  const titleMatch = html.match(/<h1[^>]*class="posTitle"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  const title = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ''))) : '';
+  const title = extractReflineDetailTitle(html);
 
   const cleaned = html
     .replace(/<script[\s\S]*?<\/script>/gi, '')

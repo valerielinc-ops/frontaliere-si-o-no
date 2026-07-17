@@ -7,6 +7,7 @@
  * The main listing page (/de/offene-stellen) is JS-rendered with no inline job data,
  * so we rely on the sitemap for discovery and individual job pages for details.
  */
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
@@ -109,7 +110,7 @@ export function parseHilconaDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
   // Title from <h1>
-  const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([^<]+)<\/h1>/i);
   const title = h1Match ? stripHtml(h1Match[1]).trim() : '';
 
   // Lead paragraph (short description)

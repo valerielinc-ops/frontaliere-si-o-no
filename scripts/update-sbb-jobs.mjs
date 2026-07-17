@@ -38,7 +38,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
@@ -323,7 +323,7 @@ export function extractLoginLocalizedPageData(html = '') {
     },
   }[pageLocale];
 
-  const title = stripHtml(String(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
+  const title = stripHtml(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '');
 
   const extractFieldItemHtml = (fieldClass) => String(
     html.match(new RegExp(`${fieldClass}[\\s\\S]*?<div class="field__item">([\\s\\S]*?)<\\/div>\\s*<\\/div>`, 'i'))?.[1] ||

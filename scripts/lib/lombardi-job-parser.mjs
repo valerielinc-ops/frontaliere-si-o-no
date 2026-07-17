@@ -18,7 +18,7 @@
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const LISTING_URL = 'https://lombardi.group/eng/careers/open-positions';
 const DETAIL_URL = 'https://lombardi.group/eng/careers/job?id=';
@@ -145,8 +145,9 @@ const SKIP_HEADINGS = /Contact|Contatti|Kontakt|Apply now|Candidati ora|Jetzt be
 export function parseLombardiDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Decode HTML entities
-  const decoded = html
+  // Decode HTML entities (script/style stripped first: heading regexes below
+  // must only see rendered DOM)
+  const decoded = stripScriptsAndStyles(html)
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
     .replace(/&amp;/g, '&')

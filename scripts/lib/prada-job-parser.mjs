@@ -21,6 +21,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('prada');
 
@@ -261,8 +262,9 @@ export function parsePradaDetailHtml(html) {
   }
 
   // Extract title from the detail page
-  const titleMatch = html.match(/<h1[^>]*class="[^"]*jobTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*class="[^"]*jobTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Extract location from the detail page
