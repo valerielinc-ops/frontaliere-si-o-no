@@ -1,18 +1,21 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-07-17T12:00:46.733Z",
+  "generatedAt": "2026-07-17T22:14:57.633Z",
   "total": 1,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 33127,
-  "avgDurationMs": 33127,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 33359,
+  "avgDurationMs": 33359,
   "durationHistory": [
-    33127
+    33359
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Client Advisor - Giorgio Armani Zurich",
       "slug": "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich",
@@ -35,44 +38,11 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Client Advisor - Giorgio Armani Zurich",
-      "slug": "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich",
-      "url": "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5132",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=5132&company=3397177P",
-      "company": "Giorgio Armani S.p.A.",
-      "companyKey": "giorgio-armani",
-      "companyDomain": "armani.com",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Moda & Lusso",
-      "source": "giorgio-armani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-07-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "giorgio-armani-c94fd39995a1",
+      "id": "giorgio-armani-6fee7ee2c59e",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "currency": "CHF",
-      "firstSeenAt": "2026-07-16T22:29:59.458Z",
+      "firstSeenAt": "2026-07-17T12:00:46.733Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,6 +51,5 @@
         "completeness": 19
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
