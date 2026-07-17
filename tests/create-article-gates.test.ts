@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from '../scripts/lib/it-text-similarity.mjs';
 import { filterDistinctive } from '../scripts/lib/dup-stoplist.mjs';
+import { computeAdaptiveEvergreenThresholds } from '../scripts/lib/scoring/constants.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
@@ -39,6 +40,7 @@ const evergreenRunner = new Function(
   'containmentSim',
   'filterDistinctive',
   'normalizeItWord',
+  'computeAdaptiveEvergreenThresholds',
   `${evergreenBlock[0].replace(/\n\n\/\/ ── Pre-flight news headline check[\s\S]*$/, '')}
 return { evergreenTopicFamily, preFlightEvergreenTopicCheck };`,
 );
@@ -50,6 +52,7 @@ const { evergreenTopicFamily, preFlightEvergreenTopicCheck } = evergreenRunner(
   containmentSim,
   filterDistinctive,
   normalizeItWord,
+  computeAdaptiveEvergreenThresholds,
 ) as {
   evergreenTopicFamily: (text: string) => string | null;
   preFlightEvergreenTopicCheck: (candidate: any, existingArticles: any[]) => any;
@@ -166,6 +169,72 @@ describe('create-article gate helpers', () => {
     expect(evergreenTopicFamily('Permesso G vs B frontalieri 2026')).toBe('permesso-g-b');
     expect(check.duplicate).toBe(true);
     expect(check.signal).toContain('evergreen_family');
+  });
+
+  // 2026-07-17: preFlightEvergreenTopicCheck's title_jaccard signal used a
+  // fixed 0.72 threshold that doesn't scale with corpus size, unlike the
+  // embedding near-dup gate (computeAdaptiveNearDupCosine). A 2026-07-17 run
+  // rejected all 219 evergreen fallback candidates in one pass — zero
+  // articles produced. These pin the corpus-size-adaptive relaxation.
+  describe('title_jaccard signal is corpus-size-adaptive (2026-07-17)', () => {
+    // Real sim (computed via jaccardSim(filterDistinctive(tokenizeIt(...))))
+    // for this exact keyword/title pair is 0.7778 — above the small-corpus
+    // base threshold (0.72) but below the ~0.80 threshold a 3000-article
+    // corpus relaxes to (log10(3000/300) = 1, delta = 0.08).
+    const candidate = {
+      keyword: 'rabadan carnevale bellinzona cortei maschere musica bande programma',
+      angle: 'Rabadan: programma del carnevale di Bellinzona',
+    };
+    const nearMissExisting = {
+      id: 'rabadan-carnevale-bellinzona-2026',
+      title: 'Rabadan carnevale Bellinzona: cortei maschere musica bande, orari',
+      excerpt: '',
+    };
+
+    it('blocks a 0.78-similarity near-miss at a small (below-baseline) corpus', () => {
+      const check = preFlightEvergreenTopicCheck(candidate, [nearMissExisting]);
+      expect(check.duplicate).toBe(true);
+      expect(check.signal).toBe('title_jaccard');
+    });
+
+    it('lets the same near-miss through once the corpus is large enough to relax past it', () => {
+      const filler = Array.from({ length: 2999 }, (_, i) => ({
+        id: `filler-article-${i}`,
+        title: `Notizia generica numero ${i} su un argomento non correlato`,
+        excerpt: '',
+      }));
+      const check = preFlightEvergreenTopicCheck(candidate, [...filler, nearMissExisting]);
+      expect(check.duplicate).toBe(false);
+    });
+
+    it('still blocks a near-identical candidate even at a very large corpus (ceiling holds)', () => {
+      const identicalExisting = {
+        id: 'rabadan-carnevale-bellinzona-identical',
+        title: 'Rabadan carnevale Bellinzona: cortei maschere musica',
+        excerpt: '',
+      };
+      const filler = Array.from({ length: 49999 }, (_, i) => ({
+        id: `filler-article-${i}`,
+        title: `Notizia generica numero ${i} su un argomento non correlato`,
+        excerpt: '',
+      }));
+      const check = preFlightEvergreenTopicCheck(
+        { keyword: 'rabadan carnevale bellinzona cortei maschere musica', angle: '' },
+        [...filler, identicalExisting],
+      );
+      expect(check.duplicate).toBe(true);
+    });
+
+    it('skips the title_jaccard signal for candidates below the minimum-distinctive-token guard', () => {
+      // Single-word candidate ('eventi' → 1 distinctive token after stoplist
+      // filtering) must not fire title_jaccard even against an identical word
+      // — avoids false positives on short/generic evergreen keywords.
+      const check = preFlightEvergreenTopicCheck(
+        { keyword: 'eventi', angle: '' },
+        [{ id: 'eventi-ticino-2026', title: 'Eventi', excerpt: '' }],
+      );
+      expect(check.duplicate).toBe(false);
+    });
   });
 
   it('does not count affirmative fact-check notes as blocking issues', () => {

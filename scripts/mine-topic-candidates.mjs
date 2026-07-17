@@ -21,6 +21,7 @@ import { fetchNewsRssCandidates } from './lib/topic-sources/googleNewsRss.mjs';
 import { noveltyScore } from './lib/topic-sources/noveltyCheck.mjs';
 import { buildDemandVocabulary } from './lib/demand-vocabulary.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { computeAdaptiveTopicCandidateDupJaccard } from './lib/scoring/constants.mjs';
 
 const OUTPUT_PATH = 'data/topic-candidates.json';
 const VOCAB_OUTPUT_PATH = 'data/demand-vocabulary.json';
@@ -28,6 +29,10 @@ const EXPERIMENTAL_OUTPUT_PATH = 'data/experimental-candidates.json';
 const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
 const ARTICLE_PERFORMANCE_PATH = 'data/article-performance.json';
 
+// Base value only — 1 - computeAdaptiveTopicCandidateDupJaccard(existingTitles.length)
+// (scoring/constants.mjs) is the effective runtime floor when noveltyFloor
+// isn't explicitly overridden, so it scales with corpus size instead of
+// mechanically saturating (2026-07-17 sibling-pattern fix, AGENTS.md #6).
 const NOVELTY_FLOOR = 0.3;
 const TOP_N = 100;
 
@@ -246,12 +251,16 @@ export async function mineTopicCandidates({
   suggestImpl = fetchSuggestCandidates,
   newsRssImpl = fetchNewsRssCandidates,
   buildDemandVocabularyImpl = buildDemandVocabulary,
-  noveltyFloor = NOVELTY_FLOOR,
+  noveltyFloor = null,
   topN = TOP_N,
   now = () => new Date().toISOString(),
 } = {}) {
   const blogMetaText = loadTextSafe(blogMetaPath);
   const existingTitles = extractItTitles(blogMetaText);
+  const effectiveNoveltyFloor =
+    noveltyFloor != null
+      ? noveltyFloor
+      : 1 - computeAdaptiveTopicCandidateDupJaccard(existingTitles.length);
 
   const articlePerformance = loadJsonSafe(articlePerformancePath);
   const winnerFingerprint = articlePerformance?.winnerFingerprint ?? null;
@@ -319,7 +328,7 @@ export async function mineTopicCandidates({
 
   // Score (demand + novelty) and drop low-novelty.
   const scored = scoreCandidates(merged, existingTitles).filter(
-    (c) => c.noveltyScore >= noveltyFloor,
+    (c) => c.noveltyScore >= effectiveNoveltyFloor,
   );
 
   // Deterministic sort + cap.
@@ -363,7 +372,7 @@ export async function mineTopicCandidates({
     redditPerSubreddit: redditRes?.perSubreddit ?? null,
     newsRssImpl,
     existingTitles,
-    noveltyFloor,
+    noveltyFloor: effectiveNoveltyFloor,
     topN,
     now,
   });
