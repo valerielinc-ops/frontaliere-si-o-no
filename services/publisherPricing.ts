@@ -139,3 +139,52 @@ export function priceForUnits(units: number): PriceBreakdown {
 export function priceForCart(ads: readonly AdSpec[]): PriceBreakdown {
   return priceForUnits(countCartUnits(ads));
 }
+
+/**
+ * One prepaid `orders` doc's residual credit, as read from Firestore and
+ * pre-filtered to `status === 'active' && prepaid === true` by the caller
+ * (see `loadPublisherCredits` in services/publisherCredits.ts).
+ */
+export interface PrepaidOrderCredit {
+  /** 'azienda' → unlimited ads; `unitsPurchased`/`unitsUsed` are not meaningful. */
+  readonly plan?: 'azienda';
+  /** `null` on an azienda order (unlimited). */
+  readonly unitsPurchased: number | null;
+  readonly unitsUsed: number;
+}
+
+/**
+ * Sum of remaining prepaid location-credits across a publisher's active orders.
+ * `null` means unlimited (any order on the azienda plan grants unlimited ads,
+ * so the sum short-circuits to unlimited regardless of the other orders).
+ */
+export function sumRemainingUnits(orders: readonly PrepaidOrderCredit[]): number | null {
+  if (!Array.isArray(orders) || orders.length === 0) return 0;
+  if (orders.some(o => o.plan === 'azienda')) return null;
+  let sum = 0;
+  for (const o of orders) {
+    const purchased = typeof o.unitsPurchased === 'number' ? o.unitsPurchased : 0;
+    const used = typeof o.unitsUsed === 'number' ? o.unitsUsed : 0;
+    sum += Math.max(0, purchased - used);
+  }
+  return sum;
+}
+
+/**
+ * Largest residual on a SINGLE order. attachPublisherJob assigns each ad
+ * whole to one order (a job doc carries one orderId/subscription, so an ad
+ * can't be split across orders) — one ad's distinct locations must therefore
+ * fit inside one order's residual, even when `sumRemainingUnits` across
+ * orders is higher. `null` = unlimited (azienda plan).
+ */
+export function maxClaimableUnits(orders: readonly PrepaidOrderCredit[]): number | null {
+  if (!Array.isArray(orders) || orders.length === 0) return 0;
+  if (orders.some(o => o.plan === 'azienda')) return null;
+  let max = 0;
+  for (const o of orders) {
+    const purchased = typeof o.unitsPurchased === 'number' ? o.unitsPurchased : 0;
+    const used = typeof o.unitsUsed === 'number' ? o.unitsUsed : 0;
+    max = Math.max(max, purchased - used);
+  }
+  return max;
+}

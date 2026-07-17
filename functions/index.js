@@ -30,7 +30,7 @@ import { bridgeEmailCascadeCredentialsToEnv } from './src/remoteConfigSecrets.js
 import { handleManageJournalistRole } from './src/journalistRoleCore.js';
 import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
-import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
+import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
@@ -943,6 +943,32 @@ export const createPublisherCheckout = onRequest(
  res.status(status).json(body);
  } catch (error) {
  console.error('[createPublisherCheckout]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Pay-first funnel: spend prepaid ad-unit credits (or the unlimited azienda
+// plan) purchased via createPublisherCheckout({prepaid:true,...}) to create
+// publisher_jobs docs directly as 'paid'. Authenticated publisher only.
+export const attachPublisherJob = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleAttachPublisherJob(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[attachPublisherJob]', error instanceof Error ? error.message : String(error));
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },

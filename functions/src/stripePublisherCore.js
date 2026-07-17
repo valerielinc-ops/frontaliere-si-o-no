@@ -41,6 +41,21 @@ import {
 // Lives in the reap module so this file's `import('stripe')` never has to load
 // when the reaper (or its unit test) runs.
 import { revertPendingJobsToDraft } from './publisherPendingReapCore.js';
+// Reused for attachPublisherJob's server-side reCAPTCHA check (PUBLISH_JOB
+// action) — same mechanism handleRecaptchaVerification/createFeedbackIssue
+// already use, so no new verification helper is introduced.
+import { createAssessment } from './recaptchaVerification.js';
+// Reused for attachPublisherJob's best-effort publisher-jobs-sync dispatch —
+// same PAT + owner/repo resolution githubProxy.js already exports (single
+// source, avoids duplicating the Remote Config read construct).
+import { getRepoConfig, GITHUB_API } from './githubProxy.js';
+import { githubApiHeaders } from './githubApiHeaders.js';
+// Pragmatic email shape check (server-side) — single source of truth shared
+// with adminEmployerInsights.js, journalistRoleCore.js and
+// newsletterSubscriberAuthSync.js (AGENTS.md sibling-pattern rule: this
+// literal regex was duplicated in 3 files already; consolidated here rather
+// than adding a 4th copy for attachPublisherJob's apply.email validation).
+import { EMAIL_RE } from './lib/emailValidation.js';
 
 // ── Stripe client (lazy, cached) ────────────────────────────────────────────
 let _stripe = null;
@@ -104,7 +119,123 @@ async function ensureProductTaxCode(stripe, priceId, taxCode) {
   _productTaxCodeEnsured.add(priceId);
 }
 
+// Sum distinct-location billable units across a list of ad-like objects (each
+// item's OWN distinct-location count, summed — the same location repeated
+// across two ads bills twice since each becomes its own live page). Single
+// source for both call sites that need this construct: the legacy per-jobIds
+// checkout path below (loop, ownership-checked per job) and
+// handleAttachPublisherJob (prepaid ads — no ownership check, the docs don't
+// exist yet). Keeps the billing math from drifting between them.
+function sumDistinctLocationUnits(items) {
+  return items.reduce((total, item) => total + countDistinctLocations(item?.locations), 0);
+}
+
 // ── createPublisherCheckout ─────────────────────────────────────────────────
+
+/**
+ * Prepaid credits (pay-first funnel): buy N ad-unit credits, or the flat
+ * Piano Azienda subscription, with NO jobIds yet — attachPublisherJob spends
+ * the credits once the ad content exists. Mirrors the per-jobIds branches
+ * below (same customer/coupon/tax-code plumbing, same order-doc shape) but
+ * skips the ownership check (there are no jobs yet) and never touches
+ * publisher_jobs — no ad exists to flip to 'pending_payment'.
+ */
+async function handlePrepaidCheckout(decoded, uid, body) {
+  const successUrl = String(body.successUrl || '');
+  const cancelUrl = String(body.cancelUrl || '');
+  if (!/^https?:\/\//.test(successUrl) || !/^https?:\/\//.test(cancelUrl)) {
+    return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
+  }
+
+  const stripe = await getStripe();
+  const pubRef = db().collection('publishers').doc(uid);
+  const pubSnap = await pubRef.get();
+  let customerId = pubSnap.exists ? pubSnap.data().stripeCustomerId : undefined;
+  if (!customerId) {
+    const customer = await stripe.customers.create({ email: decoded.email || undefined, metadata: { publisherUid: uid } });
+    customerId = customer.id;
+    await pubRef.set({ stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+  }
+
+  // ── Piano Azienda prepaid: flat CHF 299, illimitato (unitsPurchased: null). ──
+  if (body.plan === 'azienda') {
+    const aziendaPrice = await getRemoteConfigValue('STRIPE_PRICE_AZIENDA');
+    if (!aziendaPrice) return { status: 500, body: { ok: false, error: 'azienda_price_not_configured' } };
+
+    const orderRef = db().collection('orders').doc();
+    await orderRef.set({
+      publisherUid: uid, jobIds: [], plan: 'azienda', units: null,
+      prepaid: true, unitsPurchased: null, unitsUsed: 0,
+      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription', customer: customerId,
+      line_items: [{ price: aziendaPrice, quantity: 1 }],
+      success_url: successUrl, cancel_url: cancelUrl,
+      client_reference_id: orderRef.id,
+      metadata: { orderId: orderRef.id, publisherUid: uid, plan: 'azienda', prepaid: '1' },
+      subscription_data: { metadata: { orderId: orderRef.id, publisherUid: uid, plan: 'azienda', prepaid: '1' } },
+    });
+    await orderRef.update({ stripeCheckoutSessionId: session.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
+
+    return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: 299 } };
+  }
+
+  // ── Prepaid ad-unit credits ──
+  const units = Number(body.units);
+  if (!Number.isInteger(units) || units < 1 || units > 50) {
+    return { status: 400, body: { ok: false, error: 'invalid_units' } };
+  }
+
+  const rate = discountRateForUnits(units);
+  const netChf = netChfForUnits(units);
+
+  const priceId = await getRemoteConfigValue('STRIPE_PRICE_AD_UNIT');
+  if (!priceId) return { status: 500, body: { ok: false, error: 'price_not_configured' } };
+
+  await ensureProductTaxCode(stripe, priceId, 'txcd_20000000');
+  const couponId = await ensureVolumeCoupon(stripe, rate);
+
+  const orderRef = db().collection('orders').doc();
+  await orderRef.set({
+    publisherUid: uid,
+    jobIds: [],
+    units,
+    prepaid: true,
+    unitsPurchased: units,
+    unitsUsed: 0,
+    amountChf: netChf,
+    discountRate: rate,
+    currency: 'CHF',
+    status: 'created',
+    stripeCustomerId: customerId,
+    createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  const session = await stripe.checkout.sessions.create({
+    mode: 'subscription',
+    customer: customerId,
+    line_items: [{ price: priceId, quantity: units }],
+    discounts: couponId ? [{ coupon: couponId }] : undefined,
+    managed_payments: { enabled: true },
+    success_url: successUrl,
+    cancel_url: cancelUrl,
+    client_reference_id: orderRef.id,
+    metadata: { orderId: orderRef.id, publisherUid: uid, units: String(units), prepaid: '1' },
+    subscription_data: { metadata: { orderId: orderRef.id, publisherUid: uid, prepaid: '1' } },
+  });
+
+  await orderRef.update({
+    stripeCheckoutSessionId: session.id,
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
+
+  return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, units, amountChf: netChf } };
+}
 
 export async function handleCreatePublisherCheckout(req) {
   if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
@@ -114,6 +245,14 @@ export async function handleCreatePublisherCheckout(req) {
   const uid = decoded.uid;
 
   const body = req.body || {};
+
+  // ── Prepaid credits (pay-first funnel) ── fully separate early branch, no
+  // jobIds required. The legacy per-jobIds path below (still used by in-flight
+  // sessions from before this rollout) is left completely untouched.
+  if (body.prepaid === true) {
+    return handlePrepaidCheckout(decoded, uid, body);
+  }
+
   const jobIds = Array.isArray(body.jobIds) ? body.jobIds.filter(Boolean) : [];
   const successUrl = String(body.successUrl || '');
   const cancelUrl = String(body.cancelUrl || '');
@@ -283,6 +422,337 @@ export async function handleCreatePublisherCheckout(req) {
   await batch.commit();
 
   return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, units, amountChf: netChf } };
+}
+
+// ── attachPublisherJob ──────────────────────────────────────────────────────
+// Pay-first funnel: spend prepaid ad-unit credits (or the unlimited azienda
+// plan) to create publisher_jobs docs directly as 'paid' — the Stripe
+// checkout already happened via handlePrepaidCheckout above, so this endpoint
+// only needs auth + an active prepaid order with enough residual units. The
+// created docs use the SAME shape the client used to write via addDoc (see
+// PublisherPublishPage.tsx handleSubmit) so the dashboard/edit/projection
+// pipeline keeps working unchanged.
+
+// Mirrors scripts/lib/publisherJobProjection.mjs' MIN_DESCRIPTION_WORDS /
+// wordCount — duplicated here (not imported) for the same deploy-boundary
+// reason publisherPricingMirror.js documents at the top of this file: the
+// functions bundle is isolated and cannot import scripts/. Keep both ends of
+// this gate at 50 words if either changes.
+const ATTACH_MIN_DESCRIPTION_WORDS = 50;
+const ATTACH_MAX_ADS = 10;
+const ATTACH_RECAPTCHA_THRESHOLD = 0.5; // mirrors ACTION_THRESHOLDS.PUBLISH_JOB in recaptchaVerification.js
+
+function attachWordCount(text) {
+  const t = String(text || '').trim();
+  return t ? t.split(/\s+/).length : 0;
+}
+
+/** @returns {string|null} validation error message, or null if the ad is valid. */
+function validateAttachAd(ad, index) {
+  if (!ad || typeof ad !== 'object') return `ad[${index}]: invalid`;
+  if (!String(ad.title || '').trim()) return `ad[${index}]: missing_title`;
+  if (attachWordCount(ad.description) < ATTACH_MIN_DESCRIPTION_WORDS) return `ad[${index}]: description_too_short`;
+  if (!String(ad.company?.name || '').trim()) return `ad[${index}]: missing_company_name`;
+  if (countDistinctLocations(ad.locations) < 1) return `ad[${index}]: missing_location`;
+  const apply = ad.apply || {};
+  if (apply.mode === 'external_url') {
+    if (!/^https?:\/\//.test(String(apply.url || ''))) return `ad[${index}]: invalid_apply_url`;
+  } else if (apply.mode === 'forward_email' || apply.mode === 'in_house') {
+    if (!EMAIL_RE.test(String(apply.email || '').trim())) return `ad[${index}]: invalid_apply_email`;
+  } else {
+    return `ad[${index}]: invalid_apply_mode`;
+  }
+  return null;
+}
+
+function validateAttachAds(ads) {
+  for (let i = 0; i < ads.length; i += 1) {
+    const err = validateAttachAd(ads[i], i);
+    if (err) return err;
+  }
+  return null;
+}
+
+/**
+ * Build a publisher_jobs doc from a submitted ad — same shape as the client's
+ * addDoc call in PublisherPublishPage.tsx, plus the server-owned fields
+ * (publisherUid, status, paidAt, orderId, stripeSubscriptionId). `tier` is
+ * derived from the CLAIMED ORDER (never trusted from the ad body) — the same
+ * "client amount/identity is never trusted" boundary this file already
+ * applies to pricing and publisherUid.
+ */
+function buildAttachedJobDoc(ad, { uid, orderRef, order, tier, ts }) {
+  const rawCompany = ad.company || {};
+  const company = {
+    name: String(rawCompany.name || '').trim(),
+    legalForm: rawCompany.legalForm || 'ditta_individuale',
+    ...(String(rawCompany.domain || '').trim() ? { domain: String(rawCompany.domain).trim() } : {}),
+    ...(String(rawCompany.logoUrl || '').trim() ? { logoUrl: String(rawCompany.logoUrl).trim() } : {}),
+  };
+  const apply = ad.apply || {};
+  // Description arrives already plain/markdown-split client-side for the
+  // legacy addDoc path; here the client sends whatever it has — mirror the
+  // same split so descriptionMd only persists a genuinely different markdown
+  // source (tier is never 'free' on this path — prepaid credits are
+  // sponsored/azienda only).
+  const plainDesc = String(ad.description || '').trim();
+  const mdDesc = String(ad.descriptionMd || '').trim() || null;
+
+  return {
+    publisherUid: uid,
+    tier,
+    status: 'paid',
+    paidAt: ts,
+    orderId: orderRef.id,
+    ...(order.stripeSubscriptionId ? { stripeSubscriptionId: order.stripeSubscriptionId } : {}),
+    title: String(ad.title || '').trim(),
+    description: plainDesc,
+    ...(mdDesc ? { descriptionMd: mdDesc } : {}),
+    sourceLang: 'it',
+    company,
+    locations: Array.isArray(ad.locations) ? ad.locations : [],
+    employmentType: ad.employmentType || 'FULL_TIME',
+    ...(String(ad.category || '').trim() ? { category: String(ad.category).trim() } : {}),
+    ...(String(ad.sector || '').trim() ? { sector: String(ad.sector).trim() } : {}),
+    ...(String(ad.contractType || '').trim() ? { contractType: String(ad.contractType).trim() } : {}),
+    ...(Number.isFinite(Number(ad.salaryMin)) ? { salaryMin: Number(ad.salaryMin) } : {}),
+    ...(Number.isFinite(Number(ad.salaryMax)) ? { salaryMax: Number(ad.salaryMax) } : {}),
+    // Featured is a sponsored-only benefit; azienda ads are always featured
+    // via the projection (publisherJobToRecords), regardless of this flag.
+    featured: Boolean(ad.featured),
+    currency: 'CHF',
+    apply: {
+      mode: apply.mode,
+      ...(apply.mode === 'external_url' ? { url: String(apply.url || '').trim() } : {}),
+      ...(apply.mode === 'forward_email' || apply.mode === 'in_house' ? { email: String(apply.email || '').trim() } : {}),
+      ...(String(apply.privacyPolicyUrl || '').trim() ? { privacyPolicyUrl: String(apply.privacyPolicyUrl).trim() } : {}),
+    },
+    createdAt: ts,
+    updatedAt: ts,
+  };
+}
+
+class AttachClaimError extends Error {
+  constructor(code, remaining = null) {
+    super(code);
+    this.code = code;
+    this.remaining = remaining;
+  }
+}
+
+/**
+ * Best-effort: nudge publisher-jobs-sync.yml to run immediately instead of
+ * waiting for its 30-min cron, so a prepaid ad goes live faster. Reuses the
+ * same GITHUB_PAT (+ owner/repo) Remote Config read as githubProxy.js — see
+ * getRepoConfig import above. Throws on failure; the caller swallows it (the
+ * cron is the safety net, this is pure latency reduction).
+ */
+async function dispatchPublisherSync() {
+  const { pat, owner, repo } = await getRepoConfig();
+  if (!pat) {
+    throw new Error('github_pat_not_configured');
+  }
+  const res = await fetch(`${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/publisher-jobs-sync.yml/dispatches`, {
+    method: 'POST',
+    headers: githubApiHeaders(pat, { 'Content-Type': 'application/json' }),
+    body: JSON.stringify({ ref: 'main' }),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`dispatch_failed:${res.status}:${text.slice(0, 200)}`);
+  }
+}
+
+// Best-effort "your ad is being published" email after attachPublisherJob
+// spends prepaid credits. Mirrors sendPublisherConfirmation's mechanism (same
+// email cascade, same publisher lookup); the copy differs because payment
+// already happened at checkout — this confirms content intake instead.
+async function sendPublisherAttachedConfirmation(publisherUid, jobCount) {
+  try {
+    const pubSnap = await db().collection('publishers').doc(String(publisherUid)).get();
+    const to = pubSnap.exists ? pubSnap.data().email : null;
+    if (!to) return;
+    await bridgeEmailCascadeCredentialsToEnv();
+    await sendEmailCascade([{
+      payload: {
+        from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+        to,
+        subject: 'Il tuo annuncio è in pubblicazione',
+        html:
+          `<h2>Annuncio ricevuto</h2>` +
+          `<p>${jobCount > 1 ? 'I tuoi annunci sono' : 'Il tuo annuncio è'} in pubblicazione, online di norma entro un'ora con pagina SEO dedicata.</p>` +
+          `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
+          `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>`,
+      },
+      recipient: { email: to },
+      meta: {},
+    }]);
+  } catch {
+    // non-fatal
+  }
+}
+
+export async function handleAttachPublisherJob(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+
+  const decoded = await verifyCaller(req);
+  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+  const uid = decoded.uid;
+
+  const body = req.body || {};
+  const ads = Array.isArray(body.ads) ? body.ads : [];
+  if (!ads.length || ads.length > ATTACH_MAX_ADS) {
+    return { status: 400, body: { ok: false, error: 'validation', message: 'ads_count' } };
+  }
+
+  const validationError = validateAttachAds(ads);
+  if (validationError) {
+    return { status: 400, body: { ok: false, error: 'validation', message: validationError } };
+  }
+
+  // Server-side reCAPTCHA (reused mechanism — see createAssessment import
+  // above). Security here is auth + an active paid order; the token check is
+  // defense-in-depth against scripted abuse of already-purchased credits.
+  const token = typeof body.recaptchaToken === 'string' ? body.recaptchaToken.trim() : '';
+  if (!token) return { status: 400, body: { ok: false, error: 'missing_recaptcha' } };
+  const siteKey = await getRemoteConfigValue('RECAPTCHA_SITE_KEY');
+  if (siteKey) {
+    const projectId = process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino';
+    const assessment = await createAssessment({ token, expectedAction: 'PUBLISH_JOB', projectId, siteKey });
+    if (!assessment.valid || (assessment.score ?? 0) < ATTACH_RECAPTCHA_THRESHOLD) {
+      return { status: 403, body: { ok: false, error: 'recaptcha_failed' } };
+    }
+  }
+
+  const unitsNeeded = sumDistinctLocationUnits(ads);
+  if (unitsNeeded <= 0) {
+    return { status: 400, body: { ok: false, error: 'validation', message: 'no_billable_units' } };
+  }
+
+  // Find the publisher's active prepaid orders (plain equality filters — no
+  // composite index required). Re-read + claimed atomically in the
+  // transaction below, so a race against a concurrent attach call just fails
+  // the transaction's residual check rather than double-spending units.
+  const ordersSnap = await db().collection('orders')
+    .where('publisherUid', '==', uid)
+    .where('status', '==', 'active')
+    .where('prepaid', '==', true)
+    .get();
+
+  if (ordersSnap.empty) {
+    return { status: 402, body: { ok: false, error: 'no_credits' } };
+  }
+
+  // Prefer an unlimited azienda order; otherwise spend across ALL active
+  // prepaid orders (the frontend sums residuals order-wide — sumRemainingUnits
+  // in services/publisherPricing.ts — so a publisher who bought 2+3 units in
+  // two checkouts must be able to attach a 5-unit cart). Each AD is assigned
+  // whole to ONE order (first-fit decreasing) so every job doc keeps a single
+  // orderId/stripeSubscriptionId and expireBySubscription stays unambiguous;
+  // only a single ad needing more units than any one order's residual can't
+  // be split (the client caps per-ad locations at the max single-order
+  // residual for this reason).
+  const orderRefs = ordersSnap.docs.map((d) => d.ref);
+  let newJobIds = [];
+  let remainingUnitsAfter = null;
+
+  try {
+    await db().runTransaction(async (tx) => {
+      // Re-read every candidate order inside the transaction (racing attach
+      // calls fail the residual math here instead of double-spending).
+      const orderTxSnaps = await Promise.all(orderRefs.map((ref) => tx.get(ref)));
+      const liveOrders = orderTxSnaps
+        .filter((s) => s.exists)
+        .map((s) => ({ ref: s.ref, order: s.data() }))
+        .filter(({ order }) => order.status === 'active' && order.prepaid === true);
+      if (!liveOrders.length) throw new AttachClaimError('no_credits');
+
+      const ts = admin.firestore.FieldValue.serverTimestamp();
+      const unlimitedEntry = liveOrders.find(({ order }) => order.plan === 'azienda' && order.unitsPurchased == null);
+
+      // Per-order mutable residuals + claim buckets for the assignment below.
+      const buckets = liveOrders.map((entry) => ({
+        ...entry,
+        residual: (entry.order.unitsPurchased ?? 0) - (entry.order.unitsUsed ?? 0),
+        jobIds: [],
+        unitsClaimed: 0,
+      }));
+
+      if (!unlimitedEntry) {
+        const totalResidual = buckets.reduce((sum, b) => sum + Math.max(0, b.residual), 0);
+        if (totalResidual < unitsNeeded) throw new AttachClaimError('insufficient_units', totalResidual);
+
+        // First-fit decreasing: biggest ads into the fullest orders first.
+        // Whole-ad assignment can still fail on pathological packings even
+        // when the total residual suffices — surface the max single-order
+        // residual so the client can cap/retry coherently.
+        const adUnits = ads.map((ad, i) => ({ i, units: countDistinctLocations(ad.locations) }))
+          .sort((a, b) => b.units - a.units);
+        for (const { i, units } of adUnits) {
+          const bucket = buckets
+            .filter((b) => b.residual - b.unitsClaimed >= units)
+            .sort((a, b) => (b.residual - b.unitsClaimed) - (a.residual - a.unitsClaimed))[0];
+          if (!bucket) {
+            const maxResidual = buckets.reduce((max, b) => Math.max(max, b.residual - b.unitsClaimed), 0);
+            throw new AttachClaimError('insufficient_units', maxResidual);
+          }
+          bucket.adIndexes = bucket.adIndexes || [];
+          bucket.adIndexes.push(i);
+          bucket.unitsClaimed += units;
+        }
+      } else {
+        // Unlimited azienda plan: everything lands on that order.
+        const bucket = buckets.find((b) => b.ref.path === unlimitedEntry.ref.path);
+        bucket.adIndexes = ads.map((_, i) => i);
+      }
+
+      const jobIdsInAdOrder = new Array(ads.length);
+      for (const bucket of buckets) {
+        if (!bucket.adIndexes || !bucket.adIndexes.length) continue;
+        const tier = bucket.order.plan === 'azienda' ? 'azienda' : 'sponsored';
+        for (const i of bucket.adIndexes) {
+          const jobRef = db().collection('publisher_jobs').doc();
+          tx.set(jobRef, buildAttachedJobDoc(ads[i], { uid, orderRef: bucket.ref, order: bucket.order, tier, ts }));
+          bucket.jobIds.push(jobRef.id);
+          jobIdsInAdOrder[i] = jobRef.id;
+        }
+        const orderUpdate = { jobIds: admin.firestore.FieldValue.arrayUnion(...bucket.jobIds), updatedAt: ts };
+        if (!unlimitedEntry && bucket.unitsClaimed > 0) {
+          orderUpdate.unitsUsed = admin.firestore.FieldValue.increment(bucket.unitsClaimed);
+        }
+        tx.update(bucket.ref, orderUpdate);
+      }
+
+      newJobIds = jobIdsInAdOrder;
+      remainingUnitsAfter = unlimitedEntry
+        ? null
+        : buckets.reduce((sum, b) => sum + Math.max(0, b.residual - b.unitsClaimed), 0);
+    });
+  } catch (error) {
+    if (error instanceof AttachClaimError) {
+      if (error.code === 'insufficient_units') {
+        return { status: 409, body: { ok: false, error: 'insufficient_units', remainingUnits: error.remaining } };
+      }
+      return { status: 402, body: { ok: false, error: 'no_credits' } };
+    }
+    console.error('[attachPublisherJob] transaction failed', error instanceof Error ? error.message : String(error));
+    return { status: 503, body: { ok: false, error: 'transaction_failed' } };
+  }
+
+  // Best-effort side-effects — never fail the response for these, but AWAITED
+  // (not fire-and-forget): Cloud Functions gen2 can freeze the container's
+  // CPU right after the HTTP response is flushed, killing any promise still
+  // in flight — the same reason storeRenewal/sendPublisherConfirmation are
+  // awaited inside handleStripeWebhook above. The 30-min publisher-jobs-sync
+  // cron is the safety net if the dispatch still fails.
+  try {
+    await dispatchPublisherSync();
+  } catch (error) {
+    console.error('[attachPublisherJob] sync dispatch failed', error instanceof Error ? error.message : String(error));
+  }
+  await sendPublisherAttachedConfirmation(uid, newJobIds.length);
+
+  return { status: 200, body: { ok: true, jobIds: newJobIds, remainingUnits: remainingUnitsAfter } };
 }
 
 // ── createBillingPortal ─────────────────────────────────────────────────────
@@ -460,9 +930,38 @@ async function sendPublisherConfirmation(publisherUid, jobCount) {
         subject: 'Pagamento confermato — il tuo annuncio sta per andare online',
         html:
           `<h2>Grazie, pagamento confermato</h2>` +
-          `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} entro 1–2 ore con pagina SEO dedicata.</p>` +
+          `<p>${jobCount > 1 ? 'I tuoi annunci saranno online' : 'Il tuo annuncio sarà online'} di norma entro un'ora con pagina SEO dedicata.</p>` +
           `<p>Gestisci gli annunci e vedi le candidature dalla tua dashboard: ` +
           `<a href="https://frontaliereticino.ch/i-miei-annunci/">I miei annunci</a>.</p>` +
+          `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
+      },
+      recipient: { email: to },
+      meta: {},
+    }]);
+  } catch {
+    // non-fatal
+  }
+}
+
+// Best-effort "payment confirmed, now create your ad" confirmation for the
+// pay-first (prepaid) funnel — handlePrepaidCheckout's order has no jobIds
+// yet, so there's nothing to list; this just points the publisher at the
+// publish form to spend the credits they just bought.
+async function sendPublisherPrepaidConfirmation(publisherUid) {
+  try {
+    const pubSnap = await db().collection('publishers').doc(String(publisherUid)).get();
+    const to = pubSnap.exists ? pubSnap.data().email : null;
+    if (!to) return;
+    await bridgeEmailCascadeCredentialsToEnv();
+    await sendEmailCascade([{
+      payload: {
+        from: 'Frontaliere Ticino <confirmation@frontaliereticino.ch>',
+        to,
+        subject: 'Pagamento confermato — ora crea il tuo annuncio',
+        html:
+          `<h2>Grazie, pagamento confermato</h2>` +
+          `<p>Ora puoi creare il tuo annuncio: sarà online di norma entro un'ora con pagina SEO dedicata.</p>` +
+          `<p><a href="https://frontaliereticino.ch/pubblica-offerta/">Crea il tuo annuncio</a>.</p>` +
           `<p style="font-size:12px;color:#666">La ricevuta/fattura ti arriva separatamente da Stripe. Abbonamento rinnovato ogni 30 giorni; disdici quando vuoi dalla dashboard.</p>`,
       },
       recipient: { email: to },
@@ -587,12 +1086,22 @@ export async function handleStripeWebhook(req) {
       const orderSnap = await orderByStripeRef({ sessionId: obj.id, orderId });
       if (orderSnap) {
         const order = orderSnap.data();
+        // Pay-first (prepaid) orders have no jobIds at checkout time — the ad(s)
+        // are created afterwards via attachPublisherJob, which stamps them
+        // 'paid' directly. Falls back to session metadata in case the order
+        // doc's own `prepaid` field somehow didn't persist (defensive; the
+        // order is always written with `prepaid` by handlePrepaidCheckout).
+        const isPrepaid = order.prepaid === true || obj.metadata?.prepaid === '1';
         await orderSnap.ref.update({
           status: 'active',
           stripeSubscriptionId: obj.subscription || null,
           updatedAt: ts,
         });
-        await setJobsStatus(order.jobIds, 'paid', { paidAt: ts, subscriptionId: obj.subscription || null });
+        if (isPrepaid) {
+          // Nothing to flip — order.jobIds is [] until attachPublisherJob runs.
+        } else {
+          await setJobsStatus(order.jobIds, 'paid', { paidAt: ts, subscriptionId: obj.subscription || null });
+        }
         if (order.plan === 'azienda') {
           // Flag the publisher as azienda — the dashboard reflects the active plan
           // and future ads can inherit the tier. The ads themselves already carry
@@ -604,7 +1113,11 @@ export async function handleStripeWebhook(req) {
         try {
           await storeRenewal(stripe, obj.subscription, order.jobIds, orderSnap.id);
         } catch { /* non-fatal: renewal date is best-effort */ }
-        await sendPublisherConfirmation(order.publisherUid, (order.jobIds || []).length);
+        if (isPrepaid) {
+          await sendPublisherPrepaidConfirmation(order.publisherUid);
+        } else {
+          await sendPublisherConfirmation(order.publisherUid, (order.jobIds || []).length);
+        }
       }
       break;
     }

@@ -31,6 +31,10 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { getNewsletterSecrets } from './remoteConfigSecrets.js';
 // Single source of truth for the stats-page token (no local HMAC copy → no drift).
 import { generateInsightsToken } from './employerInsights.js';
+// Single source of truth for the pragmatic email shape check (server-side;
+// the SPA also validates) — shared with journalistRoleCore.js,
+// newsletterSubscriberAuthSync.js and stripePublisherCore.js.
+import { EMAIL_RE } from './lib/emailValidation.js';
 
 const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -41,10 +45,6 @@ const CONTACTS_COLLECTION = 'employer_contacts';
 const SENDS_COLLECTION = 'employer_outreach_sends';
 const REPLIES_COLLECTION = 'employer_outreach_replies';
 const SUPPRESSION_COLLECTION = 'employer_outreach_suppression';
-
-// Pragmatic email shape check (server-side; the SPA also validates). Empty string
-// is allowed by the caller (clears the field) and never reaches this regex.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /** Build the tokenized "open as company" URL (trailing slash, canonical). */
 function buildInsightsUrl(companyKey, secret) {
