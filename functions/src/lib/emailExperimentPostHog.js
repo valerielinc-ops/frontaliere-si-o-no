@@ -119,11 +119,11 @@ export async function isEmailExperimentEnabled() {
  * the experiment is enabled and an email (the distinct_id) is present.
  *
  * @param {string} event  one of EMAIL_EXPERIMENT_EVENTS
- * @param {object} props  { email, variant?, provider?, campaignId?, locale? }
+ * @param {object} props  { email, variant?, provider?, campaignId?, locale?, segment? }
  * @returns {Promise<boolean>} true if PostHog accepted the event
  */
 export async function captureEmailEvent(event, props = {}) {
-  const { email, variant, provider, campaignId, locale } = props;
+  const { email, variant, provider, campaignId, locale, segment } = props;
   if (!email) return false;
   if (provider && EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) return false; // e.g. mailtrap sandbox
   const { enabled, key, host } = await resolveConfig();
@@ -142,6 +142,7 @@ export async function captureEmailEvent(event, props = {}) {
           email_provider: provider || null,
           campaign_id: campaignId || null,
           locale: locale || null,
+          segment: segment || null,
           $lib: 'email-ab-server',
         },
       }),

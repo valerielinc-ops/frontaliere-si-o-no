@@ -15,7 +15,7 @@
  */
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X } from 'lucide-react';
+import { Bell, Mail, Loader2, CheckCircle2, AlertCircle, Trash2, Key, Pencil, Plus, Save, X, Pause, Play } from 'lucide-react';
 import {
  getFullSubscriptionStatus,
  toggleNewsletterSubscription,
@@ -96,6 +96,9 @@ interface SectionStrings {
  frequencyResetToAuto: string;
  frequencyCreateHint: string;
  addMoreSearchesHint: string;
+ alertPaused: string;
+ alertPause: string;
+ alertResume: string;
 }
 
 const STRINGS: Record<Locale, SectionStrings> = {
@@ -147,6 +150,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Potrai passare ad automatico (la cadenza si adatta a quanto apri o clicchi) dopo la creazione.',
  addMoreSearchesHint: 'Più ricerche aggiungi, meno occasioni ti sfuggono.',
+ alertPaused: 'In pausa',
+ alertPause: 'Metti in pausa',
+ alertResume: 'Riattiva',
  },
  en: {
  newsletterTitle: 'Newsletter subscription',
@@ -196,6 +202,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'You can switch to automatic (cadence adapts to how much you open or click) after creating it.',
  addMoreSearchesHint: 'The more searches you add, the fewer opportunities you miss.',
+ alertPaused: 'Paused',
+ alertPause: 'Pause',
+ alertResume: 'Resume',
  },
  de: {
  newsletterTitle: 'Newsletter-Abo',
@@ -245,6 +254,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Du kannst nach dem Erstellen auf automatisch umschalten (Häufigkeit passt sich an, wie oft du öffnest oder klickst).',
  addMoreSearchesHint: 'Je mehr Suchen du hinzufügst, desto weniger Chancen verpasst du.',
+ alertPaused: 'Pausiert',
+ alertPause: 'Pausieren',
+ alertResume: 'Fortsetzen',
  },
  fr: {
  newsletterTitle: 'Abonnement newsletter',
@@ -294,6 +306,9 @@ const STRINGS: Record<Locale, SectionStrings> = {
  frequencyCreateHint:
  'Tu pourras passer en automatique (la fréquence s\'adapte à tes ouvertures/clics) après la création.',
  addMoreSearchesHint: 'Plus tu ajoutes de recherches, moins tu rates d\u2019opportunités.',
+ alertPaused: 'En pause',
+ alertPause: 'Mettre en pause',
+ alertResume: 'Réactiver',
  },
 };
 
@@ -344,6 +359,11 @@ async function authLoadFullStatus(email: string): Promise<{
  const alerts: SubscriptionAlertSummary[] = [];
  alertsSnap.forEach((d) => {
  const a = d.data() || {};
+ // Issue #4298 follow-up fix: `active` is SOLELY the soft-delete flag written
+ // by services/jobAlertService.ts's deleteAlert() — a soft-deleted doc must
+ // never reappear here. Pause is tracked by the dedicated, orthogonal `paused`
+ // field written by authUpdateAlert; a paused (active:true, paused:true) alert
+ // stays visible so the user can resume it.
  if (a.active === false) return;
  const created = a.createdAt;
  alerts.push({
@@ -353,7 +373,8 @@ async function authLoadFullStatus(email: string): Promise<{
  sectors: Array.isArray(a.sectors) ? a.sectors.map(String) : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
  frequencyOverride: a.frequencyOverride === true,
- active: a.active !== false,
+ active: true,
+ paused: a.paused === true,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
@@ -477,7 +498,10 @@ async function authUpdateAlert(
  // engine-managed (`false`), not just pin (`true`) — see
  // handleResetToAuto below.
  if ('frequencyOverride' in patch) update.frequencyOverride = patch.frequencyOverride === true;
- if (patch.active !== undefined) update.active = patch.active;
+ // Issue #4298 follow-up fix: never write `active` here — that field is
+ // SOLELY the soft-delete flag. Pause/resume writes the dedicated `paused`
+ // field, which can never collide with a real delete.
+ if ('paused' in patch) update.paused = patch.paused === true;
  await setDoc(ref, update, { merge: true });
 
  await addDoc(collection(doc(db, 'newsletter_subscribers', key), 'events'), {
@@ -500,6 +524,7 @@ async function authUpdateAlert(
  frequency: typeof data?.frequency === 'string' ? data.frequency : 'weekly',
  frequencyOverride: data?.frequencyOverride === true,
  active: data?.active !== false,
+ paused: data?.paused === true,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  };
 }
@@ -558,6 +583,7 @@ async function authCreateAlert(
  frequency: payload.frequency,
  frequencyOverride: true,
  active: true,
+ paused: false,
  createdAt:
  created && typeof created.toMillis === 'function' ? created.toMillis() : Date.now(),
  };
@@ -823,6 +849,7 @@ interface AlertRowProps {
  }) => void;
  onChangeFrequency: (next: JobAlertFrequency) => void;
  onResetToAuto: () => void;
+ onTogglePause: () => void;
 }
 
 const AlertRow: React.FC<AlertRowProps> = ({
@@ -837,6 +864,7 @@ const AlertRow: React.FC<AlertRowProps> = ({
  onSaveEdit,
  onChangeFrequency,
  onResetToAuto,
+ onTogglePause,
 }) => {
  const [confirming, setConfirming] = useState(false);
 
@@ -904,14 +932,24 @@ const AlertRow: React.FC<AlertRowProps> = ({
  <span className="text-xs text-muted">{S.frequencyAutoHint}</span>
  </>
  )}
- {!alert.active && (
+ {alert.paused && (
  <span className="px-2 py-0.5 bg-surface-raised text-muted text-xs font-bold rounded-md">
- {S.autologinOff}
+ {S.alertPaused}
  </span>
  )}
  </div>
  </div>
  <div className="flex flex-row sm:flex-col items-center sm:items-end justify-end gap-2 shrink-0">
+ <button
+ type="button"
+ onClick={onTogglePause}
+ disabled={saving || deleting}
+ aria-label={alert.paused ? S.alertResume : S.alertPause}
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-surface-raised text-body text-xs font-bold rounded-lg hover:bg-surface-raised transition-colors disabled:opacity-60"
+ >
+ {alert.paused ? <Play size={12} /> : <Pause size={12} />}
+ {alert.paused ? S.alertResume : S.alertPause}
+ </button>
  <button
  type="button"
  onClick={onStartEdit}
@@ -1208,6 +1246,42 @@ export function SubscriptionPreferencesController({
  }
  };
 
+ const handleTogglePause = async (alertId: string, nextPaused: boolean) => {
+ // Issue #4298 follow-up fix: pause/resume flips the dedicated `paused`
+ // field, never `active` (that stays SOLELY the soft-delete flag). Same
+ // optimistic-update + revert-on-error shape as handleChangeFrequency.
+ const previous = alerts.find((a) => a.id === alertId);
+ if (!previous) return;
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, paused: nextPaused } : a)));
+ setSavingAlertId(alertId);
+ setErrorMsg('');
+ try {
+ if (mode === 'token') {
+ if (!token) throw new Error('missing_token');
+ const result = await updateJobAlert(email, token, alertId, { paused: nextPaused });
+ if (!result.success) throw new Error(result.error || 'write_failed');
+ if (result.alert) {
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...result.alert! } : a)));
+ }
+ } else {
+ const fresh = await authUpdateAlert(email, alertId, { paused: nextPaused });
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, ...fresh } : a)));
+ }
+ flashSaved(`alert:${alertId}`);
+ // Lazy import mirrors JobAlertForm.tsx's Analytics.trackJobAlertDeleted() call —
+ // keeps analytics out of this route's eager bundle.
+ import('@/services/analytics')
+ .then(({ Analytics }) => Analytics.trackJobAlertPauseToggled(nextPaused))
+ .catch(() => {});
+ } catch (err: any) {
+ console.warn('[SubscriptionPreferencesController] Toggle pause failed:', err?.message);
+ setAlerts((prev) => prev.map((a) => (a.id === alertId ? { ...a, paused: previous.paused } : a)));
+ reportError(S.saveError);
+ } finally {
+ setSavingAlertId(null);
+ }
+ };
+
  const handleSaveEdit = async (
  alertId: string,
  values: { keywords: string[]; locations: string[]; sectors: string[]; frequency: JobAlertFrequency },
@@ -1275,6 +1349,7 @@ export function SubscriptionPreferencesController({
  frequency: typeof created.frequency === 'string' ? created.frequency : 'weekly',
  frequencyOverride: created.frequencyOverride === true,
  active: created.active !== false,
+ paused: false,
  createdAt: typeof created.createdAt === 'number' ? created.createdAt : null,
  },
  ...prev,
@@ -1356,6 +1431,7 @@ export function SubscriptionPreferencesController({
  onSaveEdit={(values) => handleSaveEdit(alert.id, values)}
  onChangeFrequency={(next) => handleChangeFrequency(alert.id, next)}
  onResetToAuto={() => handleResetToAuto(alert.id)}
+ onTogglePause={() => handleTogglePause(alert.id, !alert.paused)}
  />
  ))}
  </div>

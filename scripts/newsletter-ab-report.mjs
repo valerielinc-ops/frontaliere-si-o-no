@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * newsletter-ab-report.mjs — Subject-line A/B open-rate report, per provider.
+ * newsletter-ab-report.mjs — Subject-line A/B + per-segment open-rate report.
  *
- * Answers the goal: "which subject-line variant wins the open rate, broken down
- * by sending provider?" Cross-tabulates open rate by (provider × variant) for a
- * weekly campaign and flags the per-provider winner with a significance note.
+ * Answers two goals:
+ *  1. "which subject-line variant wins the open rate, broken down by sending
+ *     provider?" Cross-tabulates open rate by (provider × variant) for a
+ *     weekly campaign and flags the per-provider winner with a significance note.
+ *  2. (#4299) "did each content segment perform, and did any segment's
+ *     unsubscribe rate for this send blow past a sane cap?" Breaks
+ *     open/click/unsubscribe down by the `segment` stamped on every
+ *     campaign_deliveries doc (scripts/lib/newsletter-segments.mjs's
+ *     resolveSegment/describeSegment, e.g. "hot_jobs" / "dormant") and flags
+ *     any segment whose unsubscribe rate for THIS send crossed
+ *     UNSUB_RATE_CAP_PCT (scripts/lib/newsletter-ab-data.mjs).
  *
  * Design — immune to the per-provider webhook inconsistencies:
  *  - DENOMINATOR (sends) comes from the send-time `campaign_deliveries` docs,
@@ -19,11 +27,16 @@
  *      (b) an 'open' event in the subscriber `events` subcollection for this
  *          campaign (matched by email or message_id) — every provider writes
  *          these, sidestepping the send-doc id divergence between providers.
+ *  - UNSUBSCRIBES have no campaign_id (the unsubscribe endpoint isn't part of
+ *    the send path) so they're attributed to this campaign by time window:
+ *    an unsubscribe from one of this campaign's recipients, within a few days
+ *    of this campaign's sends — see loadCampaignSegmentReport's doc comment.
  *
  * Usage:
  *   node scripts/newsletter-ab-report.mjs                       # latest weekly campaign
  *   node scripts/newsletter-ab-report.mjs --campaign weekly_2026-06-16
  *   node scripts/newsletter-ab-report.mjs --json               # machine-readable
+ *   node scripts/newsletter-ab-report.mjs --fail-on-breach      # exit 3 on unsub-guard breach
  *
  * Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA), GCLOUD_PROJECT.
  * Read-only — never writes to Firestore.
@@ -31,10 +44,20 @@
 
 import { listVariantIds } from '../services/newsletter-subject-variants.mjs';
 import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
-import { loadCampaignVariantTotals, MissingIndexError } from './lib/newsletter-ab-data.mjs';
+import {
+  loadCampaignVariantTotals,
+  loadCampaignSegmentReport,
+  unsubscribeGuardBreaches,
+  UNSUB_RATE_CAP_PCT,
+  MissingIndexError,
+} from './lib/newsletter-ab-data.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
+// Nonzero exit when a segment breaches the unsubscribe-rate guard — opt-in so
+// this script stays a pure report by default; a future CI/monitor wiring can
+// pass this to alert on it.
+const FAIL_ON_BREACH = args.includes('--fail-on-breach');
 function argValue(flag) {
   const i = args.indexOf(flag);
   return i >= 0 && i + 1 < args.length ? args[i + 1] : null;
@@ -130,8 +153,19 @@ async function main() {
 
   for (const v of variantIds) report.byVariant[v].openRate = pct(report.byVariant[v].opens, report.byVariant[v].sends);
 
+  // ── Per-segment report (#4299 acceptance criterion) ──
+  // Segment (engagement level x inferred interest, e.g. "hot_jobs") is stamped
+  // on every campaign_deliveries doc by send-newsletter.mjs. Breaks
+  // open/click/unsubscribe down per segment and flags any segment whose
+  // unsubscribe rate for THIS send breached the +5% guard.
+  const segmentReport = await loadCampaignSegmentReport(db, campaignId);
+  const breaches = unsubscribeGuardBreaches(segmentReport);
+  report.segments = segmentReport.bySegment;
+  report.unsubscribeGuard = { capPct: UNSUB_RATE_CAP_PCT, overallRate: segmentReport.overallUnsubscribeRate, breaches };
+
   if (JSON_OUT) {
     console.log(JSON.stringify(report, null, 2));
+    if (breaches.length && FAIL_ON_BREACH) process.exit(3);
     return;
   }
 
@@ -162,6 +196,32 @@ async function main() {
     console.log(`\n⚠️  ${mismatchVariant} send docs had a persisted variant ≠ recomputed (assignment logic changed since send; report uses recomputed).`);
   }
   console.log('');
+
+  // ── Per-segment section ──
+  const segments = Object.keys(segmentReport.bySegment).sort();
+  console.log(`Per-segment (open/click/unsubscribe) — campaign ${campaignId}:`);
+  if (segments.length === 0) {
+    console.log('    (no segment-tagged sends for this campaign)');
+  }
+  for (const seg of segments) {
+    const c = segmentReport.bySegment[seg];
+    console.log(
+      `    ${seg.padEnd(16)} sends=${String(c.sends).padStart(5)}  opens=${String(c.opens).padStart(5)} (${c.openRate.toFixed(1)}%)`
+      + `  clicks=${String(c.clicks).padStart(4)} (${c.clickRate.toFixed(1)}%)`
+      + `  unsub=${String(c.unsubscribes).padStart(3)} (${c.unsubscribeRate.toFixed(2)}%)`,
+    );
+  }
+  console.log(`    ${'TOTAL'.padEnd(16)} sends=${String(segmentReport.totalSends).padStart(5)}  unsubscribe-rate=${segmentReport.overallUnsubscribeRate.toFixed(2)}% (guard cap ${UNSUB_RATE_CAP_PCT}%)`);
+  if (breaches.length) {
+    console.log(`\n🚨 UNSUBSCRIBE GUARD BREACH (cap ${UNSUB_RATE_CAP_PCT}%):`);
+    for (const b of breaches) {
+      console.log(`    ${b.scope}: ${b.rate.toFixed(2)}% (${b.unsubscribes}/${b.sends} sends)`);
+    }
+  } else {
+    console.log(`\n✅ Unsubscribe guard: no breach (cap ${UNSUB_RATE_CAP_PCT}%).`);
+  }
+  console.log('');
+  if (breaches.length && FAIL_ON_BREACH) process.exit(3);
 }
 
 main().catch((e) => {

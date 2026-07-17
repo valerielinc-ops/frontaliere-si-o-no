@@ -72,6 +72,12 @@ export function subscriberFromFirestoreRow(row) {
     job_search_query: row.job_search_query || null,
     job_context_backfill_slug: row.job_context_backfill_slug || null,
     source: row.source || null,
+    // Acquisition-surface signals written by services/newsletterSubscribers.ts
+    // on signup. Feed services/newsletter-segments.mjs:inferInterest so
+    // per-segment content assembly (#4299) knows jobs vs articles vs utility
+    // interest without a separate tracking pipeline.
+    sourceRouteFamily: row.source_route_family || null,
+    sourceComponent: row.source_component || null,
     preferences: row.preferences || {},
     type: row.type || null,
     // Default true: only skip autologin if user explicitly opted out

@@ -22,6 +22,8 @@
  * 120 days on the list AND ≥12 ignored sends with zero engagement.
  */
 
+import { toMillis } from './firestoreTimestamp.mjs';
+
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 export const SUNSET_MIN_SENDS = 12;
@@ -36,15 +38,6 @@ const MAILABLE_STATUSES = new Set(['active', 'confirmed', '']);
 function num(v) {
   const n = Number(v);
   return Number.isFinite(n) ? n : 0;
-}
-
-function toMillis(v) {
-  if (!v) return null;
-  if (typeof v === 'object' && typeof v.toMillis === 'function') return v.toMillis();
-  if (typeof v === 'object' && typeof v.toDate === 'function') return v.toDate().getTime();
-  if (typeof v === 'object' && typeof v._seconds === 'number') return v._seconds * 1000;
-  const t = new Date(v).getTime();
-  return Number.isFinite(t) ? t : null;
 }
 
 function norm(s) {
@@ -85,6 +78,27 @@ export function classifySunset(sub, nowMs) {
 
   // Already sunset: only ever resurrect on real engagement; otherwise leave be.
   if (status === 'inactive') {
+    // A doc sunset by the dormant win-back track
+    // (scripts/newsletter-winback-campaign.mjs, #4299) carries lifetime
+    // engagement almost by definition — that track owns the recency-weighted
+    // 'dormant' cohort, which includes subscribers who engaged before but
+    // have since gone quiet. Reactivating on lifetime open_count/click_count
+    // alone (the `engaged` check below) would fire on EVERY weekly run,
+    // since those counters never reset to zero — an inactive → active →
+    // inactive ping-pong that never sticks (review PR #4338, bug C). Only
+    // resurrect on real, FRESH engagement strictly after the sunset
+    // timestamp; if the recency data needed to prove that isn't present,
+    // never reactivate rather than guess.
+    if (sub?.sunset_source === 'dormant_winback') {
+      const sunsetAt = toMillis(sub?.inactive_at);
+      const lastEngagementAt = toMillis(
+        sub?.last_click_at ?? sub?.lastClickAt ?? sub?.last_open_at ?? sub?.lastOpenAt,
+      );
+      const freshlyEngaged = sunsetAt != null && lastEngagementAt != null && lastEngagementAt > sunsetAt;
+      return freshlyEngaged
+        ? { action: 'reactivate', reason: 'dormant win-back sunset — engaged again after sunset' }
+        : { action: 'none', reason: 'dormant win-back sunset — no fresh engagement since sunset' };
+    }
     return engaged
       ? { action: 'reactivate', reason: 'inactive subscriber has since opened/clicked' }
       : { action: 'none', reason: 'inactive, still no engagement' };

@@ -225,3 +225,36 @@ describe('JobAlertForm — canton geo filter', () => {
     expect(within(updatedSummary).queryByText(/Ginevra/)).toBeNull();
   });
 });
+
+describe('JobAlertForm — initialCantonCode prefill (issue #4298)', () => {
+  it('pre-selects the canton passed via initialCantonCode', () => {
+    render(<JobAlertForm authUser={authUser} initialCantonCode="TI" />);
+    expandForm();
+    openCantonPicker();
+
+    expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('true');
+  });
+
+  it('ignores an invalid/unknown initialCantonCode (falls back to "all cantons")', () => {
+    render(<JobAlertForm authUser={authUser} initialCantonCode="XX" />);
+    expandForm();
+
+    const fieldset = getFieldset();
+    expect(within(fieldset).getByText(/^Tutti i cantoni$/)).toBeTruthy();
+  });
+
+  it('never overwrites a canton the user already cleared by hand', () => {
+    const { rerender } = render(<JobAlertForm authUser={authUser} initialCantonCode="TI" />);
+    expandForm();
+    openCantonPicker();
+    expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('true');
+
+    fireEvent.click(getCantonChip(/Ticino/)); // user clears it by hand
+    expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('false');
+
+    // A later prop change (e.g. searchQuery-driven re-render) must not
+    // re-seed the canton the user just cleared.
+    rerender(<JobAlertForm authUser={authUser} initialKeyword="Sviluppo" initialCantonCode="TI" />);
+    expect(getCantonChip(/Ticino/).getAttribute('aria-pressed')).toBe('false');
+  });
+});

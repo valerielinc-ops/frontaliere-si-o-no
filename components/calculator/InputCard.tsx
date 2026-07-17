@@ -12,6 +12,7 @@ import { SegmentControl as SharedSegmentControl } from '@/components/shared/Segm
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { reportCaughtError } from '@/services/errorReporter';
+import ProfessionPresetChips from '@/components/calculator/ProfessionPresetChips';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
 interface Props {
@@ -501,6 +502,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </button>
  ))}
  </div>
+ <ProfessionPresetChips
+ annualIncomeCHF={inputs.annualIncomeCHF}
+ onSelect={(chf) => handleChange('annualIncomeCHF', chf)}
+ />
  </div>
 
  {/* Worker type selector (compact) */}
@@ -656,6 +661,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </button>
  ))}
  </div>
+ <ProfessionPresetChips
+ annualIncomeCHF={inputs.annualIncomeCHF}
+ onSelect={(chf) => handleChange('annualIncomeCHF', chf)}
+ />
  </div>
 
  {/* Demographics Grid */}

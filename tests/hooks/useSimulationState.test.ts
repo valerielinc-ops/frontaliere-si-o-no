@@ -38,6 +38,7 @@ vi.mock('@/services/firestoreService', () => ({
 import { useSimulationState, SEO_LANDING_PRESETS } from '@/hooks/useSimulationState';
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 import { DEFAULT_INPUTS } from '@/constants';
+import * as urlStateService from '@/services/urlStateService';
 
 describe('useSimulationState', () => {
   beforeEach(() => {
@@ -111,6 +112,47 @@ describe('useSimulationState', () => {
       expect(SEO_LANDING_PRESETS['salary-100000']).toBeDefined();
       expect(SEO_LANDING_PRESETS['salary-60000-married-2kids'].children).toBe(2);
       expect(SEO_LANDING_PRESETS['salary-80000-over20km'].distanceZone).toBe('OVER_20KM');
+    });
+  });
+
+  describe('URL hydration on activeTab change (issue #4307)', () => {
+    it('re-runs hydration when activeTab flips to calculator in-session (not just on mount)', () => {
+      // Simulates the job-board "netto stimato" deep-link: the SPA is
+      // already mounted on a non-calculator tab, then the user navigates
+      // to the calculator tab within the same session (no remount) with
+      // ?reddito=&cantone= present in the URL.
+      vi.mocked(urlStateService.hasSimulationParams).mockReturnValue(true);
+      vi.mocked(urlStateService.decodeSimulationParams).mockReturnValue({ annualIncomeCHF: 75000 });
+
+      const { result, rerender } = renderHook(
+        ({ activeTab }: { activeTab: 'calculator' | 'forum' }) => useSimulationState(activeTab, null),
+        { initialProps: { activeTab: 'forum' } },
+      );
+
+      // Not on the calculator tab yet: hydration must not fire.
+      expect(result.current.inputs.annualIncomeCHF).toBe(DEFAULT_INPUTS.annualIncomeCHF);
+      expect(result.current.urlHydrated.current).toBe(false);
+
+      rerender({ activeTab: 'calculator' });
+
+      expect(result.current.inputs.annualIncomeCHF).toBe(75000);
+      expect(result.current.urlHydrated.current).toBe(true);
+      expect(urlStateService.cleanSimulationParams).toHaveBeenCalled();
+    });
+
+    it('does not hydrate while activeTab stays off calculator', () => {
+      vi.mocked(urlStateService.hasSimulationParams).mockReturnValue(true);
+      vi.mocked(urlStateService.decodeSimulationParams).mockReturnValue({ annualIncomeCHF: 75000 });
+
+      const { result, rerender } = renderHook(
+        ({ activeTab }: { activeTab: 'forum' | 'confronti' }) => useSimulationState(activeTab, null),
+        { initialProps: { activeTab: 'forum' } },
+      );
+
+      rerender({ activeTab: 'confronti' });
+
+      expect(result.current.inputs.annualIncomeCHF).toBe(DEFAULT_INPUTS.annualIncomeCHF);
+      expect(result.current.urlHydrated.current).toBe(false);
     });
   });
 
