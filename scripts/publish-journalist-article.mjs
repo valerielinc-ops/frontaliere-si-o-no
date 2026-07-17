@@ -53,6 +53,7 @@ import {
   enforceStrongInternalLinks,
   findBestFallbackImage,
   pickAuthorForTopic,
+  getAuthorByUid,
   sanitizeBoldFormatting,
   validateAndEnforceCTA,
   optimizeSeoMetadata,
@@ -225,6 +226,31 @@ async function resolveHeroImage(data, doc) {
   return { source: 'static-fallback', path: data.image };
 }
 
+/**
+ * Resolves the byline for a journalist submission from its own captured
+ * identity (`doc.authorUid`/`doc.authorName`, set at draft time in
+ * journalistArticleService.ts) — never by guessing via article topic.
+ *
+ * - Registered guest journalist (uid matches an AUTHORS entry, e.g.
+ *   samuele-valente): full profile byline with author-page slug.
+ * - Authenticated journalist without a registry profile page yet (granted
+ *   access via AdminPanel.tsx "Giornalisti" but not yet added to
+ *   data/authors.ts): real name, generic team slug — correct attribution
+ *   without linking to a nonexistent author page.
+ * - No identity on the doc at all (malformed/legacy doc): `null`, caller
+ *   falls back to pickAuthorForTopic().
+ *
+ * @returns {{slug: string, name: string, linkedinUrl: string|null}|null}
+ */
+function resolveJournalistAuthor(doc) {
+  const registered = doc?.authorUid ? getAuthorByUid(doc.authorUid) : undefined;
+  if (registered) return registered;
+  if (doc?.authorName) {
+    return { slug: 'redazione', name: doc.authorName, linkedinUrl: null };
+  }
+  return null;
+}
+
 async function processDoc(db, FieldValue, docSnap) {
   const docId = docSnap.id;
   const doc = docSnap.data();
@@ -247,10 +273,19 @@ async function processDoc(db, FieldValue, docSnap) {
     console.log('  ✂️  sanitizing bold formatting (sanitizeBoldFormatting, pre-translation)...');
     sanitizeBoldFormatting(data);
 
-    data.author = pickAuthorForTopic(
-      [data.category, data.seo.keywords, data.seo.headline, data.content.it.title, data.id].join(' '),
-      data.id,
-    );
+    // Journalist submissions carry a real, authenticated identity captured at
+    // draft time (JournalistDashboardPage.tsx -> journalistArticleService.ts:
+    // doc.authorUid/authorName) — trust it instead of guessing a teammate by
+    // topic-keyword overlap. pickAuthorForTopic() is for AI-generated content,
+    // which has no real author; using it here previously misattributed every
+    // journalist byline to whichever registry author's keywords happened to
+    // match the article's topic (e.g. samuele-valente's articles landing on
+    // marco-ferrari/laura-bianchi — see issue report 2026-07-16).
+    data.author = resolveJournalistAuthor(doc)
+      || pickAuthorForTopic(
+        [data.category, data.seo.keywords, data.seo.headline, data.content.it.title, data.id].join(' '),
+        data.id,
+      );
 
     const imageResolution = await resolveHeroImage(data, doc);
     console.log(`  🖼️  hero image: ${imageResolution.source}`);
@@ -360,4 +395,4 @@ if (invokedDirectly) {
   });
 }
 
-export { buildPipelineData, slugify, resolveHeroImage };
+export { buildPipelineData, slugify, resolveHeroImage, resolveJournalistAuthor };
