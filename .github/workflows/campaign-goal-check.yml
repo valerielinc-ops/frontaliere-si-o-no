@@ -1,0 +1,132 @@
+name: Campaign Goal Check
+
+# Weekly verification of the measurable goals declared in the campaign
+# backlog issues #4298-#4307 (14/30/90-day windows). Neither
+# monitor-seo-ctr-by-template.yml (CTR-by-template) nor cwv-monitor.yml
+# (Core Web Vitals) cover these — this workflow is the scheduled check that
+# actually reads the goal's declared source (PostHog/GSC/GA4/Bing) and
+# compares against the target once each goal's window has elapsed.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md.
+#
+# State: data/campaign-goal-status.json — a goal that passes is marked
+# terminal ("passed") and never re-evaluated again; a goal that fails opens/
+# dedupes a stable-title GitHub issue and is re-evaluated every run until it
+# passes. A goal below its maturity window stays "observing" (no query, no
+# issue) until CAMPAIGN_START + matureAfterDays.
+#
+# Auth: POSTHOG_PERSONAL_API_KEY/PROJECT_ID, GSC_CLIENT_ID/SECRET/
+# REFRESH_TOKEN, GA4_PROPERTY_ID, BING_API_KEY live in Firebase Remote
+# Config, loaded via scripts/load-rc-env.mjs (same mechanism as
+# cwv-monitor.yml). GSC/GA4 fall back to the Firebase service account
+# (GOOGLE_APPLICATION_CREDENTIALS) when the OAuth refresh token is absent.
+
+on:
+  schedule:
+    # Weekly: Sunday 05:37 UTC — clear of the other Sunday crons
+    # (monitor-gsc-seo.yml 15:00, monitor-seo-ctr-by-template.yml 16:00).
+    - cron: '37 5 * * 0'
+  workflow_dispatch: {}
+
+concurrency:
+  group: campaign-goal-check
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ No Firebase SA credentials — GSC/GA4 SA fallback unavailable"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity for issue creation = GitHub App installation token
+      # (`frontaliere-automation[bot]`); PAT fallback. Same pattern as
+      # monitor-seo-ctr-by-template.yml / monitor-gsc-seo.yml.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Run campaign goal check
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+        run: node scripts/campaign-goal-check.mjs
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Commit goal status if changed
+        if: always()
+        run: |
+          if [ ! -f data/campaign-goal-status.json ]; then
+            echo "No status file generated; skipping commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/campaign-goal-status.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(seo): update campaign goal status [skip ci]"
+
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --regenerate-cmd "git checkout HEAD@{1} -- data/campaign-goal-status.json 2>/dev/null || true; git add data/campaign-goal-status.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

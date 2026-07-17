@@ -1,0 +1,69 @@
+{
+  "goals": {
+    "alert_funnel_conversion": {
+      "title": "Alert funnel conversion (shown→created)",
+      "source": "posthog",
+      "issueRef": "#4298",
+      "matureAt": "2026-07-31",
+      "state": "observing"
+    },
+    "dead_clicks_reduction": {
+      "title": "Dead click $dead_click -50% (14gg)",
+      "source": "posthog",
+      "issueRef": "#4304",
+      "matureAt": "2026-07-31",
+      "state": "observing"
+    },
+    "error_rate": {
+      "title": "Error rate < 1% (30gg)",
+      "source": "posthog",
+      "issueRef": "#4304",
+      "matureAt": "2026-08-16",
+      "state": "observing"
+    },
+    "calc_deeplink_input_start": {
+      "title": "Calcolatore deep-link → input start >= 25%",
+      "source": "posthog",
+      "issueRef": "#4307",
+      "matureAt": "2026-08-16",
+      "state": "observing"
+    },
+    "canton_hub_positions": {
+      "title": "Hub cantonali: svizzera<20 E zurigo<14",
+      "source": "gsc",
+      "issueRef": "#4303",
+      "matureAt": "2026-08-16",
+      "state": "observing"
+    },
+    "brand_query_ctr": {
+      "title": "CTR query brand > 2%",
+      "source": "gsc",
+      "issueRef": "#4306",
+      "matureAt": "2026-08-16",
+      "state": "observing"
+    },
+    "email_sessions": {
+      "title": "Sessioni canale Email >= 7.350 (90gg)",
+      "source": "ga4",
+      "issueRef": "#4299",
+      "matureAt": "2026-10-15",
+      "state": "observing"
+    },
+    "ai_sessions": {
+      "title": "Sessioni canale AI Assistant >= 4.839 (90gg)",
+      "source": "ga4",
+      "issueRef": "#4305",
+      "matureAt": "2026-10-15",
+      "state": "observing"
+    },
+    "bing_clicks": {
+      "title": "Click Bing >= 500 (90gg)",
+      "source": "bing",
+      "issueRef": "#4305",
+      "matureAt": "2026-10-15",
+      "state": "observing"
+    }
+  },
+  "generatedAt": "2026-07-17T11:14:51.544Z",
+  "campaignStart": "2026-07-17"
+}
