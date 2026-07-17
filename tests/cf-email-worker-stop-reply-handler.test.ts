@@ -83,6 +83,33 @@ describe('worker email() — newsletter mailbox branch', () => {
     expect(message.forward).toHaveBeenCalledWith('ops@example.com');
   });
 
+  it('still routes to the newsletter path when `to` is display-name-wrapped (defensive, #4369)', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response('{"success":true}'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const message = fakeMessage({
+      from: 'Jane Reader <jane.reader@example.com>',
+      to: '"Frontaliere Newsletter" <newsletter@frontaliereticino.ch>',
+      subject: 'Unsubscribe Frontaliere Weekly',
+      rawText: 'Please unsubscribe jane.reader@example.com from Frontaliere Weekly.',
+    });
+    const ctx = fakeCtx();
+    const env = {
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      NEWSLETTER_UNSUB_URL: 'https://frontaliereticino.ch/disiscrivi-newsletter/',
+      STOP_SECRET: SECRET,
+      FORWARD_TO: 'ops@example.com',
+    };
+
+    await worker.email(message, env, ctx);
+    await Promise.all(ctx.waited);
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const calledUrl = new URL(fetchMock.mock.calls[0][0]);
+    expect(calledUrl.searchParams.get('email')).toBe('jane.reader@example.com');
+    expect(message.forward).toHaveBeenCalledWith('ops@example.com');
+  });
+
   it('does NOT unsubscribe on a loose conversational STOP form (newsletter path is stricter than outreach)', async () => {
     const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
