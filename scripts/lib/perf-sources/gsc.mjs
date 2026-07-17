@@ -59,10 +59,22 @@ async function gscQuery(token, body, fetchImpl = fetch) {
 }
 
 /**
- * Fetch per-page metrics for /articoli-frontaliere/ pages, last `windowDays`.
- * Returns { rows, perPath: Map<pathname, {clicks, impressions, ctr, position}> }.
+ * Fetch per-page metrics for pages whose path contains `pathContains`
+ * (default `/articoli-frontaliere/`, the original single-family use case),
+ * last `windowDays`. Returns
+ * { rows, perPath: Map<pathname, {clicks, impressions, ctr, position}> }.
+ *
+ * `pathContains` lets callers reuse this same GSC client for other template
+ * families (e.g. `/guida-frontaliere/`, `/tasse-e-pensione/`) instead of
+ * duplicating the OAuth2 + searchAnalytics/query plumbing — see
+ * scripts/lib/seo-ctr-curve.mjs for the family registry that drives this.
  */
-export async function fetchGscByPage({ windowDays = 30, fetchImpl = fetch, getTokenImpl = getServiceAccountToken } = {}) {
+export async function fetchGscByPage({
+  windowDays = 30,
+  pathContains = '/articoli-frontaliere/',
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
   const token = await getTokenImpl({ fetchImpl });
   if (!token) throw new Error('no service-account token (set FIREBASE_SERVICE_ACCOUNT_JSON or GOOGLE_APPLICATION_CREDENTIALS)');
   const { start, end } = windowDates(windowDays);
@@ -75,7 +87,7 @@ export async function fetchGscByPage({ windowDays = 30, fetchImpl = fetch, getTo
       dimensionFilterGroups: [
         {
           filters: [
-            { dimension: 'page', operator: 'contains', expression: '/articoli-frontaliere/' },
+            { dimension: 'page', operator: 'contains', expression: pathContains },
           ],
         },
       ],
