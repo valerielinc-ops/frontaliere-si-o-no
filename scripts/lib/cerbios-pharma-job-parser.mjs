@@ -14,6 +14,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('cerbios-pharma');
 
@@ -174,7 +175,7 @@ export function parseListingPage(html) {
 export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
-  const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
   if (!title || title.length < 3) return null;
 

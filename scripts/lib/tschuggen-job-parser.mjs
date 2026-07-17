@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -302,11 +302,11 @@ function extractSpanText(rowHtml, elementId) {
  */
 export function parseTschuggenDetailPage(html = '', fallbackTitle = '') {
   // Extract title from h1
-  const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([^<]+)<\/h1>/);
   const title = normalizeSpace(decodeEntities(h1Match ? h1Match[1] : fallbackTitle));
 
   // Extract hotel name from <title>Title - Hotel Name</title>
-  const titleTagMatch = html.match(/<title>([^<]+)<\/title>/);
+  const titleTagMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/);
   let hotelName = '';
   if (titleTagMatch) {
     const parts = titleTagMatch[1].split(' - ');

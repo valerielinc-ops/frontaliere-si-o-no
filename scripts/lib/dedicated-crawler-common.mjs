@@ -4895,14 +4895,19 @@ export function decodeNumericEntities(value = '') {
 // Literal JavaScript escape sequences ("für") leak into job TITLES when
 // a parser captures text from inside an embedded JSON/script block instead of
 // the rendered DOM (Refline JSON-LD incident 2026-07, see
-// scripts/lib/refline-common.mjs → extractReflineDetailTitle). Titles never
-// legitimately contain escape syntax, so decoding at this chokepoint closes
-// the class for every dedicated crawler by construction. NOT applied to
-// descriptions: job text may legitimately quote escape syntax (e.g. developer
-// postings).
+// scripts/lib/refline-common.mjs → extractReflineDetailTitle). Decoding at
+// this chokepoint closes the class for every dedicated crawler by
+// construction. Scope guards against false positives on legitimate titles:
+// only non-ASCII code points (>= 0x80) are decoded — JSON.stringify never
+// escapes ASCII, so a real leak is always a diacritic/typographic char, while
+// a hypothetical product/document code like "A" stays untouched. NOT
+// applied to descriptions: job text may legitimately quote escape syntax
+// (e.g. developer postings).
 export function decodeUnicodeEscapeLeaks(value = '') {
-  return String(value || '')
-    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+  return String(value || '').replace(/\\u([0-9a-fA-F]{4})/g, (match, hex) => {
+    const code = parseInt(hex, 16);
+    return code >= 0x80 ? String.fromCharCode(code) : match;
+  });
 }
 
 // ── String normalization ─────────────────────────────────────

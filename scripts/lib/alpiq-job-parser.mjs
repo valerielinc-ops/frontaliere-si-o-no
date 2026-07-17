@@ -22,7 +22,7 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
-import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
@@ -180,7 +180,7 @@ export function parseAlpiqDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
   // Extract title from h2
-  const h2Match = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const h2Match = stripScriptsAndStyles(html).match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
   const title = h2Match ? normalizeSpace(stripHtml(h2Match[1])) : '';
 
   // Extract description from main content sections

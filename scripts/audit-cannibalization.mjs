@@ -20,6 +20,7 @@
 import { readFileSync, readdirSync, statSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 
 const DIST = path.resolve('dist');
 
@@ -155,7 +156,7 @@ function normalize(phrase) {
 }
 
 function extractTitle(html) {
- const m = html.match(/<title>([^<]+)<\/title>/i);
+ const m = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/i);
  return m ? m[1].trim() : '';
 }
 

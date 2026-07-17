@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -93,7 +93,7 @@ export function parseListingHtml(html = '') {
 function extractH1(html) {
   // The detail page wraps the headline in a `<div class="component-headline">`
   // or as a plain `<h1>` in the lead block.
-  const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const m = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   return m ? normalizeSpace(decodeEntities(m[1].replace(/<[^>]+>/g, ' '))) : '';
 }
 

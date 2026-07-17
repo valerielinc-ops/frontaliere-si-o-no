@@ -260,6 +260,9 @@ export function parseReflineJobPostingJsonLd(html = '') {
   if (!html) return null;
   // Scan EVERY ld+json block: a tenant may ship breadcrumb/Organization
   // blocks ahead of the JobPosting one — first-block-only would miss it.
+  // First JobPosting in document order wins: the main posting precedes any
+  // hypothetical related-jobs widget (live tenant pages checked 2026-07 emit
+  // at most one), and the heading fallback still covers a total mismatch.
   const blockRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
   let match;
   while ((match = blockRe.exec(html)) !== null) {

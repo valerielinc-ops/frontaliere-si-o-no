@@ -118,6 +118,11 @@ describe('decodeUnicodeEscapeLeaks (shared chokepoint guard)', () => {
     const clean = 'Infermiera diplomata SSS/SUP per Oncologia, 80%';
     expect(decodeUnicodeEscapeLeaks(clean)).toBe(clean);
   });
+
+  it('does not decode ASCII-range escapes (legit codes are never JSON-escape leaks)', () => {
+    const doc = 'Escape-Spezialist \\u0041-Zertifikat 80%';
+    expect(decodeUnicodeEscapeLeaks(doc)).toBe(doc);
+  });
 });
 
 describe('committed job slices carry no escape-corrupted titles', () => {

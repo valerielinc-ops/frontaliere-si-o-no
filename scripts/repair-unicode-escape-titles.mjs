@@ -86,6 +86,12 @@ function decodeJobTexts(job) {
 // Repair a slug artifact in place: "f-u00fcr" (slugify of the literal
 // "für" — the backslash became a hyphen) → "fur" (slugify of "für").
 // Used only for registry entries with no live job to copy clean slugs from.
+// Deliberately NOT buildSlug: an orphaned pin has no title to rebuild from,
+// so we edit the existing (already-capped) slug in place — substitutions only
+// shorten it, so the 120 cap and any disambiguator tail stay intact. If the
+// job ever resurfaces, the pin (authoritative by design) may differ by a few
+// bytes from a fresh buildSlug derivation, which is fine: the registry's only
+// contract is stability, and previousSlugs bridge any old URL.
 function decodeSlugArtifacts(slug) {
   return String(slug || '').replace(/-?u00([0-9a-f]{2})/g, (_, hex) =>
     String.fromCharCode(parseInt(hex, 16))
