@@ -1256,7 +1256,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
     // Decode HTML entities (handles double-encoded cases like &amp;#8211; → – )
     const cleanText = (s) => decodeNumericEntities(decodeHtmlEntities(String(s || '').trim()));
-    const baseTitle = cleanText(job.title);
+    const baseTitle = decodeUnicodeEscapeLeaks(cleanText(job.title));
     const baseDesc = cleanText(job.description);
     if (baseTitle && baseTitle !== String(job.title || '').trim()) {
       job.title = baseTitle;
@@ -1292,12 +1292,14 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
 
-    // Clean HTML entities from existing locale values
+    // Clean HTML entities from existing locale values (titles additionally
+    // get literal-\uXXXX leak decoding — see decodeUnicodeEscapeLeaks)
     for (const map of [job.titleByLocale, job.descriptionByLocale]) {
+      const isTitleMap = map === job.titleByLocale;
       for (const loc of Object.keys(map)) {
         const raw = map[loc];
         if (typeof raw !== 'string') continue;
-        const decoded = cleanText(raw);
+        const decoded = isTitleMap ? decodeUnicodeEscapeLeaks(cleanText(raw)) : cleanText(raw);
         if (decoded !== raw) {
           map[loc] = decoded;
           jobChanged = true;
@@ -4888,6 +4890,19 @@ export function decodeNumericEntities(value = '') {
   return String(value || '')
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
     .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
+}
+
+// Literal JavaScript escape sequences ("für") leak into job TITLES when
+// a parser captures text from inside an embedded JSON/script block instead of
+// the rendered DOM (Refline JSON-LD incident 2026-07, see
+// scripts/lib/refline-common.mjs → extractReflineDetailTitle). Titles never
+// legitimately contain escape syntax, so decoding at this chokepoint closes
+// the class for every dedicated crawler by construction. NOT applied to
+// descriptions: job text may legitimately quote escape syntax (e.g. developer
+// postings).
+export function decodeUnicodeEscapeLeaks(value = '') {
+  return String(value || '')
+    .replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
 
 // ── String normalization ─────────────────────────────────────

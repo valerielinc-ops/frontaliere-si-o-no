@@ -192,14 +192,39 @@ export function parseReflineListing(html = '', opts = {}) {
  * Same algorithm across all tenants: extract <h1> title, walk content blocks,
  * skip boilerplate.
  */
+/**
+ * Extract the job title from a Refline detail page.
+ *
+ * Shared by every Refline parser (factory + bespoke tenants): the JSON-LD
+ * JobPosting `title` is authoritative when present (JSON.parse decodes its
+ * escapes); visible headings are the fallback — matched only AFTER stripping
+ * `<script>`/`<style>` blocks. Refline embeds a JSON-LD JobPosting whose
+ * escaped `description` string starts with a literal `<h1>…ä…</h1>` —
+ * on tenants whose template ships NO real <h1> in the body (Spital Limmattal
+ * 486538, Caritas 126757, ZKB 792841) a raw-html title regex matches INSIDE
+ * the script block and captures JSON-escaped text, leaking literal `\uXXXX`
+ * into titles and slugs.
+ */
+export function extractReflineDetailTitle(html = '') {
+  if (!html) return '';
+  const jsonLdTitle = normalizeSpace(stripHtml(decodeEntities(
+    String(parseReflineJobPostingJsonLd(html)?.title || ''),
+  )));
+  if (jsonLdTitle) return jsonLdTitle;
+  const cleaned = html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const titleMatch = cleaned.match(/<h1[^>]*class="[^"]*posTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || cleaned.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || cleaned.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
+    || cleaned.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return titleMatch ? normalizeSpace(stripHtml(decodeEntities(titleMatch[1]))) : '';
+}
+
 export function parseReflineDetail(html = '') {
   if (!html) return { title: '', description: '' };
 
-  const titleMatch = html.match(/<h1[^>]*class="[^"]*posTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(decodeEntities(titleMatch[1]))) : '';
+  const title = extractReflineDetailTitle(html);
 
   const cleaned = html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
