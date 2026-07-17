@@ -175,7 +175,7 @@ jobs:
           EOF
           )
           node scripts/lib/github-issue-creator.mjs \
-            --title "previousSlugs writer regression: ${TOTAL} losses in ${WINDOW}" \
+            --title "previousSlugs writer regression detected" \
             --description "$body" \
             --priority 2 \
             --label bug \

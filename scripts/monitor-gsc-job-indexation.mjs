@@ -638,7 +638,7 @@ async function createGithubIssue(failedPages, results, priority = 1, titlePrefix
   try {
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
-      title: `[Monitor] ${titlePrefix}${failedPages.length} job page(s) with indexation issues`,
+      title: `[Monitor] ${titlePrefix}job page(s) with indexation issues`,
       description,
       priority,
       labels: ['Bug'],
@@ -661,6 +661,7 @@ async function createStructuredDataIssue(pages) {
     '## GSC Job Indexation Monitor — Structured Data Errors Detected',
     '',
     `**Date**: ${new Date().toISOString().split('T')[0]}`,
+    `**Affected pages**: ${pages.length}`,
     `**Source**: GSC URL Inspection API — richResultsResult`,
     '',
     '### Affected Pages',
@@ -681,7 +682,7 @@ async function createStructuredDataIssue(pages) {
   try {
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
-      title: `[Monitor] ${pages.length} job page(s) with structured data issues`,
+      title: '[Monitor] job page(s) with structured data issues',
       description,
       priority: 3,
       labels: ['Bug', 'seo'],

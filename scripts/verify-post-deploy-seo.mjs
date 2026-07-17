@@ -340,7 +340,7 @@ async function createGithubIssue(issues) {
     // Use the GitHub issue creator module
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
-      title: `SEO Regression: ${issues.length} job page(s) with canonical/schema issues`,
+      title: 'SEO Regression: job page(s) with canonical/schema issues',
       description,
       priority: 1,
       labels: ['Bug'],
