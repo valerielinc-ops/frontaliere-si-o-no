@@ -91,7 +91,7 @@ export const SEO_CTR_FAMILIES = [
     monitored: false,
   },
   {
-    id: 'cerca-lavoro-ticino',
+    id: 'cerca-lavoro-ticino', // cathedral-allow: GSC family identifier for CTR aggregation, not a URL emission site
     label: 'Cerca lavoro Ticino (riferimento)',
     pathContains: '/cerca-lavoro-ticino/',
     targetCtr: null,
