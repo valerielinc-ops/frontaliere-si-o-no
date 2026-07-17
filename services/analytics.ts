@@ -594,7 +594,15 @@ function bindGlobalInteractionTracking() {
  if (now - lastCtaAt < CTA_THROTTLE_MS) return;
  const target = event.target as HTMLElement | null;
  if (!target) return;
- const actionable = target.closest('a,button,[role="button"],input[type="submit"]') as HTMLElement | null;
+ // Includes native form controls (select/input/textarea) and the <summary>
+ // disclosure element — all fully interactive without needing role="button".
+ // Widened per issue #4304: a live PostHog query showed these were the
+ // single largest source of custom dead_click false positives (a marital-
+ // status <select> alone accounted for ~474 of ~2,747 events/30d — opening
+ // a native dropdown is never a dead click).
+ const actionable = target.closest(
+ 'a,button,[role="button"],input[type="submit"],select,input,textarea,summary'
+ ) as HTMLElement | null;
 
  // Dead-click detection: user clicked on a non-interactive element
  // that visually looks clickable (has pointer cursor, card-like styling, etc.)
@@ -603,8 +611,20 @@ function bindGlobalInteractionTracking() {
  return;
  }
 
- lastCtaAt = now;
  const tag = actionable.tagName.toLowerCase();
+ // Native form controls are interactive (never dead clicks) but are NOT
+ // CTAs: logging them would flood cta_click with form-field noise and the
+ // 500ms throttle would then swallow genuine CTA clicks right after a
+ // field interaction (review PR #4324). Early-return, no event either way.
+ if (
+ tag === 'select' ||
+ tag === 'textarea' ||
+ tag === 'summary' ||
+ (tag === 'input' && (actionable as HTMLInputElement).type !== 'submit')
+ ) {
+ return;
+ }
+ lastCtaAt = now;
  const href = actionable instanceof HTMLAnchorElement ? actionable.href : '';
  const internal = href ? href.startsWith(window.location.origin) : false;
  const label = getElementLabel(actionable);
@@ -643,6 +663,15 @@ function bindGlobalInteractionTracking() {
 let _deadClickCount = 0;
 function detectDeadClick(target: HTMLElement): void {
  if (_deadClickCount >= 3) return;
+ // Exclude clicks inside known third-party-injected UI we don't own the
+ // markup or interactivity of: Google Funding Choices' consent-CMP widget
+ // (`fc-*` class namespace) and Google Translate's automatic-translation
+ // wrapper spans (`google-anno-*`, injected around already-instrumented
+ // first-party elements when a user enables page translation — sometimes
+ // breaking the DOM ancestor chain the click handler above relies on).
+ // Confirmed via live PostHog query (#4304): span.fc-slider-el alone
+ // accounted for ~110 of ~2,747 custom dead_click events/30d.
+ if (target.closest('[class*="fc-"]') || target.closest('[class^="google-anno"],[class*=" google-anno"]')) return;
  // Check if the element has pointer cursor or card-like appearance
  const style = window.getComputedStyle(target);
  const looksClickable = style.cursor === 'pointer'
@@ -1142,6 +1171,7 @@ export const Analytics = {
  cssUrl: info.href || '',
  delayMs: info.delayMs || 3000,
  pagePath: info.pagePath || '/',
+ visibilityState: info.visibilityState || 'unknown',
  });
  }
  } catch { /* ignore */ }
@@ -1225,8 +1255,22 @@ export const Analytics = {
  * GA4 event: css_fallback
  *
  * Fires when the 3-second setTimeout had to force CSS media='all' because
- * the onload handler was stripped by a content blocker. This means the user
- * saw unstyled content for 3 seconds.
+ * the `onload` handler never fired within the window (content blocker
+ * stripping the handler is ONE possible cause, not the only one — see
+ * issue #4304 triage below). This means the user saw unstyled content
+ * (behind the render-blocking critical CSS, so not a blank page) for up
+ * to 3 seconds.
+ *
+ * Issue #4304 triage (956 events/30d, ~1% of sessions): live breakdown showed
+ * NO single-browser-engine concentration (Chrome/Android and Mobile
+ * Safari/iOS both contribute roughly proportional to their overall mobile
+ * traffic share) and 93% of events report `connection_type` `'4g'` — against
+ * both a single-engine onload bug and a simple slow-network read of this
+ * event, since `effectiveType` is a soft heuristic that defaults to `'4g'`
+ * absent contrary evidence. `visibility_state` (added this triage) lets a
+ * background-tab-throttling root cause be confirmed/ruled out from the next
+ * data pull — a `hidden` skew would explain a cross-engine, "network looked
+ * fine" pattern that a single-onload-bug theory does not.
  *
  * If this count is HIGH → consider inlining more critical CSS or using
  * a different async loading strategy.
@@ -1235,11 +1279,13 @@ export const Analytics = {
  cssUrl?: string;
  delayMs?: number;
  pagePath?: string;
+ visibilityState?: string;
  }) => {
  log('css_fallback', {
  css_url: truncate(info.cssUrl || '', 200),
  delay_ms: info.delayMs ?? 3000,
  page_path: truncate(info.pagePath || window.location.pathname, 180),
+ visibility_state: truncate(info.visibilityState || 'unknown', 20),
  user_agent: truncate(navigator.userAgent || '', 150),
  connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
  screen_width: window.innerWidth || 0,

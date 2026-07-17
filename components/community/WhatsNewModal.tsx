@@ -55,6 +55,11 @@ export const RELEASES: Release[] = [
  descKey: 'whatsNew.v3610.calcJobBridge.desc',
  link: { tab: 'calculator' },
  },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3610.authorCv.title',
+ descKey: 'whatsNew.v3610.authorCv.desc',
+ },
  ],
  },
  {

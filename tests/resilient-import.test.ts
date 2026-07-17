@@ -176,6 +176,41 @@ describe('isVersionSkewError', () => {
     expect(isVersionSkewError(undefined)).toBe(false);
   });
 
+  // Issue #4304: the site's #1 live runtime exception (per analyticsProxy.ts's
+  // doc comment) — cross-chunk skew leaves the `Analytics` lazy-proxy import
+  // bound to `undefined` at the call site, so `Analytics.trackCalculation(...)`
+  // throws this shape instead of "is not a function".
+  it('matches the undefined-lazy-proxy-import TypeError signatures (track*/init*/set*)', () => {
+    // V8 / Chrome / Edge / Node — exact shape reported live (issue #4304, 27/18
+    // users on hooks/useSimulationState.ts's Analytics.trackCalculation call).
+    expect(
+      isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'trackCalculation')")),
+    ).toBe(true);
+    expect(
+      isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'trackFunnelStep')")),
+    ).toBe(true);
+    expect(isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'initGlobalErrorTracking')"))).toBe(
+      true,
+    );
+    expect(isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'setWorkerType')"))).toBe(true);
+    // Safari / WebKit wording, cited verbatim in analyticsProxy.ts's doc comment.
+    expect(
+      isVersionSkewError(new TypeError("undefined is not an object (evaluating 't.Analytics.trackCalculation')")),
+    ).toBe(true);
+  });
+
+  it('does not widen the undefined-property pattern beyond the closed track*/init*/set* anchor', () => {
+    // A generic first-party null-pointer bug on an unrelated property name must
+    // NOT be masked as version skew — the anchor is deliberately narrow (see
+    // comment on CALL_TIME_SKEW_PATTERNS in services/resilientImport.ts).
+    expect(isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'foo')"))).toBe(false);
+    expect(isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'map')"))).toBe(false);
+    expect(
+      isVersionSkewError(new TypeError("Cannot read properties of undefined (reading 'children')")),
+    ).toBe(false);
+    expect(isVersionSkewError(new TypeError("undefined is not an object (evaluating 't.foo.bar')"))).toBe(false);
+  });
+
   // Link-time skew (#3097): a cached importer chunk requests an export the
   // already-loaded dependency chunk no longer provides → the ES module linker
   // throws a SyntaxError at instantiation, surfaced through React.lazy →
