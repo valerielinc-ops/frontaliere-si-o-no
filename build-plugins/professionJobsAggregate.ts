@@ -34,6 +34,7 @@ import {
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { TI_LEGACY_CITY_HUB_KEYS, jobMatchesCity, type CityHubKey } from './cityJobsHub';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -474,12 +475,53 @@ export function aggregateProfessionJobsByCanton(
   return out;
 }
 
+// ── Per-TI-city aggregation (profession × city landings, issue #4301) ──────
+
+let _citySnapshotCache: Record<CityHubKey, Record<ProfessionId, ProfessionJobsSnapshot>> | null = null;
+let _cityCacheRootDir: string | null = null;
+
+/**
+ * Per-(TI city, profession) snapshot — the same PROFESSION_IDS set
+ * aggregateProfessionJobs uses (canton-only ids from #3657 are non-TI
+ * professions, out of scope for a TI-city page), filtered to jobs matching
+ * BOTH canton=TI (resolveJobCanton) AND the given city
+ * (cityJobsHub.jobMatchesCity — same location-substring match the city hub
+ * page itself uses, so a city's live count here agrees with its hub).
+ *
+ * Returns `Record<CityHubKey, Record<ProfessionId, snapshot>>`. Cached per rootDir.
+ */
+export function aggregateProfessionJobsByCity(
+  rootDir: string,
+  now: number = Date.now(),
+): Record<CityHubKey, Record<ProfessionId, ProfessionJobsSnapshot>> {
+  if (_citySnapshotCache && _cityCacheRootDir === rootDir) return _citySnapshotCache;
+
+  const allJobs = loadJobs(rootDir);
+  const tiJobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
+
+  const out = {} as Record<CityHubKey, Record<ProfessionId, ProfessionJobsSnapshot>>;
+  for (const cityKey of TI_LEGACY_CITY_HUB_KEYS) {
+    const cityJobs = tiJobs.filter((job) => jobMatchesCity(job, cityKey));
+    const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
+    for (const id of PROFESSION_IDS) {
+      perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now);
+    }
+    out[cityKey] = perProfession;
+  }
+
+  _citySnapshotCache = out;
+  _cityCacheRootDir = rootDir;
+  return out;
+}
+
 /** Test/CI helper — clear the module-level cache. */
 export function _resetProfessionJobsAggregateCache(): void {
   _snapshotCache = null;
   _cacheRootDir = null;
   _cantonSnapshotCache = null;
   _cantonCacheRootDir = null;
+  _citySnapshotCache = null;
+  _cityCacheRootDir = null;
 }
 
 // ── Job-board URL builder ────────────────────────────────────────────────────

@@ -66,6 +66,7 @@ import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { salaryStatsChCantonPages } from './build-plugins/salaryStatsChCantonPages';
 import { professionCantonLandings } from './build-plugins/professionCantonLandings';
+import { professionCityLandings } from './build-plugins/professionCityLandings';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
 // blogContextualLinksPlugin import retained for tests / type re-exports.
 // Its plugin export is now consumed internally by `postWalkCoordinatorPlugin`.
@@ -175,6 +176,7 @@ export default defineConfig(({ mode }) => {
  jobMarketSnapshotPlugin(__dirname),
  salaryStatsChCantonPages(__dirname),
  professionCantonLandings(__dirname),
+ professionCityLandings(__dirname),
  healthPremiumsLandingPlugin(__dirname),
  borderWaitPagesPlugin(__dirname),
  weatherBorderWaitFusionPlugin(__dirname),

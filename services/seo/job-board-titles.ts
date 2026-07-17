@@ -8,7 +8,20 @@
  *   - Listing hub (home):    "Offerte Lavoro Ticino 2026 — {N} posti aggiornati oggi 🔥"
  *   - Per-city:              "Lavoro {City} 2026 — {N} offerte aggiornate ogni giorno"
  *   - Per-role:              "{Role} Ticino 2026 — {N} offerte | Candidati oggi"
- *   - Employer hub:          "{Company} Offerte Lavoro Ticino — {N} aperte 2026"
+ *   - Employer hub:          "Lavorare da {Company} in Svizzera 2026 — {N} posizioni aperte"
+ *                            (issue #4306: job-intent framing, never a canton
+ *                            name — the old "{Company} Offerte Lavoro Ticino"
+ *                            copy hardcoded "Ticino"/"Tessin" even on
+ *                            non-TI per-canton/per-city employer hubs, e.g.
+ *                            a Basel-scoped JYSK page titled "... Ticino
+ *                            2026". "in Svizzera"/"in Switzerland" is
+ *                            canton-agnostic by construction so every
+ *                            caller — TI-only, per-canton, per-canton-city
+ *                            (build-plugins/jobsSeoPagesPlugin.ts) — is
+ *                            correct without threading a cantonDisplay
+ *                            param; per-page uniqueness still comes from
+ *                            the (canton)/(city) suffix already embedded
+ *                            in the `companyDisplay` arg by the callers.
  *   - Recency (last N days): "Offerte Lavoro Ticino Ultimi {N} Giorni — {M} Nuove 2026"
  *
  * Each function takes a numeric live-job count read from `data/jobs.json`
@@ -317,23 +330,23 @@ export function buildEmployerHubTitle({
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `${co} Offerte Lavoro Ticino ${year} — ${n} posizioni aperte`
-        : `${co} Offerte Lavoro Ticino ${year} — Candidature Aperte`;
+        ? `Lavorare da ${co} in Svizzera ${year} — ${n} posizioni aperte`
+        : `Lavorare da ${co} in Svizzera ${year} — Candidature Aperte`;
       break;
     case 'en':
       base = n > 0
-        ? `${co} Jobs Ticino Switzerland ${year} — ${n} open roles today`
-        : `${co} Jobs Ticino Switzerland ${year} — Open Roles Updated`;
+        ? `Work at ${co} in Switzerland ${year} — ${n} open roles`
+        : `Work at ${co} in Switzerland ${year} — Open Roles Updated`;
       break;
     case 'de':
       base = n > 0
-        ? `${co} Jobs Tessin Schweiz ${year} — ${n} offene Stellen heute`
-        : `${co} Jobs Tessin Schweiz ${year} — Offene Stellen täglich`;
+        ? `Arbeiten bei ${co} in der Schweiz ${year} — ${n} offene Stellen`
+        : `Arbeiten bei ${co} in der Schweiz ${year} — Offene Stellen`;
       break;
     case 'fr':
       base = n > 0
-        ? `${co} Emploi Tessin Suisse ${year} — ${n} postes ouverts`
-        : `${co} Emploi Tessin Suisse ${year} — Postes Ouverts quotidiens`;
+        ? `Travailler chez ${co} en Suisse ${year} — ${n} postes ouverts`
+        : `Travailler chez ${co} en Suisse ${year} — Postes Ouverts`;
       break;
   }
   base = trimToMax(withFire(base, n));
