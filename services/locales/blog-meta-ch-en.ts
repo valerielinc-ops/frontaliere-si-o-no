@@ -1201,6 +1201,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'LPP: exit strategy from the second pillar',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'The withdrawal of the second LPP pillar for frontier workers: facts, figures, dates and exit strategies',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Image of a frontier worker in Switzerland',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Frontier workers, tax war with Ticino: Bellinzona blocks 50 million refills',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'The Council of State of the Canton of Ticino has announced the precautionary suspension of 46% of the refunds of taxes at source due to Italy for the current year',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: the city of Ticino at the national level after the announcement of the State Council on the block of the rebates of the withholding taxes due to Italy',
 };
 
 export default blogMetaChEn;

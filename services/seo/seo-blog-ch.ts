@@ -15501,6 +15501,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni': {
+    title: 'Frontalieri, guerra fiscale col Ticino: Bellinzona blocca 50 milioni di ristorni',
+    description: 'Il Consiglio di Stato del Canton Ticino ha annunciato la sospensione cautelativa del 46% dei ristorni delle imposte alla fonte spettanti all\'Italia per l\'anno',
+    keywords: 'frontalieri, ticino, svizzera, italia, guerra, fiscale, bellinzona, blocca',
+    ogTitle: 'Frontalieri, guerra fiscale col Ticino: Bellinzona blocca 50 milioni di ristorni',
+    ogDescription: 'Il Consiglio di Stato del Canton Ticino ha annunciato la sospensione cautelativa del 46% dei ristorni delle imposte alla fonte spettanti all\'Italia per l\'anno',
+    canonicalPath: '/articoli-svizzera/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, guerra fiscale col Ticino: Bellinzona blocca 50 milioni di ristorni",
+      "description": "Il Consiglio di Stato del Canton Ticino ha annunciato la sospensione cautelativa del 46% dei ristorni delle imposte alla fonte spettanti all'Italia per l'anno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano: la città ticinese a livello nazionale dopo l'annuncio del Consiglio di Stato sul blocco dei ristorni delle imposte alla fonte spettanti all'Italia"
+      },
+      "datePublished": "2026-07-17T16:11:24+00:00",
+      "dateModified": "2026-07-17T16:11:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

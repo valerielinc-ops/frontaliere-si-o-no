@@ -1201,6 +1201,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'BVG: Ausstiegsstrategie aus der zweiten Säule',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'Der Bezug der zweiten Säule BVG für Grenzgänger: Fakten, Zahlen, Daten und Ausstiegsstrategien',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Bild eines Grenzarbeiters in der Schweiz',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Grenzgänger: Bellinzona blockiert 50 Millionen Rückzahlungen',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'Der Staatsrat des Kantons Tessin hat die vorsorgliche Aussetzung von 46% der Italien zustehenden Quellensteuerrückerstattungen für das laufende Jahr angekündigt.',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: die Stadt des Kantons Ticino auf nationaler Ebene nach der Ankündigung des Staatsrats über den Block der Rückerstattungen der Abzugssteuern, die Italien zustehen',
 };
 
 export default blogMetaChDe;

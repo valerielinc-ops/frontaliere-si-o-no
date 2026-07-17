@@ -4586,6 +4586,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ricercatore-parlamentare-ticino-gran-consiglio': { name: 'Ricercatore parlamentare', path: '/articoli-frontaliere/ricercatore-parlamentare-ticino-gran-consiglio', parent: 'blog' },
     'blog-prelievo-secondo-pilastro-lpp-frontaliere': { name: 'Prelievo del secondo pilastro LPP', path: '/articoli-svizzera/prelievo-secondo-pilastro-lpp-frontaliere/', parent: 'blog' },
     'blog-congedo-per-lutto-malattia-familiare-frontaliere-svizzera': { name: 'Congedo per lutto o malattia di un', path: '/articoli-frontaliere/congedo-per-lutto-malattia-familiare-frontaliere-svizzera', parent: 'blog' },
+    'blog-frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni': { name: 'Frontalieri, guerra fiscale col Ticino', path: '/articoli-svizzera/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

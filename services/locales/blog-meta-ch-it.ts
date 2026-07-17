@@ -1201,6 +1201,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'LPP: strategia di uscita dal secondo pilastro',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'Il prelievo del secondo pilastro LPP per i frontalieri: fatti, cifre, date e strategie di uscita',
     'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora in Svizzera',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Frontalieri, guerra fiscale col Ticino: Bellinzona blocca 50 milioni di ristorni',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'Il Consiglio di Stato del Canton Ticino ha annunciato la sospensione cautelativa del 46% dei ristorni delle imposte alla fonte spettanti all\'Italia per l\'anno in corso',
+    'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: la città ticinese a livello nazionale dopo l\'annuncio del Consiglio di Stato sul blocco dei ristorni delle imposte alla fonte spettanti all\'Italia',
 };
 
 export default blogMetaChIt;
