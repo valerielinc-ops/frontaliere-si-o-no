@@ -1177,6 +1177,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'BVG-Leistungen IN der Schweiz: Wie werden sie besteuert?',
     'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Die Renten der beruflichen Vorsorge (BVG) folgen dem gleichen Steuersystem wie die AHV-Renten: Das ändert sich für die Begünstigten',
     'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Schweizer Rentner prüft Steuerunterlagen im Büro',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Schweizer Hypothekmarkt 2025: 1300 Mrd. Francs',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': 'Ein Wachstum von 3,1%, angetrieben von niedrigen Zinsen und steigenden Immobilienpreisen. Doch die Margen der Banken schrumpfen. Hier sind die Daten und die praktischen Auswirkungen.',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Luftaufnahme von Zürich mit modernen Wohnanlagen und Baukränen, Symbol für den wachsenden Immobilienmarkt der Schweiz',
 };
 
 export default blogMetaChDe;

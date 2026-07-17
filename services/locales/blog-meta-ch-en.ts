@@ -1177,6 +1177,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassazione-prestazioni-lpp-svizzera.title': 'LPP services in Switzerland: how they are taxed',
     'blog.article.tassazione-prestazioni-lpp-svizzera.excerpt': 'Occupational pension (LPP) pensions follow the same tax regime as AVS pensions: this is what changes for beneficiaries',
     'blog.article.tassazione-prestazioni-lpp-svizzera.imageAlt': 'Swiss retiree reviewing tax documents in office',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Record-breaking Swiss mortgage market: exceeded CHF 1.3 trillion in 2025',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': '3.1% growth driven by low rates and rising real estate prices. But banks\' margins are shrinking. Here are the facts and practical implications.',
+    'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Aerial view of Zurich with modern condominiums and construction cranes, symbolizing Switzerland\'s growing real estate market',
 };
 
 export default blogMetaChEn;

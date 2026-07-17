@@ -1,7 +1,61 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-16T12:31:57.286Z",
+  "assembledAt": "2026-07-16T23:01:56.838Z",
   "jobs": [
+    {
+      "id": "alpiq-3fa36ed9c713",
+      "slug": "structured-products-trader-spanish-market-alpiq-olten",
+      "slugByLocale": {
+        "it": "structured-products-trader-spanish-market-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Structured Products Trader - Spanish market",
+      "titleByLocale": {
+        "it": "Structured Products Trader - Spanish market"
+      },
+      "description": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9598",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-16T23:01:54.449Z",
+      "country": "CH",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:01:54.449Z"
+    },
     {
       "id": "alpiq-e1fbe0ada2de",
       "slug": "archivist-in-all-100-alpiq-olten",
@@ -47,7 +101,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:31:54.605Z",
+      "crawledAt": "2026-07-16T23:01:54.448Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -108,7 +162,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T12:31:54.605Z",
+      "crawledAt": "2026-07-16T23:01:54.448Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -169,7 +223,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:31:54.604Z",
+      "crawledAt": "2026-07-16T23:01:54.448Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -253,7 +307,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -297,7 +351,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T12:31:54.603Z",
+      "crawledAt": "2026-07-16T23:01:54.446Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "country": "CH",

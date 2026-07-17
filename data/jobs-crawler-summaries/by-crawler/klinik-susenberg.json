@@ -1,16 +1,16 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-07-16T12:30:00.688Z",
-  "total": 5,
+  "generatedAt": "2026-07-16T23:00:16.513Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4447,
-  "avgDurationMs": 4447,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3656,
+  "avgDurationMs": 3656,
   "durationHistory": [
-    4447
+    3656
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/15-dipl._Pflegefachperson_HF-FH_PC_u._Stv._LPF_August_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:29:57.648Z",
+      "crawledAt": "2026-07-16T23:00:14.001Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:29:58.446Z",
+      "crawledAt": "2026-07-16T23:00:14.435Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB-per_sofort_2026-07-02.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:29:58.626Z",
+      "crawledAt": "2026-07-16T23:00:14.560Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -144,7 +144,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/30-MPA_MA_Apotheke_Labor_September_2026-07-01.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T12:29:58.812Z",
+      "crawledAt": "2026-07-16T23:00:14.673Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,8 +171,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "klinik-susenberg-1af6354976c1",
       "slug": "assistente-medico-ottobre-dicembre-2026-klinik-susenberg-zurich",
@@ -214,5 +213,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-16T11:46:52.384Z",
+  "assembledAt": "2026-07-16T23:06:40.756Z",
   "jobs": [
     {
       "id": "canton-valais-890b4e965e72",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:49.930Z",
+      "crawledAt": "2026-07-16T23:06:38.335Z",
       "addressLocality": "Brigue",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:49.238Z",
+      "crawledAt": "2026-07-16T23:06:37.672Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:48.648Z",
+      "crawledAt": "2026-07-16T23:06:37.052Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:48.010Z",
+      "crawledAt": "2026-07-16T23:06:36.434Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -345,7 +345,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:46:47.047Z",
+      "crawledAt": "2026-07-16T23:06:35.815Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -397,7 +397,7 @@
       "slug": "un-collaboratore-scientifico-70-canton-du-valais-sion",
       "slugByLocale": {
         "it": "un-collaboratore-scientifico-70-canton-du-valais-sion",
-        "en": "a-scientific-collaborator-70-canton-du-valais-sion",
+        "en": "research-associate-70-canton-du-valais-sion",
         "de": "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
         "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
       },
@@ -423,7 +423,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:46.478Z",
+      "crawledAt": "2026-07-16T23:06:35.203Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -442,6 +442,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+        "a-scientific-collaborator-70-canton-du-valais-sion",
         "un-collaboratore-scientifico-70-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
@@ -450,7 +451,8 @@
           "un-collaboratore-scientifico-70-canton-du-valais-sion"
         ],
         "en": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+          "a-scientific-collaborator-70-canton-du-valais-sion"
         ],
         "de": [
           "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
@@ -501,7 +503,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:46:45.878Z",
+      "crawledAt": "2026-07-16T23:06:34.582Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -579,7 +581,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:45.172Z",
+      "crawledAt": "2026-07-16T23:06:33.850Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -657,7 +659,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111585&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:46:44.467Z",
+      "crawledAt": "2026-07-16T23:06:33.005Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -718,7 +720,7 @@
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
       "titleByLocale": {
-        "it": "Un collaboratore amministrativo (80-100%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
         "en": "An administrative collaborator (80-100%)",
         "de": "Ein administrativer Mitarbeiter (80-100%)",
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)"
@@ -735,7 +737,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111282&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:43.839Z",
+      "crawledAt": "2026-07-16T23:06:32.371Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -804,6 +806,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.997Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -822,8 +825,8 @@
       "slug": "uno-o-uno-avvocato-80-canton-du-valais-sion",
       "slugByLocale": {
         "it": "uno-o-uno-avvocato-80-canton-du-valais-sion",
-        "en": "one-or-one-lawyer-80-canton-du-valais-sion",
-        "de": "ein-oder-ein-anwalt-80-canton-du-valais-sion",
+        "en": "legal-advisor-80-canton-du-valais-sion",
+        "de": "jurist-80-canton-du-valais-sion",
         "fr": "un-ou-une-juriste-80-canton-valais-ch"
       },
       "company": "Canton du Valais",
@@ -848,7 +851,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101474&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:43.220Z",
+      "crawledAt": "2026-07-16T23:06:31.754Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -867,6 +870,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-ou-une-juriste-80-canton-valais-ch",
+        "one-or-one-lawyer-80-canton-du-valais-sion",
+        "ein-oder-ein-anwalt-80-canton-du-valais-sion",
         "uno-o-uno-avvocato-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
@@ -875,10 +880,12 @@
           "uno-o-uno-avvocato-80-canton-du-valais-sion"
         ],
         "en": [
-          "un-ou-une-juriste-80-canton-valais-ch"
+          "un-ou-une-juriste-80-canton-valais-ch",
+          "one-or-one-lawyer-80-canton-du-valais-sion"
         ],
         "de": [
-          "un-ou-une-juriste-80-canton-valais-ch"
+          "un-ou-une-juriste-80-canton-valais-ch",
+          "ein-oder-ein-anwalt-80-canton-du-valais-sion"
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.694Z",
@@ -926,7 +933,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102451&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:46:42.521Z",
+      "crawledAt": "2026-07-16T23:06:31.136Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1004,7 +1011,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102355&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T11:46:41.792Z",
+      "crawledAt": "2026-07-16T23:06:30.502Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1050,6 +1057,461 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "canton-valais-d211d1370c6f",
+      "slug": "un-e-procureur-e-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-e-procureur-e-80-100-canton-valais-ch",
+        "it": "un-e-procureur-e-80-100-canton-valais-ch",
+        "en": "un-e-procureur-e-80-100-canton-valais-ch",
+        "de": "un-e-procureur-e-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un(e) Procureur(e) 80-100%",
+      "titleByLocale": {
+        "fr": "Un(e) Procureur(e) 80-100%",
+        "it": "Un(e) Procureur(e) 80-100%",
+        "en": "Un(e) Procureur(e) 80-100%",
+        "de": "Un(e) Procureur(e) 80-100%"
+      },
+      "description": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le ministère public du canton du Valais met au concours le poste suivant : UN(E) PROCUREUR(E) 80-100% auprès de l'office central à Sion\n\nVos missions:\n•  instruire les enquêtes pénales et soutenir l’accusation aux débats, des\n• différentes instances de jugement, des causes qui ressortent des compétences\n• de l’office central\n•  instruire et juger les cas moins importants par voie d’ordonnance pénale\n•  rendre les décisions de renonciation à l’action publique, de suspension de la\n• procédure, de non-entrée en matière et de classement.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  solide expérience en matière de procédure pénale\n•  expérience dans la conduite d’une équipe et de projets complexes\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle.\n\nLieu de travail:\nOffice central du ministère public, à Sion. Taux d’activité : 80-100%.\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir. Statut : Fonction de magistrat selon la Loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nInformations:\nRenseignements sur le poste : procureure générale adjointe, cheffe de l’office central à Sion (tél. 027 607 84 00). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « procureur MPG », jusqu’au 9 août 2026. La procureure générale Beatrice Pilloud",
+      "descriptionByLocale": {
+        "fr": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le ministère public du canton du Valais met au concours le poste suivant : UN(E) PROCUREUR(E) 80-100% auprès de l'office central à Sion\n\nVos missions:\n•  instruire les enquêtes pénales et soutenir l’accusation aux débats, des\n• différentes instances de jugement, des causes qui ressortent des compétences\n• de l’office central\n•  instruire et juger les cas moins importants par voie d’ordonnance pénale\n•  rendre les décisions de renonciation à l’action publique, de suspension de la\n• procédure, de non-entrée en matière et de classement.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  solide expérience en matière de procédure pénale\n•  expérience dans la conduite d’une équipe et de projets complexes\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle.\n\nLieu de travail:\nOffice central du ministère public, à Sion. Taux d’activité : 80-100%.\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir. Statut : Fonction de magistrat selon la Loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nInformations:\nRenseignements sur le poste : procureure générale adjointe, cheffe de l’office central à Sion (tél. 027 607 84 00). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « procureur MPG », jusqu’au 9 août 2026. La procureure générale Beatrice Pilloud",
+        "it": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le ministère public du canton du Valais met au concours le poste suivant : UN(E) PROCUREUR(E) 80-100% auprès de l'office central à Sion\n\nVos missions:\n•  instruire les enquêtes pénales et soutenir l’accusation aux débats, des\n• différentes instances de jugement, des causes qui ressortent des compétences\n• de l’office central\n•  instruire et juger les cas moins importants par voie d’ordonnance pénale\n•  rendre les décisions de renonciation à l’action publique, de suspension de la\n• procédure, de non-entrée en matière et de classement.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  solide expérience en matière de procédure pénale\n•  expérience dans la conduite d’une équipe et de projets complexes\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle.\n\nLieu de travail:\nOffice central du ministère public, à Sion. Taux d’activité : 80-100%.\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir. Statut : Fonction de magistrat selon la Loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nInformations:\nRenseignements sur le poste : procureure générale adjointe, cheffe de l’office central à Sion (tél. 027 607 84 00). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « procureur MPG », jusqu’au 9 août 2026. La procureure générale Beatrice Pilloud",
+        "en": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le ministère public du canton du Valais met au concours le poste suivant : UN(E) PROCUREUR(E) 80-100% auprès de l'office central à Sion\n\nVos missions:\n•  instruire les enquêtes pénales et soutenir l’accusation aux débats, des\n• différentes instances de jugement, des causes qui ressortent des compétences\n• de l’office central\n•  instruire et juger les cas moins importants par voie d’ordonnance pénale\n•  rendre les décisions de renonciation à l’action publique, de suspension de la\n• procédure, de non-entrée en matière et de classement.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  solide expérience en matière de procédure pénale\n•  expérience dans la conduite d’une équipe et de projets complexes\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle.\n\nLieu de travail:\nOffice central du ministère public, à Sion. Taux d’activité : 80-100%.\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir. Statut : Fonction de magistrat selon la Loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nInformations:\nRenseignements sur le poste : procureure générale adjointe, cheffe de l’office central à Sion (tél. 027 607 84 00). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « procureur MPG », jusqu’au 9 août 2026. La procureure générale Beatrice Pilloud",
+        "de": "• MINISTERE PUBLIC DU CANTON DU VALAIS\n• STAATSANWALTSCHAFT DES KANTONS WALLIS Le ministère public du canton du Valais met au concours le poste suivant : UN(E) PROCUREUR(E) 80-100% auprès de l'office central à Sion\n\nVos missions:\n•  instruire les enquêtes pénales et soutenir l’accusation aux débats, des\n• différentes instances de jugement, des causes qui ressortent des compétences\n• de l’office central\n•  instruire et juger les cas moins importants par voie d’ordonnance pénale\n•  rendre les décisions de renonciation à l’action publique, de suspension de la\n• procédure, de non-entrée en matière et de classement.\n\nVotre profil:\n•  titulaire d’un brevet d’avocat (les titulaires d’une licence, d’une maîtrise, d’un\n• doctorat en droit ou d’un titre académique équivalent sont éligibles s’ils\n• peuvent se prévaloir d’une expérience pratique suffisante)\n•  solide expérience en matière de procédure pénale\n•  expérience dans la conduite d’une équipe et de projets complexes\n•  capacités d’analyse, d’intégration et d’organisation\n•  esprit d’initiative et de décision, sens de la communication et maîtrise de soi\n•  aisance rédactionnelle et verbale\n•  grande capacité de travail. Langue maternelle : Française, avec de bonnes connaissances de la seconde langue officielle.\n\nLieu de travail:\nOffice central du ministère public, à Sion. Taux d’activité : 80-100%.\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir. Statut : Fonction de magistrat selon la Loi sur l’organisation de la justice du 11 février 2009. Nous offrons : Une activité intéressante et variée au sein d’une équipe dynamique, d’excellentes conditions de travail modernes et agréables et des prestations sociales élevées.\n\nInformations:\nRenseignements sur le poste : procureure générale adjointe, cheffe de l’office central à Sion (tél. 027 607 84 00). Votre postulation incluant un curriculum vitae, photo ainsi qu’une copie de vos diplômes, attestations et extraits actuels du casier judiciaire et de l'office des poursuites, doit être adressée par courriel à candidature@mp-sta.vs.ch avec la mention « procureur MPG », jusqu’au 9 août 2026. La procureure générale Beatrice Pilloud"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:29.842Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:29.842Z"
+    },
+    {
+      "id": "canton-valais-371587fe9eb2",
+      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
+        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
+        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
+        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
+      "titleByLocale": {
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
+        "en": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
+        "de": "Un collaborateur administratif ou une collaboratrice administrative (40%)"
+      },
+      "description": "Un collaborateur administratif ou une collaboratrice administrative (40%) auprès du Service du registre foncier, registre foncier de Sierre Postulation en ligne : www.vs.ch/fr/jobs Le Service du registre foncier est chargé de donner l'état des droits en relation avec les immeubles (par ex. la propriété, les servitudes et les gages immobiliers). Il est composé de 6 registres fonciers, répartis sur le territoire valaisan, de l’office juridique et de l’inspectorat du registre foncier ainsi que des unités de support.\n\nVos tâches:\n• Vous assurez l’accueil des clients et répondez aux diverses demandes d’informations\n• Vous assurez le suivi des réquisitions (tri, distribution, inscription au journal) et vous procédez à leur inscription dans le registre Vous gérez le processus financier Vous établissez tous documents nécessaires au processus, vous les numérisez et vous les préparez pour l’archivage Vous collaborez à l’harmonisation et à la modernisation des processus cantonaux, en particulier au sein du team administratif\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d’employé de commerce, d’un diplôme d'une école de commerce ou d’une formation jugée équivalente Vous disposez de bonnes connaissances dans le domaine du registre foncier Vous êtes à l’aise avec les outils informatiques usuels (une expérience des outils CAPITASTRA et SAP serait un atout)\n• Vous êtes apte à travailler seul comme en équipe Vous faites preuve de précision dans l’exécution du travail Vous disposez du sens de la communication et avez le contact aisé Vous avez une bonne capacité d’adaptation et êtes flexible Vous êtes orienté clients et processus Vous êtes de langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du registre foncier, Mme Elise Lega-Michellod (027 606 28 35 / elise.lega-michellod@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 24 juillet 2026 / Numéro de référence : 111908",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative (40%) auprès du Service du registre foncier, registre foncier de Sierre Postulation en ligne : www.vs.ch/fr/jobs Le Service du registre foncier est chargé de donner l'état des droits en relation avec les immeubles (par ex. la propriété, les servitudes et les gages immobiliers). Il est composé de 6 registres fonciers, répartis sur le territoire valaisan, de l’office juridique et de l’inspectorat du registre foncier ainsi que des unités de support.\n\nVos tâches:\n• Vous assurez l’accueil des clients et répondez aux diverses demandes d’informations\n• Vous assurez le suivi des réquisitions (tri, distribution, inscription au journal) et vous procédez à leur inscription dans le registre Vous gérez le processus financier Vous établissez tous documents nécessaires au processus, vous les numérisez et vous les préparez pour l’archivage Vous collaborez à l’harmonisation et à la modernisation des processus cantonaux, en particulier au sein du team administratif\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d’employé de commerce, d’un diplôme d'une école de commerce ou d’une formation jugée équivalente Vous disposez de bonnes connaissances dans le domaine du registre foncier Vous êtes à l’aise avec les outils informatiques usuels (une expérience des outils CAPITASTRA et SAP serait un atout)\n• Vous êtes apte à travailler seul comme en équipe Vous faites preuve de précision dans l’exécution du travail Vous disposez du sens de la communication et avez le contact aisé Vous avez une bonne capacité d’adaptation et êtes flexible Vous êtes orienté clients et processus Vous êtes de langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du registre foncier, Mme Elise Lega-Michellod (027 606 28 35 / elise.lega-michellod@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 24 juillet 2026 / Numéro de référence : 111908",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (40%) auprès du Service du registre foncier, registre foncier de Sierre Postulation en ligne : www.vs.ch/fr/jobs Le Service du registre foncier est chargé de donner l'état des droits en relation avec les immeubles (par ex. la propriété, les servitudes et les gages immobiliers). Il est composé de 6 registres fonciers, répartis sur le territoire valaisan, de l’office juridique et de l’inspectorat du registre foncier ainsi que des unités de support.\n\nVos tâches:\n• Vous assurez l’accueil des clients et répondez aux diverses demandes d’informations\n• Vous assurez le suivi des réquisitions (tri, distribution, inscription au journal) et vous procédez à leur inscription dans le registre Vous gérez le processus financier Vous établissez tous documents nécessaires au processus, vous les numérisez et vous les préparez pour l’archivage Vous collaborez à l’harmonisation et à la modernisation des processus cantonaux, en particulier au sein du team administratif\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d’employé de commerce, d’un diplôme d'une école de commerce ou d’une formation jugée équivalente Vous disposez de bonnes connaissances dans le domaine du registre foncier Vous êtes à l’aise avec les outils informatiques usuels (une expérience des outils CAPITASTRA et SAP serait un atout)\n• Vous êtes apte à travailler seul comme en équipe Vous faites preuve de précision dans l’exécution du travail Vous disposez du sens de la communication et avez le contact aisé Vous avez une bonne capacité d’adaptation et êtes flexible Vous êtes orienté clients et processus Vous êtes de langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du registre foncier, Mme Elise Lega-Michellod (027 606 28 35 / elise.lega-michellod@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 24 juillet 2026 / Numéro de référence : 111908",
+        "en": "Un collaborateur administratif ou une collaboratrice administrative (40%) auprès du Service du registre foncier, registre foncier de Sierre Postulation en ligne : www.vs.ch/fr/jobs Le Service du registre foncier est chargé de donner l'état des droits en relation avec les immeubles (par ex. la propriété, les servitudes et les gages immobiliers). Il est composé de 6 registres fonciers, répartis sur le territoire valaisan, de l’office juridique et de l’inspectorat du registre foncier ainsi que des unités de support.\n\nVos tâches:\n• Vous assurez l’accueil des clients et répondez aux diverses demandes d’informations\n• Vous assurez le suivi des réquisitions (tri, distribution, inscription au journal) et vous procédez à leur inscription dans le registre Vous gérez le processus financier Vous établissez tous documents nécessaires au processus, vous les numérisez et vous les préparez pour l’archivage Vous collaborez à l’harmonisation et à la modernisation des processus cantonaux, en particulier au sein du team administratif\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d’employé de commerce, d’un diplôme d'une école de commerce ou d’une formation jugée équivalente Vous disposez de bonnes connaissances dans le domaine du registre foncier Vous êtes à l’aise avec les outils informatiques usuels (une expérience des outils CAPITASTRA et SAP serait un atout)\n• Vous êtes apte à travailler seul comme en équipe Vous faites preuve de précision dans l’exécution du travail Vous disposez du sens de la communication et avez le contact aisé Vous avez une bonne capacité d’adaptation et êtes flexible Vous êtes orienté clients et processus Vous êtes de langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du registre foncier, Mme Elise Lega-Michellod (027 606 28 35 / elise.lega-michellod@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 24 juillet 2026 / Numéro de référence : 111908",
+        "de": "Un collaborateur administratif ou une collaboratrice administrative (40%) auprès du Service du registre foncier, registre foncier de Sierre Postulation en ligne : www.vs.ch/fr/jobs Le Service du registre foncier est chargé de donner l'état des droits en relation avec les immeubles (par ex. la propriété, les servitudes et les gages immobiliers). Il est composé de 6 registres fonciers, répartis sur le territoire valaisan, de l’office juridique et de l’inspectorat du registre foncier ainsi que des unités de support.\n\nVos tâches:\n• Vous assurez l’accueil des clients et répondez aux diverses demandes d’informations\n• Vous assurez le suivi des réquisitions (tri, distribution, inscription au journal) et vous procédez à leur inscription dans le registre Vous gérez le processus financier Vous établissez tous documents nécessaires au processus, vous les numérisez et vous les préparez pour l’archivage Vous collaborez à l’harmonisation et à la modernisation des processus cantonaux, en particulier au sein du team administratif\n\nVotre profil:\n• Vous êtes au bénéfice d’un CFC d’employé de commerce, d’un diplôme d'une école de commerce ou d’une formation jugée équivalente Vous disposez de bonnes connaissances dans le domaine du registre foncier Vous êtes à l’aise avec les outils informatiques usuels (une expérience des outils CAPITASTRA et SAP serait un atout)\n• Vous êtes apte à travailler seul comme en équipe Vous faites preuve de précision dans l’exécution du travail Vous disposez du sens de la communication et avez le contact aisé Vous avez une bonne capacité d’adaptation et êtes flexible Vous êtes orienté clients et processus Vous êtes de langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service du registre foncier, Mme Elise Lega-Michellod (027 606 28 35 / elise.lega-michellod@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 24 juillet 2026 / Numéro de référence : 111908"
+      },
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111908&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:29.268Z",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111908&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 24200,
+      "salaryMax": 36600,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 24200,
+          "maxValue": 36600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:29.268Z"
+    },
+    {
+      "id": "canton-valais-4875d3cb4356",
+      "slug": "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "it": "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "en": "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "de": "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans)",
+      "titleByLocale": {
+        "fr": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans)",
+        "it": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans)",
+        "en": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans)",
+        "de": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans)"
+      },
+      "description": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans) auprès de la section informatique du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous collaborez à la définition et à la spécification des besoins des utilisateurs du Service cantonal des contributions sur la plate-forme SAP principalement Vous participez aux travaux d'analyse pour la conception de nouveaux programmes métiers\n• Vous collaborez aux différentes phases de tests et de validation de nouveaux logiciels\n• Vous gérez la paramétrisation des applicatifs métiers sous SAP et les droits des utilisateurs Vous élaborez les supports de cours et assurez la formation, le suivi et support des utilisateurs Vous documentez les règles et processus métier Vous analysez les incidents productifs et participez à leur résolution\n\nVotre profil:\n• Formation d'informaticien de gestion ou d'économiste (HES ou formation jugée équivalente) Connaissances de l'environnement SAP ou expérience dans l'analyse métier/technique d'applications ERP Expérience professionnelle dans le domaine de la fiscalité constitue un avantage Aisance dans la gestion de projets et de la conception de nouvelles solutions informatiques, la connaissance de la méthodologie HERMES étant un atout Capacité de travailler de manière indépendante et en équipe\n• Compétences analytiques et capacité à formaliser et vulgariser des sujets complexes\n• Expérience pratique de la formation Aisance dans la communication écrite et orale\n• Connaissances des technologies de l’IA Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle et de l'anglais\n\nEntrée en fonction:\nDe suite ou à convenir Possibilité de télétravail au terme de la période de formation\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 113381",
+      "descriptionByLocale": {
+        "fr": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans) auprès de la section informatique du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous collaborez à la définition et à la spécification des besoins des utilisateurs du Service cantonal des contributions sur la plate-forme SAP principalement Vous participez aux travaux d'analyse pour la conception de nouveaux programmes métiers\n• Vous collaborez aux différentes phases de tests et de validation de nouveaux logiciels\n• Vous gérez la paramétrisation des applicatifs métiers sous SAP et les droits des utilisateurs Vous élaborez les supports de cours et assurez la formation, le suivi et support des utilisateurs Vous documentez les règles et processus métier Vous analysez les incidents productifs et participez à leur résolution\n\nVotre profil:\n• Formation d'informaticien de gestion ou d'économiste (HES ou formation jugée équivalente) Connaissances de l'environnement SAP ou expérience dans l'analyse métier/technique d'applications ERP Expérience professionnelle dans le domaine de la fiscalité constitue un avantage Aisance dans la gestion de projets et de la conception de nouvelles solutions informatiques, la connaissance de la méthodologie HERMES étant un atout Capacité de travailler de manière indépendante et en équipe\n• Compétences analytiques et capacité à formaliser et vulgariser des sujets complexes\n• Expérience pratique de la formation Aisance dans la communication écrite et orale\n• Connaissances des technologies de l’IA Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle et de l'anglais\n\nEntrée en fonction:\nDe suite ou à convenir Possibilité de télétravail au terme de la période de formation\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 113381",
+        "it": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans) auprès de la section informatique du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous collaborez à la définition et à la spécification des besoins des utilisateurs du Service cantonal des contributions sur la plate-forme SAP principalement Vous participez aux travaux d'analyse pour la conception de nouveaux programmes métiers\n• Vous collaborez aux différentes phases de tests et de validation de nouveaux logiciels\n• Vous gérez la paramétrisation des applicatifs métiers sous SAP et les droits des utilisateurs Vous élaborez les supports de cours et assurez la formation, le suivi et support des utilisateurs Vous documentez les règles et processus métier Vous analysez les incidents productifs et participez à leur résolution\n\nVotre profil:\n• Formation d'informaticien de gestion ou d'économiste (HES ou formation jugée équivalente) Connaissances de l'environnement SAP ou expérience dans l'analyse métier/technique d'applications ERP Expérience professionnelle dans le domaine de la fiscalité constitue un avantage Aisance dans la gestion de projets et de la conception de nouvelles solutions informatiques, la connaissance de la méthodologie HERMES étant un atout Capacité de travailler de manière indépendante et en équipe\n• Compétences analytiques et capacité à formaliser et vulgariser des sujets complexes\n• Expérience pratique de la formation Aisance dans la communication écrite et orale\n• Connaissances des technologies de l’IA Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle et de l'anglais\n\nEntrée en fonction:\nDe suite ou à convenir Possibilité de télétravail au terme de la période de formation\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 113381",
+        "en": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans) auprès de la section informatique du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous collaborez à la définition et à la spécification des besoins des utilisateurs du Service cantonal des contributions sur la plate-forme SAP principalement Vous participez aux travaux d'analyse pour la conception de nouveaux programmes métiers\n• Vous collaborez aux différentes phases de tests et de validation de nouveaux logiciels\n• Vous gérez la paramétrisation des applicatifs métiers sous SAP et les droits des utilisateurs Vous élaborez les supports de cours et assurez la formation, le suivi et support des utilisateurs Vous documentez les règles et processus métier Vous analysez les incidents productifs et participez à leur résolution\n\nVotre profil:\n• Formation d'informaticien de gestion ou d'économiste (HES ou formation jugée équivalente) Connaissances de l'environnement SAP ou expérience dans l'analyse métier/technique d'applications ERP Expérience professionnelle dans le domaine de la fiscalité constitue un avantage Aisance dans la gestion de projets et de la conception de nouvelles solutions informatiques, la connaissance de la méthodologie HERMES étant un atout Capacité de travailler de manière indépendante et en équipe\n• Compétences analytiques et capacité à formaliser et vulgariser des sujets complexes\n• Expérience pratique de la formation Aisance dans la communication écrite et orale\n• Connaissances des technologies de l’IA Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle et de l'anglais\n\nEntrée en fonction:\nDe suite ou à convenir Possibilité de télétravail au terme de la période de formation\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 113381",
+        "de": "Un ou une spécialiste en fiscalité SAP (80-100% - durée déterminée de 5 ans) auprès de la section informatique du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous collaborez à la définition et à la spécification des besoins des utilisateurs du Service cantonal des contributions sur la plate-forme SAP principalement Vous participez aux travaux d'analyse pour la conception de nouveaux programmes métiers\n• Vous collaborez aux différentes phases de tests et de validation de nouveaux logiciels\n• Vous gérez la paramétrisation des applicatifs métiers sous SAP et les droits des utilisateurs Vous élaborez les supports de cours et assurez la formation, le suivi et support des utilisateurs Vous documentez les règles et processus métier Vous analysez les incidents productifs et participez à leur résolution\n\nVotre profil:\n• Formation d'informaticien de gestion ou d'économiste (HES ou formation jugée équivalente) Connaissances de l'environnement SAP ou expérience dans l'analyse métier/technique d'applications ERP Expérience professionnelle dans le domaine de la fiscalité constitue un avantage Aisance dans la gestion de projets et de la conception de nouvelles solutions informatiques, la connaissance de la méthodologie HERMES étant un atout Capacité de travailler de manière indépendante et en équipe\n• Compétences analytiques et capacité à formaliser et vulgariser des sujets complexes\n• Expérience pratique de la formation Aisance dans la communication écrite et orale\n• Connaissances des technologies de l’IA Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle et de l'anglais\n\nEntrée en fonction:\nDe suite ou à convenir Possibilité de télétravail au terme de la période de formation\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 113381"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:28.663Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:28.663Z"
+    },
+    {
+      "id": "canton-valais-2d2024316dff",
+      "slug": "un-ou-une-juriste-30-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-juriste-30-canton-valais-ch",
+        "it": "un-ou-une-juriste-30-canton-valais-ch",
+        "en": "un-ou-une-juriste-30-canton-valais-ch",
+        "de": "un-ou-une-juriste-30-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une juriste (30%)",
+      "titleByLocale": {
+        "fr": "Un ou une juriste (30%)",
+        "it": "Un ou une juriste (30%)",
+        "en": "Un ou une juriste (30%)",
+        "de": "Un ou une juriste (30%)"
+      },
+      "description": "Un ou une juriste (30%) auprès du Service de protection des travailleurs et des relations du travail, à Sion\n\nVos tâches:\n• Vous participez à la permanence juridique en matière de droit du travail Vous rédigez des décisions dans les domaines de la loi sur les travailleurs détachés, de la loi fédérale sur le travail au noir et de la loi sur le travail sur la base des rapports établis par l’Inspection cantonale de l’emploi et de l’aide sociale et par l’inspection du travail Vous assurez un soutien juridique aux autres sections et au service dans toutes les affaires juridiques\n\nVotre profil:\n• Master en droit ou titre jugé équivalent Très bonnes connaissances en droit du travail\n• Grande capacité d’analyse, de synthèse et d’organisation Aisance dans le contact, sens de la communication Langue maternelle française et de bonnes connaissances de la deuxième langue officielle serait un atout\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de protection des travailleurs et des relations du travail (027 606 74 22 / valentine.schaller@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 112048",
+      "descriptionByLocale": {
+        "fr": "Un ou une juriste (30%) auprès du Service de protection des travailleurs et des relations du travail, à Sion\n\nVos tâches:\n• Vous participez à la permanence juridique en matière de droit du travail Vous rédigez des décisions dans les domaines de la loi sur les travailleurs détachés, de la loi fédérale sur le travail au noir et de la loi sur le travail sur la base des rapports établis par l’Inspection cantonale de l’emploi et de l’aide sociale et par l’inspection du travail Vous assurez un soutien juridique aux autres sections et au service dans toutes les affaires juridiques\n\nVotre profil:\n• Master en droit ou titre jugé équivalent Très bonnes connaissances en droit du travail\n• Grande capacité d’analyse, de synthèse et d’organisation Aisance dans le contact, sens de la communication Langue maternelle française et de bonnes connaissances de la deuxième langue officielle serait un atout\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de protection des travailleurs et des relations du travail (027 606 74 22 / valentine.schaller@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 112048",
+        "it": "Un ou une juriste (30%) auprès du Service de protection des travailleurs et des relations du travail, à Sion\n\nVos tâches:\n• Vous participez à la permanence juridique en matière de droit du travail Vous rédigez des décisions dans les domaines de la loi sur les travailleurs détachés, de la loi fédérale sur le travail au noir et de la loi sur le travail sur la base des rapports établis par l’Inspection cantonale de l’emploi et de l’aide sociale et par l’inspection du travail Vous assurez un soutien juridique aux autres sections et au service dans toutes les affaires juridiques\n\nVotre profil:\n• Master en droit ou titre jugé équivalent Très bonnes connaissances en droit du travail\n• Grande capacité d’analyse, de synthèse et d’organisation Aisance dans le contact, sens de la communication Langue maternelle française et de bonnes connaissances de la deuxième langue officielle serait un atout\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de protection des travailleurs et des relations du travail (027 606 74 22 / valentine.schaller@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 112048",
+        "en": "Un ou une juriste (30%) auprès du Service de protection des travailleurs et des relations du travail, à Sion\n\nVos tâches:\n• Vous participez à la permanence juridique en matière de droit du travail Vous rédigez des décisions dans les domaines de la loi sur les travailleurs détachés, de la loi fédérale sur le travail au noir et de la loi sur le travail sur la base des rapports établis par l’Inspection cantonale de l’emploi et de l’aide sociale et par l’inspection du travail Vous assurez un soutien juridique aux autres sections et au service dans toutes les affaires juridiques\n\nVotre profil:\n• Master en droit ou titre jugé équivalent Très bonnes connaissances en droit du travail\n• Grande capacité d’analyse, de synthèse et d’organisation Aisance dans le contact, sens de la communication Langue maternelle française et de bonnes connaissances de la deuxième langue officielle serait un atout\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de protection des travailleurs et des relations du travail (027 606 74 22 / valentine.schaller@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 112048",
+        "de": "Un ou une juriste (30%) auprès du Service de protection des travailleurs et des relations du travail, à Sion\n\nVos tâches:\n• Vous participez à la permanence juridique en matière de droit du travail Vous rédigez des décisions dans les domaines de la loi sur les travailleurs détachés, de la loi fédérale sur le travail au noir et de la loi sur le travail sur la base des rapports établis par l’Inspection cantonale de l’emploi et de l’aide sociale et par l’inspection du travail Vous assurez un soutien juridique aux autres sections et au service dans toutes les affaires juridiques\n\nVotre profil:\n• Master en droit ou titre jugé équivalent Très bonnes connaissances en droit du travail\n• Grande capacité d’analyse, de synthèse et d’organisation Aisance dans le contact, sens de la communication Langue maternelle française et de bonnes connaissances de la deuxième langue officielle serait un atout\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de protection des travailleurs et des relations du travail (027 606 74 22 / valentine.schaller@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 112048"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:28.038Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 18200,
+      "salaryMax": 27500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 18200,
+          "maxValue": 27500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:28.038Z"
+    },
+    {
+      "id": "canton-valais-6d4d0f9431d3",
+      "slug": "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+        "it": "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+        "en": "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+        "de": "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un agent ou une agente en information documentaire (50%)",
+      "titleByLocale": {
+        "fr": "Un agent ou une agente en information documentaire (50%)",
+        "it": "Un agent ou une agente en information documentaire (50%)",
+        "en": "Un agent ou une agente en information documentaire (50%)",
+        "de": "Un agent ou une agente en information documentaire (50%)"
+      },
+      "description": "Un agent ou une agente en information documentaire (50%) auprès du Service de la culture, à la Médiathèque Valais, à Sion\n\nVos tâches:\n• Vous participez au traitement des documents (acquisitions, périodiques, équipement et catalogage) Vous effectuez ponctuellement des permanences de prêt Vous collaborez à la formation des apprenants ou apprenantes et/ou des stagiaires dans votre domaine de compétence\n\nVotre profil:\n• Formation d’agent ou d’agente en information documentaire, ou formation jugée équivalente Expérience professionnelle dans le domaine, comprenant notamment de bonnes connaissances du logiciel RERO ILS (module du prêt et du catalogage)\n• Aptitude à travailler de manière indépendante et en équipe Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Mme Aline Héritier, Directrice de la Médiathèque Valais – Sion (027 606 45 52 / aline.heritier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107976",
+      "descriptionByLocale": {
+        "fr": "Un agent ou une agente en information documentaire (50%) auprès du Service de la culture, à la Médiathèque Valais, à Sion\n\nVos tâches:\n• Vous participez au traitement des documents (acquisitions, périodiques, équipement et catalogage) Vous effectuez ponctuellement des permanences de prêt Vous collaborez à la formation des apprenants ou apprenantes et/ou des stagiaires dans votre domaine de compétence\n\nVotre profil:\n• Formation d’agent ou d’agente en information documentaire, ou formation jugée équivalente Expérience professionnelle dans le domaine, comprenant notamment de bonnes connaissances du logiciel RERO ILS (module du prêt et du catalogage)\n• Aptitude à travailler de manière indépendante et en équipe Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Mme Aline Héritier, Directrice de la Médiathèque Valais – Sion (027 606 45 52 / aline.heritier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107976",
+        "it": "Un agent ou une agente en information documentaire (50%) auprès du Service de la culture, à la Médiathèque Valais, à Sion\n\nVos tâches:\n• Vous participez au traitement des documents (acquisitions, périodiques, équipement et catalogage) Vous effectuez ponctuellement des permanences de prêt Vous collaborez à la formation des apprenants ou apprenantes et/ou des stagiaires dans votre domaine de compétence\n\nVotre profil:\n• Formation d’agent ou d’agente en information documentaire, ou formation jugée équivalente Expérience professionnelle dans le domaine, comprenant notamment de bonnes connaissances du logiciel RERO ILS (module du prêt et du catalogage)\n• Aptitude à travailler de manière indépendante et en équipe Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Mme Aline Héritier, Directrice de la Médiathèque Valais – Sion (027 606 45 52 / aline.heritier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107976",
+        "en": "Un agent ou une agente en information documentaire (50%) auprès du Service de la culture, à la Médiathèque Valais, à Sion\n\nVos tâches:\n• Vous participez au traitement des documents (acquisitions, périodiques, équipement et catalogage) Vous effectuez ponctuellement des permanences de prêt Vous collaborez à la formation des apprenants ou apprenantes et/ou des stagiaires dans votre domaine de compétence\n\nVotre profil:\n• Formation d’agent ou d’agente en information documentaire, ou formation jugée équivalente Expérience professionnelle dans le domaine, comprenant notamment de bonnes connaissances du logiciel RERO ILS (module du prêt et du catalogage)\n• Aptitude à travailler de manière indépendante et en équipe Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Mme Aline Héritier, Directrice de la Médiathèque Valais – Sion (027 606 45 52 / aline.heritier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107976",
+        "de": "Un agent ou une agente en information documentaire (50%) auprès du Service de la culture, à la Médiathèque Valais, à Sion\n\nVos tâches:\n• Vous participez au traitement des documents (acquisitions, périodiques, équipement et catalogage) Vous effectuez ponctuellement des permanences de prêt Vous collaborez à la formation des apprenants ou apprenantes et/ou des stagiaires dans votre domaine de compétence\n\nVotre profil:\n• Formation d’agent ou d’agente en information documentaire, ou formation jugée équivalente Expérience professionnelle dans le domaine, comprenant notamment de bonnes connaissances du logiciel RERO ILS (module du prêt et du catalogage)\n• Aptitude à travailler de manière indépendante et en équipe Langue maternelle française, avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Mme Aline Héritier, Directrice de la Médiathèque Valais – Sion (027 606 45 52 / aline.heritier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107976"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:27.419Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 30300,
+      "salaryMax": 45800,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 30300,
+          "maxValue": 45800,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:27.419Z"
+    },
+    {
+      "id": "canton-valais-6bcbe8a026ba",
+      "slug": "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "it": "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "en": "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "de": "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans)",
+      "titleByLocale": {
+        "fr": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans)",
+        "it": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans)",
+        "en": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans)",
+        "de": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans)"
+      },
+      "description": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 110385",
+      "descriptionByLocale": {
+        "fr": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 110385",
+        "it": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 110385",
+        "en": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 110385",
+        "de": "2 taxateurs ou taxatrices (80-100% – durée déterminée de 5 ans) auprès du Service cantonal des contributions, à Sion\n\nVos tâches:\n• Vous préparez les taxations des personnes physiques en vue de la perception de l'impôt cantonal, communal et de l'impôt fédéral direct Vous procédez à la taxation des professions dépendantes et des agriculteurs Vous répondez aux demandes de renseignements des contribuables, des communes, des fiduciaires et des différents services de l'Administration cantonale\n\nVotre profil:\n• Maturité professionnelle économie, diplôme d'une école de commerce ou CFC d'employé de commerce Expérience pratique en fiscalité et en comptabilité souhaitée\n• Bonnes connaissances de l'informatique Aisance dans la communication écrite et verbale Aptitude à travailler en équipe Langue maternelle française, avec de très bonnes connaissances de la deuxième langue officielle Possibilité de télétravail au terme de la période de formation\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service cantonal des contributions, Mme Véronique Rieder (027 606 00 76) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 110385"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:26.773Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:26.773Z"
+    },
+    {
+      "id": "canton-valais-187ec341915f",
+      "slug": "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+      "slugByLocale": {
+        "fr": "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+        "it": "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+        "en": "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+        "de": "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026)",
+      "titleByLocale": {
+        "fr": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026)",
+        "it": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026)",
+        "en": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026)",
+        "de": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026)"
+      },
+      "description": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026) auprès de la section « biodiversité, territoire et environnement » du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement, à Sion\n\nVos tâches:\n• Assurer l’appui juridique de la Commission cantonale des constructions et de son secrétariat dans le domaine du droit public des constructions et de l’aménagement du territoire Elaborer des avis de droit et contribuer à la rédaction de décisions administratives ou pénales Rédiger, pour le compte et au nom des services techniques, notamment, des correspondances, des préavis sur des règlements, des prises de position Appuyer les différents juristes de la section, selon les besoins\n\nVotre profil:\n• Titulaire d’un master en droit suisse Le brevet d’avocat et le CAS en droit de la construction et de l’immobilier sont des atouts Intérêt pour l’aménagement du territoire et les constructions Très bon esprit d’analyse, grande capacité de rédaction et capacité à prendre des décisions rapidement Expérience dans la rédaction de décisions et en droit administratif Capacité à avoir une vision transversale et à percevoir les différents enjeux en présence Sensibilité pour la chose publique Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress et sens des priorités\n• De langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service administratif et juridique, : M. Sébastien Thüler, adjoint du Service administratif et juridique du DMTE (027 606 33 61) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107177",
+      "descriptionByLocale": {
+        "fr": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026) auprès de la section « biodiversité, territoire et environnement » du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement, à Sion\n\nVos tâches:\n• Assurer l’appui juridique de la Commission cantonale des constructions et de son secrétariat dans le domaine du droit public des constructions et de l’aménagement du territoire Elaborer des avis de droit et contribuer à la rédaction de décisions administratives ou pénales Rédiger, pour le compte et au nom des services techniques, notamment, des correspondances, des préavis sur des règlements, des prises de position Appuyer les différents juristes de la section, selon les besoins\n\nVotre profil:\n• Titulaire d’un master en droit suisse Le brevet d’avocat et le CAS en droit de la construction et de l’immobilier sont des atouts Intérêt pour l’aménagement du territoire et les constructions Très bon esprit d’analyse, grande capacité de rédaction et capacité à prendre des décisions rapidement Expérience dans la rédaction de décisions et en droit administratif Capacité à avoir une vision transversale et à percevoir les différents enjeux en présence Sensibilité pour la chose publique Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress et sens des priorités\n• De langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service administratif et juridique, : M. Sébastien Thüler, adjoint du Service administratif et juridique du DMTE (027 606 33 61) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107177",
+        "it": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026) auprès de la section « biodiversité, territoire et environnement » du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement, à Sion\n\nVos tâches:\n• Assurer l’appui juridique de la Commission cantonale des constructions et de son secrétariat dans le domaine du droit public des constructions et de l’aménagement du territoire Elaborer des avis de droit et contribuer à la rédaction de décisions administratives ou pénales Rédiger, pour le compte et au nom des services techniques, notamment, des correspondances, des préavis sur des règlements, des prises de position Appuyer les différents juristes de la section, selon les besoins\n\nVotre profil:\n• Titulaire d’un master en droit suisse Le brevet d’avocat et le CAS en droit de la construction et de l’immobilier sont des atouts Intérêt pour l’aménagement du territoire et les constructions Très bon esprit d’analyse, grande capacité de rédaction et capacité à prendre des décisions rapidement Expérience dans la rédaction de décisions et en droit administratif Capacité à avoir une vision transversale et à percevoir les différents enjeux en présence Sensibilité pour la chose publique Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress et sens des priorités\n• De langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service administratif et juridique, : M. Sébastien Thüler, adjoint du Service administratif et juridique du DMTE (027 606 33 61) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107177",
+        "en": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026) auprès de la section « biodiversité, territoire et environnement » du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement, à Sion\n\nVos tâches:\n• Assurer l’appui juridique de la Commission cantonale des constructions et de son secrétariat dans le domaine du droit public des constructions et de l’aménagement du territoire Elaborer des avis de droit et contribuer à la rédaction de décisions administratives ou pénales Rédiger, pour le compte et au nom des services techniques, notamment, des correspondances, des préavis sur des règlements, des prises de position Appuyer les différents juristes de la section, selon les besoins\n\nVotre profil:\n• Titulaire d’un master en droit suisse Le brevet d’avocat et le CAS en droit de la construction et de l’immobilier sont des atouts Intérêt pour l’aménagement du territoire et les constructions Très bon esprit d’analyse, grande capacité de rédaction et capacité à prendre des décisions rapidement Expérience dans la rédaction de décisions et en droit administratif Capacité à avoir une vision transversale et à percevoir les différents enjeux en présence Sensibilité pour la chose publique Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress et sens des priorités\n• De langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service administratif et juridique, : M. Sébastien Thüler, adjoint du Service administratif et juridique du DMTE (027 606 33 61) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107177",
+        "de": "Un ou une juriste (80% – engagement de durée déterminée jusqu’au 31 décembre 2026) auprès de la section « biodiversité, territoire et environnement » du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement, à Sion\n\nVos tâches:\n• Assurer l’appui juridique de la Commission cantonale des constructions et de son secrétariat dans le domaine du droit public des constructions et de l’aménagement du territoire Elaborer des avis de droit et contribuer à la rédaction de décisions administratives ou pénales Rédiger, pour le compte et au nom des services techniques, notamment, des correspondances, des préavis sur des règlements, des prises de position Appuyer les différents juristes de la section, selon les besoins\n\nVotre profil:\n• Titulaire d’un master en droit suisse Le brevet d’avocat et le CAS en droit de la construction et de l’immobilier sont des atouts Intérêt pour l’aménagement du territoire et les constructions Très bon esprit d’analyse, grande capacité de rédaction et capacité à prendre des décisions rapidement Expérience dans la rédaction de décisions et en droit administratif Capacité à avoir une vision transversale et à percevoir les différents enjeux en présence Sensibilité pour la chose publique Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress et sens des priorités\n• De langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service administratif et juridique, : M. Sébastien Thüler, adjoint du Service administratif et juridique du DMTE (027 606 33 61) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 31 juillet 2026 / Numéro de référence : 107177"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-16T23:06:26.135Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-16T23:06:26.135Z"
     }
   ]
 }
