@@ -32,9 +32,11 @@ jobs:
        github.event.sender.login == 'frontaliere-automation[bot]' ||
        startsWith(github.event.sender.login, 'claude'))
     runs-on: ubuntu-latest
-    # 30→40 (2026-07-17): headroom per il cap turni alzato 50→70 — senza, il
-    # timeout ucciderebbe a metà turno quello che il cap voleva lasciar finire.
-    timeout-minutes: 40
+    # 40→360 (2026-07-17, #4341): 40min ha già ricausato ci-timeout 2x (#4189,
+    # #4219) dopo il bump 30→40 — stesso costrutto di pr-review-loop.yml, stesso
+    # fix: portato al vero max runner-hosted (360) per non uccidere più a metà
+    # turno lavoro Claude già fatto. Costo: minuti effettivi usati, non il tetto.
+    timeout-minutes: 360
     steps:
       - name: Checkout
         uses: actions/checkout@v5
