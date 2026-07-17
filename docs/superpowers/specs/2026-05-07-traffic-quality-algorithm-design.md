@@ -90,7 +90,7 @@ Replace the current TF-IDF demand-vocabulary scorer with an evidence-grounded tr
 ┌───────────────────────────────────────────────────────────────┐
 │  FEEDBACK LOOP (daily, 14-day delay)                          │
 │  - tune-discovery-quota.mjs reads data/evidence-index.json    │
-│  - finds articles published 14-30d ago, grouped by _pool      │
+│  - finds articles published 14-60d ago, grouped by _pool      │
 │  - computes provenWinRate, discoveryWinRate                   │
 │  - mutates data/quota-state.json within bounds [60, 95]       │
 │  - appends decision to data/quota-history.jsonl               │
@@ -815,7 +815,7 @@ data/quota-history.jsonl                  (append-only audit log; created on fir
 
 ```js
 /**
- * For each article published 14-30d ago, decide if it's a winner.
+ * For each article published 14-60d ago, decide if it's a winner.
  *
  * @param {object} evidence
  * @returns {{ proven: { winners, total }, discovery: { winners, total }, perCluster: object }}

@@ -1,12 +1,19 @@
 // scripts/lib/scheduler/winnerEvaluator.mjs
 //
 // Phase 4 winner evaluator: scans `data/blog-articles/<id>.json` sidecars,
-// keeps articles published 14-30 days ago, looks them up in the GA4 page
+// keeps articles published 14-60 days ago, looks them up in the GA4 page
 // stats from `evidence-index.json`, and counts how many beat the cluster
 // p50 baseline. Sidecar files only exist for articles published AFTER the
 // Phase 3 merge — older articles do NOT have sidecars and are silently
 // skipped. Articles whose page is not in the GA4 evidence are also
 // skipped (no traffic data → cannot judge).
+//
+// Window widened 30d -> 60d 2026-07-17: at actual publish/discovery-pool
+// rates a 14-30d window produced too few in-window discovery samples to
+// ever clear TUNE_MIN_SAMPLE downstream (tune-discovery-quota.mjs held
+// on every one of 70 consecutive daily runs since 2026-05-07). 60d keeps
+// the sample "recent" while giving `tune-discovery-quota.mjs` enough
+// volume to fire — see docs/AGENTS-HISTORY.md.
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 7.3
 
@@ -15,7 +22,7 @@ import { join } from 'node:path';
 
 export const DEFAULT_BLOG_ARTICLES_DIR = 'data/blog-articles';
 export const WINNER_MIN_AGE_DAYS = 14;
-export const WINNER_MAX_AGE_DAYS = 30;
+export const WINNER_MAX_AGE_DAYS = 60;
 export const DEFAULT_CLUSTER_FALLBACK_P50 = 100;
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;

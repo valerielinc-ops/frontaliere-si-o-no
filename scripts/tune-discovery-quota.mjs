@@ -2,11 +2,16 @@
 // scripts/tune-discovery-quota.mjs
 //
 // Phase 4 auto-tune entrypoint. Reads the freshly-built evidence index and
-// every Phase-3-era article sidecar, computes the 14-day winner rate per
-// pool, and decides whether to nudge `currentQuota` up, down, or hold.
-// The new quota is clamped into [60, 95]. Every run appends one JSON line
-// to `data/quota-history.jsonl` for audit, and updates
-// `data/quota-state.json` (atomic .tmp+rename via saveQuotaState).
+// every Phase-3-era article sidecar, computes the 14-60d winner rate per
+// pool (see winnerEvaluator.mjs), and decides whether to nudge
+// `currentQuota` up, down, or hold. The new quota is clamped into
+// [60, 95]. Every run appends one JSON line to `data/quota-history.jsonl`
+// for audit, and updates `data/quota-state.json` (atomic .tmp+rename via
+// saveQuotaState).
+//
+// TUNE_MIN_SAMPLE lowered 30->15 2026-07-17: 30 was unreachable at actual
+// discovery-pool publish volume (held 70/70 consecutive runs since
+// 2026-05-07) — see docs/AGENTS-HISTORY.md#quota-tune-unreachable-threshold.
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 7.4
 
@@ -35,7 +40,7 @@ const REPO_ROOT = resolve(__dirname, '..');
 
 export const DEFAULT_EVIDENCE_PATH = 'data/evidence-index.json';
 export const DEFAULT_HISTORY_PATH = 'data/quota-history.jsonl';
-export const TUNE_MIN_SAMPLE = 30;
+export const TUNE_MIN_SAMPLE = 15;
 export const TUNE_RATIO_HIGH = 1.2;
 export const TUNE_RATIO_LOW = 0.7;
 export const TUNE_STEP = 5;

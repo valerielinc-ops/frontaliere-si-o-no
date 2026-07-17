@@ -2,7 +2,7 @@
 //
 // Spec § 7.3 acceptance:
 //  - winners counted per pool ('proven' vs 'discovery')
-//  - articles outside [14, 30] day window are skipped
+//  - articles outside [14, WINNER_MAX_AGE_DAYS] day window are skipped
 //  - articles missing GA4 data are skipped (counted in 'skipped.noGa4')
 //  - articles without `_pool` (e.g. evergreen-fallback) are skipped
 //  - cold start (no sidecar dir) returns zeros without throwing
@@ -16,6 +16,7 @@ import {
   evaluateWinners,
   loadAllPublishedArticleMetas,
   slugToGa4Path,
+  WINNER_MAX_AGE_DAYS,
 } from '../../../../scripts/lib/scheduler/winnerEvaluator.mjs';
 
 const NOW = new Date('2026-05-07T12:00:00Z').getTime();
@@ -138,7 +139,7 @@ describe('evaluateWinners', () => {
     expect(stats.perCluster.fisco).toEqual({ winners: 2, total: 3 });
   });
 
-  it('skips articles outside the 14-30 day window', () => {
+  it('skips articles outside the 14-WINNER_MAX_AGE_DAYS day window', () => {
     writeSidecar('young', {
       slug: 'young',
       publishedAt: isoDaysAgo(7),
@@ -147,7 +148,7 @@ describe('evaluateWinners', () => {
     });
     writeSidecar('old', {
       slug: 'old',
-      publishedAt: isoDaysAgo(60),
+      publishedAt: isoDaysAgo(WINNER_MAX_AGE_DAYS + 1),
       cluster: 'fisco',
       _pool: 'proven',
     });

@@ -2,7 +2,7 @@
 //
 // Spec § 7.4 + § 7.6 acceptance:
 //  - cold-start (no aged articles) → hold + reason includes 'cold-start'
-//  - statistical sanity (sample < 30 in either pool) → hold
+//  - statistical sanity (sample < TUNE_MIN_SAMPLE in either pool) → hold
 //  - bounds enforced: 100 cycles can never push quota outside [60, 95]
 //  - decision direction: ratio ≥ 1.2 → 'more discovery' (quota − step),
 //    ratio ≤ 0.7 → 'less discovery' (quota + step)
@@ -21,6 +21,7 @@ import {
   runTune,
   HISTORY_CAP,
   TUNE_STEP,
+  TUNE_MIN_SAMPLE,
 } from '../../scripts/tune-discovery-quota.mjs';
 import {
   QUOTA_LOWER_BOUND,
@@ -77,12 +78,13 @@ describe('decideTune', () => {
     expect(tune.newQuota).toBe(80);
   });
 
-  it('25 proven + 25 discovery (both < 30) → hold', () => {
+  it(`below TUNE_MIN_SAMPLE proven + discovery → hold`, () => {
+    const belowThreshold = TUNE_MIN_SAMPLE - 5;
     const tune = decideTune(
       { currentQuota: 80 },
       {
-        proven: { winners: 10, total: 25 },
-        discovery: { winners: 5, total: 25 },
+        proven: { winners: Math.round(belowThreshold * 0.4), total: belowThreshold },
+        discovery: { winners: Math.round(belowThreshold * 0.2), total: belowThreshold },
       },
     );
     expect(tune.decision).toBe('hold');
@@ -90,13 +92,13 @@ describe('decideTune', () => {
     expect(tune.newQuota).toBe(80);
   });
 
-  it('30 proven + 30 discovery → applies tune logic', () => {
+  it(`at TUNE_MIN_SAMPLE proven + discovery → applies tune logic`, () => {
     // discovery beating proven by 2x → ratio=2, decrease quota
     const tune = decideTune(
       { currentQuota: 80 },
       {
-        proven: { winners: 6, total: 30 },
-        discovery: { winners: 12, total: 30 },
+        proven: { winners: Math.round(TUNE_MIN_SAMPLE * 0.2), total: TUNE_MIN_SAMPLE },
+        discovery: { winners: Math.round(TUNE_MIN_SAMPLE * 0.4), total: TUNE_MIN_SAMPLE },
       },
     );
     expect(tune.decision).toBe('more discovery');
