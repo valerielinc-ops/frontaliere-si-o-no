@@ -1126,6 +1126,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div
  key={d.id}
  onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
+ role="button"
+ tabIndex={0}
+ aria-pressed={d.date === selectedDate}
+ onKeyDown={(e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ setSelectedDate(d.date === selectedDate ? null : d.date);
+ }}
  className={`cursor-pointer transition-[color,background-color,box-shadow,transform] rounded-xl ${
  d.date === selectedDate
  ? 'ring-2 ring-warning bg-warning-subtle scale-[1.02] shadow-md'
@@ -1180,6 +1188,15 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  Analytics.trackCalendarEvent('expand_deadline', dateStr);
  }
  }}
+ role={hasEvents ? 'button' : undefined}
+ tabIndex={hasEvents ? 0 : undefined}
+ aria-pressed={hasEvents ? isSelected : undefined}
+ onKeyDown={hasEvents ? (e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ setSelectedDate(isSelected ? null : dateStr);
+ Analytics.trackCalendarEvent('expand_deadline', dateStr);
+ } : undefined}
  className={`border-b border-r border-edge/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-[color,background-color,opacity,box-shadow] relative
  ${hasEvents ? 'cursor-pointer hover:bg-warning-subtle/80 ' : ''}
  ${isSelected ? 'bg-warning-subtle ring-2 ring-warning ring-inset shadow-inner' : ''}

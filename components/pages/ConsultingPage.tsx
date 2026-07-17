@@ -128,6 +128,14 @@ const ConsultingPage: React.FC = () => {
  <div
  key={tier.id}
  onClick={() => setSelectedTier(tier.id)}
+ role="button"
+ tabIndex={0}
+ aria-pressed={isSelected}
+ onKeyDown={(e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ setSelectedTier(tier.id);
+ }}
  className={`relative rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-colors duration-200 ${
  tier.popular
  ? 'border-warning-border bg-warning-subtle'
