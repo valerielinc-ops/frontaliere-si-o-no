@@ -3461,6 +3461,9 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3610.title': 'CV des auteurs consultables sur le site',
+  'whatsNew.v3610.authorCv.title': 'Aperçu du CV sur la page auteur',
+  'whatsNew.v3610.authorCv.desc': 'Le CV des auteurs se consulte désormais directement sur la page de profil via un aperçu PDF intégré, sans téléchargement forcé.',
   'whatsNew.v3600.title': 'Précision fiscale par canton',
   'whatsNew.v3600.cantonWithholding.title': 'Taux d\'imposition réel par canton dans le comparateur de salaires',
   'whatsNew.v3600.cantonWithholding.desc': 'Le salaire net suisse par canton utilise désormais la charge fiscale réelle du chef-lieu de chacun des 26 cantons (données officielles ESTV/AFC), au lieu d\'un taux générique identique pour tous.',

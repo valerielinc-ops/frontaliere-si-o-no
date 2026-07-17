@@ -3548,6 +3548,9 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3610.title': 'CV degli autori visibile nel sito',
+  'whatsNew.v3610.authorCv.title': 'Anteprima del CV nella pagina autore',
+  'whatsNew.v3610.authorCv.desc': 'Il curriculum degli autori ora si sfoglia direttamente nella pagina del profilo con un\'anteprima PDF integrata, senza download forzato.',
   'whatsNew.v3600.title': 'Precisione fiscale per cantone',
   'whatsNew.v3600.cantonWithholding.title': 'Aliquota fiscale reale per cantone nel confronto stipendi',
   'whatsNew.v3600.cantonWithholding.desc': 'Il netto svizzero per cantone ora usa il carico fiscale reale del capoluogo di ciascuno dei 26 cantoni (dati ufficiali ESTV), non più un\'aliquota generica uguale per tutti.',
