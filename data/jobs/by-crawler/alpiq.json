@@ -6,7 +6,9 @@
       "id": "alpiq-3fa36ed9c713",
       "slug": "structured-products-trader-spanish-market-alpiq-olten",
       "slugByLocale": {
-        "it": "structured-products-trader-spanish-market-alpiq-olten"
+        "it": "structured-products-trader-spanish-market-alpiq-olten",
+        "de": "structured-products-trader-spanischer-markt-alpiq-olten",
+        "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -64,9 +66,9 @@
     },
     {
       "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
+      "slug": "archivista-tutte-100-alpiq-olten",
       "slugByLocale": {
-        "it": "archivist-in-all-100-alpiq-olten",
+        "it": "archivista-tutte-100-alpiq-olten",
         "en": "archivist-in-all-100-alpiq-olten",
         "de": "archivist-in-all-100-alpiq-olten",
         "fr": "archiviste-dans-tous-100-alpiq-olten"
@@ -121,13 +123,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "archivist-in-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "archivist-in-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-6f6e2e4039a0",
-      "slug": "head-internal-audit-all-100-alpiq-olten",
+      "slug": "responsabile-internal-audit-tutto-100-alpiq-olten",
       "slugByLocale": {
-        "it": "head-internal-audit-all-100-alpiq-olten",
+        "it": "responsabile-internal-audit-tutto-100-alpiq-olten",
         "en": "head-internal-audit-all-100-alpiq-olten",
         "de": "head-internal-audit-alle-100-alpiq-olten",
         "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten"
@@ -182,7 +192,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-internal-audit-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "head-internal-audit-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-dbe206690861",
@@ -383,15 +401,7 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": [
-        "electricien-ne-automaticien-ne-alpiq-martigny"
-      ],
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "electricien-ne-automaticien-ne-alpiq-martigny"
-        ]
-      }
+      "retranslationAttempts": 1
     }
   ]
 }

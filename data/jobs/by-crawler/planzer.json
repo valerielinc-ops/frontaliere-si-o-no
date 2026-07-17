@@ -58,8 +58,7 @@
         "dispatch-of-general-cargo-m-f-d-planzer-seewen",
         "disponent-stuckgut-m-w-d-planzer-seewen",
         "expedition-de-marchandises-generales-m-f-d-planzer-seewen",
-        "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-        "carico-generale-ausiliario-m-f-d-planzer-seewen"
+        "nebendisponent-stuckgut-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,8 +66,7 @@
           "dispatch-of-general-cargo-m-f-d-planzer-seewen",
           "disponent-stuckgut-m-w-d-planzer-seewen",
           "expedition-de-marchandises-generales-m-f-d-planzer-seewen",
-          "nebendisponent-stuckgut-m-w-d-planzer-seewen",
-          "carico-generale-ausiliario-m-f-d-planzer-seewen"
+          "nebendisponent-stuckgut-m-w-d-planzer-seewen"
         ],
         "en": [
           "dispatch-of-general-cargo-m-f-d-planzer-seewen",
@@ -148,13 +146,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
-        "autista-notturno-cat-b-m-f-d-planzer-kallnach"
+        "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach",
-          "autista-notturno-cat-b-m-f-d-planzer-kallnach"
+          "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
         ],
         "en": [
           "nacht-chauffeur-kat-b-m-w-d-planzer-kallnach"
@@ -229,13 +225,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lkw-mechaniker-m-w-d-planzer-dallikon",
-        "meccanico-hgv-m-f-d-planzer-dallikon"
+        "lkw-mechaniker-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lkw-mechaniker-m-w-d-planzer-dallikon",
-          "meccanico-hgv-m-f-d-planzer-dallikon"
+          "lkw-mechaniker-m-w-d-planzer-dallikon"
         ],
         "en": [
           "lkw-mechaniker-m-w-d-planzer-dallikon"
@@ -310,13 +304,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
-        "veicoli-fabbri-carrozzeria-m-f-d-planzer-dallikon"
+        "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon",
-          "veicoli-fabbri-carrozzeria-m-f-d-planzer-dallikon"
+          "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
         ],
         "en": [
           "fahrzeugschlosser-aufbauer-m-w-d-planzer-dallikon"
@@ -341,12 +333,12 @@
     },
     {
       "id": "planzer-07f8f496359c",
-      "slug": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
+      "slug": "project-manager-intralogistics-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
-        "it": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
+        "it": "project-manager-intralogistics-m-f-d-planzer-dallikon",
         "en": "projektleiter-intralogistik-m-w-d-planzer-dallikon",
-        "fr": "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        "fr": "gestionnaire-de-projet-intralogistique-m-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -403,16 +395,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:33.209Z"
+      "firstSeenAt": "2026-07-16T22:05:33.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-intralogistik-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-c531f9e3c6a6",
-      "slug": "paketsortierer-nacht-m-w-d-planzer-winterthur",
+      "slug": "serata-di-selezione-m-f-d-planzer-winterthur",
       "slugByLocale": {
         "de": "paketsortierer-nacht-m-w-d-planzer-winterthur",
-        "it": "paketsortierer-nacht-m-w-d-planzer-winterthur",
-        "en": "paketsortierer-nacht-m-w-d-planzer-winterthur",
-        "fr": "paketsortierer-nacht-m-w-d-planzer-winterthur"
+        "it": "serata-di-selezione-m-f-d-planzer-winterthur",
+        "en": "package-sorter-night-m-f-d-planzer-winterthur",
+        "fr": "soiree-de-tri-des-colis-m-f-d-planzer-winterthur"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -469,16 +472,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:32.369Z"
+      "firstSeenAt": "2026-07-16T22:05:32.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-nacht-m-w-d-planzer-winterthur"
+        ],
+        "en": [
+          "paketsortierer-nacht-m-w-d-planzer-winterthur"
+        ],
+        "fr": [
+          "paketsortierer-nacht-m-w-d-planzer-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-nacht-m-w-d-planzer-winterthur"
+      ]
     },
     {
       "id": "planzer-067d16ab0d88",
-      "slug": "sachbearbeiter-paket-m-w-d-planzer-schmerikon",
+      "slug": "imballaggio-del-caso-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "sachbearbeiter-paket-m-w-d-planzer-schmerikon",
-        "it": "sachbearbeiter-paket-m-w-d-planzer-schmerikon",
-        "en": "sachbearbeiter-paket-m-w-d-planzer-schmerikon",
-        "fr": "sachbearbeiter-paket-m-w-d-planzer-schmerikon"
+        "it": "imballaggio-del-caso-m-f-d-planzer-schmerikon",
+        "en": "case-handler-package-m-f-d-planzer-schmerikon",
+        "fr": "dossier-de-traitement-m-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -535,16 +552,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:31.589Z"
+      "firstSeenAt": "2026-07-16T22:05:31.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-paket-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "sachbearbeiter-paket-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "sachbearbeiter-paket-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-paket-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-b78ba636535b",
-      "slug": "personalverantwortlicher-m-w-d-planzer-schmerikon",
+      "slug": "responsabile-del-personale-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "personalverantwortlicher-m-w-d-planzer-schmerikon",
-        "it": "personalverantwortlicher-m-w-d-planzer-schmerikon",
-        "en": "personalverantwortlicher-m-w-d-planzer-schmerikon",
-        "fr": "personalverantwortlicher-m-w-d-planzer-schmerikon"
+        "it": "responsabile-del-personale-m-f-d-planzer-schmerikon",
+        "en": "personnel-manager-m-f-d-planzer-schmerikon",
+        "fr": "gestionnaire-du-personnel-m-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -601,16 +632,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:30.816Z"
+      "firstSeenAt": "2026-07-16T22:05:30.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalverantwortlicher-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "personalverantwortlicher-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "personalverantwortlicher-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "personalverantwortlicher-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-30b99b2790ba",
-      "slug": "paketzusteller-m-w-d-planzer-schmerikon",
+      "slug": "consegna-dei-pacchi-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "it": "paketzusteller-m-w-d-planzer-schmerikon",
-        "en": "paketzusteller-m-w-d-planzer-schmerikon",
-        "fr": "paketzusteller-m-w-d-planzer-schmerikon"
+        "it": "consegna-dei-pacchi-m-f-d-planzer-schmerikon",
+        "en": "parcel-delivery-m-f-d-planzer-schmerikon",
+        "fr": "livraison-de-colis-m-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -667,16 +712,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:30.045Z"
+      "firstSeenAt": "2026-07-16T22:05:30.045Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "paketzusteller-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-6b582a3f8399",
-      "slug": "disponent-m-w-d-planzer-schmerikon",
+      "slug": "m-w-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "disponent-m-w-d-planzer-schmerikon",
-        "it": "disponent-m-w-d-planzer-schmerikon",
+        "it": "m-w-d-planzer-schmerikon",
         "en": "disponent-m-w-d-planzer-schmerikon",
-        "fr": "disponent-m-w-d-planzer-schmerikon"
+        "fr": "detenteur-m-w-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -733,7 +792,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:05:29.032Z"
+      "firstSeenAt": "2026-07-16T22:05:29.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "disponent-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-9d9d6f73030e",
