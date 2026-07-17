@@ -243,6 +243,15 @@ All data on Frontaliere Ticino is sourced from the following official authoritie
 | ISTAT (Italian National Institute of Statistics) | Italian Government | Municipal data, cost of living, demographic data |
 | TwelveData API | Market Data Provider | Real-time mid-market CHF/EUR exchange rates |
 
+## Public JSON Datasets (Machine-Readable, CDN-Served)
+
+Structured data feeds for agents/tools that prefer JSON over HTML scraping. Updated on independent schedules (see each `updatedAt`/`generatedAt`/`fetchedAt` field for freshness); no authentication required.
+
+- **CHF/EUR Fuel Prices** — [/data/fuel-prices.json](https://frontaliereticino.ch/data/fuel-prices.json) — Italy vs Switzerland border-crossing fuel prices by station, refreshed daily from MIMIT Open Data and Swiss sources
+- **LAMal Health Insurance Premiums** — [/data/health-premiums.json](https://frontaliereticino.ch/data/health-premiums.json) — Annual premium comparison across Swiss insurers (CSS, Helsana, Assura, etc.), sourced from UFSP/BAG
+- **Border Crossing Wait Times** — [/data/border-wait-ranking.json](https://frontaliereticino.ch/data/border-wait-ranking.json) — Weekly ranking of CH-IT border crossings by average wait minutes and trend
+- **Swiss Unemployment Rate** — [/data/switzerland-unemployment-rate.json](https://frontaliereticino.ch/data/switzerland-unemployment-rate.json) — Monthly unemployment rate with historical time series, sourced from SECO
+
 ## Contact
 - Website: https://frontaliereticino.ch
 - Facebook: https://www.facebook.com/profile.php?id=61588174947294

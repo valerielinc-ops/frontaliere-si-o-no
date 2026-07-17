@@ -32,7 +32,9 @@ jobs:
        github.event.sender.login == 'frontaliere-automation[bot]' ||
        startsWith(github.event.sender.login, 'claude'))
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30→40 (2026-07-17): headroom per il cap turni alzato 50→70 — senza, il
+    # timeout ucciderebbe a metà turno quello che il cap voleva lasciar finire.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -90,7 +92,8 @@ jobs:
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # rigoroso paga. Tier normal (claude-sonnet-4-6) per il resto. Mirror ESATTO di
+        # rigoroso paga. Tier normal per il resto (stesso modello claude-sonnet-5,
+        # unificato owner 2026-07-17 — mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
         # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
@@ -122,17 +125,21 @@ jobs:
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
             # anti-runaway, non come budget di lavoro: tenerlo sopra il p99
             # osservato dei run sani.
-            echo "max_turns=50" >> "$GITHUB_OUTPUT"
+            # 50->70 (2026-07-17, owner): bump fleet-wide di tutti i cap Claude
+            # dopo l'ennesimo error_max_turns (pr-review-loop tier high, run
+            # 29556645538) — stessa regola: cap sopra il p99, mai budget.
+            echo "max_turns=70" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
             # il bump #1919 copriva solo il tier high (40->50); il campione
             # 7gg aveva mostrato solo morti opus (bias). Stessa regola: cap
             # anti-runaway sopra il p99 dei run sani, non budget di lavoro.
-            echo "max_turns=40" >> "$GITHUB_OUTPUT"
+            # 40->55 (2026-07-17, owner): bump fleet-wide, vedi tier high sopra.
+            echo "max_turns=55" >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
           # Aggregate detection (deterministic, da titolo "N item deferred", N>=2).

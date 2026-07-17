@@ -48,7 +48,8 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # 25→30 (2026-07-17): headroom per il cap turni alzato 65→80.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -130,7 +131,8 @@ jobs:
           # allowlisted leading binary) plus a self-inflicted import error burned
           # turns before any real audit work (issue #3679). Not a cost-cut lower,
           # AGENTS.md permits raising turns for legitimate complexity.
-          claude_args: "--max-turns 65 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
+          # 65→80 (2026-07-17, owner): fleet-wide bump of every Claude max-turns cap.
+          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
           prompt: |
             Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
 
