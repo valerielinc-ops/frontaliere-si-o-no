@@ -1,18 +1,55 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-07-16T22:10:55.296Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-07-17T10:56:50.512Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3131,
-  "avgDurationMs": 3131,
+  "durationMs": 3944,
+  "avgDurationMs": 3944,
   "durationHistory": [
-    3131
+    3944
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "ergolz-klinik-6ec9804c71a1",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-50-100-festanstellung-ergolz-klinik-liestal",
+      "company": "Ergolz Klinik",
+      "companyKey": "ergolz-klinik",
+      "companyDomain": "ergolz.cardiance.com",
+      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF, 50-100% Festanstellung",
+      "needsRetranslation": true,
+      "location": "Liestal",
+      "canton": "BL",
+      "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/07/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026-1.pdf",
+      "source": "Ergolz Klinik Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-17T10:56:48.617Z",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4410",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://ergolz.cardiance.com/karriere/",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "ergolz-klinik-9afa70b1ddcc",
@@ -27,7 +64,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:10:53.393Z",
+      "crawledAt": "2026-07-17T10:56:47.792Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
