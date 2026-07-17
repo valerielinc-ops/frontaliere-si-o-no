@@ -29,7 +29,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
@@ -250,10 +250,11 @@ function getMicrodataContent(html, prop) {
 export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
+  const titleSource = stripScriptsAndStyles(html);
   const titleMatch =
-    html.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i) ||
-    html.match(/<h1[^>]*id="job-title"[^>]*>([\s\S]*?)<\/h1>/i) ||
-    html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+    titleSource.match(/<h1[^>]*itemprop="title"[^>]*>([\s\S]*?)<\/h1>/i) ||
+    titleSource.match(/<h1[^>]*id="job-title"[^>]*>([\s\S]*?)<\/h1>/i) ||
+    titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   const addressLocality = getMicrodataContent(html, 'addressLocality');

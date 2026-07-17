@@ -15,6 +15,7 @@
  *     the JSON-LD `description` teaser was used; HTML sections were ignored.
  *   — fix: extract structured HTML sections and prefer them when longer.
  */
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 /** Minimum accepted description length (characters). */
 export const MIN_SBB_DESC_LENGTH = 400;
@@ -245,7 +246,7 @@ export function parseSbbDetailPage(html = '') {
   const title = (() => {
     const jsonLdTitle = String(jobPosting?.title || '').trim();
     if (jsonLdTitle) return jsonLdTitle;
-    return stripHtml(String(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '')).trim();
+    return stripHtml(String(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '')).trim();
   })();
 
   // Build JSON-LD description (teaser + qualifications)

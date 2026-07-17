@@ -47,7 +47,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { decodeEntities } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -225,8 +225,9 @@ export function parseAbraxasListing(html = '') {
 export function parseAbraxasDetail(html = '') {
   if (!html) return { title: '', location: '', pensum: '', employmentTypeRaw: '', description: '', applyUrl: '', posId: '' };
 
-  const titleMatch = html.match(/<h1[^>]*class="[^"]*header__title[^"]*"[^>]*>([\s\S]*?)<span class="subtitle">([\s\S]*?)<\/span>\s*<\/h1>/i)
-    || html.match(/<h1[^>]*class="[^"]*header__title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*class="[^"]*header__title[^"]*"[^>]*>([\s\S]*?)<span class="subtitle">([\s\S]*?)<\/span>\s*<\/h1>/i)
+    || titleSource.match(/<h1[^>]*class="[^"]*header__title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(decodeEntities(titleMatch[1]))) : '';
   const location = titleMatch && titleMatch[2] ? normalizeSpace(stripHtml(decodeEntities(titleMatch[2]))) : '';
 

@@ -192,14 +192,39 @@ export function parseReflineListing(html = '', opts = {}) {
  * Same algorithm across all tenants: extract <h1> title, walk content blocks,
  * skip boilerplate.
  */
+/**
+ * Extract the job title from a Refline detail page.
+ *
+ * Shared by every Refline parser (factory + bespoke tenants): the JSON-LD
+ * JobPosting `title` is authoritative when present (JSON.parse decodes its
+ * escapes); visible headings are the fallback — matched only AFTER stripping
+ * `<script>`/`<style>` blocks. Refline embeds a JSON-LD JobPosting whose
+ * escaped `description` string starts with a literal `<h1>…ä…</h1>` —
+ * on tenants whose template ships NO real <h1> in the body (Spital Limmattal
+ * 486538, Caritas 126757, ZKB 792841) a raw-html title regex matches INSIDE
+ * the script block and captures JSON-escaped text, leaking literal `\uXXXX`
+ * into titles and slugs.
+ */
+export function extractReflineDetailTitle(html = '') {
+  if (!html) return '';
+  const jsonLdTitle = normalizeSpace(stripHtml(decodeEntities(
+    String(parseReflineJobPostingJsonLd(html)?.title || ''),
+  )));
+  if (jsonLdTitle) return jsonLdTitle;
+  const cleaned = html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const titleMatch = cleaned.match(/<h1[^>]*class="[^"]*posTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || cleaned.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || cleaned.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
+    || cleaned.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return titleMatch ? normalizeSpace(stripHtml(decodeEntities(titleMatch[1]))) : '';
+}
+
 export function parseReflineDetail(html = '') {
   if (!html) return { title: '', description: '' };
 
-  const titleMatch = html.match(/<h1[^>]*class="[^"]*posTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  const title = titleMatch ? normalizeSpace(stripHtml(decodeEntities(titleMatch[1]))) : '';
+  const title = extractReflineDetailTitle(html);
 
   const cleaned = html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
@@ -233,15 +258,25 @@ export function parseReflineDetail(html = '') {
  */
 export function parseReflineJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const match = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!match) return null;
-  try {
-    const data = JSON.parse(match[1]);
-    if (data && data['@type'] === 'JobPosting') return data;
-    return null;
-  } catch {
-    return null;
+  // Scan EVERY ld+json block: a tenant may ship breadcrumb/Organization
+  // blocks ahead of the JobPosting one — first-block-only would miss it.
+  // First JobPosting in document order wins: the main posting precedes any
+  // hypothetical related-jobs widget (live tenant pages checked 2026-07 emit
+  // at most one), and the heading fallback still covers a total mismatch.
+  const blockRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = blockRe.exec(html)) !== null) {
+    try {
+      const data = JSON.parse(match[1]);
+      const candidates = Array.isArray(data) ? data : [data];
+      for (const entry of candidates) {
+        if (entry && entry['@type'] === 'JobPosting') return entry;
+      }
+    } catch {
+      // malformed block — keep scanning the remaining ones
+    }
   }
+  return null;
 }
 
 function extractPensum(text = '') {

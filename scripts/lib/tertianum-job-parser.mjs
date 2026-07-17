@@ -36,7 +36,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   fetchHtml,
@@ -122,7 +122,7 @@ export function parseTertianumDetailPage(html = '') {
   const ogt = html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i);
   if (ogt) title = decodeEntities(ogt[1]).trim();
   if (!title) {
-    const t = html.match(/<title>([^<]+)<\/title>/i);
+    const t = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/i);
     if (t) title = decodeEntities(t[1]).split(/[|–-]/)[0].trim();
   }
 

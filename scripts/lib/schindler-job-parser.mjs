@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -277,9 +277,10 @@ export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
   // Title: <h1 class="job-title"> for Schindler tenants
-  const titleMatch = html.match(/<h1[^>]*class="[^"]*job-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*class="[^"]*job-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
+    || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Description: Schindler SF j2w puts the actual job body inside

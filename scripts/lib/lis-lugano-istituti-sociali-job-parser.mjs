@@ -36,7 +36,7 @@
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { locateTagByAttribute, extractBalancedTagBlock, stripInlineJsCode } from './hospital-custom-html-helpers.mjs';
-import { normalizeDescriptionBullets } from './crawler-template.mjs';
+import { normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -223,7 +223,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   if (!html || typeof html !== 'string') return null;
 
   // Title from H1 (strip company name prefix and "Invia/Send/Envoyer" button text)
-  const h1Match = html.match(/<h1[^>]*itemprop=["']title["'][^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*itemprop=["']title["'][^>]*>([\s\S]*?)<\/h1>/i);
   let title = '';
   if (h1Match) {
     title = normalizeSpace(stripHtml(h1Match[1]))
@@ -243,7 +243,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   }
   // Fallback to <title>
   if (!title || title.length < 3) {
-    const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+    const titleMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/i);
     if (titleMatch) {
       title = normalizeSpace(titleMatch[1])
         .replace(/\s*-\s*LIS\b.*$/i, '')

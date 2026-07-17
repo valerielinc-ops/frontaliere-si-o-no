@@ -28,7 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -310,8 +310,8 @@ export function extractLocation(rawLocation = '') {
  */
 export function parseFhgrDetailPage(html = '', fallbackTitle = '') {
   // Extract title from <h1> inside puptitel1
-  const h1Match = html.match(/<h1[^>]*>(?:<b>)?([^<]+)(?:<\/b>)?<\/h1>/);
-  const titleTagMatch = html.match(/<title>([^<]+)<\/title>/);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>(?:<b>)?([^<]+)(?:<\/b>)?<\/h1>/);
+  const titleTagMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/);
   const title = normalizeSpace(decodeEntities(
     h1Match ? h1Match[1] : (titleTagMatch ? titleTagMatch[1] : fallbackTitle)
   ));
