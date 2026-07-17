@@ -8561,6 +8561,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'Il programma di Avanti con Ticino&Lavoro lo decidono anche i ticinesi',
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'Il partito Avanti con Ticino&Lavoro sottoporrà il proprio programma di legislatura 2027–2031 alle realtà del territorio prima della sua approvazione definitiva.',
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panoramica di Lugano con il lago in primo piano',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Frontalieri: cosa cambia con la nuova imposta sostitutiva dal 2024',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Guida pratica alle novità fiscali per i lavoratori transfrontalieri Italia-Svizzera dopo l\'accordo del 2020. Esenzioni, contributi e procedure.',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Modulo fiscale su una scrivania in legno a Bellinzona, con penna e guide fiscali Svizzera-Italia',
 };
 
 export default blogMetaIt;
