@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-16T22:05:14.323Z",
+  "generatedAt": "2026-07-17T10:52:52.445Z",
   "total": 39,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 38,
-  "durationMs": 19669,
-  "avgDurationMs": 19669,
+  "durationMs": 19438,
+  "avgDurationMs": 19438,
   "durationHistory": [
-    19669
+    19438
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.282Z",
+      "crawledAt": "2026-07-17T10:52:48.546Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -217,7 +217,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.307Z",
+      "crawledAt": "2026-07-17T10:52:48.576Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -333,7 +333,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.305Z",
+      "crawledAt": "2026-07-17T10:52:48.575Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -344,6 +344,126 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-06-23T22:12:49.483Z",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6326",
+      "slug": "cash-reconciliation-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cash Reconciliation Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6326",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span>",
+              "<span>Monitor, check, and investigate cash differences on a daily basis</span>",
+              "<span>Communicate effectively in English, both orally and in writing</span>"
+            ],
+            "responsibilities": [
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
+              "<span>Establish and maintain a list of pending cash amounts</span>",
+              "<span>Manage treatment and follow-up of current files</span>",
+              "<span>Claim and recover missing statements from counterparties</span>",
+              "<span>Investigation on Customer Wires</span>",
+              "<span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span>",
+              "<span>Understand the roles of each counterparty involved in wire payments</span>",
+              "<span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span>",
+              "<span>Take responsibility for managing investigations from start to finish</span>",
+              "<span>Apply familiarity with compliance requirements throughout investigations</span>",
+              "<p><span>Communicate effectively in English, both orally and in writing</span></p><p> </p>"
+            ],
+            "requirements": [
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
+              "<span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span>",
+              "<span>Proficient in MS Office suite </span>",
+              "<span>Solution-oriented, pragmatic, and precise </span>",
+              "<span>Strong team player, comfortable working in open space environments </span>",
+              "<span>Resilient under pressure, flexible, and adaptable </span>",
+              "<span>Proactive with excellent attention to detail</span>"
+            ],
+            "benefits": [
+              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
+              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>",
+              "<span>Passionate: Being committed and striving for excellence</span>",
+              "<span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span>",
+              "<span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span>"
+            ],
+            "process": [
+              "<span>Should you wish to apply for this position use this link to apply.</span>"
+            ],
+            "highlights": [
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
+              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
+              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>"
+            ],
+            "keywords": [
+              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
+              "<span>General understanding of Back-Office operations within banking </span>",
+              "<span>French mother tongue and fluent English (spoken and written)",
+              "<span>Knowledge of GTMatch",
+              "<span>Proficient in MS Office suite </span>",
+              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
+              "<span>Manually input statements from correspondents not automatically reconciled</span>",
+              "<p><span>Monitor",
+              "<span>Establish and maintain a list of pending cash amounts</span>"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<span><strong>Our Purpose and Mission</strong></span>",
+                  "<span>Empowering entrepreneurial minds to create value – today and for the future.</span>",
+                  "<span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-17T10:52:48.574Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-02",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1204",
+      "country": "CH",
+      "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -419,7 +539,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.304Z",
+      "crawledAt": "2026-07-17T10:52:48.572Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -474,7 +594,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.303Z",
+      "crawledAt": "2026-07-17T10:52:48.570Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -529,7 +649,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.302Z",
+      "crawledAt": "2026-07-17T10:52:48.569Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -658,7 +778,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.301Z",
+      "crawledAt": "2026-07-17T10:52:48.568Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -759,7 +879,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.300Z",
+      "crawledAt": "2026-07-17T10:52:48.566Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -877,7 +997,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.299Z",
+      "crawledAt": "2026-07-17T10:52:48.565Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -932,7 +1052,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.298Z",
+      "crawledAt": "2026-07-17T10:52:48.564Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1056,7 +1176,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.297Z",
+      "crawledAt": "2026-07-17T10:52:48.563Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1111,7 +1231,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.296Z",
+      "crawledAt": "2026-07-17T10:52:48.562Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1166,7 +1286,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.295Z",
+      "crawledAt": "2026-07-17T10:52:48.561Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1221,7 +1341,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.294Z",
+      "crawledAt": "2026-07-17T10:52:48.560Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1332,7 +1452,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.293Z",
+      "crawledAt": "2026-07-17T10:52:48.559Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1460,7 +1580,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.292Z",
+      "crawledAt": "2026-07-17T10:52:48.558Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1516,7 +1636,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.291Z",
+      "crawledAt": "2026-07-17T10:52:48.555Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1663,7 +1783,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.290Z",
+      "crawledAt": "2026-07-17T10:52:48.553Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1675,126 +1795,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6326",
-      "slug": "cash-reconciliation-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cash Reconciliation Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6326",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span>",
-              "<span>Monitor, check, and investigate cash differences on a daily basis</span>",
-              "<span>Communicate effectively in English, both orally and in writing</span>"
-            ],
-            "responsibilities": [
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
-              "<span>Establish and maintain a list of pending cash amounts</span>",
-              "<span>Manage treatment and follow-up of current files</span>",
-              "<span>Claim and recover missing statements from counterparties</span>",
-              "<span>Investigation on Customer Wires</span>",
-              "<span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span>",
-              "<span>Understand the roles of each counterparty involved in wire payments</span>",
-              "<span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span>",
-              "<span>Take responsibility for managing investigations from start to finish</span>",
-              "<span>Apply familiarity with compliance requirements throughout investigations</span>",
-              "<p><span>Communicate effectively in English, both orally and in writing</span></p><p> </p>"
-            ],
-            "requirements": [
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
-              "<span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span>",
-              "<span>Proficient in MS Office suite </span>",
-              "<span>Solution-oriented, pragmatic, and precise </span>",
-              "<span>Strong team player, comfortable working in open space environments </span>",
-              "<span>Resilient under pressure, flexible, and adaptable </span>",
-              "<span>Proactive with excellent attention to detail</span>"
-            ],
-            "benefits": [
-              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
-              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>",
-              "<span>Passionate: Being committed and striving for excellence</span>",
-              "<span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span>",
-              "<span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span>"
-            ],
-            "process": [
-              "<span>Should you wish to apply for this position use this link to apply.</span>"
-            ],
-            "highlights": [
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor, check, and investigate cash differences on a daily basis</span></p><p> </p>",
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span>",
-              "<span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span>",
-              "<span>Hands-on: Being proactive to rapidly deliver high-quality results</span>"
-            ],
-            "keywords": [
-              "<span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span>",
-              "<span>General understanding of Back-Office operations within banking </span>",
-              "<span>French mother tongue and fluent English (spoken and written)",
-              "<span>Knowledge of GTMatch",
-              "<span>Proficient in MS Office suite </span>",
-              "<span>Cash Reconciliation</span><ul><li><span>Perform reconciliation of cash correspondents for all EFG entities</span>",
-              "<span>Manually input statements from correspondents not automatically reconciled</span>",
-              "<p><span>Monitor",
-              "<span>Establish and maintain a list of pending cash amounts</span>"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<span><strong>Our Purpose and Mission</strong></span>",
-                  "<span>Empowering entrepreneurial minds to create value – today and for the future.</span>",
-                  "<span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-16T22:05:11.287Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-02",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1204",
-      "country": "CH",
-      "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1903,7 +1903,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-16T22:05:11.286Z",
+      "crawledAt": "2026-07-17T10:52:48.551Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
