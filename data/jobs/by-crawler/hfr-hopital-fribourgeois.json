@@ -504,8 +504,8 @@
       "slug": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "it": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
-        "en": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr",
-        "de": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr",
+        "en": "biomedical-service-manager-80-100-head-of-medical-technology-department-80-100-hopital-fribourgeois-hfr-fribourg",
+        "de": "biomedizinischer-serviceverantwortlicher-80-100-leiter-in-der-medizinische-technologie-abteilung-80-100-hopital",
         "fr": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -553,6 +553,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
+        ],
+        "en": [
+          "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
+        ],
+        "de": [
           "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
         ]
       },
