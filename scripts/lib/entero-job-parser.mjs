@@ -19,7 +19,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -114,7 +114,8 @@ export function parseListing(html = '') {
 
 export function parseDetail(html = '') {
   if (!html) return { title: '', body: '', siteText: '' };
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch
     ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ' ')))
     : '';

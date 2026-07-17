@@ -9,6 +9,7 @@
  *   0 = live page matches expected metadata
  *   1 = timeout or hard validation failure
  */
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 
 const [, , rawUrl, expectedOgTitle = '', expectedOgImage = ''] = process.argv;
 
@@ -69,7 +70,7 @@ function extractCanonicalUrl(html) {
 }
 
 function extractTitle(html) {
-  return html.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() || '';
+  return stripScriptsAndStyles(html).match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() || '';
 }
 
 function decodeHtmlEntities(text) {

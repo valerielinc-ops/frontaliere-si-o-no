@@ -48,7 +48,7 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -245,7 +245,7 @@ function extractMeta(html, name) {
 }
 
 function extractHtmlTitle(html) {
-  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const match = stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i);
   return match ? match[1].replace(/\s+/g, ' ').trim() : '';
 }
 

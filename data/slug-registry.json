@@ -34529,10 +34529,10 @@
     "canton": "GR",
     "createdAt": "2026-05-29",
     "slugByLocale": {
-      "de": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-      "en": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-      "fr": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021",
-      "it": "verkaufer-in-nonfood-coop-chur-graubunden-7u0021"
+      "de": "verkaufer-in-nonfood-coop-chur-graubunden-7",
+      "en": "verkaufer-in-nonfood-coop-chur-graubunden-7",
+      "fr": "verkaufer-in-nonfood-coop-chur-graubunden-7",
+      "it": "verkaufer-in-nonfood-coop-chur-graubunden-7"
     }
   },
   "id|coopjobs.ch|8185f78a-f5bb-479b-baee-a6b76bd6dd9c": {
@@ -59494,7 +59494,7 @@
     "createdAt": "2026-06-12",
     "slugByLocale": {
       "de": "kassierer-in-w-m-d-landi-sempach-emmen-genossenschaft-rothenburg",
-      "en": "kassierer-in-w-m-d-landi-sempach-emmen-genossenschaft-rothenburg",
+      "en": "cashier-in-m-w-d-landi-sempach-emmen-genossenschaft-rothenburg",
       "fr": "caisse-en-m-j-landi-sempach-emmen-genossenschaft-rothenburg",
       "it": "cashier-in-w-m-d-landi-sempach-emmen-genossenschaft-rothenburg"
     }
@@ -111082,8 +111082,8 @@
     "createdAt": "2026-06-18",
     "slugByLocale": {
       "de": "magaziner-in-migros-bubendorf-genossenschaft-migros-basel-bubendorf-8ktx3g",
-      "en": "magaziner-in-migros-bubendorf-genossenschaft-migros-basel-bubendorf-8ktx3g",
-      "fr": "magaziner-in-migros-bubendorf-genossenschaft-migros-basel-bubendorf-8ktx3g",
+      "en": "magazine-migros-bubendorf-genossenschaft-migros-basel-bubendorf",
+      "fr": "magazine-migros-bubendorf-genossenschaft-migros-basel-bubendorf",
       "it": "magazine-migros-bubendorf-genossenschaft-migros-basel-bubendorf"
     }
   },
@@ -166768,7 +166768,7 @@
     "createdAt": "2026-05-22",
     "slugByLocale": {
       "de": "dipl-expertin-experte-intensivpflege-nds-hf-stundenlohn-spitaeler-schaffhausen",
-      "en": "dipl-expertin-experte-intensivpflege-nds-hf-stundenlohn-spitaeler-schaffhausen",
+      "en": "dipl-expert-intensive-care-nds-hf-hourly-wage-spitaler-schaffhausen-schaffhausen",
       "fr": "expert-e-diplome-e-en-soins-intensifs-epd-es-salaire-horaire-spitaler-schaffhausen-schaffhausen",
       "it": "esperto-a-diplomato-a-in-cure-intense-spd-sss-salario-orario-spitaler-schaffhausen-schaffhausen"
     }
@@ -166981,7 +166981,12 @@
     "canonicalSlug": "zivildienstleistender-technischer-dienst-spitaler-schaffhausen-schaffhausen",
     "canton": "SH",
     "createdAt": "2026-05-22",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "fornitore-di-servizi-civili-di-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+      "en": "civil-service-provider-of-technical-service-spitaler-schaffhausen-schaffhausen",
+      "de": "zivildienstleistender-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
+      "fr": "fournisseur-de-services-techniques-de-la-fonction-publique-spitaler-schaffhausen-schaffhausen"
+    }
   },
   "id|spitaeler-sh.ch|5935dcf7-5927-459c-a766-d40990626670": {
     "canonicalSlug": "responsabile-diatkuche-spitaler-schaffhausen",
@@ -167517,7 +167522,9 @@
     "createdAt": "2026-06-20",
     "slugByLocale": {
       "en": "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-      "fr": "psychiatrie-a-long-terme-de-l-efz-spitaler-schaffhausen-schaffhausen"
+      "fr": "psychiatrie-a-long-terme-de-l-efz-spitaler-schaffhausen-schaffhausen",
+      "it": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+      "de": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen"
     }
   },
   "id|spitaeler-sh.ch|db3c570a-f737-4efb-b7f0-03be9f0439a4": {
@@ -170732,8 +170739,8 @@
     "createdAt": "2026-06-17",
     "slugByLocale": {
       "de": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
-      "en": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
-      "fr": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
+      "en": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "fr": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "it": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal"
     }
   },
@@ -171126,7 +171133,10 @@
     "canton": "AG",
     "createdAt": "2026-06-09",
     "slugByLocale": {
-      "de": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal"
+      "de": "dipl-wundexpertin-wundexperten-spitex-ch-untersiggenthal",
+      "it": "dipl-esperto-di-wound-esperto-diwound-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "en": "dipl-wound-expert-wound-expert-spitex-limmat-aare-reuss-ag-untersiggenthal",
+      "fr": "dipl-expert-expert-des-blesses-spitex-limmat-aare-reuss-ag-untersiggenthal"
     }
   },
   "id|spitexjobs.ch|j966572": {
@@ -171345,7 +171355,7 @@
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
       "en": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
-      "fr": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
+      "fr": "dipl-pflegefachperson-hf-fh-per-unser-palliativ-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "it": "dipl-pflegefachperson-hf-fh-per-unser-palliativ-team-spitex-limmat-aare-reuss-ag-untersiggenthal"
     }
   },
@@ -171492,7 +171502,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
     "canton": "BL",
     "createdAt": "2026-05-27",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-60-80-spitex-ch-pratteln"
+    }
   },
   "id|spitexjobs.ch|j978579": {
     "canonicalSlug": "posto-di-studio-in-infermieristica-hf-da-nov-2026-aprile-o-ago-2027-assistente-infermieristico-srk-40-50",
@@ -196831,7 +196843,7 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
+      "de": "sozialpadagogische-bezugsperson-mna-100-in-zurich-uster-m-w-d-caritas-schweiz",
       "en": "social-pedagogical-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
       "fr": "personne-de-reference-socio-educative-mna-100-a-zurich-uster-m-f-d-caritas-schweiz-zurich",
       "it": "figura-di-riferimento-socio-pedagogica-mna-100-a-zurigo-uster-m-f-d-caritas-schweiz-zurich"
@@ -196842,21 +196854,21 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "teamleitung-und-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+      "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
       "en": "team-leader-and-social-pedagogical-reference-person-80-100-in-uster-caritas-schweiz-zurich",
       "fr": "chef-d-equipe-et-personne-de-reference-en-pedagogie-sociale-80-100-a-uster-caritas-schweiz-zurich",
       "it": "responsabile-di-team-e-figura-pedagogica-sociale-a-uster-80-100-caritas-schweiz-zurich"
     }
   },
   "url|https://apply.refline.ch/126757/2270/pub/14/index.html": {
-    "canonicalSlug": "teamleitung-e-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich",
+    "canonicalSlug": "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich",
     "canton": "ZH",
     "createdAt": "2026-06-12",
     "slugByLocale": {
-      "de": "teamleitung-und-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-      "en": "teamleitung-und-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-      "fr": "teamleitung-und-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
-      "it": "teamleitung-e-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
+      "de": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+      "en": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+      "fr": "teamleitung-und-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
+      "it": "teamleitung-e-sozialpadagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz-zurich"
     }
   },
   "url|https://apply.refline.ch/126757/2276/pub/2/index.html": {
@@ -196909,7 +196921,7 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "sozialarbeiter-in-in-der-sozialberatung-f-u00fcr-familien-100-caritas-schweiz-zurich",
+      "de": "sozialarbeiter-in-in-der-sozialberatung-fur-familien-100-caritas-schweiz-zurich",
       "en": "social-worker-in-social-counselling-for-families-100-caritas-schweiz-zurich",
       "fr": "travailleur-social-dans-le-conseil-social-pour-les-familles-100-caritas-schweiz-zurich",
       "it": "assistente-sociale-nella-consulenza-sociale-per-le-famiglie-100-caritas-schweiz-zurich"
@@ -196942,7 +196954,7 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "betreuende-fachperson-nacht-und-wochenende-mna-60-80-in-z-u00fcrich-oerlikon-m-w-d-caritas",
+      "de": "betreuende-fachperson-nacht-und-wochenende-mna-60-80-in-zurich-oerlikon-m-w-d-caritas",
       "en": "night-and-weekend-care-professional-mna-60-80-in-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
       "fr": "professionnel-de-soins-de-nuit-et-de-week-end-mna-60-80-a-zurich-oerlikon-m-f-d-caritas-schweiz-zurich",
       "it": "personale-di-assistenza-notturna-e-weekend-mna-60-80-a-zurigo-oerlikon-m-f-d-caritas-schweiz-zurich"
@@ -196953,7 +196965,7 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas",
+      "de": "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-zurich-uster-m-w-d-caritas",
       "en": "care-professionals-for-night-and-weekend-shifts-mna-40-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
       "fr": "spcialistes-de-l-accompagnement-de-nuit-et-le-week-end-mna-40-zurich-uster-m-f-d-caritas-schweiz-zurich",
       "it": "personale-specializzato-responsabile-notturno-e-nei-fine-settimana-mna-40-a-zurigo-uster-m-w-d-caritas-schweiz-zurich"
@@ -196964,7 +196976,7 @@
     "canton": "ZH",
     "createdAt": "2026-05-19",
     "slugByLocale": {
-      "de": "praktikum-youngcaritas-z-u00fcrich-f-u00fcr-6-monate-60-caritas-schweiz-zurich",
+      "de": "praktikum-youngcaritas-zurich-fur-6-monate-60-caritas-schweiz-zurich",
       "en": "internship-at-youngcaritas-zurich-for-6-months-60-caritas-schweiz-zurich",
       "fr": "stage-chez-youngcaritas-zurich-pendant-6-mois-60-caritas-schweiz-zurich",
       "it": "tirocinio-youngcaritas-zurigo-per-6-mesi-60-caritas-schweiz-zurich"
@@ -196994,7 +197006,7 @@
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/126757/2315/pub/1/index.html": {
-    "canonicalSlug": "freiwillige-r-regionalvermittler-in-f-u00fcr-patenschaftsprojekt-u00abmit-mir-u00bb",
+    "canonicalSlug": "freiwillige-r-regionalvermittler-in-fur-patenschaftsprojektmit-mir",
     "canton": "AG",
     "createdAt": "2026-06-10",
     "slugByLocale": {}
@@ -197031,13 +197043,13 @@
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/126757/2322/pub/2/index.html": {
-    "canonicalSlug": "responsable-de-l-administration-du-bcj-romandie-60-u00e0-fribourg-h-f-d-caritas-schweiz",
+    "canonicalSlug": "responsable-de-l-administration-du-bcj-romandie-60a-fribourg-h-f-d-caritas-schweiz",
     "canton": "FR",
     "createdAt": "2026-06-11",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/126757/2323/pub/1/index.html": {
-    "canonicalSlug": "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich",
+    "canonicalSlug": "hr-beratung-asylmandate-zurich-60-80-m-w-d-caritas-schweiz-zurich",
     "canton": "ZH",
     "createdAt": "2026-06-16",
     "slugByLocale": {}
@@ -197908,14 +197920,14 @@
     }
   },
   "url|https://apply.refline.ch/486538/0377/pub/4/index.html": {
-    "canonicalSlug": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limma",
+    "canonicalSlug": "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-inte",
-      "it": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal",
-      "en": "dipl-nurse-hf-fh-f-u00fcr-the-2-j-u00e4hr-nds-for-dipl-expert-expert-intensive-care-nds-hf-spital-limmattal-schlieren",
-      "fr": "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
+      "de": "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-intensivpflege-nds-hf-spital-limmattal",
+      "it": "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal-schlieren",
+      "en": "dipl-nurse-hf-fh-fur-the-2-jahr-nds-for-dipl-expert-expert-intensive-care-nds-hf-spital-limmattal-schlieren",
+      "fr": "dipl-nurse-hf-fh-fur-2-jahr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0410/pub/1/index.html": {
@@ -197930,36 +197942,36 @@
     }
   },
   "url|https://apply.refline.ch/486538/0482/pub/7/index.html": {
-    "canonicalSlug": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmat",
+    "canonicalSlug": "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte-notf",
-      "it": "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal",
-      "en": "dipl-nurse-hf-fh-f-u00fcr-the-2-j-u00e4hr-nds-for-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schlieren",
-      "fr": "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
+      "de": "dipl-pflegefachperson-hf-fh-fur-das-2-jahrige-nds-zur-dipl-expertin-experte-notfallpflege-nds-hf-spital-limmattal",
+      "it": "dipl-infermiera-hf-fh-fur-il-2-jahr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schlieren",
+      "en": "dipl-nurse-hf-fh-fur-the-2-jahr-nds-for-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schlieren",
+      "fr": "dipl-nurse-hf-fh-fur-2-jahr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0484/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
+    "canonicalSlug": "hf-posto-di-studio-3-jahrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-med-technische-radiologie-spital-l",
-      "en": "hf-study-place-3-j-u00e4hrige-education-students-r-med-technical-radiology-spital-limmattal-schlieren",
-      "fr": "hf-place-d-etude-3-j-u00e4hrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren",
-      "it": "hf-posto-di-studio-3-j-u00e4hrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-3-jahrige-ausbildung-studierende-r-med-technische-radiologie-spital-limmattal-schlieren",
+      "en": "hf-study-place-3-jahrige-education-students-r-med-technical-radiology-spital-limmattal-schlieren",
+      "fr": "hf-place-d-etude-3-jahrige-education-etudiants-r-med-radiologie-technique-spital-limmattal-schlieren",
+      "it": "hf-posto-di-studio-3-jahrige-istruzione-studenti-r-med-tecnica-radiologia-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0492/pub/3/index.html": {
-    "canonicalSlug": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
+    "canonicalSlug": "hf-posto-di-studio-3-jahre-formazione-studenti-r-in-tecnica-chirurgica-hf-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-3-j-u00e4hrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital",
-      "en": "hf-study-place-3-j-u00e4hre-training-students-r-in-surgical-technique-hf-spital-limmattal-schlieren",
-      "fr": "hf-place-d-etude-3-j-u00e4hre-formation-etudiants-r-en-technique-chirurgicale-hf-spital-limmattal-schlieren",
-      "it": "hf-posto-di-studio-3-j-u00e4hre-formazione-studenti-r-in-tecnica-chirurgica-hf-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-3-jahrige-ausbildung-studierende-r-in-der-operationstechnik-hf-spital-limmattal-schlieren",
+      "en": "hf-study-place-3-jahre-training-students-r-in-surgical-technique-hf-spital-limmattal-schlieren",
+      "fr": "hf-place-d-etude-3-jahre-formation-etudiants-r-en-technique-chirurgicale-hf-spital-limmattal-schlieren",
+      "it": "hf-posto-di-studio-3-jahre-formazione-studenti-r-in-tecnica-chirurgica-hf-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0505/pub/7/index.html": {
@@ -197974,75 +197986,75 @@
     }
   },
   "url|https://apply.refline.ch/486538/0549/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
+    "canonicalSlug": "hf-study-place-acute-somatics-2-jahre-education-pre-training-fage-da-fruhling-2027-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "en": "hf-study-place-acute-somatics-2-j-u00e4hre-education-pre-training-fage-from-fr-u00fchling-2027-spital-limmattal",
-      "fr": "etude-sur-les-somatiques-aigus-en-milieu-hospitalier-2-j-u00e4hre-education-fage-pre-formation-a-partir-de-fr-u00fchling",
-      "it": "hf-study-place-acute-somatics-2-j-u00e4hre-education-pre-training-fage-da-fr-u00fchling-2027-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-akutsomatik-2-jahrige-ausbildung-vorbildung-fage-ab-fruhling-2027-spital-limmattal-schlieren",
+      "en": "hf-study-place-acute-somatics-2-jahre-education-pre-training-fage-from-fruhling-2027-spital-limmattal-schlieren",
+      "fr": "etude-sur-les-somatiques-aigus-en-milieu-hospitalier-2-jahre-education-fage-pre-formation-a-partir-de-fruhling-2027",
+      "it": "hf-study-place-acute-somatics-2-jahre-education-pre-training-fage-da-fruhling-2027-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0550/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
+    "canonicalSlug": "hf-luogo-di-studio-acute-somatics-3-jahr-istruzione-da-fruhling-2027-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "en": "hf-study-place-acute-somatics-3-j-u00e4hr-education-from-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "fr": "etude-hf-place-somatique-aigue-3-j-u00e4hr-education-de-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "it": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-da-fr-u00fchling-2027-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-akutsomatik-3-jahrige-ausbildung-ab-fruhling-2027-spital-limmattal-schlieren",
+      "en": "hf-study-place-acute-somatics-3-jahr-education-from-fruhling-2027-spital-limmattal-schlieren",
+      "fr": "etude-hf-place-somatique-aigue-3-jahr-education-de-fruhling-2027-spital-limmattal-schlieren",
+      "it": "hf-luogo-di-studio-acute-somatics-3-jahr-istruzione-da-fruhling-2027-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0551/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-",
+    "canonicalSlug": "hf-studio-luogo-di-cura-a-lungo-termine-2-jahrige-istruzione-preformazione-fage-da-fruhling-2027-spital-limmattal",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-langzeitpflege-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-fr-u00fchling-",
-      "en": "hf-study-place-long-term-care-2-j-u00e4hrige-education-pre-training-fage-from-fr-u00fchling-2027-spital-limmattal",
-      "fr": "l-etude-hf-place-les-soins-de-longue-duree-2-j-u00e4hrige-education-preformation-fage-de-fr-u00fchling-2027-spital",
-      "it": "hf-studio-luogo-di-cura-a-lungo-termine-2-j-u00e4hrige-istruzione-preformazione-fage-da-fr-u00fchling-2027-spital"
+      "de": "hf-studienplatz-langzeitpflege-2-jahrige-ausbildung-vorbildung-fage-ab-fruhling-2027-spital-limmattal-schlieren",
+      "en": "hf-study-place-long-term-care-2-jahrige-education-pre-training-fage-from-fruhling-2027-spital-limmattal-schlieren",
+      "fr": "l-etude-hf-place-les-soins-de-longue-duree-2-jahrige-education-preformation-fage-de-fruhling-2027-spital-limmattal",
+      "it": "hf-studio-luogo-di-cura-a-lungo-termine-2-jahrige-istruzione-preformazione-fage-da-fruhling-2027-spital-limmattal"
     }
   },
   "url|https://apply.refline.ch/486538/0552/pub/2/index.html": {
-    "canonicalSlug": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
+    "canonicalSlug": "hf-studio-luogo-di-cura-a-lungo-termine-3jahr-formazione-da-fruhling-2027-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "en": "hf-study-place-long-term-care-3-j-u00e4hr-training-from-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-j-u00e4h-formation-du-fr-u00fchling-2027-spital-limmattal-schlieren",
-      "it": "hf-studio-luogo-di-cura-a-lungo-termine-3j-u00e4hr-formazione-da-fr-u00fchling-2027-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-langzeitpflege-3-jahrige-ausbildung-ab-fruhling-2027-spital-limmattal-schlieren",
+      "en": "hf-study-place-long-term-care-3-jahr-training-from-fruhling-2027-spital-limmattal-schlieren",
+      "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-jah-formation-du-fruhling-2027-spital-limmattal-schlieren",
+      "it": "hf-studio-luogo-di-cura-a-lungo-termine-3jahr-formazione-da-fruhling-2027-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0579/pub/4/index.html": {
-    "canonicalSlug": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
+    "canonicalSlug": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0582/pub/3/index.html": {
-    "canonicalSlug": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital-li",
+    "canonicalSlug": "formazione-professionale-dipl-infermiere-hf-fh-fur-stazione-di-letto-chirurgico-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-chirurgische-bettenstation-spital-li",
-      "en": "vocational-trainer-dipl-nurse-hf-fh-f-u00fcr-surgical-bed-station-spital-limmattal-schlieren",
+      "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-fur-chirurgische-bettenstation-spital-limmattal-schlieren",
+      "en": "vocational-trainer-dipl-nurse-hf-fh-fur-surgical-bed-station-spital-limmattal-schlieren",
       "fr": "entraineur-professionnel-infirmiere-diplomee-hf-fh-spital-limmattal-schlieren",
-      "it": "formazione-professionale-dipl-infermiere-hf-fh-f-u00fcr-stazione-di-letto-chirurgico-spital-limmattal-schlieren"
+      "it": "formazione-professionale-dipl-infermiere-hf-fh-fur-stazione-di-letto-chirurgico-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0604/pub/1/index.html": {
-    "canonicalSlug": "apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren",
+    "canonicalSlug": "apprendistato-kochin-koch-cfc-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-      "en": "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-      "fr": "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-      "it": "apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren"
+      "de": "lehrstelle-kochin-koch-efz-spital-limmattal-ch",
+      "en": "lehrstelle-kochin-koch-efz-spital-limmattal-ch",
+      "fr": "lehrstelle-kochin-koch-efz-spital-limmattal-ch",
+      "it": "apprendistato-kochin-koch-cfc-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0616/pub/4/index.html": {
@@ -198096,47 +198108,47 @@
     }
   },
   "url|https://apply.refline.ch/486538/0661/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026-spital-limmattal-schlieren",
+    "canonicalSlug": "hf-studio-area-acute-somatics-2-jahre-apprendistato-pre-formazione-fage-dall-autunno-2026-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-akutsomatik-2-j-u00e4hrige-ausbildung-vorbildung-fage-ab-herbst-2026-spital-limmattal-schlieren",
-      "en": "hf-study-area-acute-somatics-2-j-u00e4hre-apprenticeship-pre-training-fage-from-autumn-2026-spital-limmattal-schlieren",
-      "fr": "hf-zone-d-etude-somatique-aigue-2-j-u00e4hre-apprentissage-preformation-fage-a-partir-de-l-automne-2026-spital-limmattal",
-      "it": "hf-studio-area-acute-somatics-2-j-u00e4hre-apprendistato-pre-formazione-fage-dall-autunno-2026-spital-limmattal"
+      "de": "hf-studienplatz-akutsomatik-2-jahrige-ausbildung-vorbildung-fage-ab-herbst-2026-spital-limmattal-schlieren",
+      "en": "hf-study-area-acute-somatics-2-jahre-apprenticeship-pre-training-fage-from-autumn-2026-spital-limmattal-schlieren",
+      "fr": "hf-zone-d-etude-somatique-aigue-2-jahre-apprentissage-preformation-fage-a-partir-de-l-automne-2026-spital-limmattal",
+      "it": "hf-studio-area-acute-somatics-2-jahre-apprendistato-pre-formazione-fage-dall-autunno-2026-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0662/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
+    "canonicalSlug": "hf-luogo-di-studio-acute-somatics-3-jahr-istruzione-dall-autunno-2026-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-akutsomatik-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-ch",
-      "en": "hf-study-place-acute-somatics-3-j-u00e4hr-education-from-autumn-2026-spital-limmattal-schlieren",
-      "fr": "etude-hf-place-somatique-aigue-3-j-u00e4hr-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren",
-      "it": "hf-luogo-di-studio-acute-somatics-3-j-u00e4hr-istruzione-dall-autunno-2026-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-akutsomatik-3-jahrige-ausbildung-ab-herbst-2026-spital-limmattal-schlieren",
+      "en": "hf-study-place-acute-somatics-3-jahr-education-from-autumn-2026-spital-limmattal-schlieren",
+      "fr": "etude-hf-place-somatique-aigue-3-jahr-education-a-partir-de-l-automne-2026-spital-limmattal-schlieren",
+      "it": "hf-luogo-di-studio-acute-somatics-3-jahr-istruzione-dall-autunno-2026-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0664/pub/1/index.html": {
-    "canonicalSlug": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-c",
+    "canonicalSlug": "hf-luogo-di-studio-assistenza-a-lungo-termine-3jahr-formazione-dall-autunno-2026-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "hf-studienplatz-langzeitpflege-3-j-u00e4hrige-ausbildung-ab-herbst-2026-spital-limmattal-c",
-      "en": "hf-study-place-long-term-care-3-j-u00e4hr-training-from-autumn-2026-spital-limmattal-schlieren",
-      "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-j-u00e4h-formation-a-partir-de-l-automne-2026-spital-limmattal-schlieren",
-      "it": "hf-luogo-di-studio-assistenza-a-lungo-termine-3j-u00e4hr-formazione-dall-autunno-2026-spital-limmattal-schlieren"
+      "de": "hf-studienplatz-langzeitpflege-3-jahrige-ausbildung-ab-herbst-2026-spital-limmattal-schlieren",
+      "en": "hf-study-place-long-term-care-3-jahr-training-from-autumn-2026-spital-limmattal-schlieren",
+      "fr": "l-etude-hf-place-les-soins-de-longue-duree-3-jah-formation-a-partir-de-l-automne-2026-spital-limmattal-schlieren",
+      "it": "hf-luogo-di-studio-assistenza-a-lungo-termine-3jahr-formazione-dall-autunno-2026-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0665/pub/2/index.html": {
-    "canonicalSlug": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
+    "canonicalSlug": "fh-studio-bachelor-of-science-in-nursing-stage-platze-2026-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "fh-studium-bachelor-of-science-in-pflege-praktikumspl-u00e4tze-2026-spital-limmattal-ch",
-      "en": "fh-study-bachelor-of-science-in-nursing-internship-pl-u00e4tze-2026-spital-limmattal-schlieren",
-      "fr": "etudes-fh-baccalaureat-en-sciences-infirmieres-stage-pl-u00e4tze-2026-spital-limmattal-schlieren",
-      "it": "fh-studio-bachelor-of-science-in-nursing-stage-pl-u00e4tze-2026-spital-limmattal-schlieren"
+      "de": "fh-studium-bachelor-of-science-in-pflege-ost-praktikumsplatze-spital-limmattal-schlieren",
+      "en": "fh-study-bachelor-of-science-in-nursing-internship-platze-2026-spital-limmattal-schlieren",
+      "fr": "etudes-fh-baccalaureat-en-sciences-infirmieres-stage-platze-2026-spital-limmattal-schlieren",
+      "it": "fh-studio-bachelor-of-science-in-nursing-stage-platze-2026-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0676/pub/3/index.html": {
@@ -198184,14 +198196,14 @@
     }
   },
   "url|https://apply.refline.ch/486538/0708/pub/1/index.html": {
-    "canonicalSlug": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
+    "canonicalSlug": "oberarztin-medico-senior-hamatology-60-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "ober-u00e4rztin-oberarzt-h-u00e4matologie-60-spital-limmattal-ch",
-      "en": "ober-u00e4rztin-senior-physician-h-u00e4matology-60-spital-limmattal-schlieren",
-      "fr": "ober-u00e4rztin-medecin-chef-h-u00e4matologie-60-spital-limmattal-schlieren",
-      "it": "ober-u00e4rztin-medico-senior-h-u00e4matology-60-spital-limmattal-schlieren"
+      "de": "oberarztin-oberarzt-hamatologie-60-spital-limmattal-schlieren",
+      "en": "oberarztin-senior-physician-hamatology-60-spital-limmattal-schlieren",
+      "fr": "oberarztin-medecin-chef-hamatologie-60-spital-limmattal-schlieren",
+      "it": "oberarztin-medico-senior-hamatology-60-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0710/pub/1/index.html": {
@@ -198249,19 +198261,19 @@
     }
   },
   "url|https://apply.refline.ch/486538/0732/pub/1/index.html": {
-    "canonicalSlug": "dipl-experte-in-an-u00e4sthesiepflege-nds-hf-spital-limmattal-ch",
+    "canonicalSlug": "dipl-experte-in-anasthesiepflege-nds-hf-spital-limmattal-ch",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0733/pub/3/index.html": {
-    "canonicalSlug": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
+    "canonicalSlug": "pflegehelfer-in-langzeitpflege-fur-den-pool-spital-limmattal-ch",
     "canton": "TI",
     "createdAt": "2026-05-11",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0737/pub/1/index.html": {
-    "canonicalSlug": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl-pflegefachperson-hf-fh-spital-limmattal-sc",
+    "canonicalSlug": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erganzende-anstellung-dipl-pflegefachperson-hf-fh-spital-limmattal-sc",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {}
@@ -198271,7 +198283,7 @@
     "canton": "ZH",
     "createdAt": "2026-06-29",
     "slugByLocale": {
-      "de": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erg-u00e4nzende-anstellung-dipl",
+      "de": "bildungsverantwortliche-r-ltt-hf-pflege-sowie-erganzende-anstellung-dipl-pflegefachperson-hf-fh-spital-limmattal",
       "en": "responsible-for-education-r-ltt-hf-care-and-resulting-employment-dipl-care-professional-hf-fh-spital-limmattal-schlieren",
       "fr": "responsable-de-l-education-soins-et-emploi-soins-professionnels-hf-fh-spital-limmattal-schlieren",
       "it": "responsabile-dell-istruzione-r-ltt-hf-cura-e-conseguente-occupazione-dipl-cura-professionale-hf-fh-spital-limmattal"
@@ -198289,14 +198301,14 @@
     }
   },
   "url|https://apply.refline.ch/486538/0745/pub/1/index.html": {
-    "canonicalSlug": "collaboratore-trice-in-reinigung-40-50-zun-u00e4chst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren",
+    "canonicalSlug": "collaboratore-trice-in-reinigung-40-50-zunachst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "mitarbeiter-in-reinigung-40-50-zun-u00e4chst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
-      "en": "mitarbeiter-in-reinigung-40-50-zun-u00e4chst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
-      "fr": "mitarbeiter-in-reinigung-40-50-zun-u00e4chst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
-      "it": "collaboratore-trice-in-reinigung-40-50-zun-u00e4chst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren"
+      "de": "mitarbeiter-in-reinigung-40-50-zunachst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
+      "en": "mitarbeiter-in-reinigung-40-50-zunachst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
+      "fr": "mitarbeiter-in-reinigung-40-50-zunachst-befristet-als-vertretung-im-stundenlohn-spital-limmattal-schlieren",
+      "it": "collaboratore-trice-in-reinigung-40-50-zunachst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0747/pub/1/index.html": {
@@ -198322,14 +198334,14 @@
     }
   },
   "url|https://apply.refline.ch/486538/0749/pub/1/index.html": {
-    "canonicalSlug": "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
+    "canonicalSlug": "fachfrau-mann-gesundheit-cfc-fur-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "fachfrau-mann-gesundheit-efz-f-u00fcr-eine-medizinische-oder-chirurgische-bettenstation-sp",
-      "en": "professional-mann-health-efz-f-u00fcr-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
+      "de": "fachfrau-mann-gesundheit-efz-fur-eine-medizinische-oder-chirurgische-bettenstation-spital-limmattal-schlieren",
+      "en": "professional-mann-health-efz-fur-a-medical-or-surgical-bed-station-spital-limmattal-schlieren",
       "fr": "professionnel-sante-efz-spital-limmattal-schlieren",
-      "it": "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
+      "it": "fachfrau-mann-gesundheit-cfc-fur-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0750/pub/1/index.html": {
@@ -198361,25 +198373,25 @@
     }
   },
   "url|https://apply.refline.ch/486538/0756/pub/1/index.html": {
-    "canonicalSlug": "med-praxisassistentin-o-fachperson-gesundheit-f-u00fcr-la-fachbereiche-onkologie-h-u00e4matologie-e-rheumatologie-60-80-spital-limmattal-schlieren",
+    "canonicalSlug": "med-praxisassistentin-o-fachperson-gesundheit-fur-la-fachbereiche-onkologie-hamatologie-e-rheumatologie-60-80-spital-limmattal-schlieren",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
-      "de": "med-praxisassistentin-oder-fachperson-gesundheit-f-u00fcr-die-fachbereiche-onkologie-h-u00e4matologie-und-rheumatologie-",
-      "en": "med-praxisassistentin-oder-fachperson-gesundheit-f-u00fcr-die-fachbereiche-onkologie-h-u00e4matologie-und-rheumatologie-",
-      "fr": "med-praxisassistentin-oder-fachperson-gesundheit-f-u00fcr-die-fachbereiche-onkologie-h-u00e4matologie-und-rheumatologie-",
-      "it": "med-praxisassistentin-o-fachperson-gesundheit-f-u00fcr-la-fachbereiche-onkologie-h-u00e4matologie-e-rheumatologie-60-80-spital-limmattal-schlieren"
+      "de": "med-praxisassistentin-oder-fachperson-gesundheit-fur-die-fachbereiche-onkologie-hamatologie-und-rheumatologie-",
+      "en": "med-praxisassistentin-oder-fachperson-gesundheit-fur-die-fachbereiche-onkologie-hamatologie-und-rheumatologie-",
+      "fr": "med-praxisassistentin-oder-fachperson-gesundheit-fur-die-fachbereiche-onkologie-hamatologie-und-rheumatologie-",
+      "it": "med-praxisassistentin-o-fachperson-gesundheit-fur-la-fachbereiche-onkologie-hamatologie-e-rheumatologie-60-80-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0757/pub/1/index.html": {
-    "canonicalSlug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
+    "canonicalSlug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-dauernachtwache-befristet-fur-1-jahr-spital-limmattal",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {
       "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-chirurgie-oder-notfall-befristet-f-u0",
-      "en": "nursing-assistance-srk-assistant-in-health-and-social-care-surgery-temporary-f-u00fcr-1-year-spital-limmattal-schlieren",
-      "fr": "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-soins-sociaux-chirurgie-temporaire-f-u00fcr-1-an-spital-limmattal",
-      "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren"
+      "en": "nursing-assistance-srk-assistant-in-health-and-social-care-surgery-temporary-fur-1-year-spital-limmattal-schlieren",
+      "fr": "aide-aux-soins-infirmiers-srk-assistant-en-sante-et-soins-sociaux-chirurgie-temporaire-fur-1-an-spital-limmattal",
+      "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-dauernachtwache-befristet-fur-1-jahr-spital-limmattal"
     }
   },
   "url|https://apply.refline.ch/486538/0759/pub/1/index.html": {
@@ -198400,20 +198412,20 @@
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0761/pub/1/index.html": {
-    "canonicalSlug": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
+    "canonicalSlug": "stationsleiter-in-im-pflegezentrum-fur-die-demenzabteilung-spital-limmattal-ch",
     "canton": "TI",
     "createdAt": "2026-05-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0761/pub/3/index.html": {
-    "canonicalSlug": "stationsleiter-in-im-pflegezentrum-f-u00fcr-la-demenzabteilung-spital-limmattal-schlieren",
+    "canonicalSlug": "stationsleiter-in-im-pflegezentrum-fur-la-demenzabteilung-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-29",
     "slugByLocale": {
-      "de": "stationsleiter-in-im-pflegezentrum-f-u00fcr-die-demenzabteilung-spital-limmattal-ch",
-      "en": "station-manager-in-the-care-center-f-u00fcr-the-dementia-department-spital-limmattal-schlieren",
-      "fr": "gestionnaire-de-station-dans-le-centre-de-soins-f-u00fcr-le-departement-de-demence-spital-limmattal-schlieren",
-      "it": "stationsleiter-in-im-pflegezentrum-f-u00fcr-la-demenzabteilung-spital-limmattal-schlieren"
+      "de": "stationsleiter-in-im-pflegezentrum-fur-die-demenzabteilung-spital-limmattal-schlieren",
+      "en": "station-manager-in-the-care-center-fur-the-dementia-department-spital-limmattal-schlieren",
+      "fr": "gestionnaire-de-station-dans-le-centre-de-soins-fur-le-departement-de-demence-spital-limmattal-schlieren",
+      "it": "stationsleiter-in-im-pflegezentrum-fur-la-demenzabteilung-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0762/pub/1/index.html": {
@@ -198456,31 +198468,31 @@
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0767/pub/1/index.html": {
-    "canonicalSlug": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
+    "canonicalSlug": "stv-leitende-arztin-stv-leitender-arzt-orthopadie-e-traumatologie-schwerpunkt-fuss-e-sprunggelenkschirurgie-spital",
     "canton": "ZH",
     "createdAt": "2026-05-12",
     "slugByLocale": {
-      "de": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumatologie-und-handchirurgie-spital",
-      "it": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
-      "en": "stv-head-u00c4rztin-stv-head-physician-orthop-u00e4die-and-traumatology-u2013-focus-on-foot-and-ankle-surgery-spital",
-      "fr": "stv-tete-u00c4rztin-stv-medecin-chef-orthop-u00e4die-et-traumatologie-u2013-focus-sur-la-chirurgie-des-pieds-et-des"
+      "de": "stv-leitende-arztin-stv-leitender-arzt-orthopadie-und-traumatologie-schwerpunkt-fuss-und-sprunggelenkschirurgie-spital",
+      "it": "stv-leitende-arztin-stv-leitender-arzt-orthopadie-e-traumatologie-schwerpunkt-fuss-e-sprunggelenkschirurgie-spital",
+      "en": "stv-head-arztin-stv-head-physician-orthopadie-and-traumatology-focus-on-foot-and-ankle-surgery-spital-limmattal",
+      "fr": "stv-tete-arztin-stv-medecin-chef-orthopadie-et-traumatologie-focus-sur-la-chirurgie-des-pieds-et-des-chevilles-spital"
     }
   },
   "url|https://apply.refline.ch/486538/0768/pub/1/index.html": {
-    "canonicalSlug": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-spital-limmattal-ch",
+    "canonicalSlug": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0769/pub/2/index.html": {
-    "canonicalSlug": "collaboratore-trice-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m-u00f6glichkeit-zur-unbefristeten-u00dcbernahme-spital-limmattal-schlieren",
+    "canonicalSlug": "collaboratore-trice-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-moglichkeit-zur-unbefristetenubernahme-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
       "de": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m",
       "en": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m",
       "fr": "mitarbeiter-in-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m",
-      "it": "collaboratore-trice-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-m-u00f6glichkeit-zur-unbefristeten-u00dcbernahme-spital-limmattal-schlieren"
+      "it": "collaboratore-trice-patientenservice-60-befristet-von-01-07-2026-bis-31-12-2026-u2013-moglichkeit-zur-unbefristetenubernahme-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0770/pub/1/index.html": {
@@ -198495,18 +198507,18 @@
     }
   },
   "url|https://apply.refline.ch/486538/0772/pub/1/index.html": {
-    "canonicalSlug": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
+    "canonicalSlug": "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-arztliche",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "leitung-administration-departement-operative-kliniken-projektleitung-spital-u00e4rztliche",
-      "en": "head-of-administration-department-of-operative-clinics-project-management-spital-u00e4rztliche-departments-spital",
+      "de": "leitung-administration-departement-operative-kliniken-projektleitung-spital-arztliche-departemente-spital-limmattal",
+      "en": "head-of-administration-department-of-operative-clinics-project-management-spital-arztliche-departments-spital-limmattal",
       "fr": "chef-de-l-administration-departement-des-cliniques-operationnelles-et-de-la-gestion-de-projets-spital-limmattal",
-      "it": "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-u00e4rztliche"
+      "it": "responsabile-del-dipartimento-di-amministrazione-delle-cliniche-operative-project-management-spital-arztliche"
     }
   },
   "url|https://apply.refline.ch/486538/0775/pub/1/index.html": {
-    "canonicalSlug": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
+    "canonicalSlug": "arztsekretar-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {}
@@ -198523,26 +198535,26 @@
     }
   },
   "url|https://apply.refline.ch/486538/0777/pub/1/index.html": {
-    "canonicalSlug": "dipl-pflegefachperson-hf-imc-u00dcwp-im-awr-spital-limmattal-ch",
+    "canonicalSlug": "dipl-pflegefachperson-hf-imcuwp-im-awr-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0778/pub/2/index.html": {
-    "canonicalSlug": "arztsekret-u00e4rin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
+    "canonicalSlug": "arztsekretarin-notfall-40-60-montag-mittwoch-freitag-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0779/pub/2/index.html": {
-    "canonicalSlug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
+    "canonicalSlug": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-fur-1-jahr-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
-      "en": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
-      "fr": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-f-u00fcr-1-jahr",
-      "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren"
+      "de": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr",
+      "en": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr",
+      "fr": "pflegehilfe-srk-assistent-in-gesundheit-und-soziales-notfall-befristet-fur-1-jahr",
+      "it": "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-notfall-befristet-fur-1-jahr-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0785/pub/2/index.html": {
@@ -198557,50 +198569,50 @@
     }
   },
   "url|https://apply.refline.ch/486538/0786/pub/1/index.html": {
-    "canonicalSlug": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
+    "canonicalSlug": "ernahrungsberaterin-ernahrungsberater-con-spezialisierung-im-fachgebiet-adipositastherapie-adipositaszentrum-60-80",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-mit-spezialisierung-im-fachgebiet",
-      "en": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-with-specialization-in-obesity-therapy-obesity-center-60-80-spital",
-      "fr": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-avec-specialisation-en-therapie-contre-l-obesite-centre-d-obesite-60-80",
-      "it": "ern-u00e4hrungsberaterin-ern-u00e4hrungsberater-con-spezialisierung-im-fachgebiet-adipositastherapie-adipositaszentrum"
+      "de": "ernahrungsberaterin-ernahrungsberater-mit-spezialisierung-im-fachgebiet-adipositastherapie-adipositaszentrum-60-80",
+      "en": "ernahrungsberaterin-ernahrungsberater-with-specialization-in-obesity-therapy-obesity-center-60-80-spital-limmattal",
+      "fr": "ernahrungsberaterin-ernahrungsberater-avec-specialisation-en-therapie-contre-l-obesite-centre-d-obesite-60-80-spital",
+      "it": "ernahrungsberaterin-ernahrungsberater-con-spezialisierung-im-fachgebiet-adipositastherapie-adipositaszentrum-60-80"
     }
   },
   "url|https://apply.refline.ch/486538/0787/pub/1/index.html": {
-    "canonicalSlug": "collaboratore-trice-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-schlieren",
+    "canonicalSlug": "collaboratore-trice-leistungsprufung-20-100-stundenlohn-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch",
-      "en": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch",
-      "fr": "mitarbeiter-in-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-ch",
-      "it": "collaboratore-trice-leistungspr-u00fcfung-20-100-stundenlohn-spital-limmattal-schlieren"
+      "de": "mitarbeiter-in-leistungsprufung-20-100-stundenlohn-spital-limmattal-ch",
+      "en": "mitarbeiter-in-leistungsprufung-20-100-stundenlohn-spital-limmattal-ch",
+      "fr": "mitarbeiter-in-leistungsprufung-20-100-stundenlohn-spital-limmattal-ch",
+      "it": "collaboratore-trice-leistungsprufung-20-100-stundenlohn-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0788/pub/1/index.html": {
-    "canonicalSlug": "collaboratore-trice-w-u00e4scherei-befristet-f-u00fcr-6-monate-con-der-m-u00f6glichkeit-einer-festanstellung-spital-limmattal-schlieren",
+    "canonicalSlug": "collaboratore-trice-wascherei-befristet-fur-6-monate-con-der-moglichkeit-einer-festanstellung-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-10",
     "slugByLocale": {
-      "de": "mitarbeiter-in-w-u00e4scherei-befristet-f-u00fcr-6-monate-mit-der-m-u00f6glichkeit-einer",
-      "en": "employee-in-w-u00e4scherei-temporary-f-u00fcr-6-months-with-the-m-u00f6glichkeit-of-a-permanent-job-spital-limmattal",
-      "fr": "employe-a-w-u00e4scherei-temporaire-f-u00fcr-6-mois-avec-le-m-u00f6glichkeit-d-un-emploi-permanent-spital-limmattal",
-      "it": "collaboratore-trice-w-u00e4scherei-befristet-f-u00fcr-6-monate-con-der-m-u00f6glichkeit-einer-festanstellung-spital-limmattal-schlieren"
+      "de": "mitarbeiter-in-wascherei-befristet-fur-6-monate-mit-der-moglichkeit-einer-festanstellung-spital-limmattal-schlieren",
+      "en": "employee-in-wascherei-temporary-fur-6-months-with-the-moglichkeit-of-a-permanent-job-spital-limmattal-schlieren",
+      "fr": "employe-a-wascherei-temporaire-fur-6-mois-avec-le-moglichkeit-d-un-emploi-permanent-spital-limmattal-schlieren",
+      "it": "collaboratore-trice-wascherei-befristet-fur-6-monate-con-der-moglichkeit-einer-festanstellung-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0791/pub/1/index.html": {
-    "canonicalSlug": "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-bis-100-spital-limmattal-ch",
+    "canonicalSlug": "diatkochin-diatkoch-60-al-100-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-18",
     "slugByLocale": {
-      "fr": "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-a-100-spital-limmattal-schlieren",
-      "it": "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-al-100-spital-limmattal-schlieren",
-      "de": "di-u00e4tk-u00f6chin-di-u00e4tkoch-60-bis-100-spital-limmattal-ch"
+      "fr": "diatkochin-diatkoch-60-a-100-spital-limmattal-schlieren",
+      "it": "diatkochin-diatkoch-60-al-100-spital-limmattal-schlieren",
+      "de": "diatkochin-diatkoch-60-bis-100-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0792/pub/2/index.html": {
-    "canonicalSlug": "k-u00f6chin-koch-60-bis-100-spital-limmattal-ch",
+    "canonicalSlug": "kochin-koch-60-bis-100-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-11",
     "slugByLocale": {}
@@ -198629,31 +198641,31 @@
     }
   },
   "url|https://apply.refline.ch/486538/0799/pub/1/index.html": {
-    "canonicalSlug": "mitarbeiterin-in-hausdienst-f-u00fcr-die-bettenzentrale-60-spital-limmattal-ch",
+    "canonicalSlug": "mitarbeiterin-in-hausdienst-fur-die-bettenzentrale-60-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-11",
     "slugByLocale": {}
   },
   "url|https://apply.refline.ch/486538/0799/pub/2/index.html": {
-    "canonicalSlug": "mitarbeiterin-in-hausdienst-f-u00fcr-die-bettenzentrale-60-spital-limmattal-ch",
+    "canonicalSlug": "mitarbeiterin-in-hausdienst-fur-die-bettenzentrale-60-spital-limmattal-ch",
     "canton": "ZH",
     "createdAt": "2026-06-21",
     "slugByLocale": {
-      "de": "mitarbeiterin-in-hausdienst-f-u00fcr-die-bettenzentrale-60-spital-limmattal-ch",
+      "de": "mitarbeiterin-in-hausdienst-fur-die-bettenzentrale-60-spital-limmattal-ch",
       "en": "employee-housekeeping-for-the-bed-center-60-spital-limmattal-schlieren",
       "fr": "entretien-menager-des-employes-pour-le-centre-de-lits-60-spital-limmattal-schlieren",
       "it": "personale-per-le-pulizie-del-centro-letto-60-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0800/pub/1/index.html": {
-    "canonicalSlug": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-medizinische-bettenstation-spital",
+    "canonicalSlug": "formazione-professionale-dipl-infermiera-hf-fh-fur-stazione-del-letto-medico-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-12",
     "slugByLocale": {
-      "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-f-u00fcr-medizinische-bettenstation-spital",
-      "en": "vocational-trainer-dipl-nurse-hf-fh-f-u00fcr-medical-bed-station-spital-limmattal-schlieren",
+      "de": "berufsbildner-in-dipl-pflegefachperson-hf-fh-fur-medizinische-bettenstation-spital-limmattal-schlieren",
+      "en": "vocational-trainer-dipl-nurse-hf-fh-fur-medical-bed-station-spital-limmattal-schlieren",
       "fr": "entraineur-professionnel-infirmiere-diplomee-hf-fh-spital-limmattal-schlieren",
-      "it": "formazione-professionale-dipl-infermiera-hf-fh-f-u00fcr-stazione-del-letto-medico-spital-limmattal-schlieren"
+      "it": "formazione-professionale-dipl-infermiera-hf-fh-fur-stazione-del-letto-medico-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0802/pub/1/index.html": {
@@ -198668,14 +198680,14 @@
     }
   },
   "url|https://apply.refline.ch/486538/0803/pub/1/index.html": {
-    "canonicalSlug": "oberarzt-ober-u00e4rztin-angiologie-60-absprache-pensum-m-u00f6glich-spital-limmattal-ch",
+    "canonicalSlug": "medico-senior-oberarztin-angiologia-60-collusione-pensum-moglich-spital-limmattal-schlieren",
     "canton": "ZH",
     "createdAt": "2026-06-16",
     "slugByLocale": {
-      "de": "oberarzt-ober-u00e4rztin-angiologie-60-absprache-pensum-m-u00f6glich-spital-limmattal-ch",
+      "de": "oberarzt-oberarztin-angiologie-60-absprache-pensum-moglich-spital-limmattal-schlieren",
       "en": "senior-physician-senior-physician-angiology-60-arrangement-of-workload-possible-spital-limmattal-schlieren",
       "fr": "medecin-principal-medecin-principal-angiologue-60-repartition-possible-de-la-charge-de-travail-spital-limmattal",
-      "it": "medico-senior-ober-u00e4rztin-angiologia-60-collusione-pensum-m-u00f6glich-spital-limmattal-schlieren"
+      "it": "medico-senior-oberarztin-angiologia-60-collusione-pensum-moglich-spital-limmattal-schlieren"
     }
   },
   "url|https://apply.refline.ch/486538/0804/pub/1/index.html": {
@@ -200080,13 +200092,13 @@
     }
   },
   "url|https://apply.refline.ch/792841/10830/pub/7": {
-    "canonicalSlug": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich",
+    "canonicalSlug": "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "fr": "senior-business-ingenieur-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
-      "it": "senior-business-ingegnere-security-u2013-digitale-kan-u00e4le-m-w-d-zurcher-kantonalbank-zurich",
-      "de": "senior-business-engineer-security-u2013-digitale-kan-u00e4le-m-w-d-zkb-zurich"
+      "fr": "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich-6aa0cc",
+      "it": "senior-business-ingegnere-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "senior-business-ingenieur-security-digitale-kanale-m-w-d-zurcher-kantonalbank-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/10931/pub/3": {
@@ -200403,14 +200415,14 @@
     }
   },
   "url|https://apply.refline.ch/792841/11223/pub/3": {
-    "canonicalSlug": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
+    "canonicalSlug": "senior-business-ingegnere-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "en": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
-      "de": "senior-business-engineer-digitale-er-u00f6ffnungen-m-w-d-zkb-zurich",
-      "it": "senior-business-ingegnere-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich",
-      "fr": "senior-business-ingenieur-digitale-er-u00f6ffnungen-m-w-d-zurcher-kantonalbank-zurich"
+      "en": "senior-business-engineer-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "senior-business-ingenieur-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich",
+      "it": "senior-business-ingegnere-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-business-ingenieur-digitale-eroffnungen-m-w-d-zurcher-kantonalbank-zurich-31aaea"
     }
   },
   "url|https://apply.refline.ch/792841/11224/pub/1": {
@@ -200436,14 +200448,14 @@
     }
   },
   "url|https://apply.refline.ch/792841/11234/pub/1": {
-    "canonicalSlug": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "canonicalSlug": "senior-spezialist-in-dokumentargeschaft-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "de": "senior-spezialist-in-dokumentargesch-u00e4ft-zkb-zurich",
-      "it": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "en": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "fr": "senior-spezialist-in-dokumentargesch-u00e4ft-zurcher-kantonalbank-zurich"
+      "de": "senior-spezialist-in-dokumentargeschaft-zkb-zurich",
+      "it": "senior-spezialist-in-dokumentargeschaft-zurcher-kantonalbank-zurich",
+      "en": "senior-spezialist-in-dokumentargeschaft-zurcher-kantonalbank-zurich",
+      "fr": "senior-spezialist-in-dokumentargeschaft-zurcher-kantonalbank-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/11235/pub/3": {
@@ -200458,13 +200470,13 @@
     }
   },
   "url|https://apply.refline.ch/792841/11239/pub/2": {
-    "canonicalSlug": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich",
+    "canonicalSlug": "java-kotlin-software-engineer-fur-den-handel-m-w-d-zkb-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "fr": "java-kotlin-software-ingenieur-f-u00fcr-den-handel-m-w-d-zurcher-kantonalbank-zurich",
-      "it": "java-kotlin-software-ingegnere-f-u00fcr-den-handel-m-w-d-zurcher-kantonalbank-zurich",
-      "de": "java-kotlin-software-engineer-f-u00fcr-den-handel-m-w-d-zkb-zurich"
+      "fr": "java-kotlin-software-ingenieur-fur-den-handel-m-w-d-zurcher-kantonalbank-zurich",
+      "it": "java-kotlin-software-ingegnere-fur-den-handel-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "java-kotlin-software-engineer-fur-den-handel-m-w-d-zkb-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/11241/pub/1": {
@@ -200554,36 +200566,36 @@
     }
   },
   "url|https://apply.refline.ch/792841/11256/pub/1": {
-    "canonicalSlug": "collaboratore-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
+    "canonicalSlug": "collaboratore-trice-wertschriftenertrage-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "de": "mitarbeiter-in-wertschriftenertr-u00e4ge-zkb-zurich",
-      "en": "mitarbeiter-in-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
-      "fr": "collaborateur-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich",
-      "it": "collaboratore-trice-wertschriftenertr-u00e4ge-zurcher-kantonalbank-zurich"
+      "de": "mitarbeiter-in-wertschriftenertrage-zkb-zurich",
+      "en": "mitarbeiter-in-wertschriftenertrage-zurcher-kantonalbank-zurich",
+      "fr": "collaborateur-trice-wertschriftenertrage-zurcher-kantonalbank-zurich",
+      "it": "collaboratore-trice-wertschriftenertrage-zurcher-kantonalbank-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/11257/pub/1": {
-    "canonicalSlug": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "canonicalSlug": "senior-fachspezialist-in-risikouberwachung-anlage-e-vorsorgegeschaft-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "de": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-und-vorsorgegesch-u00e4ft-zkb",
-      "it": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "en": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "fr": "senior-fachspezialist-in-risiko-u00fcberwachung-anlage-e-vorsorgegesch-u00e4ft-zurcher-kantonalbank-zurich"
+      "de": "senior-fachspezialist-in-risikouberwachung-anlage-und-vorsorgegeschaft-zurcher-kantonalbank-zurich",
+      "it": "senior-fachspezialist-in-risikouberwachung-anlage-e-vorsorgegeschaft-zurcher-kantonalbank-zurich",
+      "en": "senior-specialist-in-riskubermonitorung-investment-and-pension-schemeaft-zurcher-kantonalbank-zurich",
+      "fr": "specialiste-principal-inriskubermonitorung-regime-d-investissement-et-de-retraite-zurcher-kantonalbank-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/11258/pub/1": {
-    "canonicalSlug": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
+    "canonicalSlug": "team-leader-in-it-scrum-master-in-gestione-dei-finanziamentiaft-zurcher-kantonalbank-zurich",
     "canton": "ZH",
     "createdAt": "2026-07-04",
     "slugByLocale": {
-      "de": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zkb-zurich",
-      "it": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "en": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich",
-      "fr": "teamleiter-in-it-scrum-master-im-finanzierungsgesch-u00e4ft-zurcher-kantonalbank-zurich"
+      "de": "teamleiter-in-it-scrum-master-im-finanzierungsgeschaft-zurcher-kantonalbank-zurich",
+      "it": "team-leader-in-it-scrum-master-in-gestione-dei-finanziamentiaft-zurcher-kantonalbank-zurich",
+      "en": "team-leader-in-it-scrum-master-in-financing-managementaft-zurcher-kantonalbank-zurich",
+      "fr": "chef-d-equipe-en-ti-scrum-master-en-gestion-de-financement-zurcher-kantonalbank-zurich"
     }
   },
   "url|https://apply.refline.ch/792841/11260/pub/1": {
@@ -219242,7 +219254,8 @@
     "createdAt": "2026-06-18",
     "slugByLocale": {
       "fr": "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona",
-      "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch"
+      "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
+      "it": "responsabile-rischi-e-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona"
     }
   },
   "url|https://jobs.geberit.com/job-invite/2001?locale=de_de": {
@@ -272454,7 +272467,8 @@
     "slugByLocale": {
       "it": "head-internal-audit-all-100-alpiq-olten",
       "de": "head-internal-audit-alle-100-alpiq-olten",
-      "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten"
+      "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten",
+      "en": "head-internal-audit-all-100-alpiq-olten"
     },
     "createdAt": "2026-07-06",
     "canton": "SO"
@@ -272463,7 +272477,8 @@
     "canonicalSlug": "archivist-in-all-100-alpiq-olten",
     "slugByLocale": {
       "it": "archivist-in-all-100-alpiq-olten",
-      "fr": "archiviste-dans-tous-100-alpiq-olten"
+      "fr": "archiviste-dans-tous-100-alpiq-olten",
+      "de": "archivist-in-all-100-alpiq-olten"
     },
     "createdAt": "2026-07-06",
     "canton": "SO"
@@ -272643,11 +272658,11 @@
     "canton": "ZH"
   },
   "url|https://apply.refline.ch/486538/0810/pub/1/index.html": {
-    "canonicalSlug": "verwaltungsr-u00e4tin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
+    "canonicalSlug": "consiglio-di-amministrazione-consiglio-di-amministrazione-spitalverband-limmattal-spital-limmattal-schlieren",
     "slugByLocale": {
       "it": "consiglio-di-amministrazione-consiglio-di-amministrazione-spitalverband-limmattal-spital-limmattal-schlieren",
       "en": "administrative-council-board-of-directors-spitalverband-limmattal-spital-limmattal-schlieren",
-      "de": "verwaltungsr-u00e4tin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-ch",
+      "de": "verwaltungsratin-verwaltungsrat-spitalverband-limmattal-spital-limmattal-schlieren",
       "fr": "conseil-d-administration-conseil-d-administration-spitalverband-limmattal-spital-limmattal-schlieren"
     },
     "createdAt": "2026-07-07",
@@ -272676,23 +272691,23 @@
     "canton": "ZH"
   },
   "url|https://apply.refline.ch/486538/0807/pub/1/index.html": {
-    "canonicalSlug": "mpa-segreteria-del-dottore-u00e4rin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
+    "canonicalSlug": "mpa-segreteria-del-dottorearin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
     "slugByLocale": {
-      "it": "mpa-segreteria-del-dottore-u00e4rin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
-      "en": "mpa-doctor-s-secretariat-u00e4rin-zbm-80-wednesday-free-spital-limmattal-schlieren",
-      "de": "mpa-arztsekret-u00e4rin-zbm-80-mittwoch-frei-spital-limmattal-ch",
-      "fr": "mpa-secretariat-du-docteur-u00e4rin-zbm-80-mercredi-gratuit-spital-limmattal-schlieren"
+      "it": "mpa-segreteria-del-dottorearin-zbm-80-gratuito-di-mercoledi-spital-limmattal-schlieren",
+      "en": "mpa-doctor-s-secretariatarin-zbm-80-wednesday-free-spital-limmattal-schlieren",
+      "de": "arztsekretarin-kauffrau-mpa-oder-fage-80-mittwoch-frei-spital-limmattal-schlieren",
+      "fr": "mpa-secretariat-du-docteurarin-zbm-80-mercredi-gratuit-spital-limmattal-schlieren"
     },
     "createdAt": "2026-07-07",
     "canton": "ZH"
   },
   "url|https://apply.refline.ch/486538/0579/pub/5/index.html": {
-    "canonicalSlug": "dipl-soccorso-sanitario-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
+    "canonicalSlug": "dipl-soccorso-sanitarioater-in-hf-fur-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
     "slugByLocale": {
-      "it": "dipl-soccorso-sanitario-u00e4ter-in-hf-f-u00fcr-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
-      "en": "dipl-rescue-sanit-u00e4ter-in-hf-f-u00fcr-our-emergency-station-40-70-spital-limmattal-schlieren",
-      "de": "dipl-rettungssanit-u00e4ter-in-hf-f-u00fcr-unsere-notfallstation-40-70-spital-limmattal-ch",
-      "fr": "dipl-sain-de-sauvetage-u00e4ter-en-hf-f-u00fcr-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
+      "it": "dipl-soccorso-sanitarioater-in-hf-fur-la-nostra-stazione-di-emergenza-40-70-spital-limmattal-schlieren",
+      "en": "dipl-rescue-sanitater-in-hf-fur-our-emergency-station-40-70-spital-limmattal-schlieren",
+      "de": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-schlieren",
+      "fr": "dipl-sain-de-sauvetageater-en-hf-fur-notre-station-d-urgence-40-70-spital-limmattal-schlieren"
     },
     "createdAt": "2026-07-07",
     "canton": "ZH"
@@ -279492,11 +279507,11 @@
     "canton": "BE"
   },
   "url|https://apply.refline.ch/486538/0811/pub/1/index.html": {
-    "canonicalSlug": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-80-spital-limmattal-ch",
+    "canonicalSlug": "infermiera-hf-fh-fur-oncologia-hamatologia-80-spital-limmattal-schlieren",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-f-u00fcr-onkologie-h-u00e4matologie-80-spital-limmattal-ch",
-      "it": "infermiera-hf-fh-f-u00fcr-oncologia-h-u00e4matologia-80-spital-limmattal-schlieren",
-      "en": "dipl-nurse-hf-fh-f-u00fcr-oncology-h-u00e4matology-80-spital-limmattal-schlieren",
+      "de": "dipl-pflegefachperson-hf-fh-fur-onkologie-hamatologie-80-spital-limmattal-schlieren",
+      "it": "infermiera-hf-fh-fur-oncologia-hamatologia-80-spital-limmattal-schlieren",
+      "en": "dipl-nurse-hf-fh-fur-oncology-hamatology-80-spital-limmattal-schlieren",
       "fr": "infirmiere-diplomee-hf-fh-spital-limmattal-schlieren"
     },
     "createdAt": "2026-07-07",
@@ -328361,7 +328376,8 @@
     "canonicalSlug": "secretaire-medical-e-80-100-medizinische-r-sekretar-in-80-100-hfr-hopital-fribourgeois",
     "slugByLocale": {
       "de": "medizinischer-sekretar-80-100-medizinischer-sekretar-in-80-100-hopital-fribourgeois-hfr-fribourg",
-      "fr": "secretaire-medical-e-80-100-medizinische-r-sekretar-in-80-100-hfr-hopital-fribourgeois"
+      "fr": "secretaire-medical-e-80-100-medizinische-r-sekretar-in-80-100-hfr-hopital-fribourgeois",
+      "it": "segreteria-medica-e-80-100-medizinische-r-sekretar-in-80-100-hopital-fribourgeois-hfr-fribourg"
     },
     "createdAt": "2026-07-15",
     "canton": "FR"
@@ -328649,7 +328665,10 @@
   "url|https://jobs.smartrecruiters.com/swissquote/744000137661939-regulatory-reporting-specialist?oga=true": {
     "canonicalSlug": "regulatory-reporting-specialist-swissquote-gland",
     "slugByLocale": {
-      "en": "regulatory-reporting-specialist-swissquote-gland"
+      "en": "regulatory-reporting-specialist-swissquote-gland",
+      "it": "regulatory-reporting-specialista-swissquote-gland",
+      "de": "regulatory-reporting-spezialist-swissquote-gland",
+      "fr": "regulatory-reporting-specialiste-swissquote-gland"
     },
     "createdAt": "2026-07-15",
     "canton": "VD"
@@ -328990,7 +329009,8 @@
     "canonicalSlug": "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
     "slugByLocale": {
       "de": "reservation-supervisor-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-ch",
-      "it": "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz"
+      "it": "reservation-supervisore-m-w-d-befristet-bis-ende-wintersaison-2026-27-tschuggen-collection-st-moritz",
+      "en": "reservation-supervisor-m-f-d-limited-to-the-end-of-winter-season-2026-27-tschuggen-collection-st-moritz"
     },
     "createdAt": "2026-07-15",
     "canton": "GR"
@@ -329749,7 +329769,9 @@
   "id|prospective.ch|18fcafaa-f32f-4278-aa75-97baafc3a7dd": {
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
+      "de": "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+      "it": "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal-83b67c",
+      "fr": "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal-83b67c"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -329757,7 +329779,10 @@
   "id|prospective.ch|f6ae7169-9880-4176-b587-04ea590f396f": {
     "canonicalSlug": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
     "slugByLocale": {
-      "de": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+      "de": "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+      "it": "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+      "fr": "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -329907,11 +329932,11 @@
     "canton": "ZH"
   },
   "url|https://apply.refline.ch/486538/0812/pub/1/index.html": {
-    "canonicalSlug": "segretariato-medico-u00e4r-in-f-u00fcr-segretariato-medico-capo-an-u00e4sthesie-80-giorni-lavorativi-dal-lunedi-al",
+    "canonicalSlug": "segretariato-medicoar-in-fur-segretariato-medico-capo-anasthesie-80-giorni-lavorativi-dal-lunedi-al-giovedi-spital",
     "slugByLocale": {
-      "it": "segretariato-medico-u00e4r-in-f-u00fcr-segretariato-medico-capo-an-u00e4sthesie-80-giorni-lavorativi-dal-lunedi-al",
-      "en": "medical-secretariat-u00e4r-in-f-u00fcr-chief-medical-secretariat-an-u00e4sthesie-80-working-days-monday-to-thursday",
-      "de": "arztsekret-u00e4r-in-f-u00fcr-chefarztsekretariat-an-u00e4sthesie-80-arbeitstage-montag",
+      "it": "segretariato-medicoar-in-fur-segretariato-medico-capo-anasthesie-80-giorni-lavorativi-dal-lunedi-al-giovedi-spital",
+      "en": "medical-secretariatar-in-fur-chief-medical-secretariat-anasthesie-80-working-days-monday-to-thursday-spital-limmattal",
+      "de": "arztsekretar-in-fur-chefarztsekretariat-anasthesie-80-arbeitstage-montag-bis-donnerstag-spital-limmattal-schlieren",
       "fr": "secretariat-medical-principal-80-jours-ouvrables-du-lundi-au-jeudi-spital-limmattal-schlieren"
     },
     "createdAt": "2026-07-15",
@@ -329963,7 +329988,10 @@
   "id|straumann.com|21558": {
     "canonicalSlug": "development-engineer-straumann-ch",
     "slugByLocale": {
-      "en": "development-engineer-straumann-ch"
+      "en": "development-engineer-straumann-ch",
+      "it": "development-ingegnere-straumann-basel",
+      "de": "development-ingenieur-straumann-basel",
+      "fr": "development-ingenieur-straumann-basel"
     },
     "createdAt": "2026-07-15",
     "canton": "BS"
@@ -330092,7 +330120,8 @@
     "slugByLocale": {
       "de": "zurich-insurance-sede-ticino-lugano-uc1f81",
       "it": "stato-pubblicato-un-libro-di-testo-intitolato-zurich-insurance-sede-ticino-lugano",
-      "fr": "en-anglais-seulement-zurich-insurance-sede-ticino-lugano"
+      "fr": "en-anglais-seulement-zurich-insurance-sede-ticino-lugano",
+      "en": "claims-handler-auto-insurance-osaka-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-15",
     "canton": "TI"
@@ -330122,7 +330151,8 @@
     "slugByLocale": {
       "de": "zurich-insurance-sede-ticino-lugano-uc1fyq",
       "it": "stato-pubblicato-un-articolo-pubblicato-in-inglese-zurich-insurance-sede-ticino-lugano",
-      "fr": "en-milliers-de-dollars-des-etats-unis-zurich-insurance-sede-ticino-lugano"
+      "fr": "en-milliers-de-dollars-des-etats-unis-zurich-insurance-sede-ticino-lugano",
+      "en": "claims-handler-auto-insurance-tokyo-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-15",
     "canton": "TI"
@@ -330831,7 +330861,10 @@
   "id|spitaluster.ch|388e59e0-48fa-4ec1-a075-92a5568a5086": {
     "canonicalSlug": "lernende-r-kochin-koch-efz-spital-uster-ch",
     "slugByLocale": {
-      "de": "lernende-r-kochin-koch-efz-spital-uster-ch"
+      "de": "lernende-r-kochin-koch-efz-spital-uster-ch",
+      "it": "apprendista-kochin-koch-cfc-spital-uster-uster",
+      "en": "apprentice-kochin-koch-efz-spital-uster-uster",
+      "fr": "apprenti-e-kochin-koch-efz-spital-uster-uster"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -330840,7 +330873,9 @@
     "canonicalSlug": "arztsekretarin-arztsekretar-50-angiologie-endokrinologie-e-onkologie-spital-uster",
     "slugByLocale": {
       "de": "arztsekretarin-arztsekretar-50-angiologie-endokrinologie-und-onkologie-spital-uster-ch",
-      "it": "arztsekretarin-arztsekretar-50-angiologie-endokrinologie-e-onkologie-spital-uster"
+      "it": "arztsekretarin-arztsekretar-50-angiologie-endokrinologie-e-onkologie-spital-uster",
+      "en": "medical-secretary-50-angiology-endocrinology-and-oncology-spital-uster-uster",
+      "fr": "secretaire-medical-50-angologie-endocrinologie-et-oncologie-spital-uster-uster"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331018,7 +331053,10 @@
   "id|stadt-zuerich.ch|1366704757": {
     "canonicalSlug": "gruppenchef-in-soko-einsatzzug-stadt-zuerich-zurigo-50859",
     "slugByLocale": {
-      "de": "gruppenchef-in-soko-einsatzzug-stadt-zuerich-zurigo-50859"
+      "de": "gruppenchef-in-soko-einsatzzug-stadt-zuerich-zurigo-50859",
+      "it": "testa-di-gruppo-in-soko-treno-operativo-stadt-zurich-zurich",
+      "en": "group-head-in-soko-operation-train-stadt-zurich-zurich",
+      "fr": "chef-de-groupe-en-soko-train-operationnel-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331026,7 +331064,10 @@
   "id|stadt-zuerich.ch|1366688257": {
     "canonicalSlug": "juristische-r-praktikant-in-stadt-zuerich-zurigo-50968",
     "slugByLocale": {
-      "de": "juristische-r-praktikant-in-stadt-zuerich-zurigo-50968"
+      "de": "juristische-r-praktikant-in-stadt-zuerich-zurigo-50968",
+      "it": "formazione-legale-stadt-zurich-zurich",
+      "en": "legal-trainee-stadt-zurich-zurich",
+      "fr": "stagiaire-juridique-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331034,7 +331075,10 @@
   "id|stadt-zuerich.ch|1366658357": {
     "canonicalSlug": "schulassistenz-stadt-zuerich-zurigo-50962",
     "slugByLocale": {
-      "de": "schulassistenz-stadt-zuerich-zurigo-50962"
+      "de": "schulassistenz-stadt-zuerich-zurigo-50962",
+      "it": "assistenza-scolastica-stadt-zurich-zurich",
+      "en": "school-assistance-stadt-zurich-zurich",
+      "fr": "aide-scolaire-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331044,7 +331088,8 @@
     "slugByLocale": {
       "it": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-2",
       "en": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-2",
-      "fr": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-2"
+      "fr": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich-2",
+      "de": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331052,7 +331097,10 @@
   "id|stadt-zuerich.ch|1366672357": {
     "canonicalSlug": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich",
     "slugByLocale": {
-      "de": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich"
+      "de": "sozialpadagog-in-hortleitung-in-der-betreuung-der-tagesschule-riesbach-stadt-zuerich",
+      "it": "social-pedagogue-direttore-nella-supervisione-della-scuola-di-giorno-di-riesbach-stadt-zurich-zurich",
+      "en": "social-pedagogue-director-in-the-supervision-of-the-riesbach-day-school-stadt-zurich-zurich",
+      "fr": "pedagogue-sociale-directeur-dans-la-supervision-de-l-ecole-de-jour-de-riesbach-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331060,7 +331108,10 @@
   "id|stadt-zuerich.ch|1366675857": {
     "canonicalSlug": "sozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50963",
     "slugByLocale": {
-      "de": "sozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50963"
+      "de": "sozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50963",
+      "it": "pedagogici-sociali-alla-scuola-gabler-stadt-zurich-zurich",
+      "en": "social-pedagogics-at-school-gabler-stadt-zurich-zurich",
+      "fr": "pedagogie-sociale-a-l-ecole-gabler-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331068,7 +331119,10 @@
   "id|stadt-zuerich.ch|1366649757": {
     "canonicalSlug": "fachperson-soziale-arbeit-ein-bus-stundenlohn-stadt-zuerich-zurigo-50900",
     "slugByLocale": {
-      "de": "fachperson-soziale-arbeit-ein-bus-stundenlohn-stadt-zuerich-zurigo-50900"
+      "de": "fachperson-soziale-arbeit-ein-bus-stundenlohn-stadt-zuerich-zurigo-50900",
+      "it": "lavoro-sociale-professionale-un-autobus-scommessa-oraria-stadt-zurich-zurich",
+      "en": "professional-social-work-a-bus-hourly-wage-stadt-zurich-zurich",
+      "fr": "travail-social-professionnel-un-bus-salaire-horaire-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -331352,7 +331406,10 @@
   "url|https://jobs.zgks.ch/fachperson-operationslagerung-80-100-de-j866.html": {
     "canonicalSlug": "fachperson-operationslagerung-80-100-zuger-kantonsspital-baar",
     "slugByLocale": {
-      "de": "fachperson-operationslagerung-80-100-zuger-kantonsspital-baar"
+      "de": "fachperson-operationslagerung-80-100-zuger-kantonsspital-baar",
+      "it": "stoccaggio-operazioni-speciali-80-100-zuger-kantonsspital-baar",
+      "en": "specialist-operations-storage-80-100-zuger-kantonsspital-baar",
+      "fr": "stockage-des-operations-specialisees-80-100-zuger-kantonsspital-baar"
     },
     "createdAt": "2026-07-15",
     "canton": "ZG"
@@ -334768,7 +334825,8 @@
   "id|kulm.com|698": {
     "canonicalSlug": "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
     "slugByLocale": {
-      "en": "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz"
+      "en": "commis-de-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz",
+      "it": "commissione-di-cuisine-patisserie-m-w-d-kulm-hotel-st-moritz-pontresina"
     },
     "createdAt": "2026-07-16",
     "canton": "GR"
@@ -334948,7 +335006,8 @@
   "id|zurich.com|1366782057": {
     "canonicalSlug": "unitlink-payment-project-zurich-topas-life-zurich-insurance-sede-ticino-lugano-wvqh3o",
     "slugByLocale": {
-      "en": "unitlink-payment-project-zurich-topas-life-zurich-insurance-sede-ticino-lugano-wvqh3o"
+      "en": "unitlink-payment-project-zurich-topas-life-zurich-insurance-sede-ticino-lugano-wvqh3o",
+      "it": "unitlink-payment-project-zurigo-topas-life-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-16",
     "canton": "TI"
@@ -335367,7 +335426,8 @@
   "id|fenaco.com|23c61feb-87b0-41e8-888f-29a0be99ca2e": {
     "canonicalSlug": "hauswart-in-allrounder-in-100-landi-bachtel-durnten",
     "slugByLocale": {
-      "de": "hauswart-in-allrounder-in-100-landi-bachtel-durnten"
+      "de": "hauswart-in-allrounder-in-100-landi-bachtel-durnten",
+      "fr": "femme-de-menage-en-allrounder-en-100-landi-bachtel-durnten"
     },
     "createdAt": "2026-07-16",
     "canton": "ZH"
@@ -335375,7 +335435,10 @@
   "id|fenaco.com|e3c681dc-d292-4a1d-a0fe-b6f43d4d04fd": {
     "canonicalSlug": "verkauferin-verkaufer-topshop-w-m-d-landi-vechigen-vechigen",
     "slugByLocale": {
-      "de": "verkauferin-verkaufer-topshop-w-m-d-landi-vechigen-vechigen"
+      "de": "verkauferin-verkaufer-topshop-w-m-d-landi-vechigen-vechigen",
+      "it": "venditore-venditore-topshop-w-m-d-landi-vechigen-vechigen",
+      "en": "seller-seller-topshop-w-m-d-landi-vechigen-vechigen",
+      "fr": "vendeur-vendeur-topshop-w-m-d-landi-vechigen-vechigen"
     },
     "createdAt": "2026-07-16",
     "canton": "BE"
@@ -335383,7 +335446,10 @@
   "id|fenaco.com|b502a629-2f1a-46d9-9ee5-3578d320db4b": {
     "canonicalSlug": "leitung-logistik-mitglied-der-geschaftsleitung-m-w-d-gourmador-frigemo-ag-zollikofen-zollikofen",
     "slugByLocale": {
-      "de": "leitung-logistik-mitglied-der-geschaftsleitung-m-w-d-gourmador-frigemo-ag-zollikofen-zollikofen"
+      "de": "leitung-logistik-mitglied-der-geschaftsleitung-m-w-d-gourmador-frigemo-ag-zollikofen-zollikofen",
+      "it": "responsabile-logistica-membro-della-direzione-m-f-d-gourmador-frigemo-ag-zollikofen-zollikofen",
+      "en": "head-of-logistics-member-of-the-management-board-m-f-d-gourmador-frigemo-ag-zollikofen-zollikofen",
+      "fr": "chef-de-la-logistique-membre-du-directoire-m-f-d-gourmador-frigemo-ag-zollikofen-zollikofen"
     },
     "createdAt": "2026-07-16",
     "canton": "BE"
@@ -335441,7 +335507,9 @@
     "canonicalSlug": "fachfrau-mann-gesundheit-cfc-30-100-tertianum-berlingen",
     "slugByLocale": {
       "de": "fachfrau-mann-gesundheit-efz-30-100-tertianum-berlingen",
-      "it": "fachfrau-mann-gesundheit-cfc-30-100-tertianum-berlingen"
+      "it": "fachfrau-mann-gesundheit-cfc-30-100-tertianum-berlingen",
+      "en": "professional-health-efz-30-100-tertianum-berlingen",
+      "fr": "sante-professionnelle-efz-30-100-tertianum-berlingen"
     },
     "createdAt": "2026-07-16",
     "canton": "TG"
@@ -335458,7 +335526,8 @@
   "id|unibe.ch|af3bb453-429c-4c48-bbc9-735876c313b9": {
     "canonicalSlug": "certified-animal-caretaker-axenic-and-gnotobiotic-animal-housing-unibe-bern",
     "slugByLocale": {
-      "en": "certified-animal-caretaker-axenic-and-gnotobiotic-animal-housing-unibe-bern"
+      "en": "certified-animal-caretaker-axenic-and-gnotobiotic-animal-housing-unibe-bern",
+      "de": "zertifizierter-tierpfleger-axenische-und-gnotobiotische-tierhaltung-universitat-bern-bern"
     },
     "createdAt": "2026-07-16",
     "canton": "BE"
@@ -336041,7 +336110,8 @@
     "slugByLocale": {
       "de": "student-in-ksa-ch",
       "en": "student-in-kantonsspital-aarau-ksa-aarau",
-      "fr": "eleve-s-kantonsspital-aarau-ksa-aarau"
+      "fr": "eleve-s-kantonsspital-aarau-ksa-aarau",
+      "it": "student-s-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-16",
     "canton": "AG"
@@ -336303,5 +336373,1444 @@
     },
     "createdAt": "2026-07-16",
     "canton": "SO"
+  },
+  "url|https://jobs.zfv.ch/koechin-koch-de-j4625.html": {
+    "canonicalSlug": "kochin-koch-zfv-unternehmungen-winterthur",
+    "slugByLocale": {
+      "de": "kochin-koch-zfv-unternehmungen-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|prospective.ch|732845ad-08c6-464a-a4b3-b5820b1bc577": {
+    "canonicalSlug": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+    "slugByLocale": {
+      "de": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|prospective.ch|57a83f7b-d8c2-4f6a-b512-dbdf1f85b334": {
+    "canonicalSlug": "kochin-koch-cfc-80-100-sro-ag-spital-region-oberaargau-langenthal",
+    "slugByLocale": {
+      "it": "kochin-koch-cfc-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "de": "kochin-koch-efz-80-100-sro-langenthal",
+      "fr": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|prospective.ch|e3aa5ad4-bf8c-4154-8ec6-8639902c5b78": {
+    "canonicalSlug": "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal",
+    "slugByLocale": {
+      "it": "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "dipl-caregiver-endoscopy-60-100-sro-ag-spital-region-oberaargau-langenthal",
+      "de": "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal",
+      "fr": "dipl-endoscopie-du-soignant-60-100-sro-ag-spital-region-oberaargau-langenthal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|prospective.ch|42f9c1d3-3bc2-441a-bc5d-dbaf13cab75c": {
+    "canonicalSlug": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|spitexjobs.ch|j987873": {
+    "canonicalSlug": "eine-dipl-pflegefachperson-hf-fh-40-100-imwil-alters-und-spitexzentrum-dubendorf",
+    "slugByLocale": {
+      "de": "eine-dipl-pflegefachperson-hf-fh-40-100-spitex-ch-dubendorf",
+      "it": "eine-dipl-pflegefachperson-hf-fh-40-100-imwil-alters-und-spitexzentrum-dubendorf",
+      "en": "eine-dipl-pflegefachperson-hf-fh-40-100-imwil-alters-und-spitexzentrum-dubendorf",
+      "fr": "eine-dipl-pflegefachperson-hf-fh-40-100-imwil-alters-und-spitexzentrum-dubendorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadlerrail.com|1360617655": {
+    "canonicalSlug": "technische-r-sachbearbeiter-in-avor-stadler-rail-ch",
+    "slugByLocale": {
+      "de": "technische-r-sachbearbeiter-in-avor-stadler-rail-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stadlerrail.com|1360620655": {
+    "canonicalSlug": "project-manager-depot-infrastructure-stadler-rail-ch",
+    "slugByLocale": {
+      "de": "project-manager-depot-infrastructure-stadler-rail-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|straumann.com|21577": {
+    "canonicalSlug": "trainee-global-product-management-straumann-ch",
+    "slugByLocale": {
+      "en": "trainee-global-product-management-straumann-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "id|zurich.com|1366860257": {
+    "canonicalSlug": "software-asset-management-analista-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-compa-xbn9th",
+    "slugByLocale": {
+      "it": "software-asset-management-analista-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-compa-xbn9th",
+      "en": "software-asset-management-analyst-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-compan-xbn9th",
+      "fr": "software-asset-management-analyste-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-the-compa-xbn9th"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366895657": {
+    "canonicalSlug": "auditor-medico-zurich-insurance-sede-ticino-lugano-xddxhz",
+    "slugByLocale": {
+      "fr": "auditor-medico-zurich-insurance-sede-ticino-lugano-xddxhz"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366872957": {
+    "canonicalSlug": "workers-compensation-staff-legal-attorney-zurich-insurance-sede-ticino-lugano-xc8hkr",
+    "slugByLocale": {
+      "en": "workers-compensation-staff-legal-attorney-zurich-insurance-sede-ticino-lugano-xc8hkr"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366895257": {
+    "canonicalSlug": "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7",
+    "slugByLocale": {
+      "fr": "analista-de-uw-services-zurich-insurance-sede-ticino-lugano-xdduj7"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366902357": {
+    "canonicalSlug": "auto-pricing-actuary-commercial-lines-auto-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-de-xpffd9",
+    "slugByLocale": {
+      "en": "auto-pricing-actuary-commercial-lines-auto-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-de-xpffd9"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366884057": {
+    "canonicalSlug": "workers-compensation-claims-specialista-ne-region-zurich-insurance-sede-ticino-lugano-xctdgx",
+    "slugByLocale": {
+      "it": "workers-compensation-claims-specialista-ne-region-zurich-insurance-sede-ticino-lugano-xctdgx",
+      "en": "workers-compensation-claims-specialist-ne-region-zurich-insurance-sede-ticino-lugano-xctdgx",
+      "de": "workers-compensation-claims-spezialist-ne-region-zurich-insurance-sede-ticino-lugano-xctdgx",
+      "fr": "workers-compensation-claims-specialiste-ne-region-zurich-insurance-sede-ticino-lugano-xctdgx"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1366899057": {
+    "canonicalSlug": "ai-innovation-specialista-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-xdgczx",
+    "slugByLocale": {
+      "it": "ai-innovation-specialista-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-xdgczx",
+      "en": "ai-innovation-specialist-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-xdgczx",
+      "de": "ai-innovation-spezialist-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-xdgczx",
+      "fr": "ai-innovation-specialiste-zurich-insurance-sede-ticino-with-inspiring-teammates-and-leaders-do-you-have-the-ambition-and-desire-to-be-xdgczx"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/a3c651a0d643-responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100": {
+    "canonicalSlug": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
+    "slugByLocale": {
+      "it": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
+      "fr": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/a50b8f861483-infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80--100": {
+    "canonicalSlug": "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+    "slugByLocale": {
+      "it": "infermiere-laureata-80-100-per-un-2-mese-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+      "en": "graduated-nurse-80-100-for-a-2-month-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr-fribourg",
+      "de": "graduierte-krankenschwester-80-100-fur-2-monate-cdd-pflegefachmann-pflegefachfrau-80-100-hopital-fribourgeois-hfr",
+      "fr": "infirmier-ere-diplome-e-80-100-pour-un-cdd-de-2-mois-pflegefachmann-pflegefachfrau-80-100"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/71412383a44b-technicien-ne-en-analyses-biomedicales-70-80-biomedizinische-r-analytiker-in": {
+    "canonicalSlug": "tecnico-biomedico-70-80-biomedizinische-r-analizzatore-in-hopital-fribourgeois-hfr-fribourg",
+    "slugByLocale": {
+      "fr": "technicien-ne-en-analyses-biomedicales-70-80-biomedizinische-r-analytiker-in-hfr-hopital",
+      "it": "tecnico-biomedico-70-80-biomedizinische-r-analizzatore-in-hopital-fribourgeois-hfr-fribourg",
+      "en": "biomedical-technician-70-80-biomedizinische-r-analytiker-in-hopital-fribourgeois-hfr-fribourg",
+      "de": "biomediziner-70-80-biomediziner-r-analytiker-in-hopital-fribourgeois-hfr-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|7191a551-2912-4aa9-ae91-a1e267ddb72c": {
+    "canonicalSlug": "kochin-koch-m-w-d-coop-genossenschaft-ittigen-bern",
+    "slugByLocale": {
+      "de": "kochin-koch-m-w-d-coop-genossenschaft-ittigen-bern-k17sd0"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|cc4a3fe6-b774-4e5e-a6cf-27fd6f0844ed": {
+    "canonicalSlug": "kochin-koch-m-w-d-coop-genossenschaft-bern",
+    "slugByLocale": {
+      "de": "kochin-koch-m-w-d-coop-genossenschaft-bern-d2p85r"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|b5ba0747-2a26-4063-9382-9530b2a73647": {
+    "canonicalSlug": "magaziner-in-verkauf-coop-genossenschaft-lyss-bern",
+    "slugByLocale": {
+      "it": "magaziner-in-vendita-coop-genossenschaft-lyss-bern-r3qqdc",
+      "en": "magaziner-in-sales-coop-genossenschaft-lyss-bern-r3qqdc",
+      "de": "magaziner-in-verkauf-coop-genossenschaft-lyss-bern-r3qqdc",
+      "fr": "magaziner-in-vente-coop-genossenschaft-lyss-bern-r3qqdc"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|cd226296-adfc-430e-a8cf-7424580e4f5c": {
+    "canonicalSlug": "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-itx27c"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|0939d1ee-d21d-4a91-95d0-64c80eaa0421": {
+    "canonicalSlug": "geschaftsfuhrer-in-100-two-spice-ag-dietlikon",
+    "slugByLocale": {
+      "de": "geschaftsfuhrer-in-100-two-spice-ag-dietlikon-j4qzps"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|be4faa31-0ee3-4eb8-b57e-8ce7c07481bf": {
+    "canonicalSlug": "kuchenchef-in-100-two-spice-dietlikon",
+    "slugByLocale": {
+      "de": "kuchenchef-in-100-two-spice-dietlikon-sqjhtl"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|1ff2a033-1f8a-4d69-9914-5e3fb390d53a": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-zumikon-zurich",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-zumikon-zurich-ihywtj"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|9dc881db-6a9a-4967-8027-ee791bf3a9dd": {
+    "canonicalSlug": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich",
+    "slugByLocale": {
+      "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-ic6dbi"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|3a1a730a-f888-41ba-971a-6e0f35b6841a": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-ifleyt",
+      "en": "associate-sales-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-ifleyt",
+      "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-ifleyt",
+      "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-division-der-coop-genossenschaft-feuerthalen-zurich-ifleyt"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|6a7ca75c-e247-45bb-8b8f-0304d735f94f": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-zurich",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-administration-e-kundendienst-coop-genossenschaft-zurich-tdgpnm",
+      "en": "associate-sales-administration-und-kundendienst-coop-genossenschaft-zurich-tdgpnm",
+      "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-coop-genossenschaft-zurich-tdgpnm",
+      "fr": "collaborateur-trice-vente-administration-und-kundendienst-coop-genossenschaft-zurich-tdgpnm"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|e8741f7c-b4d1-4c8e-8fac-134b6bd4060a": {
+    "canonicalSlug": "rayonleiter-in-brot-backwaren-coop-genossenschaft-winterthur-zurich",
+    "slugByLocale": {
+      "de": "rayonleiter-in-brot-backwaren-coop-genossenschaft-winterthur-zurich-mbvbte"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|f824ba50-ce61-4487-908c-32a9b8769d7e": {
+    "canonicalSlug": "rayonleiter-in-wein-getranke-coop-kerzers-freiburg",
+    "slugByLocale": {
+      "de": "rayonleiter-in-wein-getranke-coop-kerzers-freiburg-cvpj28"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|coopjobs.ch|6b4d858a-5424-45ab-8603-29c5b4600cbf": {
+    "canonicalSlug": "sachbearbeiter-in-im-qualitatsmanagement-40-coop-genossenschaft-pratteln-basel-landschaft",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-im-qualitatsmanagement-40-coop-genossenschaft-pratteln-basel-landschaft-yhxx0r"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|coopjobs.ch|c517c96d-4f88-4b0e-948e-20cefcc2f6c5": {
+    "canonicalSlug": "sachbearbeiter-in-total-store-coop-genossenschaft-schafisheim-aargau",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-total-store-coop-genossenschaft-schafisheim-aargau-cj1l28"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|583a0320-0693-4236-99e7-a82c28fa689c": {
+    "canonicalSlug": "stv-geschaftsfuhrer-in-two-spice-dietlikon-2",
+    "slugByLocale": {
+      "de": "stv-geschaftsfuhrer-in-two-spice-dietlikon-0d0bel"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|e786f7fd-2231-4146-9c84-740b3f224c5e": {
+    "canonicalSlug": "stv-geschaftsfuhrer-in-two-spice-dietlikon",
+    "slugByLocale": {
+      "de": "stv-geschaftsfuhrer-in-two-spice-dietlikon-jttvoo"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|b951e352-61e5-445a-b4cd-48764c3d9bee": {
+    "canonicalSlug": "verkaufer-in-blumen-kiosk-coop-unterentfelden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-blumen-kiosk-coop-unterentfelden-aargau-5yjfrv"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|0c9f7a60-c7b8-4c53-b0b6-5fbdaa72b33e": {
+    "canonicalSlug": "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-molkerei-eier-kase-coop-baden-aargau-e86kjh"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|159047dc-1c9f-443c-bae0-10836621b65a": {
+    "canonicalSlug": "verkaufer-in-food-coop-genossenschaft-winterthur-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-genossenschaft-winterthur-zurich-dhav3q"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|3dbe602c-0a2c-4477-b0ec-9308fb88019a": {
+    "canonicalSlug": "verkaufer-in-food-coop-zollikon-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-zollikon-zurich-3qw2mz"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|59a573b3-0790-4484-bcec-8bddd58cea0b": {
+    "canonicalSlug": "verkaufer-in-food-coop-battwil-solothurn",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-battwil-solothurn-hlhxdn"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|7808a400-315e-4c65-93ab-a8544b7ad541": {
+    "canonicalSlug": "verkaufer-in-food-coop-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-bern-p8dpoq"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|8e23728c-9952-476b-b922-701e174e25db": {
+    "canonicalSlug": "verkaufer-in-food-coop-gossau-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-gossau-zurich-jylywv"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|b49aaf32-7147-419b-a093-945e0d51cb97": {
+    "canonicalSlug": "verkaufer-in-food-coop-grindelwald-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-grindelwald-bern-ux9m1p"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|c4d9dd97-a196-4889-bdb1-c40dba9419cc": {
+    "canonicalSlug": "verkaufer-in-food-coop-basel-stadt",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-basel-stadt-hv9iip"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|d6473597-342a-448b-858a-74f85755986f": {
+    "canonicalSlug": "verkaufer-in-food-coop-zumikon-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-zumikon-zurich-vp077u"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|da6311e2-aa2c-491d-9c0d-db4c68a2e220": {
+    "canonicalSlug": "verkaufer-in-food-coop-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-zurich-ii6tpk"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ec66c5a4-9840-4bf3-b2d7-2a265e8ddadb": {
+    "canonicalSlug": "verkaufer-in-food-coop-lotzwil-bern",
+    "slugByLocale": {
+      "de": "verkaufer-in-food-coop-lotzwil-bern-k139sn"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|coopjobs.ch|e4280db4-3dfa-4346-bcd5-39492f2fdc21": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-stafa-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-stafa-zurich-ek3rfo"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|f18cbaa4-e63f-4de5-b9bc-61a3b264dd3e": {
+    "canonicalSlug": "verkaufer-in-frischprodukte-coop-opfikon-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-frischprodukte-coop-opfikon-zurich-81q5ga"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|49e20aaa-69c0-4344-962a-4f560ee6e452": {
+    "canonicalSlug": "verkaufer-in-kassen-services-studentenaushilfe-coop-wattwil-sankt-gallen",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-wattwil-sankt-gallen-dyyh14"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SG"
+  },
+  "id|coopjobs.ch|41790724-0e15-46bf-8b79-6299c383ce76": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-kuttigen-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-kuttigen-aargau-0l1uhu"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|bb8eb9c5-b8b8-4650-8c70-b7b8bacb8739": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-sins-aargau",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-sins-aargau-qpy7gi"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|d9ec2df2-0d1b-4671-a863-ee59447ce125": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-volketswil-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-volketswil-zurich-oo8o0w"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|ebc92dfc-cd5e-493f-8c99-a3c37e712e44": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-kuttigen-aargau-2",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-kuttigen-aargau-g12f08"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|coopjobs.ch|8446c22e-195c-44d3-9f14-f4f70f156f43": {
+    "canonicalSlug": "verkaufer-in-metzgerei-produktion-und-convenience-coop-basel-stadt",
+    "slugByLocale": {
+      "it": "verkaufer-in-metzgerei-produktion-e-convenience-coop-basel-stadt-3bj1nm",
+      "de": "verkaufer-in-metzgerei-produktion-und-convenience-coop-basel-stadt-3bj1nm"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "id|coopjobs.ch|4e19c724-43cd-4d3d-9231-bdd21ec73a11": {
+    "canonicalSlug": "verkaufsberater-in-interdiscount-meilen-zurich",
+    "slugByLocale": {
+      "de": "verkaufsberater-in-interdiscount-meilen-zurich-sbz4qc"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|d3247157-1cc2-433d-bca6-989064403ba5": {
+    "canonicalSlug": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon",
+    "slugByLocale": {
+      "de": "zenbu-sushi-koch-kochin-two-spice-ag-dietlikon-34g922"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|coopjobs.ch|f5c76c08-cd1e-4474-a32f-cc94af067aa6": {
+    "canonicalSlug": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-lugano-ticino",
+    "slugByLocale": {},
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|fust.ch|2febfb8e-bbe9-4f14-a16c-7740ce79f11a": {
+    "canonicalSlug": "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-olten-solothurn",
+    "slugByLocale": {
+      "it": "verkaufsberater-in-per-elektrohaushalt-80-100-fust-olten-solothurn-7tmm0d",
+      "de": "verkaufsberater-in-fur-elektrohaushalt-80-100-fust-olten-solothurn-7tmm0d"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|coopjobs.ch|65c2a651-3fe6-49b6-886d-ba030deedb8e": {
+    "canonicalSlug": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug",
+    "slugByLocale": {
+      "it": "addetto-a-alle-vendite-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug-6vbrx0",
+      "en": "associate-sales-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug-6vbrx0",
+      "de": "mitarbeiter-in-verkauf-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug-6vbrx0",
+      "fr": "collaborateur-trice-vente-food-06-00-bis-10-00-uhr-auffuller-in-coop-steinhausen-zug-6vbrx0"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "id|coopjobs.ch|98482f04-d903-4ce9-ba03-f9f3746b0a67": {
+    "canonicalSlug": "verkaufer-in-kassen-services-coop-zurich",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-coop-zurich-m343l8"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|c75f8f2a-9de7-4e8c-ae6f-494923e19fcb": {
+    "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-schnottwil",
+    "slugByLocale": {
+      "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-schnottwil",
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-schnottwil"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|3639b6f0-e8a9-411f-8405-77b97632b6ea": {
+    "canonicalSlug": "gestionnaire-du-commerce-de-detail-m-w-d-landi-moleson-sarine-sa-bulle",
+    "slugByLocale": {
+      "it": "gestionnaire-du-commerce-de-detail-f-m-d-landi-moleson-sarine-sa-bulle",
+      "fr": "gestionnaire-du-commerce-de-detail-f-h-d-landi-moleson-sarine-sa-bulle"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fenaco.com|2054be27-478b-4688-a340-668c51388cb5": {
+    "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-escholzmatt-marbach",
+    "slugByLocale": {
+      "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-escholzmatt-marbach",
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-escholzmatt-marbach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "LU"
+  },
+  "id|fenaco.com|101b1945-5da3-4e68-b4d7-99fc9ff2855b": {
+    "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-escholzmatt-marbach",
+    "slugByLocale": {
+      "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-escholzmatt-marbach",
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-escholzmatt-marbach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "LU"
+  },
+  "id|fenaco.com|31aa87a8-7470-4af1-83d1-a83253d35f7f": {
+    "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-schnottwil",
+    "slugByLocale": {
+      "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-schnottwil",
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-schnottwil"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|774e2e50-f10d-45dc-a042-af8283971f6f": {
+    "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-kleinlutzel",
+    "slugByLocale": {
+      "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-kleinlutzel",
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-kleinlutzel"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|f9056d9c-b457-4edf-b792-485df7822175": {
+    "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-fulenbach",
+    "slugByLocale": {
+      "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-fulenbach",
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-fulenbach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|2f9b5675-c14a-4998-affc-a9338d4e1d6d": {
+    "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-kleinlutzel",
+    "slugByLocale": {
+      "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-kleinlutzel",
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-kleinlutzel"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|67b6395b-9c23-4bda-96d5-e8cf0c4566c2": {
+    "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-fulenbach",
+    "slugByLocale": {
+      "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-fulenbach",
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-fulenbach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "id|fenaco.com|6d3e1c36-3f1f-4f57-bf09-dc77f9bfaa66": {
+    "canonicalSlug": "verkaufer-in-volg-laden-40-60-volg-gossau",
+    "slugByLocale": {
+      "de": "verkaufer-in-volg-laden-40-60-volg-gossau"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SG"
+  },
+  "id|fenaco.com|a1624460-c847-45b4-87c4-e2007c25774d": {
+    "canonicalSlug": "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+    "slugByLocale": {
+      "de": "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|ece335ec-3534-4fd4-8dfc-ea7f9cf4aba9": {
+    "canonicalSlug": "praktikantin-praktikant-volg-brutten-zh-w-m-d-volg-brutten",
+    "slugByLocale": {
+      "de": "praktikantin-praktikant-volg-brutten-zh-w-m-d-volg-brutten"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/swissquote/744000138142183-compliance-assistant-monitoring-3-months-?oga=true": {
+    "canonicalSlug": "compliance-assistant-monitoring-3-months-swissquote-gland",
+    "slugByLocale": {
+      "en": "compliance-assistant-monitoring-3-months-swissquote-gland"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "id|spitaluster.ch|cf365fce-6566-4795-8e00-14b551d82d1b": {
+    "canonicalSlug": "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch",
+    "slugByLocale": {
+      "de": "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|srgssr.ch|150f0bff-5078-4847-8470-903d5afc67ae": {
+    "canonicalSlug": "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
+    "slugByLocale": {
+      "de": "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366719457": {
+    "canonicalSlug": "azienda-elettrica-in-specialista-del-servizio-tecnico-posizione-mattenhof-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "azienda-elettrica-in-specialista-del-servizio-tecnico-posizione-mattenhof-stadt-zurich-zurich",
+      "en": "company-electrician-in-technical-service-specialist-location-mattenhof-stadt-zurich-zurich",
+      "de": "betriebselektriker-in-fachperson-technischer-dienst-standort-mattenhof-stadt-zuerich",
+      "fr": "entreprise-electricienne-in-specialiste-des-services-techniques-emplacement-mattenhof-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366716557": {
+    "canonicalSlug": "attivazione-professionale-hf-sito-bombach-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "attivazione-professionale-hf-sito-bombach-stadt-zurich-zurich",
+      "en": "professional-activation-hf-bombach-site-stadt-zurich-zurich",
+      "de": "fachperson-aktivierung-hf-standort-bombach-stadt-zuerich-zurigo-50969",
+      "fr": "activation-professionnelle-hf-site-de-bombach-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366726657": {
+    "canonicalSlug": "hochschulpraktikant-in-o-stabsmitarbeiter-in-stadt-zurich",
+    "slugByLocale": {
+      "it": "hochschulpraktikant-in-o-stabsmitarbeiter-in-stadt-zurich",
+      "en": "university-intern-or-staff-member-stadt-zurich-zurich",
+      "de": "hochschulpraktikant-in-oder-stabsmitarbeiter-in-stadt-zuerich-zurigo-50972",
+      "fr": "stage-universitaire-ou-membre-du-personnel-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366740657": {
+    "canonicalSlug": "cuocere-allrounder-in-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "cuocere-allrounder-in-stadt-zurich-zurich",
+      "en": "cook-allrounder-in-stadt-zurich-zurich",
+      "de": "koch-kochin-allrounder-in-stadt-zuerich-zurigo-50974",
+      "fr": "cuire-en-tout-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366761957": {
+    "canonicalSlug": "portavoce-dei-media-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "portavoce-dei-media-stadt-zurich-zurich",
+      "en": "media-spokesperson-stadt-zurich-zurich",
+      "de": "mediensprecher-in-stadt-zuerich-zurigo-50975",
+      "fr": "porte-parole-des-medias-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366719857": {
+    "canonicalSlug": "springer-nei-servizi-sociali-specializzati-stadt-zurich-zurich",
+    "slugByLocale": {
+      "it": "springer-nei-servizi-sociali-specializzati-stadt-zurich-zurich",
+      "en": "springer-in-specialised-social-services-stadt-zurich-zurich",
+      "de": "springer-in-sachbearbeitung-soziale-dienste-stadt-zuerich-zurigo-50970",
+      "fr": "springer-dans-les-services-sociaux-specialises-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366796157": {
+    "canonicalSlug": "fachmann-frau-betriebsunterhalt-saalsporthalle-befristet-bis-30-06-2027-stadt-zurich",
+    "slugByLocale": {
+      "de": "fachmann-frau-betriebsunterhalt-saalsporthalle-befristet-bis-30-06-2027-stadt-zuerich",
+      "it": "fachmann-frau-betriebsunterhalt-saalsporthalle-befristet-bis-30-06-2027-stadt-zurich",
+      "en": "fachmann-frau-betriebsunterhalt-saalsporthalle-befristet-bis-30-06-2027-stadt-zurich-zurich",
+      "fr": "fachmann-frau-betriebsunterhalt-saalsporthalle-befristet-bis-30-06-2027-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366778657": {
+    "canonicalSlug": "leiter-in-finanzen-e-controlling-stadt-zurich",
+    "slugByLocale": {
+      "de": "leiter-in-finanzen-und-controlling-stadt-zuerich-zurigo-50980",
+      "it": "leiter-in-finanzen-e-controlling-stadt-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366826757": {
+    "canonicalSlug": "leiter-in-gruppe-asset-management-kehrichtverwertungsanlage-stadt-zurich",
+    "slugByLocale": {
+      "de": "leiter-in-gruppe-asset-management-kehrichtverwertungsanlage-stadt-zuerich-zurigo-50988",
+      "it": "leiter-in-gruppe-asset-management-kehrichtverwertungsanlage-stadt-zurich",
+      "en": "leiter-in-gruppe-asset-management-kehrichtverwertungsanlage-stadt-zurich-zurich",
+      "fr": "leiter-in-gruppe-asset-management-kehrichtverwertungsanlage-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366794657": {
+    "canonicalSlug": "leitung-fachbereich-schuler-innen-schulverwaltung-ksb-letzi-stadt-zurich-zurich",
+    "slugByLocale": {
+      "de": "leitung-fachbereich-schuler-innen-schulverwaltung-ksb-letzi-stadt-zuerich-zurigo-50984",
+      "it": "leitung-fachbereich-schuler-innen-schulverwaltung-ksb-letzi-stadt-zurich-zurich",
+      "en": "leitung-fachbereich-schuler-innen-schulverwaltung-ksb-letzi-stadt-zurich-zurich",
+      "fr": "leitung-fachbereich-schuler-innen-schulverwaltung-ksb-letzi-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366796757": {
+    "canonicalSlug": "verantwortliche-schulergeschafte-e-schuler-innen-zuteiler-in-stadt-zurich",
+    "slugByLocale": {
+      "de": "verantwortliche-schulergeschafte-und-schuler-innen-zuteiler-in-stadt-zuerich-zurigo-50985",
+      "it": "verantwortliche-schulergeschafte-e-schuler-innen-zuteiler-in-stadt-zurich",
+      "en": "verantwortliche-schulergeschafte-und-schuler-innen-zuteiler-in-stadt-zurich-zurich",
+      "fr": "verantwortliche-schulergeschafte-und-schuler-innen-zuteiler-in-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366888657": {
+    "canonicalSlug": "betriebsleiter-in-stadt-zuerich-zurigo-50995",
+    "slugByLocale": {
+      "de": "betriebsleiter-in-stadt-zuerich-zurigo-50995"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366866157": {
+    "canonicalSlug": "hortleitung-o-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zurich",
+    "slugByLocale": {
+      "de": "hortleitung-oder-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo",
+      "it": "hortleitung-o-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1366834857": {
+    "canonicalSlug": "reifenfachmann-frau-stadt-zurich",
+    "slugByLocale": {
+      "de": "reifenfachmann-frau-stadt-zuerich-zurigo-50990",
+      "it": "reifenfachmann-frau-stadt-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|tertianum.ch|1415829233": {
+    "canonicalSlug": "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-per-la-geschutzte-abteilung-tertianum-winterthur",
+    "slugByLocale": {
+      "de": "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-fur-die-geschutzte",
+      "it": "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-per-la-geschutzte-abteilung-tertianum-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|unibe.ch|79ac787d-f9fe-4af5-b7d3-42b44eea757b": {
+    "canonicalSlug": "phd-student-pulmonary-outcomes-and-lung-function-after-br-childhood-cancer-unibe-bern",
+    "slugByLocale": {
+      "en": "phd-student-pulmonary-outcomes-and-lung-function-after-br-childhood-cancer-unibe-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "url|https://jobs.zgks.ch/fachperson-gesundheit-notfallzentrum-40-100--de-j867.html": {
+    "canonicalSlug": "fachperson-gesundheit-notfallzentrum-40-100-zuger-kantonsspital-baar",
+    "slugByLocale": {
+      "de": "fachperson-gesundheit-notfallzentrum-40-100-zuger-kantonsspital-baar"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "id|belimo.com|1165123855": {
+    "canonicalSlug": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil",
+    "slugByLocale": {
+      "de": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165123755": {
+    "canonicalSlug": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2",
+    "slugByLocale": {
+      "it": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2",
+      "de": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2",
+      "fr": "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2736.umantis.com|1988": {
+    "canonicalSlug": "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf",
+    "slugByLocale": {
+      "de": "dipl-rettungssanitater-hf-50-100-m-w-d-spital-maennedorf-ch",
+      "it": "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf",
+      "en": "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf",
+      "fr": "dipl-rettungssanitater-hf-50-100-m-w-d-spital-mannedorf-mannedorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.alpiq.com/career/open-jobs/your-application/9598": {
+    "canonicalSlug": "structured-products-trader-spanish-market-alpiq-olten",
+    "slugByLocale": {
+      "it": "structured-products-trader-spanish-market-alpiq-olten"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SO"
+  },
+  "url|https://www.pemsa.ch/it/job/autista-di-camion-2683583": {
+    "canonicalSlug": "autista-di-camion-pemsa-lugano",
+    "slugByLocale": {
+      "it": "autista-di-camion-pemsa-lugano"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/giardiniere-2683605": {
+    "canonicalSlug": "giardiniere-pemsa-bellinzona",
+    "slugByLocale": {
+      "it": "giardiniere-pemsa-bellinzona"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-2683601": {
+    "canonicalSlug": "installatore-di-impianti-di-riscaldamento-pemsa-geneve",
+    "slugByLocale": {
+      "it": "installatore-di-impianti-di-riscaldamento-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2683595": {
+    "canonicalSlug": "installatore-di-impianti-di-ventilazione-pemsa-geneve",
+    "slugByLocale": {
+      "it": "installatore-di-impianti-di-ventilazione-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-2683592": {
+    "canonicalSlug": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve",
+    "slugByLocale": {
+      "it": "installatore-di-tubazioni-saldatore-nel-settore-del-riscaldamento-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-elettrico-industriale-2683557": {
+    "canonicalSlug": "installatore-elettrico-industriale-pemsa-montreux",
+    "slugByLocale": {
+      "it": "installatore-elettrico-industriale-pemsa-montreux"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/macchinista-2683571": {
+    "canonicalSlug": "macchinista-pemsa-lugano",
+    "slugByLocale": {
+      "it": "macchinista-pemsa-lugano"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/tecnico-frigorista-m-f-2683598": {
+    "canonicalSlug": "tecnico-frigorista-m-f-pemsa-geneve",
+    "slugByLocale": {
+      "it": "tecnico-frigorista-m-f-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "id|ksbl.ch|20e8edc0-5be6-487b-8dc4-8a715ad26156": {
+    "canonicalSlug": "arztsekretarin-arztsekretar-o-mpa-a-kantonsspital-baselland-ksbl-liestal",
+    "slugByLocale": {
+      "de": "arztsekretarin-arztsekretar-oder-mpa-a-ksbl-liestal",
+      "it": "arztsekretarin-arztsekretar-o-mpa-a-kantonsspital-baselland-ksbl-liestal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|ksbl.ch|d6cc16c9-4c46-4fa1-9c82-a1623956b6a2": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal",
+    "slugByLocale": {
+      "de": "mitarbeiterin-mitarbeiter-room-service-a-ksbl-liestal",
+      "it": "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|spitaeler-sh.ch|fd8eb5d4-09c0-400b-bd94-b73807c341e1": {
+    "canonicalSlug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
+      "en": "professional-health-efz-spitaler-schaffhausen-schaffhausen",
+      "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
+      "fr": "sante-professionnelle-efz-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|df6c2a74-e7f3-47ba-ae98-01a651bced25": {
+    "canonicalSlug": "assistente-di-pratica-medica-assistente-di-pratica-medica-impiegato-in-radiologia-posthof-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-impiegato-in-radiologia-posthof-spitaler-schaffhausen",
+      "en": "medical-practice-assistant-medical-practice-assistant-clerk-in-radiology-posthof-spitaler-schaffhausen-neuhausen-am",
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-sachbearbeiter-in-radiologie",
+      "fr": "assistant-medical-assistant-medical-commis-in-radiologie-posthof-spitaler-schaffhausen-neuhausen-am-rheinfall"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|94ccfae3-1d59-499c-916d-bfba5f481bb7": {
+    "canonicalSlug": "fachmann-frau-gesundheit-cfc-con-option-auf-berufsbildner-in-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "fachmann-frau-gesundheit-cfc-con-option-auf-berufsbildner-in-spitaler-schaffhausen",
+      "en": "professional-health-efz-with-option-on-vocational-trainers-spitaler-schaffhausen-schaffhausen",
+      "de": "fachmann-frau-gesundheit-efz-mit-option-auf-berufsbildner-in-spitaeler-schaffhausen",
+      "fr": "sante-professionnelle-efz-avec-option-sur-les-formateurs-professionnels-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|f3dc4921-5e0d-4ebe-80ed-717693a89af7": {
+    "canonicalSlug": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-art-32-geriatrischen-rehabilitation-e-ubergangspflege-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-art-32-geriatrischen-rehabilitation-e-ubergangspflege-spitaler-schaffhausen",
+      "en": "health-professional-efz-adult-education-art-32-geriatric-rehabilitation-and-transitional-care-spitaler-schaffhausen",
+      "de": "fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und",
+      "fr": "efz-education-des-adultes-art-32-readaptation-geriatrique-et-soins-de-transition-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|593b04e7-caed-4692-8d75-6904dae65e1d": {
+    "canonicalSlug": "ergotherapeut-in-rehabilitation-geriatrie-e-akutstationar-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "ergotherapeut-in-rehabilitation-geriatrie-e-akutstationar-spitaler-schaffhausen",
+      "en": "occupational-therapist-in-rehabilitation-geriatrics-and-acute-care-spitaler-schaffhausen-schaffhausen",
+      "de": "ergotherapeut-in-rehabilitation-geriatrie-und-akutstationar-spitaeler-schaffhausen",
+      "fr": "ergotherapie-readaptation-geriatrie-et-soins-actifs-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|5e0c3d0e-cca4-4e10-965c-4a1dfcb79045": {
+    "canonicalSlug": "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen",
+    "slugByLocale": {
+      "en": "cadre-doctor-with-special-function-mbf-emergency-medicine-spitaler-schaffhausen-schaffhausen",
+      "de": "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen",
+      "fr": "medecin-cadre-avec-une-fonction-speciale-mbf-medecine-d-urgence-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|638d9f0f-63b6-441c-bed3-d673aaea18fc": {
+    "canonicalSlug": "infermiera-certificata-hf-fh-sostituzione-per-maternita-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "infermiera-certificata-hf-fh-sostituzione-per-maternita-spitaler-schaffhausen-schaffhausen",
+      "en": "dipl-care-specialist-hf-fh-maternity-representation-spitaler-schaffhausen-schaffhausen",
+      "de": "dipl-pflegefachperson-hf-fh-mutterschaftsvertretung-spitaeler-schaffhausen-schaffhausen",
+      "fr": "dipl-specialiste-des-soins-hf-fh-representation-de-la-maternite-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|8e459eca-acc4-44eb-9cd2-a266e7be9adc": {
+    "canonicalSlug": "collaboratore-trice-hegebe-con-medizinischer-verantwortung-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-hegebe-con-medizinischer-verantwortung-spitaler-schaffhausen",
+      "en": "employee-in-hegebe-with-medical-responsibility-spitaler-schaffhausen-schaffhausen",
+      "de": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen",
+      "fr": "employe-en-hegebe-avec-responsabilite-medicale-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|38991eb4-9529-4fa5-b2ad-43fe4964ebb8": {
+    "canonicalSlug": "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
+      "en": "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
+      "de": "unterassistentin-unterassistent-urologie-100-spitaeler-schaffhausen-schaffhausen",
+      "fr": "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|17119c2b-f87f-48df-8315-a20e772ad698": {
+    "canonicalSlug": "dipl-pflegefachfrau-mann-hf-con-fachverantwortung-ausbildung-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-mann-hf-con-fachverantwortung-ausbildung-spitaler-schaffhausen",
+      "en": "dipl-nursing-specialist-hf-with-professional-responsibility-training-spitaler-schaffhausen-schaffhausen",
+      "de": "dipl-pflegefachfrau-mann-hf-mit-fachverantwortung-ausbildung-spitaeler-schaffhausen",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-avec-responsabilite-professionnelle-formation-spitaler-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|56064222-9f06-4ce7-b980-b8f3fc44b48f": {
+    "canonicalSlug": "security-ingegnere-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "security-ingegnere-spitaler-schaffhausen-schaffhausen",
+      "en": "security-engineer-spitaler-schaffhausen-schaffhausen",
+      "de": "security-engineer-spitaeler-schaffhausen-schaffhausen",
+      "fr": "security-ingenieur-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|ad0cde25-c01e-40b1-afae-b43fbff57aab": {
+    "canonicalSlug": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen-76744c",
+    "slugByLocale": {
+      "it": "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen-76744c",
+      "en": "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen-76744c",
+      "de": "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+      "fr": "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen-76744c"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|1d378b53-412a-4da0-b9bc-ef2538c50c8a": {
+    "canonicalSlug": "geriatria-subassista-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "geriatria-subassista-spitaler-schaffhausen-schaffhausen",
+      "en": "sub-assistant-geriatrics-spitaler-schaffhausen-schaffhausen",
+      "de": "unterassistentin-unterassistent-geriatrie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "geriatriques-secondaires-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|5ddeb925-e057-4f95-bd7e-4dbeccba8269": {
+    "canonicalSlug": "assistente-assistente-medicina-di-emergenza-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "assistente-assistente-medicina-di-emergenza-spitaler-schaffhausen-schaffhausen",
+      "en": "assistant-assistant-emergency-medicine-spitaler-schaffhausen-schaffhausen",
+      "de": "unterassistentin-unterassistent-notfallmedizin-spitaeler-schaffhausen-schaffhausen",
+      "fr": "assistant-assistant-en-medecine-d-urgence-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|4c635031-d9f0-4a12-b870-f5222bedab8e": {
+    "canonicalSlug": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen-3482f5",
+    "slugByLocale": {
+      "it": "assistente-assistente-clinica-psichiatrica-spitaler-schaffhausen-schaffhausen-3482f5",
+      "en": "assistant-assistant-psychiatric-clinic-spitaler-schaffhausen-schaffhausen-3482f5",
+      "de": "unterassistentin-unterassistent-psychiatrische-klinik-spitaeler-schaffhausen-schaffhausen",
+      "fr": "assistant-assistant-de-la-clinique-psychiatrique-spitaler-schaffhausen-schaffhausen-3482f5"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|a2f2c476-7379-43e0-bfad-36d04a519d40": {
+    "canonicalSlug": "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
+      "en": "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
+      "de": "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|868ed97c-c537-47eb-9484-9d5bea730434": {
+    "canonicalSlug": "anestesia-subassista-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "anestesia-subassista-spitaler-schaffhausen-schaffhausen",
+      "en": "sub-assistant-anesthesia-spitaler-schaffhausen-schaffhausen",
+      "de": "unterassistentin-unterassistent-anasthesie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "anesthesie-sous-assistante-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|4f1b191c-e6eb-43d2-aa8f-5af51fd99e8a": {
+    "canonicalSlug": "medico-senior-superiore-medico-eta-psichiatria-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "medico-senior-superiore-medico-eta-psichiatria-spitaler-schaffhausen-schaffhausen",
+      "en": "senior-physician-senior-physician-age-psychiatry-spitaler-schaffhausen-schaffhausen",
+      "de": "oberarztin-oberarzt-alterspsychiatrie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "medecin-superieur-medecin-superieur-psychiatrie-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|a2a65510-c019-4763-aaec-671e4f4c03f0": {
+    "canonicalSlug": "responsabile-sozialdienst-per-la-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "responsabile-sozialdienst-per-la-spitaler-schaffhausen",
+      "en": "head-of-social-service-for-hospitals-schaffhausen-spitaler-schaffhausen-schaffhausen",
+      "de": "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen",
+      "fr": "chef-du-service-social-des-hopitaux-schaffhausen-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|f5e57d27-de11-4fae-9083-e10c4a15a4a9": {
+    "canonicalSlug": "analista-biomedico-rf-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "analista-biomedico-rf-spitaler-schaffhausen-schaffhausen",
+      "en": "biomedical-analyst-rf-spitaler-schaffhausen-schaffhausen",
+      "de": "biomedizinische-r-analytiker-in-hf-spitaeler-schaffhausen-schaffhausen",
+      "fr": "analyste-biomedical-rf-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|af8553ce-49f7-4916-b00f-4b332954ec4d": {
+    "canonicalSlug": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
+      "en": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
+      "de": "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
+      "fr": "etudiant-en-marque-d-employeur-et-medias-sociaux-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|74867c7c-18a3-4242-8784-e036617fc947": {
+    "canonicalSlug": "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen",
+    "slugByLocale": {
+      "it": "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen",
+      "en": "specialist-pharmacist-in-hospital-pharmacy-spitaler-schaffhausen-schaffhausen",
+      "de": "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "pharmacie-specialiste-en-pharmacie-hospitaliere-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|efa85bab-7ece-4722-9c5b-e0363bad93fe": {
+    "canonicalSlug": "gestione-stazione-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+    "slugByLocale": {
+      "it": "gestione-stazione-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+      "en": "station-management-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+      "de": "stationsleitung-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
+      "fr": "gestion-de-station-psychiatrie-a-long-terme-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|dced8822-98bb-4dfe-938d-bc32e4eae7aa": {
+    "canonicalSlug": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|spitaeler-sh.ch|a6c94759-bcad-43ba-b7df-dd6e6a76d1de": {
+    "canonicalSlug": "bereichsmanager-in-pflegedienst-e-hospitality-spitaler-schaffhausen",
+    "slugByLocale": {
+      "de": "bereichsmanager-in-pflegedienst-und-hospitality-spitaeler-schaffhausen-schaffhausen",
+      "it": "bereichsmanager-in-pflegedienst-e-hospitality-spitaler-schaffhausen",
+      "en": "bereichsmanager-in-pflegedienst-und-hospitality-spitaler-schaffhausen-schaffhausen",
+      "fr": "bereichsmanager-in-pflegedienst-und-hospitality-spitaler-schaffhausen-schaffhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SH"
+  },
+  "id|recruitingapp-122706.umantis.com|5546": {
+    "canonicalSlug": "teamleitung-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "de": "teamleitung-patientenhotellerie-ksa-ch",
+      "it": "teamleitung-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
+      "en": "teamleitung-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
+      "fr": "teamleitung-patientenhotellerie-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5594": {
+    "canonicalSlug": "sachbearbeiter-in-personalgewinnung-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-personalgewinnung-ksa-ch",
+      "it": "sachbearbeiter-in-personalgewinnung-kantonsspital-aarau-ksa-aarau",
+      "en": "sachbearbeiter-in-personalgewinnung-kantonsspital-aarau-ksa-aarau",
+      "fr": "sachbearbeiter-in-personalgewinnung-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|bachem.com|1371735433": {
+    "canonicalSlug": "manager-qa-global-quality-systems-100-a-bachem-bubendorf",
+    "slugByLocale": {
+      "en": "manager-qa-global-quality-systems-100-a-bachem-bubendorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|bachem.com|1415769733": {
+    "canonicalSlug": "project-manager-scm-a-100-for-a-12-month-temporary-assignment-bachem-bubendorf",
+    "slugByLocale": {
+      "en": "project-manager-scm-a-100-for-a-12-month-temporary-assignment-bachem-bubendorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|ikea.com|mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026": {
+    "canonicalSlug": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach",
+    "slugByLocale": {
+      "de": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch",
+      "it": "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-spreitenbach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|ikea.com|business-analyst-limited-contract-80-100": {
+    "canonicalSlug": "business-analyst-limited-contract-80-100-ikea-ch",
+    "slugByLocale": {
+      "en": "business-analyst-limited-contract-80-100-ikea-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f37790": {
+    "canonicalSlug": "unterricht-an-5-6-klasse-am-freitagmorgen-schule-wiedlisbach-wiedlisbach-37790",
+    "slugByLocale": {
+      "de": "unterricht-an-5-6-klasse-am-freitagmorgen-schule-wiedlisbach-wiedlisbach-37790"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f38110": {
+    "canonicalSlug": "teilpensum-an-3-4-klasse-mind-6l-pensum-bis-13-l-moglich-schule-wiedlisbach-wiedlisbach-38110",
+    "slugByLocale": {
+      "de": "teilpensum-an-3-4-klasse-mind-6l-pensum-bis-13-l-moglich-schule-wiedlisbach-wiedlisbach-38110"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f37821": {
+    "canonicalSlug": "stellvertretung-schulische-heilpadagogin-schulischer-heilpadagoge-3-e-4-klasse-46-01-08-2026-20-09-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf",
+    "slugByLocale": {
+      "it": "stellvertretung-schulische-heilpadagogin-schulischer-heilpadagoge-3-e-4-klasse-46-01-08-2026-20-09-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf",
+      "en": "deputy-school-pedagogue-school-pedagogue-3rd-and-4th-class-46-01-08-2026-20-09-2026-ksml-kantonaler-stellenmarkt-37821",
+      "de": "stellvertretung-schulische-heilpadagogin-schulischer-heilpadagoge-3-und-4-klasse-46-01-08-37821",
+      "fr": "pedagogue-secondaire-pedagogue-scolaire-3e-et-4e-classes-46-01-08-2026-20-09-2026-ksml-kantonaler-stellenmarkt-fur-37821"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "url|https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f39914": {
+    "canonicalSlug": "stv-ik-daz-vom-10-31-08-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen",
+    "slugByLocale": {
+      "it": "stv-ik-daz-vom-10-31-08-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen",
+      "en": "stv-ik-daz-vom-10-31-08-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen-39914",
+      "de": "stv-ik-daz-vom-10-31-08-2026-ruckkehrzentrum-aarwangen-aarwangen-39914",
+      "fr": "stv-ik-daz-vom-10-31-08-2026-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen-39914"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|solique.ch|4039391": {
+    "canonicalSlug": "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster",
+    "slugByLocale": {
+      "de": "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kanton-zuerich-uster",
+      "it": "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster",
+      "en": "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster",
+      "fr": "sozialarbeiterin-sozialarbeiter-im-kjz-uster-kantonale-verwaltung-zurich-uster"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4039405": {
+    "canonicalSlug": "recruiter-alle-kanton-zuerich-zurich",
+    "slugByLocale": {
+      "de": "recruiter-alle-kanton-zuerich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4038722": {
+    "canonicalSlug": "arzt-arztin-medizinischer-dienst-kanton-zuerich-regensdorf",
+    "slugByLocale": {
+      "de": "arzt-arztin-medizinischer-dienst-kanton-zuerich-regensdorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|781360f9-6d34-4ff3-ad4e-d85e76577cf8": {
+    "canonicalSlug": "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0",
+    "slugByLocale": {
+      "fr": "cuisinier-traiteur-m-w-d-societe-cooperative-migros-valais-martigny-ldzuv0"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VS"
+  },
+  "id|migros.ch|719445ad-38c4-4fb7-95cb-e7f3d931f478": {
+    "canonicalSlug": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-7dq7y3",
+    "slugByLocale": {
+      "it": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-7dq7y3",
+      "en": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-7dq7y3",
+      "de": "assistent-manager-fitness-club-m-w-d-activ-fitness-st-gallen-7dq7y3",
+      "fr": "assistant-manager-fitness-club-m-w-d-activ-fitness-st-gallen-7dq7y3"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "SG"
+  },
+  "id|migros.ch|3beed88c-8a91-4967-8f18-b3795d5f03a4": {
+    "canonicalSlug": "senior-software-ingegnere-backend-m-w-d-galaxus-zurich-5ravvo",
+    "slugByLocale": {
+      "it": "senior-software-ingegnere-backend-m-w-d-galaxus-zurich-5ravvo",
+      "en": "senior-software-engineer-backend-m-w-d-galaxus-zurich-5ravvo",
+      "de": "senior-software-ingenieur-backend-m-w-d-galaxus-zurich-5ravvo"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|faf5aff6-c215-490a-a0ad-7e4382ccf41e": {
+    "canonicalSlug": "software-ingegnere-backend-m-w-d-galaxus-zurich-s5i7e6",
+    "slugByLocale": {
+      "it": "software-ingegnere-backend-m-w-d-galaxus-zurich-s5i7e6",
+      "en": "software-engineer-backend-m-w-d-galaxus-zurich-s5i7e6",
+      "de": "software-ingenieur-backend-m-w-d-galaxus-zurich-s5i7e6"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|a7c0a04f-d8b8-46b4-9df9-8677993fb3b8": {
+    "canonicalSlug": "abteilungsleiter-in-food-genossenschaft-migros-aare-schoftland-d11ebh",
+    "slugByLocale": {
+      "de": "abteilungsleiter-in-food-genossenschaft-migros-aare-schoftland-d11ebh"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|migros.ch|b15576a0-8eef-4516-894d-3ca4f05d25ce": {
+    "canonicalSlug": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu",
+    "slugByLocale": {
+      "de": "verkaufer-in-frische-genossenschaft-migros-ostschweiz-sulgen-ignzuu"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|migros.ch|24c03c2a-76fd-42a9-abea-6003d7fb470d": {
+    "canonicalSlug": "leiter-in-disposition-ordermanagement-e-netzwerkplanung-mtm-migros-logistics-zurich",
+    "slugByLocale": {
+      "it": "leiter-in-disposition-ordermanagement-e-netzwerkplanung-mtm-migros-logistics-zurich",
+      "de": "leiter-in-disposition-ordermanagement-und-netzwerkplanung-mtm-migros-logistics-zurich-nm4y0y"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|bb70eef4-2026-4219-b1cd-bcf593e95af5": {
+    "canonicalSlug": "vollamtliche-r-hauswart-in-rechtes-zurichseeufer-migros-pensionskasse-schlieren-y4f50p",
+    "slugByLocale": {
+      "de": "vollamtliche-r-hauswart-in-rechtes-zurichseeufer-migros-pensionskasse-schlieren-y4f50p"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|382816cc-2c35-4811-8631-d68943b0a071": {
+    "canonicalSlug": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-marly",
+    "slugByLocale": {
+      "it": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-marly",
+      "fr": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-marly-uobopv"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|migros.ch|98bce235-0c3f-4b9a-87c6-e74900969718": {
+    "canonicalSlug": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-matran",
+    "slugByLocale": {
+      "it": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-matran",
+      "fr": "vendeur-se-polyvalent-e-societe-cooperative-migros-neuchatel-fribourg-matran-r709c5"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|migros.ch|1be12ba1-b644-4184-85eb-08f95b663fda": {
+    "canonicalSlug": "caissier-polyvalent-subito-m-w-d-societe-cooperative-migros-vaud-pully-h0llkb",
+    "slugByLocale": {
+      "fr": "caissier-polyvalent-subito-m-w-d-societe-cooperative-migros-vaud-pully-h0llkb"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "id|migros.ch|2ed3dbbf-f7c1-417d-9d81-e39d3b2c2b37": {
+    "canonicalSlug": "caissier-polyvalent-subito-m-w-d-societe-cooperative-migros-vaud-pully-k7pjv7",
+    "slugByLocale": {
+      "fr": "caissier-polyvalent-subito-m-w-d-societe-cooperative-migros-vaud-pully-k7pjv7"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
   }
 }

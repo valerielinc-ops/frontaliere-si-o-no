@@ -1336,6 +1336,25 @@ export const Analytics = {
  setProps(props);
  },
 
+ /**
+ * GA4 user-scoped custom dimensions per segmentazione revenue-per-user
+ * (Stage 1 — registrazione/newsletter/job-alert). Booleani SOLO — mai
+ * email/nome/altro PII come user property (ToS GA4 + GDPR). Nomi param
+ * fissi: `is_registered` / `is_newsletter_subscriber` / `is_job_alert_subscriber`
+ * (contratto condiviso con GA4 Admin custom-dimension registration + report script).
+ */
+ setUserSegmentFlags: (flags: {
+ isRegistered?: boolean;
+ isNewsletterSubscriber?: boolean;
+ isJobAlertSubscriber?: boolean;
+ }) => {
+ const props: Record<string, string> = {};
+ if (flags.isRegistered !== undefined) props.is_registered = String(flags.isRegistered);
+ if (flags.isNewsletterSubscriber !== undefined) props.is_newsletter_subscriber = String(flags.isNewsletterSubscriber);
+ if (flags.isJobAlertSubscriber !== undefined) props.is_job_alert_subscriber = String(flags.isJobAlertSubscriber);
+ setProps(props);
+ },
+
  // ─── App-Specific Events (snake_case, max 40 char) ──────────
 
  /**

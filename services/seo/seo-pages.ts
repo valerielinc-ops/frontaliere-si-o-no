@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3266,
+ "numberOfItems": 3269,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7982,7 +7982,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3263, "name": "Prestazioni LPP in Svizzera: come vengono tassate", "url": `${BASE_URL}/articoli-frontaliere/tassazione-prestazioni-lpp-svizzera` },
           { "@type": "ListItem", "position": 3264, "name": "Il programma di Avanti con Ticino&Lavoro lo dec...", "url": `${BASE_URL}/articoli-frontaliere/il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi` },
           { "@type": "ListItem", "position": 3265, "name": "Mercato ipotecario svizzero da record: superato...", "url": `${BASE_URL}/articoli-frontaliere/mercato-ipoteche-svizzera-record-2025` },
-          { "@type": "ListItem", "position": 3266, "name": "Dichiarazione redditi agricoltura: occhio alle ...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-agricoltura-variazioni` }
+          { "@type": "ListItem", "position": 3266, "name": "Dichiarazione redditi agricoltura: occhio alle ...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-redditi-agricoltura-variazioni` },
+          { "@type": "ListItem", "position": 3267, "name": "Traffico in Svizzera: cosa significa per gli sv...", "url": `${BASE_URL}/articoli-frontaliere/traffico-aumenta-costi-crescono-svizzera` },
+          { "@type": "ListItem", "position": 3268, "name": "Traffico da record: costi per 117 miliardi di f...", "url": `${BASE_URL}/articoli-frontaliere/traffico-da-record` },
+          { "@type": "ListItem", "position": 3269, "name": "Frontalieri: cosa cambia con la nuova imposta s...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024` }
  ]
  },
  {

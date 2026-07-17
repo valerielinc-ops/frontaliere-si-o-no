@@ -50,6 +50,11 @@ describe('build plugin ordering', () => {
     expectPluginAfter(names, 'salary-hub-index-link', 'salary-hub-seo');
     expectPluginAfter(names, 'related-search-clusters', 'jobs-seo-pages');
     expectPluginAfter(names, 'post-walk-coordinator', 'related-search-clusters');
+    // professionCityLandings' below-floor bridge (renderBelowFloorBridge)
+    // targets the per-(canton,city,locale) hub that jobs-seo-pages emits
+    // unconditionally (issue #4330 item 1) — lock the order so a future
+    // reorder can't silently reintroduce the race this guard was added for.
+    expectPluginAfter(names, 'profession-city-landings', 'jobs-seo-pages');
   });
 
   it('keeps deploy output guards before artifact upload', () => {

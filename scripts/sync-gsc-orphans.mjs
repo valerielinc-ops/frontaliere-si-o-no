@@ -32,6 +32,7 @@ import {
   buildOrphanLocalePaths,
 } from './lib/orphan-canton-paths.mjs';
 import { JOB_BOARD_SEGMENT_RX, JOB_BOARD_SECTION_GSC_STEMS } from './lib/jobBoardSections.mjs';
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -926,7 +927,7 @@ async function enrichWayback(enrichedOrphans) {
 
       if (pageRes.ok) {
         const html = await pageRes.text();
-        const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+        const titleMatch = stripScriptsAndStyles(html).match(/<title[^>]*>([^<]+)<\/title>/i);
         if (titleMatch?.[1]) {
           const title = titleMatch[1]
             .replace(/\s*\|.*$/, '') // Remove " | Frontaliere Ticino" suffix

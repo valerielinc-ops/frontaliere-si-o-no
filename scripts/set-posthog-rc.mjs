@@ -21,6 +21,8 @@
  * the project gets re-keyed.
  */
 
+import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+
 // value + description per param. None are secrets: project ids and the EU host
 // are discoverable from the dashboard URL, and the phc_ project key is a public
 // write key already shipped in the browser bundle (services/posthog.ts).
@@ -42,25 +44,12 @@ async function main() {
     bail('GOOGLE_APPLICATION_CREDENTIALS not set.');
   }
 
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  }
-  const rc = admin.remoteConfig();
-  const template = await rc.getTemplate();
-  template.parameters = template.parameters || {};
+  const rc = await getRemoteConfig();
+  const template = await fetchRcTemplate(rc);
 
   let changed = 0;
   for (const [key, { value, description }] of Object.entries(RC_PARAMS)) {
-    const existing = template.parameters[key]?.defaultValue?.value;
-    if (existing === value) continue;
-    template.parameters[key] = {
-      defaultValue: { value },
-      valueType: 'STRING',
-      description,
-    };
-    changed++;
+    if (stageRcParam(template, key, value, description)) changed++;
   }
 
   if (changed === 0) {
@@ -68,7 +57,7 @@ async function main() {
     return;
   }
 
-  await rc.publishTemplate(template, { force: true });
+  await publishRcTemplate(rc, template, changed);
   console.log(`✅ Published ${changed} SERVER_POSTHOG_* param(s) to Remote Config.`);
   console.log('   Next CI run of articles-performance-snapshot.yml will pick them up via load-rc-env.mjs.');
 }

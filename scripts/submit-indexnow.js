@@ -22,6 +22,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { getBingUrlSubmissionQuota } from './lib/bing-webmaster.mjs';
 
 const INDEXNOW_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
 const HOST = 'frontaliereticino.ch';
@@ -48,23 +49,6 @@ function looksLikeQuotaExceeded(message = '') {
 
 function toBase64Utf8(s) {
   return Buffer.from(String(s || ''), 'utf8').toString('base64');
-}
-
-async function getBingUrlSubmissionQuota(apiKey, siteUrl) {
-  try {
-    const endpoint = `https://ssl.bing.com/webmaster/api.svc/json/GetUrlSubmissionQuota?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${encodeURIComponent(apiKey)}`;
-    const res = await fetch(endpoint, { headers: { 'Accept': 'application/json' } });
-    if (!res.ok) return null;
-    const data = await res.json().catch(() => null);
-    const d = data?.d;
-    if (!d) return null;
-    return {
-      dailyQuota: Number(d.DailyQuota ?? NaN),
-      monthlyQuota: Number(d.MonthlyQuota ?? NaN),
-    };
-  } catch {
-    return null;
-  }
 }
 
 // ── Parse sitemaps to extract all unique URLs ──────────────

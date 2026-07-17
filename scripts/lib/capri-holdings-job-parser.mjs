@@ -42,6 +42,7 @@ export const WORKDAY_SITES = [
 ];
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -74,8 +75,9 @@ function stripHtml(html = '') {
 export function parseCapriHoldingsDetailPage(html = '') {
   if (!html) return null;
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*data-automation-id="jobPostingHeader"[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h2[^>]*data-automation-id="jobPostingHeader"[^>]*>([\s\S]*?)<\/h2>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Location from JSON-LD or page content

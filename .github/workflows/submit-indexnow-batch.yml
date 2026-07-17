@@ -33,11 +33,14 @@ permissions:
 jobs:
   submit:
     runs-on: ubuntu-latest
-    # No build: the script fetches the deployed sitemaps live over HTTP.
+    # No build/dist: the script fetches the deployed sitemaps live over HTTP.
     # Live dry-run (run 26636490673) measured fetch + parse at 29 s total.
-    # 15 min leaves headroom for the real submission worst case — 5 batches ×
-    # 3 endpoints, each up to 30 s + 3 retries + 429 Retry-After waits (60 s
-    # cap) — which a tight 10-min cap could brush under sustained rate-limiting.
+    # `npm ci` (cache-first) was added only to make `firebase-admin` available
+    # for the RC-loading step below (BING_API_KEY); it's a few seconds on a
+    # cache hit. 15 min leaves headroom for the real submission worst case —
+    # 5 batches × 3 endpoints, each up to 30 s + 3 retries + 429 Retry-After
+    # waits (60 s cap) — which a tight 10-min cap could brush under sustained
+    # rate-limiting.
     timeout-minutes: 15
     steps:
       - name: Checkout
@@ -48,13 +51,51 @@ jobs:
         with:
           node-version: 22
 
-      # No `npm ci` / build: submit-indexnow-batch.mjs uses only Node builtins
-      # + fetch, and reads the 6 sub-sitemaps LIVE from the deployed site
-      # (https://frontaliereticino.ch/sitemap-*.xml). IndexNow tells engines to
-      # crawl live URLs, so the published sitemaps are the correct source of
-      # truth — rebuilding the site (~38 min, OOM-prone) just to regenerate XML
-      # the deploy already serves was pure waste. Pass `--local` to read from
-      # dist/ instead (not used here).
+      # scripts/load-rc-env.mjs dynamically imports `firebase-admin` from
+      # node_modules (falls back to a no-op warning if missing, so this
+      # wouldn't crash the workflow — but it WOULD silently keep BING_API_KEY
+      # unset, defeating the point of the fix below). Cache-first install
+      # keeps this cheap; the script itself still needs no build/dist.
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      # BING_API_KEY lives in Firebase Remote Config, not a GitHub secret (no
+      # `secrets.BING_API_KEY` exists in this repo — a prior version of this
+      # workflow referenced it directly, so the Bing Webmaster API submission
+      # silently no-op'd on every run: submit-indexnow-batch.mjs logs
+      # "BING_API_KEY not set — skipping" but exits 0 regardless, since the
+      # raw IndexNow ping itself doesn't need it. Mirrors the RC-loading
+      # pattern already used in post-deploy-publish.yml / ai-visibility-check.yml).
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Bing Webmaster API submission will be skipped."
+          fi
+
+      - name: Load secrets from Remote Config (BING_API_KEY)
+        run: node scripts/load-rc-env.mjs
+
+      # No build/dist needed here: submit-indexnow-batch.mjs itself uses only
+      # Node builtins + fetch, and reads the 6 sub-sitemaps LIVE from the
+      # deployed site (https://frontaliereticino.ch/sitemap-*.xml). IndexNow
+      # tells engines to crawl live URLs, so the published sitemaps are the
+      # correct source of truth — rebuilding the site (~38 min, OOM-prone)
+      # just to regenerate XML the deploy already serves was pure waste. Pass
+      # `--local` to read from dist/ instead (not used here). The `npm ci`
+      # above is only for the RC-loading step's `firebase-admin` dependency.
       - name: Submit IndexNow batch
         run: |
           ARGS=""
@@ -68,8 +109,6 @@ jobs:
             ARGS="$ARGS --sitemap ${{ inputs.sitemap }}"
           fi
           node scripts/submit-indexnow-batch.mjs $ARGS
-        env:
-          BING_API_KEY: ${{ secrets.BING_API_KEY }}
 
       - name: Report failure to GitHub Issues
         if: failure()

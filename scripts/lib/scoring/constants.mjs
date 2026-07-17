@@ -111,3 +111,57 @@ export const HEADLINE_EMBED_CACHE_SIZE = 200;
 export const ARTICLE_EMBEDDINGS_BIN_PATH = 'data/article-embeddings.bin';
 export const ARTICLE_EMBEDDINGS_META_PATH = 'data/article-embeddings-meta.json';
 export const EVIDENCE_INDEX_PATH = 'data/evidence-index.json';
+
+// Evergreen fallback pre-flight duplicate thresholds (2026-07-17). Same
+// corpus-density staleness as EMBEDDING_NEAR_DUP_COSINE above:
+// preFlightEvergreenTopicCheck (create-article.mjs) compares each candidate's
+// title-Jaccard and family-token-overlap against EVERY existing article in
+// the combined frontaliere+svizzera corpus (readAllSectionsMetaIt, ~3.2k
+// articles as of 2026-07). Fixed 0.72/0.50 thresholds mechanically saturate
+// as that combined corpus grows, exactly like the embedding-cosine gate —
+// but nothing scaled them, so a 2026-07-17 run rejected all 219 evergreen
+// fallback candidates in one pass and produced zero articles. Scale via the
+// same log10(corpusSize / baseline) technique. checkForDuplicates'
+// TITLE_THRESHOLD is deliberately kept in sync with EVERGREEN_TITLE_JACCARD
+// (see comments on both call sites) so a candidate approved here is never
+// hard-rejected post-generation.
+export const EVERGREEN_TITLE_JACCARD = 0.72;
+export const EVERGREEN_TITLE_JACCARD_CEILING = 0.90;
+export const EVERGREEN_FAMILY_OVERLAP = 0.50;
+export const EVERGREEN_FAMILY_OVERLAP_CEILING = 0.75;
+export const EVERGREEN_PREFLIGHT_CORPUS_BASELINE = 300;
+export const EVERGREEN_PREFLIGHT_CORPUS_SCALE_K = 0.08;
+
+function scaleSaturationThreshold(base, ceiling, corpusSize, baseline = EVERGREEN_PREFLIGHT_CORPUS_BASELINE, scaleK = EVERGREEN_PREFLIGHT_CORPUS_SCALE_K) {
+  const n = Number.isFinite(corpusSize) && corpusSize > 0 ? corpusSize : baseline;
+  const scaled = base + scaleK * Math.log10(n / baseline);
+  return Math.min(Math.max(ceiling, base), Math.max(base, scaled));
+}
+
+/**
+ * Corpus-size-adaptive evergreen pre-flight thresholds. Returns both the
+ * title-Jaccard threshold (also used for checkForDuplicates' TITLE_THRESHOLD,
+ * kept in sync) and the family-token-overlap threshold.
+ */
+export function computeAdaptiveEvergreenThresholds(corpusSize) {
+  return {
+    titleJaccard: scaleSaturationThreshold(EVERGREEN_TITLE_JACCARD, EVERGREEN_TITLE_JACCARD_CEILING, corpusSize),
+    familyOverlap: scaleSaturationThreshold(EVERGREEN_FAMILY_OVERLAP, EVERGREEN_FAMILY_OVERLAP_CEILING, corpusSize),
+  };
+}
+
+// Topic-candidate-vs-existing-title duplicate Jaccard threshold (2026-07-17
+// sibling-pattern fix, AGENTS.md #6). Was three independently-declared 0.7
+// literals — article-topic-selector.mjs's NOVELTY_DUP_JACCARD and
+// CANDIDATE_DUP_JACCARD, plus topic-sources/gscOrphans.mjs's
+// MAX_JACCARD_FOR_NEW — all comparing a candidate keyword/headline's Jaccard
+// similarity against the SAME growing services/locales/blog-meta-it.ts title
+// corpus. Same saturation bug class as EVERGREEN_TITLE_JACCARD above:
+// centralized so the three call sites can't drift apart, and made adaptive
+// so they don't independently re-saturate later.
+export const TOPIC_CANDIDATE_DUP_JACCARD = 0.7;
+export const TOPIC_CANDIDATE_DUP_JACCARD_CEILING = 0.88;
+
+export function computeAdaptiveTopicCandidateDupJaccard(corpusSize) {
+  return scaleSaturationThreshold(TOPIC_CANDIDATE_DUP_JACCARD, TOPIC_CANDIDATE_DUP_JACCARD_CEILING, corpusSize);
+}

@@ -22,7 +22,7 @@
  *   ALDI_SUCCESSFACTORS_BASE       -- SuccessFactors base URL
  */
 
-import { normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 
 /** SAP SuccessFactors base URL for ALDI Suisse */
 export const ALDI_SUCCESSFACTORS_BASE = 'https://career5.successfactors.eu/career?company=aldisuis';
@@ -239,8 +239,9 @@ export function parseAldiListingPage(html = '') {
 export function parseAldiDetailPage(html = '') {
   if (!html) return null;
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Location

@@ -14,6 +14,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { fnv1a32 } from '../fnv1a.mjs';
+import { computeAdaptiveTopicCandidateDupJaccard } from '../scoring/constants.mjs';
 
 const ORPHAN_QUERIES_PATH = 'data/gsc-orphan-queries.json';
 const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
@@ -25,7 +26,6 @@ const BLOG_META_PATH = 'services/locales/blog-meta-it.ts';
 const MIN_IMPRESSIONS = 5;
 const POSITION_MIN = 6;
 const POSITION_MAX = 30;
-const MAX_JACCARD_FOR_NEW = 0.7;
 
 function tokenize(s) {
   return new Set(
@@ -122,6 +122,7 @@ export async function fetchGscOrphanCandidates(opts = {}) {
       opts.existingTitles ??
       extractItTitles(readFileSafe(opts.blogMetaPath ?? BLOG_META_PATH) ?? '');
     const titleTokens = titles.map((t) => tokenize(t));
+    const jaccardThreshold = computeAdaptiveTopicCandidateDupJaccard(titles.length);
 
     // Flatten: orphanData is `Record<string, Array<{query, clicks, impressions, position?}>>`
     // Some files may also provide a flat array — handle both.
@@ -167,9 +168,9 @@ export async function fetchGscOrphanCandidates(opts = {}) {
       for (const tt of titleTokens) {
         const s = jaccard(queryTokens, tt);
         if (s > maxSim) maxSim = s;
-        if (maxSim >= MAX_JACCARD_FOR_NEW) break;
+        if (maxSim >= jaccardThreshold) break;
       }
-      if (maxSim >= MAX_JACCARD_FOR_NEW) continue;
+      if (maxSim >= jaccardThreshold) continue;
 
       seenKeyword.add(norm);
       candidates.push({
