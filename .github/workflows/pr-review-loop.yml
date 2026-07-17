@@ -353,7 +353,16 @@ jobs:
               if funnel_crit "$delta_code"; then
                 set_tier incremental-high claude-sonnet-5 35
               else
-                set_tier incremental claude-sonnet-5 25
+                # 25→35 (2026-07-17, analisi Fable-5 su 112 morti error_max_turns
+                # storiche di questo workflow): incremental è il tier con meno
+                # morti in assoluto (1 storica + 1 marginale il 2026-07-17 stesso,
+                # run 29569000630, PR #4343, nt=26 su cap 25 — verdetto già
+                # formato, morto per overhead di setup non per taglia del delta).
+                # Bump di allineamento/assicurazione a parità con incremental-high,
+                # NON perché il pattern sia ricorrente qui: se muore ancora a 35
+                # dopo i fix di prefetch/disciplina-turni sopra, è di nuovo un
+                # problema strutturale, non di budget — non ribumpare al buio.
+                set_tier incremental claude-sonnet-5 35
               fi
               exit 0
             fi
@@ -363,8 +372,21 @@ jobs:
           # CODE funnel-critical → high (full scope, 60 turni), altrimenti normal
           # (35 turni). Modello UNIFICATO claude-sonnet-5 su OGNI tier (owner
           # 2026-07-17: mai claude-sonnet-4-6).
+          #
+          # high-mega (2026-07-17, analisi Fable-5): la coda di PR sovradimensionate
+          # (crawler-batch multi-file: #3428 x6 morti, #3355 x5, #3450 x4) muore
+          # ripetutamente anche al cap alto e in 2 casi (#3428, #3450) è finita
+          # MERGIATA dall'owner senza NESSUNA review mai postata — il gate LGTM
+          # degradato a no-review-at-all esattamente sulle PR funnel-critical più
+          # grandi. Soglia dimensionale separata dal budget-per-complessità
+          # ordinario: non un bump generico, isola la coda misurata.
+          code_file_count=$(echo "$code_files" | grep -c . || true)
           if funnel_crit "$code_files"; then
-            set_tier high claude-sonnet-5 60
+            if [ "$code_file_count" -ge 25 ]; then
+              set_tier high-mega claude-sonnet-5 90
+            else
+              set_tier high claude-sonnet-5 60
+            fi
           else
             set_tier normal claude-sonnet-5 35
           fi
@@ -372,6 +394,48 @@ jobs:
       - name: Setup Headroom compression proxy
         if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         uses: ./.github/actions/setup-headroom
+
+      - name: Prefetch review context (zero-Claude, saves turns)
+        id: prefetch
+        # tier `minimal` ha il suo percorso corto (≤6 turni, gh pr view diretto
+        # nel prompt) e non legge mai $CTX_DIR — skip per non sprecare 3 gh call
+        # a vuoto su ogni PR data/docs-only.
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier != 'minimal'
+        # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
+        # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
+        # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
+        # compare incrementale rieseguito 2-3x con --jq diversi, il fetch dello
+        # sticky sibling-check — 5-8 turni di setup misurati su un cap di 25).
+        # Zero costo Claude: puro bash. Il prompt sotto legge questi file con
+        # `Read` invece di rieseguire le stesse `gh` call a ogni turno.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
+          REPO: ${{ github.repository }}
+          CTX_DIR: ${{ runner.temp }}/review-ctx
+        run: |
+          set -uo pipefail
+          mkdir -p "$CTX_DIR"
+          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,labels,files > "$CTX_DIR/pr.json" \
+            || echo '{}' > "$CTX_DIR/pr.json"
+          gh pr diff "$PR_NUMBER" --repo "$REPO" \
+            --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
+            --exclude '_newsletter_variants/**' --exclude 'docs/**' \
+            > "$CTX_DIR/diff.patch" \
+            || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
+          if [ -n "${INCREMENTAL_BASE:-}" ]; then
+            gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
+              --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
+              > "$CTX_DIR/delta.patch" \
+              || echo "(delta fetch failed — rieseguire la gh api compare manualmente)" > "$CTX_DIR/delta.patch"
+          fi
+          gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
+            > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
+          echo "Prefetched review context in $CTX_DIR:"
+          ls -la "$CTX_DIR"
 
       - name: Run Claude review
         id: claude_review
@@ -414,24 +478,26 @@ jobs:
           prompt: |
             Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
-            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) `gh pr view $PR_NUMBER --json title,body,files`; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui il Bootstrap sotto.)
+            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) `gh pr view $PR_NUMBER --json title,body,files`; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
+
+            **Disciplina turni (budget rigido, tutti i tier eccetto `minimal`):** hai un budget di ${{ steps.tier.outputs.max_turns }} turni. Un messaggio con tool-call = 1 turno **indipendentemente da quanti tool_use contiene** — dati storici (112 morti `error_max_turns` analizzate su questo workflow, 2026-07-17) mostrano p50 ~20 turni contro un lavoro reale che ne richiederebbe ~10-12: la differenza è quasi tutta overhead meccanico, non ragionamento. Quindi: (1) probe indipendenti (grep/Read/gh su file diversi, verifiche non correlate) vanno emesse **in parallelo nello stesso messaggio**, mai una-per-turno; (2) `PR_NUMBER`/`HEAD_SHA`/`INCREMENTAL_BASE` sono già nell'env di questo prompt — mai spendere un turno su `env`/`printenv` per rileggerli; (3) il checkout NON ha `node_modules` installato — mai `npm`/`npx`/build/test runner, il verdetto si basa su lettura statica del diff, non su esecuzione; (4) **entro il turno $((${{ steps.tier.outputs.max_turns }} - 5))** DEVI aver postato la review — se a quel punto hai ancora verifiche aperte, postale come `❓ q:` (con l'escalation funnel-critical già normata sotto) invece di continuare a probeare: una review postata con un `❓` sblocca il loop, una review MAI postata brucia l'intero run senza verdetto (è successo in almeno un caso osservato: verdetto già formato al turno 22 su un cap di 25, morto al 26 senza mai postare).
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
             2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
-            3. Carica PR in UNA call: `gh pr view $PR_NUMBER --json title,body,labels,files`, poi il diff del SOLO code (`gh pr diff` NON supporta i pathspec `-- ':(exclude)...'` di `git diff` — accetta un solo argomento posizionale e fallisce con "accepts at most 1 arg(s)"; usa il suo flag nativo `--exclude` invece): `gh pr diff $PR_NUMBER --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' --exclude '_newsletter_variants/**' --exclude 'docs/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
+            3. Il contesto PR è già prefetchato (zero-Claude, prima che tu parta) in `${{ runner.temp }}/review-ctx/`: `pr.json` (`gh pr view --json title,body,labels,files`) e `diff.patch` (diff del SOLO code, stesso `--exclude` di sempre). **Leggili con `Read` — non rieseguire `gh pr view`/`gh pr diff`**, è lo stesso identico output e rifarlo brucia turni di setup. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
-            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Carica SOLO il delta dei file code dall'ultima review: `gh api repos/${{ github.repository }}/compare/$INCREMENTAL_BASE...$HEAD_SHA --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // \"(binary/large)\")"'`. Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
+            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Il delta dei file code dall'ultima review è già prefetchato in `${{ runner.temp }}/review-ctx/delta.patch` — **leggilo con `Read`, non rieseguire la `gh api compare`** (rifarla turno-per-turno era il primo consumatore di setup-turni osservato). Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
 
             **Esegui workflow di review come specificato in REVIEW.md:**
             - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
-            - Tier high O incremental-high: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
-            - **Sezioni mancanti + tier high (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
-            - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier high → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
+            - Tier `high`, `high-mega` (PR funnel-critical sovradimensionata, stesso rigore di `high` con più turni) O `incremental-high`: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
+            - **Sezioni mancanti + tier `high`/`high-mega` (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
+            - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier `high`/`high-mega` → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
             - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
             - **No missing-test findings (REVIEW.md → IGNORA → test coverage):** NON sollevare "manca un test" / "aggiungi coverage" / "pinna con un test" come 🟡 nit né come voce `## Adversarial check`, nemmeno su path funnel-critici. Nell'adversarial check elenca rischi di COMPORTAMENTO/correttezza non verificati, mai assenza di test. Eccezione (resta in scope): un BUG in un test ESISTENTE (assertion/regex/guard leaky, fixture date assolute).
 
-            **Cross-file pattern probing (REVIEW.md step 5):** prima di costruire grep a mano, controlla se sulla PR esiste il commento sticky `<!-- sibling-check -->` (postato dal job zero-Claude di pr-body-contract): contiene già i file gemelli candidati che condividono i costrutti modificati dal diff — parti da quella lista (verifica i candidati, non fidarti ciecamente: è token-match euristico). Se assente o insufficiente, quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
+            **Cross-file pattern probing (REVIEW.md step 5):** il commento sticky `<!-- sibling-check -->` (postato dal job zero-Claude di pr-body-contract), se presente sulla PR, è già prefetchato in `${{ runner.temp }}/review-ctx/sibling-check.md` — leggilo con `Read` invece di cercarlo via `gh api`/`gh pr view --json comments`: contiene già i file gemelli candidati che condividono i costrutti modificati dal diff — parti da quella lista (verifica i candidati, non fidarti ciecamente: è token-match euristico). Se il file è vuoto o insufficiente, quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
 
             **Posta UNA review:**
             `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
@@ -479,14 +545,25 @@ jobs:
           REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REVIEW_TIER: ${{ steps.tier.outputs.tier }}
+          REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
         run: |
           set -uo pipefail
           # max_turns FIRST — see rationale above. Must win over the 429 regex.
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
              && grep -qE '"terminal_reason"[[:space:]]*:[[:space:]]*"max_turns"' "${EXEC_FILE}"; then
-            BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.' "$RUN_URL")
+            # 2026-07-17 (analisi Fable-5, 112 morti storiche): arricchisce il
+            # comment con tier/cap/turni-usati — prima era un blob opaco che non
+            # diceva NULLA su quanto ci si era avvicinati al cap né su quale tier
+            # era coinvolto, rendendo impossibile per un umano giudicare a colpo
+            # d'occhio se sia un caso marginale (1 turno sopra cap) o un pattern
+            # ricorrente su una PR sovradimensionata (i dati mostrano che quel
+            # secondo caso è quasi-deterministico su retry: split la PR, non
+            # ri-lanciare all'infinito).
+            NUM_TURNS=$(grep -oE '"num_turns"[[:space:]]*:[[:space:]]*[0-9]+' "${EXEC_FILE}" | tail -1 | grep -oE '[0-9]+' || true)
+            BODY=$(printf '⚠️ **Review automatica fallita** (`terminal_reason=max_turns`, tier `%s`, cap %s turni, turni usati %s): Claude ha esaurito il budget di turni prima di poter postare un verdetto (`## LGTM` / 🔴). Nessuna review è stata pubblicata su questa PR — auto-merge non può scattare finché non ce n’è una.\n\nLog del run: %s\n\nPer sbloccare:\n- rilancia il job (rerun del run `tests` più recente di questa PR fa ripartire anche `pr-review-loop`), oppure\n- esegui la review in locale: checkout del branch, poi lancia la review con lo stesso contratto di `REVIEW.md` sul diff verso `main` (es. skill `/code-review` a effort alto) prima di mergiare a mano.\n\nSe questa PR ha già avuto una morte `max_turns` in precedenza, un retry raramente basta — dato osservato: le morti ripetute sono quasi tutte su PR con molti file indipendenti in un unico batch; valuta di splittarla in PR più piccole.' "${REVIEW_TIER:-?}" "${REVIEW_MAX_TURNS:-?}" "${NUM_TURNS:-?}" "$RUN_URL")
             gh pr comment "$PR_NUMBER" --body "$BODY" || echo "::warning::gh pr comment fallito (non bloccante)."
-            echo "::error::Claude review hit max-turns without posting a review — re-run this job, or raise max_turns for this tier if it recurs."
+            echo "::error::Claude review hit max-turns (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
           # 429 / rate-limit: even if outcome=failure, a 429 must NOT fail the
