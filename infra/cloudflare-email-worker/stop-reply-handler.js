@@ -9,8 +9,9 @@
  * Worker is bound (Email Routing → custom address → "Send to a Worker") to TWO
  * addresses, both routed to the SAME worker, branched on the recipient
  * (`message.to`):
- *   - the cold-email outreach reply address (env.OUTREACH_ADDRESS, e.g.
- *     valerie@frontaliereticino.ch) → handleOutreachReply
+ *   - the cold-email outreach reply address (e.g.
+ *     valerie@frontaliereticino.ch — anything not matching NEWSLETTER_ADDRESS
+ *     below) → handleOutreachReply
  *   - the newsletter mailbox (env.NEWSLETTER_ADDRESS, newsletter@…) →
  *     handleNewsletterUnsubscribe
  *
@@ -20,8 +21,11 @@
  * employer_outreach_suppression/{companyKey} — the SAME suppression
  * send-cold-emails.mjs honours.
  *
- * handleNewsletterUnsubscribe, on the same intent, HMAC-signs the sender
- * address (Web Crypto — no node:crypto in Workers) with STOP_SECRET (==
+ * handleNewsletterUnsubscribe, on a STRICTER intent match
+ * (NEWSLETTER_STOP_INTENT_PATTERNS below — explicit opt-out vocabulary only,
+ * since this path writes an ACTUAL Firestore unsubscribe for a real
+ * subscriber, not just a suppression flag), HMAC-signs the sender address
+ * (Web Crypto — no node:crypto in Workers) with STOP_SECRET (==
  * NEWSLETTER_SECRET) and calls the SAME one-click endpoint the newsletter's
  * own unsubscribe link/List-Unsubscribe header uses
  * (services/newsletterUrls.mjs:makeOneClickUnsubscribeUrl →
@@ -34,13 +38,12 @@
  *
  * STOP-intent detection MIRRORS scripts/lib/stop-reply-detect.mjs (single
  * source) — kept in lockstep (AGENTS.md Non-Negotiable #6); both are
- * unit-tested (tests/stop-reply-detect.test.ts, tests/cf-email-worker.test.ts).
+ * unit-tested (tests/stop-reply-detect.test.ts, tests/cf-email-worker-stop-reply-handler.test.ts).
  *
  * Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml
  * (wrangler deploy + scripts/cf-email-worker-setup.mjs). Bindings:
  *   vars (wrangler.toml): STOP_REPLY_FN_URL, REPLY_TRACK_FN_URL,
- *                          NEWSLETTER_UNSUB_URL, OUTREACH_ADDRESS,
- *                          NEWSLETTER_ADDRESS
+ *                          NEWSLETTER_UNSUB_URL, NEWSLETTER_ADDRESS
  *   secrets (CF API, set by the setup script): STOP_SECRET (== NEWSLETTER_SECRET),
  *            FORWARD_TO (the human inbox; resolved from the zone catch-all target)
  *
@@ -48,7 +51,10 @@
  * setup script via the Email Routing API — no manual dashboard step.
  */
 
-// MIRROR of scripts/lib/stop-reply-detect.mjs STOP_INTENT_PATTERNS. Keep in sync.
+// MIRROR of scripts/lib/stop-reply-detect.mjs STOP_INTENT_PATTERNS. Keep in
+// sync. Outreach-reply path only — a suppression flag on a company-owned
+// mailbox, so the loose conversational forms ("stop", "remove me") are an
+// acceptable false-positive rate.
 const STOP_INTENT_PATTERNS = [
   /\bstop\b/i,
   /\bunsubscribe\b/i,
@@ -63,10 +69,24 @@ const STOP_INTENT_PATTERNS = [
   /annull\w*\s+l\W?iscrizione/i,
 ];
 
-export function isStopReply(subject, body) {
+// Newsletter-mailbox path only. Its trigger writes an ACTUAL Firestore
+// unsubscribe for a real subscriber (stronger than the outreach path's
+// suppression flag), so it matches ONLY explicit opt-out vocabulary — no
+// standalone "stop" or "remove me", which show up in ordinary reader replies
+// ("will this stop working next month?", "please remove me from your
+// spreadsheet, not the newsletter") and would opt someone out by mistake.
+const NEWSLETTER_STOP_INTENT_PATTERNS = [
+  /\bunsubscribe\b/i,
+  /\bunsub\b/i,
+  /\bdisiscriv\w*/i,
+  /\bopt[\s-]?out\b/i,
+  /annull\w*\s+l\W?iscrizione/i,
+];
+
+export function isStopReply(subject, body, patterns = STOP_INTENT_PATTERNS) {
   const haystack = `${subject || ''}\n${body || ''}`;
   if (!haystack.trim()) return false;
-  return STOP_INTENT_PATTERNS.some((re) => re.test(haystack));
+  return patterns.some((re) => re.test(haystack));
 }
 
 // MIRROR of scripts/lib/stop-reply-detect.mjs extractSenderEmail. Keep in sync.
@@ -119,10 +139,10 @@ async function readBodyPrefix(stream, maxBytes = 8192) {
 // Detect on subject first (cheap); read the body only if needed. Shared by
 // both the outreach and newsletter paths so the "read body lazily" behavior
 // can't drift between them.
-async function classifyStopIntent(subject, message) {
-  if (isStopReply(subject, '')) return { stop: true, body: '' };
+async function classifyStopIntent(subject, message, patterns) {
+  if (isStopReply(subject, '', patterns)) return { stop: true, body: '' };
   const body = await readBodyPrefix(message.raw);
-  return { stop: isStopReply(subject, body), body };
+  return { stop: isStopReply(subject, body, patterns), body };
 }
 
 async function handleOutreachReply({ from, subject, message, env, ctx }) {
@@ -152,7 +172,7 @@ async function handleOutreachReply({ from, subject, message, env, ctx }) {
 }
 
 async function handleNewsletterUnsubscribe({ from, subject, message, env, ctx }) {
-  const { stop } = await classifyStopIntent(subject, message);
+  const { stop } = await classifyStopIntent(subject, message, NEWSLETTER_STOP_INTENT_PATTERNS);
   if (!stop) return;
 
   const senderEmail = extractSenderEmail(from);

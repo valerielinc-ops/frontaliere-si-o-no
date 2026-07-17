@@ -83,6 +83,34 @@ describe('worker email() — newsletter mailbox branch', () => {
     expect(message.forward).toHaveBeenCalledWith('ops@example.com');
   });
 
+  it('does NOT unsubscribe on a loose conversational STOP form (newsletter path is stricter than outreach)', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const message = fakeMessage({
+      from: 'reader@example.com',
+      to: 'newsletter@frontaliereticino.ch',
+      subject: 'Question',
+      rawText: 'Will this promo stop working next month? Also please remove me from the CC list on future threads, not the newsletter.',
+    });
+    const ctx = fakeCtx();
+    const env = {
+      NEWSLETTER_ADDRESS: 'newsletter@frontaliereticino.ch',
+      NEWSLETTER_UNSUB_URL: 'https://frontaliereticino.ch/disiscrivi-newsletter/',
+      STOP_SECRET: SECRET,
+      FORWARD_TO: 'ops@example.com',
+    };
+
+    await worker.email(message, env, ctx);
+    await Promise.all(ctx.waited);
+
+    // "stop" and "remove me" alone are outreach-path intent tokens (see
+    // STOP_INTENT_PATTERNS) but are NOT in NEWSLETTER_STOP_INTENT_PATTERNS —
+    // a real subscriber's ordinary reply must never trigger an unsubscribe.
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(message.forward).toHaveBeenCalledWith('ops@example.com');
+  });
+
   it('never calls the unsubscribe endpoint when the reply has no STOP intent', async () => {
     const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
