@@ -1,7 +1,56 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-07-17T10:57:24.839Z",
+  "assembledAt": "2026-07-17T22:11:55.336Z",
   "jobs": [
+    {
+      "title": "Gleismonteur/in (80-100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2234/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "FULL_TIME",
+      "category": "engineering",
+      "description": "Ti piace lavorare all’aperto, vuoi dare una mano e ti piace lavorare in squadra? Come addetto/a alla manutenzione dei binari presso la RhB ti occuperai della manutenzione della nostra rete ferroviaria – immersi nella natura grigionese, con tecnologie moderne e un vero spirito di squadra.\n\nCosa puoi fare\n• Mitarbeit im Gleisunterhalt und Gleisbau (Um- und Neubauten)\n\n• Unterhaltsarbeiten im Gleisumfeld und an Kunstbauten sowie Böschungspflege, Forstarbeiten, etc.\n\n• Schneeräumungsarbeiten / Winterdienst\n\n• Sicherheitsfunktionen, Streckenbegehungen und Zustandskontrollen\n\n• Ausbildung und Einsatz als Führer von Triebfahrzeugen (Kat. B100)\n Ecco perché sei la persona giusta\n• Handwerklicher Berufsabschluss (EFZ)\n\n• Freude an körperlicher Arbeit im Freien\n\n• Bereitschaft für Nachteinsätze und Pikettdienst\n\n• Führerausweis Kat. B\n\n• Gute Deutschkenntnisse\n\n• Muttersprache Rätoromanisch oder gute mündliche Kenntnisse sind von Vorteil\n\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "postedDate": "2026-07-17",
+      "source": "company-website",
+      "sourceLang": "it",
+      "slug": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
+        "en": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
+        "de": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
+        "fr": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "it": "Gleismonteur/in (80-100%)",
+        "de": "Gleismonteur/in (80-100%)"
+      },
+      "percentage": "80-100%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-17T22:11:55.334Z"
+    },
     {
       "title": "Gesamtverantwortliche/r Kundeninformation (60-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -55,7 +104,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:01:29.565Z"
+      "firstSeenAt": "2026-07-15T11:01:29.565Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/in Rechnungswesen Infrastruktur (80-100%)",
@@ -110,7 +160,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-15T11:01:29.565Z"
+      "firstSeenAt": "2026-07-15T11:01:29.565Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Projektleiter/in Bauherrenvertretung (70-100%)",
@@ -291,6 +342,7 @@
       "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2663,
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "executive-assistant-fuhrungsunterstutzung-des-direktors-50-100-ferrovia-retica-rhb-chur"
@@ -298,8 +350,7 @@
       },
       "previousSlugs": [
         "executive-assistant-fuhrungsunterstutzung-des-direktors-50-100-ferrovia-retica-rhb-chur"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Transportmanager/in (50-100%)",
@@ -362,7 +413,8 @@
       },
       "previousSlugs": [
         "transportmanager-in-50-100-ferrovia-retica-rhb-bernina"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Teamleiter/in Elektrowerkstatt (80-100%)",
@@ -425,7 +477,8 @@
       },
       "previousSlugs": [
         "teamleiter-in-elektrowerkstatt-80-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Leiter/in Trassen- und Netzressourcenplanung (50-100%)",
@@ -489,7 +542,8 @@
       },
       "previousSlugs": [
         "leiter-in-trassen-und-netzressourcenplanung-50-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/in Change Management (60-80%)",
@@ -551,71 +605,8 @@
         "financial-specialist-50-100-ferrovia-retica-rhb-chur",
         "specialiste-des-finances-50-100-ferrovia-retica-rhb-chur",
         "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur"
-      ]
-    },
-    {
-      "title": "Leiter/in Planung & Entwicklung (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/leiter-in-planung-and-entwicklung-80-100_2026-2222/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "description": "Nel nuovo settore Produzione assumerai un ruolo dirigenziale centrale con ampio margine di iniziativa. Insieme al tuo team sarai responsabile della pianificazione integrata dell'offerta e della produzione della RhB e guiderai l'evoluzione verso un'organizzazione moderna orientata ai processi. Contribuirai a progetti strategici per il futuro, allo sviluppo della produzione e alla gestione aziendale come membro del team direttivo. Metti a disposizione le tue competenze, la tua esperienza di leadership e la tua passione per il mondo ferroviario per contribuire attivamente al futuro della RhB.\n\nCosa puoi fare\n• Du führst den Fachbereich Planung und Entwicklung im Geschäftsbereich Produktion nach den Werten und Führungsgrundsätzen der RhB und treibst die Transformation zu einer prozessorientierten Organisation weiter.\n\n• Du verantwortest mit deinem Team die integrierte Produktions- und Angebotsplanung der RhB <5 Jahre.\n\n• Du gestaltest die Zukunftsprojekte des Geschäftsbereichs Produktion mit der Produktionsentwicklung und die Geschäftssteuerung der Produktion.\n\n• Du bist Mitglied des Führungsteams Leitung Produktion und engagierst dich in dieser Rolle in übergreifenden Führungs- und Entwicklungsthemen RhB-weit.\n\nEcco perché sei la persona giusta\n• Du hast einen (Fach-)Hochschulabschluss mit betriebswirtschaftlichem oder technischem Hintergrund.\n\n• Du hast mehrjährige Berufserfahrung im Eisenbahnbereich mit Fokus Angebots- und Produktionsplanung / Entwicklung / Geschäftssteuerung.\n\n• Du verfügst über gute Kenntnisse sowie Berufserfahrung in Projektmanagement und Strategieumsetzung.\n\n• Du hast Führungserfahrung, geprägt von einer vertrauensvollen und verantwortungsbewussten Grundhaltung.\n Cosa ti offriamo\n• 1. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Vertrauensarbeitszeit und flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildung mit finanzieller Unterstützung\n Ulteriori informazioni Im neu aufgestellten Geschäftsbereich Produktion besetzen wir eine zentrale Führungsfunktion mit viel Entwicklungs- und Gestaltungsmöglichkeiten. Möchtest du dich bei der RhB mit deinem Wissen und deinem Herzblut einbringen und die Entwicklung des Geschäftsbereichs aktiv mitgestalten?\nAb 13. Juli 2026 erhältst du bei allfälligen Fragen persönlich Auskunft von Stefan Kreuzmann, Leiter Geschäftsbereich.",
-      "postedDate": "2026-07-17",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "responsabile-pianificazione-e-sviluppo-80-100-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "responsabile-pianificazione-e-sviluppo-80-100-ferrovia-retica-rhb-chur",
-        "en": "head-of-planning-development-80-100-ferrovia-retica-rhb-chur",
-        "de": "leiter-in-planung-entwicklung-80-100-ferrovia-retica-rhb-chur",
-        "fr": "chef-de-la-planification-et-du-developpement-80-100-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Leiter/in Planung & Entwicklung (80-100%)",
-        "en": "Head of Planning & Development (80-100%)",
-        "de": "Leiter/in Planung & Entwicklung (80-100%)",
-        "fr": "Responsable Planification & Développement (80-100%)"
-      },
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Nel nuovo settore Produzione assumerai un ruolo dirigenziale centrale con ampio margine di iniziativa. Insieme al tuo team sarai responsabile della pianificazione integrata dell'offerta e della produzione della RhB e guiderai l'evoluzione verso un'organizzazione moderna orientata ai processi. Contribuirai a progetti strategici per il futuro, allo sviluppo della produzione e alla gestione aziendale come membro del team direttivo. Metti a disposizione le tue competenze, la tua esperienza di leadership e la tua passione per il mondo ferroviario per contribuire attivamente al futuro della RhB.\n\nCosa puoi fare\n• Du führst den Fachbereich Planung und Entwicklung im Geschäftsbereich Produktion nach den Werten und Führungsgrundsätzen der RhB und treibst die Transformation zu einer prozessorientierten Organisation weiter.\n\n• Du verantwortest mit deinem Team die integrierte Produktions- und Angebotsplanung der RhB <5 Jahre.\n\n• Du gestaltest die Zukunftsprojekte des Geschäftsbereichs Produktion mit der Produktionsentwicklung und die Geschäftssteuerung der Produktion.\n\n• Du bist Mitglied des Führungsteams Leitung Produktion und engagierst dich in dieser Rolle in übergreifenden Führungs- und Entwicklungsthemen RhB-weit.\n\nEcco perché sei la persona giusta\n• Du hast einen (Fach-)Hochschulabschluss mit betriebswirtschaftlichem oder technischem Hintergrund.\n\n• Du hast mehrjährige Berufserfahrung im Eisenbahnbereich mit Fokus Angebots- und Produktionsplanung / Entwicklung / Geschäftssteuerung.\n\n• Du verfügst über gute Kenntnisse sowie Berufserfahrung in Projektmanagement und Strategieumsetzung.\n\n• Du hast Führungserfahrung, geprägt von einer vertrauensvollen und verantwortungsbewussten Grundhaltung.\nCosa ti offriamo\n• 1. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Vertrauensarbeitszeit und flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internen und externen Weiterbildung mit finanzieller Unterstützung\nUlteriori informazioni Im neu aufgestellten Geschäftsbereich Produktion besetzen wir eine zentrale Führungsfunktion mit viel Entwicklungs- und Gestaltungsmöglichkeiten. Möchtest du dich bei der RhB mit deinem Wissen und deinem Herzblut einbringen und die Entwicklung des Geschäftsbereichs aktiv mitgestalten?\nAb 13. Juli 2026 erhältst du bei allfälligen Fragen persönlich Auskunft von Stefan Kreuzmann, Leiter Geschäftsbereich.",
-        "en": "The new set of production assumes a central direction with an ample margin of initiative. In this case, the team is responsible for the piano integration of the offer and the production of the RhB and guides the evolution of the modern organization in the process. Contribute to strategic planning for the future, all production skills and support from the team director. Metti a disposizione le do competenze, la tua esperienza di leadership e la tua passione per il mondo ferroviario to contribute attivamente to the future of the RhB. Cosa puoi fare\n• You lead the planning and development department in the production division according to the values and management principles of the RhB and continue to drive the transformation into a process-oriented organization.\n• You and your team are responsible for RhB's integrated production and supply planning <5 years.\n• You design the future projects of the production division with production development and the business management of production.\n• You are a member of the production management team and in this role you are involved in overarching leadership and development issues across the RhB. Ecco perché is the persona Giusta\n• You have a (technical) university degree with a business or technical background.\n• You have several years of professional experience in the railway sector with a focus on supply and production planning / development / business management.\n• You have good knowledge and professional experience in project management and strategy implementation.\n• You have leadership experience characterized by a trusting and responsible attitude. Cosa ti offriamo\n• 1st class general subscription\n• Free tickets and discounts on train journeys abroad\n• Paid mobile phone and subscription for business and personal use\n• Trusted working hours and flexible part-time models\n• Attractive social benefits and pension fund with very good benefits\n• Additional purchase of vacations\n• Opportunity for internal and external further training with financial support Ulteriori informazioni In the newly established production division, we have a central management position with plenty of development and design opportunities. Would you like to contribute your knowledge and passion to RhB and actively help shape the development of the business area? From July 13, 2026, if you have any questions, you will receive personal information from Stefan Kreuzmann, Head of Business.",
-        "de": "Im neuen Produktionssektor werden Sie eine zentrale Rolle mit einem breiten Handlungsspielraum spielen. Gemeinsam mit Ihrem Team verantworten Sie die integrierte Planung von Angebot und Produktion von RhB und leiten die Entwicklung hin zu einer modernen, prozessorientierten Organisation. Sie werden zu strategischen Projekten für die Zukunft, Entwicklung der Produktion und Geschäftsführung als Mitglied des Managementteams beitragen. Stellen Sie Ihre Fähigkeiten, Ihre Führungserfahrung und Ihre Leidenschaft für die Bahnwelt zur Verfügung, um aktiv zur Zukunft von RhB beizutragen.\n\nWas Sie tun können\n• Du führst den Fachbereich Planung und Entwicklung im Geschäftsbereich Produktion nach den Methoden und Führungsgrundsätzen der RhB und treibst die Transformation zu einer prozessorientierten Organisation weiter.\n\n• Du verantwortest mit deinem Team die integrierte Produktions- und Angebotsplanung der RhB <5 Jahre.\n\n• Du gestaltest die Zukunftsprojekte des Geschäftsbereichs Produktion mit der Produktionsentwicklung und die Geschäftssteuerung der Produktion.\n\n• Du bist Mitglied des Führungsteams Leitung Produktion und engagierst dich in dieser Rolle in übergreifenden Führungs- und Entwicklungsthemen RhB-weit.\n\nDeshalb bist du die richtige Person\n• Du hast einen (Fach-)Hochschulabschluss mit betriebswirtschaftlichem oder technischem Hintergrund.\n\n• Du hast mehrjährige Berufserfahrung im Eisenbahnbereich mit Fokus Angebots- und Produktionsplanung / Entwicklung / Geschäftssteuerung.\n\n• Du verfügst über gute Kenntnisse sowie Berufserfahrung in Projektmanagement und Strategieumsetzung.\n\n• Du hast Führungserfahrung, geprägt von einer vertrauensvollen und verantwortungsbewussten Grundhaltung.\nWas wir anbieten\n• 1. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und Abo zur geschäftlichen und privatin Nutzung\n\n• Vertrauensarbeitszeit und flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zu internan und externe Weiterbildung mit finanzieller Unterstützung\nIm neu aufgestellten Geschäftsbereich Produktion besetzen wir eine zentrale Führungsfunktion mit viel Entwicklungs- und Gestaltungsmöglichkeiten. Möchtest du dich bei der RhB mit deinem Wissen und deinem Herzblut einbringen und die Entwicklung des Geschäftsbereichs aktiv mitgestalten?\nAb 13. Juli 2026 erhältst du bei allfälligen Fragen persönlich Auskunft von Stefan Kreuzmann, Leiter Geschäftsbereich.",
-        "fr": "Le nouvel ensemble de production assume une direction centrale avec une ample marge d'initiative. Dans ce cas, l'équipe est responsable de l'intégration piano de l'offre et de la production du RhB et guide ainsi l'évolution de l'organisation moderne. Contribuer à la planification stratégique pour l'avenir, toutes les compétences de production et le soutien du directeur d'équipe. J'ai la disposition de vos compétences, de votre expérience de leadership et de votre passion pour le monde ferroviaire pour contribuer activement à l'avenir du RhB. Tarif Cosa puoi\n• Vous dirigez le département de planification et de développement du secteur de production selon les valeurs et les principes de gestion des RhB et continuez à conduire la transformation vers une organisation orientée processus.\n• Vous et votre équipe êtes responsables de la planification intégrée de la production et de l'approvisionnement des RhB <5 ans.\n• Vous concevez les futurs projets du pôle production avec le développement de la production et la gestion commerciale de la production.\n• Vous êtes membre de l'équipe de direction de la production et, dans ce rôle, vous êtes impliqué dans les questions globales de leadership et de développement au sein du RhB. Ecco perché est le personnage de Giusta\n• Vous possédez un diplôme universitaire (technique) avec une formation commerciale ou technique.\n• Vous disposez de plusieurs années d'expérience professionnelle dans le secteur ferroviaire avec une spécialisation en planification/développement/gestion d'entreprise d'approvisionnement et de production.\n• Vous disposez de bonnes connaissances et d'une expérience professionnelle en matière de gestion de projet et de mise en œuvre de stratégie.\n• Vous avez une expérience de leadership caractérisée par une attitude confiante et responsable. Cosa ti offriamo\n• Abonnement général 1ère classe\n• Billets gratuits et réductions sur les voyages en train à l'étranger\n• Téléphone mobile payant et abonnement pour un usage professionnel et personnel\n• Horaires de travail fiables et modèles flexibles à temps partiel\n• Des prestations sociales attractives et un fonds de pension avec de très bonnes prestations\n• Achat supplémentaire de vacances\n• Possibilité de formation continue interne et externe avec soutien financier Plus d'informations Dans la division de production nouvellement créée, nous occupons une position de direction centrale avec de nombreuses opportunités de développement et de conception. Souhaitez-vous apporter vos connaissances et votre passion aux RhB et contribuer activement au développement du secteur d'activité ? À partir du 13 juillet 2026, si vous avez des questions, vous recevrez des informations personnelles de Stefan Kreuzmann, chef d'entreprise."
-      },
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-01T22:23:37.798Z",
-      "id": "ferrovia-retica-47e1c4bb36a4",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-planung-entwicklung-80-100-ferrovia-retica-rhb-chur"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-planung-entwicklung-80-100-ferrovia-retica-rhb-chur"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
