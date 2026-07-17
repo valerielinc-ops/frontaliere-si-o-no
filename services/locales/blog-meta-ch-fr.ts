@@ -1186,6 +1186,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Trafic en Suisse : ce que cela signifie pour les Suisses',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Le trafic en Suisse a généré des coûts d\'environ 117 milliards de francs en 2023, selon un rapport de l\'Office fédéral de la statistique.',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Image d\'un trafic en augmentation dans une ville du Tessin',
+    'blog.article.traffico-da-record.title': 'Trafic record : coûts de 117 milliards de francs et voitures toujours en tête',
+    'blog.article.traffico-da-record.excerpt': 'Le trafic en Suisse a généré des coûts d\'environ 117 milliards de francs. L\'automobile est le moyen de transport dominant.',
+    'blog.article.traffico-da-record.imageAlt': 'Lugano, vue panoramique de la ville.',
 };
 
 export default blogMetaChFr;

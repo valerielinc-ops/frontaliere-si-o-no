@@ -418,6 +418,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mercato-ipoteche-svizzera-record-2025': { it: 'mercato-ipoteche-svizzera-record-2025', en: 'swiss-mortgage-market-record-2025', de: 'schweizer-hypothekenmarkt-rekord-2025', fr: 'marche-hypothecaire-suisse-record-2025' },
  'dichiarazione-redditi-agricoltura-variazioni': { it: 'dichiarazione-redditi-agricoltura-variazioni', en: 'tax-return-agriculture-crop-variations', de: 'steuererklaerung-landwirtschaft-kulturwechsel', fr: 'declaration-revenus-agriculture-variations-cultures' },
  'traffico-aumenta-costi-crescono-svizzera': { it: 'traffico-aumenta-costi-crescono-svizzera', en: 'traffic-switzerland-increasing-costs-rise', de: 'verkehr-schweiz-zunehmend-kosten-steigen', fr: 'traffic-suisse-augmentation-couts-croissent' },
+ 'traffico-da-record': { it: 'traffico-da-record', en: 'slug-traffico-da-record', de: 'slug-traffico-da-record', fr: 'slug-traffico-da-record' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
