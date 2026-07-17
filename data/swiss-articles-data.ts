@@ -3590,6 +3590,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'prelievo-secondo-pilastro-lpp-frontaliere',
+    category: 'fiscale',
+    date: '2026-07-17T15:15:42.771Z',
+    image: '/images/blog/prelievo-secondo-pilastro-lpp-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

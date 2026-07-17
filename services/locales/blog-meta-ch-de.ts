@@ -1198,6 +1198,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'BVG-Säule 2: Abhängigkeits- und Steuerfragen Italien/Schweiz',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'Das neue Grenzabkommen sieht eine Franchise von 10\'000 CHF und eine Übergangsregelung bis 2033 vor. Aber wie funktioniert die zweite Säule BVG und wie kann sie ohne Doppelbesteuerung bezogen werden?',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'Eine Szene von Lugano mit Hochhäusern und einem langen See. Ein Frontaliere sitzt auf einem Sitz, mit einer Mappe in der Hand und einer nachdenklichen Miene.',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'BVG: Ausstiegsstrategie aus der zweiten Säule',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'Der Bezug der zweiten Säule BVG für Grenzgänger: Fakten, Zahlen, Daten und Ausstiegsstrategien',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Bild eines Grenzarbeiters in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -1198,6 +1198,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'Le deuxième pilier LPP : quand peut-on retirer et taxer l\'Italie et la Suisse',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'Le nouvel accord frontalier prévoit une franchise de CHF 10\'000 et un régime transitoire jusqu\'en 2033. Mais comment fonctionne le deuxième pilier LPP et comment peut-on le retirer sans subir de double imposition ?',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'Une scène de Lugano avec des gratte-ciels et un long lac. Un frontaliere est assis sur un banc, avec un dossier dans la main et une expression pensante.',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'LPP : stratégie de sortie du deuxième pilier',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'Le prélèvement du deuxième pilier LPP pour les frontaliers : faits, chiffres, dates et stratégies de sortie',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Image d\'un travailleur frontalier en Suisse',
 };
 
 export default blogMetaChFr;

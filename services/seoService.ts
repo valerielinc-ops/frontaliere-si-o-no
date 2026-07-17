@@ -4584,6 +4584,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-e-indennita': { name: 'Frontalieri e indennità', path: '/articoli-frontaliere/frontalieri-e-indennita', parent: 'blog' },
     'blog-secondo-pilastro-lpp-frontalieri-prelievo': { name: 'Secondo pilastro LPP', path: '/articoli-svizzera/secondo-pilastro-lpp-frontalieri-prelievo/', parent: 'blog' },
     'blog-ricercatore-parlamentare-ticino-gran-consiglio': { name: 'Ricercatore parlamentare', path: '/articoli-frontaliere/ricercatore-parlamentare-ticino-gran-consiglio', parent: 'blog' },
+    'blog-prelievo-secondo-pilastro-lpp-frontaliere': { name: 'Prelievo del secondo pilastro LPP', path: '/articoli-svizzera/prelievo-secondo-pilastro-lpp-frontaliere/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

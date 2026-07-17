@@ -422,6 +422,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'naspi-frontendalieri-requisiti-calcolo-2024': { it: 'naspi-frontendalieri-requisiti-calcolo-2024', en: 'naspi-frontalier-requisites-calculation', de: 'naspi-frontalier-requisiten-berechnung', fr: 'naspi-frontalier-requisits-calcul' },
  'assicurazione-rc-auto-svizzera-differenze-italia-frontalieri': { it: 'assicurazione-rc-auto-svizzera-differenze-italia-frontalieri', en: 'insurance-rc-car-switzerland-differences-italy-frontaliers', de: 'kaskoversicherung-schweiz-unterschiede-italien-frontalier', fr: 'assurance-rc-voiture-suisse-differences-italie-frontaliers' },
  'secondo-pilastro-lpp-frontalieri-prelievo': { it: 'secondo-pilastro-lpp-frontalieri-prelievo', en: 'second-pillar-lpp-frontaliers-withdrawal', de: 'zweites-pillar-lpp-frontalier-abhebung', fr: 'deuxieme-pilier-lpp-frontalier-retrait' },
+ 'prelievo-secondo-pilastro-lpp-frontaliere': { it: 'prelievo-secondo-pilastro-lpp-frontaliere', en: 'second-pillar-lpp-frontalier-withdrawal', de: 'abhebungsbeitrag-zweiter-pillar-lpp-grenzarbeiter', fr: 'retrait-du-deuxieme-pilier-lpp-travailleur-frontalier' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
