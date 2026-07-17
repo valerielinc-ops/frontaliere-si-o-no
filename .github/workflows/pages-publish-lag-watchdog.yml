@@ -33,7 +33,6 @@ permissions:
   contents: read
   deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
   issues: write
-  deployments: read   # findLastSuccessfulDeployment() reads /deployments + /statuses
 
 jobs:
   watchdog:
