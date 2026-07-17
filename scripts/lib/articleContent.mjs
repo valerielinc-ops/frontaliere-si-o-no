@@ -93,25 +93,46 @@ export function loadBlogMeta(articleId, locale = 'it') {
   return null;
 }
 
+// localizeArticle does two synchronous fs.readFileSync calls (routerBlogData.ts
+// via getBlogSlug, blog-meta-{locale}.ts x2 via loadBlogMeta's locale->'it'
+// fallback) plus regex parsing on every call. It's invoked once per SUBSCRIBER
+// in the newsletter bulk-send hot loop (resolveArticleContent ->
+// localizeArticle, scripts/send-newsletter.mjs Phase 5) — for a run of
+// thousands of subscribers, the same handful of (articleId, locale) pairs get
+// re-read and re-parsed from disk thousands of times over. Memoize the result
+// per (articleId, locale), mirroring loadArticlePerformanceWinners's own
+// "loaded once and cached" pattern below (review PR #4338, bug H).
+const _localizedArticleCache = new Map();
+
 /**
  * Build a localized article object for a given article ID and locale.
+ * Memoized per (articleId, locale) — see the comment above.
  * @returns {{title:string, excerpt:string, url:string, badge:true}|null}
  */
 export function localizeArticle(articleId, locale) {
+  const cacheKey = `${articleId}:${locale}`;
+  if (_localizedArticleCache.has(cacheKey)) return _localizedArticleCache.get(cacheKey);
   const blogPath = BLOG_SECTION_PATH[locale] || BLOG_SECTION_PATH.it;
   const slug = getBlogSlug(articleId, locale);
   const meta = loadBlogMeta(articleId, locale);
-  if (!meta) return null;
-  const prefix = localePathPrefix(locale);
-  return {
-    title: meta.title,
-    excerpt: meta.excerpt,
-    // `url` — matches renderArticle's destructured param and directUrl()
-    // call in services/newsletter-template.mjs (the live template; NOT
-    // scripts/newsletter-template.mjs, which is dead/unimported).
-    url: `${prefix}/${blogPath}/${slug}/`,
-    badge: true,
-  };
+  const result = meta
+    ? {
+        title: meta.title,
+        excerpt: meta.excerpt,
+        // `url` — matches renderArticle's destructured param and directUrl()
+        // call in services/newsletter-template.mjs (the live template; NOT
+        // scripts/newsletter-template.mjs, which is dead/unimported).
+        url: `${localePathPrefix(locale)}/${blogPath}/${slug}/`,
+        badge: true,
+      }
+    : null;
+  _localizedArticleCache.set(cacheKey, result);
+  return result;
+}
+
+/** Test-only: clear the memoized localizeArticle cache so fixtures don't leak across tests. */
+export function _resetLocalizedArticleCache() {
+  _localizedArticleCache.clear();
 }
 
 // data/article-performance.json `.winners` — real click/scroll-depth winners

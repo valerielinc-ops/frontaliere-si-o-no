@@ -3447,6 +3447,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
  if (salaryRangeFilter.min !== null) {
+ // `?salarioMin=`/`?salarioMax=` are CHF annual figures (see readSalaryRangeFromUrl's
+ // docblock above); job.salaryMin/salaryMax are raw numbers with no currency
+ // normalization. An EUR-denominated posting's raw figures aren't CHF-comparable —
+ // same mismatch the net-estimate widget already excludes via
+ // `selectedJob.currency === 'EUR'` (below, ~line 5590). Apply the identical
+ // exclusion here rather than silently comparing EUR numbers against a CHF band
+ // (review PR #4338, bug I).
+ if (job.currency === 'EUR') return false;
  const jobMinRaw = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
  if (!jobMinRaw || !Number.isFinite(jobMinRaw)) return false; // no salary data → can't match a salary-range filter
  const jobMaxRaw = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);

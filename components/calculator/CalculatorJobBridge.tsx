@@ -4,6 +4,7 @@ import { buildPath } from '@/services/router';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { CANTON_CODES } from '@/services/cantonList';
 
 interface Props {
   /** Gross annual CHF income currently in the calculator's inputs. */
@@ -13,12 +14,19 @@ interface Props {
 const DEFAULT_CANTON = 'TI';
 const BAND_RATIO = 0.15;
 
+// Review PR #4338, bug J: `?cantone=` was trimmed/uppercased but never
+// validated against the real canton list — an arbitrary/malformed value
+// flowed straight into buildPath()'s jobBoardCanton segment and the
+// deep-link-arrival analytics call. Mirrors JobAlertForm.tsx's own
+// `CANTON_CODES.includes(...)` guard on the same kind of URL-seeded canton.
 function readCantonFromUrl(): string | null {
   if (typeof window === 'undefined') return null;
   try {
     const params = new URLSearchParams(window.location.search || '');
     const raw = params.get('cantone');
-    return raw ? raw.trim().toUpperCase() : null;
+    if (!raw) return null;
+    const normalized = raw.trim().toUpperCase();
+    return normalized && CANTON_CODES.includes(normalized) ? normalized : null;
   } catch {
     return null;
   }
@@ -57,12 +65,17 @@ export default function CalculatorJobBridge({ annualIncomeCHF }: Props) {
 
   useEffect(() => {
     const fromUrl = readCantonFromUrl();
-    if (!fromUrl) return;
-    setCanton(fromUrl);
-    if (!arrivalTracked.current) {
-      arrivalTracked.current = true;
-      Analytics.trackCalculatorDeepLinkArrival('job_widget');
+    if (fromUrl) {
+      setCanton(fromUrl);
+      if (!arrivalTracked.current) {
+        arrivalTracked.current = true;
+        Analytics.trackCalculatorDeepLinkArrival('job_widget');
+      }
     }
+    // Strip unconditionally (review PR #4338, bug J): a malformed/unknown
+    // ?cantone= value now fails validation in readCantonFromUrl and never
+    // updates state, but it should still be removed from the URL bar rather
+    // than linger — stripCantonFromUrl() is a no-op when the param is absent.
     stripCantonFromUrl();
   }, []);
 

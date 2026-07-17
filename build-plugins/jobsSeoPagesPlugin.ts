@@ -7739,10 +7739,15 @@ ${staticAnalyticsHtml}
  : `${companyName} compte actuellement ${count} postes ouverts à ${scopeLabel}, dont : ${roleTitles.join(', ')}.`;
  items.push({ q, a });
  }
- const salaryMins = jobs.map((j: any) => Number(j.salaryMin)).filter((n) => Number.isFinite(n) && n > 0);
+ // The FAQ answer below hardcodes a "CHF" label per locale — unlike
+ // renderCompanyHubSalaryRangeHtml above (which reads j.currency), this
+ // aggregate must exclude EUR-denominated postings itself, or an EUR salary
+ // figure gets silently labeled/mixed in as CHF (review PR #4338, bug I sibling).
+ const chfJobsForSalaryFaq = jobs.filter((j: any) => String(j.currency || 'CHF') !== 'EUR');
+ const salaryMins = chfJobsForSalaryFaq.map((j: any) => Number(j.salaryMin)).filter((n) => Number.isFinite(n) && n > 0);
  if (salaryMins.length > 0) {
  const minV = Math.min(...salaryMins);
- const salaryMaxCandidates = jobs.map((j: any) => Number(j.salaryMax)).filter((n) => Number.isFinite(n) && n > 0);
+ const salaryMaxCandidates = chfJobsForSalaryFaq.map((j: any) => Number(j.salaryMax)).filter((n) => Number.isFinite(n) && n > 0);
  const maxV = salaryMaxCandidates.length > 0 ? Math.max(...salaryMaxCandidates) : minV;
  const q = locale === 'it' ? `Quanto paga ${companyName}?`
  : locale === 'en' ? `What salary does ${companyName} pay?`
