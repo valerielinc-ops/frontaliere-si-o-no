@@ -22,6 +22,18 @@ describe('detectSeverity', () => {
     expect(detectSeverity('❓ q: non verificato')).toBe('❓');
     expect(detectSeverity('plain line')).toBeNull();
   });
+
+  it('ignora un glifo negato da un opener "Nessun/Zero/0 <conteggio>" (era #4342)', () => {
+    // Riga di recap LGTM che dichiara ZERO finding di quella severità — il glifo
+    // resta nel testo ma non è un finding confermato.
+    expect(detectSeverity('Nessun 🔴; test comportamentali + parity guard presenti.')).toBeNull();
+    expect(detectSeverity('Zero 🔴. Single-source html fix è corretto e testato.')).toBeNull();
+    expect(detectSeverity('0 🟡 rimasti dopo il fix.')).toBeNull();
+  });
+
+  it('un secondo glifo NON negato nella stessa riga resta rilevato', () => {
+    expect(detectSeverity('Nessun 🔴. Unico 🟡 è advisory-only.')).toBe('🟡');
+  });
 });
 
 describe('tallyFindings — ❓ non conta (adversarial-uncertainty ≠ errore)', () => {
@@ -97,6 +109,26 @@ describe('tallyFindings — il segnale legittimo resta intatto', () => {
     ];
     const { counts } = tallyFindings(prs);
     expect(counts['auto-ads']).toBeUndefined();
+  });
+});
+
+describe('tallyFindings — recap LGTM "Nessun/Zero 🔴" non gonfia sibling-class-fix (#4342)', () => {
+  it('un recap zero-finding che nomina "sibling-check" non conta come violazione', () => {
+    const prs: PR[] = [
+      { number: 4279, reviews: [claudeReview('Nessun 🔴; test comportamentali + parity guard presenti, disposizione sibling-check verificata a campione, unico nit è debito di manutenzione minore non funnel-critical.')] },
+      { number: 4276, reviews: [claudeReview('Zero 🔴. Single-source html fix è corretto e testato, sibling-check risolto con giustificazioni verificabili, z-index claim confermato.')] },
+      { number: 4259, reviews: [claudeReview('Zero 🔴, no unresolved funnel-critical ❓ — routing fix, merge fix, and their siblings all check out.')] },
+    ];
+    const { counts } = tallyFindings(prs);
+    expect(counts['sibling-class-fix']).toBeUndefined();
+  });
+
+  it('un finding sibling REALE (🟡 non negato) resta contato', () => {
+    const prs: PR[] = [
+      { number: 4267, reviews: [claudeReview('🟡 Nit — questo script gemello condivide lo stesso costrutto non toccato dal fix.')] },
+    ];
+    const { counts } = tallyFindings(prs);
+    expect(counts['sibling-class-fix']).toBe(1);
   });
 });
 
