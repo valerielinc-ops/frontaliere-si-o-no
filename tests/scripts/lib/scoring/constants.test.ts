@@ -21,6 +21,9 @@ import {
   EVERGREEN_FAMILY_OVERLAP_CEILING,
   EVERGREEN_PREFLIGHT_CORPUS_BASELINE,
   computeAdaptiveEvergreenThresholds,
+  TOPIC_CANDIDATE_DUP_JACCARD,
+  TOPIC_CANDIDATE_DUP_JACCARD_CEILING,
+  computeAdaptiveTopicCandidateDupJaccard,
 } from '../../../../scripts/lib/scoring/constants.mjs';
 
 describe('computeAdaptiveNearDupCosine', () => {
@@ -122,6 +125,46 @@ describe('computeAdaptiveEvergreenThresholds', () => {
       expect(v.familyOverlap).toBeGreaterThanOrEqual(prevFamily);
       prevTitle = v.titleJaccard;
       prevFamily = v.familyOverlap;
+    }
+  });
+});
+
+describe('computeAdaptiveTopicCandidateDupJaccard', () => {
+  it('returns the unmodified base threshold at/below the baseline corpus size', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(EVERGREEN_PREFLIGHT_CORPUS_BASELINE)).toBeCloseTo(
+      TOPIC_CANDIDATE_DUP_JACCARD,
+      6,
+    );
+    expect(computeAdaptiveTopicCandidateDupJaccard(50)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('relaxes upward for a 10x-larger corpus', () => {
+    const relaxed = computeAdaptiveTopicCandidateDupJaccard(EVERGREEN_PREFLIGHT_CORPUS_BASELINE * 10);
+    expect(relaxed).toBeCloseTo(0.78, 6);
+    expect(relaxed).toBeLessThan(TOPIC_CANDIDATE_DUP_JACCARD_CEILING);
+  });
+
+  it('never exceeds the effective ceiling for a very large corpus', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(10_000_000)).toBe(TOPIC_CANDIDATE_DUP_JACCARD_CEILING);
+  });
+
+  it('never drops below the base for a tiny/new corpus', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(1)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+    expect(computeAdaptiveTopicCandidateDupJaccard(0)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('falls back to the base for invalid input', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(NaN)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+    expect(computeAdaptiveTopicCandidateDupJaccard(-5)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('is monotonically non-decreasing in corpus size', () => {
+    const sizes = [100, 300, 500, 1000, 3246, 5000, 50_000];
+    let prev = -1;
+    for (const n of sizes) {
+      const v = computeAdaptiveTopicCandidateDupJaccard(n);
+      expect(v).toBeGreaterThanOrEqual(prev);
+      prev = v;
     }
   });
 });

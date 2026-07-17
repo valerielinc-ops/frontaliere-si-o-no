@@ -132,9 +132,9 @@ export const EVERGREEN_FAMILY_OVERLAP_CEILING = 0.75;
 export const EVERGREEN_PREFLIGHT_CORPUS_BASELINE = 300;
 export const EVERGREEN_PREFLIGHT_CORPUS_SCALE_K = 0.08;
 
-function scaleEvergreenThreshold(base, ceiling, corpusSize) {
-  const n = Number.isFinite(corpusSize) && corpusSize > 0 ? corpusSize : EVERGREEN_PREFLIGHT_CORPUS_BASELINE;
-  const scaled = base + EVERGREEN_PREFLIGHT_CORPUS_SCALE_K * Math.log10(n / EVERGREEN_PREFLIGHT_CORPUS_BASELINE);
+function scaleSaturationThreshold(base, ceiling, corpusSize, baseline = EVERGREEN_PREFLIGHT_CORPUS_BASELINE, scaleK = EVERGREEN_PREFLIGHT_CORPUS_SCALE_K) {
+  const n = Number.isFinite(corpusSize) && corpusSize > 0 ? corpusSize : baseline;
+  const scaled = base + scaleK * Math.log10(n / baseline);
   return Math.min(Math.max(ceiling, base), Math.max(base, scaled));
 }
 
@@ -145,7 +145,23 @@ function scaleEvergreenThreshold(base, ceiling, corpusSize) {
  */
 export function computeAdaptiveEvergreenThresholds(corpusSize) {
   return {
-    titleJaccard: scaleEvergreenThreshold(EVERGREEN_TITLE_JACCARD, EVERGREEN_TITLE_JACCARD_CEILING, corpusSize),
-    familyOverlap: scaleEvergreenThreshold(EVERGREEN_FAMILY_OVERLAP, EVERGREEN_FAMILY_OVERLAP_CEILING, corpusSize),
+    titleJaccard: scaleSaturationThreshold(EVERGREEN_TITLE_JACCARD, EVERGREEN_TITLE_JACCARD_CEILING, corpusSize),
+    familyOverlap: scaleSaturationThreshold(EVERGREEN_FAMILY_OVERLAP, EVERGREEN_FAMILY_OVERLAP_CEILING, corpusSize),
   };
+}
+
+// Topic-candidate-vs-existing-title duplicate Jaccard threshold (2026-07-17
+// sibling-pattern fix, AGENTS.md #6). Was three independently-declared 0.7
+// literals — article-topic-selector.mjs's NOVELTY_DUP_JACCARD and
+// CANDIDATE_DUP_JACCARD, plus topic-sources/gscOrphans.mjs's
+// MAX_JACCARD_FOR_NEW — all comparing a candidate keyword/headline's Jaccard
+// similarity against the SAME growing services/locales/blog-meta-it.ts title
+// corpus. Same saturation bug class as EVERGREEN_TITLE_JACCARD above:
+// centralized so the three call sites can't drift apart, and made adaptive
+// so they don't independently re-saturate later.
+export const TOPIC_CANDIDATE_DUP_JACCARD = 0.7;
+export const TOPIC_CANDIDATE_DUP_JACCARD_CEILING = 0.88;
+
+export function computeAdaptiveTopicCandidateDupJaccard(corpusSize) {
+  return scaleSaturationThreshold(TOPIC_CANDIDATE_DUP_JACCARD, TOPIC_CANDIDATE_DUP_JACCARD_CEILING, corpusSize);
 }
