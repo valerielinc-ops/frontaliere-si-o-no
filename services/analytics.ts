@@ -611,8 +611,20 @@ function bindGlobalInteractionTracking() {
  return;
  }
 
- lastCtaAt = now;
  const tag = actionable.tagName.toLowerCase();
+ // Native form controls are interactive (never dead clicks) but are NOT
+ // CTAs: logging them would flood cta_click with form-field noise and the
+ // 500ms throttle would then swallow genuine CTA clicks right after a
+ // field interaction (review PR #4324). Early-return, no event either way.
+ if (
+ tag === 'select' ||
+ tag === 'textarea' ||
+ tag === 'summary' ||
+ (tag === 'input' && (actionable as HTMLInputElement).type !== 'submit')
+ ) {
+ return;
+ }
+ lastCtaAt = now;
  const href = actionable instanceof HTMLAnchorElement ? actionable.href : '';
  const internal = href ? href.startsWith(window.location.origin) : false;
  const label = getElementLabel(actionable);

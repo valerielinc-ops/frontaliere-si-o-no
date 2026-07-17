@@ -64,7 +64,7 @@ export function useSeoPageTracking(): void {
       const result =
         typeof originalPushState === 'function'
           ? originalPushState.apply(window.history, args)
-          : undefined;
+          : History.prototype.pushState.apply(window.history, args);
       try {
         window.dispatchEvent(new Event(PUSH_EVENT));
       } catch {
@@ -79,7 +79,7 @@ export function useSeoPageTracking(): void {
       const result =
         typeof originalReplaceState === 'function'
           ? originalReplaceState.apply(window.history, args)
-          : undefined;
+          : History.prototype.replaceState.apply(window.history, args);
       try {
         window.dispatchEvent(new Event(REPLACE_EVENT));
       } catch {

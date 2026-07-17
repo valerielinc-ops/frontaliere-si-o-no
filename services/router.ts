@@ -3150,18 +3150,15 @@ export function parsePath(pathname: string): ParseResult {
  }
  // Border crossing deep link: guida/border/<crossing-id>
  if (sub === 'border' && third && BORDER_CROSSING_ID_SET.has(third)) {
- return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId, staticOverlay: true }, locale };
+ return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId }, locale };
  }
- // /guida-frontaliere/tempi-attesa-dogana/ (hub) and /guida-frontaliere/mappa-confine/
- // are emitted via buildSeoPageHtml's `guideSlugs` skeleton in staticPagesPlugin.ts.
- // Without staticOverlay the SPA replaces that small skeleton with FrontierGuide's
- // full interactive border section (filters + 500px map + 20+ crossing cards) or
- // BorderMunicipalitiesMap's two-column layout on hydrate — a large CLS jump
- // (field p75 1.94 on tempi-attesa-dogana, 0.53 on mappa-confine). Mirrors the
- // mappa-live-valichi / F8 staticOverlay pattern above.
- if (sub === 'border' || sub === 'border-map') {
- return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab, staticOverlay: true }, locale };
- }
+ // NB (review PR #4324): NIENTE staticOverlay per border/border-map — le loro
+ // pagine statiche sono emesse DENTRO #root dal fallback shell di
+ // staticPagesPlugin (nessun main.seo-static-content fuori dal root):
+ // con staticOverlay l'hydration cancella il contenuto e App.tsx non monta
+ // il <main> SPA → pagina permanentemente vuota per gli utenti JS.
+ // Il fix CLS per queste route richiede prima il contratto overlay vero
+ // (emissione fuori da #root), tracciato come follow-up.
  return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab }, locale };
  }
  }

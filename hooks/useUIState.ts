@@ -166,12 +166,13 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // history.pushState/replaceState is also independently patched by
  // useSeoPageTracking on the same App tree — under React StrictMode
  // double-invocation or an interleaved mount/unmount ordering, the
- // captured `originalPushState` reference can go stale. Falling back
- // to a no-op preserves the return-shape contract without crashing
- // the whole app to the top-level ErrorBoundary over a tracking call.
+ // captured `originalPushState` reference can go stale. Fall back to
+ // History.prototype.pushState (always available): a no-op here would
+ // silently freeze the SPA URL for the whole session (broken
+ // back/refresh/share, pageviews tracked with a stale pathname).
  const ret = typeof originalPushState === 'function'
  ? originalPushState.apply(this, args as any)
- : undefined;
+ : History.prototype.pushState.apply(this ?? window.history, args as any);
  trackCurrentLocation();
  return ret;
  } as History['pushState'];

@@ -140,6 +140,7 @@ export async function main() {
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
   const WINDOW_DAYS = process.env.CWV_MONITOR_WINDOW_DAYS || '7';
+const MIN_SAMPLES_PER_METRIC = 30;
   const HISTORY_FILE = process.env.CWV_MONITOR_HISTORY_FILE || DEFAULT_HISTORY_FILE;
 
   if (!KEY || !PID) {
@@ -150,6 +151,7 @@ export async function main() {
   const history = loadHistory(HISTORY_FILE);
   const today = new Date().toISOString().slice(0, 10);
   const regressions = [];
+  let queryFailures = 0;
 
   for (const page of TARGET_PAGES) {
     let snapshot;
@@ -159,26 +161,39 @@ export async function main() {
       snapshot = { cls_p75: row[0], cls_n: row[1], inp_p75: row[2], inp_n: row[3] };
     } catch (e) {
       console.error(`[cwv-monitor-check] ${page.key} (${page.path}) query failed: ${e.message}`);
+      queryFailures += 1;
       continue;
     }
 
     recordSnapshot(history, page.key, page.path, today, snapshot);
     const weeks = history.pages[page.key].weeks;
 
-    const clsReg = evaluateConsecutiveRegression(weeks, 'cls_p75', page.cls);
+    // Sample floor (review PR #4324): a p75 computed on a handful of events
+    // is noise — do not call a regression (nor open an issue) on it.
+    const clsSampled = (snapshot.cls_n ?? 0) >= MIN_SAMPLES_PER_METRIC;
+    const inpSampled = (snapshot.inp_n ?? 0) >= MIN_SAMPLES_PER_METRIC;
+
+    const clsReg = clsSampled ? evaluateConsecutiveRegression(weeks, 'cls_p75', page.cls) : null;
     if (clsReg) {
       regressions.push({
         key: page.key, path: page.path, metric: 'CLS', unit: '',
         fmt: fmtCls, threshold: page.cls, ...clsReg,
       });
     }
-    const inpReg = evaluateConsecutiveRegression(weeks, 'inp_p75', page.inp);
+    const inpReg = inpSampled ? evaluateConsecutiveRegression(weeks, 'inp_p75', page.inp) : null;
     if (inpReg) {
       regressions.push({
         key: page.key, path: page.path, metric: 'INP', unit: 'ms',
         fmt: fmtMs, threshold: page.inp, ...inpReg,
       });
     }
+  }
+
+  if (queryFailures === TARGET_PAGES.length) {
+    // Systemic failure (rotated key, wrong project, host outage): exiting 0
+    // here would leave the watchdog silently dead forever (review PR #4324).
+    console.error('[cwv-monitor-check] ALL page queries failed — PostHog auth/host is broken, failing the run');
+    process.exit(1);
   }
 
   saveHistory(HISTORY_FILE, history);
@@ -188,7 +203,7 @@ export async function main() {
 
   return syncErrorIssues({
     entries: regressions,
-    maxIssues: TARGET_PAGES.length,
+    maxIssues: regressions.length,
     labels: ['performance', 'cwv-regression'],
     source: `CWV Monitor — weekly regression check (#4302), ${WINDOW_DAYS}d window`,
     priorityFor: () => 2, // priority:high — these are money/revenue pages
