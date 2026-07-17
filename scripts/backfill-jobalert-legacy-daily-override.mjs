@@ -29,8 +29,10 @@
  * exclusion was added: 4962/4962 candidates were `backfill-newsletter`
  * docs, 0 came from the real create-alert form or one-tap CTAs.
  *
- * Idempotent: skips docs where `frequencyOverride === true` already;
- * re-running is a no-op on already-patched docs.
+ * Idempotent: skips docs where `frequencyOverride` is already set to any
+ * value — `true` means already pinned; `false` means the user explicitly
+ * reset to auto-engagement via handleResetToAuto and must NOT be overwritten.
+ * Re-running is a no-op on already-patched docs.
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS=/path/to/sa.json \
@@ -55,6 +57,7 @@ async function main() {
   console.log(`   Found ${snap.size} active daily alerts`);
 
   let alreadyPinned = 0;
+  let skippedUserReset = 0;
   let skippedInferred = 0;
   const refsToPatch = [];
 
@@ -64,8 +67,9 @@ async function main() {
       skippedInferred++;
       continue;
     }
-    if (data.frequencyOverride === true) {
-      alreadyPinned++;
+    if ('frequencyOverride' in data) {
+      if (data.frequencyOverride === true) alreadyPinned++;
+      else skippedUserReset++;
       continue;
     }
     if (DRY_RUN) {
@@ -83,6 +87,7 @@ async function main() {
   console.log('');
   console.log(`   ✅ Pinned frequencyOverride:true : ${refsToPatch.length}${DRY_RUN ? ' (dry)' : ''}`);
   console.log(`   ⏭️  Already pinned               : ${alreadyPinned}`);
+  console.log(`   ⏭️  Skipped (user reset-to-auto) : ${skippedUserReset}`);
   console.log(`   ⏭️  Skipped (inferred backfill)  : ${skippedInferred}`);
 }
 
