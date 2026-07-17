@@ -64,6 +64,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { parseDotNetJsonDate } from './dotnet-json-date.mjs';
 import { detectLang, workloadPercent } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -377,10 +378,8 @@ export async function fetchAllSelectaJobs() {
 
     // .NET "/Date(epoch_ms)/" wire format — more reliable than the
     // locale-ambiguous "dd.mm.yyyy" Date string also present on the listing.
-    const epochMatch = String(listing.OnlineDateCorrected || '').match(/\/Date\((\d+)\)\//);
-    const postedDate = epochMatch
-      ? new Date(Number(epochMatch[1])).toISOString().split('T')[0]
-      : new Date().toISOString().split('T')[0];
+    const epochDate = parseDotNetJsonDate(String(listing.OnlineDateCorrected || ''));
+    const postedDate = (epochDate || new Date()).toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
