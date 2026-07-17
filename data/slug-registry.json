@@ -69937,7 +69937,9 @@
     "canonicalSlug": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-bern",
     "canton": "BE",
     "createdAt": "2026-06-30",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-d-bern"
+    }
   },
   "id|galenica.com|3107254": {
     "canonicalSlug": "collaboratore-trice-mitarbeiterin-kundendienst-m-w-d-galenica-ag-galenica-bern",
@@ -70035,7 +70037,9 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "de": "data-ingenieur-w-m-d-galenica-ag-galenica-bern",
-      "it": "data-ingegnere-w-m-d-galenica-ag-galenica-bern"
+      "it": "data-ingegnere-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-data-engineer-w-m-d-bern",
+      "fr": "data-ingenieur-w-m-d-galenica-ag-galenica-bern"
     }
   },
   "id|galenica.com|3110305": {
@@ -70179,7 +70183,8 @@
     "canton": "BE",
     "createdAt": "2026-06-30",
     "slugByLocale": {
-      "it": "sachbearbeiter-sachbearbeiterin-inchiostro-frontale-teamleitung-w-m-d-galenica-ag-galenica-bern"
+      "it": "sachbearbeiter-sachbearbeiterin-inchiostro-frontale-teamleitung-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
     }
   },
   "id|galenica.com|3114560": {
@@ -70193,7 +70198,8 @@
     "canton": "BE",
     "createdAt": "2026-07-02",
     "slugByLocale": {
-      "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3"
+      "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3",
+      "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
     }
   },
   "id|galenica.com|3115331": {
@@ -70234,14 +70240,20 @@
     "canton": "BE",
     "createdAt": "2026-06-30",
     "slugByLocale": {
-      "fr": "drogistine-drogist-p-m-d-galenica-ag-galenica-bern"
+      "fr": "drogistine-drogist-p-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-drogistin-drogist-w-m-d-bern"
     }
   },
   "id|galenica.com|3115712": {
     "canonicalSlug": "galenica-galenica-ag-head-of-pharma-procurement-w-m-d-bern",
     "canton": "BE",
     "createdAt": "2026-06-30",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "responsabile-pharma-procurement-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-head-of-pharma-procurement-w-m-d-bern",
+      "de": "leiter-pharma-procurement-w-m-d-galenica-ag-galenica-bern",
+      "fr": "responsable-pharma-procurement-w-m-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3115766": {
     "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
@@ -70249,14 +70261,18 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern",
-      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern"
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
     }
   },
   "id|galenica.com|3115871": {
     "canonicalSlug": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern",
     "canton": "BE",
     "createdAt": "2026-06-30",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-sachbearbeiter-kundenservice-retouren-w-m-d-bern",
+      "fr": "sachbearbeiter-kundenservice-retour-w-m-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3116027": {
     "canonicalSlug": "galenica-galenica-ag-management-assistant-w-m-d-bern",
@@ -70283,7 +70299,8 @@
     "createdAt": "2026-07-02",
     "slugByLocale": {
       "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69",
-      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-3b4a69"
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-3b4a69",
+      "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
     }
   },
   "id|galenica.com|3116264": {
@@ -70291,7 +70308,8 @@
     "canton": "BE",
     "createdAt": "2026-06-30",
     "slugByLocale": {
-      "fr": "etudiante-auchulfe-w-m-d-galenica-ag-galenica-bern"
+      "fr": "etudiante-auchulfe-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-studentische-aushilfe-w-m-d-bern"
     }
   },
   "id|galenica.com|3116483": {
@@ -70322,7 +70340,8 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "fr": "gestionnaire-de-logiciels-et-gestionnaire-de-logiciels-principal-w-m-d-galenica-ag-galenica-bern",
-      "it": "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern"
+      "it": "software-seniorentwickler-softwareentwicklerin-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-senior-softwareentwickler-softwareentwicklerin-w-m-d-bern"
     }
   },
   "id|galenica.com|3116920": {
@@ -70330,20 +70349,26 @@
     "canton": "BE",
     "createdAt": "2026-07-01",
     "slugByLocale": {
-      "fr": "gestionnaire-principal-de-categorie-m-j-galenica-ag-galenica-bern"
+      "fr": "gestionnaire-principal-de-categorie-m-j-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-senior-category-manager-w-m-d-bern"
     }
   },
   "id|galenica.com|3117384": {
     "canonicalSlug": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern",
     "canton": "BE",
     "createdAt": "2026-06-30",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "qualitatsmanager-w-m-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3117387": {
     "canonicalSlug": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
     "canton": "BE",
     "createdAt": "2026-07-01",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-assistant-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
+      "de": "assistent-en-pharmacie-assistante-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3117496": {
     "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-bern",
@@ -70369,14 +70394,21 @@
     "canonicalSlug": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
     "canton": "BE",
     "createdAt": "2026-07-03",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
+      "fr": "proprietaire-de-la-demande-de-crm-w-m-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3118225": {
     "canonicalSlug": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-bern",
     "canton": "BE",
     "createdAt": "2026-07-01",
     "slugByLocale": {
-      "it": "farmacia-pharmacienne-f-h-galenica-ag-galenica-bern"
+      "it": "farmacia-pharmacienne-f-h-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-pharmacien-pharmacienne-f-h-bern",
+      "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern",
+      "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
     }
   },
   "id|galenica.com|3118610": {
@@ -70394,13 +70426,19 @@
     "canonicalSlug": "galenica-galenica-ag-talent-acquisition-specialist-w-m-d-bern",
     "canton": "BE",
     "createdAt": "2026-07-02",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-talent-acquisition-specialist-w-m-d-bern",
+      "de": "talent-acquisition-spezialist-w-m-d-galenica-ag-galenica-bern",
+      "fr": "talent-acquisition-specialiste-w-m-d-galenica-ag-galenica-bern"
+    }
   },
   "id|galenica.com|3118739": {
     "canonicalSlug": "galenica-galenica-ag-verkaufsberaterin-verkaufsberater-naturkosmetik-w-m-d-bern",
     "canton": "BE",
     "createdAt": "2026-07-03",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-verkaufsberaterin-verkaufsberater-naturkosmetik-w-m-d-bern"
+    }
   },
   "id|galenica.com|3118763": {
     "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
@@ -70408,7 +70446,8 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-d7dda1",
-      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d7dda1"
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d7dda1",
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
     }
   },
   "id|galenica.com|3118815": {
@@ -219309,7 +219348,8 @@
     "slugByLocale": {
       "fr": "gestionnaire-des-risques-et-de-la-diligence-raisonnable-approvisionnement-ministeriel-a-100-geberit-rapperswil-jona",
       "de": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-ch",
-      "it": "responsabile-rischi-e-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona"
+      "it": "responsabile-rischi-e-due-diligence-corporate-procurement-a-100-geberit-rapperswil-jona",
+      "en": "risk-and-due-diligence-manager-corporate-procurement-a-100-geberit-rapperswil-jona"
     }
   },
   "url|https://jobs.geberit.com/job-invite/2001?locale=de_de": {
@@ -333436,7 +333476,10 @@
   "id|sulzer.wd502.myworkdayjobs.com|jr103919": {
     "canonicalSlug": "head-of-product-solution-segment-marketing-sulzer-ch",
     "slugByLocale": {
-      "en": "head-of-product-solution-segment-marketing-sulzer-ch"
+      "en": "head-of-product-solution-segment-marketing-sulzer-ch",
+      "it": "responsabile-product-solution-segment-marketing-sulzer-winterthur",
+      "de": "leiter-product-solution-segment-marketing-sulzer-winterthur",
+      "fr": "responsable-product-solution-segment-marketing-sulzer-winterthur"
     },
     "createdAt": "2026-07-16",
     "canton": "ZH"
@@ -334534,7 +334577,8 @@
     "slugByLocale": {
       "it": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
       "de": "it-application-analyst-plm-cax-a-80-100-geberit-ch",
-      "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona"
+      "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona",
+      "en": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
     },
     "createdAt": "2026-07-16",
     "canton": "SG"
@@ -334542,7 +334586,10 @@
   "url|https://jobs.geberit.com/job-invite/2041?locale=de_de": {
     "canonicalSlug": "praktikant-plp-gps-engineering-a-80-100-geberit-ch",
     "slugByLocale": {
-      "de": "praktikant-plp-gps-engineering-a-80-100-geberit-ch"
+      "de": "praktikant-plp-gps-engineering-a-80-100-geberit-ch",
+      "it": "intern-plp-gps-engineering-a-80-100-geberit-rapperswil-jona",
+      "en": "intern-plp-gps-engineering-a-80-100-geberit-rapperswil-jona",
+      "fr": "stage-plp-gps-engineering-a-80-100-geberit-rapperswil-jona"
     },
     "createdAt": "2026-07-16",
     "canton": "SG"
@@ -336575,7 +336622,8 @@
     "slugByLocale": {
       "de": "technische-r-sachbearbeiter-in-avor-stadler-rail-ch",
       "it": "manico-tecnico-caso-avor-stadler-rail-frauenfeld",
-      "en": "technical-case-handler-avor-stadler-rail-frauenfeld"
+      "en": "technical-case-handler-avor-stadler-rail-frauenfeld",
+      "fr": "technical-case-handler-avor-stadler-rail-frauenfeld"
     },
     "createdAt": "2026-07-17",
     "canton": "TG"
@@ -337323,7 +337371,8 @@
     "slugByLocale": {
       "de": "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
       "it": "internship-in-media-research-data-analytics-srg-ssr-zurich",
-      "fr": "stage-recherche-sur-les-medias-et-analyse-des-donnees-srg-ssr-zurich"
+      "fr": "stage-recherche-sur-les-medias-et-analyse-des-donnees-srg-ssr-zurich",
+      "en": "internship-in-media-research-data-analytics-srg-ssr-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337543,7 +337592,8 @@
     "slugByLocale": {
       "it": "structured-products-trader-spanish-market-alpiq-olten",
       "de": "structured-products-trader-spanischer-markt-alpiq-olten",
-      "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten"
+      "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten",
+      "en": "structured-products-trader-spanish-market-alpiq-olten"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -338048,7 +338098,10 @@
   "id|solique.ch|4039405": {
     "canonicalSlug": "recruiter-alle-kanton-zuerich-zurich",
     "slugByLocale": {
-      "de": "recruiter-alle-kanton-zuerich-zurich"
+      "de": "recruiter-alle-kanton-zuerich-zurich",
+      "it": "reclute-tutti-kantonale-verwaltung-zurich-zurich",
+      "en": "recruiters-all-kantonale-verwaltung-zurich-zurich",
+      "fr": "recrutements-tous-kantonale-verwaltung-zurich-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -338056,7 +338109,10 @@
   "id|solique.ch|4038722": {
     "canonicalSlug": "arzt-arztin-medizinischer-dienst-kanton-zuerich-regensdorf",
     "slugByLocale": {
-      "de": "arzt-arztin-medizinischer-dienst-kanton-zuerich-regensdorf"
+      "de": "arzt-arztin-medizinischer-dienst-kanton-zuerich-regensdorf",
+      "it": "dottore-servizio-medico-kantonale-verwaltung-zurich-regensdorf",
+      "en": "doctor-medical-service-kantonale-verwaltung-zurich-regensdorf-7de9ff",
+      "fr": "docteur-service-medical-kantonale-verwaltung-zurich-regensdorf-7de9ff"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -344454,7 +344510,8 @@
   "id|selecta.ch|4622": {
     "canonicalSlug": "business-development-manager-b2b-m-w-d-selecta-westschweiz",
     "slugByLocale": {
-      "de": "business-development-manager-b2b-m-w-d-selecta-westschweiz"
+      "de": "business-development-manager-b2b-m-w-d-selecta-westschweiz",
+      "fr": "directeur-du-developpement-des-affaires-b2b-m-f-d-selecta-steinhausen"
     },
     "createdAt": "2026-07-17",
     "canton": "ZG"
@@ -344464,7 +344521,8 @@
     "slugByLocale": {
       "de": "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und",
       "it": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
-      "en": "business-development-manager-b2b-m-w-d-selecta-steinhausen"
+      "en": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+      "fr": "directeur-du-developpement-des-affaires-b2b-m-f-d-selecta-steinhausen-6f9477"
     },
     "createdAt": "2026-07-17",
     "canton": "ZG"
@@ -344472,7 +344530,8 @@
   "id|zurich.com|1358603457": {
     "canonicalSlug": "vp-senior-underwriting-manager-e-s-property-zurich-insurance-sede-ticino-lugano-wthbar",
     "slugByLocale": {
-      "en": "vp-senior-underwriting-manager-e-s-property-zurich-insurance-sede-ticino-lugano-wthbar"
+      "en": "vp-senior-underwriting-manager-e-s-property-zurich-insurance-sede-ticino-lugano-wthbar",
+      "fr": "vp-gestionnaire-principal-de-la-souscription-biens-e-et-s-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344502,7 +344561,9 @@
   "id|zurich.com|819123702": {
     "canonicalSlug": "practicante-de-marketing-bogota-zurich-insurance-sede-ticino-lugano-9h0ct2",
     "slugByLocale": {
-      "fr": "practicante-de-marketing-bogota-zurich-insurance-sede-ticino-lugano-9h0ct2"
+      "fr": "practicante-de-marketing-bogota-zurich-insurance-sede-ticino-lugano-9h0ct2",
+      "it": "marketing-practitioner-bogota-zurich-insurance-sede-ticino-lugano",
+      "de": "marketingpraktiker-bogota-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344521,7 +344582,9 @@
   "id|zurich.com|779002202": {
     "canonicalSlug": "business-development-manager-life-insurance-zurich-insurance-sede-ticino-lugano-1amw8m",
     "slugByLocale": {
-      "en": "business-development-manager-life-insurance-zurich-insurance-sede-ticino-lugano-1amw8m"
+      "en": "business-development-manager-life-insurance-zurich-insurance-sede-ticino-lugano-1amw8m",
+      "it": "business-development-manager-assicurazione-vita-zurich-insurance-sede-ticino-lugano",
+      "fr": "gestionnaire-du-developpement-des-entreprises-assurance-vie-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344529,7 +344592,8 @@
   "id|zurich.com|1328118557": {
     "canonicalSlug": "underwriting-manager-personal-lines-new-product-general-insurance-zurich-insurance-sede-ticino-lugano-f14ue0",
     "slugByLocale": {
-      "en": "underwriting-manager-personal-lines-new-product-general-insurance-zurich-insurance-sede-ticino-lugano-f14ue0"
+      "en": "underwriting-manager-personal-lines-new-product-general-insurance-zurich-insurance-sede-ticino-lugano-f14ue0",
+      "fr": "gestionnaire-de-souscription-lignes-personnelles-et-nouveau-produit-assurance-generale-zurich-insurance-sede-ticino"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344538,7 +344602,9 @@
     "canonicalSlug": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-freut-sich-a",
     "slugByLocale": {
       "it": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-freut-sich-a",
-      "de": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-f-tzan9i"
+      "de": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-f-tzan9i",
+      "en": "company-specialist-in-the-field-service-west-m-f-d-zurich-insurance-sede-ticino-ticino",
+      "fr": "specialiste-de-l-entreprise-dans-le-service-exterieur-ouest-m-f-d-zurich-insurance-sede-ticino-ticino"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344546,7 +344612,9 @@
   "id|zurich.com|1330723057": {
     "canonicalSlug": "group-operations-executive-zurich-insurance-sede-ticino-lugano-0bfbyi",
     "slugByLocale": {
-      "en": "group-operations-executive-zurich-insurance-sede-ticino-lugano-0bfbyi"
+      "en": "group-operations-executive-zurich-insurance-sede-ticino-lugano-0bfbyi",
+      "it": "gestione-del-gruppo-zurich-insurance-sede-ticino-lugano",
+      "fr": "chef-des-operations-de-groupe-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344565,7 +344633,9 @@
   "id|zurich.com|1358593057": {
     "canonicalSlug": "ua-associate-domestic-casualty-zurich-insurance-sede-ticino-lugano-whdra1",
     "slugByLocale": {
-      "en": "ua-associate-domestic-casualty-zurich-insurance-sede-ticino-lugano-whdra1"
+      "en": "ua-associate-domestic-casualty-zurich-insurance-sede-ticino-lugano-whdra1",
+      "de": "ua-associate-inlandische-unfalle-zurich-insurance-sede-ticino-lugano",
+      "fr": "ua-associe-cas-domestiques-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344630,7 +344700,9 @@
   "id|zurich.com|1361409257": {
     "canonicalSlug": "office-services-agent-20-hour-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception-switchboard-experience-posses-szgef9",
     "slugByLocale": {
-      "en": "office-services-agent-20-hour-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception-switchboard-experience-posses-szgef9"
+      "en": "office-services-agent-20-hour-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception-switchboard-experience-posses-szgef9",
+      "it": "ufficio-servizi-agente-20-ore-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception",
+      "fr": "agent-des-services-de-bureau-20-heures-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344687,7 +344759,9 @@
     "canonicalSlug": "addetto-a-al-commercio-al-dettaglio-80-100-landi-weinfelden",
     "slugByLocale": {
       "it": "addetto-a-al-commercio-al-dettaglio-80-100-landi-weinfelden",
-      "de": "detailhandelsfachmann-frau-80-100-landi-weinfelden"
+      "de": "detailhandelsfachmann-frau-80-100-landi-weinfelden",
+      "en": "retail-trade-specialist-80-100-landi-weinfelden",
+      "fr": "specialiste-du-commerce-de-detail-80-100-landi-weinfelden"
     },
     "createdAt": "2026-07-17",
     "canton": "TG"
@@ -344696,7 +344770,9 @@
     "canonicalSlug": "fachverantwortliche-fachverantwortlicher-fachkurse-e-administration-m-w-d-landi-schweiz-ag-dotzigen",
     "slugByLocale": {
       "it": "fachverantwortliche-fachverantwortlicher-fachkurse-e-administration-m-w-d-landi-schweiz-ag-dotzigen",
-      "de": "fachverantwortliche-fachverantwortlicher-fachkurse-und-administration-w-m-d-landi-schweiz-ag-dotzigen"
+      "de": "fachverantwortliche-fachverantwortlicher-fachkurse-und-administration-w-m-d-landi-schweiz-ag-dotzigen",
+      "en": "specialist-responsible-specialist-responsible-courses-and-administration-w-m-d-landi-schweiz-ag-dotzigen",
+      "fr": "specialiste-responsable-specialiste-responsable-des-cours-et-de-l-administration-w-m-d-landi-schweiz-ag-dotzigen"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -344713,7 +344789,8 @@
     "canonicalSlug": "point-of-sale-coach-m-w-d-per-la-kantone-be-lu-so-e-ag-landi-schweiz-ag-dotzigen",
     "slugByLocale": {
       "it": "point-of-sale-coach-m-w-d-per-la-kantone-be-lu-so-e-ag-landi-schweiz-ag-dotzigen",
-      "de": "point-of-sale-coach-w-m-d-fur-die-kantone-be-lu-so-und-ag-landi-schweiz-ag-dotzigen"
+      "de": "point-of-sale-coach-w-m-d-fur-die-kantone-be-lu-so-und-ag-landi-schweiz-ag-dotzigen",
+      "fr": "coach-de-point-de-vente-f-m-d-pour-les-cantons-be-lu-so-et-ag-landi-schweiz-ag-dotzigen"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -344721,7 +344798,9 @@
   "id|fenaco.com|bc75d9c2-516c-4676-acbb-53ab14233400": {
     "canonicalSlug": "ladenleiterin-ladenleiter-volg-oberembrach-zh-w-m-d-volg-oberembrach",
     "slugByLocale": {
-      "de": "ladenleiterin-ladenleiter-volg-oberembrach-zh-w-m-d-volg-oberembrach"
+      "de": "ladenleiterin-ladenleiter-volg-oberembrach-zh-w-m-d-volg-oberembrach",
+      "it": "shop-manager-volg-oberembrach-zh-w-m-d-volg-oberembrach",
+      "fr": "directeur-commercial-volg-oberembrach-zh-w-m-d-volg-oberembrach"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -344730,7 +344809,9 @@
     "canonicalSlug": "mitarbeiterin-collaboratore-trice-verkaufs-servizio-interno-pflanzenschutz-m-w-d-ufa-samen-lyssach",
     "slugByLocale": {
       "it": "mitarbeiterin-collaboratore-trice-verkaufs-servizio-interno-pflanzenschutz-m-w-d-ufa-samen-lyssach",
-      "de": "mitarbeiterin-mitarbeiter-verkaufs-innendienst-pflanzenschutz-w-m-d-ufa-samen-lyssach"
+      "de": "mitarbeiterin-mitarbeiter-verkaufs-innendienst-pflanzenschutz-w-m-d-ufa-samen-lyssach",
+      "en": "employee-employee-sales-indoor-plant-protection-w-m-d-ufa-samen-lyssach",
+      "fr": "employes-employes-ventes-a-l-interieur-protection-des-plantes-w-m-d-ufa-samen-lyssach"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -344738,7 +344819,10 @@
   "id|fenaco.com|350285cf-db48-4ec2-ad93-a4c6e4ba55c0": {
     "canonicalSlug": "verkaufer-in-40-60-topshop-durnten-landi-bachtel-durnten",
     "slugByLocale": {
-      "de": "verkaufer-in-40-60-topshop-durnten-landi-bachtel-durnten"
+      "de": "verkaufer-in-40-60-topshop-durnten-landi-bachtel-durnten",
+      "it": "venditore-in-40-60-topshop-durnten-landi-bachtel-durnten",
+      "en": "seller-in-40-60-topshop-durnten-landi-bachtel-durnten",
+      "fr": "vendeur-en-40-60-topshop-durnten-landi-bachtel-durnten"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -344746,7 +344830,10 @@
   "id|fenaco.com|4b377f00-deb6-41f3-9cde-9d7b8078bdce": {
     "canonicalSlug": "verkauferin-verkaufer-volg-densburen-w-m-d-volg-densburen",
     "slugByLocale": {
-      "de": "verkauferin-verkaufer-volg-densburen-w-m-d-volg-densburen"
+      "de": "verkauferin-verkaufer-volg-densburen-w-m-d-volg-densburen",
+      "it": "venditore-volg-densburen-w-m-d-volg-densburen",
+      "en": "seller-volg-densburen-w-m-d-volg-densburen",
+      "fr": "vendeur-volg-densburen-w-m-d-volg-densburen"
     },
     "createdAt": "2026-07-17",
     "canton": "AG"
@@ -344754,7 +344841,9 @@
   "id|fenaco.com|27249016-1519-4ae3-9797-5ebba6425c9e": {
     "canonicalSlug": "category-manager-m-w-d-fenaco-biel",
     "slugByLocale": {
-      "de": "category-manager-m-w-d-fenaco-biel"
+      "de": "category-manager-m-w-d-fenaco-biel",
+      "it": "responsabile-categoria-m-f-d-fenaco-biel",
+      "fr": "gestionnaire-de-categorie-m-f-d-fenaco-biel"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -344830,7 +344919,10 @@
   "url|https://jobs.zfv.ch/geschaeftsfuehrerin-de-j4591.html": {
     "canonicalSlug": "geschaftsfuhrer-in-zfv-unternehmungen-murten",
     "slugByLocale": {
-      "de": "geschaftsfuhrer-in-zfv-unternehmungen-murten"
+      "de": "geschaftsfuhrer-in-zfv-unternehmungen-murten",
+      "it": "amministratore-delegato-zfv-unternehmungen-murten",
+      "en": "managing-director-zfv-unternehmungen-murten",
+      "fr": "directeur-general-zfv-unternehmungen-murten"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -344971,7 +345063,10 @@
   "url|https://www.pemsa.ch/it/job/idraulico-2683651": {
     "canonicalSlug": "idraulico-pemsa-melide",
     "slugByLocale": {
-      "it": "idraulico-pemsa-melide"
+      "it": "idraulico-pemsa-melide",
+      "en": "idraulation-pemsa-melide",
+      "de": "idraulierung-pemsa-melide",
+      "fr": "idraulement-pemsa-melide"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344979,7 +345074,10 @@
   "url|https://www.pemsa.ch/it/job/idraulico-2683681": {
     "canonicalSlug": "idraulico-pemsa-lugano",
     "slugByLocale": {
-      "it": "idraulico-pemsa-lugano"
+      "it": "idraulico-pemsa-lugano",
+      "en": "hydraulic-pemsa-lugano",
+      "de": "hydraulik-pemsa-lugano",
+      "fr": "hydraulique-pemsa-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344987,7 +345085,10 @@
   "url|https://www.pemsa.ch/it/job/idraulico-per-acquedotti-2683645": {
     "canonicalSlug": "idraulico-per-acquedotti-pemsa-lugano",
     "slugByLocale": {
-      "it": "idraulico-per-acquedotti-pemsa-lugano"
+      "it": "idraulico-per-acquedotti-pemsa-lugano",
+      "en": "idraulic-for-acquedotts-pemsa-lugano",
+      "de": "idraulik-fur-akquedots-pemsa-lugano",
+      "fr": "idraulique-pour-les-acquedotts-pemsa-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -344995,7 +345096,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2683701": {
     "canonicalSlug": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd",
     "slugByLocale": {
-      "it": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd"
+      "it": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd",
+      "en": "vd-heating-system-installer-pemsa-renens-vd",
+      "de": "vd-heizsysteminstallateur-pemsa-renens-vd",
+      "fr": "installation-du-systeme-de-chauffage-vd-pemsa-renens-vd"
     },
     "createdAt": "2026-07-17",
     "canton": "VD"
@@ -345003,7 +345107,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-elettricista-afc-2683697": {
     "canonicalSlug": "installatore-elettricista-afc-pemsa-geneve",
     "slugByLocale": {
-      "it": "installatore-elettricista-afc-pemsa-geneve"
+      "it": "installatore-elettricista-afc-pemsa-geneve",
+      "en": "afc-electrical-installer-pemsa-geneve",
+      "de": "afc-elektroinstallateur-pemsa-geneve",
+      "fr": "afc-installateur-electrique-pemsa-geneve"
     },
     "createdAt": "2026-07-17",
     "canton": "GE"
@@ -345011,7 +345118,10 @@
   "url|https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2683648": {
     "canonicalSlug": "installatore-impianti-sprinkler-pemsa-mezzovico",
     "slugByLocale": {
-      "it": "installatore-impianti-sprinkler-pemsa-mezzovico"
+      "it": "installatore-impianti-sprinkler-pemsa-mezzovico",
+      "en": "installer-sprinkler-systems-pemsa-mezzovico",
+      "de": "installateur-sprinklersysteme-pemsa-mezzovico",
+      "fr": "systemes-d-arrosage-d-installateur-pemsa-mezzovico"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -345019,7 +345129,9 @@
   "url|https://www.pemsa.ch/it/job/pavimentista-posatore-di-pavimenti-2683694": {
     "canonicalSlug": "pavimentista-posatore-di-pavimenti-pemsa-fribourg",
     "slugByLocale": {
-      "it": "pavimentista-posatore-di-pavimenti-pemsa-fribourg"
+      "it": "pavimentista-posatore-di-pavimenti-pemsa-fribourg",
+      "en": "floor-pavimentist-floor-dispenser-pemsa-fribourg",
+      "fr": "pavageur-de-sol-distributeur-de-sol-pemsa-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345027,7 +345139,10 @@
   "url|https://www.pemsa.ch/it/job/pittore-con-esperienza-2683686": {
     "canonicalSlug": "pittore-con-esperienza-pemsa-fribourg",
     "slugByLocale": {
-      "it": "pittore-con-esperienza-pemsa-fribourg"
+      "it": "pittore-con-esperienza-pemsa-fribourg",
+      "en": "experienced-painter-pemsa-fribourg",
+      "de": "erfahrener-maler-pemsa-fribourg",
+      "fr": "peintre-experimente-pemsa-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345035,7 +345150,10 @@
   "url|https://www.pemsa.ch/it/job/progettista-elettrico-2683704": {
     "canonicalSlug": "progettista-elettrico-pemsa-geneve",
     "slugByLocale": {
-      "it": "progettista-elettrico-pemsa-geneve"
+      "it": "progettista-elettrico-pemsa-geneve",
+      "en": "electric-designer-pemsa-geneve-c6adca",
+      "de": "elektrischer-designer-pemsa-geneve-c6adca",
+      "fr": "designer-electrique-pemsa-geneve-c6adca"
     },
     "createdAt": "2026-07-17",
     "canton": "GE"
@@ -345076,7 +345194,9 @@
     "canonicalSlug": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
     "slugByLocale": {
       "fr": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
-      "it": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
+      "it": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+      "en": "clinical-nurse-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+      "de": "klinische-krankenschwester-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345084,7 +345204,9 @@
   "url|https://hopital-fribourgeois.breezy.hr/p/aa8ec63e5f20-assistant-e-hotelier-ere-80-assistent-in-hotellerie-80": {
     "canonicalSlug": "assistant-e-hotelier-ere-80-assistent-in-hotellerie-80-hfr-hopital-fribourgeois-fribourg",
     "slugByLocale": {
-      "fr": "assistant-e-hotelier-ere-80-assistent-in-hotellerie-80-hfr-hopital-fribourgeois-fribourg"
+      "fr": "assistant-e-hotelier-ere-80-assistent-in-hotellerie-80-hfr-hopital-fribourgeois-fribourg",
+      "it": "assistente-dell-hotel-80-partecipare-in-hotellerie-80-hopital-fribourgeois-hfr-fribourg",
+      "en": "hotel-assistant-80-attend-in-hotellerie-80-hopital-fribourgeois-hfr-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345108,7 +345230,10 @@
   "id|fr.ch|1366594857": {
     "canonicalSlug": "jurist-in-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "jurist-in-etat-de-fribourg-ch"
+      "de": "jurist-in-etat-de-fribourg-ch",
+      "it": "avvocato-etat-de-fribourg-fribourg-5153ac",
+      "en": "lawyer-etat-de-fribourg-fribourg-5153ac",
+      "fr": "avocat-etat-de-fribourg-fribourg-5153ac"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345116,7 +345241,9 @@
   "id|fr.ch|1366571357": {
     "canonicalSlug": "concierge-agent-e-d-exploitation-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "concierge-agent-e-d-exploitation-etat-de-fribourg-ch"
+      "fr": "concierge-agent-e-d-exploitation-etat-de-fribourg-ch",
+      "it": "concierge-responsabile-operativo-etat-de-fribourg-fribourg",
+      "en": "concierge-operating-officer-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345124,7 +345251,10 @@
   "id|fr.ch|1366553257": {
     "canonicalSlug": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch"
+      "de": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch",
+      "it": "housekeeper-manutenzione-professionale-etat-de-fribourg-fribourg",
+      "en": "housekeeper-in-professional-maintenance-etat-de-fribourg-fribourg",
+      "fr": "menage-entretien-professionnel-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345132,7 +345262,10 @@
   "id|fr.ch|1366543057": {
     "canonicalSlug": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-ch"
+      "fr": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-ch",
+      "it": "agente-di-pianificazione-ospedaliera-etat-de-fribourg-fribourg",
+      "en": "hospital-planning-officer-etat-de-fribourg-fribourg",
+      "de": "krankenhausplanungsbeauftragter-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345140,7 +345273,10 @@
   "id|fr.ch|1366597957": {
     "canonicalSlug": "professeur-e-en-droit-canonique-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "professeur-e-en-droit-canonique-etat-de-fribourg-ch"
+      "fr": "professeur-e-en-droit-canonique-etat-de-fribourg-ch",
+      "it": "professore-di-diritto-canonico-etat-de-fribourg-fribourg",
+      "en": "professor-of-canon-law-etat-de-fribourg-fribourg",
+      "de": "professor-fur-kanonisches-recht-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345149,7 +345285,9 @@
     "canonicalSlug": "professor-in-per-kirchenrecht-etat-de-fribourg",
     "slugByLocale": {
       "de": "professor-in-fur-kirchenrecht-etat-de-fribourg-ch",
-      "it": "professor-in-per-kirchenrecht-etat-de-fribourg"
+      "it": "professor-in-per-kirchenrecht-etat-de-fribourg",
+      "en": "professor-of-canon-law-etat-de-fribourg-fribourg-34b907",
+      "fr": "professeur-de-droit-canonique-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345157,7 +345295,10 @@
   "id|fr.ch|1366594757": {
     "canonicalSlug": "juriste-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "juriste-etat-de-fribourg-ch"
+      "fr": "juriste-etat-de-fribourg-ch",
+      "it": "ufficiale-legale-etat-de-fribourg-fribourg-c9cf61",
+      "en": "legal-officer-etat-de-fribourg-fribourg-c9cf61",
+      "de": "legal-officer-etat-de-fribourg-fribourg-c9cf61"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345165,7 +345306,10 @@
   "id|fr.ch|1366579757": {
     "canonicalSlug": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+      "de": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
+      "it": "personale-conto-etat-de-fribourg-fribourg",
+      "en": "personnel-accounting-etat-de-fribourg-fribourg",
+      "fr": "personnel-comptable-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345175,7 +345319,8 @@
     "slugByLocale": {
       "it": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
       "en": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
-      "fr": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2"
+      "fr": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
+      "de": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345183,7 +345328,10 @@
   "id|fr.ch|1366579657": {
     "canonicalSlug": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+      "fr": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
+      "it": "collaboratore-nella-gestione-contabile-etat-de-fribourg-fribourg",
+      "en": "collaborator-in-accounting-management-etat-de-fribourg-fribourg",
+      "de": "mitarbeiter-im-accounting-management-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345191,7 +345339,9 @@
   "id|fr.ch|1366553157": {
     "canonicalSlug": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
+      "fr": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
+      "it": "operatore-operativo-concierge-etat-de-fribourg-fribourg",
+      "en": "operating-officer-concierge-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345200,7 +345350,9 @@
     "canonicalSlug": "verantwortliche-r-per-la-spitalplanung-etat-de-fribourg",
     "slugByLocale": {
       "de": "verantwortliche-r-fur-die-spitalplanung-etat-de-fribourg-ch",
-      "it": "verantwortliche-r-per-la-spitalplanung-etat-de-fribourg"
+      "it": "verantwortliche-r-per-la-spitalplanung-etat-de-fribourg",
+      "en": "responsible-for-hospital-planning-etat-de-fribourg-fribourg",
+      "fr": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345208,7 +345360,9 @@
   "id|fr.ch|1366720757": {
     "canonicalSlug": "lecteur-trice-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "lecteur-trice-etat-de-fribourg-ch"
+      "fr": "lecteur-trice-etat-de-fribourg-ch",
+      "it": "reader-etat-de-fribourg-fribourg",
+      "de": "lesegerat-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345216,7 +345370,10 @@
   "id|fr.ch|1366728557": {
     "canonicalSlug": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+      "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+      "it": "collaboratore-scientifico-etat-de-fribourg-fribourg",
+      "en": "scientific-collaborator-etat-de-fribourg-fribourg",
+      "de": "wissenschaftlicher-mitarbeiter-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345224,7 +345381,10 @@
   "id|fr.ch|1366737157": {
     "canonicalSlug": "coordinateur-trice-du-bachelor-en-sciences-biomedicales-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "coordinateur-trice-du-bachelor-en-sciences-biomedicales-etat-de-fribourg-ch"
+      "fr": "coordinateur-trice-du-bachelor-en-sciences-biomedicales-etat-de-fribourg-ch",
+      "it": "coordinatore-del-bachelor-of-biomedical-sciences-etat-de-fribourg-fribourg",
+      "en": "coordinator-of-the-bachelor-of-biomedical-sciences-etat-de-fribourg-fribourg",
+      "de": "koordinator-des-bachelor-of-biomedical-sciences-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345232,7 +345392,10 @@
   "id|fr.ch|1366732757": {
     "canonicalSlug": "developpeur-euse-full-stack-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "developpeur-euse-full-stack-etat-de-fribourg-ch"
+      "fr": "developpeur-euse-full-stack-etat-de-fribourg-ch",
+      "it": "sviluppatore-stack-completo-etat-de-fribourg-fribourg",
+      "en": "developer-full-stack-etat-de-fribourg-fribourg",
+      "de": "entwickler-full-stack-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345240,7 +345403,10 @@
   "id|fr.ch|1366737257": {
     "canonicalSlug": "koordinator-in-des-bachelor-in-biomedizinischen-wissenschaften-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "koordinator-in-des-bachelor-in-biomedizinischen-wissenschaften-etat-de-fribourg-ch"
+      "de": "koordinator-in-des-bachelor-in-biomedizinischen-wissenschaften-etat-de-fribourg-ch",
+      "it": "coordinatore-del-corso-di-laurea-in-scienze-biomediche-etat-de-fribourg-fribourg",
+      "en": "coordinator-of-the-bachelor-in-biomedical-sciences-etat-de-fribourg-fribourg",
+      "fr": "coordonnateur-du-baccalaureat-en-sciences-biomedicales-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345256,7 +345422,10 @@
   "id|fr.ch|1366710157": {
     "canonicalSlug": "secretaire-de-juge-civil-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "secretaire-de-juge-civil-etat-de-fribourg-ch"
+      "fr": "secretaire-de-juge-civil-etat-de-fribourg-ch",
+      "it": "segretario-del-giudice-civile-etat-de-fribourg-fribourg",
+      "en": "civilian-judge-secretary-etat-de-fribourg-fribourg",
+      "de": "ziviler-richtersekretar-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345266,7 +345435,8 @@
     "slugByLocale": {
       "it": "lecteur-trice-etat-de-fribourg-ch-2",
       "en": "lecteur-trice-etat-de-fribourg-ch-2",
-      "de": "lecteur-trice-etat-de-fribourg-ch-2"
+      "de": "lecteur-trice-etat-de-fribourg-ch-2",
+      "fr": "lecteur-trice-etat-de-fribourg-ch"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345274,7 +345444,10 @@
   "id|fr.ch|1366846257": {
     "canonicalSlug": "psychologin-psychologe-im-praktikum-fnpg-ambulatorium-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "psychologin-psychologe-im-praktikum-fnpg-ambulatorium-etat-de-fribourg-ch"
+      "de": "psychologin-psychologe-im-praktikum-fnpg-ambulatorium-etat-de-fribourg-ch",
+      "it": "psicologo-in-stage-fnpg-ambulatorium-etat-de-fribourg-villars-sur-glane",
+      "en": "psychologist-in-internship-fnpg-ambulatorium-etat-de-fribourg-villars-sur-glane",
+      "fr": "psychologue-en-stage-fnpg-ambulatorium-etat-de-fribourg-villars-sur-glane"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345282,7 +345455,10 @@
   "id|fr.ch|1366821457": {
     "canonicalSlug": "gerichtsschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "gerichtsschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+      "de": "gerichtsschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
+      "it": "corte-di-giustizia-e-tribunale-di-primo-grado-etat-de-fribourg-fribourg",
+      "en": "court-clerk-first-instance-court-authorities-etat-de-fribourg-fribourg",
+      "fr": "greffier-autorites-judiciaires-de-premiere-instance-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345290,7 +345466,10 @@
   "id|fr.ch|1366821357": {
     "canonicalSlug": "greffier-ere-de-premiere-instance-etat-de-fribourg-ch",
     "slugByLocale": {
-      "fr": "greffier-ere-de-premiere-instance-etat-de-fribourg-ch"
+      "fr": "greffier-ere-de-premiere-instance-etat-de-fribourg-ch",
+      "it": "registratore-di-primo-grado-etat-de-fribourg-fribourg",
+      "en": "registrar-of-first-instance-etat-de-fribourg-fribourg",
+      "de": "registrar-der-ersten-instanz-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345298,7 +345477,10 @@
   "id|fr.ch|1366821857": {
     "canonicalSlug": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
     "slugByLocale": {
-      "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+      "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+      "it": "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
+      "en": "administrative-case-handler-etat-de-fribourg-fribourg",
+      "fr": "gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345318,7 +345500,9 @@
     "canonicalSlug": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane",
     "slugByLocale": {
       "de": "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer",
-      "it": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane"
+      "it": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane",
+      "en": "the-oath-is-noted-psychotherapist-or-psychologist-in-psychotherapeutic-training-etat-de-fribourg-villars-sur-glane",
+      "fr": "le-serment-est-note-psychotherapeute-ou-psychologue-en-formation-psychotherapeutique-etat-de-fribourg-villars-sur-glane"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345327,7 +345511,9 @@
     "canonicalSlug": "adjoint-e-de-la-prefete-etat-de-fribourg",
     "slugByLocale": {
       "fr": "adjoint-e-de-la-prefete-etat-de-fribourg-ch",
-      "it": "adjoint-e-de-la-prefete-etat-de-fribourg"
+      "it": "adjoint-e-de-la-prefete-etat-de-fribourg",
+      "en": "deputy-prefect-etat-de-fribourg-fribourg",
+      "de": "stellvertretender-prafekt-etat-de-fribourg-fribourg"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -345339,5 +345525,498 @@
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
+  },
+  "id|migros.ch|7a93be48-9ced-40f8-992a-09d22f7b80af": {
+    "canonicalSlug": "massaggiatore-fisioterapista-osteopatico-activ-fitness-ruti-zh",
+    "slugByLocale": {
+      "it": "massaggiatore-fisioterapista-osteopatico-activ-fitness-ruti-zh",
+      "en": "masseur-physical-therapist-osteopath-activ-fitness-ruti-zh",
+      "de": "masseur-in-physiotherapeut-in-osteopath-in-activ-fitness-ruti-zh-9p2161",
+      "fr": "masseur-physiotherapeute-osteopathe-activ-fitness-ruti-zh"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|d1db9efd-7e62-414d-8e34-599c82140a0b": {
+    "canonicalSlug": "it-infrastructure-project-manager-m-w-d-galaxus-zurich-vrr8fn",
+    "slugByLocale": {
+      "de": "it-infrastructure-project-manager-m-w-d-galaxus-zurich-vrr8fn",
+      "fr": "gestionnaire-de-projet-d-infrastructure-de-ti-f-m-d-galaxus-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|2833e1c2-ffe5-4f78-a88e-53f795d76999": {
+    "canonicalSlug": "assistenza-agli-studenti-allrounder-in-supermercato-genossenschaft-migros-aare-schwarzenburg",
+    "slugByLocale": {
+      "it": "assistenza-agli-studenti-allrounder-in-supermercato-genossenschaft-migros-aare-schwarzenburg",
+      "en": "student-assistance-allrounder-in-supermarket-genossenschaft-migros-aare-schwarzenburg",
+      "de": "studentenaushilfe-allrounder-in-supermarkt-genossenschaft-migros-aare-schwarzenburg-i6ljli",
+      "fr": "aide-aux-etudiants-allrounder-dans-le-supermarche-genossenschaft-migros-aare-schwarzenburg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|migros.ch|2c7fd89f-b227-42c9-b1d8-8c38992c661f": {
+    "canonicalSlug": "collaboratore-trice-in-gastro-take-away-migros-paradies-genossenschaft-migros-basel-allschwil-rv2i2g",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-gastro-take-away-migros-paradies-genossenschaft-migros-basel-allschwil-rv2i2g",
+      "de": "mitarbeiter-in-gastro-take-away-migros-paradies-genossenschaft-migros-basel-allschwil-rv2i2g",
+      "fr": "gastro-prendre-loin-migros-paradise-genossenschaft-migros-basel-allschwil"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|migros.ch|01507806-c861-4501-af1f-9ae1b7b51350": {
+    "canonicalSlug": "manger-in-bakwaren-convenienza-genossenschaft-migros-basel-munchenstein",
+    "slugByLocale": {
+      "it": "manger-in-bakwaren-convenienza-genossenschaft-migros-basel-munchenstein",
+      "de": "product-manger-in-backwaren-convenience-genossenschaft-migros-basel-munchenstein-0p2fu1",
+      "fr": "manger-de-produits-dans-bakwaren-commodite-genossenschaft-migros-basel-munchenstein"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BL"
+  },
+  "id|migros.ch|cef4afd8-29e9-485f-bb23-633c395bbae6": {
+    "canonicalSlug": "allrounder-in-vendita-genossenschaft-migros-luzern-mdhf8n",
+    "slugByLocale": {
+      "it": "allrounder-in-vendita-genossenschaft-migros-luzern-mdhf8n",
+      "en": "allrounder-in-sale-genossenschaft-migros-luzern-luzern-971b5b",
+      "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-mdhf8n",
+      "fr": "allrounder-in-vente-genossenschaft-migros-luzern-mdhf8n"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "LU"
+  },
+  "id|migros.ch|f2445ae2-bfe4-4dfa-af16-1568a25c4451": {
+    "canonicalSlug": "collaboratore-trice-in-filiallogistik-verkaufer-in-food-genossenschaft-migros-luzern-zug-eayxpz",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-filiallogistik-verkaufer-in-food-genossenschaft-migros-luzern-zug-eayxpz",
+      "en": "employee-in-branch-logistics-seller-in-food-genossenschaft-migros-luzern-zug",
+      "de": "mitarbeiter-in-filiallogistik-verkaufer-in-food-genossenschaft-migros-luzern-zug-eayxpz",
+      "fr": "employe-dans-la-logistique-de-la-succursale-vendeur-dans-la-nourriture-genossenschaft-migros-luzern-zug"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "id|migros.ch|0e8a7cf9-e00d-4dbd-b6c4-6644cb9fb753": {
+    "canonicalSlug": "venditore-seller-di-allrounder-genossenschaft-migros-neuenburg-freiburg-kerzers",
+    "slugByLocale": {
+      "it": "venditore-seller-di-allrounder-genossenschaft-migros-neuenburg-freiburg-kerzers",
+      "en": "allrounder-seller-seller-genossenschaft-migros-neuenburg-freiburg-kerzers",
+      "de": "allrounder-verkaufer-in-genossenschaft-migros-neuenburg-freiburg-kerzers-gb7d0f",
+      "fr": "vendeur-vendeur-genossenschaft-migros-neuenburg-freiburg-kerzers"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|migros.ch|22a21a38-4680-4632-bf72-138697f54467": {
+    "canonicalSlug": "gestione-delle-costruzioni-micarna-gruppe-avenches",
+    "slugByLocale": {
+      "it": "gestione-delle-costruzioni-micarna-gruppe-avenches",
+      "de": "planning-construction-manager-micarna-gruppe-avenches-ivpqa9",
+      "fr": "directeur-de-la-planification-de-la-construction-micarna-gruppe-avenches"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "id|migros.ch|91c992e2-0a38-41b3-8eff-a364a2c758ea": {
+    "canonicalSlug": "business-solution-ingegnere-support-systems-dokumentenmanagement-migros-bank-wallisellen-alneh4",
+    "slugByLocale": {
+      "it": "business-solution-ingegnere-support-systems-dokumentenmanagement-migros-bank-wallisellen-alneh4",
+      "en": "business-solution-engineer-support-systems-dokumentenmanagement-migros-bank-wallisellen-alneh4",
+      "de": "business-solution-ingenieur-support-systems-dokumentenmanagement-migros-bank-wallisellen-alneh4"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|d29783c4-e8c4-4842-adf4-2339b9a239cd": {
+    "canonicalSlug": "responsabile-del-sito-web-migros-bank-wallisellen",
+    "slugByLocale": {
+      "it": "responsabile-del-sito-web-migros-bank-wallisellen",
+      "de": "website-manager-migros-bank-wallisellen-oq6njk",
+      "fr": "gestionnaire-de-site-web-migros-bank-wallisellen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|migros.ch|ffe365fa-66e7-4bc7-857d-b331427d6749": {
+    "canonicalSlug": "vendeur-specialise-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-grand-lancy",
+    "slugByLocale": {
+      "it": "vendeur-specialise-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-grand-lancy",
+      "en": "specialized-seller-fruit-vegetables-f-h-d-societe-cooperative-migros-geneve-grand-lancy",
+      "de": "spezialisierte-verkaufer-obst-gemuse-f-h-d-societe-cooperative-migros-geneve-grand-lancy",
+      "fr": "vendeur-specialise-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-grand-lancy-q0lx37"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "id|solique.ch|4040015": {
+    "canonicalSlug": "business-analista-in-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "business-analyst-in-kanton-zuerich-zurich",
+      "it": "business-analista-in-kantonale-verwaltung-zurich-zurich",
+      "en": "business-analyst-in-kantonale-verwaltung-zurich-zurich",
+      "fr": "business-analyste-in-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4040079": {
+    "canonicalSlug": "responsabile-finanzen-kantonale-verwaltung-zurich-winterthur",
+    "slugByLocale": {
+      "de": "leiter-in-finanzen-kanton-zuerich-winterthur",
+      "it": "responsabile-finanzen-kantonale-verwaltung-zurich-winterthur",
+      "en": "head-of-finance-kantonale-verwaltung-zurich-winterthur",
+      "fr": "chef-des-finances-kantonale-verwaltung-zurich-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4039835": {
+    "canonicalSlug": "procuratore-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "staatsanwaltin-staatsanwalt-kanton-zuerich-zurich",
+      "it": "procuratore-kantonale-verwaltung-zurich-zurich",
+      "en": "prosecutor-kantonale-verwaltung-zurich-zurich",
+      "fr": "procureur-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4040122": {
+    "canonicalSlug": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+    "slugByLocale": {
+      "de": "business-analyst-in-fachgebiet-steuern-kanton-zuerich-zurich",
+      "en": "business-analyst-specialty-tax-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel": {
+    "canonicalSlug": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel-100-bank-cler-zurich-x4lita",
+    "slugByLocale": {
+      "it": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel-100-bank-cler-zurich-x4lita",
+      "en": "you-want-to-learn-how-to-provide-a-real-aha-when-it-comes-to-numbers-aka-bem-internship-region-basel-100-bank-6cd82e",
+      "de": "du-willst-lernen-wie-man-beim-thema-zahlen-fur-ein-echtes-aha-sorgt-aka-bem-praktikum-region-basel-100-bank-cler-zurich-x4lita",
+      "fr": "vous-voulez-apprendre-a-fournir-un-vrai-aha-quand-il-s-agit-de-chiffres-aka-bem-stage-region-bale-100-bank-cler-6cd82e"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-2": {
+    "canonicalSlug": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-100-bank-cler-zurich-wl545d",
+    "slugByLocale": {
+      "it": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-100-bank-cler-zurich-wl545d",
+      "en": "you-want-to-learn-how-to-provide-a-real-aha-when-it-comes-to-numbers-aka-bem-internship-region-bern-100-bank-cler-3025bd",
+      "de": "du-willst-lernen-wie-man-beim-thema-zahlen-fur-ein-echtes-aha-sorgt-aka-bem-praktikum-region-bern-100-bank-cler-zurich-wl545d",
+      "fr": "vous-voulez-apprendre-a-fournir-un-vrai-aha-quand-il-s-agit-de-chiffres-aka-bem-stage-region-berne-100-bank-cler-3025bd"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-lernen-wie-man-beim-thema-zahlen-fuer-ein-echtes-aha-sorgt-aka-bem-praktikum-region-zueric": {
+    "canonicalSlug": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-zurich-100-bank-cler-zurich-qubh9d",
+    "slugByLocale": {
+      "it": "du-willst-lernen-wie-man-beim-thema-zahlen-per-ein-echtes-aha-sorgt-aka-bem-praktikum-region-zurich-100-bank-cler-zurich-qubh9d",
+      "en": "you-want-to-learn-how-to-provide-a-real-aha-when-it-comes-to-numbers-aka-bem-internship-region-zurich-100-bank-cd0828",
+      "de": "du-willst-lernen-wie-man-beim-thema-zahlen-fur-ein-echtes-aha-sorgt-aka-bem-praktikum-region-zurich-100-bank-cler-zurich-qubh9d",
+      "fr": "vous-voulez-apprendre-a-fournir-un-vrai-aha-quand-il-s-agit-de-chiffres-aka-bem-stage-region-zurich-100-bank-cler-cd0828"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-base": {
+    "canonicalSlug": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-basel-100-bank-cler-basel-zgqmji",
+    "slugByLocale": {
+      "it": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-basel-100-bank-cler-basel-zgqmji",
+      "en": "you-want-more-than-just-a-desk-job-aka-apprenticeship-merchant-merchant-efz-bank-region-basel-100-bank-cler-basel-1977d8",
+      "de": "du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-basel-100-bank-cler-basel-zgqmji",
+      "fr": "vous-voulez-plus-qu-un-simple-travail-de-bureau-alias-apprentissage-marchand-marchand-efz-banque-region-bale-100-1977d8"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern": {
+    "canonicalSlug": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-bern-100-bank-cler-basel-zgqpho",
+    "slugByLocale": {
+      "it": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-bern-100-bank-cler-basel-zgqpho",
+      "en": "you-want-more-than-just-a-desk-job-aka-apprenticeship-merchant-merchant-efz-bank-region-bern-100-bank-cler-basel-81b83a",
+      "de": "du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern-100-bank-cler-basel-zgqpho",
+      "fr": "vous-voulez-plus-qu-un-emploi-de-bureau-alias-apprentissage-marchand-marchand-efz-banque-region-berne-100-bank-81b83a"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "url|https://www.cler.ch/de/bank-cler/jobs-und-karriere-2026/suchen-und-bewerben/offene-stellen/du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-zuer": {
+    "canonicalSlug": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-zurich-100-bank-cler-basel-zh6cqd",
+    "slugByLocale": {
+      "it": "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-zurich-100-bank-cler-basel-zh6cqd",
+      "en": "you-want-more-than-just-a-desk-job-aka-apprenticeship-businesswoman-businessman-efz-bank-region-zurich-100-bank-e50610",
+      "de": "du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-zurich-100-bank-cler-basel-zh6cqd",
+      "fr": "vous-voulez-plus-qu-un-simple-travail-de-bureau-il-s-agit-de-l-apprentissage-d-une-femme-d-affaires-homme-d-e50610"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "id|solique.ch|4040341": {
+    "canonicalSlug": "projektleiterin-projektleiter-bau-come-bauherrenvertretung-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "de": "projektleiterin-projektleiter-bau-als-bauherrenvertretung-ksw-ch",
+      "it": "projektleiterin-projektleiter-bau-come-bauherrenvertretung-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4039619": {
+    "canonicalSlug": "collaboratore-trice-in-room-service-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-room-service-kantonsspital-winterthur-ksw-winterthur",
+      "en": "employee-in-room-service-kantonsspital-winterthur-ksw-winterthur",
+      "de": "mitarbeiter-in-room-service-ksw-ch",
+      "fr": "employe-service-en-chambre-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4040289": {
+    "canonicalSlug": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "de": "neuropsychologin-neuropsychologe-ksw-ch",
+      "it": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+      "en": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "neuropsychologin-neuropsychologe-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037369": {
+    "canonicalSlug": "tecnica-chirurgica-professionale-specialistica-nella-zona-degli-organi-interni-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "tecnica-chirurgica-professionale-specialistica-nella-zona-degli-organi-interni-kantonsspital-winterthur-ksw-winterthur",
+      "en": "professional-specialist-surgical-technique-in-the-internal-organs-area-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-operationstechnik-im-innere-organe-bereich-ksw-ch",
+      "fr": "technique-chirurgicale-professionnelle-specialisee-dans-le-domaine-des-organes-internes-kantonsspital-winterthur-ksw"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037372": {
+    "canonicalSlug": "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
+    "slugByLocale": {
+      "it": "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
+      "en": "specialist-specialist-operational-storage-kantonsspital-winterthur-ksw-winterthur",
+      "de": "fachfrau-fachmann-operationslagerung-ksw-ch",
+      "fr": "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2761.umantis.com|2757": {
+    "canonicalSlug": "vice-capo-reparto-infermieristico-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+    "slugByLocale": {
+      "it": "vice-capo-reparto-infermieristico-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "en": "deputy-head-of-nursing-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "de": "stellvertretender-leiter-der-krankenpflege-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "fr": "chef-adjoint-des-soins-infirmiers-80-100-eoc-ente-ospedaliero-cantonale-lugano"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|epfl.ch|1165129655": {
+    "canonicalSlug": "ricerca-manager-epfl-lausanne",
+    "slugByLocale": {
+      "fr": "recherche-manager-epfl-lausanne",
+      "it": "ricerca-manager-epfl-lausanne",
+      "en": "research-manager-epfl-lausanne",
+      "de": "forschung-manager-epfl-lausanne"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1165127155": {
+    "canonicalSlug": "program-manager-istruzione-e-innovazione-epfl-lausanne",
+    "slugByLocale": {
+      "en": "program-manager-education-and-innovation-epfl-lausanne",
+      "it": "program-manager-istruzione-e-innovazione-epfl-lausanne",
+      "de": "programmmanager-bildung-und-innovation-epfl-lausanne",
+      "fr": "gestionnaire-de-programme-education-et-innovation-epfl-lausanne"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "id|galenica.com|3118586": {
+    "canonicalSlug": "apotheker-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "apotheker-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-apotheker-fur-fph-weiterbildung-w-m-d-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3119686": {
+    "canonicalSlug": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+      "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-4cbeb1",
+      "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern-4cbeb1"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3119845": {
+    "canonicalSlug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "de": "apotheker-apotherin-w-m-d-galenica-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3119866": {
+    "canonicalSlug": "pharma-assistent-pharma-assistentin-come-springer-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "pharma-assistent-pharma-assistentin-come-springer-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3120543": {
+    "canonicalSlug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
+    "slugByLocale": {
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
+      "en": "galenica-galenica-ag-pharma-assistent-w-m-bern",
+      "fr": "pharma-assistant-m-m-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3121548": {
+    "canonicalSlug": "galenica-galenica-ag-apotheker-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-apotheker-w-m-d-bern",
+      "de": "apotheker-w-m-d-galenica-ag-galenica-bern",
+      "fr": "epoqueur-m-j-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3121581": {
+    "canonicalSlug": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3121634": {
+    "canonicalSlug": "collaboratore-trice-mitarbeiterin-kundendienst-m-w-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "collaboratore-trice-mitarbeiterin-kundendienst-m-w-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-kundendienst-w-m-d-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3121982": {
+    "canonicalSlug": "galenica-galenica-spezialist-payroll-m-w-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-spezialist-payroll-m-w-d-bern",
+      "fr": "tableau-de-paye-de-spezialist-m-m-j-galenica-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3122173": {
+    "canonicalSlug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
+    "slugByLocale": {
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
+      "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3122275": {
+    "canonicalSlug": "assistente-in-farmacia-assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
+    "slugByLocale": {
+      "it": "assistente-in-farmacia-assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
+      "en": "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
+      "fr": "assistant-en-pharmacie-assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|3123019": {
+    "canonicalSlug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692192": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-geneve",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-geneve",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "id|galenica.com|12692224": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-dubendorf",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-dubendorf",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dubendorf",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dubendorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692357": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-volketswil",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-volketswil",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-volketswil",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-volketswil"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|galenica.com|12692446": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-la-chaux-de-fonds",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-la-chaux-de-fonds",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-la-chaux-de-fonds"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "NE"
+  },
+  "id|galenica.com|12692449": {
+    "canonicalSlug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
+    "slugByLocale": {
+      "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
+      "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "id|galenica.com|12724740": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-dottikon",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-dottikon",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-dottikon",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-dottikon"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
   }
 }

@@ -164,7 +164,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-17T22:30:05.510Z",
+      "crawledAt": "2026-07-17T11:04:53.043Z",
       "firstSeenAt": "2026-07-17T11:04:53.043Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in Do-it",
@@ -196,7 +196,9 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8"
+          "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8",
+          "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+          "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8"
@@ -207,8 +209,12 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
-        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8"
+        "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-schwyz-nu6qg8",
+        "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-schwyz",
+        "consulente-di-vendita-deco-jumbo-division-der-coop-genossenschaft-schwyz"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -223,9 +229,7 @@
       "addressRegion": "SZ",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      "country": "CH"
     },
     {
       "id": "company-8uems0",
@@ -247,7 +251,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-17T22:30:05.510Z",
+      "crawledAt": "2026-07-17T11:04:53.043Z",
       "firstSeenAt": "2026-07-17T11:04:53.043Z",
       "titleByLocale": {
         "de": "Verkaufsberater:in Garden und Pflanzen",
@@ -263,9 +267,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
-        "en": "sales-advisor-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon-thurgau",
+        "en": "sales-advisor-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon-60efd5",
         "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
-        "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon-thurgau"
+        "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon-60efd5"
       },
       "requirementsByLocale": {
         "it": [],
@@ -284,10 +288,12 @@
           "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon"
         ],
         "en": [
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0"
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
+          "sales-advisor-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon-thurgau"
         ],
         "fr": [
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0"
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
+          "conseiller-commercial-en-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon-thurgau"
         ]
       },
       "previousSlugs": [
@@ -295,8 +301,12 @@
         "verkaufsberater-in-garden-e-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
         "verkaufsberater-in-garden-hartwaren-jumbo-division-der-coop-genossenschaft-arbon",
         "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon",
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-division-der-coop-genossenschaft-arbon-thurgau-8uems0",
+        "sales-advisor-in-garden-and-plants-jumbo-division-der-coop-genossenschaft-arbon-thurgau",
+        "conseiller-commercial-en-jardin-et-plantes-jumbo-division-der-coop-genossenschaft-arbon-thurgau"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -311,9 +321,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "country": "CH"
     },
     {
       "id": "company-lxteei",
@@ -3646,7 +3654,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-17T22:30:05.510Z",
+      "crawledAt": "2026-07-17T11:04:53.043Z",
       "firstSeenAt": "2026-06-29T22:14:00.097Z",
       "titleByLocale": {
         "it": "Addetto/a alle consegne a domicilio di elettrodomestici",
@@ -3677,11 +3685,11 @@
         "en": [
           "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft",
           "home-delivery-installer-in-electrical-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+          "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
           "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-pratteln-576dn5",
-          "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
         ],
         "de": [
@@ -3690,10 +3698,10 @@
         "fr": [
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
           "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
+          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
           "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
           "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
           "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
-          "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
         ]
       },
@@ -3704,6 +3712,8 @@
         "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft",
         "installateur-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+        "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-vqgt0x",
         "home-delivery-technician-for-electrical-household-appliances-fust-swiss-household-services-ag-pratteln",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-vqgt0x",
@@ -3713,8 +3723,6 @@
         "technicien-de-livraison-a-domicile-d-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln",
         "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-pratteln-576dn5",
-        "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
-        "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       ],
       "baseSalary": {
@@ -4438,7 +4446,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-17T22:30:05.510Z",
+      "crawledAt": "2026-07-17T11:04:53.043Z",
       "firstSeenAt": "2026-06-23T22:20:15.379Z",
       "titleByLocale": {
         "it": "Autista:in Cat. C/CE",
@@ -4466,31 +4474,31 @@
           "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen"
         ],
         "en": [
+          "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
           "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
           "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
-          "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
           "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u"
         ],
         "fr": [
           "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen",
           "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+          "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
           "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen",
           "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
-          "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
           "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen",
+        "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
         "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen",
         "chauffeur-au-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
         "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen",
+        "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
         "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
         "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
         "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen",
         "chauffeur-dans-le-cat-c-ce-fust-swiss-household-services-ag-oberburen-y86c7u",
-        "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
-        "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
         "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u"
       ],
       "baseSalary": {
@@ -4784,7 +4792,7 @@
     },
     {
       "id": "company-itx27c",
-      "slug": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-basel",
+      "slug": "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-itx27c",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Kosmetik",
       "location": "Basel, Basel-Stadt",
@@ -4854,10 +4862,12 @@
           "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-itx27c"
         ],
         "en": [
-          "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5"
+          "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5",
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-itx27c"
         ],
         "fr": [
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5"
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5",
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-itx27c"
         ],
         "de": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-gk0js5"
@@ -4912,10 +4922,10 @@
         "fr": "## Conducteur de rayon:en fruits / légumes\n\n**Coopérative de coop** — Riggisberg, Berne, Svizzera\n\n## Tâche\n- Si vous dirigez les fruits et légumes de rayon, nos clients expérimentent les produits comme fraîchement cueillis lors des achats.\n- Toujours disponible, toujours magnifiquement présenté: C'est ce que vous assurez lors de la vente de fruits et légumes chaque jour.\n- Pour les questions et les préoccupations, vous êtes satisfait de vos connaissances pour le client.\n- Respect mutuel: Vous vivez ce credo jour après jour et ainsi assurer une atmosphère agréable dans l'équipe.\n\n## Exigences\n- Avec une formation de base complète dans le commerce de détail ou l'expérience professionnelle correspondante dans le domaine des ventes, vous avez exactement raison pour ce travail.\n- Vous avez déjà une expérience dans les ventes et le leadership dans une fonction comparable.\n- Connaissance des biens dans le domaine de la responsabilité fruits et légumes? Cela vous donne des points supplémentaires.\n- Vous avez une très bonne emprise sur l'allemand – à la fois par écrit et oralement.\n- En ce qui concerne les temps de déploiement, vous êtes flexible.\n- Penser à de nouveaux systèmes est facile pour vous.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Riggisberg"
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-riggisberg-bern",
-        "en": "rayon-conductor-in-fruits-vegetables-coop-genossenschaft-riggisberg-bern",
+        "it": "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-riggisberg",
+        "en": "rayon-conductor-in-fruits-vegetables-coop-genossenschaft-riggisberg",
         "de": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs",
-        "fr": "conducteur-de-rayon-en-fruits-legumes-coop-genossenschaft-riggisberg-bern"
+        "fr": "conducteur-de-rayon-en-fruits-legumes-coop-genossenschaft-riggisberg"
       },
       "requirementsByLocale": {
         "it": [],
@@ -4929,18 +4939,24 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern",
-          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs"
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs",
+          "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-riggisberg-bern"
         ],
         "en": [
-          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs"
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs",
+          "rayon-conductor-in-fruits-vegetables-coop-genossenschaft-riggisberg-bern"
         ],
         "fr": [
-          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs"
+          "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs",
+          "conducteur-de-rayon-en-fruits-legumes-coop-genossenschaft-riggisberg-bern"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern",
-        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs"
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-riggisberg-bern-zafgbs",
+        "conduttore-rayon-in-frutta-verdura-coop-genossenschaft-riggisberg-bern",
+        "rayon-conductor-in-fruits-vegetables-coop-genossenschaft-riggisberg-bern",
+        "conducteur-de-rayon-en-fruits-legumes-coop-genossenschaft-riggisberg-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -4996,10 +5012,10 @@
         "fr": "## Vendeur:dans les caisses enregistreuses/services\n\n**Coopérative de coop** — Grosshochetten, Berne, Svizzera\n\n## Tâche\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous en ce qui concerne les temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Grands quatuors"
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-grosshochstetten-bern",
-        "en": "seller-in-cash-registers-services-coop-genossenschaft-grosshochstetten-bern",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-grosshochstetten",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-grosshochstetten",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-grosshochstetten-bern"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-grosshochstetten"
       },
       "requirementsByLocale": {
         "it": [],
@@ -5013,8 +5029,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "casse-servizi-per-assistenti-vendite-coop-genossenschaft-kuttigen-d4bf10",
-          "sales-assistant-cash-registers-services-coop-genossenschaft-kuttigen-f1d0am",
           "verkaufer-in-kassen-services-coop-kuttigen-aargau-f1d0am",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-kuttigen-f1d0am",
           "sales-assistant-cash-registers-services-coop-genossenschaft-kuttigen-d4bf10",
@@ -5032,13 +5046,16 @@
           "sales-assistant-cash-registers-services-coop-genossenschaft-luzern",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-luzern",
           "verkaufer-in-kassen-services-coop-luzern",
-          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy"
+          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy",
+          "venditore-in-cassa-servizi-coop-genossenschaft-grosshochstetten-bern",
+          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern"
         ],
         "en": [
           "sales-assistant-cash-registers-services-coop-genossenschaft-kuttigen-f1d0am",
           "seller-in-cash-registers-services-coop-genossenschaft-zurich-cd36fa",
           "sales-assistant-cash-registers-services-coop-genossenschaft-luzern-vgz6f0",
-          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy"
+          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy",
+          "seller-in-cash-registers-services-coop-genossenschaft-grosshochstetten-bern"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-kuttigen-aargau-f1d0am",
@@ -5049,7 +5066,8 @@
           "caisses-services-d-assistant-commercial-coop-genossenschaft-kuttigen-f1d0am",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-cd36fa",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-luzern-vgz6f0",
-          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy"
+          "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-grosshochstetten-bern"
         ]
       },
       "previousSlugs": [
@@ -5076,7 +5094,10 @@
         "sales-assistant-cash-registers-services-coop-genossenschaft-luzern-vgz6f0",
         "verkaufer-in-kassen-services-coop-luzern-vgz6f0",
         "caisses-services-d-assistant-commercial-coop-genossenschaft-luzern-vgz6f0",
-        "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy"
+        "verkaufer-in-kassen-services-coop-genossenschaft-grosshochstetten-bern-ijamwy",
+        "venditore-in-cassa-servizi-coop-genossenschaft-grosshochstetten-bern",
+        "seller-in-cash-registers-services-coop-genossenschaft-grosshochstetten-bern",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-grosshochstetten-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5132,10 +5153,10 @@
         "fr": "## Vendeur:dans les caisses enregistreuses/services\n\n**Coopérative Coop** — Worb, Berne, Svizzera\n\n## Tâche\n- La caisse enregistreuse est votre territoire, ici vous assurez une bonne humeur et un processus en douceur.\n- Vous veillez à ce que tous les processus et règlements soient respectés.\n- En équipe, vous aidez également vos collègues dans d'autres domaines.\n\n## Exigences\n- Nous nous réjouissons de votre expérience dans les ventes.\n- Vous êtes pleinement engagé et prêt à fournir des services.\n- La flexibilité est également importante pour vous en ce qui concerne les temps de déploiement.\n- Vous maîtrisez l'allemand bien verbalement et par écrit.\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nAllemand Steiner\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sécurité :** Worb"
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-worb-bern",
-        "en": "seller-in-cash-registers-services-coop-genossenschaft-worb-bern",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-worb",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-worb",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-worb-bern"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-worb"
       },
       "requirementsByLocale": {
         "it": [],
@@ -5150,18 +5171,24 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern",
-          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2"
+          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2",
+          "venditore-in-cassa-servizi-coop-genossenschaft-worb-bern"
         ],
         "en": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2"
+          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2",
+          "seller-in-cash-registers-services-coop-genossenschaft-worb-bern"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2"
+          "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-worb-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern",
-        "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2"
+        "verkaufer-in-kassen-services-coop-genossenschaft-worb-bern-sc48d2",
+        "venditore-in-cassa-servizi-coop-genossenschaft-worb-bern",
+        "seller-in-cash-registers-services-coop-genossenschaft-worb-bern",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-worb-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15236,10 +15263,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "warehouse-clerk-jumbo-division-der-coop-genossenschaft-willisau",
-          "lagerist-in-jumbo-division-der-coop-genossenschaft-willisau-hmrj9a",
-          "lageriste-in-jumbo-division-der-coop-genossenschaft-willisau",
-          "employe-d-entrepot-jumbo-division-der-coop-genossenschaft-willisau-hmrj9a",
           "employe-d-entrepot-jumbo-division-der-coop-genossenschaft-willisau",
           "lagerist-in-jumbo-willisau-luzern",
           "lageriste-in-jumbo-division-der-coop-genossenschaft-willisau-hmrj9a",
@@ -15255,7 +15278,11 @@
           "magasinier-magasiniere-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
           "magasinier-magasiniere-jumbo-division-der-coop-genossenschaft-chur",
           "stockiste-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
-          "lageriste-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c"
+          "lageriste-in-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
+          "stockiste-en-jumbo-division-der-coop-genossenschaft-chur-utbp1c",
+          "stockiste-en-jumbo-division-der-coop-genossenschaft-chur",
+          "stockiste-jumbo-division-der-coop-genossenschaft-chur",
+          "warehouse-clerk-jumbo-division-der-coop-genossenschaft-willisau-hmrj9a"
         ],
         "fr": [
           "lageriste-in-jumbo-division-der-coop-genossenschaft-chur-graubunden",
@@ -20753,7 +20780,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-alimentaire-coop-genossenschaft-tasch",
           "vendeur-vendeuse-de-produits-alimentaires-coop-genossenschaft-tasch",
           "verkaufer-in-food-coop-genossenschaft-tasch",
           "verkaufer-in-food-coop-thun-bern-7wmq4m",
@@ -20772,7 +20798,8 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-st-gallen-sankt-gallen",
           "verkaufer-in-food-coop-zurich-2-2",
           "verkaufer-in-food-coop-bern-aj6585",
-          "seller-in-food-coop-genossenschaft-thun-686e0c"
+          "seller-in-food-coop-genossenschaft-thun-686e0c",
+          "salesman-in-food-coop-genossenschaft-wurenlos"
         ],
         "en": [
           "food-sales-assistant-coop-genossenschaft-bern-00c797",
