@@ -3570,8 +3570,8 @@ Regole:
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
   'whatsNew.v3620.title': 'Pubblicare un annuncio è più semplice',
-  'whatsNew.v3620.payFirstFunnel.title': 'Prima paga, poi crei l\'annuncio',
-  'whatsNew.v3620.payFirstFunnel.desc': 'Il funnel di pubblicazione è cambiato: ora scegli il piano e paghi subito, poi crei il tuo annuncio. Una volta pubblicato, va online di norma entro un\'ora.',
+  'whatsNew.v3620.payFirstFunnel.title': 'Percorso di pubblicazione più lineare',
+  'whatsNew.v3620.payFirstFunnel.desc': 'Il percorso per le aziende è ora più lineare: scegli il piano, poi crei il tuo annuncio con calma. Una volta pubblicato, è online di norma entro un\'ora.',
   'whatsNew.v3610.title': 'CV degli autori visibile nel sito',
   'whatsNew.v3610.authorCv.title': 'Anteprima del CV nella pagina autore',
   'whatsNew.v3610.authorCv.desc': 'Il curriculum degli autori ora si sfoglia direttamente nella pagina del profilo con un\'anteprima PDF integrata, senza download forzato.',

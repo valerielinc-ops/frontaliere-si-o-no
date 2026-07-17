@@ -3483,8 +3483,8 @@ Règles :
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
   'whatsNew.v3620.title': 'Publier une annonce est plus simple',
-  'whatsNew.v3620.payFirstFunnel.title': 'Payez d\'abord, créez ensuite votre annonce',
-  'whatsNew.v3620.payFirstFunnel.desc': 'Nous avons changé le parcours de publication : vous choisissez maintenant le forfait et payez d\'abord, puis vous créez votre annonce. Une fois publiée, elle est généralement en ligne en moins d\'une heure.',
+  'whatsNew.v3620.payFirstFunnel.title': 'Un parcours de publication plus fluide',
+  'whatsNew.v3620.payFirstFunnel.desc': 'Le parcours pour les entreprises est désormais plus fluide : choisissez votre formule, puis créez votre annonce à votre rythme. Une fois publiée, elle est généralement en ligne en moins d\'une heure.',
   'whatsNew.v3610.title': 'CV des auteurs consultables sur le site',
   'whatsNew.v3610.authorCv.title': 'Aperçu du CV sur la page auteur',
   'whatsNew.v3610.authorCv.desc': 'Le CV des auteurs se consulte désormais directement sur la page de profil via un aperçu PDF intégré, sans téléchargement forcé.',

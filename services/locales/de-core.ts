@@ -3483,8 +3483,8 @@ Regeln:
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
   'whatsNew.v3620.title': 'Eine Anzeige aufgeben ist jetzt einfacher',
-  'whatsNew.v3620.payFirstFunnel.title': 'Erst bezahlen, dann die Anzeige erstellen',
-  'whatsNew.v3620.payFirstFunnel.desc': 'Wir haben den Veröffentlichungsablauf geändert: Sie wählen jetzt zuerst den Tarif und bezahlen, danach erstellen Sie Ihre Anzeige. Nach der Veröffentlichung ist sie in der Regel innerhalb einer Stunde online.',
+  'whatsNew.v3620.payFirstFunnel.title': 'Ein klarerer Ablauf für die Veröffentlichung',
+  'whatsNew.v3620.payFirstFunnel.desc': 'Der Ablauf für Unternehmen ist jetzt klarer: Wählen Sie Ihren Tarif und erstellen Sie Ihre Anzeige anschliessend in Ruhe. Nach der Veröffentlichung ist sie in der Regel innerhalb einer Stunde online.',
   'whatsNew.v3610.title': 'Autoren-Lebensläufe direkt auf der Seite',
   'whatsNew.v3610.authorCv.title': 'CV-Vorschau auf der Autorenseite',
   'whatsNew.v3610.authorCv.desc': 'Der Lebenslauf der Autoren lässt sich jetzt direkt auf der Profilseite in einer eingebetteten PDF-Vorschau lesen, statt heruntergeladen zu werden.',

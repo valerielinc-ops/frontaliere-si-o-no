@@ -3480,8 +3480,8 @@ Rules:
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
   'whatsNew.v3620.title': 'Publishing a job ad is easier now',
-  'whatsNew.v3620.payFirstFunnel.title': 'Pay first, then create your ad',
-  'whatsNew.v3620.payFirstFunnel.desc': 'We changed the publishing flow: you now choose your plan and pay upfront, then create your ad. Once published, it usually goes live within an hour.',
+  'whatsNew.v3620.payFirstFunnel.title': 'A more streamlined publishing flow',
+  'whatsNew.v3620.payFirstFunnel.desc': 'The flow for companies is now more streamlined: choose your plan, then create your ad at your own pace. Once published, it usually goes live within an hour.',
   'whatsNew.v3610.title': 'Author CVs viewable on-site',
   'whatsNew.v3610.authorCv.title': 'CV preview on the author page',
   'whatsNew.v3610.authorCv.desc': 'Author CVs can now be read directly on the profile page in an embedded PDF preview, instead of being force-downloaded.',
