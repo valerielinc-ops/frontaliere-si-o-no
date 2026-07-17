@@ -1186,6 +1186,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Traffic in Switzerland: what it means for the Swiss',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Traffic in Switzerland generated costs of about 117 billion francs in 2023, according to a report by the Federal Statistical Office.',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Image of increasing traffic in a Ticino city',
+    'blog.article.traffico-da-record.title': 'Record-breaking traffic: 117 billion francs and cars in the lead',
+    'blog.article.traffico-da-record.excerpt': 'Traffic in Switzerland generated costs of about 117 billion francs. The car is the dominant means of transport.',
+    'blog.article.traffico-da-record.imageAlt': 'Lugano, panoramic view of the city.',
 };
 
 export default blogMetaChEn;

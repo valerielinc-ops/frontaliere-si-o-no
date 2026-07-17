@@ -1186,6 +1186,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Verkehr in der Schweiz: Was das für Schweizerinnen und Schweizer bedeutet',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Der Verkehr in der Schweiz verursachte gemäss einem Bericht des Bundesamtes für Statistik im Jahr 2023 Kosten von rund 117 Milliarden Franken.',
     'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Bild von zunehmendem Verkehr in einer Stadt des Tessins',
+    'blog.article.traffico-da-record.title': 'Traffic-Rekord: Kosten von 117 Milliarden Franken und Auto immer an der Spitze',
+    'blog.article.traffico-da-record.excerpt': 'Der Verkehr in der Schweiz verursachte Kosten von rund 117 Milliarden Franken. Das Auto ist das dominierende Transportmittel.',
+    'blog.article.traffico-da-record.imageAlt': 'Lugano, Panorama-Blick auf die Stadt.',
 };
 
 export default blogMetaChDe;

@@ -4574,6 +4574,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mercato-ipoteche-svizzera-record-2025': { name: 'Mercato ipotecario', path: '/articoli-svizzera/mercato-ipoteche-svizzera-record-2025/', parent: 'blog' },
     'blog-dichiarazione-redditi-agricoltura-variazioni': { name: 'Fiscalità agricola', path: '/articoli-svizzera/dichiarazione-redditi-agricoltura-variazioni/', parent: 'blog' },
     'blog-traffico-aumenta-costi-crescono-svizzera': { name: 'Traffico in Svizzera', path: '/articoli-svizzera/traffico-aumenta-costi-crescono-svizzera/', parent: 'blog' },
+    'blog-traffico-da-record': { name: 'Traffico in Svizzera', path: '/articoli-svizzera/traffico-da-record/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
