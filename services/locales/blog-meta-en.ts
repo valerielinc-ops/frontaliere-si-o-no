@@ -8569,6 +8569,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI for ex-frontiers: requirements, calculation, duration and demand',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Practical guide to the Italian unemployment benefit for those who have lost their job in Switzerland. Contribution requirements, monthly amount, maximum duration and application procedures.',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Italian cross-border worker reviewing NASpI unemployment documents',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Living in Como and working in Ticino: a practical guide for border workers',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Journey times, cost of living in comparison, strategic neighbourhoods and the pros/cons of train vs car. Everything you need to know before becoming a Como-Ticino border worker.',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Commuters at Chiasso station early morning, symbol of the daily Como-Ticino commute',
 };
 
 export default blogMetaEn;

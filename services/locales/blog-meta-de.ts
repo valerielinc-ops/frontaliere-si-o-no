@@ -8568,6 +8568,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI für ehemalige Grenzgänger: Anforderungen, Berechnung, Dauer und Nachfrage',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Praktischer Leitfaden zum italienischen Arbeitslosengeld für Arbeitslose in der Schweiz. Beitragsvoraussetzungen, monatlicher Betrag, Höchstdauer und Antragsverfahren.',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Italienischer Grenzgänger prüft NASpI-Arbeitslosengunterlagen',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Leben in Como und Arbeiten im Tessin: Praktischer Leitfaden für Grenzgänger',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Reisezeiten, Lebenshaltungskosten im Vergleich, strategische Viertel und Vor-/Nachteile von Zug vs. Auto. Alles, was Sie wissen müssen, bevor Sie Grenzgänger Como-Ticino werden.',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Pendler am frühen Morgen am Bahnhof Chiasso, Symbol für den täglichen Como-Tessiner Weg',
 };
 
 export default blogMetaDe;
