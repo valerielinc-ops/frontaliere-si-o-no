@@ -97,6 +97,9 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+// Type-only: jobAlertService itself is always dynamically imported below (code
+// splitting) — this import is erased at build time, no bundle/runtime impact.
+import type { JobAlert } from '@/services/jobAlertService';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
@@ -235,6 +238,56 @@ function getBroadenHaystack(job: JobListing, locale: string): string {
   );
   broadenHaystackCache.set(job, { locale, hay });
   return hay;
+}
+
+// ── Job-alert CTA eligibility: shared getUserAlerts cache + shown-once guard ──
+// (review PR #4338, bug G). The job-match-pill and job-board-filter CTAs each
+// run an eligibility effect that fetches getUserAlerts(userId) to compute
+// already-subscribed/quota-full. The board-filter effect depends on
+// boardFilterAlertKeywordLabel, which falls back to the free-text search box —
+// every debounced keystroke re-ran the whole effect, re-fetching Firestore and
+// re-emitting the 'shown' impression event on every character typed. Caching
+// the fetch per userId for the session (module state, not persisted — a fresh
+// load always re-checks server-side) and gating the impression event behind a
+// "once per surface per session" guard fixes both halves without changing what
+// the user sees. Applied to BOTH sibling CTAs (job_match_pill, job_board_filters)
+// since they share the identical construct; NOT applied to job_detail_prompt's
+// own getUserAlerts read/shown-event (line ~3008/3046 below) — that effect is
+// keyed on selectedJob?.id and fires once per DISTINCT job navigation, a
+// genuinely new impression each time, not a re-fire of the same one. A
+// session-wide once-guard there would silently suppress real per-job
+// impressions, an actual regression beyond this bug's scope — left untouched.
+let cachedUserAlerts: { userId: string; promise: Promise<JobAlert[]> } | null = null;
+
+function fetchUserAlertsCached(
+  userId: string,
+  getUserAlerts: (userId: string) => Promise<JobAlert[]>,
+): Promise<JobAlert[]> {
+  if (cachedUserAlerts && cachedUserAlerts.userId === userId) return cachedUserAlerts.promise;
+  const promise = getUserAlerts(userId);
+  cachedUserAlerts = { userId, promise };
+  // Don't cache a rejected fetch — let the next caller retry rather than replay
+  // a stale failure for the rest of the session.
+  promise.catch(() => {
+    if (cachedUserAlerts?.promise === promise) cachedUserAlerts = null;
+  });
+  return promise;
+}
+
+// Invalidate after ANY successful alert creation in this file (job-match pill,
+// board-filter CTA, job-detail button, job-detail prompt) — all four mutate
+// the same underlying list every cached read reflects, so a stale cache after
+// one surface's subscribe could wrongly show/hide another surface's CTA.
+function invalidateUserAlertsCache(): void {
+  cachedUserAlerts = null;
+}
+
+const shownAlertCtaSurfaces = new Set<string>();
+
+function trackJobAlertCtaShownOnce(surface: 'job_match_pill' | 'job_board_filters', keyword: string): void {
+  if (shownAlertCtaSurfaces.has(surface)) return;
+  shownAlertCtaSurfaces.add(surface);
+  Analytics.trackJobAlertCtaShown(surface, keyword);
 }
 
 // Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
@@ -2876,6 +2929,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // null = still checking (existing alerts / quota), false = hide (already
  // subscribed to this category or at the 3-alert cap), true = show.
  const [jobMatchAlertEligible, setJobMatchAlertEligible] = useState<boolean | null>(null);
+ // Bug F (review PR #4338): onSubscribed used to call setJobMatchAlertEligible(false)
+ // synchronously, unmounting JobMatchAlertCta in the same batch as its own
+ // setStatus('success') — the "Alert attivato ✓" checkmark never painted. Delay
+ // the hide so the child's success state has time to render first.
+ const jobMatchAlertHideTimerRef = useRef<number | null>(null);
 
  useEffect(() => {
  setJobMatchAlertEligible(null);
@@ -2886,7 +2944,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
  '@/services/jobAlertService'
  );
- const existing = await getUserAlerts(userId);
+ // Shared, session-scoped cache (review PR #4338, bug G) — see the
+ // module-level comment near fetchUserAlertsCached above.
+ const existing = await fetchUserAlertsCached(userId, getUserAlerts);
  if (cancelled) return;
  const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, jobMatchAlertCategoryLabel));
  const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
@@ -2896,7 +2956,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!cancelled) setJobMatchAlertEligible(false);
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+ cancelled = true;
+ // Clear any pending post-subscribe hide (Bug F) so a stale timer never
+ // fires against a freshly re-evaluated CTA, and so it's cleared on unmount.
+ if (jobMatchAlertHideTimerRef.current !== null) {
+ window.clearTimeout(jobMatchAlertHideTimerRef.current);
+ jobMatchAlertHideTimerRef.current = null;
+ }
+ };
  }, [enablePersonalization, enableJobAlerts, jobMatchAlertCategoryLabel, userId, userEmail]);
 
  const jobMatchAlertVisible = Boolean(
@@ -2905,7 +2973,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!jobMatchAlertVisible) return;
- Analytics.trackJobAlertCtaShown('job_match_pill', jobMatchAlertCategoryLabel);
+ // At most once per surface per session (review PR #4338, bug G) — see the
+ // module-level comment near trackJobAlertCtaShownOnce above.
+ trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel);
  }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
 
  // ── Job-board filter alert CTA (issue #4298) ─────────────────────────────
@@ -2930,6 +3000,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // null = still checking (existing alerts / quota), false = hide, true = show.
  const [boardFilterAlertEligible, setBoardFilterAlertEligible] = useState<boolean | null>(null);
+ // Bug F (review PR #4338): onSubscribed used to call setBoardFilterAlertEligible(false)
+ // synchronously, unmounting JobBoardFilterAlertCta in the same batch as its own
+ // setStatus('success') — the "Alert attivato ✓" checkmark never painted. Delay
+ // the hide so the child's success state has time to render first.
+ const boardFilterAlertHideTimerRef = useRef<number | null>(null);
 
  useEffect(() => {
  setBoardFilterAlertEligible(null);
@@ -2940,7 +3015,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
  '@/services/jobAlertService'
  );
- const existing = await getUserAlerts(userId);
+ // Shared, session-scoped cache (review PR #4338, bug G) — dedupes the
+ // Firestore read across every debounced search-text keystroke, which
+ // previously re-ran this whole effect on every character typed. See the
+ // module-level comment near fetchUserAlertsCached above.
+ const existing = await fetchUserAlertsCached(userId, getUserAlerts);
  if (cancelled) return;
  const alreadySubscribed = Boolean(findMatchingAlertForCategory(existing, boardFilterAlertKeywordLabel));
  const quotaFull = existing.length >= MAX_ALERTS_PER_USER;
@@ -2952,7 +3031,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!cancelled) setBoardFilterAlertEligible(false);
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+ cancelled = true;
+ // Clear any pending post-subscribe hide (Bug F) so a stale timer never
+ // fires against a freshly re-evaluated CTA, and so it's cleared on unmount.
+ if (boardFilterAlertHideTimerRef.current !== null) {
+ window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = null;
+ }
+ };
  }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
 
  const boardFilterAlertVisible = Boolean(
@@ -2961,7 +3048,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!boardFilterAlertVisible) return;
- Analytics.trackJobAlertCtaShown('job_board_filters', boardFilterAlertKeywordLabel);
+ // At most once per surface per session (review PR #4338, bug G) — see the
+ // module-level comment near trackJobAlertCtaShownOnce above.
+ trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel);
  }, [boardFilterAlertVisible, boardFilterAlertKeywordLabel]);
 
  useEffect(() => {
@@ -3005,7 +3094,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  let existing: Awaited<ReturnType<typeof getUserAlerts>>;
  try {
- existing = await getUserAlerts(userId);
+ // Shared, session-scoped cache (review PR #4338, bug G) — same
+ // getUserAlerts(userId) read the job-match-pill/board-filter CTAs
+ // already cache; reusing it here dedupes the Firestore read when
+ // multiple surfaces resolve for the same user in one session. The
+ // shown-once analytics guard is intentionally NOT applied to this
+ // surface (see the module-level comment near trackJobAlertCtaShownOnce
+ // above) — only the fetch is shared.
+ existing = await fetchUserAlertsCached(userId, getUserAlerts);
  } catch {
  // Fail closed — never badger users on a degraded network. Emit a skip
  // signal so this silent drop shows up in GA4 (was an invisible 0-impression).
@@ -5632,6 +5728,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  frequency: 'weekly',
  surface: 'job_detail_prompt',
  });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
+ // this surface just created a new alert every other surface's cached
+ // eligibility read needs to see.
+ invalidateUserAlertsCache();
  import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
  const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
  saveGatingState(next);
@@ -8006,6 +8106,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onSubscribed={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'success', selectedJob.title);
  Analytics.trackJobAlertCreated({ keywords: selectedJob.title || '', frequency: 'daily', surface: 'job_detail_button' });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct —
+ // this surface just created a new alert every other surface's cached
+ // eligibility read needs to see.
+ invalidateUserAlertsCache();
  }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('job_detail_button', 'error', selectedJob.title);
@@ -8311,7 +8415,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  frequency: 'weekly',
  surface: 'job_board_filters',
  });
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct.
+ invalidateUserAlertsCache();
+ // Bug F: delay hiding the CTA so JobBoardFilterAlertCta's own
+ // "Alert attivato ✓" success state (setStatus('success'), same render
+ // batch as this callback) has time to actually paint before the parent
+ // unmounts it via boardFilterAlertVisible flipping false.
+ if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
+ boardFilterAlertHideTimerRef.current = null;
  setBoardFilterAlertEligible(false);
+ }, 2500);
  }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
@@ -8590,7 +8704,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  surface: 'job_match_pill',
  });
  Analytics.trackJobMatchAlertSignup(jobMatchAlertCategoryLabel, jobMatchAlertCantonCode);
+ // Review PR #4338, bug G: keep the shared getUserAlerts cache correct.
+ invalidateUserAlertsCache();
+ // Bug F sibling (review PR #4338): JobMatchAlertCta has the identical
+ // idle/submitting/success/error state machine as JobBoardFilterAlertCta —
+ // delay hiding it so its own "Alert attivato ✓" success state has time
+ // to actually paint before the parent unmounts it via
+ // jobMatchAlertVisible flipping false.
+ if (jobMatchAlertHideTimerRef.current !== null) window.clearTimeout(jobMatchAlertHideTimerRef.current);
+ jobMatchAlertHideTimerRef.current = window.setTimeout(() => {
+ jobMatchAlertHideTimerRef.current = null;
  setJobMatchAlertEligible(false);
+ }, 2500);
  }}
  onErrored={() => {
  Analytics.trackJobAlertCtaClick('job_match_pill', 'error', jobMatchAlertCategoryLabel);

@@ -95,4 +95,14 @@ describe('getSeasonalUtilityContent', () => {
     const result = getSeasonalUtilityContent(new Date(2026, 2, 1), 'it');
     expect(result.url).toBe('/tasse-e-pensione/dichiarazione-redditi-italia/');
   });
+
+  it('nests the Sep-Oct 3rd pillar link under the fisco hub in every locale, matching router.ts (review PR #4338, bug E)', () => {
+    // services/router.ts's fisco route builder always nests any fiscoSubTab
+    // (including pillar3) under table.fisco: `${prefix}/${table.fisco}/${table.pillar3}/`.
+    // A bare '/{pillar3-slug}/' top-level URL 404s.
+    expect(getSeasonalUtilityContent(new Date(2026, 8, 1), 'it').url).toBe('/tasse-e-pensione/simula-terzo-pilastro/');
+    expect(getSeasonalUtilityContent(new Date(2026, 8, 1), 'en').url).toBe('/en/taxes-and-pension/simulate-third-pillar/');
+    expect(getSeasonalUtilityContent(new Date(2026, 8, 1), 'de').url).toBe('/de/steuern-und-vorsorge/dritte-saeule-simulieren/');
+    expect(getSeasonalUtilityContent(new Date(2026, 8, 1), 'fr').url).toBe('/fr/impots-et-retraite/simuler-troisieme-pilier/');
+  });
 });
