@@ -50148,6 +50148,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-nuova-imposta-sostitutiva-2024': {
+    title: 'Frontalieri: cosa cambia con la nuova imposta sostitutiva dal 2024',
+    description: 'Tutto sulla nuova tassazione frontalieri Italia-Svizzera dal 2024: franchigie, contributi sociali, calcoli e scadenze. Evita errori fiscali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cosa, cambia, nuova, imposta',
+    ogTitle: 'Nuova imposta frontalieri 2024: franchigie e contributi',
+    ogDescription: 'Guida pratica alle novità fiscali per frontalieri Italia-Svizzera: cosa cambia con l\'accordo 2020 in vigore dal 2024.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: cosa cambia con la nuova imposta sostitutiva dal 2024",
+      "description": "Tutto sulla nuova tassazione frontalieri Italia-Svizzera dal 2024: franchigie, contributi sociali, calcoli e scadenze. Evita errori fiscali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-nuova-imposta-sostitutiva-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Modulo fiscale su una scrivania in legno a Bellinzona, con penna e guide fiscali Svizzera-Italia"
+      },
+      "datePublished": "2026-07-17T08:41:55+00:00",
+      "dateModified": "2026-07-17T08:41:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
