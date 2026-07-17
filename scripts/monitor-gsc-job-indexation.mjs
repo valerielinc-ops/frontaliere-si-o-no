@@ -45,7 +45,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
 const HISTORY_FILE = join(__dirname, '..', 'data', 'gsc-monitor-history.json');
 
 // Closed-loop thresholds
-const ALERT_EMAIL = 'valerielinc@gmail.com';
+const ALERT_EMAIL = process.env.ALERT_EMAIL || 'valerielinc@gmail.com';
 const FAIL_RATE_THRESHOLD = 0.05; // 5% fail rate triggers alert
 const PERSISTENCE_WEEKS = 2; // failures persisting 2+ weeks → escalation
 
