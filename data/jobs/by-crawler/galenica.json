@@ -27,26 +27,16 @@
       "slugByLocale": {
         "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-        "de": "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
+        "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
         "it": "Apotheker / Apothekerin (w/m/d)",
         "en": "Apotheker / Apothekerin (w/m/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker/Apotherin (w/m/d)",
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-7071ae16c335",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "de": [
-          "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern"
-        ]
-      },
-      "previousSlugs": [
-        "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern"
-      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -65,7 +55,20 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny745j",
+          "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
+          "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny745j",
+        "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
+        "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
