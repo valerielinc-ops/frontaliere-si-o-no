@@ -10,10 +10,9 @@
  *      FORWARD_TO is resolved from the zone's catch-all forward target, so the
  *      worker forwards replies to the SAME inbox the catch-all already used —
  *      adding the worker rule never silently drops a reply.
- *   2. Ensures an Email Routing rule: the outreach address
- *      (valerie@frontaliereticino.ch) → "send to worker"
- *      frontaliere-stop-reply-handler. Idempotent (updates an existing rule by
- *      matcher, else creates one).
+ *   2. Ensures an Email Routing rule per address in ROUTING_RULES below → "send
+ *      to worker" frontaliere-stop-reply-handler. Idempotent (updates an
+ *      existing rule by matcher, else creates one).
  *
  * Env (hydrated by scripts/load-rc-env.mjs in CI):
  *   CF_API_TOKEN      — needs Workers Scripts:Edit (secrets) + Email Routing:Edit (rule)
@@ -21,16 +20,23 @@
  *   NEWSLETTER_SECRET — becomes the worker's STOP_SECRET
  *
  * Failure policy: secrets are essential → fail the job if they can't be set.
- * The Email Routing rule is best-effort → on error (e.g. token missing the
+ * Each Email Routing rule is best-effort → on error (e.g. token missing the
  * Email Routing:Edit scope) it warns and exits 0, so the worker still deploys
  * and the rule can be bound once.
  */
 
 const ZONE_NAME = 'frontaliereticino.ch';
 const WORKER_NAME = 'frontaliere-stop-reply-handler';
-// The cold-email From / reply address. Inbound replies to it must hit the worker.
+// Recipient addresses that must route to the worker, and the routing-rule name
+// for each. stop-reply-handler.js branches on `message.to` (NEWSLETTER_ADDRESS
+// var in wrangler.toml) — anything not matching that falls through to the
+// outreach-reply path, so OUTREACH_ADDRESS below stays first/default in intent.
 const OUTREACH_ADDRESS = 'valerie@frontaliereticino.ch';
-const RULE_NAME = 'cold-email reply → stop-reply-handler';
+const NEWSLETTER_ADDRESS = 'newsletter@frontaliereticino.ch';
+const ROUTING_RULES = [
+  { address: OUTREACH_ADDRESS, name: 'cold-email reply → stop-reply-handler' },
+  { address: NEWSLETTER_ADDRESS, name: 'newsletter unsubscribe reply → stop-reply-handler' },
+];
 
 const API = 'https://api.cloudflare.com/client/v4';
 const TOKEN = process.env.CF_API_TOKEN;
@@ -83,29 +89,29 @@ async function putSecret(name, text) {
   console.log(`✓ secret ${name} set on ${WORKER_NAME}`);
 }
 
-async function ensureRoutingRule(zoneId) {
+async function ensureRoutingRule(zoneId, address, ruleName) {
   const desired = {
-    name: RULE_NAME,
+    name: ruleName,
     enabled: true,
-    matchers: [{ type: 'literal', field: 'to', value: OUTREACH_ADDRESS }],
+    matchers: [{ type: 'literal', field: 'to', value: address }],
     actions: [{ type: 'worker', value: [WORKER_NAME] }],
   };
   const list = await cf(`/zones/${zoneId}/email/routing/rules`);
   if (!list.ok) {
-    console.log(`::warning::could not list Email Routing rules (status ${list.status}) — bind ${OUTREACH_ADDRESS} → ${WORKER_NAME} manually.`);
+    console.log(`::warning::could not list Email Routing rules (status ${list.status}) — bind ${address} → ${WORKER_NAME} manually.`);
     return;
   }
   const existing = (list.json.result || []).find((rule) =>
-    (rule.matchers || []).some((m) => m.type === 'literal' && (m.value || '').toLowerCase() === OUTREACH_ADDRESS));
+    (rule.matchers || []).some((m) => m.type === 'literal' && (m.value || '').toLowerCase() === address.toLowerCase()));
   const target = existing
     ? { method: 'PUT', path: `/zones/${zoneId}/email/routing/rules/${existing.tag}` }
     : { method: 'POST', path: `/zones/${zoneId}/email/routing/rules` };
   const r = await cf(target.path, { method: target.method, body: desired });
   if (!r.ok) {
-    console.log(`::warning::could not ${existing ? 'update' : 'create'} the Email Routing rule (status ${r.status}: ${JSON.stringify(r.json.errors || r.json).slice(0, 200)}). Bind ${OUTREACH_ADDRESS} → ${WORKER_NAME} manually (token Email Routing:Edit scope?).`);
+    console.log(`::warning::could not ${existing ? 'update' : 'create'} the Email Routing rule for ${address} (status ${r.status}: ${JSON.stringify(r.json.errors || r.json).slice(0, 200)}). Bind ${address} → ${WORKER_NAME} manually (token Email Routing:Edit scope?).`);
     return;
   }
-  console.log(`✓ Email Routing rule ${existing ? 'updated' : 'created'}: ${OUTREACH_ADDRESS} → worker ${WORKER_NAME}`);
+  console.log(`✓ Email Routing rule ${existing ? 'updated' : 'created'}: ${address} → worker ${WORKER_NAME}`);
 }
 
 async function main() {
@@ -127,8 +133,10 @@ async function main() {
   await putSecret('STOP_SECRET', NEWSLETTER_SECRET);
   if (forwardTo) await putSecret('FORWARD_TO', forwardTo);
 
-  // Best-effort: the inbound binding.
-  await ensureRoutingRule(zoneId);
+  // Best-effort: the inbound bindings (one per address the worker branches on).
+  for (const rule of ROUTING_RULES) {
+    await ensureRoutingRule(zoneId, rule.address, rule.name);
+  }
 
   console.log('Email worker setup complete.');
 }
