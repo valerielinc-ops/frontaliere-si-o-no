@@ -164251,8 +164251,8 @@
     "createdAt": "2026-06-21",
     "slugByLocale": {
       "de": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-      "en": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
-      "fr": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
+      "en": "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
+      "fr": "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
       "it": "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan"
     }
   },
@@ -164866,8 +164866,8 @@
     "createdAt": "2026-06-09",
     "slugByLocale": {
       "de": "dipl-expertin-experte-onkologiepflege-dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin",
-      "en": "dipl-expertin-experte-onkologiepflege-dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin",
-      "fr": "dipl-expertin-experte-onkologiepflege-dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin",
+      "en": "dipl-expert-expert-oncology-care-dipl-nurse-mann-hf-fh-spital-oberengadin-samedan",
+      "fr": "expert-e-en-soins-oncologiques-infirmier-ere-diplome-e-es-hes-spital-oberengadin-samedan",
       "it": "dipl-expertin-experte-onkologiepflege-dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan"
     }
   },
@@ -165934,7 +165934,9 @@
     "canonicalSlug": "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan",
     "canton": "GR",
     "createdAt": "2026-06-24",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan"
+    }
   },
   "id|solique.ch|4024068": {
     "canonicalSlug": "mitarbeiterin-collaboratore-trice-telefonzentrale-e-information-kantonsspital-winterthur-ksw-winterthur",
@@ -166183,7 +166185,11 @@
     "canonicalSlug": "leitende-arztin-leitender-arzt-chirurgie-mit-schwerpunkt-viszeralchirurgie-spital",
     "canton": "GR",
     "createdAt": "2026-06-24",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "en": "senior-physician-senior-physician-surgery-with-focus-on-visceral-surgery-spital-oberengadin-samedan",
+      "de": "leitende-arztin-leitender-arzt-chirurgie-mit-schwerpunkt-viszeralchirurgie-spital",
+      "fr": "medecin-superieur-chirurgie-de-medecin-superieur-avec-un-accent-sur-la-chirurgie-viscerale-spital-oberengadin-samedan"
+    }
   },
   "id|solique.ch|4026609": {
     "canonicalSlug": "dipl-experte-expertin-notfallpflege-nds-mit-zusatzfunktion-berufsbildung-m-w-d-svar",
@@ -171373,7 +171379,7 @@
     "createdAt": "2026-06-17",
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
-      "en": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
+      "en": "dipl-care-professional-hf-fh-for-our-palliative-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "fr": "dipl-pflegefachperson-hf-fh-per-unser-palliativ-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "it": "dipl-pflegefachperson-hf-fh-per-unser-palliativ-team-spitex-limmat-aare-reuss-ag-untersiggenthal"
     }
@@ -171522,7 +171528,10 @@
     "canton": "BL",
     "createdAt": "2026-05-27",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-60-80-spitex-ch-pratteln"
+      "de": "dipl-pflegefachperson-hf-60-80-spitex-ch-pratteln",
+      "it": "infermiera-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+      "en": "dipl-nurse-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+      "fr": "infirmiere-diplomee-hf-60-80-spitex-pratteln-augst-giebenach-gmbh-pratteln"
     }
   },
   "id|spitexjobs.ch|j978579": {
@@ -175054,8 +175063,8 @@
     "createdAt": "2026-05-12",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+      "en": "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+      "fr": "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen",
       "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175065,8 +175074,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-",
-      "en": "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-",
-      "fr": "pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-",
+      "en": "pharmacy-practitioners-4-6-months-or-pharmacy-students-for-mantle-assistance-10-weeks-spital-thurgau-stgag-munsterlingen",
+      "fr": "professionnels-de-la-pharmacie-4-6-mois-ou-etudiants-en-pharmacie-pour-l-aide-au-manteau-10-semaines-spital-thurgau",
       "it": "pharmaziepraktikanten-innen-4-6-monate-o-pharmazie-studierende-per-la-mantelassistenz-10-wochen-spital-thurgau-stgag-mun"
     }
   },
@@ -175076,8 +175085,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+      "en": "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen-7b0100",
+      "fr": "specialiste-certifie-en-sciences-infirmieres-et-medico-legales-spital-thurgau-stgag-munsterlingen-76008b",
       "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175087,8 +175096,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "famulanten-innen-1-4-wochen-stgag-ch",
-      "en": "famulanten-innen-1-4-wochen-stgag-ch",
-      "fr": "famulanten-innen-1-4-wochen-stgag-ch",
+      "en": "interns-1-4-weeks-spital-thurgau-stgag-munsterlingen",
+      "fr": "stagiaires-1-4-semaines-spital-thurgau-stgag-munsterlingen",
       "it": "famulanti-1-4-settimane-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175109,8 +175118,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-rehabilitation-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-rehabilitation-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-rehabilitation-stgag-ch",
+      "en": "dipl-nursing-professional-rehabilitation-spital-thurgau-stgag-diessenhofen",
+      "fr": "dipl-readaptation-professionnelle-des-soins-infirmiers-spital-thurgau-stgag-diessenhofen",
       "it": "dipl-infermieristica-riabilitazione-specialistica-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175131,8 +175140,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-januar-2026-stgag",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-januar-2026-stgag",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-januar-2026-stgag",
+      "en": "education-care-specialist-hf-3-years-shortening-accompanying-work-january-2026-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-travail-d-accompagnement-janvier-2026-spital-thurgau-stgag-munst",
       "it": "specialista-per-l-educazione-hf-3-anni-di-abbreviazione-lavoro-di-accompagnamento-gennaio-2026-spital-thurgau-stgag-muns"
     }
   },
@@ -175164,8 +175173,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
-      "en": "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
-      "fr": "oberarzt-arztin-fur-die-geriatrische-rehabilitation-stgag-ch",
+      "en": "senior-physician-for-geriatric-rehabilitation-spital-thurgau-stgag-diessenhofen",
+      "fr": "medecin-principal-pour-la-readaptation-geriatrique-spital-thurgau-stgag-diessenhofen",
       "it": "oberarzt-arztin-per-la-geriatrische-rehabilitation-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175197,8 +175206,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
+      "en": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
       "it": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175219,8 +175228,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch",
+      "en": "education-care-specialist-hf-2-years-shortened-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-de-l-education-hf-2-ans-raccourcis-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
       "it": "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175230,8 +175239,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
-      "en": "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
-      "fr": "pharmaziepraktikanten-innen-und-famulanten-innen-fur-schwerpunkt-onkologische-pharmazie-6-",
+      "en": "pharmacy-students-and-interns-for-oncological-pharmacy-focus-6-months-spital-thurgau-stgag-munsterlingen",
+      "fr": "stagiaires-en-pharmacie-et-internes-pour-se-concentrer-sur-la-pharmacie-oncologique-6-mois-spital-thurgau-stgag",
       "it": "pharmaziepraktikanten-innen-e-famulanten-innen-per-schwerpunkt-onkologische-pharmazie-6-monate-spital-thurgau-stgag-muns"
     }
   },
@@ -175241,8 +175250,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-rehabilitation-im-springerpool-stgag-ch",
+      "en": "dipl-nursing-professional-woman-rehabilitation-in-springerpool-spital-thurgau-stgag-diessenhofen",
+      "fr": "infirmier-infirmiere-diplome-e-en-readaptation-dans-le-pool-springer-spital-thurgau-stgag-diessenhofen",
       "it": "dipl-specialista-di-cura-riabilitazione-nella-springerpool-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175263,8 +175272,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "praktikanten-in-fachmatura-gesundheit-fmg-2026-stgag-ch",
-      "en": "praktikanten-in-fachmatura-gesundheit-fmg-2026-stgag-ch",
-      "fr": "praktikanten-in-fachmatura-gesundheit-fmg-2026-stgag-ch",
+      "en": "interns-in-fachmatura-health-fmg-2026-spital-thurgau-stgag-munsterlingen",
+      "fr": "internes-dans-fachmatura-health-fmg-2026-spital-thurgau-stgag-munsterlingen",
       "it": "interni-in-fachmatura-salute-fmg-2026-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175274,8 +175283,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
-      "en": "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
-      "fr": "pflegepraktikant-in-rehabilitation-spital-thurgau-stgag-diessenhofen",
+      "en": "nursing-intern-rehabilitation-spital-thurgau-stgag-munsterlingen",
+      "fr": "reeducation-des-internes-infirmiers-spital-thurgau-stgag-munsterlingen",
       "it": "interno-in-riabilitazione-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175285,8 +175294,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-im-mitarbeiterpool-stundenlohn-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-im-mitarbeiterpool-stundenlohn-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-im-mitarbeiterpool-stundenlohn-stgag-ch",
+      "en": "dipl-nurse-in-the-staff-pool-on-an-hourly-basis-spital-thurgau-stgag-munsterlingen-0815fe",
+      "fr": "infirmier-e-diplome-e-a-temps-partiel-dans-le-pool-d-employes-spital-thurgau-stgag-munsterlingen-0815fe",
       "it": "dipl-specialista-nella-piscina-del-personale-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175296,8 +175305,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-januar-2027-stgag-ch",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-januar-2027-stgag-ch",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-januar-2027-stgag-ch",
+      "en": "education-caregiver-hf-4-years-professional-bfgs-january-2027-spital-thurgau-stgag-munsterlingen",
+      "fr": "aide-a-l-education-hf-4-ans-professionnel-bfgs-janvier-2027-spital-thurgau-stgag-munsterlingen",
       "it": "hf-4-anni-professionale-bfgs-gennaio-2027-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175329,8 +175338,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
-      "en": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
-      "fr": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-und-jugendpsychiatrie-und-psychotherapie-mit-inte",
+      "en": "assistant-doctor-in-advanced-specialist-training-child-and-adolescent-psychiatry-and-psychotherapy-with-interest-in",
+      "fr": "medecin-assistant-en-psychiatrie-et-psychotherapie-des-enfants-et-des-adolescents-avec-interet-pour-la-psychosomatique",
       "it": "assistenzarzt-arztin-in-fortgeschrittener-facharztweiterbildung-kinder-e-jugendpsychiatrie-e-psychotherapie-con-interess"
     }
   },
@@ -175384,8 +175393,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+      "en": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
+      "fr": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
       "it": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175429,8 +175438,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027",
+      "en": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-february-2027-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-fevrier-2027-spital-thurgau-stgag-munsterlin",
       "it": "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175440,8 +175449,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
-      "en": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
-      "fr": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-oder-berufsbegleitend-2027-stgag-c",
+      "en": "education-care-specialist-hf-regular-shortened-or-professional-2027-spital-thurgau-stgag-diessenhofen",
+      "fr": "specialiste-des-soins-d-education-hf-regulier-raccourci-ou-professionnel-2027-spital-thurgau-stgag-diessenhofen",
       "it": "ausbildung-dipl-pflegefachmann-frau-hf-regular-verkurzt-o-berufsbegleitend-2027-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175449,7 +175458,12 @@
     "canonicalSlug": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
     "canton": "TI",
     "createdAt": "2026-05-11",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "nutrizionista-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
+      "en": "nutritionist-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
+      "de": "ernahrungsberater-in-hf-bsc-stgag-ch",
+      "fr": "nutritionniste-en-hf-bsc-spital-thurgau-stgag-diessenhofen"
+    }
   },
   "id|stgag.ch|3522": {
     "canonicalSlug": "abitazioni-specialistiche-spital-thurgau-stgag-diessenhofen",
@@ -175485,8 +175499,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "fachmann-frau-gesundheit-efz-stgag-ch",
-      "en": "fachmann-frau-gesundheit-efz-stgag-ch",
-      "fr": "fachmann-frau-gesundheit-efz-stgag-ch",
+      "en": "healthcare-professional-efz-spital-thurgau-stgag-munsterlingen",
+      "fr": "technicien-ne-de-la-sante-efz-spital-thurgau-stgag-munsterlingen",
       "it": "fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175573,8 +175587,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
-      "en": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
-      "fr": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
+      "en": "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen",
+      "fr": "professionnel-femme-sante-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen",
       "it": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen"
     }
   },
@@ -175617,8 +175631,8 @@
     "createdAt": "2026-05-11",
     "slugByLocale": {
       "de": "dipl-pflegefachmann-frau-stgag-ch",
-      "en": "dipl-pflegefachmann-frau-stgag-ch",
-      "fr": "dipl-pflegefachmann-frau-stgag-ch",
+      "en": "dipl-nursing-professional-woman-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-diplome-en-soins-infirmiers-spital-thurgau-stgag-munsterlingen",
       "it": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175682,7 +175696,10 @@
     "canton": "TI",
     "createdAt": "2026-05-11",
     "slugByLocale": {
-      "de": "psychologe-in-spital-thurgau-stgag-diessenhofen"
+      "de": "psychologe-in-spital-thurgau-stgag-diessenhofen",
+      "it": "psicologo-spital-thurgau-stgag-diessenhofen",
+      "en": "psychologist-spital-thurgau-stgag-diessenhofen",
+      "fr": "psychologue-spital-thurgau-stgag-diessenhofen"
     }
   },
   "id|stgag.ch|3624": {
@@ -175698,7 +175715,10 @@
     "canton": "TG",
     "createdAt": "2026-05-12",
     "slugByLocale": {
-      "de": "neuropsychologen-in-stgag-ch"
+      "de": "neuropsychologen-in-stgag-ch",
+      "it": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
+      "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+      "fr": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
     }
   },
   "id|stgag.ch|3630": {
@@ -175739,7 +175759,12 @@
     "canonicalSlug": "projektassistent-in-bauadministration-stgag-munsterlingen",
     "canton": "TG",
     "createdAt": "2026-05-22",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "assistente-in-bauadministrazioni-spital-thurgau-stgag-frauenfeld",
+      "en": "project-assistant-in-bauadministration-spital-thurgau-stgag-frauenfeld",
+      "de": "projektassistent-in-bauadministration-stgag-ch",
+      "fr": "assistant-de-projet-a-bauadministration-spital-thurgau-stgag-frauenfeld"
+    }
   },
   "id|stgag.ch|3643": {
     "canonicalSlug": "medizinische-r-praxisassistent-in-onkologie-stgag-munsterlingen",
@@ -175789,8 +175814,8 @@
     "createdAt": "2026-06-02",
     "slugByLocale": {
       "de": "projektleiter-in-bauherrenvertreter-in-gebaudetechnik-stgag-munsterlingen",
-      "en": "projektleiter-in-bauherrenvertreter-in-gebaudetechnik-stgag-munsterlingen",
-      "fr": "projektleiter-in-bauherrenvertreter-in-gebaudetechnik-stgag-munsterlingen",
+      "en": "project-manager-contractor-representative-in-building-technology-spital-thurgau-stgag-munsterlingen",
+      "fr": "directeur-de-projet-representant-de-l-entrepreneur-en-technologie-du-batiment-spital-thurgau-stgag-munsterlingen",
       "it": "projektleiter-in-bauherrenvertreter-in-gebaudetechnik-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175856,8 +175881,8 @@
     "createdAt": "2026-06-04",
     "slugByLocale": {
       "de": "facharzt-arztin-fur-radiologie-stgag-munsterlingen",
-      "en": "facharzt-arztin-fur-radiologie-stgag-munsterlingen",
-      "fr": "facharzt-arztin-fur-radiologie-stgag-munsterlingen",
+      "en": "specialist-in-radiology-spital-thurgau-stgag-munsterlingen",
+      "fr": "specialiste-en-radiologie-spital-thurgau-stgag-chur",
       "it": "facharzt-arztin-per-radiologie-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175867,8 +175892,8 @@
     "createdAt": "2026-06-04",
     "slugByLocale": {
       "de": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-      "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-      "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+      "en": "dipl-radiology-specialist-spital-thurgau-stgag-chur",
+      "fr": "dipl-specialiste-de-radiologie-spital-thurgau-stgag-chur",
       "it": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175956,7 +175981,12 @@
     "canonicalSlug": "mpa-arztsekretarin-stgag-munsterlingen",
     "canton": "TG",
     "createdAt": "2026-06-16",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "mpa-segretario-medico-spital-thurgau-stgag-chur",
+      "en": "mpa-medical-secretary-spital-thurgau-stgag-chur",
+      "de": "mpa-arztsekretarin-stgag-ch",
+      "fr": "mpa-secretaire-medical-spital-thurgau-stgag-chur"
+    }
   },
   "id|stgag.ch|3680": {
     "canonicalSlug": "esperti-infermieristici-apn-psichiatria-spital-thurgau-stgag-munsterlingen",
@@ -175964,8 +175994,8 @@
     "createdAt": "2026-06-17",
     "slugByLocale": {
       "de": "pflegeexperten-in-apn-psychiatrie-stgag-munsterlingen",
-      "en": "pflegeexperten-in-apn-psychiatrie-stgag-munsterlingen",
-      "fr": "pflegeexperten-in-apn-psychiatrie-stgag-munsterlingen",
+      "en": "nursing-experts-in-apn-psychiatry-spital-thurgau-stgag-munsterlingen",
+      "fr": "experts-en-soins-infirmiers-en-psychiatrie-apn-spital-thurgau-stgag-munsterlingen",
       "it": "esperti-infermieristici-apn-psichiatria-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -175975,8 +176005,8 @@
     "createdAt": "2026-06-19",
     "slugByLocale": {
       "de": "diatkoch-kochin-fa-oder-efz-stgag-munsterlingen",
-      "en": "diatkoch-kochin-fa-oder-efz-stgag-munsterlingen",
-      "fr": "diatkoch-kochin-fa-oder-efz-stgag-munsterlingen",
+      "en": "diet-chef-fa-or-efz-spital-thurgau-stgag-munsterlingen",
+      "fr": "chef-diete-fa-ou-efz-spital-thurgau-stgag-munsterlingen",
       "it": "diatkoch-kochin-fa-o-cfc-spital-thurgau-stgag-munsterlingen"
     }
   },
@@ -195486,7 +195516,12 @@
     "canonicalSlug": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
     "canton": "TI",
     "createdAt": "2026-04-08",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "revisori-dei-conti-esperti-tecnici-e-clinici-mtic-group-lugano-paradiso",
+      "en": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
+      "de": "auditors-technische-klinische-experten-mtic-group-lugano-paradiso",
+      "fr": "auditeurs-experts-techniques-et-clinique-mtic-group-lugano-paradiso"
+    }
   },
   "url|https://afry.com/en/join-us/available-jobs/ref10081w-hlks-planerin-gebaudetechnik-80-100-zurich": {
     "canonicalSlug": "hlks-planer-in-gebaudetechnik-80-100-zurich-afry-zurich",
@@ -230424,7 +230459,9 @@
     "createdAt": "2026-06-03",
     "slugByLocale": {
       "de": "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-      "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+      "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
+      "it": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
+      "en": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
     }
   },
   "url|https://karriere.rittmeyer.com/offene-stellen/projektingenieur-fuer-automatisierung-steuerungssysteme-a": {
@@ -230866,7 +230903,7 @@
     "slugByLocale": {
       "de": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt",
       "en": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt",
-      "fr": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt",
+      "fr": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-e-dipl-pflegefachperson-hf-verkuerzt-klinik-schloss-mammern",
       "it": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-e-dipl-pflegefachperson-hf-verkuerzt-klinik-schloss-mammern"
     }
   },
@@ -230898,7 +230935,8 @@
     "createdAt": "2026-05-20",
     "slugByLocale": {
       "en": "health-professional-80-100-klinik-schloss-mammern-mammern",
-      "fr": "professionnel-de-la-sante-80-100-klinik-schloss-mammern-mammern"
+      "fr": "professionnel-de-la-sante-80-100-klinik-schloss-mammern-mammern",
+      "de": "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern"
     }
   },
   "url|https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-30-40": {
@@ -246597,7 +246635,8 @@
     "createdAt": "2026-05-30",
     "slugByLocale": {
       "de": "produktmanager-handel-und-herkunft-alle-100-alpiq-olten",
-      "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten"
+      "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten",
+      "it": "product-manager-trading-and-origination-all-100-alpiq-olten"
     }
   },
   "url|https://www.alpiq.com/career/open-jobs/your-application/9518": {
@@ -266358,7 +266397,10 @@
   "id|selecta.ch|4599": {
     "canonicalSlug": "automatenbetreuer-m-w-d-selecta-winterthur",
     "slugByLocale": {
-      "de": "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung"
+      "de": "automatenbetreuer-m-w-d-selecta-region-winterthur-start-1-juni-2026-oder-nach-vereinbarung",
+      "it": "operatore-automatico-m-f-d-selecta-winterthur",
+      "en": "automatic-operator-m-f-d-selecta-winterthur",
+      "fr": "operateur-automatique-m-f-d-selecta-winterthur"
     },
     "createdAt": "2026-07-04",
     "canton": "ZH"
@@ -266368,8 +266410,8 @@
     "slugByLocale": {
       "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-12-00-uhr-bis-22",
       "it": "chauffeur-kat-c-e-m-w-d-selecta-kirchberg-be",
-      "en": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-12-00-uhr-bis-22",
-      "fr": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-12-00-uhr-bis-22"
+      "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be",
+      "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be"
     },
     "createdAt": "2026-07-04",
     "canton": "BE"
@@ -266379,28 +266421,40 @@
     "slugByLocale": {
       "de": "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be",
       "it": "collaboratore-trice-kundendienst-m-w-d-selecta-kirchberg-be",
-      "en": "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be",
-      "fr": "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be"
+      "en": "employee-customer-service-m-f-d-selecta-kirchberg-be",
+      "fr": "service-a-la-clientele-des-employes-m-f-d-selecta-kirchberg-be"
     },
     "createdAt": "2026-07-04",
     "canton": "BE"
   },
   "id|selecta.ch|4589": {
     "canonicalSlug": "sales-support-associate-m-w-d-selecta-kirchberg-be",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
+      "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+      "fr": "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+    },
     "createdAt": "2026-07-04",
     "canton": "BE"
   },
   "id|selecta.ch|4606": {
     "canonicalSlug": "kundenbetreuer-m-w-d-selecta-region-wallis",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "account-manager-m-f-d-selecta-wallis",
+      "en": "account-manager-m-f-d-selecta-wallis",
+      "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
+      "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+    },
     "createdAt": "2026-07-04",
     "canton": "VS"
   },
   "id|selecta.ch|4578": {
     "canonicalSlug": "automatenbetreuer-m-w-d-selecta-herisau",
     "slugByLocale": {
-      "de": "automatenbetreuer-m-w-d-selecta-region-herisau"
+      "de": "automatenbetreuer-m-w-d-selecta-region-herisau",
+      "it": "operatore-automatico-m-f-d-selecta-herisau",
+      "en": "automatic-operator-m-f-d-selecta-herisau",
+      "fr": "operateur-automatique-m-f-d-selecta-herisau"
     },
     "createdAt": "2026-07-04",
     "canton": "AR"
@@ -266408,7 +266462,9 @@
   "id|selecta.ch|4607": {
     "canonicalSlug": "key-account-manager-new-business-hunter-selecta-westschweiz",
     "slugByLocale": {
-      "en": "key-account-manager-new-business-hunter-selecta-steinhausen"
+      "en": "key-account-manager-new-business-hunter-selecta-steinhausen",
+      "de": "key-account-manager-new-business-hunter-selecta-westschweiz",
+      "fr": "gestionnaire-de-comptes-cles-nouvelle-entreprise-hunter-selecta-steinhausen"
     },
     "createdAt": "2026-07-04",
     "canton": "ZG"
@@ -266418,28 +266474,39 @@
     "slugByLocale": {
       "de": "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be",
       "it": "deine-ausbildung-bei-selecta-logistiker-in-cfc-selecta-kirchberg-be",
-      "en": "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be",
-      "fr": "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
+      "en": "your-apprenticeship-at-selecta-logistician-in-efz-selecta-kirchberg-be",
+      "fr": "votre-apprentissage-chez-selecta-logisticien-dans-efz-selecta-kirchberg-be"
     },
     "createdAt": "2026-07-04",
     "canton": "BE"
   },
   "id|selecta.ch|4557": {
     "canonicalSlug": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "en": "your-training-at-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
+      "de": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
+      "fr": "votre-formation-chez-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
+    },
     "createdAt": "2026-07-04",
     "canton": "BE"
   },
   "id|selecta.ch|4592": {
     "canonicalSlug": "telesales-agent-m-w-d-selecta-kirchberg-be",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "agente-telesales-m-f-d-selecta-kirchberg-be",
+      "de": "telesales-agent-m-w-d-selecta-kirchberg-be",
+      "fr": "agent-de-vente-par-telephone-m-f-d-selecta-kirchberg-be"
+    },
     "createdAt": "2026-07-04",
     "canton": "BE"
   },
   "id|selecta.ch|4610": {
     "canonicalSlug": "automatenbetreuer-m-w-d-selecta-sursee",
     "slugByLocale": {
-      "de": "automatenbetreuer-m-w-d-selecta-region-sursee"
+      "de": "automatenbetreuer-m-w-d-selecta-region-sursee",
+      "it": "operatore-automatico-m-f-d-selecta-sursee",
+      "en": "automatic-operator-m-f-d-selecta-sursee",
+      "fr": "operateur-automatique-m-f-d-selecta-sursee"
     },
     "createdAt": "2026-07-04",
     "canton": "LU"
@@ -266447,7 +266514,10 @@
   "id|selecta.ch|4614": {
     "canonicalSlug": "automatenbetreuer-m-w-d-selecta-solothurn",
     "slugByLocale": {
-      "de": "automatenbetreuer-m-w-d-selecta-region-solothurn"
+      "de": "automatenbetreuer-m-w-d-selecta-region-solothurn",
+      "it": "operatore-automatico-m-f-d-selecta-solothurn",
+      "en": "automatic-operator-m-f-d-selecta-solothurn",
+      "fr": "operateur-automatique-m-f-d-selecta-solothurn"
     },
     "createdAt": "2026-07-04",
     "canton": "SO"
@@ -266842,7 +266912,7 @@
       "fr": "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de",
       "it": "specialista-di-polizia-forense-in-informatica-forense-ict-systems-engineer-etat-de-fribourg-fribourg",
       "en": "forensic-forensics-officer-ict-system-engineer-etat-de-fribourg-fribourg",
-      "de": "specialiste-police-judiciaire-en-informatique-forensique-ingenieur-e-systeme-tic-etat-de"
+      "de": "forensic-forensics-officer-ict-system-engineer-etat-de-fribourg"
     },
     "createdAt": "2026-07-04",
     "canton": "FR"
@@ -267347,7 +267417,7 @@
       "fr": "juriste-etat-de-fribourg-ch",
       "it": "avvocato-etat-de-fribourg-fribourg",
       "en": "legal-officer-etat-de-fribourg-fribourg",
-      "de": "juriste-etat-de-fribourg-ch"
+      "de": "legal-officer-etat-de-fribourg"
     },
     "createdAt": "2026-07-04",
     "canton": "FR"
@@ -325709,7 +325779,10 @@
   "id|stadtluzern.ch|70e47d5e-0e59-4ebd-b7f6-31a10a7a0fa8": {
     "canonicalSlug": "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
     "slugByLocale": {
-      "de": "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern"
+      "de": "fachperson-grundstucksentwasserung-60-stadt-luzern-luzern",
+      "it": "specialista-di-drenaggio-terrestre-60-stadt-luzern-luzern",
+      "en": "land-drainage-specialist-60-stadt-luzern-luzern",
+      "fr": "specialiste-du-drainage-des-terres-60-stadt-luzern-luzern"
     },
     "createdAt": "2026-07-14",
     "canton": "LU"
@@ -327203,7 +327276,10 @@
   "id|stryker.wd1.myworkdayjobs.com|r561546-1": {
     "canonicalSlug": "regulatory-affairs-specialist-stryker-ch",
     "slugByLocale": {
-      "en": "regulatory-affairs-specialist-stryker-ch"
+      "en": "regulatory-affairs-specialist-stryker-ch",
+      "it": "regulatory-affairs-specialista-stryker-biberist",
+      "de": "regulatory-affairs-spezialist-stryker-biberist",
+      "fr": "regulatory-affairs-specialiste-stryker-biberist"
     },
     "createdAt": "2026-07-14",
     "canton": "SO"
@@ -328298,7 +328374,8 @@
     "slugByLocale": {
       "en": "r-d-project-manager-m-w-d-80-100-abb-svizzera-sede-ticino-schaffhausen-vsv8qh",
       "de": "f-e-projektmanager-m-d-80-100-abb-svizzera-sede-ticino-schaffhausen",
-      "fr": "gestionnaire-de-projet-de-r-d-f-m-j-80-100-abb-svizzera-sede-ticino-schaffhausen"
+      "fr": "gestionnaire-de-projet-de-r-d-f-m-j-80-100-abb-svizzera-sede-ticino-schaffhausen",
+      "it": "responsabile-di-progetto-r-d-f-m-d-80-100-abb-svizzera-sede-ticino-schaffhausen"
     },
     "createdAt": "2026-07-15",
     "canton": "SH"
@@ -329769,7 +329846,10 @@
   "id|solique.ch|4038305": {
     "canonicalSlug": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
     "slugByLocale": {
-      "de": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+      "de": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
+      "it": "dipl-fisioterapista-in-a-spital-emmental-burgdorf-langnau",
+      "en": "dipl-physiotherapist-in-a-spital-emmental-burgdorf-langnau",
+      "fr": "dipl-physiotherapeute-en-a-spital-emmental-burgdorf-langnau"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -329777,7 +329857,10 @@
   "id|solique.ch|4038317": {
     "canonicalSlug": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+      "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+      "it": "infermiera-a-spital-emmental-burgdorf-d32a2a",
+      "en": "dipl-nurse-a-spital-emmental-burgdorf-d32a2a",
+      "fr": "infirmiere-a-spital-emmental-burgdorf-d32a2a"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -329785,7 +329868,10 @@
   "id|solique.ch|4038311": {
     "canonicalSlug": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
     "slugByLocale": {
-      "de": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+      "de": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
+      "it": "piscina-sanitaria-professionale-a-spital-emmental-burgdorf-langnau",
+      "en": "professional-health-care-pool-a-spital-emmental-burgdorf-langnau",
+      "fr": "groupe-de-soins-de-sante-professionnels-a-spital-emmental-burgdorf-langnau"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -329793,7 +329879,10 @@
   "id|solique.ch|4038309": {
     "canonicalSlug": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
     "slugByLocale": {
-      "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+      "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+      "it": "nutrizionista-in-bsc-a-spital-emmental-burgdorf-langnau",
+      "en": "nutritionist-in-bsc-a-spital-emmental-burgdorf-langnau",
+      "fr": "nutritionniste-en-bsc-a-spital-emmental-burgdorf-langnau"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -330700,7 +330789,10 @@
   "url|https://jobs.chur.ch/zivilstandsbeamtin-zivilstandsbeamter-de-j1699.html": {
     "canonicalSlug": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
     "slugByLocale": {
-      "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
+      "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
+      "it": "ufficiale-di-stato-civile-stadt-chur-chur",
+      "en": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-chur",
+      "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
     },
     "createdAt": "2026-07-15",
     "canton": "GR"
@@ -332086,7 +332178,10 @@
   "id|bern.ch|b8042102-dcd5-4f53-811a-248778cfd4f5": {
     "canonicalSlug": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
     "slugByLocale": {
-      "de": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+      "de": "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
+      "it": "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern-fb5992",
+      "en": "member-of-the-medical-management-area-of-responsibility-emergency-call-centre-stadt-bern-bern-fb5992",
+      "fr": "membre-de-la-direction-medicale-secteur-de-responsabilite-stadt-bern-bern-fb5992"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -335081,7 +335176,8 @@
     "slugByLocale": {
       "de": "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
       "it": "stv-head-head-care-80-100-stiftung-diaconis-bern",
-      "fr": "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern"
+      "fr": "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern",
+      "en": "stv-head-head-care-80-100-stiftung-diaconis-bern"
     },
     "createdAt": "2026-07-16",
     "canton": "BE"
@@ -335155,7 +335251,10 @@
   "id|unispital-basel.ch|0d996b2d-75c2-4a40-9c03-1f62e303536d": {
     "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
     "slugByLocale": {
-      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
+      "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel",
+      "en": "dipl-nursing-specialist-hf-fh-with-option-vocational-trainer-surgery-internal-medicine-universitatsspital-basel-basel",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-option-formateur-professionnel-chirurgie-et-medecine-interne"
     },
     "createdAt": "2026-07-16",
     "canton": "BS"
@@ -335164,7 +335263,9 @@
     "canonicalSlug": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-onkologisch-chirurgische-station-universitatsspital-basel",
     "slugByLocale": {
       "de": "assistent-in-gesundheit-und-soziales-pflegeassistent-in-onkologisch-chirurgische-station",
-      "it": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-onkologisch-chirurgische-station-universitatsspital-basel"
+      "it": "assistent-in-gesundheit-e-soziales-pflegeassistent-in-onkologisch-chirurgische-station-universitatsspital-basel",
+      "en": "assistant-health-and-social-services-nursing-assistant-oncological-surgical-station-universitatsspital-basel-basel",
+      "fr": "assistant-en-sante-et-services-sociaux-assistant-en-soins-infirmiers-station-oncologique-chirurgicale-universitatsspital"
     },
     "createdAt": "2026-07-16",
     "canton": "BS"
@@ -336512,7 +336613,9 @@
   "id|zurich.com|1366895657": {
     "canonicalSlug": "auditor-medico-zurich-insurance-sede-ticino-lugano-xddxhz",
     "slugByLocale": {
-      "fr": "auditor-medico-zurich-insurance-sede-ticino-lugano-xddxhz"
+      "fr": "auditor-medico-zurich-insurance-sede-ticino-lugano-xddxhz",
+      "en": "medical-auditor-zurich-insurance-sede-ticino-lugano",
+      "de": "medizinischer-auditor-zurich-insurance-sede-ticino-lugano"
     },
     "createdAt": "2026-07-17",
     "canton": "TI"
@@ -336575,7 +336678,9 @@
     "canonicalSlug": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
     "slugByLocale": {
       "it": "responsable-service-biomedical-80-100-responsabile-abteilung-medizintechnik-80-100-hopital-fribourgeois-hfr-fribourg",
-      "fr": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr"
+      "fr": "responsable-service-biomedical-80-100-leiter-in-abteilung-medizintechnik-80-100-hfr",
+      "en": "biomedical-service-manager-80-100-head-of-medical-technology-department-80-100-hopital-fribourgeois-hfr-fribourg",
+      "de": "biomedizinischer-serviceverantwortlicher-80-100-leiter-in-der-medizinische-technologie-abteilung-80-100-hopital"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -337066,7 +337171,9 @@
     "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-schnottwil",
     "slugByLocale": {
       "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-schnottwil",
-      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-schnottwil"
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-schnottwil",
+      "en": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-2027-volg-schnottwil",
+      "fr": "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-2027-volg-schnottwil"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337075,7 +337182,9 @@
     "canonicalSlug": "gestionnaire-du-commerce-de-detail-m-w-d-landi-moleson-sarine-sa-bulle",
     "slugByLocale": {
       "it": "gestionnaire-du-commerce-de-detail-f-m-d-landi-moleson-sarine-sa-bulle",
-      "fr": "gestionnaire-du-commerce-de-detail-f-h-d-landi-moleson-sarine-sa-bulle"
+      "fr": "gestionnaire-du-commerce-de-detail-f-h-d-landi-moleson-sarine-sa-bulle",
+      "en": "retail-manager-f-h-d-landi-moleson-sarine-sa-bulle",
+      "de": "retail-manager-f-h-d-landi-moleson-sarine-sa-bulle"
     },
     "createdAt": "2026-07-17",
     "canton": "FR"
@@ -337084,7 +337193,9 @@
     "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-escholzmatt-marbach",
     "slugByLocale": {
       "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-escholzmatt-marbach",
-      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-escholzmatt-marbach"
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-escholzmatt-marbach",
+      "en": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-2027-volg-escholzmatt-marbach",
+      "fr": "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-2027-volg-escholzmatt-marbach"
     },
     "createdAt": "2026-07-17",
     "canton": "LU"
@@ -337093,7 +337204,9 @@
     "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-escholzmatt-marbach",
     "slugByLocale": {
       "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-escholzmatt-marbach",
-      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-escholzmatt-marbach"
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-escholzmatt-marbach",
+      "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-2027-volg-escholzmatt-marbach",
+      "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-2027-volg-escholzmatt-marbach"
     },
     "createdAt": "2026-07-17",
     "canton": "LU"
@@ -337102,7 +337215,9 @@
     "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-schnottwil",
     "slugByLocale": {
       "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-schnottwil",
-      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-schnottwil"
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-schnottwil",
+      "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-2027-volg-schnottwil",
+      "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-2027-volg-schnottwil"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337111,7 +337226,9 @@
     "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-kleinlutzel",
     "slugByLocale": {
       "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-kleinlutzel",
-      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-kleinlutzel"
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-kleinlutzel",
+      "en": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-2027-volg-kleinlutzel",
+      "fr": "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-2027-volg-kleinlutzel"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337120,7 +337237,9 @@
     "canonicalSlug": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-fulenbach",
     "slugByLocale": {
       "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-2027-volg-fulenbach",
-      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-fulenbach"
+      "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-2027-volg-fulenbach",
+      "en": "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-2027-volg-fulenbach",
+      "fr": "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-2027-volg-fulenbach"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337129,7 +337248,9 @@
     "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-kleinlutzel",
     "slugByLocale": {
       "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-kleinlutzel",
-      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-kleinlutzel"
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-kleinlutzel",
+      "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-2027-volg-kleinlutzel",
+      "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-2027-volg-kleinlutzel"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337138,7 +337259,9 @@
     "canonicalSlug": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-fulenbach",
     "slugByLocale": {
       "it": "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-2027-volg-fulenbach",
-      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-fulenbach"
+      "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-2027-volg-fulenbach",
+      "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-2027-volg-fulenbach",
+      "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-2027-volg-fulenbach"
     },
     "createdAt": "2026-07-17",
     "canton": "SO"
@@ -337146,7 +337269,10 @@
   "id|fenaco.com|6d3e1c36-3f1f-4f57-bf09-dc77f9bfaa66": {
     "canonicalSlug": "verkaufer-in-volg-laden-40-60-volg-gossau",
     "slugByLocale": {
-      "de": "verkaufer-in-volg-laden-40-60-volg-gossau"
+      "de": "verkaufer-in-volg-laden-40-60-volg-gossau",
+      "it": "venditore-in-volg-shops-40-60-volg-gossau",
+      "en": "seller-in-volg-shops-40-60-volg-gossau",
+      "fr": "vendeur-dans-les-boutiques-volg-40-60-volg-gossau"
     },
     "createdAt": "2026-07-17",
     "canton": "SG"
@@ -337154,7 +337280,10 @@
   "id|fenaco.com|a1624460-c847-45b4-87c4-e2007c25774d": {
     "canonicalSlug": "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
     "slugByLocale": {
-      "de": "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
+      "de": "praktikantin-praktikant-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+      "it": "interno-interno-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+      "en": "intern-intern-volg-illnau-zh-w-m-d-volg-illnau-effretikon",
+      "fr": "stagiaire-stagiaire-volg-illnau-zh-w-m-d-volg-illnau-effretikon"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337162,7 +337291,10 @@
   "id|fenaco.com|ece335ec-3534-4fd4-8dfc-ea7f9cf4aba9": {
     "canonicalSlug": "praktikantin-praktikant-volg-brutten-zh-w-m-d-volg-brutten",
     "slugByLocale": {
-      "de": "praktikantin-praktikant-volg-brutten-zh-w-m-d-volg-brutten"
+      "de": "praktikantin-praktikant-volg-brutten-zh-w-m-d-volg-brutten",
+      "it": "interno-interno-volg-brutten-zh-w-m-d-volg-brutten",
+      "en": "intern-intern-volg-brutten-zh-w-m-d-volg-brutten",
+      "fr": "stagiaire-stagiaire-volg-brutten-zh-w-m-d-volg-brutten"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337178,7 +337310,10 @@
   "id|spitaluster.ch|cf365fce-6566-4795-8e00-14b551d82d1b": {
     "canonicalSlug": "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch",
     "slugByLocale": {
-      "de": "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch"
+      "de": "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch",
+      "it": "assistente-medico-pratico-segretario-medico-50-80-spital-uster-uster",
+      "en": "medical-practice-assistant-medical-secretary-50-80-spital-uster-uster",
+      "fr": "assistant-medical-professionnel-secretaire-medical-50-80-spital-uster-uster"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337274,7 +337409,9 @@
     "canonicalSlug": "leiter-in-finanzen-e-controlling-stadt-zurich",
     "slugByLocale": {
       "de": "leiter-in-finanzen-und-controlling-stadt-zuerich-zurigo-50980",
-      "it": "leiter-in-finanzen-e-controlling-stadt-zurich"
+      "it": "leiter-in-finanzen-e-controlling-stadt-zurich",
+      "en": "head-of-finance-and-controlling-stadt-zurich-zurich",
+      "fr": "chef-des-finances-et-du-controle-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337315,7 +337452,9 @@
   "id|stadt-zuerich.ch|1366888657": {
     "canonicalSlug": "betriebsleiter-in-stadt-zuerich-zurigo-50995",
     "slugByLocale": {
-      "de": "betriebsleiter-in-stadt-zuerich-zurigo-50995"
+      "de": "betriebsleiter-in-stadt-zuerich-zurigo-50995",
+      "it": "manager-stadt-zurich-zurich",
+      "fr": "gestionnaire-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337324,7 +337463,9 @@
     "canonicalSlug": "hortleitung-o-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zurich",
     "slugByLocale": {
       "de": "hortleitung-oder-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo",
-      "it": "hortleitung-o-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zurich"
+      "it": "hortleitung-o-erfahrene-fachperson-betreuung-schule-untermoos-stadt-zurich",
+      "en": "hortleitung-or-experienced-specialist-care-school-untermoos-stadt-zurich-zurich",
+      "fr": "hortleitung-ou-soins-specialises-experimentes-ecole-untermoos-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337333,7 +337474,9 @@
     "canonicalSlug": "reifenfachmann-frau-stadt-zurich",
     "slugByLocale": {
       "de": "reifenfachmann-frau-stadt-zuerich-zurigo-50990",
-      "it": "reifenfachmann-frau-stadt-zurich"
+      "it": "reifenfachmann-frau-stadt-zurich",
+      "en": "tyre-professional-woman-stadt-zurich-zurich",
+      "fr": "femmes-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-17",
     "canton": "ZH"
@@ -337350,7 +337493,10 @@
   "id|unibe.ch|79ac787d-f9fe-4af5-b7d3-42b44eea757b": {
     "canonicalSlug": "phd-student-pulmonary-outcomes-and-lung-function-after-br-childhood-cancer-unibe-bern",
     "slugByLocale": {
-      "en": "phd-student-pulmonary-outcomes-and-lung-function-after-br-childhood-cancer-unibe-bern"
+      "en": "phd-student-pulmonary-outcomes-and-lung-function-after-br-childhood-cancer-unibe-bern",
+      "it": "dottorato-di-ricerca-esiti-polmonari-e-funzione-polmonare-dopo-il-cancro-al-seno-universitat-bern-bern",
+      "de": "doktorand-lungenergebnisse-und-lungenfunktion-nach-br-kinderkrebs-universitat-bern-bern",
+      "fr": "doctorant-resultats-pulmonaires-et-fonction-pulmonaire-apres-le-cancer-de-l-enfance-universitat-bern-bern"
     },
     "createdAt": "2026-07-17",
     "canton": "BE"
@@ -337494,7 +337640,9 @@
     "canonicalSlug": "arztsekretarin-arztsekretar-o-mpa-a-kantonsspital-baselland-ksbl-liestal",
     "slugByLocale": {
       "de": "arztsekretarin-arztsekretar-oder-mpa-a-ksbl-liestal",
-      "it": "arztsekretarin-arztsekretar-o-mpa-a-kantonsspital-baselland-ksbl-liestal"
+      "it": "arztsekretarin-arztsekretar-o-mpa-a-kantonsspital-baselland-ksbl-liestal",
+      "en": "medical-secretary-or-mpa-a-kantonsspital-baselland-ksbl-liestal",
+      "fr": "secretaire-medical-ou-mpa-a-kantonsspital-baselland-ksbl-liestal"
     },
     "createdAt": "2026-07-17",
     "canton": "BL"
@@ -337503,7 +337651,9 @@
     "canonicalSlug": "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal",
     "slugByLocale": {
       "de": "mitarbeiterin-mitarbeiter-room-service-a-ksbl-liestal",
-      "it": "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal"
+      "it": "mitarbeiterin-collaboratore-trice-room-service-a-kantonsspital-baselland-ksbl-liestal",
+      "en": "employee-room-service-a-kantonsspital-baselland-ksbl-liestal",
+      "fr": "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal"
     },
     "createdAt": "2026-07-17",
     "canton": "BL"
@@ -344179,5 +344329,1015 @@
     },
     "createdAt": "2026-07-17",
     "canton": "BS"
+  },
+  "url|http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-quality-assurance-manager": {
+    "canonicalSlug": "quality-assurance-manager-mtic-group-lugano-paradiso",
+    "slugByLocale": {
+      "it": "quality-assurance-manager-mtic-group-lugano-paradiso"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://app.reflinejobs.io/3316/0033/pub/21/index.html": {
+    "canonicalSlug": "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide",
+    "slugByLocale": {
+      "de": "junior-digital-experience-manager-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://app.reflinejobs.io/3316/0030/pub/19/index.html": {
+    "canonicalSlug": "responsabile-vendite-international-arosa-lenzerheide-lenzerheide",
+    "slugByLocale": {
+      "it": "responsabile-vendite-international-arosa-lenzerheide-lenzerheide",
+      "de": "sales-manager-international-arosa-lenzerheide-lenzerheide",
+      "fr": "directeur-des-ventes-international-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://app.reflinejobs.io/3316/0024/pub/15/index.html": {
+    "canonicalSlug": "autista-in-arosa-lenzerheide-lenzerheide",
+    "slugByLocale": {
+      "it": "autista-in-arosa-lenzerheide-lenzerheide",
+      "en": "slope-driver-in-arosa-lenzerheide-lenzerheide",
+      "de": "pistenmaschinenfahrer-in-arosa-lenzerheide-lenzerheide",
+      "fr": "conducteur-de-pente-in-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://app.reflinejobs.io/3316/0021/pub/16/index.html": {
+    "canonicalSlug": "collaboratore-trice-beschneiung-arosa-lenzerheide",
+    "slugByLocale": {
+      "it": "collaboratore-trice-beschneiung-arosa-lenzerheide",
+      "en": "associate-beschneiung-arosa-lenzerheide-lenzerheide",
+      "de": "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
+      "fr": "collaborateur-trice-beschneiung-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://app.reflinejobs.io/3316/0018/pub/13/index.html": {
+    "canonicalSlug": "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide",
+    "slugByLocale": {
+      "it": "autista-di-parkbully-in-arosa-lenzerheide-lenzerheide",
+      "en": "parkbully-driver-in-arosa-lenzerheide-lenzerheide",
+      "de": "parkbully-fahrer-in-arosa-lenzerheide-lenzerheide",
+      "fr": "conducteur-parkbully-in-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://app.reflinejobs.io/3316/0012/pub/9/index.html": {
+    "canonicalSlug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
+    "slugByLocale": {
+      "it": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
+      "en": "company-electrician-in-arosa-lenzerheide-lenzerheide",
+      "de": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+      "fr": "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|careers.abb|corporate-m-a-analyst": {
+    "canonicalSlug": "corporate-m-a-analista-abb-svizzera-sede-ticino-zurich-fmme93",
+    "slugByLocale": {
+      "it": "corporate-m-a-analista-abb-svizzera-sede-ticino-zurich-fmme93",
+      "en": "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich-fmme93",
+      "fr": "corporate-m-a-analyste-abb-svizzera-sede-ticino-zurich-fmme93"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|selecta.ch|4600": {
+    "canonicalSlug": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+    "slugByLocale": {
+      "it": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+      "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f",
+      "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
+      "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|selecta.ch|4618": {
+    "canonicalSlug": "risorse-umane-generalist-m-w-d-selecta-kirchberg-be",
+    "slugByLocale": {
+      "it": "risorse-umane-generalist-m-w-d-selecta-kirchberg-be",
+      "de": "hr-generalist-m-w-d-selecta-kirchberg-be",
+      "fr": "ressources-humaines-generalist-m-w-d-selecta-kirchberg-be"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|selecta.ch|4617": {
+    "canonicalSlug": "risorse-umane-assistant-m-w-d-selecta-kirchberg-be",
+    "slugByLocale": {
+      "it": "risorse-umane-assistant-m-w-d-selecta-kirchberg-be",
+      "de": "hr-assistant-m-w-d-selecta-kirchberg-be",
+      "fr": "assistant-aux-ressources-humaines-m-f-d-selecta-kirchberg-be"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|selecta.ch|4620": {
+    "canonicalSlug": "operatore-installation-m-w-d-selecta-kirchberg-be",
+    "slugByLocale": {
+      "it": "operatore-installation-m-w-d-selecta-kirchberg-be",
+      "de": "operator-installation-m-w-d-selecta-kirchberg-be",
+      "fr": "operateur-installation-m-w-d-selecta-kirchberg-be"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|selecta.ch|4622": {
+    "canonicalSlug": "business-development-manager-b2b-m-w-d-selecta-westschweiz",
+    "slugByLocale": {
+      "de": "business-development-manager-b2b-m-w-d-selecta-westschweiz"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "id|selecta.ch|4621": {
+    "canonicalSlug": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+    "slugByLocale": {
+      "de": "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und",
+      "it": "business-development-manager-b2b-m-w-d-selecta-steinhausen",
+      "en": "business-development-manager-b2b-m-w-d-selecta-steinhausen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "id|zurich.com|1358603457": {
+    "canonicalSlug": "vp-senior-underwriting-manager-e-s-property-zurich-insurance-sede-ticino-lugano-wthbar",
+    "slugByLocale": {
+      "en": "vp-senior-underwriting-manager-e-s-property-zurich-insurance-sede-ticino-lugano-wthbar"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364029257": {
+    "canonicalSlug": "senior-credit-ricerca-analista-reporting-directly-to-the-head-of-credit-research-you-will-perform-deep-fundamental-analysis-across-assigned-04gaq6",
+    "slugByLocale": {
+      "it": "senior-credit-ricerca-analista-reporting-directly-to-the-head-of-credit-research-you-will-perform-deep-fundamental-analysis-across-assigned-04gaq6",
+      "en": "senior-credit-research-analyst-reporting-directly-to-the-head-of-credit-research-you-will-perform-deep-fundamental-analysis-across-assigned-04gaq6",
+      "de": "senior-credit-forschung-analyst-reporting-directly-to-the-head-of-credit-research-you-will-perform-deep-fundamental-analysis-across-assigned-04gaq6",
+      "fr": "senior-credit-recherche-analyste-reporting-directly-to-the-head-of-credit-research-you-will-perform-deep-fundamental-analysis-across-assigne-04gaq6"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1349151557": {
+    "canonicalSlug": "software-asset-management-specialista-for-sap-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-t-gdqq82",
+    "slugByLocale": {
+      "it": "software-asset-management-specialista-for-sap-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-t-gdqq82",
+      "en": "software-asset-management-specialist-for-sap-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-gdqq82",
+      "de": "software-asset-management-spezialist-for-sap-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-to-gdqq82",
+      "fr": "software-asset-management-specialiste-for-sap-zurich-insurance-sede-ticino-2000-referral-bonus-if-you-bring-other-talented-people-like-you-t-gdqq82"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|819123702": {
+    "canonicalSlug": "practicante-de-marketing-bogota-zurich-insurance-sede-ticino-lugano-9h0ct2",
+    "slugByLocale": {
+      "fr": "practicante-de-marketing-bogota-zurich-insurance-sede-ticino-lugano-9h0ct2"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1361485157": {
+    "canonicalSlug": "sap-boe-technical-specialista-zurich-insurance-sede-ticino-2025-tomcat-and-apache-microsoft-power-bi-azure-cloud-skills-snowflake-t3s6hc",
+    "slugByLocale": {
+      "it": "sap-boe-technical-specialista-zurich-insurance-sede-ticino-2025-tomcat-and-apache-microsoft-power-bi-azure-cloud-skills-snowflake-t3s6hc",
+      "en": "sap-boe-technical-specialist-zurich-insurance-sede-ticino-2025-tomcat-and-apache-microsoft-power-bi-azure-cloud-skills-snowflake-t3s6hc",
+      "de": "sap-boe-technical-spezialist-zurich-insurance-sede-ticino-2025-tomcat-and-apache-microsoft-power-bi-azure-cloud-skills-snowflake-t3s6hc",
+      "fr": "sap-boe-technical-specialiste-zurich-insurance-sede-ticino-2025-tomcat-and-apache-microsoft-power-bi-azure-cloud-skills-snowflake-t3s6hc"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|779002202": {
+    "canonicalSlug": "business-development-manager-life-insurance-zurich-insurance-sede-ticino-lugano-1amw8m",
+    "slugByLocale": {
+      "en": "business-development-manager-life-insurance-zurich-insurance-sede-ticino-lugano-1amw8m"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1328118557": {
+    "canonicalSlug": "underwriting-manager-personal-lines-new-product-general-insurance-zurich-insurance-sede-ticino-lugano-f14ue0",
+    "slugByLocale": {
+      "en": "underwriting-manager-personal-lines-new-product-general-insurance-zurich-insurance-sede-ticino-lugano-f14ue0"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1333031357": {
+    "canonicalSlug": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-freut-sich-a",
+    "slugByLocale": {
+      "it": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-freut-sich-a",
+      "de": "firmenspezialist-im-au-endienst-west-m-w-d-zurich-insurance-sede-ticino-vertriebsgebiet-west-teilzeit-oder-vollzeit-marisa-schell-f-tzan9i"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1330723057": {
+    "canonicalSlug": "group-operations-executive-zurich-insurance-sede-ticino-lugano-0bfbyi",
+    "slugByLocale": {
+      "en": "group-operations-executive-zurich-insurance-sede-ticino-lugano-0bfbyi"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|761282802": {
+    "canonicalSlug": "marketing-specialista-sibu-zurich-insurance-sede-ticino-99444-purpose-to-drive-growth-and-profitability-in-assigned-territory-through-ri-4ept5d",
+    "slugByLocale": {
+      "it": "marketing-specialista-sibu-zurich-insurance-sede-ticino-99444-purpose-to-drive-growth-and-profitability-in-assigned-territory-through-ri-4ept5d",
+      "en": "marketing-specialist-sibu-zurich-insurance-sede-ticino-99444-purpose-to-drive-growth-and-profitability-in-assigned-territory-through-ri-4ept5d",
+      "de": "marketing-spezialist-sibu-zurich-insurance-sede-ticino-99444-purpose-to-drive-growth-and-profitability-in-assigned-territory-through-ri-4ept5d",
+      "fr": "marketing-specialiste-sibu-zurich-insurance-sede-ticino-99444-purpose-to-drive-growth-and-profitability-in-assigned-territory-through-ri-4ept5d"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1358593057": {
+    "canonicalSlug": "ua-associate-domestic-casualty-zurich-insurance-sede-ticino-lugano-whdra1",
+    "slugByLocale": {
+      "en": "ua-associate-domestic-casualty-zurich-insurance-sede-ticino-lugano-whdra1"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1364079657": {
+    "canonicalSlug": "ua-associate-sp-energy-property-zurich-insurance-sede-ticino-lugano-077cnr",
+    "slugByLocale": {
+      "en": "ua-associate-sp-energy-property-zurich-insurance-sede-ticino-lugano-077cnr"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1361345657": {
+    "canonicalSlug": "underwriting-specialista-or-executive-underwriter-domestic-casualty-zurich-insurance-sede-ticino-lugano-skjhf6",
+    "slugByLocale": {
+      "it": "underwriting-specialista-or-executive-underwriter-domestic-casualty-zurich-insurance-sede-ticino-lugano-skjhf6",
+      "en": "underwriting-specialist-or-executive-underwriter-domestic-casualty-zurich-insurance-sede-ticino-lugano-skjhf6",
+      "de": "underwriting-spezialist-or-executive-underwriter-domestic-casualty-zurich-insurance-sede-ticino-lugano-skjhf6",
+      "fr": "underwriting-specialiste-or-executive-underwriter-domestic-casualty-zurich-insurance-sede-ticino-lugano-skjhf6"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1351063057": {
+    "canonicalSlug": "it-zurich-insurance-sede-ticino-lugano-1n5o24",
+    "slugByLocale": {
+      "fr": "it-zurich-insurance-sede-ticino-lugano-1n5o24"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1351062957": {
+    "canonicalSlug": "it-zurich-insurance-sede-ticino-lugano-1n64de",
+    "slugByLocale": {
+      "fr": "it-zurich-insurance-sede-ticino-lugano-1n64de"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1351062857": {
+    "canonicalSlug": "it-project-management-specialista-zurich-insurance-sede-ticino-lugano-1n6543",
+    "slugByLocale": {
+      "it": "it-project-management-specialista-zurich-insurance-sede-ticino-lugano-1n6543",
+      "en": "it-project-management-specialist-zurich-insurance-sede-ticino-lugano-1n6543",
+      "de": "it-project-management-spezialist-zurich-insurance-sede-ticino-lugano-1n6543",
+      "fr": "it-project-management-specialiste-zurich-insurance-sede-ticino-lugano-1n6543"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1357571557": {
+    "canonicalSlug": "rcis-crop-claims-specialista-iowa-zurich-insurance-sede-ticino-lugano-hruplp",
+    "slugByLocale": {
+      "it": "rcis-crop-claims-specialista-iowa-zurich-insurance-sede-ticino-lugano-hruplp",
+      "en": "rcis-crop-claims-specialist-iowa-zurich-insurance-sede-ticino-lugano-hruplp",
+      "de": "rcis-crop-claims-spezialist-iowa-zurich-insurance-sede-ticino-lugano-hruplp",
+      "fr": "rcis-crop-claims-specialiste-iowa-zurich-insurance-sede-ticino-lugano-hruplp"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "id|zurich.com|1361409257": {
+    "canonicalSlug": "office-services-agent-20-hour-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception-switchboard-experience-posses-szgef9",
+    "slugByLocale": {
+      "en": "office-services-agent-20-hour-ftc-wexford-al-and-administration-skills-excellent-attention-to-detail-reception-switchboard-experience-posses-szgef9"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://diaconis.abacuscity.ch/de/job_1_129/dipl.-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-%25": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-stiftung-diaconis-bern",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-stiftung-diaconis-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|stadtluzern.ch|8f47675b-9aed-4aee-8520-9d9be5f0d9d8": {
+    "canonicalSlug": "chauffeur-in-kat-c-80-100-stadt-luzern-emmen",
+    "slugByLocale": {
+      "de": "chauffeur-in-kat-c-80-100-stadt-luzern-emmen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "LU"
+  },
+  "id|stadtluzern.ch|c043c6e2-39a9-4591-b3a1-e9066387eebb": {
+    "canonicalSlug": "gartner-in-80-100-stadt-luzern-ebikon",
+    "slugByLocale": {
+      "de": "gartner-in-80-100-stadt-luzern-ebikon"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "LU"
+  },
+  "id|unispital-basel.ch|3990387e-4204-43bc-a2c9-778247db2fee": {
+    "canonicalSlug": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+    "slugByLocale": {
+      "de": "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BS"
+  },
+  "url|https://jobs.chur.ch/treffleitung-queerer-jugendtreff-de-j1701.html": {
+    "canonicalSlug": "treffleitung-queerer-jugendtreff-stadt-chur-1701",
+    "slugByLocale": {
+      "de": "treffleitung-queerer-jugendtreff-stadt-chur-1701"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "url|https://jobs.chur.ch/treffmitarbeit-queerer-jugendtreff-de-j1700.html": {
+    "canonicalSlug": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700",
+    "slugByLocale": {
+      "de": "treffmitarbeit-queerer-jugendtreff-stadt-chur-1700"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|fenaco.com|1f66013f-cdb0-46ca-b54b-5d84b3dd660d": {
+    "canonicalSlug": "addetto-a-al-commercio-al-dettaglio-80-100-landi-weinfelden",
+    "slugByLocale": {
+      "it": "addetto-a-al-commercio-al-dettaglio-80-100-landi-weinfelden",
+      "de": "detailhandelsfachmann-frau-80-100-landi-weinfelden"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|fenaco.com|c22c5168-d17c-4db1-8a57-5663d1cedc7e": {
+    "canonicalSlug": "fachverantwortliche-fachverantwortlicher-fachkurse-e-administration-m-w-d-landi-schweiz-ag-dotzigen",
+    "slugByLocale": {
+      "it": "fachverantwortliche-fachverantwortlicher-fachkurse-e-administration-m-w-d-landi-schweiz-ag-dotzigen",
+      "de": "fachverantwortliche-fachverantwortlicher-fachkurse-und-administration-w-m-d-landi-schweiz-ag-dotzigen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|fenaco.com|1223b91c-01ee-4619-81d2-b08b3ab37a52": {
+    "canonicalSlug": "geschaftsfuhrer-in-80-100-schwerpunkt-detailhandel-landi-meilen",
+    "slugByLocale": {
+      "de": "geschaftsfuhrer-in-80-100-schwerpunkt-detailhandel-landi-meilen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|a48cae5b-634e-4660-808b-49627a431375": {
+    "canonicalSlug": "point-of-sale-coach-m-w-d-per-la-kantone-be-lu-so-e-ag-landi-schweiz-ag-dotzigen",
+    "slugByLocale": {
+      "it": "point-of-sale-coach-m-w-d-per-la-kantone-be-lu-so-e-ag-landi-schweiz-ag-dotzigen",
+      "de": "point-of-sale-coach-w-m-d-fur-die-kantone-be-lu-so-und-ag-landi-schweiz-ag-dotzigen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|fenaco.com|bc75d9c2-516c-4676-acbb-53ab14233400": {
+    "canonicalSlug": "ladenleiterin-ladenleiter-volg-oberembrach-zh-w-m-d-volg-oberembrach",
+    "slugByLocale": {
+      "de": "ladenleiterin-ladenleiter-volg-oberembrach-zh-w-m-d-volg-oberembrach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|8a688887-1bd1-4575-aa39-4a1a2d0b3500": {
+    "canonicalSlug": "mitarbeiterin-collaboratore-trice-verkaufs-servizio-interno-pflanzenschutz-m-w-d-ufa-samen-lyssach",
+    "slugByLocale": {
+      "it": "mitarbeiterin-collaboratore-trice-verkaufs-servizio-interno-pflanzenschutz-m-w-d-ufa-samen-lyssach",
+      "de": "mitarbeiterin-mitarbeiter-verkaufs-innendienst-pflanzenschutz-w-m-d-ufa-samen-lyssach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|fenaco.com|350285cf-db48-4ec2-ad93-a4c6e4ba55c0": {
+    "canonicalSlug": "verkaufer-in-40-60-topshop-durnten-landi-bachtel-durnten",
+    "slugByLocale": {
+      "de": "verkaufer-in-40-60-topshop-durnten-landi-bachtel-durnten"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|fenaco.com|4b377f00-deb6-41f3-9cde-9d7b8078bdce": {
+    "canonicalSlug": "verkauferin-verkaufer-volg-densburen-w-m-d-volg-densburen",
+    "slugByLocale": {
+      "de": "verkauferin-verkaufer-volg-densburen-w-m-d-volg-densburen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "AG"
+  },
+  "id|fenaco.com|27249016-1519-4ae3-9797-5ebba6425c9e": {
+    "canonicalSlug": "category-manager-m-w-d-fenaco-biel",
+    "slugByLocale": {
+      "de": "category-manager-m-w-d-fenaco-biel"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|stadt-zuerich.ch|1366940157": {
+    "canonicalSlug": "lehrperson-per-einzelunterricht-ksb-letzi-stadt-zurich",
+    "slugByLocale": {
+      "de": "lehrperson-fur-einzelunterricht-ksb-letzi-stadt-zuerich-zurigo-50999",
+      "it": "lehrperson-per-einzelunterricht-ksb-letzi-stadt-zurich",
+      "en": "lehrperson-fur-einzelunterricht-ksb-letzi-stadt-zurich-zurich",
+      "fr": "lehrperson-fur-einzelunterricht-ksb-letzi-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|unibe.ch|8a40d1f9-9f22-4555-a3d3-c65f07ea6821": {
+    "canonicalSlug": "apprendistato-come-informatiker-in-cfc-specializzazione-plattformentwicklung-universitat-bern",
+    "slugByLocale": {
+      "de": "lehrstelle-als-informatiker-in-efz-fachrichtung-plattformentwicklung-unibe-bern",
+      "it": "apprendistato-come-informatiker-in-cfc-specializzazione-plattformentwicklung-universitat-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|unibe.ch|9ea8c9cd-3b07-4862-a634-49243d3bc8b1": {
+    "canonicalSlug": "phd-student-physical-activity-and-cardiopulmonary-fitness-after-childhood-cancer-universitat-bern-bern",
+    "slugByLocale": {
+      "en": "phd-student-physical-activity-and-cardiopulmonary-fitness-after-childhood-cancer-unibe",
+      "it": "phd-student-physical-activity-and-cardiopulmonary-fitness-after-childhood-cancer-universitat-bern-bern",
+      "fr": "phd-student-physical-activity-and-cardiopulmonary-fitness-after-childhood-cancer-universitat-bern-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|unibe.ch|2bdc533e-ff28-4c25-a4e1-fdf93cf66dc7": {
+    "canonicalSlug": "postdoc-terrestrial-ecosystem-modelling-unibe-bern",
+    "slugByLocale": {
+      "en": "postdoc-terrestrial-ecosystem-modelling-unibe-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|unibe.ch|b31d4bf7-2e23-4935-b25b-0ecb2d65478b": {
+    "canonicalSlug": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern",
+    "slugByLocale": {
+      "en": "phd-in-climate-sciences-terrestrial-ecosystem-modelling-unibe-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|vermoegenszentrum.ch|90b391b4-b2f4-43dd-b8ef-a42309fdced6": {
+    "canonicalSlug": "senior-it-security-officer-80-100-vz-vermogenszentrum-zurich",
+    "slugByLocale": {
+      "de": "senior-it-security-officer-80-100-vz-vermoegenszentrum-ch",
+      "it": "senior-it-security-officer-80-100-vz-vermogenszentrum-zurich",
+      "en": "senior-it-security-officer-80-100-vz-vermogenszentrum-zurich",
+      "fr": "senior-it-security-officer-80-100-vz-vermogenszentrum-zurich"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "id|vermoegenszentrum.ch|e991622e-27e0-469c-a51e-7c5c6a193a83": {
+    "canonicalSlug": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
+    "slugByLocale": {
+      "de": "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
+      "it": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
+      "en": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
+      "fr": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZG"
+  },
+  "url|https://jobs.zfv.ch/geschaeftsfuehrerin-de-j4591.html": {
+    "canonicalSlug": "geschaftsfuhrer-in-zfv-unternehmungen-murten",
+    "slugByLocale": {
+      "de": "geschaftsfuhrer-in-zfv-unternehmungen-murten"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|solique.ch|4039190": {
+    "canonicalSlug": "specialista-di-psichiatria-spital-emmental-burgdorf",
+    "slugByLocale": {
+      "it": "specialista-di-psichiatria-spital-emmental-burgdorf",
+      "en": "fachperson-psychiatrie-a-spital-emmental-burgdorf",
+      "de": "fachperson-psychiatrie-spital-emmental-burgdorf",
+      "fr": "specialiste-en-psychiatrie-spital-emmental-burgdorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|solique.ch|4040043": {
+    "canonicalSlug": "oberarztin-oberarzt-gastroenterologie-spital-emmental-burgdorf",
+    "slugByLocale": {
+      "de": "oberarztin-oberarzt-gastroenterologie-spital-emmental-burgdorf"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|solique.ch|4036261": {
+    "canonicalSlug": "assistente-medico-mpa-oncologia-spital-oberengadin-samedan",
+    "slugByLocale": {
+      "it": "assistente-medico-mpa-oncologia-spital-oberengadin-samedan",
+      "en": "medical-assistant-mpa-oncology-spital-oberengadin-samedan",
+      "de": "medizinische-r-praxisassistent-in-mpa-onkologie-spital-oberengadin-samedan",
+      "fr": "assistant-medical-amp-oncologie-spital-oberengadin-samedan"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|solique.ch|4036083": {
+    "canonicalSlug": "mutua-spital-oberengadin-samedan",
+    "slugByLocale": {
+      "it": "mutua-spital-oberengadin-samedan",
+      "en": "midwife-spital-oberengadin-samedan",
+      "de": "hebamme-spital-oberengadin-samedan",
+      "fr": "une-sage-femme-spital-oberengadin-samedan"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|solique.ch|4035840": {
+    "canonicalSlug": "medico-principale-medico-principale-ginecologia-ostetricia-spital-oberengadin-samedan",
+    "slugByLocale": {
+      "it": "medico-principale-medico-principale-ginecologia-ostetricia-spital-oberengadin-samedan",
+      "en": "chief-physician-chief-physician-gynecology-obstetrics-spital-oberengadin-samedan",
+      "de": "chefarztin-chefarzt-gynakologie-geburtshilfe-spital-oberengadin-samedan",
+      "fr": "medecin-en-chef-medecin-en-chef-gynecologie-obstetrique-spital-oberengadin-samedan"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|solique.ch|4039873": {
+    "canonicalSlug": "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan",
+    "slugByLocale": {
+      "de": "fachexperten-in-infektionspravention-und-spitalhygiene-zusatzliche-tatigkeit-als",
+      "it": "fachexperten-in-infektionspravention-e-spitalhygiene-zusatzliche-tatigkeit-come-pflegefachperson-moglich-spital-oberengadin-samedan"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GR"
+  },
+  "id|stgag.ch|3683": {
+    "canonicalSlug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thurgau-stgag-diessenhofen",
+    "slugByLocale": {
+      "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thurgau-stgag-diessenhofen",
+      "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thurgau-stgag-diessenhofen",
+      "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-stgag-ch",
+      "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thurgau-stgag-diessenhofen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3707": {
+    "canonicalSlug": "oberarzt-arztin-con-facharzttitel-per-psychiatrie-e-psychotherapie-spital-thurgau-stgag-kreuzlingen",
+    "slugByLocale": {
+      "it": "oberarzt-arztin-con-facharzttitel-per-psychiatrie-e-psychotherapie-spital-thurgau-stgag-kreuzlingen",
+      "en": "senior-physician-with-specialist-title-for-psychiatry-and-psychotherapy-spital-thurgau-stgag-kreuzlingen",
+      "de": "oberarzt-arztin-mit-facharzttitel-fur-psychiatrie-und-psychotherapie-stgag-ch",
+      "fr": "medecin-principal-ayant-le-titre-de-specialiste-en-psychiatrie-et-en-psychotherapie-spital-thurgau-stgag-kreuzlingen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3614": {
+    "canonicalSlug": "apprendistato-come-fachmann-frau-apotheke-cfc-spital-thurgau-stgag-munsterlingen",
+    "slugByLocale": {
+      "it": "apprendistato-come-fachmann-frau-apotheke-cfc-spital-thurgau-stgag-munsterlingen",
+      "en": "apprenticeship-as-an-expert-pharmacy-efz-spital-thurgau-stgag-munsterlingen",
+      "de": "lehrstelle-als-fachmann-frau-apotheke-efz-stgag-munsterlingen",
+      "fr": "apprentissage-en-tant-que-pharmacie-specialisee-efz-spital-thurgau-stgag-munsterlingen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3621": {
+    "canonicalSlug": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+    "slugByLocale": {
+      "it": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-munsterlingen",
+      "en": "apprenticeship-as-cook-chef-efz-spital-thurgau-stgag-munsterlingen",
+      "de": "lehrstelle-als-koch-kochin-efz-stgag-ch",
+      "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-spital-thurgau-stgag-munsterlingen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3637": {
+    "canonicalSlug": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-diessenhofen",
+    "slugByLocale": {
+      "it": "apprendistato-come-koch-kochin-cfc-spital-thurgau-stgag-diessenhofen",
+      "en": "apprenticeship-as-cook-chef-efz-spital-thurgau-stgag-diessenhofen",
+      "de": "lehrstelle-als-koch-kochin-efz-stgag-ch",
+      "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-spital-thurgau-stgag-diessenhofen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3718": {
+    "canonicalSlug": "dipl-pflegefachmann-frau-allgemein-e-akutpsychiatrie-spital-thurgau-stgag-munsterlingen",
+    "slugByLocale": {
+      "de": "dipl-pflegefachmann-frau-allgemein-und-akutpsychiatrie-stgag-ch",
+      "it": "dipl-pflegefachmann-frau-allgemein-e-akutpsychiatrie-spital-thurgau-stgag-munsterlingen"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TG"
+  },
+  "id|stryker.wd1.myworkdayjobs.com|r568484": {
+    "canonicalSlug": "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch",
+    "slugByLocale": {
+      "de": "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "url|https://www.pemsa.ch/it/job/idraulico-2683651": {
+    "canonicalSlug": "idraulico-pemsa-melide",
+    "slugByLocale": {
+      "it": "idraulico-pemsa-melide"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/idraulico-2683681": {
+    "canonicalSlug": "idraulico-pemsa-lugano",
+    "slugByLocale": {
+      "it": "idraulico-pemsa-lugano"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/idraulico-per-acquedotti-2683645": {
+    "canonicalSlug": "idraulico-per-acquedotti-pemsa-lugano",
+    "slugByLocale": {
+      "it": "idraulico-per-acquedotti-pemsa-lugano"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-vd-2683701": {
+    "canonicalSlug": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd",
+    "slugByLocale": {
+      "it": "installatore-di-impianti-di-riscaldamento-vd-pemsa-renens-vd"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "VD"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-elettricista-afc-2683697": {
+    "canonicalSlug": "installatore-elettricista-afc-pemsa-geneve",
+    "slugByLocale": {
+      "it": "installatore-elettricista-afc-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2683648": {
+    "canonicalSlug": "installatore-impianti-sprinkler-pemsa-mezzovico",
+    "slugByLocale": {
+      "it": "installatore-impianti-sprinkler-pemsa-mezzovico"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.pemsa.ch/it/job/pavimentista-posatore-di-pavimenti-2683694": {
+    "canonicalSlug": "pavimentista-posatore-di-pavimenti-pemsa-fribourg",
+    "slugByLocale": {
+      "it": "pavimentista-posatore-di-pavimenti-pemsa-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "url|https://www.pemsa.ch/it/job/pittore-con-esperienza-2683686": {
+    "canonicalSlug": "pittore-con-esperienza-pemsa-fribourg",
+    "slugByLocale": {
+      "it": "pittore-con-esperienza-pemsa-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "url|https://www.pemsa.ch/it/job/progettista-elettrico-2683704": {
+    "canonicalSlug": "progettista-elettrico-pemsa-geneve",
+    "slugByLocale": {
+      "it": "progettista-elettrico-pemsa-geneve"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "url|https://www.pemsa.ch/it/job/tecnico-di-falegnameria-ebanisteria-2683691": {
+    "canonicalSlug": "tecnico-di-falegnameria-ebanisteria-pemsa-plan-les-ouates",
+    "slugByLocale": {
+      "it": "tecnico-di-falegnameria-ebanisteria-pemsa-plan-les-ouates"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "GE"
+  },
+  "id|spitexjobs.ch|j987897": {
+    "canonicalSlug": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-60-100-fixe-tage-moglich-spitex-ch-seuzach",
+    "slugByLocale": {
+      "de": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-60-100-fixe-tage-moglich-spitex-ch-seuzach"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
+  },
+  "url|https://www.supsi.ch/bando26_4010": {
+    "canonicalSlug": "hr-specialist-senior-supsi-dti-manno",
+    "slugByLocale": {
+      "it": "hr-specialist-senior-supsi-dti-manno"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://www.supsi.ch/bando26_4013": {
+    "canonicalSlug": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
+    "slugByLocale": {
+      "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "TI"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/ec6ac0bce77b-infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100": {
+    "canonicalSlug": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg",
+    "slugByLocale": {
+      "fr": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hfr-hopital",
+      "it": "infirmier-ere-clinicien-ne-80-100-pflegefachfrau-mann-hofa-i-80-100-hopital-fribourgeois-hfr-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/aa8ec63e5f20-assistant-e-hotelier-ere-80-assistent-in-hotellerie-80": {
+    "canonicalSlug": "assistant-e-hotelier-ere-80-assistent-in-hotellerie-80-hfr-hopital-fribourgeois-fribourg",
+    "slugByLocale": {
+      "fr": "assistant-e-hotelier-ere-80-assistent-in-hotellerie-80-hfr-hopital-fribourgeois-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|bern.ch|cca1b1a4-54d6-48da-90db-b600cdf775ac": {
+    "canonicalSlug": "koch-kochin-stadt-bern-bern",
+    "slugByLocale": {
+      "de": "koch-kochin-stadt-bern-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|bern.ch|f2574343-d385-4779-819b-0df3829de450": {
+    "canonicalSlug": "chauffeurin-kat-c-stadt-bern-bern",
+    "slugByLocale": {
+      "de": "chauffeurin-kat-c-stadt-bern-bern"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "BE"
+  },
+  "id|fr.ch|1366594857": {
+    "canonicalSlug": "jurist-in-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "jurist-in-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366571357": {
+    "canonicalSlug": "concierge-agent-e-d-exploitation-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "concierge-agent-e-d-exploitation-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366553257": {
+    "canonicalSlug": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366543057": {
+    "canonicalSlug": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "responsable-de-la-planification-hospitaliere-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366597957": {
+    "canonicalSlug": "professeur-e-en-droit-canonique-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "professeur-e-en-droit-canonique-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366598057": {
+    "canonicalSlug": "professor-in-per-kirchenrecht-etat-de-fribourg",
+    "slugByLocale": {
+      "de": "professor-in-fur-kirchenrecht-etat-de-fribourg-ch",
+      "it": "professor-in-per-kirchenrecht-etat-de-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366594757": {
+    "canonicalSlug": "juriste-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "juriste-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366579757": {
+    "canonicalSlug": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-buchhaltung-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366571457": {
+    "canonicalSlug": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
+    "slugByLocale": {
+      "it": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
+      "en": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2",
+      "fr": "hauswart-in-fachfrau-fachmann-betriebsunterhalt-etat-de-fribourg-ch-2"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366579657": {
+    "canonicalSlug": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "collaborateur-trice-en-gestion-comptable-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366553157": {
+    "canonicalSlug": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "agent-e-d-exploitation-concierge-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366543157": {
+    "canonicalSlug": "verantwortliche-r-per-la-spitalplanung-etat-de-fribourg",
+    "slugByLocale": {
+      "de": "verantwortliche-r-fur-die-spitalplanung-etat-de-fribourg-ch",
+      "it": "verantwortliche-r-per-la-spitalplanung-etat-de-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366720757": {
+    "canonicalSlug": "lecteur-trice-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "lecteur-trice-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366728557": {
+    "canonicalSlug": "collaborateur-trice-scientifique-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "collaborateur-trice-scientifique-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366737157": {
+    "canonicalSlug": "coordinateur-trice-du-bachelor-en-sciences-biomedicales-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "coordinateur-trice-du-bachelor-en-sciences-biomedicales-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366732757": {
+    "canonicalSlug": "developpeur-euse-full-stack-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "developpeur-euse-full-stack-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366737257": {
+    "canonicalSlug": "koordinator-in-des-bachelor-in-biomedizinischen-wissenschaften-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "koordinator-in-des-bachelor-in-biomedizinischen-wissenschaften-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366732857": {
+    "canonicalSlug": "full-stack-entwickler-in-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "full-stack-entwickler-in-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366710157": {
+    "canonicalSlug": "secretaire-de-juge-civil-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "secretaire-de-juge-civil-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366780057": {
+    "canonicalSlug": "lecteur-trice-etat-de-fribourg-ch-2",
+    "slugByLocale": {
+      "it": "lecteur-trice-etat-de-fribourg-ch-2",
+      "en": "lecteur-trice-etat-de-fribourg-ch-2",
+      "de": "lecteur-trice-etat-de-fribourg-ch-2"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366846257": {
+    "canonicalSlug": "psychologin-psychologe-im-praktikum-fnpg-ambulatorium-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "psychologin-psychologe-im-praktikum-fnpg-ambulatorium-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366821457": {
+    "canonicalSlug": "gerichtsschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "gerichtsschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366821357": {
+    "canonicalSlug": "greffier-ere-de-premiere-instance-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "fr": "greffier-ere-de-premiere-instance-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366821857": {
+    "canonicalSlug": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+    "slugByLocale": {
+      "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366821757": {
+    "canonicalSlug": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+    "slugByLocale": {
+      "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+      "it": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+      "en": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
+      "de": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366851257": {
+    "canonicalSlug": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane",
+    "slugByLocale": {
+      "de": "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer",
+      "it": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|fr.ch|1366955557": {
+    "canonicalSlug": "adjoint-e-de-la-prefete-etat-de-fribourg",
+    "slugByLocale": {
+      "fr": "adjoint-e-de-la-prefete-etat-de-fribourg-ch",
+      "it": "adjoint-e-de-la-prefete-etat-de-fribourg"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "FR"
+  },
+  "id|spitaluster.ch|74165226-b308-44f8-b3c4-7c7c4d8dc7c7": {
+    "canonicalSlug": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+    },
+    "createdAt": "2026-07-17",
+    "canton": "ZH"
   }
 }
