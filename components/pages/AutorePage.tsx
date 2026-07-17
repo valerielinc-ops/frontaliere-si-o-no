@@ -132,6 +132,32 @@ export const AutorePage: React.FC<AutorePageProps> = ({ slug }) => {
           </ul>
         </Section>
 
+        {/* CV — embedded PDF viewer (view in-page, no forced download) */}
+        {author.cvPath ? (
+          <Section icon={FileText} title="Curriculum Vitae">
+            <object
+              data={author.cvPath}
+              type="application/pdf"
+              aria-label={`CV di ${author.name} (PDF)`}
+              className="w-full h-[75vh] min-h-[420px] rounded-xl border border-edge"
+            >
+              {/* Fallback for browsers without an inline PDF viewer (most mobile). */}
+              <p>
+                Il tuo browser non supporta l'anteprima PDF integrata.{' '}
+                <a
+                  href={author.cvPath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent hover:underline font-medium"
+                >
+                  Apri il CV di {author.name} (PDF)
+                </a>
+                .
+              </p>
+            </object>
+          </Section>
+        ) : null}
+
         {/* Editorial trust footer */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <h2 className="text-lg font-bold font-display text-strong mb-2">
@@ -190,7 +216,6 @@ function SocialLinks({ author }: { author: Author }) {
     href: string;
     label: string;
     Icon: React.FC<{ size?: number; className?: string }>;
-    download?: boolean;
   }> = [];
   if (author.social.linkedin) {
     items.push({
@@ -220,21 +245,25 @@ function SocialLinks({ author }: { author: Author }) {
     items.push({
       key: 'cv',
       href: author.cvPath,
-      label: `Scarica il CV di ${author.name} (PDF)`,
+      label: `Visualizza il CV di ${author.name} (PDF)`,
       Icon: FileText,
-      download: true,
     });
   }
   if (items.length === 0) return null;
   return (
     <ul className="flex items-center gap-3 mt-3">
-      {items.map(({ key, href, label, Icon, download }) => (
+      {items.map(({ key, href, label, Icon }) => (
         <li key={key}>
           <a
             href={href}
             target={href.startsWith('mailto:') ? undefined : '_blank'}
-            rel={href.startsWith('mailto:') ? undefined : download ? 'noopener noreferrer' : 'noopener me'}
-            download={download || undefined}
+            rel={
+              href.startsWith('mailto:')
+                ? undefined
+                : href.endsWith('.pdf')
+                  ? 'noopener noreferrer'
+                  : 'noopener me'
+            }
             aria-label={label}
             title={label}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-info text-on-accent hover:opacity-90 transition-opacity"

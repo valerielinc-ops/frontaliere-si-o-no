@@ -3458,6 +3458,9 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3610.title': 'Author CVs viewable on-site',
+  'whatsNew.v3610.authorCv.title': 'CV preview on the author page',
+  'whatsNew.v3610.authorCv.desc': 'Author CVs can now be read directly on the profile page in an embedded PDF preview, instead of being force-downloaded.',
   'whatsNew.v3600.title': 'Per-canton tax precision',
   'whatsNew.v3600.cantonWithholding.title': 'Real per-canton withholding rate in the salary comparator',
   'whatsNew.v3600.cantonWithholding.desc': 'The Swiss net-by-canton figure now uses the real tax burden of each of the 26 cantons\' capital cities (official ESTV data), instead of one generic rate for every canton.',
