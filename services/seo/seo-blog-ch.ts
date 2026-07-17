@@ -15423,6 +15423,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-secondo-pilastro-lpp-frontalieri-prelievo': {
+    title: 'Il secondo pilastro LPP: quando si può prelevare e tassazione Italia e Svizzera',
+    description: 'Il nuovo accordo frontalieri prevede una franchigia di 10\'000 CHF e un regime transitorio fino al 2033. Ma come funziona il secondo pilastro LPP e come si può',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, quando, prelevare',
+    ogTitle: 'Il secondo pilastro LPP: quando si può prelevare e tassazione Italia e Svizzera',
+    ogDescription: 'Il nuovo accordo frontalieri prevede una franchigia di 10\'000 CHF e un regime transitorio fino al 2033. Ma come funziona il secondo pilastro LPP e come si può',
+    canonicalPath: '/articoli-svizzera/secondo-pilastro-lpp-frontalieri-prelievo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il secondo pilastro LPP: quando si può prelevare e tassazione Italia e Svizzera",
+      "description": "Il nuovo accordo frontalieri prevede una franchigia di 10'000 CHF e un regime transitorio fino al 2033. Ma come funziona il secondo pilastro LPP e come si può",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/secondo-pilastro-lpp-frontalieri-prelievo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano con grattacieli e lungo lago. Un frontaliere sta seduto su una panchina, con una cartella in mano e una espressione pensierosa."
+      },
+      "datePublished": "2026-07-17T14:47:03+00:00",
+      "dateModified": "2026-07-17T14:47:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/secondo-pilastro-lpp-frontalieri-prelievo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

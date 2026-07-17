@@ -1195,6 +1195,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differenze tra Svizzera e Italia per i frontalieri',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'L\'assicurazione RC auto in Svizzera per i frontalieri: cosa cambia rispetto alla polizza italiana, bonus-malus, immatricolazione del veicolo',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'Un\'auto con immatricolazione svizzera parcheggiata in una strada di Lugano',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'Il secondo pilastro LPP: quando si può prelevare e tassazione Italia e Svizzera',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'Il nuovo accordo frontalieri prevede una franchigia di 10\'000 CHF e un regime transitorio fino al 2033. Ma come funziona il secondo pilastro LPP e come si può prelevare senza subire la doppia imposizione?',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'Una scena di Lugano con grattacieli e lungo lago. Un frontaliere sta seduto su una panchina, con una cartella in mano e una espressione pensierosa.',
 };
 
 export default blogMetaChIt;

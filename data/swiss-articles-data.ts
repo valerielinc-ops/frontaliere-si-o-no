@@ -3581,6 +3581,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'secondo-pilastro-lpp-frontalieri-prelievo',
+    category: 'fiscale',
+    date: '2026-07-17T14:47:02.914Z',
+    image: '/images/blog/secondo-pilastro-lpp-frontalieri-prelievo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

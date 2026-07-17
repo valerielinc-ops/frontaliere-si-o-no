@@ -1195,6 +1195,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differences between Switzerland and Italy for border workers',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'Car liability insurance in Switzerland for border workers: what changes compared to the Italian policy, bonus-malus, vehicle registration',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'An automobile with Swiss registration parked in a street of Lugano',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'The second LPP pillar: when Italy and Switzerland can be withdrawn and taxed',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'The new border agreement provides for a deductible of CHF 10,000 and a transitional regime until 2033. But how does the second LPP pillar work and how can it be withdrawn without suffering double taxation?',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'A scene of Lugano with skyscrapers and a long lake. A frontaliere is sitting on a bench, with a folder in hand and a thoughtful expression.',
 };
 
 export default blogMetaChEn;
