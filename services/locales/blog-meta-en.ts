@@ -8563,6 +8563,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Frontier workers: what changes with the new substitute tax from 2024',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Practical guide to tax innovations for Italy-Switzerland cross-border workers after the 2020 agreement. Exemptions, contributions and procedures.',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Tax form on a wooden desk in Bellinzona with pen and Swiss-Italian tax guides',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Need extra help working on commissions',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'The Ortelli motion calls for the introduction of an assistant secretary',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'A cyclist crossing the Italian-Swiss border, with the city of Lugano in the background.',
 };
 
 export default blogMetaEn;

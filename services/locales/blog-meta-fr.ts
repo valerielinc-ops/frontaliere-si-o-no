@@ -8564,6 +8564,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Cosa cambia con la nuova imposta sostitutiva dal 2024',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Guide pratique des nouveautés fiscales pour les travailleurs transfrontaliers Italie-Suisse après l\'accord de 2020. Exemptions, contributions et procédures.',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Formulaire fiscal sur un bureau en bois à Bellinzona avec stylo et guides fiscaux suisse-italiens',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Besoin d\'aide supplémentaire pour les travaux en commissions',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'La motion Ortelli demande l\'introduction d\'un (e) secrétaire adjoint (e)',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Un cycliste qui traverse la frontière italo-suisse, avec la ville de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

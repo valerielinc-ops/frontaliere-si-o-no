@@ -4576,6 +4576,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-aumenta-costi-crescono-svizzera': { name: 'Traffico in Svizzera', path: '/articoli-svizzera/traffico-aumenta-costi-crescono-svizzera/', parent: 'blog' },
     'blog-traffico-da-record': { name: 'Traffico in Svizzera', path: '/articoli-svizzera/traffico-da-record/', parent: 'blog' },
     'blog-frontalieri-nuova-imposta-sostitutiva-2024': { name: 'Fisco 2024', path: '/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024', parent: 'blog' },
+    'blog-servo-aiuto-pi-lavori-commissioni': { name: 'Lavori nelle commissioni', path: '/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

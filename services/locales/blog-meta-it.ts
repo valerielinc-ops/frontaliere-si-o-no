@@ -8564,6 +8564,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Frontalieri: cosa cambia con la nuova imposta sostitutiva dal 2024',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Guida pratica alle novità fiscali per i lavoratori transfrontalieri Italia-Svizzera dopo l\'accordo del 2020. Esenzioni, contributi e procedure.',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Modulo fiscale su una scrivania in legno a Bellinzona, con penna e guide fiscali Svizzera-Italia',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Serve un aiuto in più per i lavori nelle commissioni',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'La mozione Ortelli chiede l\'introduzione di un segretario aggiunto/r',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Un frontaliere in bicicletta che attraversa il confine italo-svizzero, con la città di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;
