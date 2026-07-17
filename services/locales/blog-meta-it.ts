@@ -8582,6 +8582,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Congedo per lutto o malattia: differenze tra regole svizzere e italiane',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'Il nuovo accordo frontaliero prevede una durata di congedo diversa rispetto alle regole italiane.',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'Un frontaliere che lavora in Svizzera e risiede in Italia',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Lavorare in remoto da un terzo paese: implicazioni fiscali e assicurative',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Guida pratica per frontalieri Ticino-Italia: cosa rischi se lavori da un terzo paese durante le ferie e come rispettare le norme fiscali e assicurative.',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Laptop su balcone con vista Lago di Lugano e documenti fiscali',
 };
 
 export default blogMetaIt;

@@ -8581,6 +8581,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Bereavement or sick leave: differences between Swiss and Italian rules',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'The new border agreement provides for a different duration of leave compared to Italian rules.',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'A Swiss-Italian cross-border worker',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Working remotely from a third country: tax and insurance implications',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Practical guide for border workers Ticino-Italy: what you risk if you work from a third country during the holidays and how to comply with tax and insurance rules.',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Laptop on balcony overlooking Lake Lugano with tax documents',
 };
 
 export default blogMetaEn;
