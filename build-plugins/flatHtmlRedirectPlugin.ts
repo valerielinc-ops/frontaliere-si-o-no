@@ -31,6 +31,7 @@
  * staticPages, ogPages, jobs, and the various landing plugins.
  */
 import path from 'node:path';
+import { stripScriptsAndStyles } from '../scripts/lib/strip-scripts-styles.mjs';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 
@@ -140,7 +141,7 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
   try {
-    const titleMatch = siblingHtml.match(/<title[^>]*>([^<]+)<\/title>/i);
+    const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
       const extracted = titleMatch[1].trim();
       if (extracted.length > 0) {
@@ -231,7 +232,7 @@ export function flatHtmlRedirectPlugin(rootDir: string, opts: FlatRedirectOption
         let ogTags = '';
         try {
           const siblingHtml = fs.readFileSync(sibling, 'utf-8');
-          const titleMatch = siblingHtml.match(/<title[^>]*>([^<]+)<\/title>/i);
+          const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
           if (titleMatch && titleMatch[1]) {
             const extracted = titleMatch[1].trim();
             if (extracted.length > 0) {

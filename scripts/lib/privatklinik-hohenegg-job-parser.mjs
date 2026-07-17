@@ -15,7 +15,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractReflineDetailTitle } from './refline-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -183,9 +183,7 @@ export function parseReflineDetail(html = '') {
 
   const title = extractReflineDetailTitle(html);
 
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
+  const cleaned = stripScriptsAndStyles(html)
     .replace(/<header[\s\S]*?<\/header>/gi, '')
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
     .replace(/<nav[\s\S]*?<\/nav>/gi, '');

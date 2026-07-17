@@ -19,7 +19,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -97,9 +97,7 @@ export function parseReflineDetail(html = '') {
   if (!html) return { title: '', description: '' };
   const title = extractReflineDetailTitle(html);
 
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
+  const cleaned = stripScriptsAndStyles(html)
     .replace(/<header[\s\S]*?<\/header>/gi, '')
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
     .replace(/<nav[\s\S]*?<\/nav>/gi, '');

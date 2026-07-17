@@ -50,7 +50,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   decodeEntities,
@@ -211,9 +211,7 @@ export function extractReflineDetailTitle(html = '') {
     String(parseReflineJobPostingJsonLd(html)?.title || ''),
   )));
   if (jsonLdTitle) return jsonLdTitle;
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  const cleaned = stripScriptsAndStyles(html);
   const titleMatch = cleaned.match(/<h1[^>]*class="[^"]*posTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
     || cleaned.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
     || cleaned.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
@@ -226,9 +224,7 @@ export function parseReflineDetail(html = '') {
 
   const title = extractReflineDetailTitle(html);
 
-  const cleaned = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
+  const cleaned = stripScriptsAndStyles(html)
     .replace(/<header[\s\S]*?<\/header>/gi, '')
     .replace(/<footer[\s\S]*?<\/footer>/gi, '')
     .replace(/<nav[\s\S]*?<\/nav>/gi, '');
