@@ -3536,6 +3536,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dichiarazione-redditi-agricoltura-variazioni',
+    category: 'fiscale',
+    date: '2026-07-17T00:57:49.923Z',
+    image: '/images/blog/dichiarazione-redditi-agricoltura-variazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -15228,6 +15228,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-redditi-agricoltura-variazioni': {
+    title: 'Dichiarazione redditi agricoltura: occhio alle colture',
+    description: 'Scopri come le variazioni delle colture impattano la dichiarazione dei redditi 2026 nel settore agricolo. Guida pratica e strumenti per l\'imprenditore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, redditi, agricoltura, occhio',
+    ogTitle: 'Dichiarazione redditi agricoltura: occhio alle colture',
+    ogDescription: 'Gestione fiscale e variazioni colturali: guida per l\'imprenditore agricolo 2026.',
+    canonicalPath: '/articoli-svizzera/dichiarazione-redditi-agricoltura-variazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione redditi agricoltura: occhio alle colture",
+      "description": "Scopri come le variazioni delle colture impattano la dichiarazione dei redditi 2026 nel settore agricolo. Guida pratica e strumenti per l'imprenditore.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-redditi-agricoltura-variazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi agricoli in un paesaggio rurale svizzero"
+      },
+      "datePublished": "2026-07-17T00:57:49+00:00",
+      "dateModified": "2026-07-17T00:57:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dichiarazione-redditi-agricoltura-variazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

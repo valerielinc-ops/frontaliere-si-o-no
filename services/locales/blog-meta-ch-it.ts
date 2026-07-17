@@ -1180,6 +1180,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-ipoteche-svizzera-record-2025.title': 'Mercato ipotecario svizzero da record: superato 1300 miliardi di franchi nel 2025',
     'blog.article.mercato-ipoteche-svizzera-record-2025.excerpt': 'Crescita del 3,1% trainata da bassi tassi e prezzi immobiliari in ascesa. Ma i margini delle banche si riducono. Ecco i dati e le implicazioni pratiche.',
     'blog.article.mercato-ipoteche-svizzera-record-2025.imageAlt': 'Zurigo con condomini moderni e cantieri edili, simbolo del mercato immobiliare in crescita',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Dichiarazione redditi agricoltura: occhio alle colture',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Le variazioni delle colture influenzano la dichiarazione dei redditi 2026. Ecco cosa monitorare per una corretta gestione fiscale dell\'azienda agricola.',
+    'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Campi agricoli in un paesaggio rurale svizzero',
 };
 
 export default blogMetaChIt;
