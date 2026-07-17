@@ -423,18 +423,9 @@ export function cleanCrawlerArtifacts(text) {
   return out.join('\n\n');
 }
 
-/**
- * Drop <script>/<style> blocks so heading regexes match only rendered DOM.
- * A JSON-LD or JS string inside <script> can contain literal "<h1>…</h1>"
- * markup (Refline JSON-LD incident 2026-07, see refline-common.mjs →
- * extractReflineDetailTitle): matching the raw html captures that embedded
- * text instead of the visible heading.
- */
-export function stripScriptsAndStyles(html = '') {
-  return String(html || '')
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '');
-}
+// Shared with build-plugins and tests — the implementation lives in a
+// zero-dependency module so the vite config graph doesn't inherit crawler deps.
+export { stripScriptsAndStyles } from './strip-scripts-styles.mjs';
 
 /**
  * Strip HTML tags and decode common entities. Use for description fields.

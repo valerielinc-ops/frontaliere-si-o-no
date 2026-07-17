@@ -33,6 +33,7 @@
 // remains a valid indexable page.
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
+import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';
 import { inlineScriptJson } from './inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './cantonSection';
 
@@ -74,7 +75,7 @@ function htmlEscape(s: string): string {
 }
 
 function extractH1(cachedHtml: string): string {
-  const m = cachedHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const m = stripScriptsAndStyles(cachedHtml).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (!m) return '';
   // Strip nested tags, collapse whitespace
   return m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
