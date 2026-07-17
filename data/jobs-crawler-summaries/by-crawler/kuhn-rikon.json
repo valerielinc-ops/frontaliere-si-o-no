@@ -1,16 +1,16 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-07-17T12:24:42.422Z",
+  "generatedAt": "2026-07-17T22:47:53.237Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3355,
-  "avgDurationMs": 3355,
+  "durationMs": 2651,
+  "avgDurationMs": 2651,
   "durationHistory": [
-    3355
+    2651
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T12:24:40.025Z",
+      "crawledAt": "2026-07-17T22:47:51.373Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -91,7 +91,7 @@
       "firstSeenAt": "2026-07-04T11:54:14.681Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

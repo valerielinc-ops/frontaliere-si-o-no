@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-07-17T12:24:42.422Z",
+  "assembledAt": "2026-07-17T22:47:53.236Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T12:24:40.025Z",
+      "crawledAt": "2026-07-17T22:47:51.373Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -66,11 +66,11 @@
         "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
         "responsabile-controlling-80-100-michel-gruppe-ag-meiringen",
         "physiotherapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
         "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
         "controller-80-100-michel-gruppe-ag-meiringen",
         "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
-        "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
+        "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
+        "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -82,8 +82,8 @@
           "leiter-in-controlling-80-100-michel-gruppe-ag-meiringen",
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "responsabile-controlling-80-100-michel-gruppe-ag-meiringen",
-          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
+          "terapeuta-fisica-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
+          "consulente-di-vendita-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
         ],
         "en": [
           "physical-therapist-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
@@ -98,8 +98,8 @@
           "controllerin-controller-80-100-michel-gruppe-ag-meiringen",
           "leiter-in-controlling-60-100-michel-gruppe-ag-meiringen",
           "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen-meiringen",
-          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
-          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen"
+          "physiotherapeut-in-hf-fh-bsc-msc-60-privatklinik-meiringen",
+          "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart"
         ]
       },
       "firstSeenAt": "2026-07-04T11:54:15.071Z",
@@ -195,7 +195,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
