@@ -1,6 +1,6 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-07-16T22:55:36.300Z",
+  "assembledAt": "2026-07-17T11:32:21.709Z",
   "jobs": [
     {
       "id": "strabag-66a17e407bfa",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/12d71c95-c949-4666-a43b-0bfaefd0a8c4/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:33.384Z",
+      "crawledAt": "2026-07-17T11:32:17.488Z",
       "addressLocality": "CH- 8315 Lindau, Rigacher 1",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1883368a-980f-4720-8046-50e43e824a7d/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:33.018Z",
+      "crawledAt": "2026-07-17T11:32:17.375Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f51c11f5-1d29-4873-bcf8-1dc129577476/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:32.715Z",
+      "crawledAt": "2026-07-17T11:32:17.270Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/46c1c4fe-e676-4b00-8f9f-474635dbe3d9/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:32.320Z",
+      "crawledAt": "2026-07-17T11:32:17.228Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -352,7 +352,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/b9e73043-3690-4e11-a6cc-66d422b2930d/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:32.188Z",
+      "crawledAt": "2026-07-17T11:32:17.120Z",
       "addressLocality": "Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -372,7 +372,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kalkulator-in-strassenbau-und-tiefbau-strabag-beringen",
-        "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-beringen",
         "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-olten",
         "calculator-in-road-construction-and-civil-engineering-strabag-ag-olten",
         "kalkulator-in-strassenbau-und-tiefbau-strabag-olten",
@@ -380,12 +379,12 @@
         "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-amriswil",
         "calculator-in-road-construction-and-civil-engineering-strabag-ag-amriswil",
         "kalkulator-in-strassenbau-und-tiefbau-strabag-amriswil",
-        "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-amriswil"
+        "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-amriswil",
+        "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-beringen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kalkulator-in-strassenbau-und-tiefbau-strabag-beringen",
-          "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-beringen",
           "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-olten",
           "calculator-in-road-construction-and-civil-engineering-strabag-ag-olten",
           "kalkulator-in-strassenbau-und-tiefbau-strabag-olten",
@@ -393,21 +392,22 @@
           "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-amriswil",
           "calculator-in-road-construction-and-civil-engineering-strabag-ag-amriswil",
           "kalkulator-in-strassenbau-und-tiefbau-strabag-amriswil",
-          "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-amriswil"
+          "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-amriswil",
+          "kalkulator-in-strassenbau-e-genio-civile-strabag-ag-beringen"
         ],
         "en": [
           "kalkulator-in-strassenbau-und-tiefbau-strabag-beringen",
           "calculator-in-road-construction-and-civil-engineering-strabag-ag-olten",
           "calculator-in-road-construction-and-civil-engineering-strabag-ag-amriswil"
         ],
+        "de": [
+          "kalkulator-in-strassenbau-und-tiefbau-strabag-olten",
+          "kalkulator-in-strassenbau-und-tiefbau-strabag-amriswil"
+        ],
         "fr": [
           "kalkulator-in-strassenbau-und-tiefbau-strabag-beringen",
           "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-olten",
           "calculatrice-dans-la-construction-routiere-et-le-genie-civil-strabag-ag-amriswil"
-        ],
-        "de": [
-          "kalkulator-in-strassenbau-und-tiefbau-strabag-olten",
-          "kalkulator-in-strassenbau-und-tiefbau-strabag-amriswil"
         ]
       },
       "firstSeenAt": "2026-07-04T12:15:33.453Z",
@@ -456,7 +456,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/aa2619ef-51f6-4cc9-981c-0dd3bc962982/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:31.826Z",
+      "crawledAt": "2026-07-17T11:32:17.017Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -536,7 +536,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/16ad93b4-494b-4094-a336-2683c29b2462/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:31.519Z",
+      "crawledAt": "2026-07-17T11:32:16.976Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -616,7 +616,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/15ea68aa-a98a-488e-8826-395c51d05e11/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:31.098Z",
+      "crawledAt": "2026-07-17T11:32:16.927Z",
       "addressLocality": "Rothenburg LU",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -698,7 +698,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/96bc5b1a-070d-4b61-8fc0-5e3854cfab33/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:30.609Z",
+      "crawledAt": "2026-07-17T11:32:16.791Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -778,7 +778,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1f94e8a3-215e-44e9-9c59-4297616d9af4/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:30.467Z",
+      "crawledAt": "2026-07-17T11:32:16.681Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -862,12 +862,13 @@
         "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nGrundbauer:in / Schweisser:in Spezialtiefbau 80-100%\nDein Beitrag bei uns\n\n• Mehrjährige Erfahrung als Schweisser:in und/oder im Grundbau\n\n• Zertifizierte Kenntnisse im Schutzgasschweissen von Vorteil\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Sorgfalt, Sicherheitsbewusstsein und sorgfältiger Umgang mit Maschinen und Geräten\n\n• Führerausweis Kategorie B\n\n• Belastbarkeit und gute Deutschkenntnisse runden Ihr Profil ab\nWas für uns zählt\n\n• Durchführung von Schweissarbeiten zur Herstellung von Baugrubensicherungen\n\n• Umsetzung und Montage von konstruktiven Stahlbau-Lösungen\n\n• Unterstützung des Teams bei Einsätzen auf Baustellen im Grundbau\n\n• Mithilfe bei der Arbeitsvorbereitung für verschiedene Projekte\n\n• Sicherstellung und Umsetzung aller relevanten Sicherheitsvorschriften\n\nUnser Mehrwert für dich\n\n• Anspruchsvolle Spezialtiefbauprojekte, bei denen kein Tag wie der andere ist\n\n• Ein eingespieltes Team, das zusammenhält, auf der Baustelle und beim Feierabendbier\n\n• Grillplausch und coole Firmenevents wie unser Weihnachtsessen\n\n• Topmoderne Geräte und Ausrüstung, mit denen das Arbeiten Spass macht\n\n• Faire Anstellungsbedingungen und Weiterbildungen, die dich wirklich weiterbringen\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nRexhep Elmazi\nUnterrohrstrasse 5\n\n8952 Schlieren\n\n+41 44 874 26 00\nJetzt bewerben",
         "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, du génie routier et civil, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et le plus durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nGrundbauer:in / Welder:in Spezialtiefbau 80-100 %\nVotre contribution avec nous\n\n• Plusieurs années d'expérience en tant que soudeur: dans et/ou dans le bâtiment de base\n\n• Une connaissance certifiée du soudage inerte au gaz est avantageuse\n\n• Un haut sentiment de responsabilité et de fiabilité\n\n• Attention, sensibilisation à la sécurité et manipulation prudente des machines et des équipements\n\n• Permis de conduire de catégorie B\n\n• La résilience et la bonne connaissance de l'allemand complètent votre profil\nCe qui nous importe\n\n• Réalisation de travaux de soudage pour la production de dispositifs de sécurité des fosses\n\n• Mise en œuvre et montage de solutions de construction en acier structurel\n\n• Appui de l ' équipe aux missions sur les chantiers de construction du bâtiment de base\n\n• Assistance à la préparation de divers projets\n\n• Assurer et mettre en œuvre toutes les règles de sécurité pertinentes\n\nNotre valeur ajoutée pour vous\n\n• Exiger des projets de fondation spéciaux où aucun jour n'est comme l'autre\n\n• Une équipe bien établie qui tient ensemble, sur le chantier et au travail de la bière\n\n• Grill et événements d'entreprise cool comme notre dîner de Noël\n\n• Équipements et dispositifs de pointe qui rendent le travail amusant\n\n• Des conditions d'emploi équitables et des études plus poussées qui vous aideront vraiment à progresser\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Activités sportives\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Rapprochement de la vie familiale et professionnelle\n\n• Promotion de la santé\n\n• Manifestations du personnel\n\n• Bonnes liaisons de transport\n\nCoordonnées\nRexhep Elmazi\nLigne de conduite 5\n\n8952 Striations\n\n+41 44 874 26 00\nAppliquer maintenant"
       },
+      "needsRetranslation": true,
       "location": "Schlieren",
       "canton": "ZH",
       "url": "https://www.jobs.ch/en/vacancies/detail/3ccde80d-add1-41bb-9211-ed5bf443d14a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:30.124Z",
+      "crawledAt": "2026-07-17T11:32:16.573Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -931,7 +932,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c506ccad-32a9-4d2c-b3c7-0ced2f5c899a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:29.610Z",
+      "crawledAt": "2026-07-17T11:32:16.217Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1024,7 +1025,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/8b3ed66f-2b11-425f-a555-fb4b11f9f46b/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:29.303Z",
+      "crawledAt": "2026-07-17T11:32:16.108Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1104,7 +1105,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/cf1d90a2-5a11-49c2-b5cc-518a7663489e/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:29.171Z",
+      "crawledAt": "2026-07-17T11:32:15.994Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1184,7 +1185,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/e170b735-3b8a-486b-9158-c3aee213eb2f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:55:28.767Z",
+      "crawledAt": "2026-07-17T11:32:15.880Z",
       "addressLocality": "Hamburg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1229,164 +1230,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "strabag-8d6a45386aa3",
-      "slug": "calcolatore-in-costruzione-stradale-strabag-ag-erstfeld",
-      "slugByLocale": {
-        "it": "calcolatore-in-costruzione-stradale-strabag-ag-erstfeld",
-        "en": "calculator-in-road-construction-strabag-ag-erstfeld",
-        "de": "abrechner-in-strassenbau-strabag-erstfeld",
-        "fr": "calculatrice-en-construction-routiere-strabag-ag-erstfeld"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Abrechner:in Strassenbau",
-      "titleByLocale": {
-        "it": "calcolatore: in costruzione stradale",
-        "en": "calculator: in road construction",
-        "de": "Abrechner:in Strassenbau",
-        "fr": "Calculatrice: en construction routière"
-      },
-      "description": "Bei STRABAG bauen rund 86.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nAbrechner:in Strassenbau\n Dein Beitrag bei uns\n\n• Selbstständiges Erstellen von Ausmass- und Abrechnungsunterlagen im Strassenbau\n\n• Kontrolle und Nachführung von Mengenermittlungen sowie Unterstützung der Bauführung bei der Kostenverfolgung\n\n• Erstellung von Arbeitskalkulationen, Controllinginstrumenten und Nachträgen\n\n• Enge Zusammenarbeit mit der Bauführung, Polier:innen und externen Partner:innen\n\n• Mitwirkung bei der Prüfung von Nachunternehmer- und Lieferantenabrechnungen\n\n• Sicherstellung einer termingerechten und korrekten Abrechnung sämtlicher Bauleistungen\n Was für uns zählt\n\n• Abgeschlossene Ausbildung im Bauwesen (z. B. Zeichner:in EFZ Ingenieurbau, Polier:in, Bauleiter:in, Techniker:in HF, Bauingenieur:in oder vergleichbar)\n\n• Berufserfahrung im Bereich Abrechnung im Strassenbau von Vorteil\n\n• Gute Anwenderkenntnisse in MS Office und idealerweise in RIB iTWO\n\n• Exakte und selbstständige Arbeitsweise sowie hohes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit Interesse an technisch anspruchsvollen Projekten\n\nUnser Mehrwert für dich\n Gesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\n Arbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\n Weiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\n Gemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\n Neugierig geworden?\n Bewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\n Du beherrschst die Kunst präziser Mengenermittlung und sorgst für transparente Abrechnungen, die Projekte voranbringen. Mit deinem Fachwissen sicherst du korrekte Leistungen und schaffst Vertrauen bei allen Beteiligten. Werde Teil eines Teams, das professionelle Qualität schätzt.\n\nFabian Stocker\nBifang 4\n\n6472 Erstfeld\n\n+41 41 882 11 11\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 86.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo. Insieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi! calcolatore: in costruzione stradale Il tuo contributo con noi\n• Preparazione indipendente dei documenti di misura e di contabilità nella costruzione stradale\n• Controllo e follow-up delle determinazioni di quantità e supporto della gestione delle costruzioni nei costi di tracciamento\n• Preparazione di calcoli di lavoro, controllo di strumenti e integratori\n• stretta collaborazione con la gestione delle costruzioni, lucidatrici: partner interni ed esterni:\n• Cooperazione nella verifica dei conti subappaltatori e fornitori\n• Garantire fatturazione tempestiva e corretta di tutte le opere Cosa ci importa\n• Formazione completa in costruzione (ad esempio draughtsman:in EFZ Ingenieurbau, polisher:in, construction manager:in, tecnico:in HF, genio civile:in o simili)\n• Esperienza professionale nel campo della fatturazione nella costruzione stradale\n• Buona conoscenza dell'utente in MS Office e idealmente in RIB iTWO\n• Metodi di lavoro esatti e indipendenti e un elevato senso di responsabilità\n• Personalità orientata al team con interesse a progetti tecnicamente esigenti Il nostro valore aggiunto per te Salute e benessere\n• Benessere sul posto di lavoro: la salute e la sicurezza sono la nostra priorità\n• Divertimento sul posto di lavoro: caffè gratuito, tè e frutta fresca per una piacevole pausa Ambiente di lavoro e mobilità\n• Veicolo aziendale con uso privato (a seconda della posizione): flessibile e confortevole sulla strada\n• Company Bike: per brevi distanze al cantiere o all'ufficio ecologico mobile\n• Ambiente di lavoro moderno: uffici di alta qualità con infrastrutture IT di prima classe Formazione e carriera\n• Ulteriore istruzione: offerta completa di formazione e formazione nel nostro Group Academy\n• Carriera & sviluppo: opportunità versatili per lo sviluppo professionale e personale e opportunità di carriera interessanti Comunità ed Eventi\n• Esperienze condivise: birre post-lavoro regolari, griglie ed eventi di squadra per una forte coesione\n• Eventi dei dipendenti: Vari eventi in patria e all'estero, come il torneo annuale di calcio in Germania Sei diventato curioso? Applicare ora e diventare parte della nostra squadra. Non vediamo l'ora di vederti!\n• Diverse opportunità di formazione\n• Retribuzione competitiva\n• Promozione della salute Informazioni di contatto Si padroneggia l'arte della determinazione della quantità precisa e garantire fatturazione trasparente che avanza progetti. Con la tua esperienza, garantisci prestazioni corrette e crei fiducia tra tutti i partecipanti. Diventa parte di un team che valorizza la qualità professionale. Stocker Fabian Bicategoria 4 6472 Primo campo +41 41 882 11 11 Applicare ora",
-        "en": "At STRABAG, around 86,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work. Together we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress! calculator: in road construction Your contribution with us\n• Independent preparation of measurement and accounting documents in road construction\n• Control and follow-up of quantity determinations and support of construction management in tracking costs\n• Preparation of work calculations, controlling tools and supplements\n• Close cooperation with the construction management, polishers:inside and external partners:inside\n• Cooperation in the verification of subcontractor and supplier accounts\n• Ensuring timely and correct billing of all works What matters to us\n• Completed training in construction (e.g. draughtsman:in EFZ Ingenieurbau, polisher:in, construction manager:in, technician:in HF, civil engineer:in or similar)\n• Professional experience in the field of billing in road construction\n• Good user knowledge in MS Office and ideally in RIB iTWO\n• Exact and independent working methods and a high sense of responsibility\n• Team-oriented personality with interest in technically demanding projects Our added value for you Health and well-being\n• Well-being in the workplace: health and safety are our top priority\n• Enjoyment in the workplace: free coffee, tea and fresh fruit for a pleasant break Working environment and mobility\n• Company vehicle with private use (depending on position): flexible and comfortable on the road\n• Company Bike: for short distances to the construction site or office environmentally friendly mobile\n• Modern working environment: high-quality offices with first-class IT infrastructure Further education and career\n• Further education: comprehensive training and further education offer in our own Group Academy\n• Career & development: versatile opportunities for professional and personal development as well as attractive career opportunities Community and Events\n• Shared experiences: regular after-work beers, grills and team events for a strong cohesion\n• Employee events: Various events at home and abroad, such as the annual football tournament in Germany Have you become curious? Apply now and become part of our team. We look forward to seeing you!\n• Diverse training opportunities\n• Competitive remuneration\n• Health promotion Contact details You master the art of precise quantity determination and ensure transparent billing that advances projects. With your expertise, you ensure correct performance and create trust among everyone involved. Become part of a team that values professional quality. Fabian Stocker Bicategory 4 6472 First field +41 41 882 11 11 Apply now",
-        "de": "Bei STRABAG bauen rund 86.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nAbrechner:in Strassenbau\nDein Beitrag bei uns\n\n• Selbstständiges Erstellen von Ausmass- und Abrechnungsunterlagen im Strassenbau\n\n• Kontrolle und Nachführung von Mengenermittlungen sowie Unterstützung der Bauführung bei der Kostenverfolgung\n\n• Erstellung von Arbeitskalkulationen, Controllinginstrumenten und Nachträgen\n\n• Enge Zusammenarbeit mit der Bauführung, Polier:innen und externen Partner:innen\n\n• Mitwirkung bei der Prüfung von Nachunternehmer- und Lieferantenabrechnungen\n\n• Sicherstellung einer termingerechten und korrekten Abrechnung sämtlicher Bauleistungen\nWas für uns zählt\n\n• Abgeschlossene Ausbildung im Bauwesen (z. B. Zeichner:in EFZ Ingenieurbau, Polier:in, Bauleiter:in, Techniker:in HF, Bauingenieur:in oder vergleichbar)\n\n• Berufserfahrung im Bereich Abrechnung im Strassenbau von Vorteil\n\n• Gute Anwenderkenntnisse in MS Office und idealerweise in RIB iTWO\n\n• Exakte und selbstständige Arbeitsweise sowie hohes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit Interesse an technisch anspruchsvollen Projekten\n\nUnser Mehrwert für dich\nGesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\nArbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\nWeiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\nGemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\nNeugierig geworden?\nBewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• wettbewerbsfähige Vergütung\n\n• Gesundheitsförderung\n\nKontakt\nDu beherrschst die Kunst präziser Mengenermittlung und sorgst für transparente Abrechnungen, die Projekte voranbringen. Mit deinem Fachwissen sicherst du korrekte Leistungen und schaffst Vertrauen bei allen Beteiligten. Werde Teil eines Teams, das professionelle Qualität schätzt.\n\nFabian Stocker\nBifang 4\n\n6472 Erstfeld\n\n+41 41 882 11 11\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 86 000 personnes progressent dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement. Ensemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès ! Calculatrice: en construction routière Votre contribution avec nous\n• Établissement indépendant de documents de mesure et de comptabilité dans la construction routière\n• Contrôle et suivi des déterminations de la quantité et appui à la gestion de la construction dans le suivi des coûts\n• Préparation des calculs de travail, des outils de contrôle et des suppléments\n• Coopération étroite avec la direction de la construction, les polisseurs: partenaires internes et externes:à l'intérieur\n• Coopération à la vérification des comptes des sous-traitants et des fournisseurs\n• Assurer la facturation en temps opportun et correcte de tous les travaux Ce qui nous importe\n• Formation complète dans le domaine de la construction (p. ex. dessinateur:dans EFZ Ingenieurbau, polisseur:dans, directeur de la construction:dans, technicien:dans HF, ingénieur civil:dans ou similaire)\n• Expérience professionnelle dans le domaine de la facturation en construction routière\n• Bonne connaissance utilisateur dans MS Office et idéalement dans RIB iTWO\n• Méthodes de travail exactes et indépendantes et sens élevé des responsabilités\n• Personnalité orientée vers l'équipe et intéressée par des projets techniquement exigeants Notre valeur ajoutée pour vous Santé et bien-être\n• Bien-être en milieu de travail : la santé et la sécurité sont notre priorité absolue\n• Amusement sur le lieu de travail: café gratuit, thé et fruits frais pour une pause agréable Environnement de travail et mobilité\n• Véhicule d'entreprise à usage privé (selon la position): flexible et confortable sur la route\n• Entreprise Vélo: pour de courtes distances jusqu'au chantier ou bureau écologique mobile\n• Environnement de travail moderne : bureaux de haute qualité dotés d'une infrastructure informatique de première classe Enseignement supérieur et carrière\n• Formation complémentaire: offre complète de formation et de perfectionnement dans notre propre Académie de groupe\n• Carrière & perfectionnement : des opportunités polyvalentes pour le développement professionnel et personnel ainsi que des opportunités de carrière attrayantes Communauté et événements\n• Expériences partagées: bières régulières après le travail, grillades et événements d'équipe pour une cohésion forte\n• Événements des employés: Divers événements au pays et à l'étranger, comme le tournoi de football annuel en Allemagne Tu es devenu curieux ? Postulez maintenant et faites partie de notre équipe. Nous avons hâte de vous voir!\n• Différentes possibilités de formation\n• Rémunération concurrentielle\n• Promotion de la santé Coordonnées Vous maîtrisez l'art de la détermination précise des quantités et assurez une facturation transparente qui avance les projets. Avec votre expertise, vous assurez des performances correctes et créez la confiance parmi toutes les personnes concernées. Devenez membre d'une équipe qui valorise la qualité professionnelle. Fabian Stocker Bicatégorie 4 6472 Premier champ +41 41 882 11 11 Appliquer maintenant"
-      },
-      "needsRetranslation": false,
-      "location": "Erstfeld",
-      "canton": "UR",
-      "url": "https://www.jobs.ch/en/vacancies/detail/0397dc9f-0498-4cc7-94d8-07a1a96e0059/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:47:01.301Z",
-      "addressLocality": "Erstfeld",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7180",
-      "streetAddress": "Bifang 4",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/0397dc9f-0498-4cc7-94d8-07a1a96e0059/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "abrechner-in-strassenbau-strabag-erstfeld"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abrechner-in-strassenbau-strabag-erstfeld"
-        ],
-        "en": [
-          "abrechner-in-strassenbau-strabag-erstfeld"
-        ],
-        "fr": [
-          "abrechner-in-strassenbau-strabag-erstfeld"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:15:34.388Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "strabag-eefbdaac79cc",
-      "slug": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
-      "slugByLocale": {
-        "it": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
-        "en": "polisher-in-road-construction-strabag-ag-erstfeld",
-        "de": "polier-in-strassenbau-strabag-erstfeld",
-        "fr": "polisher-dans-la-construction-routiere-strabag-ag-erstfeld"
-      },
-      "company": "STRABAG AG",
-      "companyKey": "strabag",
-      "companyDomain": "strabag.ch",
-      "title": "Polier:in Strassenbau",
-      "titleByLocale": {
-        "it": "Lucidatore: in costruzione stradale",
-        "en": "Polisher: in road construction",
-        "de": "Polier:in Strassenbau",
-        "fr": "Polisher: dans la construction routière"
-      },
-      "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Strassenbau\n Dein Beitrag bei uns\n\n• Zielorientierte und projektgerechte Vorbereitung sowie Abwicklung von Baustellen\n\n• Wirtschaftliche Einsatzplanung von Personal, Geräten und Material\n\n• Umsetzung von Massnahmen zur Arbeitssicherheit und des Gesundheitsschutzes\n\n• Selbstständiges und eigenverantwortliches Führen der Baustelle und des Baustellenpersonals\n\n• Nutzung digitaler Tools für Baustellenplanung, Dokumentation und Kommunikation\n\n• Anwendung und Mitgestaltung von Innovationsthemen am Bau (z.B. BIM)\n Was für uns zählt\n\n• Abgeschlossene Berufsbildung zum/zur Polier:in mit Fachrichtung Strassen- oder Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\n Gesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\n Arbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\n Weiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\n Gemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\n Neugierig geworden?\n Bewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Du liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nFabian Stocker\nBifang 4\n\n6472 Erstfeld\n\n+41 41 882 11 11\n Jetzt bewerben",
-      "descriptionByLocale": {
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, stiamo pensando di diventare il più innovativo e sostenibile gruppo di tecnologie per l'edilizia in Europa. Pari opportunità, diversità e inclusione sono parte integrante di ciò che ci rende una società e come lavoriamo. Insieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi! Lucidatore: in costruzione stradale Il tuo contributo con noi\n• Preparazione e gestione mirati e orientati al progetto dei cantieri\n• Pianificazione operativa economica del personale, delle attrezzature e dei materiali\n• Attuazione delle misure di sicurezza e di protezione della salute sul lavoro\n• Gestione indipendente e responsabile del cantiere e del personale del cantiere\n• Utilizzo di strumenti digitali per la pianificazione, la documentazione e la comunicazione dei cantieri\n• Applicazione e co-progettazione di argomenti di innovazione nell'edilizia (ad esempio BIM) Cosa ci importa\n• Formazione professionale completa per/per il personale: specializzato in ingegneria stradale o civile\n• Metodi di lavoro indipendenti, impegnati e affidabili\n• Approccio cooperativo e godimento del lavoro di squadra\n• Mano sulla mentalità e qualità del creatore completano il vostro profilo Il nostro valore aggiunto per te Salute e benessere\n• Benessere sul posto di lavoro: la salute e la sicurezza sono la nostra priorità\n• Divertimento sul posto di lavoro: caffè gratuito, tè e frutta fresca per una piacevole pausa Ambiente di lavoro e mobilità\n• Veicolo aziendale con uso privato (a seconda della posizione): flessibile e confortevole sulla strada\n• Company Bike: per brevi distanze al cantiere o all'ufficio ecologico mobile\n• Ambiente di lavoro moderno: uffici di alta qualità con infrastrutture IT di prima classe Formazione e carriera\n• Ulteriore istruzione: offerta completa di formazione e formazione nel nostro Group Academy\n• Carriera & sviluppo: opportunità versatili per lo sviluppo professionale e personale e opportunità di carriera interessanti Comunità ed Eventi\n• Esperienze condivise: birre post-lavoro regolari, griglie ed eventi di squadra per una forte coesione\n• Eventi dei dipendenti: Vari eventi in patria e all'estero, come il torneo annuale di calcio in Germania Sei diventato curioso? Applicare ora e diventare parte della nostra squadra. Non vediamo l'ora di vederti!\n• Diverse opportunità di formazione\n• Parcheggio\n• Attività sportive\n• Retribuzione competitiva\n• Sconti per il personale\n• Riconciliazione della vita familiare e professionale\n• Promozione della salute\n• Eventi del personale\n• Buone connessioni di trasporto Informazioni di contatto Amate l'odore di asfalto fresco e conservate sempre una panoramica sul cantiere. Con la tua esperienza e la tua guida, guiderai il tuo team al successo e ti assicurerai che i nostri progetti siano completati nel tempo e nella massima qualità. Cerchiamo di affrontarlo insieme! Stocker Fabian Bicategoria 4 6472 Primo campo +41 41 882 11 11 Applicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in building and engineering, road and civil engineering, bridge and tunnel construction, building materials production, project development or building management - we are thinking ahead to become the most innovative and sustainable construction technology group in Europe. Equal opportunities, diversity and inclusion are integral parts of what makes us a company and how we work. Together we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress! Polisher: in road construction Your contribution with us\n• Target-oriented and project-oriented preparation and handling of construction sites\n• Economic operational planning of personnel, equipment and materials\n• Implementation of occupational safety and health protection measures\n• Independent and responsible management of the construction site and the construction site staff\n• Use of digital tools for construction site planning, documentation and communication\n• Application and co-design of innovation topics in construction (e.g. BIM) What matters to us\n• Completed vocational training for/to the polisher:in specialising in road or civil engineering\n• Independent, committed and reliable working methods\n• Cooperative approach and enjoyment of teamwork\n• Hands-on mentality and maker qualities round off your profile Our added value for you Health and well-being\n• Well-being in the workplace: health and safety are our top priority\n• Enjoyment in the workplace: free coffee, tea and fresh fruit for a pleasant break Working environment and mobility\n• Company vehicle with private use (depending on position): flexible and comfortable on the road\n• Company Bike: for short distances to the construction site or office environmentally friendly mobile\n• Modern working environment: high-quality offices with first-class IT infrastructure Further education and career\n• Further education: comprehensive training and further education offer in our own Group Academy\n• Career & development: versatile opportunities for professional and personal development as well as attractive career opportunities Community and Events\n• Shared experiences: regular after-work beers, grills and team events for a strong cohesion\n• Employee events: Various events at home and abroad, such as the annual football tournament in Germany Have you become curious? Apply now and become part of our team. We look forward to seeing you!\n• Diverse training opportunities\n• Parking\n• Sports activities\n• Competitive remuneration\n• Staff discounts\n• Reconciliation of family and professional life\n• Health promotion\n• Staff events\n• Good transport connections Contact details You love the smell of fresh asphalt and always keep an overview on the construction site. With your experience and drive, you will lead your team to success and ensure that our projects are completed on time and in the highest quality. Let us tackle it together! Fabian Stocker Bicategory 4 6472 First field +41 41 882 11 11 Apply now",
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nPolier:in Strassenbau\nDein Beitrag bei uns\n\n• Zielorientierte und projektgerechte Vorbereitung sowie Abwicklung von Baustellen\n\n• Wirtschaftliche Einsatzplanung von Personal, Geräten und Material\n\n• Umsetzung von Massnahmen zur Arbeitssicherheit und des Gesundheitsschutzes\n\n• Selbstständiges und eigenverantwortliches Führen der Baustelle und des Baustellenpersonals\n\n• Nutzung digitaler Tools für Baustellenplanung, Dokumentation und Kommunikation\n\n• Anwendung und Mitgestaltung von Innovationsthemen am Bau (z.B. BIM)\nWas für uns zählt\n\n• Abgeschlossene Berufsbildung zum/zur Polier:in mit Fachrichtung Strassen- oder Tiefbau\n\n• Eigenständige, engagierte und zuverlässige Arbeitsweise\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Hands-on-Mentalität und Macher-Qualitäten runden Ihr Profil ab\n\nUnser Mehrwert für dich\nGesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\nArbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\nWeiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\nGemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\nNeugierig geworden?\nBewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\nDu liebst den Geruch von frischem Asphalt und behältst auf der Baustelle stets den Überblick. Mit deiner Erfahrung und deinem Drive führst du dein Team zum Erfolg und sorgst dafür, dass unsere Projekte termingerecht und in höchster Qualität abgeschlossen werden. Packen wir es gemeinsam an!\n\nFabian Stocker\nBifang 4\n\n6472 Erstfeld\n\n+41 41 882 11 11\nJetzt bewerben",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Que ce soit dans le bâtiment et l'ingénierie, le génie routier et civil, la construction de ponts et de tunnels, la production de matériaux de construction, le développement de projets ou la gestion de bâtiments, nous pensons devenir le groupe technologique de construction le plus innovant et durable d'Europe. L'égalité des chances, la diversité et l'inclusion font partie intégrante de ce qui fait de nous une entreprise et de notre fonctionnement. Ensemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès ! Polisher: dans la construction routière Votre contribution avec nous\n• Préparation et traitement des chantiers ciblés et axés sur des projets\n• Planification économique opérationnelle du personnel, du matériel et des matériaux\n• Mise en œuvre des mesures de protection de la sécurité et de la santé au travail\n• Gestion indépendante et responsable du chantier et du personnel du chantier\n• Utilisation d'outils numériques pour la planification, la documentation et la communication des chantiers de construction\n• Application et co-conception de sujets d'innovation dans la construction (p. ex. BIM) Ce qui nous importe\n• Formation professionnelle complète pour/pour le polisseur: spécialisation en génie routier ou civil\n• Méthodes de travail indépendantes, engagées et fiables\n• Approche coopérative et travail d ' équipe\n• La mentalité pratique et les qualités du fabricant complètent votre profil Notre valeur ajoutée pour vous Santé et bien-être\n• Bien-être en milieu de travail : la santé et la sécurité sont notre priorité absolue\n• Amusement sur le lieu de travail: café gratuit, thé et fruits frais pour une pause agréable Environnement de travail et mobilité\n• Véhicule d'entreprise à usage privé (selon la position): flexible et confortable sur la route\n• Entreprise Vélo: pour de courtes distances jusqu'au chantier ou bureau écologique mobile\n• Environnement de travail moderne : bureaux de haute qualité dotés d'une infrastructure informatique de première classe Enseignement supérieur et carrière\n• Formation complémentaire: offre complète de formation et de perfectionnement dans notre propre Académie de groupe\n• Carrière & perfectionnement : des opportunités polyvalentes pour le développement professionnel et personnel ainsi que des opportunités de carrière attrayantes Communauté et événements\n• Expériences partagées: bières régulières après le travail, grillades et événements d'équipe pour une cohésion forte\n• Événements des employés: Divers événements au pays et à l'étranger, comme le tournoi de football annuel en Allemagne Tu es devenu curieux ? Postulez maintenant et faites partie de notre équipe. Nous avons hâte de vous voir!\n• Différentes possibilités de formation\n• Stationnement\n• Activités sportives\n• Rémunération concurrentielle\n• Remises au personnel\n• Rapprochement de la vie familiale et professionnelle\n• Promotion de la santé\n• Manifestations du personnel\n• Bonnes liaisons de transport Coordonnées Vous aimez l'odeur de l'asphalte frais et gardez toujours un aperçu sur le chantier. Avec votre expérience et votre conduite, vous dirigerez votre équipe vers le succès et vous assurerez que nos projets sont terminés à temps et dans la plus haute qualité. Agissons ensemble ! Fabian Stocker Bicatégorie 4 6472 Premier champ +41 41 882 11 11 Appliquer maintenant"
-      },
-      "needsRetranslation": false,
-      "location": "Erstfeld",
-      "canton": "UR",
-      "url": "https://www.jobs.ch/en/vacancies/detail/575b5477-5fac-4353-8805-dc6a5244a92e/",
-      "source": "STRABAG AG Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T22:47:00.831Z",
-      "addressLocality": "Erstfeld",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6472",
-      "streetAddress": "Bifang 4",
-      "category": "Costruzioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Costruzioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/575b5477-5fac-4353-8805-dc6a5244a92e/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "polier-in-strassenbau-strabag-erstfeld"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ],
-        "en": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ],
-        "fr": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:15:33.986Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
