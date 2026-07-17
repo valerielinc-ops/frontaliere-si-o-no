@@ -8576,6 +8576,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-e-indennita.title': 'Frontières et indemnités : un thème brûlant',
     'blog.article.frontalieri-e-indennita.excerpt': 'La décision prise à Bruxelles sur les indemnités de chômage des frontaliers pourrait avoir d\'importantes répercussions financières et politiques pour la Suisse',
     'blog.article.frontalieri-e-indennita.imageAlt': 'Frontaliers en Suisse et en Italie',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Tessin évalue un Chercheur parlementaire pour soutenir le Grand Conseil',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'Proposition PLR pour introduire une figure technique à l\'appui des Commissions : plus de qualité législative et de continuité institutionnelle',
+    'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Salle du Grand Conseil à Bellinzona avec des députés en session',
 };
 
 export default blogMetaFr;
