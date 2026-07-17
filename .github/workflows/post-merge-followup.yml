@@ -44,7 +44,8 @@ jobs:
     # `follow-up` quando il filtro scopo passa. Vedi FOLLOWUP.md.
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 30 # batch di N PR in una sessione (era 10 per una sola PR)
+    # 30→40 (2026-07-17): headroom per il cap turni dinamico alzato (max 60→80).
+    timeout-minutes: 40 # batch di N PR in una sessione (era 10 per una sola PR)
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -78,7 +79,7 @@ jobs:
             {
               echo "batch_prs=${PR}"
               echo "batch_count=1"
-              echo "max_turns=26"
+              echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
             } >> "$GITHUB_OUTPUT"
           else
             node scripts/ci/collect-followup-batch.mjs
@@ -135,10 +136,11 @@ jobs:
           # allowed_bots.
           allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
-          # max-turns DINAMICO = min(20 + 6*batch_count, 60), floor 20 (era 20 fisso per
-          # UNA PR). AGENTS.md vieta di ABBASSARE i turni di post-merge-followup (15→20
+          # max-turns DINAMICO = min(26 + 8*batch_count, 80), floor 26 (era
+          # min(20+6n,60); bump fleet-wide 2026-07-17, owner). AGENTS.md vieta di
+          # ABBASSARE i turni di post-merge-followup (15→20
           # fu un fix di `error_max_turns` su PR perse); qui processiamo N PR in una
-          # sessione → vanno ALZATI in proporzione, mai sotto 20. Resta sonnet-4-6.
+          # sessione → vanno ALZATI in proporzione, mai sotto il floor. Resta sonnet-4-6.
           # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
           # success → watermark non avanza → la prossima run schedulata ri-copre la
           # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.

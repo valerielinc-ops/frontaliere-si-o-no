@@ -97,7 +97,8 @@ jobs:
     needs: preflight
     if: needs.preflight.outputs.actionable == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -319,7 +320,9 @@ jobs:
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
           # (rationale completo: post-merge-followup.yml claude_args comment, stesso
           # fix, evita drift tra copie duplicate).
-          claude_args: "--max-turns 45 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
+          # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
+          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 

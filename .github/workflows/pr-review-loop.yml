@@ -246,7 +246,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
           REPO: ${{ github.repository }}
-        # Tier high (claude-sonnet-5, max-turns 40, adversarial pass): toccato CODE
+        # Tier high (claude-sonnet-5, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
@@ -254,7 +254,7 @@ jobs:
         # merge, quindi probing rigoroso paga. Tier normal 15->25 (misurato: 13
         # run/7gg morti `error_max_turns` a num_turns=16 senza postare review,
         # es. run 27345572135/27340191180 - review intera bruciata + PR ferma
-        # fino al rescuer). Tier normal (sonnet, max-turns 25) per
+        # fino al rescuer). Tier normal (sonnet, max-turns 35) per
         # tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/`
         # (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`,
         # `*-report` — non mutano l'indice, verificano soltanto). Vedi REVIEW.md
@@ -272,7 +272,12 @@ jobs:
         # tier-high su un diff reale sforava i 25 turni e terminava
         # `error_max_turns` SENZA postare review (PR #838, num_turns=26) — peggio
         # del process gate, perché niente LGTM → PR bloccata e zero finding.
-        # 26 turni ≈ 3.5 min; 40 ≈ ~5.5 min, ben dentro il timeout 15 min.
+        # Budget 40→60 (2026-07-17, owner): tier high morto di nuovo al cap 40
+        # senza verdetto su PR #4324 (run 29556645538) — stessa classe #838.
+        # Bump fleet-wide di tutti i tier (cap = anti-runaway sopra il p99 dei
+        # run sani, non budget di lavoro; un run che muore al cap brucia la
+        # quota intera e lascia la PR ferma, peggio di qualche turno in più).
+        # 40 turni ≈ ~5.5 min; 60 ≈ ~8.5 min, ancora dentro il timeout 15 min.
         run: |
           set -euo pipefail
           set_tier() {
@@ -287,7 +292,7 @@ jobs:
           # scatta.
           if [ -z "$files" ]; then
             echo "Empty file list (rebase-only or empty PR)."
-            set_tier normal claude-sonnet-4-6 25
+            set_tier normal claude-sonnet-4-6 35
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -295,15 +300,16 @@ jobs:
           if [ -z "$code_files" ]; then
             # Token-lever: una PR data/docs-only (zero code) non ha contributo
             # code-reviewable — l'unica cosa da verificare è il completeness
-            # contract del body. Tier `minimal`: sonnet + max-turns 8 (da 15) +
+            # contract del body. Tier `minimal`: sonnet + max-turns 12 (8→12
+            # nel bump fleet-wide 2026-07-17, il revert-trigger pre-dichiarato) +
             # prompt corto che SALTA la lettura di REVIEW.md, il cross-file
             # probing e l'adversarial check (tutti no-op senza code). Posta
             # comunque `## LGTM` come claude-bot → auto-merge invariato.
-            # 8 turni bastano con margine per: leggi body+files, valida
+            # 12 turni bastano con margine per: leggi body+files, valida
             # contract, posta review (~4-6 turni osservati). REVERT-TRIGGER: se
-            # compaiono `error_max_turns` sul tier minimal → bump 8→12.
+            # compaiono `error_max_turns` sul tier minimal → bump 12→16.
             echo "Data/docs-only PR (no reviewable code touched) → tier minimal."
-            set_tier minimal claude-sonnet-4-6 8
+            set_tier minimal claude-sonnet-4-6 12
             exit 0
           fi
           # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
@@ -353,28 +359,28 @@ jobs:
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
               if funnel_crit "$delta_code" && ! crawler_parser_only "$delta_code"; then
-                set_tier incremental-high claude-sonnet-5 25
+                set_tier incremental-high claude-sonnet-5 35
               elif funnel_crit "$delta_code"; then
                 # crawler/parser-only funnel-critical delta → sonnet (owner-approved)
-                set_tier incremental-high claude-sonnet-4-6 25
+                set_tier incremental-high claude-sonnet-4-6 35
               else
-                set_tier incremental claude-sonnet-4-6 15
+                set_tier incremental claude-sonnet-4-6 25
               fi
               exit 0
             fi
             echo "Nessun delta-code nei file PR dall'ultima review → review piena."
           fi
 
-          # CODE funnel-critical → high (full scope, 40 turni). Modello: claude-sonnet-5,
+          # CODE funnel-critical → high (full scope, 60 turni). Modello: claude-sonnet-5,
           # salvo i diff crawler/parser-only → claude-sonnet-4-6 (owner-approved
           # 2026-06-30, stesso scope+turni, solo modello del tier normal). Altrimenti
-          # normal (claude-sonnet-4-6/25).
+          # normal (claude-sonnet-4-6/35).
           if funnel_crit "$code_files" && ! crawler_parser_only "$code_files"; then
-            set_tier high claude-sonnet-5 40
+            set_tier high claude-sonnet-5 60
           elif funnel_crit "$code_files"; then
-            set_tier high claude-sonnet-4-6 40
+            set_tier high claude-sonnet-4-6 60
           else
-            set_tier normal claude-sonnet-4-6 25
+            set_tier normal claude-sonnet-4-6 35
           fi
 
       - name: Setup Headroom compression proxy

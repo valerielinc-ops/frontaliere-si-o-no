@@ -79,8 +79,8 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 
 | Tier | Trigger | Model / max-turns |
 |---|---|---|
-| high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | opus, 40 |
-| normal | resto | sonnet, 30 |
+| high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | claude-sonnet-5, 70 |
+| normal | resto | claude-sonnet-4-6, 55 |
 
 ### CODE vs DATA (no scroll dei blob — frugalità token, mirror del guard reviewer #1096)
 

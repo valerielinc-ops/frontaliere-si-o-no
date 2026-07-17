@@ -34,7 +34,8 @@ concurrency:
 jobs:
   harvest:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # 12→18 (2026-07-17): headroom per il cap turni alzato 20→30.
+    timeout-minutes: 18
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -98,7 +99,8 @@ jobs:
           # schedule/workflow_dispatch il flag non produce mai bypassPermissions
           # (permissionMode resta "default", quasi ogni Bash bloccato); i workflow con
           # trigger workflow_run/issues invece funzionano con la stessa config identica.
-          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
+          # 20→30 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns Claude.
+          claude_args: "--max-turns 30 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
           prompt: |
             Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
 
