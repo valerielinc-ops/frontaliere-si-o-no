@@ -46,6 +46,7 @@
 // returns 'full' for them. ≤25 h self-heal.
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
+import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';
 
 const LOCALE_LISTING_PATH: Record<string, string> = {
   it: '/cerca-lavoro-svizzera/',
@@ -75,7 +76,7 @@ function htmlEscape(s: string): string {
 }
 
 function extractH1(html: string): string {
-  const m = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const m = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (!m) return '';
   return m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }

@@ -10,6 +10,7 @@
  * The test gracefully no-ops when `dist/` doesn't exist.
  */
 import { describe, it, expect } from 'vitest';
+import { stripScriptsAndStyles } from '../scripts/lib/strip-scripts-styles.mjs';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -42,7 +43,7 @@ function walkHtml(dir: string, out: string[] = []): string[] {
 }
 
 function extractTitle(html: string): string | null {
-  const m = html.match(/<title>([\s\S]*?)<\/title>/i);
+  const m = stripScriptsAndStyles(html).match(/<title>([\s\S]*?)<\/title>/i);
   if (!m) return null;
   return m[1]
     .replace(/&amp;/g, '&')
