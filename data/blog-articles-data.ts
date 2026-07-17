@@ -25739,6 +25739,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'naspi-frontalieri-italia-requisiti-calcolo-domanda',
+ category: 'pratico',
+ date: '2026-07-17T12:43:15.884Z',
+ image: '/images/blog/naspi-frontalieri-italia-requisiti-calcolo-domanda.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

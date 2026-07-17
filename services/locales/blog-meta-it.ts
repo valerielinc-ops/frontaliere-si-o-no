@@ -8567,6 +8567,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Serve un aiuto in più per i lavori nelle commissioni',
     'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'La mozione Ortelli chiede l\'introduzione di un segretario aggiunto/r',
     'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Un frontaliere in bicicletta che attraversa il confine italo-svizzero, con la città di Lugano sullo sfondo.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI per ex-frontalieri: requisiti, calcolo, durata e domanda',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Guida pratica all\'indennità di disoccupazione italiana per chi ha perso il lavoro in Svizzera. Requisiti contributivi, importo mensile, durata massima e procedure di richiesta.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Uomo frontaliere esamina documenti NASpI con mappa Ticino-Lombardia',
 };
 
 export default blogMetaIt;

@@ -8565,6 +8565,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Zusätzliche Hilfe für die Arbeit in den Ausschüssen ist erforderlich',
     'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'Die Motion Ortelli fordert die Einführung eines Stellvertretenden Sekretärs/r',
     'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Ein Radfahrer, der den italienisch-schweizerischen Grenzübergang passiert, mit der Stadt Lugano im Hintergrund.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI für ehemalige Grenzgänger: Anforderungen, Berechnung, Dauer und Nachfrage',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Praktischer Leitfaden zum italienischen Arbeitslosengeld für Arbeitslose in der Schweiz. Beitragsvoraussetzungen, monatlicher Betrag, Höchstdauer und Antragsverfahren.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Italienischer Grenzgänger prüft NASpI-Arbeitslosengunterlagen',
 };
 
 export default blogMetaDe;

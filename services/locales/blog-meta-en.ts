@@ -8566,6 +8566,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Need extra help working on commissions',
     'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'The Ortelli motion calls for the introduction of an assistant secretary',
     'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'A cyclist crossing the Italian-Swiss border, with the city of Lugano in the background.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI for ex-frontiers: requirements, calculation, duration and demand',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Practical guide to the Italian unemployment benefit for those who have lost their job in Switzerland. Contribution requirements, monthly amount, maximum duration and application procedures.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Italian cross-border worker reviewing NASpI unemployment documents',
 };
 
 export default blogMetaEn;
