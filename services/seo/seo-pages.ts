@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3272,
+ "numberOfItems": 3273,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7988,7 +7988,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3269, "name": "Frontalieri: cosa cambia con la nuova imposta s...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024` },
           { "@type": "ListItem", "position": 3270, "name": "Serve un aiuto in più per i lavori nelle commis...", "url": `${BASE_URL}/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni` },
           { "@type": "ListItem", "position": 3271, "name": "NASPI per ex-frontalieri: requisiti e calcolo", "url": `${BASE_URL}/articoli-frontaliere/naspi-frontendalieri-requisiti-calcolo-2024` },
-          { "@type": "ListItem", "position": 3272, "name": "NASpI per ex-frontalieri: requisiti, calcolo, d...", "url": `${BASE_URL}/articoli-frontaliere/naspi-frontalieri-italia-requisiti-calcolo-domanda` }
+          { "@type": "ListItem", "position": 3272, "name": "NASpI per ex-frontalieri: requisiti, calcolo, d...", "url": `${BASE_URL}/articoli-frontaliere/naspi-frontalieri-italia-requisiti-calcolo-domanda` },
+          { "@type": "ListItem", "position": 3273, "name": "Vivere a Como e lavorare in Ticino: guida prati...", "url": `${BASE_URL}/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere` }
  ]
  },
  {

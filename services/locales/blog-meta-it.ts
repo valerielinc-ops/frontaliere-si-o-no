@@ -8570,6 +8570,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI per ex-frontalieri: requisiti, calcolo, durata e domanda',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Guida pratica all\'indennità di disoccupazione italiana per chi ha perso il lavoro in Svizzera. Requisiti contributivi, importo mensile, durata massima e procedure di richiesta.',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Uomo frontaliere esamina documenti NASpI con mappa Ticino-Lombardia',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Vivere a Como e lavorare in Ticino: guida pratica per frontalieri',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Tempi di percorrenza, costo della vita a confronto, quartieri strategici e pro/contro di treno vs auto. Tutto ciò che devi sapere prima di diventare frontaliere Como-Ticino.',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Pendolari alla stazione di Chiasso al mattino presto, simbolo del tragitto quotidiano Como-Ticino',
 };
 
 export default blogMetaIt;

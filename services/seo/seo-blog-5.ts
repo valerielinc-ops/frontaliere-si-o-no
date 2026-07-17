@@ -50265,6 +50265,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-como-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Como e lavorare in Ticino: guida pratica per frontalieri',
+    description: 'Guida completa per frontalieri Como-Ticino: tempi di percorrenza reali, confronto stipendi/costo della vita, quartieri ottimali e scelta treno vs auto. Calcola',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, como, lavorare, pratica',
+    ogTitle: 'Vivere a Como e lavorare in Ticino: la guida definitiva 2024',
+    ogDescription: 'Tempi di percorrenza, costi nascosti, tassazione e quartieri strategici. Tutto ciò che devi sapere prima di diventare frontaliere Como-Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Como e lavorare in Ticino: guida pratica per frontalieri",
+      "description": "Guida completa per frontalieri Como-Ticino: tempi di percorrenza reali, confronto stipendi/costo della vita, quartieri ottimali e scelta treno vs auto. Calcola",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-como-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari alla stazione di Chiasso al mattino presto, simbolo del tragitto quotidiano Como-Ticino"
+      },
+      "datePublished": "2026-07-17T13:52:25+00:00",
+      "dateModified": "2026-07-17T13:52:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

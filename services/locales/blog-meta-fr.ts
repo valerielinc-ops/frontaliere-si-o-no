@@ -8570,6 +8570,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI pour les ex-frontières : exigences, calcul, durée et demande',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Guide pratique de l\'allocation de chômage italienne pour les personnes ayant perdu leur emploi en Suisse. Exigences de cotisation, montant mensuel, durée maximale et procédures de demande.',
     'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Frontalier italien examinant des documents d\'indemnité de chômage NASpI',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Vivre à Côme et travailler au Tessin : guide pratique pour les frontaliers',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Temps de trajet, coût de la vie comparé, quartiers stratégiques et avantages/inconvénients du train par rapport à la voiture. Tout ce que vous devez savoir avant de devenir frontalier Côme-Tessin.',
+    'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Navetteurs à la gare de Chiasso tôt le matin, symbole du trajet quotidien Côme-Tessin',
 };
 
 export default blogMetaFr;

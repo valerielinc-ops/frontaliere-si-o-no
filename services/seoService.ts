@@ -4579,6 +4579,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-servo-aiuto-pi-lavori-commissioni': { name: 'Lavori nelle commissioni', path: '/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni', parent: 'blog' },
     'blog-naspi-frontendalieri-requisiti-calcolo-2024': { name: 'NASPI per ex-frontalieri', path: '/articoli-svizzera/naspi-frontendalieri-requisiti-calcolo-2024/', parent: 'blog' },
     'blog-naspi-frontalieri-italia-requisiti-calcolo-domanda': { name: 'NASpI Frontalieri', path: '/articoli-frontaliere/naspi-frontalieri-italia-requisiti-calcolo-domanda', parent: 'blog' },
+    'blog-vivere-como-lavorare-ticino-frontaliere': { name: 'Guida Frontalieri', path: '/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];
