@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "klinik-sonnenhalde-f74f498d3bb7",
-      "slug": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
+      "slug": "assistente-medico-klinik-sonnenhalde-riehen",
       "slugByLocale": {
         "de": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
-        "it": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
-        "en": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
-        "fr": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
+        "it": "assistente-medico-klinik-sonnenhalde-riehen",
+        "en": "assistant-doctor-klinik-sonnenhalde-riehen",
+        "fr": "assistant-medecin-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -69,19 +69,23 @@
         "it": [
           "medico-assistente-klinik-sonnenhalde-riehen",
           "assistant-physician-klinik-sonnenhalde-riehen",
-          "medecin-assistant-klinik-sonnenhalde-riehen"
+          "medecin-assistant-klinik-sonnenhalde-riehen",
+          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
         ],
         "en": [
-          "assistant-physician-klinik-sonnenhalde-riehen"
+          "assistant-physician-klinik-sonnenhalde-riehen",
+          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
         ],
         "fr": [
-          "medecin-assistant-klinik-sonnenhalde-riehen"
+          "medecin-assistant-klinik-sonnenhalde-riehen",
+          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
         "medico-assistente-klinik-sonnenhalde-riehen",
         "assistant-physician-klinik-sonnenhalde-riehen",
-        "medecin-assistant-klinik-sonnenhalde-riehen"
+        "medecin-assistant-klinik-sonnenhalde-riehen",
+        "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
       ]
     },
     {
@@ -133,13 +137,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen",
-        "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen"
+        "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen",
-          "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen"
+          "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:41.754Z",
@@ -209,14 +211,12 @@
         "fachpsycholog-in-klinik-sonnenhalde-riehen",
         "specialista-psicologo-in-klinik-sonnenhalde-riehen",
         "specialist-psychologist-in-klinik-sonnenhalde-riehen",
-        "psychologue-specialise-klinik-sonnenhalde-riehen",
-        "psicologo-specializzato-klinik-sonnenhalde-riehen"
+        "psychologue-specialise-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachpsycholog-in-klinik-sonnenhalde-riehen",
-          "specialista-psicologo-in-klinik-sonnenhalde-riehen",
-          "psicologo-specializzato-klinik-sonnenhalde-riehen"
+          "specialista-psicologo-in-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "specialist-psychologist-in-klinik-sonnenhalde-riehen"
@@ -246,7 +246,7 @@
         "it": "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen",
         "en": "dipl-care-professional-hf-fh-klinik-sonnenhalde-riehen",
         "de": "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "fr": "specialiste-en-radiologie-dipl-60-klinik-sonnenhalde-riehen"
+        "fr": "infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -312,15 +312,12 @@
         "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-radiology-specialist-60-bethesda-spital-basel",
-        "infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen",
-        "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen",
         "specialiste-en-radiologie-dipl-60-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-          "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
-          "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen"
+          "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-radiology-specialist-60-bethesda-spital-basel",
@@ -328,7 +325,6 @@
         ],
         "fr": [
           "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen",
-          "infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen",
           "specialiste-en-radiologie-dipl-60-klinik-sonnenhalde-riehen"
         ]
       },
@@ -410,8 +406,7 @@
           "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
           "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen",
           "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-          "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen"
@@ -420,8 +415,7 @@
           "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen"
         ],
         "de": [
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
@@ -431,8 +425,7 @@
         "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen",
         "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen",
         "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
-        "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-klinik-sonnenhalde-riehen"
+        "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
       ],
       "firstSeenAt": "2026-05-19T09:58:41.750Z",
       "salaryMin": 37200,
@@ -497,13 +490,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen"
+        "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-          "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen"
+          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
@@ -576,14 +567,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen",
-        "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen",
-        "dipl-specialista-per-l-assistenza-hf-fh-40-klinik-sonnenhalde-riehen"
+        "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen",
-          "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen",
-          "dipl-specialista-per-l-assistenza-hf-fh-40-klinik-sonnenhalde-riehen"
+          "infermiere-dipl-sss-sup-40-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-40-klinik-sonnenhalde-riehen"
@@ -656,13 +645,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen",
-        "dipl-servizio-notturno-klinik-sonnenhalde-riehen"
+        "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen",
-          "dipl-servizio-notturno-klinik-sonnenhalde-riehen"
+          "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-pflegefachperson-im-nachtdienst-klinik-sonnenhalde-riehen"
@@ -735,13 +722,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-sozialarbeiter-in-fh-klinik-sonnenhalde-riehen",
-        "dipl-lavoratore-sociale-in-fh-klinik-sonnenhalde-riehen"
+        "dipl-sozialarbeiter-in-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-sozialarbeiter-in-fh-klinik-sonnenhalde-riehen",
-          "dipl-lavoratore-sociale-in-fh-klinik-sonnenhalde-riehen"
+          "dipl-sozialarbeiter-in-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "dipl-sozialarbeiter-in-fh-klinik-sonnenhalde-riehen"
