@@ -397,7 +397,10 @@ jobs:
 
       - name: Prefetch review context (zero-Claude, saves turns)
         id: prefetch
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        # tier `minimal` ha il suo percorso corto (≤6 turni, gh pr view diretto
+        # nel prompt) e non legge mai $CTX_DIR — skip per non sprecare 3 gh call
+        # a vuoto su ogni PR data/docs-only.
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier != 'minimal'
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
