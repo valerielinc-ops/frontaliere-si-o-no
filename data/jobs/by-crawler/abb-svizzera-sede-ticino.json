@@ -188,7 +188,7 @@
       "slugByLocale": {
         "it": "corporate-m-a-analista-abb-svizzera-sede-ticino-zurich-fmme93",
         "en": "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich-fmme93",
-        "de": "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich-fmme93",
+        "de": "m-a-analyst-abb-svizzera-sede-ticino-zurich",
         "fr": "corporate-m-a-analyste-abb-svizzera-sede-ticino-zurich-fmme93"
       },
       "requirementsByLocale": {},
@@ -197,10 +197,14 @@
       "previousSlugsByLocale": {
         "it": [
           "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich"
+        ],
+        "de": [
+          "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich-fmme93"
         ]
       },
       "previousSlugs": [
-        "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich"
+        "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich",
+        "corporate-m-a-analyst-abb-svizzera-sede-ticino-zurich-fmme93"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
