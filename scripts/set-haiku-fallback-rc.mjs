@@ -19,6 +19,8 @@
  *     node scripts/set-haiku-fallback-rc.mjs
  */
 
+import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+
 const RC_PARAM = 'ENABLE_HAIKU_ARTICLE_FALLBACK';
 const RC_VALUE = 'true';
 
@@ -32,14 +34,8 @@ async function main() {
     bail('GOOGLE_APPLICATION_CREDENTIALS not set.');
   }
 
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  }
-  const rc = admin.remoteConfig();
-  const template = await rc.getTemplate();
-  template.parameters = template.parameters || {};
+  const rc = await getRemoteConfig();
+  const template = await fetchRcTemplate(rc);
 
   const existing = template.parameters[RC_PARAM]?.defaultValue?.value;
   console.log(`ℹ️  Current ${RC_PARAM}: ${existing ?? '(unset)'}`);
@@ -49,13 +45,10 @@ async function main() {
     return;
   }
 
-  template.parameters[RC_PARAM] = {
-    defaultValue: { value: RC_VALUE },
-    valueType: 'STRING',
-    description: `Enable claude-cli haiku last-resort AI fallback (set ${new Date().toISOString().slice(0, 10)})`,
-  };
+  const staged = stageRcParam(template, RC_PARAM, RC_VALUE,
+    `Enable claude-cli haiku last-resort AI fallback (set ${new Date().toISOString().slice(0, 10)})`);
 
-  await rc.publishTemplate(template, { force: true });
+  await publishRcTemplate(rc, template, staged ? 1 : 0);
   console.log(`✅ Published ${RC_PARAM}=${RC_VALUE} to Remote Config.`);
   console.log('   Next run of any workflow with CLAUDE_CODE_OAUTH_TOKEN wired will pick it up via load-rc-env.mjs.');
 }
