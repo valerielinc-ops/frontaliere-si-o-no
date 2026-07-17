@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3275,
+ "numberOfItems": 3276,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7991,7 +7991,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3272, "name": "NASpI per ex-frontalieri: requisiti, calcolo, d...", "url": `${BASE_URL}/articoli-frontaliere/naspi-frontalieri-italia-requisiti-calcolo-domanda` },
           { "@type": "ListItem", "position": 3273, "name": "Vivere a Como e lavorare in Ticino: guida prati...", "url": `${BASE_URL}/articoli-frontaliere/vivere-como-lavorare-ticino-frontaliere` },
           { "@type": "ListItem", "position": 3274, "name": "RC auto: differenze tra Svizzera e Italia per i...", "url": `${BASE_URL}/articoli-frontaliere/assicurazione-rc-auto-svizzera-differenze-italia-frontalieri` },
-          { "@type": "ListItem", "position": 3275, "name": "Frontalieri e indennità: un tema che scotta", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-e-indennita` }
+          { "@type": "ListItem", "position": 3275, "name": "Frontalieri e indennità: un tema che scotta", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-e-indennita` },
+          { "@type": "ListItem", "position": 3276, "name": "Il secondo pilastro LPP: quando si può prelevar...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-lpp-frontalieri-prelievo` }
  ]
  },
  {

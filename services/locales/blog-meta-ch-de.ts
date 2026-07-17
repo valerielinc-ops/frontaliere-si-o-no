@@ -1195,6 +1195,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differenze tra Svizzera e Italia',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'Die Kfz-Haftpflichtversicherung in der Schweiz für Grenzgänger: Was ändert sich im Vergleich zur italienischen Police, Bonus-Malus, Kfz-Zulassung',
     'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'Ein Auto mit Schweizer Zulassung parkt in einer Straße von Lugano',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'BVG-Säule 2: Abhängigkeits- und Steuerfragen Italien/Schweiz',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'Das neue Grenzabkommen sieht eine Franchise von 10\'000 CHF und eine Übergangsregelung bis 2033 vor. Aber wie funktioniert die zweite Säule BVG und wie kann sie ohne Doppelbesteuerung bezogen werden?',
+    'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'Eine Szene von Lugano mit Hochhäusern und einem langen See. Ein Frontaliere sitzt auf einem Sitz, mit einer Mappe in der Hand und einer nachdenklichen Miene.',
 };
 
 export default blogMetaChDe;

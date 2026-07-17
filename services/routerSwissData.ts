@@ -421,6 +421,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'traffico-da-record': { it: 'traffico-da-record', en: 'slug-traffico-da-record', de: 'slug-traffico-da-record', fr: 'slug-traffico-da-record' },
  'naspi-frontendalieri-requisiti-calcolo-2024': { it: 'naspi-frontendalieri-requisiti-calcolo-2024', en: 'naspi-frontalier-requisites-calculation', de: 'naspi-frontalier-requisiten-berechnung', fr: 'naspi-frontalier-requisits-calcul' },
  'assicurazione-rc-auto-svizzera-differenze-italia-frontalieri': { it: 'assicurazione-rc-auto-svizzera-differenze-italia-frontalieri', en: 'insurance-rc-car-switzerland-differences-italy-frontaliers', de: 'kaskoversicherung-schweiz-unterschiede-italien-frontalier', fr: 'assurance-rc-voiture-suisse-differences-italie-frontaliers' },
+ 'secondo-pilastro-lpp-frontalieri-prelievo': { it: 'secondo-pilastro-lpp-frontalieri-prelievo', en: 'second-pillar-lpp-frontaliers-withdrawal', de: 'zweites-pillar-lpp-frontalier-abhebung', fr: 'deuxieme-pilier-lpp-frontalier-retrait' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
