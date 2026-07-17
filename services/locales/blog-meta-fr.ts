@@ -8582,6 +8582,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Congé de deuil ou maladie : différences entre les règles suisses et italiennes',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'Le nouvel accord frontalier prévoit une durée de congé différente par rapport aux règles italiennes.',
     'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'Un frontalier qui travaille en Suisse et réside en Italie',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Travailler à distance depuis un pays tiers : implications fiscales et assurances',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Guide pratique pour les frontaliers Tessin-Italie : quels sont les risques si vous travaillez dans un pays tiers pendant les vacances et comment respecter les règles fiscales et d\'assurance.',
+    'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Ordinateur portable sur un balcon avec vue sur le lac de Lugano et documents fiscaux',
 };
 
 export default blogMetaFr;
