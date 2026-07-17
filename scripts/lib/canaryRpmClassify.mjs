@@ -3,6 +3,12 @@
  * RPM canary (scripts/canary-rpm.mjs). Extracted into a lib so it can be
  * unit-tested without the AdSense API / OAuth round-trip.
  *
+ * Thin RPM-flavored wrapper over the generic dual-signal classifier in
+ * scripts/lib/canaryRegressionClassify.mjs (shared with the ARPU canary,
+ * scripts/lib/arpuCanaryClassify.mjs) — same baseline-window math and
+ * two-signal gate, RPM-specific defaults/labels/output shape only. Public
+ * API and returned object shape are unchanged from before this extraction.
+ *
  * Two correctness properties this encodes — both born from real false
  * alarms (issue #2176, 2026-06-15..17):
  *
@@ -30,12 +36,19 @@
  *      2026-05-28 catch (earnings cratered) while silencing PV-spike dips.
  */
 
+import {
+  classifyRegression,
+  latestClosedIndex as genericLatestClosedIndex,
+} from './canaryRegressionClassify.mjs';
+
 export const DEFAULT_RATIO_FLOOR = 0.65;
 export const DEFAULT_ABSOLUTE_FLOOR = 1.0;
 export const DEFAULT_EARNINGS_FLOOR = 0.65;
 export const BASELINE_DAYS = 7;
 export const BASELINE_LAG_DAYS = 3; // baseline ends at T-3 (skips noisy last days)
 export const REQUIRED_BASELINE_SAMPLES = 5; // need at least 5 days of baseline data
+
+const RPM_LABELS = { metric: 'RPM', confirm: 'Earnings', volumeNoun: 'page-view', volumeAbbrev: 'pv', decimals: 2 };
 
 /**
  * @typedef {{ date: string, rpm: number, earnings: number, pageViews: number }} DailyRow
@@ -52,19 +65,10 @@ export const REQUIRED_BASELINE_SAMPLES = 5; // need at least 5 days of baseline 
  * @returns {number} index of the latest closed row (may be -1 if none)
  */
 export function latestClosedIndex(rows, todayUtc) {
-  let idx = rows.length - 1;
-  // 1. Never treat the open current UTC day (or any future-dated row) as closed.
-  if (todayUtc) {
-    while (idx >= 0 && rows[idx].date >= todayUtc) idx -= 1;
-  }
-  // 2. PV-completeness guard: a candidate whose PV is < 50% of the prior
-  //    day's PV is probably still being collected — step back one.
-  if (idx >= 1) {
-    const prior = rows[idx - 1].pageViews;
-    const cand = rows[idx].pageViews;
-    if (prior > 0 && cand < prior * 0.5) idx -= 1;
-  }
-  return idx;
+  return genericLatestClosedIndex(
+    rows.map((r) => ({ date: r.date, volume: r.pageViews })),
+    todayUtc,
+  );
 }
 
 /**
@@ -74,98 +78,38 @@ export function latestClosedIndex(rows, todayUtc) {
  * @param {{ ratioFloor?: number, absoluteFloor?: number, earningsFloor?: number, todayUtc?: string }} [opts]
  */
 export function classifyRpm(rows, opts = {}) {
-  const ratioFloor = opts.ratioFloor ?? DEFAULT_RATIO_FLOOR;
-  const absoluteFloor = opts.absoluteFloor ?? DEFAULT_ABSOLUTE_FLOOR;
-  const earningsFloor = opts.earningsFloor ?? DEFAULT_EARNINGS_FLOOR;
-  const todayUtc = opts.todayUtc;
+  const generic = classifyRegression(
+    rows.map((r) => ({ date: r.date, value: r.rpm, confirm: r.earnings, volume: r.pageViews })),
+    {
+      ratioFloor: opts.ratioFloor ?? DEFAULT_RATIO_FLOOR,
+      absoluteFloor: opts.absoluteFloor ?? DEFAULT_ABSOLUTE_FLOOR,
+      confirmFloor: opts.earningsFloor ?? DEFAULT_EARNINGS_FLOOR,
+      todayUtc: opts.todayUtc,
+      labels: RPM_LABELS,
+    },
+  );
 
-  if (rows.length < BASELINE_LAG_DAYS + REQUIRED_BASELINE_SAMPLES) {
-    return {
-      verdict: "insufficient-data",
-      reason: `need ≥${BASELINE_LAG_DAYS + REQUIRED_BASELINE_SAMPLES} days of data, got ${rows.length}`,
-    };
-  }
-
-  const latestClosedIdx = latestClosedIndex(rows, todayUtc);
-  if (latestClosedIdx < 0) {
-    return { verdict: "insufficient-data", reason: "no fully-closed day available" };
-  }
-
-  const currentRow = rows[latestClosedIdx];
-  const baselineEnd = latestClosedIdx - (BASELINE_LAG_DAYS - 1);
-  const baselineStart = baselineEnd - BASELINE_DAYS;
-  if (baselineStart < 0 || baselineEnd <= baselineStart) {
-    return { verdict: "insufficient-data", reason: "baseline window underflowed" };
-  }
-  const baselineRows = rows.slice(baselineStart, baselineEnd);
-  if (baselineRows.length < REQUIRED_BASELINE_SAMPLES) {
-    return {
-      verdict: "insufficient-data",
-      reason: `baseline window has ${baselineRows.length} samples, need ${REQUIRED_BASELINE_SAMPLES}`,
-    };
-  }
-
-  const baselineRpm =
-    baselineRows.reduce((s, r) => s + (r.rpm || 0), 0) / baselineRows.length;
-  const baselineEarnings =
-    baselineRows.reduce((s, r) => s + (r.earnings || 0), 0) / baselineRows.length;
-  const ratio = baselineRpm > 0 ? currentRow.rpm / baselineRpm : 1;
-  const earningsRatio =
-    baselineEarnings > 0 ? currentRow.earnings / baselineEarnings : 1;
-
-  // RPM signal — sensitive trigger (a ratio drop or an absolute-floor breach).
-  const rpmReasons = [];
-  if (currentRow.rpm < absoluteFloor) {
-    rpmReasons.push(`RPM ${currentRow.rpm.toFixed(2)} < absolute floor ${absoluteFloor.toFixed(2)}`);
-  }
-  if (baselineRpm > 0 && ratio < ratioFloor) {
-    rpmReasons.push(
-      `RPM ${currentRow.rpm.toFixed(2)} = ${(ratio * 100).toFixed(0)}% of baseline ${baselineRpm.toFixed(2)} (floor ${(ratioFloor * 100).toFixed(0)}%)`,
-    );
-  }
-  const rpmLow = rpmReasons.length > 0;
-
-  // Earnings confirmation — a real revenue incident depresses absolute
-  // earnings; a page-view spike with healthy earnings does not. Treat a
-  // zero/absent baseline as "can't confirm" → fall back to the RPM signal
-  // (better a rare false alarm than a missed real incident with no baseline).
-  const earningsLow =
-    baselineEarnings > 0 ? earningsRatio < earningsFloor : true;
-
-  const isRegression = rpmLow && earningsLow;
-
-  const reasons = [];
-  let note;
-  if (isRegression) {
-    reasons.push(...rpmReasons);
-    reasons.push(
-      `Earnings ${currentRow.earnings.toFixed(2)} = ${(earningsRatio * 100).toFixed(0)}% of baseline ${baselineEarnings.toFixed(2)} (floor ${(earningsFloor * 100).toFixed(0)}%)`,
-    );
-  } else if (rpmLow && !earningsLow) {
-    // Benign: RPM dipped but earnings held — almost always a page-view spike.
-    note =
-      `RPM dip is benign: earnings ${currentRow.earnings.toFixed(2)} = ${(earningsRatio * 100).toFixed(0)}% of baseline ${baselineEarnings.toFixed(2)} (≥ ${(earningsFloor * 100).toFixed(0)}% floor) — the low RPM is a page-view spike (pv=${currentRow.pageViews}), not lost revenue.`;
-  }
+  if (generic.verdict === 'insufficient-data') return generic;
 
   return {
-    verdict: isRegression ? "regression" : "healthy",
+    verdict: generic.verdict,
     current: {
-      date: currentRow.date,
-      rpm: currentRow.rpm,
-      earnings: currentRow.earnings,
-      pageViews: currentRow.pageViews,
+      date: generic.current.date,
+      rpm: generic.current.value,
+      earnings: generic.current.confirm,
+      pageViews: generic.current.volume,
     },
     baseline: {
-      from: baselineRows[0].date,
-      to: baselineRows[baselineRows.length - 1].date,
-      rpm: Number(baselineRpm.toFixed(3)),
-      earnings: Number(baselineEarnings.toFixed(2)),
-      samples: baselineRows.length,
+      from: generic.baseline.from,
+      to: generic.baseline.to,
+      rpm: generic.baseline.value,
+      earnings: generic.baseline.confirm,
+      samples: generic.baseline.samples,
     },
-    ratio: Number((ratio || 0).toFixed(3)),
-    earningsRatio: Number((earningsRatio || 0).toFixed(3)),
-    floors: { ratio: ratioFloor, absoluteCHF: absoluteFloor, earnings: earningsFloor },
-    reasons,
-    ...(note ? { note } : {}),
+    ratio: generic.ratio,
+    earningsRatio: generic.confirmRatio,
+    floors: { ratio: generic.floors.ratio, absoluteCHF: generic.floors.absolute, earnings: generic.floors.confirm },
+    reasons: generic.reasons,
+    ...(generic.note ? { note: generic.note } : {}),
   };
 }
