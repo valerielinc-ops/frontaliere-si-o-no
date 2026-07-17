@@ -571,6 +571,18 @@ export async function captureNewsletterSubscriber(
 
  await setDoc(ref, mergedData, { merge: true });
 
+ // GA4 user-scoped `is_newsletter_subscriber` custom dimension (analytics
+ // Stage 1, revenue-per-user segmentation). Fired on every genuine
+ // new/confirmed subscribe write through this upsert path — guarded on
+ // `status !== 'unsubscribed'` so a future unsubscribe-via-upsert caller
+ // (none today; unsubscribe currently goes through a separate Cloud
+ // Function endpoint) can't mis-flag the user as a subscriber.
+ if (subscriptionState.status !== 'unsubscribed') {
+ import('@/services/analytics').then(({ Analytics }) => {
+ Analytics.setUserSegmentFlags({ isNewsletterSubscriber: true });
+ }).catch(() => {});
+ }
+
  const eventType: NewsletterEventType =
  subscriptionState.status === 'confirmed' && !wasConfirmed
  ? 'confirm'
