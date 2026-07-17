@@ -1,5 +1,91 @@
 [
   {
+    "slug": "ingegnere-operativo-it-stadler-rail-bussnang",
+    "title": "IT Operation Engineer",
+    "titleByLocale": {
+      "it": "Ingegnere Operativo IT",
+      "en": "IT Operation Engineer",
+      "de": "IT Operation Ingenieur",
+      "fr": "Ingénieur des opérations informatiques"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFIL\n• Diversi anni di esperienza in operazioni IT o amministrazione di sistema\n• Conoscenza approfondita di Active Directory, GPO, protezione avanzata, gestione delle patch\n• Forte mentalità di sicurezza: privilegi minimi, applicazione di patch, risoluzione delle vulnerabilità\n• Competenza approfondita con Windows Server e buona conoscenza di Linux\n• Esperienza con strumenti di virtualizzazione, backup/ripristino e monitoraggio\n• Solide capacità di risoluzione dei problemi su sistema operativo, applicazioni, rete e hardware\n• Competenza nello scripting, idealmente PowerShell (più Bash per ambienti Linux AUFGABEN\n• Amministrare Windows Server (2016/2019/2022) inclusa la gestione di servizi e risorse\n• Gestire e mantenere Active Directory Group Policy Objects (GPO)\n• Implementare e mantenere la protezione avanzata del sistema (benchmark CIS/BSI, linee di base di sicurezza) utilizzando GPO, Ansible, DSC o tecnologie simili\n• Gestire patch per server, client e applicazioni (WSUS/MECM/Intune, strumenti di repository Linux) inclusi pianificazione, test e rollback\n• Funzionamento e supporto applicazioni infrastrutturali mission-critical inclusi account di servizio, dipendenze, registrazione, aggiornamenti e ottimizzazione delle prestazioni\n• Mantenere i sistemi di monitoraggio e avviso (SCOM, Zabbix, PRTG, Prometheus, Grafana) inclusa la definizione delle soglie e la risposta agli incidenti",
+      "en": "PROFIL\n\n• Several years’ experience in IT operations or system administration\n\n• Strong knowledge of Active Directory, GPO, Hardening, Patch Management\n\n• Strong security mindset: least privilege, patching, vulnerability remediation\n\n• Deep expertise with Windows Server and good knowledge of Linux\n\n• Experience with virtualization, backup/restore, and monitoring tools\n\n• Solid troubleshooting skills across OS, applications, network, and hardware\n\n• Scripting proficiency, ideally PowerShell (plus Bash for Linux environments\n\nAUFGABEN\n\n• Administer Windows Server (2016/2019/2022) including, service and resource management\n\n• Operate and maintain Active Directory Group Policy Objects (GPO)\n\n• Implement and maintain system hardening (CIS/BSI benchmarks, security baselines) using GPO, Ansible, DSC, or similar technologies\n\n• Manage patching for servers, clients, and applications (WSUS/MECM/Intune, Linux repo tools) including scheduling, testing, and rollback\n\n• Operate and support mission-critical infrastructure applications including service accounts, dependencies, logging, upgrades, and performance tuning\n\n• Maintain monitoring and alerting systems (SCOM, Zabbix, PRTG, Prometheus, Grafana) including threshold definition and incident response",
+      "de": "PROFIL\n• Mehrjährige Erfahrung im IT-Betrieb oder in der Systemadministration\n• Ausgeprägte Kenntnisse in Active Directory, GPO, Hardening, Patch-Management\n• Starkes Sicherheitsdenken: geringste Privilegien, Patching, Schwachstellenbehebung\n• Umfangreiches Fachwissen mit Windows Server und gute Linux-Kenntnisse\n• Erfahrung mit Virtualisierungs-, Sicherungs-/Wiederherstellungs- und Überwachungstools\n• Solide Fehlerbehebungsfähigkeiten für Betriebssystem, Anwendungen, Netzwerk und Hardware\n• Skriptkenntnisse, idealerweise PowerShell (plus Bash für Linux-Umgebungen) AUFGABEN\n• Windows Server verwalten (2016/2019/2022) einschließlich Service- und Ressourcenmanagement\n• Betrieb und Wartung von Active Directory-Gruppenrichtlinienobjekten (GPO)\n• Implementierung und Wartung der Systemhärtung (CIS/BSI-Benchmarks, Sicherheitsbaselines) mithilfe von GPO, Ansible, DSC oder ähnlichen Technologien\n• Patching für Server, Clients und Anwendungen (WSUS/MECM/Intune, Linux-Repo-Tools) verwalten, einschließlich Planung, Tests und Rollback\n• Betrieb und Support geschäftskritisch Infrastrukturanwendungen einschließlich Dienstkonten, Abhängigkeiten, Protokollierung, Upgrades und Leistungsoptimierung.\n• Pflege von Überwachungs- und Warnsystemen (SCOM, Zabbix, PRTG, Prometheus, Grafana) einschließlich Schwellenwertdefinition und Reaktion auf Vorfälle",
+      "fr": "PROFIL\n• Plusieurs années d'expérience dans les opérations informatiques ou l'administration système\n• Solides connaissances d'Active Directory, GPO, renforcement, gestion des correctifs\n• Forte mentalité de sécurité : moindre privilège, correctifs, correction des vulnérabilités\n• Expertise approfondie avec Windows Server et bonne connaissance de Linux\n• Expérience avec les outils de virtualisation, de sauvegarde/restauration et de surveillance\n• Solides compétences en dépannage sur le système d'exploitation, les applications, le réseau et le matériel\n• Maîtrise des scripts, idéalement PowerShell (plus Bash pour les environnements Linux AUFGABEN\n• Administrer Windows Server (2016/2019/2022), y compris la gestion des services et des ressources\n• Exploiter et maintenir les objets de stratégie de groupe (GPO) Active Directory\n• Mettre en œuvre et maintenir le renforcement du système (références CIS/BSI, lignes de base de sécurité) à l'aide de GPO, Ansible, DSC ou de technologies similaires\n• Gérer les correctifs pour les serveurs, les clients et les applications (WSUS/MECM/Intune, outils de dépôt Linux), y compris la planification, les tests et la restauration\n• Exploiter et prendre en charge l'infrastructure critique à la mission applications, y compris les comptes de service, les dépendances, la journalisation, les mises à niveau et l'optimisation des performances.\n• Maintenir les systèmes de surveillance et d'alerte (SCOM, Zabbix, PRTG, Prometheus, Grafana), y compris la définition des seuils et la réponse aux incidents."
+    },
+    "slugByLocale": {
+      "it": "ingegnere-operativo-it-stadler-rail-bussnang",
+      "en": "it-operation-engineer-stadler-rail-ch",
+      "de": "it-operation-ingenieur-stadler-rail-bussnang",
+      "fr": "ingenieur-des-operations-informatiques-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-17T22:29:59.794Z",
+    "previousSlugs": [
+      "it-operation-engineer-stadler-rail-ch",
+      "it-betriebsingenieur-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "it-operation-engineer-stadler-rail-ch"
+      ],
+      "de": [
+        "it-betriebsingenieur-stadler-rail-bussnang"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "project-engineer-analisi-predittiva-e-manutenzione-digitale-stadler-rail-bussnang",
+    "title": "Project Engineer - Predictive Analytics & Digital Maintenance",
+    "titleByLocale": {
+      "it": "Project Ingegnere - Predictive Analytics & Digital Maintenance",
+      "en": "Project Engineer - Predictive Analytics & Digital Maintenance",
+      "de": "Project Ingenieur - Predictive Analytics & Digital Maintenance",
+      "fr": "Ingénieur de projet - Analyse prédictive et maintenance numérique"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "Come puoi avere un impatto\n• Familiarità con i concetti dell'architettura TCMS come CAN e TRDP\n• Competenze di base di Python o genuino interesse per svilupparli\n• Capacità di analizzare e comprendere il software utilizzando i diagrammi a blocchi funzione (FBD)\n• Esperienza con sistemi di controllo della versione per software e documentazione, inclusi GitLab o SVN\n• Conoscenza di inglese e tedesco\n• Capacità di spiegare chiaramente concetti tecnici e contribuire allo scambio di conoscenze in un team collaborativo e interfunzionale\n• Risolutore di problemi proattivo, a proprio agio nell'esplorare domande, proporre soluzioni e adattare gli approcci quando sorgono sfide\n• Forte interesse nello sfruttamento dei dati per migliorare la manutenzione La tua esperienza\n• Esperienza nello sviluppo di soluzioni di analisi e comprovata esperienza nell'implementazione delle stesse per ottimizzare processi industriali complessi o migliorare le prestazioni delle risorse in ambienti reali\n• Familiarità con concetti di architettura TCMS come CAN e TRDP\n• Competenze Python o genuino interesse per svilupparli\n• Capacità di analizzare e comprendere il software utilizzando diagrammi a blocchi funzione (FBD)\n• Esperienza con sistemi di controllo della versione per software e documentazione, inclusi GitLab o SVN\n• Capacità di spiegare chiaramente concetti tecnici e contribuire alla conoscenza scambio in un team collaborativo e interfunzionale\n• Risolutore di problemi proattivo, a proprio agio nell'esplorare domande, proporre soluzioni e adattare approcci quando si presentano sfide\n• Lavorare fluentemente in inglese e tedesco Competenze utili\n• Esperienza con gli strumenti Selectron\n• Esperienza nel supportare o gestire progetti, nel coordinare team tecnici per fornire risultati entro limiti di ambito, tempistiche e risorse\n• Esperienza nella creazione o guida di visualizzazioni che supportino un processo decisionale efficace per team di ingegneria, manutenzione e aziendali\n• Esperienza o interesse nella valutazione dei rischi tecnici e operativi, comprese le minacce legate al cyber, e nel supporto pianificazione della mitigazione lungo la catena del valore digitale",
+      "en": "How you can make an impact\n\n• Familiarity with TCMS architecture concepts such as CAN and TRDP\n\n• Basic Python skills or genuine interest in developing them\n\n• Ability to analyze and understand software using Function Block Diagrams (FBD)\n\n• Experience with version control systems for software and documentation, including GitLab or SVN\n\n• Working fluency in English and German\n\n• Ability to clearly explain technical concepts and contribute to knowledge exchange in a collaborative, cross-functional team\n\n• Proactive problem‑solver, comfortable with exploring questions, proposing solutions, and adapting approaches when challenges arise\n\n• Strong interest in leveraging data to improve maintenance\n\nYour Experience\n\n• Experience in developing analytics solutions and a proven track record of implementing them to optimize complex industrial processes or enhance asset performance in real-world environments\n\n• Python skills or genuine interest in developing them\n\nBeneficial skills\n\n• Experience with Selectron tools\n\n• Experience supporting or managing projects, coordinating technical teams to deliver within scope, timeline, and resource constraints\n\n• Experience creating or guiding visualizations that support effective decision‑making for engineering, maintenance, and business teams\n\n• Experience or interest in assessing technical and operational risks, including cyber‑related threats, and supporting mitigation planning across the digital value chain",
+      "de": "Wie Sie etwas bewirken können\n• Vertrautheit mit TCMS-Architekturkonzepten wie CAN und TRDP\n• Grundlegende Python-Kenntnisse oder echtes Interesse an deren Entwicklung\n• Fähigkeit, Software mithilfe von Funktionsblockdiagrammen (FBD) zu analysieren und zu verstehen\n• Erfahrung mit Versionskontrollsystemen für Software und Dokumentation, einschließlich GitLab oder SVN\n• Fließende Englisch- und Deutschkenntnisse\n• Fähigkeit, technische Konzepte klar zu erklären und zum Wissensaustausch in einem kollaborativen, funktionsübergreifenden Team beizutragen\n• Proaktiver Problemlöser, der gerne Fragen untersucht und Vorschläge macht Lösungen und die Anpassung von Ansätzen bei auftretenden Herausforderungen\n• Starkes Interesse an der Nutzung von Daten zur Verbesserung der Wartung Ihre Erfahrung\n• Erfahrung in der Entwicklung von Analyselösungen und eine nachgewiesene Erfolgsbilanz bei deren Implementierung zur Optimierung komplexer Industrieprozesse oder zur Verbesserung der Anlagenleistung in realen Umgebungen\n• Vertrautheit mit TCMS-Architekturkonzepten wie CAN und TRDP\n• Python-Kenntnisse oder echtes Interesse an deren Entwicklung\n• Fähigkeit, Software mithilfe von Funktionsblockdiagrammen (FBD) zu analysieren und zu verstehen\n• Erfahrung mit Versionskontrollsystemen für Software und Dokumentation, einschließlich GitLab oder SVN\n• Fähigkeit zur klaren Erklären Sie technische Konzepte und tragen Sie zum Wissensaustausch in einem kollaborativen, funktionsübergreifenden Team bei.\n• Proaktiver Problemlöser, der gerne Fragen untersucht, Lösungen vorschlägt und Ansätze anpasst, wenn Herausforderungen auftreten.\n• Fließende Englisch- und Deutschkenntnisse. Nützliche Fähigkeiten.\n• Erfahrung mit Selectron-Tools.\n• Erfahrung in der Unterstützung oder Verwaltung von Projekten, der Koordinierung technischer Teams, um innerhalb von Umfang, Zeitrahmen und Ressourcenbeschränkungen zu liefern.\n• Erfahrung in der Erstellung oder Leitung von Visualisierungen, die eine effektive Entscheidungsfindung für Technik-, Wartungs- und Geschäftsteams unterstützen.\n• Erfahrung oder Interesse an der Bewertung technischer und betrieblicher Risiken. einschließlich Cyber-Bedrohungen und Unterstützung der Schadensbegrenzungsplanung entlang der gesamten digitalen Wertschöpfungskette",
+      "fr": "Comment vous pouvez avoir un impact\n• Familiarité avec les concepts d'architecture TCMS tels que CAN et TRDP\n• Compétences de base en Python ou réel intérêt pour leur développement\n• Capacité à analyser et à comprendre des logiciels à l'aide de diagrammes de blocs fonctionnels (FBD)\n• Expérience avec les systèmes de contrôle de version pour les logiciels et la documentation, y compris GitLab ou SVN\n• Maîtrise de l'anglais et de l'allemand\n• Capacité à expliquer clairement les concepts techniques et à contribuer à l'échange de connaissances au sein d'une équipe collaborative et interfonctionnelle\n• Résolveur de problèmes proactif, à l'aise avec l'exploration de questions, la proposition de solutions et l'adaptation des approches lorsque des défis surviennent\n• Fort intérêt pour l'exploitation des données pour améliorer la maintenance Votre expérience\n• Expérience dans le développement de solutions d'analyse et expérience avérée dans leur mise en œuvre pour optimiser des processus industriels complexes ou améliorer les performances des actifs dans des environnements réels\n• Familiarité avec les concepts d'architecture TCMS tels que CAN et TRDP\n• Compétences Python ou réel intérêt pour leur développement\n• Capacité à analyser et comprendre des logiciels à l'aide de diagrammes de blocs fonctionnels (FBD)\n• Expérience avec les systèmes de contrôle de version pour les logiciels et la documentation, y compris GitLab ou SVN\n• Capacité à expliquer clairement les concepts techniques et à contribuer à l'échange de connaissances dans un Équipe collaborative et interfonctionnelle\n• Capacité à résoudre les problèmes de manière proactive, à l'aise pour explorer des questions, proposer des solutions et adapter des approches lorsque des défis surviennent\n• Maîtrise de l'anglais et de l'allemand Compétences utiles\n• Expérience avec les outils Selectron\n• Expérience du soutien ou de la gestion de projets, de la coordination d'équipes techniques pour livrer dans les limites de la portée, du calendrier et des ressources\n• Expérience de la création ou de l'orientation de visualisations qui soutiennent une prise de décision efficace pour les équipes d'ingénierie, de maintenance et commerciales\n• Expérience ou intérêt pour l'évaluation des risques techniques et opérationnels, y compris les menaces liées à la cybersécurité, et le soutien à la planification d'atténuation dans l'ensemble du secteur. chaîne de valeur numérique"
+    },
+    "slugByLocale": {
+      "it": "project-engineer-analisi-predittiva-e-manutenzione-digitale-stadler-rail-bussnang",
+      "en": "project-engineer-predictive-analytics-digital-maintenance-stadler-rail-ch",
+      "de": "projektingenieur-predictive-analytics-digital-maintenance-stadler-rail-bussnang",
+      "fr": "ingenieur-de-projet-analyse-predictive-et-maintenance-numerique-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-17T22:29:59.794Z",
+    "previousSlugs": [
+      "project-engineer-predictive-analytics-digital-maintenance-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "project-engineer-predictive-analytics-digital-maintenance-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "personale-nella-vendita-di-pezzi-di-ricambio-stadler-rail-frauenfeld",
     "title": "Sachbearbeiter:in Ersatzteilverkauf",
     "titleByLocale": {
