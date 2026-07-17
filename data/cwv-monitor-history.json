@@ -1,3 +1,112 @@
 {
-  "pages": {}
+  "pages": {
+    "dogana_chiasso_brogeda": {
+      "path": "/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 1.938410858557502,
+          "cls_n": 12,
+          "inp_p75": 126,
+          "inp_n": 16
+        }
+      ]
+    },
+    "traffico_chiasso_brogeda_oggi": {
+      "path": "/traffico-dogane/chiasso-brogeda/oggi/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.07285659505292809,
+          "cls_n": 12,
+          "inp_p75": 200,
+          "inp_n": 9
+        }
+      ]
+    },
+    "aziende_ticino_settimana": {
+      "path": "/aziende-che-assumono/ticino/settimana-corrente/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.08929500888969054,
+          "cls_n": 1,
+          "inp_p75": 88,
+          "inp_n": 1
+        }
+      ]
+    },
+    "mappa_confine": {
+      "path": "/guida-frontaliere/mappa-confine/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.40679534036059656,
+          "cls_n": 6,
+          "inp_p75": 472,
+          "inp_n": 15
+        }
+      ]
+    },
+    "simulazione_tasse_nuovi_frontalieri": {
+      "path": "/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.4344293127547161,
+          "cls_n": 28,
+          "inp_p75": 168,
+          "inp_n": 26
+        }
+      ]
+    },
+    "cerca_lavoro_svizzera": {
+      "path": "/cerca-lavoro-svizzera/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.24284813392433452,
+          "cls_n": 95,
+          "inp_p75": 1946,
+          "inp_n": 114
+        }
+      ]
+    },
+    "comuni_di_frontiera": {
+      "path": "/vivere-in-ticino/comuni-di-frontiera/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.14643600146058106,
+          "cls_n": 43,
+          "inp_p75": 1320,
+          "inp_n": 55
+        }
+      ]
+    },
+    "cerca_lavoro_ticino": {
+      "path": "/cerca-lavoro-ticino/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.3891204903685355,
+          "cls_n": 172,
+          "inp_p75": 440,
+          "inp_n": 230
+        }
+      ]
+    },
+    "home": {
+      "path": "/",
+      "weeks": [
+        {
+          "date": "2026-07-17",
+          "cls_p75": 0.14804219930247836,
+          "cls_n": 313,
+          "inp_p75": 232,
+          "inp_n": 480
+        }
+      ]
+    }
+  }
 }
