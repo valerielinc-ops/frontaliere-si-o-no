@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-07-16T22:22:48.547Z",
-  "total": 16,
-  "newCount": 6,
-  "updatedCount": 6,
+  "generatedAt": "2026-07-17T11:07:56.466Z",
+  "total": 22,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 162936,
-  "avgDurationMs": 162936,
+  "durationMs": 147450,
+  "avgDurationMs": 147450,
   "durationHistory": [
-    162936
+    147450
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Du willst mehr als nur einen Schreibtischjob (aka Lehrstelle Kauffrau / Kaufmann EFZ Bank Region Bern)",
       "slug": "du-willst-mehr-als-nur-einen-schreibtischjob-aka-lehrstelle-kauffrau-kaufmann-efz-bank-region-bern-banca-cler",
@@ -38,13 +39,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-16T22:20:08.200Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:31.026Z",
+      "id": "company-k2f0k7",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 74500,
+      "salaryMax": 131000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -72,13 +80,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-16T22:20:08.983Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:31.790Z",
+      "id": "company-k2unsw",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 74500,
+      "salaryMax": 131000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -106,13 +121,20 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-07-16T22:20:09.742Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:32.428Z",
+      "id": "company-i0sm5p",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -140,13 +162,20 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-07-16T22:20:10.498Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:33.024Z",
+      "id": "company-9mg1ho",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -174,13 +203,20 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-07-16T22:20:11.325Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:33.621Z",
+      "id": "company-l83i22",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -208,17 +244,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-07-16T22:20:12.063Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-07-17T11:05:34.217Z",
+      "id": "company-k2exm1",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-07-16T22:22:46.634Z",
+      "salaryMin": 74500,
+      "salaryMax": 131000,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-damm35",
       "slug": "kundenberaterin-basis-zurich-stv-teamleiterin-w-m-banca-cler",
@@ -235,7 +276,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:12.759Z",
+      "crawledAt": "2026-07-17T11:05:34.826Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 113000,
@@ -276,7 +317,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:13.433Z",
+      "crawledAt": "2026-07-17T11:05:35.433Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 113000,
@@ -317,7 +358,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:14.131Z",
+      "crawledAt": "2026-07-17T11:05:36.017Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 113000,
@@ -358,7 +399,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:14.768Z",
+      "crawledAt": "2026-07-17T11:05:36.583Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 99000,
@@ -399,7 +440,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:15.416Z",
+      "crawledAt": "2026-07-17T11:05:37.179Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 105500,
@@ -440,7 +481,7 @@
       "source": "cler-dedicated-crawler",
       "companyKey": "banca-cler",
       "companyDomain": "cler.ch",
-      "crawledAt": "2026-07-16T22:20:16.071Z",
+      "crawledAt": "2026-07-17T11:05:37.760Z",
       "firstSeenAt": "2026-07-14T11:03:40.994Z",
       "sourceLang": "de",
       "salaryMin": 105500,
