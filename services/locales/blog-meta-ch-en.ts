@@ -1192,6 +1192,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI for former frontiersmen: requirements and calculation',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'The New Frontier Agreement provides for the introduction of NASPI for border guards in Switzerland. Here are the requirements, the calculation of the amount, the duration and how to apply.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Image of a frontaliere in a similar situation',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differences between Switzerland and Italy for border workers',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'Car liability insurance in Switzerland for border workers: what changes compared to the Italian policy, bonus-malus, vehicle registration',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'An automobile with Swiss registration parked in a street of Lugano',
 };
 
 export default blogMetaChEn;

@@ -1192,6 +1192,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI für ehemalige Grenzgänger: Anforderungen und Berechnung',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Das Neue Grenzgängerabkommen sieht die Einführung des NASPI für Grenzgänger in der Schweiz vor. Hier sind die Anforderungen, die Berechnung des Betrags, die Dauer und wie Sie sich bewerben können.',
     'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Bild eines Frontalierers in einer ähnlichen Situation',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.title': 'RC auto: differenze tra Svizzera e Italia',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.excerpt': 'Die Kfz-Haftpflichtversicherung in der Schweiz für Grenzgänger: Was ändert sich im Vergleich zur italienischen Police, Bonus-Malus, Kfz-Zulassung',
+    'blog.article.assicurazione-rc-auto-svizzera-differenze-italia-frontalieri.imageAlt': 'Ein Auto mit Schweizer Zulassung parkt in einer Straße von Lugano',
 };
 
 export default blogMetaChDe;
