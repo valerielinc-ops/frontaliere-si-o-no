@@ -3461,6 +3461,9 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3610.title': 'Autoren-Lebensläufe direkt auf der Seite',
+  'whatsNew.v3610.authorCv.title': 'CV-Vorschau auf der Autorenseite',
+  'whatsNew.v3610.authorCv.desc': 'Der Lebenslauf der Autoren lässt sich jetzt direkt auf der Profilseite in einer eingebetteten PDF-Vorschau lesen, statt heruntergeladen zu werden.',
   'whatsNew.v3600.title': 'Steuerpräzision pro Kanton',
   'whatsNew.v3600.cantonWithholding.title': 'Realer kantonaler Quellensteuersatz im Lohnvergleich',
   'whatsNew.v3600.cantonWithholding.desc': 'Der Schweizer Nettolohn pro Kanton verwendet jetzt die reale Steuerbelastung des Hauptorts jedes der 26 Kantone (offizielle ESTV-Daten) statt eines generischen Satzes für alle Kantone.',
