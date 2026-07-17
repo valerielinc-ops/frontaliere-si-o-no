@@ -40,6 +40,7 @@ import { getApp } from '@/services/firebase';
 import { useCountUp } from '@/hooks/useCountUp';
 import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
 import { canArchive, canRestore, isLiveStatus } from '@/services/publisherTypes';
+import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 
 interface DashboardRow {
   id: string;
@@ -179,6 +180,9 @@ const PublisherDashboardPage: React.FC = () => {
   const [restoringId, setRestoringId] = useState<string | null>(null);
   const [resumingCheckoutId, setResumingCheckoutId] = useState<string | null>(null);
   const [cvOpeningId, setCvOpeningId] = useState<string | null>(null);
+  // Unused prepaid location-credits (pay-first funnel) — null while loading/no user,
+  // remainingUnits null = azienda plan (unlimited), otherwise a number ≥ 0.
+  const [credits, setCredits] = useState<PublisherCredits | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -439,6 +443,24 @@ const PublisherDashboardPage: React.FC = () => {
     };
   }, [user]);
 
+  // Prepaid location-credits (pay-first funnel) — shared loader with
+  // PublisherPublishPage (see services/publisherCredits.ts).
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const result = await loadPublisherCredits(user.uid);
+        if (!cancelled) setCredits(result);
+      } catch (error) {
+        if (!cancelled) reportCaughtError(error, 'publisherDashboard.loadCredits');
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
+
   // ── Aggregates (derived client-side from already-loaded data) ──
   const appsByJob = useMemo(() => {
     const m = new Map<string, number>();
@@ -561,6 +583,25 @@ const PublisherDashboardPage: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* ── Unused prepaid credits (pay-first funnel) ─────────────── */}
+      {credits && (credits.remainingUnits === null || credits.remainingUnits > 0) && (
+        <div className="mb-6 rounded-2xl border border-edge bg-accent-subtle px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 animate-fade-in-up">
+          <p className="flex items-center gap-2 text-sm font-medium text-strong">
+            <Sparkles className="w-4 h-4 text-link shrink-0" />
+            {credits.remainingUnits === null
+              ? t('publisher.payFirst.aziendaUnlimited')
+              : t('publisherDashboard.unusedCredits.banner', { count: credits.remainingUnits })}
+          </p>
+          <a
+            href={buildPath({ activeTab: 'publish' }, locale)}
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors shrink-0 no-underline"
+          >
+            <Plus className="w-4 h-4" />
+            {t('publisherDashboard.unusedCredits.cta')}
+          </a>
+        </div>
+      )}
 
       {state === 'loading' && (
         <div className="flex justify-center py-12">

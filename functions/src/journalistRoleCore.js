@@ -23,12 +23,13 @@
 import { getAuth } from 'firebase-admin/auth';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { assertAdmin } from './adminEmployerInsights.js';
+// Pragmatic email shape check (server-side) — single source of truth shared
+// with adminEmployerInsights.js, newsletterSubscriberAuthSync.js and
+// stripePublisherCore.js.
+import { EMAIL_RE } from './lib/emailValidation.js';
 
 const JOURNALISTS_COLLECTION = 'journalists';
 const ACTIONS = new Set(['grant', 'revoke']);
-
-// Pragmatic email shape check (server-side), same style as adminEmployerInsights.js.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /** GET → list every journalist doc as-is (uid = doc id). */
 async function handleList(db) {

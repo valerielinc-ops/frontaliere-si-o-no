@@ -68,8 +68,8 @@ const FEATURES: { icon: React.ReactNode; labelKey: string; free: boolean }[] = [
 ];
 
 const STEPS: { icon: React.ReactNode; titleKey: string; descKey: string }[] = [
-  { icon: <Sparkles className="w-6 h-6" aria-hidden="true" />, titleKey: 'publisherLanding.step.create.title', descKey: 'publisherLanding.step.create.desc' },
   { icon: <CreditCard className="w-6 h-6" aria-hidden="true" />, titleKey: 'publisherLanding.step.pay.title', descKey: 'publisherLanding.step.pay.desc' },
+  { icon: <Sparkles className="w-6 h-6" aria-hidden="true" />, titleKey: 'publisherLanding.step.create.title', descKey: 'publisherLanding.step.create.desc' },
   { icon: <Clock className="w-6 h-6" aria-hidden="true" />, titleKey: 'publisherLanding.step.live.title', descKey: 'publisherLanding.step.live.desc' },
 ];
 

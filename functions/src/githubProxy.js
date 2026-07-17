@@ -21,9 +21,14 @@ import { githubApiHeaders } from './githubApiHeaders.js';
 
 const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
-const GITHUB_API = 'https://api.github.com';
+// Exported: stripePublisherCore.js's dispatchPublisherSync reuses this same
+// base URL instead of re-hardcoding it (single source for the GitHub REST
+// API host across functions/).
+export const GITHUB_API = 'https://api.github.com';
 
-async function getRepoConfig() {
+// Exported: stripePublisherCore.js's dispatchPublisherSync reuses this PAT +
+// owner/repo resolution instead of duplicating the RC-read construct.
+export async function getRepoConfig() {
   const [pat, owner, repo] = await Promise.all([
     getRemoteConfigValue('GITHUB_PAT'),
     getRemoteConfigValue('GITHUB_REPO_OWNER'),
