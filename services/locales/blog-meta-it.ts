@@ -8579,6 +8579,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino valuta un Ricercatore parlamentare per supportare il Gran Consiglio',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'Proposta PLR per introdurre una figura tecnica a supporto delle Commissioni: più qualità legislativa e continuità istituzionale',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Sala del Gran Consiglio a Bellinzona con deputati durante una sessione',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Congedo per lutto o malattia: differenze tra regole svizzere e italiane',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'Il nuovo accordo frontaliero prevede una durata di congedo diversa rispetto alle regole italiane.',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'Un frontaliere che lavora in Svizzera e risiede in Italia',
 };
 
 export default blogMetaIt;

@@ -8578,6 +8578,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino evaluates a Parliamentary Researcher to support the Grand Council',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'PLR proposal to introduce a technical figure to support the Commissions: more legislative quality and institutional continuity',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Gran Consiglio chamber in Bellinzona with deputies in session',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Bereavement or sick leave: differences between Swiss and Italian rules',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'The new border agreement provides for a different duration of leave compared to Italian rules.',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'A Swiss-Italian cross-border worker',
 };
 
 export default blogMetaEn;

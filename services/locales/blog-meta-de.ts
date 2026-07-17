@@ -8577,6 +8577,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Ticino bewertet einen Parlamentsforscher',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'PLR-Vorschlag zur Einführung einer technischen Figur zur Unterstützung der Ausschüsse: mehr legislative Qualität und institutionelle Kontinuität',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Sitzungssaal des Grossen Rates in Bellinzona mit Abgeordneten',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Congedo per lutto: differenze tra Svizzera e Italia',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'Das neue Grenzabkommen sieht eine andere Urlaubsdauer als die italienischen Vorschriften vor.',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'Ein Frontalier, der in der Schweiz arbeitet und in Italien lebt',
 };
 
 export default blogMetaDe;
