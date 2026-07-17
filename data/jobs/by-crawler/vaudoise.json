@@ -221,7 +221,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -372,7 +371,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -593,7 +591,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.678Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -755,7 +752,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
-      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -828,7 +824,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:26.895Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -907,7 +902,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1057,7 +1051,6 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1360,7 +1353,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T23:18:24.014Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1586,7 +1578,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:22.656Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1662,7 +1653,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:22.350Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1888,7 +1878,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:25.375Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2337,7 +2326,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Previdenza",
       "firstSeenAt": "2026-07-09T22:38:36.399Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2544,7 +2532,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
       "firstSeenAt": "2026-06-12T13:15:13.965Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2627,7 +2614,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:42:21.749Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2703,7 +2689,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2776,7 +2761,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2853,7 +2837,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:59:42.807Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2932,7 +2915,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:30:00.996Z",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "baseSalary": {
@@ -3097,8 +3079,7 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "vaudoise-d648e632f21c",
@@ -3185,8 +3166,7 @@
         }
       },
       "addressRegion": "FR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "vaudoise-b6a94350128c",

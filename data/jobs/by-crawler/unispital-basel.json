@@ -158,7 +158,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -412,7 +411,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -497,7 +495,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -572,7 +569,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -734,7 +730,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1266,7 +1261,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1325,7 +1320,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1353,7 +1347,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
+        "it": "Dipl. Infermiera / Infermiera specialista HF/FH",
         "en": "Diploma in Nursing (HF/FH)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH",
         "fr": "Diplômé(e) en soins infirmiers (HF/FH)"
@@ -1412,7 +1406,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1583,7 +1576,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1666,7 +1658,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1765,7 +1756,6 @@
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2189,8 +2179,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-8e42b07edcc0",
@@ -2263,7 +2252,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -2592,7 +2580,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2651,7 +2639,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2752,7 +2739,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "Terapeuta del lavoro",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "Ergothérapeute"
       },
@@ -2801,7 +2788,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3621,7 +3607,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.537Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4027,7 +4012,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4611,7 +4595,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4630,7 +4613,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -4699,7 +4682,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4780,7 +4762,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.965Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4861,7 +4842,6 @@
         ]
       },
       "firstSeenAt": "2026-06-26T23:07:56.973Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5096,7 +5076,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.843Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -5277,8 +5256,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-a8e39450cdfb",
@@ -5348,7 +5326,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:53:37.829Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "baseSalary": {
@@ -5556,7 +5533,7 @@
       "slug": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "coordinatore-senior-trapianto-universitatsspital-basel-basel",
-        "en": "senior-transplant-coordinator-universitatsspital-basel-basel",
+        "en": "senior-transplantationskoordinator-in-universitatsspital-basel-basel",
         "de": "senior-transplantationskoordinator-in-unispital-basel-ch",
         "fr": "senior-transplantationskoordinator-in-universitatsspital-basel-basel"
       },
@@ -5621,7 +5598,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T12:27:28.546Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -5917,8 +5893,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-9d0424689001",
@@ -5987,7 +5962,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:46:13.904Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6060,7 +6034,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:45:57.172Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6441,7 +6414,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:22:09.619Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6592,7 +6564,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6983,7 +6954,6 @@
         "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-06-09T12:27:47.540Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7229,7 +7199,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:02:54.504Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -7380,7 +7349,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:09:51.132Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -7534,7 +7502,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:31:23.963Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7787,7 +7754,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:05:36.008Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7956,7 +7922,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8014,7 +7980,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8093,7 +8058,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8256,8 +8220,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "unispital-basel-6a032abddef2",
@@ -8477,7 +8440,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:21:32.536Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8582,16 +8544,16 @@
       "title": "Oberärztin / Oberarzt (Angiologie)",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt (Angiologie)",
-        "it": "Oberärztin / Oberarzt (Angiologie)",
-        "en": "Oberärztin / Oberarzt (Angiologie)",
-        "fr": "Oberärztin / Oberarzt (Angiologie)"
+        "it": "Medico senior (Angiologia)",
+        "en": "Senior physician (Angiology)",
+        "fr": "Médecin principal (angiologie)"
       },
       "description": "Aufgaben:\n• Ganzheitliche medizinische Betreuung unserer Patientinnen und Patienten mit Gefässerkrankungen sowohl ambulant als auch stationär\n\n• Durchführung und Interpretation modernster angiologischer Diagnostik (u. a. hochauflösende Duplexsonografie, CT- und MRT-Angiografie)\n\n• Leitung eigener angiologischer Sprechstunden sowie aktive Mitgestaltung interdisziplinärer Boards und Fallbesprechungen\n\n• Engagement in der Ausbildung und kollegialen Unterstützung unserer Assistenzärztinnen und -ärzte in einem jungen, motivierten Team\n\n• Beteiligung an klinischen Forschungsprojekten und tatkräftige Weiterentwicklung unserer innovativen, akademischen Angiologie\n\nAnforderungen:\n• Facharzt/Fachärztin für Angiologie oder vergleichbare Qualifikation\n\n• Solide Kenntnisse in der nichtinvasiven angiologischen Diagnostik\n\n• Erfahrung in der Varizentherapie erwünscht\n\n• Interesse an Forschung und klinischen Studien\n\n• Teamorientierung, Kommunikationsstärke und hohe Sozialkompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Ganzheitliche medizinische Betreuung unserer Patientinnen und Patienten mit Gefässerkrankungen sowohl ambulant als auch stationär\n\n• Durchführung und Interpretation modernster angiologischer Diagnostik (u. a. hochauflösende Duplexsonografie, CT- und MRT-Angiografie)\n\n• Leitung eigener angiologischer Sprechstunden sowie aktive Mitgestaltung interdisziplinärer Boards und Fallbesprechungen\n\n• Engagement in der Ausbildung und kollegialen Unterstützung unserer Assistenzärztinnen und -ärzte in einem jungen, motivierten Team\n\n• Beteiligung an klinischen Forschungsprojekten und tatkräftige Weiterentwicklung unserer innovativen, akademischen Angiologie\n\nAnforderungen:\n• Facharzt/Fachärztin für Angiologie oder vergleichbare Qualifikation\n\n• Solide Kenntnisse in der nichtinvasiven angiologischen Diagnostik\n\n• Erfahrung in der Varizentherapie erwünscht\n\n• Interesse an Forschung und klinischen Studien\n\n• Teamorientierung, Kommunikationsstärke und hohe Sozialkompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Ganzheitliche medizinische Betreuung unserer Patientinnen und Patienten mit Gefässerkrankungen sowohl ambulant als auch stationär\n\n• Durchführung und Interpretation modernster angiologischer Diagnostik (u. a. hochauflösende Duplexsonografie, CT- und MRT-Angiografie)\n\n• Leitung eigener angiologischer Sprechstunden sowie aktive Mitgestaltung interdisziplinärer Boards und Fallbesprechungen\n\n• Engagement in der Ausbildung und kollegialen Unterstützung unserer Assistenzärztinnen und -ärzte in einem jungen, motivierten Team\n\n• Beteiligung an klinischen Forschungsprojekten und tatkräftige Weiterentwicklung unserer innovativen, akademischen Angiologie\n\nAnforderungen:\n• Facharzt/Fachärztin für Angiologie oder vergleichbare Qualifikation\n\n• Solide Kenntnisse in der nichtinvasiven angiologischen Diagnostik\n\n• Erfahrung in der Varizentherapie erwünscht\n\n• Interesse an Forschung und klinischen Studien\n\n• Teamorientierung, Kommunikationsstärke und hohe Sozialkompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Ganzheitliche medizinische Betreuung unserer Patientinnen und Patienten mit Gefässerkrankungen sowohl ambulant als auch stationär\n\n• Durchführung und Interpretation modernster angiologischer Diagnostik (u. a. hochauflösende Duplexsonografie, CT- und MRT-Angiografie)\n\n• Leitung eigener angiologischer Sprechstunden sowie aktive Mitgestaltung interdisziplinärer Boards und Fallbesprechungen\n\n• Engagement in der Ausbildung und kollegialen Unterstützung unserer Assistenzärztinnen und -ärzte in einem jungen, motivierten Team\n\n• Beteiligung an klinischen Forschungsprojekten und tatkräftige Weiterentwicklung unserer innovativen, akademischen Angiologie\n\nAnforderungen:\n• Facharzt/Fachärztin für Angiologie oder vergleichbare Qualifikation\n\n• Solide Kenntnisse in der nichtinvasiven angiologischen Diagnostik\n\n• Erfahrung in der Varizentherapie erwünscht\n\n• Interesse an Forschung und klinischen Studien\n\n• Teamorientierung, Kommunikationsstärke und hohe Sozialkompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Ganzheitliche medizinische Betreuung unserer Patientinnen und Patienten mit Gefässerkrankungen sowohl ambulant als auch stationär\n\n• Durchführung und Interpretation modernster angiologischer Diagnostik (u. a. hochauflösende Duplexsonografie, CT- und MRT-Angiografie)\n\n• Leitung eigener angiologischer Sprechstunden sowie aktive Mitgestaltung interdisziplinärer Boards und Fallbesprechungen\n\n• Engagement in der Ausbildung und kollegialen Unterstützung unserer Assistenzärztinnen und -ärzte in einem jungen, motivierten Team\n\n• Beteiligung an klinischen Forschungsprojekten und tatkräftige Weiterentwicklung unserer innovativen, akademischen Angiologie\n\nAnforderungen:\n• Facharzt/Fachärztin für Angiologie oder vergleichbare Qualifikation\n\n• Solide Kenntnisse in der nichtinvasiven angiologischen Diagnostik\n\n• Erfahrung in der Varizentherapie erwünscht\n\n• Interesse an Forschung und klinischen Studien\n\n• Teamorientierung, Kommunikationsstärke und hohe Sozialkompetenz\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Assistenza medica olistica dei nostri pazienti con malattie vascolari sia su base ambulatoriale che ambulatoriale\n\n• Attuazione e interpretazione della diagnostica angiologica all'avanguardia (compresa la sonografia duplex ad alta risoluzione, l'angiografia CT e MRI)\n\n• Gestione delle proprie ore di consultazione angiologica e partecipazione attiva ai comitati interdisciplinari e alle discussioni sui casi\n\n• Impegno alla formazione e al sostegno collegiale dei nostri assistenti medici in un team giovane e motivato\n\n• Partecipazione a progetti di ricerca clinica e sviluppo energetico della nostra angiologia innovativa e accademica\n\nRequisiti\n• Specialista in angiologia o qualifica equivalente\n\n• Conoscenza solida nella diagnostica angiologica non invasiva\n\n• Esperienza nella terapia varicose desiderata\n\n• Interessi nella ricerca e negli studi clinici\n\n• Orientamento del team, forza di comunicazione e alta competenza sociale\n\nOffriamo:\n• Politica salariale attraente e benefici sociali eccellenti\n\n• Vantaggi per shopping, sport e tempo libero\n\n• Assistenza nel trasferimento e nella ricerca di alloggi\n\n• 25 giorni di vacanza plus 5 anche free flexitage\n\n• Sostegno all'ulteriore istruzione e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e l'angolo trinazionale\n\n• Servizi per l'infanzia completi\n\n• Programma gratuito di sport ed esercizio",
+        "en": "Tasks:\n• Holistic medical care of our patients with vascular diseases both on an outpatient and inpatient basis\n\n• Implementation and interpretation of state-of-the-art angiological diagnostics (including high-resolution duplex sonography, CT and MRI angiography)\n\n• Management of own angiological consultation hours as well as active participation in interdisciplinary boards and case discussions\n\n• Commitment to the training and collegial support of our assistant doctors in a young, motivated team\n\n• Participation in clinical research projects and energetic development of our innovative, academic angiology\n\nRequirements\n• Specialist in angiology or equivalent qualification\n\n• Solid knowledge in non-invasive angiological diagnostics\n\n• Experience in varicose therapy desired\n\n• Interest in research and clinical trials\n\n• Team orientation, communication strength and high social competence\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Advantages for shopping, sports and leisure\n\n• Assistance in moving and finding accommodation\n\n• 25 holiday days plus 5 also free flexitage\n\n• Support for further education and career planning\n\n• Campus in the heart of Basel and the Trinational Corner\n\n• Comprehensive childcare facilities\n\n• Free Sports and Exercise Program",
+        "fr": "Tâches :\n• Soins médicaux holistiques de nos patients atteints de maladies vasculaires, tant en consultation externe qu'en hospitalisation\n\n• Mise en oeuvre et interprétation de diagnostics angiologiques à la fine pointe de la technologie (y compris la sonographie duplex haute résolution, l'angiographie par CT et l'IRM)\n\n• Gestion des heures de consultation angiologique et participation active aux conseils interdisciplinaires et aux discussions de cas\n\n• Engagement à la formation et au soutien collégial de nos médecins adjoints dans une équipe jeune et motivée\n\n• Participation à des projets de recherche clinique et développement énergétique de notre angiologie académique innovante\n\nExigences\n• Spécialiste en angiologie ou qualification équivalente\n\n• Connaissance solide des diagnostics angiologiques non invasifs\n\n• Expérience de la thérapie varice souhaitée\n\n• Intérêt pour la recherche et les essais cliniques\n\n• Orientation de l'équipe, force de communication et haute compétence sociale\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages pour le shopping, le sport et les loisirs\n\n• Aide au déménagement et à la recherche de logements\n\n• 25 jours de vacances plus 5 flexitage gratuit\n\n• Appui à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et du Coin Trinational\n\n• Établissements complets de garde d ' enfants\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8617,7 +8579,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
