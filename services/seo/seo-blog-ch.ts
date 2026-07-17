@@ -15306,6 +15306,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-da-record': {
+    title: 'Traffico da record: costi per 117 miliardi di franchi e auto sempre in testa',
+    description: 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi. L\'automobile è il mezzo di trasporto dominante. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, record, costi, miliardi',
+    ogTitle: 'Traffico da record: costi per 117 miliardi di franchi e auto sempre in testa',
+    ogDescription: 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi. L\'automobile è il mezzo di trasporto dominante.',
+    canonicalPath: '/articoli-svizzera/traffico-da-record/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico da record: costi per 117 miliardi di franchi e auto sempre in testa",
+      "description": "Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi. L'automobile è il mezzo di trasporto dominante. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-da-record.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, vista panoramica della città."
+      },
+      "datePublished": "2026-07-17T08:31:53+00:00",
+      "dateModified": "2026-07-17T08:31:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/traffico-da-record/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
