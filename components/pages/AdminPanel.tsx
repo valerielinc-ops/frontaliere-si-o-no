@@ -17,6 +17,7 @@ import { ARTICLES } from '@/data/blog-articles-data';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
 import { buildSequence } from '../../scripts/lib/cold-email-sequence.mjs';
+import { githubApiHeaders } from '../../scripts/lib/githubApiHeaders.mjs';
 import {
  Shield, Copy, Check, ExternalLink,
  AlertTriangle, CheckCircle2, Eye,
@@ -2487,13 +2488,10 @@ export default function AdminPanel() {
  ) => {
  const res = await fetch(`https://api.github.com/repos/${connection.owner}/${connection.repo}${endpoint}`, {
  ...options,
- headers: {
- Authorization: `Bearer ${connection.token}`,
- Accept: 'application/vnd.github+json',
+ headers: githubApiHeaders(connection.token, {
  'Content-Type': 'application/json',
- 'X-GitHub-Api-Version': '2022-11-28',
  ...(options.headers || {}),
- },
+ }),
  });
 
  const isDispatch = endpoint.includes('/dispatches');
@@ -2589,11 +2587,7 @@ export default function AdminPanel() {
  {
  method: 'GET',
  redirect: 'manual',
- headers: {
- Authorization: `Bearer ${connection.token}`,
- Accept: 'application/vnd.github+json',
- 'X-GitHub-Api-Version': '2022-11-28',
- },
+ headers: githubApiHeaders(connection.token),
  },
  );
 

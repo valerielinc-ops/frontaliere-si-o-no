@@ -37,6 +37,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
+
 write_output() {
   local key="$1"
   local value="$2"
@@ -108,7 +110,7 @@ HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
   "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${TOKEN}" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
+  -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
   -d "$PAYLOAD" || echo "000")
 
 if [ "$HTTP_CODE" = "204" ]; then
