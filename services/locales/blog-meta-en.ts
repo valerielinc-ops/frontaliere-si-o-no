@@ -8572,6 +8572,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Living in Como and working in Ticino: a practical guide for border workers',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Journey times, cost of living in comparison, strategic neighbourhoods and the pros/cons of train vs car. Everything you need to know before becoming a Como-Ticino border worker.',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Commuters at Chiasso station early morning, symbol of the daily Como-Ticino commute',
+    'blog.article.frontalieri-e-indennita.title': 'Frontier workers and allowances: a burning issue',
+    'blog.article.frontalieri-e-indennita.excerpt': 'The decision taken in Brussels on unemployment benefits for border workers could have important financial and political repercussions for Switzerland',
+    'blog.article.frontalieri-e-indennita.imageAlt': 'Frontaliers in Switzerland and Italy',
 };
 
 export default blogMetaEn;

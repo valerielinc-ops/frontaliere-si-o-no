@@ -8571,6 +8571,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-como-lavorare-ticino-frontaliere.title': 'Leben in Como und Arbeiten im Tessin: Praktischer Leitfaden für Grenzgänger',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.excerpt': 'Reisezeiten, Lebenshaltungskosten im Vergleich, strategische Viertel und Vor-/Nachteile von Zug vs. Auto. Alles, was Sie wissen müssen, bevor Sie Grenzgänger Como-Ticino werden.',
     'blog.article.vivere-como-lavorare-ticino-frontaliere.imageAlt': 'Pendler am frühen Morgen am Bahnhof Chiasso, Symbol für den täglichen Como-Tessiner Weg',
+    'blog.article.frontalieri-e-indennita.title': 'Grenzgänger und Zulagen: ein brennendes Thema',
+    'blog.article.frontalieri-e-indennita.excerpt': 'Die in Brüssel getroffene Entscheidung über die Arbeitslosenunterstützung für Grenzgänger könnte erhebliche finanzielle und politische Auswirkungen auf die Schweiz haben',
+    'blog.article.frontalieri-e-indennita.imageAlt': 'Frontalier in der Schweiz und Italien',
 };
 
 export default blogMetaDe;
