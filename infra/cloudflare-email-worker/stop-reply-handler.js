@@ -195,7 +195,13 @@ export default {
    */
   async email(message, env, ctx) {
     const from = message.from || '';
-    const to = String(message.to || '').trim().toLowerCase();
+    // `message.to` is the SMTP envelope-to (RFC 5321 RCPT TO), not the `To:`
+    // header (RFC 5322) — envelope addresses are bare per spec, so a
+    // display-name wrapper ("Frontaliere Newsletter" <newsletter@…>) should
+    // never reach here. Normalized defensively anyway via the same bare-address
+    // extraction used for `from` below, in case an upstream relay is
+    // non-conformant.
+    const to = extractSenderEmail(message.to);
     const subject = (message.headers && message.headers.get && message.headers.get('subject')) || '';
 
     const isNewsletterAddress = !!env.NEWSLETTER_ADDRESS && to === env.NEWSLETTER_ADDRESS.toLowerCase();
