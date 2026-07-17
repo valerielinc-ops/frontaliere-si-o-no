@@ -1,18 +1,19 @@
 {
   "key": "smg-swiss-marketplace-group",
   "label": "SMG Swiss Marketplace Group",
-  "generatedAt": "2026-07-16T22:05:37.101Z",
-  "total": 9,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5222,
-  "avgDurationMs": 5222,
+  "generatedAt": "2026-07-17T10:54:09.602Z",
+  "total": 8,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5219,
+  "avgDurationMs": 5219,
   "durationHistory": [
-    5222
+    5219
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "smg-swiss-marketplace-group-be0b059fac4d",
       "slug": "senior-backend-engineer-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland-smg",
@@ -20,13 +21,13 @@
       "companyKey": "smg-swiss-marketplace-group",
       "companyDomain": "swissmarketplace.group",
       "title": "Senior Backend Engineer - Golang (f/m/d) | 80-100% | Hybrid working model | Zurich Switzerland",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000138090167-senior-backend-engineer-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:05:33.826Z",
+      "crawledAt": "2026-07-17T10:54:06.160Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-07-16",
       "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000138090167-senior-backend-engineer-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-07-16T22:05:33.826Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "smg-swiss-marketplace-group-c8e0a4ddb3a7",
       "slug": "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
@@ -63,7 +63,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000136750750-staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:05:33.830Z",
+      "crawledAt": "2026-07-17T10:54:06.185Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,42 +87,6 @@
       }
     },
     {
-      "id": "smg-swiss-marketplace-group-269bfab987b8",
-      "slug": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
-      "company": "SMG Swiss Marketplace Group",
-      "companyKey": "smg-swiss-marketplace-group",
-      "companyDomain": "swissmarketplace.group",
-      "title": "Account Manager AutoScout24 – Region Nordostschweiz (f/m/d) | 100% | Hybrid Working Model | Zürich",
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000134535599-account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich?oga=true",
-      "source": "SMG Swiss Marketplace Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:33.818Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8050",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Marketplace digitale / Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000134535599-account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich?oga=true",
-      "firstSeenAt": "2026-07-03T23:27:59.013Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "smg-swiss-marketplace-group-4b30c7282c4f",
       "slug": "account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich",
       "company": "SMG Swiss Marketplace Group",
@@ -135,7 +99,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000134535410-account-manager-autoscout24-region-zentralschweiz-f-m-d-100-hybrid-working-model-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:33.824Z",
+      "crawledAt": "2026-07-17T10:54:06.179Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,6 +123,42 @@
       }
     },
     {
+      "id": "smg-swiss-marketplace-group-269bfab987b8",
+      "slug": "account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich",
+      "company": "SMG Swiss Marketplace Group",
+      "companyKey": "smg-swiss-marketplace-group",
+      "companyDomain": "swissmarketplace.group",
+      "title": "Account Manager AutoScout24 – Region Nordostschweiz (f/m/d) | 100% | Hybrid Working Model | Zürich",
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000134535599-account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich?oga=true",
+      "source": "SMG Swiss Marketplace Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-17T10:54:06.181Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8050",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Marketplace digitale / Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000134535599-account-manager-autoscout24-region-nordostschweiz-f-m-d-100-hybrid-working-model-zurich?oga=true",
+      "firstSeenAt": "2026-07-03T23:27:59.013Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
       "id": "smg-swiss-marketplace-group-1364771edf97",
       "slug": "credit-operations-specialist-f-m-d-80-100-hybrid-working-model-zurich-switzerland-smg",
       "company": "SMG Swiss Marketplace Group",
@@ -171,7 +171,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000130764419-credit-operations-specialist-f-m-d-80-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:33.833Z",
+      "crawledAt": "2026-07-17T10:54:06.172Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -207,7 +207,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000130401229-account-manager-real-estate-f-m-d-100-hybrid-working-model-romandie?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T22:05:33.840Z",
+      "crawledAt": "2026-07-17T10:54:06.191Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,7 +243,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000129178199-technical-software-architect-real-estate-data-solutions-f-m-d-80-100-zurich?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:05:33.837Z",
+      "crawledAt": "2026-07-17T10:54:06.193Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -279,7 +279,7 @@
       "url": "https://jobs.smartrecruiters.com/SMGSwissMarketplaceGroup/744000126318225-head-of-product-consumer-private-customer-f-m-d-100-hybrid-working-model-zurich-switzerland?oga=true",
       "source": "SMG Swiss Marketplace Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:05:33.839Z",
+      "crawledAt": "2026-07-17T10:54:06.190Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,8 +303,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "smg-swiss-marketplace-group-be2a781ffe0f",
       "slug": "senior-backend-ingegnere-golang-f-m-d-80-100-hybrid-working-model-zurich-switzerland-smg-swiss-marketplace-group-zurich",
@@ -344,5 +343,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
