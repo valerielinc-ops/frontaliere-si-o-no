@@ -1,14 +1,16 @@
 # Cloudflare Email Routing Worker for inbound cold-email STOP replies + reply
-# tracking.
+# tracking, and for newsletter mailbox unsubscribe replies (Apple Mail's
+# List-Unsubscribe mailto: fallback lands here as a plain email).
 #
 # Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml on
 # every push to main touching this dir: it runs `wrangler deploy` then
 # scripts/cf-email-worker-setup.mjs, which (via the CF API) sets the worker
 # secrets STOP_SECRET (= NEWSLETTER_SECRET) and FORWARD_TO (resolved from the
-# zone catch-all target, so no address is committed), and binds the outreach
-# reply address (valerie@frontaliereticino.ch) → this worker. No manual step.
+# zone catch-all target, so no address is committed), and binds BOTH the
+# outreach reply address (OUTREACH_ADDRESS below) and the newsletter mailbox
+# (NEWSLETTER_ADDRESS below) → this worker. No manual step.
 #
-# The two CF-URL vars below are plain (non-secret) and applied on each deploy.
+# The vars below are plain (non-secret) and applied on each deploy.
 # STOP_SECRET / FORWARD_TO are worker SECRETS set out-of-band by the setup script
 # — never committed here.
 
@@ -17,11 +19,22 @@ main = "stop-reply-handler.js"
 compatibility_date = "2026-01-01"
 
 [vars]
-# Cloud Function that resolves sender→companyKey and writes the suppression doc.
+# Cloud Function that resolves sender→companyKey and writes the suppression doc
+# (outreach reply path only).
 STOP_REPLY_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachStopReply"
 # Cloud Function that records EVERY inbound reply (reply telemetry for the admin
-# dashboard). Additive to STOP suppression; same x-stop-secret gate.
+# dashboard). Additive to STOP suppression; same x-stop-secret gate. Outreach
+# reply path only.
 REPLY_TRACK_FN_URL = "https://europe-west6-frontaliere-ticino.cloudfunctions.net/outreachReplyTrack"
+# One-click unsubscribe endpoint (same one services/newsletterUrls.mjs's
+# makeOneClickUnsubscribeUrl builds for the email footer / List-Unsubscribe
+# header) — newsletter mailbox path only.
+NEWSLETTER_UNSUB_URL = "https://frontaliereticino.ch/disiscrivi-newsletter/"
+# Recipient address that selects the newsletter path in stop-reply-handler.js's
+# email() branch (anything else falls through to the outreach path — today
+# that's OUTREACH_ADDRESS in scripts/cf-email-worker-setup.mjs). Plain,
+# non-secret — already appears in DNS/MX and in outbound mail headers.
+NEWSLETTER_ADDRESS = "newsletter@frontaliereticino.ch"
 # NOTE: FORWARD_TO (the human inbox replies are forwarded to) is a worker SECRET
 # set by scripts/cf-email-worker-setup.mjs from the zone catch-all target — not a
 # committed var, so no personal address lands in the repo.

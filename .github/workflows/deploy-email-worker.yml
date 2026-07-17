@@ -6,7 +6,8 @@
 # every push to main that touches its directory, then configures it via the CF
 # API (scripts/cf-email-worker-setup.mjs): sets the worker secrets STOP_SECRET
 # (= NEWSLETTER_SECRET) and FORWARD_TO (resolved from the zone catch-all target,
-# so no email is committed), and binds the outreach reply address to the worker.
+# so no email is committed), and binds BOTH the outreach reply address and the
+# newsletter mailbox (auto-unsubscribe on a STOP/UNSUBSCRIBE reply) to the worker.
 #
 # Credentials come from Firebase Remote Config (repo convention — same as
 # deploy-worker.yml), hydrated by scripts/load-rc-env.mjs:
@@ -86,9 +87,10 @@ jobs:
           workingDirectory: infra/cloudflare-email-worker
           command: deploy
 
-      # Sets STOP_SECRET + FORWARD_TO worker secrets via the CF API and binds the
-      # outreach reply address to the worker. Runs AFTER deploy so the worker
-      # script exists. Secrets are essential (fail on error); the routing rule is
-      # best-effort (warns if the token lacks Email Routing:Edit).
+      # Sets STOP_SECRET + FORWARD_TO worker secrets via the CF API and binds both
+      # the outreach reply address and the newsletter mailbox to the worker. Runs
+      # AFTER deploy so the worker script exists. Secrets are essential (fail on
+      # error); each routing rule is best-effort (warns if the token lacks Email
+      # Routing:Edit).
       - name: Configure secrets + Email Routing binding
         run: node scripts/cf-email-worker-setup.mjs
