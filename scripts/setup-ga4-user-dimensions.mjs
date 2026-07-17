@@ -43,9 +43,11 @@
  * step — unlike analytics-report.mjs it should NOT silently succeed).
  */
 
+import { getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+
 // GA4 property ID is a public numeric identifier, not a secret — same
 // default as scripts/analytics-report.mjs reportGA4().
-const propertyId = process.env.GA4_PROPERTY_ID || 'properties/524485296';
+const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
 
 const REQUIRED_USER_DIMS = [
   {
@@ -64,21 +66,6 @@ const REQUIRED_USER_DIMS = [
     description: 'Whether the user is subscribed to job alerts (true/false), for revenue-per-user segmentation',
   },
 ];
-
-async function getServiceAccountToken(scopes) {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    console.error('❌ GOOGLE_APPLICATION_CREDENTIALS not set. See script header for usage.');
-    process.exit(1);
-  }
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({ scopes });
-  const client = await auth.getClient();
-  // Log SA email for diagnostics (not a secret — it's a public GCP identifier)
-  if (client.email) console.log(`ℹ️  Using service account: ${client.email}`);
-  const { token } = await client.getAccessToken();
-  if (!token) throw new Error('getAccessToken() returned no token');
-  return token;
-}
 
 async function listExistingDimensions(headers) {
   const res = await fetch(
@@ -129,6 +116,10 @@ async function main() {
     'https://www.googleapis.com/auth/analytics.edit',
     'https://www.googleapis.com/auth/analytics.readonly',
   ]);
+  if (!token) {
+    console.error('❌ Service account auth failed. See script header for usage (GOOGLE_APPLICATION_CREDENTIALS).');
+    process.exit(1);
+  }
   const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
 
   console.log('🔎 Listing existing custom dimensions...');

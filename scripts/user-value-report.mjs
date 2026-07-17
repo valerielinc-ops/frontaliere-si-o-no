@@ -52,6 +52,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(__dirname, '..', 'data', 'user-value-report.json');
@@ -75,9 +76,6 @@ const COHORT_DAYS = Math.min(parseInt(argVal('--cohort-days', String(DAYS)), 10)
 function log(emoji, msg) {
   if (!flags.json) console.log(`${emoji}  ${msg}`);
 }
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
-}
 function fmtDate(d) {
   return d.toISOString().slice(0, 10);
 }
@@ -85,26 +83,6 @@ function computeArpu(revenue, users) {
   const r = Number(revenue) || 0;
   const u = Number(users) || 0;
   return u > 0 ? Number((r / u).toFixed(4)) : null;
-}
-
-async function fetchRetry(url, options = {}, retries = 2) {
-  for (let attempt = 1; attempt <= retries + 1; attempt++) {
-    try {
-      const res = await fetch(url, options);
-      if (res.ok) return res;
-      if ((res.status === 429 || res.status >= 500) && attempt <= retries) {
-        await sleep(res.status === 429 ? 5000 * attempt : 2000 * attempt);
-        continue;
-      }
-      return res; // caller inspects res.ok / status for real (non-retryable) errors
-    } catch (err) {
-      if (attempt <= retries) {
-        await sleep(2000 * attempt);
-        continue;
-      }
-      throw err;
-    }
-  }
 }
 
 // ── Auth (exact pattern reused from scripts/analytics-report.mjs) ───────
@@ -126,20 +104,6 @@ async function getAccessToken() {
   });
   if (!res.ok) throw new Error(`Token refresh failed (${res.status}): ${await res.text()}`);
   return (await res.json()).access_token;
-}
-
-async function getServiceAccountToken(scopes) {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) return null;
-  try {
-    const { GoogleAuth } = await import('google-auth-library');
-    const auth = new GoogleAuth({ scopes });
-    const client = await auth.getClient();
-    const { token } = await client.getAccessToken();
-    return token;
-  } catch (e) {
-    log('⚠️', `Service account auth failed: ${e.message}`);
-    return null;
-  }
 }
 
 // ── GA4 Data API ────────────────────────────────────────────
@@ -574,7 +538,7 @@ function renderConsoleSummary(report) {
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const propertyId = process.env.GA4_PROPERTY_ID || 'properties/524485296';
+  const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
   const report = {
     generatedAt: new Date().toISOString(),
     ga4PropertyId: propertyId,
@@ -618,7 +582,10 @@ async function main() {
 
   // 1. Custom dimension registration (read-only Admin API check).
   try {
-    const adminToken = await getServiceAccountToken(['https://www.googleapis.com/auth/analytics.readonly']);
+    const adminToken = await getServiceAccountToken(
+      ['https://www.googleapis.com/auth/analytics.readonly'],
+      { logInfo: (msg) => log('ℹ️', msg), logError: (msg) => log('⚠️', msg) }
+    );
     const adminHeaders = adminToken ? { Authorization: `Bearer ${adminToken}`, 'Content-Type': 'application/json' } : headers;
     report.customDimensionRegistration = await checkCustomDimensionRegistration(propertyId, adminHeaders);
     log('🏷️ ', `Custom dimension registration checked (${adminToken ? 'service account' : 'OAuth2 fallback'})`);
