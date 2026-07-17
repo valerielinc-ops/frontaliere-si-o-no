@@ -23,6 +23,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
 
 const ROOT = process.cwd();
 const TOKEN_CACHE = path.join(ROOT, '.cache', 'adsense-oauth.json');
@@ -64,25 +65,13 @@ async function main() {
 
   loadLocalSecrets();
 
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  }
-  const rc = admin.remoteConfig();
-  const template = await rc.getTemplate();
-  template.parameters = template.parameters || {};
+  const rc = await getRemoteConfig();
+  const template = await fetchRcTemplate(rc);
 
+  const description = `AdSense OAuth credential for weekly revenue-monitor (set ${new Date().toISOString().slice(0, 10)})`;
   let changed = 0;
   for (const [key, value] of Object.entries(RC_PARAMS)) {
-    const existing = template.parameters[key]?.defaultValue?.value;
-    if (existing === value) continue;
-    template.parameters[key] = {
-      defaultValue: { value },
-      valueType: 'STRING',
-      description: `AdSense OAuth credential for weekly revenue-monitor (set ${new Date().toISOString().slice(0, 10)})`,
-    };
-    changed++;
+    if (stageRcParam(template, key, value, description)) changed++;
   }
 
   if (changed === 0) {
@@ -90,7 +79,7 @@ async function main() {
     return;
   }
 
-  await rc.publishTemplate(template, { force: true });
+  await publishRcTemplate(rc, template, changed);
   console.log(`✅ Published ${changed} SERVER_ADSENSE_* param(s) to Remote Config.`);
   console.log('   Next Monday the revenue-monitor workflow will pick them up via load-rc-env.mjs.');
 }
