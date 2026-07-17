@@ -1198,6 +1198,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'Il secondo pilastro LPP: quando si può prelevare e tassazione Italia e Svizzera',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'Il nuovo accordo frontalieri prevede una franchigia di 10\'000 CHF e un regime transitorio fino al 2033. Ma come funziona il secondo pilastro LPP e come si può prelevare senza subire la doppia imposizione?',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'Una scena di Lugano con grattacieli e lungo lago. Un frontaliere sta seduto su una panchina, con una cartella in mano e una espressione pensierosa.',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'LPP: strategia di uscita dal secondo pilastro',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'Il prelievo del secondo pilastro LPP per i frontalieri: fatti, cifre, date e strategie di uscita',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Immagine di un frontaliere che lavora in Svizzera',
 };
 
 export default blogMetaChIt;

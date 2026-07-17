@@ -15462,6 +15462,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prelievo-secondo-pilastro-lpp-frontaliere': {
+    title: 'LPP: strategia di uscita dal secondo pilastro | Frontaliere Ticino',
+    description: 'Il prelievo del secondo pilastro LPP per i frontalieri: fatti, cifre, date e strategie di uscita. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, strategia, uscita, secondo, pilastro',
+    ogTitle: 'Prelievo del secondo pilastro LPP: quando si può, tassazione Italia e Svizzera, strategia di uscita ottimale',
+    ogDescription: 'Il prelievo del secondo pilastro LPP per i frontalieri: fatti, cifre, date e strategie di uscita',
+    canonicalPath: '/articoli-svizzera/prelievo-secondo-pilastro-lpp-frontaliere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP: strategia di uscita dal secondo pilastro",
+      "description": "Il prelievo del secondo pilastro LPP per i frontalieri: fatti, cifre, date e strategie di uscita. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prelievo-secondo-pilastro-lpp-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un frontaliere che lavora in Svizzera"
+      },
+      "datePublished": "2026-07-17T15:15:42+00:00",
+      "dateModified": "2026-07-17T15:15:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prelievo-secondo-pilastro-lpp-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

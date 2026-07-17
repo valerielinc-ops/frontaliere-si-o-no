@@ -1198,6 +1198,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.title': 'The second LPP pillar: when Italy and Switzerland can be withdrawn and taxed',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.excerpt': 'The new border agreement provides for a deductible of CHF 10,000 and a transitional regime until 2033. But how does the second LPP pillar work and how can it be withdrawn without suffering double taxation?',
     'blog.article.secondo-pilastro-lpp-frontalieri-prelievo.imageAlt': 'A scene of Lugano with skyscrapers and a long lake. A frontaliere is sitting on a bench, with a folder in hand and a thoughtful expression.',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.title': 'LPP: exit strategy from the second pillar',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.excerpt': 'The withdrawal of the second LPP pillar for frontier workers: facts, figures, dates and exit strategies',
+    'blog.article.prelievo-secondo-pilastro-lpp-frontaliere.imageAlt': 'Image of a frontier worker in Switzerland',
 };
 
 export default blogMetaChEn;
