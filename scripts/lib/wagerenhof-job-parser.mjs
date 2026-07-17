@@ -14,7 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -90,8 +90,9 @@ export function parseWagerenhofDetail(html = '') {
   if (!html) return { title: '', description: '' };
   // The detail page repeats the title in <h1 style="…">TITLE</h1> and lists
   // multiple <p> blocks plus <ul>/<li> with the role profile.
-  const titleMatch = html.match(/<h1[^>]*style="color:[^"]+"[^>]*>([\s\S]*?)<\/h1>/i)
-    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*style="color:[^"]+"[^>]*>([\s\S]*?)<\/h1>/i)
+    || titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, ''))) : '';
 
   const cleaned = html

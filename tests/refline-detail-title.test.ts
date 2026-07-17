@@ -4,7 +4,9 @@ import { describe, it, expect } from 'vitest';
 import {
   extractReflineDetailTitle,
   parseReflineDetail,
+  parseReflineJobPostingJsonLd,
 } from '../scripts/lib/refline-common.mjs';
+import { stripScriptsAndStyles } from '../scripts/lib/crawler-template.mjs';
 import { decodeUnicodeEscapeLeaks } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { parseReflineDetail as parseSpitalDetail } from '../scripts/lib/spital-limmattal-job-parser.mjs';
 import { parseReflineDetail as parseCaritasDetail } from '../scripts/lib/caritas-schweiz-job-parser.mjs';
@@ -78,6 +80,32 @@ describe('parseReflineDetail (factory + bespoke tenants share the fix)', () => {
       expect(title).not.toMatch(/\\u[0-9a-fA-F]{4}/);
     });
   }
+});
+
+describe('parseReflineJobPostingJsonLd', () => {
+  it('finds the JobPosting even when other ld+json blocks precede it', () => {
+    const page = `<html><body>
+      <script type="application/ld+json">{"@type": "BreadcrumbList", "itemListElement": []}</script>
+      <script type="application/ld+json">{"@type": "Organization", "name": "Spital"}</script>
+      <script type="application/ld+json">{"@type": "JobPosting", "title": "K\\u00f6chin / Koch 100 %"}</script>
+      </body></html>`;
+    expect(parseReflineJobPostingJsonLd(page)?.title).toBe('Köchin / Koch 100 %');
+  });
+
+  it('unwraps array-form ld+json and skips malformed blocks', () => {
+    const page = `<html><body>
+      <script type="application/ld+json">{not json at all</script>
+      <script type="application/ld+json">[{"@type": "WebSite"}, {"@type": "JobPosting", "title": "Pfleger:in 80 %"}]</script>
+      </body></html>`;
+    expect(parseReflineJobPostingJsonLd(page)?.title).toBe('Pfleger:in 80 %');
+  });
+});
+
+describe('stripScriptsAndStyles (shared title-source guard)', () => {
+  it('removes script and style blocks so heading regexes see only rendered DOM', () => {
+    const html = '<script>var x = "<h1>fake</h1>";</script><style>.h1{}</style><h1>Vero titolo</h1>';
+    expect(stripScriptsAndStyles(html)).toBe('<h1>Vero titolo</h1>');
+  });
 });
 
 describe('decodeUnicodeEscapeLeaks (shared chokepoint guard)', () => {

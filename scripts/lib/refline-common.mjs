@@ -258,15 +258,22 @@ export function parseReflineDetail(html = '') {
  */
 export function parseReflineJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const match = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
-  if (!match) return null;
-  try {
-    const data = JSON.parse(match[1]);
-    if (data && data['@type'] === 'JobPosting') return data;
-    return null;
-  } catch {
-    return null;
+  // Scan EVERY ld+json block: a tenant may ship breadcrumb/Organization
+  // blocks ahead of the JobPosting one — first-block-only would miss it.
+  const blockRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = blockRe.exec(html)) !== null) {
+    try {
+      const data = JSON.parse(match[1]);
+      const candidates = Array.isArray(data) ? data : [data];
+      for (const entry of candidates) {
+        if (entry && entry['@type'] === 'JobPosting') return entry;
+      }
+    } catch {
+      // malformed block — keep scanning the remaining ones
+    }
   }
+  return null;
 }
 
 function extractPensum(text = '') {

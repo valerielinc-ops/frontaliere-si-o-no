@@ -13,6 +13,7 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
 
 export const TICINO_REGION_UUID = '7845726f-4952-4b7c-88da-8ff4f85e6afb';
@@ -316,7 +317,8 @@ export function getClinicAddress(clinicName = '', city = '') {
 export function parseSmartRecruiterDetail(html = '') {
   if (!html || typeof html !== 'string') return { title: '', description: '', location: '' };
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
 
   // Strategy 1: Look for the job description content section
