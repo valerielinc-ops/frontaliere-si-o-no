@@ -33,6 +33,30 @@ interface Release {
 
 export const RELEASES: Release[] = [
  {
+ version: '3.61.0',
+ // Same calendar day as 3.60.0 below — a plain 'YYYY-MM-DD' would tie with
+ // it lexicographically and the `r.date > lastSeen` unseen-count check
+ // (line ~1958) would silently drop this entry for anyone who already
+ // opened the modal today. A datetime suffix keeps it sorting strictly
+ // after; `new Date()`/`toLocaleDateString()` below ignore the time part.
+ date: '2026-07-16T18:00',
+ titleKey: 'whatsNew.v3610.title',
+ items: [
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3610.boardFilterAlert.title',
+ descKey: 'whatsNew.v3610.boardFilterAlert.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3610.alertPause.title',
+ descKey: 'whatsNew.v3610.alertPause.desc',
+ link: { tab: 'profile' },
+ },
+ ],
+ },
+ {
  version: '3.60.0',
  date: '2026-07-16',
  titleKey: 'whatsNew.v3600.title',

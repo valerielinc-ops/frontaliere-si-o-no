@@ -260,6 +260,83 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  await waitFor(() => expect(screen.getByText('Automatic')).toBeTruthy());
  });
 
+ it('pauses an active alert via the pause button (issue #4298)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ active: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), active: false },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { active: false },
+ );
+ });
+ await waitFor(() => expect(screen.getByText('Paused')).toBeTruthy());
+ // The alert must stay in the list — pausing never removes/hides it.
+ expect(screen.getByText('Software Engineer')).toBeTruthy();
+ });
+
+ it('resumes a paused alert via the resume button, still visible from get_full_status (issue #4298)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ active: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), active: true },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ // Regression guard: a paused alert returned by get_full_status must render,
+ // not be silently dropped.
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ expect(screen.getByText('Paused')).toBeTruthy();
+
+ fireEvent.click(screen.getByRole('button', { name: /^Resume$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { active: true },
+ );
+ });
+ await waitFor(() => expect(screen.queryByText('Paused')).toBeNull());
+ });
+
+ it('reverts the optimistic pause when updateJobAlert fails', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ active: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ });
+ // Reverted: still shows the "Pause" action, not "Paused".
+ expect(screen.getByRole('button', { name: /^Pause$/ })).toBeTruthy();
+ expect(screen.queryByText('Paused')).toBeNull();
+ });
+
  it('opens the edit form populated from the alert and saves on Save', async () => {
  (subs.getFullSubscriptionStatus as any).mockResolvedValue(
  okStatus({
@@ -434,5 +511,13 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/authCreateAlert/);
  expect(src).toMatch(/import\(['"]firebase\/firestore['"]\)/);
  expect(src).toMatch(/deleteDoc\(/);
+ });
+
+ it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298)', () => {
+ expect(src).toMatch(/handleTogglePause/);
+ expect(src).toMatch(/onTogglePause/);
+ // Regression guard: authLoadFullStatus / get_full_status must NOT silently
+ // filter out active===false alerts — a paused alert must stay resumable.
+ expect(src).not.toMatch(/if \(a\.active === false\) return;/);
  });
 });

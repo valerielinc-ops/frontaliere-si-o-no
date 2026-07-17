@@ -6,7 +6,11 @@ const TEST_SECRET = 'test-newsletter-secret-key-2026';
 const TEST_EMAIL = 'user@example.com';
 const VALID_TOKEN = createHmac('sha256', TEST_SECRET).update(TEST_EMAIL).digest('hex');
 
-function createFakeDb(existingDocs: Record<string, Record<string, Record<string, unknown>>> = {}) {
+function createFakeDb(
+  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
+  // Subcollection docs, e.g. { job_alert_subscribers: { 'user@example.com': { alerts: { alert1: {...} } } } }
+  subcollectionDocs: Record<string, Record<string, Record<string, Record<string, Record<string, unknown>>>>> = {},
+) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown>; options?: unknown }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
 
@@ -22,6 +26,15 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
       collection: (subName: string) => ({
         add: async (data: Record<string, unknown>) => {
           adds.push({ collection: `${name}/${docId}/${subName}`, data });
+        },
+        get: async () => {
+          const subDocs: Record<string, Record<string, unknown>> = subcollectionDocs[name]?.[docId]?.[subName] || {};
+          const entries = Object.entries(subDocs);
+          return {
+            forEach: (cb: (doc: { id: string; data: () => Record<string, unknown> }) => void) => {
+              entries.forEach(([id, data]) => cb({ id, data: () => data }));
+            },
+          };
         },
       }),
     }),
@@ -162,5 +175,51 @@ describe('handleSubscriptionManagement', () => {
 
     expect(result.status).toBe(400);
     expect(result.html).toContain('Parametri mancanti');
+  });
+});
+
+describe('handleSubscriptionManagement — get_full_status (issue #4298 pause visibility)', () => {
+  // Regression: get_full_status used to silently drop any alert doc with
+  // active===false ("skip soft-deleted alerts" — a stale comment; delete_alert
+  // does a hard Firestore delete and never soft-deletes via active:false).
+  // active===false is the pause flag written by update_alert; a paused alert
+  // must still be returned so the user can see + resume it.
+  it('includes both active and paused alerts in the response', async () => {
+    const db = createFakeDb(
+      {
+        newsletter_subscribers: {
+          [TEST_EMAIL]: { status: 'confirmed', isActive: true },
+        },
+      },
+      {
+        job_alert_subscribers: {
+          [TEST_EMAIL]: {
+            alerts: {
+              'alert-active': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true },
+              'alert-paused': { keywords: ['Logistica'], locations: [], sectors: [], frequency: 'weekly', active: false },
+            },
+          },
+        },
+      },
+    );
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.success).toBe(true);
+    expect(result.json.alerts).toHaveLength(2);
+
+    const active = result.json.alerts.find((a: any) => a.id === 'alert-active');
+    const paused = result.json.alerts.find((a: any) => a.id === 'alert-paused');
+    expect(active.active).toBe(true);
+    expect(paused).toBeTruthy();
+    expect(paused.active).toBe(false);
   });
 });
