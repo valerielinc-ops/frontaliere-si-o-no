@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-17T11:36:04.440Z",
+  "assembledAt": "2026-07-17T22:14:19.149Z",
   "jobs": [
     {
       "id": "postauto-318dbdb3c660",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:36:01.593Z",
+      "crawledAt": "2026-07-17T22:14:16.855Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -59,13 +59,15 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -121,7 +124,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:36:00.416Z",
+      "crawledAt": "2026-07-17T22:14:15.917Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -175,7 +179,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-chur",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -201,7 +205,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:59.221Z",
+      "crawledAt": "2026-07-17T22:14:14.944Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -226,15 +230,19 @@
         "postauto-fahrer-in-postauto-chur",
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "autista-postbus-postauto-ag-chur",
+          "postbus-driver-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -287,7 +295,7 @@
       "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:58.015Z",
+      "crawledAt": "2026-07-17T22:14:14.041Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -310,14 +318,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
       "salaryMin": 94500,
@@ -364,7 +376,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:56.824Z",
+      "crawledAt": "2026-07-17T22:14:13.102Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -389,12 +401,14 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "autista-postbus-postauto-ag-sarnen",
+        "autista-postbus-postauto-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "autista-postbus-postauto-ag-sarnen",
+          "autista-postbus-postauto-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -424,7 +438,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-stans",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -450,7 +464,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:55.647Z",
+      "crawledAt": "2026-07-17T22:14:12.046Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -473,13 +487,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
@@ -528,7 +546,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:54.308Z",
+      "crawledAt": "2026-07-17T22:14:10.962Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -553,12 +571,14 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -614,7 +634,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:53.141Z",
+      "crawledAt": "2026-07-17T22:14:10.010Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -637,11 +657,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -656,7 +678,9 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -703,7 +727,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:51.932Z",
+      "crawledAt": "2026-07-17T22:14:09.051Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -728,12 +752,14 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -789,7 +815,7 @@
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:50.646Z",
+      "crawledAt": "2026-07-17T22:14:08.049Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -814,12 +840,14 @@
         "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
         "personnel-in-disposition-control-center-center-postauto-ag-spiez",
         "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez",
-        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
         ],
         "en": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
@@ -875,7 +903,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:49.435Z",
+      "crawledAt": "2026-07-17T22:14:07.117Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -897,11 +925,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur"
+        "postauto-fahrer-in-postauto-chur",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -955,7 +985,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:48.270Z",
+      "crawledAt": "2026-07-17T22:14:06.189Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -991,6 +1021,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1009,7 +1040,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -1035,7 +1066,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:47.049Z",
+      "crawledAt": "2026-07-17T22:14:05.241Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1059,15 +1090,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -1120,7 +1155,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:45.875Z",
+      "crawledAt": "2026-07-17T22:14:04.320Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1142,11 +1177,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1174,7 +1211,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1200,7 +1237,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:44.667Z",
+      "crawledAt": "2026-07-17T22:14:03.392Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1224,15 +1261,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1285,7 +1326,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:43.517Z",
+      "crawledAt": "2026-07-17T22:14:02.445Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1307,11 +1348,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1339,7 +1382,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1365,7 +1408,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:42.275Z",
+      "crawledAt": "2026-07-17T22:14:01.424Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1389,15 +1432,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1450,7 +1497,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:41.095Z",
+      "crawledAt": "2026-07-17T22:14:00.470Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1472,11 +1519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1504,7 +1553,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1530,7 +1579,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:35:39.277Z",
+      "crawledAt": "2026-07-17T22:13:58.597Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1553,13 +1602,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
@@ -1576,84 +1629,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "postauto-d73dd58d59c6",
-      "slug": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur",
-      "slugByLocale": {
-        "it": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur",
-        "en": "team-leader-in-ticket-control-and-customer-advice-postauto-chur",
-        "de": "teamleiter-in-fahrausweiskontrolle-und-kundenberatung-chur-postauto-chur",
-        "fr": "chef-d-equipe-inspection-des-tickets-et-service-client-postauto-chur"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Teamleiter:in Fahrausweiskontrolle und Kundenberatung",
-      "titleByLocale": {
-        "it": "Teamleiter:in Fahrausweiskontrolle e Kundenberatung",
-        "en": "Team Leader Ticket Inspection and Customer Service",
-        "de": "Teamleiter:in Fahrausweiskontrolle und Kundenberatung",
-        "fr": "Chef d'équipe, inspection des tickets et service client"
-      },
-      "description": "Bereitet es dir Freude, Mitarbeitende zu führen und zu fördern? Mit dir gewinnen wir eine motivierte Führungspersönlichkeit, die zusammen mit dem Team für die professionelle Durchführung von Fahrausweiskontrollen und die Beratung unserer Fahrgäste in den Fahrzeugen des öffentlichen Verkehrs verantwortlich ist.\n\nDas kannst du bewirken\n\n- Als Teamplayer bist du für die fachliche und personelle Führung von ca. 7 Mitarbeitenden im Gebiet Graubünden zuständig.\n\n- Deine guten operativen Führungskenntnisse unterstützen dich dabei, neue Mitarbeitende zu rekrutieren, einzuführen und im Berufsalltag zu begleiten.\n\n- Als ausgewiesenes Organisationstalent nimmst du selbständig die Planung und Disposition deiner Mitarbeitenden in die Hand.\n\n- Dein kommunikationsstarkes Auftreten unterstützt dich dabei, deine Meinung sicher vor den Betriebszonen zu vertreten.\n\n- Du bist offen für Neues und gewillt, Spezialaufgaben zu übernehmen.\n\n- Ausserdem übernimmst du Sonderaufgaben und hilfst an Grossveranstaltungen oder unvorhergesehenen Anlässen mit.\n\n- Durch dein professionelles Auftreten bei den Fahrausweiskontrollen fungierst du als Vorbild für dein Team.\n\nDas bringst du mit\n\n- Du besitzt eine Weiterbildung als Führungsfachfrau oder Führungsfachmann, Leadership SVF, Fachausweis ÖV-Spezialistin oder ÖV-Spezialist oder konntest bereits fundierte Führungserfahrung sammeln.\n\n- Von Vorteil hast du eine Affinität zum öffentlichen Verkehr sowie mehrjährige Erfahrung im Kontroll- und Kundendienst.\n\n- In der Welt der Tarife und im nationalen Verkehr kennst du dich aus.\n\n- Du bist eine flexible, belastbare Persönlichkeit mit hoher Sozialkompetenz, welche über eine gute Kommunikationsfähigkeit sowie über Durchsetzungsvermögen verfügt.\n\n- Die Vorteile von unregelmässigen Arbeitszeiten inkl. Sonn- und Feiertagen sowie in der Nacht weisst du zu schätzen und du bist flexibel einsetzbar.\n\n- Der Führerausweis Kat. B ist für diese Stelle notwendig, die Kat. D ist von Vorteil.\n\n- Mit deinen stilsicheren Deutschkenntnissen und guten Englisch- und Italienischkenntnissen rundest du dein Profil ab.",
-      "descriptionByLocale": {
-        "it": "Ti piace guidare e promuovere i dipendenti? Con voi, acquisiamo un leader motivato che, insieme al team, è responsabile per l'implementazione professionale dei controlli dei biglietti e la consulenza dei nostri passeggeri nei veicoli di trasporto pubblico.\n\nPuoi farlo.\n\n- Come giocatore di squadra, sei responsabile della gestione tecnica e del personale di circa 7 dipendenti nell'area dei Grigioni.\n\n- Le tue buone capacità di leadership operativa ti sostengono nel reclutare, introdurre e accompagnare nuovi dipendenti nel lavoro quotidiano.\n\n- Come un talento organizzativo collaudato, si prende indipendentemente la pianificazione e disposizione dei vostri dipendenti nelle proprie mani.\n\n- Il vostro aspetto di comunicazione-forte vi supporta nel rappresentare la vostra opinione in modo sicuro davanti alle zone operative.\n\n- Siete aperti a nuove cose e disposti a intraprendere compiti speciali.\n\n- Si svolgono anche compiti speciali e aiutare con eventi importanti o eventi imprevisti.\n\n- Attraverso il tuo aspetto professionale ai controlli dei biglietti, ti comporti come modello per la tua squadra.\n\nLo porti con te.\n\n- Hai ulteriore formazione come manager, specialista di leadership, leadership SVF, specialista di carte specializzate nel trasporto pubblico o hai già acquisito una profonda esperienza di leadership.\n\n- Hai un'affinità per i trasporti pubblici e diversi anni di esperienza nel controllo e nel servizio clienti.\n\n- Nel mondo delle tariffe e dei trasporti nazionali, avete familiarità.\n\n- Sei una personalità flessibile e resiliente con un alto livello di competenza sociale, che ha buone capacità di comunicazione e assertività.\n\n- I vantaggi dell'orario di lavoro irregolare incl. Apprezzi la domenica e i giorni festivi così come di notte e sei flessibile.\n\n- Cat. B è necessario per questa posizione, Cat. D è vantaggioso.\n\n- Con la vostra conoscenza elegante di tedesco e buona conoscenza di inglese e italiano si completa il vostro profilo.",
-        "en": "Do you enjoy leading and promoting employees? With you, we gain a motivated leader who, together with the team, is responsible for the professional implementation of ticket checks and the advice of our passengers in public transport vehicles.\n\nYou can do that.\n\n- As a team player, you are responsible for the technical and personnel management of about 7 employees in the Graubünden area.\n\n- Your good operational leadership skills support you in recruiting, introducing and accompanying new employees in everyday work.\n\n- As a proven organizational talent, you independently take the planning and disposition of your employees into your own hands.\n\n- Your communication-strong appearance supports you in representing your opinion safely in front of the operating zones.\n\n- You are open to new things and willing to take on special tasks.\n\n- You also take on special tasks and help with major events or unforeseen events.\n\n- Through your professional appearance at the ticket checks, you act as a model for your team.\n\nYou bring that with you\n\n- You have further training as a manager, leadership specialist, leadership SVF, specialist card public transport specialist or have already gained profound leadership experience.\n\n- You have an affinity for public transport as well as several years of experience in control and customer service.\n\n- In the world of tariffs and national transport, you are familiar.\n\n- You are a flexible, resilient personality with a high level of social competence, who has good communication skills and assertiveness.\n\n- The advantages of irregular working hours incl. You appreciate Sundays and public holidays as well as at night and you are flexible.\n\n- Cat. B is necessary for this position, Cat. D is advantageous.\n\n- With your stylish knowledge of German and good knowledge of English and Italian you round off your profile.",
-        "de": "Bereitet es dir Freude, Mitarbeitende zu führen und zu fördern? Mit dir gewinnen wir eine motivierte Führungspersönlichkeit, die zusammen mit dem Team für die professionelle Durchführung von Fahrausweiskontrollen und die Beratung unserer Fahrgäste in den Fahrzeugen des öffentlichen Verkehrs verantwortlich ist.\n\nDas kannst du bewirken\n\n- Als Teamplayer bist du für die fachliche und personelle Führung von ca. 7 Mitarbeitenden im Gebiet Graubünden zuständig.\n\n- Deine guten operativen Führungskenntnisse unterstützen dich dabei, neue Mitarbeitende zu rekrutieren, einzuführen und im Berufsalltag zu begleiten.\n\n- Als ausgewiesenes Organisationstalent nimmst du selbständig die Planung und Disposition deiner Mitarbeitenden in die Hand.\n\n- Dein kommunikationsstarkes Auftreten unterstützt dich dabei, deine Meinung sicher vor den Betriebszonen zu vertreten.\n\n- Du bist offen für Neues und gewillt, Spezialaufgaben zu übernehmen.\n\n- Ausserdem übernimmst du Sonderaufgaben und hilfst an Grossveranstaltungen oder unvorhergesehenen Anlässen mit.\n\n- Durch dein professionelles Auftreten bei den Fahrausweiskontrollen fungierst du als Vorbild für dein Team.\n\nDas bringst du mit\n\n- Du besitzt eine Weiterbildung als Führungsfachfrau oder Führungsfachmann, Leadership SVF, Fachausweis ÖV-Spezialistin oder ÖV-Spezialist oder konntest bereits fundierte Führungserfahrung sammeln.\n\n- Von Vorteil hast du eine Affinität zum öffentlichen Verkehr sowie mehrjährige Erfahrung im Kontroll- und Kundendienst.\n\n- In der Welt der Tarife und im nationalen Verkehr kennst du dich aus.\n\n- Du bist eine flexible, belastbare Persönlichkeit mit hoher Sozialkompetenz, welche über eine gute Kommunikationsfähigkeit sowie über Durchsetzungsvermögen verfügt.\n\n- Die Vorteile von unregelmässigen Arbeitszeiten inkl. Sonn- und Feiertagen sowie in der Nacht weisst du zu schätzen und du bist flexibel einsetzbar.\n\n- Der Führerausweis Kat. B ist für diese Stelle notwendig, die Kat. D ist von Vorteil.\n\n- Mit deinen stilsicheren Deutschkenntnissen und guten Englisch- und Italienischkenntnissen rundest du dein Profil ab.",
-        "fr": "Vous aimez diriger et promouvoir vos employés? Avec vous, nous obtenons un leader motivé qui, avec l'équipe, est responsable de la mise en œuvre professionnelle des contrôles des billets et des conseils de nos passagers dans les véhicules de transport en commun.\n\nTu peux le faire.\n\n- En tant que joueur d'équipe, vous êtes responsable de la gestion technique et du personnel d'environ 7 employés dans la région des Grisons.\n\n- Vos bonnes compétences en leadership opérationnel vous aident à recruter, à présenter et à accompagner de nouveaux employés dans le travail quotidien.\n\n- En tant que talent organisationnel éprouvé, vous prenez en main la planification et la disposition de vos employés.\n\n- Votre apparence forte en communication vous aide à représenter votre opinion en toute sécurité devant les zones d'exploitation.\n\n- Vous êtes ouvert à de nouvelles choses et prêt à assumer des tâches spéciales.\n\n- Vous assumez également des tâches spéciales et de l'aide pour les événements majeurs ou imprévus.\n\n- Grâce à votre présence professionnelle aux chèques de billets, vous êtes un modèle pour votre équipe.\n\nApporte ça avec toi.\n\n- Vous avez une formation continue en tant que gestionnaire, spécialiste de leadership, chef SVF, spécialiste des cartes de transport public ou avez déjà acquis une expérience de leadership profonde.\n\n- Vous avez une affinité pour les transports en commun ainsi que plusieurs années d'expérience dans le contrôle et le service à la clientèle.\n\n- Dans le monde des tarifs et des transports nationaux, vous êtes familier.\n\n- Vous êtes une personnalité flexible et résiliente avec un haut niveau de compétence sociale, qui a de bonnes compétences de communication et d'affirmation.\n\n- Les avantages des horaires de travail irréguliers, y compris Vous appréciez les dimanches et les jours fériés ainsi que la nuit et vous êtes flexible.\n\n- Chat. B est nécessaire pour cette position, Cat. D est avantageux.\n\n- Avec votre connaissance élégante de l'allemand et de la bonne connaissance de l'anglais et de l'italien, vous arrondissez votre profil."
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:35:57.516Z",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza clienti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "validThrough": "2026-07-16",
-      "pensum": "60-100%",
-      "applyUrl": "https://job.post.ch/default/job/Teamleiterin-Fahrausweiskontrolle-und-Kundenberatung/73411-de_DE",
-      "jobReqId": "73411",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "teamleiter-in-fahrausweiskontrolle-und-kundenberatung-postauto-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-fahrausweiskontrolle-und-kundenberatung-postauto-chur"
-        ],
-        "de": [
-          "teamleiter-in-fahrausweiskontrolle-und-kundenberatung-postauto-chur"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:33:36.090Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
