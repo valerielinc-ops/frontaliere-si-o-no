@@ -228,27 +228,27 @@ async function resolveHeroImage(data, doc) {
 
 /**
  * Resolves the byline for a journalist submission from its own captured
- * identity (`doc.authorUid`/`doc.authorName`, set at draft time in
- * journalistArticleService.ts) — never by guessing via article topic.
+ * identity (`doc.authorUid`, set at draft time in journalistArticleService.ts)
+ * — never by guessing via article topic.
  *
- * - Registered guest journalist (uid matches an AUTHORS entry, e.g.
- *   samuele-valente): full profile byline with author-page slug.
- * - Authenticated journalist without a registry profile page yet (granted
- *   access via AdminPanel.tsx "Giornalisti" but not yet added to
- *   data/authors.ts): real name, generic team slug — correct attribution
- *   without linking to a nonexistent author page.
- * - No identity on the doc at all (malformed/legacy doc): `null`, caller
- *   falls back to pickAuthorForTopic().
+ * Only returns non-null for a uid that matches a registered guest journalist
+ * (e.g. samuele-valente in data/authors.ts / the AUTHORS mirror here), since
+ * `slug` doubles as both the JSON-LD Person `@id`/`url` and the CSR byline
+ * link target (components/community/BlogArticles.tsx) — pairing a real name
+ * with a slug that resolves to a *different* declared Person (e.g. the
+ * generic 'redazione' team page) would create an E-E-A-T entity mismatch:
+ * same `@id`, two different names (review finding on this fix, PR #4325).
+ *
+ * An authenticated-but-not-yet-registered journalist (access granted via
+ * AdminPanel.tsx "Giornalisti" but not yet added to data/authors.ts) is not
+ * a regression introduced by this fix — falling through to
+ * pickAuthorForTopic() here is the same pre-existing behavior as before,
+ * for a case this incident never actually involved.
  *
  * @returns {{slug: string, name: string, linkedinUrl: string|null}|null}
  */
 function resolveJournalistAuthor(doc) {
-  const registered = doc?.authorUid ? getAuthorByUid(doc.authorUid) : undefined;
-  if (registered) return registered;
-  if (doc?.authorName) {
-    return { slug: 'redazione', name: doc.authorName, linkedinUrl: null };
-  }
-  return null;
+  return (doc?.authorUid ? getAuthorByUid(doc.authorUid) : undefined) || null;
 }
 
 async function processDoc(db, FieldValue, docSnap) {

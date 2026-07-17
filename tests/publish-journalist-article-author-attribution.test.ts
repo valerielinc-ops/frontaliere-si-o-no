@@ -17,8 +17,17 @@
  * author *selectable* by the topic scorer; it did not stop the scorer from
  * being used for real human submissions at all, so the same class of bug
  * recurred. resolveJournalistAuthor() removes the topic scorer from the
- * journalist-publish path entirely except as a last resort for docs with no
- * identity at all.
+ * journalist-publish path for any registered author, falling back to it
+ * only when a doc's authorUid has no registry match at all.
+ *
+ * resolveJournalistAuthor() deliberately does NOT build a name-only
+ * fallback (e.g. pairing a real name with a generic 'redazione' slug) for
+ * an authenticated-but-unregistered journalist — a first review round of
+ * this fix did exactly that and was flagged 🔴: `slug` doubles as the
+ * JSON-LD Person `@id`/url and the CSR byline link target, so a made-up
+ * slug pointing to a page that declares a *different* name is an E-E-A-T
+ * entity mismatch. That case falls through to pickAuthorForTopic()
+ * unchanged (pre-existing behavior, not a regression this incident touched).
  */
 import { describe, expect, it } from 'vitest';
 import { resolveJournalistAuthor } from '../scripts/publish-journalist-article.mjs';
@@ -47,10 +56,13 @@ describe('resolveJournalistAuthor — trusts the submitting journalist identity 
     expect(resolved.slug).toBe('samuele-valente');
   });
 
-  it('trusts doc.authorName for an authenticated journalist not yet in the author registry', () => {
+  it('returns null (never a name+generic-slug pairing) for an authenticated journalist not yet in the author registry', () => {
+    // A made-up slug (e.g. 'redazione') paired with the real submitter's name
+    // would create a JSON-LD entity mismatch: same @id, two different
+    // declared Person names (review finding on this fix). Caller falls back
+    // to pickAuthorForTopic() for this case — pre-existing behavior.
     const doc = { authorUid: 'some-future-journalist-uid-not-registered', authorName: 'Nuova Firma' };
-    const resolved = resolveJournalistAuthor(doc);
-    expect(resolved).toEqual({ slug: 'redazione', name: 'Nuova Firma', linkedinUrl: null });
+    expect(resolveJournalistAuthor(doc)).toBeNull();
   });
 
   it('returns null (caller falls back to pickAuthorForTopic) when the doc has no identity at all', () => {
