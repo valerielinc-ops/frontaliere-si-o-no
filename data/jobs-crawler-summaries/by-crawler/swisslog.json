@@ -1,16 +1,16 @@
 {
   "key": "swisslog",
   "label": "Swisslog",
-  "generatedAt": "2026-07-16T22:05:21.588Z",
+  "generatedAt": "2026-07-17T10:54:05.868Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5302,
-  "avgDurationMs": 5302,
+  "durationMs": 5604,
+  "avgDurationMs": 5604,
   "durationHistory": [
-    5302
+    5604
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.swisslog.com/en-us/careers/openings/controls-software-service-engineer-3751",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:05:19.169Z",
+      "crawledAt": "2026-07-17T10:54:03.325Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -64,7 +64,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/technical-project-manager-mwd-4182",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:19.170Z",
+      "crawledAt": "2026-07-17T10:54:03.326Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -102,7 +102,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/automatikerin-efz-4097",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:19.171Z",
+      "crawledAt": "2026-07-17T10:54:03.327Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -140,7 +140,7 @@
       "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/servicetechnikerin-mechanik-mwd-4094",
       "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:05:19.172Z",
+      "crawledAt": "2026-07-17T10:54:03.327Z",
       "addressLocality": "Buchs",
       "addressRegion": "AG",
       "streetAddress": "Webereiweg 3",
@@ -167,48 +167,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "swisslog-c77d7eee7272",
-      "slug": "collaboratore-trice-instandhaltung-m-w-d-swisslog-magenwil",
-      "company": "Swisslog",
-      "companyKey": "swisslog",
-      "companyDomain": "swisslog.com",
-      "title": "Mitarbeiter/in Instandhaltung (m/w/d)",
-      "location": "Mägenwil, Switzerland",
-      "canton": "AG",
-      "url": "https://www.swisslog.com/de-de/karriere/offene-stellen/mitarbeiterin-instandhaltung-mwd-4206",
-      "source": "Swisslog Dedicated Parser (custom Sitecore job API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-15T10:58:06.026Z",
-      "addressLocality": "Mägenwil",
-      "addressRegion": "AG",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Logistica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://www.swisslog.com/de-de/karriere/offene-stellen/mitarbeiterin-instandhaltung-mwd-4206",
-      "jobReqId": "4206",
-      "firstSeenAt": "2026-07-04T12:41:26.495Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
