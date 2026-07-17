@@ -1140,6 +1140,13 @@ const App: React.FC = () => {
  };
  }, [authUser?.uid]);
 
+ // GA4 user-scoped `is_registered` custom dimension (analytics Stage 1,
+ // revenue-per-user segmentation) — keyed off the signed-in uid so it
+ // reflects current auth state on every visit, not just at signup.
+ useEffect(() => {
+ Analytics.setUserSegmentFlags({ isRegistered: Boolean(authUser?.uid) });
+ }, [authUser?.uid]);
+
  // Theme init, analytics init, SPA pageview tracking, deferred widgets,
  // and toggleTheme are all managed by useUIState (hooks/useUIState.ts).
 

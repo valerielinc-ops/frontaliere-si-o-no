@@ -19,6 +19,7 @@
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 /** Migros Group job portal URL for Denner */
 export const DENNER_PORTAL_URL = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
@@ -124,7 +125,8 @@ export function parseDennerListingPage(html = '') {
 export function parseDennerDetailPage(html = '') {
   if (!html) return null;
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Location from JSON-LD or page content

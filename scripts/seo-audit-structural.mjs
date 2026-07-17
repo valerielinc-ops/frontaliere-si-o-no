@@ -16,6 +16,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { URL as NodeURL } from 'node:url';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
+import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 
 // Canton-aware: job-board query-fallback/azienda-canonical links live under
 // every canton's section (`cerca-lavoro-{slug}`, `find-jobs-{slug}`, …), not
@@ -115,7 +116,7 @@ function checkStructure(url, html) {
   }
 
   // 3. H1 exists
-  const h1Match = html.match(/<h1[^>]*>([^<]{0,200})/);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([^<]{0,200})/);
   const h1 = h1Match ? h1Match[1].trim() : '';
   if (!h1) {
     issues.push({ code: 'NO_H1', severity: 'high' });
@@ -127,7 +128,7 @@ function checkStructure(url, html) {
   if (/Annuncio non trovato|non è più disponibile o non è stato trovato/.test(html)) {
     issues.push({ code: 'NOT_FOUND_BANNER', severity: 'high' });
   }
-  const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+  const titleMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/);
   const title = titleMatch ? titleMatch[1] : '';
   if (/\|\s*A\s*\||\|\s*simulazione\s*\|/.test(title)) {
     issues.push({ code: 'TITLE_PLACEHOLDER', severity: 'high', detail: `title="${title}"` });

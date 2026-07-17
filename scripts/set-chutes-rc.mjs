@@ -20,6 +20,8 @@
  * param written. Missing envs are skipped silently.
  */
 
+import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
+
 const PROVIDER_KEYS = [
   {
     rcParam: 'CHUTES_API_KEY',
@@ -59,30 +61,18 @@ async function main() {
     }
   }
 
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  }
-  const rc = admin.remoteConfig();
-  const template = await rc.getTemplate();
-  template.parameters = template.parameters || {};
+  const rc = await getRemoteConfig();
+  const template = await fetchRcTemplate(rc);
 
   const today = new Date().toISOString().slice(0, 10);
   let changed = 0;
   for (const p of pending) {
-    const existing = template.parameters[p.rcParam]?.defaultValue?.value;
-    if (existing === p.value) {
+    if (stageRcParam(template, p.rcParam, p.value, `${p.description} (set ${today})`)) {
+      changed++;
+      console.log(`📝 Staged ${p.rcParam} for publish.`);
+    } else {
       console.log(`ℹ️  ${p.rcParam} already up-to-date.`);
-      continue;
     }
-    template.parameters[p.rcParam] = {
-      defaultValue: { value: p.value },
-      valueType: 'STRING',
-      description: `${p.description} (set ${today})`,
-    };
-    changed++;
-    console.log(`📝 Staged ${p.rcParam} for publish.`);
   }
 
   if (changed === 0) {
@@ -90,7 +80,7 @@ async function main() {
     return;
   }
 
-  await rc.publishTemplate(template, { force: true });
+  await publishRcTemplate(rc, template, changed);
   console.log(`✅ Published ${changed} LLM provider key(s) to Remote Config.`);
   console.log('   Next CI run of generate-article.yml will pick them up via load-rc-env.mjs.');
   console.log('   New free models are now live in DEFAULT_CHAIN.');

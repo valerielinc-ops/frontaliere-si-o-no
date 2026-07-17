@@ -37,6 +37,7 @@ import {
   classifyByRegex,
 } from './cluster-classifier-prompt.mjs';
 import { cascadedScore } from './scoring/cascadedScore.mjs';
+import { computeAdaptiveTopicCandidateDupJaccard } from './scoring/constants.mjs';
 
 // ── Paths (overridable via opts for tests) ─────────────────────
 export const PERFORMANCE_PATH = 'data/article-performance.json';
@@ -120,7 +121,10 @@ export const SCORE_WEIGHT_DEMAND = 0.6;
 export const SCORE_WEIGHT_DIVERSITY = 0.2;
 export const SCORE_WEIGHT_NOVELTY = 0.2;
 
-// Headline-vs-existing-title novelty Jaccard threshold.
+// Headline-vs-existing-title novelty Jaccard threshold. Base value only —
+// runtime gating uses computeAdaptiveTopicCandidateDupJaccard(existingTitles.length)
+// (scoring/constants.mjs) so the threshold scales with corpus size instead of
+// mechanically saturating (2026-07-17 sibling-pattern fix, AGENTS.md #6).
 export const NOVELTY_DUP_JACCARD = 0.7;
 
 // Source-quality multiplier bounds (2026-05-07). Applied to a headline's
@@ -139,7 +143,9 @@ export const CONSUMED_MAX_IDS = 500;
 export const CANDIDATE_MIN_SCORE = 0.6;
 
 // Jaccard threshold for "structurally similar to existing article".
-// Defense in depth on top of Phase 1B novelty check.
+// Defense in depth on top of Phase 1B novelty check. Base value only —
+// runtime default in isCandidateDuplicate is corpus-size-adaptive
+// (2026-07-17 sibling-pattern fix, AGENTS.md #6).
 export const CANDIDATE_DUP_JACCARD = 0.7;
 
 // ── Safe JSON loader ───────────────────────────────────────────
@@ -199,12 +205,13 @@ export function loadExistingItTitles(metaPath = 'services/locales/blog-meta-it.t
 }
 
 // ── Candidate-vs-existing duplicate check ──────────────────────
-export function isCandidateDuplicate(candidate, existingTitles, threshold = CANDIDATE_DUP_JACCARD) {
+export function isCandidateDuplicate(candidate, existingTitles, threshold) {
   if (!candidate || !candidate.keyword) return false;
   if (!Array.isArray(existingTitles) || existingTitles.length === 0) return false;
+  const effectiveThreshold = threshold != null ? threshold : computeAdaptiveTopicCandidateDupJaccard(existingTitles.length);
   const kwTokens = tokenize(candidate.keyword);
   for (const title of existingTitles) {
-    if (jaccardSimilarity(kwTokens, tokenize(title)) >= threshold) return true;
+    if (jaccardSimilarity(kwTokens, tokenize(title)) >= effectiveThreshold) return true;
   }
   return false;
 }
@@ -682,8 +689,9 @@ function computeClusterDiversityBonus(cluster, todayPicksByCluster) {
 }
 
 /**
- * Novelty bonus: 1.0 when the headline's max Jaccard with any
- * existing IT title is < NOVELTY_DUP_JACCARD; otherwise 0.
+ * Novelty bonus: 1.0 when the headline's max Jaccard with any existing IT
+ * title is below the corpus-size-adaptive topic-candidate-dup threshold
+ * (scoring/constants.mjs computeAdaptiveTopicCandidateDupJaccard); otherwise 0.
  *
  * @param {string} headline
  * @param {string[]} existingTitles
@@ -761,9 +769,10 @@ function _qualityDomain(item) {
 
 function computeNoveltyScore(headline, existingTitles) {
   if (!Array.isArray(existingTitles) || existingTitles.length === 0) return 1.0;
+  const threshold = computeAdaptiveTopicCandidateDupJaccard(existingTitles.length);
   const tokens = tokenize(headline);
   for (const title of existingTitles) {
-    if (jaccardSimilarity(tokens, tokenize(title)) >= NOVELTY_DUP_JACCARD) {
+    if (jaccardSimilarity(tokens, tokenize(title)) >= threshold) {
       return 0;
     }
   }

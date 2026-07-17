@@ -8559,6 +8559,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.title': 'Das Programm von Avanti con Ticino&Lavoro entscheiden auch die Tessiner',
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.excerpt': 'Die Partei Avanti con Ticino&Lavoro wird ihr Programm für die Legislaturperiode 2027–2031 den Realitäten des Territoriums vor seiner endgültigen Genehmigung vorlegen.',
     'blog.article.il-programma-di-avanti-con-ticino-lavoro-lo-decidono-anche-i-ticinesi.imageAlt': 'Panorama von Lugano mit dem See im Vordergrund',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Grenzgänger: Was sich mit der neuen Ersatzsteuer ab 2024 ändert',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Praktischer Leitfaden zu steuerlichen Neuerungen für Grenzgänger Italien-Schweiz nach dem Abkommen von 2020. Befreiungen, Beiträge und Verfahren.',
+    'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Steuerformular auf einem Holztisch in Bellinzona mit Kugelschreiber und schweizerisch-italienischen Steuerleitfäden',
 };
 
 export default blogMetaDe;

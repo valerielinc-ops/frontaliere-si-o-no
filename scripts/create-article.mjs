@@ -134,6 +134,7 @@ import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck.mjs';
 import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
+import { computeAdaptiveEvergreenThresholds } from './lib/scoring/constants.mjs';
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
@@ -275,6 +276,15 @@ const TOPICAL_KEYWORDS = [
   'sindacat', 'sciopero', 'ccl', 'contratto collettivo',
   // Education / training tied to work
   'formaz', 'apprendistat', 'tirocin',
+  // Local events / culture / leisure (2026-07-17): data-justified addition —
+  // 3 of the top 12 winners in data/article-performance.json's 30-day
+  // composite score are Ticino border-town events/discount-card content
+  // (venditti-estival-lugano-2026, estate-chiasso-2026-eventi,
+  // moon-stars-resident-discount-locarno-card), proving real traffic beyond
+  // strict frontaliere tax/work/permit topics. Deliberately narrow stems to
+  // limit false-positive risk (no generic 'weekend'/'sconto').
+  'festival', 'sagra', 'mercatin', 'fiera', 'manifestazion',
+  'spettacol', 'rassegna', 'concert',
 ];
 
 function hasTopicalSignal(text) {
@@ -1328,6 +1338,18 @@ const PRIORITY_EVERGREEN_TOPICS = [
   { keyword: 'trasporti pubblici ticino guida abbonamenti generali', angle: 'Guida generale ai trasporti pubblici in Ticino: rete Arcobaleno, tipologie di abbonamento, app utili per orari e biglietti' },
   { keyword: 'pensionarsi in svizzera per chi si trasferisce non frontaliere', angle: 'Andare in pensione in Svizzera per chi si trasferisce senza background da frontaliere: requisiti di residenza, fiscalità, qualità della vita' },
   { keyword: 'sport e tempo libero ticino strutture sportive', angle: 'Strutture sportive e attività per il tempo libero in Ticino: piscine, palestre, centri sportivi comunali, costi di iscrizione' },
+  // Local events/culture batch (2026-07-17): data-justified — see
+  // TOPICAL_KEYWORDS comment. Practical/cost-and-transport angle keeps
+  // continuity with the site's cross-border-resident niche while covering
+  // genuinely broad-appeal content proven to drive traffic.
+  { keyword: 'chiassoletteraria festival letterario chiasso date', angle: 'Chiassoletteraria: il festival letterario di Chiasso — programma, ospiti, ingresso libero, come raggiungerlo da chi vive nell\'area di confine' },
+  { keyword: 'locarno film festival biglietti piazza grande', angle: 'Locarno Film Festival: come vedere le proiezioni in Piazza Grande, prezzi, prenotazione, consigli per chi arriva dall\'Italia in giornata' },
+  { keyword: 'mercatini di natale ticino lugano bellinzona', angle: 'I mercatini di Natale in Ticino: Lugano, Bellinzona e Locarno a confronto — orari, bancarelle, come arrivare in treno o auto dal confine' },
+  { keyword: 'rabadan carnevale bellinzona programma', angle: 'Rabadan, il carnevale di Bellinzona: programma, cortei, come raggiungerlo dall\'area di confine, consigli per famiglie' },
+  { keyword: 'sagra dell uva mendrisio settembre', angle: 'La Sagra dell\'Uva di Mendrisio: date, corteo allegorico, degustazioni, come arrivare e parcheggiare da chi vive vicino al confine' },
+  { keyword: 'longlake festival lugano eventi gratuiti', angle: 'LongLake Festival a Lugano: calendario eventi gratuiti, location, come organizzare una serata dall\'altra parte del confine' },
+  { keyword: 'blues to bop lugano concerti gratuiti', angle: 'Blues to Bop a Lugano: date, concerti gratuiti in piazza, come organizzare la trasferta serale da chi vive vicino al confine' },
+  { keyword: 'fiera di lugano manifestazioni annuali', angle: 'Le principali fiere e manifestazioni annuali a Lugano: calendario, ingresso, cosa aspettarsi, utile per chi organizza la trasferta dal confine' },
 ];
 
 // ── News sources to auto-scan ───────────────────────────────
@@ -6328,6 +6350,11 @@ function evergreenTopicFamily(text) {
   // together so pre-flight rejects the whole neighborhood in one shot
   // instead of burning a generation attempt per addon.
   if (hasAny(['resid']) && hasAny(['comun', 'scelt'])) return 'residenza-comune';
+  // 2026-07-17: new local-events/culture family (data-justified — see
+  // TOPICAL_KEYWORDS comment). Deliberately NOT added to SATURATED_FAMILIES:
+  // this is a fresh, currently-unsaturated pool meant to give the evergreen
+  // fallback immediate headroom.
+  if (hasAny(['festival', 'sagr', 'fier', 'manifestazion', 'concert', 'mercatin', 'spettacol', 'rassegn'])) return 'eventi-locali';
   return null;
 }
 
@@ -6354,17 +6381,31 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   // post-generation `checkForDuplicates` TITLE_THRESHOLD — but left this
   // earlier gate untouched, so candidates could still be rejected here before
   // ever reaching the loosened post-gen check. Kept in sync with TITLE_THRESHOLD.
-  const PRE_FLIGHT_THRESHOLD = 0.72;
-  const FAMILY_TOKEN_OVERLAP_THRESHOLD = 0.50;
+  // Made corpus-size-adaptive 2026-07-17 (same staleness bug class as
+  // EMBEDDING_NEAR_DUP_COSINE): a fixed threshold saturates as the combined
+  // frontaliere+svizzera corpus grows, independent of true duplication —
+  // rejected all 219 evergreen candidates in one run. See constants.mjs.
+  const { titleJaccard: PRE_FLIGHT_THRESHOLD, familyOverlap: FAMILY_TOKEN_OVERLAP_THRESHOLD } =
+    computeAdaptiveEvergreenThresholds(existingArticles.length);
+  // Minimum distinctive (post-domain-stoplist) tokens required on BOTH sides
+  // before the title_jaccard signal fires — mirrors preFlightHeadlineCheck's
+  // TITLE_MIN_DISTINCTIVE guard (same fix already validated there for the
+  // same class of false positive: short text sharing only shared domain
+  // vocabulary like "frontaliere"/"svizzera"/"permesso" spiking Jaccard).
+  const TITLE_MIN_DISTINCTIVE = 3;
   // 'residenza-comune' added 2026-07-02 (#3138): pillar 8's base topic was
   // just published, making its 6 addon variants immediate near-duplicates.
   const SATURATED_FAMILIES = new Set(['permesso-g-b', 'lamal-cmi', 'avs-inps', 'telelavoro', 'credito-imposta', 'residenza-comune']);
+  const keywordDistinctive = filterDistinctive(tokenizeIt(keyword));
 
   for (const existing of existingArticles) {
     const existingText = `${existing.title || ''} ${existing.excerpt || ''} ${existing.id || ''}`;
-    const sim = jaccardSim(tokenizeIt(keyword), tokenizeIt(existing.title || ''));
-    if (sim >= PRE_FLIGHT_THRESHOLD) {
-      return { duplicate: true, signal: 'title_jaccard', sim, existingTitle: existing.title, existingId: existing.id };
+    const existingTitleDistinctive = filterDistinctive(tokenizeIt(existing.title || ''));
+    if (keywordDistinctive.length >= TITLE_MIN_DISTINCTIVE && existingTitleDistinctive.length >= TITLE_MIN_DISTINCTIVE) {
+      const sim = jaccardSim(keywordDistinctive, existingTitleDistinctive);
+      if (sim >= PRE_FLIGHT_THRESHOLD) {
+        return { duplicate: true, signal: 'title_jaccard', sim, existingTitle: existing.title, existingId: existing.id };
+      }
     }
 
     const existingFamily = evergreenTopicFamily(existingText);
@@ -6571,7 +6612,12 @@ function checkForDuplicates(data) {
   // just topically related, to hard-block; the combined weighted score still
   // catches genuinely near-duplicate articles with different wording.
   const ID_THRESHOLD = 0.72;       // stricter: reduce false-positive duplicate IDs
-  const TITLE_THRESHOLD = 0.72;    // near-identical title only (was 0.58)
+  // TITLE_THRESHOLD made corpus-size-adaptive 2026-07-17: kept in sync with
+  // preFlightEvergreenTopicCheck's titleJaccard (see constants.mjs) so an
+  // evergreen candidate approved by the pre-flight gate is never
+  // hard-rejected here post-generation — that would waste the exact LLM
+  // cycle the pre-flight gate exists to avoid.
+  const TITLE_THRESHOLD = computeAdaptiveEvergreenThresholds(existingArticles.length).titleJaccard; // near-identical title only (was 0.58, then fixed 0.72)
   const EXCERPT_THRESHOLD = 0.62;  // near-identical excerpt only (was 0.50)
   const COMBINED_THRESHOLD = 0.55; // catch semantically similar articles with different wording (was 0.48)
 

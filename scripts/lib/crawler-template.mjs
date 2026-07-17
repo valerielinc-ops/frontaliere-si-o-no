@@ -423,6 +423,10 @@ export function cleanCrawlerArtifacts(text) {
   return out.join('\n\n');
 }
 
+// Shared with build-plugins and tests — the implementation lives in a
+// zero-dependency module so the vite config graph doesn't inherit crawler deps.
+export { stripScriptsAndStyles } from './strip-scripts-styles.mjs';
+
 /**
  * Strip HTML tags and decode common entities. Use for description fields.
  */

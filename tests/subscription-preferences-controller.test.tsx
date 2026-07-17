@@ -41,6 +41,7 @@ const sampleAlert = (overrides: any = {}) => ({
  sectors: [],
  frequency: 'weekly',
  active: true,
+ paused: false,
  createdAt: 1714300000000,
  ...overrides,
 });
@@ -260,6 +261,83 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  await waitFor(() => expect(screen.getByText('Automatic')).toBeTruthy());
  });
 
+ it('pauses an alert via the pause button, writing `paused` never `active` (issue #4298 follow-up fix)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), paused: true },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { paused: true },
+ );
+ });
+ await waitFor(() => expect(screen.getByText('Paused')).toBeTruthy());
+ // The alert must stay in the list — pausing never removes/hides it.
+ expect(screen.getByText('Software Engineer')).toBeTruthy();
+ });
+
+ it('resumes a paused alert via the resume button, still visible from get_full_status (issue #4298 follow-up fix)', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: true })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({
+ success: true,
+ alert: { ...sampleAlert(), paused: false },
+ });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ // Regression guard: a paused alert returned by get_full_status must render,
+ // not be silently dropped.
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+ expect(screen.getByText('Paused')).toBeTruthy();
+
+ fireEvent.click(screen.getByRole('button', { name: /^Resume$/ }));
+ await waitFor(() => {
+ expect(subs.updateJobAlert).toHaveBeenCalledWith(
+ 'user@example.com',
+ 'abc123',
+ 'alert1',
+ { paused: false },
+ );
+ });
+ await waitFor(() => expect(screen.queryByText('Paused')).toBeNull());
+ });
+
+ it('reverts the optimistic pause when updateJobAlert fails', async () => {
+ (subs.getFullSubscriptionStatus as any).mockResolvedValue(
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
+ );
+ (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
+
+ render(
+ <SubscriptionPreferencesController mode="token" email="user@example.com" token="abc123" />,
+ );
+ await waitFor(() => expect(screen.getByText('Software Engineer')).toBeTruthy());
+
+ fireEvent.click(screen.getByRole('button', { name: /^Pause$/ }));
+ await waitFor(() => {
+ expect(screen.getByRole('alert')).toBeTruthy();
+ });
+ // Reverted: still shows the "Pause" action, not "Paused".
+ expect(screen.getByRole('button', { name: /^Pause$/ })).toBeTruthy();
+ expect(screen.queryByText('Paused')).toBeNull();
+ });
+
  it('opens the edit form populated from the alert and saves on Save', async () => {
  (subs.getFullSubscriptionStatus as any).mockResolvedValue(
  okStatus({
@@ -434,5 +512,18 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/authCreateAlert/);
  expect(src).toMatch(/import\(['"]firebase\/firestore['"]\)/);
  expect(src).toMatch(/deleteDoc\(/);
+ });
+
+ it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
+ expect(src).toMatch(/handleTogglePause/);
+ expect(src).toMatch(/onTogglePause/);
+ // Regression guard: authLoadFullStatus MUST skip active===false docs —
+ // `active` is solely the soft-delete flag; a soft-deleted alert must
+ // never resurrect as "paused" (that would un-opt-out a user).
+ expect(src).toMatch(/if \(a\.active === false\) return;/);
+ // Regression guard: pause/resume must go through the dedicated `paused`
+ // field, never `active` — the two must never collide again.
+ expect(src).toMatch(/paused:\s*nextPaused/);
+ expect(src).not.toMatch(/active:\s*nextActive/);
  });
 });

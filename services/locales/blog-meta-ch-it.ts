@@ -1183,6 +1183,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.title': 'Dichiarazione redditi agricoltura: occhio alle colture',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.excerpt': 'Le variazioni delle colture influenzano la dichiarazione dei redditi 2026. Ecco cosa monitorare per una corretta gestione fiscale dell\'azienda agricola.',
     'blog.article.dichiarazione-redditi-agricoltura-variazioni.imageAlt': 'Campi agricoli in un paesaggio rurale svizzero',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.title': 'Traffico in Svizzera: cosa significa per gli svizzeri',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.excerpt': 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi nel 2023, secondo un rapporto dell\'Ufficio federale di statistica.',
+    'blog.article.traffico-aumenta-costi-crescono-svizzera.imageAlt': 'Immagine di un traffico in aumento in una città del Ticino',
+    'blog.article.traffico-da-record.title': 'Traffico da record: costi per 117 miliardi di franchi e auto sempre in testa',
+    'blog.article.traffico-da-record.excerpt': 'Il traffico in Svizzera ha generato costi per circa 117 miliardi di franchi. L\'automobile è il mezzo di trasporto dominante.',
+    'blog.article.traffico-da-record.imageAlt': 'Lugano, vista panoramica della città.',
 };
 
 export default blogMetaChIt;

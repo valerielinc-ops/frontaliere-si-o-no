@@ -28,7 +28,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -116,7 +116,7 @@ async function fetchDetailContent(detailUrl) {
   }
 
   let title = '';
-  const titleMatch = html.match(/<h1\s+class="publication-title"[^>]*>([\s\S]*?)<\/h1>/);
+  const titleMatch = stripScriptsAndStyles(html).match(/<h1\s+class="publication-title"[^>]*>([\s\S]*?)<\/h1>/);
   if (titleMatch) title = normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, '')));
 
   // Metas block (Référence / Type de Contrat / Taux / Date d'entrée)

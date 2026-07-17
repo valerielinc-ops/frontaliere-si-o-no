@@ -41,6 +41,7 @@ import {
   clusterTopQueries,
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
+import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -69,10 +70,6 @@ const DAYS = daysIdx !== -1 ? parseInt(args[daysIdx + 1], 10) || 30 : 30;
 // ── Helpers ─────────────────────────────────────────────────
 function log(emoji, msg) {
   if (!flags.json) console.log(`${emoji}  ${msg}`);
-}
-
-function sleep(ms) {
-  return new Promise(r => setTimeout(r, ms));
 }
 
 function fmtDate(d) {
@@ -322,48 +319,6 @@ function reportSeoSerpABTest(report) {
   }
 
   return summary;
-}
-
-async function fetchRetry(url, options = {}, retries = 2, timeoutMs = 0) {
-  for (let attempt = 1; attempt <= retries + 1; attempt++) {
-    try {
-      const fetchOptions = { ...options };
-      if (timeoutMs > 0) {
-        fetchOptions.signal = AbortSignal.timeout(timeoutMs);
-      }
-      const res = await fetch(url, fetchOptions);
-      if (res.ok) return res;
-      if ((res.status === 429 || res.status >= 500) && attempt <= retries) {
-        const delay = res.status === 429 ? 10000 * attempt : 2000 * attempt;
-        await sleep(delay);
-        continue;
-      }
-      return res;
-    } catch (err) {
-      if (attempt <= retries) {
-        await sleep(2000 * attempt);
-        continue;
-      }
-      throw err;
-    }
-  }
-}
-
-// ── Service Account Auth (for Admin API write operations) ───
-async function getServiceAccountToken(scopes) {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) return null;
-  try {
-    const { GoogleAuth } = await import('google-auth-library');
-    const auth = new GoogleAuth({ scopes });
-    const client = await auth.getClient();
-    // Log SA email for diagnostics (not a secret — it's a public GCP identifier)
-    if (client.email) log('ℹ️', `Using service account: ${client.email}`);
-    const { token } = await client.getAccessToken();
-    return token;
-  } catch (e) {
-    log('⚠️', `Service account auth failed: ${e.message}`);
-    return null;
-  }
 }
 
 // ── OAuth2 Auth ─────────────────────────────────────────────
@@ -780,7 +735,7 @@ async function reportPageSpeed() {
 // ═══════════════════════════════════════════════════════════
 async function reportGA4(token) {
   // GA4 property ID is a public numeric identifier, not a secret
-  const propertyId = process.env.GA4_PROPERTY_ID || 'properties/524485296';
+  const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
   if (!propertyId || propertyId === 'properties/XXXXXXXX') {
     log('ℹ️', 'GA4_PROPERTY_ID non configurato — skip report GA4');
     return null;
@@ -1513,7 +1468,7 @@ async function reportGA4(token) {
     const adminToken = await getServiceAccountToken([
       'https://www.googleapis.com/auth/analytics.edit',
       'https://www.googleapis.com/auth/analytics.readonly',
-    ]);
+    ], { logInfo: (msg) => log('ℹ️', msg), logError: (msg) => log('⚠️', msg) });
     const adminHeaders = adminToken
       ? { Authorization: `Bearer ${adminToken}`, 'Content-Type': 'application/json' }
       : headers; // fallback to OAuth2 (will fail with 403 if scopes are insufficient)

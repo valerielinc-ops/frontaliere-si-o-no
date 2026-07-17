@@ -29,7 +29,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -300,7 +300,7 @@ function extractColumnValue(rowHtml, elementId) {
  */
 export function parseSpitalDavosDetailPage(html = '', fallbackTitle = '') {
   // Extract title from <title> tag (detail pages have no <h1>)
-  const titleTagMatch = html.match(/<title>([^<]+)<\/title>/);
+  const titleTagMatch = stripScriptsAndStyles(html).match(/<title>([^<]+)<\/title>/);
   const title = normalizeSpace(decodeEntities(titleTagMatch ? titleTagMatch[1] : fallbackTitle));
 
   // Extract all meaningful content blocks

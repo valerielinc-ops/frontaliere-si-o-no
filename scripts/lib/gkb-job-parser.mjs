@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -309,7 +309,7 @@ function extractSpanText(rowHtml, elementId) {
  */
 export function parseGkbDetailPage(html = '', fallbackTitle = '') {
   // Extract title from h1
-  const h1Match = html.match(/<h1[^>]*class="contenttitle"[^>]*>([^<]+)<\/h1>/);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*class="contenttitle"[^>]*>([^<]+)<\/h1>/);
   const title = normalizeSpace(decodeEntities(h1Match ? h1Match[1] : fallbackTitle));
 
   // Extract all customdatablock content sections

@@ -14,6 +14,7 @@ const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'))
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 const CalculatorPaywall = lazyRetry(() => import('./CalculatorPaywall'));
+const CalculatorJobBridge = lazyRetry(() => import('./CalculatorJobBridge'));
 import { shouldShowPaywallFromStorage, SIM_COMPLETE_COUNTER_KEY, VISIT_COUNTER_KEY } from './CalculatorPaywall';
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -788,6 +789,11 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza */}
  <Suspense fallback={null}>
  <ConsultingCTA />
+ </Suspense>
+
+ {/* Calculator↔job-board reverse bridge (issue #4307) */}
+ <Suspense fallback={null}>
+ <CalculatorJobBridge annualIncomeCHF={inputs.annualIncomeCHF} />
  </Suspense>
 
  {/* Source methodology — AI SEO citability */}

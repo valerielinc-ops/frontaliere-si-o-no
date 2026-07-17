@@ -36,6 +36,7 @@
  *   <div itemprop="description">FULL DESCRIPTION</div>
  */
 import { locateTagByAttribute, extractBalancedTagBlock } from './hospital-custom-html-helpers.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 export const PKB_KEY = 'pkb-private-bank';
 export const COMPANY_NAME = 'PKB Private Bank SA';
@@ -192,7 +193,7 @@ export function parsePkbListingPage(html, baseUrl = PKB_BASE) {
 export function parsePkbDetailPage(html, pageUrl = '') {
   if (!html || typeof html !== 'string') return null;
 
-  const h1Match = html.match(/<h1[^>]*itemprop=["']title["'][^>]*>([\s\S]*?)<\/h1>/i);
+  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*itemprop=["']title["'][^>]*>([\s\S]*?)<\/h1>/i);
   let title = '';
   if (h1Match) {
     title = normalizeSpace(stripHtml(h1Match[1]))

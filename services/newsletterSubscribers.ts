@@ -571,6 +571,18 @@ export async function captureNewsletterSubscriber(
 
  await setDoc(ref, mergedData, { merge: true });
 
+ // GA4 user-scoped `is_newsletter_subscriber` custom dimension (analytics
+ // Stage 1, revenue-per-user segmentation). Fired on every genuine
+ // new/confirmed subscribe write through this upsert path — guarded on
+ // `status !== 'unsubscribed'` so a future unsubscribe-via-upsert caller
+ // (none today; unsubscribe currently goes through a separate Cloud
+ // Function endpoint) can't mis-flag the user as a subscriber.
+ if (subscriptionState.status !== 'unsubscribed') {
+ import('@/services/analytics').then(({ Analytics }) => {
+ Analytics.setUserSegmentFlags({ isNewsletterSubscriber: true });
+ }).catch(() => {});
+ }
+
  const eventType: NewsletterEventType =
  subscriptionState.status === 'confirmed' && !wasConfirmed
  ? 'confirm'
@@ -903,7 +915,16 @@ export type SubscriptionAlertSummary = {
   * Absent/false on legacy alerts predating the engine: engine-managed.
   */
  frequencyOverride: boolean;
+ /**
+ * SOLELY the soft-delete flag — `false` means the doc was soft-deleted by
+ * services/jobAlertService.ts's deleteAlert() and must never be surfaced.
+ * `get_full_status` already filters these out server-side, so every alert
+ * reaching the client has `active: true`. Never write this via update —
+ * use `paused` for pause/resume (issue #4298 follow-up fix).
+ */
  active: boolean;
+ /** Pause/resume toggle, orthogonal to `active`. See `active` doc above. */
+ paused: boolean;
  createdAt: number | null;
 };
 
@@ -946,6 +967,7 @@ export async function getFullSubscriptionStatus(
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
  frequencyOverride: a.frequencyOverride === true,
  active: a.active !== false,
+ paused: a.paused === true,
  createdAt: typeof a.createdAt === 'number' ? a.createdAt : null,
  }))
  : [],
@@ -1018,6 +1040,8 @@ export type JobAlertSummary = {
  frequency: JobAlertFrequency | string;
  frequencyOverride: boolean;
  active: boolean;
+ /** Pause/resume toggle, orthogonal to `active`. Issue #4298 follow-up fix. */
+ paused: boolean;
  createdAt: string | number | null;
  lastMatchedAt?: string | null;
  email?: string | null;
@@ -1030,7 +1054,12 @@ export type JobAlertPatch = {
  frequency?: JobAlertFrequency;
  /** Use `in` semantics at the call site: pass `true` to pin, `false` to reset to engine-managed. */
  frequencyOverride?: boolean;
- active?: boolean;
+ /**
+ * Pause/resume toggle. Never send `active` here — that field is SOLELY the
+ * soft-delete flag (services/jobAlertService.ts's deleteAlert()); update_alert
+ * on the backend ignores it. Issue #4298 follow-up fix.
+ */
+ paused?: boolean;
 };
 
 export type JobAlertCreatePayload = {
@@ -1049,6 +1078,7 @@ function normalizeAlertResponse(a: any): JobAlertSummary {
  frequency: typeof a?.frequency === 'string' ? a.frequency : 'weekly',
  frequencyOverride: a?.frequencyOverride === true,
  active: a?.active !== false,
+ paused: a?.paused === true,
  createdAt: a?.createdAt ?? null,
  lastMatchedAt: a?.lastMatchedAt ?? null,
  email: typeof a?.email === 'string' ? a.email : null,
@@ -1082,7 +1112,8 @@ export async function updateJobAlert(
  // engine-managed (`false`), not just pin (`true`) — see
  // components/preferences/SubscriptionPreferencesController.tsx.
  if ('frequencyOverride' in patch) params.set('frequency_override', patch.frequencyOverride ? 'true' : 'false');
- if (patch.active !== undefined) params.set('active', patch.active ? 'true' : 'false');
+ // `in` so callers can deliberately resume (`false`), not just pause (`true`).
+ if ('paused' in patch) params.set('paused', patch.paused ? 'true' : 'false');
  const url = `${FUNCTIONS_BASE}/newsletterManageSubscription?${params.toString()}`;
  const resp = await fetch(url);
  const data = await resp.json();

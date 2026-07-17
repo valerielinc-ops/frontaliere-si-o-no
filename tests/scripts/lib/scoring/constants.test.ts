@@ -15,6 +15,15 @@ import {
   EMBEDDING_NEAR_DUP_COSINE_CEILING,
   EMBEDDING_NEAR_DUP_CORPUS_BASELINE,
   computeAdaptiveNearDupCosine,
+  EVERGREEN_TITLE_JACCARD,
+  EVERGREEN_TITLE_JACCARD_CEILING,
+  EVERGREEN_FAMILY_OVERLAP,
+  EVERGREEN_FAMILY_OVERLAP_CEILING,
+  EVERGREEN_PREFLIGHT_CORPUS_BASELINE,
+  computeAdaptiveEvergreenThresholds,
+  TOPIC_CANDIDATE_DUP_JACCARD,
+  TOPIC_CANDIDATE_DUP_JACCARD_CEILING,
+  computeAdaptiveTopicCandidateDupJaccard,
 } from '../../../../scripts/lib/scoring/constants.mjs';
 
 describe('computeAdaptiveNearDupCosine', () => {
@@ -59,6 +68,101 @@ describe('computeAdaptiveNearDupCosine', () => {
     let prev = -1;
     for (const n of sizes) {
       const v = computeAdaptiveNearDupCosine(n);
+      expect(v).toBeGreaterThanOrEqual(prev);
+      prev = v;
+    }
+  });
+});
+
+// computeAdaptiveEvergreenThresholds (2026-07-17):
+// preFlightEvergreenTopicCheck's title-Jaccard and family-token-overlap
+// thresholds are checked against the combined frontaliere+svizzera corpus
+// (~3.2k articles) and, like the embedding gate above, saturate as that
+// corpus grows — a 2026-07-17 run rejected all 219 evergreen fallback
+// candidates in one pass, producing zero articles. Same log10 scaling fix.
+describe('computeAdaptiveEvergreenThresholds', () => {
+  it('returns the unmodified base thresholds at/below the baseline corpus size', () => {
+    const atBaseline = computeAdaptiveEvergreenThresholds(EVERGREEN_PREFLIGHT_CORPUS_BASELINE);
+    expect(atBaseline.titleJaccard).toBeCloseTo(EVERGREEN_TITLE_JACCARD, 6);
+    expect(atBaseline.familyOverlap).toBeCloseTo(EVERGREEN_FAMILY_OVERLAP, 6);
+
+    const belowBaseline = computeAdaptiveEvergreenThresholds(50);
+    expect(belowBaseline.titleJaccard).toBe(EVERGREEN_TITLE_JACCARD);
+    expect(belowBaseline.familyOverlap).toBe(EVERGREEN_FAMILY_OVERLAP);
+  });
+
+  it('relaxes upward for a 10x-larger corpus (matches today\'s combined-corpus scale)', () => {
+    const relaxed = computeAdaptiveEvergreenThresholds(EVERGREEN_PREFLIGHT_CORPUS_BASELINE * 10);
+    expect(relaxed.titleJaccard).toBeCloseTo(0.8, 6);
+    expect(relaxed.familyOverlap).toBeCloseTo(0.58, 6);
+    expect(relaxed.titleJaccard).toBeLessThan(EVERGREEN_TITLE_JACCARD_CEILING);
+    expect(relaxed.familyOverlap).toBeLessThan(EVERGREEN_FAMILY_OVERLAP_CEILING);
+  });
+
+  it('never exceeds the effective ceiling for a very large corpus', () => {
+    const huge = computeAdaptiveEvergreenThresholds(10_000_000);
+    expect(huge.titleJaccard).toBe(EVERGREEN_TITLE_JACCARD_CEILING);
+    expect(huge.familyOverlap).toBe(EVERGREEN_FAMILY_OVERLAP_CEILING);
+  });
+
+  it('never drops below the baseline for a tiny/new corpus', () => {
+    expect(computeAdaptiveEvergreenThresholds(1).titleJaccard).toBe(EVERGREEN_TITLE_JACCARD);
+    expect(computeAdaptiveEvergreenThresholds(0).titleJaccard).toBe(EVERGREEN_TITLE_JACCARD);
+  });
+
+  it('falls back to the baseline for invalid input', () => {
+    expect(computeAdaptiveEvergreenThresholds(NaN).titleJaccard).toBe(EVERGREEN_TITLE_JACCARD);
+    expect(computeAdaptiveEvergreenThresholds(-5).titleJaccard).toBe(EVERGREEN_TITLE_JACCARD);
+  });
+
+  it('is monotonically non-decreasing in corpus size', () => {
+    const sizes = [100, 300, 500, 1000, 3246, 5000, 50_000];
+    let prevTitle = -1;
+    let prevFamily = -1;
+    for (const n of sizes) {
+      const v = computeAdaptiveEvergreenThresholds(n);
+      expect(v.titleJaccard).toBeGreaterThanOrEqual(prevTitle);
+      expect(v.familyOverlap).toBeGreaterThanOrEqual(prevFamily);
+      prevTitle = v.titleJaccard;
+      prevFamily = v.familyOverlap;
+    }
+  });
+});
+
+describe('computeAdaptiveTopicCandidateDupJaccard', () => {
+  it('returns the unmodified base threshold at/below the baseline corpus size', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(EVERGREEN_PREFLIGHT_CORPUS_BASELINE)).toBeCloseTo(
+      TOPIC_CANDIDATE_DUP_JACCARD,
+      6,
+    );
+    expect(computeAdaptiveTopicCandidateDupJaccard(50)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('relaxes upward for a 10x-larger corpus', () => {
+    const relaxed = computeAdaptiveTopicCandidateDupJaccard(EVERGREEN_PREFLIGHT_CORPUS_BASELINE * 10);
+    expect(relaxed).toBeCloseTo(0.78, 6);
+    expect(relaxed).toBeLessThan(TOPIC_CANDIDATE_DUP_JACCARD_CEILING);
+  });
+
+  it('never exceeds the effective ceiling for a very large corpus', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(10_000_000)).toBe(TOPIC_CANDIDATE_DUP_JACCARD_CEILING);
+  });
+
+  it('never drops below the base for a tiny/new corpus', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(1)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+    expect(computeAdaptiveTopicCandidateDupJaccard(0)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('falls back to the base for invalid input', () => {
+    expect(computeAdaptiveTopicCandidateDupJaccard(NaN)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+    expect(computeAdaptiveTopicCandidateDupJaccard(-5)).toBe(TOPIC_CANDIDATE_DUP_JACCARD);
+  });
+
+  it('is monotonically non-decreasing in corpus size', () => {
+    const sizes = [100, 300, 500, 1000, 3246, 5000, 50_000];
+    let prev = -1;
+    for (const n of sizes) {
+      const v = computeAdaptiveTopicCandidateDupJaccard(n);
       expect(v).toBeGreaterThanOrEqual(prev);
       prev = v;
     }

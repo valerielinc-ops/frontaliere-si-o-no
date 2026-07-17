@@ -32,6 +32,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { getRemoteConfig } from './lib/remote-config-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -228,12 +229,7 @@ function decideVariant({ currentVariant, history, currentKpi, nowIso }) {
 }
 
 async function getRemoteConfigTemplate() {
-  const adminMod = await import('firebase-admin');
-  const admin = adminMod.default || adminMod;
-  if (!admin.apps.length) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  }
-  const rc = admin.remoteConfig();
+  const rc = await getRemoteConfig();
   const template = await rc.getTemplate();
   return { rc, template };
 }

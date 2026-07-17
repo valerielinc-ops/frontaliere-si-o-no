@@ -112,8 +112,15 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  }
  }, [inputs]);
 
- // Hydrate simulation inputs from URL query params (runs once on mount)
+ // Hydrate simulation inputs from URL query params. Re-runs on activeTab
+ // change (not just mount) so an in-session SPA deep-link into the
+ // calculator — e.g. the job-board "netto stimato" widget's
+ // `?reddito=...&cantone=...` link (issue #4307) — actually hydrates
+ // `inputs`, not just the URL bar. Idempotent: cleanSimulationParams()
+ // strips recognized params after the first successful hydrate, so a
+ // later activeTab flip with no simulation params left is a no-op.
  useEffect(() => {
+ if (activeTab !== 'calculator') return;
  if (hasSimulationParams()) {
  const decoded = decodeSimulationParams(window.location.search);
  if (decoded && Object.keys(decoded).length > 0) {
@@ -123,7 +130,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  Analytics.trackUIInteraction('calcolatore', 'url-state', 'hydrate', 'auto', Object.keys(decoded).join(','));
  }
  }
- }, []);
+ }, [activeTab]);
 
  // Apply SEO landing presets when seoLanding changes
  useEffect(() => {

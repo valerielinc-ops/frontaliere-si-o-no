@@ -127,7 +127,12 @@ function serializeAlertDoc(id, data) {
  sectors: Array.isArray(data?.sectors) ? data.sectors : [],
  frequency: typeof data?.frequency === 'string' ? data.frequency : 'weekly',
  frequencyOverride: data?.frequencyOverride === true,
+ // `active` is SOLELY the soft-delete flag written by
+ // services/jobAlertService.ts's deleteAlert() — never a pause signal.
+ // `paused` is the dedicated, orthogonal pause/resume flag written by
+ // update_alert below. Issue #4298 follow-up fix.
  active: data?.active !== false,
+ paused: data?.paused === true,
  email: typeof data?.email === 'string' ? data.email : null,
  createdAt: created && typeof created.toMillis === 'function'
  ? new Date(created.toMillis()).toISOString()
@@ -138,7 +143,7 @@ function serializeAlertDoc(id, data) {
  };
 }
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  const normalizedEmail = normalizeEmail(email);
 
@@ -284,7 +289,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const alerts = [];
  alertsSnap.forEach((d) => {
  const a = d.data() || {};
- // Skip soft-deleted alerts (active === false set by deleteAlert).
+ // Issue #4298 follow-up fix: `active` is SOLELY the soft-delete flag written
+ // by services/jobAlertService.ts's deleteAlert() (updateDoc active:false +
+ // unsubscribed_at) — a soft-deleted doc must never reappear here. Pause is
+ // tracked by the dedicated, orthogonal `paused` field written by update_alert
+ // / authUpdateAlert; a paused-but-not-deleted alert (active:true, paused:true)
+ // stays visible so the user can resume it.
  if (a.active === false) return;
  const created = a.createdAt;
  alerts.push({
@@ -294,7 +304,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
  sectors: Array.isArray(a.sectors) ? a.sectors : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
  frequencyOverride: a.frequencyOverride === true,
- active: a.active !== false,
+ active: true,
+ paused: a.paused === true,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
  });
@@ -402,8 +413,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const frequencyOverrideBool = normalizeBool(frequencyOverride);
  if (frequencyOverrideBool !== undefined) { patch.frequencyOverride = frequencyOverrideBool; fields.push('frequencyOverride'); }
 
- const activeBool = normalizeBool(active);
- if (activeBool !== undefined) { patch.active = activeBool; fields.push('active'); }
+ // Issue #4298 follow-up fix: update_alert never writes `active` — that field
+ // is SOLELY the soft-delete flag (services/jobAlertService.ts's deleteAlert()).
+ // Pause/resume goes through the dedicated `paused` field instead, so it can
+ // never collide with a real delete. `active` param is intentionally ignored here.
+ void active;
+ const pausedBool = normalizeBool(paused);
+ if (pausedBool !== undefined) { patch.paused = pausedBool; fields.push('paused'); }
 
  if (fields.length === 0) {
  return { status: 400, json: { success: false, error: 'no_fields_to_update' } };

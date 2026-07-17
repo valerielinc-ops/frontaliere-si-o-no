@@ -12,6 +12,7 @@
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_HOST = 'www.mikron.com';
@@ -219,7 +220,8 @@ function dedupeByUrl(jobs = []) {
 export function parseMikronJobDetail(html = '') {
   if (!html) return { title: '', description: '', location: '', division: '' };
 
-  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const titleSource = stripScriptsAndStyles(html);
+  const titleMatch = titleSource.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
 
   // Strategy 1: Look for the main content area (article/main/content nodes)

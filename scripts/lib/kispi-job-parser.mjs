@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -123,7 +123,7 @@ function extractJobPostingLd(html) {
 
 function extractTitleFromHtml(html) {
   // <title>Kinderspital Zürich: {TITLE}</title>
-  const m = html.match(/<title>([\s\S]*?)<\/title>/i);
+  const m = stripScriptsAndStyles(html).match(/<title>([\s\S]*?)<\/title>/i);
   if (!m) return '';
   const raw = normalizeSpace(decodeEntities(m[1])).replace(/<[^>]+>/g, '');
   return raw.replace(/^Kinderspital\s+Zürich:\s*/i, '').trim();

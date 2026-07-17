@@ -18,7 +18,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* -- Constants ------------------------------------------------- */
@@ -263,7 +263,7 @@ function parseDetailPage(html = '') {
   };
 
   // Extract subtitle for pensum info
-  const subtitleMatch = html.match(/<h2\s+id="bSubTitle"[^>]*>([\s\S]*?)<\/h2>/i);
+  const subtitleMatch = stripScriptsAndStyles(html).match(/<h2\s+id="bSubTitle"[^>]*>([\s\S]*?)<\/h2>/i);
   if (subtitleMatch) {
     const subtitle = normalizeSpace(stripHtml(subtitleMatch[1]));
     const pensumMatch = subtitle.match(/(\d+)\s*[-–]\s*(\d+)\s*%/);

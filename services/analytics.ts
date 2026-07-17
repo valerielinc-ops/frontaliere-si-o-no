@@ -1336,6 +1336,25 @@ export const Analytics = {
  setProps(props);
  },
 
+ /**
+ * GA4 user-scoped custom dimensions per segmentazione revenue-per-user
+ * (Stage 1 — registrazione/newsletter/job-alert). Booleani SOLO — mai
+ * email/nome/altro PII come user property (ToS GA4 + GDPR). Nomi param
+ * fissi: `is_registered` / `is_newsletter_subscriber` / `is_job_alert_subscriber`
+ * (contratto condiviso con GA4 Admin custom-dimension registration + report script).
+ */
+ setUserSegmentFlags: (flags: {
+ isRegistered?: boolean;
+ isNewsletterSubscriber?: boolean;
+ isJobAlertSubscriber?: boolean;
+ }) => {
+ const props: Record<string, string> = {};
+ if (flags.isRegistered !== undefined) props.is_registered = String(flags.isRegistered);
+ if (flags.isNewsletterSubscriber !== undefined) props.is_newsletter_subscriber = String(flags.isNewsletterSubscriber);
+ if (flags.isJobAlertSubscriber !== undefined) props.is_job_alert_subscriber = String(flags.isJobAlertSubscriber);
+ setProps(props);
+ },
+
  // ─── App-Specific Events (snake_case, max 40 char) ──────────
 
  /**
@@ -1886,7 +1905,7 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill';
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -1908,6 +1927,13 @@ export const Analytics = {
  log('job_alert_deleted', {});
  },
 
+ /** Issue #4298 follow-up fix: alert management pause/resume toggle in
+  * /profilo/ and /preferenze-newsletter/. `nextPaused: true` = paused,
+  * `false` = resumed. */
+ trackJobAlertPauseToggled: (nextPaused: boolean) => {
+ log('job_alert_pause_toggled', { alert_paused: nextPaused });
+ },
+
  /**
   * User-intent interaction on a Job Alert conversion surface. Only fire for
   * actions the USER took (click, dismiss, accept, success, error).
@@ -1916,7 +1942,7 @@ export const Analytics = {
   * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -1934,7 +1960,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {
@@ -1951,7 +1977,7 @@ export const Analytics = {
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt',
+ surface: 'job_detail_prompt' | 'job_board_filters',
  reason:
  | 'no_auth'
  | 'no_category'
@@ -1995,6 +2021,26 @@ export const Analytics = {
  match_category: (category || '(none)').slice(0, 80),
  match_canton: cantonCode || '(none)',
  });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): "netto stimato" widget became visible on a job detail. */
+ trackJobNetWidgetImpression: (jobId: string) => {
+ log('job_net_widget_impression', { job_id: jobId });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): user tapped a "netto stimato" widget row/CTA. */
+ trackJobNetWidgetClick: (jobId: string, variant: 'frontaliere' | 'resident' | 'cta') => {
+ log('job_net_widget_click', { job_id: jobId, widget_variant: variant });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): calculator landed pre-filled via a deep-link (?reddito=&cantone=). */
+ trackCalculatorDeepLinkArrival: (source: string) => {
+ log('calculator_deep_link_arrival', { arrival_source: source });
+ },
+
+ /** Calculator↔job-board bridge (issue #4307): user clicked the reverse-bridge "Offerte nella tua fascia" block. */
+ trackReverseBridgeClick: (canton: string, matchedCount: number) => {
+ log('calculator_reverse_bridge_click', { bridge_canton: canton, bridge_matched_count: matchedCount });
  },
 };
 

@@ -76,6 +76,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
+import { stripScriptsAndStyles } from '../crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
 import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
 
@@ -772,7 +773,7 @@ function buildJobs2WebPageUrl(url, page) {
 function parseHtmlCareerDetail(html = '') {
   if (!html) return null;
   const titleMatch =
-    html.match(/<title>Career Opportunities:\s*(.+?)\s*\((\d+)\)\s*<\/title>/i);
+    stripScriptsAndStyles(html).match(/<title>Career Opportunities:\s*(.+?)\s*\((\d+)\)\s*<\/title>/i);
   const title = titleMatch ? normalizeSpace(stripTags(titleMatch[1])) : '';
   const reqId = titleMatch ? titleMatch[2] : '';
   // Metadata: <b>{reqId}</b><b /><b>{AREA}</b><b>{COUNTRY}</b>

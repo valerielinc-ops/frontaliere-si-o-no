@@ -38,7 +38,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, buildJobSlug, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, buildJobSlug, stripHtml, fetchHtml, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
@@ -224,7 +224,7 @@ function parseDetailPage(html = '') {
   if (!html) return null;
 
   const ogTitleMatch = html.match(/property="og:title"\s+content="([^"]*)"/i);
-  const titleFallback = html.match(/<title>([\s\S]*?)\s*(?:Stellendetails|D[ée]tails du poste|Dettagli.*?impiego)?\s*\|\s*Suva<\/title>/i);
+  const titleFallback = stripScriptsAndStyles(html).match(/<title>([\s\S]*?)\s*(?:Stellendetails|D[ée]tails du poste|Dettagli.*?impiego)?\s*\|\s*Suva<\/title>/i);
   const title = normalizeSpace(
     stripHtml(ogTitleMatch ? ogTitleMatch[1] : titleFallback ? titleFallback[1] : '')
   );

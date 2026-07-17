@@ -23,6 +23,7 @@
  */
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -116,7 +117,7 @@ export function inferGiorgioArmaniCanton(title = '', location = '') {
  * Invalid pages have just: "Career Opportunities"
  */
 export function isValidJobPage(html = '') {
-  const titleMatch = html.match(/<title>([^<]*)<\/title>/i);
+  const titleMatch = stripScriptsAndStyles(html).match(/<title>([^<]*)<\/title>/i);
   const title = titleMatch ? titleMatch[1].trim() : '';
   return /Career Opportunities:\s*.+\(\d+\)/.test(title);
 }
@@ -127,7 +128,7 @@ export function isValidJobPage(html = '') {
  */
 export function quickExtractJobMeta(html = '') {
   // Title from <title> tag
-  const titleMatch = html.match(/<title>Career Opportunities:\s*(.+?)\s*\(\d+\)\s*<\/title>/i);
+  const titleMatch = stripScriptsAndStyles(html).match(/<title>Career Opportunities:\s*(.+?)\s*\(\d+\)\s*<\/title>/i);
   const title = titleMatch ? normalizeSpace(htmlToText(titleMatch[1])) : '';
 
   // Country from metadata div: <b>Switzerland</b> or <b>Italy</b>

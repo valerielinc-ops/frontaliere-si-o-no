@@ -51,6 +51,24 @@ export const RELEASES: Release[] = [
  titleKey: 'whatsNew.v3610.title',
  items: [
  {
+ type: 'feature',
+ titleKey: 'whatsNew.v3610.boardFilterAlert.title',
+ descKey: 'whatsNew.v3610.boardFilterAlert.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3610.alertPause.title',
+ descKey: 'whatsNew.v3610.alertPause.desc',
+ link: { tab: 'profile' },
+ },
+{
+ type: 'feature',
+ titleKey: 'whatsNew.v3610.calcJobBridge.title',
+ descKey: 'whatsNew.v3610.calcJobBridge.desc',
+ link: { tab: 'calculator' },
+ },
+ {
  type: 'improvement',
  titleKey: 'whatsNew.v3610.authorCv.title',
  descKey: 'whatsNew.v3610.authorCv.desc',
