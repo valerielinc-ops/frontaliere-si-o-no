@@ -47,8 +47,13 @@ describe('canton-aware cluster URL emission', () => {
         },
         keyword: 'addetto a cucina',
         city: null,
+        // 3 entries — clears MIN_JOBS_FOR_INDEXABLE_CLUSTER (issue #4303
+        // item 4) so this test still exercises the full-page canton
+        // routing path, not the below-floor bridge.
         matchingJobs: [
           { id: 'ksgr-x', title: 'Mitarbeiter:in Küche', company: 'KSGR', location: 'Walenstadt', canton: 'SG', slug: 'mitarbeiter-kueche-walenstadt' },
+          { id: 'ksgr-y', title: 'Koch/Köchin', company: 'KSGR', location: 'Walenstadt', canton: 'SG', slug: 'koch-koechin-walenstadt' },
+          { id: 'ksgr-z', title: 'Küchenhilfe', company: 'KSGR', location: 'Walenstadt', canton: 'SG', slug: 'kuechenhilfe-walenstadt' },
         ],
         topCompanies: ['KSGR'],
         cantonGroup: '_AGGREGATE_',
@@ -79,8 +84,14 @@ describe('canton-aware cluster URL emission', () => {
         },
         keyword: 'genitori',
         city: 'Liestal',
+        // 3 entries — clears MIN_JOBS_FOR_INDEXABLE_CLUSTER (issue #4303
+        // item 4) so this test still exercises the full-page canton
+        // routing path, not the below-floor bridge. First entry stays
+        // the one asserted against below (job link href).
         matchingJobs: [
           { id: 'ksbl-x', title: 'Hebamme', company: 'Kantonsspital Baselland (KSBL)', location: 'Liestal', canton: 'BL', slug: 'hebamme-liestal' },
+          { id: 'ksbl-y', title: 'Pflegefachperson', company: 'Kantonsspital Baselland (KSBL)', location: 'Liestal', canton: 'BL', slug: 'pflegefachperson-liestal' },
+          { id: 'ksbl-z', title: 'Fachangestellte Gesundheit', company: 'Kantonsspital Baselland (KSBL)', location: 'Liestal', canton: 'BL', slug: 'fage-liestal' },
         ],
         topCompanies: ['Kantonsspital Baselland (KSBL)'],
         cantonGroup: 'BASILEA',

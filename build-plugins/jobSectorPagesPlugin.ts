@@ -63,7 +63,10 @@ import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
 import { SECTOR_HUB_SIBLINGS } from './shared/sectorHubClusters';
-import { resolveJobCanton as sharedResolveJobCanton } from './shared/cantonSection';
+import {
+  resolveJobCanton as sharedResolveJobCanton,
+  resolveCantonSection as sharedResolveCantonSection,
+} from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -165,6 +168,59 @@ function renderSiblingSectorRail(locale: JobBoardLocale, sector: SectorHubKey): 
     })
     .join('');
   return `<nav class="s-sib-rail" aria-label="${esc(SIBLING_RAIL_HEADING[locale])}"><p class="s-sib-h">${esc(SIBLING_RAIL_HEADING[locale])}</p><ul class="s-sib-ul">${items}</ul></nav>`;
+}
+
+/** Cantons with real-data enrichment (Issue #4303 item 1 — median salary,
+ * cost-of-living, permit-G guidance, top employers on the canton hub
+ * itself), reused here (item 2b) so a "same profession in other cantons"
+ * link from a Ticino sector hub always lands on a page carrying genuine
+ * context rather than a bare thin combo shell. Small standalone copy (not
+ * imported from jobsSeoPagesPlugin.ts's REAL_DATA_ENRICHED_CANTONS) — this
+ * plugin is intentionally dependency-light, see file header; only 3 entries,
+ * kept in lockstep by comment cross-reference rather than a shared import. */
+const CROSS_CANTON_LINK_TARGETS: ReadonlyArray<{ code: string; label: Record<JobBoardLocale, string> }> = [
+  { code: 'ZH', label: { it: 'Zurigo', en: 'Zürich', de: 'Zürich', fr: 'Zurich' } },
+  { code: 'BE', label: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' } },
+  { code: 'BASILEA', label: { it: 'Basilea', en: 'Basel', de: 'Basel', fr: 'Bâle' } },
+];
+
+/** Minimum TI active-job count for the sector before showing the
+ * cross-canton rail — "professioni con più inventory" (item 2b): a hub with
+ * near-zero TI jobs isn't a strong enough profession signal to promote
+ * other-canton alternatives from. Mirrors REAL_DATA_SECTOR_MIN_JOBS in
+ * jobsSeoPagesPlugin.ts (same stability-floor convention, independent copy). */
+const CROSS_CANTON_MIN_INVENTORY = 3;
+
+const CROSS_CANTON_RAIL_HEADING: Record<JobBoardLocale, string> = {
+  it: 'Stessa professione in altri cantoni',
+  en: 'Same profession in other cantons',
+  de: 'Gleicher Beruf in anderen Kantonen',
+  fr: 'Même métier dans d’autres cantons',
+};
+
+/**
+ * Render a small `<nav>` rail linking the current Ticino sector hub to the
+ * matching per-canton-sector combo page (`/{canton-section}/{sectorSlug}/`,
+ * emitted unconditionally by jobsSeoPagesPlugin.ts, PR #4254) in each of the
+ * 3 real-data-enriched cantons. Gated on `count >= CROSS_CANTON_MIN_INVENTORY`
+ * so thin sectors don't push traffic toward alternatives the hub itself
+ * barely justifies. Returns '' when the sector has no slug for the locale
+ * or the target canton doesn't resolve — never a dead link.
+ */
+function renderCrossCantonSectorRail(locale: JobBoardLocale, sector: SectorHubKey, count: number): string {
+  if (count < CROSS_CANTON_MIN_INVENTORY) return '';
+  const slug = SECTOR_HUB_SLUG[locale]?.[sector];
+  if (!slug) return '';
+  const items = CROSS_CANTON_LINK_TARGETS.map(({ code, label }) => {
+    const section = sharedResolveCantonSection(locale, code);
+    if (!section) return '';
+    const href = `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${section}/${slug}/`.replace(/\/+/g, '/');
+    return `<li class="s-sib-li"><a class="s-sib-a" href="${esc(href)}">${esc(label[locale])}</a></li>`;
+  })
+    .filter(Boolean)
+    .join('');
+  if (!items) return '';
+  return `<nav class="s-xcanton-rail" aria-label="${esc(CROSS_CANTON_RAIL_HEADING[locale])}"><p class="s-sib-h">${esc(CROSS_CANTON_RAIL_HEADING[locale])}</p><ul class="s-sib-ul">${items}</ul></nav>`;
 }
 
 export interface BuildSectorLandingHtmlOptions {
@@ -281,6 +337,11 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   // 49 sector hubs are mutually reachable in the BFS graph (the orphan fix).
   // Empty string for unmapped long-tail sectors.
   const siblingRailHtml = renderSiblingSectorRail(locale, sector);
+
+  // Issue #4303 item 2b: from this Ticino sector hub, link the same
+  // profession's combo page in the real-data-enriched cantons — only when
+  // this hub itself has meaningful inventory (see CROSS_CANTON_MIN_INVENTORY).
+  const crossCantonRailHtml = renderCrossCantonSectorRail(locale, sector, count);
 
   const sectionRootUrl = `${BASE_URL}${withSlash(
     `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
@@ -455,6 +516,7 @@ ${alternates}
         ${faqHtml}
         ${sectorContextHtml}
         ${siblingRailHtml}
+        ${crossCantonRailHtml}
       </main>${railGutters(true).close}
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>

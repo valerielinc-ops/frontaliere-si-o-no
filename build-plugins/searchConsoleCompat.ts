@@ -11,6 +11,7 @@ import {
  type FuelType,
 } from './fuelDailyData';
 import { isProfessionCantonPath } from './professionCantonData';
+import { isProfessionCityPath } from './professionCityData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
@@ -412,6 +413,17 @@ const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_B
 // mid-path in a fresh accumulator export) if a future export surfaces a genuine
 // non-terminal, non-garbage match.
 export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-/;
+// Issue #4303 item 4 self-map confirmation: relatedSearchClustersPlugin.ts's
+// `renderClusterBelowFloorBridge` (below MIN_JOBS_FOR_INDEXABLE_CLUSTER=3
+// matching jobs) now emits a noindex,follow bridge — canonical → the
+// Svizzera hub — at the SAME `/cerca-lavoro-svizzera/ricerca-{slug}/` URL
+// instead of a thin near-duplicate page, consolidating the below-floor
+// profession×svizzera combos GSC showed averaging position 25.4. No new
+// self-map entry needed: SEARCH_COMBO_SEGMENT_PATTERN above already
+// resolves this exact URL shape for any stale-snapshot 404 (falls through
+// to SEARCH_CLUSTER_301_MAP, then the canton-aware JOB_BOARD_SECTION_COMPAT_PATTERN
+// listing-root fallback) — the bridge itself is additionally always-live
+// (200 OK), so it never reaches this resolver in the first place.
 // Event-detail leaves past the plugin's own noindex grace window (eventsSeoPagesPlugin
 // stops emitting a bridge EVENT_PAST_GRACE_DAYS after the event ends) or dropped
 // pre-emptively (rescheduled/cancelled at source, so never even entered the grace
@@ -444,6 +456,19 @@ export function resolveSearchConsoleCompatTarget(
  // never sees the plugin's own route table otherwise) stops reporting it
  // unresolvable.
  if (isProfessionCantonPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Same self-map rationale as isProfessionCantonPath above, for the
+ // (TI city × profession) family (professionCityLandings.ts, issue #4301):
+ // professionCityData.ts's isProfessionCityPath already checks a
+ // module-load-precomputed Map (PATH_INDEX), so this stays O(1) per call —
+ // no per-call Set/Map construction inside the 150k+-path compat loop.
+ if (isProfessionCityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
