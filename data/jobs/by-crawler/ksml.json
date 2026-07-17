@@ -80,8 +80,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-cfa9c1da93d2",
@@ -163,8 +162,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-0383411c0618",
@@ -181,7 +179,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
       "titleByLocale": {
-        "it": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
+        "it": "Ti stiamo cercando; IF Maestro 6 Lezioni di terza classe",
         "en": "We are looking for you; IF Teacher 6 Lessons 3rd Class",
         "de": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
         "fr": "Nous vous recherchons; IF Enseignant 6 leçons 3ème classe"
@@ -235,7 +233,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.272Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -327,7 +324,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-c9cf5ae504e9",
@@ -495,16 +494,16 @@
       "title": "Unterricht an 5./6. Klasse am Freitagmorgen",
       "titleByLocale": {
         "de": "Unterricht an 5./6. Klasse am Freitagmorgen",
-        "it": "Unterricht an 5./6. Klasse am Freitagmorgen",
-        "en": "Unterricht an 5./6. Klasse am Freitagmorgen",
-        "fr": "Unterricht an 5./6. Klasse am Freitagmorgen"
+        "it": "Lezioni alle 5./6. Corso di venerdì mattina",
+        "en": "Lessons at 5./6. Class on Friday morning",
+        "fr": "Enseignements à 5./6. Cours le vendredi matin"
       },
       "description": "Porträt\nSchule Wiedlisbach\n\nAufgaben\nUnterrichtspensum 4 L (2L NMG und je 1L Unterstützung in Fanz. und Englisch)\n\nAnforderungen\n• Unsere Schule zeichnet sich aus durch: Beziehung zu Menschen sind das A+O; Zusammenarbeit ist wertschätzend und unterstützend; wir pflegen eine humorvolle Teamkultur.\n• Sind Sie eine empathische Person, die Lernen als interessanten Prozess sieht und Herausforderungen kreativ angeht?\n\nDiplom als Lehrperson Zyklus 2\n\nWir bieten\n• Interaktive Wandtafeln\n• Zivildienstleistender als Unterstützung\n• Schulsozialarbeit im Schulhaus\n• Zusammenarbeit in einem motivierten Team.\n• Möglichkeit, die Stundenplanung mitzugestalten.\n• Kleiner Einblick: www.schule-wiedlisbach.ch",
       "descriptionByLocale": {
         "de": "Porträt\nSchule Wiedlisbach\n\nAufgaben\nUnterrichtspensum 4 L (2L NMG und je 1L Unterstützung in Fanz. und Englisch)\n\nAnforderungen\n• Unsere Schule zeichnet sich aus durch: Beziehung zu Menschen sind das A+O; Zusammenarbeit ist wertschätzend und unterstützend; wir pflegen eine humorvolle Teamkultur.\n• Sind Sie eine empathische Person, die Lernen als interessanten Prozess sieht und Herausforderungen kreativ angeht?\n\nDiplom als Lehrperson Zyklus 2\n\nWir bieten\n• Interaktive Wandtafeln\n• Zivildienstleistender als Unterstützung\n• Schulsozialarbeit im Schulhaus\n• Zusammenarbeit in einem motivierten Team.\n• Möglichkeit, die Stundenplanung mitzugestalten.\n• Kleiner Einblick: www.schule-wiedlisbach.ch",
-        "it": "Porträt\nSchule Wiedlisbach\n\nAufgaben\nUnterrichtspensum 4 L (2L NMG und je 1L Unterstützung in Fanz. und Englisch)\n\nAnforderungen\n• Unsere Schule zeichnet sich aus durch: Beziehung zu Menschen sind das A+O; Zusammenarbeit ist wertschätzend und unterstützend; wir pflegen eine humorvolle Teamkultur.\n• Sind Sie eine empathische Person, die Lernen als interessanten Prozess sieht und Herausforderungen kreativ angeht?\n\nDiplom als Lehrperson Zyklus 2\n\nWir bieten\n• Interaktive Wandtafeln\n• Zivildienstleistender als Unterstützung\n• Schulsozialarbeit im Schulhaus\n• Zusammenarbeit in einem motivierten Team.\n• Möglichkeit, die Stundenplanung mitzugestalten.\n• Kleiner Einblick: www.schule-wiedlisbach.ch",
-        "en": "Porträt\nSchule Wiedlisbach\n\nAufgaben\nUnterrichtspensum 4 L (2L NMG und je 1L Unterstützung in Fanz. und Englisch)\n\nAnforderungen\n• Unsere Schule zeichnet sich aus durch: Beziehung zu Menschen sind das A+O; Zusammenarbeit ist wertschätzend und unterstützend; wir pflegen eine humorvolle Teamkultur.\n• Sind Sie eine empathische Person, die Lernen als interessanten Prozess sieht und Herausforderungen kreativ angeht?\n\nDiplom als Lehrperson Zyklus 2\n\nWir bieten\n• Interaktive Wandtafeln\n• Zivildienstleistender als Unterstützung\n• Schulsozialarbeit im Schulhaus\n• Zusammenarbeit in einem motivierten Team.\n• Möglichkeit, die Stundenplanung mitzugestalten.\n• Kleiner Einblick: www.schule-wiedlisbach.ch",
-        "fr": "Porträt\nSchule Wiedlisbach\n\nAufgaben\nUnterrichtspensum 4 L (2L NMG und je 1L Unterstützung in Fanz. und Englisch)\n\nAnforderungen\n• Unsere Schule zeichnet sich aus durch: Beziehung zu Menschen sind das A+O; Zusammenarbeit ist wertschätzend und unterstützend; wir pflegen eine humorvolle Teamkultur.\n• Sind Sie eine empathische Person, die Lernen als interessanten Prozess sieht und Herausforderungen kreativ angeht?\n\nDiplom als Lehrperson Zyklus 2\n\nWir bieten\n• Interaktive Wandtafeln\n• Zivildienstleistender als Unterstützung\n• Schulsozialarbeit im Schulhaus\n• Zusammenarbeit in einem motivierten Team.\n• Möglichkeit, die Stundenplanung mitzugestalten.\n• Kleiner Einblick: www.schule-wiedlisbach.ch"
+        "it": "Ritratto\nScuola Wiedlisbach\n\nCompiti\nLezioni 4 L (2L NMG e 1L sostengono ciascuno in tedesco e tedesco)\n\nRequisiti\n• La nostra scuola è caratterizzata da: rapporto con le persone è l'A+O; la cooperazione è preziosa e solidale; Abbiamo una cultura di squadra umoristica.\n• Sei una persona empatica che vede l'apprendimento come un processo interessante e affronta le sfide creativamente?\n\nDiploma come insegnante Ciclo 2\n\nOffriamo\n• Pannelli da parete interattivi\n• Fornitore di servizi civili come supporto\n• Lavoro sociale scolastico nella casa della scuola\n• Lavorare in una squadra motivata.\n• Possibilità di modellare la pianificazione dell'ora.\n• Una piccola panoramica: www.schule-wiedlisbach.ch",
+        "en": "Portrait\nSchool Wiedlisbach\n\nTasks\nLessons 4 L (2L NMG and 1L support each in German and German)\n\nRequirements\n• Our school is characterized by: relationship with people is the A+O; cooperation is valued and supportive; We have a humorous team culture.\n• Are you an empathetic person who sees learning as an interesting process and approaches challenges creatively?\n\nDiploma as a teacher Cycle 2\n\nWe offer\n• Interactive wall panels\n• Civil service provider as support\n• School Social Work in the School House\n• Working in a motivated team.\n• Possibility to shape the hour planning.\n• A little insight: www.schule-wiedlisbach.ch",
+        "fr": "Portrait\nÉcole Wiedlisbach\n\nTâche\nLes leçons 4 L (2L NMG et 1L soutiennent chacune en allemand et en allemand)\n\nExigences\n• Notre école se caractérise par : la relation avec les gens est l'A+O ; la coopération est valorisée et solidaire ; Nous avons une culture d'équipe humoristique.\n• Êtes-vous une personne empathique qui voit l'apprentissage comme un processus intéressant et aborde les défis de manière créative?\n\nDiplôme d'enseignant Cycle 2\n\nNous offrons\n• Panneaux muraux interactifs\n• Fournisseur de la fonction publique\n• Travail social à l ' école\n• Travailler dans une équipe motivée.\n• Possibilité de façonner la planification des heures.\n• Un petit aperçu: www.schule-wiedlisbach.ch"
       },
       "location": "Wiedlisbach",
       "canton": "BE",
@@ -531,7 +530,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -562,16 +560,16 @@
       "title": "Teilpensum an 3./4. Klasse; mind. 6L ; Pensum bis 13 L möglich",
       "titleByLocale": {
         "de": "Teilpensum an 3./4. Klasse; mind. 6L ; Pensum bis 13 L möglich",
-        "it": "Teilpensum an 3./4. Klasse; mind. 6L ; Pensum bis 13 L möglich",
-        "en": "Teilpensum an 3./4. Klasse; mind. 6L ; Pensum bis 13 L möglich",
-        "fr": "Teilpensum an 3./4. Klasse; mind. 6L ; Pensum bis 13 L möglich"
+        "it": "Pensione parziale in 3a 4a classe; min 6L; Pensum fino a 13 L possibile",
+        "en": "Partial board in 3rd/4th class; min. 6L; Pensum up to 13 L possible",
+        "fr": "Panneau partiel en 3ème/4ème classe; min. 6L; Pensum jusqu'à 13 L possible"
       },
       "description": "Porträt\nSchule Wiedlisbach\n\nAufgaben\n• Unterrichtspensum 6 bis 17 L (25-65%)\n• 2L Bild. Gestalten (Montag- oder Freitagnachmittag)\n• 2L Deutsch und 2L NMG Freitagmorgen\n• Mögichkeit für integrative Förderung (1L an der Klasse und 6L an zwei 1./2. Klassen)\n\nAnforderungen\n• Wegen Mutterschaftsvertretung befristete Stelle an 3./4. Klasse. Herbst 2026 bis Frühling 2027 oder bis Schuljahresende.\n• IF Lektionen an zwei 1./2. Klassen und an zwei 5./6. Klassen, längerfristig möglich.\n\nWir bieten\n• Interaktive Wandtafeln\n• Schulsozialarbeit im Schulhaus\n• Zivildienstleistender als Unterstützung\n• Zusammenarbeit in einem motivierten Team.\n\nKleiner Einblick: www.schule-wiedlisbach.ch",
       "descriptionByLocale": {
         "de": "Porträt\nSchule Wiedlisbach\n\nAufgaben\n• Unterrichtspensum 6 bis 17 L (25-65%)\n• 2L Bild. Gestalten (Montag- oder Freitagnachmittag)\n• 2L Deutsch und 2L NMG Freitagmorgen\n• Mögichkeit für integrative Förderung (1L an der Klasse und 6L an zwei 1./2. Klassen)\n\nAnforderungen\n• Wegen Mutterschaftsvertretung befristete Stelle an 3./4. Klasse. Herbst 2026 bis Frühling 2027 oder bis Schuljahresende.\n• IF Lektionen an zwei 1./2. Klassen und an zwei 5./6. Klassen, längerfristig möglich.\n\nWir bieten\n• Interaktive Wandtafeln\n• Schulsozialarbeit im Schulhaus\n• Zivildienstleistender als Unterstützung\n• Zusammenarbeit in einem motivierten Team.\n\nKleiner Einblick: www.schule-wiedlisbach.ch",
-        "it": "Porträt\nSchule Wiedlisbach\n\nAufgaben\n• Unterrichtspensum 6 bis 17 L (25-65%)\n• 2L Bild. Gestalten (Montag- oder Freitagnachmittag)\n• 2L Deutsch und 2L NMG Freitagmorgen\n• Mögichkeit für integrative Förderung (1L an der Klasse und 6L an zwei 1./2. Klassen)\n\nAnforderungen\n• Wegen Mutterschaftsvertretung befristete Stelle an 3./4. Klasse. Herbst 2026 bis Frühling 2027 oder bis Schuljahresende.\n• IF Lektionen an zwei 1./2. Klassen und an zwei 5./6. Klassen, längerfristig möglich.\n\nWir bieten\n• Interaktive Wandtafeln\n• Schulsozialarbeit im Schulhaus\n• Zivildienstleistender als Unterstützung\n• Zusammenarbeit in einem motivierten Team.\n\nKleiner Einblick: www.schule-wiedlisbach.ch",
-        "en": "Porträt\nSchule Wiedlisbach\n\nAufgaben\n• Unterrichtspensum 6 bis 17 L (25-65%)\n• 2L Bild. Gestalten (Montag- oder Freitagnachmittag)\n• 2L Deutsch und 2L NMG Freitagmorgen\n• Mögichkeit für integrative Förderung (1L an der Klasse und 6L an zwei 1./2. Klassen)\n\nAnforderungen\n• Wegen Mutterschaftsvertretung befristete Stelle an 3./4. Klasse. Herbst 2026 bis Frühling 2027 oder bis Schuljahresende.\n• IF Lektionen an zwei 1./2. Klassen und an zwei 5./6. Klassen, längerfristig möglich.\n\nWir bieten\n• Interaktive Wandtafeln\n• Schulsozialarbeit im Schulhaus\n• Zivildienstleistender als Unterstützung\n• Zusammenarbeit in einem motivierten Team.\n\nKleiner Einblick: www.schule-wiedlisbach.ch",
-        "fr": "Porträt\nSchule Wiedlisbach\n\nAufgaben\n• Unterrichtspensum 6 bis 17 L (25-65%)\n• 2L Bild. Gestalten (Montag- oder Freitagnachmittag)\n• 2L Deutsch und 2L NMG Freitagmorgen\n• Mögichkeit für integrative Förderung (1L an der Klasse und 6L an zwei 1./2. Klassen)\n\nAnforderungen\n• Wegen Mutterschaftsvertretung befristete Stelle an 3./4. Klasse. Herbst 2026 bis Frühling 2027 oder bis Schuljahresende.\n• IF Lektionen an zwei 1./2. Klassen und an zwei 5./6. Klassen, längerfristig möglich.\n\nWir bieten\n• Interaktive Wandtafeln\n• Schulsozialarbeit im Schulhaus\n• Zivildienstleistender als Unterstützung\n• Zusammenarbeit in einem motivierten Team.\n\nKleiner Einblick: www.schule-wiedlisbach.ch"
+        "it": "Ritratto\nScuola Wiedlisbach\n\nCompiti\n• Lezioni da 6 a 17 L (25-65%)\n• Immagine 2L. Design (lunedì o venerdì pomeriggio)\n• 2L tedesco e 2L NMG Venerdì mattina\n• Opportunità per la promozione inclusiva (1L in classe e 6L in due classi 1./2)\n\nRequisiti\n• A causa della rappresentazione di maternità posizione temporanea a 3a / 4a classe. Autunno 2026 fino alla primavera 2027 o fino alla fine dell'anno scolastico.\n• Lezioni IF in due 1/2rd classi e due 5/6th classi, possibili a lungo termine.\n\nOffriamo\n• Pannelli da parete interattivi\n• Lavoro sociale scolastico nella casa della scuola\n• Fornitore di servizi civili come supporto\n• Lavorare in una squadra motivata.\n\nUna piccola panoramica: www.schule-wiedlisbach.ch",
+        "en": "Portrait\nSchool Wiedlisbach\n\nTasks\n• Lessons 6 to 17 L (25-65%)\n• 2L picture. Design (Monday or Friday afternoon)\n• 2L German and 2L NMG Friday morning\n• Opportunity for inclusive promotion (1L in class and 6L in two 1./2 classes)\n\nRequirements\n• Due to maternity representation temporary position at 3rd / 4th class. Autumn 2026 until spring 2027 or until school year end.\n• IF lessons in two 1/2rd classes and two 5/6th classes, possible in the longer term.\n\nWe offer\n• Interactive wall panels\n• School Social Work in the School House\n• Civil service provider as support\n• Working in a motivated team.\n\nA little insight: www.schule-wiedlisbach.ch",
+        "fr": "Portrait\nÉcole Wiedlisbach\n\nTâche\n• Enseignements 6 à 17 L (25-65%)\n• 2L photo. Design (lundi ou vendredi après-midi)\n• 2L Allemand et 2L NMG Vendredi matin\n• Possibilité de promotion inclusive (1L en classe et 6L en deux classes 1./2)\n\nExigences\n• En raison de la représentation de la maternité poste temporaire à la 3e / 4e classe. Automne 2026 jusqu'au printemps 2027 ou jusqu'à la fin de l'année scolaire.\n• Cours IF dans deux cours 1/2 et deux cours 5/6, possible à long terme.\n\nNous offrons\n• Panneaux muraux interactifs\n• Travail social à l ' école\n• Fournisseur de la fonction publique\n• Travailler dans une équipe motivée.\n\nUn petit aperçu: www.schule-wiedlisbach.ch"
       },
       "location": "Wiedlisbach",
       "canton": "BE",
@@ -598,7 +596,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -628,7 +625,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
       "titleByLocale": {
-        "it": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
+        "it": "5 ° / 6 ° grado, 7 - 9,5 lezioni D, NMG, BG, (M+I)",
         "en": "Sub-board 5./6. Class, 7 - 9.5 Lessons",
         "de": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
         "fr": "Sous-tableau 5./6. Classe 7 - 9.5 Enseignements"
@@ -694,7 +691,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T10:51:51.752Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -860,8 +856,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-3375ea3cfa0b",
@@ -930,7 +925,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:22.057Z",
-      "needsRetranslation": true,
       "salaryMin": 31500,
       "salaryMax": 47800,
       "baseSalary": {
@@ -1118,7 +1112,7 @@
         "it": "Insegnante di Materie Tessili e Design, Cicli 1 e 2, 6 ore",
         "en": "Secondary Subject Teacher Textiles and Design Cycles 1 and 2, 6 Lessons",
         "de": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen",
-        "fr": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen"
+        "fr": "Stv. professeur spécialisé Textiles Designing Cycles 1 et 2, 6 leçons"
       },
       "description": "Porträt\nWillkommen in Wimmis!\nAn der Schule Wimmis unterrichten 48 Lehrpersonen rund 400 Schülerinnen und Schüler an drei Standorten. Im Schulhaus Oberdorf befinden sich 6 Klassen.\nUnser Team - unsere Stärke!\n\nAufgaben\nAls Fachlehrerperson unterrichten, fördern und unterstützen Sie Kinder der 1., 2. und 3./4. Klasse im Fach Textiles Gestalten. Sie unterrichten insgesamt 6 Lektionen. Der Unterricht findet am Donnerstag von 8.20-11.50 und 13.30-15.05 Uhr statt.\n\nSie unterrichten während der Mutterschaftsvertretung und einem anschliessenden Urlaub als Stellvertreterin. Eine Weiterführung ab Sommer 2027 in eine unbefristete Anstellung ist evtl. möglich.\n\nSie engagieren sich im Unterrichtsteam und sind bereit, an der Schul- und Organisationsentwicklung mitzuarbeiten.\n\nAnforderungen\nHaben Sie ein Herz für Kinder und können diese begeistern und motivieren? Verfügen Sie über ein Lehrdiplom für den Bereich Gestalten? Sind Sie eine engagierte, kommunikative und humorvolle Persönlichkeit mit Freude und Interesse an der Zusammenarbeit mit dem Stufen- und Schulhausteam? Pflegen Sie einen offenen und direkten Austausch mit den Eltern sowie allen anderen Anspruchsgruppen?\n\nFalls ja sind Sie genau die Lehrperson, die wir für unser Team suchen!\n\nWir bieten\n- tolle TTG-Räume\n- gut ausgestattete Schulinfrastruktur mit moderner ICT-Umgebung\n- angenehmes Arbeitsklima in einem engagierten, offenen Team\n- Unterstützung durch Lehrpersonen, IF-Lehrpersonen, Schulsozialarbeit und Schulleitung\n- guter ÖV-Anschluss, sehr gute Erreichbarkeit mit dem Auto dank direktem Autobahnanschluss und Gratisparkplatz",
       "descriptionByLocale": {
@@ -1170,7 +1164,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1347,7 +1340,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -1801,7 +1793,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
+        "it": "Vice Franz 4. Kl. & BG 5./6. Kl., 7 lezioni",
         "en": "Deputy Franz 4. Kl. & BG 5./6. Kl., 7 lessons",
         "de": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
         "fr": "Conseiller Franz 4. Kl. & BG 5./6. Kl., 7 leçons"
@@ -1856,7 +1848,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.354Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3002,7 +2993,7 @@
       "slug": "professore-di-scuola-superiore-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
       "slugByLocale": {
         "it": "professore-di-scuola-superiore-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
-        "en": "oberstufenlehrperson-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
+        "en": "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
         "de": "oberstufenlehrperson-23-l-osz-orpund-orpund-39872",
         "fr": "professeur-de-lycee-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
       },
@@ -3013,7 +3004,7 @@
       "title": "Oberstufenlehrperson 23 L.",
       "titleByLocale": {
         "it": "Insegnante di scuola superiore 23 L.",
-        "en": "Oberstufenlehrperson 23 L.",
+        "en": "High school teacher 23 L.",
         "de": "Oberstufenlehrperson 23 L.",
         "fr": "Enseignant(e) de lycée 23 L."
       },
@@ -3064,14 +3055,14 @@
         ],
         "en": [
           "oberstufenlehrperson-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
-          "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
+          "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
+          "oberstufenlehrperson-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund"
         ],
         "fr": [
           "oberstufenlehrperson-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.469Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3274,7 +3265,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -4142,7 +4133,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5700,7 +5690,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5754,7 +5744,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6470,7 +6459,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -6524,7 +6513,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7065,7 +7053,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Enseignant(e) flexible, créatif(ve) et polyvalent(e) (Z2/3) 50%"
       },
@@ -7117,7 +7105,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -7399,7 +7386,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
       "titleByLocale": {
-        "it": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
+        "it": "Istruttore specializzato Ciclo 3 (Sec.1), Totale 22L. Math., Franz., Tedesco, Inglese",
         "en": "Specialist instructor Cycle 3 (Sec.1), Total 22L. Math., Franz., German, English",
         "de": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
         "fr": "instructeur spécialisé Cycle 3 (Sec.1), Total 22L. Math., Franz., allemand, anglais"
@@ -7453,7 +7440,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:43:39.493Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7567,7 +7553,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante specializzato Sek1, 16.5 lezioni, 2° trimestre in SJ 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Professeur spécialiste Sek1, 16,5 leçons, 2ème trimestre en SJ 26/27"
       },
@@ -7824,7 +7810,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -7876,7 +7862,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8164,7 +8149,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -8222,7 +8207,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8253,15 +8237,15 @@
       "titleByLocale": {
         "de": "Begleitung von SuS mit besonderem Volksschulbedarf (bVSA int.) an einer 5./6. Klasse;",
         "it": "Begleitung von SuS con besonderem Volksschulbedarf (bVSA int.) an einer 5./6. Klasse;",
-        "en": "Begleitung von SuS mit besonderem Volksschulbedarf (bVSA int.) an einer 5./6. Klasse;",
-        "fr": "Begleitung von SuS mit besonderem Volksschulbedarf (bVSA int.) an einer 5./6. Klasse;"
+        "en": "Accompaniment of SuS with special primary school requirements (bVSA int.) at a 5th / 6th grade;",
+        "fr": "Accompagné de SuS avec des besoins spéciaux de l'école primaire (bVSA int.) à une 5e / 6e année;"
       },
       "description": "Porträt\nSchule Wiedlisbach Zy 2\n\nAufgaben\nAls Heilpädagog*in oder Person mit sozialpädagogischer Ausbildung unterstützen und begleiten Sie SuS mit besonderem Förderbedarf. Sie gehen auf die besonderen Bedürfnisse von Kindern und Erwachsenen ein. Während 13 Lektionen können Sie die SuS individuell unterrichten und begleiten.\nAn dieser Klasse und an einer anderen Klasse übernehmen Sie die integrative Förderung mit zusätzlichen 4-6 Lektionen\n\nAnforderungen\n• Sozialpädagogische Ausbildung oder heilpädagogische Ausbildung erwünscht. Möglichkeit die Ausbildung berusfbegleitend zu absolvieren.\n• Bachelor of Arts in Primary Education mit Erfahrung in der integrativen Förderung.\n\nWir bieten\n• -Mitsprache bei Lektionen und Stundenplan\n• -Schulsozialarbeit\n• -Zivildienstleistender\n• -Schuloase\n• -Fachgruppe LP Spez U mit regelmässigen Intervisionen\n• -hilfsbereite, unkopliziertes Kollegium\n• -ländliche Umgebung\n• -ÖV erschlossen",
       "descriptionByLocale": {
         "de": "Porträt\nSchule Wiedlisbach Zy 2\n\nAufgaben\nAls Heilpädagog*in oder Person mit sozialpädagogischer Ausbildung unterstützen und begleiten Sie SuS mit besonderem Förderbedarf. Sie gehen auf die besonderen Bedürfnisse von Kindern und Erwachsenen ein. Während 13 Lektionen können Sie die SuS individuell unterrichten und begleiten.\nAn dieser Klasse und an einer anderen Klasse übernehmen Sie die integrative Förderung mit zusätzlichen 4-6 Lektionen\n\nAnforderungen\n• Sozialpädagogische Ausbildung oder heilpädagogische Ausbildung erwünscht. Möglichkeit die Ausbildung berusfbegleitend zu absolvieren.\n• Bachelor of Arts in Primary Education mit Erfahrung in der integrativen Förderung.\n\nWir bieten\n• -Mitsprache bei Lektionen und Stundenplan\n• -Schulsozialarbeit\n• -Zivildienstleistender\n• -Schuloase\n• -Fachgruppe LP Spez U mit regelmässigen Intervisionen\n• -hilfsbereite, unkopliziertes Kollegium\n• -ländliche Umgebung\n• -ÖV erschlossen",
-        "it": "Porträt\nSchule Wiedlisbach Zy 2\n\nAufgaben\nAls Heilpädagog*in oder Person mit sozialpädagogischer Ausbildung unterstützen und begleiten Sie SuS mit besonderem Förderbedarf. Sie gehen auf die besonderen Bedürfnisse von Kindern und Erwachsenen ein. Während 13 Lektionen können Sie die SuS individuell unterrichten und begleiten.\nAn dieser Klasse und an einer anderen Klasse übernehmen Sie die integrative Förderung mit zusätzlichen 4-6 Lektionen\n\nAnforderungen\n• Sozialpädagogische Ausbildung oder heilpädagogische Ausbildung erwünscht. Möglichkeit die Ausbildung berusfbegleitend zu absolvieren.\n• Bachelor of Arts in Primary Education mit Erfahrung in der integrativen Förderung.\n\nWir bieten\n• -Mitsprache bei Lektionen und Stundenplan\n• -Schulsozialarbeit\n• -Zivildienstleistender\n• -Schuloase\n• -Fachgruppe LP Spez U mit regelmässigen Intervisionen\n• -hilfsbereite, unkopliziertes Kollegium\n• -ländliche Umgebung\n• -ÖV erschlossen",
-        "en": "Porträt\nSchule Wiedlisbach Zy 2\n\nAufgaben\nAls Heilpädagog*in oder Person mit sozialpädagogischer Ausbildung unterstützen und begleiten Sie SuS mit besonderem Förderbedarf. Sie gehen auf die besonderen Bedürfnisse von Kindern und Erwachsenen ein. Während 13 Lektionen können Sie die SuS individuell unterrichten und begleiten.\nAn dieser Klasse und an einer anderen Klasse übernehmen Sie die integrative Förderung mit zusätzlichen 4-6 Lektionen\n\nAnforderungen\n• Sozialpädagogische Ausbildung oder heilpädagogische Ausbildung erwünscht. Möglichkeit die Ausbildung berusfbegleitend zu absolvieren.\n• Bachelor of Arts in Primary Education mit Erfahrung in der integrativen Förderung.\n\nWir bieten\n• -Mitsprache bei Lektionen und Stundenplan\n• -Schulsozialarbeit\n• -Zivildienstleistender\n• -Schuloase\n• -Fachgruppe LP Spez U mit regelmässigen Intervisionen\n• -hilfsbereite, unkopliziertes Kollegium\n• -ländliche Umgebung\n• -ÖV erschlossen",
-        "fr": "Porträt\nSchule Wiedlisbach Zy 2\n\nAufgaben\nAls Heilpädagog*in oder Person mit sozialpädagogischer Ausbildung unterstützen und begleiten Sie SuS mit besonderem Förderbedarf. Sie gehen auf die besonderen Bedürfnisse von Kindern und Erwachsenen ein. Während 13 Lektionen können Sie die SuS individuell unterrichten und begleiten.\nAn dieser Klasse und an einer anderen Klasse übernehmen Sie die integrative Förderung mit zusätzlichen 4-6 Lektionen\n\nAnforderungen\n• Sozialpädagogische Ausbildung oder heilpädagogische Ausbildung erwünscht. Möglichkeit die Ausbildung berusfbegleitend zu absolvieren.\n• Bachelor of Arts in Primary Education mit Erfahrung in der integrativen Förderung.\n\nWir bieten\n• -Mitsprache bei Lektionen und Stundenplan\n• -Schulsozialarbeit\n• -Zivildienstleistender\n• -Schuloase\n• -Fachgruppe LP Spez U mit regelmässigen Intervisionen\n• -hilfsbereite, unkopliziertes Kollegium\n• -ländliche Umgebung\n• -ÖV erschlossen"
+        "it": "Ritratto\nScuola Wiedlisbach Zy 2\n\nCompiti\nCome pedagogogo curativo o persona con formazione socio-pedagogica, supporti e accompagni SuS con particolari esigenze di supporto. Si rivolgono alle esigenze speciali di bambini e adulti. Durante 13 lezioni è possibile insegnare e accompagnare il SuS individualmente.\nApplicare a questa classe e ad un'altra classe Promozione Inclusive con ulteriori 4-6 lezioni\n\nRequisiti\n• L'educazione sociale o l'educazione curativa è desiderata. Possibilità di completare la formazione in loco.\n• Corso di laurea in educazione primaria con esperienza nella promozione integrativa.\n\nOffriamo\n• Partecipazione a lezioni e orari\n• Lavoro sociale scolastico\n• Fornitore di servizi civili\n• Oasi di scuola\n• -Fachgruppe LP Spez U con intervisioni regolari\n• -Helpful, college semplice\n• Ambiente rurale\n• Trasporti pubblici",
+        "en": "Portrait\nSchool Wiedlisbach Zy 2\n\nTasks\nAs a curative pedagogue or person with socio-pedagogical training, you support and accompany SuS with special support needs. They address the special needs of children and adults. During 13 lessons you can teach and accompany the SuS individually.\nApply to this class and to another class Inclusive promotion with additional 4-6 lessons\n\nRequirements\n• Social education or curative education is desired. Possibility to complete the training on-site.\n• Bachelor of Arts in Primary Education with experience in integrative promotion.\n\nWe offer\n• Participation in lessons and timetable\n• School social work\n• Civil service provider\n• School oasis\n• -Fachgruppe LP Spez U with regular intervisions\n• -Helpful, uncomplicated college\n• Rural environment\n• Public transport",
+        "fr": "Portrait\nÉcole Wiedlisbach Zy 2\n\nTâche\nEn tant que pédagogue curatif ou en tant que personne ayant une formation sociopédagogique, vous accompagnez SuS avec des besoins spéciaux de soutien. Ils répondent aux besoins particuliers des enfants et des adultes. Pendant 13 leçons vous pouvez enseigner et accompagner le SuS individuellement.\nAppliquer à cette classe et à une autre classe Promotion inclusive avec 4-6 leçons supplémentaires\n\nExigences\n• L'éducation sociale ou curative est souhaitée. Possibilité de terminer la formation sur place.\n• Baccalauréat ès arts en enseignement primaire avec expérience en promotion intégrative.\n\nNous offrons\n• Participation aux enseignements et calendrier\n• Travail social scolaire\n• Fournisseur de services publics\n• Oasis scolaire\n• -Fachgruppe LP Spez U avec intervisions régulières\n• - Un collège utile et simple\n• Environnement rural\n• Transports publics"
       },
       "location": "Wiedlisbach",
       "canton": "BE",
@@ -8288,7 +8272,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8666,9 +8649,9 @@
       "description": "Porträt\nWir sind eine spezialisierte Institution, welche im Auftrag des Kantons Bern weibliche Jugendliche in schwierigen Lebenssituationen, sei es in persönlichen, sozialen, schulischen oder familiären Bereichen, begleitet.\nWir arbeiten interdisziplinär, um ein ganzheitliches Bild der Stärken und Schwächen abzubilden und Zukunftsperspektiven zu schaffen.\n\nAufgaben\nAls institutionsinterne Schule arbeiten wir im 5er-Team (vier Lehrpersonen, eine Klassenhilfe) mit weiblichen Jugendlichen im Sonderschulsetting. Nebst dem Unterricht in den Basisfächern (LP21) orientieren wir uns an den überfachlichen Kompetenzen und einem positiven Schulerlebnis und Freude am Lernen. Wir verstehen uns als Lernfeld, wo schwierige Lernbiografien durch flexible und enge Zusammenarbeit mit den Schülerinnen eine individuelle Betreuung erfahren (Kleinklassen, 4-8 Jugendliche).\n\nAnforderungen\nNebst den Fachkompetenzen schätzen wir Neugierde, Kreativität, Offenheit, Flexibilität und viel Vertändnis für die Herausforderungen des Menschsein. Die Arbeit mit Jugendlichen bietet einen rasch wechselnden Spannungsbogen und gestaltet jeden Tag als Mischung von Stabilität und Flexibilität. Im Lernhaus vereinen wir mit Humor und Verständnis unterschiedliche Rollen, um Potential zu fördern.\n\n- Unterricht primär in den Fächern Sprachen\n- Betreuung der Tagesstruktur und Beziehungsarbeit mit den weiblichen Jugendlichen\n- Individualisierte AP-Arbeit (Ansprechperson-Arbeit) zwischen Lehrperson und Jugendlichen\n- Mitarbeit bei der Abklärung und Diagnostik im Bereich Schule, Beruf und Bildung\n- Pflegen eines regelmässigen Austauschs mit dem interdisziplinären Team der BEO und den Bezugspersonen der Jugendlichen\n- Teilnahme an Fallbesprechungen und Gesamtsitzungen, sowie Standortbestimmungen zum interdisziplinären Austausch\n\nWir bieten\nSo vielfältig wie unsere Jugendlichen ist auch das Arbeitsfeld, Aufgabengebiet und Team der BEO. Bei uns finden Sie eine interessante und diverse Schnittstelle von der Krise zur Veränderung. Sie arbeiten mit Sozialpädagog:innen, Psycholog:innen und Eltern- und System:arbeiterinnen zusammen mit dem Ziel, die Jugendlichen und ihr Umfeld in ihrer positiven Entwicklung zu begleiten.\nBei uns hat das Leben Platz: Wir unterrichten im Team-Teaching und schätzen einen intensiven fachlichen Austausch, unterstützen Weiterbildungen und gehen auf die individuellen Bedürfnisse der Mitarbeiter:innen ein. Unser Alltag bietet und fordert viel Spontanität und Flexibilität. Offener Austausch, Ideen und Begeisterung für Neues heissen wir herzlich willkommen. Nebst einem wertschätzenen Team ist die zentrale Lage und gute öV-Anbindung direkt am Egelsee ein spannender Raum für Wachstum.",
       "descriptionByLocale": {
         "de": "Porträt\nWir sind eine spezialisierte Institution, welche im Auftrag des Kantons Bern weibliche Jugendliche in schwierigen Lebenssituationen, sei es in persönlichen, sozialen, schulischen oder familiären Bereichen, begleitet.\nWir arbeiten interdisziplinär, um ein ganzheitliches Bild der Stärken und Schwächen abzubilden und Zukunftsperspektiven zu schaffen.\n\nAufgaben\nAls institutionsinterne Schule arbeiten wir im 5er-Team (vier Lehrpersonen, eine Klassenhilfe) mit weiblichen Jugendlichen im Sonderschulsetting. Nebst dem Unterricht in den Basisfächern (LP21) orientieren wir uns an den überfachlichen Kompetenzen und einem positiven Schulerlebnis und Freude am Lernen. Wir verstehen uns als Lernfeld, wo schwierige Lernbiografien durch flexible und enge Zusammenarbeit mit den Schülerinnen eine individuelle Betreuung erfahren (Kleinklassen, 4-8 Jugendliche).\n\nAnforderungen\nNebst den Fachkompetenzen schätzen wir Neugierde, Kreativität, Offenheit, Flexibilität und viel Vertändnis für die Herausforderungen des Menschsein. Die Arbeit mit Jugendlichen bietet einen rasch wechselnden Spannungsbogen und gestaltet jeden Tag als Mischung von Stabilität und Flexibilität. Im Lernhaus vereinen wir mit Humor und Verständnis unterschiedliche Rollen, um Potential zu fördern.\n\n- Unterricht primär in den Fächern Sprachen\n- Betreuung der Tagesstruktur und Beziehungsarbeit mit den weiblichen Jugendlichen\n- Individualisierte AP-Arbeit (Ansprechperson-Arbeit) zwischen Lehrperson und Jugendlichen\n- Mitarbeit bei der Abklärung und Diagnostik im Bereich Schule, Beruf und Bildung\n- Pflegen eines regelmässigen Austauschs mit dem interdisziplinären Team der BEO und den Bezugspersonen der Jugendlichen\n- Teilnahme an Fallbesprechungen und Gesamtsitzungen, sowie Standortbestimmungen zum interdisziplinären Austausch\n\nWir bieten\nSo vielfältig wie unsere Jugendlichen ist auch das Arbeitsfeld, Aufgabengebiet und Team der BEO. Bei uns finden Sie eine interessante und diverse Schnittstelle von der Krise zur Veränderung. Sie arbeiten mit Sozialpädagog:innen, Psycholog:innen und Eltern- und System:arbeiterinnen zusammen mit dem Ziel, die Jugendlichen und ihr Umfeld in ihrer positiven Entwicklung zu begleiten.\nBei uns hat das Leben Platz: Wir unterrichten im Team-Teaching und schätzen einen intensiven fachlichen Austausch, unterstützen Weiterbildungen und gehen auf die individuellen Bedürfnisse der Mitarbeiter:innen ein. Unser Alltag bietet und fordert viel Spontanität und Flexibilität. Offener Austausch, Ideen und Begeisterung für Neues heissen wir herzlich willkommen. Nebst einem wertschätzenen Team ist die zentrale Lage und gute öV-Anbindung direkt am Egelsee ein spannender Raum für Wachstum.",
-        "it": "Porträt\nWir sind eine spezialisierte Institution, welche im Auftrag des Kantons Bern weibliche Jugendliche in schwierigen Lebenssituationen, sei es in persönlichen, sozialen, schulischen oder familiären Bereichen, begleitet.\nWir arbeiten interdisziplinär, um ein ganzheitliches Bild der Stärken und Schwächen abzubilden und Zukunftsperspektiven zu schaffen.\n\nAufgaben\nAls institutionsinterne Schule arbeiten wir im 5er-Team (vier Lehrpersonen, eine Klassenhilfe) mit weiblichen Jugendlichen im Sonderschulsetting. Nebst dem Unterricht in den Basisfächern (LP21) orientieren wir uns an den überfachlichen Kompetenzen und einem positiven Schulerlebnis und Freude am Lernen. Wir verstehen uns als Lernfeld, wo schwierige Lernbiografien durch flexible und enge Zusammenarbeit mit den Schülerinnen eine individuelle Betreuung erfahren (Kleinklassen, 4-8 Jugendliche).\n\nAnforderungen\nNebst den Fachkompetenzen schätzen wir Neugierde, Kreativität, Offenheit, Flexibilität und viel Vertändnis für die Herausforderungen des Menschsein. Die Arbeit mit Jugendlichen bietet einen rasch wechselnden Spannungsbogen und gestaltet jeden Tag als Mischung von Stabilität und Flexibilität. Im Lernhaus vereinen wir mit Humor und Verständnis unterschiedliche Rollen, um Potential zu fördern.\n\n- Unterricht primär in den Fächern Sprachen\n- Betreuung der Tagesstruktur und Beziehungsarbeit mit den weiblichen Jugendlichen\n- Individualisierte AP-Arbeit (Ansprechperson-Arbeit) zwischen Lehrperson und Jugendlichen\n- Mitarbeit bei der Abklärung und Diagnostik im Bereich Schule, Beruf und Bildung\n- Pflegen eines regelmässigen Austauschs mit dem interdisziplinären Team der BEO und den Bezugspersonen der Jugendlichen\n- Teilnahme an Fallbesprechungen und Gesamtsitzungen, sowie Standortbestimmungen zum interdisziplinären Austausch\n\nWir bieten\nSo vielfältig wie unsere Jugendlichen ist auch das Arbeitsfeld, Aufgabengebiet und Team der BEO. Bei uns finden Sie eine interessante und diverse Schnittstelle von der Krise zur Veränderung. Sie arbeiten mit Sozialpädagog:innen, Psycholog:innen und Eltern- und System:arbeiterinnen zusammen mit dem Ziel, die Jugendlichen und ihr Umfeld in ihrer positiven Entwicklung zu begleiten.\nBei uns hat das Leben Platz: Wir unterrichten im Team-Teaching und schätzen einen intensiven fachlichen Austausch, unterstützen Weiterbildungen und gehen auf die individuellen Bedürfnisse der Mitarbeiter:innen ein. Unser Alltag bietet und fordert viel Spontanität und Flexibilität. Offener Austausch, Ideen und Begeisterung für Neues heissen wir herzlich willkommen. Nebst einem wertschätzenen Team ist die zentrale Lage und gute öV-Anbindung direkt am Egelsee ein spannender Raum für Wachstum.",
-        "en": "Porträt\nWir sind eine spezialisierte Institution, welche im Auftrag des Kantons Bern weibliche Jugendliche in schwierigen Lebenssituationen, sei es in persönlichen, sozialen, schulischen oder familiären Bereichen, begleitet.\nWir arbeiten interdisziplinär, um ein ganzheitliches Bild der Stärken und Schwächen abzubilden und Zukunftsperspektiven zu schaffen.\n\nAufgaben\nAls institutionsinterne Schule arbeiten wir im 5er-Team (vier Lehrpersonen, eine Klassenhilfe) mit weiblichen Jugendlichen im Sonderschulsetting. Nebst dem Unterricht in den Basisfächern (LP21) orientieren wir uns an den überfachlichen Kompetenzen und einem positiven Schulerlebnis und Freude am Lernen. Wir verstehen uns als Lernfeld, wo schwierige Lernbiografien durch flexible und enge Zusammenarbeit mit den Schülerinnen eine individuelle Betreuung erfahren (Kleinklassen, 4-8 Jugendliche).\n\nAnforderungen\nNebst den Fachkompetenzen schätzen wir Neugierde, Kreativität, Offenheit, Flexibilität und viel Vertändnis für die Herausforderungen des Menschsein. Die Arbeit mit Jugendlichen bietet einen rasch wechselnden Spannungsbogen und gestaltet jeden Tag als Mischung von Stabilität und Flexibilität. Im Lernhaus vereinen wir mit Humor und Verständnis unterschiedliche Rollen, um Potential zu fördern.\n\n- Unterricht primär in den Fächern Sprachen\n- Betreuung der Tagesstruktur und Beziehungsarbeit mit den weiblichen Jugendlichen\n- Individualisierte AP-Arbeit (Ansprechperson-Arbeit) zwischen Lehrperson und Jugendlichen\n- Mitarbeit bei der Abklärung und Diagnostik im Bereich Schule, Beruf und Bildung\n- Pflegen eines regelmässigen Austauschs mit dem interdisziplinären Team der BEO und den Bezugspersonen der Jugendlichen\n- Teilnahme an Fallbesprechungen und Gesamtsitzungen, sowie Standortbestimmungen zum interdisziplinären Austausch\n\nWir bieten\nSo vielfältig wie unsere Jugendlichen ist auch das Arbeitsfeld, Aufgabengebiet und Team der BEO. Bei uns finden Sie eine interessante und diverse Schnittstelle von der Krise zur Veränderung. Sie arbeiten mit Sozialpädagog:innen, Psycholog:innen und Eltern- und System:arbeiterinnen zusammen mit dem Ziel, die Jugendlichen und ihr Umfeld in ihrer positiven Entwicklung zu begleiten.\nBei uns hat das Leben Platz: Wir unterrichten im Team-Teaching und schätzen einen intensiven fachlichen Austausch, unterstützen Weiterbildungen und gehen auf die individuellen Bedürfnisse der Mitarbeiter:innen ein. Unser Alltag bietet und fordert viel Spontanität und Flexibilität. Offener Austausch, Ideen und Begeisterung für Neues heissen wir herzlich willkommen. Nebst einem wertschätzenen Team ist die zentrale Lage und gute öV-Anbindung direkt am Egelsee ein spannender Raum für Wachstum.",
-        "fr": "Porträt\nWir sind eine spezialisierte Institution, welche im Auftrag des Kantons Bern weibliche Jugendliche in schwierigen Lebenssituationen, sei es in persönlichen, sozialen, schulischen oder familiären Bereichen, begleitet.\nWir arbeiten interdisziplinär, um ein ganzheitliches Bild der Stärken und Schwächen abzubilden und Zukunftsperspektiven zu schaffen.\n\nAufgaben\nAls institutionsinterne Schule arbeiten wir im 5er-Team (vier Lehrpersonen, eine Klassenhilfe) mit weiblichen Jugendlichen im Sonderschulsetting. Nebst dem Unterricht in den Basisfächern (LP21) orientieren wir uns an den überfachlichen Kompetenzen und einem positiven Schulerlebnis und Freude am Lernen. Wir verstehen uns als Lernfeld, wo schwierige Lernbiografien durch flexible und enge Zusammenarbeit mit den Schülerinnen eine individuelle Betreuung erfahren (Kleinklassen, 4-8 Jugendliche).\n\nAnforderungen\nNebst den Fachkompetenzen schätzen wir Neugierde, Kreativität, Offenheit, Flexibilität und viel Vertändnis für die Herausforderungen des Menschsein. Die Arbeit mit Jugendlichen bietet einen rasch wechselnden Spannungsbogen und gestaltet jeden Tag als Mischung von Stabilität und Flexibilität. Im Lernhaus vereinen wir mit Humor und Verständnis unterschiedliche Rollen, um Potential zu fördern.\n\n- Unterricht primär in den Fächern Sprachen\n- Betreuung der Tagesstruktur und Beziehungsarbeit mit den weiblichen Jugendlichen\n- Individualisierte AP-Arbeit (Ansprechperson-Arbeit) zwischen Lehrperson und Jugendlichen\n- Mitarbeit bei der Abklärung und Diagnostik im Bereich Schule, Beruf und Bildung\n- Pflegen eines regelmässigen Austauschs mit dem interdisziplinären Team der BEO und den Bezugspersonen der Jugendlichen\n- Teilnahme an Fallbesprechungen und Gesamtsitzungen, sowie Standortbestimmungen zum interdisziplinären Austausch\n\nWir bieten\nSo vielfältig wie unsere Jugendlichen ist auch das Arbeitsfeld, Aufgabengebiet und Team der BEO. Bei uns finden Sie eine interessante und diverse Schnittstelle von der Krise zur Veränderung. Sie arbeiten mit Sozialpädagog:innen, Psycholog:innen und Eltern- und System:arbeiterinnen zusammen mit dem Ziel, die Jugendlichen und ihr Umfeld in ihrer positiven Entwicklung zu begleiten.\nBei uns hat das Leben Platz: Wir unterrichten im Team-Teaching und schätzen einen intensiven fachlichen Austausch, unterstützen Weiterbildungen und gehen auf die individuellen Bedürfnisse der Mitarbeiter:innen ein. Unser Alltag bietet und fordert viel Spontanität und Flexibilität. Offener Austausch, Ideen und Begeisterung für Neues heissen wir herzlich willkommen. Nebst einem wertschätzenen Team ist die zentrale Lage und gute öV-Anbindung direkt am Egelsee ein spannender Raum für Wachstum."
+        "it": "Ritratto\nSiamo un'istituzione specializzata che, a nome del Cantone di Berna, accompagna giovani donne in situazioni di vita difficile, sia in ambito personale, sociale, educativo o familiare.\nLavoriamo in modo interdisciplinare per fornire un quadro olistico di punti di forza e di debolezza e per creare prospettive future.\n\nCompiti\nCome scuola istituzionale-internale, lavoriamo in una squadra di 5 (quattro insegnanti, un aiuto di classe) con adolescenti femminili nell'ambiente scolastico speciale. Oltre all'insegnamento nelle materie di base (LP21), siamo orientati verso le competenze interdisciplinari e un'esperienza scolastica positiva e il piacere nell'apprendimento. Ci vediamo come un campo di apprendimento, dove le biografie di apprendimento difficili sperimentano il sostegno individuale attraverso una collaborazione flessibile e stretta con gli studenti (piccole classi, 4-8 giovani).\n\nRequisiti\nOltre alla nostra esperienza, apprezziamo la curiosità, la creatività, l'apertura, la flessibilità e una grande comprensione per le sfide dell'essere umano. Lavorare con i giovani offre un arco di tensione in rapida evoluzione e progetta ogni giorno come un misto di stabilità e flessibilità. Al Lernhaus, uniamo ruoli diversi con umorismo e comprensione per promuovere il potenziale.\n\n- Insegnamento principalmente nelle lingue tematiche\n- Supervisione della struttura quotidiana e del lavoro di relazione con la gioventù femminile\n- Lavoro AP individualizzato (lavoro di contatto) tra insegnanti e giovani\n- Cooperazione nell'indagine e nella diagnosi nel settore della scuola, dell'occupazione e dell'istruzione\n- Mantenere uno scambio regolare con il team interdisciplinare del BEO e i caregiver dei giovani\n- Partecipazione in caso di riunioni e riunioni generali, nonché disposizioni locali per lo scambio interdisciplinare\n\nOffriamo\nDiversi come i nostri giovani sono il campo del lavoro, l'area della responsabilità e il team di BEO. Con noi troverete un'interfaccia interessante e diversificata dalla crisi al cambiamento. Lavorano con i pedagoghi sociali, gli psicologi e i genitori e i lavoratori del sistema, al fine di accompagnare i giovani e il loro ambiente nel loro sviluppo positivo.\nLa vita ha spazio per noi: insegniamo nell'insegnamento di squadra e apprezziamo uno scambio professionale intensivo, supportiamo la formazione e rispondiamo alle esigenze individuali dei dipendenti. La nostra vita quotidiana offre e richiede molta spontaneità e flessibilità. Accogliamo vivamente lo scambio aperto, le idee e l'entusiasmo per le cose nuove. Oltre a un team apprezzato, la posizione centrale e buoni collegamenti di trasporto pubblico direttamente sull'Egelsee sono uno spazio emozionante per la crescita.",
+        "en": "Portrait\nWe are a specialized institution which, on behalf of the Canton of Bern, accompanies young women in difficult life situations, whether in personal, social, educational or family areas.\nWe work in an interdisciplinary manner to provide a holistic picture of strengths and weaknesses and to create future perspectives.\n\nTasks\nAs an institution-internal school, we work in a team of 5 (four teachers, one class help) with female adolescents in the special school setting. In addition to teaching in the basic subjects (LP21), we are oriented towards the interdisciplinary competences and a positive school experience and pleasure in learning. We see ourselves as a learning field, where difficult learning biographies experience individual support through flexible and close cooperation with the students (small classes, 4-8 young people).\n\nRequirements\nIn addition to our expertise, we value curiosity, creativity, openness, flexibility and a great deal of understanding for the challenges of being human. Working with young people offers a rapidly changing arc of tension and designs every day as a mixture of stability and flexibility. At the Lernhaus, we combine different roles with humor and understanding to promote potential.\n\n- Teaching primarily in the subject languages\n- Supervision of the daily structure and relationship work with female youth\n- Individualized AP work (contact work) between teacher and young people\n- Cooperation in the investigation and diagnosis in the field of school, occupation and education\n- Maintain a regular exchange with the interdisciplinary team of the BEO and the caregivers of the young people\n- Participation in case meetings and overall meetings, as well as locational provisions for interdisciplinary exchange\n\nWe offer\nAs diverse as our young people is the field of work, area of responsibility and team of BEO. With us you will find an interesting and diverse interface from crisis to change. They work with social pedagogues, psychologists and parents and system workers with the aim of accompanying the young people and their environment in their positive development.\nLife has room for us: We teach in team teaching and appreciate an intensive professional exchange, support training and respond to the individual needs of the employees. Our everyday life offers and demands a lot of spontaneity and flexibility. We warmly welcome open exchange, ideas and enthusiasm for new things. In addition to a valued team, the central location and good public transport connections directly on the Egelsee are an exciting space for growth.",
+        "fr": "Portrait\nNous sommes une institution spécialisée qui, au nom du canton de Berne, accompagne les jeunes femmes dans des situations difficiles, qu'elles soient personnelles, sociales, éducatives ou familiales.\nNous travaillons de manière interdisciplinaire pour donner une image globale des forces et des faiblesses et pour créer des perspectives d'avenir.\n\nTâche\nEn tant qu'école interne-institutionnelle, nous travaillons dans une équipe de 5 (quatre enseignants, une aide de classe) avec des adolescentes dans le cadre d'une école spéciale. En plus de l'enseignement dans les matières de base (LP21), nous sommes orientés vers les compétences interdisciplinaires et une expérience scolaire positive et le plaisir d'apprendre. Nous nous considérons comme un domaine d'apprentissage où les biographies difficiles d'apprentissage font l'expérience du soutien individuel grâce à une coopération flexible et étroite avec les étudiants (petites classes, 4-8 jeunes).\n\nExigences\nEn plus de notre expertise, nous apprécions la curiosité, la créativité, l'ouverture, la flexibilité et beaucoup de compréhension pour les défis d'être humain. Travailler avec les jeunes offre chaque jour un arc de tension et de conception qui évolue rapidement, en mélange de stabilité et de flexibilité. Au Lernhaus, nous associons différents rôles à l'humour et à la compréhension pour promouvoir le potentiel.\n\n- Enseignement principalement dans les langues de la matière\n- Supervision de la structure quotidienne et des relations avec les jeunes femmes\n- Travail individuel (travail de contact) entre enseignants et jeunes\n- Coopération en matière d'enquête et de diagnostic dans les domaines de l'école, de la profession et de l'éducation\n- Maintenir un échange régulier avec l'équipe interdisciplinaire du BEO et les soignants des jeunes\n- Participation à des réunions de cas et à des réunions générales, ainsi qu ' à des échanges interdisciplinaires\n\nNous offrons\nAussi divers que nos jeunes sont le domaine de travail, le domaine de responsabilité et l'équipe de BEO. Avec nous, vous trouverez une interface intéressante et diversifiée de la crise au changement. Ils travaillent avec des pédagogues sociaux, des psychologues, des parents et des travailleurs du système afin d'accompagner les jeunes et leur environnement dans leur développement positif.\nLa vie a de la place pour nous: Nous enseignons en équipe et apprécions un échange professionnel intensif, soutenons la formation et répondons aux besoins individuels des employés. Notre vie quotidienne offre et exige beaucoup de spontanéité et de flexibilité. Nous accueillons chaleureusement les échanges ouverts, les idées et l'enthousiasme pour de nouvelles choses. En plus d'une équipe appréciée, l'emplacement central et les bonnes liaisons de transport public directement sur l'Egelsee sont un espace passionnant pour la croissance."
       },
       "location": "Muristrasse 29",
       "canton": "BE",
@@ -9489,7 +9472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10080,7 +10062,14 @@
         "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-schule-aefligen-aefligen-39884",
         "2-lecons-de-sport-au-5-6-classe-10-08-2026-au-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39884",
         "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
-        "klassenlehrperson-1-2-klasse-e-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+        "klassenlehrperson-1-2-klasse-e-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "insegnante-di-classe-5-6-grado-16-19-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-oberwil-b-buren",
+        "class-teacher-5th-6th-grade-16-19-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838",
+        "klassenlehrperson-5-6-klasse-16-19-lektionen-kindergarten-und-primarschule-oberwil-b-buren-39838",
+        "professeur-de-5e-a-6e-annee-16-19-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838",
+        "klassenlehrperson-5-6-klasse-16-19-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-oberwil-b-buren",
+        "klassenlehrperson-5-6-klasse-16-19-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-o-39838",
+        "insegnante-di-classe-5-6-grado-16-19-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10090,23 +10079,32 @@
           "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-schule-aefligen-aefligen-39884",
           "2-lecons-de-sport-au-5-6-classe-10-08-2026-au-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39884",
           "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aefligen",
-          "klassenlehrperson-1-2-klasse-e-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+          "klassenlehrperson-1-2-klasse-e-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+          "insegnante-di-classe-5-6-grado-16-19-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-oberwil-b-buren",
+          "class-teacher-5th-6th-grade-16-19-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838",
+          "klassenlehrperson-5-6-klasse-16-19-lektionen-kindergarten-und-primarschule-oberwil-b-buren-39838",
+          "professeur-de-5e-a-6e-annee-16-19-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838",
+          "klassenlehrperson-5-6-klasse-16-19-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-oberwil-b-buren",
+          "klassenlehrperson-5-6-klasse-16-19-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-o-39838",
+          "insegnante-di-classe-5-6-grado-16-19-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838"
         ],
         "en": [
           "klassenlehrperson-1-2-klasse-und-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrer-39878",
-          "2-lessons-of-sport-at-the-5-6-class-10-08-2026-to-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39884"
+          "2-lessons-of-sport-at-the-5-6-class-10-08-2026-to-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39884",
+          "class-teacher-5th-6th-grade-16-19-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838"
         ],
         "de": [
           "klassenlehrperson-1-2-klasse-und-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrer-39878",
-          "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-schule-aefligen-aefligen-39884"
+          "2-lektionen-sport-an-der-5-6-klasse-10-08-2026-bis-31-01-2027-schule-aefligen-aefligen-39884",
+          "klassenlehrperson-5-6-klasse-16-19-lektionen-kindergarten-und-primarschule-oberwil-b-buren-39838"
         ],
         "fr": [
           "klassenlehrperson-1-2-klasse-und-15-lektionen-unterricht-11-01-27-02-07-27-ksml-kantonaler-stellenmarkt-fur-lehrer-39878",
-          "2-lecons-de-sport-au-5-6-classe-10-08-2026-au-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39884"
+          "2-lecons-de-sport-au-5-6-classe-10-08-2026-au-31-01-2027-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-39884",
+          "professeur-de-5e-a-6e-annee-16-19-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39838"
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10368,8 +10366,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-d6d73af933cf",
@@ -10452,8 +10449,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-c40257fbce5e",
