@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-07-17T11:10:12.244Z",
-  "total": 7,
+  "generatedAt": "2026-07-17T22:28:43.207Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 2,
-  "unchangedCount": 2,
-  "durationMs": 17833,
-  "avgDurationMs": 17833,
+  "unchangedCount": 0,
+  "durationMs": 17943,
+  "avgDurationMs": 17943,
   "durationHistory": [
-    17833
+    17943
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -195,86 +195,6 @@
   ],
   "removedJobs": [
     {
-      "url": "https://www.mikron.com/en/team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-dequipe-en-28-mf",
-      "applyUrl": "https://www.mikron.com/en/team-leader-des-polymecaniciens-pour-le-departement-fabrication-horaire-dequipe-en-28-mf",
-      "title": "Team Leader des polymécaniciens pour le département fabrication – horaire d’équipe en 2×8 (m/f)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "team-leader-dei-polimacchinisti-per-il-dipartimento-produzione-orario-di-squadra-in-2-8-m-f-mikron-group-boudry",
-      "sourceLang": "fr",
-      "category": "management",
-      "datePosted": "2026-06-29",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-06-29T22:57:28.302Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
-      "applyUrl": "https://www.mikron.com/en/warehouse-logistic-team-leader-mfd",
-      "title": "Warehouse & Logistic Team Leader (m/f/d)",
-      "company": "Mikron Group",
-      "companyKey": "mikron",
-      "location": "Boudry",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2017",
-      "streetAddress": "Route du Vignoble 17, 2017 Boudry",
-      "slug": "warehouse-logistic-team-leader-m-f-d-mikron",
-      "sourceLang": "fr",
-      "category": "logistics",
-      "datePosted": "2026-06-29",
-      "source": "mikron-html-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Manifattura / Precision Manufacturing",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Boudry"
-      },
-      "firstSeenAt": "2026-06-29T22:57:28.302Z",
-      "addressLocality": "Boudry",
-      "addressCountry": "CH",
-      "addressRegion": "NE",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://www.mikron.com/en/production-planning-expert-ordonnanceur",
       "applyUrl": "https://www.mikron.com/en/production-planning-expert-ordonnanceur",
       "title": "Production Planning Expert (Ordonnanceur)",
@@ -354,5 +274,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
