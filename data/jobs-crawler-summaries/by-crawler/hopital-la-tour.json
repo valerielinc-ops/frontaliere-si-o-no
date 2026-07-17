@@ -1,16 +1,16 @@
 {
   "key": "hopital-la-tour",
   "label": "Hôpital de La Tour",
-  "generatedAt": "2026-07-17T11:54:48.092Z",
-  "total": 10,
+  "generatedAt": "2026-07-17T22:41:49.887Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3811,
-  "avgDurationMs": 3811,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4058,
+  "avgDurationMs": 4058,
   "durationHistory": [
-    3811
+    4058
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-au-centre-de-la-douleur-cdi-a-60",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.512Z",
+      "crawledAt": "2026-07-17T22:41:47.055Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-a-luco-cdi-a-75",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.515Z",
+      "crawledAt": "2026-07-17T22:41:47.063Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-interne-medecin-assistant-en-chirurgie-pediatrique",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.517Z",
+      "crawledAt": "2026-07-17T22:41:47.067Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/facturiste-cdm-6-mois",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.519Z",
+      "crawledAt": "2026-07-17T22:41:47.070Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/coordinateur-de-maintenance-a-100",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.524Z",
+      "crawledAt": "2026-07-17T22:41:47.074Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/secretaire-medicale-en-endoscopie-a-100-cdi",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.525Z",
+      "crawledAt": "2026-07-17T22:41:47.076Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/ergotherapeute-a-80-cdi",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.527Z",
+      "crawledAt": "2026-07-17T22:41:47.078Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-urgentiste-senior",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.530Z",
+      "crawledAt": "2026-07-17T22:41:47.081Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/stagiaire-en-business-intelligence",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:54:45.531Z",
+      "crawledAt": "2026-07-17T22:41:47.083Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -348,8 +348,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hopital-la-tour-bbd968138a17",
       "slug": "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin",
@@ -390,5 +389,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
