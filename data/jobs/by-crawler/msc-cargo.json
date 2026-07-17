@@ -292,7 +292,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:25:46.470Z"
+      "firstSeenAt": "2026-07-17T11:25:46.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
+          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
+        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-2e9827752273",
@@ -424,7 +434,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-full-funnel-analyst-msc-geneva",
-        "marketing-full-funnel-analista-msc-group-geneva"
+        "marketing-full-funnel-analista-msc-group-geneva",
+        "marketing-full-funnell-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -433,6 +444,9 @@
         ],
         "fr": [
           "marketing-full-funnel-analyst-msc-geneva"
+        ],
+        "en": [
+          "marketing-full-funnell-analyst-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-07-14T22:14:06.644Z",
@@ -582,10 +596,14 @@
       "previousSlugsByLocale": {
         "it": [
           "digital-platforms-manager-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-platforms-manager-msc-geneva"
+        "digital-platforms-manager-msc-geneva",
+        "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 92000,
@@ -788,7 +806,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -797,6 +816,9 @@
         ],
         "de": [
           "sr-director-of-guest-experience-development-delivery-msc-geneva"
+        ],
+        "fr": [
+          "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-07-16T11:36:14.531Z",
@@ -879,14 +901,18 @@
       "firstSeenAt": "2026-07-16T22:36:24.609Z",
       "previousSlugsByLocale": {
         "it": [
-          "product-innovation-manager-new-builds-msc-geneva"
+          "product-innovation-manager-new-builds-msc-geneva",
+          "product-innovation-manager-new-builds-analytics-msc-geneva"
         ],
         "fr": [
-          "product-innovation-manager-new-builds-msc-geneva"
+          "product-innovation-manager-new-builds-msc-geneva",
+          "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "product-innovation-manager-new-builds-msc-geneva"
+        "product-innovation-manager-new-builds-msc-geneva",
+        "product-innovation-manager-new-builds-analytics-msc-geneva",
+        "gestionnaire-d-innovation-de-produits-new-builds-analytics-msc-group-geneva"
       ],
       "crawlerMissStreak": 1
     },
