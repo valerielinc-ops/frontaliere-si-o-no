@@ -41,6 +41,7 @@ const sampleAlert = (overrides: any = {}) => ({
  sectors: [],
  frequency: 'weekly',
  active: true,
+ paused: false,
  createdAt: 1714300000000,
  ...overrides,
 });
@@ -260,13 +261,13 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  await waitFor(() => expect(screen.getByText('Automatic')).toBeTruthy());
  });
 
- it('pauses an active alert via the pause button (issue #4298)', async () => {
+ it('pauses an alert via the pause button, writing `paused` never `active` (issue #4298 follow-up fix)', async () => {
  (subs.getFullSubscriptionStatus as any).mockResolvedValue(
- okStatus({ alerts: [sampleAlert({ active: true })] }),
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
  );
  (subs.updateJobAlert as any).mockResolvedValue({
  success: true,
- alert: { ...sampleAlert(), active: false },
+ alert: { ...sampleAlert(), paused: true },
  });
 
  render(
@@ -280,7 +281,7 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  'user@example.com',
  'abc123',
  'alert1',
- { active: false },
+ { paused: true },
  );
  });
  await waitFor(() => expect(screen.getByText('Paused')).toBeTruthy());
@@ -288,13 +289,13 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  expect(screen.getByText('Software Engineer')).toBeTruthy();
  });
 
- it('resumes a paused alert via the resume button, still visible from get_full_status (issue #4298)', async () => {
+ it('resumes a paused alert via the resume button, still visible from get_full_status (issue #4298 follow-up fix)', async () => {
  (subs.getFullSubscriptionStatus as any).mockResolvedValue(
- okStatus({ alerts: [sampleAlert({ active: false })] }),
+ okStatus({ alerts: [sampleAlert({ paused: true })] }),
  );
  (subs.updateJobAlert as any).mockResolvedValue({
  success: true,
- alert: { ...sampleAlert(), active: true },
+ alert: { ...sampleAlert(), paused: false },
  });
 
  render(
@@ -311,7 +312,7 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
  'user@example.com',
  'abc123',
  'alert1',
- { active: true },
+ { paused: false },
  );
  });
  await waitFor(() => expect(screen.queryByText('Paused')).toBeNull());
@@ -319,7 +320,7 @@ describe('SubscriptionPreferencesController — edit + create + frequency', () =
 
  it('reverts the optimistic pause when updateJobAlert fails', async () => {
  (subs.getFullSubscriptionStatus as any).mockResolvedValue(
- okStatus({ alerts: [sampleAlert({ active: true })] }),
+ okStatus({ alerts: [sampleAlert({ paused: false })] }),
  );
  (subs.updateJobAlert as any).mockResolvedValue({ success: false, error: 'write_failed' });
 
@@ -513,11 +514,16 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
  expect(src).toMatch(/deleteDoc\(/);
  });
 
- it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298)', () => {
+ it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
  expect(src).toMatch(/handleTogglePause/);
  expect(src).toMatch(/onTogglePause/);
- // Regression guard: authLoadFullStatus / get_full_status must NOT silently
- // filter out active===false alerts — a paused alert must stay resumable.
- expect(src).not.toMatch(/if \(a\.active === false\) return;/);
+ // Regression guard: authLoadFullStatus MUST skip active===false docs —
+ // `active` is solely the soft-delete flag; a soft-deleted alert must
+ // never resurrect as "paused" (that would un-opt-out a user).
+ expect(src).toMatch(/if \(a\.active === false\) return;/);
+ // Regression guard: pause/resume must go through the dedicated `paused`
+ // field, never `active` — the two must never collide again.
+ expect(src).toMatch(/paused:\s*nextPaused/);
+ expect(src).not.toMatch(/active:\s*nextActive/);
  });
 });

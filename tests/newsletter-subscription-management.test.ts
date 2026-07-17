@@ -178,13 +178,13 @@ describe('handleSubscriptionManagement', () => {
   });
 });
 
-describe('handleSubscriptionManagement — get_full_status (issue #4298 pause visibility)', () => {
-  // Regression: get_full_status used to silently drop any alert doc with
-  // active===false ("skip soft-deleted alerts" — a stale comment; delete_alert
-  // does a hard Firestore delete and never soft-deletes via active:false).
-  // active===false is the pause flag written by update_alert; a paused alert
-  // must still be returned so the user can see + resume it.
-  it('includes both active and paused alerts in the response', async () => {
+describe('handleSubscriptionManagement — get_full_status (issue #4298 follow-up fix)', () => {
+  // `active` is SOLELY the soft-delete flag written by
+  // services/jobAlertService.ts's deleteAlert() — a soft-deleted doc must
+  // never reappear here. Pause/resume is tracked by the dedicated, orthogonal
+  // `paused` field written by update_alert, so it can never collide with a
+  // real delete.
+  it('includes a paused alert (active:true, paused:true) and marks it paused', async () => {
     const db = createFakeDb(
       {
         newsletter_subscribers: {
@@ -195,8 +195,8 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 pause vi
         job_alert_subscribers: {
           [TEST_EMAIL]: {
             alerts: {
-              'alert-active': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true },
-              'alert-paused': { keywords: ['Logistica'], locations: [], sectors: [], frequency: 'weekly', active: false },
+              'alert-active': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true, paused: false },
+              'alert-paused': { keywords: ['Logistica'], locations: [], sectors: [], frequency: 'weekly', active: true, paused: true },
             },
           },
         },
@@ -219,7 +219,53 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 pause vi
     const active = result.json.alerts.find((a: any) => a.id === 'alert-active');
     const paused = result.json.alerts.find((a: any) => a.id === 'alert-paused');
     expect(active.active).toBe(true);
+    expect(active.paused).toBe(false);
     expect(paused).toBeTruthy();
-    expect(paused.active).toBe(false);
+    expect(paused.active).toBe(true);
+    expect(paused.paused).toBe(true);
+  });
+
+  // Regression guard: a real soft-deleted alert (active:false, written by
+  // services/jobAlertService.ts's deleteAlert()) must never resurrect as
+  // "paused" — that would un-opt-out a user who deliberately deleted it.
+  it('never returns a soft-deleted alert (active:false)', async () => {
+    const db = createFakeDb(
+      {
+        newsletter_subscribers: {
+          [TEST_EMAIL]: { status: 'confirmed', isActive: true },
+        },
+      },
+      {
+        job_alert_subscribers: {
+          [TEST_EMAIL]: {
+            alerts: {
+              'alert-live': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true },
+              'alert-deleted': {
+                keywords: ['Logistica'],
+                locations: [],
+                sectors: [],
+                frequency: 'weekly',
+                active: false,
+                unsubscribed_at: 'irrelevant',
+                unsubscribe_source: 'profile_ui',
+              },
+            },
+          },
+        },
+      },
+    );
+
+    const result = await handleSubscriptionManagement({
+      action: 'get_full_status',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(result.json.alerts).toHaveLength(1);
+    expect(result.json.alerts[0].id).toBe('alert-live');
   });
 });

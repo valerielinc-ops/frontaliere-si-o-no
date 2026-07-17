@@ -1908,10 +1908,11 @@ export const Analytics = {
  log('job_alert_deleted', {});
  },
 
- /** Issue #4298: alert management pause/resume toggle in /profilo/ and
-  * /preferenze-newsletter/. `nextActive: false` = paused, `true` = resumed. */
- trackJobAlertPauseToggled: (nextActive: boolean) => {
- log('job_alert_pause_toggled', { alert_active: nextActive });
+ /** Issue #4298 follow-up fix: alert management pause/resume toggle in
+  * /profilo/ and /preferenze-newsletter/. `nextPaused: true` = paused,
+  * `false` = resumed. */
+ trackJobAlertPauseToggled: (nextPaused: boolean) => {
+ log('job_alert_pause_toggled', { alert_paused: nextPaused });
  },
 
  /**
