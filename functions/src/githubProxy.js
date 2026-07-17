@@ -17,6 +17,7 @@
 import { getAuth } from 'firebase-admin/auth';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { createAssessment } from './recaptchaVerification.js';
+import { githubApiHeaders } from './githubApiHeaders.js';
 
 const ADMIN_EMAIL_ALLOWLIST = new Set(['valerielinc@gmail.com']);
 const FEEDBACK_RECAPTCHA_THRESHOLD = 0.5;
@@ -75,12 +76,10 @@ export async function handleCreateFeedbackIssue(req) {
 
   const res = await fetch(`${GITHUB_API}/repos/${owner}/${repo}/issues`, {
     method: 'POST',
-    headers: {
-      Authorization: `token ${pat}`,
-      'Content-Type': 'application/json',
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
+    // classic "token" scheme (not Bearer) — this endpoint has used it since
+    // before the Bearer-scheme call sites existed; keeping it avoids an
+    // unverified auth-scheme change on a public, reCAPTCHA-gated endpoint.
+    headers: githubApiHeaders(pat, { Authorization: `token ${pat}`, 'Content-Type': 'application/json' }),
     body: JSON.stringify({
       title,
       body: `${description}\n\n> Segnalato tramite Web App`,
