@@ -3243,6 +3243,7 @@ Règles :
  'publisher.payFirst.creditsBanner': 'Vous avez {count} sites disponibles à utiliser.',
  'publisher.payFirst.remaining': 'Sites restants : {count}',
  'publisher.payFirst.buyMore': 'Acheter d\'autres sites',
+ 'publisher.payFirst.backToForm': 'Retour à votre annonce',
  'publisher.payFirst.submitCta': 'Publier l\'annonce',
  'publisher.payFirst.attachedTitle': 'Annonce en cours de publication',
  'publisher.payFirst.attachedBody': 'Votre annonce sera généralement en ligne en moins d\'une heure. Vous la retrouverez dans le tableau de bord.',

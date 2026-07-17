@@ -40,7 +40,7 @@ import { getApp } from '@/services/firebase';
 import { useCountUp } from '@/hooks/useCountUp';
 import type { PublisherJobStatus, PublisherTier } from '@/services/publisherTypes';
 import { canArchive, canRestore, isLiveStatus } from '@/services/publisherTypes';
-import { sumRemainingUnits, type PrepaidOrderCredit } from '@/services/publisherPricing';
+import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 
 interface DashboardRow {
   id: string;
@@ -182,7 +182,7 @@ const PublisherDashboardPage: React.FC = () => {
   const [cvOpeningId, setCvOpeningId] = useState<string | null>(null);
   // Unused prepaid location-credits (pay-first funnel) — null while loading/no user,
   // remainingUnits null = azienda plan (unlimited), otherwise a number ≥ 0.
-  const [credits, setCredits] = useState<{ remainingUnits: number | null } | null>(null);
+  const [credits, setCredits] = useState<PublisherCredits | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -443,25 +443,15 @@ const PublisherDashboardPage: React.FC = () => {
     };
   }, [user]);
 
-  // Prepaid location-credits (pay-first funnel, see services/publisherPricing.ts).
-  // Single equality query (no composite index), filtered client-side.
+  // Prepaid location-credits (pay-first funnel) — shared loader with
+  // PublisherPublishPage (see services/publisherCredits.ts).
   useEffect(() => {
     if (!user) return;
     let cancelled = false;
     (async () => {
       try {
-        const db = (await import('firebase/firestore')).getFirestore(await getApp());
-        const { collection, query, where, getDocs } = await import('firebase/firestore');
-        const snap = await getDocs(query(collection(db, 'orders'), where('publisherUid', '==', user.uid)));
-        const active: PrepaidOrderCredit[] = snap.docs
-          .map((d) => d.data() as Record<string, unknown>)
-          .filter((o) => o.status === 'active' && o.prepaid === true)
-          .map((o) => ({
-            plan: o.plan === 'azienda' ? ('azienda' as const) : undefined,
-            unitsPurchased: typeof o.unitsPurchased === 'number' ? o.unitsPurchased : null,
-            unitsUsed: typeof o.unitsUsed === 'number' ? o.unitsUsed : 0,
-          }));
-        if (!cancelled) setCredits({ remainingUnits: sumRemainingUnits(active) });
+        const result = await loadPublisherCredits(user.uid);
+        if (!cancelled) setCredits(result);
       } catch (error) {
         if (!cancelled) reportCaughtError(error, 'publisherDashboard.loadCredits');
       }

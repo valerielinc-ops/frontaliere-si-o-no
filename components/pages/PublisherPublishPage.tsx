@@ -46,11 +46,10 @@ import { renderPublisherMarkdown, stripPublisherMarkdown } from '@/services/publ
 import {
  priceForCart,
  priceForUnits,
- sumRemainingUnits,
  PRICE_PER_UNIT_CHF,
  PRICING_CURRENCY,
- type PrepaidOrderCredit,
 } from '@/services/publisherPricing';
+import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 import { listCantonOptions } from '@/services/cantonList';
 import type {
  ApplyMode,
@@ -324,37 +323,6 @@ function buildAdFields(
  ...(ad.apply.privacyPolicyUrl.trim() ? { privacyPolicyUrl: ad.apply.privacyPolicyUrl.trim() } : {}),
  },
  };
-}
-
-/** Purchased tier + remaining prepaid units, derived from active `orders` docs. */
-interface PublisherCredits {
- remainingUnits: number | null; // null = azienda unlimited
- tier: PublisherTier | null; // purchased tier; null = no active prepaid credit
-}
-
-/**
- * Fetch the publisher's prepaid credits. Single equality `where` (no composite
- * index needed) — status/prepaid filtered client-side, matching the
- * sponsored/azienda split the CF derives from `orders.plan`.
- */
-async function loadPublisherCredits(uid: string): Promise<PublisherCredits> {
- const db = getFirestore(await getApp());
- const snap = await getDocs(query(collection(db, 'orders'), where('publisherUid', '==', uid)));
- const active: PrepaidOrderCredit[] = [];
- let sawAzienda = false;
- snap.forEach(docSnap => {
- const d = docSnap.data() as Record<string, unknown>;
- if (d.status !== 'active' || d.prepaid !== true) return;
- const isAzienda = d.plan === 'azienda';
- if (isAzienda) sawAzienda = true;
- active.push({
- plan: isAzienda ? 'azienda' : undefined,
- unitsPurchased: typeof d.unitsPurchased === 'number' ? d.unitsPurchased : null,
- unitsUsed: typeof d.unitsUsed === 'number' ? d.unitsUsed : 0,
- });
- });
- if (active.length === 0) return { remainingUnits: 0, tier: null };
- return { remainingUnits: sumRemainingUnits(active), tier: sawAzienda ? 'azienda' : 'sponsored' };
 }
 
 const PublisherPublishPage: React.FC = () => {
@@ -820,10 +788,21 @@ const PublisherPublishPage: React.FC = () => {
  // the Plan/payment step instead of the ad-authoring form.
  const showPlanPhase = !isEdit && !isFree && credits !== null && (!hasCredits || manualPlanPhase);
  // null = azienda unlimited (no cap). Cart-wide distinct locations (price.units)
- // must stay ≤ remainingCap.
+ // must stay ≤ remainingCap (total residual across orders); the CURRENT ad's
+ // own locations must additionally fit inside ONE order's residual (adCap =
+ // maxClaimableUnits) because attachPublisherJob assigns each ad whole to a
+ // single order — see services/publisherCredits.ts.
  const remainingCap = payFirstActive && credits ? credits.remainingUnits : null;
+ const adCap = payFirstActive && credits ? credits.maxClaimableUnits : null;
+ // Cart-wide cap: gates adding another ad to the cart.
  const capReached = remainingCap != null && price.units >= remainingCap;
- const overCap = remainingCap != null && price.units > remainingCap;
+ // Per-ad cap: gates adding another location to the CURRENT ad (a fresh ad
+ // added to the cart starts back at zero locations, so add-to-cart is only
+ // gated cart-wide).
+ const addLocationCapReached = capReached || (adCap != null && distinctLocations.length >= adCap);
+ const overCap =
+ (remainingCap != null && price.units > remainingCap) ||
+ (adCap != null && distinctLocations.length > adCap);
  const creditsBannerTitle = checkoutSuccess
  ? t('publisher.payFirst.postPayTitle')
  : tier === 'azienda'
@@ -1591,6 +1570,18 @@ const PublisherPublishPage: React.FC = () => {
  {t('publisher.payFirst.payCta')}
  </button>
  )}
+ {/* Escape hatch: a publisher with active credits who opened this step
+ via "Buy more locations" can go back to the authoring form without
+ paying again (manualPlanPhase is never reset elsewhere). */}
+ {manualPlanPhase && hasCredits && (
+ <button
+ type="button"
+ onClick={() => { setManualPlanPhase(false); setPlanPayError(''); }}
+ className="mt-3 w-full flex items-center justify-center px-6 py-2.5 text-sm font-medium text-link border border-edge rounded-xl hover:bg-surface-alt transition-colors"
+ >
+ {t('publisher.payFirst.backToForm')}
+ </button>
+ )}
  </div>
  );
  }
@@ -2022,8 +2013,8 @@ const PublisherPublishPage: React.FC = () => {
  <button
  type="button"
  onClick={addLocation}
- disabled={capReached}
- className={`mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl transition-colors ${capReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-surface-alt'}`}
+ disabled={addLocationCapReached}
+ className={`mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl transition-colors ${addLocationCapReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-surface-alt'}`}
  >
  <Plus className="w-4 h-4" />
  {t('publisher.locations.add')}

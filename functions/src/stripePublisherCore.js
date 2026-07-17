@@ -643,55 +643,90 @@ export async function handleAttachPublisherJob(req) {
     return { status: 402, body: { ok: false, error: 'no_credits' } };
   }
 
-  // Prefer an unlimited azienda order; otherwise the first order with enough
-  // residual units. No cross-order split (kept simple per spec).
-  const aziendaDoc = ordersSnap.docs.find((d) => d.data().plan === 'azienda' && d.data().unitsPurchased == null);
-  const candidate = aziendaDoc || ordersSnap.docs.find((d) => {
-    const o = d.data();
-    return (o.unitsPurchased ?? 0) - (o.unitsUsed ?? 0) >= unitsNeeded;
-  });
-
-  if (!candidate) {
-    const maxRemaining = ordersSnap.docs.reduce((max, d) => {
-      const o = d.data();
-      return Math.max(max, (o.unitsPurchased ?? 0) - (o.unitsUsed ?? 0));
-    }, 0);
-    return { status: 409, body: { ok: false, error: 'insufficient_units', remainingUnits: maxRemaining } };
-  }
-
-  const orderRef = candidate.ref;
+  // Prefer an unlimited azienda order; otherwise spend across ALL active
+  // prepaid orders (the frontend sums residuals order-wide — sumRemainingUnits
+  // in services/publisherPricing.ts — so a publisher who bought 2+3 units in
+  // two checkouts must be able to attach a 5-unit cart). Each AD is assigned
+  // whole to ONE order (first-fit decreasing) so every job doc keeps a single
+  // orderId/stripeSubscriptionId and expireBySubscription stays unambiguous;
+  // only a single ad needing more units than any one order's residual can't
+  // be split (the client caps per-ad locations at the max single-order
+  // residual for this reason).
+  const orderRefs = ordersSnap.docs.map((d) => d.ref);
   let newJobIds = [];
   let remainingUnitsAfter = null;
 
   try {
     await db().runTransaction(async (tx) => {
-      const orderTxSnap = await tx.get(orderRef);
-      if (!orderTxSnap.exists) throw new AttachClaimError('no_credits');
-      const order = orderTxSnap.data();
-      if (order.status !== 'active' || order.prepaid !== true) throw new AttachClaimError('no_credits');
+      // Re-read every candidate order inside the transaction (racing attach
+      // calls fail the residual math here instead of double-spending).
+      const orderTxSnaps = await Promise.all(orderRefs.map((ref) => tx.get(ref)));
+      const liveOrders = orderTxSnaps
+        .filter((s) => s.exists)
+        .map((s) => ({ ref: s.ref, order: s.data() }))
+        .filter(({ order }) => order.status === 'active' && order.prepaid === true);
+      if (!liveOrders.length) throw new AttachClaimError('no_credits');
 
-      const unlimited = order.plan === 'azienda' && order.unitsPurchased == null;
-      let remaining = null;
-      if (!unlimited) {
-        remaining = (order.unitsPurchased ?? 0) - (order.unitsUsed ?? 0);
-        if (remaining < unitsNeeded) throw new AttachClaimError('insufficient_units', remaining);
-      }
-
-      const tier = order.plan === 'azienda' ? 'azienda' : 'sponsored';
       const ts = admin.firestore.FieldValue.serverTimestamp();
-      const jobIds = [];
-      for (const ad of ads) {
-        const jobRef = db().collection('publisher_jobs').doc();
-        tx.set(jobRef, buildAttachedJobDoc(ad, { uid, orderRef, order, tier, ts }));
-        jobIds.push(jobRef.id);
+      const unlimitedEntry = liveOrders.find(({ order }) => order.plan === 'azienda' && order.unitsPurchased == null);
+
+      // Per-order mutable residuals + claim buckets for the assignment below.
+      const buckets = liveOrders.map((entry) => ({
+        ...entry,
+        residual: (entry.order.unitsPurchased ?? 0) - (entry.order.unitsUsed ?? 0),
+        jobIds: [],
+        unitsClaimed: 0,
+      }));
+
+      if (!unlimitedEntry) {
+        const totalResidual = buckets.reduce((sum, b) => sum + Math.max(0, b.residual), 0);
+        if (totalResidual < unitsNeeded) throw new AttachClaimError('insufficient_units', totalResidual);
+
+        // First-fit decreasing: biggest ads into the fullest orders first.
+        // Whole-ad assignment can still fail on pathological packings even
+        // when the total residual suffices — surface the max single-order
+        // residual so the client can cap/retry coherently.
+        const adUnits = ads.map((ad, i) => ({ i, units: countDistinctLocations(ad.locations) }))
+          .sort((a, b) => b.units - a.units);
+        for (const { i, units } of adUnits) {
+          const bucket = buckets
+            .filter((b) => b.residual - b.unitsClaimed >= units)
+            .sort((a, b) => (b.residual - b.unitsClaimed) - (a.residual - a.unitsClaimed))[0];
+          if (!bucket) {
+            const maxResidual = buckets.reduce((max, b) => Math.max(max, b.residual - b.unitsClaimed), 0);
+            throw new AttachClaimError('insufficient_units', maxResidual);
+          }
+          bucket.adIndexes = bucket.adIndexes || [];
+          bucket.adIndexes.push(i);
+          bucket.unitsClaimed += units;
+        }
+      } else {
+        // Unlimited azienda plan: everything lands on that order.
+        const bucket = buckets.find((b) => b.ref.path === unlimitedEntry.ref.path);
+        bucket.adIndexes = ads.map((_, i) => i);
       }
 
-      const orderUpdate = { jobIds: admin.firestore.FieldValue.arrayUnion(...jobIds), updatedAt: ts };
-      if (!unlimited) orderUpdate.unitsUsed = admin.firestore.FieldValue.increment(unitsNeeded);
-      tx.update(orderRef, orderUpdate);
+      const jobIdsInAdOrder = new Array(ads.length);
+      for (const bucket of buckets) {
+        if (!bucket.adIndexes || !bucket.adIndexes.length) continue;
+        const tier = bucket.order.plan === 'azienda' ? 'azienda' : 'sponsored';
+        for (const i of bucket.adIndexes) {
+          const jobRef = db().collection('publisher_jobs').doc();
+          tx.set(jobRef, buildAttachedJobDoc(ads[i], { uid, orderRef: bucket.ref, order: bucket.order, tier, ts }));
+          bucket.jobIds.push(jobRef.id);
+          jobIdsInAdOrder[i] = jobRef.id;
+        }
+        const orderUpdate = { jobIds: admin.firestore.FieldValue.arrayUnion(...bucket.jobIds), updatedAt: ts };
+        if (!unlimitedEntry && bucket.unitsClaimed > 0) {
+          orderUpdate.unitsUsed = admin.firestore.FieldValue.increment(bucket.unitsClaimed);
+        }
+        tx.update(bucket.ref, orderUpdate);
+      }
 
-      newJobIds = jobIds;
-      remainingUnitsAfter = unlimited ? null : remaining - unitsNeeded;
+      newJobIds = jobIdsInAdOrder;
+      remainingUnitsAfter = unlimitedEntry
+        ? null
+        : buckets.reduce((sum, b) => sum + Math.max(0, b.residual - b.unitsClaimed), 0);
     });
   } catch (error) {
     if (error instanceof AttachClaimError) {

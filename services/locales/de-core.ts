@@ -3243,6 +3243,7 @@ Regeln:
  'publisher.payFirst.creditsBanner': 'Sie haben {count} verfügbare Standorte.',
  'publisher.payFirst.remaining': 'Verbleibende Standorte: {count}',
  'publisher.payFirst.buyMore': 'Weitere Standorte kaufen',
+ 'publisher.payFirst.backToForm': 'Zurück zur Anzeige',
  'publisher.payFirst.submitCta': 'Anzeige veröffentlichen',
  'publisher.payFirst.attachedTitle': 'Anzeige wird veröffentlicht',
  'publisher.payFirst.attachedBody': 'Ihre Anzeige ist in der Regel innerhalb einer Stunde online. Sie finden sie im Dashboard.',

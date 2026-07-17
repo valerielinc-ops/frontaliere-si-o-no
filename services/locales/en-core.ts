@@ -3240,6 +3240,7 @@ Rules:
  'publisher.payFirst.creditsBanner': 'You have {count} locations available to use.',
  'publisher.payFirst.remaining': 'Locations remaining: {count}',
  'publisher.payFirst.buyMore': 'Buy more locations',
+ 'publisher.payFirst.backToForm': 'Back to your ad',
  'publisher.payFirst.submitCta': 'Publish ad',
  'publisher.payFirst.attachedTitle': 'Ad being published',
  'publisher.payFirst.attachedBody': 'Your ad will usually be online within an hour. You can find it in your dashboard.',

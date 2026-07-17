@@ -3330,6 +3330,7 @@ Regole:
  'publisher.payFirst.creditsBanner': 'Hai {count} sedi disponibili da utilizzare.',
  'publisher.payFirst.remaining': 'Sedi rimanenti: {count}',
  'publisher.payFirst.buyMore': 'Acquista altre sedi',
+ 'publisher.payFirst.backToForm': 'Torna all\'annuncio',
  'publisher.payFirst.submitCta': 'Pubblica annuncio',
  'publisher.payFirst.attachedTitle': 'Annuncio in pubblicazione',
  'publisher.payFirst.attachedBody': 'Il tuo annuncio andrà online di norma entro un\'ora. Lo trovi nella dashboard.',
