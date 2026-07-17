@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-07-16T22:42:20.207Z",
+  "assembledAt": "2026-07-17T11:54:42.311Z",
   "jobs": [
     {
       "id": "omega-32490",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32490",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T22:42:17.705Z",
+      "crawledAt": "2026-07-17T11:54:40.420Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:32:08.546Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T22:41:56.226Z",
+      "crawledAt": "2026-07-17T11:54:19.013Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -147,12 +148,14 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+        "kitchen-h-f-temporario-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
+          "kitchen-h-f-temporario-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -162,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:47.089Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -180,7 +184,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designate-h-f-omega-sa-biel-bienne",
+        "en": "designer-m-w-d-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -190,7 +194,7 @@
       "title": "DESIGNER (H/F)",
       "titleByLocale": {
         "it": "DESIGNATO (H/F)",
-        "en": "DESIGNATE (H/F)",
+        "en": "DESIGNER (H/F)",
         "de": "BEZEICHNUNG (H/F)",
         "fr": "DESIGNER (H/F)"
       },
@@ -206,7 +210,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-16T22:41:34.878Z",
+      "crawledAt": "2026-07-17T11:53:57.737Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -248,15 +252,19 @@
       "previousSlugs": [
         "designer-h-f-omega-biel-bienne",
         "designer-h-f-omega-sa-biel-bienne",
+        "designate-h-f-omega-sa-biel-bienne",
+        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "designer-h-f-omega-biel-bienne"
+          "designer-h-f-omega-biel-bienne",
+          "designato-h-f-omega-sa-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
+          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -264,6 +272,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:25.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -308,7 +317,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-16T22:41:13.313Z",
+      "crawledAt": "2026-07-17T11:53:36.380Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -359,6 +368,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:31:04.444Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -371,6 +381,84 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "omega-32560",
+      "slug": "international-sales-trainer-m-w-omega-biel-bienne",
+      "slugByLocale": {
+        "en": "international-sales-trainer-m-w-omega-biel-bienne",
+        "it": "international-sales-trainer-m-w-omega-biel-bienne",
+        "de": "international-sales-trainer-m-w-omega-biel-bienne",
+        "fr": "international-sales-trainer-m-w-omega-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "INTERNATIONAL SALES TRAINER (M/W)",
+      "titleByLocale": {
+        "en": "INTERNATIONAL SALES TRAINER (M/W)",
+        "it": "INTERNATIONAL SALES TRAINER (M/W)",
+        "de": "INTERNATIONAL SALES TRAINER (M/W)",
+        "fr": "INTERNATIONAL SALES TRAINER (M/W)"
+      },
+      "description": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\n•\nDesign, develop, and deliver training programs for sales teams that address the specific needs of retail and wholesale staff, with the goal of maximizing sales performance.\n\n## Profile\n• Proven work experience as a Sales Trainer or similar role\n\n•\nAbility to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies\n\n## Professional requirements\n•\nPassionate about people development, with a collaborative and flexible approach to learning and growth.\n\n## Languages\n• Fluent in German and English\n\n• Very good knowledge of French, any additional language is an asset",
+      "descriptionByLocale": {
+        "en": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\n•\nDesign, develop, and deliver training programs for sales teams that address the specific needs of retail and wholesale staff, with the goal of maximizing sales performance.\n\n## Profile\n• Proven work experience as a Sales Trainer or similar role\n\n•\nAbility to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies\n\n## Professional requirements\n•\nPassionate about people development, with a collaborative and flexible approach to learning and growth.\n\n## Languages\n• Fluent in German and English\n\n• Very good knowledge of French, any additional language is an asset",
+        "it": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\n•\nDesign, develop, and deliver training programs for sales teams that address the specific needs of retail and wholesale staff, with the goal of maximizing sales performance.\n\n## Profile\n• Proven work experience as a Sales Trainer or similar role\n\n•\nAbility to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies\n\n## Professional requirements\n•\nPassionate about people development, with a collaborative and flexible approach to learning and growth.\n\n## Languages\n• Fluent in German and English\n\n• Very good knowledge of French, any additional language is an asset",
+        "de": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\n•\nDesign, develop, and deliver training programs for sales teams that address the specific needs of retail and wholesale staff, with the goal of maximizing sales performance.\n\n## Profile\n• Proven work experience as a Sales Trainer or similar role\n\n•\nAbility to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies\n\n## Professional requirements\n•\nPassionate about people development, with a collaborative and flexible approach to learning and growth.\n\n## Languages\n• Fluent in German and English\n\n• Very good knowledge of French, any additional language is an asset",
+        "fr": "## The company\nOMEGA is a prestigious global brand with more than 170 years of commitment to quality, precision and innovation. Our watches are among the world’s finest, defined by industry-leading technology and timeless aesthetic appeal.\n\nIn our long history, we’ve set precision records, defined sports timing and remained at fine watchmaking’s cutting edge.\n\nAs an international brand, we are always interested in meeting future colleagues who are prepared to contribute their talents, ambitions and inspiration to our teams on practically every continent.\n\n## Job description\n•\nDesign, develop, and deliver training programs for sales teams that address the specific needs of retail and wholesale staff, with the goal of maximizing sales performance.\n\n## Profile\n• Proven work experience as a Sales Trainer or similar role\n\n•\nAbility to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies\n\n## Professional requirements\n•\nPassionate about people development, with a collaborative and flexible approach to learning and growth.\n\n## Languages\n• Fluent in German and English\n\n• Very good knowledge of French, any additional language is an asset"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/en/job/32560",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-07-17T11:53:15.053Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Commerciale",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-17",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-269130&langCode=en_GB&source=swatchgroup.com",
+      "requirements": [
+        "Proven work experience as a Sales Trainer or similar role",
+        "Ability to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies",
+        "Passionate about people development, with a collaborative and flexible approach to learning and growth.",
+        "Fluent in German and English",
+        "Very good knowledge of French, any additional language is an asset"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Proven work experience as a Sales Trainer or similar role",
+          "Ability to conduct training sessions, coaching, and interactive activities that engage sales staff and ensure alignment with Headquarters strategies",
+          "Passionate about people development, with a collaborative and flexible approach to learning and growth.",
+          "Fluent in German and English",
+          "Very good knowledge of French, any additional language is an asset"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-17T11:53:15.053Z"
     }
   ]
 }
