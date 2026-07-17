@@ -38,6 +38,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSlug, shortJobHash, appendDisambiguatorTail } from './lib/regenerate-slugs-helpers.mjs';
 import {
+  fingerprintJob,
   getRegisteredSlug,
   loadSlugRegistry,
   saveSlugRegistry,
@@ -80,6 +81,18 @@ function decodeJobTexts(job) {
     }
   }
   return changed;
+}
+
+// Repair a slug artifact in place: "f-u00fcr" (slugify of the literal
+// "für" — the backslash became a hyphen) → "fur" (slugify of "für").
+// Used only for registry entries with no live job to copy clean slugs from.
+function decodeSlugArtifacts(slug) {
+  return String(slug || '').replace(/-?u00([0-9a-f]{2})/g, (_, hex) =>
+    String.fromCharCode(parseInt(hex, 16))
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, ''));
 }
 
 function readSlice(file) {
@@ -210,6 +223,48 @@ function main() {
       if (!DRY_RUN) writeJsonAtomic(file, raw);
     }
   }
+
+  // Registry-wide sweep: entries can carry corrupt pins even when every live
+  // job is already clean (e.g. a crawl on main re-registered corrupt slugs
+  // before the parser fix merged, then the data merged back in). A corrupt
+  // pin re-pins (re-corrupts) a clean job's slug on the next crawl, so none
+  // may survive. Prefer copying the matching live job's clean slugs; fall
+  // back to in-place artifact decoding for entries with no live job.
+  const jobByFingerprint = new Map();
+  for (const file of activeSlices) {
+    for (const job of readSlice(file).jobs) {
+      const fp = fingerprintJob(job);
+      if (fp && !jobByFingerprint.has(fp)) jobByFingerprint.set(fp, job);
+    }
+  }
+  let registryPinsSwept = 0;
+  for (const [fp, entry] of Object.entries(registry)) {
+    if (!entry || typeof entry !== 'object') continue;
+    const liveJob = jobByFingerprint.get(fp);
+    if (SLUG_ARTIFACT_RE.test(entry.canonicalSlug || '')) {
+      const clean = (liveJob?.slug && !SLUG_ARTIFACT_RE.test(liveJob.slug))
+        ? liveJob.slug
+        : decodeSlugArtifacts(entry.canonicalSlug);
+      if (clean && clean !== entry.canonicalSlug) {
+        entry.canonicalSlug = clean;
+        registryChanged = true;
+        registryPinsSwept++;
+      }
+    }
+    for (const [locale, pinned] of Object.entries(entry.slugByLocale || {})) {
+      if (!SLUG_ARTIFACT_RE.test(pinned || '')) continue;
+      const liveSlug = liveJob?.slugByLocale?.[locale];
+      const clean = (liveSlug && !SLUG_ARTIFACT_RE.test(liveSlug))
+        ? liveSlug
+        : decodeSlugArtifacts(pinned);
+      if (clean && clean !== pinned) {
+        entry.slugByLocale[locale] = clean;
+        registryChanged = true;
+        registryPinsSwept++;
+      }
+    }
+  }
+  if (registryPinsSwept) console.log(`  🧹 registry sweep: ${registryPinsSwept} corrupt pins rewritten`);
 
   if (registryChanged && !DRY_RUN) saveSlugRegistry(registry);
 
