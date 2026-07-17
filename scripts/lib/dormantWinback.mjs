@@ -23,10 +23,14 @@
  *      policy (services/emailSuppression.mjs) instead of a second, competing
  *      "inactive" meaning.
  *
- * Mutually exclusive with the zombie-sunset track by construction: a
+ * Mutually exclusive with the zombie-sunset track by construction, but ONLY
+ * for NEVER-engaged subscribers (zero lifetime opens/clicks): a never-engaged
  * subscriber who already meets (or is already inside) subscriberSunset's
- * SUNSET_MIN_SENDS + SUNSET_MIN_AGE_DAYS floor is left to that track instead
- * — a subscriber is never run through both campaigns.
+ * SUNSET_MIN_SENDS + SUNSET_MIN_AGE_DAYS floor is left to that track instead.
+ * A subscriber with ANY historical engagement always stays on this track
+ * (subscriberSunset's classifySunset returns 'none' forever for anyone with
+ * open/click>0, so deferring an engaged dormant there would strand them —
+ * review PR #4338, bug D).
  *
  * Any real re-engagement (freshly computed engagementLevel climbs out of
  * 'dormant') at any point cancels the sequence — 'reactivate' clears the
@@ -133,13 +137,22 @@ export function classifyDormantWinback(sub, nowMs) {
     return { action: 'none', reason: `too new (sends=${sends}, floor=${MIN_SENDS_BEFORE_WINBACK})` };
   }
 
-  // Defer to the stricter zombie-sunset track when this subscriber already
-  // qualifies for it (or is already inside it) — never run both campaigns on
-  // the same address.
+  // Defer to the stricter zombie-sunset track ONLY when this subscriber is
+  // NEVER-engaged (zero lifetime opens/clicks) — the same condition
+  // subscriberSunset.mjs's classifySunset requires before it will ever act.
+  // A subscriber with historical engagement (the common case for the
+  // recency-weighted 'dormant' tier: score is low because they've gone
+  // quiet RECENTLY, not because they never engaged) would otherwise be
+  // deferred here to a track that immediately returns 'none' for anyone
+  // with open/click>0 — an ownership gap where neither track ever touches
+  // them again (review PR #4338, bug D). Never run both campaigns on the
+  // same address, but only never-engaged subscribers are actually shared
+  // ground between the two.
+  const neverEngaged = num(sub?.open_count ?? sub?.openCount) === 0 && num(sub?.click_count ?? sub?.clickCount) === 0;
   const firstSeen = firstSeenMillis(sub);
   const ageDays = firstSeen == null ? 0 : (nowMs - firstSeen) / DAY_MS;
-  const isSunsetTrackCandidate = sends >= SUNSET_MIN_SENDS && ageDays >= SUNSET_MIN_AGE_DAYS;
-  const alreadyOnSunsetTrack = toMillis(sub?.winback_sent_at ?? sub?.winbackSentAt) != null;
+  const isSunsetTrackCandidate = neverEngaged && sends >= SUNSET_MIN_SENDS && ageDays >= SUNSET_MIN_AGE_DAYS;
+  const alreadyOnSunsetTrack = neverEngaged && toMillis(sub?.winback_sent_at ?? sub?.winbackSentAt) != null;
   if (isSunsetTrackCandidate || alreadyOnSunsetTrack) {
     return { action: 'none', reason: 'owned by the zombie-sunset track instead' };
   }

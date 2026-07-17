@@ -58,6 +58,27 @@ describe('classifyDormantWinback', () => {
     expect(classifyDormantWinback(alreadyOnSunsetTrack, NOW).action).toBe('none');
   });
 
+  it('does NOT defer to the zombie-sunset track past its floor when the subscriber has historical engagement (review PR #4338, bug D)', () => {
+    // classifySunset (scripts/lib/subscriberSunset.mjs) returns 'none' forever
+    // for anyone with open_count/click_count>0 — deferring an engaged dormant
+    // there would strand them with neither track ever acting again.
+    const engagedPastZombieFloor = dormantSub({
+      send_count: SUNSET_MIN_SENDS + 1,
+      created_at: daysAgo(SUNSET_MIN_AGE_DAYS + 10),
+      open_count: 1, // low enough to keep the recency-weighted score in the 'dormant' band
+    });
+    expect(classifyDormantWinback(engagedPastZombieFloor, NOW).action).toBe('stage1');
+  });
+
+  it('does NOT defer to the zombie-sunset track on a stamped winback_sent_at when the subscriber has historical engagement (review PR #4338, bug D)', () => {
+    const engagedAlready = dormantSub({
+      send_count: 20,
+      open_count: 1,
+      winback_sent_at: daysAgo(3),
+    });
+    expect(classifyDormantWinback(engagedAlready, NOW).action).toBe('stage1');
+  });
+
   it('waits out the stage-1 grace window before moving to stage 2', () => {
     const withinGrace = dormantSub({ dormant_winback_stage1_sent_at: daysAgo(STAGE1_GRACE_DAYS - 1) });
     expect(classifyDormantWinback(withinGrace, NOW).action).toBe('none');

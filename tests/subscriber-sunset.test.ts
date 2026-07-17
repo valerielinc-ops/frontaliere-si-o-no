@@ -99,4 +99,53 @@ describe('classifySunset', () => {
     const ts = { _seconds: Math.floor(daysAgo(200) / 1000) };
     expect(classifySunset(zombie({ created_at: ts }), NOW).action).toBe('winback');
   });
+
+  describe('dormant win-back sunset marker (review PR #4338, bug C)', () => {
+    it('does NOT reactivate a dormant_winback-sunset doc on lifetime engagement alone (no ping-pong)', () => {
+      const doc = {
+        status: 'inactive',
+        sunset_source: 'dormant_winback',
+        inactive_at: daysAgo(5),
+        open_count: 3, // historical engagement predating the sunset — must not resurrect it
+        click_count: 1,
+      };
+      expect(classifySunset(doc, NOW).action).toBe('none');
+    });
+
+    it('reactivates a dormant_winback-sunset doc on FRESH engagement strictly after the sunset timestamp', () => {
+      const doc = {
+        status: 'inactive',
+        sunset_source: 'dormant_winback',
+        inactive_at: daysAgo(5),
+        open_count: 4,
+        last_open_at: daysAgo(1), // after inactive_at
+      };
+      expect(classifySunset(doc, NOW).action).toBe('reactivate');
+    });
+
+    it('does NOT reactivate a dormant_winback-sunset doc when engagement predates (or ties) the sunset timestamp', () => {
+      const doc = {
+        status: 'inactive',
+        sunset_source: 'dormant_winback',
+        inactive_at: daysAgo(5),
+        open_count: 4,
+        last_open_at: daysAgo(5), // not strictly after
+      };
+      expect(classifySunset(doc, NOW).action).toBe('none');
+    });
+
+    it('never reactivates a dormant_winback-sunset doc when the recency data needed to prove fresh engagement is missing', () => {
+      const doc = {
+        status: 'inactive',
+        sunset_source: 'dormant_winback',
+        inactive_at: daysAgo(5),
+        open_count: 4, // engaged, but no last_open_at/last_click_at to prove it's fresh
+      };
+      expect(classifySunset(doc, NOW).action).toBe('none');
+    });
+
+    it('still reactivates a plain (non dormant_winback) inactive subscriber on lifetime engagement, unaffected', () => {
+      expect(classifySunset({ status: 'inactive', open_count: 1 }, NOW).action).toBe('reactivate');
+    });
+  });
 });

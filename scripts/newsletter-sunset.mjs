@@ -134,6 +134,10 @@ async function main() {
   }
 
   // 1. Reactivate first — cheapest, and frees mistakenly-silent users immediately.
+  //    Also clears sunset_source/inactive_at so a doc reactivated out of the
+  //    dormant win-back track (scripts/newsletter-winback-campaign.mjs, #4299)
+  //    doesn't carry a stale marker into whichever track sunsets it next
+  //    (review PR #4338, bug C).
   if (reactivate.length) {
     await commitInChunks(db, reactivate, (batch, it) => {
       batch.set(it.ref, {
@@ -141,6 +145,8 @@ async function main() {
         reactivated_at: FieldValue.serverTimestamp(),
         winback_sent_at: FieldValue.delete(),
         winback_pending: FieldValue.delete(),
+        sunset_source: FieldValue.delete(),
+        inactive_at: FieldValue.delete(),
       }, { merge: true });
     });
     console.log(`✅ Reactivated ${reactivate.length}`);
