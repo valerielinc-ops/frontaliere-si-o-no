@@ -264,8 +264,22 @@ export function bucketFinding(text) {
 // PR (#2086) — none of them a rule violation (#2124). So: count only confirmed
 // severities, at most once per (PR, bucket).
 const COUNTABLE_SEVERITIES = new Set(['🔴', '🟡']);
+// Negated-count opener: an LGTM recap line ("Nessun 🔴; sibling-check risolto…",
+// "Zero 🔴. Single-source html fix è corretto…, sibling-check risolto…") states
+// there are ZERO findings of that severity, yet the raw glyph is still present
+// in the text — a naive `.includes()` reads it as a CONFIRMED finding, and if
+// the surrounding recap prose happens to name a bucket's vocabulary (here:
+// "sibling-check"/"siblings", used routinely in a clean LGTM summary) the recap
+// sentence itself gets miscounted as a genuine reviewer-finding (issue #4342:
+// this exact bug inflated `sibling-class-fix` on #4279/#4276/#4259, all zero-🔴
+// LGTM passes, driving a false `recurringDespiteRule` escalation — the rule was
+// never broken, the harvester's own tally was). Same negation-substring class
+// already fixed for `auto-ads` at the taxonomy-regex level (#2114); this closes
+// it at the severity-detection level so EVERY bucket is protected, not just one.
+const NEGATED_SEVERITY_RE = /\b(?:nessun\w*|zero|0)\s+(?:🔴|🟡|❓)/giu;
 export function detectSeverity(line) {
-  return line.includes('🔴') ? '🔴' : line.includes('🟡') ? '🟡' : line.includes('❓') ? '❓' : null;
+  const s = String(line ?? '').replace(NEGATED_SEVERITY_RE, '');
+  return s.includes('🔴') ? '🔴' : s.includes('🟡') ? '🟡' : s.includes('❓') ? '❓' : null;
 }
 
 // Pure tally: reviewer-PRs → { counts, examples } per bucket. Mirrors the
