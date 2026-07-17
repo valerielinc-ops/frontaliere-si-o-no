@@ -166,7 +166,7 @@
       "id": "srg-ssr-7ef2fe2da461",
       "slug": "auditeur-trice-interne-srg-ssr-bern",
       "slugByLocale": {
-        "it": "auditeur-trice-interne-srg-ssr-bern",
+        "it": "revisore-interno-srg-ssr-bern",
         "en": "internal-auditor-srg-ssr-bern",
         "de": "interner-auditor-srg-ssr-bern",
         "fr": "auditeur-trice-interne-srg-ssr-bern"
@@ -249,14 +249,6 @@
         "pensumMax": 50
       },
       "firstSeenAt": "2026-06-29T11:35:46.888Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "revisore-interno-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "revisore-interno-srg-ssr-bern"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -359,13 +351,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-        "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
-          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
@@ -387,7 +377,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -478,14 +468,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -574,13 +556,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-        "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
-          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
@@ -944,13 +924,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern",
-        "assistente-in-finanza-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern",
-          "assistente-in-finanza-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -1058,9 +1036,6 @@
         ],
         "de": [
           "auditeur-trice-interne-srg-ssr-bern-2"
-        ],
-        "fr": [
-          "auditeur-trice-interne-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:56.421Z",
@@ -1372,9 +1347,9 @@
       "slug": "stage-redazione-sportiva-digitale-srg-ssr-comano",
       "slugByLocale": {
         "it": "stage-redazione-sportiva-digitale-srg-ssr-comano",
-        "en": "stage-redazione-sportiva-digitale-srg-ssr-comano",
-        "de": "stage-redazione-sportiva-digitale-srg-ssr-comano",
-        "fr": "stage-redazione-sportiva-digitale-srg-ssr-comano"
+        "en": "digital-sports-training-srg-ssr-comano",
+        "de": "digitales-sporttraining-srg-ssr-comano",
+        "fr": "formation-sportive-numerique-srg-ssr-comano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1440,22 +1415,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "digital-sports-training-srg-ssr-comano"
-        ],
-        "de": [
-          "digitales-sporttraining-srg-ssr-comano"
-        ],
-        "fr": [
-          "formation-sportive-numerique-srg-ssr-comano"
-        ]
-      },
-      "previousSlugs": [
-        "digital-sports-training-srg-ssr-comano",
-        "digitales-sporttraining-srg-ssr-comano",
-        "formation-sportive-numerique-srg-ssr-comano"
-      ],
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1544,13 +1503,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
-        "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern"
+        "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern",
-          "business-controller-offerta-regionale-rts-contratto-a-termine-massimo-srg-ssr-bern"
+          "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
         ],
         "en": [
           "business-controller-offre-regionale-rts-contrat-a-duree-maximale-srg-ssr-bern"
@@ -1729,13 +1686,11 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -1910,13 +1865,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "mediendokumentalist-in-musik-srg-ssr-zurich",
-        "documentalist-multimediale-in-musica-srg-ssr-zurich"
+        "mediendokumentalist-in-musik-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mediendokumentalist-in-musik-srg-ssr-zurich",
-          "documentalist-multimediale-in-musica-srg-ssr-zurich"
+          "mediendokumentalist-in-musik-srg-ssr-zurich"
         ],
         "en": [
           "mediendokumentalist-in-musik-srg-ssr-zurich"
@@ -2094,13 +2047,11 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
-        "internship-in-media-research-data-analytics-srg-ssr-zurich"
+        "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
-          "internship-in-media-research-data-analytics-srg-ssr-zurich"
+          "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"
         ],
         "fr": [
           "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"

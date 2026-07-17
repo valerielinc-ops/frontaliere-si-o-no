@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "caritas-schweiz-4ac86da4b8d7",
-      "slug": "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
+      "slug": "personale-nell-assistenza-sociale-60-caritas-schweiz-aarau",
       "slugByLocale": {
         "de": "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
-        "it": "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
-        "en": "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau",
-        "fr": "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
+        "it": "personale-nell-assistenza-sociale-60-caritas-schweiz-aarau",
+        "en": "personnel-in-asylum-social-assistance-60-caritas-schweiz-aarau",
+        "fr": "personnel-en-asile-assistance-sociale-60-caritas-schweiz-aarau"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:45:24.418Z"
+      "firstSeenAt": "2026-07-17T11:45:24.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
+        ],
+        "en": [
+          "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-asylsozialhilfe-60-caritas-schweiz-aarau"
+      ]
     },
     {
       "id": "caritas-schweiz-496d02e76385",
@@ -354,13 +368,11 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen",
-        "collaboratore-trice-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen",
-          "collaboratore-trice-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen"
+          "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen"
         ],
         "en": [
           "mitarbeiter-in-sortierwerk-60-80-m-w-d-caritas-schweiz-waldibrucke-emmen"
@@ -518,13 +530,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "praktikum-asylwesen-6-monate-80-100-m-w-d-caritas-schweiz-zurich",
-        "6-mesi-80-100-m-f-d-caritas-schweiz-zurich"
+        "praktikum-asylwesen-6-monate-80-100-m-w-d-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-asylwesen-6-monate-80-100-m-w-d-caritas-schweiz-zurich",
-          "6-mesi-80-100-m-f-d-caritas-schweiz-zurich"
+          "praktikum-asylwesen-6-monate-80-100-m-w-d-caritas-schweiz-zurich"
         ],
         "en": [
           "praktikum-asylwesen-6-monate-80-100-m-w-d-caritas-schweiz-zurich"
@@ -633,7 +643,7 @@
       "slug": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
       "slugByLocale": {
         "it": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "en": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
+        "en": "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
         "de": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
         "fr": "infirmiere-hf-fh-60-80-m-f-j-caritas-schweiz-zentralschweiz"
       },
@@ -681,18 +691,14 @@
       "pensum": "60 - 80%",
       "previousSlugs": [
         "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+        "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-          "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
+          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
         ],
         "en": [
           "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-          "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
           "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
         ],
         "fr": [
@@ -766,13 +772,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "consultancy-mapping-of-non-traditional-gulf-donors-and-partners-for-humanitarian-action",
-        "consulenza-mappatura-di-donatori-e-partner-non-tradizionali-per-l-azione-umanitaria-caritas-schweiz-syrien"
+        "consultancy-mapping-of-non-traditional-gulf-donors-and-partners-for-humanitarian-action"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consultancy-mapping-of-non-traditional-gulf-donors-and-partners-for-humanitarian-action",
-          "consulenza-mappatura-di-donatori-e-partner-non-tradizionali-per-l-azione-umanitaria-caritas-schweiz-syrien"
+          "consultancy-mapping-of-non-traditional-gulf-donors-and-partners-for-humanitarian-action"
         ],
         "de": [
           "consultancy-mapping-of-non-traditional-gulf-donors-and-partners-for-humanitarian-action"

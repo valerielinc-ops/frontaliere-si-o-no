@@ -147,14 +147,12 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-temporaire-omega-biel-bienne",
-        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
-        "kitchen-h-f-temporario-omega-sa-biel-bienne"
+        "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-temporaire-omega-biel-bienne",
-          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne",
-          "kitchen-h-f-temporario-omega-sa-biel-bienne"
+          "cuisinier-m-w-d-temporaire-omega-sa-biel-bienne"
         ],
         "en": [
           "cuisinier-h-f-temporaire-omega-biel-bienne"
@@ -182,7 +180,7 @@
       "slug": "designato-h-f-omega-sa-biel-bienne",
       "slugByLocale": {
         "it": "designato-h-f-omega-sa-biel-bienne",
-        "en": "designer-m-w-d-omega-sa-biel-bienne",
+        "en": "designate-h-f-omega-sa-biel-bienne",
         "de": "bezeichnung-h-f-omega-sa-biel-bienne",
         "fr": "designer-h-f-omega-biel-bienne"
       },
@@ -250,19 +248,15 @@
       "previousSlugs": [
         "designer-h-f-omega-biel-bienne",
         "designer-h-f-omega-sa-biel-bienne",
-        "designate-h-f-omega-sa-biel-bienne",
-        "designato-h-f-omega-sa-biel-bienne",
         "designer-m-w-d-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "designer-h-f-omega-biel-bienne",
-          "designato-h-f-omega-sa-biel-bienne"
+          "designer-h-f-omega-biel-bienne"
         ],
         "en": [
           "designer-h-f-omega-biel-bienne",
           "designer-h-f-omega-sa-biel-bienne",
-          "designate-h-f-omega-sa-biel-bienne",
           "designer-m-w-d-omega-sa-biel-bienne"
         ],
         "de": [
@@ -380,11 +374,11 @@
     },
     {
       "id": "omega-32560",
-      "slug": "international-sales-trainer-m-w-omega-biel-bienne",
+      "slug": "trainer-internazionale-m-w-omega-sa-biel-bienne",
       "slugByLocale": {
         "en": "international-sales-trainer-m-w-omega-biel-bienne",
-        "it": "international-sales-trainer-m-w-omega-biel-bienne",
-        "de": "international-sales-trainer-m-w-omega-biel-bienne",
+        "it": "trainer-internazionale-m-w-omega-sa-biel-bienne",
+        "de": "internationale-verkaufstrager-m-w-omega-sa-biel-bienne",
         "fr": "international-sales-trainer-m-w-omega-biel-bienne"
       },
       "company": "OMEGA SA",
@@ -453,7 +447,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:53:15.053Z"
+      "firstSeenAt": "2026-07-17T11:53:15.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "international-sales-trainer-m-w-omega-biel-bienne"
+        ],
+        "de": [
+          "international-sales-trainer-m-w-omega-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "international-sales-trainer-m-w-omega-biel-bienne"
+      ]
     }
   ]
 }

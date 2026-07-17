@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-        "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal",
-        "ergotherapeuta-ergotherapeuta-temporaneo-klinik-sgm-langenthal-langenthal"
+        "occupational-therapist-occupational-therapist-temporary-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-          "ergotherapeuta-ergotherapeuta-temporaneo-klinik-sgm-langenthal-langenthal"
+          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
@@ -133,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "psicoterapeuta-psicoterapeuta-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+        "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "psicoterapeuta-psicoterapeuta-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+          "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
@@ -213,13 +209,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-human-resources-w-m-klinik-sgm-langenthal",
-        "leitung-risorse-umane-w-m-klinik-sgm-langenthal-langenthal"
+        "leitung-human-resources-w-m-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-human-resources-w-m-klinik-sgm-langenthal",
-          "leitung-risorse-umane-w-m-klinik-sgm-langenthal-langenthal"
+          "leitung-human-resources-w-m-klinik-sgm-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-13T21:59:53.346Z",
@@ -289,14 +283,12 @@
         "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
         "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
         "psychotherapie-psychotherapie-ambulatoire-spiez-klinik-sgm-langenthal-spiez",
-        "psychotherapist-psychotherapist-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
-        "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez"
+        "psychotherapist-psychotherapist-ambulatorium-spiez-klinik-sgm-langenthal-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
-          "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
-          "psicoterapeuta-psicoterapeuta-ambulatorio-di-spiez-klinik-sgm-langenthal-spiez"
+          "psicoterapeuta-psicoterapeuta-ambulatorium-spiez-klinik-sgm-langenthal-spiez"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-ambulatorium-spiez-klinik-sgm-spiez",
@@ -323,12 +315,12 @@
     },
     {
       "id": "klinik-sgm-133bb4c6f9ab",
-      "slug": "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
+      "slug": "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "it": "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "en": "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "fr": "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
+        "it": "medico-senior-medico-senior-capo-del-dipartimento-klinik-sgm-langenthal-langenthal",
+        "en": "senior-physician-senior-physician-head-of-department-klinik-sgm-langenthal-langenthal",
+        "fr": "medecin-superieur-medecin-superieur-chef-de-departement-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -384,16 +376,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.749Z"
+      "firstSeenAt": "2026-07-17T11:05:23.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-9961d84559c3",
-      "slug": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+      "slug": "specialista-specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "it": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "en": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "fr": "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        "it": "specialista-specialista-psichiatria-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "en": "specialist-specialist-psychiatry-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "fr": "specialiste-specialiste-psychiatrie-ambulatoire-langenthal-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -449,16 +455,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.748Z"
+      "firstSeenAt": "2026-07-17T11:05:23.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-9c198ffbd837",
-      "slug": "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
+      "slug": "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "it": "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "en": "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "fr": "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        "it": "medico-senior-psichiatria-senior-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-ambulatoire-langenthal-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -514,16 +534,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.748Z"
+      "firstSeenAt": "2026-07-17T11:05:23.748Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-17afddaac068",
-      "slug": "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
+      "slug": "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "it": "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "en": "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "fr": "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
+        "it": "specialista-specialista-psichiatria-ambulatorium-meggen-klinik-sgm-langenthal-meggen",
+        "en": "specialist-specialist-psychiatry-ambulatorium-meggen-klinik-sgm-langenthal-meggen",
+        "fr": "specialiste-specialiste-psychiatrie-ambulatoire-meggen-klinik-sgm-langenthal-meggen"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -579,16 +613,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.747Z"
+      "firstSeenAt": "2026-07-17T11:05:23.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
+      ]
     },
     {
       "id": "klinik-sgm-14b521454a47",
-      "slug": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
+      "slug": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "it": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "en": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "fr": "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        "it": "medico-senior-psichiatria-senior-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
+        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-spiez-klinik-sgm-langenthal-spiez",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-ambulatoire-spiez-klinik-sgm-langenthal-spiez"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -644,16 +692,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.747Z"
+      "firstSeenAt": "2026-07-17T11:05:23.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
+      ]
     },
     {
       "id": "klinik-sgm-972c09a84d0e",
-      "slug": "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
+      "slug": "medico-senior-psichiatria-medico-senior-ambulatorium-bern-klinik-sgm-langenthal-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "it": "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "en": "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "fr": "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        "it": "medico-senior-psichiatria-medico-senior-ambulatorium-bern-klinik-sgm-langenthal-bern",
+        "en": "senior-physician-senior-physician-psychiatry-ambulatorium-bern-klinik-sgm-langenthal-bern",
+        "fr": "medecin-principal-medecin-principal-psychiatrie-ambulatoire-berne-klinik-sgm-langenthal-bern"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -709,16 +771,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.735Z"
+      "firstSeenAt": "2026-07-17T11:05:23.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+      ]
     },
     {
       "id": "klinik-sgm-c8d886e20e1b",
-      "slug": "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
+      "slug": "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "it": "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "en": "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "fr": "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        "it": "specialista-psichiatria-ambulatorium-berna-klinik-sgm-langenthal-bern",
+        "en": "specialist-psychiatry-ambulatorium-bern-klinik-sgm-langenthal-bern",
+        "fr": "specialiste-psychiatrie-ambulatoire-berne-klinik-sgm-langenthal-bern"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -774,7 +850,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T11:05:23.734Z"
+      "firstSeenAt": "2026-07-17T11:05:23.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
+      ]
     },
     {
       "id": "klinik-sgm-6988f816ae40",
@@ -851,15 +941,10 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-        "medico-specialista-responsabile-di-dipartimento-klinik-sgm-langenthal-langenthal"
+        "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal",
-          "medico-specialista-responsabile-di-dipartimento-klinik-sgm-langenthal-langenthal"
-        ],
-        "de": [
           "oberarztin-oberarzt-abteilungsleitung-klinik-sgm-langenthal"
         ]
       },
@@ -949,15 +1034,10 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "specialista-in-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "specialista-in-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
-        ],
-        "de": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ]
       },
@@ -1028,22 +1108,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-        "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+        "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal",
-          "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal",
-          "medico-specialista-psichiatria-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal"
+          "specialista-in-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal-langenthal"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ],
         "fr": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
-        ],
-        "de": [
           "facharztin-facharzt-psychiatrie-ambulatorium-langenthal-klinik-sgm-langenthal"
         ]
       },
@@ -1143,15 +1218,10 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-        "primario-a-psichiatria-ambulatorio-spiez-klinik-sgm-langenthal-spiez"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez",
-          "primario-a-psichiatria-ambulatorio-spiez-klinik-sgm-langenthal-spiez"
-        ],
-        "de": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-spiez-klinik-sgm-spiez"
         ]
       },
@@ -1248,15 +1318,10 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-        "medico-specialista-in-psichiatria-ambulatorio-meggen-klinik-sgm-langenthal-meggen"
+        "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen",
-          "medico-specialista-in-psichiatria-ambulatorio-meggen-klinik-sgm-langenthal-meggen"
-        ],
-        "de": [
           "facharztin-facharzt-psychiatrie-ambulatorium-meggen-klinik-sgm-meggen"
         ]
       },
@@ -1325,18 +1390,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "oberarztin-oberarzt-psichiatria-ambulatorio-di-berna-klinik-sgm-langenthal-bern"
+        "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-          "oberarztin-oberarzt-psichiatria-ambulatorio-di-berna-klinik-sgm-langenthal-bern"
-        ],
-        "de": [
-          "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
-        ],
-        "fr": [
           "oberarztin-oberarzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
         ]
       },
@@ -1426,15 +1483,10 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-        "specialista-in-psichiatria-ambulatoriale-berna-klinik-sgm-langenthal-bern"
+        "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern",
-          "specialista-in-psichiatria-ambulatoriale-berna-klinik-sgm-langenthal-bern"
-        ],
-        "de": [
           "facharztin-facharzt-psychiatrie-ambulatorium-bern-klinik-sgm-bern"
         ]
       },
