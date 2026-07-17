@@ -3563,6 +3563,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'naspi-frontendalieri-requisiti-calcolo-2024',
+    category: 'fiscale',
+    date: '2026-07-17T12:17:07.145Z',
+    image: '/images/blog/naspi-frontendalieri-requisiti-calcolo-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

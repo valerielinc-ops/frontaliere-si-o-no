@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3270,
+ "numberOfItems": 3271,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -7986,7 +7986,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3267, "name": "Traffico in Svizzera: cosa significa per gli sv...", "url": `${BASE_URL}/articoli-frontaliere/traffico-aumenta-costi-crescono-svizzera` },
           { "@type": "ListItem", "position": 3268, "name": "Traffico da record: costi per 117 miliardi di f...", "url": `${BASE_URL}/articoli-frontaliere/traffico-da-record` },
           { "@type": "ListItem", "position": 3269, "name": "Frontalieri: cosa cambia con la nuova imposta s...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-imposta-sostitutiva-2024` },
-          { "@type": "ListItem", "position": 3270, "name": "Serve un aiuto in più per i lavori nelle commis...", "url": `${BASE_URL}/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni` }
+          { "@type": "ListItem", "position": 3270, "name": "Serve un aiuto in più per i lavori nelle commis...", "url": `${BASE_URL}/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni` },
+          { "@type": "ListItem", "position": 3271, "name": "NASPI per ex-frontalieri: requisiti e calcolo", "url": `${BASE_URL}/articoli-frontaliere/naspi-frontendalieri-requisiti-calcolo-2024` }
  ]
  },
  {

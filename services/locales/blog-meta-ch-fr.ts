@@ -1189,6 +1189,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.traffico-da-record.title': 'Trafic record : coûts de 117 milliards de francs et voitures toujours en tête',
     'blog.article.traffico-da-record.excerpt': 'Le trafic en Suisse a généré des coûts d\'environ 117 milliards de francs. L\'automobile est le moyen de transport dominant.',
     'blog.article.traffico-da-record.imageAlt': 'Lugano, vue panoramique de la ville.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'Masques pour ex-frontières : exigences et calcul',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'Le nouvel accord frontalier prévoit l\'introduction du ruban adhésif pour les frontaliers en Suisse. Voici les exigences, le calcul du montant, la durée et comment postuler.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Image d\'un frontalière dans une situation similaire',
 };
 
 export default blogMetaChFr;

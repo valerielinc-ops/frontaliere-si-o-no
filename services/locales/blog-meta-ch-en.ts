@@ -1189,6 +1189,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.traffico-da-record.title': 'Record-breaking traffic: 117 billion francs and cars in the lead',
     'blog.article.traffico-da-record.excerpt': 'Traffic in Switzerland generated costs of about 117 billion francs. The car is the dominant means of transport.',
     'blog.article.traffico-da-record.imageAlt': 'Lugano, panoramic view of the city.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.title': 'NASPI for former frontiersmen: requirements and calculation',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.excerpt': 'The New Frontier Agreement provides for the introduction of NASPI for border guards in Switzerland. Here are the requirements, the calculation of the amount, the duration and how to apply.',
+    'blog.article.naspi-frontendalieri-requisiti-calcolo-2024.imageAlt': 'Image of a frontaliere in a similar situation',
 };
 
 export default blogMetaChEn;
