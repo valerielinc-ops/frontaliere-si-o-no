@@ -228,16 +228,18 @@ jobs:
             exit 0
           fi
 
-          # Tier (mirror di pr-review-loop / issue-fix): high (claude-sonnet-5) se la PR
+          # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal (sonnet) altrimenti.
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
+          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
             echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
