@@ -8567,6 +8567,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Besoin d\'aide supplémentaire pour les travaux en commissions',
     'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'La motion Ortelli demande l\'introduction d\'un (e) secrétaire adjoint (e)',
     'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Un cycliste qui traverse la frontière italo-suisse, avec la ville de Lugano en arrière-plan.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.title': 'NASpI pour les ex-frontières : exigences, calcul, durée et demande',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.excerpt': 'Guide pratique de l\'allocation de chômage italienne pour les personnes ayant perdu leur emploi en Suisse. Exigences de cotisation, montant mensuel, durée maximale et procédures de demande.',
+    'blog.article.naspi-frontalieri-italia-requisiti-calcolo-domanda.imageAlt': 'Frontalier italien examinant des documents d\'indemnité de chômage NASpI',
 };
 
 export default blogMetaFr;
