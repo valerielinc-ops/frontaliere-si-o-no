@@ -8579,6 +8579,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.title': 'Tessin évalue un Chercheur parlementaire pour soutenir le Grand Conseil',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.excerpt': 'Proposition PLR pour introduire une figure technique à l\'appui des Commissions : plus de qualité législative et de continuité institutionnelle',
     'blog.article.ricercatore-parlamentare-ticino-gran-consiglio.imageAlt': 'Salle du Grand Conseil à Bellinzona avec des députés en session',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.title': 'Congé de deuil ou maladie : différences entre les règles suisses et italiennes',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.excerpt': 'Le nouvel accord frontalier prévoit une durée de congé différente par rapport aux règles italiennes.',
+    'blog.article.congedo-per-lutto-malattia-familiare-frontaliere-svizzera.imageAlt': 'Un frontalier qui travaille en Suisse et réside en Italie',
 };
 
 export default blogMetaFr;
