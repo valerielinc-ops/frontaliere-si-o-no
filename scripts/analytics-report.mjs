@@ -31,7 +31,7 @@
  * Always exits 0 — failures are logged, never block CI.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, appendFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import {
@@ -46,6 +46,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
 const SERP_HISTORY_PATH = resolve(__dirname, '..', 'data', 'seo-serp-experiment-history.json');
 const SERP_LAST_RUN_PATH = resolve(__dirname, '..', 'data', 'seo-serp-autopilot-last-run.json');
+const AI_CHANNEL_HISTORY_PATH = resolve(__dirname, '..', 'data', 'ai-channel-history.jsonl');
 
 // ── CLI Args ────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -91,6 +92,22 @@ function readJsonSafe(filePath, fallback = null) {
     return JSON.parse(readFileSync(filePath, 'utf-8'));
   } catch {
     return fallback;
+  }
+}
+
+/** Read a newline-delimited JSON history file; returns [] if absent/unparseable. */
+function readJsonlSafe(filePath) {
+  try {
+    return readFileSync(filePath, 'utf-8')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .map((line) => {
+        try { return JSON.parse(line); } catch { return null; }
+      })
+      .filter(Boolean);
+  } catch {
+    return [];
   }
 }
 
@@ -1356,6 +1373,109 @@ async function reportGA4(token) {
     }
   } catch (e) {
     log('⚠️', `GA4 source/medium: ${e.message}`);
+  }
+
+  // ── 3g2. AI Assistant channel trend (GEO — chatgpt.com/perplexity.ai/gemini/
+  // claude.ai/copilot referrals). GA4's default channel grouping already
+  // buckets these under 'AI Assistant' — no custom channel definition needed,
+  // just query + surface it. History appended to AI_CHANNEL_HISTORY_PATH
+  // (committed JSONL, same pattern as data/ai-visibility-history.jsonl) so
+  // week-over-week deltas survive a fresh CI checkout even though reports/
+  // is gitignored.
+  try {
+    const res = await fetchRetry(
+      `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`,
+      {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          ...baseRequest,
+          dimensions: [{ name: 'sessionSource' }],
+          metrics: [
+            { name: 'sessions' },
+            { name: 'totalUsers' },
+            { name: 'engagedSessions' },
+          ],
+          dimensionFilter: {
+            filter: {
+              fieldName: 'sessionDefaultChannelGroup',
+              stringFilter: { value: 'AI Assistant', matchType: 'EXACT' },
+            },
+          },
+          orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+          limit: 20,
+        }),
+      }
+    );
+
+    if (res.ok) {
+      const data = await res.json();
+      const bySource = (data.rows || []).map((r) => ({
+        source: r.dimensionValues[0].value,
+        sessions: parseInt(r.metricValues[0].value, 10),
+        users: parseInt(r.metricValues[1].value, 10),
+        engagedSessions: parseInt(r.metricValues[2].value, 10),
+      }));
+      const sessions = bySource.reduce((sum, r) => sum + r.sessions, 0);
+      const engagedSessions = bySource.reduce((sum, r) => sum + r.engagedSessions, 0);
+      const engagementRate = sessions > 0 ? Number((engagedSessions / sessions).toFixed(4)) : 0;
+
+      const todayStr = fmtDate(endDate);
+      const priorEntries = readJsonlSafe(AI_CHANNEL_HISTORY_PATH)
+        .filter((e) => e && e.date && e.date !== todayStr);
+      const previous = priorEntries.length > 0 ? priorEntries[priorEntries.length - 1] : null;
+
+      result.aiChannel = {
+        date: todayStr,
+        windowDays: DAYS,
+        sessions,
+        users: bySource.reduce((sum, r) => sum + r.users, 0),
+        engagedSessions,
+        engagementRate,
+        bySource,
+        trend: previous
+          ? {
+              previousDate: previous.date,
+              sessionsDelta: sessions - Number(previous.sessions || 0),
+              engagementRateDelta: Number((engagementRate - Number(previous.engagementRate || 0)).toFixed(4)),
+            }
+          : null,
+      };
+
+      try {
+        mkdirSync(dirname(AI_CHANNEL_HISTORY_PATH), { recursive: true });
+        appendFileSync(
+          AI_CHANNEL_HISTORY_PATH,
+          JSON.stringify({
+            date: todayStr,
+            windowDays: DAYS,
+            sessions,
+            engagedSessions,
+            engagementRate,
+            bySource: bySource.map((r) => ({ source: r.source, sessions: r.sessions })),
+          }) + '\n'
+        );
+      } catch (histErr) {
+        log('⚠️', `AI channel history append: ${histErr.message}`);
+      }
+
+      if (!flags.json) {
+        log('', '');
+        log('🤖', `Canale AI Assistant (GEO) — ultimi ${DAYS} giorni`);
+        log('', '─'.repeat(50));
+        log('', `  Sessioni: ${fmtNum(sessions)} | Engagement rate: ${pct(engagementRate)}`);
+        if (result.aiChannel.trend) {
+          const t = result.aiChannel.trend;
+          const arrow = t.sessionsDelta > 0 ? '📈' : t.sessionsDelta < 0 ? '📉' : '➡️';
+          log('', `  Trend vs ${t.previousDate}: ${arrow} sessioni ${t.sessionsDelta > 0 ? '+' : ''}${t.sessionsDelta}, engagement ${t.engagementRateDelta > 0 ? '+' : ''}${(t.engagementRateDelta * 100).toFixed(1)}pt`);
+        }
+        for (const src of bySource.slice(0, 10)) {
+          log('', `  ${src.source.padEnd(25)} sessioni ${fmtNum(src.sessions).padStart(6)} | engaged ${fmtNum(src.engagedSessions)}`);
+        }
+      }
+    }
+  } catch (e) {
+    log('⚠️', `GA4 AI channel: ${e.message}`);
   }
 
   // ── 3h-pre. Auto-register GA4 custom dimensions for error tracking + funnels ──
