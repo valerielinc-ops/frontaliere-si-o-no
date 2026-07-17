@@ -8,7 +8,8 @@
 //   scripts/investigate-calc-funnel-drop.mjs, scripts/posthog-error-issue-sync.mjs,
 //   scripts/query-authgate-experiment.mjs, scripts/refresh-indexed-cluster-urls.mjs,
 //   scripts/refresh-noslash-keep.mjs, scripts/revenue-monitor.mjs,
-//   scripts/triage-app-errors.mjs, scripts/build-employer-insights.mjs
+//   scripts/triage-app-errors.mjs, scripts/build-employer-insights.mjs,
+//   scripts/lib/evidence/posthogFetcher.mjs, scripts/cwv-monitor-check.mjs
 //
 // Ref: issue #4320
 
