@@ -20,9 +20,11 @@
  */
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
 
 const SITE = 'sc-domain:frontaliereticino.ch';
 const OUT  = 'data/gsc-position-rolling.json';
+const GSC_READONLY_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 
 async function getOAuthToken() {
   const id = process.env.GSC_CLIENT_ID;
@@ -46,27 +48,10 @@ async function getOAuthToken() {
   return (await r.json()).access_token;
 }
 
-async function getServiceAccountToken() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) return null;
-  try {
-    const { GoogleAuth } = await import('google-auth-library');
-    const auth = new GoogleAuth({
-      scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
-    });
-    const client = await auth.getClient();
-    if (client.email) console.log(`ℹ Using service account: ${client.email}`);
-    const { token } = await client.getAccessToken();
-    return token;
-  } catch (e) {
-    console.error(`Service account auth failed: ${e.message}`);
-    return null;
-  }
-}
-
 async function getToken() {
   const oauth = await getOAuthToken();
   if (oauth) return oauth;
-  const sa = await getServiceAccountToken();
+  const sa = await getServiceAccountToken([GSC_READONLY_SCOPE]);
   if (sa) return sa;
   throw new Error(
     'No GSC credentials available. Set GSC_CLIENT_ID/GSC_CLIENT_SECRET/GSC_REFRESH_TOKEN ' +

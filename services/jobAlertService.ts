@@ -215,6 +215,14 @@ export async function createAlert(
   };
   const ref = await addDoc(alertsRef, docData);
 
+  // GA4 user-scoped `is_job_alert_subscriber` custom dimension (analytics
+  // Stage 1, revenue-per-user segmentation). Fired on every genuine new
+  // job-alert write — createAlert is the single write path shared by
+  // JobAlertForm, subscribeJobAlertOneTap, and subscribeJobAlertForJob.
+  import('@/services/analytics').then(({ Analytics }) => {
+    Analytics.setUserSegmentFlags({ isJobAlertSubscriber: true });
+  }).catch(() => {});
+
   return {
     id: ref.id,
     userId,
