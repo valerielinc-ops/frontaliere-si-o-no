@@ -1,3 +1,4 @@
+import { parseDotNetJsonDate } from './dotnet-json-date.mjs';
 /**
  * bing-webmaster.mjs — shared helpers for the Bing Webmaster API (JSON REST,
  * https://ssl.bing.com/webmaster/api.svc/json/*), key-based auth (BING_API_KEY).
@@ -33,10 +34,8 @@ const BASE = 'https://ssl.bing.com/webmaster/api.svc/json';
  * @returns {string|null}
  */
 export function parseBingDate(value) {
-  if (!value || typeof value !== 'string') return null;
-  const match = value.match(/\/Date\((-?\d+)(?:[+-]\d{4})?\)\//);
-  if (!match) return null;
-  return new Date(Number(match[1])).toISOString();
+  const d = parseDotNetJsonDate(value);
+  return d ? d.toISOString() : null;
 }
 
 /**

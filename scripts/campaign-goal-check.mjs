@@ -160,8 +160,19 @@ async function evalErrorRate() {
   const pv = Number(pageviewPersons) || 0;
   const ep = Number(errorPersons) || 0;
   const rate = pv > 0 ? ep / pv : null;
+  if (rate === null) {
+    // 0 pageview-person su 30gg = blip/risposta vuota PostHog, non un sito
+    // senza traffico: unmeasurable, niente FAILED spurio (review PR #4362).
+    return {
+      passed: false,
+      unmeasurable: true,
+      value: { rate: null, errorPersons: ep, pageviewPersons: pv },
+      targetDescription: '< 1% (persone con errori / persone con $pageview, 30gg)',
+      detail: 'risposta PostHog vuota (0 pageview persons) — riprovo al prossimo run',
+    };
+  }
   return {
-    passed: rate !== null && rate < 0.01,
+    passed: rate < 0.01,
     value: { rate, errorPersons: ep, pageviewPersons: pv },
     targetDescription: '< 1% (persone con app_error|exception|$exception / persone con $pageview, 30gg)',
     detail: `${ep}/${pv} = ${fmtPct(rate)} (nota: nessuno dei 3 event type porta il tag ad_blocker, solo resource_load_error — tolleranza rumore ad-blocker non filtrabile accettata)`,
@@ -287,7 +298,18 @@ async function evalCantonHubPositions() {
   ]);
   const svPos = svizzera.avgPosition;
   const zhPos = zurigo.avgPosition;
-  const passed = svPos !== null && zhPos !== null && svPos < 20 && zhPos < 14;
+  // Risposta GSC vuota (blip transiente, non errore HTTP): unmeasurable,
+  // mai un FAILED spurio con issue (review PR #4362).
+  if (svPos === null || zhPos === null) {
+    return {
+      passed: false,
+      unmeasurable: true,
+      value: { svizzeraPosition: svPos, zurigoPosition: zhPos },
+      targetDescription: 'svizzera < 20 E zurigo < 14 (weighted-avg position, 30gg, lag 3gg)',
+      detail: 'risposta GSC vuota per una o entrambe le famiglie — riprovo al prossimo run',
+    };
+  }
+  const passed = svPos < 20 && zhPos < 14;
   return {
     passed,
     value: {
@@ -299,8 +321,9 @@ async function evalCantonHubPositions() {
   };
 }
 
-const BRAND_QUERY_REGEX = '(?i)interdiscount|fielmann|fust|jysk|coop';
-const BRAND_QUERY_REGEX_JS = /interdiscount|fielmann|fust|jysk|coop/i;
+const BRAND_QUERY_TERMS = ['interdiscount', 'fielmann', 'fust', 'jysk', 'coop'];
+const BRAND_QUERY_REGEX = `(?i)${BRAND_QUERY_TERMS.join('|')}`;
+const BRAND_QUERY_REGEX_JS = new RegExp(BRAND_QUERY_TERMS.join('|'), 'i');
 
 // #4306 — aggregate CTR across brand-name queries, 30d (3d lag), target > 2%.
 async function evalBrandQueryCtr() {
@@ -341,8 +364,14 @@ async function evalBrandQueryCtr() {
 
 async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
   const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  // Lag di 2gg: GA4 può non aver processato le ultime 24-48h — senza lag il
+  // cron domenicale sottoconta la coda della finestra e può produrre un
+  // falso "failing" a ridosso della soglia (review PR #4362; specchia il
+  // lag 3gg lato GSC in gscWindow()).
+  const GA4_LAG_DAYS = 2;
   const end = new Date();
-  const start = new Date();
+  end.setUTCDate(end.getUTCDate() - GA4_LAG_DAYS);
+  const start = new Date(end);
   start.setUTCDate(start.getUTCDate() - windowDays);
   const fmt = (d) => d.toISOString().slice(0, 10);
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
