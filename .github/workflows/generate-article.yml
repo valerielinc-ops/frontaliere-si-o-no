@@ -19,7 +19,7 @@ on:
         type: string
         default: '0'
       no_changes_streak:
-        description: 'Internal: consecutive no_changes counter for back-off (do not set manually)'
+        description: 'Internal: consecutive no_changes counter, observability only — does not affect self-trigger delay (do not set manually)'
         required: false
         type: string
         default: '0'
@@ -670,13 +670,16 @@ jobs:
         run: |
           # Outcome decision tree:
           # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
-          # ⚪ has_changes=false (no source / all duplicates) → back-off based on streak length
+          # ⚪ has_changes=false (no source / all duplicates) → self-trigger after flat 60s, no cap
           # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retrying the
           #    same article by source URL (max 3 URL retries, then plain rescan)
           # 🟠 verified=false (committed but missing from source) → RETRY with backoff
           # 🔴 generate step failure → RETRY with backoff
           # Backoff schedule (failures): 60s → 300s → 1800s, max 3 retries
-          # Back-off schedule (no_changes streak): 0,1,2 → 0s ; 3-5 → 600s ; 6-9 → 1800s ; 10+ → stop, cron resumes
+          # no_changes streak: flat 60s every time, uncapped — never yields to cron
+          # (2026-07-17: removed the 0/600/1800s tiers + streak>=10 cron handoff so
+          # the chain keeps generating content instead of going quiet for up to 30min
+          # on the unreliable cron — see docs/AGENTS-HISTORY.md#generate-article-no-changes-backoff-removed)
 
           SHOULD_TRIGGER="false"
           DELAY="0"
@@ -701,27 +704,16 @@ jobs:
             NEXT_STREAK="0"
             NEXT_SECTION="$OTHER_SECTION"
           elif [ "$HAS_CHANGES" = "false" ]; then
+            # Flat 60s, uncapped — a dry discovery pool is not an error, so keep
+            # self-triggering indefinitely instead of yielding to the unreliable
+            # 30-min cron. See docs/AGENTS-HISTORY.md#generate-article-no-changes-backoff-removed
             CUR_STREAK="${NO_CHANGES_STREAK:-0}"
             NEXT_STREAK=$((CUR_STREAK + 1))
-            if [ "$NEXT_STREAK" -le 2 ]; then
-              SHOULD_TRIGGER="true"
-              DELAY="0"
-              REASON="no_changes_streak_${NEXT_STREAK}"
-            elif [ "$NEXT_STREAK" -le 5 ]; then
-              SHOULD_TRIGGER="true"
-              DELAY="600"
-              REASON="no_changes_streak_${NEXT_STREAK}_backoff_600s"
-            elif [ "$NEXT_STREAK" -le 9 ]; then
-              SHOULD_TRIGGER="true"
-              DELAY="1800"
-              REASON="no_changes_streak_${NEXT_STREAK}_backoff_1800s"
-            else
-              SHOULD_TRIGGER="false"
-              REASON="no_changes_streak_exhausted_${NEXT_STREAK}_cron_takes_over"
-              NEXT_STREAK="0"
-            fi
+            SHOULD_TRIGGER="true"
+            DELAY="60"
+            REASON="no_changes_streak_${NEXT_STREAK}_backoff_60s"
             # No source/all-duplicates for this section → try the other one next.
-            [ "$SHOULD_TRIGGER" = "true" ] && NEXT_SECTION="$OTHER_SECTION"
+            NEXT_SECTION="$OTHER_SECTION"
             NEXT_RETRY="0"
           elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
             # A fully-generated article lost to a commit/push race. When we
