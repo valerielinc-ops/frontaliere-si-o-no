@@ -76,6 +76,7 @@
  */
 
 import { fetchWithRetry } from '../transient-fetch.mjs';
+import { parseDotNetJsonDate } from '../dotnet-json-date.mjs';
 import { stripScriptsAndStyles } from '../crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from '../jina-proxy.mjs';
 import { assertJsonListShapeMultiKey } from '../assert-json-list-shape.mjs';
@@ -315,15 +316,10 @@ export function parseSuccessFactorsPostedDate(rawDate) {
   const raw = String(rawDate).trim();
   if (!raw) return null;
 
-  // /Date(1234567890000)/
-  const odata = raw.match(/^\/Date\((-?\d+)\)\/?$/);
-  if (odata) {
-    const ms = Number(odata[1]);
-    if (Number.isFinite(ms)) {
-      const d = new Date(ms);
-      return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-    }
-  }
+  // .NET "/Date(epoch_ms)/", offset opzionale — parser condiviso (PR #4362).
+  // Alcuni payload SF omettono lo slash finale: normalizzato prima del parse.
+  const odata = parseDotNetJsonDate(raw.endsWith('/') ? raw : `${raw}/`);
+  if (odata) return odata.toISOString().slice(0, 10);
 
   // Numeric string
   if (/^\d{10,13}$/.test(raw)) {
