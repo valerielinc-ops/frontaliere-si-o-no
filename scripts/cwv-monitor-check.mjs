@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { runHogQL } from './lib/posthog-client.mjs';
 
 /**
  * #4302 target pages with their CLS (unitless) / INP (ms) field p75
@@ -48,16 +49,6 @@ export const TARGET_PAGES = [
 ];
 
 const DEFAULT_HISTORY_FILE = 'data/cwv-monitor-history.json';
-
-async function hogql(host, pid, key, query) {
-  const r = await fetch(`${host}/api/projects/${pid}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!r.ok) throw new Error(`PH ${r.status}: ${(await r.text()).slice(0, 300)}`);
-  return r.json();
-}
 
 /**
  * Single query per page pulling both metrics at once (halves the API calls
@@ -156,7 +147,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
   for (const page of TARGET_PAGES) {
     let snapshot;
     try {
-      const result = await hogql(HOST, PID, KEY, buildQuery(page.path, WINDOW_DAYS));
+      const result = await runHogQL(buildQuery(page.path, WINDOW_DAYS), { apiKey: KEY, projectId: PID, host: HOST });
       const row = result.results?.[0] || [null, 0, null, 0];
       snapshot = { cls_p75: row[0], cls_n: row[1], inp_p75: row[2], inp_n: row[3] };
     } catch (e) {

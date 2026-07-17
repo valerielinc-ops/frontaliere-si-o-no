@@ -16,6 +16,8 @@
 // fails its signal is omitted but the other one still lands; both
 // errors collapse into a single `error` string.
 
+import { runHogQL } from '../posthog-client.mjs';
+
 /**
  * @param {object} options
  * @param {string} options.apiKey - POSTHOG_PERSONAL_API_KEY
@@ -36,20 +38,13 @@ export async function fetchPosthogPages({
 } = {}) {
   const key = apiKey || process.env.POSTHOG_PERSONAL_API_KEY;
   const project = projectId || process.env.POSTHOG_PROJECT_ID;
-  const hostBase = (host || process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/$/, '');
+  const hostBase = host || process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   if (!key || !project) {
     return { pages: {}, error: 'no POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID' };
   }
 
-  const queryUrl = `${hostBase}/api/projects/${project}/query/`;
   const runQuery = async (hogql) => {
-    const res = await fetchImpl(queryUrl, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: { kind: 'HogQLQuery', query: hogql } }),
-    });
-    if (!res.ok) throw new Error(`posthog ${res.status}: ${(await res.text()).slice(0, 200)}`);
-    const data = await res.json();
+    const data = await runHogQL(hogql, { apiKey: key, projectId: project, host: hostBase, fetchImpl });
     return data?.results || [];
   };
 
