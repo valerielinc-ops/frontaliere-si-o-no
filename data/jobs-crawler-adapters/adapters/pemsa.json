@@ -11,8 +11,80 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-17T11:01:03.869Z",
+  "updatedAt": "2026-07-17T22:03:14.545Z",
   "seedMetaByUrl": {
+    "https://www.pemsa.ch/it/job/capocantiere-nel-settore-elettrico-2683762/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/assistenza-tecnica-lavori-di-elettricita-fai-da-te-2683759/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/tecnico-telematico-2683756/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/elettricista-montatore-afc-2683750/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/progettista-bim-nel-settore-elettrico-2683747/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/operatore-addetto-alla-bonifica-dallamianto-2683744/": {
+      "location": "Plan les Ouates",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/responsabile-di-progetto-nel-settore-elettrico-2683741/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/lucidatore-cfc-m-f-d-2683737/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/operatore-operatrice-di-regolazione-m-f-d-2683734/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/progettista-specializzato-in-impianti-antincendio-a-sprinkler-m-f-d-2683731/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/responsabile-di-progetto-per-i-sistemi-di-controllo-degli-accessi-e-di-videosorveglianza-2683727/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
+    "https://www.pemsa.ch/it/job/elettricista-autonomo-specializzato-in-ristrutturazioni-2683722/": {
+      "location": "Genève",
+      "canton": "GE",
+      "company": "PEMSA",
+      "postedDate": "2026-07-17"
+    },
     "https://www.pemsa.ch/it/job/progettista-elettrico-2683704/": {
       "location": "Genève",
       "canton": "GE",
@@ -520,12 +592,6 @@
     "https://www.pemsa.ch/it/job/elettricista-con-comprovata-esperienza-2682526/": {
       "location": "Romont FR",
       "canton": "FR",
-      "company": "PEMSA",
-      "postedDate": "2026-07-09"
-    },
-    "https://www.pemsa.ch/it/job/operatore-operatrice-per-la-bonifica-dallamianto-2682495/": {
-      "location": "Plan les Ouates",
-      "canton": "GE",
       "company": "PEMSA",
       "postedDate": "2026-07-09"
     },
@@ -1172,12 +1238,6 @@
       "postedDate": "2026-06-29"
     },
     "https://www.pemsa.ch/it/job/addetto-alla-regolazione-e-alla-programmazione-della-rettifica-a-5-assi-m-f-d-2680587/": {
-      "location": "Genève",
-      "canton": "GE",
-      "company": "PEMSA",
-      "postedDate": "2026-06-26"
-    },
-    "https://www.pemsa.ch/it/job/tecnico-addetto-alla-regolazione-e-alla-tornitura-m-f-d-2680584/": {
       "location": "Genève",
       "canton": "GE",
       "company": "PEMSA",
