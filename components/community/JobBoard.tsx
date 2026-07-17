@@ -59,8 +59,7 @@ import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader'
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
 import popularityData from '@/data/job-popularity.json';
-import type { SimulationResult } from '@/types';
-import { DEFAULT_INPUTS } from '@/constants';
+import type { JobNetEstimate } from '@/services/jobNetEstimate';
 import {
  ArrowLeft,
  ArrowUpRight,
@@ -1657,6 +1656,27 @@ function readPageFromUrl(): number {
  }
 }
 
+/**
+ * Salary-range filter (issue #4307 scope item 3 — calculator's reverse
+ * bridge: "Offerte nella tua fascia (±15%) in <cantone>"). `?salarioMin=`/
+ * `?salarioMax=` are CHF annual figures; `max` is dropped (treated as
+ * unset) unless it is a finite number >= `min`, so a malformed pair never
+ * silently filters out every job.
+ */
+function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
+ if (typeof window === 'undefined') return { min: null, max: null };
+ try {
+ const params = new URLSearchParams(window.location.search || '');
+ const minRaw = parseInt(params.get('salarioMin') || '', 10);
+ const maxRaw = parseInt(params.get('salarioMax') || '', 10);
+ const min = Number.isFinite(minRaw) && minRaw > 0 ? minRaw : null;
+ const max = Number.isFinite(maxRaw) && maxRaw > 0 ? maxRaw : null;
+ return { min, max: (min !== null && max !== null && max >= min) ? max : null };
+ } catch {
+ return { min: null, max: null };
+ }
+}
+
 /** Update URL query params without pushing to history (avoids bloating back stack). */
 function syncQueryParamsToUrl(updates: Record<string, string | null>) {
  if (typeof window === 'undefined') return;
@@ -2258,6 +2278,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setShowNewOnly(false);
  }, []);
  const [page, setPage] = useState(() => readPageFromUrl());
+ // Salary-range filter from the calculator's reverse bridge (issue #4307).
+ const [salaryRangeFilter, setSalaryRangeFilter] = useState(() => readSalaryRangeFromUrl());
+ const clearSalaryRangeFilter = useCallback(() => {
+ setSalaryRangeFilter({ min: null, max: null });
+ syncQueryParamsToUrl({ salarioMin: null, salarioMax: null });
+ }, []);
  // Counter incremented on page/search changes to force ad slot remount
  const [adRefreshKey, setAdRefreshKey] = useState(0);
  // Mobile load-more: accumulate jobs instead of paginating
@@ -3301,8 +3327,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
+ if (salaryRangeFilter.min !== null) {
+ const jobMinRaw = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
+ if (!jobMinRaw || !Number.isFinite(jobMinRaw)) return false; // no salary data → can't match a salary-range filter
+ const jobMaxRaw = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);
+ const jobMax = (jobMaxRaw && Number.isFinite(jobMaxRaw) && jobMaxRaw > jobMinRaw) ? jobMaxRaw : jobMinRaw;
+ const rangeMax = salaryRangeFilter.max ?? salaryRangeFilter.min;
+ // Overlap test: job's [jobMinRaw, jobMax] must intersect the requested [min, rangeMax] band.
+ if (jobMax < salaryRangeFilter.min || jobMinRaw > rangeMax) return false;
+ }
  return true;
- }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, salaryRangeFilter]);
 
  // strictFilteredJobs: AND-match on every search token (current behavior).
  // The OR-fallback layer below kicks in when this is empty for a
@@ -5396,49 +5431,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [locale, onJobRouteChange]);
 
  // ── Salary estimate widgets (frontaliere vs CH resident) ───────────────
- const [salaryEstimates, setSalaryEstimates] = useState<{
- salaryMin: number; salaryMax: number | null;
- frontaliere: { min: number; max: number | null };
- resident: { min: number; max: number | null };
- } | null>(null);
+ // Net figures come from the SAME fiscal logic as the calculator — see
+ // services/jobNetEstimate.ts (issue #4307). Never reimplement the
+ // tax/contribution math here.
+ const [salaryEstimates, setSalaryEstimates] = useState<JobNetEstimate | null>(null);
  useEffect(() => {
  if (!selectedJob) { setSalaryEstimates(null); return; }
+ // EUR-denominated postings aren't a CHF net estimate — hide the widget
+ // rather than mislabel a currency mismatch.
+ if (selectedJob.currency === 'EUR') { setSalaryEstimates(null); return; }
  const minRaw = Number(selectedJob.salaryMin) || Number(selectedJob.baseSalary?.value?.minValue);
  const maxRaw = Number(selectedJob.salaryMax) || Number(selectedJob.baseSalary?.value?.maxValue);
- if (!minRaw || !Number.isFinite(minRaw)) { setSalaryEstimates(null); return; }
- const salaryMin = minRaw;
- const salaryMax = (maxRaw && Number.isFinite(maxRaw) && maxRaw > minRaw) ? maxRaw : null;
  let cancelled = false;
- import('@/services/calculationService').then(({ calculateSimulation }) => {
+ import('@/services/jobNetEstimate').then(({ estimateJobNetSalary }) => {
  if (cancelled) return;
- const run = (annual: number): SimulationResult | null => {
- try { return calculateSimulation({ ...DEFAULT_INPUTS, annualIncomeCHF: annual }); }
- catch { return null; }
- };
- const resMin = run(salaryMin);
- const resMax = salaryMax ? run(salaryMax) : null;
- if (!resMin) { setSalaryEstimates(null); return; }
- setSalaryEstimates({
- salaryMin, salaryMax,
- frontaliere: { min: Math.round(resMin.itResident.netIncomeMonthly), max: resMax ? Math.round(resMax.itResident.netIncomeMonthly) : null },
- resident: { min: Math.round(resMin.chResident.netIncomeMonthly), max: resMax ? Math.round(resMax.chResident.netIncomeMonthly) : null },
- });
+ const estimate = estimateJobNetSalary(minRaw, maxRaw);
+ setSalaryEstimates(estimate);
+ if (estimate) Analytics.trackJobNetWidgetImpression(selectedJob.id);
  }).catch(() => setSalaryEstimates(null));
  return () => { cancelled = true; };
  }, [selectedJob]);
 
  const fmtNet = (v: number) => `CHF ${v.toLocaleString('de-CH')}`;
 
+ // Deep-link into the calculator prefilled with this job's salary + canton
+ // (issue #4307 scope item 2 — ?reddito=&cantone=, read back by the
+ // reverse-bridge on the calculator side).
  const salaryCalcHref = salaryEstimates
- ? buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${salaryEstimates.salaryMax || salaryEstimates.salaryMin}`
+ ? buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${salaryEstimates.salaryMax || salaryEstimates.salaryMin}&cantone=${encodeURIComponent(selectedJob?.canton || '')}`
  : '';
- const goToCalc = (e: React.MouseEvent) => {
+ const goToCalc = (e: React.MouseEvent, variant: 'frontaliere' | 'resident' | 'cta') => {
  e.preventDefault();
  // SPA navigation: push route + apply query string, avoid full page reload / 404 flash
  const reddito = salaryEstimates?.salaryMax || salaryEstimates?.salaryMin;
+ if (selectedJob) Analytics.trackJobNetWidgetClick(selectedJob.id, variant);
  nav.navigateTo('calculator');
  if (reddito) {
- const url = buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${reddito}`;
+ const url = buildPath({ activeTab: 'calculator' }, locale) + `?reddito=${reddito}&cantone=${encodeURIComponent(selectedJob?.canton || '')}`;
  history.replaceState(history.state, '', url);
  }
  };
@@ -5452,7 +5481,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Frontaliere (Permit G) */}
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'frontaliere')}
  className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-warning-subtle transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-warning mb-1">
@@ -5467,7 +5496,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* CH Resident (Permit B) */}
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'resident')}
  className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-success-subtle transition-colors cursor-pointer"
  >
  <div className="text-xs font-semibold text-success mb-1">
@@ -5483,7 +5512,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="mt-2 text-xs text-muted">{t('jobBoard.salaryEstimate.note')}</p>
  <a
  href={salaryCalcHref}
- onClick={goToCalc}
+ onClick={(e) => goToCalc(e, 'cta')}
  className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold bg-warning-strong hover:bg-warning-strong-hover text-on-accent rounded-lg transition-colors"
  >
  <Calculator size={14} />
@@ -8538,6 +8567,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  {!isMobile && renderPagination()}
  </div>
+
+ {salaryRangeFilter.min !== null && (
+ <div className="flex items-center gap-2 text-xs text-muted -mt-1 mb-1">
+ <span>
+ {t('jobBoard.salaryRangeFilter.active', {
+ min: salaryRangeFilter.min.toLocaleString('de-CH'),
+ max: (salaryRangeFilter.max ?? salaryRangeFilter.min).toLocaleString('de-CH'),
+ })}
+ </span>
+ <button type="button" onClick={clearSalaryRangeFilter} className="underline hover:text-link">
+ {t('jobBoard.salaryRangeFilter.clear')}
+ </button>
+ </div>
+ )}
 
  <div className="space-y-3 min-h-[600px]">
  {/* While the authoritative results are still resolving (provisional
