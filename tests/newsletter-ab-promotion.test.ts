@@ -3,7 +3,13 @@ import { describe, expect, it } from 'vitest';
 const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES, resolveWinnersByProvider } = await import('@/services/newsletter-ab-stats.mjs');
 const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
 const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
-const { previousCampaignIds } = await import('@/scripts/lib/newsletter-ab-data.mjs');
+const {
+  previousCampaignIds,
+  aggregateSegmentReport,
+  unsubscribeGuardBreaches,
+  UNSUB_RATE_CAP_PCT,
+  MIN_SENDS_FOR_UNSUB_GUARD,
+} = await import('@/scripts/lib/newsletter-ab-data.mjs');
 const { buildDeliveryDocId } = await import('@/functions/src/lib/deliveryDocId.js');
 
 describe('buildDeliveryDocId', () => {
@@ -152,5 +158,99 @@ describe('previousCampaignIds', () => {
   });
   it('returns [] for a malformed campaign id', () => {
     expect(previousCampaignIds('not-a-campaign', 2)).toEqual([]);
+  });
+});
+
+// #4299 per-segment report + unsubscribe-rate guard
+describe('aggregateSegmentReport', () => {
+  it('buckets sends/opens/clicks by segment and computes rates', () => {
+    const deliveries = [
+      { email: 'a@x.com', segment: 'hot_jobs', openedAt: 1000, clickedAt: 2000 },
+      { email: 'b@x.com', segment: 'hot_jobs', openedAt: null, clickedAt: null },
+      { email: 'c@x.com', segment: 'dormant', openedAt: null, clickedAt: null },
+      { email: 'd@x.com', segment: 'dormant', openedAt: 1000, clickedAt: null },
+    ];
+    const report = aggregateSegmentReport(deliveries);
+    expect(report.totalSends).toBe(4);
+    expect(report.bySegment.hot_jobs).toMatchObject({ sends: 2, opens: 1, clicks: 1 });
+    expect(report.bySegment.hot_jobs.openRate).toBeCloseTo(50, 5);
+    expect(report.bySegment.dormant).toMatchObject({ sends: 2, opens: 1, clicks: 0 });
+  });
+
+  it('falls back to "unsegmented" when segment is missing (older sends predating #4299)', () => {
+    const report = aggregateSegmentReport([{ email: 'a@x.com', segment: null }]);
+    expect(Object.keys(report.bySegment)).toEqual(['unsegmented']);
+  });
+
+  it('counts an open/click via the cross-provider event fallback, not just the delivery-doc field', () => {
+    const deliveries = [{ email: 'a@x.com', segment: 'warm_articles', messageId: 'm1', openedAt: null, clickedAt: null }];
+    const report = aggregateSegmentReport(deliveries, {
+      openedEmails: new Set(['a@x.com']),
+      clickedMsgIds: new Set(['m1']),
+    });
+    expect(report.bySegment.warm_articles.opens).toBe(1);
+    expect(report.bySegment.warm_articles.clicks).toBe(1);
+  });
+
+  it('attributes an unsubscribe to its segment and computes the overall rate', () => {
+    const deliveries = [
+      { email: 'a@x.com', segment: 'dormant' },
+      { email: 'b@x.com', segment: 'dormant' },
+    ];
+    const report = aggregateSegmentReport(deliveries, { unsubscribedEmails: new Set(['a@x.com']) });
+    expect(report.bySegment.dormant.unsubscribes).toBe(1);
+    expect(report.bySegment.dormant.unsubscribeRate).toBeCloseTo(50, 5);
+    expect(report.overallUnsubscribeRate).toBeCloseTo(50, 5);
+  });
+
+  it('returns zeroed totals for an empty campaign (no throw)', () => {
+    const report = aggregateSegmentReport([]);
+    expect(report.totalSends).toBe(0);
+    expect(report.overallUnsubscribeRate).toBe(0);
+    expect(report.bySegment).toEqual({});
+  });
+});
+
+describe('unsubscribeGuardBreaches', () => {
+  it('flags a segment whose unsubscribe rate crosses the cap, once it has enough sends', () => {
+    const deliveries = Array.from({ length: MIN_SENDS_FOR_UNSUB_GUARD }, (_, i) => ({ email: `u${i}@x.com`, segment: 'dormant' }));
+    // 2 unsubs out of MIN_SENDS_FOR_UNSUB_GUARD sends > UNSUB_RATE_CAP_PCT
+    const unsubCount = Math.ceil((UNSUB_RATE_CAP_PCT / 100) * MIN_SENDS_FOR_UNSUB_GUARD) + 1;
+    const unsubscribedEmails = new Set(Array.from({ length: unsubCount }, (_, i) => `u${i}@x.com`));
+    const report = aggregateSegmentReport(deliveries, { unsubscribedEmails });
+    const breaches = unsubscribeGuardBreaches(report);
+    expect(breaches.some((b) => b.scope === 'dormant')).toBe(true);
+  });
+
+  it('does not flag a thin segment below the minimum-sends floor, even at 100% unsubscribe', () => {
+    const deliveries = [{ email: 'a@x.com', segment: 'new_niche' }];
+    const report = aggregateSegmentReport(deliveries, { unsubscribedEmails: new Set(['a@x.com']) });
+    const breaches = unsubscribeGuardBreaches(report);
+    expect(breaches.some((b) => b.scope === 'new_niche')).toBe(false);
+  });
+
+  it('flags "overall" when the whole-campaign rate crosses the cap regardless of segment size', () => {
+    const deliveries = [
+      { email: 'a@x.com', segment: 'hot_jobs' },
+      { email: 'b@x.com', segment: 'hot_jobs' },
+    ];
+    const report = aggregateSegmentReport(deliveries, { unsubscribedEmails: new Set(['a@x.com']) }); // 50%
+    const breaches = unsubscribeGuardBreaches(report);
+    expect(breaches.some((b) => b.scope === 'overall')).toBe(true);
+  });
+
+  it('returns no breaches for a clean campaign', () => {
+    const deliveries = Array.from({ length: 50 }, (_, i) => ({ email: `u${i}@x.com`, segment: 'hot_jobs' }));
+    const report = aggregateSegmentReport(deliveries);
+    expect(unsubscribeGuardBreaches(report)).toEqual([]);
+  });
+
+  it('honors a custom cap', () => {
+    const deliveries = [
+      { email: 'a@x.com', segment: 'cool_digest' },
+      { email: 'b@x.com', segment: 'cool_digest' },
+    ];
+    const report = aggregateSegmentReport(deliveries, { unsubscribedEmails: new Set(['a@x.com']) }); // 50%
+    expect(unsubscribeGuardBreaches(report, 60)).toEqual([]); // below a looser 60% cap
   });
 });

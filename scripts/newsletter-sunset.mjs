@@ -26,6 +26,7 @@
 import { classifySunset } from './lib/subscriberSunset.mjs';
 import { buildWinbackEmail } from '../services/winbackEmail.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { localeOf } from './lib/subscriberLocale.mjs';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -50,10 +51,6 @@ async function initFirebase() {
     });
   }
   db = a.firestore();
-}
-
-function localeOf(sub) {
-  return String(sub?.preferred_locale || sub?.locale || sub?.lang || 'it').split(/[-_]/)[0] || 'it';
 }
 
 /**
