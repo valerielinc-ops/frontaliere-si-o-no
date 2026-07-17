@@ -956,14 +956,21 @@ function jobboardLocaleForPath(urlPath: string): HpSeoLocale | null {
  return JOBBOARD_PATH_TO_LOCALE.get(withSlash) ?? null;
 }
 
-// Utility pages that should NOT be indexed — thin by design (partner services, consulting,
-// API status). These are removed from sitemaps and served with noindex so bots stop crawling them.
-// NOTE: Contact and Privacy pages are NOT noindexed — they have rich editorial content and are
-// critical for E-E-A-T signals (squirrelscan, Google quality raters). They are in the sitemap.
+// Utility pages that should NOT be indexed — thin by design (partner services only, see below).
+// These are removed from sitemaps and served with noindex so bots stop crawling them.
+// NOTE: Contact, Privacy, Consulting, and API Status pages are NOT noindexed — they have rich
+// editorial content (see the '/consulenza' and '/stato-api' branches below) and are critical for
+// E-E-A-T / AI-citability signals (squirrelscan, Google quality raters, AI crawlers). They are in
+// the sitemap. '/consulenza/' and '/stato-api/' were restored 2026-07-17 (issue #4305) — both had
+// been dropped from public/sitemap-pages.xml + left noindexed here by 62d628a515ed's soft-404
+// cleanup and never un-noindexed when contattaci/privacy were, leaving two real content pages
+// (both linked live from the footer) 404ing for crawlers. Sibling-pattern check (AGENTS.md #6):
+// '/servizi-partner/' remains in this set, but it is NOT the same bug — it has no editorial-content
+// branch in this file at all (unlike '/consulenza'/'/stato-api'); it is deliberately redirected to
+// locale home by legacyRedirectsPlugin.ts ("Partner services (thin utility tab) → locale home"),
+// so there is no orphaned content to restore. Left untouched — different situation, not this class.
 const NOINDEX_CANONICAL_PATHS = new Set([
  '/servizi-partner/', '/en/partner-services/', '/de/partner-dienste/', '/fr/services-partenaires/',
- '/consulenza/', '/en/consulting/', '/de/beratung/', '/fr/consultation/',
- '/stato-api/', '/en/api-status/', '/de/api-status/', '/fr/etat-api/',
 ]);
 
 // Pages that should NOT load the SPA bundle — they serve as pure static HTML
