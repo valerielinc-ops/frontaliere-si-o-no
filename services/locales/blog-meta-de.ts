@@ -8562,6 +8562,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.title': 'Grenzgänger: Was sich mit der neuen Ersatzsteuer ab 2024 ändert',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.excerpt': 'Praktischer Leitfaden zu steuerlichen Neuerungen für Grenzgänger Italien-Schweiz nach dem Abkommen von 2020. Befreiungen, Beiträge und Verfahren.',
     'blog.article.frontalieri-nuova-imposta-sostitutiva-2024.imageAlt': 'Steuerformular auf einem Holztisch in Bellinzona mit Kugelschreiber und schweizerisch-italienischen Steuerleitfäden',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.title': 'Zusätzliche Hilfe für die Arbeit in den Ausschüssen ist erforderlich',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.excerpt': 'Die Motion Ortelli fordert die Einführung eines Stellvertretenden Sekretärs/r',
+    'blog.article.servo-aiuto-pi-lavori-commissioni.imageAlt': 'Ein Radfahrer, der den italienisch-schweizerischen Grenzübergang passiert, mit der Stadt Lugano im Hintergrund.',
 };
 
 export default blogMetaDe;

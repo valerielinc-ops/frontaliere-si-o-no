@@ -50187,6 +50187,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-servo-aiuto-pi-lavori-commissioni': {
+    title: 'Serve un aiuto in più per i lavori nelle commissioni',
+    description: 'La mozione Ortelli chiede l\'introduzione di un segretario aggiunto/ricercatore parlamentare per aiutare i lavori nelle commissioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, serve, aiuto, lavori, nelle',
+    ogTitle: 'Serve un aiuto in più per i lavori nelle commissioni',
+    ogDescription: 'La mozione Ortelli chiede l\'introduzione di un segretario aggiunto/ricercatore parlamentare per aiutare i lavori nelle commissioni.',
+    canonicalPath: '/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Serve un aiuto in più per i lavori nelle commissioni",
+      "description": "La mozione Ortelli chiede l'introduzione di un segretario aggiunto/ricercatore parlamentare per aiutare i lavori nelle commissioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/servo-aiuto-pi-lavori-commissioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in bicicletta che attraversa il confine italo-svizzero, con la città di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-07-17T11:59:02+00:00",
+      "dateModified": "2026-07-17T11:59:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/servo-aiuto-pi-lavori-commissioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
