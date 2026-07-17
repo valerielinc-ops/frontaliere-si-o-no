@@ -9,8 +9,9 @@
  * Worker is bound (Email Routing → custom address → "Send to a Worker") to TWO
  * addresses, both routed to the SAME worker, branched on the recipient
  * (`message.to`):
- *   - the cold-email outreach reply address (env.OUTREACH_ADDRESS, e.g.
- *     valerie@frontaliereticino.ch) → handleOutreachReply
+ *   - the cold-email outreach reply address (e.g.
+ *     valerie@frontaliereticino.ch — anything not matching NEWSLETTER_ADDRESS
+ *     below) → handleOutreachReply
  *   - the newsletter mailbox (env.NEWSLETTER_ADDRESS, newsletter@…) →
  *     handleNewsletterUnsubscribe
  *
@@ -34,13 +35,12 @@
  *
  * STOP-intent detection MIRRORS scripts/lib/stop-reply-detect.mjs (single
  * source) — kept in lockstep (AGENTS.md Non-Negotiable #6); both are
- * unit-tested (tests/stop-reply-detect.test.ts, tests/cf-email-worker.test.ts).
+ * unit-tested (tests/stop-reply-detect.test.ts, tests/cf-email-worker-stop-reply-handler.test.ts).
  *
  * Deploy + config are AUTOMATED by .github/workflows/deploy-email-worker.yml
  * (wrangler deploy + scripts/cf-email-worker-setup.mjs). Bindings:
  *   vars (wrangler.toml): STOP_REPLY_FN_URL, REPLY_TRACK_FN_URL,
- *                          NEWSLETTER_UNSUB_URL, OUTREACH_ADDRESS,
- *                          NEWSLETTER_ADDRESS
+ *                          NEWSLETTER_UNSUB_URL, NEWSLETTER_ADDRESS
  *   secrets (CF API, set by the setup script): STOP_SECRET (== NEWSLETTER_SECRET),
  *            FORWARD_TO (the human inbox; resolved from the zone catch-all target)
  *
