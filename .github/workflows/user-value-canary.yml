@@ -1,0 +1,168 @@
+name: user-value-canary
+
+# User-value (ARPU) crash detector — the "watch on per-user monetization"
+# companion to `rpm-canary.yml` (which watches per-pageview monetization).
+#
+# Runs once a day, pulls daily totalAdRevenue/activeUsers via the GA4 Data
+# API, and opens a deduplicated GitHub issue only when the latest
+# fully-closed day's ARPU is down AND revenue confirms it:
+#   - ARPU < 65% of the trailing 7-day baseline (T-9..T-3), AND
+#   - revenue < 65% of the baseline revenue.
+#
+# The revenue gate kills false alarms from active-user spikes: ARPU is
+# revenue ÷ activeUsers, so a traffic spike with healthy revenue halves
+# ARPU without losing a cent — the same false-alarm shape rpm-canary.yml's
+# earnings gate was built to silence (issue #2176). The still-open current
+# UTC day is never measured. See scripts/lib/arpuCanaryClassify.mjs for
+# the unit-tested classifier (a thin wrapper over the same shared core
+# rpm-canary.yml uses, scripts/lib/canaryRegressionClassify.mjs).
+#
+# Why daily (not hourly): GA4 daily aggregates only settle a few hours
+# after UTC midnight. Hourly cadence would burn quota on identical numbers;
+# the goal is "detect within 24h of impact," not real-time.
+
+on:
+  schedule:
+    # Daily at 11:00 UTC — one hour after rpm-canary, GA4 data settled by then.
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+    inputs:
+      ratio_floor:
+        description: 'Alert if ARPU < (ratio_floor × baseline). Default 0.65.'
+        required: false
+        default: '0.65'
+        type: string
+      absolute_floor:
+        description: 'Alert if ARPU < absolute_floor EUR. Default 0 (disabled — no calibrated floor yet).'
+        required: false
+        default: '0'
+        type: string
+      revenue_floor:
+        description: 'Only alert if revenue also < (revenue_floor × baseline revenue). Default 0.65.'
+        required: false
+        default: '0.65'
+        type: string
+
+concurrency:
+  group: user-value-canary
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    name: Probe GA4 user-value (ARPU)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # load-rc-env.mjs imports `firebase-admin` to talk to Remote Config;
+      # without npm deps it falls back to "no secrets loaded" and the GA4
+      # call later errors with "missing OAuth credentials". Same install
+      # pattern as rpm-canary.yml.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config (GA4 + GSC tokens)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run user-value canary
+        id: canary
+        continue-on-error: true
+        env:
+          RATIO_FLOOR: ${{ github.event.inputs.ratio_floor || '0.65' }}
+          ABSOLUTE_FLOOR: ${{ github.event.inputs.absolute_floor || '0' }}
+          REVENUE_FLOOR: ${{ github.event.inputs.revenue_floor || '0.65' }}
+        run: |
+          set -o pipefail
+          node scripts/canary-user-value.mjs \
+            --json \
+            --ratio-floor="$RATIO_FLOOR" \
+            --absolute-floor="$ABSOLUTE_FLOOR" \
+            --revenue-floor="$REVENUE_FLOOR" \
+            > user-value-canary-result.json 2> user-value-canary.log
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Upload canary result artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: user-value-canary-${{ github.run_id }}
+          path: |
+            user-value-canary-result.json
+            user-value-canary.log
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Append summary to job log
+        if: always()
+        run: |
+          if [ -s user-value-canary-result.json ]; then
+            echo "## User-value (ARPU) canary" >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat user-value-canary-result.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Build issue body
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
+        env:
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/build-user-value-canary-issue-body.mjs user-value-canary-result.json > user-value-canary-issue-body.md
+
+      - name: Open GitHub issue on regression
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "User-value canary: ARPU crash detected" \
+            --description "$(cat user-value-canary-issue-body.md)" \
+            --priority 1 \
+            --label Bug \
+            --label arpu-canary \
+            --label revenue \
+            --workflow "user-value-canary"
+
+      # Recovery mirror: on a clean probe, close the canonical open issue this
+      # canary opened (custom title → NOT covered by close-recovered-failure-issues.mjs,
+      # which only matches the generic `Workflow|Crawler|CI Failure: <name>` prefixes,
+      # nor by any sibling --resolve step). Without this the regression issue stays
+      # open forever after ARPU recovers. Best-effort, always exits 0.
+      - name: Resolve open issue on green
+        if: steps.canary.outcome == 'success' && steps.canary.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "User-value canary: ARPU crash detected" \
+            --workflow "user-value-canary" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail the workflow if ARPU regression detected
+        if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
+        run: |
+          echo "::error::User-value (ARPU) regression detected — see GitHub issue + artifact"
+          exit 1
