@@ -34,7 +34,8 @@
  *   POSTHOG_HOST              — default https://eu.posthog.com
  */
 
-const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
+import { runHogQL } from './lib/posthog-client.mjs';
+
 const PID = process.env.POSTHOG_PROJECT_ID;
 const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
 
@@ -54,16 +55,6 @@ const METRIC = metricArg ? metricArg.slice('--metric='.length).toUpperCase() : '
 const WEB_VITAL_PROP = `$web_vitals_${METRIC}_value`;
 // INP is in ms (integer display); CLS is a unitless ratio (3 decimals)
 const METRIC_DECIMALS = METRIC === 'INP' ? 0 : 3;
-
-async function hogql(query) {
-  const r = await fetch(`${HOST}/api/projects/${PID}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!r.ok) throw new Error(`PH ${r.status}: ${(await r.text()).slice(0, 200)}`);
-  return r.json();
-}
 
 const QUERIES = {
   homepage: `
@@ -148,7 +139,7 @@ async function tick() {
   const out = { ts, window_h: WINDOW_HOURS, results: {} };
   for (const [k, q] of Object.entries(QUERIES)) {
     try {
-      const r = await hogql(q.trim());
+      const r = await runHogQL(q.trim());
       const row = r.results?.[0] || [0, null, null];
       out.results[k] = { n: row[0], p75: row[1], p90: row[2] };
     } catch (e) {
