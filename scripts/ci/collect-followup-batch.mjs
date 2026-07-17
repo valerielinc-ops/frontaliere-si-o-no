@@ -29,7 +29,7 @@
  *    con motivo loggato. Meglio una run Claude in più che perdere un follow-up.
  *
  * Output (GITHUB_OUTPUT): `batch_prs=<csv di numeri>`, `batch_count=<n>`,
- *   `max_turns=<n>` (min(20 + 6*batch_count, 60); MAI < 20 — AGENTS.md vieta di
+ *   `max_turns=<n>` (min(26 + 8*batch_count, 80); MAI < 26 — AGENTS.md vieta di
  *   abbassare i turni di post-merge-followup, qui li alza in proporzione al batch).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
@@ -137,9 +137,13 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
   return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
 }
 
-/** Turni Claude proporzionati al batch: min(20 + 6*n, 60), floor 20 (mai abbassare). */
+/**
+ * Turni Claude proporzionati al batch: min(26 + 8*n, 80), floor 26 (mai abbassare).
+ * Era min(20+6n,60) — bump fleet-wide 2026-07-17 (owner) di tutti i cap max-turns
+ * Claude dopo l'ennesimo error_max_turns (cap = anti-runaway, non budget di lavoro).
+ */
 export function maxTurnsFor(batchCount) {
-  return Math.min(20 + 6 * Math.max(0, Number(batchCount) || 0), 60);
+  return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
 // ── I/O helpers ─────────────────────────────────────────────────────

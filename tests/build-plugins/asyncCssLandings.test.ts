@@ -22,12 +22,15 @@
  *   - `<noscript><link rel="stylesheet"></noscript>` (no-JS + crawler fallback)
  *   - a 3s `setTimeout` belt-and-braces flip of any still-`media="print"` link.
  */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, it, expect } from 'vitest';
-import { buildSimplePage, asyncCssHeadBlock, asyncCssLink } from '../../build-plugins/htmlTemplate';
+import { buildSimplePage, asyncCssHeadBlock, asyncCssLink, ASYNC_CSS_FALLBACK_SCRIPT } from '../../build-plugins/htmlTemplate';
 import { CRITICAL_CSS_LINK } from '../../build-plugins/shared/criticalCss';
 import { SEO_STATIC_CSS_FILENAME } from '../../build-plugins/constants';
 
 const SEO_STATIC_HREF = `/assets/${SEO_STATIC_CSS_FILENAME}`;
+const BUILD_PLUGINS_DIR = join(__dirname, '../../build-plugins');
 
 describe('asyncCssLink', () => {
   it('emits preload + media=print swap + noscript fallback for a same-origin sheet', () => {
@@ -62,6 +65,9 @@ describe('asyncCssHeadBlock', () => {
     // Fallback telemetry: queues _cssFallbackInfo for Analytics.trackCssFallback
     // (parity with the sibling fallbacks — keeps the revert-trigger observable).
     expect(out).toContain("sessionStorage.setItem('_cssFallbackInfo'");
+    // issue #4304 triage: visibilityState captured at fire time so a
+    // background-tab-throttling root cause can be confirmed/ruled out.
+    expect(out).toContain('visibilityState:document.visibilityState');
   });
 
   it('omits the entry sheet when no SPA bundle is present but still async-loads seo-static.css', () => {
@@ -69,6 +75,32 @@ describe('asyncCssHeadBlock', () => {
     expect(out).toContain(CRITICAL_CSS_LINK);
     expect(out).toContain(`href="${SEO_STATIC_HREF}" media="print"`);
     expect(out).not.toContain('index-');
+  });
+});
+
+/**
+ * Regression gate (issue #4304): `ogPagesPlugin.ts` and `staticPagesPlugin.ts`
+ * used to hand-copy the ASYNC_CSS_FALLBACK_SCRIPT literal instead of
+ * importing the shared constant — a sibling-pattern drift risk flagged by
+ * AGENTS.md §6 (the two copies had already gone stale relative to each other
+ * before this fix). Both now import `ASYNC_CSS_FALLBACK_SCRIPT` from
+ * `htmlTemplate.ts`; this locks that in so a future edit to the fallback
+ * script can't silently reintroduce a second, un-synced copy.
+ */
+describe('ASYNC_CSS_FALLBACK_SCRIPT · no literal duplication in sibling emitters', () => {
+  const siblingFiles = ['ogPagesPlugin.ts', 'staticPagesPlugin.ts'];
+
+  it.each(siblingFiles)('%s imports the shared constant instead of inlining the setTimeout script', (file) => {
+    const source = readFileSync(join(BUILD_PLUGINS_DIR, file), 'utf-8');
+    expect(source).toMatch(/import\s*\{[^}]*\bASYNC_CSS_FALLBACK_SCRIPT\b[^}]*\}\s*from\s*['"]\.\/htmlTemplate['"]/);
+    // The raw setTimeout literal must not appear verbatim — only the
+    // `${ASYNC_CSS_FALLBACK_SCRIPT}` interpolation is allowed.
+    expect(source).not.toContain("setTimeout(function(){var ls=document.querySelectorAll('link[media=\"print\"]");
+  });
+
+  it('the shared constant is the single source of truth for the fallback payload shape', () => {
+    expect(ASYNC_CSS_FALLBACK_SCRIPT).toContain('_cssFallbackInfo');
+    expect(ASYNC_CSS_FALLBACK_SCRIPT).toContain('visibilityState:document.visibilityState');
   });
 });
 

@@ -6,18 +6,24 @@
       "id": "alpiq-3fa36ed9c713",
       "slug": "structured-products-trader-spanish-market-alpiq-olten",
       "slugByLocale": {
-        "it": "structured-products-trader-spanish-market-alpiq-olten"
+        "it": "structured-products-trader-spanish-market-alpiq-olten",
+        "de": "structured-products-trader-spanischer-markt-alpiq-olten",
+        "fr": "commerce-de-produits-structures-marche-espagnol-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
       "title": "Structured Products Trader - Spanish market",
       "titleByLocale": {
-        "it": "Structured Products Trader - Spanish market"
+        "it": "Prodotti Strutturati Trader - Mercato spagnolo",
+        "de": "Structured Products Trader - Spanischer Markt",
+        "fr": "Commerce de produits structurés - marché espagnol"
       },
       "description": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Structured Products Trader - Spanish market\n\nWe are searching for a Structured Products Trader to join our Structured Trading Desk, with a strong focus on optionality-driven topics in Southern Europe. In this role, you will be working closely with Origination teams in Spain (and back-up for Italy) managing the power and gas trading&hellip;\n\nOlten - 100%\nPermanent"
+        "it": "Prodotti Strutturati Trader - Mercato spagnolo\n\nSiamo alla ricerca di un Trader di Prodotti Strutturati per unire il nostro Banco di Trading Strutturato, con un forte focus su argomenti opzionali in Europa meridionale. In questo ruolo lavorerai a stretto contatto con i team di Origination in Spagna (e di back-up per l'Italia) che gestiranno il power and gas trading…\n\nOlten - 100%\nPermanente",
+        "de": "Structured Products Trader - Spanischer Markt\n\nWir suchen einen Structured Products Trader, der unserem Structured Trading Desk beitritt, mit einem starken Fokus auf optionalitätsgesteuerte Themen in Südeuropa. In dieser Rolle arbeiten Sie eng mit Origination-Teams in Spanien (und Back-up für Italien) zusammen, die den Strom- und Gashandel verwalten.\n\nOlten - 100%\nDauerhaft",
+        "fr": "Commerce de produits structurés - marché espagnol\n\nNous recherchons un trader de produits structurés pour rejoindre notre bureau de trading structuré, en mettant fortement l'accent sur les sujets liés à l'optionnalité en Europe du Sud. Dans ce rôle, vous travaillerez en étroite collaboration avec les équipes d'origine en Espagne (et de soutien pour l'Italie) qui gèrent le commerce de l'électricité et du gaz;\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -54,13 +60,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T23:01:54.449Z"
+      "firstSeenAt": "2026-07-16T23:01:54.449Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "alpiq-e1fbe0ada2de",
-      "slug": "archivist-in-all-100-alpiq-olten",
+      "slug": "archivista-tutte-100-alpiq-olten",
       "slugByLocale": {
-        "it": "archivist-in-all-100-alpiq-olten",
+        "it": "archivista-tutte-100-alpiq-olten",
         "en": "archivist-in-all-100-alpiq-olten",
         "de": "archivist-in-all-100-alpiq-olten",
         "fr": "archiviste-dans-tous-100-alpiq-olten"
@@ -115,13 +123,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "archivist-in-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "archivist-in-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-6f6e2e4039a0",
-      "slug": "head-internal-audit-all-100-alpiq-olten",
+      "slug": "responsabile-internal-audit-tutto-100-alpiq-olten",
       "slugByLocale": {
-        "it": "head-internal-audit-all-100-alpiq-olten",
+        "it": "responsabile-internal-audit-tutto-100-alpiq-olten",
         "en": "head-internal-audit-all-100-alpiq-olten",
         "de": "head-internal-audit-alle-100-alpiq-olten",
         "fr": "responsable-de-l-audit-interne-tous-100-alpiq-olten"
@@ -176,7 +192,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-internal-audit-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "head-internal-audit-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-dbe206690861",
@@ -237,6 +261,14 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+        ]
       }
     },
     {
@@ -286,11 +318,13 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-15T22:52:53.819Z",
       "previousSlugs": [
-        "anlageningenieur-all-100-alpiq-niedergosgen"
+        "anlageningenieur-all-100-alpiq-niedergosgen",
+        "anlageningenieur-in-all-100-alpiq-niedergosgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlageningenieur-all-100-alpiq-niedergosgen"
+          "anlageningenieur-all-100-alpiq-niedergosgen",
+          "anlageningenieur-in-all-100-alpiq-niedergosgen"
         ]
       },
       "firstSeenAt": "2026-06-29T21:34:24.959Z",
@@ -366,7 +400,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     }
   ]
 }

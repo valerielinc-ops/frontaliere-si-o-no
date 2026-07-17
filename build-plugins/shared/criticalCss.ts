@@ -343,12 +343,68 @@ export const SEO_SEARCH_HUB_RESERVE_CSS =
   '.s-h0CoDf{margin:0 0 12px}' +
   '.s-USY9TF{margin:0 0 22px}';
 
+/**
+ * Generic SEO "article shell" layout, mirrored from the ASYNC `seo-static.css`
+ * into this SYNCHRONOUS first-paint block. Unlike {@link SEO_STATIC_HERO_RESERVE_CSS}
+ * (stat-tile heroes) and {@link SEO_SEARCH_HUB_RESERVE_CSS} (one hub family),
+ * this reserve targets a set of hashed utility classes (`.s-xzWvwM` article
+ * wrapper, `.s-ziawP1` section spacer, `.s-nzJw8o` auto-fit card grid, `.s-card`
+ * FAQ `<details>`, …) that are SHARED — by construction, the class hash is a
+ * content hash of the resolved Tailwind utility list, so identical classes
+ * always resolve to the identical rule — across a large slice of the SEO
+ * feature-plugin surface (grep confirmed 2026-07-16, issue #4302): border-wait,
+ * fuel-daily, health-premiums, weekly-employers, job-market-snapshot,
+ * job-recency, career/nursing/profession landings, cost-of-living, orphan-query,
+ * annual/market report and more — none of it was in this file, so ALL of those
+ * page families still had the same "async sheet lands ~400-1400ms after first
+ * paint, block→padded-card/grid layout snaps into place" reflow that
+ * {@link SEO_SEARCH_HUB_RESERVE_CSS}'s header already documents for
+ * `/ricerca/` (cumulative desktop shift 0.886) — matching the disproportionate
+ * field CLS on `/traffico-dogane/chiasso-brogeda/oggi/` (p75 0.82, #4302) despite
+ * that page having correctly-sized webcam/SVG-chart widgets (ruled out
+ * separately). Per AGENTS.md §6 (fix the whole sibling-pattern class in one PR):
+ * since critical CSS is ONE shared file consumed by every SEO plugin via
+ * `buildSeoPageHtml`, reserving these classes here fixes every consumer at
+ * once — no per-plugin edits needed.
+ *
+ * Values mirror the async `seo-static.css` rule VERBATIM for every
+ * layout-affecting property (display, grid-template-columns, gap, margin,
+ * padding, font-size, line-height, font-weight, list-style). Border colours
+ * and backgrounds are PAINT, not layout, so they are replaced with
+ * `transparent`/omitted (border WIDTH is kept — it is part of the box in the
+ * `border-box` reset already active) — same convention as
+ * {@link SEO_STATIC_HERO_RESERVE_CSS}.
+ */
+export const SEO_ARTICLE_SHELL_RESERVE_CSS =
+  '.s-xzWvwM{min-width:0;max-width:1100px;margin:0 auto;padding:32px 20px 56px}' +
+  '.s-Nv0GaD{margin-bottom:22px}' +
+  '.s-ziawP1{margin:0 0 24px}' +
+  '.s-nzJw8o{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}' +
+  '.s-Zv0TZw{padding:18px;border-radius:18px;border:1px solid transparent}' +
+  '.s-k7sbVR{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;border:1px solid transparent;vertical-align:middle}' +
+  '.s-iUCmjg{margin-top:8px;font-size:14px;font-weight:700;line-height:1.4}' +
+  '.s-QHHL-d{font-size:12px;font-weight:700;text-transform:uppercase}' +
+  '.s-54GADM{margin-top:8px;font-size:14px;font-weight:700}' +
+  '.s-rUEUjv{margin:0 0 18px;padding:14px 18px;border-radius:12px;border:1px solid transparent;font-size:14px;line-height:1.5}' +
+  '.s-KZc0LQ{margin:0 0 28px}' +
+  '.s-6B_yvh,.s-fwhUlc,.s-GlcYCp{margin:0 0 28px;padding:18px 22px;border-radius:14px;border:1px solid transparent}' +
+  '.s-Y-l-tN{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.5}' +
+  '.s-IHVixW{padding:8px 0;border-bottom:1px solid transparent}' +
+  '.s-jM-wmV{margin:12px 0 0;font-size:14px;line-height:1.55}' +
+  '.s-Wnl1Ux{margin:0 0 24px;padding:14px 18px;border-radius:12px;font-size:14px;line-height:1.5}' +
+  '.s-GCEyQg{margin:32px 0 0;padding:24px 22px;border-radius:16px;border:1px solid transparent}' +
+  '.s-yOfiVn{margin:0;line-height:1.7;max-width:72ch;font-size:15px}' +
+  '.s-sC82IX{margin-top:32px}' +
+  '.s-card{padding:14px 16px;border:1px solid transparent;border-radius:14px}' +
+  '.s-OCic8j{margin:10px 0 0;line-height:1.6}';
+
 export const CRITICAL_CSS =
   `@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(${BASE_URL}/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:300 700;font-display:optional;src:url(${BASE_URL}/fonts/space-grotesk-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}h1,h2,h3{font-family:"Space Grotesk",ui-sans-serif,system-ui,-apple-system,sans-serif}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading,#0f172a)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}` +
   RAIL_RESERVE_CSS +
   SEO_STATIC_GRID_RESERVE_CSS +
   SEO_STATIC_HERO_RESERVE_CSS +
   SEO_SEARCH_HUB_RESERVE_CSS +
+  SEO_ARTICLE_SHELL_RESERVE_CSS +
   ROOT_HEADER_RESERVE_CSS;
 
 /**

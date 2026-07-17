@@ -288,6 +288,14 @@ const ShoppingCalculator: React.FC = () => {
  <div
  key={product.id}
  onClick={() => !isSelected && toggleProduct(product.id)}
+ role="button"
+ tabIndex={0}
+ aria-pressed={isSelected}
+ onKeyDown={(e) => {
+ if (e.key !== 'Enter' && e.key !== ' ') return;
+ e.preventDefault();
+ if (!isSelected) toggleProduct(product.id);
+ }}
  className={`bg-surface rounded-xl p-4 border-2 transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  isSelected
  ? 'border-warning ring-2 ring-warning/20 shadow-lg'
