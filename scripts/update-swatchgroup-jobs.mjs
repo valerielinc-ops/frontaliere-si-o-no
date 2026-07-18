@@ -18,6 +18,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { filterSharedPoolJobsByBrand } from './lib/swatchgroup-brand-filter.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -84,6 +85,12 @@ function isSwatchJob(job, swatchKeysSet) {
   })();
   return swatchKeysSet.has(key) || host.includes('swatchgroup.com');
 }
+
+// Brand-identity re-filter for the sub-brands that share the group-wide
+// swatchgroup.com/careers seed pool with no per-brand path segment (issue
+// #4392) — see scripts/lib/swatchgroup-brand-filter.mjs for the full
+// rationale and evidence. eta-sa-swatch-group / swiss-timing-swatch-group
+// seed from their own domains (eta.ch / swisstiming.com) and are unaffected.
 
 function runBaseCrawler(companyKeys) {
   return runDedicatedBaseCrawler({
@@ -214,7 +221,15 @@ async function main() {
   const _guardTrippedKeys = [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
-    const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
+    const _ckJobsRaw = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
+    // Re-filter the shared-pool sub-brands (rado, comadur-swatch-group,
+    // nivarox-swatch-group, swatch-group-assembly) down to jobs whose real
+    // employer text actually matches — see lib/swatchgroup-brand-filter.mjs
+    // (issue #4392). No-op for brands with their own-domain adapter.
+    const _ckJobs = filterSharedPoolJobsByBrand(ck, _ckJobsRaw);
+    if (_ckJobs.length !== _ckJobsRaw.length) {
+      console.log(`  🔎 ${ck}: brand filter kept ${_ckJobs.length}/${_ckJobsRaw.length} job(s) — dropped cross-brand redistribution from the shared swatchgroup.com pool (#4392).`);
+    }
     // A brand with 0 jobs THIS run only means this crawl found no fresh
     // listings for it — writeJobsCrawlerSlice(ck, []) would throw via the
     // shrink guard if a non-empty slice already exists on disk, so the slice
