@@ -1225,6 +1225,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-svizzera.title': 'Coronavirus: work in Switzerland only with \'G\' permit',
     'blog.article.coronavirus-frontalieri-svizzera.excerpt': 'State Councillor Christian Vitta clarified that frontier workers will be able to go to work in Switzerland despite the closure of Lombardy.',
     'blog.article.coronavirus-frontalieri-svizzera.imageAlt': 'Frontalier worker crossing the Switzerland-Italy border during the COVID-19 pandemic',
+    'blog.article.ostetrica-frontaliere-ticino.title': 'Ticino midwife salary: salaries and differences with Italy',
+    'blog.article.ostetrica-frontaliere-ticino.excerpt': 'What does a border midwife gain in Ticino? And how does it change compared to Italy?',
+    'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'A woman in a white coat prepares for a birth, with a doctor in the background.',
 };
 
 export default blogMetaChEn;

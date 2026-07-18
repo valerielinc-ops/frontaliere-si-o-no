@@ -15813,6 +15813,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ostetrica-frontaliere-ticino': {
+    title: 'Stipendio ostetrica Ticino: salari e differenze con l\'Italia',
+    description: 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, ostetrica, salari, differenze',
+    ogTitle: 'Stipendio reale di un\'ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia',
+    ogDescription: 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?',
+    canonicalPath: '/articoli-svizzera/ostetrica-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio ostetrica Ticino: salari e differenze con l'Italia",
+      "description": "Cosa guadagna un'ostetrica frontaliere in Ticino? E come cambia rispetto all'Italia?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ostetrica-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna in abito bianco si prepara per un parto, con un medico in secondo piano."
+      },
+      "datePublished": "2026-07-18T23:27:32+00:00",
+      "dateModified": "2026-07-18T23:27:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ostetrica-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

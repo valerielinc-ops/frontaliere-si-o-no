@@ -4616,6 +4616,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-farmacista-frontaliero-ticino': { name: 'Farmacista frontaliere in Ticino', path: '/articoli-frontaliere/farmacista-frontaliero-ticino', parent: 'blog' },
     'blog-coronavirus-frontalieri-svizzera': { name: 'Frontalieri e coronavirus', path: '/articoli-svizzera/coronavirus-frontalieri-svizzera/', parent: 'blog' },
     'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-ostetrica-frontaliere-ticino': { name: 'Stipendio reale di un\'ostetrica', path: '/articoli-svizzera/ostetrica-frontaliere-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
