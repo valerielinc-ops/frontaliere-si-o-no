@@ -2,8 +2,9 @@
 /**
  * One-shot: flip ENABLE_HAIKU_ARTICLE_FALLBACK on in Firebase Remote Config
  * so `scripts/load-rc-env.mjs` hydrates it for every workflow, enabling the
- * `claude-cli/claude-haiku-4-5-20251001` absolute-last-resort fallback in
- * `scripts/lib/ai-models.mjs` (see isClaudeCliFallbackEnabled()).
+ * `claude-cli/haiku` (always-current Haiku, via the CLI's own alias)
+ * absolute-last-resort fallback in `scripts/lib/ai-models.mjs` (see
+ * isClaudeCliFallbackEnabled()).
  *
  * Safe: the fallback is double-gated (RC flag AND CLAUDE_CODE_OAUTH_TOKEN
  * present in the job env — scripts/lib/ai-models.mjs:822), so workflows

@@ -211,8 +211,11 @@ const NEWSLETTER_AI_CHAIN = [
   // never ANTHROPIC_API_KEY. Only reached once every free model above has
   // failed (sortChainByScore always sinks it to the bottom); inert unless
   // ENABLE_HAIKU_ARTICLE_FALLBACK + CLAUDE_CODE_OAUTH_TOKEN are both set (see
-  // "Setup Claude CLI Haiku fallback" step in send-newsletter.yml).
-  'claude-cli/claude-haiku-4-5-20251001',
+  // "Setup Claude CLI Haiku fallback" step in send-newsletter.yml). Uses the
+  // CLI's 'haiku' alias (not a dated snapshot id) so it tracks whatever
+  // Anthropic ships as current Haiku — keep this string identical to
+  // AI_MODELS.CLAUDE_CLI_HAIKU in scripts/lib/ai-models.mjs.
+  'claude-cli/haiku',
 ];
 
 async function generateAIBriefing(ctx) {

@@ -350,7 +350,11 @@ export const AI_MODELS = Object.freeze({
   // ENABLE_HAIKU_ARTICLE_FALLBACK is set (see load-rc-env.mjs) AND the token
   // is present. Pinned even below LOCAL_FALLBACK by sortChainByScore — only
   // reached when every free-tier cloud model AND local/fallback have failed.
-  CLAUDE_CLI_HAIKU:    'claude-cli/claude-haiku-4-5-20251001',
+  // Uses the CLI's own 'haiku' alias (confirmed live: `claude --model haiku`
+  // resolves to claude-haiku-4-5-20251001 today) instead of a dated snapshot
+  // id, so this tracks whatever Anthropic ships as "current Haiku" without
+  // needing a code change on every Haiku release.
+  CLAUDE_CLI_HAIKU:    'claude-cli/haiku',
 });
 
 /**
@@ -3174,7 +3178,7 @@ async function _callLocal(model, messages, opts) {
  * with no agentic/tool-call capability, regardless of permission mode.
  */
 async function _callClaudeCli(model, messages, opts) {
-  const apiModel = getApiModelId(model); // e.g. 'claude-haiku-4-5-20251001'
+  const apiModel = getApiModelId(model); // e.g. 'haiku' — CLI resolves the alias to its current model
   const systemPrompt = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
   const userPrompt = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
 

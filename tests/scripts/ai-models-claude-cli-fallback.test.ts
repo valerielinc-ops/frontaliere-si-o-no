@@ -95,7 +95,7 @@ describe('ai-models Claude CLI Haiku fallback', () => {
     const [bin, args] = spawnMock.mock.calls[0] as [string, string[]];
     expect(bin).toBe('claude');
     expect(args).toContain('--model');
-    expect(args[args.indexOf('--model') + 1]).toBe('claude-haiku-4-5-20251001');
+    expect(args[args.indexOf('--model') + 1]).toBe('haiku');
     expect(args).toContain('--output-format');
     // --tools '' (not --allowedTools) is the flag that actually disables tool
     // availability — --allowedTools only gates the permission prompt for
