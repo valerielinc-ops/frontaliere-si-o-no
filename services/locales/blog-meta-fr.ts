@@ -8612,6 +8612,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.farmacista-frontaliero-ticino.title': 'Combien gagne un pharmacien frontalier au Tessin ?',
     'blog.article.farmacista-frontaliero-ticino.excerpt': 'Le nouvel accord frontalier prévoit une franchise de 10000 € pour les nouveaux frontaliers.',
     'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Un pharmacien travaille dans un hôpital à Lugano',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Travailler comme sage-femme en Tessin: salaire et réussite',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'La frontalière qui travaille comme sage-femme au Tessin a droit à un salaire moyen d\'environ CHF 60\'000 par an, mais doit remplir certaines conditions et obtenir le permis G.',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Une frontalière qui travaille comme sage-femme dans un hôpital de Lugano.',
 };
 
 export default blogMetaFr;

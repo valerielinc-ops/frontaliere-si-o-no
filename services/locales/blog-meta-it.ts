@@ -8612,6 +8612,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.farmacista-frontaliero-ticino.title': 'Quanto guadagna un farmacista frontaliere in Ticino?',
     'blog.article.farmacista-frontaliero-ticino.excerpt': 'Il Nuovo Accordo Frontalieri prevede una franchigia di €10\'000 per i nuovi frontalieri.',
     'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Un farmacista frontaliere lavora in un ospedale a Lugano',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere il permesso G.',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Una frontaliere che lavora come ostetrica in un ospedale di Lugano.',
 };
 
 export default blogMetaIt;
