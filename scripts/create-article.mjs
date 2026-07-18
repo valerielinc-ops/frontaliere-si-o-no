@@ -138,6 +138,7 @@ import { computeAdaptiveEvergreenThresholds } from './lib/scoring/constants.mjs'
 import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 import { appendCatalogEntry } from './generate-journalist-image-catalog.mjs';
 import { appendArticleListItem } from './lib/seo-pages-article-list.mjs';
+import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1773,14 +1774,22 @@ function readSectionMetaIt() {
  * same `'blog.article.<id>.title'` key shape, so the callers' regexes work
  * unchanged over the concatenation.
  */
+// Cached for the process lifetime: the evergreen pre-flight loop (Fase 2)
+// calls this once per candidate — up to hundreds of times per run since the
+// structural profession/comune pool (evergreen-topic-generator.mjs) was
+// added — and the section meta files never change mid-run (a successful
+// publish ends the phase, no further candidates get checked afterward).
+let _sectionsMetaItCache = null;
 function readAllSectionsMetaIt() {
+  if (_sectionsMetaItCache !== null) return _sectionsMetaItCache;
   const parts = [];
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
     try {
       parts.push(read(`services/locales/${cfg.metaPrefix}-it.ts`));
     } catch { /* missing/empty section file — skip */ }
   }
-  return parts.join('\n');
+  _sectionsMetaItCache = parts.join('\n');
+  return _sectionsMetaItCache;
 }
 
 function getIsoWeekKey(date = new Date()) {
@@ -6427,7 +6436,13 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
   return { duplicate: false };
 }
 
+// Cached alongside readAllSectionsMetaIt's cache — same process-lifetime
+// invariant, and this is the heavier cost (two matchAll regex passes over
+// the full cross-section source) that the evergreen pre-flight loop was
+// re-paying on every candidate.
+let _existingArticleSummariesCache = null;
 function loadExistingArticleSummaries() {
+  if (_existingArticleSummariesCache !== null) return _existingArticleSummariesCache;
   // Cross-section (2026-07-11): powers preFlightEvergreenCheck. Evergreen
   // topics recur in both sections, so a sibling-section twin must be caught
   // BEFORE spending an LLM generation cycle on a duplicate.
@@ -6435,11 +6450,12 @@ function loadExistingArticleSummaries() {
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
   const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
-  return titleMatches.map((m) => ({
+  _existingArticleSummariesCache = titleMatches.map((m) => ({
     id: m[1],
     title: m[2],
     excerpt: excerptsById.get(m[1]) || '',
   }));
+  return _existingArticleSummariesCache;
 }
 
 // ── Pre-flight evergreen keyword check ──────────────────────
@@ -8968,9 +8984,15 @@ async function main() {
       console.error('📚 Fase 2: Fallback evergreen — generazione articolo SEO long-tail...\n');
 
       // Pick an evergreen topic based on week number, with rotation on duplicate.
-      // When static list is exhausted, append dynamic long-tail combinations.
+      // When static list is exhausted, append dynamic long-tail combinations,
+      // then the structural pool (evergreen-topic-generator.mjs) — profession
+      // × comune candidates derived from PROFESSION_TAXONOMY and MUNICIPALITIES
+      // instead of another hand-written batch, since those saturate every
+      // 1-2 weeks as the corpus grows (#3138 2026-07-02, again 2026-07-08,
+      // again 2026-07-17).
       const dynamicTopics = buildDynamicEvergreenTopics();
-      const topicPool = [...PRIORITY_EVERGREEN_TOPICS, ...dynamicTopics];
+      const structuralTopics = buildStructuralEvergreenTopics();
+      const topicPool = [...PRIORITY_EVERGREEN_TOPICS, ...dynamicTopics, ...structuralTopics];
       const weekNum = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000));
       const baseIndex = weekNum % topicPool.length;
       const totalTopics = topicPool.length;
