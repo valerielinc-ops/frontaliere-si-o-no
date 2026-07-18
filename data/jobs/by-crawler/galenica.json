@@ -27,7 +27,7 @@
       "slugByLocale": {
         "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-        "de": "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
+        "de": "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
@@ -40,8 +40,7 @@
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-ny745j",
         "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern",
-        "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern",
-        "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern"
+        "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -50,7 +49,7 @@
           "farmacista-apotecherina-w-m-d-galenica-ag-galenica-bern"
         ],
         "de": [
-          "apotheker-apotherin-w-m-d-galenica-ag-galenica-bern"
+          "apotheker-apothekerin-w-m-d-galenica-ag-galenica-bern"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -287,7 +286,7 @@
       "sourceLang": "en",
       "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
         "en": "galenica-galenica-ag-pharma-assistent-w-m-bern",
         "de": "galenica-galenica-ag-pharma-assistent-w-m-bern",
         "fr": "pharma-assistant-m-m-galenica-ag-galenica-bern"
@@ -302,9 +301,7 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-pharma-assistent-w-m-bern",
-          "farmacia-assistente-w-m-galenica-ag-galenica-bern",
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+          "farmacia-assistente-w-m-galenica-ag-galenica-bern"
         ],
         "fr": [
           "galenica-galenica-ag-pharma-assistent-w-m-bern"
@@ -312,9 +309,7 @@
       },
       "previousSlugs": [
         "galenica-galenica-ag-pharma-assistent-w-m-bern",
-        "farmacia-assistente-w-m-galenica-ag-galenica-bern",
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-d6f79b",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "farmacia-assistente-w-m-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -360,7 +355,7 @@
       "sourceLang": "en",
       "slug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
         "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-4213fa"
@@ -374,18 +369,11 @@
       "id": "galenica-1aa5c49ae0d4",
       "previousSlugsByLocale": {
         "it": [
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa",
-          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "fr": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+          "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa"
         ]
       },
       "previousSlugs": [
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa",
-        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern",
-        "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-4213fa"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -507,12 +495,6 @@
         ],
         "fr": [
           "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -701,12 +683,6 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "fr": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
@@ -976,12 +952,6 @@
         "it": [
           "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -1034,7 +1004,7 @@
       "slugByLocale": {
         "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "de": "apotheker-apotherin-w-m-d-galenica-galenica-bern",
         "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       },
       "titleByLocale": {
@@ -1226,7 +1196,7 @@
       "sourceLang": "en",
       "slug": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
+        "it": "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
         "de": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
         "fr": "proprietaire-de-la-demande-de-crm-w-m-d-galenica-ag-galenica-bern"
@@ -1241,16 +1211,12 @@
       "previousSlugsByLocale": {
         "it": [
           "proprietario-dell-applicazione-crm-m-g-galenica-ag-galenica-bern",
-          "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-          "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+          "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
         ]
       },
       "previousSlugs": [
         "proprietario-dell-applicazione-crm-m-g-galenica-ag-galenica-bern",
-        "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-        "titolare-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+        "proprietario-dell-applicazione-crm-w-m-d-galenica-ag-galenica-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -1310,22 +1276,11 @@
       "id": "galenica-c3a69e501533",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-        ],
-        "fr": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -2250,7 +2205,7 @@
       "sourceLang": "en",
       "slug": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
+        "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
         "de": "assistentin-und-apotheke-f-h-d-galenica-ag-galenica-bern-4cbeb1",
         "fr": "assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern-4cbeb1"
@@ -2262,22 +2217,6 @@
         "fr": "Assistant en pharmacie (f/h/d)"
       },
       "id": "galenica-1a7feb269ffa",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-        ],
-        "fr": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2466,7 +2405,7 @@
       "sourceLang": "en",
       "slug": "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
+        "it": "assistente-in-farmacia-assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
         "de": "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern",
         "fr": "assistant-en-pharmacie-assistant-en-pharmacie-f-h-d-galenica-ag-galenica-bern"
@@ -2478,19 +2417,6 @@
         "fr": "Assistant en pharmacie / Assistant en pharmacie (f/h/d)"
       },
       "id": "galenica-3233b3bcf26c",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-in-farmacia-assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern"
-        ],
-        "fr": [
-          "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "assistente-in-farmacia-assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-assistante-en-pharmacie-assistante-en-pharmacie-f-h-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -8389,7 +8315,7 @@
         "it": "galenica-galexis-ag-impiegato-a-in-logistica-afc-niederbipp",
         "en": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
         "de": "galenica-galexis-ag-logistiker-in-efz-niederbipp",
-        "fr": "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp"
+        "fr": "galenica-galexis-ag-logisticien-ne-cfc-niederbipp"
       },
       "titleByLocale": {
         "it": "Impiegato/a in logistica AFC",
@@ -8400,8 +8326,7 @@
       "id": "galenica-14557283d7b9",
       "previousSlugs": [
         "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp",
-        "galenica-galexis-ag-logistiker-in-efz-niederbipp",
-        "galenica-galexis-ag-logisticien-ne-cfc-niederbipp"
+        "galenica-galexis-ag-logistiker-in-efz-niederbipp"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8411,7 +8336,6 @@
           "galenica-galexis-ag-logistiker-in-efz-niederbipp"
         ],
         "fr": [
-          "galenica-galexis-ag-logisticien-ne-cfc-niederbipp",
           "employe-e-in-logistique-afc-galexis-ag-galenica-niederbipp"
         ]
       },
@@ -12925,7 +12849,7 @@
         "it": "galenica-alloga-ag-impiegato-a-in-logistica-afc-burgdorf",
         "en": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
         "de": "galenica-alloga-ag-logistiker-in-efz-burgdorf",
-        "fr": "employe-e-in-logistique-afc-alloga-ag-galenica-burgdorf"
+        "fr": "galenica-alloga-ag-logisticien-ne-cfc-burgdorf"
       },
       "titleByLocale": {
         "it": "Impiegato/a in logistica AFC",
@@ -12936,8 +12860,7 @@
       "id": "galenica-6f6a5646370e",
       "previousSlugs": [
         "employe-e-in-logistique-afc-alloga-ag-galenica-burgdorf",
-        "galenica-alloga-ag-logistiker-in-efz-burgdorf",
-        "galenica-alloga-ag-logisticien-ne-cfc-burgdorf"
+        "galenica-alloga-ag-logistiker-in-efz-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12947,7 +12870,6 @@
           "galenica-alloga-ag-logistiker-in-efz-burgdorf"
         ],
         "fr": [
-          "galenica-alloga-ag-logisticien-ne-cfc-burgdorf",
           "employe-e-in-logistique-afc-alloga-ag-galenica-burgdorf"
         ]
       },
