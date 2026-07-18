@@ -64,6 +64,20 @@ const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 const MAX_JOB_CARDS = 10;
 const MAX_RETRY_COUNT = 2; // Max 2 retries (original + 2 = 3 total attempts)
 const RETRY_COLLECTION = 'job_alert_retry_queue';
+// Engagement-tier send priority: daily openers first, weekly last. Used both
+// to decide which alerts get their (network-cost) content built when the
+// shared cascade can't cover everyone today (see capacity check below), and
+// to re-sort the finished batch so a mid-send cap-out still favors the
+// most-engaged recipients.
+const ENGAGEMENT_SEND_PRIORITY = {
+  [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
+  [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1,
+  [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 2,
+};
+// Reserve a slice of today's remaining cascade quota so send-time errors
+// (soft-throttle, a provider tripping mid-run) don't push otherwise-fitting
+// alerts into tomorrow's retry queue.
+const QUOTA_BUFFER_RATIO = 0.1;
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
@@ -1450,6 +1464,29 @@ async function main() {
     return true; // daily tier — no interval gate, same as legacy daily behavior
   });
 
+  // 2d. Pre-generation capacity check: the loop below does real work per
+  // alert (job scoring, live-link HEAD checks over the network, HTML
+  // building) — doing that for alerts the shared cascade cannot possibly
+  // send today just means it fails at send time and lands in tomorrow's
+  // retry queue, so the same work happens twice. Size the work to what's
+  // ACTUALLY left in the cascade today (after the retries already sent
+  // above), reserve a buffer for send-time errors, and only build content
+  // for that many alerts — most-engaged tier first, same priority the
+  // post-send sort below re-applies as a safety net. Alerts left over are
+  // simply untouched (no lastMatchedAt bump), so they're picked up again on
+  // tomorrow's run rather than lost.
+  const { getAvailableCascadeQuota } = await import('./lib/email-cascade.mjs');
+  const availableQuota = await getAvailableCascadeQuota();
+  alerts.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
+  const quotaBuffer = Math.ceil(availableQuota * QUOTA_BUFFER_RATIO);
+  const sendableCapacity = Math.max(0, availableQuota - quotaBuffer);
+  if (alerts.length > sendableCapacity) {
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}) → building ${sendableCapacity}/${alerts.length} alerts by engagement tier; ${alerts.length - sendableCapacity} deferred to next run`);
+    alerts = alerts.slice(0, sendableCapacity);
+  } else {
+    console.log(`   📉 Capacity check: ${availableQuota} cascade quota left today (buffer ${quotaBuffer}) — all ${alerts.length} alerts fit`);
+  }
+
   // 3. Match alerts to jobs
   const emailsToSend = [];
   let totalMatches = 0;
@@ -1622,11 +1659,8 @@ async function main() {
   // most likely to open/click (daily-tier clickers), not whoever happened
   // to be queued first. Array.prototype.sort is stable in Node, so within a
   // tier the existing order (alert enumeration order) is preserved.
-  const ENGAGEMENT_SEND_PRIORITY = {
-    [JOB_ALERT_ENGAGEMENT_TIERS.DAILY]: 0,
-    [JOB_ALERT_ENGAGEMENT_TIERS.OPEN_EVERY_OTHER_DAY]: 1,
-    [JOB_ALERT_ENGAGEMENT_TIERS.WEEKLY]: 2,
-  };
+  // (ENGAGEMENT_SEND_PRIORITY is declared near the top of the file — also
+  // used by the pre-generation capacity check above.)
   emailsToSend.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
 
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
