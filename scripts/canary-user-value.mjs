@@ -95,7 +95,7 @@ async function fetchDailyArpu() {
   if (!token) throw new Error('GSC_CLIENT_ID/GSC_CLIENT_SECRET/GSC_REFRESH_TOKEN not configured');
 
   const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
-  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runReport`, {
+  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
     headers,
     body: JSON.stringify({
