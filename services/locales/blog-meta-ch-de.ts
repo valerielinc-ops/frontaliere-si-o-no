@@ -1207,6 +1207,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Grenzgängige Lehrpersonen im Tessin: Arbeitsbewilligungsgesetz geklärt',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Der Staatsrat bestätigt, dass die berufliche Tätigkeit nach der Beantragung der Genehmigung aufgenommen wurde, nicht nach der Ausstellung. Nur ein Fall, der in 5 Jahren bestraft wurde.',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Erziehungsdepartements',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Schweiz: Motion gegen Arbeitslosigkeit bei Grenzgängern',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Nationalrat Lorenzo Quadri schlägt vor, Grenzgänger von der Schweizer Arbeitslosenversicherung auszuschliessen. Hier sind die Details.',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Bundesrates',
 };
 
 export default blogMetaChDe;

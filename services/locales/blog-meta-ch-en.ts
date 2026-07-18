@@ -1207,6 +1207,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Border teachers in Ticino: clarification of the regulations on work permits',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'The Council of State confirms: professional activity started after the permit application, not upon issue. Only one case sanctioned in 5 years.',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Government palace in Bellinzona, headquarters of the Education Department',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Switzerland: motion against unemployment for frontier workers',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'National Councillor Lorenzo Quadri proposes to exclude frontier workers from Swiss unemployment insurance. Here are the details.',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Federal Palace in Bern, seat of the Swiss Federal Council',
 };
 
 export default blogMetaChEn;
