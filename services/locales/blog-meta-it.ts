@@ -8591,6 +8591,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Modifiche alla viabilità in via Intra Premeno',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'Le limitazioni alla circolazione saranno in vigore dal 20 luglio al 7 agosto 2026.',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Lavori di rete elettrica in via Intra Premeno e via alla Campagna',
+    'blog.article.permessi-lavoro-digitale-ticino.title': 'Permessi di lavoro in Ticino: dal 3 agosto tutto online',
+    'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'Dal 3 agosto 2026 la procedura per i permessi di lavoro in Ticino diventa interamente digitale. Addio al cartaceo per frontalieri, dimoranti e domiciliati.',
+    'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Ufficio della migrazione a Bellinzona, Ticino',
 };
 
 export default blogMetaIt;
