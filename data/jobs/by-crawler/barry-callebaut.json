@@ -199,10 +199,10 @@
     },
     {
       "id": "barry-callebaut-d26295f0fe64",
-      "slug": "area-sales-manager-barry-callebaut-ch",
+      "slug": "responsabile-vendite-di-area-barry-callebaut-zurich",
       "slugByLocale": {
         "de": "area-sales-manager-barry-callebaut-ch",
-        "it": "area-sales-manager-barry-callebaut-ch",
+        "it": "responsabile-vendite-di-area-barry-callebaut-zurich",
         "en": "area-sales-manager-barry-callebaut-ch",
         "fr": "directeur-regional-des-ventes-barry-callebaut-zurich"
       },
@@ -258,7 +258,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-07-17T22:38:24.626Z"
+      "firstSeenAt": "2026-07-17T22:38:24.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "area-sales-manager-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "area-sales-manager-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-95c74076082f",
