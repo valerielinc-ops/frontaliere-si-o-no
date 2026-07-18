@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   PRICE_PER_UNIT_CHF,
+  AZIENDA_PLAN_CHF,
   PRICING_CURRENCY,
   BILLING_PERIOD_DAYS,
   DISCOUNT_TIERS,
@@ -11,25 +12,28 @@ import {
   priceForCart,
 } from '../services/publisherPricing';
 
-describe('publisherPricing — units', () => {
-  it('charges one unit per distinct location', () => {
+describe('publisherPricing — units (1 unit = 1 ad, owner decision 2026-07-18)', () => {
+  it('charges one unit per ad regardless of location count', () => {
     expect(countAdUnits({ locations: ['Lugano'] })).toBe(1);
-    expect(countAdUnits({ locations: ['Lugano', 'Locarno'] })).toBe(2);
+    expect(countAdUnits({ locations: ['Lugano', 'Locarno'] })).toBe(1);
+    expect(countAdUnits({ locations: ['Lugano', 'Locarno', 'Bellinzona', 'Mendrisio'] })).toBe(1);
   });
 
-  it('dedupes blank/duplicate/case-variant locations', () => {
+  it('charges zero for ads without a real location', () => {
     expect(countAdUnits({ locations: ['Lugano', 'lugano ', '  ', ''] })).toBe(1);
+    expect(countAdUnits({ locations: ['  ', ''] })).toBe(0);
     expect(countAdUnits({ locations: [] })).toBe(0);
     // @ts-expect-error guard against malformed input
     expect(countAdUnits({})).toBe(0);
   });
 
-  it('sums units across a cart (same ad in N locations = N units)', () => {
+  it('counts publishable ads across a cart (locations are free)', () => {
     const cart = [
-      { id: 'fisio', locations: ['Lugano', 'Locarno'] }, // 2 units
+      { id: 'fisio', locations: ['Lugano', 'Locarno'] }, // 1 unit
       { id: 'segr', locations: ['Bellinzona'] }, // 1 unit
+      { id: 'vuoto', locations: [] }, // 0 units — not publishable
     ];
-    expect(countCartUnits(cart)).toBe(3);
+    expect(countCartUnits(cart)).toBe(2);
   });
 
   it('handles empty / malformed carts', () => {
@@ -114,20 +118,33 @@ describe('publisherPricing — price breakdown', () => {
   it('exposes the per-unit constant', () => {
     expect(PRICE_PER_UNIT_CHF).toBe(49);
   });
+
+  it('azienda proposal threshold: net price crosses AZIENDA_PLAN_CHF at 11 ads', () => {
+    // The plan phase proposes the flat unlimited Piano Azienda once the
+    // discounted per-ad total exceeds it (owner decision 2026-07-18).
+    expect(AZIENDA_PLAN_CHF).toBe(299);
+    expect(priceForUnits(10).netChf).toBeLessThanOrEqual(AZIENDA_PLAN_CHF); // 294
+    expect(priceForUnits(11).netChf).toBeGreaterThan(AZIENDA_PLAN_CHF); // 323.4
+  });
 });
 
 describe('publisherPricing — cart pricing (PhysioMedical-style)', () => {
-  it('prices the PhysioMedical lead: fisio in Lugano + Locarno = 2 units, no discount', () => {
-    // "due fisioterapisti per Lugano ed uno per Locarno" → one ad text, 2 distinct locations
+  it('prices the PhysioMedical lead: one ad in Lugano + Locarno = 1 unit (locations are free)', () => {
+    // "due fisioterapisti per Lugano ed uno per Locarno" → one ad text, one unit
+    // regardless of the 2 locations (owner decision 2026-07-18).
     const cart = [{ id: 'fisioterapista', locations: ['Lugano', 'Locarno'] }];
     const p = priceForCart(cart);
-    expect(p.units).toBe(2);
-    expect(p.netChf).toBe(98);
+    expect(p.units).toBe(1);
+    expect(p.netChf).toBe(49);
     expect(p.discountRate).toBe(0);
   });
 
-  it('a 3rd location would unlock the first discount tier', () => {
-    const cart = [{ id: 'fisioterapista', locations: ['Lugano', 'Locarno', 'Bellinzona'] }];
+  it('a 3rd ad (not a 3rd location) unlocks the first discount tier', () => {
+    const cart = [
+      { id: 'fisioterapista', locations: ['Lugano', 'Locarno', 'Bellinzona'] }, // 1 unit
+      { id: 'segretaria', locations: ['Lugano'] }, // 1 unit
+      { id: 'infermiere', locations: ['Mendrisio'] }, // 1 unit
+    ];
     const p = priceForCart(cart);
     expect(p.units).toBe(3);
     expect(p.discountRate).toBe(0.1);

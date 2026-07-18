@@ -5,6 +5,11 @@
  * module services/publisherPricing.ts. This file is the server-side mirror of
  * its constants + logic. They MUST stay in sync — tests/publisher-pricing-mirror.test.ts
  * asserts equality across unit counts, so any drift fails CI.
+ *
+ * Unit semantics (owner decision 2026-07-18): 1 unit = 1 AD, regardless of
+ * how many locations the ad targets. countDistinctLocations below is kept
+ * for the LEGACY per-jobIds checkout path only (pre-pay-first in-flight
+ * sessions billed per location).
  */
 
 export const PRICE_PER_UNIT_CHF = 49;
