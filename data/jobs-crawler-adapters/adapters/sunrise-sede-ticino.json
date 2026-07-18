@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-07-18T10:27:02.751Z",
+  "updatedAt": "2026-07-18T21:53:07.370Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
@@ -32,6 +32,12 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-06-17"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-06-19"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
       "canton": "ZH",
@@ -43,12 +49,6 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-05-12"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-06-19"
     },
     "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
       "location": "Pfäffikon SZ",
@@ -151,18 +151,6 @@
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-16"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036584/praktikant-in-kommunikation-content-befristet-12-monate-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-17"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036762/sales-capability-coach-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-07-17"
     }
   }
 }
