@@ -22,8 +22,11 @@
  * 1. GET https://www.bucher-suter.com/wp-json/wp/v2/job-listings?per_page=50
  *    → array of { id, slug, link, title.rendered, date, modified }. No
  *    pagination needed in practice (~5 open roles at a time).
- * 2. GET each `link` (own bucher-suter.com domain, no anti-bot fence
- *    observed — plain HTTP 200, server-rendered) and extract:
+ * 2. GET each `link` (own bucher-suter.com domain — as of #4277 the site's
+ *    Cloudflare/Kinsta edge hard-blocks the CI datacenter egress IP with a
+ *    403 on every path, listing AND detail; `fetchHtml()` already rescues
+ *    this class via the Jina clean-IP proxy, see fetchJobListingsMeta()
+ *    below for the listing-endpoint equivalent) and extract:
  *    - `Location` / `Job Type` label→value pairs (fixed markup pattern,
  *      identical across both content-layout variants seen on the site).
  *    - The `<div class="article-prose">…</div>` body block (balanced-tag
@@ -43,10 +46,14 @@
  *
  * Source: https://www.bucher-suter.com/careers/
  * Verified live 2026-07-04 via curl (wp-json discovery + detail HTML).
+ * Re-verified live 2026-07-18 (#4277): direct fetch now 403s from the CI
+ * egress IP on every path; Jina Reader clean-IP proxy (`X-Return-Format:
+ * text`) confirmed to return the wp-json listing's raw, unwrapped JSON.
  *
  * Implements 4 exports required by the standard crawler template, plus
  * parsing helpers unit-tested directly:
  * - fetchAllBucherSuterJobs()
+ * - fetchJobListingsMeta() (WP REST discovery + Jina IP-block rescue, #4277)
  * - isBucherSuterJob() / isTrustedDomain()
  * - extractLabelValue() / extractArticleProseHtml()
  * - detectCategory() / detectEmploymentType() / detectExperienceLevel()
@@ -54,7 +61,16 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
+import {
+  slugify,
+  normalizeSpace,
+  normalizeDescriptionSpace,
+  warnIfListingAtCap,
+  fetchJson,
+  WAF_IP_BLOCK_STATUS,
+  isConnectionLevelFetchError,
+} from './crawler-template.mjs';
+import { fetchViaJinaWithRetry, detectJinaErrorBody } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, canonicalSwissCityName, findSwissCityInText } from './target-swiss-locations.mjs';
 import {
@@ -85,16 +101,50 @@ const API_URL = `${BASE_URL}/wp-json/wp/v2/job-listings?per_page=${LISTING_PAGE_
 /**
  * NOTE: this listing endpoint must use fetchJson() (crawler-template.mjs),
  * NOT fetchHtml() (hospital-custom-html-helpers.mjs, used below for detail
- * pages). fetchHtml() proxies through Jina Reader on IP-reputation WAF
- * blocks / connection failures, and Jina always returns HTML — corrupting a
- * JSON response instead of rescuing it. fetchJson() retries transient
- * failures (5xx/429, network blips, and a 200-but-non-JSON "challenge" body)
- * via the same backoff loop WITHOUT that HTML-returning proxy, so a
+ * pages). fetchJson() retries transient failures (5xx/429, network blips,
+ * and a 200-but-non-JSON "challenge" body) via the shared backoff loop, so a
  * transient block self-heals and a persistent one still fails loudly
  * (#4247: "Unexpected token '<' ... is not valid JSON").
+ *
+ * #4277: bucher-suter.com moved to a Cloudflare + Kinsta edge that hard-
+ * blocks the CI runner's datacenter egress IP on EVERY path — confirmed live
+ * 2026-07-18: the plain `/careers/` HTML page 403s from the same IP too, with
+ * both the bot UA and a full desktop-Chrome UA + Accept-Language, ruling out
+ * a header/User-Agent fix (unlike the sibling wp-json crawlers — Banca del
+ * Sempione, Clienia AG, Giardino, Bachtelen — which are NOT blocked and need
+ * no change). This is the identical IP-reputation class fetchHtml() already
+ * rescues via the Jina Reader clean-IP proxy (WAF_IP_BLOCK_STATUS ∪
+ * connection-level failure). fetchJson() intentionally does NOT auto-proxy
+ * (Jina's default HTML/markdown rendering would corrupt a JSON body), but
+ * `X-Return-Format: text` (fetchViaJinaWithRetry's `format: 'text'`) returns
+ * the endpoint's raw body unwrapped — verified live: Jina's clean IP receives
+ * the real WP REST JSON straight through with no markdown/HTML envelope — so
+ * the same rescue mechanism applies here manually, one call site only.
  */
-async function fetchJobListingsMeta() {
-  return fetchJson(API_URL, { label: 'Bucher + Suter WP REST job-listings' });
+export async function fetchJobListingsMeta() {
+  try {
+    return await fetchJson(API_URL, { label: 'Bucher + Suter WP REST job-listings' });
+  } catch (err) {
+    if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) throw err;
+    console.warn(`   ⚠️ Direct fetch to WP REST job-listings blocked (${err?.message || err}) — retrying via Jina clean-IP proxy...`);
+    const res = await fetchViaJinaWithRetry(API_URL, { format: 'text' });
+    if (!res.ok) {
+      console.warn(`   ⚠️ Jina proxy returned HTTP ${res.status} for WP REST job-listings — falling back to original error.`);
+      throw err;
+    }
+    const body = await res.text();
+    const reason = detectJinaErrorBody(body);
+    if (reason) {
+      console.warn(`   ⚠️ Jina-proxied WP REST job-listings body looks like a challenge/non-target page (${reason}) — falling back to original error.`);
+      throw err;
+    }
+    try {
+      return JSON.parse(body);
+    } catch (parseErr) {
+      console.warn(`   ⚠️ Jina-proxied WP REST job-listings body was not valid JSON (${parseErr?.message || parseErr}) — falling back to original error.`);
+      throw err;
+    }
+  }
 }
 
 /* ── Detail-page extraction ──────────────────────────────────────────── */

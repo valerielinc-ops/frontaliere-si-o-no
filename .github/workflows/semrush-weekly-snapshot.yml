@@ -35,6 +35,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          # Blobless partial clone (same fix as guard-data-integrity.yml
+          # #4120 / crawler-health-monitor.yml #4380): this commits+pushes via
+          # a rebase-retry loop on a tight 15-min budget against the repo's
+          # current ~1.36GB/868k-object blob history.
+          filter: blob:none
 
       - uses: actions/setup-node@v5
         with:

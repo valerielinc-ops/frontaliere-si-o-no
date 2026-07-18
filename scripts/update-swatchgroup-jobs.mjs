@@ -206,6 +206,12 @@ async function main() {
   const _allJobsRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
   let _aggregateTotal = 0;
+  // Sub-brands whose slice write was refused this run by a persist-time guard
+  // (shrink guard, boilerplate guard, ...) inside writeJobsCrawlerSlice(). The
+  // guard already does its job — prior slice kept on disk, its own
+  // `parser-health` issue filed/updated — so this is tracked only to log a
+  // single non-fatal summary line, not to fail the run (see catch below).
+  const _guardTrippedKeys = [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
     const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
@@ -219,10 +225,31 @@ async function main() {
     // aggregate 'swatchgroup' key below). Always refresh the per-brand
     // summary, reporting the still-persisted slice count when this run found
     // nothing new for that brand.
-    const _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
+    let _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
     if (_ckJobs.length > 0) {
-      _aggregateTotal += _ckJobs.length;
-      writeJobsCrawlerSlice(ck, _ckJobs);
+      // Swatch Group is a multi-sub-brand umbrella crawler: comadur, eta-sa,
+      // nivarox, rado, swatch-group-assembly and swiss-timing all persist in
+      // this SAME loop within this ONE script run. writeJobsCrawlerSlice()
+      // can throw for just one sub-brand (e.g. its shrink guard trips on a
+      // degraded scrape) — before this fix that Error propagated out of the
+      // loop entirely via main().catch(exitCrawlerOnError), which (a) failed
+      // the WHOLE run even though every other sub-brand wrote fine, opening a
+      // noisy "Crawler Failure: Run swatchgroup" issue on top of the guard's
+      // own dedicated parser-health issue, and (b) silently skipped every
+      // sub-brand still left in companyKeys after the one that threw (issue
+      // #4377: rado's shrink-guard trip aborted before swatch-group-assembly
+      // and swiss-timing-swatch-group were ever reached). Contain the guard
+      // trip to just this ONE sub-brand: log it, keep this brand's prior
+      // on-disk count for the summary/aggregate, and let the loop continue.
+      try {
+        writeJobsCrawlerSlice(ck, _ckJobs);
+        _aggregateTotal += _ckJobs.length;
+      } catch (err) {
+        _guardTrippedKeys.push(ck);
+        _ckTotal = readExistingCrawlerJobs(ck, DATA_JOBS).length;
+        _aggregateTotal += _ckTotal;
+        console.warn(`⚠️  ${ck}: slice write guard refused this run's ${_ckJobs.length} job(s) — prior slice (${_ckTotal} jobs) kept on disk, continuing with remaining Swatch Group sub-brands: ${String(err?.message || err)}`);
+      }
     }
     writeSummaryCrawlerSlice({
       key: ck,
@@ -269,6 +296,9 @@ async function main() {
     removedJobs: crawlDiff.removedJobs.slice(0, 30),
     unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
   });
+  if (_guardTrippedKeys.length > 0) {
+    console.warn(`⚠️  Swatch Group crawler completed with ${_guardTrippedKeys.length}/${companyKeys.length} sub-brand write guard(s) tripped (${_guardTrippedKeys.join(', ')}) — not treated as a run failure; each affected sub-brand kept its prior slice and has its own parser-health issue.`);
+  }
   await assembleJobsDataset();
 }
 

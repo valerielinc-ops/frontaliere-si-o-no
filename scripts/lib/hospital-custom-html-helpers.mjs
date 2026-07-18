@@ -38,6 +38,20 @@ export function decodeEntities(s = '') {
     .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));
 }
 
+/**
+ * Parse a "DD.MM.YYYY" (or single-digit "D.M.YYYY") Swiss short date into
+ * ISO "YYYY-MM-DD". Returns '' if the input doesn't match. Shared home for
+ * a construct several hospital/institutional parsers need independently
+ * (RHNE, Croix-Rouge fribourgeoise, …) — kept here instead of copy-pasted
+ * per-parser so the format drifts in exactly one place.
+ */
+export function parseSwissShortDate(raw = '') {
+  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+  if (!m) return '';
+  const [, d, mo, y] = m;
+  return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
+}
+
 export function normalize(s = '') {
   return String(s || '').trim().toLowerCase();
 }
