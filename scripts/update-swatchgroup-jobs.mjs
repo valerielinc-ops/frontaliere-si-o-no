@@ -206,7 +206,6 @@ async function main() {
   const _allJobsRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
   let _aggregateTotal = 0;
-  const _shrinkGuardTripped = [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);
     const _ckJobs = _allJobs.filter((j) => normalizeKey(j?.companyKey || '') === _ckNorm);
@@ -222,25 +221,8 @@ async function main() {
     // nothing new for that brand.
     const _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
     if (_ckJobs.length > 0) {
-      // Swatchgroup is a multi-brand umbrella crawler (#4377): a single
-      // brand's shrink guard trip (writeJobsCrawlerSlice throws) must not
-      // abort the loop and skip every brand after it, nor skip the final
-      // assembleJobsDataset() below that folds in the brands that already
-      // wrote fine. The guard itself already opens a dedicated, specific
-      // `parser-broken` issue for the tripped brand (_createShrinkGuardIssue
-      // inside writeJobsCrawlerSlice) — that is the right, self-contained
-      // alert channel, so we don't also need to fail this whole run and
-      // trigger a second, generic "Crawler Failure: Run swatchgroup" issue
-      // on top of it. Fall back to the persisted count for the aggregate
-      // total, same as the _ckTotal computation above.
-      try {
-        writeJobsCrawlerSlice(ck, _ckJobs);
-        _aggregateTotal += _ckJobs.length;
-      } catch (err) {
-        _shrinkGuardTripped.push(ck);
-        console.error(`⚠️ ${ck}: slice write skipped this run (${err.message}) — other brands continue.`);
-        _aggregateTotal += _ckTotal;
-      }
+      _aggregateTotal += _ckJobs.length;
+      writeJobsCrawlerSlice(ck, _ckJobs);
     }
     writeSummaryCrawlerSlice({
       key: ck,
@@ -288,10 +270,6 @@ async function main() {
     unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
   });
   await assembleJobsDataset();
-
-  if (_shrinkGuardTripped.length > 0) {
-    console.log(`⚠️ ${_shrinkGuardTripped.length} brand(s) skipped this run by the shrink guard: ${_shrinkGuardTripped.join(', ')} (dedicated parser-broken issue already filed per brand; prior slice on disk kept).`);
-  }
 }
 
 main().catch((err) => exitCrawlerOnError(err, 'Swatch Group'));
