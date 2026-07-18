@@ -1213,6 +1213,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Ehe und Steuern: 40Jahre Kampf für Gerechtigkeit',
     'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Historische und praktische Analyse der schweizerischen Debatte über die Ehesteuerung: Herausforderungen für die Steuergerechtigkeit zwischen verheirateten und unverheirateten Paaren.',
     'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Bundeshaus in Bern, Sitz der Steuerentscheidungen in der Schweiz',
+    'blog.article.operatore-socio-sanitario-frontaliere.title': 'Wie viel verdient ein soziales Grenzschutzpersonal im Tessin?',
+    'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Reales Gehalt eines grenznahen Sozialarbeiters im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken',
+    'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'Ein Gesundheitsdienstleister an der Grenze zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;

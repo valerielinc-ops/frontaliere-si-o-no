@@ -1213,6 +1213,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Marriage and Taxation: FortyYears of Struggle for Equity',
     'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Historical and practical analysis of the Swiss debate on marital taxation: the challenges to tax equity between married and unmarried couples.',
     'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Federal Palace in Bern, seat of fiscal decisions in Switzerland',
+    'blog.article.operatore-socio-sanitario-frontaliere.title': 'How much does a border health worker earn in Ticino?',
+    'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Actual salary of a border health worker in Ticino: salary band, differences compared to Italy, factors affecting salary',
+    'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'A Swiss frontier health worker in Ticino',
 };
 
 export default blogMetaChEn;

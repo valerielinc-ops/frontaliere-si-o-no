@@ -1213,6 +1213,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Mariage et fiscalité : quaranteans de bataille pour l’équité',
     'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Analyse historique et pratique du débat suisse sur la fiscalité conjugale : les défis pour l\'équité fiscale entre couples mariés et non mariés.',
     'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Palais fédéral à Berne, siège des décisions fiscales en Suisse',
+    'blog.article.operatore-socio-sanitario-frontaliere.title': 'Combien gagne un opérateur socio-sanitaire frontalier au Tessin ?',
+    'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Salaire réel d\'un opérateur socio-sanitaire frontalier au Tessin : fourchette salariale, différences par rapport à l\'Italie, facteurs affectant la rémunération',
+    'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'Un travailleur de la santé frontalier en Suisse',
 };
 
 export default blogMetaChFr;
