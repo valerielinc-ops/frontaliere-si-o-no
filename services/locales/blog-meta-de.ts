@@ -8604,6 +8604,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Sprachtherapeut im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'Der Durchschnittslohn für Logopäden im Tessin beträgt rund CHF 70\'000 pro Jahr, während die Voraussetzungen für die Arbeit als Logopäde im Tessin einen Abschluss in Logopädie oder einen gleichwertigen Abschluss beinhalten. Grenzüberschreitende Sprachtherapeuten im Tessin können die Bewilligung G beantragen, um in der Schweiz zu arbeiten.',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano und Stadt Lugano',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Wie viel verdient ein Sprachtherapeut im Tessin?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'Die Löhne der grenznahen Sprachtherapeuten im Tessin: Wie unterscheiden sie sich von den italienischen Löhnen?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Ein Logopäde führt eine Sitzung der Sprachtherapie in einem Krankenhaus in Lugano, Tessin.',
 };
 
 export default blogMetaDe;

@@ -8606,6 +8606,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Logopedista in Ticino: stipendio, requisiti e riconoscimento del titolo',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'Il salario medio per i logopedisti in Ticino è di circa CHF 70\'000 all\'anno, mentre i requisiti per lavorare come logopedista in Ticino includono una laurea in logopedia o un titolo equivalente. I logopedisti frontaliere in Ticino possono richiedere il permesso G per lavorare in Svizzera.',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano e città di Lugano',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Quanto guadagna un logopedista frontaliere in Ticino?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'I salari dei logopedisti frontalieri in Ticino: come si differenziano dalle retribuzioni italiane?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Un logopedista frontaliero guida una seduta di terapia linguistica in un ospedale di Lugano, Ticino.',
 };
 
 export default blogMetaIt;
