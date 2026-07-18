@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-07-18T10:57:10.462Z",
+  "generatedAt": "2026-07-18T22:19:13.024Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4225,
-  "avgDurationMs": 4225,
+  "durationMs": 3961,
+  "avgDurationMs": 3961,
   "durationHistory": [
-    4225
+    3961
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T10:57:07.921Z",
+      "crawledAt": "2026-07-18T22:19:10.751Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
@@ -45,44 +45,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Apprendistato - Impiegato/a di commercio AFC Banca",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=22-apprendistato-impiegato-a-di-commercio-afc-banca-lugano&language=it",
-      "slug": "apprendistato-impiegato-a-di-commercio-afc-banca-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-06-08",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Servizi finanziari/Gestione patrimoniale",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-07-16T23:12:29.310Z",
-      "id": "pkb-private-bank-272b22e48816",
-      "firstSeenAt": "2026-07-10T10:40:32.532Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
