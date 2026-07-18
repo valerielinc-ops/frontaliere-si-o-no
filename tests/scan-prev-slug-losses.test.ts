@@ -125,3 +125,80 @@ describe('diffJobSlices', () => {
     expect(diffJobSlices([], null as unknown as unknown[])).toHaveLength(0);
   });
 });
+
+// Regression tests for #4368 (and its duplicate predecessors #4226/#4243/
+// #4249/#4289/#4326): the tripwire fired continuously for days because this
+// scanner did a plain before/after set diff with no notion of the documented
+// per-locale/legacy cap in dedicated-crawler-common.mjs's
+// addPreviousSlugForLocale/capSlugArray, so routine, already-journaled
+// cap-trim (evicting the oldest entry once an array exceeds its cap) looked
+// identical to a silent-bypass code bug. Confirmed against real data: 91% of
+// a 48h sample's "losses" were coop-ticino.json's flat legacy `previousSlugs`
+// array (a large pre-migration backlog) catching up to its cap, while every
+// per-locale array stayed healthy and within cap.
+describe('diffJobSlices cap-trim awareness', () => {
+  it('does not flag a per-locale loss that the cap fully explains', () => {
+    const prev = [
+      {
+        id: 'company-aaa',
+        slugByLocale: { it: 'job-c' },
+        previousSlugsByLocale: { it: ['job-a', 'job-b'] }, // at cap (2)
+      },
+    ];
+    const cur = [
+      {
+        id: 'company-aaa',
+        slugByLocale: { it: 'job-c' },
+        // 'job-b' captured on rename, cap=2 evicts oldest ('job-a')
+        previousSlugsByLocale: { it: ['job-b', 'job-c-prior'] },
+      },
+    ];
+    const result = diffJobSlices(prev, cur, { perLocaleCap: 2, locales: ['it'] });
+    expect(result).toHaveLength(0);
+  });
+
+  it('does not flag a flat legacy-array loss that the cap fully explains', () => {
+    const prev = [
+      { id: 'company-bbb', slug: 'job-c', previousSlugs: ['job-a', 'job-b'] }, // at legacy cap (2)
+    ];
+    const cur = [
+      { id: 'company-bbb', slug: 'job-c', previousSlugs: ['job-b', 'job-d'] }, // 'job-a' evicted, 'job-d' added
+    ];
+    const result = diffJobSlices(prev, cur, { perLocaleCap: 2, locales: ['it'] });
+    expect(result).toHaveLength(0);
+  });
+
+  it('still flags losses beyond what the cap can explain', () => {
+    const prev = [
+      {
+        id: 'company-ccc',
+        previousSlugsByLocale: { it: ['job-a', 'job-b'] }, // at cap (2)
+      },
+    ];
+    const cur = [
+      {
+        id: 'company-ccc',
+        // Both entries gone, but only one new capture this cycle — the cap
+        // can only explain evicting one oldest entry, not both.
+        previousSlugsByLocale: { it: ['job-c'] },
+      },
+    ];
+    const result = diffJobSlices(prev, cur, { perLocaleCap: 2, locales: ['it'] });
+    expect(result).toHaveLength(1);
+    // 'job-a' (oldest) is cap-explained; 'job-b' vanishing too is the part
+    // the cap can't account for and stays flagged.
+    expect(result[0].lost).toEqual(['job-b']);
+  });
+
+  it('still flags a loss when the array was under cap (no eviction possible)', () => {
+    const prev = [
+      { id: 'company-ddd', previousSlugsByLocale: { it: ['job-a'] } }, // 1 entry, cap is 20
+    ];
+    const cur = [
+      { id: 'company-ddd', previousSlugsByLocale: { it: [] } },
+    ];
+    const result = diffJobSlices(prev, cur);
+    expect(result).toHaveLength(1);
+    expect(result[0].lost).toEqual(['job-a']);
+  });
+});

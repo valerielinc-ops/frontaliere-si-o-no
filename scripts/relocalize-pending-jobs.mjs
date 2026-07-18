@@ -31,7 +31,13 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
-import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  captureLostSlugs,
+  DEFAULT_PREV_SLUG_CAP,
+  normalizeForLengthComparison,
+} from './lib/dedicated-crawler-common.mjs';
+import { collectMissingAssembledBridges } from './scatter-jobs-to-slices.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
@@ -585,6 +591,50 @@ export function matchAssembledJob(crawlerJob, assembledByKey) {
   return bySlug;
 }
 
+/**
+ * Carry forward SEO bridge slugs the assembled dataset already knows about
+ * (e.g. captured by assemble-jobs-dataset's applyPerLocaleSlugCollisionGuard
+ * or trackSlugHistoryDrift) but this per-crawler file (the committed source of
+ * truth the build plugin reads to emit redirect/bridge pages) is still
+ * missing. Mutates `crawlerJob` in place; returns whether anything was added.
+ *
+ * Previously syncTranslationsToCrawlerFile only unioned the flat legacy
+ * `previousSlugs` array here, NEVER `previousSlugsByLocale` — so a bridge the
+ * collision guard captured per-locale on the assembled side (e.g. when many
+ * KSA/Coop postings sharing an identical title+company+location independently
+ * derive the same locale slug and applyPerLocaleSlugCollisionGuard demotes all
+ * but the rightful owner) was silently dropped the moment this function wrote
+ * the job back to the committed slice. Same class as the previousSlugs writer
+ * regression #4165/#4161/#4134/#4112/#4102/#4088/#4076/#3885/#3734/#4208 —
+ * scatter-jobs-to-slices.mjs already fixed its OWN instance of this gap (see
+ * collectMissingAssembledBridges there); this sync path was the sibling that
+ * still had it. Reuses that shared, cap-headroom-aware helper instead of a
+ * second hand-rolled flat-only implementation, so the two writers can never
+ * drift apart again.
+ *
+ * Must be called AFTER any per-locale rename/capture on `crawlerJob` this run
+ * (not on a pre-merge snapshot) — mirrors scatter-jobs-to-slices.mjs's own
+ * #4208 fix: computing headroom before a same-run rename lands under-reports
+ * how many flat-cap slots are already spent.
+ *
+ * @param {object} crawlerJob the per-crawler slice job (mutated in place)
+ * @param {object} assembled  the matching assembled data/jobs.json entry
+ * @returns {boolean} true if any bridge was added
+ */
+export function carryForwardMissingSlugBridges(crawlerJob, assembled) {
+  const missingBridges = collectMissingAssembledBridges(crawlerJob, assembled);
+  for (const { locale, slug } of missingBridges) {
+    addPreviousSlugForLocale(
+      crawlerJob,
+      locale,
+      slug,
+      DEFAULT_PREV_SLUG_CAP,
+      `relocalize-pending-jobs/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`,
+    );
+  }
+  return missingBridges.length > 0;
+}
+
 function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs) {
   const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
 
@@ -736,16 +786,8 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
       changed = true;
     }
 
-    // Sync previousSlugs from assembled dataset to per-crawler file so bridge pages
-    // are generated even when slug changes happened in the assembled pipeline.
-    if (assembled.previousSlugs && Array.isArray(assembled.previousSlugs)) {
-      if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
-      for (const s of assembled.previousSlugs) {
-        if (s && !crawlerJob.previousSlugs.includes(s)) {
-          crawlerJob.previousSlugs.push(s);
-          changed = true;
-        }
-      }
+    if (carryForwardMissingSlugBridges(crawlerJob, assembled)) {
+      changed = true;
     }
 
     // Advance the give-up counter only if the crawler actually translated THIS job
