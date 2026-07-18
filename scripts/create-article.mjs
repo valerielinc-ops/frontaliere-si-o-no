@@ -74,7 +74,7 @@ import { callLLM as _aiCallLLM, AI_MODELS, DEFAULT_CHAIN, getPreferredModel, isL
 import { freeTranslateWithRetry, balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import { translateFieldFreeMt } from './lib/article-free-mt.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
-import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
+import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord, STOP_WORDS_IT } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
 import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import {
@@ -6510,8 +6510,21 @@ function preFlightHeadlineCheck(headline) {
   // Thresholds operate on DISTINCTIVE tokens after stoplist removal.
   // ID_MIN_DISTINCTIVE skips IDs that have lost too much signal to compare
   // reliably (e.g. `frontalieri-svizzera-italia-ticino` → 0 distinctive tokens).
+  //
+  // Raised 3→4 (2026-07-18): recurring hot-news families (e.g. the EU
+  // unemployment-coordination reform saga for frontalieri) accumulate short
+  // IDs whose domain-stripped distinctive set is just 3 tokens, ALL of them
+  // the story's own recurring narrative words ("riforma", "disoccupazione",
+  // a country name) rather than anything actually distinguishing. At 3 that
+  // set gets fully contained (sim=1.0) by any fresh headline on the same
+  // ongoing story, wrongly dropping real news before generation is even
+  // attempted. Verified against the live corpus (3262 titles,
+  // services/locales/blog-meta-it.ts + blog-meta-ch-it.ts): at 4, six
+  // plausible new headlines about this saga all correctly pass, while two
+  // near-verbatim rehashes of existing headlines are still caught (via the
+  // title_jaccard signal below, unaffected by this change).
   const ID_CONTAINMENT_THRESHOLD = 0.75;
-  const ID_MIN_DISTINCTIVE = 3;
+  const ID_MIN_DISTINCTIVE = 4;
   const TITLE_JACCARD_THRESHOLD = 0.55;
   const TITLE_MIN_DISTINCTIVE = 4;
 
@@ -6566,25 +6579,15 @@ function checkForDuplicates(data) {
   // ── Local tokenizer ────────────────────────────────────────
   // Differs from the shared `tokenizeIt`: strips punctuation entirely
   // (so "4.000" → "4000", not "000") because checkForDuplicates' thresholds
-  // were tuned against numeric-collapse behavior. Stemmer + synonyms come
-  // from scripts/lib/it-text-similarity.mjs (kept in sync across callers).
-  const STOP_WORDS_IT_LOCAL = new Set([
-    'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'a', 'da',
-    'in', 'con', 'su', 'per', 'tra', 'fra', 'e', 'o', 'ma', 'che', 'non',
-    'del', 'al', 'dal', 'nel', 'sul', 'dello', 'alla', 'della', 'dei', 'degli',
-    'delle', 'ai', 'dai', 'nei', 'sui', 'è', 'sono', 'come', 'più', 'anche',
-    'già', 'ancora', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella',
-    'molto', 'poco', 'tutto', 'tutti', 'ogni', 'altro', 'altra', 'altri', 'altre',
-    'suo', 'sua', 'suoi', 'sue', 'loro', 'chi', 'cosa', 'dove', 'quando',
-    'mentre', 'dopo', 'prima', 'tra', 'fino', 'solo', 'nuovo', 'nuova', 'nuovi',
-    'base', 'rispetto', 'ultimo', 'ultima', 'ultimi', 'ultime',
-  ]);
-
+  // were tuned against numeric-collapse behavior. Stopwords/stemmer/synonyms
+  // reuse scripts/lib/it-text-similarity.mjs's STOP_WORDS_IT directly — this
+  // used to keep a byte-for-byte local copy of that Set, which is exactly the
+  // drift risk AGENTS.md #6 flags (2026-07-18 sibling-pattern fix).
   function getSignificantWords(text) {
     return text.toLowerCase()
       .replace(/[^a-zàáèéìíòóùú0-9\s]/g, '')
       .split(/\s+/)
-      .filter(w => w.length > 2 && !STOP_WORDS_IT_LOCAL.has(w))
+      .filter(w => w.length > 2 && !STOP_WORDS_IT.has(w))
       .map(w => normalizeItWord(w));
   }
 
