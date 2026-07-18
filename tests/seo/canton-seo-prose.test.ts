@@ -172,6 +172,94 @@ describe('canton-seo-prose helper', () => {
     });
   });
 
+  describe('FAQ differentiation by slot / entity (issue 4435 item 2)', () => {
+    it('gives company-landing pages a different 4th FAQ than the canton hub', () => {
+      const hub = buildCantonSeoProseFaqItems({
+        locale: 'it',
+        cantonDisplay: 'Ticino',
+        slot: 'canton-hub',
+        entityName: null,
+        countHint: 0,
+        ctaHref: '/',
+        ctaLabel: null,
+      });
+      const company = buildCantonSeoProseFaqItems({
+        locale: 'it',
+        cantonDisplay: 'Ticino',
+        slot: 'company-landing',
+        entityName: 'Migros',
+        countHint: 0,
+        ctaHref: '/',
+        ctaLabel: null,
+      });
+      // First 3 canton-generic questions stay shared...
+      expect(hub[0].name).toBe(company[0].name);
+      expect(hub[1].name).toBe(company[1].name);
+      expect(hub[2].name).toBe(company[2].name);
+      // ...but the 4th no longer duplicates the generic canton-comparison FAQ.
+      expect(hub[3].name).not.toBe(company[3].name);
+      expect(company[3].name).toContain('Migros');
+    });
+
+    it('gives two different companies in the same canton different 4th FAQ text', () => {
+      const migros = buildCantonSeoProseFaqItems({
+        locale: 'en',
+        cantonDisplay: 'Ticino',
+        slot: 'company-landing',
+        entityName: 'Migros',
+        countHint: 0,
+        ctaHref: '/',
+        ctaLabel: null,
+      });
+      const lonza = buildCantonSeoProseFaqItems({
+        locale: 'en',
+        cantonDisplay: 'Ticino',
+        slot: 'company-landing',
+        entityName: 'Lonza',
+        countHint: 0,
+        ctaHref: '/',
+        ctaLabel: null,
+      });
+      expect(migros[3].name).not.toBe(lonza[3].name);
+      expect(migros[3].acceptedAnswer.text).not.toBe(lonza[3].acceptedAnswer.text);
+      expect(migros[3].name).toContain('Migros');
+      expect(lonza[3].name).toContain('Lonza');
+    });
+
+    it('gives editorial topic slots distinct 4th FAQ text from each other and from the hub', () => {
+      const base = {
+        locale: 'de' as const,
+        cantonDisplay: 'Zürich',
+        entityName: null,
+        countHint: 0,
+        ctaHref: '/',
+        ctaLabel: null,
+      };
+      const hub = buildCantonSeoProseFaqItems({ ...base, slot: 'canton-hub' });
+      const nursing = buildCantonSeoProseFaqItems({ ...base, slot: 'editorial-nursing' });
+      const clinics = buildCantonSeoProseFaqItems({ ...base, slot: 'editorial-clinics' });
+      const partTime = buildCantonSeoProseFaqItems({ ...base, slot: 'editorial-part-time' });
+      const today = buildCantonSeoProseFaqItems({ ...base, slot: 'editorial-today' });
+      const fourthQuestions = new Set([hub, nursing, clinics, partTime, today].map((items) => items[3].name));
+      expect(fourthQuestions.size).toBe(5);
+    });
+
+    it('keeps the canton-comparison FAQ for hub slots (one page per canton, still relevant)', () => {
+      for (const slot of ['canton-hub', 'sectors-hub', 'companies-hub'] as const) {
+        const items = buildCantonSeoProseFaqItems({
+          locale: 'fr',
+          cantonDisplay: 'Vaud',
+          slot,
+          entityName: null,
+          countHint: 0,
+          ctaHref: '/',
+          ctaLabel: null,
+        });
+        expect(items[3].name).toContain('canton');
+      }
+    });
+  });
+
   describe('no dark: prefixes, no hex colours', () => {
     it('uses only --color-* semantic tokens', () => {
       const html = renderCantonSeoProse({
