@@ -428,6 +428,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'svizzera-disoccupazione-frontalieri-mozione-quadri': { it: 'svizzera-disoccupazione-frontalieri-mozione-quadri', en: 'switzerland-unemployment-cross-border-workers-quadri-motion', de: 'schweiz-arbeitslosengeld-grenzgaenger-quadri-motion', fr: 'suisse-chomage-frontaliers-motion-quadri' },
  'matrimonio-fisco-equita-quarantanni': { it: 'matrimonio-fisco-equita-quarantanni', en: 'marriage-tax-equity-forty-years', de: 'ehe-steuer-gerechtigkeit-vierzig-jahre', fr: 'mariage-impot-equite-quarante-ans' },
  'operatore-socio-sanitario-frontaliere': { it: 'operatore-socio-sanitario-frontaliere', en: 'swiss-frontier-health-worker-ticino', de: 'gesundheitsdienstleister-an-der-grenze-zwischen-schweiz-und-italien-ticino', fr: 'travailleur-de-la-sante-frontalier-en-suisse-ticino' },
+ 'stipendio-psicologo-frontaliere-ticino': { it: 'stipendio-psicologo-frontaliere-ticino', en: 'psychologist-frontline-ticino', de: 'psychologe-grenze-tessin', fr: 'psychologue-frontalier-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

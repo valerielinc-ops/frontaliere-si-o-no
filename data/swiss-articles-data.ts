@@ -3644,6 +3644,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stipendio-psicologo-frontaliere-ticino',
+    category: 'fiscale',
+    date: '2026-07-18T13:12:01.244Z',
+    image: '/images/blog/stipendio-psicologo-frontaliere-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
