@@ -6,6 +6,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
@@ -514,6 +515,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  )}
  {/* Inline ad between comparator and related tools */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <PartnerRecommendations context="ral" />
  <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
  </div>
  );
