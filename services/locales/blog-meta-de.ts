@@ -8595,6 +8595,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.infernieri-frontalieri-ticino.title': 'Wie viel verdient eine Grenzpflegerin im Tessin?',
     'blog.article.infernieri-frontalieri-ticino.excerpt': 'Die Löhne der Grenzpflegerinnen und Grenzpfleger im Tessin sind von den neuen Steuervorschriften betroffen.',
     'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Panorama von Lugano, Kanton Tessin',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologe im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt, Voraussetzungen, eventuelle Anerkennung des Bildungsabschlusses und Erlaubnis G., als Grenzgänger als Psychologe im Tessin zu arbeiten.',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzarbeiter-Psychologe, der in Ticino arbeitet, mit Blick auf die Stadt Lugano.',
 };
 
 export default blogMetaDe;
