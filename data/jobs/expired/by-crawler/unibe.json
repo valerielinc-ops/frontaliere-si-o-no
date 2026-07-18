@@ -1,5 +1,56 @@
 [
   {
+    "slug": "assistenza-agli-studenti-universitat-bern-bern",
+    "title": "Studentische Hilfsassistenz",
+    "titleByLocale": {
+      "it": "Assistente Studentesco",
+      "en": "Student Assistant",
+      "de": "Studentische Hilfsassistenz",
+      "fr": "Assistant Étudiant"
+    },
+    "company": "Universität Bern",
+    "companyKey": "unibe",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• I compiti includono l'aggiornamento dei contenuti tedeschi e inglesi sul sito web dell'Istituto, compreso l'inserimento di testi, documenti e informazioni sugli eventi nel sistema di gestione dei contenuti, e il controllo dei contenuti esistenti per la loro attualità e facilità d'uso, tenendo conto delle linee guida dell'università. Requisiti: Siete iscritti a un'università o università, hanno ottime competenze in tedesco e inglese e lavorano con attenzione, indipendentemente e in modo affidabile.",
+      "en": "Tasks:\n• Tasks include updating German and English content on the Institute's website, including the insertion of texts, documents and event information in the content management system, and checking existing content for topicality and ease of use, taking into account the university's guidelines. Requirements: You are enrolled at a university or university, have very good German and English skills and work carefully, independently and reliably. Experiences in content management systems are of benefit. We offer: Team-oriented work",
+      "de": "Aufgaben:\nZu den\n• Aufgaben gehören die Aktualisierung deutsch- und englischsprachiger Inhalte der Institutswebseite, das Einpflegen von Texten, Dokumenten und Veranstaltungsinformationen im Content-Management-System sowie die Überprüfung bestehender Inhalte auf Aktualität und Benutzerfreundlichkeit unter Berücksichtigung universitärer Richtlinien.\n\nAnforderungen:\nSie sind an einer Hochschule oder Universität immatrikuliert, verfügen über sehr gute Deutsch- und Englischkenntnisse und arbeiten sorgfältig, selbstständig und zuverlässig. Erfahrungen in Content-Management-Systemen sind von Vorteil.\n\nWir bieten:\nTeamorientiertes Arbeiten",
+      "fr": "Les tâches sont les suivantes:\n• Mise à jour du contenu allemand et anglais sur le site de l'Institut, y compris l'insertion de textes, documents et informations sur les événements dans le système de gestion du contenu, vérification du contenu existant pour en vérifier l'actualité et la facilité d'utilisation, en tenant compte des directives de l'université."
+    },
+    "slugByLocale": {
+      "it": "assistenza-agli-studenti-universitat-bern-bern",
+      "en": "student-assistance-universitat-bern-bern",
+      "de": "studentische-hilfsassistenz-unibe-bern",
+      "fr": "assistant-etudiant-universitat-bern"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-18T22:47:47.015Z",
+    "previousSlugs": [
+      "studentische-hilfsassistenz-unibe-bern",
+      "aide-aux-etudiants-universitat-bern-bern",
+      "assistant-etudiant-universitat-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "studentische-hilfsassistenz-unibe-bern"
+      ],
+      "en": [
+        "studentische-hilfsassistenz-unibe-bern"
+      ],
+      "fr": [
+        "studentische-hilfsassistenz-unibe-bern",
+        "aide-aux-etudiants-universitat-bern-bern",
+        "assistant-etudiant-universitat-bern"
+      ]
+    },
+    "postalCode": "3012",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "leader-del-team-in-amministrazione-universitat-bern-bern",
     "title": "Teamleiter:in Administration Management",
     "titleByLocale": {
