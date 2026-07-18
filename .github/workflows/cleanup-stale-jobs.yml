@@ -86,6 +86,23 @@ jobs:
         id: phase2_commit
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔁 Housekeeping — remove cross-crawler duplicate jobs"
 
+      # Phase 3 (issue #4057 item 1): clean-registry-source-copies.mjs and
+      # clean-expired-slice-source-copies.mjs (#4066) were one-shot scripts
+      # run manually once at merge time and never wired to any recurring
+      # workflow, so poisoned slugByLocale source-copy slots (frozen before
+      # AI localization finished) keep accumulating from every crawl/archive
+      # cycle since. An expired job never crawls again, so its poisoned
+      # slots never self-heal on their own — this weekly pass is what
+      # actually keeps them bounded going forward.
+      - name: "Phase 3: Bonify poisoned source-copy slug slots"
+        run: |
+          node scripts/clean-registry-source-copies.mjs --apply
+          node scripts/clean-expired-slice-source-copies.mjs --apply
+
+      - name: Commit Phase 3 (source-copy bonifica)
+        id: phase3_commit
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🧼 Housekeeping — bonify poisoned source-copy slug slots (#4057)" data/slug-registry.json data/jobs/expired/by-crawler
+
       - name: Report failure to GitHub Issues
         if: failure()
         continue-on-error: true
