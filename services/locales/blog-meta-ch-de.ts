@@ -1204,6 +1204,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Grenzgänger: Bellinzona blockiert 50 Millionen Rückzahlungen',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'Der Staatsrat des Kantons Tessin hat die vorsorgliche Aussetzung von 46% der Italien zustehenden Quellensteuerrückerstattungen für das laufende Jahr angekündigt.',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: die Stadt des Kantons Ticino auf nationaler Ebene nach der Ankündigung des Staatsrats über den Block der Rückerstattungen der Abzugssteuern, die Italien zustehen',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Grenzgängige Lehrpersonen im Tessin: Arbeitsbewilligungsgesetz geklärt',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Der Staatsrat bestätigt, dass die berufliche Tätigkeit nach der Beantragung der Genehmigung aufgenommen wurde, nicht nach der Ausstellung. Nur ein Fall, der in 5 Jahren bestraft wurde.',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Regierungsgebäude in Bellinzona, Sitz des Erziehungsdepartements',
 };
 
 export default blogMetaChDe;

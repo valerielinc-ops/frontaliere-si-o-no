@@ -1204,6 +1204,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Frontier workers, tax war with Ticino: Bellinzona blocks 50 million refills',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'The Council of State of the Canton of Ticino has announced the precautionary suspension of 46% of the refunds of taxes at source due to Italy for the current year',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: the city of Ticino at the national level after the announcement of the State Council on the block of the rebates of the withholding taxes due to Italy',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Border teachers in Ticino: clarification of the regulations on work permits',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'The Council of State confirms: professional activity started after the permit application, not upon issue. Only one case sanctioned in 5 years.',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Government palace in Bellinzona, headquarters of the Education Department',
 };
 
 export default blogMetaChEn;

@@ -1204,6 +1204,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Frontalieri, guerra fiscale col Ticino: Bellinzona blocca 50 milioni di ristorni',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'Il Consiglio di Stato del Canton Ticino ha annunciato la sospensione cautelativa del 46% dei ristorni delle imposte alla fonte spettanti all\'Italia per l\'anno in corso',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: la città ticinese a livello nazionale dopo l\'annuncio del Consiglio di Stato sul blocco dei ristorni delle imposte alla fonte spettanti all\'Italia',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Docenti frontalieri in Ticino: chiarita la normativa sui permessi di lavoro',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Il Consiglio di Stato conferma: attività professionale avviata dopo la domanda di permesso, non al rilascio. Un solo caso sanzionato in 5 anni.',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Palazzo governativo a Bellinzona, sede del Dipartimento educazione',
 };
 
 export default blogMetaChIt;

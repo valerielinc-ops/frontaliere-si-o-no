@@ -1204,6 +1204,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.title': 'Guerre fiscale : Bellinzona bloque 50 millions de ristorni',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.excerpt': 'Le Conseil d\'État du canton du Tessin a annoncé la suspension provisoire de 46 % des remboursements d\'impôts à la source dus à l\'Italie pour l\'année en cours.',
     'blog.article.frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni.imageAlt': 'Lugano: la ville du canton du Tessin au niveau national après l\'annonce du Conseil d\'État sur le blocage des remboursements des taxes sur le revenu dues à l\'Italie',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Chiarita la normativa sui permessi di lavoro per docenti frontalieri',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Le Conseil d\'Etat confirme : activité professionnelle commencée après la demande de permis, pas à la délivrance. Un seul cas sanctionné en 5 ans.',
+    'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Palais gouvernemental à Bellinzona, siège du Département de l\'éducation',
 };
 
 export default blogMetaChFr;

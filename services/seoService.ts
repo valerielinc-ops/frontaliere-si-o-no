@@ -4588,6 +4588,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congedo-per-lutto-malattia-familiare-frontaliere-svizzera': { name: 'Congedo per lutto o malattia di un', path: '/articoli-frontaliere/congedo-per-lutto-malattia-familiare-frontaliere-svizzera', parent: 'blog' },
     'blog-frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni': { name: 'Frontalieri, guerra fiscale col Ticino', path: '/articoli-svizzera/frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni/', parent: 'blog' },
     'blog-lavoro-remoto-vacanza-fiscalita-frontalieri': { name: 'Lavoro Remoto Vacanza', path: '/articoli-frontaliere/lavoro-remoto-vacanza-fiscalita-frontalieri', parent: 'blog' },
+    'blog-lavoro-docenti-frontalieri-ticino-normativa': { name: 'Lavoro frontalieri', path: '/articoli-svizzera/lavoro-docenti-frontalieri-ticino-normativa/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
