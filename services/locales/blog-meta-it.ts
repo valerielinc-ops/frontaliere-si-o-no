@@ -8615,6 +8615,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere il permesso G.',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Una frontaliere che lavora come ostetrica in un ospedale di Lugano.',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all\'Italia',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Una donna con un bambino in braccio, in un ambiente ospedaliero',
 };
 
 export default blogMetaIt;

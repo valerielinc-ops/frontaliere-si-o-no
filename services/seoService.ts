@@ -4617,6 +4617,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-coronavirus-frontalieri-svizzera': { name: 'Frontalieri e coronavirus', path: '/articoli-svizzera/coronavirus-frontalieri-svizzera/', parent: 'blog' },
     'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-ostetrica-frontaliere-ticino': { name: 'Stipendio reale di un\'ostetrica', path: '/articoli-svizzera/ostetrica-frontaliere-ticino/', parent: 'blog' },
+    'blog-ostetrica-frontaliere-ticino-quanto-guadagna': { name: 'Risorse per frontaliere', path: '/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna', parent: 'blog' },
  };
 
  const info = sectionNames[section];
