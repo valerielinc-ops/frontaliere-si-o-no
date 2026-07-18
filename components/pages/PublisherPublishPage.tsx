@@ -767,7 +767,9 @@ const PublisherPublishPage: React.FC = () => {
  }, [user, isEdit]);
 
  // ── Live price preview ──────────────────────────────────────
- // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
+ // Distinct non-empty location labels: needed for validation (≥1 sede) and
+ // for the projection (one live page per location). NOT billing anymore —
+ // since 2026-07-18 billing counts ADS, locations are free (countAdUnits).
  const distinctLocations = useMemo(() => distinctLocationLabels(locations), [locations]);
  // Whole order = every ad already in the cart + the current in-progress ad.
  // The CF recomputes the same way, so the discount applies across all of them.

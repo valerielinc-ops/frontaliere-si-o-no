@@ -36,6 +36,7 @@ import {
   discountRateForUnits,
   countDistinctLocations,
   netChfForUnits,
+  AZIENDA_PLAN_CHF,
 } from './publisherPricingMirror.js';
 // Guarded revert of abandoned-checkout ads (shared with the daily reaper CF).
 // Lives in the reap module so this file's `import('stripe')` never has to load
@@ -163,7 +164,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     await pubRef.set({ stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
   }
 
-  // ── Piano Azienda prepaid: flat CHF 299, illimitato (unitsPurchased: null). ──
+  // ── Piano Azienda prepaid: flat AZIENDA_PLAN_CHF, illimitato (unitsPurchased: null). ──
   if (body.plan === 'azienda') {
     const aziendaPrice = await getRemoteConfigValue('STRIPE_PRICE_AZIENDA');
     if (!aziendaPrice) return { status: 500, body: { ok: false, error: 'azienda_price_not_configured' } };
@@ -172,7 +173,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     await orderRef.set({
       publisherUid: uid, jobIds: [], plan: 'azienda', units: null,
       prepaid: true, unitsPurchased: null, unitsUsed: 0,
-      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
+      amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     });
@@ -187,7 +188,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     });
     await orderRef.update({ stripeCheckoutSessionId: session.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
 
-    return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: 299 } };
+    return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: AZIENDA_PLAN_CHF } };
   }
 
   // ── Prepaid ad-unit credits ──
@@ -306,7 +307,7 @@ export async function handleCreatePublisherCheckout(req) {
     const orderRefA = db().collection('orders').doc();
     await orderRefA.set({
       publisherUid: uid, jobIds: ownedJobIds, plan: 'azienda', units: null,
-      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
+      amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     });
@@ -331,7 +332,7 @@ export async function handleCreatePublisherCheckout(req) {
     }
     await batchA.commit();
 
-    return { status: 200, body: { ok: true, url: sessionA.url, orderId: orderRefA.id, plan: 'azienda', amountChf: 299 } };
+    return { status: 200, body: { ok: true, url: sessionA.url, orderId: orderRefA.id, plan: 'azienda', amountChf: AZIENDA_PLAN_CHF } };
   }
 
   // Authoritative unit count: read the publisher's own jobs, sum distinct locations.

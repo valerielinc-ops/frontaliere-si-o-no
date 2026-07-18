@@ -14,6 +14,9 @@
 
 export const PRICE_PER_UNIT_CHF = 49;
 
+/** Flat monthly CHF of the unlimited Piano Azienda (mirror of services/publisherPricing.ts). */
+export const AZIENDA_PLAN_CHF = 299;
+
 export const DISCOUNT_TIERS = [
   { minUnits: 1, rate: 0 },
   { minUnits: 3, rate: 0.1 },

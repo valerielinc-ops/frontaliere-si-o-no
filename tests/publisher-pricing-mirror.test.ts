@@ -6,11 +6,13 @@
 import { describe, it, expect } from 'vitest';
 import {
   PRICE_PER_UNIT_CHF as TS_PRICE,
+  AZIENDA_PLAN_CHF as TS_AZIENDA,
   discountRateForUnits as tsRate,
   priceForUnits,
 } from '../services/publisherPricing';
 import {
   PRICE_PER_UNIT_CHF as JS_PRICE,
+  AZIENDA_PLAN_CHF as JS_AZIENDA,
   discountRateForUnits as jsRate,
   netChfForUnits as jsNet,
   countDistinctLocations as jsCount,
@@ -19,6 +21,10 @@ import {
 describe('publisher pricing mirror parity (TS ⇄ functions JS)', () => {
   it('shares the same per-unit price', () => {
     expect(JS_PRICE).toBe(TS_PRICE);
+  });
+
+  it('shares the same Piano Azienda flat price', () => {
+    expect(JS_AZIENDA).toBe(TS_AZIENDA);
   });
 
   it('produces identical discount rate + net total for 0..12 units', () => {
