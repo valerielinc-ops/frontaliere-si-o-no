@@ -9,7 +9,7 @@
         "en": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "it": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "de": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
-        "fr": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
+        "fr": "directeur-d-equipe-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -69,7 +69,7 @@
         "en": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "it": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "de": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
-        "fr": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
+        "fr": "associe-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -124,11 +124,11 @@
     },
     {
       "id": "prada-223b39f02f8f",
-      "slug": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+      "slug": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
       "slugByLocale": {
         "en": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
-        "it": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
-        "de": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+        "it": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
+        "de": "repair-laboratory-qualitat-control-assistent-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
         "fr": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
       },
       "company": "Prada Group",
@@ -180,7 +180,18 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-07-18T11:12:01.366Z"
+      "firstSeenAt": "2026-07-18T11:12:01.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ],
+        "de": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ]
+      },
+      "previousSlugs": [
+        "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
@@ -238,15 +249,7 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-        ]
-      },
-      "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "prada-f51d1a1fde28",
