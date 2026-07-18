@@ -1,11 +1,14 @@
 /**
  * Publisher job-posting pricing — pure, dependency-free.
  *
- * Locked owner decisions (2026-06-10, see docs/PUBLISHER-PORTAL-PLAN.md §0):
- *  - Unit  = one ad in one location = CHF 49 / 30 days, auto-renewing subscription,
- *            newsletter blast included.
- *  - The same ad text published to N locations counts as N billable units (N × 49).
+ * Locked owner decisions (2026-06-10, see docs/PUBLISHER-PORTAL-PLAN.md §0;
+ * unit semantics revised by owner 2026-07-18):
+ *  - Unit  = one AD = CHF 49 / 30 days, auto-renewing subscription, newsletter
+ *            blast included. An ad may target any number of locations without
+ *            changing its price (2026-07-18 — supersedes the original
+ *            per-location billing where N locations billed N units).
  *  - Volume discount for > 2 units, progressive ("10% a crescere"): see DISCOUNT_TIERS.
+ *  - Above AZIENDA_PLAN_CHF the UI proposes the flat unlimited Piano Azienda.
  *
  * This module is intentionally free of any framework / Firebase / DOM dependency so it
  * can be imported from the SPA (`@/services/publisherPricing`), a Cloud Function, the
@@ -14,8 +17,15 @@
  * All amounts are in CHF. Currency formatting lives in the UI layer, not here.
  */
 
-/** Price of a single ad-in-one-location billing unit, per 30-day renewal. */
+/** Price of a single ad (billing unit), per 30-day renewal. */
 export const PRICE_PER_UNIT_CHF = 49;
+
+/**
+ * Flat monthly price of the unlimited Piano Azienda. When the discounted
+ * per-ad total exceeds this, the UI proposes the azienda plan instead
+ * (owner decision 2026-07-18). Must match STRIPE_PRICE_AZIENDA's amount.
+ */
+export const AZIENDA_PLAN_CHF = 299;
 
 /** ISO currency code for every publisher charge. */
 export const PRICING_CURRENCY = 'CHF';
@@ -51,13 +61,13 @@ export const DISCOUNT_TIERS: readonly DiscountTier[] = [
 export interface AdSpec {
   /** Stable id for the ad within the cart (any non-empty string). */
   readonly id?: string;
-  /** Distinct target locations for this ad. Each location is one billable unit. */
+  /** Distinct target locations for this ad. Locations do NOT affect price. */
   readonly locations: readonly string[];
 }
 
 /** Resolved price breakdown for a publisher order (one renewal period). */
 export interface PriceBreakdown {
-  /** Total billable units = sum of distinct locations across all ads. */
+  /** Total billable units = number of publishable ads (≥1 real location each). */
   readonly units: number;
   /** Units × PRICE_PER_UNIT_CHF, before discount. */
   readonly grossChf: number;
@@ -81,18 +91,14 @@ function roundChf(amount: number): number {
 }
 
 /**
- * Number of distinct locations for one ad = billable units it contributes.
- * Blank / whitespace-only / duplicate locations (case-insensitive, trimmed) do not
- * double-charge: each real distinct location is exactly one unit.
+ * Billable units contributed by one ad: 1 if the ad has at least one real
+ * (non-blank) location, else 0. Locations beyond the first do not change the
+ * price (owner decision 2026-07-18 — unit = the ad, not the location).
  */
 export function countAdUnits(ad: AdSpec): number {
   if (!ad || !Array.isArray(ad.locations)) return 0;
-  const seen = new Set<string>();
-  for (const loc of ad.locations) {
-    const key = String(loc ?? '').trim().toLowerCase();
-    if (key) seen.add(key);
-  }
-  return seen.size;
+  const hasLocation = ad.locations.some(loc => String(loc ?? '').trim().length > 0);
+  return hasLocation ? 1 : 0;
 }
 
 /** Total billable units across a cart of ads. */
@@ -154,9 +160,12 @@ export interface PrepaidOrderCredit {
 }
 
 /**
- * Sum of remaining prepaid location-credits across a publisher's active orders.
+ * Sum of remaining prepaid ad-credits across a publisher's active orders.
  * `null` means unlimited (any order on the azienda plan grants unlimited ads,
  * so the sum short-circuits to unlimited regardless of the other orders).
+ * Each credit covers ONE ad regardless of its locations (2026-07-18), so a
+ * per-single-order residual cap is no longer needed: any order with residual
+ * ≥ 1 can host an ad.
  */
 export function sumRemainingUnits(orders: readonly PrepaidOrderCredit[]): number | null {
   if (!Array.isArray(orders) || orders.length === 0) return 0;
@@ -168,23 +177,4 @@ export function sumRemainingUnits(orders: readonly PrepaidOrderCredit[]): number
     sum += Math.max(0, purchased - used);
   }
   return sum;
-}
-
-/**
- * Largest residual on a SINGLE order. attachPublisherJob assigns each ad
- * whole to one order (a job doc carries one orderId/subscription, so an ad
- * can't be split across orders) — one ad's distinct locations must therefore
- * fit inside one order's residual, even when `sumRemainingUnits` across
- * orders is higher. `null` = unlimited (azienda plan).
- */
-export function maxClaimableUnits(orders: readonly PrepaidOrderCredit[]): number | null {
-  if (!Array.isArray(orders) || orders.length === 0) return 0;
-  if (orders.some(o => o.plan === 'azienda')) return null;
-  let max = 0;
-  for (const o of orders) {
-    const purchased = typeof o.unitsPurchased === 'number' ? o.unitsPurchased : 0;
-    const used = typeof o.unitsUsed === 'number' ? o.unitsUsed : 0;
-    max = Math.max(max, purchased - used);
-  }
-  return max;
 }
