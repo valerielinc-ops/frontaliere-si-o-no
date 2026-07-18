@@ -3635,6 +3635,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'operatore-socio-sanitario-frontaliere',
+    category: 'pratico',
+    date: '2026-07-18T12:43:56.410Z',
+    image: '/images/blog/operatore-socio-sanitario-frontaliere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
