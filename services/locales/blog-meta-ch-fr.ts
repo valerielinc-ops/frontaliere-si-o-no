@@ -1210,6 +1210,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Suisse : motion contre le chômage des frontaliers',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Le conseiller national Lorenzo Quadri propose d\'exclure les frontaliers de l\'assurance-chômage suisse. Voici les détails.',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral suisse',
+    'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Mariage et fiscalité : quaranteans de bataille pour l’équité',
+    'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Analyse historique et pratique du débat suisse sur la fiscalité conjugale : les défis pour l\'équité fiscale entre couples mariés et non mariés.',
+    'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Palais fédéral à Berne, siège des décisions fiscales en Suisse',
 };
 
 export default blogMetaChFr;

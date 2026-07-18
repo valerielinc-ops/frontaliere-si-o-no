@@ -1210,6 +1210,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Schweiz: Motion gegen Arbeitslosigkeit bei Grenzgängern',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Nationalrat Lorenzo Quadri schlägt vor, Grenzgänger von der Schweizer Arbeitslosenversicherung auszuschliessen. Hier sind die Details.',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Bundesrates',
+    'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Ehe und Steuern: 40Jahre Kampf für Gerechtigkeit',
+    'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Historische und praktische Analyse der schweizerischen Debatte über die Ehesteuerung: Herausforderungen für die Steuergerechtigkeit zwischen verheirateten und unverheirateten Paaren.',
+    'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Bundeshaus in Bern, Sitz der Steuerentscheidungen in der Schweiz',
 };
 
 export default blogMetaChDe;

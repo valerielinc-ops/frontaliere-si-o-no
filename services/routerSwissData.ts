@@ -426,6 +426,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni': { it: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', en: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', de: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', fr: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni' },
  'lavoro-docenti-frontalieri-ticino-normativa': { it: 'lavoro-docenti-frontalieri-ticino-normativa', en: 'ticino-cross-border-teachers-work-permits-clarifications', de: 'ticino-grenzgaenger-lehrkraefte-arbeitserlaubnis-klarstellungen', fr: 'ticino-enseignants-frontaliers-permis-travail-clarifications' },
  'svizzera-disoccupazione-frontalieri-mozione-quadri': { it: 'svizzera-disoccupazione-frontalieri-mozione-quadri', en: 'switzerland-unemployment-cross-border-workers-quadri-motion', de: 'schweiz-arbeitslosengeld-grenzgaenger-quadri-motion', fr: 'suisse-chomage-frontaliers-motion-quadri' },
+ 'matrimonio-fisco-equita-quarantanni': { it: 'matrimonio-fisco-equita-quarantanni', en: 'marriage-tax-equity-forty-years', de: 'ehe-steuer-gerechtigkeit-vierzig-jahre', fr: 'mariage-impot-equite-quarante-ans' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
