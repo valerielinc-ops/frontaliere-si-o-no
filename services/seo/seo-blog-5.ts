@@ -50538,6 +50538,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permessi-lavoro-digitale-ticino': {
+    title: 'Permessi di lavoro in Ticino: dal 3 agosto tutto online',
+    description: 'Dal 3 agosto 2026 le domande di permesso in Ticino saranno solo digitali. Guida pratica per frontalieri e datori di lavoro su cosa cambia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, lavoro, agosto, tutto',
+    ogTitle: 'Permessi di lavoro in Ticino: dal 3 agosto la domanda è online',
+    ogDescription: 'Dal 3 agosto 2026 le richieste di permesso in Ticino passano al digitale: ecco le novità per i frontalieri e le aziende.',
+    canonicalPath: '/articoli-frontaliere/permessi-lavoro-digitale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi di lavoro in Ticino: dal 3 agosto tutto online",
+      "description": "Dal 3 agosto 2026 le domande di permesso in Ticino saranno solo digitali. Guida pratica per frontalieri e datori di lavoro su cosa cambia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permessi-lavoro-digitale-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della migrazione a Bellinzona, Ticino"
+      },
+      "datePublished": "2026-07-18T12:00:28+00:00",
+      "dateModified": "2026-07-18T12:00:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permessi-lavoro-digitale-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

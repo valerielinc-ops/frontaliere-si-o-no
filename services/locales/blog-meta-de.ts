@@ -8589,6 +8589,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Änderungen an der Straße in der Via Intra Premeno',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'Die Fahrverbote gelten vom 20. Juli bis 7. August 2026.',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Elektrische Netzarbeiten in Via Intra Premeno und Via alla Campagna',
+    'blog.article.permessi-lavoro-digitale-ticino.title': 'Arbeitsbewilligungen im Tessin: ab 3. August alles online',
+    'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'Ab dem 3. August 2026 wird das Verfahren für Arbeitsbewilligungen im Tessin vollständig digitalisiert. Abschied vom Papier für Grenzgänger, Aufenthaltsberechtigte und Domizilierte.',
+    'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Migrationsamt in Bellinzona, Tessin',
 };
 
 export default blogMetaDe;

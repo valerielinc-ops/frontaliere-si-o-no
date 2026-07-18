@@ -8590,6 +8590,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Changes to the roads in Via Intra Premeno',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'The driving restrictions will be in force from 20 July to 7 August 2026.',
     'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Electrical network works in via Intra Premeno and via alla Campagna',
+    'blog.article.permessi-lavoro-digitale-ticino.title': 'Work permits in Ticino: from 3 August all online',
+    'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'From 3 August 2026, the procedure for work permits in Ticino becomes entirely digital. Goodbye to paper for border workers, residents and domiciliaries.',
+    'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Migration office in Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
