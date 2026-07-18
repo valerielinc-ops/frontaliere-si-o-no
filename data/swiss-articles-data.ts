@@ -3626,6 +3626,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'matrimonio-fisco-equita-quarantanni',
+    category: 'fiscale',
+    date: '2026-07-18T12:11:05.029Z',
+    image: '/images/blog/matrimonio-fisco-equita-quarantanni.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

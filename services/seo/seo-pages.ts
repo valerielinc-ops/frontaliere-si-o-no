@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3286,
+ "numberOfItems": 3287,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8002,7 +8002,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3283, "name": "Vacilla il mito della Svizzera: 152mila senza l...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-frontalieri` },
           { "@type": "ListItem", "position": 3284, "name": "Svizzera: mozione contro disoccupazione ai fron...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-mozione-quadri` },
           { "@type": "ListItem", "position": 3285, "name": "Modifiche alla viabilità in via Intra Premeno", "url": `${BASE_URL}/articoli-frontaliere/lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna` },
-          { "@type": "ListItem", "position": 3286, "name": "Permessi di lavoro in Ticino: dal 3 agosto tutt...", "url": `${BASE_URL}/articoli-frontaliere/permessi-lavoro-digitale-ticino` }
+          { "@type": "ListItem", "position": 3286, "name": "Permessi di lavoro in Ticino: dal 3 agosto tutt...", "url": `${BASE_URL}/articoli-frontaliere/permessi-lavoro-digitale-ticino` },
+          { "@type": "ListItem", "position": 3287, "name": "Matrimonio e fisco: quarant’anni di battaglia p...", "url": `${BASE_URL}/articoli-frontaliere/matrimonio-fisco-equita-quarantanni` }
  ]
  },
  {

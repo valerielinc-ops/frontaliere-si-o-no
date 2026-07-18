@@ -15618,6 +15618,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-matrimonio-fisco-equita-quarantanni': {
+    title: 'Matrimonio e fisco: quarant’anni di battaglia per l’equità',
+    description: 'Quarant\'anni di discussioni sulla tassazione coniugale in Svizzera: analisi del sistema fiscale, impatto sulle coppie e procedure per la dichiarazione dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, fisco, quarant, anni',
+    ogTitle: 'Matrimonio e fisco: 40 anni di dibattito sull\'equità in Svizzera',
+    ogDescription: 'Analisi del dibattito sulla tassazione delle coppie sposate in Svizzera e consigli pratici sulla gestione fiscale per i residenti.',
+    canonicalPath: '/articoli-svizzera/matrimonio-fisco-equita-quarantanni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Matrimonio e fisco: quarant’anni di battaglia per l’equità",
+      "description": "Quarant'anni di discussioni sulla tassazione coniugale in Svizzera: analisi del sistema fiscale, impatto sulle coppie e procedure per la dichiarazione dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/matrimonio-fisco-equita-quarantanni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna, sede delle decisioni fiscali in Svizzera"
+      },
+      "datePublished": "2026-07-18T12:11:05+00:00",
+      "dateModified": "2026-07-18T12:11:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/matrimonio-fisco-equita-quarantanni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

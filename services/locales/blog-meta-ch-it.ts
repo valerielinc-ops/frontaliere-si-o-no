@@ -1210,6 +1210,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Svizzera: mozione contro disoccupazione ai frontalieri',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Il consigliere nazionale Lorenzo Quadri propone di escludere i frontalieri dall\'assicurazione contro la disoccupazione svizzera. Ecco i dettagli.',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Palazzo Federale a Berna, sede del Consiglio federale svizzero',
+    'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Matrimonio e fisco: quarant’anni di battaglia per l’equità',
+    'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Analisi storica e pratica del dibattito svizzero sulla tassazione coniugale: le sfide per l\'equità fiscale tra coppie sposate e non sposate.',
+    'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Palazzo Federale a Berna, sede delle decisioni fiscali in Svizzera',
 };
 
 export default blogMetaChIt;

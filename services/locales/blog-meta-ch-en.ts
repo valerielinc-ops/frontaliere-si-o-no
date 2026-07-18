@@ -1210,6 +1210,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Switzerland: motion against unemployment for frontier workers',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'National Councillor Lorenzo Quadri proposes to exclude frontier workers from Swiss unemployment insurance. Here are the details.',
     'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Federal Palace in Bern, seat of the Swiss Federal Council',
+    'blog.article.matrimonio-fisco-equita-quarantanni.title': 'Marriage and Taxation: FortyYears of Struggle for Equity',
+    'blog.article.matrimonio-fisco-equita-quarantanni.excerpt': 'Historical and practical analysis of the Swiss debate on marital taxation: the challenges to tax equity between married and unmarried couples.',
+    'blog.article.matrimonio-fisco-equita-quarantanni.imageAlt': 'Federal Palace in Bern, seat of fiscal decisions in Switzerland',
 };
 
 export default blogMetaChEn;

@@ -4593,6 +4593,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-disoccupazione-frontalieri-mozione-quadri': { name: 'Mozione disoccupazione frontalieri', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-mozione-quadri/', parent: 'blog' },
     'blog-lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna': { name: 'Lavori di rete elettrica in via Intra', path: '/articoli-frontaliere/lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna', parent: 'blog' },
     'blog-permessi-lavoro-digitale-ticino': { name: 'Permessi di lavoro', path: '/articoli-frontaliere/permessi-lavoro-digitale-ticino', parent: 'blog' },
+    'blog-matrimonio-fisco-equita-quarantanni': { name: 'Matrimonio e fisco', path: '/articoli-svizzera/matrimonio-fisco-equita-quarantanni/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
