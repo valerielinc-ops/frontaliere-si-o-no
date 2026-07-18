@@ -8585,6 +8585,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Travailler à distance depuis un pays tiers : implications fiscales et assurances',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Guide pratique pour les frontaliers Tessin-Italie : quels sont les risques si vous travaillez dans un pays tiers pendant les vacances et comment respecter les règles fiscales et d\'assurance.',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Ordinateur portable sur un balcon avec vue sur le lac de Lugano et documents fiscaux',
+    'blog.article.disoccupazione-ticino-frontalieri.title': 'Le mythe de la Suisse est ébranlé : 152 000 chômeurs',
+    'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Le taux de chômage en Suisse s\'élève à 3,2% en janvier 2026, avec une augmentation du nombre de chômeurs à 152 300 unités',
+    'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Vue de Lugano du lac',
 };
 
 export default blogMetaFr;

@@ -50460,6 +50460,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-ticino-frontalieri': {
+    title: 'Vacilla il mito della Svizzera: 152mila senza lavoro',
+    description: 'Tasso di disoccupazione in Svizzera sale al 3,2% nel gennaio 2026, con un aumento dei senza lavoro a 152.300 unità. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, vacilla, mito, 152mila, senza',
+    ogTitle: 'Disoccupazione in Svizzera: 152mila frontalieri senza lavoro',
+    ogDescription: 'Tasso di disoccupazione in Svizzera sale al 3,2% nel gennaio 2026',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vacilla il mito della Svizzera: 152mila senza lavoro",
+      "description": "Tasso di disoccupazione in Svizzera sale al 3,2% nel gennaio 2026, con un aumento dei senza lavoro a 152.300 unità. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano dal lago"
+      },
+      "datePublished": "2026-07-18T04:31:16+00:00",
+      "dateModified": "2026-07-18T04:31:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

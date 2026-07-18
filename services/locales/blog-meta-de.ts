@@ -8583,6 +8583,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Fernarbeit: Steuern und Versicherungen im Ausland',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Praktischer Leitfaden für Grenzgänger Tessin-Italien: Was riskieren Sie, wenn Sie während Ihres Urlaubs in einem Drittland arbeiten und wie Sie die Steuer- und Versicherungsvorschriften einhalten können?',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Laptop auf Balkon mit Blick auf Luganersee und Steuerunterlagen',
+    'blog.article.disoccupazione-ticino-frontalieri.title': 'Der Mythos der Schweiz wankt: 152.000 Arbeitslose',
+    'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Arbeitslosenquote in der Schweiz steigt auf 3,2% im Januar 2026, mit einem Anstieg der Arbeitslosen auf 152.300 Einheiten',
+    'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Lugano von dem See aus',
 };
 
 export default blogMetaDe;

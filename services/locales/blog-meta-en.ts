@@ -8584,6 +8584,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Working remotely from a third country: tax and insurance implications',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Practical guide for border workers Ticino-Italy: what you risk if you work from a third country during the holidays and how to comply with tax and insurance rules.',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Laptop on balcony overlooking Lake Lugano with tax documents',
+    'blog.article.disoccupazione-ticino-frontalieri.title': 'The myth of Switzerland is shaken: 152,000 people out of work',
+    'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Switzerland\'s unemployment rate rises to 3.2% in January 2026, with the jobless rising to 152,300',
+    'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'View of Lugano from the lake',
 };
 
 export default blogMetaEn;
