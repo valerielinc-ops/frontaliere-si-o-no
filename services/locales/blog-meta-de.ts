@@ -8598,6 +8598,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologe im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt, Voraussetzungen, eventuelle Anerkennung des Bildungsabschlusses und Erlaubnis G., als Grenzgänger als Psychologe im Tessin zu arbeiten.',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzarbeiter-Psychologe, der in Ticino arbeitet, mit Blick auf die Stadt Lugano.',
+    'blog.article.frontaliere-ticino-fisioterapista.title': 'Wie viel verdient ein Grenzphysiotherapeut im Tessin?',
+    'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'Der Physiotherapeut im Tessin: Gehalt, Steuern und Vorschriften.',
+    'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'Ein Grenzgänger, der als Physiotherapeut in Ticino arbeitet.',
 };
 
 export default blogMetaDe;

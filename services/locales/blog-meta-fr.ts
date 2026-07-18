@@ -8600,6 +8600,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologue au Tessin : salaire, exigences et reconnaissance du diplôme',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Salaire moyen, exigences, reconnaissance éventuelle du diplôme et permis G. pour travailler comme psychologue au Tessin en tant que frontalier.',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Un psychologue frontalier qui travaille en Tessin, avec une vue sur la ville de Lugano.',
+    'blog.article.frontaliere-ticino-fisioterapista.title': 'Combien gagne un kinésithérapeute frontalier au Tessin ?',
+    'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'Le frontalier kinésithérapeute au Tessin : salaire, taxes et réglementation.',
+    'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'Un frontalière travaillant en tant que physiothérapeute en Suisse.',
 };
 
 export default blogMetaFr;
