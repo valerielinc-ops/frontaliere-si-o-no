@@ -504,12 +504,6 @@
         ],
         "fr": [
           "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -700,12 +694,6 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "fr": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "en": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
@@ -1034,12 +1022,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "en": [
-          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
-        ],
-        "de": [
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
@@ -1475,8 +1457,8 @@
       "slugByLocale": {
         "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "de": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "fr": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+        "de": "pharma-assistent-in-f-h-d-galenica-ag-galenica-bern",
+        "fr": "assistant-e-pharmacien-f-h-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Assistente in farmacia (f/h/d)",
@@ -1487,8 +1469,7 @@
       "id": "galenica-c3a69e501533",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ],
         "de": [
           "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
@@ -1498,8 +1479,7 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern"
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
