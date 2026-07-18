@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3289,
+ "numberOfItems": 3290,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8005,7 +8005,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3286, "name": "Permessi di lavoro in Ticino: dal 3 agosto tutt...", "url": `${BASE_URL}/articoli-frontaliere/permessi-lavoro-digitale-ticino` },
           { "@type": "ListItem", "position": 3287, "name": "Matrimonio e fisco: quarant’anni di battaglia p...", "url": `${BASE_URL}/articoli-frontaliere/matrimonio-fisco-equita-quarantanni` },
           { "@type": "ListItem", "position": 3288, "name": "Quanto guadagna un infermiere frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/infernieri-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 3289, "name": "Quanto guadagna un operatore socio sanitario fr...", "url": `${BASE_URL}/articoli-frontaliere/operatore-socio-sanitario-frontaliere` }
+          { "@type": "ListItem", "position": 3289, "name": "Quanto guadagna un operatore socio sanitario fr...", "url": `${BASE_URL}/articoli-frontaliere/operatore-socio-sanitario-frontaliere` },
+          { "@type": "ListItem", "position": 3290, "name": "Psicologo in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-psicologo-ticino-stipendio-requisiti` }
  ]
  },
  {

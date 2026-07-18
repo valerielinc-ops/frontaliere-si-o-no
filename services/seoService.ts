@@ -4596,6 +4596,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-matrimonio-fisco-equita-quarantanni': { name: 'Matrimonio e fisco', path: '/articoli-svizzera/matrimonio-fisco-equita-quarantanni/', parent: 'blog' },
     'blog-infernieri-frontalieri-ticino': { name: 'Infernieri frontalieri in Ticino', path: '/articoli-frontaliere/infernieri-frontalieri-ticino', parent: 'blog' },
     'blog-operatore-socio-sanitario-frontaliere': { name: 'operatore socio sanitario frontaliere', path: '/articoli-svizzera/operatore-socio-sanitario-frontaliere/', parent: 'blog' },
+    'blog-frontaliere-psicologo-ticino-stipendio-requisiti': { name: 'Lavorare come psicologo in Ticino da', path: '/articoli-frontaliere/frontaliere-psicologo-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
