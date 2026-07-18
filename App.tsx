@@ -149,7 +149,7 @@ import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 // Static-page path builders for footer SEO cross-links (Layer 2A — internal linking).
 import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
-import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
+import { buildCurrentWeekPath, WEEKLY_EMPLOYERS_LOCALE_PREFIX, WEEKLY_EMPLOYERS_SECTION } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
 import { HUB_SLUGS as SEO_HUB_SLUGS, FOOTER_TOP_SECTORS as SEO_FOOTER_TOP_SECTORS, FOOTER_TOP_CITIES as SEO_FOOTER_TOP_CITIES, HUB_SECTORS as SEO_HUB_SECTORS, hubSlugFor as seoHubSlugFor, svizzeraArticlesArchiveBasePaths as seoSvizzeraArticlesArchiveBasePaths, type HubLocale as SeoHubLocale } from '@/build-plugins/seoHubsData';
@@ -2932,6 +2932,31 @@ const App: React.FC = () => {
  >
  <Heart className="w-3.5 h-3.5" aria-hidden="true" />
  {t('seoLinks.footer.healthPremiumsByCommune')}
+ </a>
+ </li>
+ )}
+ {/* SXO link-equity boost (issue 4406) — exact-match Italian anchor text into
+     the two IT-canonical hubs that lose ranking to legacy /en/ pages on
+     Italian-language queries. IT-only: deliberate IT SEO anchor text. */}
+ {locale === 'it' && !killSwitches.weeklyEmployers && (
+ <li>
+ <a
+ href={`${WEEKLY_EMPLOYERS_LOCALE_PREFIX.it}/${WEEKLY_EMPLOYERS_SECTION.it}/`}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Building2 className="w-3.5 h-3.5" aria-hidden="true" />
+ aziende che assumono in Ticino
+ </a>
+ </li>
+ )}
+ {locale === 'it' && (
+ <li>
+ <a
+ href={buildPath({ activeTab: 'faq' }, 'it')}
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />
+ domande frequenti frontalieri
  </a>
  </li>
  )}

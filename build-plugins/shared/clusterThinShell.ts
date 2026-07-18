@@ -66,6 +66,35 @@ const PROSE: Record<string, (query: string, listingUrl: string) => string> = {
     `Notre job board indexe quotidiennement des milliers de postes ouverts auprès d'entreprises suisses. Pour parcourir toutes les offres disponibles — y compris celles qui correspondent à "${q}" — ouvrez le <a href="${l}">job board complet</a> avec des filtres par canton, secteur, type de contrat, fourchette salariale et lieu. Les offres sont mises à jour quotidiennement par des employeurs au Tessin, dans les Grisons, à Zurich, Berne, Bâle, Vaud et d'autres cantons. Chaque annonce affiche le salaire, le type de contrat, le lieu de travail et un lien direct vers le site de l'employeur. Les recherches associées vous aident à découvrir des postes similaires dans le même secteur ou la même région.`,
 };
 
+// Splices 2-3 real per-URL job facts into the thin paragraph as an extra
+// sentence (issue #4399). Without this, every cluster page under a given
+// locale renders byte-identical prose save for the interpolated query —
+// a find-replace signature at ~300k-URL scale that reads as doorway/
+// near-duplicate content to a crawler. The `<ul class=cluster-seo-jobs>`
+// list is already rendered per-URL (real employer/title/location from
+// `ctx.matchingJobs`, see relatedSearchClustersPlugin.ts `jobLinksHtml`)
+// and is about to be discarded wholesale by the `<main>` replace below —
+// we pull a few entries out first so each thinned page keeps something
+// that genuinely differs from its siblings beyond the query token.
+const JOB_FACTS: Record<string, (count: number, samples: string[]) => string> = {
+  it: (count, samples) =>
+    samples.length
+      ? `In quest'area risultano attualmente ${count} posizioni aperte; tra le più recenti: ${samples.join(', ')}.`
+      : '',
+  en: (count, samples) =>
+    samples.length
+      ? `This area currently lists ${count} open positions; among the most recent: ${samples.join(', ')}.`
+      : '',
+  de: (count, samples) =>
+    samples.length
+      ? `In diesem Bereich gibt es derzeit ${count} offene Stellen; zu den aktuellsten zählen: ${samples.join(', ')}.`
+      : '',
+  fr: (count, samples) =>
+    samples.length
+      ? `Cette zone compte actuellement ${count} postes ouverts ; parmi les plus récents : ${samples.join(', ')}.`
+      : '',
+};
+
 function htmlEscape(s: string): string {
   return s
     .replace(/&/g, '&amp;')
@@ -79,6 +108,36 @@ function extractH1(html: string): string {
   const m = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   if (!m) return '';
   return m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Pull up to `max` short per-job facts (already-escaped "Company ·
+ * Location" tail, or the job title when no meta was rendered) out of the
+ * `<ul class=cluster-seo-jobs>` list, plus the total job count. Input is
+ * post-`minifyHtml` (see relatedSearchClustersPlugin.ts call site), so the
+ * single-token `class` attribute may be unquoted — same PR #478
+ * `removeAttributeQuotes` quirk the `<main>` regex below already
+ * tolerates. Text is reused verbatim (no re-escaping needed): the source
+ * already HTML-escapes job title/company/location via `esc()`.
+ */
+function extractJobFacts(html: string, max: number): { count: number; samples: string[] } {
+  const listMatch = html.match(/<ul\s+class=["']?cluster-seo-jobs(?=[\s>"'])[^>]*>([\s\S]*?)<\/ul>/i);
+  if (!listMatch) return { count: 0, samples: [] };
+  const items = listMatch[1].match(/<li>[\s\S]*?<\/li>/gi) || [];
+  const samples: string[] = [];
+  for (const item of items) {
+    const anchor = item.match(/<a[^>]*>([\s\S]*?)<\/a>/i);
+    if (!anchor) continue;
+    const text = anchor[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!text) continue;
+    // relatedSearchClustersPlugin joins `title + " — " + meta`; prefer the
+    // shorter "company · location" tail when present, else the full title.
+    const dashIdx = text.indexOf(' — ');
+    const fact = dashIdx >= 0 ? text.slice(dashIdx + 3).trim() : text;
+    if (fact && !samples.includes(fact)) samples.push(fact);
+    if (samples.length >= max) break;
+  }
+  return { count: items.length, samples };
 }
 
 /**
@@ -98,6 +157,14 @@ export function buildClusterThinHtml(fullHtml: string, locale: string): string {
   const proseFn = PROSE[locale] || PROSE.it;
   const prose = proseFn(h1Text || 'offerte di lavoro', listingPath);
 
+  // Real per-URL facts (issue #4399) — pulled from the `cluster-seo-jobs`
+  // list before it's discarded below. Appended as an extra sentence so
+  // the boilerplate paragraph isn't the ONLY content differentiator
+  // between the ~300k indexed cluster URLs.
+  const { count: jobCount, samples: jobSamples } = extractJobFacts(fullHtml, 3);
+  const factsFn = JOB_FACTS[locale] || JOB_FACTS.it;
+  const factsSentence = factsFn(jobCount, jobSamples);
+
   // Match the `<main class=cluster-seo-prose...>...</main>` block. The
   // class attribute is single-token (`cluster-seo-prose`), so the
   // upstream minifier (PR #478 removeAttributeQuotes) strips its
@@ -110,7 +177,7 @@ export function buildClusterThinHtml(fullHtml: string, locale: string): string {
     EJP_STRIPPED_MARKER +
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
-    `<p>${prose}</p>` +
+    `<p>${prose}${factsSentence ? ` ${factsSentence}` : ''}</p>` +
     `</article>` +
     `</main>`;
 

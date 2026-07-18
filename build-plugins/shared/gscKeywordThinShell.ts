@@ -37,6 +37,20 @@ interface ThinBodyOpts {
   listingUrl: string;
   /** Title text already escaped for HTML interpolation. */
   h1Title: string;
+  /**
+   * Total matching job count (issue #4399) — the caller already computes
+   * this (`kwJobs.length` / `matchingJobs.length`) to build the full-body
+   * intro, so no extraction is needed here, just threading it through.
+   */
+  jobCount?: number;
+  /**
+   * Up to a few employer names, already HTML-escaped — same `esc()` call
+   * the caller already applies when building the full body's
+   * `kwTopCompanies` string. Real per-URL facts so each thinned keyword
+   * landing keeps something that differs from its siblings beyond the
+   * interpolated query token.
+   */
+  companies?: string[];
 }
 
 const PROSE: Record<string, (q: string, listingUrl: string) => string> = {
@@ -50,6 +64,34 @@ const PROSE: Record<string, (q: string, listingUrl: string) => string> = {
     `Notre job board indexe quotidiennement des milliers de postes ouverts auprès d'entreprises suisses. Pour parcourir toutes les offres disponibles — y compris celles qui correspondent à "${q}" — ouvrez le <a href="${l}">job board complet</a> avec des filtres par canton, secteur, type de contrat, fourchette salariale et lieu. Les offres sont mises à jour quotidiennement par des employeurs au Tessin, dans les Grisons, à Zurich, Berne, Bâle, Vaud et d'autres cantons. Chaque annonce affiche le salaire, le type de contrat, le lieu de travail et un lien direct vers le site de l'employeur.`,
 };
 
+// Splices real per-URL job facts into the thin paragraph as an extra
+// sentence (issue #4399 sibling — same static-PROSE-per-locale construct
+// as clusterThinShell.ts). Unlike the other three thin-shell builders,
+// this one never has a "full" HTML string to extract facts from and
+// discard (its 3 call sites in jobsSeoPagesPlugin.ts build this thin
+// body directly, without ever assembling the full one) — but those call
+// sites already compute `jobCount`/`companies` for their OWN full-body
+// intro (kwTopCompanies et al.), so no extraction step is needed here,
+// just threading the same values through as opts.
+const FACTS: Record<string, (count: number, companies: string[]) => string> = {
+  it: (count, companies) =>
+    companies.length
+      ? `Al momento risultano ${count} posizioni aperte; tra le aziende che assumono: ${companies.join(', ')}.`
+      : '',
+  en: (count, companies) =>
+    companies.length
+      ? `There are currently ${count} open positions; hiring companies include: ${companies.join(', ')}.`
+      : '',
+  de: (count, companies) =>
+    companies.length
+      ? `Derzeit gibt es ${count} offene Stellen; einstellende Unternehmen: ${companies.join(', ')}.`
+      : '',
+  fr: (count, companies) =>
+    companies.length
+      ? `Il y a actuellement ${count} postes ouverts ; entreprises qui recrutent : ${companies.join(', ')}.`
+      : '',
+};
+
 /**
  * Slim bodyHtml for a GSC keyword landing page. Returns a ≥50-word
  * paragraph wrapped in `<main class="seo-static-content static-search-landing">`
@@ -59,13 +101,16 @@ const PROSE: Record<string, (q: string, listingUrl: string) => string> = {
 export function buildGscKeywordThinBody(opts: ThinBodyOpts): string {
   const proseFn = PROSE[opts.locale] || PROSE.it;
   const prose = proseFn(opts.query, opts.listingUrl);
+  const companies = (opts.companies || []).slice(0, 3);
+  const factsFn = FACTS[opts.locale] || FACTS.it;
+  const factsSentence = opts.jobCount ? factsFn(opts.jobCount, companies) : '';
   return (
     // Deliberately-thin shell (zero-traffic, SPA-hydrated): mark it so
     // audit:text-html-ratio skips it, same contract as the legacy STRIP_*
     // paths. Uppercase comment survives the HTML minifier's strip pass.
     EJP_STRIPPED_MARKER +
     `<h1>${opts.h1Title}</h1>` +
-    `<p>${prose}</p>`
+    `<p>${prose}${factsSentence ? ` ${factsSentence}` : ''}</p>`
   );
 }
 

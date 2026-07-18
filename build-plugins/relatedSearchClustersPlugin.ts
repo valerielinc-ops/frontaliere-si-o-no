@@ -132,6 +132,12 @@ const MIN_JOB_COUNT = 1;
 const MIN_MATCHING_JOBS = 0;
 const MAX_JOBS_PER_PAGE = 30;
 const HUB_PAGE_SIZE = 200;
+// Bounded top-N ricerca-* bridge injected into the aggregate Svizzera
+// section landing (issue #4400) — mirrors the ~30-link TI-only bridge
+// staticPagesPlugin already emits, sized up since Svizzera is the
+// canonical parent for every cluster (not just TI's), see
+// patchSvizzeraSectionLanding.
+const SVIZZERA_HUB_BRIDGE_LINK_COUNT = 60;
 
 // MIN_JOBS_FOR_INDEXABLE_CLUSTER (issue #4303 item 4) — distinct from
 // MIN_MATCHING_JOBS above. MIN_MATCHING_JOBS=0 controls EMISSION (never
@@ -395,6 +401,12 @@ interface CacheManifest {
   // this plugin in dist/. Persisted so the cache-hit path can drop them from
   // sitemap-jobs.xml (issue #911). Optional for back-compat with pre-v6 caches.
   crossSectionMirrorLocs?: string[];
+  // Top-N ranked cluster links per locale for the aggregate Svizzera section
+  // landing (issue #4400 — that landing had zero crawlable path to its own
+  // ricerca-* pages). Persisted so a cache-hit build can still patch the
+  // landing without re-deriving matchingJobs counts. Optional for back-compat
+  // with pre-this-change caches (cache-hit path treats missing as empty).
+  svizzeraLinks?: { locale: Locale; links: { label: string; path: string }[] }[];
   emittedCount: number;
 }
 
@@ -506,6 +518,7 @@ function saveToCache(
   hubs: ReadonlyArray<{ locale: Locale; url: string }>,
   sitemapLocs: ReadonlyArray<string>,
   crossSectionMirrorLocs: ReadonlyArray<string>,
+  svizzeraLinks: ReadonlyArray<{ locale: Locale; links: { label: string; path: string }[] }>,
 ): number {
   const cacheDir = cacheDirFor(rootDir, cacheKey);
   // Wipe stale entries for the same key (defensive — should never collide).
@@ -532,6 +545,7 @@ function saveToCache(
     hubs: hubs.slice(),
     sitemapLocs: sitemapLocs.slice(),
     crossSectionMirrorLocs: crossSectionMirrorLocs.slice(),
+    svizzeraLinks: svizzeraLinks.slice(),
     emittedCount: copied,
   };
   fs.writeFileSync(
@@ -1285,10 +1299,23 @@ function jobLocalizedUrl(job: RawJob, locale: Locale): string {
   return `${BASE_URL}${collapsedPath}`;
 }
 
+// Locale-specific preposition used to join keyword + city ("Globus a
+// Basel" / "Globus in Basel" / "Globus à Bâle"). `buildHeadline` used to
+// hardcode the Italian "a" for every locale — grammatically wrong on the
+// 3 non-IT locales (~240k pages). EN uses "in" (matches the existing
+// EMPTY_TAGLINE "in ${city}" convention) over "at" — more natural for the
+// "Work in Zürich" job-search phrasing than the more literal "at".
+const HEADLINE_CITY_JOINER: Record<Locale, string> = {
+  it: 'a',
+  en: 'in',
+  de: 'in',
+  fr: 'à',
+};
+
 /** Build the page headline. Keeps under 44 chars where possible. */
-function buildHeadline(keyword: string, city: string | null): string {
+function buildHeadline(keyword: string, city: string | null, locale: Locale): string {
   const kw = capitalize(keyword.trim());
-  return city ? `${kw} a ${city}` : kw;
+  return city ? `${kw} ${HEADLINE_CITY_JOINER[locale]} ${city}` : kw;
 }
 
 /**
@@ -1465,7 +1492,7 @@ function buildJsonLd(opts: {
   sectorLabel: string | null;
 }): string[] {
   const { ctx, canonicalUrl, enriched, locale, commuterLocation, sectorLabel } = opts;
-  const headline = buildHeadline(ctx.keyword, ctx.city);
+  const headline = buildHeadline(ctx.keyword, ctx.city, locale);
   const copy = COPY[locale];
   const sectionPath = `${LOCALE_PREFIX[locale]}/${getJobBoardSectionSlug(locale)}/`.replace(/\/+/g, '/');
   const sectionUrl = `${BASE_URL}${sectionPath}`;
@@ -1603,7 +1630,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword);
   }
 
-  const headline = buildHeadline(ctx.keyword, ctx.city);
+  const headline = buildHeadline(ctx.keyword, ctx.city, locale);
   const description = buildDescription(ctx, locale);
 
   // Resolve the location used by the commuter-context helper. When the
@@ -2115,6 +2142,90 @@ function injectHubLinkIntoSectionLanding(
   }
 }
 
+/** Per-locale copy for the top-cluster bridge nav injected by
+ *  `patchSvizzeraSectionLanding` — mirrors the "Top job searches in
+ *  Ticino" label staticPagesPlugin uses for the TI-only equivalent. */
+const SVIZZERA_CLUSTER_LINKS_LABEL: Record<Locale, string> = {
+  it: 'Ricerche di lavoro più popolari in Svizzera',
+  en: 'Top job searches in Switzerland',
+  de: 'Top-Stellensuchen in der Schweiz',
+  fr: "Recherches d'emploi populaires en Suisse",
+};
+
+/**
+ * Patch the aggregate Switzerland-wide job-board section landing
+ * (`/cerca-lavoro-svizzera/`, `/en/find-jobs-switzerland/`,
+ * `/de/jobs-in-schweiz/`, `/fr/trouver-emploi-suisse/`) — the ONE section
+ * landing (of ~26 canton + aggregate sections) whose canonical cluster
+ * pages have no crawlable internal-link path. Bundles two fixes because
+ * they land on the exact same `jobsSeoPagesPlugin`-emitted block:
+ *
+ *  1. (issue #4401) `jobsSeoPagesPlugin` links 3 "sub-hub" pages
+ *     (tutti/settori/aziende and locale equivalents, `<nav class=s-MdkLkf
+ *     aria-label="…">`) that `seoHubsPlugin` only generates for REAL
+ *     canton sections — the aggregate section never gets its own
+ *     tutti/settori/aziende page, so all 3 anchors dead-end (404 on IT,
+ *     301 to an unrelated canton's real page on EN/DE/FR via the generic
+ *     old-URL redirect rule). Matched on the stable CSS-module class the
+ *     wrapping `<nav>` is emitted with — locale-agnostic, so one regex
+ *     covers all 4 mirrors without hand-listing each translated slug.
+ *  2. (issue #4400) `cantonGroup` is now hardcoded to `AGGREGATE_KEY` for
+ *     every cluster, so ~321k of the ~323k `sitemap-search-clusters-*.xml`
+ *     URLs canonicalize under this exact section — yet nothing links to
+ *     them. `/cerca-lavoro-ticino/` gets a ~30-link "top searches" bridge
+ *     from `staticPagesPlugin` (TI-only); this replaces the now-dead nav
+ *     above with the same kind of bridge, ranked by `matchingJobs.length`
+ *     (a stronger signal than that TI widget's alpha-by-slug sort, since
+ *     this plugin has the full job-match counts in memory already).
+ *
+ * `jobsSeoPagesPlugin` re-emits every section landing from scratch on
+ * every build (cache-hit or miss), so this must run unconditionally on
+ * both the cache-hit and cache-miss closeBundle paths — the ranked link
+ * list itself is persisted in `CacheManifest.svizzeraLinks` so a
+ * cache-hit build can patch without re-deriving `matchingJobs`.
+ */
+function patchSvizzeraSectionLanding(
+  distDir: string,
+  locale: Locale,
+  links: ReadonlyArray<{ label: string; path: string }>,
+): void {
+  const prefix = LOCALE_PREFIX[locale];
+  const section = resolveCantonSection(locale as CantonLocale, AGGREGATE_KEY);
+  const sectionPath = path.join(distDir, prefix.replace(/^\//, ''), section, 'index.html');
+  if (!fs.existsSync(sectionPath)) {
+    console.warn(`\x1b[33m[related-search-clusters]\x1b[0m svizzera section landing missing at ${sectionPath} — skipping dead sub-hub cleanup / cluster-link injection.`);
+    return;
+  }
+
+  let html: string;
+  try {
+    html = fs.readFileSync(sectionPath, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to read svizzera section landing:', err);
+    return;
+  }
+
+  if (html.includes('data-svizzera-cluster-links="1"')) return;
+
+  const deadSubHubNav = /<nav class=s-MdkLkf aria-label="[^"]*">[\s\S]*?<\/nav>/;
+  if (!deadSubHubNav.test(html)) return;
+
+  const replacement = links.length > 0
+    ? (() => {
+        const label = SVIZZERA_CLUSTER_LINKS_LABEL[locale];
+        const anchors = links.map((l) => `<a href="${esc(l.path)}" class="jbx-m">${esc(l.label)}</a>`).join('');
+        return `<nav class="s-6_t7LY" aria-label="${esc(label)}" data-svizzera-cluster-links="1">${anchors}</nav>`;
+      })()
+    : '';
+  const patched = html.replace(deadSubHubNav, replacement);
+
+  try {
+    fs.writeFileSync(sectionPath, patched, 'utf-8');
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write svizzera section landing:', err);
+  }
+}
+
 /**
  * Inject the FULL hub page-N index into the per-locale orphan-query hub
  * (/ricerca/, /en/search/, /de/suche/, /fr/recherche/ — emitted by
@@ -2581,6 +2692,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
             injectPageIndexIntoOrphanHub(distDir, locale);
           }
+          for (const { locale, links } of restored.svizzeraLinks ?? []) {
+            patchSvizzeraSectionLanding(distDir, locale, links);
+          }
           // Discover whatever shards the cache restored (legacy single-file
           // or sharded) and re-advertise them in the master sitemap.
           const restoredShards = fs.existsSync(distDir)
@@ -2822,6 +2936,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // and dropped from sitemap-jobs.xml after jobs flush (issue #911).
       const crossSectionMirrorLocs: string[] = [];
       const cachedHubs: { locale: Locale; url: string }[] = [];
+      // Top-N ranked cluster links per locale for the aggregate Svizzera
+      // section landing bridge (issue #4400). Collected during the
+      // per-locale hub loop below, persisted to the cache manifest.
+      const svizzeraLinksByLocale: { locale: Locale; links: { label: string; path: string }[] }[] = [];
 
       // ── Per-cluster pages ─────────────────────────────────────────────
       //
@@ -3057,6 +3175,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         });
         const totalPages = Math.max(1, Math.ceil(items.length / HUB_PAGE_SIZE));
 
+        // Top-N by matchingJobs.length for the Svizzera section-landing
+        // bridge (issue #4400). `list` (not yet cleared) still carries
+        // matchingJobs at this point in the loop.
+        const svizzeraLinks = [...list]
+          .sort((a, b) => b.matchingJobs.length - a.matchingJobs.length)
+          .slice(0, SVIZZERA_HUB_BRIDGE_LINK_COUNT)
+          .map((ctx) => ({
+            label: ctx.city ? `${capitalize(ctx.keyword)} — ${ctx.city}` : capitalize(ctx.keyword),
+            path: buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup),
+          }));
+        svizzeraLinksByLocale.push({ locale, links: svizzeraLinks });
+
         for (let page = 1; page <= totalPages; page++) {
           const __tRenderHub = profileStart();
           const slice = items.slice((page - 1) * HUB_PAGE_SIZE, page * HUB_PAGE_SIZE);
@@ -3090,6 +3220,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
         injectPageIndexIntoOrphanHub(distDir, locale);
       }
+      for (const { locale, links } of svizzeraLinksByLocale) {
+        patchSvizzeraSectionLanding(distDir, locale, links);
+      }
       profileRecord('inject-hub-link', __tHubInject);
       const __tSitemap = profileStart();
       const sitemapShards = await writeSitemap(distDir, sitemapLocs, dateStamp);
@@ -3122,7 +3255,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       if (cacheEnabled) {
         try {
           const __tCacheSave = profileStart();
-          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs, crossSectionMirrorLocs);
+          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs, crossSectionMirrorLocs, svizzeraLinksByLocale);
           profileRecord('cache-save', __tCacheSave);
           console.log(`\x1b[36m[related-search-clusters]\x1b[0m saved ${cached} files to cache (${cacheKey})`);
         } catch (err) {

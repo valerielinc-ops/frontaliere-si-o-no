@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import * as gscMod from '../../../../scripts/lib/evidence/gscFetcher.mjs';
 
-const { fetchGscQueries } = gscMod as any;
+const { fetchGscQueries, fetchGscPageImpressions } = gscMod as any;
 
 function jsonRes(body: unknown, { ok = true, status = 200 }: { ok?: boolean; status?: number } = {}) {
   return {
@@ -165,5 +165,80 @@ describe('fetchGscQueries', () => {
     });
     expect(result.error).toContain('500');
     expect(result.queries).toEqual({});
+  });
+});
+
+// issue #4407: scripts/fetch-thin-page-promotions.mjs reuses this lighter
+// single-pass fetcher (page dimension only) instead of paying for
+// fetchGscQueries' three passes every hour.
+describe('fetchGscPageImpressions', () => {
+  it('aggregates page-level impressions, applying the minImpressions floor', async () => {
+    const pageRows = {
+      rows: [
+        { keys: ['https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-infermiere/'], impressions: 12 },
+        { keys: ['/cerca-lavoro-ticino/ricerca-idraulico/'], impressions: 2 }, // below floor
+        { keys: ['/cerca-lavoro-ticino/zero-imp/'], impressions: 0 }, // below floor
+      ],
+    };
+    const fetchImpl = vi.fn(async () => jsonRes(pageRows));
+
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-07-01',
+      endDate: '2026-07-01',
+      minImpressions: 5,
+      fetchImpl,
+      getTokenImpl: async () => 'fake-token',
+    });
+
+    expect(result.error).toBeUndefined();
+    // absolute URL normalized to path
+    expect(result.pages['/cerca-lavoro-ticino/ricerca-infermiere/']).toBe(12);
+    expect(result.pages['/cerca-lavoro-ticino/ricerca-idraulico/']).toBeUndefined();
+    expect(result.pages['/cerca-lavoro-ticino/zero-imp/']).toBeUndefined();
+    // single page-dimension pass — no query / query+page calls.
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('defaults minImpressions to 1 (matches fetchGscQueries Pass 3 threshold)', async () => {
+    const fetchImpl = vi.fn(async () =>
+      jsonRes({ rows: [{ keys: ['/foo/'], impressions: 1 }] }),
+    );
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-07-01',
+      endDate: '2026-07-01',
+      fetchImpl,
+      getTokenImpl: async () => 'fake-token',
+    });
+    expect(result.pages['/foo/']).toBe(1);
+  });
+
+  it('returns error key when token mint fails (does not throw)', async () => {
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-07-01',
+      endDate: '2026-07-01',
+      fetchImpl: vi.fn(),
+      getTokenImpl: async () => {
+        throw new Error('no creds');
+      },
+    });
+    expect(result.error).toContain('no creds');
+    expect(result.pages).toEqual({});
+  });
+
+  it('returns error key when API returns 5xx for both sc-domain and url-prefix (does not throw)', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: false,
+      status: 500,
+      json: async () => ({}),
+      text: async () => 'server error',
+    }));
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-07-01',
+      endDate: '2026-07-01',
+      fetchImpl,
+      getTokenImpl: async () => 'fake-token',
+    });
+    expect(result.error).toContain('500');
+    expect(result.pages).toEqual({});
   });
 });

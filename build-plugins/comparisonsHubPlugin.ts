@@ -92,6 +92,7 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
     { href: '/compara-servizi/costo-della-vita/', label: 'Costo della vita Svizzera vs Italia' },
     { href: '/guida-frontaliere/', label: 'Guida nuova legge frontalieri 2026' },
     { href: '/tasse-e-pensione/', label: 'Guida tasse svizzere per frontalieri' },
+    { href: '/frontaliere/', label: 'Frontaliere in Svizzera: la guida completa' },
   ],
   en: [
     { href: '/en/calculate-salary/', label: 'Cross-border salary calculator' },
@@ -99,6 +100,7 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
     { href: '/en/service-comparison/compare-health-insurance/', label: 'LAMal health insurance comparison' },
     { href: '/en/service-comparison/cost-of-living/', label: 'Cost of living Switzerland vs Italy' },
     { href: '/en/new-cross-border-agreement-2026/', label: '2026 cross-border workers law' },
+    { href: '/en/cross-border-worker/', label: 'Cross-border worker in Switzerland: the full guide' },
   ],
   de: [
     { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Gehaltsrechner' },
@@ -106,6 +108,7 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
     { href: '/de/service-vergleich/krankenkassen-vergleichen/', label: 'KVG-Krankenkassen-Vergleich' },
     { href: '/de/service-vergleich/lebenshaltungskosten/', label: 'Lebenshaltungskosten CH vs IT' },
     { href: '/de/grenzgaenger-ratgeber/', label: 'Neues Grenzgängergesetz 2026' },
+    { href: '/de/grenzgaenger/', label: 'Grenzgänger in der Schweiz: der komplette Leitfaden' },
   ],
   fr: [
     { href: '/fr/calculer-salaire/', label: 'Calculateur salaire frontalier' },
@@ -113,6 +116,7 @@ const RELATED_LINKS: Record<ComparisonsLocale, Array<{ href: string; label: stri
     { href: '/fr/comparaison-services/comparer-caisses-maladie/', label: 'Comparaison caisses-maladie LAMal' },
     { href: '/fr/comparaison-services/cout-de-la-vie/', label: 'Coût de la vie Suisse vs Italie' },
     { href: '/fr/guide-frontalier/', label: 'Nouvelle loi frontaliers 2026' },
+    { href: '/fr/frontalier/', label: 'Frontalier en Suisse : le guide complet' },
   ],
 };
 
