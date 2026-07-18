@@ -1041,6 +1041,52 @@ export function selectMinWordsRetryModel(attempt, previousModel, rotation = MIN_
   return rotation[idx];
 }
 
+// Fail-fast cap for the "zero-grounding news source" case (run 29639558234:
+// source fetch 403'd → 0 chars → still burned all 6 CREATE_ARTICLE_MIN_WORDS_RETRIES
+// attempts, ~5-8min across gpt-4.1/gpt-4o/gpt-4.1-nano/gemini, dual-LLM
+// fact-check correctly blocking every single one on invented dates/
+// institutions/motion details — zero grounding text structurally cannot
+// pass fact-check). See computeMaxGenerationAttempts() below.
+const CREATE_ARTICLE_ZERO_SOURCE_RETRIES = Math.max(
+  1,
+  Number.parseInt(process.env.CREATE_ARTICLE_ZERO_SOURCE_RETRIES || '2', 10) || 2,
+);
+
+/**
+ * Decide how many min-words regeneration attempts a headline gets, given
+ * the fetched/synthesized source content and the resolved URL.
+ *
+ * A real news source whose page fetch produced truly ZERO usable chars
+ * (HTTP error, timeout, or extraction found nothing — not just "thin")
+ * gets a much smaller cap (CREATE_ARTICLE_ZERO_SOURCE_RETRIES, default 2)
+ * instead of the full CREATE_ARTICLE_MIN_WORDS_RETRIES (default 6): with
+ * no source text to ground on, every attempt hallucinates unverifiable
+ * specifics and the dual-LLM fact-check consensus blocks essentially 100%
+ * of them (observed 6/6 on run 29639558234). Attempt 1 already answers
+ * the question definitively for this source; one extra attempt on a
+ * different model covers model-specific variance cheaply, and giving up
+ * sooner lets the caller move on to the next headline instead of burning
+ * the full budget on a doomed one.
+ *
+ * evergreen:// and stats-bfs:// URLs are NEVER zero-source by this check:
+ * fetchPageContent() always synthesizes non-empty prompt content for them
+ * (EVERGREEN_FACTS_BRIEF / BFS quarter data), so they keep the full retry
+ * budget and their own separate fact-check tolerance, untouched by this cap.
+ *
+ * Pure + exported for testability (no network, no I/O).
+ */
+export function computeMaxGenerationAttempts(
+  pageContent,
+  url,
+  fullBudget = CREATE_ARTICLE_MIN_WORDS_RETRIES,
+  zeroSourceCap = CREATE_ARTICLE_ZERO_SOURCE_RETRIES,
+) {
+  const isZeroSourceNews = (pageContent || '').length === 0 &&
+    !String(url || '').startsWith('evergreen://') &&
+    !String(url || '').startsWith('stats-bfs://');
+  return isZeroSourceNews ? Math.min(fullBudget, zeroSourceCap) : fullBudget;
+}
+
 const RUN_REPORT = {
   startedAt: new Date().toISOString(),
   endedAt: null,
@@ -9244,11 +9290,20 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     console.error(`  📏 Source thin (${pageContent.length} chars) → min IT words target: ${adaptiveMinWords} (was ${CREATE_ARTICLE_MIN_IT_WORDS})`);
   }
 
+  // Zero-grounding news source → cap the regen-attempt budget much lower
+  // (see computeMaxGenerationAttempts doc comment). Evergreen/stats-bfs
+  // always synthesize non-empty content, so they're unaffected and keep
+  // the full CREATE_ARTICLE_MIN_WORDS_RETRIES budget.
+  const maxAttempts = computeMaxGenerationAttempts(pageContent, url);
+  if (maxAttempts < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+    console.error(`  ⚡ Fonte non scaricabile (0 chars) → cap retry a ${maxAttempts}/${CREATE_ARTICLE_MIN_WORDS_RETRIES}: senza testo sorgente il fact-check blocca quasi ogni tentativo.`);
+  }
+
   // Tracks the model used by the immediately preceding attempt, for
   // selectMinWordsRetryModel()'s back-to-back-duplicate skip below.
   let previousMinWordsModel = null;
 
-  for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     // Wall-clock guard for the local-only cascade (2026-07-06, incident run
     // 28802314827): once local/fallback has generated at least one attempt
     // for THIS headline (flag reset per-headline — see the reset at the top
@@ -9287,13 +9342,13 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     const tempBoost = attempt >= 7 ? 0.9 : (attempt >= 5 ? 0.8 : 0.7);
     const modelLabel = useGeminiDirect ? `Gemini ${AI_MODELS.GEMINI_FLASH}` : modelSlot;
     if (attempt > 1) {
-      console.error(`  🔄 Tentativo ${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES} con ${modelLabel} (temp=${tempBoost})...`);
+      console.error(`  🔄 Tentativo ${attempt}/${maxAttempts} con ${modelLabel} (temp=${tempBoost})...`);
     }
 
     const genContext = {
       ...(sourceContext || {}),
       _generationAttempt: attempt,
-      _generationAttemptMax: CREATE_ARTICLE_MIN_WORDS_RETRIES,
+      _generationAttemptMax: maxAttempts,
       _minItalianWords: adaptiveMinWords,
       _previousWordCount: lastWordCount || undefined,
       _forceModel: useGeminiDirect ? 'gemini' : modelSlot,
@@ -9311,7 +9366,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       rawData = await callGemini(pageContent, url, genContext);
     } catch (e) {
       console.error(`  ⚠️  Tentativo ${attempt} fallito: ${e.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) continue;
+      if (attempt < maxAttempts) continue;
       throw e;
     }
 
@@ -9322,8 +9377,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       data = validate(rawData, { minBodyChars: computeAdaptiveMinChars(pageContent) });
     } catch (validationErr) {
       console.error(`  ⚠️  Validazione fallita: ${validationErr.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero contenuto per errore di validazione (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+      if (attempt < maxAttempts) {
+        console.error(`  🔄 Rigenero contenuto per errore di validazione (${attempt}/${maxAttempts})...`);
         continue;
       }
       throw validationErr;
@@ -9387,7 +9442,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         const summary = headlineErrors.join('; ');
         console.error(`  ⚠️  Headline non conforme: "${itTitle}" — ${summary}`);
 
-        if (headlineRetryBudget > 0 && attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        if (headlineRetryBudget > 0 && attempt < maxAttempts) {
           headlineRetryBudget -= 1;
           lastHeadlineErrors = summary;
           console.error(`  🔄 Rigenero con prompt rifinito (budget headline residuo: ${headlineRetryBudget})...`);
@@ -9459,8 +9514,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       assertTaxHealthConsistency(data.content.it, { ...(sourceContext || {}), url }, pageContent);
     } catch (consistencyErr) {
       console.error(`  ⚠️  ${consistencyErr.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero contenuto IT per coerenza fattuale (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+      if (attempt < maxAttempts) {
+        console.error(`  🔄 Rigenero contenuto IT per coerenza fattuale (${attempt}/${maxAttempts})...`);
         continue;
       }
       throw consistencyErr;
@@ -9471,8 +9526,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       assertNoFabricatedReferences(data.content.it);
     } catch (fabErr) {
       console.error(`  ⚠️  ${fabErr.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero contenuto IT per riferimenti inventati (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+      if (attempt < maxAttempts) {
+        console.error(`  🔄 Rigenero contenuto IT per riferimenti inventati (${attempt}/${maxAttempts})...`);
         continue;
       }
       throw fabErr;
@@ -9484,7 +9539,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       if (!factResult.passed) {
         const issuesSummary = factResult.issues.map(i => `[${i.category || '?'}] "${(i.claim || '').slice(0, 60)}" — ${(i.reason || '').slice(0, 80)}`).join('; ');
         const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
-        if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        if (attempt < maxAttempts) {
           // Feed the flagged claims into the next attempt's prompt so the model
           // fixes exactly what it invented instead of regenerating blind. Cap
           // the injected list (issues are already the blocking subset, severity-
@@ -9504,7 +9559,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
           if (factResult.issues.length > FACTCHECK_FEEDBACK_CAP) {
             lastFactCheckErrors += `\n(+${factResult.issues.length - FACTCHECK_FEEDBACK_CAP} altre violazioni: applica lo STESSO principio a tutto il testo, non solo a queste)`;
           }
-          console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+          console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${maxAttempts})...`);
           continue;
         }
         throw err;
@@ -9515,8 +9570,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       }
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero per fact-check: ${fcErr.message.slice(0, 120)} (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+      if (attempt < maxAttempts) {
+        console.error(`  🔄 Rigenero per fact-check: ${fcErr.message.slice(0, 120)} (${attempt}/${maxAttempts})...`);
         continue;
       }
       throw fcErr;
@@ -9562,8 +9617,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       }
 
       if (hasRepetition) {
-        console.error(`  ⚠️  AI loop rilevato: ${repetitionReason} — rigenero (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
-        if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) continue;
+        console.error(`  ⚠️  AI loop rilevato: ${repetitionReason} — rigenero (${attempt}/${maxAttempts})...`);
+        if (attempt < maxAttempts) continue;
         // Last attempt: auto-strip duplicate paragraphs as fallback
         console.error(`  🔧 Ultimo tentativo: auto-deduplica paragrafi ripetuti...`);
         for (const field of ['body1', 'body2', 'body3']) {
@@ -9611,8 +9666,8 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${adaptiveMinWords}), nessun loop AI`);
       break;
     }
-    if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-      console.error(`  ⚠️  Contenuto IT troppo corto: ${itWords} parole (min ${adaptiveMinWords}) — rigenero (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+    if (attempt < maxAttempts) {
+      console.error(`  ⚠️  Contenuto IT troppo corto: ${itWords} parole (min ${adaptiveMinWords}) — rigenero (${attempt}/${maxAttempts})...`);
       continue;
     }
     // ── Last resort: expand existing short content instead of failing ──
@@ -9634,7 +9689,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       console.error(`  ⚠️  Espansione fallita: ${expandErr.message}`);
     }
     {
-      const shortErr = new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${adaptiveMinWords} parole).`);
+      const shortErr = new Error(`Contenuto IT troppo corto dopo ${maxAttempts} tentativi + espansione (${italianBodyWordCount(data)}/${adaptiveMinWords} parole).`);
       // Per-headline quality failure → headline retry loops skip this source
       // and try the next one instead of aborting the run (auto-heal).
       shortErr.qualityReject = true;
