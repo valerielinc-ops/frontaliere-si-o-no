@@ -8602,6 +8602,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-fisioterapista.title': 'How much does a border physiotherapist earn in Ticino?',
     'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'The physiotherapist border worker in Ticino: salary, taxes and regulations.',
     'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'A cross-border physiotherapist working in Ticino.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Speech therapist in Ticino: salary, qualification requirements and recognition',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'The average salary for speech therapists in Ticino is around CHF 70\'000 per year, while the requirements to work as a speech therapist in Ticino include a degree in speech therapy or an equivalent qualification. Border Speech Therapists in Ticino can apply for G Permit to work in Switzerland.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano e città di Lugano',
 };
 
 export default blogMetaEn;

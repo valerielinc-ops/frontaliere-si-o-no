@@ -8603,6 +8603,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-fisioterapista.title': 'Combien gagne un kinésithérapeute frontalier au Tessin ?',
     'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'Le frontalier kinésithérapeute au Tessin : salaire, taxes et réglementation.',
     'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'Un frontalière travaillant en tant que physiothérapeute en Suisse.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Orthophoniste au Tessin : salaire, exigences et reconnaissance du titre',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'Le salaire moyen des orthophonistes au Tessin est d\'environ CHF 70\'000 par an, tandis que les exigences pour travailler en tant qu\'orthophoniste au Tessin comprennent un diplôme en orthophonie ou un diplôme équivalent. Les orthophonistes frontaliers au Tessin peuvent demander le permis G pour travailler en Suisse.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano e città di Lugano',
 };
 
 export default blogMetaFr;

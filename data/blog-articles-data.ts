@@ -25847,6 +25847,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-logopedista-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-18T15:28:51.051Z',
+ image: '/images/blog/frontaliere-logopedista-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

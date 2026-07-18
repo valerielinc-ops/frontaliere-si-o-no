@@ -50694,6 +50694,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-logopedista-ticino-stipendio-requisiti': {
+    title: 'Logopedista in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    description: 'Il salario medio per i logopedisti in Ticino è di circa CHF 70\'000 all\'anno, mentre i requisiti per lavorare come logopedista in Ticino includono una laurea in',
+    keywords: 'frontalieri, ticino, svizzera, italia, logopedista, stipendio, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come logopedista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Il salario medio per i logopedisti in Ticino è di circa CHF 70\'000 all\'anno, mentre i requisiti per lavorare come logopedista in Ticino includono una laurea in',
+    canonicalPath: '/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Logopedista in Ticino: stipendio, requisiti e riconoscimento del titolo",
+      "description": "Il salario medio per i logopedisti in Ticino è di circa CHF 70'000 all'anno, mentre i requisiti per lavorare come logopedista in Ticino includono una laurea in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-logopedista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano e città di Lugano"
+      },
+      "datePublished": "2026-07-18T15:28:51+00:00",
+      "dateModified": "2026-07-18T15:28:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
