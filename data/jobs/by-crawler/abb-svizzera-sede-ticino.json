@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-07-18T08:51:48.565Z",
+  "assembledAt": "2026-07-18T22:26:35.056Z",
   "jobs": [
     {
       "id": "company-ujl61l",
@@ -25,7 +25,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Customer Quality Electronics Specialista",
@@ -72,6 +72,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -98,7 +99,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Sales Specialista – Business Line Excitation (80-100%)",
@@ -143,6 +144,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -169,7 +171,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Analista M&A",
@@ -218,6 +220,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -244,7 +247,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Sales Manager – Progetti Strategici Globali, Mining",
@@ -324,7 +327,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "End Sales Manager – Progetti Strategici Globali, Mining",
@@ -377,6 +380,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -403,7 +407,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Direttore vendite - Produttori di pannelli (80-100%)",
@@ -479,7 +483,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-15T11:28:32.129Z",
       "slugByLocale": {
         "it": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
@@ -535,6 +539,7 @@
           "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -561,7 +566,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Technical Service Specialista - Gearless Mill Drive (80-100%)",
@@ -607,7 +612,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8nzt91",
@@ -632,7 +638,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Electrification Business Area Ricerca Manager",
@@ -677,6 +683,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -703,7 +710,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Specialista in test e laboratorio R&S (f/m/d) 80-100%",
@@ -748,6 +755,7 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -774,7 +782,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "slugByLocale": {
         "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
@@ -849,7 +857,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "IS Division Manager ELSB",
@@ -894,6 +902,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -920,7 +929,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Responsabile di Progetto R&D (f/m/d) 80-100%",
@@ -995,7 +1004,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-13T22:20:35.632Z",
       "titleByLocale": {
         "it": "Power System Ingegnere",
@@ -1048,6 +1057,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000
     },
@@ -1074,7 +1084,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Gruppo Social Media Manager",
@@ -1127,6 +1137,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -1153,7 +1164,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Global Mobile e-Power Systems Manager – Trazione di movimento",
@@ -1229,7 +1240,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "slugByLocale": {
         "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
@@ -1295,7 +1306,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "titleByLocale": {
         "it": "Leader del capitolo dell'ingegneria delle applicazioni",
@@ -1378,7 +1389,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "R&D (Senior)Testing & Lab Ingegnere",
@@ -1423,6 +1434,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1451,7 +1463,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "en": "Service Coordinator - Fixed Term 3 months (f/m/d) 80% - 100%",
@@ -1505,6 +1517,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -1531,7 +1544,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "Maintenance Specialista",
@@ -1617,7 +1630,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "en": "Business & Market Intelligence Analyst",
@@ -1672,6 +1685,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -1698,7 +1712,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Global Sales Manager Business Line Mining & Materiali",
@@ -1748,6 +1762,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1774,12 +1789,12 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
+        "de": "(80 - 100%) Technical Trainer - Power Electronics",
         "fr": "(80 - 100%) Technical Trainer - Power Electronics"
       },
       "descriptionByLocale": {
@@ -1823,6 +1838,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -1849,7 +1865,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Production Shift Supervisore (80–100%)",
@@ -1895,6 +1911,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1921,7 +1938,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Responsabile vendite DACH (f/m/d) Consumer Industries",
@@ -2014,7 +2031,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Technician (Midlands / Regione di Berna) (80-100%)",
@@ -2062,6 +2079,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000
     },
@@ -2090,7 +2108,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "en": "FPGA Software Engineer R&D – Power Electronics/Traction Applications",
@@ -2170,7 +2188,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Technical Service Specialista",
@@ -2216,6 +2234,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2242,10 +2261,10 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
-        "it": "Medico applicato (80%-100%)",
+        "it": "Applied Physicist (80%-100%)",
         "en": "Applied Physicist (80%-100%)",
         "de": "Angewandter Physiker (80%-100%)",
         "fr": "Médecin appliqué (80%-100%)"
@@ -2325,7 +2344,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "en": "Project Engineer (80%-100%)",
@@ -2378,6 +2397,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500
     },
@@ -2404,7 +2424,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Ricerca Scientist in Software Systems Engineering (80-100%)",
@@ -2450,6 +2470,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500
     },
@@ -2476,7 +2497,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Einrichter:in Spritzguss / Estrusione (80-100%)",
@@ -2524,6 +2545,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -2550,7 +2572,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Senior Technical Support Ingegnere",
@@ -2622,7 +2644,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Ingegnere, French Fluency Required (80–100%)",
@@ -2695,7 +2717,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -2768,7 +2790,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -2848,7 +2870,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Specialista OEM (Talent Pool) | 80–100%",
@@ -2894,6 +2916,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2920,7 +2943,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-18T10:37:56.303Z",
+      "crawledAt": "2026-07-18T22:26:33.488Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "slugByLocale": {
         "it": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
@@ -2974,6 +2997,7 @@
         "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino",
         "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000
     }
