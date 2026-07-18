@@ -14144,6 +14144,12 @@
         ],
         "de": [
           "medical-director-cvm-roche-ch"
+        ],
+        "en": [
+          "medical-director-cvm-roche-ch"
+        ],
+        "fr": [
+          "medical-director-cvm-roche-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:10.885Z",
@@ -23531,6 +23537,12 @@
           "medical-director-cvm-roche-ch-3"
         ],
         "de": [
+          "medical-director-cvm-roche-ch"
+        ],
+        "en": [
+          "medical-director-cvm-roche-ch"
+        ],
+        "fr": [
           "medical-director-cvm-roche-ch"
         ]
       },
@@ -51357,11 +51369,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "becario-medical-affairs-roche-ch"
+        "becario-medical-affairs-roche-ch",
+        "becario-medical-affairs-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "becario-medical-affairs-roche-ch"
+          "becario-medical-affairs-roche-ch",
+          "becario-medical-affairs-roche-basel"
         ],
         "de": [
           "becario-medical-affairs-roche-ch"
@@ -74221,7 +74235,6 @@
           "pasante-de-comunicacion-interna-roche-mexico-city"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T10:56:03.819Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -76951,7 +76964,8 @@
         "patient-journey-partner-oncology-roche-ch",
         "patient-journey-partner-oncology-roche-ch-2",
         "partenaire-de-voyage-patient-oncologie-roche-mumbai",
-        "patient-journey-partner-ophthalmologie-roche-basel"
+        "patient-journey-partner-ophthalmologie-roche-basel",
+        "partner-del-viaggio-paziente-oftalmologia-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76960,7 +76974,8 @@
           "partner-del-viaggio-paziente-oncologia-roche-mumbai",
           "patient-journey-partner-oncology-roche-ch",
           "patient-journey-partner-oncology-roche-ch-2",
-          "partenaire-de-voyage-patient-oncologie-roche-mumbai"
+          "partenaire-de-voyage-patient-oncologie-roche-mumbai",
+          "partner-del-viaggio-paziente-oftalmologia-roche-basel"
         ],
         "en": [
           "patient-journey-partner-oncology-roche-ch"
