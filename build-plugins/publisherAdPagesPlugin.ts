@@ -122,7 +122,32 @@ interface AdRecord {
   contractType?: string;
   tier?: string;
   featured?: boolean;
+  /** Owner-only verification fixture (scripts/seed-canary-publisher-ad.mjs) —
+   * a REAL Firestore record that intentionally renders on-site (listing,
+   * search, /lavoro/ page) to exercise the paid-ad funnel end-to-end, but is
+   * never a real paid posting. Must never be submitted to Google via the
+   * sitemap (see isCanaryOrTestAd). */
+  canary?: boolean;
   [k: string]: unknown;
+}
+
+/**
+ * True for the owner's canary/test verification ad (or any future ad-hoc
+ * test fixture that slips into the publisher-submitted slice without going
+ * through the seed script). `canary: true` is the authoritative signal set
+ * by scripts/seed-canary-publisher-ad.mjs; the slug/title pattern is a
+ * defensive fallback so a stray manually-created test record with a
+ * `-canary-test-` slug is still caught even if it omits the flag.
+ *
+ * The ad still gets its own indexable page (Non-Negotiable: no unilateral
+ * noindex/removal) — this guard ONLY keeps it out of sitemap-publisher-ads.xml,
+ * which is a submission signal to Google, not a page-existence gate (#4408).
+ */
+export function isCanaryOrTestAd(rec: AdRecord): boolean {
+  if (rec.canary === true) return true;
+  const slug = String(rec.slug || '').toLowerCase();
+  const title = String(rec.title || '').toLowerCase();
+  return /(^|[-_])canary-test([-_]|$)/.test(slug) || /\(canary test\)/.test(title);
 }
 
 function localizedTitle(rec: AdRecord, locale: AdLocale): string {
@@ -160,7 +185,7 @@ function logoHtml(rec: AdRecord, sizeCls: string): string {
   const ownLogo = String(rec.companyLogo || '').trim();
   const src = /^https:\/\/\S+$/i.test(ownLogo) ? ownLogo : (company ? generateInitialsLogo(company) : '');
   if (!src) return '';
-  return `<img src="${esc(src)}" alt="Logo ${esc(company)}" width="56" height="56" loading="eager" class="${sizeCls} rounded-xl border border-edge bg-surface object-contain flex-shrink-0"${ownLogo ? ` onerror="this.src='${generateInitialsLogo(company)}';this.onerror=null"` : ''}>`;
+  return `<img src="${esc(src)}" alt="Logo ${esc(company)}" width="56" height="56" loading="eager" fetchpriority="high" class="${sizeCls} rounded-xl border border-edge bg-surface object-contain flex-shrink-0"${ownLogo ? ` onerror="this.src='${generateInitialsLogo(company)}';this.onerror=null"` : ''}>`;
 }
 
 function ctaHtml(rec: AdRecord, locale: AdLocale, extraCls = ''): string {
@@ -364,6 +389,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
+      let canarySkipped = 0;
 
       for (const rec of toEmit) {
         const slug = String(rec.slug || '').trim();
@@ -455,9 +481,15 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           // emitted (title present → not `continue`d above) AND is indexable
           // (wordCount ≥ MIN → index,follow, not noindex/thin). Pushing in the
           // outer loop would submit noindex or skipped-IT (404) URLs to Search
-          // Console. Mirrors careerLandingsPlugin's gated push.
+          // Console. Mirrors careerLandingsPlugin's gated push. Canary/test
+          // fixtures are excluded here (sitemap submission only) — the page
+          // itself stays live and index,follow (#4408).
           if (locale === 'it' && wordCount >= MIN_INDEXABLE_WORDS) {
-            sitemapEntries.push({ canonical: urlPath, alternates });
+            if (isCanaryOrTestAd(rec)) {
+              canarySkipped++;
+            } else {
+              sitemapEntries.push({ canonical: urlPath, alternates });
+            }
           }
         }
       }
@@ -481,7 +513,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
 
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}) — flushed ${written} files.`,
+        `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}${canarySkipped ? `, ${canarySkipped} canary/test excluded from sitemap` : ''}) — flushed ${written} files.`,
       );
     },
   };

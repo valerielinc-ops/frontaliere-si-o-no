@@ -255,3 +255,80 @@ export async function fetchGscQueries({
   if (errors.length) result.error = errors.join(' | ');
   return result;
 }
+
+/**
+ * Fetch page-level GSC impressions only (page dimension, single paginated
+ * pass — the same shape as `fetchGscQueries`'s Pass 3, factored out for
+ * callers that only need the impression-per-URL signal and can't afford
+ * the query + query-page passes). Reuses the same auth/query plumbing as
+ * `fetchGscQueries` (no new auth code).
+ *
+ * Used by scripts/fetch-thin-page-promotions.mjs: PostHog/GA4
+ * `thin_page_view` events only fire once a JS-enabled client actually
+ * lands on a page, but a thin page structurally suppresses the
+ * click-through needed to trigger that in the first place. GSC records an
+ * impression the moment Google *shows* the URL, independent of any click,
+ * so it reaches pages the click-based signal never can. That job runs
+ * hourly and is documented as "cheap" (a couple of API calls) — a single
+ * page-dimension pass keeps it that way instead of paying for all three
+ * `fetchGscQueries` passes every run.
+ *
+ * @param {object} options
+ * @param {string} options.startDate - ISO8601 date (YYYY-MM-DD)
+ * @param {string} options.endDate - ISO8601 date
+ * @param {number} [options.rowLimit=25000]
+ * @param {number} [options.minImpressions=1]
+ * @param {Function} [options.fetchImpl=fetch]
+ * @param {Function} [options.getTokenImpl=getServiceAccountToken]
+ * @returns {Promise<{pages: object, error?: string}>}
+ */
+export async function fetchGscPageImpressions({
+  startDate,
+  endDate,
+  rowLimit = 25000,
+  minImpressions = 1,
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  let token;
+  try {
+    token = await getTokenImpl();
+    if (!token) throw new Error('no service-account token');
+  } catch (err) {
+    const reason = err && err.message ? err.message : String(err);
+    return { pages: {}, error: reason };
+  }
+
+  const pages = {};
+  try {
+    let startRow = 0;
+    while (true) {
+      const data = await gscQuery(
+        token,
+        {
+          startDate,
+          endDate,
+          dimensions: ['page'],
+          rowLimit,
+          startRow,
+        },
+        fetchImpl,
+      );
+      const rows = data.rows || [];
+      for (const r of rows) {
+        const path = pathFromGscPage(r.keys?.[0] || '');
+        if (!path) continue;
+        const imp = r.impressions || 0;
+        if (imp < minImpressions) continue;
+        pages[path] = imp;
+      }
+      if (rows.length < rowLimit) break;
+      startRow += rowLimit;
+      // Hard ceiling to keep memory bounded — mirrors fetchGscQueries.
+      if (startRow >= rowLimit * 10) break;
+    }
+  } catch (err) {
+    return { pages, error: `page: ${err && err.message ? err.message : String(err)}` };
+  }
+  return { pages };
+}

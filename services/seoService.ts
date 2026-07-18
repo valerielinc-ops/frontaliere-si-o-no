@@ -11,6 +11,7 @@ import { reportCaughtError } from './errorReporter';
 import { bustAssetHttpCache, isChunkLoadError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
+import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
@@ -704,7 +705,17 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  const canonicalPath = buildPath(route, 'it');
  const label = titleizeGlossaryTermId(termId);
  const title = buildTitleWithBrand(`${label} (Glossario)`);
- const description = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
+ // Real, number-forward definition from the shared registry (#4409) —
+ // sibling of the SSG fallback in build-plugins/staticPagesPlugin.ts, both
+ // read the SAME map so they can never drift back into the placeholder.
+ // Fallback template only covers a term id added without a definition.
+ const slug = canonicalPath.replace(/\/+$/, '').split('/').filter(Boolean).pop() || '';
+ const fullDescription = GLOSSARY_TERM_DEFINITIONS[slug]
+ || `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
+ // Meta/og description capped to Google's ~170-char display limit
+ // (tests/seo-description-length.test.ts) — structuredData below keeps the
+ // full, untruncated definition for JSON-LD/AI-citation purposes.
+ const description = truncateForMetaDescription(fullDescription);
  return [
  `glossario-${termId}`,
  {
@@ -719,7 +730,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  '@type': 'WebPage',
  name: `${label} (Glossario)`,
  url: `${BASE_URL}${canonicalPath}`,
- description,
+ description: fullDescription,
  },
  } satisfies SEOMetadata,
  ];

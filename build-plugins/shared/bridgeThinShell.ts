@@ -36,6 +36,7 @@ import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';
 import { inlineScriptJson } from './inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './cantonSection';
+import { extractJobPostingFacts } from './jobPostingFacts';
 
 const LOCALE_PATH_PREFIX: Record<CantonLocale, string> = {
   it: '',
@@ -63,6 +64,22 @@ const BRIDGE_PROSE: Record<string, (canonicalPath: string, listingPath: string) 
     `Dieses Stellenangebot wurde aktualisiert und befindet sich nun auf der neuen kanonischen Seite. Sehen Sie alle Details — Gehalt, Arbeitsort, Vertrag, Bewerbung — weiterhin auf der aktuellsten Version des Inserats. Falls die Seite nicht automatisch geladen wird, gehen Sie zur <a href="${canonicalPath}">aktualisierten Stellenangebot-Seite</a> oder schauen Sie sich alle <a href="${listingPath}">Stellen in der Schweiz</a> an. Unsere Plattform indiziert täglich tausende offene Positionen bei Schweizer Unternehmen für italienische Grenzgänger.`,
   fr: (canonicalPath, listingPath) =>
     `Cette offre d'emploi a été mise à jour et se trouve désormais sur la nouvelle page canonique. Continuez à voir tous les détails — salaire, lieu de travail, contrat, candidature — sur la version la plus récente de l'offre. Si la page ne se charge pas automatiquement, allez à la <a href="${canonicalPath}">page mise à jour de l'offre d'emploi</a> ou consultez toutes les <a href="${listingPath}">offres d'emploi en Suisse</a>. Notre plateforme indexe quotidiennement des milliers de postes ouverts auprès d'entreprises suisses pour les travailleurs frontaliers italiens.`,
+};
+
+// Splices the target job's real employer/location into the thin
+// paragraph as an extra sentence (issue #4399 sibling — same
+// static-PROSE-per-locale construct as clusterThinShell.ts). `cachedHtml`
+// is the canonical job's own full page (see @param doc below), so it
+// carries the same JobPosting JSON-LD extracted via jobPostingFacts.ts.
+const BRIDGE_JOB_FACTS: Record<string, (company: string, location: string) => string> = {
+  it: (company, location) =>
+    company ? `L'offerta è pubblicata da ${company}${location ? `, ${location}` : ''}.` : '',
+  en: (company, location) =>
+    company ? `The offer is published by ${company}${location ? `, ${location}` : ''}.` : '',
+  de: (company, location) =>
+    company ? `Das Angebot wird von ${company}${location ? `, ${location}` : ''} veröffentlicht.` : '',
+  fr: (company, location) =>
+    company ? `L'offre est publiée par ${company}${location ? `, ${location}` : ''}.` : '',
 };
 
 function htmlEscape(s: string): string {
@@ -115,6 +132,13 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
   const proseFn = BRIDGE_PROSE[locale] || BRIDGE_PROSE.it;
   const prose = proseFn(canonicalPath, listingPath);
 
+  // Real per-URL facts (issue #4399 sibling) — the target job's own
+  // employer/location, pulled from the JobPosting JSON-LD before the
+  // canonical job's full body is discarded below.
+  const { company, location } = extractJobPostingFacts(cachedHtml);
+  const factsFn = BRIDGE_JOB_FACTS[locale] || BRIDGE_JOB_FACTS.it;
+  const factsSentence = factsFn(htmlEscape(company), htmlEscape(location));
+
   // Match the existing class so App.tsx's static-overlay logic
   // (useLayoutEffect at App.tsx:204-212) finds and hides the static
   // block for JS-enabled users on non-staticOverlay routes.
@@ -125,7 +149,7 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
     EJP_STRIPPED_MARKER +
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
-    `<p>${prose}</p>` +
+    `<p>${prose}${factsSentence ? ` ${factsSentence}` : ''}</p>` +
     `</article>` +
     `</main>`;
 

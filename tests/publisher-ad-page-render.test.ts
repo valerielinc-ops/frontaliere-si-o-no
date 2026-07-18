@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { applyTarget, renderBody, resolveSlugCollisions } from '../build-plugins/publisherAdPagesPlugin';
+import { applyTarget, renderBody, resolveSlugCollisions, isCanaryOrTestAd } from '../build-plugins/publisherAdPagesPlugin';
+import { buildJobPostingSchema, MANDATORY_JOBPOSTING_FIELDS } from '../build-plugins/shared/jobPostingSchema';
 
 const BASE_REC = {
   title: 'Prompt engineer da remoto',
@@ -129,5 +130,95 @@ describe('resolveSlugCollisions — distinct-ad baseSlug guard (monetization)', 
     const { toEmit, collisions } = resolveSlugCollisions(recs);
     expect(toEmit).toHaveLength(2);
     expect(collisions).toHaveLength(0);
+  });
+});
+
+describe('isCanaryOrTestAd — sitemap exclusion guard for owner verification fixtures (#4408)', () => {
+  it('flags the real canary record: canary:true is the authoritative signal', () => {
+    expect(isCanaryOrTestAd({
+      canary: true,
+      slug: 'specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino',
+      title: 'Specialista Marketing Digitale (Canary Test)',
+    })).toBe(true);
+  });
+
+  it('flags a stray test record by slug pattern even without the canary flag', () => {
+    expect(isCanaryOrTestAd({ slug: 'cameriere-canary-test-lugano-bar-ticino' })).toBe(true);
+  });
+
+  it('flags a stray test record by the "(Canary Test)" title suffix', () => {
+    expect(isCanaryOrTestAd({ slug: 'some-other-slug', title: 'Cameriere (Canary Test)' })).toBe(true);
+  });
+
+  it('does NOT flag a real paid ad', () => {
+    expect(isCanaryOrTestAd(BASE_REC)).toBe(false);
+    expect(isCanaryOrTestAd({
+      slug: 'fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl',
+      title: 'Fisioterapista con riconoscimento CRS',
+      canary: false,
+    })).toBe(false);
+  });
+});
+
+describe('publisher-ads JobPosting structured data — AGENTS #3 mandatory fields', () => {
+  // Real slice records (data/jobs/by-crawler/publisher-submitted.json) —
+  // one free-tier ad with several null address fields, one canary/sponsored
+  // ad with a full address. buildJobPostingSchema must fill safe defaults
+  // for the missing fields, never drop the check (#4408).
+  const FREE_TIER_RECORD = {
+    title: 'Fisioterapista con riconoscimento CRS',
+    slug: 'fisioterapista-con-riconoscimento-crs-fisiocare-sagl-fisiocare-sagl',
+    company: 'Fisiocare Sagl',
+    companyKey: 'fisiocare-sagl',
+    location: 'Fisiocare Sagl',
+    addressLocality: 'Fisiocare Sagl',
+    postalCode: null,
+    streetAddress: null,
+    addressRegion: 'TI',
+    addressCountry: 'CH',
+    canton: 'TI',
+    tier: 'free',
+    description: 'Cerchiamo un fisioterapista con riconoscimento CRS per il nostro studio in Ticino, esperienza minima 2 anni, contratto a tempo indeterminato con benefit.',
+  };
+  const CANARY_RECORD = {
+    title: 'Specialista Marketing Digitale (Canary Test)',
+    slug: 'specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino',
+    company: 'Frontaliere Ticino',
+    companyKey: 'frontaliere-ticino',
+    location: 'Lugano',
+    addressLocality: 'Lugano',
+    postalCode: '6900',
+    streetAddress: null,
+    addressRegion: 'TI',
+    addressCountry: 'CH',
+    canton: 'TI',
+    tier: 'sponsored',
+    canary: true,
+    salaryMin: 70000,
+    salaryMax: 90000,
+    currency: 'CHF',
+    description: 'Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house.',
+  };
+
+  it.each([
+    ['free-tier ad (nulls in postalCode/streetAddress)', FREE_TIER_RECORD],
+    ['canary/sponsored ad', CANARY_RECORD],
+  ])('%s: every AGENTS #3 mandatory field is present and non-empty in every locale', (_label, rec) => {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const url = `https://frontaliereticino.ch/${locale === 'it' ? '' : `${locale}/`}lavoro/${rec.slug}/`;
+      const schema = buildJobPostingSchema(rec, { locale, url });
+      expect(schema.baseSalary?.value?.minValue).toBeGreaterThan(0);
+      expect(schema.jobLocation?.address?.postalCode).toBeTruthy();
+      expect(schema.jobLocation?.address?.streetAddress).toBeTruthy();
+      expect(schema.title).toBeTruthy();
+      expect(schema.description?.length).toBeGreaterThanOrEqual(50);
+      expect(schema.datePosted).toBeTruthy();
+      expect(schema.hiringOrganization?.name).toBeTruthy();
+      expect(schema.jobLocation).toBeTruthy();
+      expect(schema.employmentType).toBeTruthy();
+      // Cross-check against the canonical mandatory-field list so this test
+      // regresses if the shared list ever grows without a matching assertion.
+      expect(MANDATORY_JOBPOSTING_FIELDS.length).toBeGreaterThanOrEqual(9);
+    }
   });
 });

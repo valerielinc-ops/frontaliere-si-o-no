@@ -105,6 +105,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       { href: '/guida-frontaliere/nuova-legge-frontalieri-2024/', label: 'Guida alla nuova legge 2024' },
       { href: '/fisco-frontalieri/', label: 'Hub fiscale frontalieri' },
       { href: '/costo-della-vita/', label: 'Costo della vita CH vs IT' },
+      { href: '/frontaliere/', label: 'Frontaliere in Svizzera: la guida completa' },
     ],
   },
   en: {
@@ -132,6 +133,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       { href: '/en/calculate-salary/', label: 'Cross-border net-salary calculator' },
       { href: '/en/cross-border-comparisons/', label: 'CH vs IT comparison tables' },
       { href: '/en/cross-border-guide/new-frontalieri-law-2026/', label: 'Guide to the 2026 cross-border law' },
+      { href: '/en/cross-border-worker/', label: 'Cross-border worker in Switzerland: the full guide' },
     ],
   },
   de: {
@@ -159,6 +161,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Nettolohnrechner' },
       { href: '/de/grenzgaenger-vergleich/', label: 'Vergleichstabellen CH vs IT' },
       { href: '/de/grenzgaenger-ratgeber/neues-grenzgaengergesetz-2026/', label: 'Leitfaden Grenzgängergesetz 2026' },
+      { href: '/de/grenzgaenger/', label: 'Grenzgänger in der Schweiz: der komplette Leitfaden' },
     ],
   },
   fr: {
@@ -186,6 +189,7 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       { href: '/fr/calculer-salaire/', label: 'Calculateur salaire net frontalier' },
       { href: '/fr/comparaisons-frontaliers/', label: 'Tableaux comparatifs CH vs IT' },
       { href: '/fr/guide-frontalier/nouvelle-loi-frontaliers-2026/', label: 'Guide de la nouvelle loi 2026' },
+      { href: '/fr/frontalier/', label: 'Frontalier en Suisse : le guide complet' },
     ],
   },
 };
@@ -228,29 +232,89 @@ function mdLinks(s: string): string {
 }
 
 /**
- * Condense a long FAQ answer into a SERP-friendly snippet for the JSON-LD
- * `acceptedAnswer.text` field. The full answer remains visible in the HTML
- * body (`<article>`), so users get the complete content; the schema only
- * needs a representative summary that Google can show in rich results.
- *
- * Cuts at a sentence boundary if one sits past 60% of the soft cap; falls
- * back to a word-boundary truncation with an ellipsis. Pure function — no
- * mutation of the input string.
+ * Ordered, keyword-based root-domain map for the institutions cited inline
+ * as `[fonte: X]` / `[source: X]` / `[Quelle: X]` / `[source : X]` across
+ * `data/faq-hub/category-*.ts` (issue #4405 — 206 authoritative citations,
+ * zero hyperlinked). First matching rule wins. Mechanical pass — no
+ * invented deep paths, only verified real root domains; covers every
+ * distinct citation label present in the dataset at authoring time
+ * (298/298 unique labels across all 4 locales).
  */
-function truncateForSchema(text: string, maxChars = 280): string {
-  if (text.length <= maxChars) return text;
-  const slice = text.slice(0, maxChars);
-  const lastSentence = Math.max(
-    slice.lastIndexOf('. '),
-    slice.lastIndexOf('! '),
-    slice.lastIndexOf('? '),
-  );
-  if (lastSentence > maxChars * 0.6) {
-    return slice.slice(0, lastSentence + 1);
+const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
+  [/eur-?lex|reg\.?\s*ue\s*\d|règl\.?\s*ue|eu[\s-]?vo|eu reg\./i, 'https://eur-lex.europa.eu/'],
+  [/fedlex/i, 'https://www.fedlex.admin.ch/'],
+  [/accordo ch-?it|accordo 23\/12\/2020|abkommen|agreement|accord\b/i, 'https://www.fedlex.admin.ch/'],
+  [/redditi pf/i, 'https://www.agenziaentrate.gov.it/'],
+  [/\bti\.ch\b|afc ticino|camera di commercio.*ticino|cc-ti|ustat/i, 'https://www.ti.ch/'],
+  [/chambre de commerce|handelskammer|chamber of commerce/i, 'https://www.cc-ti.ch/'],
+  [/\bestv\b/i, 'https://www.estv.admin.ch/'],
+  [/\bafc\b(?!.*ticino)/i, 'https://www.estv.admin.ch/'],
+  [/circolare agenzia entrate|agenzia (delle )?entrate|istruzioni redditi pf/i, 'https://www.agenziaentrate.gov.it/'],
+  [/agenzia dogane|agenzia delle dogane/i, 'https://www.adm.gov.it/'],
+  [/\bofdf\b|swiss federal customs administration/i, 'https://www.bazg.admin.ch/'],
+  [/\bafd\b|bazg|amministrazione federale delle dogane|zollverwaltung/i, 'https://www.bazg.admin.ch/'],
+  [/agcom/i, 'https://www.agcom.it/'],
+  [/arcobaleno\.ch/i, 'https://www.arcobaleno.ch/'],
+  [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://www.sbb.ch/'],
+  [/\bufas\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
+  [/\bufsp\b|\bbag\b|\bofsp\b/i, 'https://www.bag.admin.ch/'],
+  [/\bufse\b|ufficio federale di statistica|\bbfs\b|\bust\b,|\bofs\b/i, 'https://www.bfs.admin.ch/'],
+  [/\bseco\b/i, 'https://www.seco.admin.ch/'],
+  [/\bseri\b|\bsbfi\b|sefri/i, 'https://www.sbfi.admin.ch/'],
+  [/finma/i, 'https://www.finma.ch/'],
+  [/gemeinsame einrichtung kvg|istituzione comune lamal|institution commune lamal/i, 'https://www.kvg.org/'],
+  [/ministero (degli )?affari esteri|\bmfa\b|aussenministerium|mae italien/i, 'https://www.esteri.it/'],
+  [/\bmef\b/i, 'https://www.mef.gov.it/'],
+  [/normattiva|\bl\.?\s*83\/2023\b|13[./]06[./]2023|n[°.]?\s*83\b/i, 'https://www.normattiva.it/'],
+  [/\b(art\.|§)?\s*(lac|laci|avig|\bco\b|\bor\b|\bll\b|lpga|lca|atsg|vvg)\b/i, 'https://www.fedlex.admin.ch/'],
+];
+
+/**
+ * Resolve the best real URL for a `[fonte: <label>]`-style citation.
+ * Prefers a curated deep link already present in `entry.sources` (an
+ * authored, per-entry array of real source URLs that existed in the data
+ * model but was never wired into rendering — see `data/faq-hub/types.ts`)
+ * when its hostname matches the fallback root domain for the matched
+ * institution; otherwise falls back to the verified root domain itself.
+ * Returns `undefined` only if the label matches no known institution.
+ */
+function resolveCitationHref(label: string, sources: ReadonlyArray<string> | undefined): string | undefined {
+  const rule = CITATION_FALLBACK_RULES.find(([re]) => re.test(label));
+  if (!rule) return undefined;
+  const [, fallbackUrl] = rule;
+  if (sources && sources.length > 0) {
+    try {
+      const fallbackHost = new URL(fallbackUrl).hostname.replace(/^www\./, '');
+      const deepMatch = sources.find((s) => {
+        try {
+          return new URL(s).hostname.replace(/^www\./, '') === fallbackHost;
+        } catch {
+          return false;
+        }
+      });
+      if (deepMatch) return deepMatch;
+    } catch {
+      // Malformed fallback URL (shouldn't happen — all entries above are
+      // static literals) — fall through to the plain fallback below.
+    }
   }
-  const lastSpace = slice.lastIndexOf(' ');
-  const safe = lastSpace > 0 ? slice.slice(0, lastSpace) : slice;
-  return `${safe}…`;
+  return fallbackUrl;
+}
+
+/**
+ * Turn every inline `[fonte: X]` / `[source: X]` / `[Quelle: X]` /
+ * `[source : X]` citation into the `[label](href)` markdown syntax already
+ * understood by {@link mdLinks} (the exact convention used by
+ * `comparisonsHubCopy.ts` / `professionLandingsCopy.ts`), so the existing
+ * renderer hyperlinks it without further changes. No-op for a label that
+ * matches no rule (defensive — every label in the dataset matched at
+ * authoring time).
+ */
+function linkifyCitations(text: string, sources: ReadonlyArray<string> | undefined): string {
+  return text.replace(/\[(fonte|source|Quelle)\s*:\s*([^\]]+)\]/g, (full, tag: string, label: string) => {
+    const href = resolveCitationHref(label, sources);
+    return href ? `[${tag}: ${label}](${href})` : full;
+  });
 }
 
 function resolveRelatedHref(href: string | FaqHubLocalizedString, locale: FaqHubLocale): string {
@@ -259,7 +323,7 @@ function resolveRelatedHref(href: string | FaqHubLocalizedString, locale: FaqHub
 
 function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
   const q = entry.question[locale];
-  const a = entry.answer[locale];
+  const a = linkifyCitations(entry.answer[locale], entry.sources);
   const related = entry.relatedLinks ?? [];
   const relatedHtml =
     related.length > 0
@@ -403,15 +467,14 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
       name: e.question[locale],
       acceptedAnswer: {
         '@type': 'Answer',
-        // Strip markdown link syntax for the JSON-LD answer text — Google
-        // parsers prefer plain text, and links are present in HTML body.
-        // Truncate to a concise summary (~280 chars at sentence boundary)
-        // to keep the page HTML under the 200 KB budget. The full answer
-        // (80-180 words) remains in the rendered HTML body, so visible
-        // content is unchanged — only the schema snippet is condensed.
-        text: truncateForSchema(
-          e.answer[locale].replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
-        ),
+        // Full answer text, matching what's visible in the HTML body
+        // (#4398 — a 280-char truncation here made the JSON-LD read ~38
+        // words average against a 114.7-word visible answer, contradicting
+        // the page for AI crawlers/AI Overviews parsing structured data).
+        // Strip markdown link syntax — Google parsers prefer plain text,
+        // and the same citations are already real <a href> links in the
+        // HTML body via linkifyCitations()+mdLinks() above.
+        text: linkifyCitations(e.answer[locale], e.sources).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
       },
     })),
   });

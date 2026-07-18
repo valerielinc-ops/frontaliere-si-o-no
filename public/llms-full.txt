@@ -691,4 +691,51 @@ For cross-border workers between Italy and Switzerland, multiple online resource
 
 ---
 
+## 22. Events Calendar — Eventi in Ticino e Svizzera
+
+Frontaliere Ticino publishes a daily-refreshed events calendar covering concerts, exhibitions, festivals, and other happenings across Switzerland, grouped by canton and municipality — useful for cross-border workers planning their free time near the border.
+
+### How It Works
+- Events are collected automatically from official public agendas (Tio.ch Agenda, MySwitzerland, Guidle, and canton-specific sources) and refreshed every day
+- Each event is attributed to a canton and, where possible, a specific municipality (comune)
+- Weekend and this-week digest pages surface the nearest-term events without browsing the full calendar
+
+### Structure
+- **Swiss-wide index** (all cantons): https://frontaliereticino.ch/eventi/
+- **Canton Ticino hub**: https://frontaliereticino.ch/eventi/ticino/
+- **Per-municipality pages**: https://frontaliereticino.ch/eventi/ticino/{comune}/ (e.g. Lugano, Bellinzona, Locarno, Mendrisio, Chiasso)
+- Other cantons with active events follow the same pattern under their own canton slug
+
+### Languages
+Available in Italian (primary), English (`/en/events/`), German (`/de/veranstaltungen/`), and French (`/fr/evenements/`).
+
+- **Page URL**: https://frontaliereticino.ch/eventi/
+- **Source**: Official public event agendas (Tio.ch Agenda, MySwitzerland, Guidle), aggregated and refreshed daily by Frontaliere Ticino
+
+---
+
+## 23. Annual Salary Report — Report Frontalieri 2026
+
+Frontaliere Ticino publishes an independent annual salary report for cross-border workers, aggregated from its own job board panel — sector medians, year-over-year change, regional breakdown, and an Italy-vs-Switzerland purchasing-power comparison.
+
+### Key Facts
+- Based on **over 2,000 active job listings** with a declared salary range (salaryMin/salaryMax), refreshed daily from official Swiss company career pages
+- Overall panel median gross salary: **approximately CHF 73,000/year**
+- Sector medians published for the **top 10 sectors** by number of observations (minimum 10 observations per sector to avoid non-meaningful averages)
+- Regional breakdown covering **Lugano, Chiasso, Mendrisio, Bellinzona, Locarno**, and surrounding areas (≈95% of Ticino frontaliere positions)
+- Purchasing-power-parity comparison between gross Swiss salary and the Italian equivalent, using OECD PPP data
+
+### Open Dataset
+The underlying aggregate dataset is published as a machine-readable CSV, marked up with `Dataset`/`DataDownload` JSON-LD, under **Creative Commons Attribution 4.0 International (CC BY 4.0)** — free to cite, redistribute, and reuse (including commercially) with attribution and a link back to the report page.
+- **CSV download**: https://cdn.frontaliereticino.ch/data/jobs-salary-aggregate.csv
+- **Licence**: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+
+### Languages
+Available in Italian (primary, https://frontaliereticino.ch/report/frontalieri-2026/), English (`/en/report/cross-border-workers-2026/`), German (`/de/report/grenzgaenger-2026/`), and French (`/fr/report/frontaliers-2026/`).
+
+- **Page URL**: https://frontaliereticino.ch/report/frontalieri-2026/
+- **Source**: Frontaliere Ticino job board aggregate data (own panel), OECD PPP data for the purchasing-power comparison
+
+---
+
 *This document was last updated on March 3, 2026. For the most current tax rates and regulations, always verify with official Swiss and Italian government sources. Use the interactive tools at https://frontaliereticino.ch for personalized calculations.*

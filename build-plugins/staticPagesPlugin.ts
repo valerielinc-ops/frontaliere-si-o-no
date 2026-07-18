@@ -21,6 +21,7 @@ import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
+import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
 import { renderHubChromeSplit, type HubKey, type HubLocale } from './shared/hubChrome';
 import { railGutters } from './shared/railGutters';
@@ -2032,13 +2033,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const cp = `/glossario-frontaliere/${slug}`;
  if (seoMap.has(seoKey(cp))) continue; // hand-written entry wins
  const label = titleize(termId);
- const termDesc = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
+ // Real, number-forward definition from the shared registry (#4409) — every
+ // term in ALL_GLOSSARY_TERM_IDS has an entry there. The generic template
+ // is a defensive fallback only (a newly-added term id that forgot to
+ // backfill its definition), logged so it can't silently regress.
+ const termDesc = GLOSSARY_TERM_DEFINITIONS[slug];
+ if (!termDesc) {
+ console.warn(`[staticPagesPlugin] glossario term "${slug}" has no entry in GLOSSARY_TERM_DEFINITIONS — shipping generic placeholder text (#4409 regression risk).`);
+ }
+ const resolvedTermDesc = termDesc || `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
  const termUrl = `${BASE_URL}${cp}/`;
  const definedTermSd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'DefinedTerm',
  name: label,
- description: termDesc,
+ description: resolvedTermDesc,
  url: termUrl,
  inDefinedTermSet: {
  '@type': 'DefinedTermSet',
@@ -2046,11 +2055,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  url: `${BASE_URL}/glossario-frontaliere/`,
  },
  });
+ // Meta/og description must stay within Google's ~170-char display limit
+ // (tests/seo-description-length.test.ts) — DefinedTerm.description above
+ // keeps the full, untruncated definition for JSON-LD/AI-citation purposes.
+ const metaTermDesc = truncateForMetaDescription(resolvedTermDesc);
  seoMap.set(seoKey(cp), {
  title: `${label} (Glossario) | Frontaliere Ticino`,
- desc: termDesc,
+ desc: metaTermDesc,
  ogT: `${label} (Glossario) | Frontaliere Ticino`,
- ogD: termDesc,
+ ogD: metaTermDesc,
  sd: definedTermSd,
  });
  }
@@ -2602,6 +2615,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/traffico-dogane/', label: 'Tempi attesa dogane (live)' },
  { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel oggi' },
  { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina oggi' },
+ { href: '/frontaliere/', label: 'Frontaliere in Svizzera: la guida completa' },
  );
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
@@ -3078,6 +3092,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La guida frontaliere raccoglie informazioni pratiche e aggiornate per chi lavora in Ticino e vive in Italia: procedure amministrative, permessi, documenti necessari e consigli basati sull'esperienza di migliaia di frontalieri.`,
  `Ogni sezione è pensata per essere consultabile in modo autonomo e contiene link diretti a modulistica ufficiale, uffici competenti e strumenti di calcolo per verificare immediatamente le implicazioni pratiche.`,
  `Le guide coprono l'intero ciclo di vita del frontaliere: dal primo impiego al pensionamento, passando per disoccupazione, trasferimento auto, valichi di confine e maternità/paternità transfrontaliera.`,
+ `Per una visione d'insieme di chi è il frontaliere, permessi e fiscalità prima di entrare nel dettaglio delle singole guide, parti dalla <a class="s-OsohZU" href="/frontaliere/">panoramica frontaliere</a>.`,
  `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
  );
  } else if (canonicalPath === '/mappa-del-sito/' || canonicalPath === '/mappa-del-sito') {
@@ -3345,7 +3360,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">A cosa serve un glossario per frontalieri Svizzera-Italia</h2>`,
  `Il glossario frontaliere raccoglie 52 definizioni essenziali per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Ogni voce affronta un termine tecnico che un frontaliere incontra in busta paga, contratto di lavoro, dichiarazione dei redditi o pratica amministrativa — dalle sigle fiscali (AVS, LPP, LAMal, IRPEF, TUIR) ai documenti ufficiali (Lohnausweis, Modello 730, CU, Quellensteuerausweis), fino ai concetti giuridici chiave dell'Accordo bilaterale 2020 (residenza fiscale, franchigia 10.000 EUR, tassazione concorrente).`,
  `Le definizioni sono verificate contro fonti ufficiali: Amministrazione federale delle contribuzioni (AFC), Ufficio federale delle assicurazioni sociali (UFAS), Segreteria di Stato della migrazione (SEM) per la parte svizzera; Agenzia delle Entrate, INPS e testo dell'Accordo italo-svizzero del 23 dicembre 2020 (L. 83/2023) per la parte italiana. Ogni voce specifica l'anno di validità delle cifre riportate (aliquote, soglie, tetti) perché molti parametri cambiano annualmente — ad esempio il salario coordinato LPP (CHF 26.460-90.720 nel 2026), il massimale deducibile del pilastro 3a (CHF 7.258 per dipendenti LPP nel 2026), o la franchigia IRPEF per nuovi frontalieri (EUR 10.000 dal 2024).`,
- `Il glossario è uno strumento trasversale, collegato a tutti gli strumenti del sito: il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> usa le voci AVS, AC, LPP e imposta alla fonte per spiegare ogni trattenuta; la <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa 2026</a> rimanda al glossario per ogni sigla introdotta; il <a href="/domande-frequenti-frontalieri/">FAQ frontalieri</a> usa lo stesso vocabolario. Passare da definizione ad applicazione pratica richiede un solo clic.`,
+ `Il glossario è uno strumento trasversale, collegato a tutti gli strumenti del sito: il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> usa le voci AVS, AC, LPP e imposta alla fonte per spiegare ogni trattenuta; la <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa 2026</a> rimanda al glossario per ogni sigla introdotta; il <a href="/domande-frequenti-frontalieri/">FAQ frontalieri</a> usa lo stesso vocabolario. Passare da definizione ad applicazione pratica richiede un solo clic. Per una panoramica d'insieme su chi è il frontaliere, permessi e fiscalità, consulta la <a href="/frontaliere/">guida completa frontaliere</a>.`,
  `<h2 class="s-o3IET6">FAQ sul glossario frontaliere</h2>`,
  `<p><strong>Perché alcune sigle hanno nomi diversi in italiano, tedesco e francese?</strong> La Svizzera ha quattro lingue ufficiali e ogni sigla ha una versione per lingua: AVS (it) = AHV (de) = AVS (fr), LPP (it) = BVG (de) = LPP (fr), LAMal (it/fr) = KVG (de). Sul certificato di salario (Lohnausweis) tedesco trovi AHV, NBU, KTG, BVG. Il glossario riporta tutte le varianti perché molti datori di lavoro ticinesi usano la terminologia tedesca anche nelle buste paga italiane.</p>`,
  `<p><strong>Il glossario include anche i termini italiani non presenti in Svizzera?</strong> Sì: IRPEF, addizionale regionale, addizionale comunale, quadro CE, quadro RW, CU (Certificazione Unica), 730 e Modello Redditi PF sono termini italiani fondamentali per il frontaliere, perché la dichiarazione in Italia resta obbligatoria per i nuovi frontalieri assunti dal 17 luglio 2023. Vedi la <a href="/tasse-e-pensione/dichiarazione-redditi/">guida dichiarazione dei redditi frontaliere</a>.</p>`,
@@ -3932,7 +3947,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // H.7 conclusion — reinforces dwell-time and closes the editorial loop
  editorialBlocks.push(
  `<h2 class="s-o3IET6">Dall'articolo al calcolo: come sfruttare al meglio l'hub</h2>`,
- `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, <a class="s-OsohZU" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>, <a class="s-OsohZU" href="/compara-servizi/confronta-casse-malati/">confronto LAMal vs SSN</a> e <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana.`,
+ `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, <a class="s-OsohZU" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>, <a class="s-OsohZU" href="/compara-servizi/confronta-casse-malati/">confronto LAMal vs SSN</a> e <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana. Chi parte da zero può orientarsi con la <a class="s-OsohZU" href="/frontaliere/">guida completa frontaliere</a>, che riassume permessi, fiscalità e previdenza in un'unica pagina.`,
  `<p class="s-4Rmrb6">Fonti principali: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC/ESTV</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www.bag.admin.ch" rel="noopener">BAG/UFSP</a></p>`,
  );
  // AI-extractable FAQ for blog — collapsible to not disturb UX
@@ -3993,24 +4008,24 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    ? [
        `<h2 class="s-o3IET6">What this section covers</h2>`,
        `The Switzerland section complements the Ticino-focused cross-border articles with a nationwide perspective: cantonal tax comparisons, health-premium trends across cantons, cost-of-living shifts in the main Swiss cities, and federal labour-market and legislative news. It is the right starting point when a decision depends on where in Switzerland you work or plan to move, not only on the Ticino border region.`,
-       `Each article links to the relevant tool — the <a class="s-OsohZU" href="/en/calculate-salary/">salary simulator</a>, the LAMal-vs-SSN comparator and the cost-of-living pages — so you can turn a general update into a personalised, number-backed decision.`,
+       `Each article links to the relevant tool — the <a class="s-OsohZU" href="/en/calculate-salary/">salary simulator</a>, the LAMal-vs-SSN comparator and the cost-of-living pages — so you can turn a general update into a personalised, number-backed decision. New to cross-border work? Start with the <a class="s-OsohZU" href="/en/cross-border-worker/">full cross-border worker guide</a>.`,
      ]
    : loc === 'de'
    ? [
        `<h2 class="s-o3IET6">Was diese Sektion abdeckt</h2>`,
        `Die Schweiz-Sektion ergänzt die auf das Tessin fokussierten Grenzgänger-Artikel um eine landesweite Perspektive: kantonale Steuervergleiche, Entwicklung der Krankenkassenprämien über die Kantone, Lebenshaltungskosten in den grossen Schweizer Städten sowie eidgenössische Arbeitsmarkt- und Gesetzesnachrichten. Sie ist der richtige Ausgangspunkt, wenn eine Entscheidung davon abhängt, wo in der Schweiz Sie arbeiten oder hinziehen möchten.`,
-       `Jeder Artikel verlinkt auf das passende Tool — den <a class="s-OsohZU" href="/de/gehalt-berechnen/">Lohnsimulator</a>, den KVG/SSN-Vergleicher und die Lebenshaltungskosten-Seiten — damit aus einer allgemeinen Information eine personalisierte, zahlenbasierte Entscheidung wird.`,
+       `Jeder Artikel verlinkt auf das passende Tool — den <a class="s-OsohZU" href="/de/gehalt-berechnen/">Lohnsimulator</a>, den KVG/SSN-Vergleicher und die Lebenshaltungskosten-Seiten — damit aus einer allgemeinen Information eine personalisierte, zahlenbasierte Entscheidung wird. Neu als Grenzgänger? Der <a class="s-OsohZU" href="/de/grenzgaenger/">vollständige Grenzgänger-Ratgeber</a> ist der beste Einstieg.`,
      ]
    : loc === 'fr'
    ? [
        `<h2 class="s-o3IET6">Ce que couvre cette section</h2>`,
        `La section Suisse complète les articles frontaliers centrés sur le Tessin par une perspective nationale : comparaisons fiscales cantonales, évolution des primes d'assurance maladie entre cantons, coût de la vie dans les principales villes suisses, ainsi que l'actualité fédérale du marché du travail et de la législation. C'est le bon point de départ lorsqu'une décision dépend de l'endroit où vous travaillez ou comptez vous installer en Suisse.`,
-       `Chaque article renvoie à l'outil pertinent — le <a class="s-OsohZU" href="/fr/calculer-salaire/">simulateur de salaire</a>, le comparateur LAMal/SSN et les pages sur le coût de la vie — pour transformer une information générale en une décision personnalisée et chiffrée.`,
+       `Chaque article renvoie à l'outil pertinent — le <a class="s-OsohZU" href="/fr/calculer-salaire/">simulateur de salaire</a>, le comparateur LAMal/SSN et les pages sur le coût de la vie — pour transformer une information générale en une décision personnalisée et chiffrée. Nouveau statut de frontalier ? Le <a class="s-OsohZU" href="/fr/frontalier/">guide complet du frontalier</a> est le meilleur point de départ.`,
      ]
    : [
        `<h2 class="s-o3IET6">Cosa copre questa sezione</h2>`,
        `La sezione Svizzera affianca agli articoli frontalieri focalizzati sul Ticino una prospettiva nazionale: confronti fiscali cantonali, andamento dei premi delle casse malati tra i cantoni, costo della vita nelle principali città svizzere e novità federali su mercato del lavoro e legislazione. È il punto di partenza giusto quando una decisione dipende da dove in Svizzera si lavora o ci si vuole trasferire, e non solo dalla zona di confine ticinese.`,
-       `Ogni articolo collega allo strumento pertinente — il <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, il confronto LAMal vs SSN e le pagine sul costo della vita — così da trasformare un aggiornamento generico in una decisione personalizzata e supportata dai numeri.`,
+       `Ogni articolo collega allo strumento pertinente — il <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, il confronto LAMal vs SSN e le pagine sul costo della vita — così da trasformare un aggiornamento generico in una decisione personalizzata e supportata dai numeri. Chi si affaccia ora al lavoro transfrontaliero può partire dalla <a class="s-OsohZU" href="/frontaliere/">guida completa frontaliere</a>.`,
      ];
  editorialBlocks.push(...svBody);
  } else if (canonicalPath === '/chi-siamo' || canonicalPath === '/chi-siamo/') {

@@ -34,6 +34,7 @@ import { ALL_SWISS_ARTICLE_IDS, SWISS_SLUGS } from '@/services/routerSwissData';
 import { AUTHORS } from '@/data/authors';
 import type { AppRoute } from '@/services/router';
 import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
+import { GLOSSARY_TERM_DEFINITIONS, GLOSSARY_PLACEHOLDER_DESCRIPTION_RX } from '@/services/seo/glossaryTermDefinitions';
 
 // Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
@@ -267,6 +268,44 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
         expect(meta.ogDescription, `${label}: missing ogDescription`).toBeTruthy();
         expect(meta.keywords, `${label}: missing keywords`).toBeTruthy();
         expect(meta.structuredData, `${label}: missing structuredData`).toBeDefined();
+      });
+    }
+  });
+
+  // 3b. No glossario term ships the generic auto-generated placeholder text
+  // as its DefinedTerm.description (issue #4409 regression guard). Runtime
+  // metadata (services/seoService.ts) must resolve every term id to a real,
+  // backfilled entry in the shared services/seo/glossaryTermDefinitions.ts
+  // registry — this is the exact fallback path that used to leak the
+  // placeholder onto every non-hand-curated term page.
+  describe('Glossario terms never ship the placeholder DefinedTerm.description (#4409)', () => {
+    it('every ALL_GLOSSARY_TERM_IDS entry has a backfilled definition in the shared registry', () => {
+      for (const termId of ALL_GLOSSARY_TERM_IDS) {
+        const slug = buildPath({ activeTab: 'glossario', glossaryTerm: termId }, 'it')
+          .replace(/\/+$/, '')
+          .split('/')
+          .filter(Boolean)
+          .pop();
+        expect(slug, `termId ${termId}: could not resolve IT slug`).toBeTruthy();
+        const def = GLOSSARY_TERM_DEFINITIONS[slug as string];
+        expect(def, `glossario term "${termId}" (slug "${slug}") has no entry in GLOSSARY_TERM_DEFINITIONS`).toBeTruthy();
+        expect(
+          GLOSSARY_PLACEHOLDER_DESCRIPTION_RX.test(def || ''),
+          `glossario term "${termId}": definition text still matches the placeholder pattern`,
+        ).toBe(false);
+      }
+    });
+
+    for (const termId of ALL_GLOSSARY_TERM_IDS) {
+      it(`glossario/${termId} → runtime SEO_METADATA description is not the placeholder`, () => {
+        const route: AppRoute = { activeTab: 'glossario', glossaryTerm: termId };
+        const section = getSeoSection(route);
+        const meta = SEO_METADATA[section];
+        if (!meta) return; // covered by earlier "required fields" test
+        expect(
+          GLOSSARY_PLACEHOLDER_DESCRIPTION_RX.test(meta.description || ''),
+          `glossario/${termId}: SEO_METADATA.description is the generic placeholder`,
+        ).toBe(false);
       });
     }
   });

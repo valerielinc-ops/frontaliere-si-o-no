@@ -2373,6 +2373,23 @@ export interface TopHubPageInputs {
   jobsCount: number;
   /** Total distinct companies across the regional aggregation. */
   companiesCount: number;
+  /**
+   * Top companies across ALL cities (the Ticino regional aggregation),
+   * ranked by the same delta-then-active-count signal as the per-city
+   * `topCompanies` list (see `buildCityWeeklyStats({ city: 'ticino', ... })`).
+   * Rendered as a flat card list above the existing city-index section
+   * (#4410) — a transactional "aziende che assumono ticino" searcher wants
+   * employer names on the hub itself, not 2 clicks deeper. Optional so
+   * existing callers/tests that only need the city-index keep working.
+   */
+  topCompanies?: ReadonlyArray<{ employer: string; employerKey?: string; active: number; delta: number }>;
+  /** Company slug registry — resolves curated brand-hub links for the top-companies cards. */
+  knownSlugs?: ReadonlySet<string>;
+  /** Repo root — resolves explicit brand logos for the top-companies cards. */
+  rootDir?: string;
+  /** Whether real week-over-week deltas exist (≥2 snapshots). Suppresses the
+   * delta subtitle on cold start, matching the per-city hub behaviour. */
+  hasHistoricalDelta?: boolean;
   distDir?: string;
 }
 
@@ -2477,6 +2494,73 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
       name: WEEKLY_EMPLOYERS_CITY_DISPLAY[c],
     })),
   });
+
+  // Heading for the new top-companies section (#4410) — a flat "all cities"
+  // employer list above the existing city-index, so a transactional
+  // "aziende che assumono ticino" searcher sees real employer names on the
+  // hub itself instead of 2 clicks deeper.
+  const topCompaniesHeading: Record<WeeklyEmployersLocale, string> = {
+    it: 'Top aziende della settimana — tutte le città',
+    en: 'Top companies this week — all cities',
+    de: 'Top-Unternehmen dieser Woche — alle Städte',
+    fr: 'Top entreprises de la semaine — toutes les villes',
+  };
+  const topCompaniesList = inp.topCompanies ?? [];
+  // Every employer card gets a real link: a curated brand hub when one
+  // exists, otherwise the Ticino job-board root — never a dead `<strong>`
+  // name, never a disallowed `?q=` outlink (mirrors the per-city pattern,
+  // see `employerHref` in the city-hub renderer below).
+  const topCompaniesHtml = topCompaniesList.length === 0 ? '' : (() => {
+    const items = topCompaniesList.slice(0, 20).map((c, idx) => {
+      const deltaLabel =
+        inp.hasHistoricalDelta === false
+          ? null
+          : c.delta > 0
+          ? copy.deltaPositive(c.delta)
+          : copy.deltaZero;
+      const href = employerBrandPath(c.employerKey, c.employer, inp.knownSlugs) ?? cityJobsHubPath(locale, 'ticino');
+      const logoSlug = c.employerKey || slugifyEmployer(c.employer);
+      const explicitLogo = inp.rootDir ? resolveBrandLogoUrl(inp.rootDir, logoSlug) : null;
+      return {
+        employer: {
+          name: c.employer,
+          companyKey: c.employerKey ?? undefined,
+          logo: explicitLogo,
+          rank: idx + 1,
+          subtitle: deltaLabel ?? undefined,
+          metric: copy.jobsCountLabel(c.active),
+          metricTone: c.delta > 0 ? ('success' as const) : ('default' as const),
+        } satisfies EmployerCardEmployer,
+        href,
+      };
+    });
+    const listHtml = renderEmployerCardListHtml(items, { locale, variant: 'detailed' });
+    return `<section class="s-KZc0LQ" aria-labelledby="weTopCompanies">
+    <h2 id="weTopCompanies" style="${H2_STYLE}">${esc(topCompaniesHeading[locale])}</h2>
+    ${listHtml}
+  </section>`;
+  })();
+  // Structured-data counterpart of the visible top-companies section —
+  // nested Organization per entry (issue #4416), mirroring the per-city
+  // topCompanies ItemList (see itemListLd in the city-hub renderer below).
+  const topCompaniesItemListLd = topCompaniesList.length === 0 ? '' : inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: topCompaniesHeading[locale],
+    numberOfItems: Math.min(topCompaniesList.length, 20),
+    itemListElement: topCompaniesList.slice(0, 20).map((c, idx) => {
+      const href = employerBrandPath(c.employerKey, c.employer, inp.knownSlugs);
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'Organization',
+          name: c.employer,
+          url: href ? `${BASE_URL}${href}` : undefined,
+        },
+      };
+    }),
+  });
   const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -2539,6 +2623,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
   ${topStatsHtml}
   ${topJobBoardCtaHtml}
   ${DRIVEBY_AD_SNIPPET}
+  ${topCompaniesHtml}
   ${renderCityHubsListBlock(locale)}
   <section class="s-KZc0LQ" aria-labelledby="weTopMethodology">
     <h2 id="weTopMethodology" style="${H2_STYLE}">${esc(LINKING_COPY[locale].cityHubsTitle)} — ${esc(copy.kickerCurrent)}</h2>
@@ -2572,7 +2657,10 @@ ${faqHtml}
     ogType: 'website',
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
-    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    // topCompaniesItemListLd is '' when no topCompanies were passed
+    // (existing callers/tests) — filter so we never emit an empty
+    // `<script type="application/ld+json"></script>` (invalid JSON-LD).
+    jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, topCompaniesItemListLd, faqLd].filter(Boolean),
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
@@ -3340,7 +3428,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // falls straight to the placeholder — no Clearbit/Google-favicon hop (both
   // produce the broken-looking grey globe). See companyLogoResolver.ts.
   const headerLogoHtml = brandLogoUrl
-    ? `<img class="s-xISvoQ" src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" decoding="async" onerror="${LOGO_IMG_ONERROR}">`
+    ? `<img class="s-xISvoQ" src="${esc(brandLogoUrl)}" alt="Logo ${esc(employer)}" width="80" height="80" loading="eager" fetchpriority="high" decoding="async" onerror="${LOGO_IMG_ONERROR}">`
     : `<span class="s-oRrysh" aria-hidden="true">${ICON_BUILDING_SVG}</span>`;
 
   // Job list (≤10) — rendered via the SPA-matching shared `renderJobCardHtml`
@@ -3941,11 +4029,28 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   ).size;
   for (const locale of WEEKLY_EMPLOYERS_LOCALES) {
     const __tTop = __weProfStart();
+    // 'ticino' is the regional aggregate city (jobMatchesCity matches every
+    // Ticino job for it — site is Ticino-only), so its topCompanies list IS
+    // the "top companies across all cities" ranking the hub needs (#4410).
+    // Same signal (delta then active count) already used per-city below.
+    const ticinoStats = buildCityWeeklyStats({
+      city: 'ticino',
+      locale,
+      jobs: opts.jobs,
+      previousSnapshot,
+      historicalSnapshots: olderSnapshots,
+      partition: jobPartition,
+      limitCompanies: 20,
+    });
     const html = renderTopHubPage({
       locale,
       today,
       jobsCount: totalActiveJobs,
       companiesCount: totalCompanies,
+      topCompanies: ticinoStats.topCompanies,
+      knownSlugs,
+      rootDir: opts.rootDir,
+      hasHistoricalDelta,
       distDir,
     });
     pages.push({ path: topHubPath(locale), html, indexable: true });

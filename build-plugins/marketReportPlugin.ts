@@ -172,7 +172,11 @@ interface Copy {
   topCitiesH2: string;
   topCitiesP: string;
   salaryH2: string;
-  salaryP: string;
+  // Function (not a literal string) — interpolate the average salary at
+  // render time from the same `avgMid` source of truth used by the stat
+  // tile / embed snippet / Dataset JSON-LD, so this copy can't drift into
+  // a stale hardcoded figure (sibling of #4394 — was a hardcoded "CHF 73 000").
+  salaryP: (avgMid: number | null) => string;
   topSalaryCompaniesH3: string;
   topSalaryLocationsH3: string;
   sectorsH2: string;
@@ -223,7 +227,8 @@ const COPY: Record<Locale, Copy> = {
     topCitiesH2: 'Top 10 città con più offerte per frontalieri',
     topCitiesP: "Il baricentro geografico del mercato frontaliero è in continua evoluzione. Lugano resta la prima scelta per chi cerca ruoli in finanza, assicurazioni e consulenza; Bellinzona cresce per sanità pubblica e amministrazione cantonale; Chiasso e Mendrisio tengono per industria, logistica e retail. La tabella mostra la distribuzione reale in base al numero di posizioni aperte — non in base alla popolarità percepita.",
     salaryH2: 'Stipendi frontalieri: chi paga di più',
-    salaryP: "Nei nostri annunci con range salariale dichiarato (il 100 % del panel), lo stipendio medio annuo si attesta intorno a CHF 73 000 lordi. La distribuzione è però fortemente bimodale: i ruoli retail, ristorazione e logistica pagano sotto i CHF 55 000 lordi, mentre finanza specialistica, IT senior e sanità specialistica superano facilmente i CHF 110 000. Di seguito le aziende con lo stipendio medio più alto nel nostro indice.",
+    salaryP: (avgMid) =>
+      `Nei nostri annunci con range salariale dichiarato (il 100 % del panel), lo stipendio medio annuo si attesta intorno a ${formatCHF(avgMid)} lordi. La distribuzione è però fortemente bimodale: i ruoli retail, ristorazione e logistica pagano sotto i CHF 55 000 lordi, mentre finanza specialistica, IT senior e sanità specialistica superano facilmente i CHF 110 000. Di seguito le aziende con lo stipendio medio più alto nel nostro indice.`,
     topSalaryCompaniesH3: 'Aziende con lo stipendio medio più alto',
     topSalaryLocationsH3: 'Città con lo stipendio medio più alto',
     sectorsH2: 'Settori che assumono di più',
@@ -272,7 +277,8 @@ const COPY: Record<Locale, Copy> = {
     topCitiesH2: 'Top 10 cities with the most cross-border openings',
     topCitiesP: "The geographic centre of gravity of the cross-border market is constantly shifting. Lugano remains the top choice for finance, insurance and consulting roles; Bellinzona is growing for public healthcare and cantonal administration; Chiasso and Mendrisio hold steady for industry, logistics and retail. The table below shows the real distribution based on the number of open positions — not on perceived popularity.",
     salaryH2: 'Cross-border salaries: who pays the most',
-    salaryP: "In our panel of listings with a declared salary range, the average annual salary sits around CHF 73,000 gross. The distribution is strongly bimodal though: retail, hospitality and logistics roles pay below CHF 55,000, while specialised finance, senior IT and specialised healthcare easily exceed CHF 110,000. Below the companies with the highest average salary in our index.",
+    salaryP: (avgMid) =>
+      `In our panel of listings with a declared salary range, the average annual salary sits around ${formatCHF(avgMid)} gross. The distribution is strongly bimodal though: retail, hospitality and logistics roles pay below CHF 55,000, while specialised finance, senior IT and specialised healthcare easily exceed CHF 110,000. Below the companies with the highest average salary in our index.`,
     topSalaryCompaniesH3: 'Companies with the highest average salary',
     topSalaryLocationsH3: 'Cities with the highest average salary',
     sectorsH2: 'Sectors hiring the most',
@@ -321,7 +327,8 @@ const COPY: Record<Locale, Copy> = {
     topCitiesH2: 'Top 10 Städte mit den meisten Grenzgänger-Stellen',
     topCitiesP: "Der geographische Schwerpunkt des Grenzgänger-Marktes verschiebt sich ständig. Lugano bleibt die erste Wahl für Finanz-, Versicherungs- und Beratungsstellen; Bellinzona wächst im öffentlichen Gesundheitswesen und in der kantonalen Verwaltung; Chiasso und Mendrisio halten sich für Industrie, Logistik und Handel. Die Tabelle zeigt die tatsächliche Verteilung nach Anzahl offener Stellen — nicht nach empfundener Beliebtheit.",
     salaryH2: 'Grenzgänger-Löhne: Wer zahlt am meisten',
-    salaryP: "In unserem Panel mit ausgewiesenem Gehaltsband liegt der durchschnittliche Jahreslohn bei rund CHF 73 000 brutto. Die Verteilung ist allerdings stark bimodal: Retail-, Gastronomie- und Logistikrollen zahlen unter CHF 55 000, während spezialisierte Finance-, Senior-IT- und Facharztrollen die CHF 110 000 leicht überschreiten. Es folgen die Unternehmen mit den höchsten Durchschnittslöhnen im Index.",
+    salaryP: (avgMid) =>
+      `In unserem Panel mit ausgewiesenem Gehaltsband liegt der durchschnittliche Jahreslohn bei rund ${formatCHF(avgMid)} brutto. Die Verteilung ist allerdings stark bimodal: Retail-, Gastronomie- und Logistikrollen zahlen unter CHF 55 000, während spezialisierte Finance-, Senior-IT- und Facharztrollen die CHF 110 000 leicht überschreiten. Es folgen die Unternehmen mit den höchsten Durchschnittslöhnen im Index.`,
     topSalaryCompaniesH3: 'Unternehmen mit höchstem Durchschnittslohn',
     topSalaryLocationsH3: 'Städte mit höchstem Durchschnittslohn',
     sectorsH2: 'Branchen mit höchster Einstellungsquote',
@@ -370,7 +377,8 @@ const COPY: Record<Locale, Copy> = {
     topCitiesH2: 'Top 10 villes avec le plus d\'offres frontaliers',
     topCitiesP: "Le centre de gravité géographique du marché frontalier évolue en permanence. Lugano reste le premier choix pour les rôles en finance, assurance et conseil ; Bellinzone progresse dans la santé publique et l'administration cantonale ; Chiasso et Mendrisio tiennent pour l'industrie, la logistique et le commerce. Le tableau ci-dessous montre la distribution réelle selon le nombre de postes ouverts — et non la popularité perçue.",
     salaryH2: 'Salaires frontaliers : qui paie le plus',
-    salaryP: "Dans notre panel d'annonces avec fourchette salariale déclarée, le salaire annuel moyen se situe autour de CHF 73 000 brut. La distribution est toutefois fortement bimodale : les rôles retail, restauration et logistique paient en dessous de CHF 55 000, tandis que la finance spécialisée, l'IT senior et la santé spécialisée dépassent facilement les CHF 110 000. Voici les entreprises affichant le salaire moyen le plus élevé dans notre index.",
+    salaryP: (avgMid) =>
+      `Dans notre panel d'annonces avec fourchette salariale déclarée, le salaire annuel moyen se situe autour de ${formatCHF(avgMid)} brut. La distribution est toutefois fortement bimodale : les rôles retail, restauration et logistique paient en dessous de CHF 55 000, tandis que la finance spécialisée, l'IT senior et la santé spécialisée dépassent facilement les CHF 110 000. Voici les entreprises affichant le salaire moyen le plus élevé dans notre index.`,
     topSalaryCompaniesH3: 'Entreprises avec le salaire moyen le plus élevé',
     topSalaryLocationsH3: 'Villes avec le salaire moyen le plus élevé',
     sectorsH2: 'Secteurs qui recrutent le plus',
@@ -447,7 +455,12 @@ function renderReport(opts: {
   const activeCompanies = stats?.totals?.activeCompanies ?? 0;
   const added7d = stats?.totals?.last7d?.added ?? 0;
   const salaryCoverage = stats?.salary?.coverage;
-  const avgMid = salaryCoverage?.avgMid ?? 73000;
+  // No hardcoded fallback here (was `?? 73000`, a stale figure that made
+  // the tile/embed/JSON-LD confidently assert a fabricated number whenever
+  // jobs-stats.json's salary coverage was missing) — formatCHF(null)
+  // degrades to 'N/D', and the Dataset JSON-LD PropertyValue below is
+  // omitted entirely rather than emitting a false `value: null`.
+  const avgMid = salaryCoverage?.avgMid ?? null;
   const medianMid = salaryCoverage?.medianMid ?? null;
 
   const topEmployers = (stats?.leaders?.topCompaniesActive ?? []).slice(0, 10);
@@ -601,7 +614,11 @@ function renderReport(opts: {
     variableMeasured: [
       { '@type': 'PropertyValue', name: copy.headlineActiveJobsLabel, value: activeJobs },
       { '@type': 'PropertyValue', name: copy.headlineCompaniesLabel, value: activeCompanies },
-      { '@type': 'PropertyValue', name: copy.headlineMedianSalaryLabel, unitCode: 'CHF', value: avgMid },
+      // Omitted (not emitted as `value: null`) when jobs-stats.json has no
+      // salary coverage — see the avgMid fallback comment above.
+      ...(avgMid !== null
+        ? [{ '@type': 'PropertyValue', name: copy.headlineMedianSalaryLabel, unitCode: 'CHF', value: avgMid }]
+        : []),
     ],
     distribution: {
       '@type': 'DataDownload',
@@ -642,7 +659,7 @@ function renderReport(opts: {
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.salaryH2)}</h2>
-      <p style="${BODY_STYLE}">${esc(copy.salaryP)}</p>
+      <p style="${BODY_STYLE}">${esc(copy.salaryP(avgMid))}</p>
       ${topSalaryCompaniesTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryCompaniesH3)}</h3>${topSalaryCompaniesTable}` : ''}
       ${topSalaryLocationsTable ? `<h3 class="s-QiTCCv">${esc(copy.topSalaryLocationsH3)}</h3>${topSalaryLocationsTable}` : ''}
     </section>

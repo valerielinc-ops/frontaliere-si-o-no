@@ -249,6 +249,19 @@ interface Copy {
   hubLabel: string;
   allEvents: string;
   eventsWord: string;
+  // #4414: data-driven 3rd FAQ pair (hub = canton-scoped, comune = per-comune)
+  // — real weekly event count + soonest upcoming event, computed at render
+  // time from already-available data, instead of reusing generic boilerplate
+  // on every page. Hub fields mention the canton name so they go through the
+  // same `sub()` substitution as faqHubQ1/faqHubA2 above; comune fields take
+  // the comune name as a parameter and never mention "Ticino", so they need
+  // no substitution (same split as faqComuneQ1/A1 vs faqComuneQ2/A2).
+  faqHubDynamicQ: string;
+  faqHubDynamicAHasEvents: (weekCount: number, title: string, date: string) => string;
+  faqHubDynamicAEmpty: string;
+  faqComuneDynamicQ: (c: string) => string;
+  faqComuneDynamicAHasEvents: (c: string, weekCount: number, title: string, date: string) => string;
+  faqComuneDynamicAEmpty: (c: string) => string;
 }
 
 const COPY: Record<Locale, Copy> = {
@@ -292,6 +305,14 @@ const COPY: Record<Locale, Copy> = {
     hubLabel: 'Eventi Ticino',
     allEvents: 'Vedi tutti gli eventi del Ticino',
     eventsWord: 'eventi',
+    faqHubDynamicQ: 'Quanti eventi ci sono in Ticino questa settimana?',
+    faqHubDynamicAHasEvents: (weekCount, title, date) =>
+      `${weekCount} event${weekCount === 1 ? 'o' : 'i'} in programma in Ticino nei prossimi 7 giorni: il prossimo è "${title}" il ${date}${sentenceEndAfterDate(date)}`,
+    faqHubDynamicAEmpty: 'Al momento non risultano eventi in programma in Ticino: l\'agenda si aggiorna ogni giorno, torna a controllare presto.',
+    faqComuneDynamicQ: (c) => `Quanti eventi ci sono a ${c} questa settimana?`,
+    faqComuneDynamicAHasEvents: (c, weekCount, title, date) =>
+      `${weekCount} event${weekCount === 1 ? 'o' : 'i'} in programma a ${c} nei prossimi 7 giorni: il prossimo è "${title}" il ${date}${sentenceEndAfterDate(date)}`,
+    faqComuneDynamicAEmpty: (c) => `Al momento non risultano eventi in programma a ${c}: l'agenda si aggiorna ogni giorno, torna a controllare presto.`,
   },
   en: {
     hubTitle: 'Events in Ticino: an agenda by municipality',
@@ -333,6 +354,14 @@ const COPY: Record<Locale, Copy> = {
     hubLabel: 'Ticino Events',
     allEvents: 'See all Ticino events',
     eventsWord: 'events',
+    faqHubDynamicQ: 'How many events are on in Ticino this week?',
+    faqHubDynamicAHasEvents: (weekCount, title, date) =>
+      `${weekCount} event${weekCount === 1 ? '' : 's'} coming up in Ticino in the next 7 days: the next one is "${title}" on ${date}${sentenceEndAfterDate(date)}`,
+    faqHubDynamicAEmpty: 'There are currently no events scheduled in Ticino: the agenda refreshes daily, check back soon.',
+    faqComuneDynamicQ: (c) => `How many events are on in ${c} this week?`,
+    faqComuneDynamicAHasEvents: (c, weekCount, title, date) =>
+      `${weekCount} event${weekCount === 1 ? '' : 's'} coming up in ${c} in the next 7 days: the next one is "${title}" on ${date}${sentenceEndAfterDate(date)}`,
+    faqComuneDynamicAEmpty: (c) => `There are currently no events scheduled in ${c}: the agenda refreshes daily, check back soon.`,
   },
   de: {
     hubTitle: 'Veranstaltungen im Tessin: Agenda nach Gemeinde',
@@ -374,6 +403,14 @@ const COPY: Record<Locale, Copy> = {
     hubLabel: 'Tessin Events',
     allEvents: 'Alle Tessiner Veranstaltungen ansehen',
     eventsWord: 'Anlässe',
+    faqHubDynamicQ: 'Wie viele Veranstaltungen gibt es diese Woche im Tessin?',
+    faqHubDynamicAHasEvents: (weekCount, title, date) =>
+      `${weekCount} Veranstaltung${weekCount === 1 ? '' : 'en'} in den nächsten 7 Tagen im Tessin: die nächste ist „${title}" am ${date}${sentenceEndAfterDate(date)}`,
+    faqHubDynamicAEmpty: 'Aktuell sind im Tessin keine Veranstaltungen geplant: Die Agenda wird täglich aktualisiert, schau bald wieder vorbei.',
+    faqComuneDynamicQ: (c) => `Wie viele Veranstaltungen gibt es diese Woche in ${c}?`,
+    faqComuneDynamicAHasEvents: (c, weekCount, title, date) =>
+      `${weekCount} Veranstaltung${weekCount === 1 ? '' : 'en'} in den nächsten 7 Tagen in ${c}: die nächste ist „${title}" am ${date}${sentenceEndAfterDate(date)}`,
+    faqComuneDynamicAEmpty: (c) => `Aktuell sind in ${c} keine Veranstaltungen geplant: Die Agenda wird täglich aktualisiert, schau bald wieder vorbei.`,
   },
   fr: {
     hubTitle: 'Événements au Tessin: agenda par commune',
@@ -415,6 +452,14 @@ const COPY: Record<Locale, Copy> = {
     hubLabel: 'Événements Tessin',
     allEvents: 'Voir tous les événements du Tessin',
     eventsWord: 'événements',
+    faqHubDynamicQ: 'Combien d\'événements y a-t-il au Tessin cette semaine?',
+    faqHubDynamicAHasEvents: (weekCount, title, date) =>
+      `${weekCount} événement${weekCount === 1 ? '' : 's'} prévu${weekCount === 1 ? '' : 's'} au Tessin dans les 7 prochains jours: le prochain est « ${title} » le ${date}${sentenceEndAfterDate(date)}`,
+    faqHubDynamicAEmpty: 'Aucun événement n\'est actuellement prévu au Tessin: l\'agenda se met à jour chaque jour, revenez bientôt.',
+    faqComuneDynamicQ: (c) => `Combien d'événements y a-t-il à ${c} cette semaine?`,
+    faqComuneDynamicAHasEvents: (c, weekCount, title, date) =>
+      `${weekCount} événement${weekCount === 1 ? '' : 's'} prévu${weekCount === 1 ? '' : 's'} à ${c} dans les 7 prochains jours: le prochain est « ${title} » le ${date}${sentenceEndAfterDate(date)}`,
+    faqComuneDynamicAEmpty: (c) => `Aucun événement n'est actuellement prévu à ${c}: l'agenda se met à jour chaque jour, revenez bientôt.`,
   },
 };
 
@@ -526,6 +571,15 @@ function copyFor(canton: string, locale: Locale): Copy {
     faqComuneA1: (c: string) => sub(base.faqComuneA1(c)),
     hubLabel: sub(base.hubLabel),
     allEvents: sub(base.allEvents),
+    // #4414: hub-scoped dynamic FAQ pair mentions the canton name (base text
+    // is TI-hardcoded, e.g. "in Ticino"/"im Tessin") — same sub() treatment
+    // as faqHubQ1/faqHubA2 above. Comune-scoped dynamic fields need no
+    // substitution (no canton name in their template) so they pass through
+    // via the `...base` spread untouched.
+    faqHubDynamicQ: sub(base.faqHubDynamicQ),
+    faqHubDynamicAHasEvents: (weekCount: number, title: string, date: string) =>
+      sub(base.faqHubDynamicAHasEvents(weekCount, title, date)),
+    faqHubDynamicAEmpty: sub(base.faqHubDynamicAEmpty),
   };
   copyCache.set(cacheKey, out);
   return out;
@@ -1302,6 +1356,48 @@ function distinctCategories(events: SiteEvent[]): number {
   return new Set(events.map((e) => e.category).filter(Boolean)).size;
 }
 
+/** Count of `events` overlapping the [today, today+7) window — same window
+ * as the `week` DIGESTS entry above (weekWindow/overlapsWindow, §6 shared
+ * date math), reused here for issue #4414's data-driven FAQ pair. */
+function weekEventCount(events: SiteEvent[], dateStamp: string): number {
+  const { start, end } = weekWindow(dateStamp);
+  return events.filter((e) => overlapsWindow(e, start, end)).length;
+}
+
+/**
+ * Sentence-ending period to append right after a `humanDate()` string,
+ * skipped when the date itself already ends in one — `fr-CH` abbreviated
+ * months ("juil.", "déc.") already carry a trailing period, so a template
+ * that naively appended "." produced a visible/JSON-LD-visible ".." in the
+ * French dynamic-FAQ answer below (issue #4414 review fix).
+ */
+function sentenceEndAfterDate(date: string): string {
+  return date.endsWith('.') ? '' : '.';
+}
+
+/**
+ * Issue #4414: a 3rd FAQ pair, generated from real per-page data instead of
+ * reused boilerplate — real weekly event count + the soonest upcoming event
+ * (always `events[0]`, see `upcomingEvents()` sort order). `events` must
+ * already be scoped to the page (comune list or canton list) and sorted
+ * ascending by startDate, exactly as `renderHubPage`/`renderComunePage`
+ * already receive it. Falls back to the `aEmpty` answer when the page has
+ * zero upcoming events at all.
+ */
+function dynamicFaqPair(
+  locale: Locale,
+  events: SiteEvent[],
+  dateStamp: string,
+  q: string,
+  aHasEvents: (weekCount: number, title: string, date: string) => string,
+  aEmpty: string,
+): { q: string; a: string } {
+  if (events.length === 0) return { q, a: aEmpty };
+  const next = events[0];
+  const weekCount = weekEventCount(events, dateStamp);
+  return { q, a: aHasEvents(weekCount, localizedTitle(next, locale), humanDate(next.startDate, locale)) };
+}
+
 /**
  * Events eligible for Event JSON-LD markup on aggregate ItemList pages
  * (#3508): Google's event structured-data guidelines say not to mark up
@@ -1382,6 +1478,11 @@ export function renderHubPage(params: {
         .join('')}
     </section>`;
 
+  // #4414: real weekly count + soonest upcoming event, computed once and
+  // reused for both the visible <details> markup and the FAQPage JSON-LD
+  // below so the two never drift.
+  const dynamicFaq = dynamicFaqPair(locale, events, dateStamp, copy.faqHubDynamicQ, copy.faqHubDynamicAHasEvents, copy.faqHubDynamicAEmpty);
+
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
       <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
@@ -1426,6 +1527,7 @@ export function renderHubPage(params: {
       [
         { q: copy.faqHubQ1, a: copy.faqHubA1 },
         { q: copy.faqHubQ2, a: copy.faqHubA2 },
+        dynamicFaq,
       ],
       copy.faqTitle,
     )}
@@ -1461,6 +1563,7 @@ export function renderHubPage(params: {
     mainEntity: [
       { '@type': 'Question', name: copy.faqHubQ1, acceptedAnswer: { '@type': 'Answer', text: copy.faqHubA1 } },
       { '@type': 'Question', name: copy.faqHubQ2, acceptedAnswer: { '@type': 'Answer', text: copy.faqHubA2 } },
+      { '@type': 'Question', name: dynamicFaq.q, acceptedAnswer: { '@type': 'Answer', text: dynamicFaq.a } },
     ],
   });
 
@@ -1624,6 +1727,10 @@ export function renderComunePage(params: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const list = events.slice(0, 40);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
+  // #4414: real weekly count + soonest upcoming event for this comune —
+  // scoped to the FULL comune `events` list (not the 40-item display slice)
+  // so weekCount/next stay accurate even on comuni with >40 upcoming events.
+  const dynamicFaq = dynamicFaqPair(locale, events, dateStamp, copy.faqComuneDynamicQ(comune), (weekCount, title, date) => copy.faqComuneDynamicAHasEvents(comune, weekCount, title, date), copy.faqComuneDynamicAEmpty(comune));
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
     <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
@@ -1664,6 +1771,7 @@ export function renderComunePage(params: {
       [
         { q: copy.faqComuneQ1(comune), a: copy.faqComuneA1(comune) },
         { q: copy.faqComuneQ2, a: copy.faqComuneA2 },
+        dynamicFaq,
       ],
       copy.faqTitle,
     )}
@@ -1700,6 +1808,7 @@ export function renderComunePage(params: {
     mainEntity: [
       { '@type': 'Question', name: copy.faqComuneQ1(comune), acceptedAnswer: { '@type': 'Answer', text: copy.faqComuneA1(comune) } },
       { '@type': 'Question', name: copy.faqComuneQ2, acceptedAnswer: { '@type': 'Answer', text: copy.faqComuneA2 } },
+      { '@type': 'Question', name: dynamicFaq.q, acceptedAnswer: { '@type': 'Answer', text: dynamicFaq.a } },
     ],
   });
 

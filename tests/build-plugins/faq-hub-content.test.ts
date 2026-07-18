@@ -193,3 +193,83 @@ describe('FAQ hub (AE-5) — new fisco entries link internally per-locale (#3653
     }
   });
 });
+
+/**
+ * Regression coverage for issue #4398 (FAQPage `acceptedAnswer.text` was cut
+ * to ~280 chars / ~38 words average via `truncateForSchema`, while the
+ * visible on-page answer averages 114.7 words — the JSON-LD that AI
+ * crawlers/AI Overviews parse contradicted the page). `truncateForSchema`
+ * was removed entirely (no other callers); the schema text must now track
+ * the visible answer length for every entry whose full answer exceeds the
+ * old 280-char cap.
+ */
+describe('FAQ hub — acceptedAnswer.text is not truncated to 280 chars (#4398)', () => {
+  it('JSON-LD acceptedAnswer.text length tracks the visible answer length (IT)', async () => {
+    const htmlByLocale = await buildAllLocaleHtml();
+    const html = htmlByLocale.it;
+    const schemas = flattenSchemas(extractJsonLdBlocks(html));
+    const faqPage = schemas.find((s) => s['@type'] === 'FAQPage');
+    expect(faqPage, 'missing FAQPage JSON-LD').toBeDefined();
+
+    const mainEntity = faqPage?.mainEntity as Array<{ acceptedAnswer: { text: string } }>;
+    expect(Array.isArray(mainEntity)).toBe(true);
+
+    const visibleTexts: string[] = [];
+    const articleRe = new RegExp(`<p ${attrEq('class', 'fh-qa')}>([\\s\\S]*?)</p>`, 'g');
+    let match: RegExpExecArray | null;
+    while ((match = articleRe.exec(html)) !== null) {
+      visibleTexts.push(match[1].replace(/<[^>]+>/g, ''));
+    }
+    expect(visibleTexts.length, 'article count must match FAQPage mainEntity count').toBe(mainEntity.length);
+
+    let overCapVisible = 0;
+    let stillTruncatedInJsonLd = 0;
+    for (let i = 0; i < mainEntity.length; i++) {
+      const visibleLen = visibleTexts[i].length;
+      const jsonLdLen = mainEntity[i].acceptedAnswer.text.length;
+      if (visibleLen > 280) {
+        overCapVisible++;
+        // Old bug: truncateForSchema(text, 280) capped acceptedAnswer.text
+        // well below the visible length for every long answer. If the cap
+        // ever comes back, jsonLdLen would sit near/below 280 while
+        // visibleLen stays in the 500-1200 char range (80-180 word answers).
+        if (jsonLdLen < visibleLen - 100) stillTruncatedInJsonLd++;
+      }
+    }
+    // Sanity: most FAQ answers are long enough to have hit the old cap —
+    // otherwise this test would trivially pass without exercising the bug.
+    expect(overCapVisible).toBeGreaterThan(mainEntity.length * 0.8);
+    expect(
+      stillTruncatedInJsonLd,
+      'acceptedAnswer.text must not be truncated relative to the visible answer',
+    ).toBe(0);
+  });
+});
+
+/**
+ * Regression coverage for issue #4405 (206 authoritative `[fonte: X]` /
+ * `[source: X]` / `[Quelle: X]` citations across the FAQ hub, zero of them
+ * hyperlinked). `linkifyCitations()` now converts every inline citation
+ * into the same `[label](href)` markdown syntax the page already renders
+ * as a real `<a href>` via `mdLinks()`.
+ */
+describe('FAQ hub — [fonte:]/[source:]/[Quelle:] citations are hyperlinked (#4405)', () => {
+  it('every locale renders real citation links and leaves no un-linked bracket citation', async () => {
+    const htmlByLocale = await buildAllLocaleHtml();
+    for (const locale of FAQ_HUB_LOCALES) {
+      const html = htmlByLocale[locale];
+
+      const citationLinkRe = new RegExp(`<a ${attrEq('class', 's-TKxoRL')} href=(?:"https?:[^"]+"|https?:\\S+)`, 'g');
+      const citationLinkCount = (html.match(citationLinkRe) ?? []).length;
+      expect(citationLinkCount, `${locale}: expected hyperlinked citations`).toBeGreaterThan(50);
+
+      // After linkifyCitations() + mdLinks(), no literal "[fonte:" /
+      // "[source:" / "[Quelle:" bracket text should remain — it's always
+      // consumed into an <a> tag.
+      expect(
+        html,
+        `${locale}: found an un-linked [fonte:]/[source:]/[Quelle:] citation`,
+      ).not.toMatch(/\[(fonte|source|Quelle)\s*:/);
+    }
+  });
+});

@@ -7,9 +7,18 @@
 import path from 'path';
 import type { Plugin } from 'vite';
 import { isJobBoardSectionPath } from '../scripts/lib/jobBoardSections.mjs';
+import { discoverSitemapFiles } from './sitemapAliasPlugin';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
+// Guaranteed-minimum floor — never drop below this even if dynamic
+// discovery (below) runs before every feature plugin has emitted its own
+// sitemap-*.xml into dist/. The real, complete file list is discovered at
+// build time via `discoverSitemapFiles(distDir)` (same source of truth
+// sitemapAliasPlugin.ts uses to regenerate dist/sitemap.xml — issue #4413's
+// sibling: this hardcoded array used to be the ONLY source, silently
+// missing dozens of newer template families' sub-sitemaps from the
+// llms.txt page index).
 const SITEMAP_FILES = [
  'sitemap-pages.xml', 'sitemap-blog.xml', 'sitemap-glossario.xml',
  'sitemap-news.xml', 'sitemap-jobs.xml',
@@ -19,10 +28,26 @@ const SITEMAP_FILES = [
 ];
 
 /**
+ * Union of the static floor above with every `sitemap-*.xml` actually
+ * present in `distDir` (mirrors sitemapAliasPlugin's own discovery — same
+ * pattern/exclusions). Falls back to the static list alone when `distDir`
+ * is unavailable (e.g. a future caller running outside a full build).
+ */
+async function resolveSitemapFileList(distDir?: string): Promise<string[]> {
+ if (!distDir) return SITEMAP_FILES;
+ try {
+  const discovered = await discoverSitemapFiles(distDir);
+  return [...new Set([...SITEMAP_FILES, ...discovered.map((d) => d.file)])];
+ } catch {
+  return SITEMAP_FILES;
+ }
+}
+
+/**
  * Parse sub-sitemaps and return URLs for a specific locale.
  * locale='it' returns Italian-only (no prefix); 'en'/'de'/'fr' returns those prefixed URLs.
  */
-function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), locale: 'it' | 'en' | 'de' | 'fr' = 'it', distDir?: string): string[] {
+function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), locale: 'it' | 'en' | 'de' | 'fr' = 'it', distDir?: string, sitemapFiles: readonly string[] = SITEMAP_FILES): string[] {
  const urls: string[] = [];
  const readSitemap = (file: string): string | null => {
   // Prefer publicDir (committed sitemaps), fall back to distDir for
@@ -34,7 +59,7 @@ function parseSitemapUrls(publicDir: string, fs: typeof import('node:fs'), local
   }
   return null;
  };
- for (const file of SITEMAP_FILES) {
+ for (const file of sitemapFiles) {
  const content = readSitemap(file);
  if (content === null) continue;
  try {
@@ -199,8 +224,11 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  }
  } catch { /* fallback: keep original text */ }
 
- // Parse all sitemap URLs and SEO metadata for auto-generated page index
- const allUrls = parseSitemapUrls(publicDir, fs, 'it', distDir);
+ // Parse all sitemap URLs and SEO metadata for auto-generated page index.
+ // sitemapFiles = static floor UNION whatever sitemap-*.xml plugins have
+ // actually emitted into dist/ by this point (#4413 sibling fix).
+ const sitemapFiles = await resolveSitemapFileList(distDir);
+ const allUrls = parseSitemapUrls(publicDir, fs, 'it', distDir, sitemapFiles);
  const seoMap = parseSeoEntries(rootDir, fs);
  const categorized = categorizeUrls(allUrls);
 
@@ -385,7 +413,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
 
  let localeCount = 0;
  for (const [locale, header] of Object.entries(localeHeaders)) {
- const localeUrls = parseSitemapUrls(publicDir, fs, locale as 'en' | 'de' | 'fr', distDir);
+ const localeUrls = parseSitemapUrls(publicDir, fs, locale as 'en' | 'de' | 'fr', distDir, sitemapFiles);
  if (localeUrls.length === 0) continue;
 
  const localeIndex = buildPageIndex(localeUrls, locale as 'en' | 'de' | 'fr');

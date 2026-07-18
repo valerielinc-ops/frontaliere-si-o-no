@@ -335,7 +335,11 @@ interface Copy {
   introP: string;
   findingsH2: string;
   findingsP: string;
-  findingsBullet1: string;
+  // Functions (not literal strings) — interpolate the panel median at
+  // render time from the same `agg.overallMedian` source of truth used by
+  // the stat tile and Dataset JSON-LD, so this copy can never drift into a
+  // stale hardcoded figure again (#4394: was a hardcoded "CHF 73 000").
+  findingsBullet1: (agg: AnnualAggregate) => string;
   findingsBullet2: string;
   findingsBullet3: string;
   sectorH2: string;
@@ -344,11 +348,12 @@ interface Copy {
   regionP: string;
   pppH2: string;
   pppP: string;
-  pppBullet1: string;
+  pppBullet1: (agg: AnnualAggregate) => string;
   pppBullet2: string;
   pppBullet3: string;
   methodologyH2: string;
   methodologyP: string;
+  methodologySourcesLabel: string;
   downloadH2: string;
   downloadP: string;
   downloadCsvLabel: string;
@@ -390,8 +395,8 @@ const COPY: Record<Locale, Copy> = {
       `Questo report è il primo studio annuale indipendente sugli stipendi dei lavoratori frontalieri che attraversano quotidianamente il confine italo-svizzero. I dati sono aggregati dal nostro panel di annunci di lavoro (${REPORT_YEAR}): oltre duemila posizioni attive con range salariale dichiarato, aggiornate ogni giorno dai nostri crawler sulle pagine carriere ufficiali di aziende svizzere. Qui di seguito trovi le mediane per settore, la variazione anno-su-anno, la ripartizione regionale e un confronto del potere d'acquisto Italia vs Svizzera. Tutti i numeri sono in franchi svizzeri lordi annui; il dataset è disponibile in formato CSV con licenza CC BY 4.0 in fondo alla pagina.`,
     findingsH2: 'I dati in sintesi',
     findingsP: 'Tre conclusioni chiave emergono dal panel di quest\'anno:',
-    findingsBullet1:
-      'La mediana salariale del nostro panel si attesta intorno ai CHF 73 000 lordi annui. Il 10 % delle posizioni paga meno di CHF 50 000, mentre il 10 % superiore supera i CHF 110 000. La distribuzione è bimodale, tipica di un mercato sempre più polarizzato tra ruoli entry-level nel retail/ristorazione e ruoli specialistici in IT, finanza e sanità.',
+    findingsBullet1: (agg: AnnualAggregate) =>
+      `La mediana salariale del nostro panel si attesta intorno ai ${formatCHF(agg.overallMedian)} lordi annui. Il 10 % delle posizioni paga meno di CHF 50 000, mentre il 10 % superiore supera i CHF 110 000. La distribuzione è bimodale, tipica di un mercato sempre più polarizzato tra ruoli entry-level nel retail/ristorazione e ruoli specialistici in IT, finanza e sanità.`,
     findingsBullet2:
       'Il divario salariale fra regioni del Ticino è più contenuto di quanto percepito: Lugano resta la piazza più remunerativa per i profili finance e consulting, ma Mendrisio e Chiasso, grazie al polo farmaceutico e logistico, pagano nella media del cantone. Bellinzona cresce soprattutto nella sanità pubblica.',
     findingsBullet3:
@@ -405,8 +410,8 @@ const COPY: Record<Locale, Copy> = {
     pppH2: 'Potere d\'acquisto: Italia vs Svizzera',
     pppP:
       `Il differenziale salariale lordo fra Italia e Svizzera resta considerevole nel ${REPORT_YEAR}, ma la lettura corretta richiede un aggiustamento per il potere d'acquisto (PPP). Usando i dati OECD PPP ${REPORT_YEAR - 1} (aggiornamento annuale), un euro italiano vale circa CHF 1.25 in termini di beni e servizi comparabili — ben diverso dal cambio nominale (~0.95 CHF/EUR). L'effetto netto sul tenore di vita di un frontaliere ticinese è positivo ma meno dirompente di quanto suggerisca il solo confronto lordo:`,
-    pppBullet1:
-      'Stipendio mediano annuo nel nostro panel (CHF, lordo): ~73 000. Equivalente italiano lordo (EUR, stesso ruolo, stessa seniority) stimato da ISTAT e banche dati retributive: ~35 000-42 000.',
+    pppBullet1: (agg: AnnualAggregate) =>
+      `Stipendio mediano annuo nel nostro panel (CHF, lordo): ~${formatNumber(agg.overallMedian)}. Equivalente italiano lordo (EUR, stesso ruolo, stessa seniority) stimato da ISTAT e banche dati retributive: ~35 000-42 000.`,
     pppBullet2:
       'Applicando il PPP, il "potere d\'acquisto reale" del lordo svizzero si riduce a circa CHF 60 000 equivalenti italiani — sempre superiore, ma di un margine più contenuto rispetto al raw gap.',
     pppBullet3:
@@ -414,6 +419,7 @@ const COPY: Record<Locale, Copy> = {
     methodologyH2: 'Metodologia',
     methodologyP:
       `Il panel è costituito dagli annunci di lavoro attivi in data di generazione (vedi "aggiornato" in alto) che espongono un range salariale dichiarato (salaryMin / salaryMax). I valori sono convertiti in un midpoint (min+max)/2, filtrati per rimuovere outlier (midpoint < CHF 20 000 o > CHF 400 000) e ricalcolati su base annuale (CHF 13 mensilità dove l'annuncio esprime lo stipendio mensile). Sono inclusi esclusivamente annunci con valuta CHF; annunci in EUR o senza valuta dichiarata sono esclusi per omogeneità. I settori sono normalizzati nel formato pubblicato nell'annuncio originale. Il dataset è limitato ai settori con ≥10 osservazioni per evitare medie non significative. La variazione anno-su-anno è una stima (non ancora un confronto dataset-su-dataset, che richiederà lo snapshot ${REPORT_YEAR + 1} del panel).`,
+    methodologySourcesLabel: 'Confronto con fonti statistiche ufficiali:',
     downloadH2: 'Download del dataset',
     downloadP:
       'Tutti i numeri di questa pagina sono pubblicati in formato CSV machine-readable con licenza Creative Commons Attribution 4.0 International. Puoi citare, redistribuire e riutilizzare i dati, anche a fini commerciali, a condizione di attribuire correttamente la fonte e linkare di ritorno a questa pagina.',
@@ -456,8 +462,8 @@ const COPY: Record<Locale, Copy> = {
       `This is the first annual independent study on the salaries of cross-border workers who commute daily across the Italy–Switzerland border. Data is aggregated from our job-listing panel (${REPORT_YEAR}): more than two thousand active positions with a declared salary range, refreshed daily by our crawlers on official Swiss company career pages. Below you'll find sector medians, YoY change, a regional breakdown and an Italy vs Switzerland purchasing-power-parity comparison. All figures are Swiss francs, gross, annual; the raw dataset is available as a CSV under CC BY 4.0 at the bottom of the page.`,
     findingsH2: 'Key findings',
     findingsP: 'Three takeaways emerge from this year\'s panel:',
-    findingsBullet1:
-      'The panel median sits around CHF 73,000 gross per year. The bottom decile pays below CHF 50,000, while the top decile exceeds CHF 110,000. The distribution is bimodal, typical of a market increasingly polarised between entry-level retail/hospitality and specialist roles in IT, finance and healthcare.',
+    findingsBullet1: (agg: AnnualAggregate) =>
+      `The panel median sits around ${formatCHF(agg.overallMedian)} gross per year. The bottom decile pays below CHF 50,000, while the top decile exceeds CHF 110,000. The distribution is bimodal, typical of a market increasingly polarised between entry-level retail/hospitality and specialist roles in IT, finance and healthcare.`,
     findingsBullet2:
       'The regional gap within Ticino is narrower than often perceived: Lugano remains the best-paying location for finance and consulting, but Mendrisio and Chiasso — thanks to the pharmaceutical and logistics cluster — pay close to the cantonal median. Bellinzona is growing especially in public healthcare.',
     findingsBullet3:
@@ -471,8 +477,8 @@ const COPY: Record<Locale, Copy> = {
     pppH2: 'Purchasing power: Italy vs Switzerland',
     pppP:
       `The gross salary differential between Italy and Switzerland remains considerable in ${REPORT_YEAR}, but the correct reading requires a purchasing-power-parity adjustment. Using OECD PPP data (${REPORT_YEAR - 1} update), one euro in Italy is worth about CHF 1.25 in comparable goods and services — very different from the nominal exchange rate (~0.95 CHF/EUR). The net effect on a Ticino cross-border worker's standard of living is positive but less dramatic than the gross comparison alone suggests:`,
-    pppBullet1:
-      'Panel median annual salary (CHF, gross): ~73,000. Italian gross equivalent (EUR, same role, same seniority) estimated from ISTAT and private pay databases: ~35,000-42,000.',
+    pppBullet1: (agg: AnnualAggregate) =>
+      `Panel median annual salary (CHF, gross): ~${formatNumber(agg.overallMedian)}. Italian gross equivalent (EUR, same role, same seniority) estimated from ISTAT and private pay databases: ~35,000-42,000.`,
     pppBullet2:
       'Applying PPP, the "real purchasing power" of the Swiss gross drops to roughly CHF 60,000 Italian equivalent — still higher, but by a narrower margin than the raw gap.',
     pppBullet3:
@@ -480,6 +486,7 @@ const COPY: Record<Locale, Copy> = {
     methodologyH2: 'Methodology',
     methodologyP:
       `The panel consists of job listings active at generation time (see "updated" at the top) that publish a declared salary range (salaryMin / salaryMax). Values are converted to a midpoint (min+max)/2, filtered to remove outliers (midpoint < CHF 20,000 or > CHF 400,000) and re-based on an annual basis (CHF × 13 monthly pays where the listing expresses a monthly salary). Only listings in CHF are included; EUR or undeclared-currency listings are excluded for homogeneity. Sectors are kept in the format published in the original listing. The dataset is restricted to sectors with ≥10 observations to avoid non-meaningful means. The YoY change is an estimate (not yet a dataset-to-dataset comparison, which will require the ${REPORT_YEAR + 1} panel snapshot).`,
+    methodologySourcesLabel: 'Comparison with official statistical sources:',
     downloadH2: 'Dataset download',
     downloadP:
       'All the numbers on this page are published as a machine-readable CSV under the Creative Commons Attribution 4.0 International licence. You may cite, redistribute and reuse the data — including for commercial purposes — provided you attribute the source correctly and link back to this page.',
@@ -522,8 +529,8 @@ const COPY: Record<Locale, Copy> = {
       `Dies ist die erste unabhängige Jahresstudie zu den Löhnen der Grenzgänger, die täglich die italienisch-schweizerische Grenze überqueren. Die Daten werden aus unserem Stellenanzeigen-Panel (${REPORT_YEAR}) aggregiert: über zweitausend aktive Stellen mit ausgewiesenem Lohnband, täglich aktualisiert durch unsere Crawler auf den offiziellen Karriereseiten Schweizer Unternehmen. Unten finden Sie Branchenmedianwerte, Jahresveränderung, eine regionale Aufschlüsselung und einen Vergleich der Kaufkraft Italien vs. Schweiz. Alle Zahlen sind Schweizer Franken, brutto, jährlich; der Rohdatensatz ist unten auf der Seite als CSV unter CC BY 4.0 verfügbar.`,
     findingsH2: 'Kernergebnisse',
     findingsP: 'Drei Erkenntnisse ergeben sich aus dem diesjährigen Panel:',
-    findingsBullet1:
-      'Der Panel-Median liegt bei rund CHF 73 000 brutto pro Jahr. Das untere Dezil zahlt unter CHF 50 000, das obere Dezil übersteigt CHF 110 000. Die Verteilung ist bimodal — typisch für einen Markt, der sich zunehmend zwischen Einstiegsrollen im Detailhandel/Gastgewerbe und Spezialrollen in IT, Finanzwesen und Gesundheitswesen polarisiert.',
+    findingsBullet1: (agg: AnnualAggregate) =>
+      `Der Panel-Median liegt bei rund ${formatCHF(agg.overallMedian)} brutto pro Jahr. Das untere Dezil zahlt unter CHF 50 000, das obere Dezil übersteigt CHF 110 000. Die Verteilung ist bimodal — typisch für einen Markt, der sich zunehmend zwischen Einstiegsrollen im Detailhandel/Gastgewerbe und Spezialrollen in IT, Finanzwesen und Gesundheitswesen polarisiert.`,
     findingsBullet2:
       'Der regionale Lohnunterschied im Tessin ist geringer als oft wahrgenommen: Lugano bleibt die bestbezahlte Lage für Finanz- und Beratungsrollen, aber Mendrisio und Chiasso — dank des Pharma- und Logistik-Clusters — zahlen nahe am kantonalen Median. Bellinzona wächst besonders im öffentlichen Gesundheitswesen.',
     findingsBullet3:
@@ -537,8 +544,8 @@ const COPY: Record<Locale, Copy> = {
     pppH2: 'Kaufkraft: Italien vs. Schweiz',
     pppP:
       `Das Brutto-Lohngefälle zwischen Italien und der Schweiz bleibt ${REPORT_YEAR} beachtlich, doch die korrekte Lesart erfordert eine Kaufkraftparitätsanpassung (PPP). Gemäss OECD-PPP-Daten (Update ${REPORT_YEAR - 1}) entspricht ein Euro in Italien rund CHF 1.25 in vergleichbaren Gütern und Dienstleistungen — deutlich anders als der nominale Wechselkurs (~0.95 CHF/EUR). Der Nettoeffekt auf den Lebensstandard eines Tessiner Grenzgängers ist positiv, aber weniger markant als der Bruttovergleich allein suggeriert:`,
-    pppBullet1:
-      'Panel-Median-Jahreslohn (CHF, brutto): ~73 000. Italienisches Brutto-Äquivalent (EUR, gleiche Rolle, gleiche Seniorität), geschätzt aus ISTAT und privaten Lohndatenbanken: ~35 000-42 000.',
+    pppBullet1: (agg: AnnualAggregate) =>
+      `Panel-Median-Jahreslohn (CHF, brutto): ~${formatNumber(agg.overallMedian)}. Italienisches Brutto-Äquivalent (EUR, gleiche Rolle, gleiche Seniorität), geschätzt aus ISTAT und privaten Lohndatenbanken: ~35 000-42 000.`,
     pppBullet2:
       'Mit PPP sinkt die "reale Kaufkraft" des Schweizer Bruttos auf etwa CHF 60 000 italienisches Äquivalent — weiterhin höher, aber mit geringerem Abstand als im Rohvergleich.',
     pppBullet3:
@@ -546,6 +553,7 @@ const COPY: Record<Locale, Copy> = {
     methodologyH2: 'Methodik',
     methodologyP:
       `Das Panel besteht aus Stellenanzeigen, die zum Generierungszeitpunkt aktiv sind (siehe "aktualisiert" oben) und ein deklariertes Lohnband (salaryMin / salaryMax) ausweisen. Die Werte werden in einen Mittelwert (min+max)/2 umgewandelt, von Ausreissern bereinigt (Mittelwert < CHF 20 000 oder > CHF 400 000) und auf Jahresbasis umgerechnet (CHF × 13 Monatslöhne, wenn die Anzeige einen Monatslohn nennt). Nur Anzeigen in CHF sind enthalten; EUR- oder währungslose Anzeigen werden aus Homogenitätsgründen ausgeschlossen. Die Branchen bleiben im Format der Originalanzeige. Der Datensatz beschränkt sich auf Branchen mit ≥10 Beobachtungen, um nicht aussagekräftige Durchschnitte zu vermeiden. Die Jahresveränderung ist eine Schätzung (noch kein Datensatz-zu-Datensatz-Vergleich; dieser benötigt den ${REPORT_YEAR + 1}-Snapshot des Panels).`,
+    methodologySourcesLabel: 'Vergleich mit offiziellen Statistikquellen:',
     downloadH2: 'Datensatz-Download',
     downloadP:
       'Alle Zahlen dieser Seite werden als maschinenlesbare CSV-Datei unter der Creative-Commons-Lizenz Attribution 4.0 International veröffentlicht. Sie dürfen die Daten zitieren, weiterverbreiten und weiterverwenden — auch kommerziell — sofern Sie die Quelle korrekt angeben und auf diese Seite zurückverlinken.',
@@ -588,8 +596,8 @@ const COPY: Record<Locale, Copy> = {
       `Ce rapport est la première étude annuelle indépendante sur les salaires des frontaliers qui franchissent chaque jour la frontière italo-suisse. Les données sont agrégées depuis notre panel d'annonces d'emploi (${REPORT_YEAR}) : plus de deux mille postes actifs avec fourchette salariale déclarée, rafraîchis quotidiennement par nos crawlers sur les pages carrière officielles des entreprises suisses. Vous trouverez ci-dessous les médianes par secteur, la variation annuelle, une répartition régionale et une comparaison du pouvoir d'achat Italie vs Suisse. Tous les chiffres sont en francs suisses, bruts, annuels ; le jeu de données brut est disponible en CSV sous licence CC BY 4.0 en bas de page.`,
     findingsH2: 'Constats clés',
     findingsP: 'Trois constats émergent du panel de cette année :',
-    findingsBullet1:
-      'La médiane du panel se situe autour de CHF 73 000 bruts par an. Le décile inférieur paie moins de CHF 50 000, tandis que le décile supérieur dépasse les CHF 110 000. La distribution est bimodale, typique d\'un marché de plus en plus polarisé entre rôles d\'entrée en retail/restauration et rôles spécialisés en IT, finance et santé.',
+    findingsBullet1: (agg: AnnualAggregate) =>
+      `La médiane du panel se situe autour de ${formatCHF(agg.overallMedian)} bruts par an. Le décile inférieur paie moins de CHF 50 000, tandis que le décile supérieur dépasse les CHF 110 000. La distribution est bimodale, typique d'un marché de plus en plus polarisé entre rôles d'entrée en retail/restauration et rôles spécialisés en IT, finance et santé.`,
     findingsBullet2:
       'L\'écart régional au sein du Tessin est plus réduit que ce qui est souvent perçu : Lugano reste la place la mieux rémunérée pour la finance et le conseil, mais Mendrisio et Chiasso — grâce au cluster pharmaceutique et logistique — paient au niveau de la médiane cantonale. Bellinzone progresse surtout dans la santé publique.',
     findingsBullet3:
@@ -603,8 +611,8 @@ const COPY: Record<Locale, Copy> = {
     pppH2: 'Pouvoir d\'achat : Italie vs Suisse',
     pppP:
       `Le différentiel salarial brut entre l'Italie et la Suisse reste considérable en ${REPORT_YEAR}, mais la lecture correcte exige un ajustement par la parité de pouvoir d'achat (PPA). Selon les données OECD PPP (mise à jour ${REPORT_YEAR - 1}), un euro italien vaut environ CHF 1.25 en biens et services comparables — très différent du taux de change nominal (~0.95 CHF/EUR). L'effet net sur le niveau de vie d'un frontalier tessinois est positif mais moins spectaculaire que le seul comparatif brut le suggère :`,
-    pppBullet1:
-      'Salaire médian annuel du panel (CHF, brut) : ~73 000. Équivalent italien brut (EUR, même rôle, même séniorité), estimé à partir de l\'ISTAT et de bases de rémunération privées : ~35 000-42 000.',
+    pppBullet1: (agg: AnnualAggregate) =>
+      `Salaire médian annuel du panel (CHF, brut) : ~${formatNumber(agg.overallMedian)}. Équivalent italien brut (EUR, même rôle, même séniorité), estimé à partir de l'ISTAT et de bases de rémunération privées : ~35 000-42 000.`,
     pppBullet2:
       'En appliquant la PPA, le "pouvoir d\'achat réel" du brut suisse tombe à environ CHF 60 000 équivalents italiens — toujours supérieur, mais d\'une marge plus mince que l\'écart brut.',
     pppBullet3:
@@ -612,6 +620,7 @@ const COPY: Record<Locale, Copy> = {
     methodologyH2: 'Méthodologie',
     methodologyP:
       `Le panel est constitué des annonces actives à la date de génération (voir "mis à jour" en haut) qui affichent une fourchette salariale déclarée (salaryMin / salaryMax). Les valeurs sont converties en un milieu de fourchette (min+max)/2, filtrées pour retirer les valeurs aberrantes (milieu < CHF 20 000 ou > CHF 400 000) et rebasées sur une base annuelle (CHF × 13 mensualités lorsque l'annonce exprime un salaire mensuel). Seules les annonces en CHF sont incluses ; les annonces en EUR ou sans devise déclarée sont exclues pour homogénéité. Les secteurs sont conservés au format publié dans l'annonce originale. Le jeu de données est restreint aux secteurs avec ≥10 observations pour éviter les moyennes non significatives. La variation YoY est une estimation (pas encore une comparaison dataset-à-dataset, qui nécessitera le snapshot ${REPORT_YEAR + 1} du panel).`,
+    methodologySourcesLabel: 'Comparaison avec des sources statistiques officielles :',
     downloadH2: 'Téléchargement du jeu de données',
     downloadP:
       'Tous les chiffres de cette page sont publiés en CSV lisible par machine sous licence Creative Commons Attribution 4.0 International. Vous pouvez citer, redistribuer et réutiliser les données — y compris à des fins commerciales — à condition d\'attribuer correctement la source et de créer un lien retour vers cette page.',
@@ -857,7 +866,7 @@ function renderReport(opts: {
       <h2 style="${H2_STYLE}">${esc(copy.findingsH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.findingsP)}</p>
       <ol class="s-hSOSUV">
-        <li class="s-U2-lJ-">${esc(copy.findingsBullet1)}</li>
+        <li class="s-U2-lJ-">${esc(copy.findingsBullet1(agg))}</li>
         <li class="s-U2-lJ-">${esc(copy.findingsBullet2)}</li>
         <li class="s-q3nqK4">${esc(copy.findingsBullet3)}</li>
       </ol>
@@ -877,7 +886,7 @@ function renderReport(opts: {
       <h2 style="${H2_STYLE}">${esc(copy.pppH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.pppP)}</p>
       <ul class="s-hSOSUV">
-        <li class="s-U2-lJ-">${esc(copy.pppBullet1)}</li>
+        <li class="s-U2-lJ-">${esc(copy.pppBullet1(agg))}</li>
         <li class="s-U2-lJ-">${esc(copy.pppBullet2)}</li>
         <li class="s-q3nqK4">${esc(copy.pppBullet3)}</li>
       </ul>
@@ -896,6 +905,7 @@ function renderReport(opts: {
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
+      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow" target="_blank" style="${LINK_ACCENT_STYLE}">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow" target="_blank" style="${LINK_ACCENT_STYLE}">ISTAT</a></p>
     </section>
     <section class="s-ixDYj7">
       <h2 style="${H2_STYLE}">${esc(copy.relatedH2)}</h2>

@@ -8520,7 +8520,7 @@ ${staticAnalyticsHtml}
  const __kwAction: 'full' | 'thin' = __kwDecision.action === 'thin' ? 'thin' : 'full';
  const __kwFullBody = `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul class="s-0WjlyL">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${renderJobBoardListingDensityProse(locale, { subject: _kwQuery || kwQueryDisplay || itCopy.heading, location: _kwCity ? _kwCity.charAt(0).toUpperCase() + _kwCity.slice(1) : getCantonDisplayLabel(DEFAULT_CANTON, locale), resultCount: kwJobs.length, companyCount: kwUniqueCompanies.length, locationCount: kwUniqueLocations.length })}\n ${kwCommuterBlock}`;
  const __kwBody = __kwAction === 'thin'
- ? buildGscKeywordThinBody({ locale, query: String(kwQueryDisplay || _kwQuery || itCopy.heading || ''), listingUrl: kwSectionUrl, h1Title: esc(itCopy.heading) })
+ ? buildGscKeywordThinBody({ locale, query: String(kwQueryDisplay || _kwQuery || itCopy.heading || ''), listingUrl: kwSectionUrl, h1Title: esc(itCopy.heading), jobCount: kwJobs.length, companies: kwUniqueCompanies.slice(0, 3).map((c: string) => esc(c)) })
  : __kwFullBody;
  if (__kwAction === 'thin') {
  gscKeywordThinCount++;
@@ -8728,7 +8728,7 @@ ${staticAnalyticsHtml}
  const __ssDecision = trafficFilter.decideMulti(__ssCandidatePaths, 'gsc-keyword-landing');
  const __ssAction: 'full' | 'thin' = __ssDecision.action === 'thin' ? 'thin' : 'full';
  const __ssBody = __ssAction === 'thin'
- ? buildGscKeywordThinBody({ locale, query: String(name || key || ''), listingUrl: _sListUrl, h1Title: esc(copy.heading(name)) })
+ ? buildGscKeywordThinBody({ locale, query: String(name || key || ''), listingUrl: _sListUrl, h1Title: esc(copy.heading(name)), jobCount: matchingJobs.length, companies: [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))].slice(0, 3).map((c: string) => esc(c)) })
  : __ssFullBody;
  if (__ssAction === 'thin') {
  gscKeywordThinCount++;
@@ -8928,7 +8928,7 @@ ${staticAnalyticsHtml}
  const __cmDecision = trafficFilter.decideMulti(__cmCandidatePaths, 'gsc-keyword-landing');
  const __cmAction: 'full' | 'thin' = __cmDecision.action === 'thin' ? 'thin' : 'full';
  const __cmBody = __cmAction === 'thin'
- ? buildGscKeywordThinBody({ locale, query: String(copy.heading || comboTitle || ''), listingUrl: _cListUrl, h1Title: esc(copy.heading) })
+ ? buildGscKeywordThinBody({ locale, query: String(copy.heading || comboTitle || ''), listingUrl: _cListUrl, h1Title: esc(copy.heading), jobCount: matchingJobs.length, companies: [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))].slice(0, 3).map((c: string) => esc(c)) })
  : __cmFullBody;
  if (__cmAction === 'thin') {
  gscKeywordThinCount++;

@@ -23,14 +23,17 @@ Disallow: /*&q=*
 # Canonical host (www → non-www redirect)
 Host: https://frontaliereticino.ch
 
-# Sitemap locations (index includes pages, blog, glossario, news, jobs, and guides sub-sitemaps)
+# Sitemap locations. The index enumerates every sub-sitemap (pages, blog,
+# glossario, jobs, guides, and 60+ other template families) — those are NOT
+# listed individually here: crawlers follow the index fine, and a
+# hand-maintained per-shard list drifts stale as new template families ship
+# (issue #4413 — the list had 7 lines vs 73 sub-sitemaps in the actual
+# index). sitemap-news.xml stays explicit: Google News discovery is a
+# separate mechanism from regular sitemap-index crawling and expects its own
+# `Sitemap:` line (see tests/sitemap-news-canonical.test.ts, "A4 Google News
+# compliance" — do not remove without updating that test's requirement too).
 Sitemap: https://frontaliereticino.ch/sitemap.xml
-Sitemap: https://frontaliereticino.ch/sitemap-pages.xml
-Sitemap: https://frontaliereticino.ch/sitemap-blog.xml
-Sitemap: https://frontaliereticino.ch/sitemap-glossario.xml
 Sitemap: https://frontaliereticino.ch/sitemap-news.xml
-Sitemap: https://frontaliereticino.ch/sitemap-jobs.xml
-Sitemap: https://frontaliereticino.ch/sitemap-guides.xml
 
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems
