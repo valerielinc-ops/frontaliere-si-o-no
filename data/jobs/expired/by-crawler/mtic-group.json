@@ -25,7 +25,7 @@
       "fr": "construction-products-cpr-department-manager-mtic-group-lugano-paradiso"
     },
     "sector": "Certificazione e Ispezioni",
-    "expiredAt": "2026-07-17T22:06:22.137Z",
+    "expiredAt": "2026-07-18T10:32:31.346Z",
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
@@ -57,9 +57,52 @@
       "fr": "medical-devices-certification-officer-mtic-group-lugano-paradiso"
     },
     "sector": "Certificazione e Ispezioni",
-    "expiredAt": "2026-07-17T22:06:22.137Z",
+    "expiredAt": "2026-07-18T10:32:31.346Z",
     "salaryMin": 70500,
     "salaryMax": 98500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "quality-assurance-manager-mtic-group-lugano-paradiso",
+    "title": "Quality Assurance Manager",
+    "titleByLocale": {
+      "it": "Responsabile del controllo qualità",
+      "en": "Quality Assurance Manager",
+      "de": "Qualitätssicherungssystemsmanager",
+      "fr": "Responsable de la Qualité"
+    },
+    "company": "MTIC Group",
+    "companyKey": "mtic-group",
+    "location": "Lugano Paradiso",
+    "addressLocality": "Lugano Paradiso",
+    "descriptionByLocale": {
+      "it": "Descrizione\n- MTIC Group / SPS InterCert S.A. ricerca Quality Assurance Manager con sede a Lugano Paradiso.\n- Certificazioni, ispezioni e prove nel settore tecnico.\n- Candidati tramite il sito ufficiale MTIC Group.\n\nRequisiti\n- (nessun requisito specificato)\n\nCosa offriamo\n- (nessuna informazione specifica)\n\nContatto\n- Candidati tramite il sito ufficiale MTIC Group.",
+      "en": "Description - MTIC Group / SPS InterCert S.A. search Quality Assurance (CAT) Manager based in Lugano Paradiso. - Certifications, inspections and tests in the technical sector. - Candidates via the official website MTIC Group. \n• Requirements - (no specified requirements) \n• What we offer - (no specific information) Contatto - Candidates through the official website MTIC Group.",
+      "de": "Beschreibung - MTIC Group / SPS InterCert S.A. Suche Qualitätssicherung (CAT) Manager mit Sitz in Lugano Paradiso. - Zertifizierungen, Inspektionen und Tests im technischen Bereich. - Kandidaten über die offizielle Website MTIC Group. \n• Anforderungen - (keine spezifischen \n• Anforderungen) Was wir anbieten - (keine spezifischen Informationen) Contatto - Kandidaten über die offizielle Website MTIC Group.",
+      "fr": "MTIC Group / SPS InterCert S.A. recrute actuellement pour le poste Quality Assurance Manager basé à Lugano Paradiso. Certifications, inspections et essais dans les secteurs techniques. Postulez via le site officiel de MTIC Group."
+    },
+    "slugByLocale": {
+      "it": "quality-assurance-manager-mtic-group-lugano-paradiso",
+      "en": "quality-assurance-manager-mtic-group-lugano-paradiso",
+      "de": "qualitatssicherungssystemsmanager-mtic-group-lugano-paradiso",
+      "fr": "responsable-de-la-qualite-mtic-group-lugano-paradiso"
+    },
+    "sector": "Certificazione e Ispezioni",
+    "expiredAt": "2026-07-18T10:32:31.346Z",
+    "previousSlugs": [
+      "responsable-assurance-qualite-mtic-group-lugano-paradiso"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "responsable-assurance-qualite-mtic-group-lugano-paradiso"
+      ],
+      "fr": [
+        "responsable-assurance-qualite-mtic-group-lugano-paradiso"
+      ]
+    },
+    "salaryMin": 68000,
+    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

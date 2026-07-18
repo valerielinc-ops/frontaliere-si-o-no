@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-07-17T22:06:20.338Z",
+  "generatedAt": "2026-07-18T10:32:29.715Z",
   "total": 4,
   "newCount": 2,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 25087,
-  "avgDurationMs": 25087,
+  "unchangedCount": 0,
+  "durationMs": 30553,
+  "avgDurationMs": 30553,
   "durationHistory": [
-    25087
+    30553
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-17",
+      "postedDate": "2026-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +61,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-07-17",
+      "postedDate": "2026-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -93,7 +93,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-07-17",
+      "postedDate": "2026-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -110,10 +110,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Quality Assurance Manager",
       "slug": "quality-assurance-manager-mtic-group-lugano-paradiso",
@@ -132,7 +129,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-07-17",
+      "postedDate": "2026-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -140,7 +137,6 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:21:33.950Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -150,5 +146,7 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
