@@ -424,6 +424,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'secondo-pilastro-lpp-frontalieri-prelievo': { it: 'secondo-pilastro-lpp-frontalieri-prelievo', en: 'second-pillar-lpp-frontaliers-withdrawal', de: 'zweites-pillar-lpp-frontalier-abhebung', fr: 'deuxieme-pilier-lpp-frontalier-retrait' },
  'prelievo-secondo-pilastro-lpp-frontaliere': { it: 'prelievo-secondo-pilastro-lpp-frontaliere', en: 'second-pillar-lpp-frontalier-withdrawal', de: 'abhebungsbeitrag-zweiter-pillar-lpp-grenzarbeiter', fr: 'retrait-du-deuxieme-pilier-lpp-travailleur-frontalier' },
  'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni': { it: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', en: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', de: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni', fr: 'frontalieri-guerra-fiscale-ticino-bellinzona-blocca-50-miliardi-ristorni' },
+ 'lavoro-docenti-frontalieri-ticino-normativa': { it: 'lavoro-docenti-frontalieri-ticino-normativa', en: 'ticino-cross-border-teachers-work-permits-clarifications', de: 'ticino-grenzgaenger-lehrkraefte-arbeitserlaubnis-klarstellungen', fr: 'ticino-enseignants-frontaliers-permis-travail-clarifications' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
