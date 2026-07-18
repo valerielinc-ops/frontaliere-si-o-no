@@ -147,6 +147,130 @@ function esc(value: string): string {
     .replace(/"/g, '&quot;');
 }
 
+type FaqEntry = { q: string; a: string };
+
+/**
+ * The FAQ block's 4th question is slot-differentiated. Without this, every
+ * slot (canton-hub, company-landing, city-landing, the editorial topics...)
+ * emitted the identical canton-vs-canton comparison FAQ for a given canton —
+ * harmless for the one-per-canton hub pages, but the highest-cardinality
+ * duplicate-content risk in the family for `company-landing`/`city-landing`
+ * (dozens of companies/cities per canton, all getting byte-identical FAQ
+ * text regardless of `entityName`) and for the editorial topic pages. Hub
+ * slots keep the canton-comparison FAQ (still relevant — one page/canton);
+ * every other slot gets a question anchored to the concrete instance
+ * (employer, city, or editorial topic) instead.
+ */
+const FOURTH_FAQ: Record<
+  CantonSeoLocale,
+  Partial<Record<CantonSeoSlot, (canton: string, entity: string) => FaqEntry>>
+> = {
+  it: {
+    'company-landing': (canton, entity) => ({
+      q: `Come faccio a candidarmi direttamente a ${entity || 'questo datore di lavoro'} nel Canton ${canton}?`,
+      a: `Le offerte di ${entity || 'questo datore di lavoro'} elencate qui rimandano al canale di candidatura ufficiale dell'azienda (portale carriera diretto, non un form terzo), così la candidatura arriva senza intermediazione. Prima di candidarti verifica che l'annuncio sia ancora attivo (aggiorniamo ogni 6-12 ore) e prepara un CV in formato svizzero: ${entity || "l'azienda"} nel Canton ${canton} valuta evidenze quantificate più del titolo di studio da solo. Se non trovi un ruolo aperto in linea con il tuo profilo, una candidatura spontanea al reparto HR resta comunque efficace per le aziende con più posizioni attive contemporaneamente.`,
+    }),
+    'city-landing': (canton, entity) => ({
+      q: `Perché cercare lavoro specificamente a ${entity || canton} invece che nell'intero Canton ${canton}?`,
+      a: `Restringere la ricerca a ${entity || canton} ha senso quando il tempo di pendolarismo è il vincolo principale: la sede esatta del datore, non solo il canton, determina l'orario reale porta-a-porta. Le offerte qui aggregate indicano sempre il comune di lavoro, non solo il canton, così puoi scartare a colpo d'occhio le posizioni fuori dalla tua zona di pendolarismo sostenibile e concentrare il CV sulle aziende davvero raggiungibili da ${entity || canton}.`,
+    }),
+    'editorial-today': (canton) => ({
+      q: `Con che frequenza si aggiornano le offerte pubblicate "oggi" nel Canton ${canton}?`,
+      a: `Il crawler dedicato scansiona le fonti aziendali e le bacheche cantonali più volte al giorno; una nuova offerta compare in questa pagina entro poche ore dalla pubblicazione originale del datore, non il giorno successivo. La data mostrata è sempre quella di pubblicazione del datore, mai la data di scansione — se vedi un annuncio datato oggi puoi candidarti sapendo di essere tra i primi a vederlo, un vantaggio reale per i ruoli con alto volume di candidature.`,
+    }),
+    'editorial-nursing': (canton) => ({
+      q: `Quanto dura davvero il riconoscimento SBFI/SEFRI per infermieri nel Canton ${canton}?`,
+      a: `Per un diploma infermieristico italiano la procedura SBFI/SEFRI richiede tipicamente 3-6 mesi dalla presentazione del dossier completo (titolo di studio, programma di studi, esperienza clinica documentata); alcuni datori nel Canton ${canton} accettano una candidatura con procedura di riconoscimento già avviata, purché l'esito arrivi prima della data di assunzione concordata. Avviare la pratica in parallelo all'invio del CV — non dopo un'eventuale offerta — è la differenza fra un'assunzione fluida e un rinvio di mesi.`,
+    }),
+    'editorial-clinics': (canton) => ({
+      q: `Conviene candidarsi a una clinica pubblica (EOC/cantonale) o privata nel Canton ${canton}?`,
+      a: `Le strutture pubbliche nel Canton ${canton} seguono griglie salariali cantonali pubbliche e contratti collettivi con progressione automatica per anzianità, offrendo maggiore prevedibilità; le cliniche private spesso negoziano il salario individualmente e possono offrire premi di performance o straordinari retribuiti diversamente. Per il frontaliere italiano la scelta pratica dipende dalla priorità: stabilità contrattuale e orari regolamentati (pubblico) contro margine di negoziazione salariale e specializzazione clinica (privato) — entrambe le categorie di datori richiedono lo stesso riconoscimento titoli SBFI/SEFRI.`,
+    }),
+    'editorial-part-time': (canton) => ({
+      q: `Un contratto part-time nel Canton ${canton} riduce il margine di telelavoro concesso al frontaliere?`,
+      a: `No: il tetto del 25 % di telelavoro si calcola sul tempo di lavoro effettivo, non su un valore assoluto di giorni — un grado 60 % con un giorno di telelavoro settimanale su tre giorni lavorati resta sotto soglia. Il vincolo pratico nel Canton ${canton} è piuttosto la sede fisica richiesta dal datore per i giorni in presenza: verifica sempre nell'annuncio se il grado part-time è distribuito su giorni fissi o flessibili, perché condiziona la sostenibilità del pendolarismo più della percentuale di telelavoro in sé.`,
+    }),
+  },
+  en: {
+    'company-landing': (canton, entity) => ({
+      q: `How do I apply directly to ${entity || 'this employer'} in Canton ${canton}?`,
+      a: `Listings from ${entity || 'this employer'} here link to the company's official application channel — a direct careers-portal link, not a third-party form — so your application reaches HR without intermediaries. Before applying, check the listing is still live (we refresh every 6-12 hours) and prepare a Swiss-format CV: ${entity || 'the employer'} in Canton ${canton} weighs quantified evidence more than the diploma alone. If nothing open matches your profile, a speculative application to the HR department still works well for employers running several open roles at once.`,
+    }),
+    'city-landing': (canton, entity) => ({
+      q: `Why search specifically in ${entity || canton} instead of the whole Canton ${canton}?`,
+      a: `Narrowing the search to ${entity || canton} matters when commute time is the binding constraint: the employer's exact municipality, not just the canton, sets the real door-to-door schedule. Every listing here states the work municipality, not only the canton, so you can filter out roles outside your sustainable commute zone at a glance and focus applications on employers actually reachable from ${entity || canton}.`,
+    }),
+    'editorial-today': (canton) => ({
+      q: `How often do "today" listings in Canton ${canton} actually refresh?`,
+      a: `The dedicated crawler scans employer sources and cantonal job boards several times a day; a new opening appears on this page within hours of the employer's original publication, not the next day. The date shown is always the employer's publication date, never the crawl timestamp — if you see a listing dated today, you're among the first applicants, a real edge for high-volume roles.`,
+    }),
+    'editorial-nursing': (canton) => ({
+      q: `How long does SBFI/SEFRI recognition actually take for nurses in Canton ${canton}?`,
+      a: `For an Italian nursing diploma, SBFI/SEFRI recognition typically takes 3-6 months from a complete dossier (diploma, study programme, documented clinical experience); some employers in Canton ${canton} accept an application while recognition is already in progress, provided the outcome lands before the agreed start date. Filing the recognition request in parallel with the CV — not after receiving an offer — is what separates a smooth hire from a months-long delay.`,
+    }),
+    'editorial-clinics': (canton) => ({
+      q: `Is a public (cantonal/EOC-style) or private clinic the better target in Canton ${canton}?`,
+      a: `Public structures in Canton ${canton} follow published cantonal salary grids and collective agreements with automatic seniority progression, giving more predictability; private clinics often negotiate salary individually and may offer performance bonuses or differently-paid overtime. For Italian cross-border applicants the practical choice comes down to priority: contractual stability and regulated hours (public) versus salary negotiation room and clinical specialisation (private) — both employer types require the same SBFI/SEFRI title recognition.`,
+    }),
+    'editorial-part-time': (canton) => ({
+      q: `Does a part-time contract in Canton ${canton} shrink the telework allowance for cross-border workers?`,
+      a: `No: the 25 % telework cap is calculated against actual working time, not an absolute day count — a 60 % workload with one telework day across three worked days stays under the threshold. The practical constraint in Canton ${canton} is instead the on-site presence the employer requires on working days: always check whether the part-time schedule is fixed or flexible in the listing, since that shapes commute sustainability more than the telework percentage itself.`,
+    }),
+  },
+  de: {
+    'company-landing': (canton, entity) => ({
+      q: `Wie bewerbe ich mich direkt bei ${entity || 'diesem Arbeitgeber'} im Kanton ${canton}?`,
+      a: `Die hier gelisteten Stellen von ${entity || 'diesem Arbeitgeber'} verlinken auf den offiziellen Bewerbungskanal des Unternehmens — direkt zum Karriereportal, nicht zu einem Drittanbieter-Formular — sodass Ihre Bewerbung ohne Umwege ankommt. Prüfen Sie vor der Bewerbung, ob das Inserat noch aktiv ist (wir aktualisieren alle 6-12 Stunden), und bereiten Sie einen Lebenslauf im Schweizer Format vor: ${entity || 'der Arbeitgeber'} im Kanton ${canton} gewichtet quantifizierte Nachweise stärker als den Abschluss allein. Passt keine offene Stelle zu Ihrem Profil, funktioniert eine Initiativbewerbung an die HR-Abteilung bei Arbeitgebern mit mehreren gleichzeitig offenen Stellen weiterhin gut.`,
+    }),
+    'city-landing': (canton, entity) => ({
+      q: `Warum gezielt in ${entity || canton} statt im gesamten Kanton ${canton} suchen?`,
+      a: `Die Suche auf ${entity || canton} einzugrenzen lohnt sich, wenn die Pendelzeit die entscheidende Grenze ist: Die genaue Gemeinde des Arbeitgebers, nicht nur der Kanton, bestimmt den realen Tür-zu-Tür-Fahrplan. Jede Stelle hier nennt die Arbeitsgemeinde, nicht nur den Kanton, sodass Sie Positionen ausserhalb Ihrer tragbaren Pendelzone auf einen Blick ausschliessen und sich auf tatsächlich von ${entity || canton} aus erreichbare Arbeitgeber konzentrieren können.`,
+    }),
+    'editorial-today': (canton) => ({
+      q: `Wie oft werden "heute"-Stellen im Kanton ${canton} tatsächlich aktualisiert?`,
+      a: `Der dedizierte Crawler durchsucht Arbeitgeberquellen und kantonale Stellenportale mehrmals täglich; eine neue Stelle erscheint innerhalb weniger Stunden nach der Original-Veröffentlichung des Arbeitgebers auf dieser Seite, nicht erst am Folgetag. Das angezeigte Datum ist immer das Veröffentlichungsdatum des Arbeitgebers, nie der Crawl-Zeitstempel — bei einem heute datierten Inserat gehören Sie zu den ersten Bewerbern, ein echter Vorteil bei Rollen mit hohem Bewerbungsvolumen.`,
+    }),
+    'editorial-nursing': (canton) => ({
+      q: `Wie lange dauert die SBFI/SEFRI-Anerkennung für Pflegefachkräfte im Kanton ${canton} wirklich?`,
+      a: `Für ein italienisches Pflegediplom dauert die SBFI/SEFRI-Anerkennung bei vollständigem Dossier (Diplom, Studienprogramm, dokumentierte klinische Erfahrung) typischerweise 3-6 Monate; manche Arbeitgeber im Kanton ${canton} akzeptieren eine Bewerbung, während das Anerkennungsverfahren bereits läuft, sofern das Ergebnis vor dem vereinbarten Starttermin vorliegt. Den Anerkennungsantrag parallel zur Bewerbung einzureichen — nicht erst nach einem Angebot — macht den Unterschied zwischen reibungsloser Einstellung und monatelanger Verzögerung.`,
+    }),
+    'editorial-clinics': (canton) => ({
+      q: `Öffentliche (kantonale/EOC-artige) oder private Klinik im Kanton ${canton} — was ist die bessere Wahl?`,
+      a: `Öffentliche Strukturen im Kanton ${canton} folgen veröffentlichten kantonalen Lohnskalen und Gesamtarbeitsverträgen mit automatischem Dienstaltersaufstieg, was mehr Planbarkeit bietet; private Kliniken verhandeln den Lohn oft individuell und bieten teils Leistungsprämien oder anders vergütete Überstunden. Für italienische Grenzgänger hängt die praktische Wahl von der Priorität ab: vertragliche Stabilität und geregelte Arbeitszeiten (öffentlich) versus Verhandlungsspielraum beim Lohn und klinische Spezialisierung (privat) — beide Arbeitgebertypen verlangen dieselbe SBFI/SEFRI-Titelanerkennung.`,
+    }),
+    'editorial-part-time': (canton) => ({
+      q: `Verkleinert ein Teilzeitvertrag im Kanton ${canton} das Homeoffice-Kontingent für Grenzgänger?`,
+      a: `Nein: die 25-%-Homeoffice-Obergrenze wird auf die tatsächliche Arbeitszeit berechnet, nicht auf eine absolute Tageszahl — ein 60-%-Pensum mit einem Homeoffice-Tag bei drei Arbeitstagen bleibt unter der Schwelle. Die praktische Einschränkung im Kanton ${canton} ist eher die vom Arbeitgeber verlangte Präsenz an den Arbeitstagen vor Ort: Prüfen Sie im Inserat immer, ob das Teilzeitpensum auf feste oder flexible Tage verteilt ist — das beeinflusst die Pendelbarkeit stärker als der Homeoffice-Prozentsatz selbst.`,
+    }),
+  },
+  fr: {
+    'company-landing': (canton, entity) => ({
+      q: `Comment postuler directement chez ${entity || 'cet employeur'} dans le canton ${canton} ?`,
+      a: `Les offres de ${entity || 'cet employeur'} listées ici renvoient vers le canal de candidature officiel de l'entreprise — un lien direct vers le portail carrière, pas un formulaire tiers — pour que votre candidature arrive sans intermédiaire. Avant de postuler, vérifiez que l'annonce est toujours active (nous actualisons toutes les 6-12 heures) et préparez un CV au format suisse : ${entity || "l'employeur"} dans le canton ${canton} valorise les preuves quantifiées plus que le diplôme seul. Si aucun poste ouvert ne correspond à votre profil, une candidature spontanée au service RH reste efficace pour les employeurs avec plusieurs postes ouverts simultanément.`,
+    }),
+    'city-landing': (canton, entity) => ({
+      q: `Pourquoi cibler spécifiquement ${entity || canton} plutôt que tout le canton ${canton} ?`,
+      a: `Restreindre la recherche à ${entity || canton} a du sens quand le temps de trajet est la contrainte principale : la commune exacte de l'employeur, pas seulement le canton, détermine l'horaire réel porte-à-porte. Chaque offre ici indique la commune de travail, pas seulement le canton, ce qui permet d'écarter en un coup d'œil les postes hors de votre zone de trajet viable et de concentrer vos candidatures sur les employeurs réellement accessibles depuis ${entity || canton}.`,
+    }),
+    'editorial-today': (canton) => ({
+      q: `À quelle fréquence les offres « aujourd'hui » du canton ${canton} sont-elles vraiment mises à jour ?`,
+      a: `Le crawler dédié scanne les sources employeurs et les bourses cantonales plusieurs fois par jour ; une nouvelle offre apparaît sur cette page en quelques heures après sa publication d'origine par l'employeur, pas le lendemain. La date affichée est toujours celle de publication de l'employeur, jamais l'horodatage du crawl — une annonce datée d'aujourd'hui signifie que vous comptez parmi les premiers candidats, un avantage réel pour les postes à fort volume de candidatures.`,
+    }),
+    'editorial-nursing': (canton) => ({
+      q: `Combien de temps prend vraiment la reconnaissance SBFI/SEFRI pour le personnel infirmier dans le canton ${canton} ?`,
+      a: `Pour un diplôme infirmier italien, la reconnaissance SBFI/SEFRI prend généralement 3-6 mois à partir d'un dossier complet (diplôme, programme d'études, expérience clinique documentée) ; certains employeurs du canton ${canton} acceptent une candidature alors que la procédure de reconnaissance est déjà en cours, à condition que le résultat arrive avant la date d'entrée en fonction convenue. Lancer la démarche en parallèle de l'envoi du CV — pas après une offre — fait la différence entre une embauche fluide et un report de plusieurs mois.`,
+    }),
+    'editorial-clinics': (canton) => ({
+      q: `Clinique publique (type EOC/cantonale) ou privée dans le canton ${canton} — quel est le meilleur choix ?`,
+      a: `Les structures publiques du canton ${canton} suivent des grilles salariales cantonales publiées et des conventions collectives avec progression automatique à l'ancienneté, offrant plus de prévisibilité ; les cliniques privées négocient souvent le salaire individuellement et peuvent proposer des primes de performance ou des heures supplémentaires rémunérées différemment. Pour les frontaliers italiens, le choix pratique dépend de la priorité : stabilité contractuelle et horaires réglementés (public) contre marge de négociation salariale et spécialisation clinique (privé) — les deux types d'employeurs exigent la même reconnaissance de titre SBFI/SEFRI.`,
+    }),
+    'editorial-part-time': (canton) => ({
+      q: `Un contrat à temps partiel dans le canton ${canton} réduit-il le quota de télétravail des frontaliers ?`,
+      a: `Non : le plafond de 25 % de télétravail se calcule sur le temps de travail effectif, pas sur un nombre de jours absolu — un taux de 60 % avec un jour de télétravail sur trois jours travaillés reste sous le seuil. La contrainte pratique dans le canton ${canton} est plutôt la présence sur site exigée par l'employeur les jours travaillés : vérifiez toujours dans l'annonce si le taux partiel est réparti sur des jours fixes ou flexibles, car cela conditionne la viabilité du trajet plus que le pourcentage de télétravail lui-même.`,
+    }),
+  },
+};
+
 function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
   const { locale, cantonDisplay, slot, entityName, countHint } = opts;
   const canton = cantonDisplay;
@@ -190,7 +314,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
           q: `Lo stipendio netto in ${canton} vale la pena rispetto al lordo italiano?`,
           a: `Lo stipendio netto svizzero dipende da quattro variabili: imposta alla fonte cantonale (scaglioni 4-19 % a seconda del lordo, stato civile e figli), contributi sociali (AVS-AI-IPG 5,3 % fissi, AD 1,1 %, LPP 7-18 % in base all'età), Nuovo Accordo Italia-Svizzera 2024 con credito d'imposta italiano, e costi di pendolarismo. Sul nostro <a href="${CALCULATOR_HREF[locale]}">simulatore fiscale gratuito</a> puoi inserire un lordo CHF di un annuncio del Canton ${canton} e ottenere il netto mensile reale in CHF e in EUR — confronti immediati con il netto italiano della tua zona di residenza.`,
         },
-        {
+        FOURTH_FAQ.it[slot]?.(canton, entity) ?? {
           q: `Come si confronta il mercato del Canton ${canton} con altri cantoni svizzeri per i frontalieri?`,
           a: `Il Canton ${canton} è uno dei 26 cantoni della Confederazione e — come tutti — applica le sue aliquote fiscali specifiche oltre alla parte federale. La differenza fra il netto in ${canton} e quello in un altro cantone, a parità di lordo, può oscillare di CHF 200-500 al mese soprattutto sui redditi medi: cantoni come Zugo, Svitto e Nidvaldo hanno tasse più basse, Ginevra e Vaud le più alte. Per chi è frontaliere italiano, oltre alla parte fiscale conta il tempo di pendolarismo: i cantoni di confine (Ticino, parte di Vallese e Grigioni) sono raggiungibili in giornata, mentre ${canton} potrebbe richiedere una soluzione di alloggio settimanale.`,
         },
@@ -230,7 +354,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
           q: `Is the net salary in ${canton} worth it compared with the Italian gross?`,
           a: `Swiss net depends on four variables: cantonal source tax (brackets 4-19 % depending on gross, marital status and children), social charges (AVS-AI-IPG 5.3 % flat, unemployment 1.1 %, LPP 7-18 % by age), the 2024 Italy-Switzerland agreement with Italian tax credit, and commute costs. Open our <a href="${CALCULATOR_HREF[locale]}">free salary calculator</a> with a Canton ${canton} listing's gross figure and you'll get the actual monthly net in CHF and EUR — immediately comparable with the Italian net for your residence area.`,
         },
-        {
+        FOURTH_FAQ.en[slot]?.(canton, entity) ?? {
           q: `How does Canton ${canton} compare with other Swiss cantons for cross-border workers?`,
           a: `Canton ${canton} is one of 26 cantons of the Confederation and — like all of them — applies its own tax rates on top of the federal share. The net pay gap between ${canton} and another canton, at the same gross, can swing CHF 200-500 per month especially on mid-range incomes: cantons like Zug, Schwyz and Nidwalden have the lowest tax, Geneva and Vaud the highest. For Italian cross-border applicants, alongside the tax angle, commute time matters: border cantons (Ticino, parts of Valais and Graubünden) are reachable daily, whereas ${canton} may require a weekly accommodation arrangement.`,
         },
@@ -270,7 +394,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
           q: `Lohnt sich der Nettolohn im Kanton ${canton} verglichen mit dem italienischen Brutto?`,
           a: `Das schweizerische Netto hängt von vier Variablen ab: kantonale Quellensteuer (Stufen 4-19 % je nach Brutto, Zivilstand und Kindern), Sozialabgaben (AHV-IV-EO 5,3 % fix, ALV 1,1 %, BVG 7-18 % nach Alter), Steuerabkommen 2024 mit italienischer Steuergutschrift und Pendelkosten. Mit unserem <a href="${CALCULATOR_HREF[locale]}">kostenlosen Lohnrechner</a> können Sie das Brutto einer Stelle im Kanton ${canton} eingeben und erhalten das tatsächliche Monatsnetto in CHF und EUR — direkt vergleichbar mit dem italienischen Netto Ihrer Wohnregion.`,
         },
-        {
+        FOURTH_FAQ.de[slot]?.(canton, entity) ?? {
           q: `Wie vergleicht sich der Kanton ${canton} mit anderen Schweizer Kantonen für Grenzgänger?`,
           a: `Der Kanton ${canton} ist einer von 26 Kantonen der Eidgenossenschaft und — wie alle — wendet eigene Steuersätze zusätzlich zum Bundesanteil an. Der Nettounterschied zwischen ${canton} und einem anderen Kanton kann bei gleichem Brutto CHF 200-500 pro Monat ausmachen, besonders bei mittleren Einkommen: Kantone wie Zug, Schwyz und Nidwalden haben die tiefsten Steuern, Genf und Waadt die höchsten. Für italienische Grenzgänger zählt neben der Steuer auch die Pendelzeit: Grenzkantone (Tessin, Teile von Wallis und Graubünden) sind täglich erreichbar, während ${canton} eventuell eine Wochenunterkunft erfordert.`,
         },
@@ -310,7 +434,7 @@ function buildSlotCopy(opts: CantonSeoProseOpts): SlotCopy {
         q: `Le salaire net dans le canton ${canton} vaut-il la peine comparé au brut italien ?`,
         a: `Le net suisse dépend de quatre variables : impôt à la source cantonal (tranches 4-19 % selon brut, état civil et enfants), charges sociales (AVS-AI-APG 5,3 % fixe, chômage 1,1 %, LPP 7-18 % par âge), accord fiscal 2024 avec crédit d'impôt italien, et coûts de trajet. Ouvrez notre <a href="${CALCULATOR_HREF[locale]}">calculateur de salaire gratuit</a> avec le brut d'une annonce du canton ${canton} et vous obtenez le net mensuel réel en CHF et en EUR — directement comparable avec le net italien de votre zone de résidence.`,
       },
-      {
+      FOURTH_FAQ.fr[slot]?.(canton, entity) ?? {
         q: `Comment le canton ${canton} se compare-t-il aux autres cantons suisses pour les frontaliers ?`,
         a: `Le canton ${canton} est l'un des 26 cantons de la Confédération et — comme tous — applique ses propres taux d'imposition en plus de la part fédérale. L'écart de net entre ${canton} et un autre canton, à brut égal, peut osciller de CHF 200-500 par mois surtout sur les revenus moyens : des cantons comme Zoug, Schwytz et Nidwald ont les impôts les plus bas, Genève et Vaud les plus hauts. Pour les frontaliers italiens, outre l'aspect fiscal, le temps de trajet compte : les cantons frontaliers (Tessin, parties du Valais et des Grisons) sont accessibles quotidiennement, alors que ${canton} peut nécessiter un hébergement hebdomadaire.`,
       },
