@@ -677,7 +677,7 @@
       "title": "Commercial Manager (m/w/d) 100%",
       "titleByLocale": {
         "it": "Direttore Commerciale (m/f/d) al 100%",
-        "en": "Commercial Manager (m/w/d) 100%",
+        "en": "Commercial Manager (m/f/d) 100%",
         "de": "Commercial Manager (m/w/d) 100%",
         "fr": "Directeur commercial (f/f/d) à 100 %"
       },
@@ -727,8 +727,7 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-9ff819dc580d",
@@ -2172,7 +2171,7 @@
       "title": "Accounting & Compliance Advisor (m/w/d) Produktion Personenverkehr",
       "titleByLocale": {
         "it": "Accounting & Compliance Consulente (m/w/d) Produktion Personenverkehr",
-        "en": "Accounting & Compliance Advisor (m/w/d) Produktion Personenverkehr",
+        "en": "Accounting & Compliance Advisor (m/f/d) Production of passenger transport",
         "de": "Accounting & Compliance Berater (m/w/d) Produktion Personenverkehr",
         "fr": "Conseiller en comptabilité et conformité (l/f/d) Transport de Production Passagers"
       },
@@ -2239,8 +2238,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-a14242671bbd",
@@ -2760,8 +2758,7 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-cf78fb97941e",
@@ -3864,8 +3861,7 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-76e1d73e012f",
@@ -4134,7 +4130,7 @@
       "title": "Group Procurement Manager Rail Services (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Responsabile Acquisti di Gruppo Servizi Ferroviari (lun/vendedì/d) 80-100%",
-        "en": "Group Procurement Manager Rail Services (m/w/d) 80-100%",
+        "en": "Group Procurement Manager Rail Services (m/f/d) 80-100 %",
         "de": "Group Procurement Manager Rail Services (m/w/d) 80-100%",
         "fr": "Responsable des achats de groupe Services ferroviaires (m/f/d) 80-100 %"
       },
@@ -4184,8 +4180,7 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-e3a3110dc8cc",
@@ -4303,7 +4298,15 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-17T22:57:29.742Z"
+      "firstSeenAt": "2026-07-17T22:57:29.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-trice-tecnica-di-pulizia-afc-biel-bienne-ffs-officine-ferrovie-federali-b-xqf8h4"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-trice-tecnica-di-pulizia-afc-biel-bienne-ffs-officine-ferrovie-federali-b-xqf8h4"
+      ]
     },
     {
       "id": "sbb-307841b67e8a",
@@ -4978,7 +4981,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Chef·fe de site Intervention",
       "titleByLocale": {
-        "it": "Chef·fe de site Intervention",
+        "it": "Responsabile del sito Intervento",
         "en": "Sitemanager Intervention",
         "de": "Einsatzleiter/in",
         "fr": "Chef·fe de site Intervention"
@@ -5058,8 +5061,7 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2898b9916ae3",
@@ -8826,7 +8828,7 @@
       "title": "Key Account Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile dei Conti Chiave (l/f/d)",
-        "en": "Key Account Manager (m/w/d)",
+        "en": "Key Account Manager (m/f/d)",
         "de": "Key Account Manager (m/w/d)",
         "fr": "Gestionnaire de comptes clés (m/f/d)"
       },
@@ -8879,8 +8881,7 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "sbb-668a8e950299",
@@ -9904,7 +9905,30 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-17T22:57:17.244Z"
+      "firstSeenAt": "2026-07-17T22:57:17.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "caposquadra-o-caposquadra-di-costruzione-di-binari-ffs-officine-ferrovie-federali-lenzburg",
+          "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg",
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
+          "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "en": [
+          "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "de": [
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "fr": [
+          "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "caposquadra-o-caposquadra-di-costruzione-di-binari-ffs-officine-ferrovie-federali-lenzburg",
+        "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg",
+        "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
+        "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
+      ]
     },
     {
       "id": "sbb-0eba23290396",
@@ -14212,10 +14236,14 @@
       "previousSlugsByLocale": {
         "en": [
           "building-and-infrastructure-operator-efz-giubiasco-ffs-officine-ferrovie-federali-giubiasco"
+        ],
+        "it": [
+          "operatore-trice-di-edifici-e-infrastrutture-afc-ffs-officine-ferrovie-federali-giubiasco"
         ]
       },
       "previousSlugs": [
-        "building-and-infrastructure-operator-efz-giubiasco-ffs-officine-ferrovie-federali-giubiasco"
+        "building-and-infrastructure-operator-efz-giubiasco-ffs-officine-ferrovie-federali-giubiasco",
+        "operatore-trice-di-edifici-e-infrastrutture-afc-ffs-officine-ferrovie-federali-giubiasco"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -15312,7 +15340,15 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-17T22:57:21.309Z"
+      "firstSeenAt": "2026-07-17T22:57:21.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel-guc4er"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel-guc4er"
+      ]
     },
     {
       "id": "sbb-4c544eb5fbd7",
