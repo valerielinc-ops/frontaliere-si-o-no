@@ -8594,6 +8594,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permessi-lavoro-digitale-ticino.title': 'Permis de travail au Tessin : à partir du 3 août tout en ligne',
     'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'À partir du 3 août 2026, la procédure pour les permis de travail au Tessin devient entièrement numérique. Adieu le papier pour les frontaliers, les résidents et les domiciliés.',
     'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Office de la migration à Bellinzone, Tessin',
+    'blog.article.infernieri-frontalieri-ticino.title': 'Combien gagne une infirmière frontalière au Tessin ?',
+    'blog.article.infernieri-frontalieri-ticino.excerpt': 'Les salaires des infirmiers frontaliers au Tessin sont influencés par les nouvelles règles fiscales.',
+    'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Paysage panoramique de Lugano, Tessin, Suisse',
 };
 
 export default blogMetaFr;

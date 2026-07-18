@@ -8592,6 +8592,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permessi-lavoro-digitale-ticino.title': 'Arbeitsbewilligungen im Tessin: ab 3. August alles online',
     'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'Ab dem 3. August 2026 wird das Verfahren für Arbeitsbewilligungen im Tessin vollständig digitalisiert. Abschied vom Papier für Grenzgänger, Aufenthaltsberechtigte und Domizilierte.',
     'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Migrationsamt in Bellinzona, Tessin',
+    'blog.article.infernieri-frontalieri-ticino.title': 'Wie viel verdient eine Grenzpflegerin im Tessin?',
+    'blog.article.infernieri-frontalieri-ticino.excerpt': 'Die Löhne der Grenzpflegerinnen und Grenzpfleger im Tessin sind von den neuen Steuervorschriften betroffen.',
+    'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Panorama von Lugano, Kanton Tessin',
 };
 
 export default blogMetaDe;
