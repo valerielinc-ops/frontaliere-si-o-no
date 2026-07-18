@@ -15735,6 +15735,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-svizzera-ferrovia-strade': {
+    title: 'Mobilità in Svizzera: cresce il favore per la ferrovia',
+    description: 'Indagine Sotomo: gli svizzeri preferiscono investire nella ferrovia piuttosto che nelle strade. Dati e analisi sulle priorità infrastrutturali nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mobilità, cresce, favore, ferrovia',
+    ogTitle: 'Mobilità in Svizzera: la ferrovia batte le strade',
+    ogDescription: 'Un\'indagine Sotomo rivela che la maggioranza degli svizzeri predilige investimenti nel trasporto pubblico su rotaia rispetto a quello stradale.',
+    canonicalPath: '/articoli-svizzera/mobilita-svizzera-ferrovia-strade/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità in Svizzera: cresce il favore per la ferrovia",
+      "description": "Indagine Sotomo: gli svizzeri preferiscono investire nella ferrovia piuttosto che nelle strade. Dati e analisi sulle priorità infrastrutturali nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilita-svizzera-ferrovia-strade.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria svizzera con treni e passeggeri"
+      },
+      "datePublished": "2026-07-18T15:44:21+00:00",
+      "dateModified": "2026-07-18T15:44:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mobilita-svizzera-ferrovia-strade/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

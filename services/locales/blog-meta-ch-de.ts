@@ -1219,6 +1219,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Wie viel verdient ein Grenzpsychologe im Tessin?',
     'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Reales Gehalt eines Grenzpsychologen im Tessin: Lohnband, Unterschiede zu Italien, Faktoren, die sich auf das Gehalt auswirken.',
     'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Bild eines Psychologen an der Grenze in Ticino',
+    'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilität in der Schweiz: Gunst für die Bahn wächst',
+    'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Eine Sotomo-Umfrage zeigt die Präferenzen der Schweizer: Deutliche Präferenz für Bahninvestitionen gegenüber dem Ausbau des Strassennetzes.',
+    'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Schweizer Bahnhof mit Zügen und Fahrgästen',
 };
 
 export default blogMetaChDe;
