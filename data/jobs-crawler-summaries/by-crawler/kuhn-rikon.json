@@ -1,16 +1,16 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-07-17T22:47:53.237Z",
-  "total": 2,
+  "generatedAt": "2026-07-18T11:53:01.962Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2651,
-  "avgDurationMs": 2651,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3418,
+  "avgDurationMs": 3418,
   "durationHistory": [
-    2651
+    3418
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:47:51.373Z",
+      "crawledAt": "2026-07-18T11:52:59.568Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -56,8 +56,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kuhn-rikon-a57d53d6f98a",
       "slug": "stage-estivo-2026-apprendista-cuoco-a-efz-100-michel-gruppe-ag-meiringen",
@@ -100,5 +99,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
