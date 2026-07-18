@@ -8613,6 +8613,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Ostetrica in Ticino: stipendio, requisiti e titolo',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'Die Grenzgängerin, die als Hebamme im Tessin arbeitet, hat Anspruch auf ein Durchschnittsgehalt von rund CHF 60\'000 pro Jahr, muss aber bestimmte Voraussetzungen erfüllen und die G-Genehmigung erhalten.',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Eine Frontaliere, die als Hebamme in einem Krankenhaus in Lugano arbeitet.',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Wie viel verdient eine Grenzgängerin im Tessin? Tatsachen über die Vergütung',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Die Daten zur Entlohnung von Grenzgängerinnen im Tessin: Wie wird das Einkommen berechnet und was sind die Unterschiede zu Italien',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Eine Frau mit einem Kind in den Armen, in einem Krankenhaus',
 };
 
 export default blogMetaDe;

@@ -8614,6 +8614,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Working as a midwife in Ticino: salary, requirements and title recognition',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'The border worker working as a midwife in Ticino is entitled to an average salary of about CHF 60,000 per year, but must meet certain requirements and obtain the G permit.',
     'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'A frontaliere who works as a midwife in a hospital in Lugano.',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'How much does a border midwife earn in Ticino? The facts about pay',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Data on the remuneration of border midwives in Ticino: how income is calculated and what are the differences compared to Italy',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'A woman with a child in her arms, in a hospital setting',
 };
 
 export default blogMetaEn;

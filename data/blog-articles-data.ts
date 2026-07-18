@@ -25883,6 +25883,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ostetrica-frontaliere-ticino-quanto-guadagna',
+ category: 'fiscale',
+ date: '2026-07-18T23:37:44.080Z',
+ image: '/images/blog/ostetrica-frontaliere-ticino-quanto-guadagna.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
