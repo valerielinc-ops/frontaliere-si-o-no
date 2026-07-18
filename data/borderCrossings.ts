@@ -768,7 +768,7 @@ export const borderCrossings: BorderCrossing[] = [
 // Editorial defaults above stay as fallback for crossings with no history
 // yet, and as a sane baseline before the first compute run lands in
 // `data/`.
-import computedAverages from './border-wait-averages.json';
+import computedAverages from './border-wait-averages.json' with { type: 'json' };
 
 function slugifyName(name: string): string {
  return name
