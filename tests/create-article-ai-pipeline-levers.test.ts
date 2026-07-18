@@ -19,10 +19,23 @@
  *   attempt's model back-to-back. Same model set, same relative order —
  *   only skips a redundant consecutive repeat (which is a near-certain
  *   repeat of the same too-short output).
+ *
+ * LEVA C — Zero-grounding news source fail-fast cap.
+ *   computeMaxGenerationAttempts() caps the min-words regen-attempt budget
+ *   much lower when a real news source's page fetch produced truly ZERO
+ *   usable chars (not just "thin") — with no source text to ground on,
+ *   the dual-LLM fact-check consensus blocks essentially every attempt, so
+ *   burning the full CREATE_ARTICLE_MIN_WORDS_RETRIES budget only wastes
+ *   time/quota before moving to the next headline (run 29639558234: 6/6
+ *   attempts failed fact-check on invented dates/institutions). Evergreen
+ *   (evergreen://) and BFS-stats (stats-bfs://) sources always synthesize
+ *   non-empty prompt content, so they are unaffected and keep the full
+ *   budget + their own separate fact-check tolerance — this is a news-only
+ *   speed fix, not a quality-bar change (AGENTS.md Non-Negotiable #1).
  */
 
 import { describe, expect, it, afterEach } from 'vitest';
-import { buildFactCheckCallOptions, selectMinWordsRetryModel } from '../scripts/create-article.mjs';
+import { buildFactCheckCallOptions, selectMinWordsRetryModel, computeMaxGenerationAttempts } from '../scripts/create-article.mjs';
 
 describe('buildFactCheckCallOptions (Leva A — fact-check cache, default ON / kill switch)', () => {
   const ENV_KEY = 'CREATE_ARTICLE_FACTCHECK_CACHE';
@@ -143,5 +156,40 @@ describe('selectMinWordsRetryModel (Leva B — min-words retry model dedup, defa
     const rotation = ['a', 'b', 'c'];
     expect(selectMinWordsRetryModel(4, 'c', rotation, false)).toBe('c');
     expect(selectMinWordsRetryModel(1, 'a', rotation, false)).toBe('a');
+  });
+});
+
+describe('computeMaxGenerationAttempts (Leva C — zero-source news fail-fast cap)', () => {
+  it('caps to the zero-source budget when a real news URL fetch produced 0 chars', () => {
+    expect(computeMaxGenerationAttempts('', 'https://example.com/news/article', 6, 2)).toBe(2);
+  });
+
+  it('caps to the zero-source budget for a manual http(s) source URL too (not just ranked news)', () => {
+    expect(computeMaxGenerationAttempts('', 'http://example.com/x', 6, 2)).toBe(2);
+  });
+
+  it('never exceeds the full budget even if zeroSourceCap is misconfigured higher', () => {
+    expect(computeMaxGenerationAttempts('', 'https://example.com/a', 6, 99)).toBe(6);
+  });
+
+  it('does NOT cap a real news source that has actual content, even if short/thin', () => {
+    expect(computeMaxGenerationAttempts('a short brief', 'https://example.com/news/article', 6, 2)).toBe(6);
+  });
+
+  it('does NOT cap evergreen:// sources, even though fetchPageContent never actually returns empty for them (defense in depth)', () => {
+    expect(computeMaxGenerationAttempts('', 'evergreen://permesso-g-scadenza', 6, 2)).toBe(6);
+    expect(computeMaxGenerationAttempts('[ARTICOLO EVERGREEN SEO]\n...', 'evergreen://permesso-g-scadenza', 6, 2)).toBe(6);
+  });
+
+  it('does NOT cap stats-bfs:// sources', () => {
+    expect(computeMaxGenerationAttempts('', 'stats-bfs://2026-Q1', 6, 2)).toBe(6);
+    expect(computeMaxGenerationAttempts('[ARTICOLO DATI BFS...]', 'stats-bfs://2026-Q1', 6, 2)).toBe(6);
+  });
+
+  it('uses the real CREATE_ARTICLE_MIN_WORDS_RETRIES/CREATE_ARTICLE_ZERO_SOURCE_RETRIES defaults when called with just (pageContent, url)', () => {
+    // Default env is unset in test runs, so this exercises the actual
+    // production defaults (6 and 2) baked into the exported function.
+    expect(computeMaxGenerationAttempts('', 'https://example.com/news/article')).toBe(2);
+    expect(computeMaxGenerationAttempts('non-empty source text', 'https://example.com/news/article')).toBe(6);
   });
 });
