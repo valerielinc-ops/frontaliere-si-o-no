@@ -65,6 +65,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,17 +225,6 @@ export function resolveAddress(rawLocation = '') {
     postalCode: HQ.postalCode,
     streetAddress: HQ.streetAddress,
   };
-}
-
-/**
- * Parse the source's own "D.M.YYYY" (or "DD.MM.YYYY") publication-date
- * format into ISO "YYYY-MM-DD". Returns '' if unparseable.
- */
-function parseSwissShortDate(raw = '') {
-  const m = String(raw || '').trim().match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
-  if (!m) return '';
-  const [, d, mo, y] = m;
-  return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
 }
 
 /* ── HTML extraction ───────────────────────────────────────── */

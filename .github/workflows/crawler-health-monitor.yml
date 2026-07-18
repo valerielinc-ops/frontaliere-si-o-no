@@ -33,6 +33,14 @@ jobs:
           ref: main
           # Need full history so rebase-on-push can replay against latest main.
           fetch-depth: 0
+          # Blobless partial clone (same fix as guard-data-integrity.yml, #4120,
+          # identical diagnosis in #4266): fetch-depth: 0 alone pulls the
+          # entire blob history (~1.36GB/868k objects) and eats the whole
+          # 10-min job timeout in the checkout step, before the health-check
+          # script ever runs. filter: blob:none keeps full commit/tree history
+          # (still needed by the rebase-retry loop below) while deferring
+          # blob content download until a file is actually touched.
+          filter: blob:none
           # Use the default GITHUB_TOKEN; the `contents: write` permission above
           # is enough to push back to `main` from this workflow.
           persist-credentials: true

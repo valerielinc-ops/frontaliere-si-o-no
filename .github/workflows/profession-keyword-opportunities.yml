@@ -46,6 +46,11 @@ jobs:
           # refresh-thin-promotions.yml: shallow clones break `git rebase
           # origin/main` on bursts of concurrent data commits).
           fetch-depth: 0
+          # Blobless partial clone (same fix as guard-data-integrity.yml
+          # #4120 / crawler-health-monitor.yml #4380): this job shares the
+          # same tight 10-min timeout-minutes budget that crawler-health-monitor
+          # blew through on the repo's current ~1.36GB/868k-object blob history.
+          filter: blob:none
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v5
