@@ -151,4 +151,17 @@ describe('cantonGrossSalaryBand / cantonNetSalaryBandForCode use real per-canton
     const geneve = cantonGrossSalaryBand('Genève');
     expect(zug.netSingleLow).not.toBe(geneve.netSingleLow);
   });
+
+  // ── gross<=0 guard (issue #4281, follow-up to #4279) ──
+  // A zero or negative gross must clamp to the 30k floor bracket rate
+  // instead of extrapolating below it, so the net figure can never come
+  // out above a bad (zero/negative) gross input.
+  it('clamps a zero or negative gross instead of extrapolating below the floor bracket', () => {
+    const floor = cantonNetSalaryBandForCode('ZG', 30000, 30000);
+    const zero = cantonNetSalaryBandForCode('ZG', 0, 0);
+    const negative = cantonNetSalaryBandForCode('ZG', -50000, -50000);
+    expect(zero.netSingleLow).toBe(0);
+    expect(negative.netSingleLow).toBeLessThanOrEqual(0);
+    expect(floor.netSingleLow).toBeGreaterThan(0);
+  });
 });

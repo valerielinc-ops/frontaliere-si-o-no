@@ -59,14 +59,15 @@ const NATIONAL_CURVE: number[] = TAX_BRACKETS.map((_, i) => {
 
 /** Linear interpolation between bracket points; flat-clamped past the ends. */
 function interpolateCurve(curve: number[], gross: number): number {
+  const clampedGross = Math.max(0, gross);
   const last = TAX_BRACKETS.length - 1;
-  if (gross <= TAX_BRACKETS[0]) return curve[0];
-  if (gross >= TAX_BRACKETS[last]) return curve[last];
+  if (clampedGross <= TAX_BRACKETS[0]) return curve[0];
+  if (clampedGross >= TAX_BRACKETS[last]) return curve[last];
   for (let i = 0; i < last; i++) {
     const x0 = TAX_BRACKETS[i];
     const x1 = TAX_BRACKETS[i + 1];
-    if (gross >= x0 && gross <= x1) {
-      const t = (gross - x0) / (x1 - x0);
+    if (clampedGross >= x0 && clampedGross <= x1) {
+      const t = (clampedGross - x0) / (x1 - x0);
       return curve[i] + t * (curve[i + 1] - curve[i]);
     }
   }

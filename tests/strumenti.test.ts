@@ -238,4 +238,20 @@ describe('SalaryCompare logic', () => {
     expect(calcNetCH(gross, 'CH')).toBe(calcNetCH(gross));
     expect(calcNetCH(gross, 'not-a-canton')).toBe(calcNetCH(gross));
   });
+
+  // ── gross<=0 guard (issue #4281, follow-up to #4279) ──
+  // A bad upstream value (user input or crawled salary field) must never
+  // produce a below-floor-bracket extrapolation with an effectively
+  // negative withholding rate, which would let the computed net exceed
+  // the (already-invalid) gross.
+  it('clamps a zero or negative gross to the 30k floor bracket rate instead of extrapolating', () => {
+    const floorRate = cantonTaxBurdenPct(30000, 'ZG');
+    expect(cantonTaxBurdenPct(0, 'ZG')).toBe(floorRate);
+    expect(cantonTaxBurdenPct(-50000, 'ZG')).toBe(floorRate);
+  });
+
+  it('never lets net exceed a zero or negative gross', () => {
+    expect(calcNetCH(0)).toBeLessThanOrEqual(0);
+    expect(calcNetCH(-1000, 'ZG')).toBeLessThanOrEqual(0);
+  });
 });
