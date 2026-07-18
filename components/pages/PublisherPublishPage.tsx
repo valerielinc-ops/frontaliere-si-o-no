@@ -48,6 +48,7 @@ import {
  priceForUnits,
  PRICE_PER_UNIT_CHF,
  PRICING_CURRENCY,
+ AZIENDA_PLAN_CHF,
 } from '@/services/publisherPricing';
 import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 import { listCantonOptions } from '@/services/cantonList';
@@ -766,7 +767,9 @@ const PublisherPublishPage: React.FC = () => {
  }, [user, isEdit]);
 
  // ── Live price preview ──────────────────────────────────────
- // Billing counts DISTINCT non-empty location labels (one ad × location unit each).
+ // Distinct non-empty location labels: needed for validation (≥1 sede) and
+ // for the projection (one live page per location). NOT billing anymore —
+ // since 2026-07-18 billing counts ADS, locations are free (countAdUnits).
  const distinctLocations = useMemo(() => distinctLocationLabels(locations), [locations]);
  // Whole order = every ad already in the cart + the current in-progress ad.
  // The CF recomputes the same way, so the discount applies across all of them.
@@ -787,22 +790,12 @@ const PublisherPublishPage: React.FC = () => {
  // Paid tier picked, no active credits yet (or "Buy more locations") → show
  // the Plan/payment step instead of the ad-authoring form.
  const showPlanPhase = !isEdit && !isFree && credits !== null && (!hasCredits || manualPlanPhase);
- // null = azienda unlimited (no cap). Cart-wide distinct locations (price.units)
- // must stay ≤ remainingCap (total residual across orders); the CURRENT ad's
- // own locations must additionally fit inside ONE order's residual (adCap =
- // maxClaimableUnits) because attachPublisherJob assigns each ad whole to a
- // single order — see services/publisherCredits.ts.
+ // null = azienda unlimited (no cap). 1 credit = 1 ad (owner decision
+ // 2026-07-18): price.units counts publishable ads, locations are free —
+ // only adding another AD to the cart is gated by the residual credits.
  const remainingCap = payFirstActive && credits ? credits.remainingUnits : null;
- const adCap = payFirstActive && credits ? credits.maxClaimableUnits : null;
- // Cart-wide cap: gates adding another ad to the cart.
  const capReached = remainingCap != null && price.units >= remainingCap;
- // Per-ad cap: gates adding another location to the CURRENT ad (a fresh ad
- // added to the cart starts back at zero locations, so add-to-cart is only
- // gated cart-wide).
- const addLocationCapReached = capReached || (adCap != null && distinctLocations.length >= adCap);
- const overCap =
- (remainingCap != null && price.units > remainingCap) ||
- (adCap != null && distinctLocations.length > adCap);
+ const overCap = remainingCap != null && price.units > remainingCap;
  const creditsBannerTitle = checkoutSuccess
  ? t('publisher.payFirst.postPayTitle')
  : tier === 'azienda'
@@ -816,7 +809,7 @@ const PublisherPublishPage: React.FC = () => {
  {([
  { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
  { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
- { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} 299`, priceNote: t('publisher.tier.azienda.priceNote') },
+ { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} ${AZIENDA_PLAN_CHF}`, priceNote: t('publisher.tier.azienda.priceNote') },
  ] as const).map(opt => {
  const selected = tier === opt.value;
  const isSponsoredCard = opt.value === 'sponsored';
@@ -1545,6 +1538,22 @@ const PublisherPublishPage: React.FC = () => {
  </p>
  )}
  </div>
+ {/* Above the flat azienda price the unlimited plan is strictly better —
+ propose it directly (owner decision 2026-07-18). */}
+ {planPrice.netChf > AZIENDA_PLAN_CHF && (
+ <div className="mt-3 rounded-xl border border-edge bg-accent-subtle p-4">
+ <p className="text-sm font-semibold text-strong">
+ {t('publisher.payFirst.aziendaProposal', { price: AZIENDA_PLAN_CHF })}
+ </p>
+ <button
+ type="button"
+ onClick={() => setTier('azienda')}
+ className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+ >
+ {t('publisher.payFirst.aziendaProposalCta')}
+ </button>
+ </div>
+ )}
  </section>
  )}
 
@@ -2013,8 +2022,7 @@ const PublisherPublishPage: React.FC = () => {
  <button
  type="button"
  onClick={addLocation}
- disabled={addLocationCapReached}
- className={`mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl transition-colors ${addLocationCapReached ? 'opacity-50 cursor-not-allowed' : 'hover:bg-surface-alt'}`}
+ className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-link border border-edge rounded-xl transition-colors hover:bg-surface-alt"
  >
  <Plus className="w-4 h-4" />
  {t('publisher.locations.add')}

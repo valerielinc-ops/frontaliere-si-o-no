@@ -36,6 +36,7 @@ import {
   discountRateForUnits,
   countDistinctLocations,
   netChfForUnits,
+  AZIENDA_PLAN_CHF,
 } from './publisherPricingMirror.js';
 // Guarded revert of abandoned-checkout ads (shared with the daily reaper CF).
 // Lives in the reap module so this file's `import('stripe')` never has to load
@@ -119,15 +120,21 @@ async function ensureProductTaxCode(stripe, priceId, taxCode) {
   _productTaxCodeEnsured.add(priceId);
 }
 
-// Sum distinct-location billable units across a list of ad-like objects (each
-// item's OWN distinct-location count, summed — the same location repeated
-// across two ads bills twice since each becomes its own live page). Single
-// source for both call sites that need this construct: the legacy per-jobIds
-// checkout path below (loop, ownership-checked per job) and
-// handleAttachPublisherJob (prepaid ads — no ownership check, the docs don't
-// exist yet). Keeps the billing math from drifting between them.
+// Sum distinct-location billable units across a list of ad-like objects.
+// LEGACY-ONLY since 2026-07-18: used by the per-jobIds checkout path below
+// (in-flight sessions from before the pay-first rollout billed per
+// location). The prepaid/pay-first funnel bills PER AD — see
+// countBillableAds — per owner decision 2026-07-18 (unit = the ad,
+// locations don't change the price).
 function sumDistinctLocationUnits(items) {
   return items.reduce((total, item) => total + countDistinctLocations(item?.locations), 0);
+}
+
+// Billable units for the pay-first funnel: 1 per ad with at least one real
+// location (mirrors countAdUnits in services/publisherPricing.ts — keep the
+// two in sync across the deploy boundary).
+function countBillableAds(items) {
+  return items.reduce((total, item) => total + (countDistinctLocations(item?.locations) > 0 ? 1 : 0), 0);
 }
 
 // ── createPublisherCheckout ─────────────────────────────────────────────────
@@ -157,7 +164,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     await pubRef.set({ stripeCustomerId: customerId, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
   }
 
-  // ── Piano Azienda prepaid: flat CHF 299, illimitato (unitsPurchased: null). ──
+  // ── Piano Azienda prepaid: flat AZIENDA_PLAN_CHF, illimitato (unitsPurchased: null). ──
   if (body.plan === 'azienda') {
     const aziendaPrice = await getRemoteConfigValue('STRIPE_PRICE_AZIENDA');
     if (!aziendaPrice) return { status: 500, body: { ok: false, error: 'azienda_price_not_configured' } };
@@ -166,7 +173,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     await orderRef.set({
       publisherUid: uid, jobIds: [], plan: 'azienda', units: null,
       prepaid: true, unitsPurchased: null, unitsUsed: 0,
-      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
+      amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerId,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     });
@@ -181,7 +188,7 @@ async function handlePrepaidCheckout(decoded, uid, body) {
     });
     await orderRef.update({ stripeCheckoutSessionId: session.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
 
-    return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: 299 } };
+    return { status: 200, body: { ok: true, url: session.url, orderId: orderRef.id, plan: 'azienda', amountChf: AZIENDA_PLAN_CHF } };
   }
 
   // ── Prepaid ad-unit credits ──
@@ -300,7 +307,7 @@ export async function handleCreatePublisherCheckout(req) {
     const orderRefA = db().collection('orders').doc();
     await orderRefA.set({
       publisherUid: uid, jobIds: ownedJobIds, plan: 'azienda', units: null,
-      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
+      amountChf: AZIENDA_PLAN_CHF, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
     });
@@ -325,7 +332,7 @@ export async function handleCreatePublisherCheckout(req) {
     }
     await batchA.commit();
 
-    return { status: 200, body: { ok: true, url: sessionA.url, orderId: orderRefA.id, plan: 'azienda', amountChf: 299 } };
+    return { status: 200, body: { ok: true, url: sessionA.url, orderId: orderRefA.id, plan: 'azienda', amountChf: AZIENDA_PLAN_CHF } };
   }
 
   // Authoritative unit count: read the publisher's own jobs, sum distinct locations.
@@ -624,7 +631,9 @@ export async function handleAttachPublisherJob(req) {
     }
   }
 
-  const unitsNeeded = sumDistinctLocationUnits(ads);
+  // 1 unit = 1 ad (owner decision 2026-07-18) — locations don't affect the
+  // spend, so validation already guarantees every ad has ≥1 location.
+  const unitsNeeded = countBillableAds(ads);
   if (unitsNeeded <= 0) {
     return { status: 400, body: { ok: false, error: 'validation', message: 'no_billable_units' } };
   }
@@ -645,13 +654,12 @@ export async function handleAttachPublisherJob(req) {
 
   // Prefer an unlimited azienda order; otherwise spend across ALL active
   // prepaid orders (the frontend sums residuals order-wide — sumRemainingUnits
-  // in services/publisherPricing.ts — so a publisher who bought 2+3 units in
-  // two checkouts must be able to attach a 5-unit cart). Each AD is assigned
-  // whole to ONE order (first-fit decreasing) so every job doc keeps a single
+  // in services/publisherPricing.ts — so a publisher who bought 2+3 credits in
+  // two checkouts can attach a 5-ad cart). Each AD costs exactly 1 unit and is
+  // assigned whole to ONE order, so every job doc keeps a single
   // orderId/stripeSubscriptionId and expireBySubscription stays unambiguous;
-  // only a single ad needing more units than any one order's residual can't
-  // be split (the client caps per-ad locations at the max single-order
-  // residual for this reason).
+  // with unit=1 per ad, assignment can never fail when the total residual
+  // suffices (no packing edge cases).
   const orderRefs = ordersSnap.docs.map((d) => d.ref);
   let newJobIds = [];
   let remainingUnitsAfter = null;
@@ -682,23 +690,20 @@ export async function handleAttachPublisherJob(req) {
         const totalResidual = buckets.reduce((sum, b) => sum + Math.max(0, b.residual), 0);
         if (totalResidual < unitsNeeded) throw new AttachClaimError('insufficient_units', totalResidual);
 
-        // First-fit decreasing: biggest ads into the fullest orders first.
-        // Whole-ad assignment can still fail on pathological packings even
-        // when the total residual suffices — surface the max single-order
-        // residual so the client can cap/retry coherently.
-        const adUnits = ads.map((ad, i) => ({ i, units: countDistinctLocations(ad.locations) }))
-          .sort((a, b) => b.units - a.units);
-        for (const { i, units } of adUnits) {
+        // Each ad costs 1 unit: fill the fullest order first (fewer orders
+        // touched → fewer subscriptions a given batch depends on).
+        for (let i = 0; i < ads.length; i += 1) {
           const bucket = buckets
-            .filter((b) => b.residual - b.unitsClaimed >= units)
+            .filter((b) => b.residual - b.unitsClaimed >= 1)
             .sort((a, b) => (b.residual - b.unitsClaimed) - (a.residual - a.unitsClaimed))[0];
           if (!bucket) {
-            const maxResidual = buckets.reduce((max, b) => Math.max(max, b.residual - b.unitsClaimed), 0);
-            throw new AttachClaimError('insufficient_units', maxResidual);
+            // Unreachable given the totalResidual check above (unit=1), kept
+            // as a defensive guard against concurrent mutation mid-loop.
+            throw new AttachClaimError('insufficient_units', 0);
           }
           bucket.adIndexes = bucket.adIndexes || [];
           bucket.adIndexes.push(i);
-          bucket.unitsClaimed += units;
+          bucket.unitsClaimed += 1;
         }
       } else {
         // Unlimited azienda plan: everything lands on that order.

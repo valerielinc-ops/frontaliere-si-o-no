@@ -43,6 +43,12 @@ export const RELEASES: Release[] = [
  descKey: 'whatsNew.v3620.payFirstFunnel.desc',
  link: { tab: 'for-employers' },
  },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3620.perAdPricing.title',
+ descKey: 'whatsNew.v3620.perAdPricing.desc',
+ link: { tab: 'for-employers' },
+ },
  ],
  },
  {
