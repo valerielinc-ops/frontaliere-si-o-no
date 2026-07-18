@@ -50733,6 +50733,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendio-logopedista-frontaliero-ticino': {
+    title: 'Quanto guadagna un logopedista frontaliere in Ticino?',
+    description: 'I salari dei logopedisti frontalieri in Ticino: come si differenziano dalle retribuzioni italiane?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, logopedista, salari',
+    ogTitle: 'Quanto guadagna un logopedista frontaliere in Ticino?',
+    ogDescription: 'I salari dei logopedisti frontalieri in Ticino: come si differenziano dalle retribuzioni italiane?',
+    canonicalPath: '/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un logopedista frontaliere in Ticino?",
+      "description": "I salari dei logopedisti frontalieri in Ticino: come si differenziano dalle retribuzioni italiane?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-logopedista-frontaliero-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un logopedista frontaliero guida una seduta di terapia linguistica in un ospedale di Lugano, Ticino."
+      },
+      "datePublished": "2026-07-18T15:58:04+00:00",
+      "dateModified": "2026-07-18T15:58:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

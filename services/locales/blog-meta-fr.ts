@@ -8606,6 +8606,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Orthophoniste au Tessin : salaire, exigences et reconnaissance du titre',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'Le salaire moyen des orthophonistes au Tessin est d\'environ CHF 70\'000 par an, tandis que les exigences pour travailler en tant qu\'orthophoniste au Tessin comprennent un diplôme en orthophonie ou un diplôme équivalent. Les orthophonistes frontaliers au Tessin peuvent demander le permis G pour travailler en Suisse.',
     'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano e città di Lugano',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Combien gagne un orthophoniste frontalier au Tessin ?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'Les salaires des orthophonistes frontaliers au Tessin : en quoi diffèrent-ils des salaires italiens ?',
+    'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Un logopède frontalier conduit une séance de thérapie du langage dans un hôpital de Lugano, Tessin.',
 };
 
 export default blogMetaFr;
