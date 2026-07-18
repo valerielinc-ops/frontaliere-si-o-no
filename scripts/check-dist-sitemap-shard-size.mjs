@@ -3,10 +3,17 @@
  * Local/CI gate: assert every dist/sitemap-*.xml urlset has < SHARD_HARD_CAP URLs.
  *
  * Background: sitemaps.org caps each sitemap file at 50,000 URLs. We enforce
- * a 45,000 ceiling locally to leave a safety margin for incidental growth
- * between builds. The `sitemap-search-clusters.xml` cohort breached 81k
- * URLs in May 2026, silently failing GSC ingestion — this script prevents
- * that class of regression before it ships.
+ * a ceiling locally to leave a safety margin for incidental growth between
+ * builds. The `sitemap-search-clusters.xml` cohort breached 81k URLs in May
+ * 2026, silently failing GSC ingestion — this script prevents that class of
+ * regression before it ships.
+ *
+ * SHARD_HARD_CAP is intentionally kept strictly above the generators' own
+ * per-shard cap (build-plugins/relatedSearchClustersPlugin.ts
+ * SITEMAP_SHARD_CAP = 45_000, scripts/lib/sitemap-shard.mjs
+ * DEFAULT_CAP_PER_SHARD = 45000): several shards are *by design* filled to
+ * exactly that cap, so a `>=` gate at exactly 45,000 would permanently
+ * false-positive on every full-by-design shard (#4395 sibling fix).
  *
  * Behavior:
  *   - Reads every dist/sitemap-*.xml that is NOT a sitemapindex.
@@ -23,8 +30,8 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 
 const DIST = path.resolve('dist');
-const SHARD_HARD_CAP = 45_000;
-const SHARD_WARN_CAP = 40_000;
+const SHARD_HARD_CAP = 45_001;
+const SHARD_WARN_CAP = 42_000;
 
 function countUrlEntries(xml) {
   const matches = xml.match(/<url[\s>]/g);

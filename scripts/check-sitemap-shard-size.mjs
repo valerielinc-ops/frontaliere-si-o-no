@@ -1,13 +1,24 @@
 #!/usr/bin/env node
 // Weekly sitemap shard size monitor.
 //
-// Fetches https://frontaliereticino.ch/sitemap-index.xml, walks every shard
-// listed inside, and counts <url> entries per shard. Emits a JSON report and
-// exits with a code that lets the calling workflow branch its alerting:
+// Fetches https://frontaliereticino.ch/sitemap.xml — the real robots.txt-
+// declared master index (73+ sub-sitemaps) — walks every shard listed
+// inside, and counts <url> entries per shard. Emits a JSON report and exits
+// with a code that lets the calling workflow branch its alerting:
 //
 //   exit 0 — every shard healthy
-//   exit 1 — at least one shard ≥ WARNING_THRESHOLD (40k)
-//   exit 2 — at least one shard ≥ CRITICAL_THRESHOLD (45k)
+//   exit 1 — at least one shard ≥ WARNING_THRESHOLD (42k)
+//   exit 2 — at least one shard ≥ CRITICAL_THRESHOLD (45,001)
+//
+// NB: do NOT point this at /sitemap-index.xml — that's an orphaned legacy
+// index (only the job-canton shards) never referenced by robots.txt (#4395).
+//
+// Thresholds are intentionally decoupled from the generators' own per-shard
+// cap (build-plugins/relatedSearchClustersPlugin.ts SITEMAP_SHARD_CAP =
+// 45_000, scripts/lib/sitemap-shard.mjs DEFAULT_CAP_PER_SHARD = 45000):
+// several shards are *by design* filled to exactly that cap, so CRITICAL
+// must sit strictly above it or every full-by-design shard trips a false
+// positive every week (#4395).
 //
 // Google's hard cap is 50,000 URLs per sitemap file; we want to react well
 // before we hit it so we have time to reshard.
@@ -22,9 +33,9 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
 
-const SITEMAP_INDEX_URL = 'https://frontaliereticino.ch/sitemap-index.xml';
-const WARNING_THRESHOLD = 40_000;
-const CRITICAL_THRESHOLD = 45_000;
+const SITEMAP_INDEX_URL = 'https://frontaliereticino.ch/sitemap.xml';
+const WARNING_THRESHOLD = 42_000;
+const CRITICAL_THRESHOLD = 45_001;
 const USER_AGENT = 'FrontaliereTicino-Bot/1.0';
 const FETCH_TIMEOUT_MS = 30_000;
 const REPORT_PATH = resolve(PROJECT_ROOT, 'data/sitemap-shard-size-report.json');

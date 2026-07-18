@@ -163,7 +163,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  '@context': 'https://schema.org',
  '@type': 'DefinedTerm',
  name: 'Imposta alla fonte',
- description: 'Definizione e spiegazione di imposta alla fonte per frontalieri (Ticino).',
+ description: 'Imposta alla fonte (Quellensteuer): trattenuta fiscale mensile applicata dal datore di lavoro svizzero direttamente sullo stipendio lordo dei frontalieri, con aliquote 2026 progressive da circa 0% a oltre il 24% secondo la tabella A, B, C o H.',
  url: `${BASE_URL}/glossario-frontaliere/imposta-alla-fonte/`,
  inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere/` },
  },

@@ -2,16 +2,21 @@ name: Refresh thin-page promotions
 
 # Self-healing feedback loop for tiered emission (artifact-shrink Fase 1).
 # Polls PostHog + GA4 for `thin_page_view` events emitted by App.tsx when
-# window.__THIN_SHELL__ is set on a thinned static page. Any URL hit gets
-# committed into data/thin-page-promotions-active.json; the next deploy's
+# window.__THIN_SHELL__ is set on a thinned static page, PLUS GSC
+# page-level impressions (issue #4407 — catches pages Google has shown
+# but that never got a click, which the click-based signals can never
+# reach). Any URL hit gets committed into
+# data/thin-page-promotions-active.json; the next deploy's
 # trafficEvidenceFilter sees it and falls back to 'full' for that URL.
 #
-# Cadence: every hour at :15. Cheap (two API calls), idempotent — when
-# nothing fresh lands the active.json file is left unchanged so no commit
-# happens.
+# Cadence: every hour at :15. Cheap (a handful of API calls — GSC reuses
+# the same GOOGLE_APPLICATION_CREDENTIALS already prepared for GA4 below,
+# no new secret), idempotent — when nothing fresh lands the active.json
+# file is left unchanged so no commit happens.
 #
 # Secrets pattern mirrors build-evidence-and-tune.yml: the only GH-Actions
-# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON. All other env vars
+# secret needed is FIREBASE_SERVICE_ACCOUNT_JSON (doubles as the GSC
+# credential — see project memory). All other env vars
 # (POSTHOG_PERSONAL_API_KEY, POSTHOG_PROJECT_ID, POSTHOG_HOST,
 # GA4_PROPERTY_ID) are loaded from Firebase Remote Config at workflow
 # runtime via scripts/load-rc-env.mjs, which writes them to $GITHUB_ENV.

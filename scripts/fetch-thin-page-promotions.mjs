@@ -3,23 +3,33 @@
 //
 // Hourly self-heal feedback loop for tiered emission (artifact-shrink
 // Fase 1). Polls PostHog + GA4 for `thin_page_view` events emitted by
-// App.tsx when window.__THIN_SHELL__ is set on a thinned static page.
-// Any URL hit by a JS-enabled client (real user or render-bot) gets
-// added to data/thin-page-promotions-active.json — the next build sees
-// it via trafficEvidenceFilter and serves the FULL bridge HTML instead
-// of the thin shell.
+// App.tsx when window.__THIN_SHELL__ is set on a thinned static page,
+// PLUS GSC page-level impressions (issue #4407). Any URL hit by a
+// JS-enabled client (real user or render-bot), or any URL Google has
+// shown in search results, gets added to
+// data/thin-page-promotions-active.json — the next build sees it via
+// trafficEvidenceFilter and serves the FULL bridge HTML instead of the
+// thin shell.
+//
+// Why GSC too: PostHog/GA4 `thin_page_view` only fires once a JS-enabled
+// client actually lands on the page, but a thin page structurally
+// suppresses the organic click-through needed to trigger that in the
+// first place (chicken-and-egg). GSC records an impression the moment
+// Google *shows* the URL, independent of any click, so it promotes pages
+// the click-based signal can never reach.
 //
 // Output files
 //   data/thin-page-promotions.jsonl
 //     Append-only history. One row per refresh:
-//     { generatedAt, source: 'posthog'|'ga4'|'union', urls: [path,...] }
+//     { generatedAt, source: 'posthog'|'ga4'|'gsc'|'union', urls: [path,...] }
 //
 //   data/thin-page-promotions-active.json
 //     Compact, read by build:
 //     { generatedAt, windowDays: 30, urls: [path,...] }
 //
 // Auth
-//   FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_APPLICATION_CREDENTIALS) for GA4.
+//   FIREBASE_SERVICE_ACCOUNT_JSON (or GOOGLE_APPLICATION_CREDENTIALS) for GA4 + GSC
+//   (the Firebase SA doubles as a GSC credential in this project).
 //   POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID for PostHog HogQL.
 //   GA4_PROPERTY_ID for GA4.
 //
@@ -30,14 +40,16 @@
 // Exit codes
 //   0  ok, no-op (no hits, files untouched)
 //   0  ok, urls promoted (active.json updated)
-//   3  partial — one of the two feeds errored (promotions still committed)
-//   2  fatal — both feeds errored
+//   3  partial — one or two of the three feeds errored (promotions still committed)
+//   2  fatal — all three feeds errored
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { appendFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
+import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -157,6 +169,43 @@ async function fetchGa4(windowHours) {
   return urls;
 }
 
+function fmtDate(d) {
+  return d.toISOString().slice(0, 10);
+}
+
+// ─── GSC: page-level impressions (no click required) ─────────────────
+//
+// See issue #4407: reuses the established gscFetcher.mjs auth/query
+// plumbing (Firebase SA doubles as a GSC credential — same
+// GOOGLE_APPLICATION_CREDENTIALS already prepared for GA4 above), just a
+// single page-dimension pass rather than the full 3-pass
+// `fetchGscQueries` used by the daily evidence-index build.
+async function fetchGscImpressions(windowHours) {
+  // GSC Search Analytics has ~2-day reporting lag and day-granularity
+  // data — mirrors scripts/build-evidence-index.mjs `windowDates()`.
+  const days = Math.max(1, Math.ceil(windowHours / 24));
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - 2);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - days);
+  const { pages, error } = await fetchGscPageImpressions({
+    startDate: fmtDate(start),
+    endDate: fmtDate(end),
+    // Reuse the project's established GSC noise floor (constants.mjs)
+    // instead of the raw imp>=1 used by the sitewide evidence-index pass
+    // — keeps this hourly, unioned-into-30-day-window set from mirroring
+    // that much broader set verbatim.
+    minImpressions: GSC_MIN_IMP,
+  });
+  if (error) throw new Error(error);
+  const urls = new Set();
+  for (const path of Object.keys(pages)) {
+    const norm = normalizePath(path);
+    if (norm) urls.add(norm);
+  }
+  return urls;
+}
+
 // ─── Active window rollup ────────────────────────────────────────────
 
 async function readActive() {
@@ -190,17 +239,20 @@ async function main() {
   const errors = [];
   let ph = new Set();
   let ga = new Set();
+  let gsc = new Set();
   try { ph = await fetchPosthog(args.windowHours); console.log(`[thin-promotions] posthog hits: ${ph.size}`); }
   catch (e) { errors.push(`posthog: ${e.message}`); console.error(`[thin-promotions] posthog error: ${e.message}`); }
   try { ga = await fetchGa4(args.windowHours); console.log(`[thin-promotions] ga4 hits: ${ga.size}`); }
   catch (e) { errors.push(`ga4: ${e.message}`); console.error(`[thin-promotions] ga4 error: ${e.message}`); }
+  try { gsc = await fetchGscImpressions(args.windowHours); console.log(`[thin-promotions] gsc hits: ${gsc.size}`); }
+  catch (e) { errors.push(`gsc: ${e.message}`); console.error(`[thin-promotions] gsc error: ${e.message}`); }
 
-  if (errors.length === 2) {
-    console.error('[thin-promotions] both feeds errored — leaving active.json unchanged');
+  if (errors.length === 3) {
+    console.error('[thin-promotions] all three feeds errored — leaving active.json unchanged');
     process.exit(2);
   }
 
-  const fresh = new Set([...ph, ...ga]);
+  const fresh = new Set([...ph, ...ga, ...gsc]);
   const prev = await readActive();
   const { seenAt, urls } = rollupActive(prev, fresh, args.activeWindowDays);
 
@@ -210,6 +262,7 @@ async function main() {
     windowHours: args.windowHours,
     posthogHits: ph.size,
     ga4Hits: ga.size,
+    gscHits: gsc.size,
     freshUnion: fresh.size,
     activeTotal: urls.length,
     errors,

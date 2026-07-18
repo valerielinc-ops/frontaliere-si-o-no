@@ -22,6 +22,7 @@
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
 import { stripScriptsAndStyles } from '../../scripts/lib/strip-scripts-styles.mjs';
+import { extractJobPostingFacts } from './jobPostingFacts';
 
 const LOCALE_LISTING_PATH: Record<string, string> = {
   it: '/cerca-lavoro-ticino/',
@@ -39,6 +40,24 @@ const SOFT_LANDING_PROSE: Record<string, (canonicalPath: string, listingPath: st
     `Dieses Stellenangebot ist nicht mehr aktiv. Um gleichwertige offene Stellen mit aktuellen Angaben zu Gehalt, Arbeitsort und Vertrag zu sehen, schauen Sie sich alle <a href="${listingPath}">Stellen im Tessin</a> an. Unser Job Board indiziert täglich tausende Positionen bei Schweizer Unternehmen für italienische Grenzgänger, mit Filtern nach Kanton, Branche, Vertragsart und Lohnband. Diese Seite bleibt als historische Referenz erhalten und aktualisiert sich automatisch, wenn Sie die vollständige Liste neu laden.`,
   fr: (canonicalPath, listingPath) =>
     `Cette offre d'emploi n'est plus active. Pour parcourir les postes ouverts équivalents avec les détails à jour sur le salaire, le lieu et le contrat, consultez toutes les <a href="${listingPath}">offres d'emploi au Tessin</a>. Notre job board indexe quotidiennement des milliers de postes auprès d'entreprises suisses pour les travailleurs frontaliers italiens, avec des filtres par canton, secteur, type de contrat et fourchette salariale. Cette page reste comme référence historique et se met à jour automatiquement lorsque vous rechargez la liste complète.`,
+};
+
+// Splices the expired job's real employer/location into the thin
+// paragraph as an extra sentence (issue #4399 sibling — same
+// static-PROSE-per-locale construct as clusterThinShell.ts). Without
+// this, SOFT_LANDING_PROSE is 100 % byte-identical across every
+// soft-landing URL in a given locale — it doesn't even interpolate a
+// query token like the cluster prose does, so it's the most extreme
+// case of the doorway/near-duplicate signature in this template family.
+const EXPIRED_JOB_FACTS: Record<string, (company: string, location: string) => string> = {
+  it: (company, location) =>
+    company ? `La posizione era presso ${company}${location ? `, ${location}` : ''}.` : '',
+  en: (company, location) =>
+    company ? `The position was at ${company}${location ? `, ${location}` : ''}.` : '',
+  de: (company, location) =>
+    company ? `Die Stelle war bei ${company}${location ? `, ${location}` : ''}.` : '',
+  fr: (company, location) =>
+    company ? `Le poste était chez ${company}${location ? `, ${location}` : ''}.` : '',
 };
 
 function htmlEscape(s: string): string {
@@ -87,6 +106,14 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
   const proseFn = SOFT_LANDING_PROSE[locale] || SOFT_LANDING_PROSE.it;
   const prose = proseFn(canonicalPath, listingPath);
 
+  // Real per-URL facts (issue #4399 sibling) — the expired job's own
+  // employer/location, pulled from the JobPosting JSON-LD before the
+  // article body (which may or may not have repeated them as prose) is
+  // discarded below.
+  const { company, location } = extractJobPostingFacts(fullHtml);
+  const factsFn = EXPIRED_JOB_FACTS[locale] || EXPIRED_JOB_FACTS.it;
+  const factsSentence = factsFn(htmlEscape(company), htmlEscape(location));
+
   // Same `ft-static-article` class so the inline snapshot script
   // (last line of soft-landing body) still finds an element to read.
   // Its content is now the thin block — that's fine, JobOrphanView's
@@ -98,7 +125,7 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
     // contract as legacy STRIP_* paths (uppercase survives minifier).
     EJP_STRIPPED_MARKER +
     `<h1>${h1Text}</h1>` +
-    `<p>${prose}</p>` +
+    `<p>${prose}${factsSentence ? ` ${factsSentence}` : ''}</p>` +
     `</article>`;
 
   // Replace the entire heavy article with the thin one.

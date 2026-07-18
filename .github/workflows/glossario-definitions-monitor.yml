@@ -1,0 +1,120 @@
+name: glossario-definitions-monitor
+
+# Weekly post-deploy scan for placeholder DefinedTerm.description values on
+# live /glossario-frontaliere/ term pages (issue #4409). Every term page must
+# ship a real, term-specific definition — flags any page still showing the
+# generic auto-generated fallback text ("Definizione e spiegazione di <term>
+# per frontalieri…") instead of a backfilled entry from
+# services/seo/glossaryTermDefinitions.ts.
+#
+# Mirrors sitemap-shard-size-monitor.yml. Runs Mondays 08:30 UTC (after that
+# monitor, avoids hammering the site in the same minute).
+
+on:
+  schedule:
+    - cron: '30 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: glossario-definitions-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      # No `npm ci` — the script uses only the Node stdlib + native fetch.
+
+      - name: Run glossario placeholder-definition check
+        id: check
+        continue-on-error: true
+        run: node scripts/check-glossario-definitions.mjs
+
+      - name: Open low-priority issue for placeholder definitions
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          report=data/glossario-definitions-report.json
+          if [ ! -f "$report" ]; then
+            echo "Check failed but no report emitted (fetch error) — skipping issue creation."
+            exit 0
+          fi
+          count=$(jq -r '.flagged | length' "$report")
+          if [ "$count" -eq 0 ]; then
+            echo "No placeholders flagged (only fetch errors) — skipping issue creation."
+            exit 0
+          fi
+
+          urls=$(jq -r '.flagged | map("- " + .url) | join("\n")' "$report")
+          body=$(cat <<EOF
+          Weekly glossario placeholder-definition monitor found **${count}** live term page(s) still shipping the generic auto-generated \`DefinedTerm.description\` fallback text instead of a real, term-specific definition.
+
+          ${urls}
+
+          Every glossario term must have an entry in \`services/seo/glossaryTermDefinitions.ts\` (single shared source consumed by \`build-plugins/staticPagesPlugin.ts\`, \`services/seoService.ts\`, and — as a literal, build-time-regex-parsed string — \`services/seo/seo-pages.ts\`). Add or fix the missing/regressed entry there.
+
+          Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}
+          Source data: \`data/glossario-definitions-report.json\` (artifact below).
+          Detection script: \`scripts/check-glossario-definitions.mjs\`
+          EOF
+          )
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "[glossario-definitions] ${count} term page(s) shipping placeholder DefinedTerm.description" \
+            --description "$body" \
+            --priority 4 \
+            --label seo-audit \
+            --workflow "${{ github.workflow }}"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: glossario-definitions-report
+          path: data/glossario-definitions-report.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Fail job if placeholders found
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Glossario placeholder-definition check exited non-zero — see report + issue above."
+          exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        # Fire on a muted failure: either the job failed BEFORE/OUTSIDE the
+        # detection step, OR the check exited non-zero but emitted no
+        # placeholders (fetch error only) — both leave zero visible signal
+        # from the steps above, so surface them explicitly.
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection o errore di fetch)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: verifica se il sitemap-glossario.xml è raggiungibile e se il fetch delle pagine termine è fallito per motivi transitori." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

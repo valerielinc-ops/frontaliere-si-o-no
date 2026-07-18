@@ -191,3 +191,94 @@ describe('career-landings regression is soft-landing thin pages, covered by the 
     expect(r.byFeature?.['career-landings']).toBe(1);
   });
 });
+
+// Issue #4399: thin-shell builders splice 2-3 real per-URL job facts into
+// the boilerplate paragraph so pages aren't differentiated by find-replace
+// alone. Each case below feeds a fixture that HAS the discardable facts
+// available and asserts they land in the output; the `cases` fixtures
+// above (no job list / no JobPosting JSON-LD) already cover the graceful
+// no-op path — those 17 tests above stay green with zero facts spliced.
+describe('thin-shell builders splice real per-URL job facts (issue #4399)', () => {
+  it('cluster: pulls employer/location samples out of cluster-seo-jobs before discarding it', () => {
+    const fullWithJobs = wrap(
+      `<h1>Lavoro Lugano</h1>` +
+        `<main class="cluster-seo-prose"><ul class="cluster-seo-jobs">` +
+        `<li><a href="/a">Frontend Developer — Acme AG · Lugano</a></li>` +
+        `<li><a href="/b">Backend Engineer — Beta SA · Bellinzona</a></li>` +
+        `</ul></main>`,
+    );
+    const thin = buildClusterThinHtml(fullWithJobs, 'it');
+    expect(thin).toContain('Acme AG · Lugano');
+    expect(thin).toContain('Beta SA · Bellinzona');
+    expect(thin).toContain(MARKER);
+  });
+
+  it('cluster: no job list present → graceful no-op (no crash, no dangling sentence)', () => {
+    const thin = buildClusterThinHtml(CLUSTER_FULL, 'it');
+    expect(thin).toContain(MARKER);
+    expect(thin).not.toMatch(/undefined|NaN/);
+  });
+
+  const jobPostingLd = (company: string, location: string) =>
+    `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Foo Engineer',
+      hiringOrganization: { '@type': 'Organization', name: company },
+      jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: location } },
+    })}</script>`;
+
+  it('soft-landing: pulls employer/location out of the JobPosting JSON-LD before discarding the article', () => {
+    const fullWithJobPosting =
+      `<!doctype html><html><head><title>x</title>` +
+      `<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-ticino/foo/">` +
+      jobPostingLd('Acme AG', 'Lugano') +
+      `</head><body><h1>Foo Engineer — Acme</h1>` +
+      `<article class="ft-static-article"><h2>Heavy</h2>${'<p>lorem ipsum dolor sit amet</p>'.repeat(40)}</article>` +
+      `</body></html>`;
+    const thin = buildSoftLandingThinHtml(fullWithJobPosting, 'it');
+    expect(thin).toContain('Acme AG');
+    expect(thin).toContain('Lugano');
+    expect(thin).toContain(MARKER);
+  });
+
+  it('bridge: pulls employer/location out of the JobPosting JSON-LD before discarding the canonical job body', () => {
+    const cachedWithJobPosting =
+      `<!doctype html><html><head><title>x</title>` +
+      `<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-ticino/bar/">` +
+      jobPostingLd('Beta SA', 'Bellinzona') +
+      `</head><body><h1>Bar Specialist — Beta</h1>` +
+      `<main class="seo-static-content static-job-page"><h2>Heavy</h2>${'<p>lorem ipsum dolor sit amet</p>'.repeat(40)}</main>` +
+      `</body></html>`;
+    const thin = buildBridgeThinHtml(cachedWithJobPosting, 'bar-specialist-beta', 'it');
+    expect(thin).toContain('Beta SA');
+    expect(thin).toContain('Bellinzona');
+    expect(thin).toContain(MARKER);
+  });
+
+  it('gsc-keyword: threads caller-supplied jobCount + companies into the extra sentence', () => {
+    const withFacts = buildGscKeywordThinBody({
+      h1Title: 'Lavoro infermiere Ticino',
+      query: 'infermiere',
+      listingUrl: '/cerca-lavoro-ticino/',
+      locale: 'it',
+      jobCount: 12,
+      companies: ['EOC', 'Clinica Luganese'],
+    });
+    expect(withFacts).toContain('EOC');
+    expect(withFacts).toContain('Clinica Luganese');
+    expect(withFacts).toContain('12');
+    expect(withFacts).toContain(MARKER);
+  });
+
+  it('gsc-keyword: no jobCount/companies supplied → graceful no-op (matches existing cases[0] fixture)', () => {
+    const withoutFacts = buildGscKeywordThinBody({
+      h1Title: 'Lavoro infermiere Ticino',
+      query: 'infermiere',
+      listingUrl: '/cerca-lavoro-ticino/',
+      locale: 'it',
+    });
+    expect(withoutFacts).toContain(MARKER);
+    expect(withoutFacts).not.toMatch(/undefined|NaN/);
+  });
+});

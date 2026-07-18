@@ -132,6 +132,57 @@ describe('canton-aware cluster URL emission', () => {
   });
 });
 
+describe('localized city joiner in headline (issue #4397)', () => {
+  // buildHeadline() used to hardcode the Italian "a" preposition when
+  // joining keyword + city regardless of locale, so every non-IT page (3
+  // of 4 locales, ~240k pages) rendered a grammatically wrong <title>/<h1>
+  // (e.g. "Globus a Basel" on a DE page). Pin the per-locale joiner in
+  // both places it's used.
+  const JOINER_BY_LOCALE: Record<'it' | 'en' | 'de' | 'fr', string> = {
+    it: 'a',
+    en: 'in',
+    de: 'in',
+    fr: 'à',
+  };
+
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    it(`joins keyword + city with "${JOINER_BY_LOCALE[locale]}" on ${locale} pages`, () => {
+      const distDir = makeDist();
+      const page = renderClusterPage({
+        distDir,
+        dateStamp: '2026-07-18',
+        ctx: {
+          candidate: { slug: 'ricerca-globus-basel', locale, jobCount: 3, sampleTerms: ['globus Basel'], editorialCollision: null },
+          keyword: 'globus',
+          city: 'Basel',
+          // 3 entries clears MIN_JOBS_FOR_INDEXABLE_CLUSTER so this renders
+          // the full self-canonical page, not the below-floor bridge.
+          matchingJobs: [
+            { id: 'a', title: 'Job A', company: 'Globus', location: 'Basel', canton: 'BS', slug: 'job-a' },
+            { id: 'b', title: 'Job B', company: 'Globus', location: 'Basel', canton: 'BS', slug: 'job-b' },
+            { id: 'c', title: 'Job C', company: 'Globus', location: 'Basel', canton: 'BS', slug: 'job-c' },
+          ],
+          topCompanies: ['Globus'],
+        } as any,
+        enriched: undefined,
+        hreflang: [],
+        related: [],
+      });
+
+      const joiner = JOINER_BY_LOCALE[locale];
+      expect(page.html).toContain(`<h1>Globus ${joiner} Basel`);
+      expect(page.html).toMatch(new RegExp(`<title>Globus ${joiner} Basel`));
+      // H1 and title share the same headline prefix — the audit's
+      // `audit:h1-title-duplicates` check pairs them, so both must carry
+      // the identical localized joiner (not just one of the two).
+      const h1Match = page.html.match(/<h1>([^<]*)<\/h1>/);
+      const titleMatch = page.html.match(/<title>([^<]*)<\/title>/);
+      expect(h1Match?.[1].startsWith(`Globus ${joiner} Basel`)).toBe(true);
+      expect(titleMatch?.[1].startsWith(`Globus ${joiner} Basel`)).toBe(true);
+    });
+  }
+});
+
 describe('related search cluster SEO shell', () => {
   it('keeps the full SEO shell, indexation tags, SPA assets, and crawl links', () => {
     const distDir = makeDist();
