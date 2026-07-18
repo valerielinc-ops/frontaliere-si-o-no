@@ -84,9 +84,37 @@ jobs:
         # con reconcile-followups.mjs (followup-resolution-match.mjs, no drift).
         run: node scripts/ci/check-issue-already-resolved.mjs
 
+      - name: Pre-flight — workflows-scope capability guard (zero-Claude)
+        id: scope_guard
+        if: steps.preflight.outputs.already_resolved != 'true'
+        # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
+        # its own throws → emits workflows_blocked=false), continue-on-error is
+        # belt-and-suspenders so an infra fault never strands the issue.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # STRUCTURAL fix for escalation #4227 (`fix-outcome:blocked-workflows-scope`
+        # 12×/14d — #4140 #4160 #4189 #4244 #4256 #4266 #4284 #4322 #4365 #4370 #4375 and
+        # more). scripts/ci/check-workflows-scope.mjs was built for a prior escalation
+        # (#3887) but never actually wired in — this step closes that gap. Two modes:
+        #   1. Issue body explicitly cites a `.github/workflows/**` path → block, zero
+        #      implementation tokens wasted.
+        #   2. Issue is a `scan-job-timeouts.mjs` auto-file (label `ci-timeout`) whose
+        #      title EXACTLY matches a PRIOR issue that already carries a
+        #      `<!-- FIX_OUTCOME: blocked-workflows-scope -->` marker → block, zero
+        #      DIAGNOSIS tokens wasted re-deriving a root cause already found (verified
+        #      live: "CI Failure: Refresh thin-page promotions" recurred across 8+
+        #      distinct issue numbers in one week, each independently re-diagnosing the
+        #      identical checkout-timeout root cause). See that script's docstring for
+        #      the full rationale/evidence and the PROCEED-SAFE bias (bare title match
+        #      only, no marker → proceeds, normal fixer runs unchanged).
+        run: node scripts/ci/check-workflows-scope.mjs
+
       - name: Determine fix tier
         id: tier
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -182,7 +210,7 @@ jobs:
 
       - name: Check for resumable WIP branch (zero-Claude)
         id: resume
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # Problem A (#4337, confermato via GitHub API + run log): prima di questo
         # fix commit+push+PR accadevano SOLO alla fine del flusso (dopo il gate
         # test) — se `--max-turns` si esauriva PRIMA, il container CI moriva e
@@ -208,18 +236,18 @@ jobs:
           fi
 
       - name: Configure git identity
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         run: |
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
 
       - name: Setup Headroom compression proxy
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude fix
         id: claude_review
-        if: steps.preflight.outputs.already_resolved != 'true'
+        if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # Non far fallire il job sull'exit non-zero della CLI: lo step finale
         # `Classify outcome` decide il colore in base al LAVORO reale (PR aperta
         # per la issue), non al subtype della CLI. Un `error_max_turns` DOPO che
@@ -300,7 +328,7 @@ jobs:
 
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
-        if: always() && steps.preflight.outputs.already_resolved != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -321,7 +349,7 @@ jobs:
         # NON ricevono il marker → restano ri-tentabili (nessuna falsa
         # escalation). Gira PRIMA del backstop così quest'ultimo trova il marker
         # e si salta. Best-effort, mai fa fallire il job.
-        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true'
+        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
@@ -349,9 +377,12 @@ jobs:
 
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
-        # `<!-- FIX_OUTCOME: already-fixed -->` marker; this coarse backstop would
-        # otherwise post `no-pr-unspecified` and poison the lessons-harvester signal.
-        if: always() && steps.preflight.outputs.already_resolved != 'true'
+        # `<!-- FIX_OUTCOME: already-fixed -->` marker (preflight) or
+        # `<!-- FIX_OUTCOME: blocked-workflows-scope -->` marker (scope_guard, #4227);
+        # this coarse backstop would otherwise post `no-pr-unspecified` and poison the
+        # lessons-harvester signal. (The step's own `HAS` check below is belt-and-
+        # suspenders for the same reason — this `if:` avoids the extra `gh` round-trip.)
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         # The agent SHOULD post a granular `<!-- FIX_OUTCOME: <code> -->` marker,
         # but prompt-emitted markers are unreliable (observed: #974 ran with the
         # marker prompt on main yet posted none). This backstop guarantees the
@@ -390,7 +421,7 @@ jobs:
       # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
       # vs crash, colore != gate).
       - name: Classify outcome (work-done, not CLI exit)
-        if: always() && steps.preflight.outputs.already_resolved != 'true'
+        if: always() && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.number }}
