@@ -135,4 +135,43 @@ describe('ai-models Claude CLI Haiku fallback', () => {
       callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain: [AI_MODELS.CLAUDE_CLI_HAIKU] }),
     ).rejects.toThrow();
   });
+
+  it('a missing binary (spawn ENOENT) disables the model for the rest of the process instead of retrying every call', async () => {
+    // Regression test for run 29632759948 (send-newsletter, 2026-07-18): the
+    // "Setup Claude CLI Haiku fallback" install step was skipped while the
+    // runtime gate still offered claude-cli, so every one of ~200 newsletter
+    // LLM calls re-attempted the spawn and failed identically, cratering the
+    // model's score to -595. The fix short-circuits after the first ENOENT.
+    process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
+    process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-oauth-token';
+
+    spawnMock.mockImplementation(() => {
+      const listeners: Record<string, ((...args: unknown[]) => void)[]> = {};
+      const child = {
+        stdout: { on: () => {} },
+        stderr: { on: () => {} },
+        on: (ev: string, cb: (...args: unknown[]) => void) => { (listeners[ev] ||= []).push(cb); },
+        kill: vi.fn(),
+      };
+      queueMicrotask(() => {
+        const err = Object.assign(new Error('spawn claude ENOENT'), { code: 'ENOENT' });
+        listeners.error?.forEach((cb) => cb(err));
+      });
+      return child;
+    });
+
+    const msgs = [{ role: 'user', content: 'Write an article' }];
+    const chain = [AI_MODELS.CLAUDE_CLI_HAIKU];
+
+    await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow();
+    expect(spawnMock).toHaveBeenCalledTimes(1);
+
+    // The model must now be reported unavailable...
+    expect(getPreferredModel({ chain })).toBeNull();
+
+    // ...and a second call must NOT spawn again — it should fail fast with no
+    // model available rather than retrying the doomed subprocess.
+    await expect(callLLM(msgs, { model: AI_MODELS.CLAUDE_CLI_HAIKU, chain })).rejects.toThrow();
+    expect(spawnMock).toHaveBeenCalledTimes(1);
+  });
 });
