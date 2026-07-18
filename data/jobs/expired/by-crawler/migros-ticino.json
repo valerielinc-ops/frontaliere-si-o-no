@@ -25,7 +25,7 @@
       "fr": "enregistrement-d-exemple-de-chef-de-groupe-migros-genossenschafts-bund-dietikon"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.148Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "gruppenleiter-in-probenregistrierung-migros-genossenschafts-bund-dietikon",
       "gruppenleiter-in-probenregistrierung-migros-genossenschafts-bund-dietikon-c5ly5t"
@@ -70,14 +70,13 @@
     "slugByLocale": {
       "it": "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland",
       "en": "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
-      "de": "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland",
+      "de": "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
       "fr": "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.720Z",
     "previousSlugs": [
       "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
-      "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
       "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
     ],
     "previousSlugsByLocale": {
@@ -89,7 +88,6 @@
       ],
       "de": [
         "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
-        "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
         "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
       ]
     },
@@ -125,7 +123,7 @@
       "fr": "directeur-adjoint-de-la-succursale-denner-ag-appenzell"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "deputy-branch-manager-denner-ag-horgen",
       "stv-filialleiter-in-denner-ag-horgen-ic4c9c",
@@ -235,7 +233,7 @@
       "fr": "vendeur-denner-ag-sulgen"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "verkaufer-in-denner-ag-allschwil-2",
       "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
@@ -380,7 +378,7 @@
       "fr": "vendeur-dans-le-salaire-horaire-denner-ag-wilen-b-38bcf0"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-2",
       "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-xqseju"
@@ -429,7 +427,7 @@
       "fr": "vendeur-denner-ag-niederuzwil"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "verkaufer-in-denner-ag-niederuzwil-7sjjiv",
       "verkaufer-in-denner-ag-niederuzwil"
@@ -483,7 +481,7 @@
       "fr": "restaurationsfachmitarbeiter-in-service-migros-golf-ag-otelfingen-omn0u6"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "restaurationsfachmitarbeiter-in-service-migros-golf-ag-otelfingen",
       "servizio-specialista-in-ristorazione-migros-golf-ag-otelfingen-omn0u6",
@@ -530,7 +528,7 @@
       "fr": "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx"
     },
     "sector": "",
-    "expiredAt": "2026-07-18T11:02:19.147Z",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
     "previousSlugs": [
       "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
       "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
@@ -24934,6 +24932,62 @@
     "streetAddress": "Via Cantonale",
     "salaryMin": 72000,
     "salaryMax": 97000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "product-owner-m-w-d-migros-genossenschafts-bund-zurich",
+    "title": "Product Owner (w/m/d)",
+    "titleByLocale": {
+      "en": "Product Owner (f/m/d)",
+      "de": "Product Owner (w/m/d)",
+      "it": "Proprietario del prodotto (f/m/d)",
+      "fr": "Propriétaire du produit (f/m/d)"
+    },
+    "company": "Migros-Genossenschafts-Bund",
+    "companyKey": "migros-ticino",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "de": "Wir entwickeln und betreiben geschäftskritische Backend-Systeme für Millionen von Personenstammdaten – von Profildaten bis hin zu Mitgliedschaften wie Cumulus. Zudem sorgen wir dafür, dass Loyalitätsprodukte wie Migros Geschenkkarten und digitale Rabattcoupons reibungslos funktionieren. Mit Innovationen wie dem schrankenlosen Parkieren machen wir den Alltag für unsere Kunden einfacher.\n\nMansioni\n- Du verantwortest die technische Weiterentwicklung von einem grossen Software-Applikationsportfolio im Bereich Kunden- und Loyalitäts-Daten\n- Du koordinierst Stakeholder, nimmst deren Anforderungen auf und priorisiert diese zusammen mit deinen Peers aus dem Business\n- Du führst den Produkte-Backlog, moderierst Refinement Sessions und verantwortest die Planung und Durchführung der PI Plannings nach SAFe\n- Zusammen mit deinem Team stellst du neben der Weiterentwicklung auch den Betrieb der Produkte sicher, bist Ansprechperson für Fragen zu Geschäftsprozessen und hilfst gelegentlich im 3rd Level Support\n- Durch dein technisches Verständnis von Softwarearchitektur erarbeitest du Lösungskonzepte welche du mit dem Dev-Team und Architektur verfeinerst.\n\nRequisiti\n- Mehrjährige Erfahrung: in der Rolle als Product Owner in einem grossen agilen Umfeld (z.B. SAFe) oder langjährige Praxis im Requirements Engineering\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): in Informatik, Wirtschaftsinformatik oder gleichwertige Arbeitserfahrung\n- Du bist stilsicher in agilen Methoden und kannst diese pragmatisch innerhalb von Grossfirmen anwenden\n- Du bringst ein hohes Mass an konzeptionellem Denken mit und kannst komplexe Anforderungen verständlich und präzise formulieren\n- Du hast ein sicheres sowie überzeugendes Auftreten und agierst souverän und diplomatisch in einem anspruchsvollen Stakeholder-Umfeld\n- Du hast ein gutes technisches Verständnis im Bereich Softwareentwicklung sowie Software-Architektur, API und Systemintegrationen\n- Du hast die Bereitschaft, dich in bestehende Legacy-Lösungen einzuarbeiten, um deren Funktionalität vollständig zu verstehen\n- Deutsch (verhandlungssicher)\n- Englisch (gute Kenntnisse)\n- Französisch (von Vorteil)\n\nCosa offriamo\n- Moderne Infrastruktur: Vielfältige Arbeitszonen und moderne Co-Working-Spaces mit fortschrittlicher Ausstattung\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen\n- Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n\nContatto\nBewerbung & Kontakt Bélise Useguwe Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nGrado di occupazione: 11%",
+      "it": "Sviluppiamo e gestiamo sistemi backend business-critical per i dati anagrafici di milioni di persone, dai dati del profilo alle iscrizioni come Cumulus. Garantiamo inoltre il corretto funzionamento dei prodotti fedeltà come le carte regalo Migros e i buoni sconto digitali. Con innovazioni come il parcheggio senza barriere, semplifichiamo la vita quotidiana dei nostri clienti.\n\nMansioni\n- Sei responsabile dello sviluppo tecnico di un ampio portafoglio di applicazioni software nell'area dei dati sui clienti e sulla fidelizzazione\n- Coordini le parti interessate, registri le loro esigenze e stabilisci loro la priorità insieme ai tuoi colleghi aziendali\n- Gestisci il product backlog, moderi le sessioni di perfezionamento e sei responsabile della pianificazione e dell'implementazione della PI Planning secondo SAFe\n- Insieme al tuo team, oltre all'ulteriore sviluppo, garantisci anche il funzionamento dei prodotti, sei la persona di contatto per domande sui processi aziendali e occasionalmente aiuti con il supporto di 3° livello\n- Attraverso la tua comprensione tecnica dell'architettura software, sviluppi concetti di soluzione che perfezioni con il team di sviluppo e l'architettura.\n\nOggetti di scena\n- Esperienza pluriennale: nel ruolo di product Owner in un grande ambiente agile (es. SAFe) oppure esperienza pluriennale nell'ingegneria dei requisiti\n- Studi compiuti (Università/ETH, FH, HF): in informatica, informatica aziendale o esperienza lavorativa equivalente\n- Hai fiducia nei metodi agili e puoi applicarli in modo pragmatico all'interno delle grandi aziende\n- Possiedi un elevato livello di pensiero concettuale e puoi formulare requisiti complessi in modo comprensibile e preciso\n- Hai un comportamento fiducioso e convincente e agisci con sicurezza e diplomazia in un ambiente esigente con le parti interessate\n- Hai una buona conoscenza tecnica dello sviluppo software, nonché dell'architettura software, delle API e delle integrazioni di sistema\n- Sei disposto ad approfondire le soluzioni legacy esistenti per comprenderne appieno la funzionalità\n- Tedesco (fluente per gli affari)\n- Inglese (buona conoscenza)\n- Francese (vantaggioso)\n\nCosa offriamo\n- Infrastrutture moderne: diverse zone di lavoro e moderni spazi di coworking con attrezzature avanzate\n- Luogo di lavoro centrale: Luogo di lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke)\n- Modello di lavoro mobile-flessibile: flessibilità di tempo e spazio nell'adempimento della funzione (40% home office a titolo indicativo)\n- Sostegno mirato: sostenere i nostri collaboratori con misure mirate di sviluppo del personale\n- Prestazioni sociali: condizioni di lavoro attraenti con ottime prestazioni sociali\n- Responsabilità personale e libertà: ambito di compiti vario con un elevato livello di responsabilità personale\n\nContatto\nCandidatura e contatti Bélise Useguwe Talent Acquisition Partner - LinkedIn ## Processo di reclutamento Invia documenti di candidatura Per una candidatura completa, abbiamo bisogno del tuo CV, certificati e diplomi. Non sono necessarie una foto nel CV e una lettera di motivazione. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per te, menzionalo nel tuo dossier di domanda. Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al gestore per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane Discussione tecnica In una discussione tecnica, il manager e/o un altro specialista e, se necessario, il team richiedono conoscenze specifiche rilevanti per l'esecuzione del lavoro. Se possibile, ci sarà tempo successivamente per conoscere meglio il luogo di lavoro e il team attraverso conversazioni libere. Durata fino al feedback: fino a tre settimane Offerta e stipula del contratto Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti verranno nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato tramite posta.\n\nDurata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi per il personale Consideriamo solo candidature dirette per questa posizione.\n\nTasso di occupazione: 11%",
+      "en": "We develop and operate business-critical backend systems for millions of personal data, from profile data to memberships like Cumulus. We also ensure that loyalty products such as Migros gift cards and digital discount co-upons function smoothly. With innovations such as barrier-free parking, we make everyday life easier for our customers.\n\nMansioni - You are responsible for the technical development of a large software application portfolio in the area of customer and loyalty data - You coordinate stakeholders, take up their requirements and purge them together with your peers from the business - You run the product backlog, moderate liniment sessions and are responsible for planning and implementing the pi-plans according to SAFe - Together with your team you ensure the further development of the products, you are a contact person for questions about business processes and occasionally help in the\n\n3rd Level Support - By your technical understanding of software architecture you develop solutions that you refine with the Dev team and architecture.\n\nRequisiti - Many years of experience: in the role of Product Owner in a large environment of the city of Aquisiti (e.g.\n\nSAFe) or long-standing practice in the field of engineering in the German state of Styria - Completed studies (Uni/ETH, FH, HF): in computer science, business computer science or equivalent work experience - You are confident in style in the methods of a latin and can apply them pragmatically within large companies - You bring a high degree of conceptual thinking with you and can formulate complex requirements in an understandable and precise way - You have a secure and convincing appearance and are confident and able to act in a sophisticated and in a level of stakeholder environment - You have a good technical understanding in the field of\n\nSoftware development as well as software architecture, API and system integrations - You have the willingness to work in existing Legacy solutions to fully understand their functionality - English (good knowledge) - French (advantage)\n\nCosa offriamo - Modern infrastructure: Diverse working zones and modern co-working spaces with advanced equipment - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible work model: Time and spatial flexibility in fulfilling the function (as orientation 40% Home Office) - Targeted support: Promotion of our employees with targeted personnel development measures - Social benefits: Attractive employment conditions with very good social benefits - Self-responsibility & freedom:\n\nVaried field of responsibility with high responsibility\n\nContatto Application & Contact Bélise Useguwe TalentScif Partner - LinkedIn ## Recruitment process Submit application documents We need your CV, certificates and diplomas for a complete application. A photo in your CV and a letter of motivation are not necessary. We live equal opportunities for all applicants. We have a standardized recruitment process. If this doesn't work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and team. Duration to feedback: Up to three weeks of professional discussion In a professional discussion, specific knowledge relevant for the performance of the job is asked by the manager and/or another specialist and at best by the team. If possible, there is time afterwards to get to know the workplace and team in a free conversation.\n\nDuration to feedback: Up to three weeks of offer & contract exhibition After our oral job offer, the most important contract points are verified again.After agreement, the contract is commissioned and sent by post. Duration to feedback: Up to three weeks ## Note for HR service providers We only take into account direct applications for this job.\n\nGrado di occupazione: 11%",
+      "fr": "Nous développons et exploitons des systèmes backend critiques pour l'entreprise pour les données de base de millions de personnes - des données de profil aux adhésions comme Cumulus. Nous veillons également au bon fonctionnement des produits de fidélité tels que les cartes cadeaux Migros et les bons de réduction numériques. Avec des innovations telles que le stationnement sans obstacle, nous facilitons le quotidien de nos clients.\n\nManoir\n- Vous êtes responsable du développement technique d'un large portefeuille d'applications logicielles dans le domaine des données clients et fidélisation\n- Vous coordonnez les parties prenantes, enregistrez leurs exigences et les priorisez avec vos pairs de l'entreprise\n- Vous gérez le backlog produit, modérez les sessions de raffinement et êtes responsable de la planification et de la mise en œuvre du PI Planning selon SAFe\n- Avec votre équipe, en plus du développement ultérieur, vous assurez également le fonctionnement des produits, êtes l'interlocuteur pour les questions sur les processus commerciaux et aidez occasionnellement avec le support de 3ème niveau.\n- Grâce à votre compréhension technique de l'architecture logicielle, vous développez des concepts de solutions que vous affinez avec l'équipe de développement et l'architecture.\n\nAccessoires\n- Plusieurs années d'expérience : dans le rôle de Product Owner dans un grand environnement agile (ex. SAFe) ou de nombreuses années d'expérience en ingénierie des exigences\n- Études terminées (Université/ETH, FH, HF) : en informatique, informatique de gestion ou expérience professionnelle équivalente\n- Vous êtes confiant dans les méthodes agiles et savez les appliquer de manière pragmatique au sein de grandes entreprises\n- Vous disposez d'un haut niveau de réflexion conceptuelle et pouvez formuler des exigences complexes de manière compréhensible et précise\n- Vous avez une attitude confiante et convaincante et agissez avec confiance et diplomatie dans un environnement exigeant avec les parties prenantes.\n- Vous avez une bonne compréhension technique du développement logiciel ainsi que de l'architecture logicielle, des API et des intégrations système\n- Vous êtes prêt à vous plonger dans les solutions existantes afin de bien comprendre leurs fonctionnalités\n- Allemand (courant des affaires)\n- Anglais (bonne connaissance)\n- Français (avantageux)\n\nCosa offriamo\n- Infrastructure moderne : zones de travail diversifiées et espaces de coworking modernes dotés d'équipements de pointe\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Accompagnement ciblé : Soutenir nos collaborateurs avec des mesures ciblées de développement du personnel\n- Avantages sociaux : Conditions d'emploi attractives avec de très bonnes prestations sociales\n- Responsabilité personnelle et liberté : Domaine de tâches varié avec un haut niveau de responsabilité personnelle\n\nContact\nCandidature et contact Bélise Useguwe Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au feedback : Jusqu'à trois semaines Discussion technique Lors d'une discussion technique, des connaissances spécifiques pertinentes pour l'exécution du travail sont demandées par le manager et/ou un autre spécialiste et, si nécessaire, l'équipe. Si possible, vous aurez ensuite le temps de mieux connaître le lieu de travail et l'équipe grâce à une conversation libre. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par courrier.\n\nDurée jusqu'à la rétroaction : jusqu'à trois semaines ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 11%"
+    },
+    "slugByLocale": {
+      "it": "proprietario-del-prodotto-f-m-d-migros-genossenschafts-bund-zurich",
+      "en": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+      "de": "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+      "fr": "proprietaire-du-produit-f-m-d-migros-genossenschafts-bund-zurich"
+    },
+    "sector": "",
+    "expiredAt": "2026-07-18T09:57:39.721Z",
+    "previousSlugs": [
+      "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+      "progettazione-del-prodotto-piombo-f-m-d-migros-genossenschafts-bund-zurich",
+      "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich-cn8b7q",
+      "conception-du-produit-plomb-f-m-d-migros-genossenschafts-bund-zurich",
+      "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich",
+      "product-owner-w-m-d-migros-genossenschafts-bund-zurich",
+      "product-owner-h-f-d-migros-genossenschafts-bund-zurich",
+      "product-owner-f-h-d-migros-genossenschafts-bund-zurich",
+      "product-owner-u-d-n-migros-genossenschafts-bund-zurich"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+        "product-owner-w-m-d-migros-genossenschafts-bund-zurich",
+        "product-owner-u-d-n-migros-genossenschafts-bund-zurich"
+      ],
+      "fr": [
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+        "product-owner-h-f-d-migros-genossenschafts-bund-zurich",
+        "product-owner-f-h-d-migros-genossenschafts-bund-zurich"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 79000,
+    "salaryMax": 134500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   }

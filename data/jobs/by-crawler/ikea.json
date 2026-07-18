@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-07-18T10:31:32.307Z",
+  "assembledAt": "2026-07-18T09:41:48.050Z",
   "jobs": [
     {
       "id": "ikea-541fb3518d39",
@@ -1558,7 +1558,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-ikea-bistro-and-schwedenshop-20/24107/96013037360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:31:28.960Z",
+      "crawledAt": "2026-07-16T22:20:01.903Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "Zürich",
@@ -1580,12 +1580,27 @@
         "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen",
         "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
         "employe-ikea-bistro-boutique-suedoise-20-50-ikea-st-gallen-sankt-gallen-switzerland",
-        "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
+        "dipendenti-ikea-bistro-negozio-svedese-60-ikea-spreitenbach",
+        "employee-ikea-bistro-swedish-shop-60-ikea-spreitenbach",
+        "mitarbeiter-in-ikea-bistro-schwedenshop-60-ikea-ch",
+        "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-ikea-ch",
-          "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
+          "dipendenti-ikea-bistro-negozio-svedese-60-ikea-spreitenbach",
+          "employee-ikea-bistro-swedish-shop-60-ikea-spreitenbach",
+          "mitarbeiter-in-ikea-bistro-schwedenshop-60-ikea-ch",
+          "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach"
+        ],
+        "en": [
+          "employee-ikea-bistro-swedish-shop-60-ikea-spreitenbach"
+        ],
+        "de": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-60-ikea-ch"
+        ],
+        "fr": [
+          "salaries-en-ikea-bistro-swedenshop-60-ikea-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-13T22:13:32.658Z",

@@ -492,7 +492,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-d7dda1"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -506,6 +506,12 @@
         ],
         "fr": [
           "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -514,7 +520,6 @@
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -686,7 +691,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -698,13 +703,18 @@
         ],
         "fr": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1017,7 +1027,7 @@
         "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern-3b4a69"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Farmacia-Assistente / Farmacia-Assistentin (w/m/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (p/m/j)"
@@ -1027,6 +1037,12 @@
         "it": [
           "pharma-assistente-farmaceutico-assistente-lavori-l-d-galenica-galenica-bern",
           "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -1034,7 +1050,6 @@
         "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1461,13 +1476,13 @@
       "sourceLang": "en",
       "slug": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
+        "it": "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3",
         "en": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
         "de": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
         "fr": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie  (f/h/d)",
+        "it": "Assistente in farmacia (f/h/d)",
         "en": "Assistante en pharmacie (f/h/d)",
         "de": "Assistante en pharmacie (f/h/d)",
         "fr": "Assistante en pharmacie (f/h/d)"
@@ -1475,13 +1490,20 @@
       "id": "galenica-c3a69e501533",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-          "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3"
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+        ],
+        "en": [
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern",
-        "assistente-in-farmacia-f-h-d-galenica-ag-galenica-bern-c055a3"
+        "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
@@ -1502,8 +1524,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter / Mitarbeiterin Kundendienst (w/m/d)",

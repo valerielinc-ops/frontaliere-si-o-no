@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-07-18T10:24:59.890Z",
+  "assembledAt": "2026-07-18T10:16:28.647Z",
   "jobs": [
     {
       "id": "stadt-bern-1cdd2ca4743e",
@@ -1601,7 +1601,7 @@
       "url": "https://jobs.bern.ch/offene-stellen/mitglied-der-aerztlichen-leitung-verantwortungsbereich-notrufzentrale/b8042102-dcd5-4f53-811a-248778cfd4f5",
       "source": "Stadt Bern Dedicated Parser (Prospective medium 1840)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:24:48.785Z",
+      "crawledAt": "2026-07-17T21:53:59.922Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1621,18 +1621,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
-        "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern-fb5992"
+        "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern",
+        "member-of-the-medical-management-area-of-responsibility-emergency-call-centre-stadt-bern-bern",
+        "membre-de-la-direction-medicale-secteur-de-responsabilite-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
-          "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern-fb5992"
+          "membro-della-direzione-medica-area-di-responsabilita-centro-di-chiamata-di-emergenza-stadt-bern-bern",
+          "member-of-the-medical-management-area-of-responsibility-emergency-call-centre-stadt-bern-bern",
+          "membre-de-la-direction-medicale-secteur-de-responsabilite-stadt-bern-bern"
         ],
         "en": [
-          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
+          "member-of-the-medical-management-area-of-responsibility-emergency-call-centre-stadt-bern-bern"
         ],
         "fr": [
-          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern"
+          "mitglied-der-arztlichen-leitung-verantwortungsbereich-notrufzentrale-stadt-bern-bern",
+          "membre-de-la-direction-medicale-secteur-de-responsabilite-stadt-bern-bern"
         ]
       },
       "firstSeenAt": "2026-07-15T10:57:08.030Z",
