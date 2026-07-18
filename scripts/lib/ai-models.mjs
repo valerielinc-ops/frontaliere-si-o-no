@@ -670,6 +670,10 @@ function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
 }
 const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
+// Flipped true on the first `spawn claude ENOENT` (see the catch block in
+// callLLM's fallback loop). Process-local, never persisted — see that comment
+// for why this isn't routed through markModelExhausted.
+let _claudeCliBinaryMissing = false;
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -819,7 +823,7 @@ function getApiKeyForProvider(provider) {
     // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
     // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
     // chain only offers this model when both are actually usable. Mirrors Local.
-    case PROVIDER.CLAUDE_CLI:  return (isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
+    case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
     default: return '';
   }
 }
@@ -2121,6 +2125,7 @@ export function resetState() {
   _stats.cacheHits = 0;
   _stats.errors = [];
   _responseCache.clear();
+  _claudeCliBinaryMissing = false;
 }
 
 /** Remove a specific model from the exhausted set so it can be retried */
@@ -3674,6 +3679,20 @@ export async function callLLM(messages, opts = {}) {
     } catch (e) {
       const msg = e?.message || String(e);
       errors.push(`${model}: ${msg.slice(0, 200)}`);
+
+      // claude CLI binary missing (spawn ENOENT — install step failed/was
+      // skipped). Unlike quota/timeout exhaustion this can't self-heal mid-run
+      // (every remaining attempt this process is 100% certain to fail the same
+      // way), so retrying it on every subsequent callLLM() call only burns the
+      // score (run 29632759948: -595 over ~200 identical ENOENT retries).
+      // Disable for the rest of THIS process only — not markModelExhausted,
+      // which persists to Firestore for quota-style bans that carry across
+      // runs; a later run's install step succeeding is a separate event this
+      // process has no way to know about, so we don't want to ban it there too.
+      if (e.code === 'ENOENT' && provider === PROVIDER.CLAUDE_CLI) {
+        _claudeCliBinaryMissing = true;
+        console.warn(`🚫 [${model}] claude CLI binary not found on PATH (spawn ENOENT) — disabling claude-cli fallback for the rest of this run`);
+      }
 
       // ❌ Failure — penalize this model's score so it drops in priority
       const isExhausted =
