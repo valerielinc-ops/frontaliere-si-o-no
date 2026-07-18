@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-07-17T22:49:15.558Z",
+  "assembledAt": "2026-07-18T11:58:07.985Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:11.895Z",
+      "crawledAt": "2026-07-18T11:58:02.596Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -66,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:47.770Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -110,7 +111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/77c68a9b-85f3-4d22-91cd-8de58c003d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:11.222Z",
+      "crawledAt": "2026-07-18T11:58:01.936Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -145,6 +146,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:46.981Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -189,7 +191,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/bcb70e3a-5f9a-4dd9-87f8-a113a08029b0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:10.568Z",
+      "crawledAt": "2026-07-18T11:58:01.173Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -209,11 +211,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "demande-spontanee-employe-service-a-la-clientele-rheintal-appenzellerland-80-100-css-versicherung-luzern",
-        "spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland-80-100-css"
+        "spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland-80-100-css",
+        "spontanbewerbung-collaboratore-trice-kundenservice-rheintal-appenzellerland-80-100-css-versicherung-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland-80-100-css"
+          "spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland-80-100-css",
+          "spontanbewerbung-collaboratore-trice-kundenservice-rheintal-appenzellerland-80-100-css-versicherung-luzern"
         ],
         "fr": [
           "demande-spontanee-employe-service-a-la-clientele-rheintal-appenzellerland-80-100-css-versicherung-luzern"
@@ -231,7 +235,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-e75cc2c654ae",
@@ -264,7 +269,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a7fb511d-d61e-448c-a845-6a1d0e8220de",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:49:10.084Z",
+      "crawledAt": "2026-07-18T11:58:00.603Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -283,11 +288,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-a-la-clientele-css-versicherung-neuchatel"
+        "conseiller-ere-a-la-clientele-css-versicherung-neuchatel",
+        "consulente-clienti-css-versicherung-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-a-la-clientele-css-versicherung-neuchatel"
+          "conseiller-ere-a-la-clientele-css-versicherung-neuchatel",
+          "consulente-clienti-css-versicherung-neuchatel"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:45.640Z",
@@ -335,7 +342,7 @@
       "url": "https://jobs.css.ch/offene-stellen/vertrauensarzt-vertrauensaerztin/6b1f792d-bc1d-4c49-8bcb-0e88a2f3ce12",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:09.590Z",
+      "crawledAt": "2026-07-18T11:57:59.828Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -354,11 +361,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vertrauensarzt-vertrauensarztin-80-100-css-versicherung-luzern-hybrid"
+        "vertrauensarzt-vertrauensarztin-80-100-css-versicherung-luzern-hybrid",
+        "medico-legale-80-100-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vertrauensarzt-vertrauensarztin-80-100-css-versicherung-luzern-hybrid"
+          "vertrauensarzt-vertrauensarztin-80-100-css-versicherung-luzern-hybrid",
+          "medico-legale-80-100-css-versicherung-luzern-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:45.074Z",
@@ -406,7 +415,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben/34525ee1-6d66-45f5-9eb7-e56567ea4dee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:09.055Z",
+      "crawledAt": "2026-07-18T11:57:59.291Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -425,11 +434,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root"
+        "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root",
+        "collaboratore-trice-kundenservice-center-con-fokus-im-einzelleben-80-100-css-versicherung-root-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root"
+          "mitarbeiter-in-kundenservice-center-mit-fokus-im-einzelleben-80-100-css-versicherung-root",
+          "collaboratore-trice-kundenservice-center-con-fokus-im-einzelleben-80-100-css-versicherung-root-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:44.399Z",
@@ -444,7 +455,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-fdad179d5fd1",
@@ -477,7 +489,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung/d8f7d1ed-42ea-46b5-808d-a3f68d05db7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:08.502Z",
+      "crawledAt": "2026-07-18T11:57:58.726Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -496,11 +508,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung-80-100-css-versicherung"
+        "mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung-80-100-css-versicherung",
+        "collaboratore-trice-kundenservice-center-con-versicherungserfahrung-80-100-css-versicherung-root-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung-80-100-css-versicherung"
+          "mitarbeiter-in-kundenservice-center-mit-versicherungserfahrung-80-100-css-versicherung",
+          "collaboratore-trice-kundenservice-center-con-versicherungserfahrung-80-100-css-versicherung-root-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:43.712Z",
@@ -548,7 +562,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-stationaer-pflege-drg-leistungspruefung/0e0dbc51-9e0d-4797-8792-f79f62a4cd0f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:07.941Z",
+      "crawledAt": "2026-07-18T11:57:58.178Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -567,11 +581,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexpert-in-stationar-pflege-drg-leistungsprufung-100-css-versicherung-luzern-hybrid"
+        "fachexpert-in-stationar-pflege-drg-leistungsprufung-100-css-versicherung-luzern-hybrid",
+        "valutazione-dei-benefici-specialistici-per-pazienti-ricoverati-infermieristici-drg-al-100-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpert-in-stationar-pflege-drg-leistungsprufung-100-css-versicherung-luzern-hybrid"
+          "fachexpert-in-stationar-pflege-drg-leistungsprufung-100-css-versicherung-luzern-hybrid",
+          "valutazione-dei-benefici-specialistici-per-pazienti-ricoverati-infermieristici-drg-al-100-css-versicherung-luzern-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:43.033Z",
@@ -619,7 +635,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-expertise/c67ee64e-73f4-40c6-a0b3-a0f6b5b86d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:49:07.380Z",
+      "crawledAt": "2026-07-18T11:57:57.620Z",
       "addressLocality": "Lausanne et/ou Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -638,14 +654,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-amp-expertise"
+        "expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-amp-expertise",
+        "esperto-di-benefici-nella-sezione-disposizioni-e-competenze-dei-benefici-80-100-css-versicherung-lausanne-et-ou-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-amp-expertise"
+          "expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-amp-expertise",
+          "esperto-di-benefici-nella-sezione-disposizioni-e-competenze-dei-benefici-80-100-css-versicherung-lausanne-et-ou-lucerne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -674,7 +693,7 @@
       "title": "Senior Cloud Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Cloud Ingegnere (w/m) 80-100%",
-        "en": "Senior Cloud Engineer (f/m) 80-100 %",
+        "en": "Senior Cloud Engineer (w/m) 80-100%",
         "de": "Senior Cloud Ingenieur (w/m) 80-100%",
         "fr": "Senior Cloud Ingénieur (w/m) 80-100%"
       },
@@ -690,7 +709,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-cloud-engineer-w-m/3e68320b-b9b0-4f2a-a32d-196ba3e0f1a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:06.829Z",
+      "crawledAt": "2026-07-18T11:57:57.065Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -709,6 +728,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:40.860Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 195000,
       "baseSalary": {
@@ -753,7 +773,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitaetssicherung/a4c4bbc6-cbad-4377-9140-0ffdb3c1f2b1",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:06.301Z",
+      "crawledAt": "2026-07-18T11:57:56.540Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -774,12 +794,14 @@
       "previousSlugs": [
         "fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitatssicherung-css-versicherung-luzern-hybrid",
         "expert-en-produits-pharmaceutiques-services-ambulants-et-assurance-qualite-css-versicherung-luzern-hybrid",
-        "fachexperte-in-pharma-ambulant-leistungsgrundlagen-amp-qualitatssicherung-css-versicherung"
+        "fachexperte-in-pharma-ambulant-leistungsgrundlagen-amp-qualitatssicherung-css-versicherung",
+        "nozioni-di-base-per-farmaci-servizi-ambulatoriali-specialistici-e-assicurazione-della-qualita-css-versicherung-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitatssicherung-css-versicherung-luzern-hybrid",
-          "fachexperte-in-pharma-ambulant-leistungsgrundlagen-amp-qualitatssicherung-css-versicherung"
+          "fachexperte-in-pharma-ambulant-leistungsgrundlagen-amp-qualitatssicherung-css-versicherung",
+          "nozioni-di-base-per-farmaci-servizi-ambulatoriali-specialistici-e-assicurazione-della-qualita-css-versicherung-luzern"
         ],
         "en": [
           "fachexperte-in-pharma-ambulant-leistungsgrundlagen-qualitatssicherung-css-versicherung-luzern-hybrid"
@@ -834,7 +856,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:05.773Z",
+      "crawledAt": "2026-07-18T11:57:56.013Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -853,11 +875,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden"
+        "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden",
+        "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden"
+          "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden",
+          "consulente-clienti-per-clienti-privati-regione-baden-css-versicherung-baden"
         ],
         "en": [
           "spontanbewerbung-kundenberater-in-fur-privatkunden-region-baden-css-versicherung-baden"
@@ -911,7 +935,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:49:05.113Z",
+      "crawledAt": "2026-07-18T11:57:55.376Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -930,11 +954,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expert-e-prevoyance-css-versicherung-fribourg"
+        "expert-e-prevoyance-css-versicherung-fribourg",
+        "esperto-pensionistico-css-versicherung-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-e-prevoyance-css-versicherung-fribourg"
+          "expert-e-prevoyance-css-versicherung-fribourg",
+          "esperto-pensionistico-css-versicherung-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:37.296Z",
@@ -966,7 +992,7 @@
       "title": "Praktikum WMS/HMS im HR Recruiting 100% (August 2027)",
       "titleByLocale": {
         "it": "Praktikum WMS/HMS im Risorse Umane Recruiting 100% (August 2027)",
-        "en": "Internship WMS/HMS in HR Recruiting 100% (August 2027)",
+        "en": "Praktikum WMS/HMS im HR Recruiting 100% (August 2027)",
         "de": "Praktikum WMS/HMS im Personalwesen Recruiting 100% (August 2027)",
         "fr": "Praktikum WMS/HMS im Ressources Humaines Recruiting 100% (August 2027)"
       },
@@ -982,7 +1008,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-recruiting-august-2027/7a46f2ad-7cb6-4be7-b00d-50f247c7be7e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:04.546Z",
+      "crawledAt": "2026-07-18T11:57:54.825Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1001,6 +1027,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:36.595Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1045,7 +1072,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/cd1e1fe8-8676-40a5-ab74-43b4f9211a82",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:03.994Z",
+      "crawledAt": "2026-07-18T11:57:54.290Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1064,14 +1091,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-uster"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-uster",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-uster"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-uster",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-uster"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:35.896Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1116,7 +1146,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e1d5b806-8c66-4982-bad1-eef96155b28d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:03.458Z",
+      "crawledAt": "2026-07-18T11:57:53.730Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1135,14 +1165,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zurich-oerlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zurich-oerlikon",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zurich-oerlikon"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:35.231Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1187,7 +1220,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/46b96d2e-89c0-4e24-9ed2-5c5d38c8dc6f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:02.859Z",
+      "crawledAt": "2026-07-18T11:57:53.177Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "",
@@ -1206,14 +1239,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zug"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zug",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zug"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-zug",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-zug"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:34.526Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1258,7 +1294,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/e2333279-8377-4fd4-81c3-97d4d7ab692e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:02.306Z",
+      "crawledAt": "2026-07-18T11:57:52.638Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1277,14 +1313,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:33.188Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1329,7 +1368,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/22909245-af4b-4fc2-989e-b8ca8a4c1ea9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:01.752Z",
+      "crawledAt": "2026-07-18T11:57:52.099Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1353,7 +1392,8 @@
         "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565",
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
         "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-b2e565",
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1362,7 +1402,8 @@
           "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565",
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
           "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern-b2e565",
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-2",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-thun"
         ],
         "en": [
           "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern-b2e565"
@@ -1375,6 +1416,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:32.514Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1419,7 +1461,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/ba047f39-d148-4a27-bd30-115cbc3241d5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:01.212Z",
+      "crawledAt": "2026-07-18T11:57:51.510Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1441,12 +1483,14 @@
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
         "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern",
         "apprenticeship-businesswoman-man-efz-100-august-2027-css-luzern",
-        "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern"
+        "apprentissage-femme-d-affaires-homme-efz-100-aout-2027-css-luzern",
+        "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-af79cb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
-          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern"
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern",
+          "apprendistato-businesswoman-uomo-efz-100-agosto-2027-css-luzern-af79cb"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern",
@@ -1458,6 +1502,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:31.858Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1502,7 +1547,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/164e34d5-1573-427f-b4af-ef4f42398424",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:00.668Z",
+      "crawledAt": "2026-07-18T11:57:50.966Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1521,14 +1566,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-altstatten-sg"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-altstatten-sg",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-altstatten-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-altstatten-sg"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-altstatten-sg",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-altstatten-sg"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:29.845Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -1573,7 +1621,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-vermittler-und-partnerschaften-august-2027/e7e13afd-788b-45a8-9877-573ccfd25a54",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:49:00.062Z",
+      "crawledAt": "2026-07-18T11:57:50.434Z",
       "addressLocality": "Zürich-Oerlikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1593,11 +1641,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-zurich-oerlikon",
-        "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-versicherung-zurich"
+        "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-versicherung-zurich",
+        "praktikum-wms-hms-vermittler-e-partnerschaften-100-august-2027-css-zurich-oerlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-versicherung-zurich"
+          "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-versicherung-zurich",
+          "praktikum-wms-hms-vermittler-e-partnerschaften-100-august-2027-css-zurich-oerlikon"
         ],
         "en": [
           "praktikum-wms-hms-vermittler-und-partnerschaften-100-august-2027-css-zurich-oerlikon"
@@ -1607,6 +1657,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:29.103Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1634,7 +1685,7 @@
       "companyDomain": "css.ch",
       "title": "Praktikum WMS/HMS im HR Service Center 100% (August 2027)",
       "titleByLocale": {
-        "it": "Internship WMS/HMS nel centro assistenza HR 100% (agosto 2027)",
+        "it": "Praktikum WMS/HMS im HR Service Center 100% (August 2027)",
         "en": "Internship WMS/HMS in the HR Service Center 100% (August 2027)",
         "de": "Praktikum WMS/HMS im Personalwesen Service Center 100% (August 2027)",
         "fr": "Praktikum WMS/HMS im Ressources Humaines Service Center 100% (August 2027)"
@@ -1651,7 +1702,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikum-wms-hms-im-hr-service-center-august-2027/56b0b4de-f542-4546-a12e-2c5e32ff533d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:59.517Z",
+      "crawledAt": "2026-07-18T11:57:49.895Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1671,15 +1722,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-versicherung-luzern",
-        "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-luzern"
+        "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-luzern",
+        "internship-wms-hms-nel-centro-assistenza-hr-100-agosto-2027-css-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-versicherung-luzern",
-          "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-luzern"
+          "praktikum-wms-hms-im-hr-service-center-100-august-2027-css-luzern",
+          "internship-wms-hms-nel-centro-assistenza-hr-100-agosto-2027-css-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:28.426Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1724,7 +1778,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-august-2027/b960af58-8f97-4994-ae69-b52632906b67",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:58.945Z",
+      "crawledAt": "2026-07-18T11:57:49.359Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1744,11 +1798,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenticeship-professional-customer-dialogue-efz-partner-plus-agency-100-2027-aout-css-luzern",
-        "lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-100-august-2027-css"
+        "lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-100-august-2027-css",
+        "apprendistato-fachfrau-mann-kundendialog-cfc-partner-plus-agentur-100-august-2027-css-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-100-august-2027-css"
+          "lehrstelle-fachfrau-mann-kundendialog-efz-partner-plus-agentur-100-august-2027-css",
+          "apprendistato-fachfrau-mann-kundendialog-cfc-partner-plus-agentur-100-august-2027-css-luzern"
         ],
         "fr": [
           "apprenticeship-professional-customer-dialogue-efz-partner-plus-agency-100-2027-aout-css-luzern"
@@ -1766,7 +1822,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-cc447c0e1999",
@@ -1799,7 +1856,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-august-2027/5172f03c-185e-4979-a152-558d3d55bec5",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:58.405Z",
+      "crawledAt": "2026-07-18T11:57:48.651Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1819,11 +1876,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-root",
-        "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-versicherung"
+        "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-versicherung",
+        "apprendistato-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-root"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-versicherung"
+          "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-versicherung",
+          "apprendistato-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-root"
         ],
         "en": [
           "lehrstelle-fachfrau-mann-kundendialog-kundenservicecenter-100-august-2027-css-root"
@@ -1877,7 +1936,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-privatkunden-wohlen-mit-vbv/a0480423-0405-4de0-93c2-3731137737fb",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:57.861Z",
+      "crawledAt": "2026-07-18T11:57:48.097Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1896,6 +1955,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:26.175Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1940,7 +2000,7 @@
       "url": "https://jobs.css.ch/offene-stellen/leistungsexpertin-leistungsexperte-leistungsgrundlagen-expertenwissen/5d01b71c-5f10-468f-b001-359f947a1a91",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:57.103Z",
+      "crawledAt": "2026-07-18T11:57:47.393Z",
       "addressLocality": "Luzern und/oder Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1963,12 +2023,14 @@
         "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-expertenwissen-80-100-css-versicherung-luzern-und-oder",
         "performance-expert-performance-expert-br-performance-basics-expert-knowledge-80-100-css-versicherung-luzern-und-oder",
         "expert-en-rendement-expert-en-rendement-br-bases-de-rendement-et-connaissances-des-experts-80-100-css-versicherung",
-        "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-amp-expertenwissen-80-100-css"
+        "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-amp-expertenwissen-80-100-css",
+        "br-prestazioni-esperto-di-prestazioni-base-e-conoscenza-esperta-80-100-css-versicherung-luzern-und-oder-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-expertenwissen-80-100-css-versicherung-luzern-und-oder-lausanne",
-          "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-amp-expertenwissen-80-100-css"
+          "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-amp-expertenwissen-80-100-css",
+          "br-prestazioni-esperto-di-prestazioni-base-e-conoscenza-esperta-80-100-css-versicherung-luzern-und-oder-lausanne"
         ],
         "en": [
           "leistungsexpertin-leistungsexperte-br-leistungsgrundlagen-expertenwissen-80-100-css-versicherung-luzern-und-oder",
@@ -1991,7 +2053,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "css-versicherung-410ae9ee4892",
@@ -2024,7 +2087,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/ad0d5dea-a283-4586-96e9-b2201b7f6a2e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:56.563Z",
+      "crawledAt": "2026-07-18T11:57:46.834Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -2044,11 +2107,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-de-l-agence-dans-liestal-100-css-versicherung-liestal",
-        "agenturleiter-in-liestal-100-css-versicherung-liestal"
+        "agenturleiter-in-liestal-100-css-versicherung-liestal",
+        "responsabile-di-agenzia-liestal-al-100-css-versicherung-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agenturleiter-in-liestal-100-css-versicherung-liestal"
+          "agenturleiter-in-liestal-100-css-versicherung-liestal",
+          "responsabile-di-agenzia-liestal-al-100-css-versicherung-liestal"
         ],
         "fr": [
           "gestionnaire-de-l-agence-dans-liestal-100-css-versicherung-liestal"
@@ -2099,7 +2164,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-versicherungsrecht-befristet/c42db141-30d8-4734-b978-c6569e60010b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:55.995Z",
+      "crawledAt": "2026-07-18T11:57:46.212Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2119,11 +2184,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "droit-des-stagiaires-assurances-80-100-temporaire-css-versicherung-luzern-hybrid",
-        "praktikant-in-versicherungsrecht-80-100-befristet-css-versicherung-luzern-hybrid"
+        "praktikant-in-versicherungsrecht-80-100-befristet-css-versicherung-luzern-hybrid",
+        "diritto-assicurativo-per-tirocinanti-80-100-temporaneo-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-versicherungsrecht-80-100-befristet-css-versicherung-luzern-hybrid"
+          "praktikant-in-versicherungsrecht-80-100-befristet-css-versicherung-luzern-hybrid",
+          "diritto-assicurativo-per-tirocinanti-80-100-temporaneo-css-versicherung-luzern-hybrid"
         ],
         "fr": [
           "droit-des-stagiaires-assurances-80-100-temporaire-css-versicherung-luzern-hybrid"
@@ -2174,7 +2241,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/6b9dd2c7-03bd-4322-a2a3-53ef04382b7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:55.483Z",
+      "crawledAt": "2026-07-18T11:57:45.689Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2209,6 +2276,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:23.330Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2253,7 +2321,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-rheintal-mit-vbv/d8463033-afd3-4d29-8caa-75fcd1b5729c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:54.811Z",
+      "crawledAt": "2026-07-18T11:57:45.028Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2286,6 +2354,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:22.531Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2330,7 +2399,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-direktvertrieb-root-oder-lausanne/8faac91f-42ea-4766-9aab-1991fcd89985",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:54.150Z",
+      "crawledAt": "2026-07-18T11:57:44.365Z",
       "addressLocality": "Root und/oder Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2363,6 +2432,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:21.720Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2407,7 +2477,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne/96cb7b28-4e4e-475f-b1d5-9af82f917e60",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:53.609Z",
+      "crawledAt": "2026-07-18T11:57:43.819Z",
       "addressLocality": "Root et/ou Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2426,11 +2496,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne-80-100-css"
+        "conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne-80-100-css",
+        "customer-advisor-direct-sales-root-o-losanne-80-100-css-versicherung-root-et-ou-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne-80-100-css"
+          "conseillere-conseiller-a-la-clientele-vente-directe-root-ou-lausanne-80-100-css",
+          "customer-advisor-direct-sales-root-o-losanne-80-100-css-versicherung-root-et-ou-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:21.055Z",
@@ -2478,7 +2550,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/99f45573-b09c-479e-9447-685e082762a4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:53.041Z",
+      "crawledAt": "2026-07-18T11:57:43.273Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -2497,11 +2569,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-a-la-clientele-css-versicherung-delemont"
+        "conseiller-ere-a-la-clientele-css-versicherung-delemont",
+        "consulente-clienti-css-versicherung-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-a-la-clientele-css-versicherung-delemont"
+          "conseiller-ere-a-la-clientele-css-versicherung-delemont",
+          "consulente-clienti-css-versicherung-delemont"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:14.070Z",
@@ -2549,7 +2623,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachspezialist-in-beschwerdenmanagement-mit-versicherungserfahrung/3f1e7315-6471-460a-af93-34f8afc1f6ac",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:52.504Z",
+      "crawledAt": "2026-07-18T11:57:42.730Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2612,7 +2686,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-privatkunden-solothurn/a50d971e-7ea0-4ceb-a1a8-2826297d1ca2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:51.961Z",
+      "crawledAt": "2026-07-18T11:57:42.172Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2631,11 +2705,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontanbewerbung-kundenberater-in-privatkunden-solothurn-80-100-css-versicherung-solothurn"
+        "spontanbewerbung-kundenberater-in-privatkunden-solothurn-80-100-css-versicherung-solothurn",
+        "domanda-spontanea-per-consulenti-clienti-per-clienti-privati-solothurn-80-100-css-versicherung-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-kundenberater-in-privatkunden-solothurn-80-100-css-versicherung-solothurn"
+          "spontanbewerbung-kundenberater-in-privatkunden-solothurn-80-100-css-versicherung-solothurn",
+          "domanda-spontanea-per-consulenti-clienti-per-clienti-privati-solothurn-80-100-css-versicherung-solothurn"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:12.650Z",
@@ -2683,7 +2759,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung/61945026-407e-491a-a7aa-dcc732545475",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:51.324Z",
+      "crawledAt": "2026-07-18T11:57:41.510Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2702,11 +2778,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css"
+        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css",
+        "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenberatung-80-100-css-versicherung-root-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css"
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenberatung-80-100-css",
+          "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenberatung-80-100-css-versicherung-root-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:11.807Z",
@@ -2754,7 +2832,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:50.768Z",
+      "crawledAt": "2026-07-18T11:57:40.940Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2817,7 +2895,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:50.207Z",
+      "crawledAt": "2026-07-18T11:57:40.402Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2836,11 +2914,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root"
+        "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
+        "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root"
+          "mitarbeiter-in-kundenservice-center-mit-digitaler-affinitat-100-css-versicherung-root",
+          "collaboratore-trice-kundenservice-center-con-digitaler-affinitat-100-css-versicherung-root-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:09.683Z",
@@ -2888,7 +2968,7 @@
       "url": "https://jobs.css.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-august-2027/b66629d4-8742-45ba-867b-50058db70a79",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:49.644Z",
+      "crawledAt": "2026-07-18T11:57:39.832Z",
       "addressLocality": "Luzern Hauptsitz",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2908,18 +2988,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root",
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root",
-          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz"
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-hauptsitz",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-luzern-root"
         ],
         "de": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-luzern-root"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:08.327Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -2948,7 +3031,7 @@
       "title": "Manager Resilienz (w/m) 80-100%",
       "titleByLocale": {
         "it": "Resilienza del Manager (f/m) 80-100%",
-        "en": "Manager Resilience (f/m) 80-100 %",
+        "en": "Manager Resilienz (w/m) 80-100%",
         "de": "Manager Resilienz (w/m) 80-100%",
         "fr": "Résilience du gestionnaire (f/m) 80-100 %"
       },
@@ -2964,7 +3047,7 @@
       "url": "https://jobs.css.ch/offene-stellen/manager-resilienz-w-m/70e29dd1-7f22-4539-a94a-3781566610b7",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:49.168Z",
+      "crawledAt": "2026-07-18T11:57:39.348Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2983,6 +3066,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:45:07.183Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3027,7 +3111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/1811bcab-057a-4c9c-b6b4-e6478b325c8a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:48.604Z",
+      "crawledAt": "2026-07-18T11:57:38.691Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3046,11 +3130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-kodierer-in-80-100-css-versicherung-luzern-hybrid"
+        "medizinische-r-kodierer-in-80-100-css-versicherung-luzern-hybrid",
+        "codificatore-medico-80-100-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-kodierer-in-80-100-css-versicherung-luzern-hybrid"
+          "medizinische-r-kodierer-in-80-100-css-versicherung-luzern-hybrid",
+          "codificatore-medico-80-100-css-versicherung-luzern-hybrid"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:06.420Z",
@@ -3098,7 +3184,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/360db106-e1a6-49ea-81ce-96b40a5b3bed",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:48.053Z",
+      "crawledAt": "2026-07-18T11:57:38.134Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3117,11 +3203,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "codeurs-medicaux-80-100-css-versicherung-lausanne-ou-et-lucerne"
+        "codeurs-medicaux-80-100-css-versicherung-lausanne-ou-et-lucerne",
+        "codificatori-medici-80-100-css-versicherung-lausanne-ou-et-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "codeurs-medicaux-80-100-css-versicherung-lausanne-ou-et-lucerne"
+          "codeurs-medicaux-80-100-css-versicherung-lausanne-ou-et-lucerne",
+          "codificatori-medici-80-100-css-versicherung-lausanne-ou-et-lucerne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:05.718Z",
@@ -3153,7 +3241,7 @@
       "title": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
       "titleByLocale": {
         "it": "Senior Identity- e Access Management Ingegnere (w/m) 80-100%",
-        "en": "Senior Identity and Access Management Engineer (f/m) 80-100 %",
+        "en": "Senior Identity- und Access Management Engineer (w/m) 80-100%",
         "de": "Senior Identity- und Access Management Ingenieur (w/m) 80-100%",
         "fr": "Senior Identity- und Access Management Ingénieur (w/m) 80-100%"
       },
@@ -3169,7 +3257,7 @@
       "url": "https://jobs.css.ch/offene-stellen/senior-identity-und-access-management-engineer-w-m/11c90747-5262-431c-80c8-9e8da6216c9d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:47.522Z",
+      "crawledAt": "2026-07-18T11:57:37.579Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3196,6 +3284,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:05.024Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3240,7 +3329,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-bern/49d0d786-6a39-435d-83ca-8664dd2d02bf",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:46.743Z",
+      "crawledAt": "2026-07-18T11:57:36.840Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -3273,6 +3362,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:04.116Z",
+      "needsRetranslation": true,
       "salaryMin": 61700,
       "salaryMax": 93600,
       "baseSalary": {
@@ -3317,7 +3407,7 @@
       "url": "https://jobs.css.ch/offene-stellen/assistant-e-au-service-du-medecin-conseil/6ad66121-2101-4f81-9390-1d7805f711cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:46.098Z",
+      "crawledAt": "2026-07-18T11:57:36.194Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3336,11 +3426,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-au-service-du-medecin-conseil-css-versicherung-lausanne"
+        "assistant-e-au-service-du-medecin-conseil-css-versicherung-lausanne",
+        "assistente-al-servizio-consulente-medico-css-versicherung-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-au-service-du-medecin-conseil-css-versicherung-lausanne"
+          "assistant-e-au-service-du-medecin-conseil-css-versicherung-lausanne",
+          "assistente-al-servizio-consulente-medico-css-versicherung-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:01.517Z",
@@ -3388,7 +3480,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpert-in-unfallversicherung-und-militaerversicherung/a39f289c-0f25-4705-ae36-562f30267086",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:45.591Z",
+      "crawledAt": "2026-07-18T11:57:35.670Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3449,7 +3541,7 @@
       "title": "Product Owner Data Warehouse (DWH) (w/m) 100%",
       "titleByLocale": {
         "it": "Product Owner Data Warehouse (DWH) (f/m) al 100%",
-        "en": "Product Owner Data Warehouse (DWH) (f/m) 100%",
+        "en": "Product Owner Data Warehouse (DWH) (w/m) 100%",
         "de": "Product Owner Data Warehouse (DWH) (w/m) 100%",
         "fr": "Entrepôt de données du propriétaire du produit (DHH) (f/m) 100%"
       },
@@ -3465,7 +3557,7 @@
       "url": "https://jobs.css.ch/offene-stellen/product-owner-data-warehouse-dwh-w-m/1e3f0ea9-9a9f-4816-bb40-bb20aecd0e49",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:45.070Z",
+      "crawledAt": "2026-07-18T11:57:35.161Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3484,6 +3576,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:44:59.917Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -3499,9 +3592,9 @@
     },
     {
       "id": "css-versicherung-8d9d53b54861",
-      "slug": "litigazione-del-collaboratore-css-versicherung-lausanne",
+      "slug": "collaborateur-trice-contentieux-css-versicherung-lausanne",
       "slugByLocale": {
-        "it": "litigazione-del-collaboratore-css-versicherung-lausanne",
+        "it": "collaborateur-trice-contentieux-css-versicherung-lausanne",
         "en": "collaborator-litigation-css-versicherung-lausanne",
         "de": "collaborateur-trice-contentieux-css-versicherung-lausanne",
         "fr": "collaborateur-trice-contentieux-css-versicherung-lausanne"
@@ -3511,7 +3604,7 @@
       "companyDomain": "css.ch",
       "title": "Collaborateur/trice Contentieux",
       "titleByLocale": {
-        "it": "Litigazione del collaboratore",
+        "it": "Collaborateur/trice Contentieux",
         "en": "Collaborator Litigation",
         "de": "Collaborator Litigation",
         "fr": "Collaborateur/trice Contentieux"
@@ -3528,7 +3621,7 @@
       "url": "https://jobs.css.ch/offene-stellen/collaborateur-trice-contentieux/17475691-3b55-4a8e-accc-177644a2903b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:44.547Z",
+      "crawledAt": "2026-07-18T11:57:34.642Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -3548,15 +3641,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "associato-in-contenzioso-css-versicherung-lausanne",
+        "litigazione-del-collaboratore-css-versicherung-lausanne",
         "collaborateur-trice-contentieux-css-versicherung-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associato-in-contenzioso-css-versicherung-lausanne",
+          "litigazione-del-collaboratore-css-versicherung-lausanne",
           "collaborateur-trice-contentieux-css-versicherung-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-04T10:44:57.594Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3601,7 +3697,7 @@
       "url": "https://jobs.css.ch/offene-stellen/praktikant-in-medienstelle-befristet/71ffe29e-ea2d-4dbe-91c0-2f64f10c7a77",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:44.044Z",
+      "crawledAt": "2026-07-18T11:57:34.194Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3621,11 +3717,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bureau-interne-media-80-100-temporaire-css-versicherung-luzern-hybrid",
-        "praktikant-in-medienstelle-80-100-befristet-css-versicherung-luzern-hybrid"
+        "praktikant-in-medienstelle-80-100-befristet-css-versicherung-luzern-hybrid",
+        "ufficio-media-tirocinante-80-100-temporaneo-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-medienstelle-80-100-befristet-css-versicherung-luzern-hybrid"
+          "praktikant-in-medienstelle-80-100-befristet-css-versicherung-luzern-hybrid",
+          "ufficio-media-tirocinante-80-100-temporaneo-css-versicherung-luzern-hybrid"
         ],
         "fr": [
           "bureau-interne-media-80-100-temporaire-css-versicherung-luzern-hybrid"
@@ -3676,7 +3774,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-lugano/825a0fb7-e609-468c-93ea-c7aaf9babf3f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-17T22:48:43.522Z",
+      "crawledAt": "2026-07-18T11:57:33.737Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -3739,7 +3837,7 @@
       "url": "https://jobs.css.ch/offene-stellen/esperta-o-previdenziale-f-m-agenzia-generale-bellinzona/2ad5d85a-6665-4121-826f-1b0515a323ee",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-17T22:48:42.988Z",
+      "crawledAt": "2026-07-18T11:57:33.177Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -3786,7 +3884,7 @@
       "title": "CIO Office Manager/in 80-100%",
       "titleByLocale": {
         "it": "CIO Office Manager/in 80-100 %",
-        "en": "CIO Office Manager/in 80-100 %",
+        "en": "CIO Office Manager/in 80-100%",
         "de": "CIO Office Manager/in 80-100%",
         "fr": "Directeur de bureau de DPI/dans 80-100 %"
       },
@@ -3802,7 +3900,7 @@
       "url": "https://jobs.css.ch/offene-stellen/cio-office-manager-in/c0bc02f4-c234-4cf1-9e58-059d41ff2a8c",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:42.444Z",
+      "crawledAt": "2026-07-18T11:57:32.606Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3821,6 +3919,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T11:30:57.506Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "baseSalary": {
@@ -3849,7 +3948,7 @@
       "title": "Spezialist/in Operations Leben 60-100%",
       "titleByLocale": {
         "it": "Specialista/in Operazioni Vita 60-100 %",
-        "en": "Specialist/in Operations Life 60-100 %",
+        "en": "Spezialist/in Operations Leben 60-100%",
         "de": "Spezialist/in Operations Leben 60-100%",
         "fr": "Spécialiste/dans la vie opérationnelle 60-100 %"
       },
@@ -3865,7 +3964,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-operations-leben/9948c5c6-d990-4b15-821f-d54fd82b8536",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:41.595Z",
+      "crawledAt": "2026-07-18T11:57:31.808Z",
       "addressLocality": "Luzern und Lausanne / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3884,11 +3983,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-operations-leben-60-100-css-versicherung-luzern-und-lausanne-hybrid"
+        "spezialist-in-operations-leben-60-100-css-versicherung-luzern-und-lausanne-hybrid",
+        "specialista-in-operazioni-vita-60-100-css-versicherung-luzern-und-lausanne-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-operations-leben-60-100-css-versicherung-luzern-und-lausanne-hybrid"
+          "spezialist-in-operations-leben-60-100-css-versicherung-luzern-und-lausanne-hybrid",
+          "specialista-in-operazioni-vita-60-100-css-versicherung-luzern-und-lausanne-hybrid"
         ],
         "en": [
           "spezialist-in-operations-leben-60-100-css-versicherung-luzern-und-lausanne-hybrid"
@@ -3898,6 +3999,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:35:41.698Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -3942,7 +4044,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-operations-vie/9c83057c-80bd-499c-abb8-91de3a996023",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:40.917Z",
+      "crawledAt": "2026-07-18T11:57:31.146Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -3965,7 +4067,8 @@
         "specialist-operations-life-css-versicherung-ticino",
         "specialist-operations-leben-css-versicherung-ticino",
         "specialiste-operations-vie-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2-jours",
-        "specialiste-operations-vie-60-100-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2"
+        "specialiste-operations-vie-60-100-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2",
+        "operazioni-specialistiche-vita-60-100-css-versicherung-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3973,7 +4076,8 @@
           "specialist-operations-life-css-versicherung-ticino",
           "specialist-operations-leben-css-versicherung-ticino",
           "specialiste-operations-vie-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2-jours",
-          "specialiste-operations-vie-60-100-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2"
+          "specialiste-operations-vie-60-100-css-versicherung-lausanne-ou-lucerne-hybride-avec-1-a-2",
+          "operazioni-specialistiche-vita-60-100-css-versicherung-ticino"
         ],
         "en": [
           "specialist-operations-life-css-versicherung-ticino",
@@ -4032,7 +4136,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-neugeschaeft-underwriting-leben/971e9ea8-1727-40c4-a09f-55e9225ee9c3",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:40.262Z",
+      "crawledAt": "2026-07-18T11:57:30.503Z",
       "addressLocality": "Luzern oder Lausanne / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4052,12 +4156,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialist-in-neugeschaft-amp-underwriting-leben-80-100-css-versicherung-luzern-oder",
-        "spezialist-in-neugeschaft-underwriting-leben-80-100-css-versicherung-luzern-oder-lausanne-hybrid"
+        "spezialist-in-neugeschaft-underwriting-leben-80-100-css-versicherung-luzern-oder-lausanne-hybrid",
+        "specialista-in-new-business-underwriting-life-80-100-css-versicherung-luzern-oder-lausanne-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-neugeschaft-amp-underwriting-leben-80-100-css-versicherung-luzern-oder",
-          "spezialist-in-neugeschaft-underwriting-leben-80-100-css-versicherung-luzern-oder-lausanne-hybrid"
+          "spezialist-in-neugeschaft-underwriting-leben-80-100-css-versicherung-luzern-oder-lausanne-hybrid",
+          "specialista-in-new-business-underwriting-life-80-100-css-versicherung-luzern-oder-lausanne-hybrid"
         ],
         "en": [
           "spezialist-in-neugeschaft-amp-underwriting-leben-80-100-css-versicherung-luzern-oder"
@@ -4111,7 +4217,7 @@
       "url": "https://jobs.css.ch/offene-stellen/specialiste-nouvelles-affaires-et-underwriting-vie/11d9025c-3cd9-497b-9616-f00210f5a34f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:48:39.696Z",
+      "crawledAt": "2026-07-18T11:57:29.913Z",
       "addressLocality": "Ticino",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4133,14 +4239,16 @@
         "specialista-in-vita-per-nuovi-affari-e-sottoscrizione-css-versicherung-ticino",
         "specialist-new-business-and-underwriting-life-css-versicherung-ticino",
         "spezialist-fur-new-business-und-underwriting-life-css-versicherung-ticino",
-        "specialiste-nouvelles-affaires-et-underwriting-vie-css-versicherung-lausanne-ou-lucerne"
+        "specialiste-nouvelles-affaires-et-underwriting-vie-css-versicherung-lausanne-ou-lucerne",
+        "specialista-new-business-e-underwriting-life-css-versicherung-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialista-in-vita-per-nuovi-affari-e-sottoscrizione-css-versicherung-ticino",
           "specialist-new-business-and-underwriting-life-css-versicherung-ticino",
           "spezialist-fur-new-business-und-underwriting-life-css-versicherung-ticino",
-          "specialiste-nouvelles-affaires-et-underwriting-vie-css-versicherung-lausanne-ou-lucerne"
+          "specialiste-nouvelles-affaires-et-underwriting-vie-css-versicherung-lausanne-ou-lucerne",
+          "specialista-new-business-e-underwriting-life-css-versicherung-ticino"
         ],
         "en": [
           "specialiste-nouvelles-affaires-et-underwriting-vie-css-versicherung-lausanne-ou-lucerne"
@@ -4165,28 +4273,28 @@
     },
     {
       "id": "css-versicherung-7f56af8f3ad5",
-      "slug": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid",
+      "slug": "agile-business-analista-requirements-ingegnere-w-m-80-100-css-versicherung-luzern-hybrid",
       "slugByLocale": {
-        "de": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid",
-        "it": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid",
+        "it": "agile-business-analista-requirements-ingegnere-w-m-80-100-css-versicherung-luzern-hybrid",
         "en": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid",
-        "fr": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid"
+        "de": "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid",
+        "fr": "agile-business-analyste-requirements-ingenieur-w-m-80-100-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
       "companyDomain": "css.ch",
       "title": "Agile Business Analyst / Requirements Engineer (w/m) 80-100%",
       "titleByLocale": {
-        "de": "Agile Business Analyst / Requirements Ingenieur (w/m) 80-100%",
-        "en": "Agile Business Analyst / Requirements Engineer (f/m) 80-100 %",
         "it": "Agile Business Analista / Requirements Ingegnere (w/m) 80-100%",
+        "en": "Agile Business Analyst / Requirements Engineer (w/m) 80-100%",
+        "de": "Agile Business Analyst / Requirements Ingenieur (w/m) 80-100%",
         "fr": "Agile Business Analyste / Requirements Ingénieur (w/m) 80-100%"
       },
       "description": "Bist du bereit für deinen nächsten Karriereschritt bei der CSS? Wir haben uns zum Ziel gesetzt, das Kampagnen- und Leadmanagement im ART Sales weiterzuentwickeln und innovative Lösungen für unsere Kundinnen und Kunden zu schaffen. Dafür suchen wir einen Business Analyst / Requirements Engineer (w/m). In dieser Rolle tauchst du in Pains, Gains und Needs unserer Kundinnen und Kunden ein, gestaltest neue Prozesse und Systeme und nutzt Design Thinking sowie Lean Startup, um Anforderungen aufzunehmen und Kampagnen erfolgreich umzusetzen. Kannst du dir das vorstellen? Dann freuen wir uns, von dir zu hören!\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Du bist Teil unseres Scrum-Teams und arbeitest eng mit unseren Fachbereichen und Entwicklungsteams zusammen, um Lösungen zu entwickeln, die einen echten Mehrwert für unsere Versicherten schaffen.\n\n• Gemeinsam mit dem Product Owner erstellst du SAFe-Features und User Stories.\n\n• Anforderungen formulierst, visualisierst und dokumentierst du klar, präzise und nachvollziehbar.\n\n• Während der Umsetzung unterstützt du das Entwicklungsteam aktiv und beurteilst Änderungen an Anforderungen und deren Auswirkungen.\n\n• Zusammen mit dem Team stellst du durch Reviews und Tests sicher, dass die entwickelten Lösungen den definierten Anforderungen entsprechen.\n\n• In Workshops mit unterschiedlichen Stakeholdern – vor Ort und online – arbeitest du hypothesenbasiert an Lösungen und moderierst diese aktiv.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Lernbereitschaft, Eigeninitiative und eine selbständige Arbeitsweise zeichnen dich aus; du bist ein Teamplayer mit Lean-Agile-Mindset.\n\n• Auf Basis deiner langjährigen Erfahrung sind agile Methoden in Business-Analyse und Requirements Engineering für dich selbstverständlich.\n\n• Den Spagat zwischen Kundinnen und Kunden, Product Owner und Softwareentwickelnden meisterst du als Schnittstelle und kommunizierst situationsgerecht.\n\n• Workshops von der Ideation bis zur Lösungsdefinition gestaltest und moderierst du selbstständig.\n\n• Fach- und Technikvertreter/innen challengst du gezielt und bringst deine eigene Expertise ein.\n\n• Komplexe Sachverhalte analysierst du gerne und bereitest sie strukturiert sowie visuell ansprechend auf. Kampagnen- und Leadmanagement sind dir vertraut.\n\n• Arbeite flexibel: Dein Team arbeitet oft im Homeoffice oder von unterwegs. Dank Laptop mit integrierter SIM Karte und weiteren technischen Möglichkeiten kein Problem.\n\n• Bilde dich weiter: Bleibe up to date dank unserer Software Engineering Academy, den Innovation Days und dem Besuch externer Konferenzen.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Nimm dir eine Auszeit: Hausumbau, Weltreise oder Sprachen lernen - was ist dein Traum? Feiere dein 10-Jahres Jubiläum mit einem zweimonatigen Sabbatical.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\nKontakt\n\nFragen zur Stelle an deine/n People Lead?\nMarina Jakob ist für dich da.\n058 277 18 85\n\nFragen zum Bewerbungsprozess?\nAnnabel Blechschmidt ist für dich da.\n058 277 46 39\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
       "descriptionByLocale": {
-        "de": "Bist du bereit für deinen nächsten Karriereschritt bei der CSS? Wir haben uns zum Ziel gesetzt, das Kampagnen- und Leadmanagement im ART Sales weiterzuentwickeln und innovative Lösungen für unsere Kundinnen und Kunden zu schaffen. Dafür suchen wir einen Business Analyst / Requirements Engineer (w/m). In dieser Rolle tauchst du in Pains, Gains und Needs unserer Kundinnen und Kunden ein, gestaltest neue Prozesse und Systeme und nutzt Design Thinking sowie Lean Startup, um Anforderungen aufzunehmen und Kampagnen erfolgreich umzusetzen. Kannst du dir das vorstellen? Dann freuen wir uns, von dir zu hören!\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Du bist Teil unseres Scrum-Teams und arbeitest eng mit unseren Fachbereichen und Entwicklungsteams zusammen, um Lösungen zu entwickeln, die einen echten Mehrwert für unsere Versicherten schaffen.\n\n• Gemeinsam mit dem Product Owner erstellst du SAFe-Features und User Stories.\n\n• Anforderungen formulierst, visualisierst und dokumentierst du klar, präzise und nachvollziehbar.\n\n• Während der Umsetzung unterstützt du das Entwicklungsteam aktiv und beurteilst Änderungen an Anforderungen und deren Auswirkungen.\n\n• Zusammen mit dem Team stellst du durch Reviews und Tests sicher, dass die entwickelten Lösungen den definierten Anforderungen entsprechen.\n\n• In Workshops mit unterschiedlichen Stakeholdern – vor Ort und online – arbeitest du hypothesenbasiert an Lösungen und moderierst diese aktiv.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Lernbereitschaft, Eigeninitiative und eine selbständige Arbeitsweise zeichnen dich aus; du bist ein Teamplayer mit Lean-Agile-Mindset.\n\n• Auf Basis deiner langjährigen Erfahrung sind agile Methoden in Business-Analyse und Requirements Engineering für dich selbstverständlich.\n\n• Den Spagat zwischen Kundinnen und Kunden, Product Owner und Softwareentwickelnden meisterst du als Schnittstelle und kommunizierst situationsgerecht.\n\n• Workshops von der Ideation bis zur Lösungsdefinition gestaltest und moderierst du selbstständig.\n\n• Fach- und Technikvertreter/innen challengst du gezielt und bringst deine eigene Expertise ein.\n\n• Komplexe Sachverhalte analysierst du gerne und bereitest sie strukturiert sowie visuell ansprechend auf. Kampagnen- und Leadmanagement sind dir vertraut.\n\n• Arbeite flexibel: Dein Team arbeitet oft im Homeoffice oder von unterwegs. Dank Laptop mit integrierter SIM Karte und weiteren technischen Möglichkeiten kein Problem.\n\n• Bilde dich weiter: Bleibe up to date dank unserer Software Engineering Academy, den Innovation Days und dem Besuch externer Konferenzen.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Nimm dir eine Auszeit: Hausumbau, Weltreise oder Sprachen lernen - was ist dein Traum? Feiere dein 10-Jahres Jubiläum mit einem zweimonatigen Sabbatical.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\nKontakt\n\nFragen zur Stelle an deine/n People Lead?\nMarina Jakob ist für dich da.\n058 277 18 85\n\nFragen zum Bewerbungsprozess?\nAnnabel Blechschmidt ist für dich da.\n058 277 46 39\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
         "it": "Sei pronto per il tuo prossimo passo di carriera al CSS? Ci siamo posti l'obiettivo di sviluppare ulteriormente la campagna e la gestione dei lead in ART Sales e creare soluzioni innovative per i nostri clienti. Per questo stiamo cercando un Business Analyst / Requisiti Engineer (f/m). In questo ruolo, si immerge nei dolori, guadagni e esigenze dei nostri clienti, progettando nuovi processi e sistemi e utilizzando Design Thinking e Lean Startup per soddisfare i requisiti e implementare campagne con successo. Riesci a immaginarlo? Non vediamo l'ora di sentirti!\n\nQuesta è la tua vita quotidiana\n\n• Al centro di esso: Lei fa parte del nostro team Scrum e lavora a stretto contatto con i nostri dipartimenti specializzati e team di sviluppo per sviluppare soluzioni che creano un valore aggiunto reale per i nostri assicurati.\n\n• Insieme al proprietario del prodotto, crei funzionalità SAFe e storie utente.\n\n• Si formulano, visualizzano e documentano i requisiti in modo chiaro, preciso e comprensibile.\n\n• Durante l'implementazione, supporta attivamente il team di sviluppo e valuta le modifiche ai requisiti e il loro impatto.\n\n• Insieme al team, garantisci attraverso recensioni e test che le soluzioni sviluppate soddisfano i requisiti definiti.\n\n• Nei workshop con diverse parti interessate – in loco e online – si lavora su soluzioni basate su ipotesi e li modera attivamente.\n\nLo porti con te.\n\n• Prima di tutto: la disponibilità ad imparare, l'auto-iniziativa e un metodo di lavoro indipendente ti distinguono; Sei un giocatore di squadra con la mentalità magra-agile.\n\n• Sulla base della vostra pluriennale esperienza, i metodi agili nell'analisi aziendale e l'ingegneria dei requisiti sono una questione naturalmente per voi.\n\n• Si padroneggia l'atto di bilanciamento tra i clienti, i proprietari di prodotti e gli sviluppatori di software come un'interfaccia e comunicare in modo situazionale.\n\n• I workshop dall'ideazione alla definizione della soluzione sono progettati e moderati in modo indipendente.\n\n• Specialisti e rappresentanti tecnici sono mirati e portare la propria esperienza.\n\n• Ti piace analizzare problemi complessi e prepararli in modo strutturato e visivamente attraente. La campagna e la gestione dei lead sono familiari a voi.\n\n• Lavorare in modo flessibile: il vostro team lavora spesso nell'ufficio di casa o sulla strada. Grazie al laptop con scheda SIM integrata e altre possibilità tecniche nessun problema.\n\n• Resta aggiornato grazie alla nostra Software Engineering Academy, alle Giornate dell'Innovazione e alla visita di conferenze esterne.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Scegli il tuo modello di vacanza: 5 o 6 settimane di vacanza? La tua decisione. Di conseguenza, lavori 41 o 42 ore alla settimana.\n\n• Fai una pausa: ristrutturazione della casa, viaggi nel mondo o lingue di apprendimento - qual è il tuo sogno? Festeggia il tuo decimo anniversario con un sabato di due mesi.\n\n• Godetevi la vostra vita di famiglia: fare il tempo per la vostra prole: 3 settimane per i padri, per le madri fino a 20 settimane. Ci sono anche assegni generosi per l'infanzia e l'istruzione.\n\nInformazioni di contatto\n\nDomande per la tua gente?\nMarina Jakob è qui per te.\n058 277 18 85\n\nDomande sul processo di applicazione?\nAnnabel Blechschmidt è qui per voi.\n058 277 46 39\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo ancora un sacco di piani per il futuro - forse insieme a te?",
         "en": "Are you ready for your next career step at CSS? We have set ourselves the goal of further developing campaign and lead management in ART Sales and creating innovative solutions for our customers. For this we are looking for a Business Analyst / Requirements Engineer (f/m). In this role, you immerse yourself in the pains, gains and needs of our customers, designing new processes and systems and using Design Thinking and Lean Startup to accommodate requirements and successfully implement campaigns. Can you imagine that? We look forward to hearing from you!\n\nThis is what your everyday life looks like\n\n• At the heart of it: You are part of our Scrum team and work closely with our specialist departments and development teams to develop solutions that create real added value for our insured.\n\n• Together with the product owner, you create SAFe features and user stories.\n\n• You formulate, visualize and document requirements clearly, precisely and comprehensibly.\n\n• During implementation, you actively support the development team and assess changes to requirements and their impact.\n\n• Together with the team, you ensure through reviews and tests that the developed solutions meet the defined requirements.\n\n• In workshops with different stakeholders – on site and online – you work hypothesis-based on solutions and actively moderate them.\n\nYou bring that with you\n\n• First things first: willingness to learn, self-initiative and an independent working method distinguish you; You are a team player with lean-agile mindset.\n\n• Based on your many years of experience, agile methods in business analysis and requirements engineering are a matter of course for you.\n\n• You master the balancing act between customers, product owners and software developers as an interface and communicate in a situational manner.\n\n• Workshops from ideation to solution definition are designed and moderated independently.\n\n• Specialist and technical representatives are targeted and bring your own expertise.\n\n• You like to analyze complex issues and prepare them in a structured and visually appealing way. Campaign and lead management are familiar to you.\n\n• Work flexibly: Your team often works in the home office or on the road. Thanks to laptop with integrated SIM card and other technical possibilities no problem.\n\n• Stay up to date thanks to our Software Engineering Academy, the Innovation Days and the visit of external conferences.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Choose your holiday model: 5 or 6 weeks holiday? Your decision. Accordingly, you work 41 or 42 hours a week.\n\n• Take a break: house renovation, world travel or learning languages - what is your dream? Celebrate your 10th anniversary with a two-month sabbatical.\n\n• Enjoy your family life: Make time for your offspring: 3 weeks for fathers, for mothers up to 20 weeks. There are also generous child and education allowances.\n\nContact details\n\nQuestions for your people lead?\nMarina Jakob is here for you.\n058 277 18 85\n\nQuestions about the application process?\nAnnabel Blechschmidt is here for you.\n058 277 46 39\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We still have a lot of plans for the future - maybe together with you?",
+        "de": "Bist du bereit für deinen nächsten Karriereschritt bei der CSS? Wir haben uns zum Ziel gesetzt, das Kampagnen- und Leadmanagement im ART Sales weiterzuentwickeln und innovative Lösungen für unsere Kundinnen und Kunden zu schaffen. Dafür suchen wir einen Business Analyst / Requirements Engineer (w/m). In dieser Rolle tauchst du in Pains, Gains und Needs unserer Kundinnen und Kunden ein, gestaltest neue Prozesse und Systeme und nutzt Design Thinking sowie Lean Startup, um Anforderungen aufzunehmen und Kampagnen erfolgreich umzusetzen. Kannst du dir das vorstellen? Dann freuen wir uns, von dir zu hören!\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Du bist Teil unseres Scrum-Teams und arbeitest eng mit unseren Fachbereichen und Entwicklungsteams zusammen, um Lösungen zu entwickeln, die einen echten Mehrwert für unsere Versicherten schaffen.\n\n• Gemeinsam mit dem Product Owner erstellst du SAFe-Features und User Stories.\n\n• Anforderungen formulierst, visualisierst und dokumentierst du klar, präzise und nachvollziehbar.\n\n• Während der Umsetzung unterstützt du das Entwicklungsteam aktiv und beurteilst Änderungen an Anforderungen und deren Auswirkungen.\n\n• Zusammen mit dem Team stellst du durch Reviews und Tests sicher, dass die entwickelten Lösungen den definierten Anforderungen entsprechen.\n\n• In Workshops mit unterschiedlichen Stakeholdern – vor Ort und online – arbeitest du hypothesenbasiert an Lösungen und moderierst diese aktiv.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Lernbereitschaft, Eigeninitiative und eine selbständige Arbeitsweise zeichnen dich aus; du bist ein Teamplayer mit Lean-Agile-Mindset.\n\n• Auf Basis deiner langjährigen Erfahrung sind agile Methoden in Business-Analyse und Requirements Engineering für dich selbstverständlich.\n\n• Den Spagat zwischen Kundinnen und Kunden, Product Owner und Softwareentwickelnden meisterst du als Schnittstelle und kommunizierst situationsgerecht.\n\n• Workshops von der Ideation bis zur Lösungsdefinition gestaltest und moderierst du selbstständig.\n\n• Fach- und Technikvertreter/innen challengst du gezielt und bringst deine eigene Expertise ein.\n\n• Komplexe Sachverhalte analysierst du gerne und bereitest sie strukturiert sowie visuell ansprechend auf. Kampagnen- und Leadmanagement sind dir vertraut.\n\n• Arbeite flexibel: Dein Team arbeitet oft im Homeoffice oder von unterwegs. Dank Laptop mit integrierter SIM Karte und weiteren technischen Möglichkeiten kein Problem.\n\n• Bilde dich weiter: Bleibe up to date dank unserer Software Engineering Academy, den Innovation Days und dem Besuch externer Konferenzen.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Nimm dir eine Auszeit: Hausumbau, Weltreise oder Sprachen lernen - was ist dein Traum? Feiere dein 10-Jahres Jubiläum mit einem zweimonatigen Sabbatical.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\nKontakt\n\nFragen zur Stelle an deine/n People Lead?\nMarina Jakob ist für dich da.\n058 277 18 85\n\nFragen zum Bewerbungsprozess?\nAnnabel Blechschmidt ist für dich da.\n058 277 46 39\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
         "fr": "Êtes-vous prêt pour votre prochaine étape de carrière à CSS? Nous nous sommes fixé pour objectif de développer davantage la campagne et la gestion des ventes d'ART et de créer des solutions innovantes pour nos clients. Pour cela, nous sommes à la recherche d'un Analyste d'affaires / Ingénieur des exigences (f/m). Dans ce rôle, vous vous immergez dans les douleurs, les gains et les besoins de nos clients, en concevant de nouveaux processus et systèmes et en utilisant Design Thinking et Lean Startup pour répondre aux exigences et mettre en œuvre avec succès des campagnes. Vous imaginez ça ? Nous avons hâte de vous entendre!\n\nC'est à ça que ressemble ta vie quotidienne\n\n• Au cœur de ce projet : vous faites partie de notre équipe Scrum et travaillez en étroite collaboration avec nos départements spécialisés et équipes de développement pour développer des solutions qui créent une réelle valeur ajoutée pour nos assurés.\n\n• Avec le propriétaire du produit, vous créez des fonctionnalités SAFe et des histoires d'utilisateurs.\n\n• Vous formulez, visualisez et documentez les exigences de façon claire, précise et compréhensible.\n\n• Pendant la mise en oeuvre, vous soutenez activement l'équipe de développement et évaluez les changements aux exigences et leur impact.\n\n• En collaboration avec l'équipe, vous vous assurez par des examens et des tests que les solutions développées répondent aux exigences définies.\n\n• Dans des ateliers avec différents intervenants – sur place et en ligne – vous travaillez sur des hypothèses basées sur des solutions et les modérez activement.\n\nApporte ça avec toi.\n\n• Premièrement, la volonté d'apprendre, l'initiative personnelle et une méthode de travail indépendante vous distinguent; Vous êtes un joueur d'équipe avec un état d'esprit agile maigre.\n\n• Sur la base de vos nombreuses années d'expérience, les méthodes agiles d'analyse des affaires et d'ingénierie des exigences sont une question bien sûr pour vous.\n\n• Vous maîtrisez l'équilibre entre les clients, les propriétaires de produits et les développeurs de logiciels en tant qu'interface et communiquez de manière situationnelle.\n\n• Des ateliers allant de l'idée à la définition de la solution sont conçus et modérés indépendamment.\n\n• Des représentants spécialisés et techniques sont ciblés et apportent votre propre expertise.\n\n• Vous aimez analyser des questions complexes et les préparer de manière structurée et visuelle. La gestion de campagne et de leadership vous est familière.\n\n• Travaillez avec souplesse : votre équipe travaille souvent au bureau à domicile ou sur la route. Grâce à un ordinateur portable avec carte SIM intégrée et d'autres possibilités techniques aucun problème.\n\n• Restez à jour grâce à notre Académie d'ingénierie logicielle, les Journées de l'innovation et la visite de conférences externes.\n\n• Profitez de votre portefeuille : avantages tels que bonus, Reka, primes d'assurance-maladie à prix réduit et autres qui composent rapidement quelques milliers par an.\n\n• Choisissez votre modèle de vacances: 5 ou 6 semaines de vacances? Ta décision. Par conséquent, vous travaillez 41 ou 42 heures par semaine.\n\n• Faites une pause : rénovation de maison, voyage dans le monde ou apprentissage des langues - quel est votre rêve ? Célébrez votre 10e anniversaire avec un sabbat de deux mois.\n\n• Profitez de votre vie de famille: Prenez du temps pour vos enfants: 3 semaines pour les pères, pour les mères jusqu'à 20 semaines. Il existe également de généreuses allocations familiales et éducatives.\n\nCoordonnées\n\nDes questions pour votre peuple ?\nMarina Jakob est là pour vous.\n058 277 18 85\n\nDes questions sur le processus de demande?\nAnnabel Blechschmidt est là pour vous.\n058 277 46 39\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 salariés et l'un des principaux assureurs suisses. Ouais, nous sommes assez grands. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire la différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons encore beaucoup de plans pour l'avenir - peut-être avec vous ?"
       },
       "location": "Luzern / hybrid",
@@ -4194,7 +4302,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agile-business-analyst-requirements-engineer-w-m/ff9c1484-a8aa-49e6-93cc-26472024db0b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:39.156Z",
+      "crawledAt": "2026-07-18T11:57:29.291Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -4211,9 +4319,20 @@
       "postedDate": "2026-07-17",
       "applyUrl": "https://jobs.css.ch/offene-stellen/agile-business-analyst-requirements-engineer-w-m/ff9c1484-a8aa-49e6-93cc-26472024db0b",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-17T22:48:39.156Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid"
+        ]
       },
+      "previousSlugs": [
+        "agile-business-analyst-requirements-engineer-w-m-80-100-css-versicherung-luzern-hybrid"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4225,16 +4344,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-17T22:48:39.156Z"
+      }
     },
     {
       "id": "css-versicherung-12eb21040cd7",
       "slug": "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid",
       "slugByLocale": {
-        "de": "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
         "it": "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid",
         "en": "customer-service-center-with-experience-in-customer-service-80-100-css-versicherung-root-hybrid-c7453e",
+        "de": "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
         "fr": "centre-de-service-a-la-clientele-avec-experience-en-service-a-la-clientele-80-100-css-versicherung-root-hybrid-c7453e"
       },
       "company": "CSS Versicherung",
@@ -4242,16 +4360,16 @@
       "companyDomain": "css.ch",
       "title": "Mitarbeiter/in Kundenservice-Center mit Erfahrung in der Kundenbetreuung 80-100%",
       "titleByLocale": {
-        "de": "Mitarbeiter/in Kundenservice-Center mit Erfahrung in der Kundenbetreuung 80-100%",
         "it": "Collaboratore/trice Kundenservice-Center con Erfahrung in der Kundenbetreuung 80-100%",
         "en": "Customer service center with experience in customer service 80-100 %",
+        "de": "Mitarbeiter/in Kundenservice-Center mit Erfahrung in der Kundenbetreuung 80-100%",
         "fr": "Centre de service à la clientèle avec expérience en service à la clientèle 80-100 %"
       },
       "description": "Unseren Kundinnen und Kunden individuell zur Seite stehen, das ist seit jeher Teil unserer DNA. Du und deine Kolleginnen und Kollegen im Kundenservice-Center sorgen dafür, dass dabei alles rund läuft. Wir sind Lösungssucherinnen, Kühlerkopfbewahrer, Weiterhelferinnen und Alleskönner (na ja, zumindest fast). Und gut zuhören können wir auch. Wie du auch immer deine Lebenszeit gestalten willst, wir sind dir eine starke Partnerin. Läufst auch du zu Hochform auf, wenn richtig etwas los ist und möchtest unseren Kunden stets den bestmöglichen Service bieten? Dann passt du zu uns.\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Unseren Kundinnen und Kunden stehst du mit telefonischen Auskünften rund um unser Versicherungsangebot zur Seite - von Montag bis Freitag zwischen 08.00 Uhr und 18.00 Uhr.\n\n• Deine Haupttätigkeit besteht darin, telefonische Anliegen aus den Bereichen Leistungen, Finanzen, Vertrieb und Mutationen zu bearbeiten. Ergänzend übernimmst du gelegentlich auch einfache schriftliche Anfragen.\n\n• Du erfasst Telefongespräche im System und trägst dazu bei, die Servicequalität für unsere Kundinnen und Kunden zu sichern.\n\n• Für Verkaufschancen hast du ein gutes Gespür - du leitest sie an unsere Agenturen weiter und bist dabei eine unverzichtbare Unterstützung.\n\n• Du versendest die Prämien- und Leistungsabrechnungen, Kontoauszüge etc. und wir können auch bei anderen administrativen Tätigkeiten auf dich zählen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Deine abgeschlossene Grundausbildung dient dir als Fundament. Ob als Fachmann/-frau Kundendialog, Detailhandelsmann/-frau, Kaufmann/- frau oder Matura – da sind wir offen.\n\n• Falls du die VBV-Zertifizierung absolviert hast, Versicherungswissen oder Erfahrung in einem Kundenservice-Center mitbringst, ist dies definitiv ein Vorteil.\n\n• Du geniesst es, mit Kundinnen und Kunden telefonisch in Kontakt zu treten. Du begegnest den vielseitigen Kundenanliegen positiv, mit Leidenschaft und stellst die Kundinnen und Kunden jederzeit in den Mittelpunkt deines Handelns.\n\n• Du zeichnest dich durch ein positives Mindset aus, denkst kritisch und lösungsorientiert mit und bist belastbar.\n\n• Mit dem Notebook kennst du dich aus und du findest dich in komplexen IT-Systemen gut zurecht. Das Benutzen der künstlichen Intelligenz (KI) bereitet dir Freude, denn KI ist aus unserem Alltag nicht mehr wegzudenken.\n\n• Du verfügst über sehr gute mündliche Deutsch- und Englischkenntnisse und bist im Austausch mit unseren Kundinnen und Kunden verhandlungssicher. Vielleicht sprichst du sogar zusätzlich Französisch oder Italienisch?\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nAlexandra Buchberger ist für dich da.\n058 277 81 92\n\nFragen zum Bewerbungsprozess?\nChantal Hügli ist für dich da.\n058 277 60 33\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
       "descriptionByLocale": {
-        "de": "Unseren Kundinnen und Kunden individuell zur Seite stehen, das ist seit jeher Teil unserer DNA. Du und deine Kolleginnen und Kollegen im Kundenservice-Center sorgen dafür, dass dabei alles rund läuft. Wir sind Lösungssucherinnen, Kühlerkopfbewahrer, Weiterhelferinnen und Alleskönner (na ja, zumindest fast). Und gut zuhören können wir auch. Wie du auch immer deine Lebenszeit gestalten willst, wir sind dir eine starke Partnerin. Läufst auch du zu Hochform auf, wenn richtig etwas los ist und möchtest unseren Kunden stets den bestmöglichen Service bieten? Dann passt du zu uns.\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Unseren Kundinnen und Kunden stehst du mit telefonischen Auskünften rund um unser Versicherungsangebot zur Seite - von Montag bis Freitag zwischen 08.00 Uhr und 18.00 Uhr.\n\n• Deine Haupttätigkeit besteht darin, telefonische Anliegen aus den Bereichen Leistungen, Finanzen, Vertrieb und Mutationen zu bearbeiten. Ergänzend übernimmst du gelegentlich auch einfache schriftliche Anfragen.\n\n• Du erfasst Telefongespräche im System und trägst dazu bei, die Servicequalität für unsere Kundinnen und Kunden zu sichern.\n\n• Für Verkaufschancen hast du ein gutes Gespür - du leitest sie an unsere Agenturen weiter und bist dabei eine unverzichtbare Unterstützung.\n\n• Du versendest die Prämien- und Leistungsabrechnungen, Kontoauszüge etc. und wir können auch bei anderen administrativen Tätigkeiten auf dich zählen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Deine abgeschlossene Grundausbildung dient dir als Fundament. Ob als Fachmann/-frau Kundendialog, Detailhandelsmann/-frau, Kaufmann/- frau oder Matura – da sind wir offen.\n\n• Falls du die VBV-Zertifizierung absolviert hast, Versicherungswissen oder Erfahrung in einem Kundenservice-Center mitbringst, ist dies definitiv ein Vorteil.\n\n• Du geniesst es, mit Kundinnen und Kunden telefonisch in Kontakt zu treten. Du begegnest den vielseitigen Kundenanliegen positiv, mit Leidenschaft und stellst die Kundinnen und Kunden jederzeit in den Mittelpunkt deines Handelns.\n\n• Du zeichnest dich durch ein positives Mindset aus, denkst kritisch und lösungsorientiert mit und bist belastbar.\n\n• Mit dem Notebook kennst du dich aus und du findest dich in komplexen IT-Systemen gut zurecht. Das Benutzen der künstlichen Intelligenz (KI) bereitet dir Freude, denn KI ist aus unserem Alltag nicht mehr wegzudenken.\n\n• Du verfügst über sehr gute mündliche Deutsch- und Englischkenntnisse und bist im Austausch mit unseren Kundinnen und Kunden verhandlungssicher. Vielleicht sprichst du sogar zusätzlich Französisch oder Italienisch?\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nAlexandra Buchberger ist für dich da.\n058 277 81 92\n\nFragen zum Bewerbungsprozess?\nChantal Hügli ist für dich da.\n058 277 60 33\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
         "it": "Essere individualmente al fianco dei nostri clienti è sempre stato parte del nostro DNA. Voi e i vostri colleghi del centro assistenza clienti assicurate che tutto funzioni senza intoppi. Siamo ricercatori di soluzioni, custodi della testa più fredda, aiutanti e tutti i tondini (ben, almeno quasi). E possiamo anche ascoltare bene. Tuttavia si desidera modellare la vostra vita, siamo un partner forte per voi. Si esegue una forma troppo alta quando qualcosa sta realmente accadendo e vuole sempre offrire ai nostri clienti il miglior servizio possibile? Allora entri con noi.\n\nQuesta è la tua vita quotidiana\n\n• Al centro di esso: I nostri clienti sono a disposizione con informazioni telefoniche sulla nostra offerta di assicurazione - dal lunedì al venerdì tra le 08.00 e le 18.00.\n\n• Il vostro compito principale è quello di gestire le questioni telefoniche nei settori dei servizi, finanza, vendite e mutazioni. Inoltre, è anche occasionalmente prendere su semplici richieste scritte.\n\n• Registra conversazioni telefoniche nel sistema e aiuta a garantire la qualità del servizio per i nostri clienti.\n\n• Hai una buona sensazione per le opportunità di vendita - li passi alle nostre agenzie e sono un sostegno indispensabile.\n\n• Invii le dichiarazioni di aggiudicazione e di prestazione, le dichiarazioni di account, ecc. e possiamo anche contare su di te per altre attività amministrative.\n\nLo porti con te.\n\n• Prima di tutto: la vostra formazione di base completa serve come base per voi. Che si tratti di un esperto dialogo cliente, rivenditore, commerciante o laureato – siamo aperti.\n\n• Se avete completato la certificazione VBV, portare la conoscenza dell'assicurazione o l'esperienza in un centro di assistenza clienti, questo è sicuramente un vantaggio.\n\n• Ti piace contattare i clienti per telefono. Si incontrano le versatili preoccupazioni del cliente positivamente, con passione e mettere i clienti al centro delle vostre azioni in ogni momento.\n\n• Si distingue attraverso una mentalità positiva, pensare in modo critico e orientato alla soluzione e sono resilienti.\n\n• Hai familiarità con il notebook e troverai la tua strada in complessi sistemi IT. L'uso dell'intelligenza artificiale (AI) ti dà piacere, perché l'IA è indispensabile nella nostra vita quotidiana.\n\n• Avete una buona conoscenza orale di tedesco e inglese e siete sicuri di negoziare con i nostri clienti. Forse parli francese o italiano?\n\n• Lavoro flessibile: Adapt il vostro lavoro per il vostro stile di vita ogni anno con opzioni part-time e altri modelli flessibili come l'ufficio di casa e altro ancora.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Scegli il tuo modello di vacanza: 5 o 6 settimane di vacanza? La tua decisione. Di conseguenza, lavori 41 o 42 ore alla settimana.\n\n• Migliorati ulteriormente: Ci piace vederlo se ti istruisci internamente o esternamente e sosteniamo generosamente con il tempo e il denaro.\n\n• Soggiorno in forma: Posti di lavoro ergonomici, promozione del benessere mentale e molte altre offerte intorno alla vostra salute.\n\n• Engage Socially: La vita significa bene per te? Allora lasciate che gli altri condividano la vostra felicità ed espandono i vostri orizzonti da soli o in una squadra.\n\nInformazioni di contatto\n\nDomande sul tuo lavoro al tuo manager?\nAlexandra Buchberger è qui per voi.\n058 277 81 92\n\nDomande sul processo di applicazione?\nChantal Hügli è qui per te.\n058 277 60 33\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo ancora un sacco di piani per il futuro - forse insieme a te?",
         "en": "Being individually at the side of our customers has always been part of our DNA. You and your colleagues in the customer service center ensure that everything runs smoothly. We are solution seekers, cooler head keepers, helpers and all-rounders (well, at least almost). And we can listen well too. However you want to shape your lifetime, we are a strong partner for you. Do you run too high form when something is really going on and always want to offer our customers the best possible service? Then you fit in with us.\n\nThis is what your everyday life looks like\n\n• At the heart of it: Our customers are on hand with telephone information about our insurance offer - from Monday to Friday between 08.00 and 18.00.\n\n• Your main job is to handle telephone issues in the areas of services, finance, sales and mutations. In addition, you also occasionally take on simple written requests.\n\n• You record telephone conversations in the system and help to ensure the quality of service for our customers.\n\n• You have a good feeling for sales opportunities - you pass them on to our agencies and are an indispensable support.\n\n• You send the award and performance statements, account statements, etc. and we can also count on you for other administrative activities.\n\nYou bring that with you\n\n• First things first: Your completed basic education serves as a foundation for you. Whether as an expert customer dialogue, retailer, merchant or graduate – we are open.\n\n• If you have completed the VBV certification, bring insurance knowledge or experience in a customer service center, this is definitely an advantage.\n\n• You enjoy contacting customers by phone. You meet the versatile customer concerns positively, with passion and put the customers at the center of your actions at all times.\n\n• You distinguish yourself through a positive mindset, think critically and solution-oriented and are resilient.\n\n• You are familiar with the notebook and you will find your way around in complex IT systems. The use of artificial intelligence (AI) gives you pleasure, because AI is indispensable in our everyday life.\n\n• You have very good oral knowledge of German and English and are confident in negotiating with our customers. Maybe you even speak French or Italian?\n\n• Work Flexible: Adapt your work to your lifestyle annually with part-time options and other flexible models like home office and more.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Choose your holiday model: 5 or 6 weeks holiday? Your decision. Accordingly, you work 41 or 42 hours a week.\n\n• Improve yourself further: We like to see it if you educate yourself internally or externally and support generously with time and money.\n\n• Stay fit: Ergonomic workplaces, promotion of mental well-being and many other offers around your health.\n\n• Engage Socially: Does Life Mean Good to You? Then let others share your happiness and expand your horizons alone or in a team.\n\nContact details\n\nQuestions about your job to your manager?\nAlexandra Buchberger is here for you.\n058 277 81 92\n\nQuestions about the application process?\nChantal Hügli is here for you.\n058 277 60 33\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We still have a lot of plans for the future - maybe together with you?",
+        "de": "Unseren Kundinnen und Kunden individuell zur Seite stehen, das ist seit jeher Teil unserer DNA. Du und deine Kolleginnen und Kollegen im Kundenservice-Center sorgen dafür, dass dabei alles rund läuft. Wir sind Lösungssucherinnen, Kühlerkopfbewahrer, Weiterhelferinnen und Alleskönner (na ja, zumindest fast). Und gut zuhören können wir auch. Wie du auch immer deine Lebenszeit gestalten willst, wir sind dir eine starke Partnerin. Läufst auch du zu Hochform auf, wenn richtig etwas los ist und möchtest unseren Kunden stets den bestmöglichen Service bieten? Dann passt du zu uns.\n\nSo sieht dein Alltag aus\n\n• Zum Herzstück: Unseren Kundinnen und Kunden stehst du mit telefonischen Auskünften rund um unser Versicherungsangebot zur Seite - von Montag bis Freitag zwischen 08.00 Uhr und 18.00 Uhr.\n\n• Deine Haupttätigkeit besteht darin, telefonische Anliegen aus den Bereichen Leistungen, Finanzen, Vertrieb und Mutationen zu bearbeiten. Ergänzend übernimmst du gelegentlich auch einfache schriftliche Anfragen.\n\n• Du erfasst Telefongespräche im System und trägst dazu bei, die Servicequalität für unsere Kundinnen und Kunden zu sichern.\n\n• Für Verkaufschancen hast du ein gutes Gespür - du leitest sie an unsere Agenturen weiter und bist dabei eine unverzichtbare Unterstützung.\n\n• Du versendest die Prämien- und Leistungsabrechnungen, Kontoauszüge etc. und wir können auch bei anderen administrativen Tätigkeiten auf dich zählen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Deine abgeschlossene Grundausbildung dient dir als Fundament. Ob als Fachmann/-frau Kundendialog, Detailhandelsmann/-frau, Kaufmann/- frau oder Matura – da sind wir offen.\n\n• Falls du die VBV-Zertifizierung absolviert hast, Versicherungswissen oder Erfahrung in einem Kundenservice-Center mitbringst, ist dies definitiv ein Vorteil.\n\n• Du geniesst es, mit Kundinnen und Kunden telefonisch in Kontakt zu treten. Du begegnest den vielseitigen Kundenanliegen positiv, mit Leidenschaft und stellst die Kundinnen und Kunden jederzeit in den Mittelpunkt deines Handelns.\n\n• Du zeichnest dich durch ein positives Mindset aus, denkst kritisch und lösungsorientiert mit und bist belastbar.\n\n• Mit dem Notebook kennst du dich aus und du findest dich in komplexen IT-Systemen gut zurecht. Das Benutzen der künstlichen Intelligenz (KI) bereitet dir Freude, denn KI ist aus unserem Alltag nicht mehr wegzudenken.\n\n• Du verfügst über sehr gute mündliche Deutsch- und Englischkenntnisse und bist im Austausch mit unseren Kundinnen und Kunden verhandlungssicher. Vielleicht sprichst du sogar zusätzlich Französisch oder Italienisch?\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nAlexandra Buchberger ist für dich da.\n058 277 81 92\n\nFragen zum Bewerbungsprozess?\nChantal Hügli ist für dich da.\n058 277 60 33\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
         "fr": "Être individuellement aux côtés de nos clients a toujours fait partie de notre ADN. Vous et vos collègues dans le centre de service à la clientèle assurez que tout fonctionne bien. Nous sommes des chercheurs de solutions, des gardiens de tête plus froids, des aides et des omnipraticiens (au moins presque). Et nous pouvons bien écouter aussi. Cependant vous voulez façonner votre vie, nous sommes un partenaire fort pour vous. Exécutez-vous une forme trop élevée quand quelque chose se passe vraiment et que vous voulez toujours offrir à nos clients le meilleur service possible? Alors, tu nous rentres.\n\nC'est à ça que ressemble ta vie quotidienne\n\n• Au cœur : Nos clients sont à portée de main avec des informations téléphoniques sur notre offre d'assurance - du lundi au vendredi entre 08h00 et 18h00.\n\n• Votre travail principal est de traiter les problèmes téléphoniques dans les domaines des services, des finances, des ventes et des mutations. De plus, vous prenez occasionnellement des demandes écrites simples.\n\n• Vous enregistrez les conversations téléphoniques dans le système et contribuez à assurer la qualité du service pour nos clients.\n\n• Vous avez un bon sentiment pour les opportunités de vente - vous les transmettez à nos agences et sont un soutien indispensable.\n\n• Vous envoyez les états de rendement, les états de compte, etc. et nous pouvons également compter sur vous pour d'autres activités administratives.\n\nApporte ça avec toi.\n\n• Première chose d'abord: Votre éducation de base complète sert de base pour vous. Que ce soit en tant qu'expert en dialogue avec les clients, détaillant, marchand ou diplômé – nous sommes ouverts.\n\n• Si vous avez complété la certification VBV, apportez des connaissances en assurance ou de l'expérience dans un centre de service à la clientèle, c'est certainement un avantage.\n\n• Vous aimez contacter les clients par téléphone. Vous rencontrez les préoccupations client polyvalentes positivement, avec passion et mettez les clients au centre de vos actions en tout temps.\n\n• Vous vous distinguez à travers un état d'esprit positif, pensez critiquement et orienté vers la solution et sont résistants.\n\n• Vous êtes familier avec le carnet et vous trouverez votre chemin dans les systèmes informatiques complexes. L'utilisation de l'intelligence artificielle (IA) vous procure du plaisir, car l'IA est indispensable dans notre vie quotidienne.\n\n• Vous avez une très bonne connaissance orale de l'allemand et de l'anglais et êtes confiant dans la négociation avec nos clients. Peut-être que tu parles français ou italien ?\n\n• Travail flexible : Adaptez votre travail à votre style de vie chaque année avec des options à temps partiel et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n\n• Profitez de votre portefeuille : avantages tels que bonus, Reka, primes d'assurance-maladie à prix réduit et autres qui composent rapidement quelques milliers par an.\n\n• Choisissez votre modèle de vacances: 5 ou 6 semaines de vacances? Ta décision. Par conséquent, vous travaillez 41 ou 42 heures par semaine.\n\n• Améliorez-vous davantage: Nous aimons voir si vous vous éduquez en interne ou en externe et soutenez généreusement avec le temps et l'argent.\n\n• Restez en forme : milieux de travail ergonomiques, promotion du bien-être mental et de nombreuses autres offres autour de votre santé.\n\n• Engager socialement: La vie est - elle bonne pour vous? Alors laissez les autres partager votre bonheur et élargir vos horizons seul ou en équipe.\n\nCoordonnées\n\nDes questions sur votre travail à votre manager ?\nAlexandra Buchberger est là pour vous.\n058 277 81 92\n\nDes questions sur le processus de demande?\nChantal Hügli est là pour vous.\n058 277 60 33\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 salariés et l'un des principaux assureurs suisses. Ouais, nous sommes assez grands. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire la différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons encore beaucoup de plans pour l'avenir - peut-être avec vous ?"
       },
       "location": "Root / hybrid",
@@ -4259,7 +4377,7 @@
       "url": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung/aedb1ee6-b6ed-4dc9-9e67-ef2ef5fe4867",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:48:38.286Z",
+      "crawledAt": "2026-07-18T11:57:28.384Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -4276,12 +4394,15 @@
       "postedDate": "2026-07-17",
       "applyUrl": "https://jobs.css.ch/offene-stellen/mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung/aedb1ee6-b6ed-4dc9-9e67-ef2ef5fe4867",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
+        "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
+          "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css",
+          "collaboratore-trice-kundenservice-center-con-erfahrung-in-der-kundenbetreuung-80-100-css-versicherung-root-hybrid"
         ],
         "en": [
           "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
@@ -4290,9 +4411,7 @@
           "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-kundenservice-center-mit-erfahrung-in-der-kundenbetreuung-80-100-css"
-      ],
+      "firstSeenAt": "2026-07-17T22:48:38.286Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -4304,8 +4423,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-17T22:48:38.286Z"
+      }
     }
   ]
 }
