@@ -6,16 +6,27 @@
  *   → paginated WP listing (`/freie-stellen/page/{N}/`) of job pages at
  *     `/jobs/{slug}/`.
  *
- * Triaplus AG (formerly Psychiatrische Klinik Zugersee) operates four
- * psychiatric clinics across central Switzerland under one umbrella:
- *   - Klinik Zugersee, Oberwil b. Zug (ZG, head clinic)
- *   - Klinik Meissenberg (sister entity — separate site)
- *   - Outpatient centres in Zug, Lucerne, Schwyz
- * The career portal serves the whole group from a single WordPress install.
+ * Triaplus AG (formerly Psychiatrische Klinik Zugersee) is an integrated
+ * psychiatric provider ("Integrierte Psychiatrie Uri, Schwyz und Zug")
+ * operating outpatient/inpatient sites across those three cantons — head
+ * office Oberwil-Zug (ZG), plus Baar (ZG); Goldau, Pfäffikon SZ,
+ * Einsiedeln, Lachen, Steinen (SZ); Altdorf (UR). Confirmed live 2026-07
+ * against https://www.triaplus.ch/ueber-uns/triaplus-ag/standorte-und-bereiche
+ * (issue #4418 — CORRECTION: an earlier header version here claimed a
+ * "4 clinics incl. Klinik Meissenberg sister entity + Lucerne outpatient"
+ * model; no live page, the standorte list above, nor any job's own
+ * "Kantonen Uri, Schwyz und Zug" text mentions either, so that claim was
+ * wrong and has been dropped). The career portal serves the whole group
+ * from a single WordPress install.
  *
- * Each job page is a server-rendered `<article>` of type `single-jobs`
- * with H2 sections ("Ihre Aufgaben beinhalten", "Sie bringen dafür mit",
- * "Wir bieten Ihnen") that we concatenate into the description.
+ * Each job page is a server-rendered `<article>` of type `single-jobs`.
+ * The title block renders the REAL per-job location right after the H2:
+ * `<span class="ort">in  Pfäffikon (SZ)</span>` / `in  Oberwil-Zug` /
+ * `in  Baar` / `in  Altdorf` — confirmed live against 20 sample listings
+ * spanning all three cantons (see `parseJobLocation` / `KNOWN_LOCATIONS`
+ * below; issue #4418 fix — do NOT reintroduce a single hardcoded city for
+ * every job). H3 sections ("Ihre Aufgaben beinhalten", "Sie bringen dafür
+ * mit", "Wir bieten Ihnen") are concatenated into the description.
  *
  * Modelled on `scripts/lib/uroviva-job-parser.mjs` (multi-site Dualoo) and
  * `scripts/lib/spital-affoltern-job-parser.mjs` (multi-portal listing).
@@ -43,10 +54,70 @@ const PUBLIC_CAREER_URL = LISTING_URL;
 const DETAIL_DELAY_MS = 250;
 const MAX_PAGES = 10; // safety cap
 
-// Head clinic is Klinik Zugersee in Oberwil-Zug (ZG).
+// Head clinic is Klinik Zugersee in Oberwil-Zug (ZG). Used as the
+// LAST-RESORT fallback only, when a job's own detail page doesn't carry a
+// parsable `<span class="ort">` (see `parseJobLocation` below) — issue
+// #4418, do not use this as the primary per-job location.
 const DEFAULT_CITY = 'Oberwil';
 const DEFAULT_POSTAL_CODE = '6317';
 const DEFAULT_CANTON = 'ZG';
+
+/**
+ * Real Triaplus AG sites across cantons UR/SZ/ZG (confirmed live 2026-07
+ * against https://www.triaplus.ch/ueber-uns/triaplus-ag/standorte-und-bereiche,
+ * postal codes read from that page's address list; head-office postal code
+ * cross-checked against the group's own "Widenstrasse 55, 6317 Oberwil-Zug"
+ * address). Keyed by lowercased, diacritic-stripped city name so both
+ * "Pfäffikon" and an ASCII-decoded "Pfaffikon" resolve. "oberwil-zug" (the
+ * exact string the site renders) normalizes to the pre-existing
+ * `DEFAULT_CITY` ('Oberwil') so head-clinic jobs keep the same city label
+ * whether resolved via this table or via the fallback.
+ */
+const KNOWN_LOCATIONS = {
+  'oberwil-zug': { city: DEFAULT_CITY, canton: DEFAULT_CANTON, postalCode: DEFAULT_POSTAL_CODE },
+  oberwil: { city: DEFAULT_CITY, canton: DEFAULT_CANTON, postalCode: DEFAULT_POSTAL_CODE },
+  baar: { city: 'Baar', canton: 'ZG', postalCode: '6340' },
+  altdorf: { city: 'Altdorf', canton: 'UR', postalCode: '6460' },
+  goldau: { city: 'Goldau', canton: 'SZ', postalCode: '6410' },
+  pfaffikon: { city: 'Pfäffikon', canton: 'SZ', postalCode: '8808' },
+  einsiedeln: { city: 'Einsiedeln', canton: 'SZ', postalCode: '8840' },
+  lachen: { city: 'Lachen', canton: 'SZ', postalCode: '8853' },
+  steinen: { city: 'Steinen', canton: 'SZ', postalCode: '6422' },
+};
+
+function stripDiacritics(s = '') {
+  return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Extract the REAL per-job location from a Triaplus job detail page.
+ * Every job's title block renders
+ * `<span class="ort">in  <City>[ (<CANTON>)]</span>` right after the
+ * `<h2 class="… jobtitel">` — e.g. "in  Pfäffikon (SZ)", "in  Oberwil-Zug",
+ * "in  Baar", "in  Altdorf". Confirmed live against 20 sample job pages
+ * spanning all three cantons the group operates in (every page's own
+ * "Integrierte Psychiatrie Uri, Schwyz und Zug" / "Kantonen Uri, Schwyz und
+ * Zug" text agrees — issue #4418, replaces the previous hardcoded
+ * `DEFAULT_CITY` used for every job regardless of clinic).
+ *
+ * Looks the extracted city up in `KNOWN_LOCATIONS` for the correct canton +
+ * postal code (the span itself only sometimes carries a canton
+ * abbreviation, and never a postal code). Falls back to a best-effort
+ * `{ city, canton: <from span>, postalCode: DEFAULT_POSTAL_CODE }` for an
+ * unrecognised-but-parsed city, and returns `null` only when the span
+ * itself is missing/unparsable — callers then fall back to `DEFAULT_CITY`.
+ */
+export function parseJobLocation(html) {
+  const m = String(html || '').match(/<span class="ort">\s*in\s+([^<(]+?)(?:\s*\(([A-Za-z]{2})\))?\s*<\/span>/i);
+  if (!m) return null;
+  const rawCity = normalizeSpace(decodeEntities(m[1]));
+  if (!rawCity) return null;
+  const known = KNOWN_LOCATIONS[stripDiacritics(rawCity).toLowerCase()];
+  if (known) return known;
+  const cantonFromSpan = m[2] ? m[2].toUpperCase() : '';
+  if (cantonFromSpan) return { city: rawCity, canton: cantonFromSpan, postalCode: DEFAULT_POSTAL_CODE };
+  return null;
+}
 
 export function isTriaplusJob(job) {
   const url = String(job?.url || '').toLowerCase();
@@ -184,18 +255,24 @@ export async function fetchAllTriaplusJobs() {
     const { title, sections } = parseJobDetail(html);
     if (!title || title.length < 3) continue;
 
+    // Real per-job location (issue #4418) — falls back to the head-clinic
+    // default only when this specific job's `<span class="ort">` is
+    // missing/unparsable, not as the primary path.
+    const loc = parseJobLocation(html)
+      || { city: DEFAULT_CITY, canton: DEFAULT_CANTON, postalCode: DEFAULT_POSTAL_CODE };
+
     const rich = sections.join('\n\n').trim();
     if (rich) detailHits += 1;
 
     const description = [
       rich,
-      `${TRIAPLUS_COMPANY_NAME} — Psychiatrische Klinik (Klinik Zugersee), ${DEFAULT_CITY} (${DEFAULT_CANTON}), Schweiz.`,
+      `${TRIAPLUS_COMPANY_NAME} — Psychiatrische Klinik, ${loc.city} (${loc.canton}), Schweiz.`,
       `Bewerbung über das Karriereportal: ${detailUrl}`,
     ].filter(Boolean).join('\n\n');
 
     const sourceLang = detectLang(description || title, 'de');
     const slugFromUrl = (detailUrl.match(/\/jobs\/([a-z0-9-]+)\/?$/) || [])[1] || '';
-    const jobSlug = slugify(`${title} ${TRIAPLUS_KEY} ${slugFromUrl || DEFAULT_CITY}`);
+    const jobSlug = slugify(`${title} ${TRIAPLUS_KEY} ${slugFromUrl || loc.city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
     const id = `${TRIAPLUS_KEY}-${urlHash}`;
     if (seenIds.has(id)) continue;
@@ -218,17 +295,17 @@ export async function fetchAllTriaplusJobs() {
       // `translate-pending.yml` picks the job up out-of-band. Without this
       // flag the locale-completeness gate trips before translation can run.
       needsRetranslation: true,
-      location: DEFAULT_CITY,
-      canton: DEFAULT_CANTON,
+      location: loc.city,
+      canton: loc.canton,
       url: detailUrl,
       source: `${TRIAPLUS_COMPANY_NAME} Dedicated Parser (WordPress career site)`,
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: DEFAULT_CITY,
-      addressRegion: DEFAULT_CANTON,
+      addressLocality: loc.city,
+      addressRegion: loc.canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: DEFAULT_POSTAL_CODE,
+      postalCode: loc.postalCode,
       category: detectHealthcareCategory(title),
       contract: 'full-time',
       employmentType: detectHealthcareEmploymentType(title),
