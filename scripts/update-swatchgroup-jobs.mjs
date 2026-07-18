@@ -240,8 +240,19 @@ async function main() {
     // aggregate 'swatchgroup' key below). Always refresh the per-brand
     // summary, reporting the still-persisted slice count when this run found
     // nothing new for that brand.
+    //
+    // Two different reasons _ckJobs can be empty, and only one should skip
+    // the write: (a) _ckJobsRaw.length === 0 — this crawl found no listings
+    // at all for the key, transient/site-down, preserve the prior slice as
+    // before; (b) _ckJobsRaw.length > 0 but the brand filter (#4392) zeroed
+    // every one of them as cross-brand redistribution — that's a REAL
+    // correction the shrink guard needs to see and act on (16→0 for
+    // rado/swatch-group-assembly today), not a transient gap. Gating this
+    // case out too would freeze the stale mislabeled slice on disk forever,
+    // silently contradicting the guard-driven correction this fix depends on.
+    const _ckFilterEmptiedRealScrape = _ckJobs.length === 0 && _ckJobsRaw.length > 0;
     let _ckTotal = _ckJobs.length > 0 ? _ckJobs.length : readExistingCrawlerJobs(ck, DATA_JOBS).length;
-    if (_ckJobs.length > 0) {
+    if (_ckJobs.length > 0 || _ckFilterEmptiedRealScrape) {
       // Swatch Group is a multi-sub-brand umbrella crawler: comadur, eta-sa,
       // nivarox, rado, swatch-group-assembly and swiss-timing all persist in
       // this SAME loop within this ONE script run. writeJobsCrawlerSlice()
@@ -258,6 +269,7 @@ async function main() {
       // on-disk count for the summary/aggregate, and let the loop continue.
       try {
         writeJobsCrawlerSlice(ck, _ckJobs);
+        _ckTotal = _ckJobs.length;
         _aggregateTotal += _ckJobs.length;
       } catch (err) {
         _guardTrippedKeys.push(ck);
