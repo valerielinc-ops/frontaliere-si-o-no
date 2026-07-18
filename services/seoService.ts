@@ -4610,6 +4610,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-psicologo-ticino-stipendio-requisiti': { name: 'Lavorare come psicologo in Ticino da', path: '/articoli-frontaliere/frontaliere-psicologo-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-stipendio-psicologo-frontaliere-ticino': { name: 'Stipendio psicologo frontaliere Ticino', path: '/articoli-svizzera/stipendio-psicologo-frontaliere-ticino/', parent: 'blog' },
     'blog-frontaliere-ticino-fisioterapista': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ticino-fisioterapista', parent: 'blog' },
+    'blog-frontaliere-logopedista-ticino-stipendio-requisiti': { name: 'Lavorare come logopedista in Ticino da', path: '/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

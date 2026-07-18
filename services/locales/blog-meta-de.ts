@@ -8601,6 +8601,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-fisioterapista.title': 'Wie viel verdient ein Grenzphysiotherapeut im Tessin?',
     'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'Der Physiotherapeut im Tessin: Gehalt, Steuern und Vorschriften.',
     'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'Ein Grenzgänger, der als Physiotherapeut in Ticino arbeitet.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.title': 'Sprachtherapeut im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.excerpt': 'Der Durchschnittslohn für Logopäden im Tessin beträgt rund CHF 70\'000 pro Jahr, während die Voraussetzungen für die Arbeit als Logopäde im Tessin einen Abschluss in Logopädie oder einen gleichwertigen Abschluss beinhalten. Grenzüberschreitende Sprachtherapeuten im Tessin können die Bewilligung G beantragen, um in der Schweiz zu arbeiten.',
+    'blog.article.frontaliere-logopedista-ticino-stipendio-requisiti.imageAlt': 'Lago di Lugano und Stadt Lugano',
 };
 
 export default blogMetaDe;

@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3292,
+ "numberOfItems": 3293,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8008,7 +8008,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3289, "name": "Quanto guadagna un operatore socio sanitario fr...", "url": `${BASE_URL}/articoli-frontaliere/operatore-socio-sanitario-frontaliere` },
           { "@type": "ListItem", "position": 3290, "name": "Psicologo in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-psicologo-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3291, "name": "Quanto guadagna un psicologo frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-psicologo-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3292, "name": "Quanto guadagna un fisioterapista frontaliere i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-fisioterapista` }
+          { "@type": "ListItem", "position": 3292, "name": "Quanto guadagna un fisioterapista frontaliere i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-fisioterapista` },
+          { "@type": "ListItem", "position": 3293, "name": "Logopedista in Ticino: stipendio, requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti` }
  ]
  },
  {
