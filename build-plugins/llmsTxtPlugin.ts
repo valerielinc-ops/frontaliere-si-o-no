@@ -203,7 +203,18 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
  return {
  name: 'llms-txt-update',
  apply: 'build',
- async closeBundle() {
+ // `enforce: 'post'` alone is not enough: `closeBundle` hooks can run in
+ // parallel across plugins within the same bucket. Without `order: 'post'`
+ // + `sequential: true` this plugin (previously default-bucket, no
+ // `enforce`) ran BEFORE most sitemap-writing SEO plugins — nearly all of
+ // which are `enforce: 'post'` — silently missing their sitemap-*.xml from
+ // resolveSitemapFileList()'s dynamic discovery (issue follow-up #4435).
+ // Mirrors sitemapAliasPlugin.ts's own ordering guarantee.
+ enforce: 'post',
+ closeBundle: {
+ order: 'post',
+ sequential: true,
+ async handler() {
  const fs = await import('node:fs');
  const distDir = path.resolve(rootDir, 'dist');
  const publicDir = path.resolve(rootDir, 'public');
@@ -469,6 +480,7 @@ ${localeIndex}`;
  }
 
  console.log(`\x1b[36m[llms-txt]\x1b[0m Updated llms.txt (${monthYear}) and llms-full.txt (${isoDate})${articleCount ? `, ${articleCount} articles` : ''}, page index: ${allUrls.length} URLs, .well-known/llms.txt copied${localeCount ? `, ${localeCount} locale llms.txt files` : ''}`);
+ },
  },
  };
 }
