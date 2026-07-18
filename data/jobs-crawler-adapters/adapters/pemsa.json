@@ -11,7 +11,7 @@
     "https://www.pemsa.ch/it/le-nostre-offerte-di-lavoro/"
   ],
   "notes": "Dedicated PEMSA crawler. National listing (all cantons). Detail pages have JSON-LD JobPosting with full location data; canton inferred per-job from the city. Construction/trades staffing agency.",
-  "updatedAt": "2026-07-17T22:03:14.545Z",
+  "updatedAt": "2026-07-18T10:33:14.087Z",
   "seedMetaByUrl": {
     "https://www.pemsa.ch/it/job/capocantiere-nel-settore-elettrico-2683762/": {
       "location": "Genève",
@@ -1030,24 +1030,6 @@
     "https://www.pemsa.ch/it/job/operatore-macchine-m2-e-m7-grand-dumper-2681452/": {
       "location": "Sion",
       "canton": "VS",
-      "company": "PEMSA",
-      "postedDate": "2026-07-02"
-    },
-    "https://www.pemsa.ch/it/job/pittore-gessatore-2681427/": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-02"
-    },
-    "https://www.pemsa.ch/it/job/gessatore-intonacatore-2681403/": {
-      "location": "Locarno",
-      "canton": "TI",
-      "company": "PEMSA",
-      "postedDate": "2026-07-02"
-    },
-    "https://www.pemsa.ch/it/job/cartongessista-2681400/": {
-      "location": "Locarno",
-      "canton": "TI",
       "company": "PEMSA",
       "postedDate": "2026-07-02"
     },
