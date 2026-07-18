@@ -1207,6 +1207,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Chiarita la normativa sui permessi di lavoro per docenti frontalieri',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Le Conseil d\'Etat confirme : activité professionnelle commencée après la demande de permis, pas à la délivrance. Un seul cas sanctionné en 5 ans.',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Palais gouvernemental à Bellinzona, siège du Département de l\'éducation',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Suisse : motion contre le chômage des frontaliers',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Le conseiller national Lorenzo Quadri propose d\'exclure les frontaliers de l\'assurance-chômage suisse. Voici les détails.',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral suisse',
 };
 
 export default blogMetaChFr;

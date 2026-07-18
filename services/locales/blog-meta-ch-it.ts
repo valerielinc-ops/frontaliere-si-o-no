@@ -1207,6 +1207,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.title': 'Docenti frontalieri in Ticino: chiarita la normativa sui permessi di lavoro',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.excerpt': 'Il Consiglio di Stato conferma: attività professionale avviata dopo la domanda di permesso, non al rilascio. Un solo caso sanzionato in 5 anni.',
     'blog.article.lavoro-docenti-frontalieri-ticino-normativa.imageAlt': 'Palazzo governativo a Bellinzona, sede del Dipartimento educazione',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.title': 'Svizzera: mozione contro disoccupazione ai frontalieri',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.excerpt': 'Il consigliere nazionale Lorenzo Quadri propone di escludere i frontalieri dall\'assicurazione contro la disoccupazione svizzera. Ecco i dettagli.',
+    'blog.article.svizzera-disoccupazione-frontalieri-mozione-quadri.imageAlt': 'Palazzo Federale a Berna, sede del Consiglio federale svizzero',
 };
 
 export default blogMetaChIt;

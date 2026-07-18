@@ -4590,6 +4590,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-remoto-vacanza-fiscalita-frontalieri': { name: 'Lavoro Remoto Vacanza', path: '/articoli-frontaliere/lavoro-remoto-vacanza-fiscalita-frontalieri', parent: 'blog' },
     'blog-lavoro-docenti-frontalieri-ticino-normativa': { name: 'Lavoro frontalieri', path: '/articoli-svizzera/lavoro-docenti-frontalieri-ticino-normativa/', parent: 'blog' },
     'blog-disoccupazione-ticino-frontalieri': { name: 'Disoccupazione in Svizzera', path: '/articoli-frontaliere/disoccupazione-ticino-frontalieri', parent: 'blog' },
+    'blog-svizzera-disoccupazione-frontalieri-mozione-quadri': { name: 'Mozione disoccupazione frontalieri', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-mozione-quadri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
