@@ -34,7 +34,21 @@
  *
  * Exit: 0 = purged (or no-op when CF_API_TOKEN absent — non-fatal so a
  * missing secret never fails the deploy), 1 = API/auth error.
+ *
+ * SETTLE DELAY: purge_everything is acknowledged instantly by the API but
+ * takes up to ~30s to actually clear every edge PoP globally (Cloudflare's
+ * own documented worst case) — on this ~650k-file zone the very next
+ * requests are a cache-miss storm that can transiently 503/timeout at the
+ * edge while it re-fetches from origin. The validate-live workflow calls
+ * this script and then, within ~1s, runs probe-5xx + e2e:live straight at
+ * LIVE_BASE_URL — racing our OWN purge (root cause of the immediate-503
+ * flake behind issue #4429, e.g. run 29657637517: purge ack'd 19:39:07.37,
+ * probe started 19:39:08.38). Sleeping here (not in the caller) keeps the
+ * fix scoped to the script that creates the race, no workflow-YAML edit
+ * needed. A 4XX from a real broken deploy still fails after the settle —
+ * this only smooths over the purge's own propagation window.
  */
+const PURGE_SETTLE_MS = Number(process.env.CF_PURGE_SETTLE_MS) || 20_000;
 
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
@@ -94,6 +108,8 @@ try {
     process.exit(1);
   }
   console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
+  console.log(`⏳ Settling ${PURGE_SETTLE_MS}ms for the purge to propagate across edge PoPs before the caller probes LIVE_BASE_URL...`);
+  await new Promise(resolve => setTimeout(resolve, PURGE_SETTLE_MS));
 } catch (err) {
   console.error(`❌ Cloudflare API request failed: ${err.message}`);
   warnStaleEdge(`network error contacting Cloudflare API: ${err.message}`);
