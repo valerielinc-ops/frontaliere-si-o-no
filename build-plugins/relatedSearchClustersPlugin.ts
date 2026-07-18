@@ -315,7 +315,17 @@ const CACHE_KEY_INPUTS = [
 // the AND/OR job set for every cluster page changes (e.g. `…-infermieristiche-…`
 // now matches "infermiere" jobs). Old v6 caches hold the un-stemmed pages —
 // bump invalidates them so the next build re-emits with root matching.
-const CACHE_VERSION = 'v7';
+//
+// v8 (2026-07-18, run 29636707053) fixes the locale-shard render-skip branch
+// leaking below-floor cross-locale cluster URLs into `sitemapLocs` (it pushed
+// every cross-locale loc unconditionally, never applying the
+// MIN_JOBS_FOR_INDEXABLE_CLUSTER floor the owning shard's renderClusterPage
+// applies) — 31,624 noindex bridge URLs ended up self-canonical in
+// sitemap-search-clusters shards, failing audit:sitemap-canonicals,
+// validate:canonical and validate:content-quality. Old v7 caches still hold
+// the leaked locs — bump invalidates them so the next build recomputes the
+// floor decision for every cross-locale entry.
+const CACHE_VERSION = 'v8';
 
 /**
  * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 45,000 to
@@ -1129,6 +1139,22 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
 };
 
 /**
+ * True when a cluster falls below MIN_JOBS_FOR_INDEXABLE_CLUSTER and has no
+ * AI-enriched-intro exemption — i.e. `renderClusterPage` emits a
+ * noindex,follow below-floor bridge (canonical → hub) for it instead of a
+ * self-canonical page. Single source of truth shared by the full render
+ * path (`renderClusterPage`) and the locale-shard render-skip path
+ * (BUILD_LOCALE, LOCALE-SHARD-BUILD-PLAN Fase 0): both must agree on which
+ * URLs are self-canonical, or the skip path's cheap `sitemapLocs` entries
+ * leak below-floor bridge URLs into the sitemap once shards are merged —
+ * see CACHE_VERSION v8 history for the incident this de-duplication fixes.
+ */
+export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
+  const hasEnrichedIntro = Boolean(enriched?.intro && enriched.intro.trim());
+  return !hasEnrichedIntro && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+}
+
+/**
  * Below-floor bridge (issue #4303 item 4): consolidates clusters with
  * fewer than MIN_JOBS_FOR_INDEXABLE_CLUSTER matching jobs into the
  * Switzerland-wide hub instead of emitting a thin near-duplicate page.
@@ -1528,8 +1554,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // enriched entry (data/related-search-enriched.json), so this exemption
   // is narrow — it doesn't blunt the consolidation for the bulk of
   // generic, non-enriched below-floor clusters the issue targets.
-  const hasEnrichedIntro = Boolean(enriched?.intro && enriched.intro.trim());
-  if (!hasEnrichedIntro && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER) {
+  if (isClusterBelowFloor(ctx, enriched)) {
     return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword);
   }
 
@@ -2788,7 +2813,19 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // No-op in the default all-locale build (shouldEmitLocale always true).
         if (!shouldEmitLocale(locale)) {
           const __skUrlPath = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
-          sitemapLocs.push(`${BASE_URL}${__skUrlPath}`);
+          // Mirror the MIN_JOBS_FOR_INDEXABLE_CLUSTER floor decision that
+          // renderClusterPage makes on the OWNING shard (line ~1532). Below
+          // floor, that shard renders a noindex,follow bridge (canonical →
+          // hub) at this same urlPath instead of a self-canonical page — so
+          // this cheap cross-locale entry must NOT self-canonicalize into
+          // sitemapLocs either, or audit:sitemap-canonicals/validate:canonical
+          // hard-fail once the shards are merged. dropOverwrittenLocs can't
+          // catch this post-hoc: its cross-shard branch trusts owning-shard
+          // locs unconditionally (this shard never writes the HTML to check).
+          const __skEnriched = enriched[`${locale}::${ctx.candidate.slug}`];
+          if (!isClusterBelowFloor(ctx, __skEnriched)) {
+            sitemapLocs.push(`${BASE_URL}${__skUrlPath}`);
+          }
           const __skMirror = new Set<string>();
           for (const __skMc of [ctx.legacyCantonGroup, 'TI']) {
             if (__skMc === AGGREGATE_KEY) continue;
