@@ -8608,6 +8608,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'How much does a border speech therapist earn in Ticino?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'The salaries of border speech therapists in Ticino: how do they differ from Italian salaries?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'A cross-border logopedist guiding a language therapy session in a hospital in Lugano, Ticino.',
+    'blog.article.farmacista-frontaliero-ticino.title': 'How much does a border pharmacist earn in Ticino?',
+    'blog.article.farmacista-frontaliero-ticino.excerpt': 'The New Frontier Agreement provides for a deductible of €10,000 for new frontier workers.',
+    'blog.article.farmacista-frontaliero-ticino.imageAlt': 'A pharmacist works in a hospital in Lugano',
 };
 
 export default blogMetaEn;

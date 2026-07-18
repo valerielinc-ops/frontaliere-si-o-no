@@ -8607,6 +8607,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Wie viel verdient ein Sprachtherapeut im Tessin?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'Die Löhne der grenznahen Sprachtherapeuten im Tessin: Wie unterscheiden sie sich von den italienischen Löhnen?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Ein Logopäde führt eine Sitzung der Sprachtherapie in einem Krankenhaus in Lugano, Tessin.',
+    'blog.article.farmacista-frontaliero-ticino.title': 'Wie viel verdient ein Grenzapotheker im Tessin?',
+    'blog.article.farmacista-frontaliero-ticino.excerpt': 'Die neue Grenzgängervereinbarung sieht eine Selbstbeteiligung von 10\'000 € für neue Grenzgänger vor.',
+    'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Ein Apotheker arbeitet in einem Krankenhaus in Lugano',
 };
 
 export default blogMetaDe;
