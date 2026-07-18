@@ -1216,6 +1216,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.operatore-socio-sanitario-frontaliere.title': 'Wie viel verdient ein soziales Grenzschutzpersonal im Tessin?',
     'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Reales Gehalt eines grenznahen Sozialarbeiters im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken',
     'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'Ein Gesundheitsdienstleister an der Grenze zwischen der Schweiz und Italien',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Wie viel verdient ein Grenzpsychologe im Tessin?',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Reales Gehalt eines Grenzpsychologen im Tessin: Lohnband, Unterschiede zu Italien, Faktoren, die sich auf das Gehalt auswirken.',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Bild eines Psychologen an der Grenze in Ticino',
 };
 
 export default blogMetaChDe;

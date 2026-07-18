@@ -1216,6 +1216,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.operatore-socio-sanitario-frontaliere.title': 'Combien gagne un opérateur socio-sanitaire frontalier au Tessin ?',
     'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Salaire réel d\'un opérateur socio-sanitaire frontalier au Tessin : fourchette salariale, différences par rapport à l\'Italie, facteurs affectant la rémunération',
     'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'Un travailleur de la santé frontalier en Suisse',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Combien gagne un psychologue frontalier au Tessin ?',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Salaire réel d\'un psychologue frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Image d\'un psychologue frontalier en Tessin',
 };
 
 export default blogMetaChFr;

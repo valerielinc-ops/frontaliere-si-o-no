@@ -1216,6 +1216,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.operatore-socio-sanitario-frontaliere.title': 'Quanto guadagna un operatore socio sanitario frontaliere in Ticino?',
     'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Stipendio reale di un operatore socio sanitario frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione',
     'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'Un operatore socio sanitario frontaliere in Ticino',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Quanto guadagna un psicologo frontaliere in Ticino?',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Stipendio reale di un psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Immagine di un psicologo frontaliere in Ticino',
 };
 
 export default blogMetaChIt;

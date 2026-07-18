@@ -1216,6 +1216,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.operatore-socio-sanitario-frontaliere.title': 'How much does a border health worker earn in Ticino?',
     'blog.article.operatore-socio-sanitario-frontaliere.excerpt': 'Actual salary of a border health worker in Ticino: salary band, differences compared to Italy, factors affecting salary',
     'blog.article.operatore-socio-sanitario-frontaliere.imageAlt': 'A Swiss frontier health worker in Ticino',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'How much does a border psychologist earn in Ticino?',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Actual salary of a border psychologist in Ticino: salary band, differences compared to Italy, factors affecting remuneration.',
+    'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Image of a frontline psychologist in Ticino',
 };
 
 export default blogMetaChEn;
