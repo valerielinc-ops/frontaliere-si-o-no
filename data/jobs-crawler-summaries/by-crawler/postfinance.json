@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-17T22:24:08.865Z",
+  "generatedAt": "2026-07-18T11:22:02.506Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9120,
-  "avgDurationMs": 9120,
+  "durationMs": 8449,
+  "avgDurationMs": 8449,
   "durationHistory": [
-    9120
+    8449
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -86,7 +86,7 @@
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,7 +128,7 @@
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
