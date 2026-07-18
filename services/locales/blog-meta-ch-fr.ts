@@ -1222,6 +1222,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilité en Suisse : la faveur pour le rail s\'accroît',
     'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Une enquête Sotomo révèle les préférences des Suisses : nette préférence pour les investissements ferroviaires par rapport à l\'amélioration du réseau routier.',
     'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Gare ferroviaire suisse avec trains et passagers',
+    'blog.article.coronavirus-frontalieri-svizzera.title': 'Coronavirus : je travaille en Suisse uniquement avec le permis \'G\'',
+    'blog.article.coronavirus-frontalieri-svizzera.excerpt': 'Le conseiller d\'État Christian Vitta a précisé que les travailleurs frontaliers pourront aller travailler en Suisse malgré la fermeture de la Lombardie.',
+    'blog.article.coronavirus-frontalieri-svizzera.imageAlt': 'Travailleurs frontaliers qui traversent la frontière Suisse-Italie pendant la pandémie de COVID-19',
 };
 
 export default blogMetaChFr;

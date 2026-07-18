@@ -15774,6 +15774,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coronavirus-frontalieri-svizzera': {
+    title: 'Coronavirus: lavoro in Svizzera solo con permesso \'G\'',
+    description: 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coronavirus, lavoro, solo, permesso',
+    ogTitle: 'Coronavirus: Frontalieri, il consigliere Vitta: "In Svizzera solo per lavoro e col permesso \'G\'".',
+    ogDescription: 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.',
+    canonicalPath: '/articoli-svizzera/coronavirus-frontalieri-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coronavirus: lavoro in Svizzera solo con permesso 'G'",
+      "description": "Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coronavirus-frontalieri-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere che attraversa il confine Svizzera-Italia durante la pandemia di COVID-19"
+      },
+      "datePublished": "2026-07-18T23:03:47+00:00",
+      "dateModified": "2026-07-18T23:03:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/coronavirus-frontalieri-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

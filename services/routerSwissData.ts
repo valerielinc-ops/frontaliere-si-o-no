@@ -430,6 +430,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'operatore-socio-sanitario-frontaliere': { it: 'operatore-socio-sanitario-frontaliere', en: 'swiss-frontier-health-worker-ticino', de: 'gesundheitsdienstleister-an-der-grenze-zwischen-schweiz-und-italien-ticino', fr: 'travailleur-de-la-sante-frontalier-en-suisse-ticino' },
  'stipendio-psicologo-frontaliere-ticino': { it: 'stipendio-psicologo-frontaliere-ticino', en: 'psychologist-frontline-ticino', de: 'psychologe-grenze-tessin', fr: 'psychologue-frontalier-tessin' },
  'mobilita-svizzera-ferrovia-strade': { it: 'mobilita-svizzera-ferrovia-strade', en: 'swiss-mobility-railway-road-investment', de: 'schweizer-mobilitaet-bahn-strasse', fr: 'mobilite-suisse-rail-route' },
+ 'coronavirus-frontalieri-svizzera': { it: 'coronavirus-frontalieri-svizzera', en: 'coronavirus-frontalieri-svizzera', de: 'coronavirus-frontalieri-schweiz', fr: 'coronavirus-frontaliers-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

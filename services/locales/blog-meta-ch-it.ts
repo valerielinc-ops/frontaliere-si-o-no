@@ -1222,6 +1222,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilità in Svizzera: cresce il favore per la ferrovia',
     'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Un\'indagine Sotomo rivela le preferenze degli svizzeri: netta preferenza per gli investimenti ferroviari rispetto al potenziamento della rete stradale.',
     'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Stazione ferroviaria svizzera con treni e passeggeri',
+    'blog.article.coronavirus-frontalieri-svizzera.title': 'Coronavirus: lavoro in Svizzera solo con permesso \'G\'',
+    'blog.article.coronavirus-frontalieri-svizzera.excerpt': 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.',
+    'blog.article.coronavirus-frontalieri-svizzera.imageAlt': 'Lavoratore frontaliere che attraversa il confine Svizzera-Italia durante la pandemia di COVID-19',
 };
 
 export default blogMetaChIt;
