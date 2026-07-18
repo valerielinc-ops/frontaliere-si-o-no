@@ -325,6 +325,26 @@ const CACHE_KEY_INPUTS = [
 // validate:canonical and validate:content-quality. Old v7 caches still hold
 // the leaked locs — bump invalidates them so the next build recomputes the
 // floor decision for every cross-locale entry.
+//
+// Issue #4383 item 2 (verified 2026-07-18, no staleness gap found): a stale
+// v7-cached shard can never coexist with a fresh v8 shard. `computeCacheKey`
+// below hashes `version:${CACHE_VERSION}` directly INTO the sha256 digest
+// used as the cache dir name (`.cache/related-search-clusters/<hash>`), so a
+// v7 build and a v8 build address physically DIFFERENT directories even
+// when every other input byte is identical — there is no shared mutable
+// "current cache" location a version bump could leave half-updated.
+// `tryRestoreFromCache` also independently rejects `manifest.version !==
+// CACHE_VERSION` as defense-in-depth. More importantly, the only workflows
+// that run BUILD_LOCALE-sharded builds (deploy.yml, deploy-matrix-
+// experiment.yml, matrix-equivalence-check.yml) all set
+// `RELATED_SEARCH_CLUSTERS_NO_CACHE=1` unconditionally, so `cacheEnabled`
+// below is `false` on every shard and this on-disk cache is never read or
+// written at all during a production sharded deploy — each shard always
+// does a full fresh emit from `data/*.json`. The cache only activates for
+// non-sharded monolith builds (adsense-prereview.yml,
+// cathedral-seo-gates-check.yml, local dev), which run as one process with
+// one CACHE_VERSION value — no shard-vs-shard mismatch is possible there
+// either.
 const CACHE_VERSION = 'v8';
 
 /**
@@ -543,6 +563,31 @@ function loadCandidates(rootDir: string): CandidateEntry[] {
   }
 }
 
+/**
+ * Issue #4383 item 1 (verified 2026-07-18, no bug found): `data/related-
+ * search-enriched.json` is written by `scripts/enrich-related-search-
+ * clusters.mjs` as a SINGLE globally-keyed file — `entries` is one flat
+ * `Record<string, EnrichedEntry>` covering ALL 4 locales, keyed by
+ * `${locale}::${slug}` (see `EnrichedFile` in relatedSearchClustersData.ts).
+ * The generator's `--locale=`/`--force` CLI flags only scope which
+ * candidates get (re)enriched or evicted in a given run (`prunableLocales`
+ * in that script) — they never partition or truncate the output file's
+ * existing entries for other locales. The production weekly refresh
+ * (`.github/workflows/snapshot-jobs-weekly.yml`) runs the script with NO
+ * `--locale` filter and commits one file spanning it/en/de/fr.
+ *
+ * Every BUILD_LOCALE shard in a single deploy run loads the byte-identical
+ * copy of this file: deploy.yml's `prep` job tars `data/` ONCE and every
+ * locale-shard `build-locale` matrix job restores that same
+ * `prepared-snapshot` artifact before building. So the composite-key
+ * lookups against this map (below-floor-bridge exemption checks at the
+ * cross-locale skip path and the owning-shard render path, both keyed
+ * `${locale}::${slug}`) are safe — a non-`it` shard's lookup for an
+ * `it`-authored (or any other locale's) enriched entry finds it, because
+ * that locale's entries live in the SAME shared `entries` map this shard
+ * loaded. There is no locale-partitioning gap to reintroduce the sitemap
+ * self-canonical leak class PR #4382 fixed.
+ */
 function loadEnriched(rootDir: string): Record<string, EnrichedEntry> {
   const enrichedPath = path.join(rootDir, 'data', 'related-search-enriched.json');
   if (!fs.existsSync(enrichedPath)) return {};
@@ -2517,7 +2562,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // matching + render loop entirely.
       //
       // Disable with RELATED_SEARCH_CLUSTERS_NO_CACHE=1 (e.g. during
-      // local debugging when you want a clean re-emit).
+      // local debugging when you want a clean re-emit). Set unconditionally
+      // by every BUILD_LOCALE-sharded workflow — see the CACHE_VERSION
+      // comment above (issue #4383 item 2) for why that makes cross-shard
+      // cache-version staleness impossible in production.
       const cacheEnabled = process.env.RELATED_SEARCH_CLUSTERS_NO_CACHE !== '1';
       const __tCacheKey = profileStart();
       const cacheKey = cacheEnabled ? computeCacheKey(rootDir) : '';
