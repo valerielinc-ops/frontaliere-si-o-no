@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-18T11:22:02.506Z",
-  "total": 3,
+  "generatedAt": "2026-07-18T22:04:21.507Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8449,
-  "avgDurationMs": 8449,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 8391,
+  "avgDurationMs": 8391,
   "durationHistory": [
-    8449
+    8391
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,8 +51,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
@@ -137,5 +136,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
