@@ -15,7 +15,10 @@
  *   For each commit, parse the file at that commit and at its previous
  *   version. A "loss" = a slug that was in the prior version's
  *   {active, previousSlugs, previousSlugsByLocale} for a given job but is
- *   absent from the after version's {active, previousSlugs, previousSlugsByLocale}.
+ *   absent from the after version's {active, previousSlugs, previousSlugsByLocale}
+ *   AND not explained by the documented per-locale/legacy cap (see
+ *   diffJobSlices()'s classifyCapTrim() — routine LRU eviction of the
+ *   oldest entries once an array exceeds its cap is not a loss).
  *   Cross-reference with the current working-tree slice to compute
  *   "still recoverable" (i.e. losses not yet healed by later runs).
  *
@@ -33,6 +36,7 @@ import { execSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { denylistKey, loadRestoreDenylist } from './backfill-prev-slugs-from-loss-events.mjs';
+import { DEFAULT_PREV_SLUG_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -40,21 +44,72 @@ const DIR = 'data/jobs/by-crawler';
 const ABS_DIR = path.join(ROOT, DIR);
 
 /**
+ * Given a locale (or the flat legacy) previousSlugs array as it stood
+ * before a commit and after it, split the slugs that disappeared into
+ * "cap-explained" (consistent with addPreviousSlugForLocale/capSlugArray's
+ * documented LRU eviction — not a bug) vs "unexplained" (a genuine
+ * candidate for the silent-bypass regression this scanner exists to catch).
+ *
+ * Root cause of issue #4368 (and its 5 duplicate predecessors, #4226/
+ * #4243/#4249/#4289/#4326): this scanner used a plain before/after set
+ * diff with no notion of the cap, so it flagged routine, already-journaled
+ * cap-trim (dedicated-crawler-common.mjs's capSlugArray keeps the newest
+ * `cap` entries and evicts the oldest once an array exceeds it — see
+ * scripts/lib/slug-history-journal.mjs's `cap-trim` action) as if it were
+ * a code regression. Empirically confirmed against coop-ticino.json
+ * (91% of a 48h sample's losses): per-locale arrays sat healthy at/under
+ * cap while the flat legacy `previousSlugs` array — populated before the
+ * per-locale migration and never itself pruned until touched — carried
+ * 100+ entries against an 80-slot cap and shed its oldest entries the
+ * first time each job was re-processed.
+ *
+ * A loss is cap-explained only when the before-array was already at/over
+ * cap AND the number of slugs it lost is no more than the number of slugs
+ * newly captured in the same commit (each new capture, once at cap, costs
+ * exactly one eviction of the single oldest entry — never more). Losses
+ * beyond that count cannot be explained by the cap alone and stay flagged.
+ *
+ * @param {string[]} beforeArr
+ * @param {string[]} afterArr
+ * @param {number} cap
+ * @returns {{ explained: Set<string>, unexplained: string[] }}
+ */
+function classifyCapTrim(beforeArr, afterArr, cap) {
+  const before = Array.isArray(beforeArr) ? beforeArr : [];
+  const afterSet = new Set(Array.isArray(afterArr) ? afterArr : []);
+  const beforeSet = new Set(before);
+  const removed = before.filter(s => s && !afterSet.has(s)); // before-order: oldest first
+  if (removed.length === 0) return { explained: new Set(), unexplained: [] };
+  const added = [...afterSet].filter(s => s && !beforeSet.has(s)).length;
+  const explainedCount = before.length >= cap ? Math.min(removed.length, added) : 0;
+  return {
+    explained: new Set(removed.slice(0, explainedCount)),
+    unexplained: removed.slice(explainedCount),
+  };
+}
+
+/**
  * Diff two versions of a slice file's `jobs` array and return, for every job
  * present in both, the slugs that were in `prevJobs`' before-state but are
- * absent from `curJobs`' after-state. Jobs are matched via
- * resolveJobDiffKey() so id-less jobs fall back to a stable URL/slug key
- * instead of colliding under `undefined`.
+ * absent from `curJobs`' after-state — excluding slugs whose disappearance
+ * is fully explained by the documented per-locale/legacy cap (see
+ * classifyCapTrim() above). Jobs are matched via resolveJobDiffKey() so
+ * id-less jobs fall back to a stable URL/slug key instead of colliding
+ * under `undefined`.
  *
  * Pure function — no I/O — so it's directly unit-testable.
  *
  * @param {Array<object>} prevJobs
  * @param {Array<object>} curJobs
+ * @param {{ perLocaleCap?: number, locales?: string[] }} [opts]
  * @returns {Array<{ jobKey: string, lost: string[] }>}
  */
-export function diffJobSlices(prevJobs, curJobs) {
+export function diffJobSlices(prevJobs, curJobs, opts = {}) {
   const results = [];
   if (!Array.isArray(prevJobs) || !Array.isArray(curJobs)) return results;
+  const perLocaleCap = opts.perLocaleCap ?? DEFAULT_PREV_SLUG_CAP;
+  const locales = opts.locales ?? LOCALES;
+  const legacyCap = perLocaleCap * locales.length;
 
   const byKey = new Map();
   for (const j of prevJobs) {
@@ -84,7 +139,23 @@ export function diffJobSlices(prevJobs, curJobs) {
     if (aj.previousSlugsByLocale) for (const a of Object.values(aj.previousSlugsByLocale))
       for (const s of (a || [])) if (s) afterPrev.add(s);
 
-    const lost = [...beforeAll].filter(s => !afterActive.has(s) && !afterPrev.has(s));
+    // Cap-explained slugs, across the flat legacy array and every
+    // per-locale array — any of these disappearing is routine LRU
+    // eviction, not a candidate loss.
+    const capExplained = new Set();
+    for (const s of classifyCapTrim(bj.previousSlugs, aj.previousSlugs, legacyCap).explained) capExplained.add(s);
+    if (bj.previousSlugsByLocale) {
+      for (const locale of Object.keys(bj.previousSlugsByLocale)) {
+        const { explained } = classifyCapTrim(
+          bj.previousSlugsByLocale[locale],
+          aj.previousSlugsByLocale?.[locale],
+          perLocaleCap,
+        );
+        for (const s of explained) capExplained.add(s);
+      }
+    }
+
+    const lost = [...beforeAll].filter(s => !afterActive.has(s) && !afterPrev.has(s) && !capExplained.has(s));
     if (lost.length === 0) continue;
     results.push({ jobKey: key, lost });
   }
