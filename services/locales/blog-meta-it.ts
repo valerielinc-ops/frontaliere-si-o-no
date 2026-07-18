@@ -8585,6 +8585,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.title': 'Lavorare in remoto da un terzo paese: implicazioni fiscali e assicurative',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.excerpt': 'Guida pratica per frontalieri Ticino-Italia: cosa rischi se lavori da un terzo paese durante le ferie e come rispettare le norme fiscali e assicurative.',
     'blog.article.lavoro-remoto-vacanza-fiscalita-frontalieri.imageAlt': 'Laptop su balcone con vista Lago di Lugano e documenti fiscali',
+    'blog.article.disoccupazione-ticino-frontalieri.title': 'Vacilla il mito della Svizzera: 152mila senza lavoro',
+    'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Tasso di disoccupazione in Svizzera sale al 3,2% nel gennaio 2026, con un aumento dei senza lavoro a 152.300 unità',
+    'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Vista di Lugano dal lago',
 };
 
 export default blogMetaIt;
