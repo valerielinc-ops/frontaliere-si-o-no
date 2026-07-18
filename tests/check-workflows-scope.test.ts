@@ -7,9 +7,21 @@
  * only explicit backtick refs and code-block paths trigger a block; plain prose and
  * bare .yml names are passed through (the pre-commit hook and drainer's detectWorkflowScoped
  * handle broader detection).
+ *
+ * Mode 2 (issue #4227): the recurrence detector's pure predicates (isCiTimeoutIssue,
+ * hasBlockedWorkflowsScopeMarker, filterExactTitleRecurrences) — see that module's
+ * docstring for the full rationale/evidence. The gh-backed orchestration
+ * (findRecentBlockedRecurrence, main) is not unit tested here, matching this file's
+ * existing convention (only pure logic is covered; CLI/gh plumbing mirrors
+ * check-issue-already-resolved.mjs which is untested for the same reason).
  */
 import { describe, it, expect } from 'vitest';
-import { extractWorkflowPaths } from '../scripts/ci/check-workflows-scope.mjs';
+import {
+  extractWorkflowPaths,
+  isCiTimeoutIssue,
+  hasBlockedWorkflowsScopeMarker,
+  filterExactTitleRecurrences,
+} from '../scripts/ci/check-workflows-scope.mjs';
 
 describe('extractWorkflowPaths — BLOCKED (explicit .github/workflows/** paths)', () => {
   it('detects backtick ref with full .github/workflows/ prefix', () => {
@@ -80,5 +92,114 @@ describe('extractWorkflowPaths — PROCEED (no explicit workflow path)', () => {
   it('returns empty array for empty/undefined body', () => {
     expect(extractWorkflowPaths('')).toHaveLength(0);
     expect(extractWorkflowPaths(undefined as unknown as string)).toHaveLength(0);
+  });
+});
+
+describe('isCiTimeoutIssue — Mode 2 auto-file predicate (issue #4227)', () => {
+  it('matches on the ci-timeout label alone', () => {
+    expect(
+      isCiTimeoutIssue({ title: 'CI Failure: Refresh thin-page promotions', body: '', labels: [{ name: 'ci-timeout' }] }),
+    ).toBe(true);
+  });
+
+  it('matches on string-shaped labels too (gh --json labels sometimes flattens to names)', () => {
+    expect(isCiTimeoutIssue({ title: 'x', body: '', labels: ['ci-timeout', 'bug'] })).toBe(true);
+  });
+
+  it('matches on the scan-job-timeouts.mjs signature string in the body, no label needed', () => {
+    const body =
+      '## Job cancellato per timeout\n\nRilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico).';
+    expect(isCiTimeoutIssue({ title: 'CI Failure: X', body, labels: [] })).toBe(true);
+  });
+
+  it('does NOT match a follow-up issue with neither signal', () => {
+    const body = '## Origine\nPR #4382\n\n### 1. Something deferred';
+    expect(isCiTimeoutIssue({ title: 'follow-up(#4382): 1 item deferred', body, labels: [{ name: 'follow-up' }] })).toBe(
+      false,
+    );
+  });
+
+  it('handles missing/undefined fields without throwing', () => {
+    expect(isCiTimeoutIssue({})).toBe(false);
+    expect(isCiTimeoutIssue(undefined as unknown as Parameters<typeof isCiTimeoutIssue>[0])).toBe(false);
+  });
+});
+
+describe('hasBlockedWorkflowsScopeMarker — FIX_OUTCOME marker detection', () => {
+  it('detects the exact marker string', () => {
+    expect(hasBlockedWorkflowsScopeMarker(['some text', '<!-- FIX_OUTCOME: blocked-workflows-scope -->'])).toBe(true);
+  });
+
+  it('detects the marker with extra internal whitespace (tolerant regex)', () => {
+    expect(hasBlockedWorkflowsScopeMarker(['<!--   FIX_OUTCOME:   blocked-workflows-scope   -->'])).toBe(true);
+  });
+
+  it('detects the marker embedded mid-comment (not required to be alone on its line)', () => {
+    expect(
+      hasBlockedWorkflowsScopeMarker(['## Root cause\n...\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->\n']),
+    ).toBe(true);
+  });
+
+  it('does NOT match a different FIX_OUTCOME code', () => {
+    expect(hasBlockedWorkflowsScopeMarker(['<!-- FIX_OUTCOME: pr-created -->', '<!-- FIX_OUTCOME: max-turns -->'])).toBe(
+      false,
+    );
+  });
+
+  it('returns false for empty/undefined input', () => {
+    expect(hasBlockedWorkflowsScopeMarker([])).toBe(false);
+    expect(hasBlockedWorkflowsScopeMarker(undefined as unknown as string[])).toBe(false);
+  });
+
+  it('tolerates null/undefined entries in the array', () => {
+    expect(hasBlockedWorkflowsScopeMarker([null, undefined, 'plain text'] as unknown as string[])).toBe(false);
+  });
+});
+
+describe('filterExactTitleRecurrences — PROCEED-SAFE exact-match filter', () => {
+  const title = 'CI Failure: Refresh thin-page promotions';
+
+  it('keeps only candidates with the EXACT title, excludes near-title matches', () => {
+    const candidates = [
+      { number: 4375, title, createdAt: '2026-07-17T20:15:39Z' },
+      { number: 4360, title: 'CI Failure: Refresh thin-page promotions (retry)', createdAt: '2026-07-17T10:00:00Z' },
+      { number: 4322, title, createdAt: '2026-07-17T04:24:00Z' },
+    ];
+    const result = filterExactTitleRecurrences(candidates, title, 4389);
+    expect(result.map((r) => r.number)).toEqual([4375, 4322]);
+  });
+
+  it('excludes the current issue number itself', () => {
+    const candidates = [{ number: 4389, title, createdAt: '2026-07-18T11:25:13Z' }];
+    expect(filterExactTitleRecurrences(candidates, title, 4389)).toHaveLength(0);
+  });
+
+  it('excludes the current issue number when passed as a string vs number mismatch', () => {
+    const candidates = [{ number: 4389, title, createdAt: '2026-07-18T11:25:13Z' }];
+    expect(filterExactTitleRecurrences(candidates, title, '4389')).toHaveLength(0);
+  });
+
+  it('sorts newest-first by createdAt', () => {
+    const candidates = [
+      { number: 4140, title, createdAt: '2026-07-13T08:28:51Z' },
+      { number: 4375, title, createdAt: '2026-07-17T20:15:39Z' },
+      { number: 4322, title, createdAt: '2026-07-17T04:24:00Z' },
+    ];
+    const result = filterExactTitleRecurrences(candidates, title, 9999);
+    expect(result.map((r) => r.number)).toEqual([4375, 4322, 4140]);
+  });
+
+  it('caps the result at RECURRENCE_SCAN_CAP (10)', () => {
+    const candidates = Array.from({ length: 15 }, (_, i) => ({
+      number: 1000 + i,
+      title,
+      createdAt: new Date(2026, 6, i + 1).toISOString(),
+    }));
+    expect(filterExactTitleRecurrences(candidates, title, 9999)).toHaveLength(10);
+  });
+
+  it('returns empty array for empty/undefined candidates', () => {
+    expect(filterExactTitleRecurrences([], title, 1)).toHaveLength(0);
+    expect(filterExactTitleRecurrences(undefined as unknown as unknown[], title, 1)).toHaveLength(0);
   });
 });
