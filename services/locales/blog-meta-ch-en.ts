@@ -1219,6 +1219,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'How much does a border psychologist earn in Ticino?',
     'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Actual salary of a border psychologist in Ticino: salary band, differences compared to Italy, factors affecting remuneration.',
     'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Image of a frontline psychologist in Ticino',
+    'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobility in Switzerland: Favour for rail grows',
+    'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'A Sotomo survey reveals the preferences of the Swiss: a clear preference for rail investments over upgrading the road network.',
+    'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Swiss train station with trains and passengers',
 };
 
 export default blogMetaChEn;

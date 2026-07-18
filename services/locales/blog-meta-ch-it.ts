@@ -1219,6 +1219,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Quanto guadagna un psicologo frontaliere in Ticino?',
     'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Stipendio reale di un psicologo frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Immagine di un psicologo frontaliere in Ticino',
+    'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilità in Svizzera: cresce il favore per la ferrovia',
+    'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Un\'indagine Sotomo rivela le preferenze degli svizzeri: netta preferenza per gli investimenti ferroviari rispetto al potenziamento della rete stradale.',
+    'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Stazione ferroviaria svizzera con treni e passeggeri',
 };
 
 export default blogMetaChIt;

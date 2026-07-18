@@ -3653,6 +3653,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'mobilita-svizzera-ferrovia-strade',
+    category: 'pratico',
+    date: '2026-07-18T15:44:21.170Z',
+    image: '/images/blog/mobilita-svizzera-ferrovia-strade.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

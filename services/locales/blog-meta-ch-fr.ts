@@ -1219,6 +1219,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendio-psicologo-frontaliere-ticino.title': 'Combien gagne un psychologue frontalier au Tessin ?',
     'blog.article.stipendio-psicologo-frontaliere-ticino.excerpt': 'Salaire réel d\'un psychologue frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
     'blog.article.stipendio-psicologo-frontaliere-ticino.imageAlt': 'Image d\'un psychologue frontalier en Tessin',
+    'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilité en Suisse : la faveur pour le rail s\'accroît',
+    'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Une enquête Sotomo révèle les préférences des Suisses : nette préférence pour les investissements ferroviaires par rapport à l\'amélioration du réseau routier.',
+    'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Gare ferroviaire suisse avec trains et passagers',
 };
 
 export default blogMetaChFr;

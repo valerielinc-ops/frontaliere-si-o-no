@@ -1,0 +1,40 @@
+{
+  "id": "mobilita-svizzera-ferrovia-strade",
+  "slug": "mobilita-svizzera-ferrovia-strade",
+  "publishedAt": "2026-07-18T15:44:26.874Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.092860550579276,
+    "confidence": 0.8,
+    "finalScore": 4.874288440463421,
+    "topK": [
+      {
+        "slug": "svizzera-elettricita-inverno-2026",
+        "cosine": 0.8704086500827538
+      },
+      {
+        "slug": "ffs-tagli-ticino-frontalieri-2026",
+        "cosine": 0.8680008950633288
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8652268070585551
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8623175926379698
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8615847324042455
+      }
+    ],
+    "score": 4.874288440463421,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}
