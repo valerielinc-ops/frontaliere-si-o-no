@@ -1,21 +1,19 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-07-17T22:14:57.633Z",
+  "generatedAt": "2026-07-18T11:05:09.546Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 33359,
-  "avgDurationMs": 33359,
+  "unchangedCount": 0,
+  "durationMs": 29571,
+  "avgDurationMs": 29571,
   "durationHistory": [
-    33359
+    29571
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Client Advisor - Giorgio Armani Zurich",
       "slug": "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich",
@@ -34,7 +32,7 @@
       "sector": "Moda & Lusso",
       "source": "giorgio-armani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-07-17",
+      "postedDate": "2026-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -51,5 +49,7 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
