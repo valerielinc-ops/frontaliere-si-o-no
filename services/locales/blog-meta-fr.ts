@@ -8597,6 +8597,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infernieri-frontalieri-ticino.title': 'Combien gagne une infirmière frontalière au Tessin ?',
     'blog.article.infernieri-frontalieri-ticino.excerpt': 'Les salaires des infirmiers frontaliers au Tessin sont influencés par les nouvelles règles fiscales.',
     'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Paysage panoramique de Lugano, Tessin, Suisse',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologue au Tessin : salaire, exigences et reconnaissance du diplôme',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Salaire moyen, exigences, reconnaissance éventuelle du diplôme et permis G. pour travailler comme psychologue au Tessin en tant que frontalier.',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Un psychologue frontalier qui travaille en Tessin, avec une vue sur la ville de Lugano.',
 };
 
 export default blogMetaFr;

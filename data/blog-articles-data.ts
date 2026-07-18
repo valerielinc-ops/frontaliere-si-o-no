@@ -25829,6 +25829,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-psicologo-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-18T12:56:48.437Z',
+ image: '/images/blog/frontaliere-psicologo-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

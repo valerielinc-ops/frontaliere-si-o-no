@@ -8597,6 +8597,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infernieri-frontalieri-ticino.title': 'Quanto guadagna un infermiere frontaliere in Ticino?',
     'blog.article.infernieri-frontalieri-ticino.excerpt': 'I salari degli infermieri frontaliere in Ticino sono influenzati dalle nuove norme fiscali.',
     'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Vista panoramica di Lugano, Canton Ticino',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psicologo in Ticino: stipendio, requisiti e riconoscimento del titolo',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Stipendio medio, requisiti, eventuale riconoscimento del titolo di studio e permesso G. per lavorare come psicologo in Ticino da frontaliere.',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere psicologo che lavora in Ticino, con la vista sulla città di Lugano.',
 };
 
 export default blogMetaIt;

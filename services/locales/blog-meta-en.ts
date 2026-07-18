@@ -8596,6 +8596,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infernieri-frontalieri-ticino.title': 'How much does a border nurse earn in Ticino?',
     'blog.article.infernieri-frontalieri-ticino.excerpt': 'The salaries of border nurses in Ticino are affected by the new tax rules.',
     'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Panorama of Lugano, Ticino, Switzerland',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologist in Ticino: salary, qualification requirements and recognition',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Average salary, requirements, possible recognition of the qualification and G. permission to work as a psychologist in Ticino as a border worker.',
+    'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'A cross-border psychologist working in Ticino, with a view of the city of Lugano.',
 };
 
 export default blogMetaEn;
