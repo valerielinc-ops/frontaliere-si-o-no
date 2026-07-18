@@ -8599,6 +8599,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psychologist in Ticino: salary, qualification requirements and recognition',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Average salary, requirements, possible recognition of the qualification and G. permission to work as a psychologist in Ticino as a border worker.',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'A cross-border psychologist working in Ticino, with a view of the city of Lugano.',
+    'blog.article.frontaliere-ticino-fisioterapista.title': 'How much does a border physiotherapist earn in Ticino?',
+    'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'The physiotherapist border worker in Ticino: salary, taxes and regulations.',
+    'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'A cross-border physiotherapist working in Ticino.',
 };
 
 export default blogMetaEn;

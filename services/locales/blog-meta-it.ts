@@ -8600,6 +8600,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.title': 'Psicologo in Ticino: stipendio, requisiti e riconoscimento del titolo',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.excerpt': 'Stipendio medio, requisiti, eventuale riconoscimento del titolo di studio e permesso G. per lavorare come psicologo in Ticino da frontaliere.',
     'blog.article.frontaliere-psicologo-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere psicologo che lavora in Ticino, con la vista sulla città di Lugano.',
+    'blog.article.frontaliere-ticino-fisioterapista.title': 'Quanto guadagna un fisioterapista frontaliere in Ticino?',
+    'blog.article.frontaliere-ticino-fisioterapista.excerpt': 'Il frontaliere fisioterapista in Ticino: stipendio, tasse e normative.',
+    'blog.article.frontaliere-ticino-fisioterapista.imageAlt': 'Un frontaliere che lavora come fisioterapista in Ticino.',
 };
 
 export default blogMetaIt;

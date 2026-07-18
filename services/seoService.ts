@@ -4598,6 +4598,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-operatore-socio-sanitario-frontaliere': { name: 'operatore socio sanitario frontaliere', path: '/articoli-svizzera/operatore-socio-sanitario-frontaliere/', parent: 'blog' },
     'blog-frontaliere-psicologo-ticino-stipendio-requisiti': { name: 'Lavorare come psicologo in Ticino da', path: '/articoli-frontaliere/frontaliere-psicologo-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-stipendio-psicologo-frontaliere-ticino': { name: 'Stipendio psicologo frontaliere Ticino', path: '/articoli-svizzera/stipendio-psicologo-frontaliere-ticino/', parent: 'blog' },
+    'blog-frontaliere-ticino-fisioterapista': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ticino-fisioterapista', parent: 'blog' },
  };
 
  const info = sectionNames[section];
