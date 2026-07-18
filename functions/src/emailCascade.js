@@ -1307,4 +1307,22 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + finiteDailyLimit(p), 0);
 }
 
+/**
+ * Real remaining send capacity across every CONFIGURED provider right now —
+ * unlike getCascadeDailyCapacity() (static theoretical total), this reflects
+ * today's actual usage so far. Backed by the same syncQuotasFromAPIs() that
+ * sendEmailCascade() awaits internally (memoized per UTC day), so calling
+ * this before a send run costs no extra provider API calls. Lets a caller
+ * size a batch of work (e.g. how many alert emails to build) to what can
+ * ACTUALLY still go out today, including quota already consumed earlier the
+ * same day by other cascade users (retry queue, newsletter, ad-blast — the
+ * daily counters are shared across all of them).
+ */
+export async function getAvailableCascadeQuota() {
+  await syncQuotasFromAPIs();
+  return PROVIDERS
+    .filter(p => isProviderConfigured(p.id))
+    .reduce((sum, p) => sum + remainingQuota(p.id), 0);
+}
+
 export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit };
