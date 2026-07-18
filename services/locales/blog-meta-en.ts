@@ -8593,6 +8593,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permessi-lavoro-digitale-ticino.title': 'Work permits in Ticino: from 3 August all online',
     'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'From 3 August 2026, the procedure for work permits in Ticino becomes entirely digital. Goodbye to paper for border workers, residents and domiciliaries.',
     'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Migration office in Bellinzona, Ticino',
+    'blog.article.infernieri-frontalieri-ticino.title': 'How much does a border nurse earn in Ticino?',
+    'blog.article.infernieri-frontalieri-ticino.excerpt': 'The salaries of border nurses in Ticino are affected by the new tax rules.',
+    'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Panorama of Lugano, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

@@ -8594,6 +8594,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permessi-lavoro-digitale-ticino.title': 'Permessi di lavoro in Ticino: dal 3 agosto tutto online',
     'blog.article.permessi-lavoro-digitale-ticino.excerpt': 'Dal 3 agosto 2026 la procedura per i permessi di lavoro in Ticino diventa interamente digitale. Addio al cartaceo per frontalieri, dimoranti e domiciliati.',
     'blog.article.permessi-lavoro-digitale-ticino.imageAlt': 'Ufficio della migrazione a Bellinzona, Ticino',
+    'blog.article.infernieri-frontalieri-ticino.title': 'Quanto guadagna un infermiere frontaliere in Ticino?',
+    'blog.article.infernieri-frontalieri-ticino.excerpt': 'I salari degli infermieri frontaliere in Ticino sono influenzati dalle nuove norme fiscali.',
+    'blog.article.infernieri-frontalieri-ticino.imageAlt': 'Vista panoramica di Lugano, Canton Ticino',
 };
 
 export default blogMetaIt;
