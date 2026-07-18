@@ -1225,6 +1225,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-svizzera.title': 'Coronavirus : je travaille en Suisse uniquement avec le permis \'G\'',
     'blog.article.coronavirus-frontalieri-svizzera.excerpt': 'Le conseiller d\'État Christian Vitta a précisé que les travailleurs frontaliers pourront aller travailler en Suisse malgré la fermeture de la Lombardie.',
     'blog.article.coronavirus-frontalieri-svizzera.imageAlt': 'Travailleurs frontaliers qui traversent la frontière Suisse-Italie pendant la pandémie de COVID-19',
+    'blog.article.ostetrica-frontaliere-ticino.title': 'Salaire obstétrique Tessin : salaires et différences avec l\'Italie',
+    'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Qu\'est-ce qu\'une sage-femme frontalière gagne au Tessin ? Et comment cela change-t-il par rapport à l\'Italie ?',
+    'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Une femme en un costume blanc se prépare pour une naissance, avec un médecin en arrière-plan.',
 };
 
 export default blogMetaChFr;
