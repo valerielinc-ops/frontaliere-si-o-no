@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-07-17T22:46:47.976Z",
-  "total": 2,
+  "generatedAt": "2026-07-18T10:57:10.462Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4290,
-  "avgDurationMs": 4290,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4225,
+  "avgDurationMs": 4225,
   "durationHistory": [
-    4290
+    4225
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-17T22:46:45.375Z",
+      "crawledAt": "2026-07-18T10:57:07.921Z",
       "id": "pkb-private-bank-14e6e40f691f",
       "firstSeenAt": "2026-07-10T10:40:31.816Z",
       "_qualityScore": 88,
@@ -45,8 +45,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Apprendistato - Impiegato/a di commercio AFC Banca",
       "company": "PKB Private Bank SA",
@@ -84,5 +83,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
