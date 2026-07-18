@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens",
-  "assembledAt": "2026-07-18T10:27:19.053Z",
+  "assembledAt": "2026-07-18T10:09:13.987Z",
   "jobs": [
     {
       "id": "siemens-05eecf023002",
@@ -635,7 +635,7 @@
       "url": "https://jobs.siemens.com/en_US/externaljobs/JobDetail/505367",
       "source": "Siemens Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:38.519Z",
+      "crawledAt": "2026-07-16T22:07:11.549Z",
       "addressLocality": "Zuerich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -657,18 +657,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
-        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich"
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich",
+        "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil",
+        "service-technician-in-building-automation-80-100-siemens-volketswil",
+        "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+        "technicien-de-service-dans-l-automatisation-des-batiments-80-100-siemens-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
-          "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich"
+          "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-zuerich",
+          "tecnico-di-servizio-nell-automazione-degli-edifici-80-100-siemens-volketswil",
+          "service-technician-in-building-automation-80-100-siemens-volketswil",
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil",
+          "technicien-de-service-dans-l-automatisation-des-batiments-80-100-siemens-volketswil"
         ],
         "en": [
-          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+          "service-technician-in-building-automation-80-100-siemens-volketswil"
         ],
         "fr": [
-          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich"
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-zuerich",
+          "technicien-de-service-dans-l-automatisation-des-batiments-80-100-siemens-volketswil"
+        ],
+        "de": [
+          "servicetechniker-in-gebaudeautomation-80-100-siemens-volketswil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:52:16.394Z",

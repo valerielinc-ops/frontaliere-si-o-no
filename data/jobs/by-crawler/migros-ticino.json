@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-07-18T11:02:19.191Z",
+  "assembledAt": "2026-07-18T09:57:39.760Z",
   "jobs": [
     {
       "id": "company-ivpqa9",
@@ -4030,7 +4030,7 @@
       "_migrosWorkPercentage": "20-50%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-17T22:36:59.189Z",
       "firstSeenAt": "2026-07-16T11:21:46.566Z",
       "titleByLocale": {
         "de": "Verkäufer*in im Stundenlohn",
@@ -4067,18 +4067,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-ag-allschwil",
-          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo"
+          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo",
+          "venditore-nel-salario-orario-denner-ag-wilen-b",
+          "seller-in-the-hourly-wage-denner-ag-wilen-b",
+          "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-i0b2zw",
+          "vendeur-dans-le-salaire-horaire-denner-ag-wilen-b",
+          "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo"
+          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo",
+          "seller-in-the-hourly-wage-denner-ag-wilen-b"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo"
+          "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo",
+          "vendeur-dans-le-salaire-horaire-denner-ag-wilen-b"
+        ],
+        "de": [
+          "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-i0b2zw"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-ag-allschwil",
-        "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo"
+        "verkaufer-in-im-stundenlohn-denner-ag-allschwil-h1dndo",
+        "venditore-nel-salario-orario-denner-ag-wilen-b",
+        "seller-in-the-hourly-wage-denner-ag-wilen-b",
+        "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-i0b2zw",
+        "vendeur-dans-le-salaire-horaire-denner-ag-wilen-b",
+        "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4095,7 +4110,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -5159,7 +5173,7 @@
     },
     {
       "id": "company-rpmo92",
-      "slug": "agente-per-la-gestione-dell-edificio-genossenschaft-migros-zurich-zurich",
+      "slug": "sachbearbeiter-in-helpdesk-administrative-services-gebaudemanagement-genossenschaft-migros-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Sachbearbeiter*in Helpdesk & Administrative Services Gebäudemanagement",
       "location": "Zürich",
@@ -5208,7 +5222,7 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-07-16T22:48:55.348Z",
       "slugByLocale": {
         "de": "sachbearbeiter-in-helpdesk-administrative-services-gebaudemanagement-genossenschaft-migros-zurich-rpmo92",
@@ -5241,6 +5255,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5265,10 +5281,7 @@
           "helpdesk-per-impiegati-e-gestione-delle-strutture-dei-servizi-amministrativi-genossenschaft-migros-zurich-zurich",
           "sachbearbeiter-in-helpdesk-administrative-services-gebaudemanagement-genossenschaft-migros-zurich"
         ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      }
     },
     {
       "id": "company-s5i7e6",
@@ -9052,7 +9065,7 @@
     },
     {
       "id": "company-94d9wk",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-bern",
+      "slug": "fitness-instructor-w-m-d-activ-fitness-bern",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Bern",
@@ -9092,10 +9105,10 @@
       "_migrosWorkPercentage": "315%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T11:21:46.566Z",
       "firstSeenAt": "2026-07-15T22:53:23.022Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -9107,7 +9120,7 @@
         "fr": "Êtes-vous sociable et souhaitez partager votre enthousiasme pour la santé et la condition physique? Vous aimez travailler en équipe et comprendre comment répondre aux besoins des clients et motiver les clients à atteindre leurs objectifs? Alors tu as raison avec nous !\n\n## Mansioni\n- Vous accompagnez et accompagnez nos clients tout au long du processus de formation\n- Vous créez des plans de formation et surveillez les formations et leurs réalisations\n- Assurer la propreté et l'hygiène dans le studio\n- Vous organisez des formations d'introduction et vendez des abonnements\n- Vous assumez diverses tâches administratives, créez des contrats et acquérez activement de futurs clients\n\n## Exigences\n- Désiré: Expérience comme instructeur de fitness\n- Achevé la formation de base ou de perfectionnement: Formation en tant qu'instructeur de fitness avec certificat BLS/AED valide\n- Vous avez un style de vente ainsi qu'un haut niveau de service et de conseil expertise\n- Vous êtes une personnalité motivée et responsable qui inspire nos clients\n- Vous êtes flexible et aimez travailler le soir ainsi que les week-ends et jours fériés\n- Vous aimez travailler en équipe\n- Vous avez un permis de travail valide\n- Allemand (bonne connaissance)\n\n## Cosa de friamo\n- Emplacement central: Nos studios sont situés dans un emplacement central bien développé\n- Abonnement mobile: Abonnement national à partir de CHF 10.– / mois (Swisscom /digitec connect)\n- Migros Bank : compte privé et d'investissement sans frais avec intérêts préférentiels\n- Offres des employés: Divers rabais dans le domaine des vacances et de l'assurance (Hertz jusqu'à 10%, Generali 25%, Axa assurance jusqu'à 15%, etc.)\n- Du-culture: Nous défendons une coexistence respectueuse au niveau des yeux\n\n## Contatto\n## Demande et contact Céline Lässer ## Processus de recrutement Sélection préalable des demandes Nous examinons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction: Jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à retour d'information : jusqu'à trois semaines d'offre et d'émission de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée de la rétroaction : Jusqu'à trois semaines\n\n**Grade di occupation:** 315 %"
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-bern",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-bern",
         "en": "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "de": "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-bern"
@@ -9130,20 +9143,18 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "fitness-instructor-m-w-d-activ-fitness-bern",
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
-          "fitness-instructor-w-m-d-activ-fitness-bern",
-          "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-          "fitness-instructor-m-w-d-activ-fitness-bern"
+          "fitness-instructor-w-m-d-activ-fitness-bern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk"
         ]
       },
       "previousSlugs": [
+        "fitness-instructor-m-w-d-activ-fitness-bern",
         "fitness-instructor-m-w-d-activ-fitness-bern-94d9wk",
-        "fitness-instructor-w-m-d-activ-fitness-bern",
-        "istruttore-di-fitness-f-m-d-activ-fitness-bern",
-        "fitness-instructor-m-w-d-activ-fitness-bern"
+        "fitness-instructor-w-m-d-activ-fitness-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9160,7 +9171,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -14547,7 +14557,7 @@
       "_migrosWorkPercentage": "903%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-17T22:36:59.189Z",
       "firstSeenAt": "2026-07-12T22:34:25.095Z",
       "titleByLocale": {
         "fr": "Vendeur spécialisé caisse et service client (F/H/D)",
@@ -14582,15 +14592,25 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni"
+          "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni",
+          "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland",
+          "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
+          "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
+          "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
+          "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
         ],
         "en": [
           "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni",
-          "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland"
+          "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland",
+          "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland"
         ],
         "de": [
           "vendeur-specialise-caisse-et-service-client-m-w-d-societe-cooperative-migros-geneve-gland-u8cbni",
-          "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland"
+          "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland",
+          "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland"
+        ],
+        "fr": [
+          "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d"
         ]
       },
       "previousSlugs": [
@@ -14601,7 +14621,12 @@
         "vendeur-specialise-caisse-et-service-clients-m-w-d-societe-cooperative-migros-geneve-gland-7nil90",
         "vendeur-specialise-caisse-et-service-clients-m-w-d-societe-cooperative-migros-geneve-gland",
         "special-seller-cash-and-customer-service-f-h-d-societe-cooperative-migros-geneve-gland",
-        "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland"
+        "spezieller-verkaufer-bargeld-und-kundenservice-f-h-d-societe-cooperative-migros-geneve-gland",
+        "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland",
+        "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
+        "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
+        "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
+        "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -14618,7 +14643,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -23381,7 +23405,7 @@
     },
     {
       "id": "company-z2duja",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-winterthur",
+      "slug": "fitness-instructor-w-m-d-activ-fitness-winterthur",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Winterthur",
@@ -23420,16 +23444,16 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-15T11:41:02.895Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-winterthur",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-winterthur",
         "en": "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "de": "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-winterthur"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -23474,8 +23498,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
-          "fitness-instructor-w-m-d-activ-fitness-winterthur",
-          "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
+          "fitness-instructor-w-m-d-activ-fitness-winterthur"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja"
@@ -23483,10 +23506,8 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-winterthur-z2duja",
-        "fitness-instructor-w-m-d-activ-fitness-winterthur",
-        "istruttore-di-fitness-f-m-d-activ-fitness-winterthur"
+        "fitness-instructor-w-m-d-activ-fitness-winterthur"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -33480,7 +33501,7 @@
     },
     {
       "id": "company-lboeq8",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-kloten",
+      "slug": "fitness-instructor-w-m-d-activ-fitness-kloten",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Kloten",
@@ -33520,16 +33541,16 @@
       "_migrosWorkPercentage": "815%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-15T11:41:02.895Z",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-kloten",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-kloten",
         "en": "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "de": "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-kloten"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -33575,16 +33596,13 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "istruttore-di-fitness-f-m-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -34463,7 +34481,7 @@
       "_migrosWorkPercentage": "80-100%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-15T11:41:02.895Z",
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "titleByLocale": {
         "de": "Stv. Filialleiter*in",
@@ -34473,15 +34491,15 @@
       },
       "descriptionByLocale": {
         "de": "Karriereziel Filialleiter*in? Dann haben wir das perfekte Sprungbrett für dich. Hier kannst du beweisen, was du draufhast. Dein Wissen weitergeben. Etwas bewegen. Führungserfahrungen sammeln. Und natürlich eine ganze Menge dazulernen. Denner. Das ist unser Laden.\n\nMansioni\n- Du achtest dich besonders auf die Frische von Früchten, Gemüse und Brot und sagst Food Waste mit weitsichtigen Bestellungen den Kampf an\n- Frischprodukte und natürlich alle anderen Waren bestellen, annehmen, prüfen und in die Regale in deinem Laden füllen\n- Vorgaben im Ladenlayout korrekt umsetzen\n- Mindesthaltbarkeitsdaten in der Warengruppe Frische kontrollieren\n- Als Stellvertreter*in die Mitarbeitenden anleiten, fördern und weiterbringen – und ihnen ein Vorbild sein\n- Als Stellvertreter*in Mitverantwortung für die Zahlen übernehmen – bei Umsatz, Personalkosten und Warenbestand\n\nRequisiti\n- Drei oder mehr Jahre Berufserfahrung: im Detailhandel als Fach-, Bereichs- oder Rayonleitung von Vorteil\n- Abgeschlossene Berufslehre (EBA): im Detailhandel (Lebensmittel) oder verwandter Berufsgattung wäre ideal\n- Freude an frischen Produkten und im Idealfall schon berufliche Erfahrungen damit\n- Körperlich fit, manche Colis sind bis zu 10 Kilo schwer\n- Geschick bei der Planung und Organisation von Aufgaben und ein Flair für das Interpretieren von Kennzahlen\n- Vertraut mit PC, Tablet und Smartphone - und mit anderen digitalen Helfern (z.B. für die Warenbewirtschaftung) freundest du dich schnell an\n- Deutsch (sehr gute Kenntnisse)\n\nCosa offriamo\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n- Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.\n- Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.\n- Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n\nContatto\nBewerbung & Kontakt Gianluca Morciano Recruiter Verkauf Ostschweiz - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Persönliches Video- oder Telefongespräch Bei einer grossen Anzahl an Bewerber*innen führen wir optional ein persönliches Telefon- oder Videogespräch durch. Das gibt uns die Möglichkeit, mehr Kandidatinnen und Kandidaten innert kurzer Zeit besser kennen zu lernen, um passende Personen für die nächste Runde einzuladen. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nGrado di occupazione: 80-100%",
-        "it": "Obiettivo professionale del direttore di filiale? Allora abbiamo il trampolino di lancio perfetto per te. Qui puoi dimostrare di cosa sei capace. Trasmetti la tua conoscenza. Muovi qualcosa. Acquisisci esperienza di leadership. E ovviamente impara molto. Denner. Questo è il nostro negozio.\n\nMansioni\n- Presti particolare attenzione alla freschezza di frutta, verdura e pane e dichiari guerra allo spreco alimentare con ordinanze lungimiranti\n- Ordina i prodotti freschi e ovviamente tutte le altre merci, accettali, controllali e riempili sugli scaffali del tuo negozio\n- Implementare correttamente le specifiche nel layout del negozio\n- Controlla le date di scadenza nel gruppo di prodotti Freschezza\n- In qualità di vice, istruisci, supporta e promuove i dipendenti e sii un modello per loro\n- In qualità di vice, assumersi la responsabilità congiunta dei numeri: delle vendite, dei costi del personale e dell'inventario\n\nOggetti di scena\n- Tre o più anni di esperienza professionale: nel commercio al dettaglio come specialista, reparto o responsabile di reparto è un vantaggio\n- Apprendistato professionale completato (EBA): l'ideale sarebbe nel commercio al dettaglio (alimentare) o in una professione correlata\n- Goditi i prodotti freschi e idealmente hai già esperienza professionale con loro\n- Fisicamente in forma, alcuni Colis pesano fino a 10 chili\n- Abilità nella pianificazione e organizzazione delle attività e predisposizione all'interpretazione delle metriche\n- Familiarità con PC, tablet e smartphone - e diventerai presto amico di altri aiutanti digitali (ad es. per la gestione dell'inventario).\n- Tedesco (ottima conoscenza)\n\nCosa offriamo\n- Parte del Gruppo Migros: marchio forte ancorato nel settore del commercio al dettaglio sotto l'egida del Gruppo Migros\n- Lavorare in modo sano: standard elevati in materia di sicurezza sul lavoro, ergonomia e igiene.\n- Congedo di maternità/paternità: congedo di maternità di 5 settimane in più (19 settimane) per le madri e retribuito al 100%. I padri si godono la prole per 4 settimane retribuite.\n- Salari equi: 13 mensilità e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento di telefonia mobile: l'imbarazzo della scelta: collegatevi con Galaxus Mobile, Wingo o Sunrise a partire da soli CHF 10.- in ogni caso.\n- Banca Migros: ottenete interessi e commissioni migliori sui vostri conti privati, d'investimento o ipotecari.\n- Offerte per i dipendenti: 10% di sconto sul tuo prossimo acquisto importante (due volte all'anno).\n- Ferie: 6 settimane di ferie per tutti e anche giorni aggiuntivi per anniversari di servizio.\n- Offerte ricreative e culturali: vari sconti su noleggio auto, hotel, eventi e molto altro ancora.\n- Finanziamenti mirati: dalle stalle alle stelle? Forse non proprio, ma: se hai grinta e talento, andrai avanti velocemente.\n\nContatto\nCandidatura e contatti Gianluca Morciano Recruiter Sales Svizzera Orientale - LinkedIn ## Processo di reclutamento Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al manager per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Videoconversazione personale o conversazione telefonica Se il numero di candidati è elevato, a scelta effettuiamo una conversazione telefonica o video personale. Questo ci dà l'opportunità di conoscere meglio più candidati in un breve periodo di tempo per invitare le persone adatte per il turno successivo. Durata fino al feedback: fino a una settimana di lavoro di prova. Una giornata o mezza giornata di prova ti dà l'opportunità di conoscere meglio il futuro ambiente di lavoro e i membri del team. E, al contrario, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane Offerta e stipula del contratto Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti verranno nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato tramite posta.\n\nDurata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi per il personale Consideriamo solo candidature dirette per questa posizione.\n\nTasso di occupazione: 80-100%",
+        "it": "Obiettivo professionale del direttore di filiale? Allora abbiamo il trampolino di lancio perfetto per te. Qui puoi dimostrare di cosa sei capace. Trasmetti la tua conoscenza. Muovi qualcosa. Acquisisci esperienza di leadership. E ovviamente impara molto. Denner. Questo è il nostro negozio.\n\nMansioni\n- Presti particolare attenzione alla freschezza di frutta, verdura e pane e dichiari guerra allo spreco alimentare con ordinanze lungimiranti\n- Ordina i prodotti freschi e ovviamente tutte le altre merci, accettali, controllali e riempili sugli scaffali del tuo negozio\n- Implementare correttamente le specifiche nel layout del negozio\n- Controlla le date di scadenza nel gruppo di prodotti Freschezza\n- In qualità di vice, istruisci, supporta e promuove i dipendenti e sii un modello per loro\n- In qualità di vice, assumersi la responsabilità congiunta dei numeri: delle vendite, dei costi del personale e dell'inventario\n\nOggetti di scena\n- Tre o più anni di esperienza professionale: nel commercio al dettaglio come specialista, reparto o responsabile di reparto è un vantaggio\n- Apprendistato professionale completato (EBA): l'ideale sarebbe nel commercio al dettaglio (alimentare) o in una professione correlata\n- Goditi i prodotti freschi e idealmente hai già esperienza professionale con loro\n- Fisicamente in forma, alcuni Colis pesano fino a 10 chili\n- Abilità nella pianificazione e organizzazione delle attività e predisposizione all'interpretazione delle metriche\n- Familiarità con PC, tablet e smartphone - e diventerai presto amico di altri aiutanti digitali (ad es. per la gestione dell'inventario).\n- Tedesco (ottima conoscenza)\n\nCosa offriamo\n- Parte del Gruppo Migros: marchio forte ancorato nel settore del commercio al dettaglio sotto l'egida del Gruppo Migros\n- Lavorare in modo sano: standard elevati in materia di sicurezza sul lavoro, ergonomia e igiene.\n- Congedo di maternità/paternità: congedo di maternità di 5 settimane in più (19 settimane) per le madri e retribuito al 100%. I padri si godono la prole per 4 settimane retribuite.\n- Salari equi: 13 mensilità e aumenti salariali fissi per tutti invece di bonus per pochi.\n- Abbonamento di telefonia mobile: l'imbarazzo della scelta: collegatevi con Galaxus Mobile, Wingo o Sunrise a partire da soli CHF 10.- in ogni caso.\n- Banca Migros: ottenete interessi e commissioni migliori sui vostri conti privati, d'investimento o ipotecari.\n- Offerte per i dipendenti: 10% di sconto sul tuo prossimo acquisto importante (due volte all'anno).\n- Ferie: 6 settimane di ferie per tutti e anche giorni aggiuntivi per anniversari di servizio.\n- Offerte ricreative e culturali: vari sconti su noleggio auto, hotel, eventi e molto altro ancora.\n- Finanziamenti mirati: dalle stalle alle stelle? Forse non proprio, ma: se hai grinta e talento, andrai avanti velocemente.\n\nContatto\nCandidatura e contatti Gianluca Morciano Recruiter Sales Svizzera Orientale - LinkedIn ## Processo di reclutamento Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al manager per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Videoconversazione personale o conversazione telefonica Se il numero di candidati è elevato, a scelta effettuiamo una conversazione telefonica o video personale. Questo ci dà l'opportunità di conoscere meglio più candidati in un breve periodo di tempo per invitare le persone adatte per il turno successivo. Durata fino al feedback: fino a una settimana di lavoro di prova. Una giornata o mezza giornata di prova ti dà l'opportunità di conoscere meglio il futuro ambiente di lavoro e i membri del team. E, al contrario, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nel team. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane Offerta e stipula del contratto Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti verranno nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato tramite posta.\n\nDurata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi per il personale Consideriamo solo candidature dirette per questa posizione.\n\nTasso di occupazione: 80-100%",
         "en": "Career goal Branch manager? Then we have the perfect springboard for you. Here you can prove what you have on it. Share your knowledge. Move something. Collect leadership experience. And of course learn a lot. Denner. This is our store.\n\nMansioni - You pay special attention to the freshness of fruits, vegetables and bread and say Food Waste with far-sighted orders the fight - Fresh products and of course all other goods order, accept, check and fill in the shelves in your store - correctly implement specifications in the store layout - check minimum durability data in the product group Freshness - As a representative to guide, promote and carry employees – and be an example - As a representative, take responsibility for the figures – in terms of turnover, personnel costs and inventory\n\nRequisiti - Three or more years of professional experience: in retail trade as specialist, departmental or rayon management advantage - Completed vocational apprenticeship (EBA): in retail trade (food) or related professional genre would be ideal - joy in fresh products and ideally already professional experience with it - Physically fit, some Colis are up to 10 kilos difficult - skill in planning and organizing tasks and a flair for interpreting key figures - familiar with PC, tablet and smartphone - and with other digital helpers (e.g.\n\nfor the goods management) you quickly become friends - German (very good knowledge)\n\nCosa offriamo - Part of the Migros Group: Strong brand anchored in retail under the umbrella of the Migros Group - Work healthy: high standards in occupational safety, ergonomics and hygiene. - Maternity leave / paternity leave: 5 weeks longer baby break (19 weeks) for mothers and at 100% pay. Fathers enjoy the young generation 4 weeks paid. - Fair wages: 13 monthly wages and fixed wage increases for all instead of bonuses for few. - Mobile phone subscription: The agony of choice: With Galaxus Mobile, Wingo or Sunrise already connected from CHF 10.- or so properly.\n\n- Migros Bank: Better travel with interest and fees of your private, investment or mortgage dealer. - Employee offers: 10 percent on the next major purchase (twice a year). - Holiday: 6 weeks holidays for everyone and even more days at service jubilees. - Leisure and cultural offers: Various discounts for car rentals, hotels, events and many more. - Targeted promotion: From dish washer to millionaire? Maybe not exactly, but: Who has bite and talent, comes quickly.\n\nContatto Application & Contact Gianluca Moriano Recruiter Sales Eastern Switzerland - LinkedIn ## Recruitment process Preselection of applications We continuously check incoming applications, create a preliminary selection and release them to the management for viewing.The decision about the advancement or departure from the recruitment process is communicated by telephone or email. Duration to feedback: Up to three weeks Personal video or telephone conversation With a large number of applicants, we optionally conduct a personal telephone or video conversation.\n\nThis gives us the opportunity to get to know more candidates in a short time to invite suitable people for the next round. Duration to feedback: Up to one week of trial work A day or half of a day gives us the opportunity to get to know the future working environment and the team members better. Conversely, we have a chance to assess how well someone fits into the team.\n\nDuration to feedback: Up to three weeks of consultation with HR & Department The interview will be conducted with the person responsible from HR and/or the department of the company or on site.The main focus is on learning more about the human resources and specialist skills and gives both sides the opportunity to assess the cultural fit of the company and team. Duration to feedback: Up to three weeks of offer & contract exhibition After our oral job offer, the most important contract points are verified again.\n\nThe contract is commissioned by agreement and sent by post. Duration to feedback: Up to three weeks ## Note for HR service providers We take into account direct applications for this job only.\n\nGrado di occupazione: 80-100%",
-        "fr": "Objectif de carrière du directeur d'agence ? Alors nous avons le tremplin parfait pour vous. Ici, vous pouvez prouver de quoi vous êtes capable. Transmettez vos connaissances. Déplacez quelque chose. Acquérir une expérience de leadership. Et bien sûr, j’apprends beaucoup. Denner. C'est notre boutique.\n\nManoir\n- Vous portez une attention particulière à la fraîcheur des fruits, légumes et du pain et déclarez la guerre au gaspillage alimentaire avec des commandes clairvoyantes\n- Commandez des produits frais et bien sûr toutes les autres marchandises, acceptez-les, vérifiez-les et remplissez-les dans les rayons de votre magasin\n- Implémenter correctement les spécifications dans l'agencement du magasin\n- Vérifier les dates de péremption dans le groupe de produits fraîcheur\n- En tant qu'adjoint, instruire, soutenir et faire progresser les collaborateurs - et être pour eux un modèle\n- En tant qu'adjoint, assumer la coresponsabilité des chiffres - des ventes, des frais de personnel et des stocks\n\nAccessoires\n- Trois années d'expérience professionnelle ou plus : dans le commerce de détail en tant que spécialiste, chef de rayon ou chef de rayon un avantage\n- Un apprentissage professionnel terminé (EBA) : dans le commerce de détail (alimentation) ou une profession connexe serait idéal\n- Bénéficier de produits frais et idéalement déjà avoir une expérience professionnelle avec ceux-ci\n- En bonne forme physique, certains Colis pèsent jusqu'à 10 kilos\n- Compétence en planification et organisation de tâches et flair pour interpréter les métriques\n- Vous êtes familier avec PC, tablette et smartphone - et vous devenez rapidement amis avec d'autres assistants numériques (par exemple pour la gestion des stocks).\n- Allemand (très bonne connaissance)\n\nCosa offriamo\n- Fait partie du groupe Migros : marque forte ancrée dans le secteur du commerce de détail sous l'égide du groupe Migros\n- Travailler sainement : normes élevées en matière de sécurité au travail, d'ergonomie et d'hygiène.\n- Congé maternité/congé paternité : congé maternité prolongé de 5 semaines (19 semaines) pour les mamans et rémunéré à 100%. Les pères profitent de leur progéniture pendant 4 semaines rémunérées.\n- Des salaires équitables : 13 salaires mensuels et des augmentations de salaire fixes pour tout le monde au lieu de primes pour quelques-uns.\n- Abonnement de téléphonie mobile : Vous avez l'embarras du choix : connectez-vous avec Galaxus Mobile, Wingo ou Sunrise à partir de seulement CHF 10.- dans les deux cas.\n- Banque Migros : Bénéficiez de meilleurs intérêts et frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offres pour les employés : 10 % de réduction sur votre prochain achat important (deux fois par an).\n- Vacances : 6 semaines de vacances pour tous et même des jours supplémentaires pour les anniversaires de service.\n- Offres de loisirs et culturelles : Diverses réductions sur les locations de voitures, les hôtels, les événements et bien d'autres domaines.\n- Financement ciblé : de la misère à la richesse ? Peut-être pas exactement, mais : si vous avez du courage et du talent, vous progresserez rapidement.\n\nContact\nCandidature et contact Gianluca Morciano Recruteur Ventes Suisse orientale - LinkedIn ## Processus de recrutement Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au manager pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au retour d'information : jusqu'à trois semaines Conversation personnelle par vidéo ou par téléphone S'il y a un grand nombre de candidats, nous effectuons éventuellement une conversation personnelle par téléphone ou par vidéo. Cela nous donne la possibilité de mieux connaître davantage de candidats dans un court laps de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'au feedback : Jusqu'à une semaine de travail d'essai. Une journée ou demi-journée d'essai vous donne l'occasion de mieux connaître le futur environnement de travail et les membres de l'équipe. Et à l’inverse, cela nous donne l’occasion d’évaluer dans quelle mesure quelqu’un s’intègre dans l’équipe. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par courrier.\n\nDurée jusqu'à la rétroaction : jusqu'à trois semaines ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 80-100%"
+        "fr": "Objectif de carrière du directeur d'agence ? Alors nous avons le tremplin parfait pour vous. Ici, vous pouvez prouver de quoi vous êtes capable. Transmettez vos connaissances. Déplacez quelque chose. Acquérir une expérience de leadership. Et bien sûr, j’apprends beaucoup. Denner. C'est notre boutique.\n\nManoir\n- Vous portez une attention particulière à la fraîcheur des fruits, légumes et du pain et déclarez la guerre au gaspillage alimentaire avec des commandes clairvoyantes\n- Commandez des produits frais et bien sûr toutes les autres marchandises, acceptez-les, vérifiez-les et remplissez-les dans les rayons de votre magasin\n- Implémenter correctement les spécifications dans l'agencement du magasin\n- Vérifier les dates de péremption dans le groupe de produits fraîcheur\n- En tant qu'adjoint, instruire, soutenir et faire progresser les collaborateurs - et être pour eux un modèle\n- En tant qu'adjoint, assumer la coresponsabilité des chiffres - des ventes, des frais de personnel et des stocks\n\nAccessoires\n- Trois années d'expérience professionnelle ou plus : dans le commerce de détail en tant que spécialiste, chef de rayon ou chef de rayon un avantage\n- Un apprentissage professionnel terminé (EBA) : dans le commerce de détail (alimentation) ou une profession connexe serait idéal\n- Bénéficier de produits frais et idéalement déjà avoir une expérience professionnelle avec ceux-ci\n- En bonne forme physique, certains Colis pèsent jusqu'à 10 kilos\n- Compétence en planification et organisation de tâches et flair pour interpréter les métriques\n- Vous êtes familier avec PC, tablette et smartphone - et vous devenez rapidement amis avec d'autres assistants numériques (par exemple pour la gestion des stocks).\n- Allemand (très bonne connaissance)\n\nCosa offriamo\n- Fait partie du groupe Migros : marque forte ancrée dans le secteur du commerce de détail sous l'égide du groupe Migros\n- Travailler sainement : normes élevées en matière de sécurité au travail, d'ergonomie et d'hygiène.\n- Congé maternité/congé paternité : congé maternité prolongé de 5 semaines (19 semaines) pour les mamans et rémunéré à 100%. Les pères profitent de leur progéniture pendant 4 semaines payées.\n- Des salaires équitables : 13 salaires mensuels et des augmentations de salaire fixes pour tout le monde au lieu de primes pour quelques-uns.\n- Abonnement de téléphonie mobile : Vous avez l'embarras du choix : connectez-vous avec Galaxus Mobile, Wingo ou Sunrise à partir de seulement CHF 10.- dans les deux cas.\n- Banque Migros : Bénéficiez de meilleurs intérêts et frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offres pour les employés : 10 % de réduction sur votre prochain achat important (deux fois par an).\n- Vacances : 6 semaines de vacances pour tous et même des jours supplémentaires pour les anniversaires de service.\n- Offres de loisirs et culturelles : Diverses réductions sur les locations de voitures, les hôtels, les événements et bien d'autres domaines.\n- Financement ciblé : de la misère à la richesse ? Peut-être pas exactement, mais : si vous avez du courage et du talent, vous progresserez rapidement.\n\nContact\nCandidature et contact Gianluca Morciano Recruteur Ventes Suisse orientale - LinkedIn ## Processus de recrutement Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au manager pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au retour d'information : jusqu'à trois semaines Conversation personnelle par vidéo ou par téléphone S'il y a un grand nombre de candidats, nous effectuons éventuellement une conversation personnelle par téléphone ou par vidéo. Cela nous donne la possibilité de mieux connaître davantage de candidats dans un court laps de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'au feedback : Jusqu'à une semaine de travail d'essai. Une journée ou demi-journée d'essai vous donne l'occasion de mieux connaître le futur environnement de travail et les membres de l'équipe. Et à l’inverse, cela nous donne l’occasion d’évaluer dans quelle mesure quelqu’un s’intègre dans l’équipe. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par courrier.\n\nDurée jusqu'à la rétroaction : jusqu'à trois semaines ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 80-100%"
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-schaffhausen-8cfca5",
         "en": "stv-branch-manager-in-denner-ag-schaffhausen",
         "de": "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "fr": "adjoint-e-au-responsable-de-filiale-denner-ag-schaffhausen"
+        "fr": "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -34503,17 +34521,17 @@
           "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ],
         "en": [
-          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
+          "stv-branch-manager-in-denner-ag-schaffhausen"
         ],
         "fr": [
-          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-          "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
+          "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-schaffhausen",
         "stv-filialleiter-in-denner-ag-schaffhausen-w85cd4",
-        "directeur-de-succursale-stv-in-denner-ag-schaffhausen"
+        "stv-branch-manager-in-denner-ag-schaffhausen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -34531,7 +34549,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -41720,10 +41737,10 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-07-01T12:19:35.353Z",
       "titleByLocale": {
-        "it": "Fachleiter*in Produktion",
+        "it": "Specialist Manager* in Produzione",
         "en": "Specialist Manager* in Production",
         "de": "Fachleiter*in Produktion",
         "fr": "Spécialiste en production*"
@@ -41735,7 +41752,7 @@
         "fr": "En tant que responsable de production spécialisé, vous vous assurez que nos clients se sentent complètement à la maison! Préparer la nourriture et les boissons tous les jours et les présenter de façon appétissante. ## Mansioni - Production d'aliments chauds et froids - Ordres et gestion - Planification du personnel - Qualité - et assurance du processus - Maintenir l'ordre et la propreté au travail conformément aux lignes directrices HACCP ##\n• Exigences - Expérience professionnelle: dans le commerce de détail ou dans la gastronomie - Formation de base ou de perfectionnement: dans le commerce de détail ou dans la gastronomie - Haute qualité et sensibilisation aux responsabilités - Travail indépendant et flexibilité - Méthodes de travail fiables et précises (y compris de bonnes connaissances HACCP) - Allemand (très bonne connaissance) ## Cosa de Friamo - Partie du groupe Migros : Dans le cadre du groupe Migros, vous bénéficiez de structures stables, d'opportunités de carrière variées et d'avantages intéressants - Travail en santé : Bénéficiez de notre gestion de la santé et de prestations d'assurance attrayantes - Abonnement pratique: Les employés reçoivent des conditions très avantageuses pour l'abonnement privé Handy incl. Famille et amis - Caisse de retraite professionnelle: La Caisse de retraite Migros offre des services attrayants avec une forte participation des salariés - Points Cumulus: Vous collectez des points Cumulus supplémentaires dans le domaine de l'alimentation et non alimentaire - Club School Migros: Nous participons à des cours de club jusqu'à max. CHF 1000.– (en frais de 100 %) - Loisirs et offres culturelles:\n• Nous offrons divers rabais et billets gratuits dans le domaine des loisirs et de la culture - Offres sportives et de fitness: Avec nous vous obtenez des abonnements de fitness à prix réduit dans le parc de fitness Activ Fitness et Migros ## Contatto ## Demande et contact Selina Blumenthal ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée de la rétroaction : jusqu'à trois semaines de discussion technique Lors d'une discussion technique, le gestionnaire et/ou un autre spécialiste et, le cas échéant, l'équipe demandent des connaissances spécifiques pour l'exécution du travail. Si possible, il est temps de mieux connaître le lieu de travail et l'équipe dans une conversation libre. Durée jusqu'à la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée de la rétroaction : Jusqu'à trois semaines Apprenez à connaître l'équipe Si quelqu'un s'inscrit dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'un emploi ou non. Dans un cadre décontracté, nous donnons donc l'occasion à chacun de se connaître. Offer & Contract Exhibition (Digital) Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé à la signature numérique par courrier électronique. Durée de la rétroaction: Jusqu'à une semaine"
       },
       "slugByLocale": {
-        "it": "fachleiter-in-produktion-genossenschaft-migros-luzern",
+        "it": "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern",
         "en": "specialist-manager-in-production-genossenschaft-migros-luzern-luzern",
         "de": "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
         "fr": "specialiste-en-production-genossenschaft-migros-luzern-luzern"
@@ -41758,7 +41775,7 @@
         "it": [
           "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
           "capo-della-produzione-genossenschaft-migros-luzern-luzern",
-          "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern"
+          "fachleiter-in-produktion-genossenschaft-migros-luzern"
         ],
         "en": [
           "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj"
@@ -41770,7 +41787,7 @@
       "previousSlugs": [
         "fachleiter-in-produktion-genossenschaft-migros-luzern-sm52lj",
         "capo-della-produzione-genossenschaft-migros-luzern-luzern",
-        "specialist-manager-in-produzione-genossenschaft-migros-luzern-luzern"
+        "fachleiter-in-produktion-genossenschaft-migros-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -41788,7 +41805,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -55040,7 +55056,7 @@
     },
     {
       "id": "company-wg0ehg",
-      "slug": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier",
+      "slug": "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier",
       "company": "Société coopérative Migros Vaud",
       "title": "Collaborateur Halte-Jeux (H/F/D)",
       "location": "Crissier",
@@ -55077,10 +55093,10 @@
       "_migrosWorkPercentage": "291%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-15T11:41:02.895Z",
       "firstSeenAt": "2026-06-25T23:11:16.787Z",
       "titleByLocale": {
-        "it": "Collaborateur Halte-Jeux (H/F/D)",
+        "it": "Collaboratore Stop-Games (H/F/D)",
         "fr": "Collaborateur Halte-Jeux (H/F/D)",
         "en": "Collaborator Stop-Games (H/F/D)",
         "de": "Collaborator Stop-Games (H/F/D)"
@@ -55092,7 +55108,7 @@
         "de": "Botschafter des Fähnrichs und vertrauenswürdige Person, kümmern Sie sich um die Kinder unserer Kundschaft und wachen über ihre Zufriedenheit und Loyalität durch qualitativ hochwertigen Service, von der Eröffnung bis zum Abschluss des Stop-Spiels\n\n## Mansioni\n- Sie heißen Gäste und Kinder herzlich willkommen\n- Sie versorgen Kinder mit dem Spielmaterial (Buntstifte, Zeichenpapier, Spielzeug, etc.) und bereiten die Malzeichnungen vor.\n- Sie kümmern sich um das Wohl des Kindes (Trinken, Hygiene, etc.) und überwachen die Spiele der Kinder, indem Sie bei Konflikten oder gefährlichen Spielen eingreifen.\n- Sie garantieren die Einhaltung aktueller Hygienestandards und sorgen für die Desinfektion von Geräten und Spielplätzen.\n- Sie pflegen Ordnung und Sauberkeit und unterstützen bei Bedarf alle Bereiche des Ladens unter Einhaltung der geltenden Verfahren.\n- Sie sind verantwortlich für das Öffnen und Schließen des Spielstopps.\n\n## erforderlich\n- Erste bestätigte Erfahrungen in der Kinderbetreuung: erwartet\n- Abgeschlossene berufliche Bildung (CFC): als sozialpädagogische Assistentin (SEA) oder gleichwertige Ausbildung\n- Sie profitieren von mehrjähriger Erfahrung in der Begleitung von Kindern\n- Sie sind organisiert, selbsttragend und in der Lage, Initiativen zu ergreifen.\n- Sie profitieren von einem Erste-Hilfe-Training\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Betriebsrente: Pensionskasse finanziert vom Arbeitgeber zu 17%.\n- Restaurant: 20% Rabatt in Migros Vaud Restaurants.\n- Cumulus Punkte: Cumulus Punkte Multiplikation für unsere Mitarbeiter\n\n## Contatto\n## Bewerbung und Kontakt Migros Vaud Recruitment Center\n\n**Grado di occupazione:** 291%"
       },
       "slugByLocale": {
-        "it": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier",
+        "it": "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
         "en": "collaborator-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
         "de": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
         "fr": "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg"
@@ -55113,17 +55129,15 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier",
           "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
-          "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier",
-          "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
-          "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier"
+          "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier"
         ]
       },
       "previousSlugs": [
+        "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier",
         "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier-wg0ehg",
-        "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier",
-        "collaboratore-stop-games-h-f-d-societe-cooperative-migros-vaud-crissier",
-        "collaborateur-halte-jeux-m-w-d-societe-cooperative-migros-vaud-crissier"
+        "collaborateur-halte-jeux-h-f-d-societe-cooperative-migros-vaud-crissier"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -55141,7 +55155,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -61423,7 +61436,7 @@
     },
     {
       "id": "company-o9v9bg",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-wil",
+      "slug": "fitness-instructor-w-m-d-activ-fitness-wil",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Wil",
@@ -61463,10 +61476,10 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-15T11:41:02.895Z",
       "firstSeenAt": "2026-06-22T15:05:49.371Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (f/m/d)",
         "de": "Fitnesstrainer (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -61478,7 +61491,7 @@
         "fr": "Êtes-vous une personne qui souhaite communiquer et qui veut faire part de votre enthousiasme pour la santé et la condition physique? Vous aimez travailler en équipe et comprendre comment répondre aux besoins des clients et motiver les clients pour leurs objectifs? Alors vous avez raison avec nous!\n\nMansioni - Vous prenez soin de nos clients et les accompagnez tout au long du processus de formation - Vous commencez des plans de formation et surveillez la formation et leur réalisation - Vous assurez la propreté et l'hygiène dans le studio - Vous terminez la formation d'introduction et vendez des abonnements - Vous prenez en charge divers travaux administratifs, commencez des contrats et acquérez activement de futurs clients\n• Requisiti - Désiré: Expérience comme instructeur de fitness - Achevé une formation de base ou de post-enseignement: Formation comme instructeur de fitness avec BLS/AED ID - Vous avez un\n\nVentes et services de haut niveau et expertise conseil - vous êtes une personnalité motivée et responsable qui inspire nos clients - vous êtes flexible et aimez travailler le soir ainsi que les week-ends et jours fériés - vous aimez travailler en équipe - vous avez un permis de travail valide - Allemand (bonne connaissance)\n• Cosa offriamo - Lieu central de travail: Nos studios sont situés dans un emplacement central bien développé - Abonnement téléphone mobile: Abonnement plat national à partir de CHF 10.– / mois (Swisscom /digitecconnect) - Migros Bank: Compte privé et d'investissement gratuit\n\navec intérêt préférentiel - offres d'employés: Divers rabais dans le domaine des vacances et de l'assurance (Hertz jusqu'à 10%, Generali 25%, Axa assurance jusqu'à 15%, etc.) - Du-Kultur: Nous sommes pour une coexistence respectueuse au niveau des yeux Contatto Application & Contact Susanne Hug HR Business Partner ## Processus de recrutement Sélection préliminaire des candidatures Nous examinons continuellement les demandes entrantes, créons une sélection préliminaire et les publions à la personne de direction pour visionner.\n\nLa décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel. Durée de la rétroaction : Jusqu'à trois semaines de discussion professionnelle Dans une discussion professionnelle, le gestionnaire et/ou une autre personne spécialisée et au mieux l'équipe demandent des connaissances spécifiques pour l'exécution du travail.\n\nDurée de la rétroaction : Jusqu'à trois semaines d'offre & d'exposition de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau.Après accord, le contrat est commandé et envoyé par la poste."
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-wil",
+        "it": "istruttore-di-fitness-f-m-d-activ-fitness-wil",
         "en": "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "de": "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-wil"
@@ -61501,21 +61514,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "fitness-instructor-m-w-d-activ-fitness-wil",
           "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
-          "fitness-instructor-w-m-d-activ-fitness-wil",
-          "istruttore-di-fitness-f-m-d-activ-fitness-wil",
-          "fitness-instructor-m-w-d-activ-fitness-wil"
+          "fitness-instructor-w-m-d-activ-fitness-wil"
         ],
         "de": [
           "fitnesstrainer-m-w-d-activ-fitness-wil-o9v9bg"
         ]
       },
       "previousSlugs": [
+        "fitness-instructor-m-w-d-activ-fitness-wil",
         "fitness-instructor-m-w-d-activ-fitness-wil-o9v9bg",
         "fitnesstrainer-m-w-d-activ-fitness-wil-o9v9bg",
-        "fitness-instructor-w-m-d-activ-fitness-wil",
-        "istruttore-di-fitness-f-m-d-activ-fitness-wil",
-        "fitness-instructor-m-w-d-activ-fitness-wil"
+        "fitness-instructor-w-m-d-activ-fitness-wil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -62664,7 +62675,7 @@
     },
     {
       "id": "company-ysy2xf",
-      "slug": "personale-addetto-al-restauro-migros-golf-ag-oberkirch-a45cba",
+      "slug": "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
       "company": "Migros Golf AG",
       "title": "Restaurationsfachmitarbeiter*in",
       "location": "Oberkirch",
@@ -62705,16 +62716,16 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-17T22:36:59.189Z",
       "firstSeenAt": "2026-07-17T22:36:59.189Z",
       "slugByLocale": {
         "de": "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch-ysy2xf",
         "en": "restoration-staff-migros-golf-ag-oberkirch-a45cba",
-        "fr": "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
+        "fr": "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba",
         "it": "personale-addetto-al-restauro-migros-golf-ag-oberkirch-a45cba"
       },
       "titleByLocale": {
-        "fr": "Restaurationsfachmitarbeiter*in",
+        "fr": "Spécialiste de la restauration*",
         "de": "Restaurationsfachmitarbeiter*in",
         "it": "Specialista di restauro*",
         "en": "Restoration specialist*"
@@ -62740,6 +62751,8 @@
         "fr": []
       },
       "sourceLang": "de",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -62756,20 +62769,13 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "previousSlugs": [
-        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch",
-        "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba"
+        "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "restaurationsfachmitarbeiter-in-migros-golf-ag-oberkirch"
-        ],
-        "fr": [
-          "specialiste-de-la-restauration-migros-golf-ag-oberkirch-a45cba"
         ]
-      },
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-jy5wtb",
@@ -95135,11 +95141,11 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -95150,7 +95156,7 @@
         "fr": "Migros Aare vous prépare à diriger une succursale Migros de manière indépendante et réussie. La formation compacte et pratique est adaptée individuellement à vous. En 12 à 18 mois, vous serez parfaitement préparé à votre futur rôle de leadership. Votre candidature sera prise en compte pour toutes les succursales du canton souhaité. Mansioni - Gestion de la succursale orientée client - Responsable de la fraîcheur, de la qualité et de la disponibilité des produits - Responsable de la gestion et du développement des chefs de secteur, des chefs de service et des employés ainsi que de la promotion des jeunes talents - Atteindre les objectifs de vente et de coûts - Assurer les processus définis\n• Exigences - Idéalement plus de 3 ans d'expérience professionnelle : dans le secteur des supermarchés - Formation de base ou continue complétée : dans le commerce de détail ou une formation équivalente dans le secteur alimentaire - Plusieurs années d'expérience professionnelle dans un poste de direction - Un niveau de formation continue plus élevé (de préférence un spécialiste du commerce de détail, une école de gestion hôtelière ou autre HFP) - Enthousiasme pour le commerce de détail - Aimer diriger et soutenir des employés - Forte orientation client et attitude convaincante - Engagement, résilience et flexibilité - Compétences sociales élevées, esprit d'équipe et sociabilité - Allemand (parlant couramment les affaires)\n• Cosa offriamo - Mobilité: Participation à un abonnement annuel aux transports publics, réduction sur le carburant (Migrol), contribution annuelle réduite à Mobility car Sharing et droit à une réduction de flotte - Abonnement de téléphonie mobile : diverses réductions sur les abonnements mobiles - Prévoyance professionnelle : des prestations supérieures à la moyenne garantissent la sécurité financière des collaborateurs dans la troisième phase de la vie - Prestations sociales : conditions de travail attractives avec de très bonnes prestations sociales - Points Cumulus : plusieurs points Cumulus sur les produits alimentaires et non alimentaires - Banque Migros : gestion de compte gratuite, intérêts préférentiels sur le capital ou réduction sur les taux d'intérêt sur les hypothèques à taux fixe nouvellement conclues - École-club Migros : généreuse contribution financière aux cours choisis par vous-même - Offres de loisirs et culturelles : diverses réductions sur offres de vacances, séjours linguistiques, vacances Migros, Interhome et événements - Offres de sport et de fitness : participations aux frais d'abonnement à plus de 50 parcs fitness, bien-être et aquatiques Migros - Soutien ciblé : soutien de nos collaborateurs à tous les niveaux avec des mesures ciblées de développement du personnel - Formation et formation continue : soutien à la formation professionnelle et continue - Responsabilité et liberté personnelles : domaines de tâches variés avec un haut niveau de responsabilité personnelle Contatto Application & Contact Melanie Knuchel Recruiting Partner +41 58 565 85 85 ## Remarque destinée aux prestataires de services de personnel Pour ce poste, nous ne considérons que les candidatures directes."
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-solothurn",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-solothurn"
@@ -95174,7 +95180,7 @@
       "previousSlugsByLocale": {
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya"
@@ -95185,7 +95191,7 @@
       },
       "previousSlugs": [
         "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn-7668ya",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-solothurn"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-solothurn"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -95203,7 +95209,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4500",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -96982,11 +96987,11 @@
       "_migrosWorkPercentage": "",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Lehrperson Ballett im Stundenlohn",
-        "it": "Lehrperson Ballett im Stundenlohn",
+        "it": "Maestro Ballet nel salario orario",
         "en": "Ballet Teacher (Hourly Basis)",
         "fr": "Enseignant de ballet à l'heure"
       },
@@ -97023,7 +97028,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
+        "it": "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen",
         "en": "ballet-teacher-hourly-basis-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
         "de": "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
         "fr": "enseignant-de-ballet-a-l-heure-genossenschaft-migros-ostschweiz-st-gallen-78ume2"
@@ -97032,12 +97037,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-          "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-78ume2",
-        "maestro-ballet-nel-salario-orario-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -97055,7 +97060,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -118179,11 +118183,11 @@
       "_migrosWorkPercentage": "909%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Chefmetzger*in",
-        "it": "Chefmetzger*in",
+        "it": "Macellaio capo*",
         "en": "Head Butcher",
         "fr": "Boucher en chef"
       },
@@ -118207,7 +118211,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chefmetzger-in-genossenschaft-migros-zurich-bulach",
+        "it": "capo-macellaio-genossenschaft-migros-zurich-bulach",
         "en": "head-butcher-genossenschaft-migros-zurich-bulach",
         "de": "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
         "fr": "boucher-en-chef-genossenschaft-migros-zurich-bulach"
@@ -118216,7 +118220,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-          "capo-macellaio-genossenschaft-migros-zurich-bulach"
+          "chefmetzger-in-genossenschaft-migros-zurich-bulach"
         ],
         "en": [
           "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl"
@@ -118227,7 +118231,7 @@
       },
       "previousSlugs": [
         "chefmetzger-in-genossenschaft-migros-zurich-bulach-ix8whl",
-        "capo-macellaio-genossenschaft-migros-zurich-bulach"
+        "chefmetzger-in-genossenschaft-migros-zurich-bulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -118245,7 +118249,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -120880,11 +120883,11 @@
       "_migrosWorkPercentage": "074%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -120910,7 +120913,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-aarau",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-aarau"
@@ -120920,7 +120923,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau-u3lv0t",
@@ -120936,7 +120939,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-aarau",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-aarau",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-aarau",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-aarau"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-aarau"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -120954,7 +120957,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -122971,11 +122973,11 @@
       "_migrosWorkPercentage": "646%",
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
-      "crawledAt": "2026-07-18T11:01:12.942Z",
+      "crawledAt": "2026-07-16T22:48:55.348Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
-        "it": "Nachwuchsprogramm: Marktleiter*in Supermarkt",
+        "it": "Programma di giovani talenti: Market manager* in supermercato",
         "en": "Young talent program: Supermarket store manager",
         "fr": "Programme jeunesse : Responsable du supermarché"
       },
@@ -123028,7 +123030,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern",
+        "it": "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern",
         "en": "young-talent-program-supermarket-store-manager-genossenschaft-migros-aare-bern",
         "de": "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
         "fr": "programme-jeunesse-responsable-du-supermarche-genossenschaft-migros-aare-bern"
@@ -123038,7 +123040,7 @@
         "it": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
           "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
-          "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
+          "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
         ],
         "en": [
           "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern-4bpow0",
@@ -123054,7 +123056,7 @@
         "programma-di-giovani-talenti-market-manager-in-supermercato-genossenschaft-migros-aare-bern",
         "young-talent-program-market-manager-in-supermarket-genossenschaft-migros-aare-bern",
         "programme-de-jeunes-talents-gestionnaire-de-marche-au-supermarche-genossenschaft-migros-aare-bern",
-        "programma-giovani-talenti-responsabile-del-supermercato-genossenschaft-migros-aare-bern"
+        "nachwuchsprogramm-marktleiter-in-supermarkt-genossenschaft-migros-aare-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -123072,7 +123074,6 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
       "country": "CH",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -124224,7 +124225,7 @@
       "crawledAt": "2026-07-06T15:33:09.040Z",
       "firstSeenAt": "2026-07-06T15:33:09.040Z",
       "titleByLocale": {
-        "en": "Teamleiter*in / Product Owner Analytics & Reporting",
+        "en": "Team Leader / Product Owner Analytics & Reporting",
         "de": "Teamleiter*in / Product Owner Analytics & Reporting",
         "it": "Leader di squadra / Titolare del prodotto Analisi e relazioni",
         "fr": "Chef d'équipe / Product Owner Analytics & Reporting"
@@ -124232,7 +124233,7 @@
       "descriptionByLocale": {
         "de": "Hast du Lust, die Analytics-Zukunft der Migros aktiv mitzugestalten? Unser Bereich Analytics, Reporting, Data & Platform entwickelt und betreibt moderne Data- und Analytics-Lösungen auf GCP und Power BI. Als Teamleiter*in und Product Owner Analytics & Reporting führst du ein interdisziplinäres Team und verantwortest Analytics-, Data- und AI-Produkte von der Idee bis zum Betrieb.\n\nMansioni\n- Du führst ein interdisziplinäres Team aus Data Scientists und Data Engineers und entwickelst es als Servant Leader und Coach fachlich wie persönlich weiter\n- Als technischer Product Owner verantwortest du die Ausgestaltung und Priorisierung von Features und Backlog konsequent nach Nutzen und Wirkung unter Berücksichtigung der Roadmaps und Budgets\n- Gemeinsam mit deinem Team bringst du Analytics- und Data-Solutions von der Idee bis in den produktiven Betrieb. Du formulierst klare Umsetzungsaufträge, förderst pragmatische Lösungen und sorgst für Qualität und Nachhaltigkeit\n- Als Teil des erweiterten Führungsteams gestaltest du den Umgang mit neuen Technologien wie Agentic AI aktiv mit und entwickelst dein Team gezielt mit Blick auf künftige Anforderungen weiter\n- Du stärkst die Data- und AI-Kompetenz der Organisation, bewertest neue Technologien auf ihren Mehrwert, förderst den Wissensaustausch und befähigst Mitarbeitende, Analytics- und AI-Lösungen sicher, verantwortungsvoll und wirkungsvoll zu nutzen\n\nRequisiti\n- Mindestens 4 Jahre Erfahrung: im Bereich Data & Analytics mit Erfahrungen im Aufbau und Betrieb von Cloud-basierten Analytics Solutions, Daten Produkten, analytische Web-Applikationen und Reportings\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): in (Wirtschafts-) Informatik, Mathematik, Physik, Data Science, Ökonomie oder einem anderen quantitativen Bereich\n- Du verfügst über mehrjährige praktische Erfahrung im Einsatz von Data Science, Analytics und Reporting und hast Freude daran, komplexe Business-Fragestellungen in verständliche, wirksame Lösungen zu übersetzen\n- Du bringst Führungserfahrung oder nachweisbare Leadership-Verantwortung und starkes Product Owner Skillset mit und bist vertraut mit den entsprechenden Tools und Methodiken\n- Du kommunizierst klar, wertschätzend und adressatengerecht. Du kannst zwischen Business, Technologie und Menschen vermitteln und schaffst dabei eine effektive, motivierte Zusammenarbeit über Fachbereiche hinweg\n- Du besitzt ein gutes Verständnis von Cloud-basierten Plattformen (z.B. GCP, Azure) sowie dem Einsatz von Python, SQL, dbt oder ähnlichem und kennst dich mit AI-Tools, ML-Methodiken und Agentensystemen aus. DevSecOps und MLOps sind dir vertraut\n- Erfahrungen im Einsatz von Analytics in einem der folgenden Bereiche: Pricing, Aktionsoptimierung, Sortimentsoptimierung, Geo-basierte Applikationen\n- Deutsch (verhandlungssicher)\n- Englisch (sehr gute Kenntnisse)\n\nCosa offriamo\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert\n- Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen\n- Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n\nContatto\nBewerbung & Kontakt Yanick Mohn Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche\n\nGrado di occupazione: 140%",
         "it": "Desiderate dare forma attivamente al futuro dell'analitica di Migros? Il nostro dipartimento Analytics, Reporting, Data & Platform sviluppa e gestisce moderne soluzioni di dati e analisi su GCP e Power BI. In qualità di team leader e proprietario del prodotto per Analytics & Reporting, guidi un team interdisciplinare e sei responsabile dell'analisi, dei dati e dei prodotti AI dall'idea al funzionamento.\n\nMansioni\n- Guidi un team interdisciplinare di data scientist e data engineer e li svilupperai professionalmente e personalmente come servitore leader e coach\n- In qualità di proprietario tecnico del prodotto, sei responsabile della progettazione e della definizione delle priorità delle funzionalità e del backlog in modo coerente in base ai vantaggi e all'impatto, tenendo conto delle roadmap e dei budget\n- Insieme al tuo team, porti soluzioni di analisi e dati dall'idea all'operazione produttiva. Formuli chiari ordini di attuazione, promuovi soluzioni pragmatiche e garantisci qualità e sostenibilità\n- Nell'ambito del team di gestione allargato, modellerai attivamente l'uso di nuove tecnologie come Agentic AI e svilupperai ulteriormente il tuo team in modo specifico in vista delle esigenze future\n- Rafforzi le competenze in materia di dati e intelligenza artificiale dell'organizzazione, valuti le nuove tecnologie per il loro valore aggiunto, promuovi lo scambio di conoscenze e consenti ai dipendenti di utilizzare soluzioni di analisi e intelligenza artificiale in modo sicuro, responsabile ed efficace\n\nOggetti di scena\n- Almeno 4 anni di esperienza: nell'area dei dati e dell'analisi con esperienza nella creazione e gestione di soluzioni di analisi basate su cloud, prodotti di dati, applicazioni web analitiche e reporting\n- Studi completati (Università/ETH, FH, HF): in informatica (aziendale), matematica, fisica, scienza dei dati, economia o un altro settore quantitativo\n- Hai diversi anni di esperienza pratica nell'uso della scienza dei dati, dell'analisi e del reporting e ti piace tradurre domande aziendali complesse in soluzioni comprensibili ed efficaci\n- Hai esperienza di leadership o responsabilità di leadership dimostrabile e forti competenze di proprietario del prodotto e hai familiarità con gli strumenti e le metodologie pertinenti\n- Comunichi in modo chiaro, riconoscente e in modo appropriato. Puoi mediare tra business, tecnologia e persone e creare una collaborazione efficace e motivata tra i reparti\n- Hai una buona conoscenza delle piattaforme basate su cloud (ad esempio GCP, Azure) nonché l'uso di Python, SQL, dbt o simili e hai familiarità con gli strumenti AI, le metodologie ML e i sistemi di agenti. Hai familiarità con DevSecOps e MLOps\n- Esperienza nell'utilizzo dell'analisi in una delle seguenti aree: prezzi, ottimizzazione delle promozioni, ottimizzazione della gamma di prodotti, applicazioni basate sulla geografia\n- Tedesco (fluente per gli affari)\n- Inglese (ottima conoscenza)\n\nCosa offriamo\n- Modello di lavoro mobile-flessibile: flessibilità di tempo e spazio nell'adempimento della funzione (40% home office a titolo indicativo)\n- Luogo di lavoro centrale: Luogo di lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke)\n- Salari equi: remunerazione orientata alla funzione e orientata al mercato - Certificato \"We pay fair\".\n- Prestazioni sociali: condizioni di lavoro attraenti con ottime prestazioni sociali\n- Sostegno mirato: sostenere i nostri collaboratori con misure mirate di sviluppo del personale\n- Responsabilità personale e libertà: ambito di compiti vario con un elevato livello di responsabilità personale\n\nContatto\nCandidatura e contatti Yanick Mohn Talent Acquisition Partner - LinkedIn ## Processo di reclutamento Invia documenti di candidatura Per una candidatura completa, abbiamo bisogno del tuo CV, certificati e diplomi. Non sono necessarie una foto nel CV e una lettera di motivazione. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per te, menzionalo nel tuo dossier di domanda. Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al gestore per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane di discussione tecnica con presentazione del caso. Le conoscenze specialistiche specifiche vengono testate utilizzando un caso o altri strumenti di valutazione. Dopo l'elaborazione, il risultato viene presentato al responsabile e poi discusso insieme. Di solito anche la squadra è rappresentata alla presentazione. Di norma, le discussioni vengono condotte dal superiore, senza un rappresentante delle risorse umane.\n\nDurata fino al feedback: fino a tre settimane Conoscere il team Se qualcuno si inserisce nel team è un fattore importante per dipendenti e datori di lavoro quando decidono a favore o contro l'assunzione. Diamo quindi a tutti la possibilità di conoscersi in un ambiente rilassato. Offerta e emissione del contratto (digitale) Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti vengono nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato via email per la firma digitale. Durata fino al feedback: fino a una settimana\n\nTasso di occupazione: 140%",
-        "en": "Are you interested in actively shaping Migros' future analytics? Our Analytics, Reporting, Data & Platform division develops and operates modern data and analytics solutions on GCP and Power BI. As a team leader and Product Owner Analytics & Reporting, you lead an interdisciplinary team and are responsible for analytics, data and AI products from the idea to the operation.\n\nMansioni - You lead an interdisciplinary team of Data Scientists and Data Engineers and develop it professionally and personally as a Servant Leader and Coach - As a technical Product Owner you are consistently responsible for the design and prioritization of features and backlogs according to benefits and effects, taking into account the roadmaps and the allocation of data - together with your team bringt du Analytics and data solutions from the idea to productive operation.\n\nYou are formulating clear implementation orders, promoting pragmatic solutions and ensuring quality and sustainability - As part of the expanded leadership team, you actively shape the handling of new technologies such as Agentic AI and develop your team in a targeted manner with a view to future requirements - you strengthen the organization's data and AI expertise, evaluate new technologies to their added value, promote knowledge sharing and empower employees, analytics and AI solutions to use safely, responsibly and effectively\n\nRequisiti - At least 4 years of experience: in the field of data & analytics with experience in the development and operation of cloud-based analytics solutions, data products, analytical web applications and reporting - Completed studies (Uni/ETH, FH, HF): in (economic) computer science, mathematics, physics, data science, economics or any other quantitative field - You have several years of practical experience in the use of data science, analytics and reporting and enjoy translating complex business questions into understandable, effective solutions - Du Bringt\n\nLeadership experience or demonstrable leadership responsibility and strong Product Owner skillset and are familiar with the appropriate tools and methodologies - you communicate clearly, valuefully and addressately.\n\nYou can communicate between business, technology and people, creating effective, motivated collaboration across departments – you have a good understanding of cloud-based platforms (e.g.GCP, Azure) and the use of Python, SQL, dbt or similar and you know AI tools, ML methods and agent systems.\n\nDevSecOps and MLOps are familiar to you - experience in the use of analytics in one of the following areas: Pricing, action optimization, product range optimization, geo-based applications - German (negotiable) - English (very good knowledge)\n\nCosa offriamo - Mobile flexible working model: Time and space flexibility in fulfilling the",
+        "en": "Are you interested in actively shaping Migros' future analytics? Our Analytics, Reporting, Data & Platform division develops and operates modern data and analytics solutions on GCP and Power BI. As a team leader and Product Owner Analytics & Reporting, you lead an interdisciplinary team and are responsible for analytics, data and AI products from the idea to the operation.\n\nMansioni - You lead an interdisciplinary team of Data Scientists and Data Engineers and develop it professionally and personally as a Servant Leader and Coach - As a technical Product Owner you are consistently responsible for the design and prioritization of features and backlogs according to benefits and effects, taking into account the roadmaps and the allocation of data - together with your team bringt du Analytics and data solutions from the idea to productive operation.\n\nYou are formulating clear implementation orders, promoting pragmatic solutions and ensuring quality and sustainability - As part of the expanded leadership team, you actively shape the handling of new technologies such as Agentic AI and develop your team in a targeted manner with a view to future requirements - you strengthen the organization's data and AI expertise, evaluate new technologies to their added value, promote knowledge sharing and empower employees, analytics and AI solutions to use safely, responsibly and effectively\n\nRequisiti - At least 4 years of experience: in the field of data & analytics with experience in the development and operation of cloud-based analytics solutions, data products, analytical web applications and reporting - Completed studies (Uni/ETH, FH, HF): in (economic) computer science, mathematics, physics, data science, economics or any other quantitative field - You have several years of practical experience in the use of data science, analytics and reporting and enjoy translating complex business questions into understandable, effective solutions - Du Bringt\n\nLeadership experience or demonstrable leadership responsibility and strong Product Owner skillset and are familiar with the appropriate tools and methodologies - you communicate clearly, valuefully and addressately.\n\nYou can communicate between business, technology and people, creating effective, motivated collaboration across departments – you have a good understanding of cloud-based platforms (e.g.GCP, Azure) and the use of Python, SQL, dbt or similar and you know AI tools, ML methods and agent systems.\n\nDevSecOps and MLOps are familiar to you - experience in the use of analytics in one of the following areas: Pricing, action optimization, product range optimization, geo-based applications - German (negotiable) - English (very good knowledge)\n\nCosa offriamo - Mobile flexible working model: Time and space flexibility in fulfilling the function (as orientation 40% Home Office) - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Fair wages: Functional and market-oriented unburden - \"We pay fair\" certified - Social benefits: Attractive employment conditions with very good social benefits - Targeted promotion: Promotion of our employees with targeted personnel development measures - Self-responsibility & freedom: A varied field of tasks with\n\nhigh ownership\n\nContatto Application & Contact Yanick Mohn TalentSriv Partner - LinkedIn ## Recruitment process Submit application documents We need your CV, certificates and diplomas for a complete application. No photo in your CV or motivation letter is required. We live equal opportunities for all applicants. We have a standardized recruitment process. If this doesn't work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about the human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and the team. Duration to feedback: Up to three weeks of expert discussion with case presentation Specific expertise is examined using a case or other instruments of the company.After processing, the result of the management person is presented and then discussed together. Usually, the team is also represented at the presentation.\n\nThe interviews are usually conducted by the superior person, without representatives from the HR. Duration to feedback: Up to three weeks to get to know the team Whether someone fits into the team is an important factor for employees and employers in deciding for or against employment. Therefore, in an informal framework, we give everyone the opportunity to get to know each other. Offer & Contract Exhibition (Digital) After our oral job offer, the most important contract points are verified again.\n\nThe contract is commissioned by agreement and sent by e-mail for the digital signature. Duration to feedback: Up to one week\n\nGrado di occupazione: 140%",
         "fr": "Souhaitez-vous façonner activement l’avenir analytique de Migros ? Notre département Analytics, Reporting, Data & Platform développe et exploite des solutions de données et d'analyse modernes sur GCP et Power BI. En tant que chef d'équipe et propriétaire de produit pour Analytics & Reporting, vous dirigez une équipe interdisciplinaire et êtes responsable des produits d'analyse, de données et d'IA, de l'idée à l'exploitation.\n\nManoir\n- Vous dirigez une équipe interdisciplinaire de data scientists et d'ingénieurs de données et les développez professionnellement et personnellement en tant que leader et coach\n- En tant que propriétaire de produit technique, vous êtes responsable de la conception et de la priorisation des fonctionnalités et du backlog de manière cohérente en fonction des avantages et de l'impact, en tenant compte des feuilles de route et des budgets.\n- Avec votre équipe, vous apportez des solutions d'analyse et de données de l'idée à l'exploitation productive. Vous formulez des ordres d'exécution clairs, favorisez des solutions pragmatiques et garantissez la qualité et la durabilité\n- En tant que membre de l'équipe de direction élargie, vous façonnerez activement l'utilisation de nouvelles technologies telles que Agentic AI et développerez davantage votre équipe spécifiquement en vue des exigences futures.\n- Vous renforcez les compétences de l'organisation en matière de données et d'IA, évaluez les nouvelles technologies pour leur valeur ajoutée, favorisez l'échange de connaissances et permettez aux employés d'utiliser les solutions d'analyse et d'IA de manière sûre, responsable et efficace.\n\nAccessoires\n- Au moins 4 ans d'expérience : dans le domaine des données et de l'analyse, avec une expérience dans la mise en place et l'exploitation de solutions d'analyse basées sur le cloud, de produits de données, d'applications Web analytiques et de reporting.\n- Études terminées (Université/ETH, FH, HF) : en informatique (commerciale), mathématiques, physique, science des données, économie ou autre domaine quantitatif\n- Vous possédez plusieurs années d'expérience pratique dans l'utilisation de la science des données, de l'analyse et du reporting et aimez traduire des questions commerciales complexes en solutions compréhensibles et efficaces.\n- Vous avez une expérience en leadership ou des responsabilités de leadership démontrables et de solides compétences en matière de propriétaire de produit et êtes familier avec les outils et méthodologies pertinents.\n- Vous communiquez de manière claire, valorisante et appropriée. Vous pouvez servir d'intermédiaire entre l'entreprise, la technologie et les personnes et créer une collaboration efficace et motivée entre les départements.\n- Vous avez une bonne compréhension des plateformes basées sur le cloud (par exemple GCP, Azure) ainsi que de l'utilisation de Python, SQL, dbt ou similaire et êtes familier avec les outils d'IA, les méthodologies ML et les systèmes d'agents. Vous êtes familier avec DevSecOps et MLOps\n- Expérience dans l'utilisation de l'analyse dans l'un des domaines suivants : tarification, optimisation des promotions, optimisation de la gamme de produits, applications géolocalisées\n- Allemand (courant des affaires)\n- Anglais (très bonne connaissance)\n\nCosa offriamo\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Salaires équitables : Rémunération axée sur la fonction et adaptée au marché - Certifié « We pay fair »\n- Avantages sociaux : Conditions d'emploi attractives avec de très bonnes prestations sociales\n- Accompagnement ciblé : Soutenir nos collaborateurs avec des mesures ciblées de développement du personnel\n- Responsabilité personnelle et liberté : Domaine de tâches varié avec un haut niveau de responsabilité personnelle\n\nContact\nCandidature et contact Yanick Mohn Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : Jusqu'à trois semaines de discussion technique avec présentation de cas. Les connaissances spécialisées spécifiques sont testées à l'aide d'un cas ou d'autres instruments d'évaluation. Après traitement, le résultat est présenté au manager puis discuté ensemble. L'équipe est généralement également représentée lors de la présentation. En règle générale, les discussions sont menées par le supérieur hiérarchique, sans représentant des RH.\n\nDurée jusqu'au feedback : jusqu'à trois semaines Apprendre à connaître l'équipe La question de savoir si quelqu'un s'intègre dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'embaucher ou non. Nous donnons donc à chacun la possibilité de faire connaissance dans un cadre détendu. Offre et émission du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat sont à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'au retour : jusqu'à une semaine\n\nTaux d'occupation : 140%"
       },
       "slugByLocale": {
@@ -124254,15 +124255,43 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich",
-          "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox"
+          "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox",
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich",
+          "proprietario-del-prodotto-f-m-d-migros-genossenschafts-bund-zurich",
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+          "proprietaire-du-produit-f-m-d-migros-genossenschafts-bund-zurich",
+          "progettazione-del-prodotto-piombo-f-m-d-migros-genossenschafts-bund-zurich",
+          "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich-cn8b7q",
+          "conception-du-produit-plomb-f-m-d-migros-genossenschafts-bund-zurich",
+          "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich",
+          "product-owner-w-m-d-migros-genossenschafts-bund-zurich",
+          "product-owner-h-f-d-migros-genossenschafts-bund-zurich",
+          "product-owner-f-h-d-migros-genossenschafts-bund-zurich",
+          "product-owner-u-d-n-migros-genossenschafts-bund-zurich"
         ],
         "fr": [
-          "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox"
+          "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox",
+          "proprietaire-du-produit-f-m-d-migros-genossenschafts-bund-zurich"
+        ],
+        "de": [
+          "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl"
         ]
       },
       "previousSlugs": [
         "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich",
-        "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox"
+        "teamleiter-in-product-owner-analytics-reporting-migros-genossenschafts-bund-zurich-xzozox",
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich",
+        "proprietario-del-prodotto-f-m-d-migros-genossenschafts-bund-zurich",
+        "product-owner-m-w-d-migros-genossenschafts-bund-zurich-ge1xzl",
+        "proprietaire-du-produit-f-m-d-migros-genossenschafts-bund-zurich",
+        "progettazione-del-prodotto-piombo-f-m-d-migros-genossenschafts-bund-zurich",
+        "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich-cn8b7q",
+        "conception-du-produit-plomb-f-m-d-migros-genossenschafts-bund-zurich",
+        "product-design-lead-m-w-d-migros-genossenschafts-bund-zurich",
+        "product-owner-w-m-d-migros-genossenschafts-bund-zurich",
+        "product-owner-h-f-d-migros-genossenschafts-bund-zurich",
+        "product-owner-f-h-d-migros-genossenschafts-bund-zurich",
+        "product-owner-u-d-n-migros-genossenschafts-bund-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -124281,8 +124310,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-1ardea",
@@ -124330,15 +124358,15 @@
       "crawledAt": "2026-07-02T22:30:51.514Z",
       "firstSeenAt": "2026-07-02T22:30:51.514Z",
       "titleByLocale": {
-        "en": "Senior Network Security Engineer (w/m/d)",
-        "it": "Senior Network Security Ingegnere (w/m/d)",
-        "de": "Senior Network Security Ingenieur (w/m/d)",
-        "fr": "Ingénieur Senior en Sécurité Réseau (w/m/d)"
+        "en": "Senior Network Security Engineer (f/m/d)",
+        "it": "Senior Network Security Engineer (m/f/d)",
+        "de": "Senior Network Security Engineer (w/m/d)",
+        "fr": "Senior Network Security Engineer (h/f/d)"
       },
       "descriptionByLocale": {
         "de": "Unser Direktionsbereich Group Technology Services erbringt IT-Dienstleistungen und Services für zahlreiche Unternehmen der Migros-Gruppe. Als Senior Network Security Engineer (w/m/d) hilfst du mit, unsere Netzwerke im Bereich F5/Loadbalancer, Firewall, Proxy, VPN und weiteren Security Komponenten aufrecht zu erhalten und weiterzuentwickeln.\n\nMansioni\n- Engineering in den Bereichen F5/Loadbalancer, Firewall und Proxy im ganzen Migros Netzwerk\n- Mitgestaltung der aktuellen und zukünftigen Netzwerk-Security Umgebung mit Schwerpunkt F5/Loadbalancer\n- Unterstützung des 2nd Level Supports im Bereich Incident- und Problem-Management\n- Schulung von Mitarbeitenden unseres Network Operation Centers (NOC) sowie Pflege der Dokumentation in Confluence\n- Koordination von externen Mitarbeitenden und Partnerfirmen in definierten Themengebieten\n\nRequisiti\n- Mindestens 5 Jahre Berufserfahrung: im Netzwerk Engineering, Design und Betrieb mit F5/Loadbalancer und Netzwerksicherheit\n- Abgeschlossene Berufslehre (EFZ): in Informatik, entsprechende Weiterbildung von Vorteil\n- Fundiertes Wissen im Design und Betrieb von F5/Loadbalancer (iRules) sowie Erfahrungen im Bereich Authentication (Entra-ID, SAML)\n- Kundenorientierte Persönlichkeit mit selbständiger und strukturierter Arbeitsweise\n- Bereitschaft für Pikettdienst (ca. 10 Einsätze pro Jahr) inkl. Nacht-und Wochenendeinsätze\n- Erfahrung im Umgang mit SSL-/TLS-Zertifikaten wie Let's Encrypt und Vertrautheit in agilen Arbeitsmethoden, vorzugsweise in SAFe\n- Deutsch (sehr gute Kenntnisse)\n- Englisch (gute Kenntnisse)\n\nCosa offriamo\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert\n- Klubschule und Freizeitanlagen: 70% Rabatt bei Angeboten der Migros Klubschule, 30% Rabatt für Fitness-/Wellness-/Aquaparks\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n\nContatto\nBewerbung & Kontakt Lisa Weissenböck Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\nGrado di occupazione: 780%",
         "it": "La nostra divisione Servizi Tecnologici di Gruppo fornisce servizi IT per molte aziende del Gruppo Migros. Come Senior Network Security Engineer (w/m/d), aiuta a mantenere e sviluppare le nostre reti nelle aree di F5/Load Balancer, Firewall, Proxy, VPN e altri componenti di sicurezza.\n\nMansioni - Engineering in the areas of F5/Load Balancer, Firewall and Proxy into therefore Migros Network - Co-design of current and future network security environment with focus on F5/Load Balancer - Supporto del supporto di 2° livello in materia di gestione degli incidenti e dei problemi - Formazione dei dipendenti del nostro Network Operation Center (NOC) e manutenzione della documentazione in Confluence - Coordinamento dei dipendenti esterni e delle aziende partner in temi definiti\n\nSessione notturna e fine settimana - esperienza nella gestione dei certificati SSL/TLS come Let's En-Krit e la facsimile in metodi di lavoro ailron, preferibilmente in SAFe - tedesco (ottima conoscenza) - inglese (buona conoscenza)\n\nCoca-Bebe - Mobile flessibile modello di lavoro: Flessibilità temporale e spaziale per l'adempimento della funzione (come orientamento 40% Home Office) - Stipendi equi: compensazione funzionale e orientata al mercato - certificato \"Paghiamo equo\" - Club scuola e strutture ricreative: 70% di sconto per le offerte della scuola Migros Club, 30% di sconto per il fitness/wellness/aquapark - responsabilità personale e spazio: vario campo di responsabilità con elevata proprietà - luogo di lavoro centrale: luogo di lavoro centrale nella città di Zurigo (limmatplatz o vicino Hardbrücke) - offerta professionale:\n\nVantaggi superiori alla media e tre diversi piani di risparmio corrispondenti alla situazione di vita individuale\n\nContatto Richiesta & Contatto Lisa Weissenböck TotalntScif Partner - LinkedIn ## Processo di assunzione Inviare documenti di candidatura Abbiamo bisogno del tuo CV, certificati e diplomi per una domanda completa. Una foto nel tuo CV e una lettera di motivazione non sono necessari. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per voi, menzionarlo nel vostro dossier di domanda.\n\nControlliamo continuamente le domande in arrivo, prepariamo una selezione preliminare e le rilasciamo alla direzione per la vista.La decisione sullo stato di avanzamento o la partenza dal processo di reclutamento è comunicata per telefono o e-mail. Durata del feedback: Fino a tre settimane di consultazione con HR & Department L'intervista è condotta con la persona responsabile delle risorse umane e/o il dipartimento del dipartimento del campo o sul sito.\n\nL'attenzione principale è quella di approfondire le competenze umane e tecniche e dare a entrambe le parti la possibilità di valutare l'idoneità culturale dell'azienda e del team. Durata dei feedback: Fino a tre settimane di discussione con esperti con presentazione di casi specifici è esaminata con un caso o altri strumenti dell'azienda.Al termine del trattamento, il risultato della persona di direzione viene presentato e poi discusso insieme.\n\nLe interviste sono di solito condotte dalla persona superiore, senza rappresentanti dell'HR. Durata dei feedback: fino a tre settimane per conoscere il team Se qualcuno si inserisce nel team è un fattore importante per i dipendenti e i datori di lavoro nel decidere a favore o contro l'occupazione. Pertanto, in un quadro informale, diamo a tutti l'opportunità di conoscersi. Offerta & esposizione contrattuale (Digital) Dopo la nostra offerta di lavoro orale, i punti più importanti del contratto sono nuovamente verificati.\n\nIl contratto è commissionato per accordo e inviato via e-mail per la firma digitale. Durata dei feedback: Fino a una settimana ## Nota per i fornitori di servizi HR Prendiamo in considerazione le applicazioni dirette solo per questo lavoro.\n\n(') Di occupazione: 780",
-        "en": "Our Group Technology Services division provides IT services and services for many Migros Group companies. As a Senior Network Security Engineer (w/m/d), you help maintain and develop our networks in the areas of F5/Load Balancer, Firewall, Proxy, VPN and other security components.\n\nMansioni - Engineering in the areas of F5/Load Balancer, Firewall and Proxy throughout Migros Network - Co-design of current and future network security environment with focus on F5/Load Balancer - Support of 2nd Level Support in the area of incident and problem management - Training of employees of our Network Operation Center (NOC) as well as maintenance of documentation in Confluence - Coordination of external employees and partner companies in defined topics\n\nRequisiti - At least 5 years of professional experience: in the network Engineering, design and operation with F5/Load Balancer and network security - Completed vocational training (EFZ): in computer science, appropriate further training of advantage - Well-founded knowledge in the design and operation of F5/Load Balancer (iñas) as well as experiences in the field of authentication (Entra-ID, SAML) - customer-oriented personality with independent and structured working methods - readiness for piket service (approx.\n\nNight and weekend sessions - experience in handling SSL/TLS certificates such as Let's En-Krit and familiarity in ailron working methods, preferably in SAFe - German (very good knowledge) - English (good knowledge)\n\nCosa offriamo - Mobile flexible working model: Time and space flexibility in fulfilling the",
+        "en": "Our Group Technology Services division provides IT services and services for many Migros Group companies. As a Senior Network Security Engineer (w/m/d), you help maintain and develop our networks in the areas of F5/Load Balancer, Firewall, Proxy, VPN and other security components.\n\nMansioni - Engineering in the areas of F5/Load Balancer, Firewall and Proxy throughout Migros Network - Co-design of current and future network security environment with focus on F5/Load Balancer - Support of 2nd Level Support in the area of incident and problem management - Training of employees of our Network Operation Center (NOC) as well as maintenance of documentation in Confluence - Coordination of external employees and partner companies in defined topics\n\nRequisiti - At least 5 years of professional experience: in the network Engineering, design and operation with F5/Load Balancer and network security - Completed vocational training (EFZ): in computer science, appropriate further training of advantage - Well-founded knowledge in the design and operation of F5/Load Balancer (iñas) as well as experiences in the field of authentication (Entra-ID, SAML) - customer-oriented personality with independent and structured working methods - readiness for piket service (approx.\n\nNight and weekend sessions - experience in handling SSL/TLS certificates such as Let's En-Krit and familiarity in ailron working methods, preferably in SAFe - German (very good knowledge) - English (good knowledge)\n\nCosa offriamo - Mobile flexible working model: Time and space flexibility in fulfilling the function (as orientation 40% Home Office) - Fair wages: functional and market-oriented compensation - \"We pay fair\" certified - Club school and leisure facilities: 70% discount for offers of the Migros Club school, 30% discount for fitness/wellness/aquaparks - personal responsibility & space: varied field of responsibility with high ownership - central place of work: central place of work in the city of Zurich (limmatplatz or near Hardbrücke) - occupational provision:\n\nAbove average benefits and three different savings plans matching the individual life situation\n\nContatto Application & Contact Lisa Weissenböck TalentScif Partner - LinkedIn ## Recruitment process Submit application documents We need your CV, certificates and diplomas for a complete application. A photo in your CV and a letter of motivation are not necessary. We live equal opportunities for all applicants. We have a standardized recruitment process. If this doesn't work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about the human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and the team. Duration to feedback: Up to three weeks of expert discussion with case presentation Specific expertise is examined using a case or other instruments of the company.After processing, the result of the management person is presented and then discussed together. Usually, the team is also represented at the presentation.\n\nThe interviews are usually conducted by the superior person, without representatives from the HR. Duration to feedback: Up to three weeks to get to know the team Whether someone fits into the team is an important factor for employees and employers in deciding for or against employment. Therefore, in an informal framework, we give everyone the opportunity to get to know each other. Offer & Contract Exhibition (Digital) After our oral job offer, the most important contract points are verified again.\n\nThe contract is commissioned by agreement and sent by e-mail for the digital signature. Duration to feedback: Up to one week ## Note for HR service providers We take into account direct applications for this job only.\n\nGrado di occupazione: 780",
         "fr": "Notre division Services de Technologie de Groupe fournit des services et des services informatiques pour de nombreuses entreprises du groupe Migros. En tant qu'ingénieur principal de la sécurité réseau (w/m/d), vous aidez à maintenir et développer nos réseaux dans les domaines de F5/Load Balancer, Firewall, Proxy, VPN et d'autres composants de sécurité.\n\nMansioni - Ingénierie dans les domaines de F5/Load Balancer, Firewall et Proxy dans tout le réseau Migros - Co-conception de l'environnement actuel et futur de sécurité du réseau avec l'accent sur F5/Load Balancer - Soutien de 2ème niveau Support dans le domaine de la gestion des incidents et des problèmes - Formation des employés de notre Centre d'exploitation du réseau (NOC) ainsi que la maintenance de la documentation dans Confluence - Coordination des employés externes et des entreprises partenaires dans des sujets définis\n\nRequisiti - Au moins 5 ans d'expérience professionnelle: dans le réseau Ingénierie, conception et fonctionnement avec F5/Load Balancer et sécurité du réseau - Formation professionnelle terminée (EFZ): en informatique, formation continue appropriée d'avantage - Connaissances bien fondées dans la conception et le fonctionnement de F5/Load Balancer (iñas) ainsi que des expériences dans le domaine de l'authentification (Entra-ID, SAML) - personnalité orientée client avec des méthodes de travail indépendantes et structurées - préparation au service piket (approx.\n\nSessions de nuit et de week-end - expérience dans le traitement des certificats SSL/TLS comme Let's En-Krit et familiarité dans les méthodes de travail ailron, de préférence en Safe - Allemand (très bonne connaissance) - Anglais (bonne connaissance)\n\nCosa offriamo - Mobile flexible working model: Time and space flexible in fairing the fonction (as orientation 40% Home Office) - Salaire équitable: rémunération fonctionnelle et orientée vers le marché - \"We pay fair\" certifié - Club school and lisure facilities: 70% de réduction pour les offres de l'école Migros Club, 30% de réduction pour la condition physique/bien-être/aquaparks - responsabilité personnelle & espace: domaine de responsabilité varié avec forte propriété - lieu de travail central: lieu de travail central dans la ville de Zurich (limmatplatz ou près de Hardbrücke) - disposition professionnelle:\n\nPrestations supérieures à la moyenne et trois régimes d'épargne différents correspondant à la situation individuelle de la vie\n\nContatto Application & Contact Lisa Weissenböck TalentScif Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Nous avons besoin de votre CV, de votre certificat et de votre diplôme pour une demande complète.Une photo de votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats.\n\nNous vérifions continuellement les demandes reçues, préparons une sélection préliminaire et les transmettons à la direction pour avis.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée de la rétroaction : Jusqu'à trois semaines de consultation avec RH & Ministère L'entrevue est menée avec la personne responsable des RH et/ou le ministère du domaine ou sur place.\n\nL'accent est mis sur l'acquisition de compétences humaines et techniques et sur la possibilité pour les deux parties d'évaluer la culture de l'entreprise et de l'équipe.Durée de la rétroaction : Jusqu'à trois semaines de discussion d'experts avec présentation de cas Une expertise spécifique est examinée à l'aide d'un cas ou d'autres instruments de l'entreprise.Après traitement, le résultat de la personne de gestion est présenté et discuté ensemble.\n\nLes entrevues sont habituellement menées par la personne supérieure, sans représentants des RH. Durée de la rétroaction : Jusqu'à trois semaines pour apprendre à connaître l'équipe Si quelqu'un s'intègre à l'équipe est un facteur important pour les employés et les employeurs dans la décision de l'emploi ou contre. Par conséquent, dans un cadre informel, nous donnons à chacun la possibilité de se connaître.\n\nLe contrat est commandé par accord et envoyé par courriel pour la signature numérique. Durée de la rétroaction : Jusqu'à une semaine ## Note pour les fournisseurs de services RH Nous prenons en compte les demandes directes pour ce travail seulement.\n\nGrado di occupationazione: 780"
       },
       "slugByLocale": {
@@ -124391,8 +124419,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-vtqcro",
@@ -124550,15 +124577,15 @@
       "crawledAt": "2026-06-26T12:06:26.298Z",
       "firstSeenAt": "2026-06-26T12:06:26.298Z",
       "titleByLocale": {
-        "en": "Senior Cloud Network Engineer (w/m/d)",
-        "it": "Senior Cloud Network Ingegnere (w/m/d)",
-        "de": "Senior Cloud Network Ingenieur (w/m/d)",
-        "fr": "Ingénieur Réseau Cloud Senior (f/m/d)"
+        "en": "Senior Cloud Network Engineer (f/m/d)",
+        "it": "Senior Cloud Network Engineer (m/f/d)",
+        "de": "Senior Cloud Network Engineer (w/m/d)",
+        "fr": "Senior Cloud Network Engineer (h/f/d)"
       },
       "descriptionByLocale": {
         "de": "Wir suchen dich als Senior Cloud Network Engineer für unser Cloud Access Team. Gemeinsam mit deinen Kollegen*innen verantwortest du die Weiterentwicklung und den Betrieb der Cloud-Netzwerkplattform der Migros. Dein Fokus liegt klar auf dem Cloud-Bereich mit dem Techstack: Software-Defined Networking (SDN) (Azure/GCP), Core-DNS, Consul, WebProxy, IaC (Terraform/Terragrunt), Observability (Grafana).\n\nMansioni\n- Design, Engineering und Betrieb der Cloud Landing Zone in Azure und GCP mit klarem Fokus auf Networking & Connectivity sowie auf skalierbare und sichere Plattform-Services\n- Design und Implementierung automatisierter Cloud Network- und Plattform-Services sowie Weiterentwicklung von Infrastructure-as-Code-Standards (Terraform / Terragrunt) inklusive deren Automatisierung\n- Aufbau und Weiterentwicklung von Cloud Connectivity (VPC / VNet, Routing, DNS, Hybrid Connectivity, Zero Trust) mit Fokus auf den Cloud-Bereich sowie Sicherstellung von Observability (Monitoring, Logging, Alerting) für Plattform-Services\n- Analyse und Umsetzung von Anforderungen aus Dev-Teams sowie kontinuierliche Verbesserung der Developer Experience inkl. Troubleshooting und Performance-Optimierung der Cloud-Infrastruktur\n- Enge Zusammenarbeit mit anderen Plattformteams, Security, Architektur sowie externen Partnern\n- Aktiver Beitrag zu Architekturentscheidungen sowie Mitgestaltung von Standards und Best Practices im Cloud Networking\n- Übernahme des 3rd-Level-Supports sowie Pikettdienstes (OnCall)\n\nRequisiti\n- Mehrjährige Erfahrung: als Cloud Engineer / Platform Engineer / Network Engineer in Enterprise-Umgebungen\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): in Informatik oder gleichwertige Berufserfahrung\n- Sehr gute Kenntnisse in Cloud Networking auf Azure und/oder GCP (VPC/VNet, Routing, DNS, Hybrid Connectivity, Security, Zero Trust)\n- Erfahrung mit DevOps-Prinzipien (CI/CD, Automatisierung, GitOps)\n- Erfahrung mit Infrastructure as Code (Terraform / Terragrunt) sowie in Architektur- oder Designentscheidungen\n- Know-how im Betrieb verteilter Systeme sowie in Observability (z. B. Grafana, Logging, Metrics)\n- Fähigkeit, komplexe technische Probleme strukturiert zu analysieren und nachhaltig zu lösen\n- «Get things done»-Mentalität und hohe Eigenverantwortung sowie Neugier und Bereitschaft, neue Technologien und Trends im Cloud-Umfeld zu evaluieren und einzusetzen\n- Teamplayer mit guten Kommunikationsfähigkeiten, pragmatischem Mindset und Freude an Zusammenarbeit auf Augenhöhe\n- Deutsch (verhandlungssicher)\n- Englisch (verhandlungssicher)\n\nCosa offriamo\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert\n- Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n- Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen\n\nContatto\nBewerbung & Kontakt Yanick Mohn Talent Acquisition Partner - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche\n\nGrado di occupazione: 782%",
         "it": "Ti stiamo cercando come Senior Cloud Network Engineer per il nostro team di accesso al cloud. Insieme ai tuoi colleghi sarai responsabile dell'ulteriore sviluppo e della gestione della piattaforma di rete cloud di Migros. La tua attenzione è chiaramente rivolta all'area cloud con lo stack tecnologico: Software-Defined Networking (SDN) (Azure/GCP), Core DNS, Consul, WebProxy, IaC (Terraform/Terragrunt), Observability (Grafana).\n\nMansioni\n- Progettazione, ingegneria e gestione della Cloud Landing Zone in Azure e GCP con una chiara attenzione al networking e alla connettività, nonché ai servizi della piattaforma scalabili e sicuri\n- Progettazione e implementazione di servizi di rete e piattaforma cloud automatizzati, nonché ulteriore sviluppo di standard Infrastructure-as-Code (Terraform / Terragrunt), inclusa la loro automazione\n- Sviluppo e ulteriore sviluppo della connettività cloud (VPC/VNet, routing, DNS, connettività ibrida, zero trust) con focus sull'area cloud oltre a garantire l'osservabilità (monitoraggio, logging, alerting) per i servizi della piattaforma\n- Analisi e implementazione dei requisiti dei team di sviluppo, nonché miglioramento continuo dell'esperienza degli sviluppatori, inclusa la risoluzione dei problemi e l'ottimizzazione delle prestazioni dell'infrastruttura cloud\n- Stretta collaborazione con altri team della piattaforma, sicurezza, architettura e partner esterni\n- Contribuire attivamente alle decisioni sull'architettura e contribuire a definire standard e migliori pratiche nel cloud networking\n- Presa in carico del supporto di 3° livello e del servizio di reperibilità (OnCall)\n\nOggetti di scena\n- Diversi anni di esperienza: come Cloud Engineer / Platform Engineer / Network Engineer in ambienti aziendali\n- Studi compiuti (Università/ETH, FH, HF): in informatica o esperienza professionale equivalente\n- Ottima conoscenza del cloud networking su Azure e/o GCP (VPC/VNet, Routing, DNS, Connettività ibrida, Sicurezza, Zero Trust)\n- Esperienza con i principi DevOps (CI/CD, automazione, GitOps)\n- Esperienza con Infrastructure as Code (Terraform / Terragrunt) e in decisioni architettoniche o di progettazione\n- Know-how nel funzionamento di sistemi distribuiti e nell'osservabilità (es. Grafana, logging, metriche)\n- Capacità di analizzare problemi tecnici complessi in modo strutturato e risolverli in modo sostenibile\n- Mentalità \"fai le cose\" e un elevato livello di responsabilità personale, nonché curiosità e volontà di valutare e utilizzare nuove tecnologie e tendenze nell'ambiente cloud\n- Giocatore di squadra con buone capacità di comunicazione, una mentalità pragmatica e piace lavorare insieme alla pari\n- Tedesco (fluente per gli affari)\n- Inglese (fluente per gli affari)\n\nCosa offriamo\n- Modello di lavoro mobile-flessibile: flessibilità di tempo e spazio nell'adempimento della funzione (40% home office a titolo indicativo)\n- Luogo di lavoro centrale: Luogo di lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke)\n- Salari equi: remunerazione orientata alla funzione e orientata al mercato - Certificato \"We pay fair\".\n- Prestazioni sociali: condizioni di lavoro attraenti con ottime prestazioni sociali\n- Responsabilità personale e libertà: ambito di compiti vario con un elevato livello di responsabilità personale\n- Sostegno mirato: sostenere i nostri collaboratori con misure mirate di sviluppo del personale\n\nContatto\nCandidatura e contatti Yanick Mohn Talent Acquisition Partner - LinkedIn ## Processo di reclutamento Invia documenti di candidatura Per una candidatura completa, abbiamo bisogno del tuo CV, certificati e diplomi. Non sono necessarie una foto nel CV e una lettera di motivazione. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per te, menzionalo nel tuo dossier di domanda. Preselezione delle candidature Controlliamo continuamente le candidature che riceviamo, creiamo una preselezione e la rilasciamo al gestore per la visione. La decisione di proseguire o abbandonare il processo di reclutamento viene comunicata telefonicamente o tramite e-mail. Durata fino al feedback: fino a tre settimane Colloquio con il reparto HR e specializzato Il colloquio si svolge virtualmente o sul posto con il responsabile del reparto HR e/o del reparto specializzato. L'obiettivo principale è quello di conoscere meglio il personale e le competenze specialistiche e offrire ad entrambe le parti l'opportunità di valutare la compatibilità culturale dell'azienda e del team. Durata fino al feedback: fino a tre settimane di discussione tecnica con presentazione del caso. Le conoscenze specialistiche specifiche vengono testate utilizzando un caso o altri strumenti di valutazione. Dopo l'elaborazione, il risultato viene presentato al responsabile e poi discusso insieme. Di solito anche la squadra è rappresentata alla presentazione. Di norma, le discussioni vengono condotte dal superiore, senza un rappresentante delle risorse umane.\n\nDurata fino al feedback: fino a tre settimane Conoscere il team Se qualcuno si inserisce nel team è un fattore importante per dipendenti e datori di lavoro quando decidono a favore o contro l'assunzione. Diamo quindi a tutti la possibilità di conoscersi in un ambiente rilassato. Offerta e emissione del contratto (digitale) Dopo la nostra offerta di lavoro verbale, i punti contrattuali più importanti vengono nuovamente verificati. Una volta concordato, il contratto verrà redatto e inviato via email per la firma digitale. Durata fino al feedback: fino a una settimana\n\nTasso di occupazione: 782%",
-        "en": "We are looking for you as Senior Cloud Network Engineer for our Cloud Access Team. Together with your colleagues, you are responsible for the further development and operation of Migros' cloud network platform. Your focus is clearly on the cloud area with the Techstack: Software-Defined Networking (SDN) (Azure/GCP), Core-DNS, Consul, WebProxy, IaC (Terraform/Terragrunt), and the Observability (Grana).\n\nMansioni - Design, engineering and operation of the Cloud Landing Zone in Azure and GCP with a clear focus on Networking & Connecting Towns and Towns and Towns, as well as scalable and secure platform-Services - Design and implementation of automated cloud network and platform-Services and further development of infrastructure-as-code standards (terraform / terragrunt) including their automation - Build and further development of Cloud Connecting Towns and Towns (VPC / VNet, routing, DNS, hybrids, and zero trust) with a focus on the cloud area and ensuring the visibility (monitoring, logging, alerting)\n\nfor Platform-Services - Analysis and implementation of requirements from Dev teams as well as continuous improvement of the Developer Experience incl.\n\nThe project will focus on the development of a new technology for the development of new technologies and technologies, and will focus on the development of new technologies and technologies for the development of new technologies and technologies.\n\nRequisiti - Multi-year experience: as Cloud Engineer / Platform Engineer / Network Engineer in Enterprise environments - Completed studies (Uni/ETH, FH, HF): in computer science or equivalent professional experience - Very good knowledge in Cloud Networking at Azure and/or GCP (VPC/VNet, Routing, DNS, Hybrid Networking, Security, Zero Trust) - Experience with DevOps principles (CI/CD, Automation, GitOps) - Experience with Infrastructure as Code (Terraform / Terragrunt) as well as in architectural or design decisions - know-how in the operation of distributed systems as well as inoberability (e.g.\n\nGrafana, Logging, Metrics) - Ability to analyze and sustainably solve complex technical problems in a structured manner - \"Get things done\" mentality and high ownership, as well as curiosity and willingness to evaluate and deploy new technologies and trends in the cloud environment - Team Players with good communication skills, pragmatic mindset and joy of working together on an equal footing - English (negotiation insurance)\n\nCosa offriamo - Mobile flexible working model: Time and spatial flexibility in fulfilling the",
+        "en": "We are looking for you as Senior Cloud Network Engineer for our Cloud Access Team. Together with your colleagues, you are responsible for the further development and operation of Migros' cloud network platform. Your focus is clearly on the cloud area with the Techstack: Software-Defined Networking (SDN) (Azure/GCP), Core-DNS, Consul, WebProxy, IaC (Terraform/Terragrunt), and the Observability (Grana).\n\nMansioni - Design, engineering and operation of the Cloud Landing Zone in Azure and GCP with a clear focus on Networking & Connecting Towns and Towns and Towns, as well as scalable and secure platform-Services - Design and implementation of automated cloud network and platform-Services and further development of infrastructure-as-code standards (terraform / terragrunt) including their automation - Build and further development of Cloud Connecting Towns and Towns (VPC / VNet, routing, DNS, hybrids, and zero trust) with a focus on the cloud area and ensuring the visibility (monitoring, logging, alerting)\n\nfor Platform-Services - Analysis and implementation of requirements from Dev teams as well as continuous improvement of the Developer Experience incl.\n\nThe project will focus on the development of a new technology for the development of new technologies and technologies, and will focus on the development of new technologies and technologies for the development of new technologies and technologies.\n\nRequisiti - Multi-year experience: as Cloud Engineer / Platform Engineer / Network Engineer in Enterprise environments - Completed studies (Uni/ETH, FH, HF): in computer science or equivalent professional experience - Very good knowledge in Cloud Networking at Azure and/or GCP (VPC/VNet, Routing, DNS, Hybrid Networking, Security, Zero Trust) - Experience with DevOps principles (CI/CD, Automation, GitOps) - Experience with Infrastructure as Code (Terraform / Terragrunt) as well as in architectural or design decisions - know-how in the operation of distributed systems as well as inoberability (e.g.\n\nGrafana, Logging, Metrics) - Ability to analyze and sustainably solve complex technical problems in a structured manner - \"Get things done\" mentality and high ownership, as well as curiosity and willingness to evaluate and deploy new technologies and trends in the cloud environment - Team Players with good communication skills, pragmatic mindset and joy of working together on an equal footing - English (negotiation insurance)\n\nCosa offriamo - Mobile flexible working model: Time and spatial flexibility in fulfilling the function (as orientation 40% Home Office) - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Fair wages: Functional and market-oriented compensation - \"We pay fair\" certified - Social benefits: Attractive employment conditions with very good social benefits - Self-responsibility & freedom: A varied field of responsibility with high ownership - Targeted promotion: Promotion of our employees with targeted\n\nStaff development measures\n\nContatto Application & Contact Yanick Mohn TalentSriv Partner - LinkedIn ## Recruitment process Submit application documents We need your CV, certificates and diplomas for a complete application. No photo in your CV or motivation letter is required. We live equal opportunities for all applicants. We have a standardized recruitment process. If this doesn't work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about the human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and the team. Duration to feedback: Up to three weeks of expert discussion with case presentation Specific expertise is examined using a case or other instruments of the company.After processing, the result of the management person is presented and then discussed together. Usually, the team is also represented at the presentation.\n\nThe interviews are usually conducted by the superior person, without representatives from the HR. Duration to feedback: Up to three weeks to get to know the team Whether someone fits into the team is an important factor for employees and employers in deciding for or against employment. Therefore, in an informal framework, we give everyone the opportunity to get to know each other. Offer & Contract Exhibition (Digital) After our oral job offer, the most important contract points are verified again.\n\nThe contract is commissioned by agreement and sent by e-mail for the digital signature. Duration to feedback: Up to one week\n\nGrado di occupazione: 782%",
         "fr": "Nous vous recherchons en tant qu'ingénieur réseau cloud senior pour notre équipe d'accès au cloud. Avec vos collègues, vous serez responsable du développement et de l'exploitation de la plateforme de réseau cloud de Migros. Vous vous concentrez clairement sur le domaine du cloud avec la pile technologique : Software-Defined Networking (SDN) (Azure/GCP), Core DNS, Consul, WebProxy, IaC (Terraform/Terragrunt), Observability (Grafana).\n\nManoir\n- Conception, ingénierie et exploitation de la Cloud Landing Zone dans Azure et GCP avec un accent clair sur la mise en réseau et la connectivité ainsi que sur les services de plateforme évolutifs et sécurisés\n- Conception et mise en œuvre de services de réseau et de plateforme cloud automatisés ainsi que développement ultérieur de normes d'infrastructure en tant que code (Terraform / Terragrunt), y compris leur automatisation\n- Développement et développement ultérieur de la connectivité cloud (VPC/VNet, routage, DNS, connectivité hybride, zéro confiance) en mettant l'accent sur le domaine du cloud ainsi qu'en assurant l'observabilité (surveillance, journalisation, alerte) des services de la plateforme\n- Analyse et mise en œuvre des exigences des équipes de développement ainsi que l'amélioration continue de l'expérience des développeurs incluant le dépannage et l'optimisation des performances de l'infrastructure cloud\n- Collaboration étroite avec les autres équipes plateforme, sécurité, architecture et partenaires externes\n- Contribuer activement aux décisions architecturales et aider à façonner les normes et les meilleures pratiques en matière de réseau cloud\n- Prise en charge du support 3ème niveau et du service d'astreinte (OnCall)\n\nAccessoires\n- Plusieurs années d'expérience : en tant qu'Ingénieur Cloud / Ingénieur Plateforme / Ingénieur Réseau en environnements d'entreprise\n- Études terminées (Université/ETH, FH, HF) : en informatique ou expérience professionnelle équivalente\n- Très bonne connaissance des réseaux cloud sur Azure et/ou GCP (VPC/VNet, Routage, DNS, Connectivité Hybride, Sécurité, Zero Trust)\n- Expérience avec les principes DevOps (CI/CD, automatisation, GitOps)\n- Expérience avec Infrastructure as Code (Terraform / Terragrunt) ainsi que dans les décisions architecturales ou de conception\n- Savoir-faire dans le fonctionnement des systèmes distribués et en observabilité (ex. Grafana, logging, métriques)\n- Capacité à analyser des problèmes techniques complexes de manière structurée et à les résoudre de manière durable\n- Mentalité « faire avancer les choses » et un haut niveau de responsabilité personnelle ainsi que curiosité et volonté d'évaluer et d'utiliser les nouvelles technologies et tendances dans l'environnement cloud.\n- Esprit d'équipe, doté de bonnes compétences en communication, d'un état d'esprit pragmatique et aimant travailler ensemble sur un pied d'égalité\n- Allemand (courant des affaires)\n- Anglais (affaires courant)\n\nCosa offriamo\n- Modèle de travail mobile-flexible : flexibilité temporelle et spatiale lors de l'exercice de la fonction (40 % de bureau à domicile à titre indicatif)\n- Lieu de travail central : Lieu de travail central dans la ville de Zurich (Limmatplatz ou près du Hardbrücke)\n- Salaires équitables : Rémunération axée sur la fonction et adaptée au marché - Certifié « We pay fair »\n- Avantages sociaux : Conditions d'emploi attractives avec de très bonnes prestations sociales\n- Responsabilité personnelle et liberté : Domaine de tâches varié avec un haut niveau de responsabilité personnelle\n- Accompagnement ciblé : Soutenir nos collaborateurs avec des mesures ciblées de développement du personnel\n\nContact\nCandidature et contact Yanick Mohn Talent Acquisition Partner - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Pour une candidature complète, nous avons besoin de votre CV, de vos certificats et diplômes. Une photo dans votre CV et une lettre de motivation ne sont pas nécessaires. Nous vivons l'égalité des chances pour tous les candidats. Nous avons un processus de recrutement standardisé. Si cela ne fonctionne pas pour vous, mentionnez-le dans votre dossier de candidature. Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au responsable pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au feedback : jusqu'à trois semaines Conversation avec le service RH et spécialisé L'entretien se déroule virtuellement ou sur place avec le responsable des RH et/ou du service spécialisé. L'objectif principal est d'en savoir plus sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'au retour d'information : Jusqu'à trois semaines de discussion technique avec présentation de cas. Les connaissances spécialisées spécifiques sont testées à l'aide d'un cas ou d'autres instruments d'évaluation. Après traitement, le résultat est présenté au manager puis discuté ensemble. L'équipe est généralement également représentée lors de la présentation. En règle générale, les discussions sont menées par le supérieur hiérarchique, sans représentant des RH.\n\nDurée jusqu'au feedback : jusqu'à trois semaines Apprendre à connaître l'équipe La question de savoir si quelqu'un s'intègre dans l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'embaucher ou non. Nous donnons donc à chacun la possibilité de faire connaissance dans un cadre détendu. Offre et émission du contrat (numérique) Après notre offre d'emploi verbale, les points les plus importants du contrat sont à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par e-mail pour signature numérique. Durée jusqu'au retour : jusqu'à une semaine\n\nTaux d'occupation : 782%"
       },
       "slugByLocale": {
@@ -124612,8 +124639,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-p2e0em",
@@ -127227,13 +127253,13 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Senior Projektleiter*in Bauherrenvertretung Bau und Infrastruktur",
-        "it": "Senior Projektleiter*in Bauherrenvertretung Bau e Infrastruktur",
-        "en": "Senior Project Manager Construction and Infrastructure",
-        "fr": "Senior Project Manager Construction and Infrastructure"
+        "it": "Senior Project Manager Rappresentanza del Committente Edilizia e Infrastrutture",
+        "en": "Senior Project Manager Client Representation Construction and Infrastructure",
+        "fr": "Chef de projet senior Représentation du maître d'ouvrage Construction et Infrastructures"
       },
       "descriptionByLocale": {
         "it": "Il Gruppo MIGROS ha uno dei più grandi portafogli edilizi svizzeri. Migros Engineering Solutions è il centro di competenza per soluzioni in catena di approvvigionamento, tecnologia, costruzione ed energia. Il dipartimento di gestione dei progetti supporta la logistica e le sedi industriali in tutta la Svizzera nella progettazione e realizzazione di progetti di costruzione e di tecnologia edilizia.\n\nMansioni - Consulenza e rappresentanza delle aziende industriali e logistiche del Gruppo Migros nello sviluppo, pianificazione e realizzazione di progetti costruttivi esigenti - Coordinamento di grandi progetti interdisciplinare dallo sviluppo di concept, valutazione del team di progettazione alla gara d'appalto e al monitoraggio della pianificazione e del montaggio di esecuzione con controllo funzionale/performance e accettazione con pulizia guasti - Supporto della maestria edilizia nello sviluppo di progetti, organizzazione di progetti e la compilazione di un potente team di progetto - Leading aziende esterne nella\n\nGestione dei progetti Costruzione e infrastrutture, nonché garanzia del processo di pianificazione ottimale nel progetto complessivo - Finanziamento del trasferimento di know-how alla tecnologia edilizia, tendenze e barriere future all'interno del Gruppo Migros\n\nDettagli relativi alla gestione dei progetti\n\nFormazione nelle infrastrutture Temi e gestione dei progetti - Competenza fondata in materia di costruzione e infrastrutture, nonché ampie conoscenze applicative in materia di tecnologia edilizia/energia - Metodi di lavoro flessibili, pragmatici e orientati alla soluzione per individuare le lacune e fornire una soluzione proficua - Esperienza di gestione o gestione del team di vantaggio - Tedesco (negoziabile) - Francese (ottima conoscenza) - Inglese (di vantaggio)\n\nCoeoffamo - Posto di lavoro centrale: lavoro centrale nella città di Zurigo (Limmatplatz o vicino a Hardbrücke) - Mobile modello di lavoro flessibile: flessibilità temporale e spaziale nell'adempimento della funzione (come orientamento 40% Home Office) - Professionalità: prestazioni superiori alla media e tre diversi piani di risparmio corrispondenti alla situazione di vita individuale - Benefici sociali: condizioni di lavoro attraenti con benefici sociali molto buoni - Supporto mirato: Promozione dei nostri dipendenti con misure mirate di sviluppo del personale - Autoresponsabilità e libertà:\n\nSettore di responsabilità ad alta responsabilità\n\nContatto Applicazione & Contatto Robin Maurer Responsabile del reclutamento - LinkedIn ## Processo di assunzione Inviare documenti di domanda Abbiamo bisogno del tuo CV, dei tuoi certificati e diplomi per una domanda completa. Una foto nel tuo CV e una lettera di motivazione non sono necessari. Viviamo pari opportunità per tutti i candidati. Abbiamo un processo di reclutamento standardizzato. Se questo non funziona per voi, menzionarlo nel vostro dossier di domanda.\n\nControlliamo continuamente le domande in arrivo, prepariamo una selezione preliminare e le rilasciamo alla direzione per la vista.La decisione sullo stato di avanzamento o la partenza dal processo di reclutamento è comunicata per telefono o e-mail. Durata del feedback: Fino a tre settimane di consultazione con HR & Department L'intervista è condotta con la persona responsabile delle risorse umane e/o il dipartimento del dipartimento del campo o sul sito.\n\nL'attenzione principale è quella di approfondire le competenze umane e tecniche e dare a entrambe le parti la possibilità di valutare l'idoneità culturale dell'azienda e del team. Durata dei feedback: Fino a tre settimane di discussione con esperti con presentazione di casi specifici è esaminata con un caso o altri strumenti dell'azienda.Al termine del trattamento, il risultato della persona di direzione viene presentato e poi discusso insieme.\n\nLe interviste sono di solito condotte dalla persona superiore, senza rappresentanti dell'HR. Durata fino al feedback: Fino a tre settimane offrono & contratto espositivo (Digital) Dopo che la nostra offerta di lavoro orale i punti contrattuali più importanti sono verificati di nuovo. Dopo l'accordo il contratto è commissionato e inviato per la firma digitale via e-mail. Durata fino al feedback: Fino a una settimana # # Nota per i fornitori di servizi del personale Prendiamo in considerazione le applicazioni dirette per questo lavoro solo.",
-        "en": "MIGROS Group has one of Switzerland's largest building portfolios. Migros Engineering Solutions is the competence center for solutions in supply chain, technology, construction and energy. The project management department supports logistics and industrial locations throughout Switzerland in the planning and implementation of construction and building technology projects.\n\nMansioni - Advising and representing the Migros Group's industrial and logistics companies in the development, planning and implementation of demanding construction projects - Coordination of large interdisciplinary projects from concept development, evaluation of the planning team to tendering and monitoring of execution planning and assembly with functional/performance control and acceptance with fault cleaning - Support of the building mastery in project development, project organization and the compilation of a powerful project team - Leading external companies in the\n\nProject management Construction and infrastructure as well as securing the optimal planning process in the overall project - Funding of the know-how transfer to building technology, trend and future barriers within the Migros Group\n\nRequisiti - Several years of experience: as a consultant*r client representative*in large projects, in the conceptual solution development and realization of decisions at management level - Completed studies (Uni/ETH, FH, HF): as an architect*in or engineer*in the field of construction incl.\n\nTraining in infrastructure Topics and project management - Well-founded expertise in construction and infrastructure, as well as broad application knowledge in building/energy technology - Flexible, pragmatic and solution-oriented working methods to identify gaps and to provide a solution profitably - Management experience or team management of advantage - German (negotiable) - French (very good knowledge) - English (of advantage)\n\nCosa offriamo - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible work model: Time and space flexibility in fulfilling the",
+        "en": "MIGROS Group has one of Switzerland's largest building portfolios. Migros Engineering Solutions is the competence center for solutions in supply chain, technology, construction and energy. The project management department supports logistics and industrial locations throughout Switzerland in the planning and implementation of construction and building technology projects.\n\nMansioni - Advising and representing the Migros Group's industrial and logistics companies in the development, planning and implementation of demanding construction projects - Coordination of large interdisciplinary projects from concept development, evaluation of the planning team to tendering and monitoring of execution planning and assembly with functional/performance control and acceptance with fault cleaning - Support of the building mastery in project development, project organization and the compilation of a powerful project team - Leading external companies in the\n\nProject management Construction and infrastructure as well as securing the optimal planning process in the overall project - Funding of the know-how transfer to building technology, trend and future barriers within the Migros Group\n\nRequisiti - Several years of experience: as a consultant*r client representative*in large projects, in the conceptual solution development and realization of decisions at management level - Completed studies (Uni/ETH, FH, HF): as an architect*in or engineer*in the field of construction incl.\n\nTraining in infrastructure Topics and project management - Well-founded expertise in construction and infrastructure, as well as broad application knowledge in building/energy technology - Flexible, pragmatic and solution-oriented working methods to identify gaps and to provide a solution profitably - Management experience or team management of advantage - German (negotiable) - French (very good knowledge) - English (of advantage)\n\nCosa offriamo - Central workplace: Central workplace in the city of Zurich (Limmatplatz or near Hardbrücke) - Mobile flexible work model: Time and space flexibility in fulfilling the function (as orientation 40% Home Office) - Professional provision: Above-average benefits and three different savings plans matching the individual life situation - Social benefits: Attractive employment conditions with very good social benefits - Targeted support: Promotion of our employees with targeted personnel development measures - Self-responsibility & freedom:\n\nVaried field of responsibility with high responsibility\n\nContatto Application & Contact Robin Maurer Head of Recruiting - LinkedIn ## Recruitment process Submit application documents We need your CV, your certificates and diplomas for a complete application. A photo in your CV and a letter of motivation are not necessary. We live equal opportunities for all applicants. We have a standardized recruitment process. If this does not work for you, mention it in your application dossier.\n\nWe continuously check incoming applications, prepare a preliminary selection and release them to the management for the view.The decision about the progress or departure from the recruitment process is communicated by telephone or e-mail. Duration to feedback: Up to three weeks of consultation with HR & Department The interview is conducted with the responsible person from HR and/or the department of the department of the field or on site.\n\nThe main focus is on learning more about the human and technical skills and giving both sides the opportunity to assess the cultural fit of the company and the team. Duration to feedback: Up to three weeks of expert discussion with case presentation Specific expertise is examined using a case or other instruments of the company.After processing, the result of the management person is presented and then discussed together. Usually, the team is also represented at the presentation.\n\nThe interviews are usually conducted by the superior person, without representatives from the HR. Duration until feedback: Up to three weeks offer & contract exhibition (Digital) After our oral job offer the most important contractual points are verified again. After agreement the contract is commissioned and sent for the digital signature by e-mail. Duration until feedback: Up to one week ## Note for personnel service providers We take into account direct applications for this job only.",
         "de": "Die MIGROS-Gruppe besitzt eines der grössten Gebäude-Portfolios der Schweiz. Die Direktion Migros Engineering Solutions ist das Kompetenzzentrum für Lösungen in Supply Chain, Technik, Bau und Energie. Der Fachbereich Projektmanagement unterstützt schweizweit Logistik- und Industriestandorte bei der Planung und Umsetzung von Bau- und Gebäudetechnik-Projekten.\n\nMansioni\n- Beraten und Vertreten der Industrie- und Logistikunternehmen der Migros-Gruppe bei der Entwicklung, Planung und Realisierung von anspruchsvollen Bauvorhaben\n- Koordination grosser interdisziplinärer Projekte von der Konzeptentwicklung, Evaluation des Planerteams bis zur Ausschreibung und Überwachung der Ausführungsplanung und der Montage mit Funktions-/Leistungskontrolle sowie Abnahme mit Mängelbereinigung\n- Unterstützen der Bauherrschaft bei der Projektentwicklung, der Projektorganisation und der Zusammenstellung eines schlagkräftigen Projektteams\n- Führen externer Unternehmen im Projektmanagement Bau und Infrastruktur sowie Sicherstellen des optimalen Planungsablaufes im Gesamtprojekt\n- Fördern des Know-how-Transfers zu Bautechnik, Trend- und Zukunftshemen innerhalb der Migros-Gruppe\n\nRequisiti\n- Mehrjährige Erfahrung: als beratende*r Bauherrenvertreter*in in Grossprojekten, bei der konzeptionellen Lösungs- Entwicklung und Herbeiführung von Entscheidungen auf Management Ebene\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): als Architekt*in oder Ingenieur*in im Bereich Bau inkl. Weiterbildung in Infrastruktur Themen und Projektmanagement\n- Fundiertes Fachwissen im Bau- und Infrastrukturbereich, sowie breites Anwendungs-Wissen in der Gebäude-/Energie-Technik\n- Flexible, pragmatische und lösungsorientierte Arbeitsweise, um je nach Projekterfordernissen Lücken zu identifizieren und gewinnbringend einer Lösung zuzuführen\n- Führungserfahrung bzw. Teamleitung von Vorteil\n- Deutsch (verhandlungssicher)\n- Französisch (sehr gute Kenntnisse)\n- Englisch (von Vorteil)\n\nCosa offriamo\n- Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)\n- Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)\n- Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation\n- Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen\n- Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen\n- Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung\n\nContatto\nBewerbung & Kontakt Robin Maurer Leiter Recruiting - LinkedIn ## Rekrutierungsprozess Bewerbungsunterlagen einreichen Für eine vollständige Bewerbung benötigen wir deinen Lebenslauf, deine Zeugnisse und Diplome. Ein Foto im Lebenslauf sowie ein Motivationsschreiben sind nicht notwendig. Wir leben Chancengleichheit für alle Bewerber*innen. Wir haben einen standardisierten Rekrutierungsprozess. Sollte das für dich nicht funktionieren, erwähne es in deinem Bewerbungsdossier. Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Angebot & Vertragsausstellung (Digital) Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und zur digitalen Signatur per E-Mail versendet. Dauer bis Rückmeldung: Bis zu einer Woche ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
         "fr": "Migros Engineering Solutions est le centre de compétence pour les solutions dans la chaîne d'approvisionnement, la technologie, la construction et l'énergie. Le service de gestion de projet soutient la logistique et les sites industriels dans toute la Suisse dans la planification et la mise en œuvre de projets de construction et de technologie de construction.\n\nMansioni - Conseil et représentation des entreprises industrielles et logistiques du groupe Migros dans le développement, la planification et la mise en œuvre de projets de construction exigeants - Coordination de grands projets interdisciplinaires, du développement de concepts, de l'évaluation de l'équipe de planification à la soumission et au suivi de la planification et de l'assemblage de l'exécution avec contrôle fonctionnel/performance et acceptation avec nettoyage des défauts - Soutien de la maîtrise du bâtiment dans le développement de projets, l'organisation du projet et la compilation d'une équipe de projet puissante - Les principales entreprises externes dans le\n\nGestion de projet Construction et infrastructure, ainsi que la garantie du processus de planification optimal dans le projet global - Financement du transfert de savoir-faire à la technologie du bâtiment, tendances et futurs obstacles au sein du groupe Migros\n\nRequisiti - Plusieurs années d'expérience : en tant que consultant*r représentant de client* dans de grands projets, dans le développement de la solution conceptuelle et la réalisation des décisions au niveau de la gestion - Études terminées (Uni/ETH, FH, HF) : en tant qu'architecte*in ou ingénieur*dans le domaine de la construction incl.\n\nFormation en infrastructure Thèmes et gestion de projet - Expertise bien fondée en construction et en infrastructure, ainsi qu'une vaste connaissance des applications en construction/technologie énergétique - Méthodes de travail souples, pragmatiques et orientées vers la solution pour identifier les lacunes et fournir une solution rentable - Expérience de gestion ou gestion par équipe d'avantages - Allemand (négociable) - Français (très bonne connaissance) - Anglais (d'avantage)\n\nCosa offriamo - Central workplace: Central workplace in the City of Zurich (Limmatplatz ou près de Hardbrücke) - Mobile flexible work model: Time and space flexible in emplability the fonction (as orientation 40% Home Office) - Provision professionnelle: Prestations supérieures à la moyenne et trois plans d'épargne différents correspondant à la situation individuelle - Prestations sociales: Conditions d'emploi attrayantes avec de très bonnes prestations sociales - Soutien ciblé: Promotion de nos employés avec des mesures ciblées de développement du personnel - Auto-responsabilité et liberté:\n\ndomaine de responsabilité varié et hautement responsable\n\nDemande et contact de Contatto Robin Maurer Chef du recrutement - LinkedIn ## Processus de recrutement Soumettre les documents de candidature Nous avons besoin de votre CV, de vos certificats et de vos diplômes pour une demande complète.Une photo de votre CV et une lettre de motivation ne sont pas nécessaires.Nous vivons l'égalité des chances pour tous les candidats.\n\nNous vérifions continuellement les demandes reçues, préparons une sélection préliminaire et les transmettons à la direction pour avis.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée de la rétroaction : Jusqu'à trois semaines de consultation avec RH & Ministère L'entrevue est menée avec la personne responsable des RH et/ou le ministère du domaine ou sur place.\n\nL'accent est mis sur l'acquisition de compétences humaines et techniques et sur la possibilité pour les deux parties d'évaluer la culture de l'entreprise et de l'équipe.Durée de la rétroaction : Jusqu'à trois semaines de discussion d'experts avec présentation de cas Une expertise spécifique est examinée à l'aide d'un cas ou d'autres instruments de l'entreprise.Après traitement, le résultat de la personne de gestion est présenté et discuté ensemble.\n\nLes entretiens sont généralement menés par la personne supérieure, sans représentants des RH. Durée jusqu'à la rétroaction : Jusqu'à trois semaines d'offre & d'exposition de contrat (Digital) Après notre offre orale les points contractuels les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé pour la signature numérique par e-mail. Durée jusqu'à la rétroaction : Jusqu'à une semaine ## Note pour les fournisseurs de services au personnel Nous prenons en compte les demandes directes pour ce travail seulement."
       },
@@ -127285,8 +127311,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "country": "CH",
-      "qualityScore": 97,
-      "needsRetranslation": true
+      "qualityScore": 97
     },
     {
       "id": "company-pma9rd",
