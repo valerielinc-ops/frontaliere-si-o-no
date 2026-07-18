@@ -26,6 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference, freshnessBoost } from '../services/jobAlertMatching.mjs';
+import { classifyZeroMatchCause } from './lib/job-alert-zero-match-diagnosis.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -78,6 +79,14 @@ const ENGAGEMENT_SEND_PRIORITY = {
 // (soft-throttle, a provider tripping mid-run) don't push otherwise-fitting
 // alerts into tomorrow's retry queue.
 const QUOTA_BUFFER_RATIO = 0.1;
+
+// Owner ask 2026-07-18: surface how many alerts matched literally zero jobs
+// this run (as opposed to "had matches, all already sent" — a healthy case),
+// so a persistently high rate flags a matching-quality problem (narrow user
+// search, a missing keyword/synonym, or a genuine sector/geo inventory gap)
+// rather than staying invisible. Starting value — tune after a few runs of
+// real data once the `📉 Zero-match:` log line below establishes a baseline.
+const ZERO_MATCH_ISSUE_THRESHOLD_RATIO = 0.2;
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
@@ -1490,6 +1499,8 @@ async function main() {
   // 3. Match alerts to jobs
   const emailsToSend = [];
   let totalMatches = 0;
+  let zeroMatchCount = 0;
+  const zeroMatchByCause = {};
   // Shared across every alert/locale below so the same job's page is never
   // HEAD-checked twice in one run (#3172).
   const jobLiveCheckCache = new Map();
@@ -1578,7 +1589,13 @@ async function main() {
     // sparse alert). No-op when the alert already scopes geography itself.
     const ranked = partitionByGeoPreference(rankedAll, profile);
 
-    if (ranked.length === 0) continue;
+    if (ranked.length === 0) {
+      const cause = classifyZeroMatchCause(profile);
+      zeroMatchCount++;
+      zeroMatchByCause[cause] = (zeroMatchByCause[cause] || 0) + 1;
+      console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${cause}) → skip`);
+      continue;
+    }
 
     // De-dup: drop jobs already emailed to THIS alert within the dedup window.
     // Without this a re-crawled job (its crawledAt refreshes, so it re-enters the
@@ -1664,6 +1681,41 @@ async function main() {
   emailsToSend.sort((a, b) => (ENGAGEMENT_SEND_PRIORITY[a.effectiveTier] ?? 2) - (ENGAGEMENT_SEND_PRIORITY[b.effectiveTier] ?? 2));
 
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
+
+  if (alerts.length > 0) {
+    const zeroMatchRate = zeroMatchCount / alerts.length;
+    console.log(`   📉 Zero-match: ${zeroMatchCount}/${alerts.length} alerts (${(zeroMatchRate * 100).toFixed(1)}%) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    // Skip during --dry-run / TARGET_EMAIL test sends: the denominator there
+    // is tiny and non-representative, so the rate is meaningless noise, not
+    // a real quality signal.
+    if (!DRY_RUN && !ALLOWED_EMAILS && zeroMatchRate > ZERO_MATCH_ISSUE_THRESHOLD_RATIO) {
+      const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
+      const causeLines = Object.entries(zeroMatchByCause)
+        .sort((a, b) => b[1] - a[1])
+        .map(([cause, count]) => `- \`${cause}\`: ${count}`)
+        .join('\n');
+      await createGithubIssue({
+        title: '[Monitor] Job-alert zero-match rate above threshold',
+        description: [
+          `${zeroMatchCount}/${alerts.length} job alerts (${(zeroMatchRate * 100).toFixed(1)}%) matched **zero** jobs this run `
+            + `(threshold: ${(ZERO_MATCH_ISSUE_THRESHOLD_RATIO * 100).toFixed(0)}%).`,
+          '',
+          'Breakdown by cause (see scripts/lib/job-alert-zero-match-diagnosis.mjs):',
+          causeLines,
+          '',
+          '- `keyword-narrow` / `keyword-and-geo-narrow`: the alert\'s explicit keywords matched nothing — check for a synonym/taxonomy gap in the matcher.',
+          '- `geo-narrow`: the alert\'s location/canton filter matched nothing — may be a genuine inventory gap in that area, or the filter is too narrow.',
+          '- `pinned-job-or-company-gone`: the alert is pinned to a specific job/company that\'s no longer active.',
+          '- `no-hard-filters`: no hard filter set at all, yet still zero matches — investigate first, since a fully open alert should almost always find something (possible eligible-jobs-pool or soft-token-extraction bug).',
+          '',
+          'No subscriber PII in this report (aggregate counts/causes only).',
+        ].join('\n'),
+        priority: 3,
+        labels: ['automation', 'bug'],
+        workflow: 'send-job-alerts',
+      });
+    }
+  }
 
   if (emailsToSend.length === 0) {
     console.log('   No matches — no emails to send.');
