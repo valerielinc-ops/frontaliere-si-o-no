@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-07-17T21:57:46.525Z",
+  "generatedAt": "2026-07-18T10:27:02.968Z",
   "total": 25,
   "newCount": 8,
   "updatedCount": 17,
   "removedCount": 8,
   "unchangedCount": 0,
-  "durationMs": 18449,
-  "avgDurationMs": 18449,
+  "durationMs": 13598,
+  "avgDurationMs": 13598,
   "durationHistory": [
-    18449
+    13598
   ],
   "newJobs": [
     {
@@ -95,37 +95,6 @@
       "source": "sunrise-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Praktikant:in Kommunikation & Content - befristet 12 Monate 80-100%",
-      "slug": "praktikant-in-kommunikation-content-befristet-12-monate-80-100-sunrise-zurich",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036584/praktikant-in-kommunikation-content-befristet-12-monate-80-100",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Zurich-Headquarter/Praktikant-in-Kommunikation---Content---befristet-12-Monate-80-100-_REQ_30036584-1/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8152",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -226,6 +195,37 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
+        "translation": 10,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Praktikant:in Kommunikation & Content - befristet 12 Monate 80-100%",
+      "slug": "praktikant-in-kommunikation-content-befristet-12-monate-80-100-sunrise-zurich",
+      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036584/praktikant-in-kommunikation-content-befristet-12-monate-80-100",
+      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Zurich-Headquarter/Praktikant-in-Kommunikation---Content---befristet-12-Monate-80-100-_REQ_30036584-1/apply",
+      "company": "Sunrise Communications AG",
+      "companyKey": "sunrise-sede-ticino",
+      "companyDomain": "sunrise.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8152",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "sunrise-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 10,
         "completeness": 17
       }
