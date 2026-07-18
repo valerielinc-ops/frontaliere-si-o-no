@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thurklinik",
-  "assembledAt": "2026-07-18T10:26:27.654Z",
+  "assembledAt": "2026-07-18T21:52:20.450Z",
   "jobs": [
     {
       "id": "thurklinik-01dd561b4a47",
@@ -34,7 +34,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:24.107Z",
+      "crawledAt": "2026-07-18T21:52:16.643Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/05/Lehrstelle-als-Fachfrau-oder-Fachmann-Gesundheit-EFZ_FAGE_2027.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:22.892Z",
+      "crawledAt": "2026-07-18T21:52:15.416Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "slug": "stoccaggio-springer-20-80-thurklinik-niederuzwil",
       "slugByLocale": {
         "it": "stoccaggio-springer-20-80-thurklinik-niederuzwil",
-        "en": "storage-care-springer-20-80-thurklinik-niederuzwil",
+        "en": "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
         "de": "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
         "fr": "soins-de-stockage-springer-20-80-thurklinik-niederuzwil"
       },
@@ -173,7 +173,7 @@
       "title": "Lagerungspflege & Springer 20-80%",
       "titleByLocale": {
         "it": "Stoccaggio & Springer 20-80 %",
-        "en": "Storage Care & Springer 20-80 %",
+        "en": "Lagerungspflege & Springer 20-80%",
         "de": "Lagerungspflege & Springer 20-80%",
         "fr": "Soins de stockage & Springer 20-80 %"
       },
@@ -190,7 +190,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:22.264Z",
+      "crawledAt": "2026-07-18T21:52:14.762Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -209,6 +209,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lagerungspflege-springer-20-80-thurklinik-niederuzwil",
+        "storage-care-springer-20-80-thurklinik-niederuzwil",
         "stoccaggio-springer-20-80-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
@@ -217,6 +218,7 @@
           "stoccaggio-springer-20-80-thurklinik-niederuzwil"
         ],
         "en": [
+          "storage-care-springer-20-80-thurklinik-niederuzwil",
           "lagerungspflege-springer-20-80-thurklinik-niederuzwil"
         ],
         "fr": [
@@ -269,7 +271,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:21.610Z",
+      "crawledAt": "2026-07-18T21:52:14.107Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -348,7 +350,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:20.961Z",
+      "crawledAt": "2026-07-18T21:52:13.464Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -400,7 +402,7 @@
       "slug": "dipl-carriera-hf-20-80-thurklinik-niederuzwil",
       "slugByLocale": {
         "it": "dipl-carriera-hf-20-80-thurklinik-niederuzwil",
-        "en": "dipl-nurse-hf-20-80-thurklinik-niederuzwil",
+        "en": "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil",
         "de": "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil",
         "fr": "infirmiere-diplomee-hf-20-80-thurklinik-niederuzwil"
       },
@@ -410,7 +412,7 @@
       "title": "Dipl. Pflegefachperson HF (20–80 %)",
       "titleByLocale": {
         "it": "Dipl. Carriera HF (20–80 %)",
-        "en": "Dipl. Nurse HF (20–80%)",
+        "en": "Dipl. Pflegefachperson HF (20–80 %)",
         "de": "Dipl. Pflegefachperson HF (20–80 %)",
         "fr": "Infirmière diplômée HF (20–80%)"
       },
@@ -427,7 +429,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Dipl.-Pflegefachperson-HF-20–80-_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:20.317Z",
+      "crawledAt": "2026-07-18T21:52:12.726Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -446,6 +448,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil",
+        "dipl-nurse-hf-20-80-thurklinik-niederuzwil",
         "dipl-carriera-hf-20-80-thurklinik-niederuzwil"
       ],
       "previousSlugsByLocale": {
@@ -454,6 +457,7 @@
           "dipl-carriera-hf-20-80-thurklinik-niederuzwil"
         ],
         "en": [
+          "dipl-nurse-hf-20-80-thurklinik-niederuzwil",
           "dipl-pflegefachperson-hf-20-80-thurklinik-niederuzwil"
         ],
         "fr": [
@@ -506,7 +510,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:19.580Z",
+      "crawledAt": "2026-07-18T21:52:11.881Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -583,7 +587,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:18.752Z",
+      "crawledAt": "2026-07-18T21:52:11.074Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -660,7 +664,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:17.900Z",
+      "crawledAt": "2026-07-18T21:52:10.121Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
