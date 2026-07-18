@@ -52,9 +52,20 @@ jobs:
           # post-merge auto-commits) the rebase parent may live past the
           # shallow horizon, causing `git rebase origin/main` to fail with
           # "fatal: shallow file has changed since we read it" or worse.
+          # NOTE: the "~10s extra" below was true when this comment was
+          # written; the repo has since grown to ~1.36GB/868k objects
+          # (#4380/#4266/#4120) so blob:none below is load-bearing, not
+          # just an optimization — full history + blobs risks exceeding
+          # the 10-min timeout-minutes budget on this same 10-min-timeout
+          # class of workflow.
           # Full clone is ~10 s extra on this repo and removes the entire
           # class of "shallow + burst" rebase failures.
           fetch-depth: 0
+          # Blobless partial clone (same fix as guard-data-integrity.yml
+          # #4120 / crawler-health-monitor.yml #4380): keeps full commit/tree
+          # history for the rebase-retry loop above while deferring blob
+          # content download until a file is actually touched.
+          filter: blob:none
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
