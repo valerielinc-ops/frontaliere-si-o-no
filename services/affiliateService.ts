@@ -65,7 +65,7 @@ export const PARTNERS: AffiliatePartner[] = [
  badgeKey: 'affiliate.badge.mostUsed',
  color: 'from-success-strong to-success-strong',
  emoji: '💸',
- contexts: ['exchange', 'banks', 'simulator'],
+ contexts: ['exchange', 'banks', 'simulator', 'ral', 'shopping', 'jobs'],
  priority: 10,
  },
 
@@ -79,7 +79,7 @@ export const PARTNERS: AffiliatePartner[] = [
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-info-strong to-info-strong',
  emoji: '🇮🇹',
- contexts: ['banks', 'exchange', 'simulator'],
+ contexts: ['banks', 'exchange', 'simulator', 'ral', 'jobs'],
  priority: 9,
  },
  {
