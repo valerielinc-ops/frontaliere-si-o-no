@@ -2,7 +2,7 @@ import { mkdtempSync, rmSync, writeFileSync, mkdirSync, readFileSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
-import { renderClusterPage } from '../build-plugins/relatedSearchClustersPlugin';
+import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
 
 const tmpDirs: string[] = [];
@@ -185,6 +185,84 @@ describe('related search cluster SEO shell', () => {
     expect(page.html).toContain('og:image');
     expect(page.html).toContain('Rel 4');
     expect(page.html).toContain('Rel 5');
+  });
+});
+
+describe('below-floor bridge floor decision (issue #4303 item 4 / run 29636707053)', () => {
+  // Regression coverage for the sitemap leak fixed alongside CACHE_VERSION
+  // v8: the locale-shard render-skip branch in closeBundle used to push
+  // every cross-locale cluster URL into sitemapLocs unconditionally, without
+  // checking whether renderClusterPage would actually render it as a
+  // below-floor noindex bridge. Both call sites now share
+  // `isClusterBelowFloor` as the single source of truth — these tests pin
+  // that decision function directly and prove renderClusterPage's output
+  // agrees with it, so the two can't silently diverge again.
+  const belowFloorCtx = {
+    candidate: { slug: 'ricerca-floor-test', locale: 'it', jobCount: 0, sampleTerms: ['floor test'], editorialCollision: null },
+    keyword: 'floor test',
+    city: null,
+    matchingJobs: [],
+    topCompanies: [],
+  } as any;
+
+  const aboveFloorCtx = {
+    ...belowFloorCtx,
+    matchingJobs: [
+      { id: 'a', title: 'Job A', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-a' },
+      { id: 'b', title: 'Job B', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-b' },
+      { id: 'c', title: 'Job C', company: 'Co', location: 'Lugano', canton: 'TI', slug: 'job-c' },
+    ],
+  };
+
+  it('is true below MIN_JOBS_FOR_INDEXABLE_CLUSTER with no enriched intro', () => {
+    expect(isClusterBelowFloor(belowFloorCtx, undefined)).toBe(true);
+  });
+
+  it('is false at/above MIN_JOBS_FOR_INDEXABLE_CLUSTER', () => {
+    expect(isClusterBelowFloor(aboveFloorCtx, undefined)).toBe(false);
+  });
+
+  it('is false below floor when an AI-enriched intro exempts the cluster', () => {
+    const enriched = { slug: 'ricerca-floor-test', locale: 'it', keyword: 'floor test', city: null, intro: 'Non-empty AI intro.', faqs: [] } as any;
+    expect(isClusterBelowFloor(belowFloorCtx, enriched)).toBe(false);
+  });
+
+  it('is true below floor when the enriched intro is present but blank', () => {
+    const enriched = { slug: 'ricerca-floor-test', locale: 'it', keyword: 'floor test', city: null, intro: '   ', faqs: [] } as any;
+    expect(isClusterBelowFloor(belowFloorCtx, enriched)).toBe(true);
+  });
+
+  it('renderClusterPage emits a noindex hub bridge, not self-canonical, when below floor', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-07-18',
+      ctx: belowFloorCtx,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toMatch(/<meta name="?robots"? content="?noindex,follow"?/);
+    // `page.loc` is always the cluster's own URL (bridge or not) — a bridge's
+    // HTML canonical must point elsewhere (the hub), never back at itself.
+    expect(page.html).not.toContain(`<link rel=canonical href="${page.loc}"`);
+    expect(page.html).not.toContain('ricerca-floor-test');
+  });
+
+  it('renderClusterPage emits a self-canonical index,follow page at/above floor', () => {
+    const distDir = makeDist();
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-07-18',
+      ctx: aboveFloorCtx,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    });
+
+    expect(page.html).toMatch(/<meta name="?robots"? content="?index,follow"?/);
+    expect(page.html).toContain(`<link rel=canonical href="${page.loc}"`);
   });
 });
 
