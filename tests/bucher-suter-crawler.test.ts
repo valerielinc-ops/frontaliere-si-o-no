@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BUCHER_SUTER_KEY,
   BUCHER_SUTER_COMPANY_NAME,
@@ -10,9 +10,20 @@ import {
   detectCategory,
   detectEmploymentType,
   detectExperienceLevel,
+  fetchJobListingsMeta,
 } from '../scripts/lib/bucher-suter-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
+
+// fetchJobListingsMeta() imports fetchViaJinaWithRetry from jina-proxy.mjs — stub
+// it so these tests exercise ONLY bucher-suter's gating/safe-fail wiring (mirrors
+// the pattern in tests/crawler-egress-jina-fallback.test.ts, where the retry/
+// validation logic of the real Jina helper is covered separately).
+const { fetchViaJinaWithRetry } = vi.hoisted(() => ({ fetchViaJinaWithRetry: vi.fn() }));
+vi.mock('../scripts/lib/jina-proxy.mjs', async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, fetchViaJinaWithRetry };
+});
 
 describe('Bucher + Suter AG crawler parser', () => {
   // ── Constants ──
@@ -315,6 +326,107 @@ describe('Bucher + Suter AG crawler parser', () => {
 
     it('sector reflects the Cisco Contact Center integration business', () => {
       expect(validJob.sector).toBe('IT / Contact Center Solutions');
+    });
+  });
+
+  // ── fetchJobListingsMeta (#4277: WP REST endpoint hard-blocked by IP-
+  //    reputation WAF from the CI datacenter egress — direct fetch fails on
+  //    EVERY path, not just this one, and no header/UA tweak clears it; the
+  //    fix routes the SAME class of failure fetchHtml() already rescues
+  //    through Jina's clean-IP proxy, manually, since fetchJson() does not
+  //    auto-proxy) ──
+  describe('fetchJobListingsMeta (Jina IP-block rescue)', () => {
+    // >= 200 chars once JSON-stringified — detectJinaErrorBody() treats a
+    // shorter proxied body as a probable challenge/empty page (real listing
+    // responses are never this short), so a too-small fixture would falsely
+    // trip the "not the target page" safe-fail path these tests are NOT
+    // exercising here.
+    const REAL_LISTING = [
+      { id: 1, slug: 'it-project-manager', link: 'https://www.bucher-suter.com/jobs/it-project-manager/', title: { rendered: 'IT Project Manager 50-60%' }, date: '2026-07-01T00:00:00', modified: '2026-07-10T00:00:00' },
+    ];
+    const orig = global.fetch;
+
+    afterEach(() => {
+      global.fetch = orig;
+      fetchViaJinaWithRetry.mockReset();
+      delete process.env.JOBS_CRAWLER_RETRIES;
+    });
+
+    it('returns the direct response unchanged when the endpoint is reachable', async () => {
+      global.fetch = vi.fn(async () => ({
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify(REAL_LISTING),
+      })) as any;
+      const listings = await fetchJobListingsMeta();
+      expect(listings).toEqual(REAL_LISTING);
+      expect(fetchViaJinaWithRetry).not.toHaveBeenCalled();
+    });
+
+    it('rescues a direct HTTP 403 (IP-reputation WAF) via the Jina clean-IP proxy', async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status: 403, text: async () => '' })) as any;
+      fetchViaJinaWithRetry.mockResolvedValue({
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify(REAL_LISTING),
+      });
+      const listings = await fetchJobListingsMeta();
+      expect(listings).toEqual(REAL_LISTING);
+      expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
+      // format: 'text' is required — Jina's default HTML/markdown rendering
+      // would wrap and corrupt the raw JSON body (verified live 2026-07-18).
+      expect(fetchViaJinaWithRetry).toHaveBeenCalledWith(
+        expect.stringContaining('job-listings'),
+        expect.objectContaining({ format: 'text' }),
+      );
+    });
+
+    it('rescues a connection-level failure (no response at all) via the Jina proxy', async () => {
+      process.env.JOBS_CRAWLER_RETRIES = '0'; // keep the test fast — retry timing covered by transient-fetch.test.ts
+      global.fetch = vi.fn(async () => {
+        throw new TypeError('fetch failed');
+      }) as any;
+      fetchViaJinaWithRetry.mockResolvedValue({
+        ok: true,
+        status: 200,
+        text: async () => JSON.stringify(REAL_LISTING),
+      });
+      const listings = await fetchJobListingsMeta();
+      expect(listings).toEqual(REAL_LISTING);
+      expect(fetchViaJinaWithRetry).toHaveBeenCalledOnce();
+    });
+
+    it('does NOT proxy a structural HTTP 404 (real error propagates)', async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status: 404, text: async () => '' })) as any;
+      await expect(fetchJobListingsMeta()).rejects.toThrow(/404/);
+      expect(fetchViaJinaWithRetry).not.toHaveBeenCalled();
+    });
+
+    it('safe-fails to the original 403 when the Jina proxy also cannot reach it', async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status: 403, text: async () => '' })) as any;
+      fetchViaJinaWithRetry.mockResolvedValue({ ok: false, status: 502, text: async () => '' });
+      await expect(fetchJobListingsMeta()).rejects.toThrow(/403/);
+    });
+
+    it('safe-fails to the original 403 when the Jina proxy returns a challenge/non-target body', async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status: 403, text: async () => '' })) as any;
+      fetchViaJinaWithRetry.mockResolvedValue({
+        ok: true,
+        status: 200,
+        text: async () => 'Just a moment...', // too short + carries a known challenge marker
+      });
+      await expect(fetchJobListingsMeta()).rejects.toThrow(/403/);
+    });
+
+    it('safe-fails to the original 403 when the Jina-proxied body is not valid JSON', async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status: 403, text: async () => '' })) as any;
+      fetchViaJinaWithRetry.mockResolvedValue({
+        ok: true,
+        status: 200,
+        // Long enough to pass detectJinaErrorBody's length/marker checks, but not JSON.
+        text: async () => `<html><body>${'not json '.repeat(30)}</body></html>`,
+      });
+      await expect(fetchJobListingsMeta()).rejects.toThrow(/403/);
     });
   });
 });
