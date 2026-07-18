@@ -4615,6 +4615,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendio-logopedista-frontaliero-ticino': { name: 'Salari logopedisti frontalieri Ticino', path: '/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino', parent: 'blog' },
     'blog-farmacista-frontaliero-ticino': { name: 'Farmacista frontaliere in Ticino', path: '/articoli-frontaliere/farmacista-frontaliero-ticino', parent: 'blog' },
     'blog-coronavirus-frontalieri-svizzera': { name: 'Frontalieri e coronavirus', path: '/articoli-svizzera/coronavirus-frontalieri-svizzera/', parent: 'blog' },
+    'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

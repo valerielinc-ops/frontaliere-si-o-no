@@ -8610,6 +8610,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.farmacista-frontaliero-ticino.title': 'Wie viel verdient ein Grenzapotheker im Tessin?',
     'blog.article.farmacista-frontaliero-ticino.excerpt': 'Die neue Grenzgängervereinbarung sieht eine Selbstbeteiligung von 10\'000 € für neue Grenzgänger vor.',
     'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Ein Apotheker arbeitet in einem Krankenhaus in Lugano',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Ostetrica in Ticino: stipendio, requisiti e titolo',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'Die Grenzgängerin, die als Hebamme im Tessin arbeitet, hat Anspruch auf ein Durchschnittsgehalt von rund CHF 60\'000 pro Jahr, muss aber bestimmte Voraussetzungen erfüllen und die G-Genehmigung erhalten.',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Eine Frontaliere, die als Hebamme in einem Krankenhaus in Lugano arbeitet.',
 };
 
 export default blogMetaDe;

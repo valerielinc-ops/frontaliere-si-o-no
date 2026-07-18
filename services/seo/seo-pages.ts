@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3297,
+ "numberOfItems": 3298,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8013,7 +8013,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3294, "name": "Mobilità in Svizzera: cresce il favore per la f...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-svizzera-ferrovia-strade` },
           { "@type": "ListItem", "position": 3295, "name": "Quanto guadagna un logopedista frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino` },
           { "@type": "ListItem", "position": 3296, "name": "Quanto guadagna un farmacista frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/farmacista-frontaliero-ticino` },
-          { "@type": "ListItem", "position": 3297, "name": "Coronavirus: lavoro in Svizzera solo con permes...", "url": `${BASE_URL}/articoli-frontaliere/coronavirus-frontalieri-svizzera` }
+          { "@type": "ListItem", "position": 3297, "name": "Coronavirus: lavoro in Svizzera solo con permes...", "url": `${BASE_URL}/articoli-frontaliere/coronavirus-frontalieri-svizzera` },
+          { "@type": "ListItem", "position": 3298, "name": "Lavorare come ostetrica in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti` }
  ]
  },
  {
