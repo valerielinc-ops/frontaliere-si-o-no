@@ -1,5 +1,175 @@
 [
   {
+    "slug": "artista-schematico-stadler-rail-bussnang",
+    "title": "Schemazeichner:in",
+    "titleByLocale": {
+      "it": "Artista Schematico",
+      "en": "Diagram:in",
+      "de": "Schemazeichner:in",
+      "fr": "Schéma:"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Hai completato la formazione o gli studi come ingegnere dell'automazione, tecnico in HF o in un campo comparabile\n• Hai ottime conoscenze e dimestichezza con gli schemi elettrici\n• Hai già acquisito un'esperienza approfondita nell'uso di strumenti CAD elettrici (preferibilmente della serie E3)\n• Hai già conoscenze nel settore della costruzione di impianti, meccanica o di veicoli ferroviari\n• Apprezzi un modo di lavorare indipendente e una stretta collaborazione con enti interni ed esterni\n• Comunichi fluentemente in tedesco e inglese COMPITI\n• Con l'aiuto delle tue conoscenze specialistiche approfondite crei il schemi elettrici e concetti di collegamento (concetto di collegamento)\n• Sviluppate e controllate i documenti di produzione (elenchi dei cavi, schemi dei morsetti ed elenco delle risorse) e supportate il posizionamento dei componenti nel quadro elettrico, compreso il cablaggio digitale (routing)\n• Mantenete una stretta collaborazione con gli ingegneri elettrici e la pianificazione dell'installazione elettrica e prendete le decisioni necessarie Selezione dei materiali e dei componenti con l'aiuto del sistema PLM\n• Incorporate le modifiche specificate e supportate l'ingegneria elettrica con il supporto di montaggio",
+      "en": "PROFILE\n• You have completed training or studies as an automation engineer, technician in HF or a comparable field\n• You have very good knowledge and a confident handling of electrical circuit diagrams\n• You have already gained in-depth experience in dealing with electrical CAD tools (preferably E3 Series)\n• You already have industry knowledge in plant, mechanical or rail vehicle construction\n• You value an independent way of working and close cooperation with internal and external bodies\n• You communicate Fluent in German and English TASKS\n• With the help of your in-depth specialist knowledge, you create the electrical circuit diagrams and connection concepts (plug concept)\n• You develop and control the production documents (cable lists, terminal plans and resource list) and support the placement of components in the control cabinet, including digital cabling (routing)\n• You maintain close cooperation with the electrical engineers and the electrical installation planning and make the necessary decisions Material and component selection with the help of the PLM system\n• You incorporate the specified changes and support electrical engineering with assembly support",
+      "de": "PROFIL\n\n• Du besitzt ein abgeschlossene Ausbildung oder Studium als Automatiker:in, Techniker:in HF oder einem vergleichbaren Bereich\n\n• Du vefügst über sehr gute Kenntnisse und einen sicherer Umgang mit Elektroschaltplänen\n\n• Du konntest bereits vertiefte Erfahrung im Umgang mit Elektro CAD Tools (Vorzugsweise E3 Series) sammeln\n\n• Du hast bereits Branchenkenntnisse in Anlagen-, Maschinen- oder Schienenfahrzeugbau\n\n• Du schätzt eine selbständige Arbeitsweise und die enge Zusammenarbeit mit internen und extern Stellen\n\n• Du kommunizierst verhandlungssicher in Deutsch und Englisch\n\nAUFGABEN\n\n• Du erstellst mit Hilfe deines fundierten Fachwissens die elektrischen Stromlaufpläne und Verbindungskonzepte (Steckerkonzept)\n\n• Du erarbeitest und kontrollierst die Produktionsunterlagen (Kabellisten, Klemmenpläne und Betriebsmittelverzeichnis) und unterstützt bei der Platzierung von Komponenten im Schaltschrank inkl, Digitaleverkabelung (Routing)\n\n• Du pflegst dabei die enge Zusammenarbeit mit den E-Ingenieuren und der Elektro-Einbauplanung und triffst die Material- und Komponentenauswahl mit Hilfe vom PLM System\n\n• Du Arbeitest die vorgegebenen Änderungen ein und unterstützt das Elektro-Engineering bei der Montage Betreuung",
+      "fr": "PROFIL Vous avez suivi une formation ou des études en tant qu'ingénieur automatique: en, technicien: en HF ou dans un domaine comparable\n• Vous avez une très bonne connaissance et une manipulation sûre des diagrammes de circuits électriques\n• Vous avez déjà acquis une expérience approfondie dans l'utilisation d'Electro CAO Tools (de préférence E3 Series)\n• Vous avez déjà une connaissance de l'industrie dans la construction d'installations, de machines ou de véhicules ferroviaires\n• Vous appréciez une méthode de travail indépendante et une coopération étroite avec les organismes internes et externes\n• Vous communiquez négociable en allemand et en anglais TASKS\n• Avec l'aide de votre expertise approfondie, vous créez les schémas de circuits électriques et les concepts de connexion (concept de connexion)\n• Vous développez et contrôlez les documents de production (listes de câbles, plans de terminaux et répertoire d'équipements) et supportez le placement des composants dans l'armoire de commande, y compris le câblage numérique (routage)\n• Vous travaillerez en étroite collaboration avec les e-enginers et la planification de l'installation électrique et effectuerez la sélection des matériaux et composants avec l'aide du système PLM\n• Vous travaillerez sur les modifications spécifiées et supporterez l'ingénierie électrique pendant le support de montage"
+    },
+    "slugByLocale": {
+      "it": "artista-schematico-stadler-rail-bussnang",
+      "en": "diagram-in-stadler-rail-bussnang",
+      "de": "schemazeichner-in-stadler-rail-ch",
+      "fr": "schema-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-18T10:55:06.426Z",
+    "previousSlugs": [
+      "schemazeichner-in-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "schemazeichner-in-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-elettrico-in-tecnico-elettrico-in-per-veicoli-speciali-stadler-rail-bussnang",
+    "title": "Elektroingenieur:in / Elektrotechniker:in für Spezialfahrzeuge",
+    "titleByLocale": {
+      "it": "Elektroingenieur:in / Elektrotechniker:in per Spezialfahrzeuge",
+      "en": "Electrical engineer:in / Electrical technician:in for special vehicles",
+      "de": "Elektroingenieur:in / Elektrotechniker:in für Spezialfahrzeuge",
+      "fr": "Ingénieur électricien / Ingénieur électricien pour véhicules spéciaux"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE Hai completato una laurea in ingegneria elettrica o in un campo comparabile\n• Hai già acquisito esperienza iniziale nella distribuzione dell'energia, nei sistemi di azionamento o nella tecnologia di controllo e di controllo, idealmente anche nella costruzione di veicoli ferroviari. Si comunica fluentemente in tedesco (livello C2) e avere una buona conoscenza dell'inglese (livello B2)\n• Ti piace lavorare in team interdisciplinari e know-how nel trattare con i programmi E-CAD\n• Apprezzi lavorare con un alto livello di responsabilità personale e hai forti capacità di comunicazione e coordinamento Sei responsabile dei vari sottosistemi di ingegneria elettrica e della progettazione e integrazione dei sistemi elettrici nei nostri veicoli\n• Si accompagna il processo di sviluppo del veicolo creando concetti e specifiche\n• Progettare i componenti elettrici in base alle esigenze del cliente e agli standard attualmente applicabili\n• Prenderai il controllo del coordinamento tecnico con altre discipline (creazione di software, pianificazione di installazione, ingegneria meccanica, protezione antincendio, ecc.)\n• È possibile creare le panoramiche della funzione elettrica nell'E-CAD come base per i disegni schematici\n• Si supervisiona l'assemblaggio e la messa in servizio iniziale dei veicoli in collaborazione con i nostri clienti\n• Mantenete la cooperazione con i nostri fornitori e assicurate l'implementazione tempestiva e di alta qualità",
+      "en": "PROFILE\n• You have a completed HF or university degree in electrical engineering or a comparable field\n• You have already gained initial experience in power distribution, drive systems or control and control technology, ideally even in rail vehicle construction\n• You communicate fluently in German (level C2) and have good English skills (level B2)\n• You enjoy working in interdisciplinary teams and have knowledge of using E-CAD programs\n• You value working with high level of personal responsibility and has strong communication and coordination skills TASKS\n• You are responsible for the various subsystems in electrical engineering as well as the design and integration of the electrical systems in our vehicles\n• You accompany the vehicle development process by creating concepts and specifications\n• You design the electrical components according to customer requirements and currently applicable standards\n• You take over the technical coordination with other disciplines (software creation, installation planning, mechanical engineering, fire protection, etc.)\n• You create the Electrical function overviews in E-CAD as a basis for the schematic draftsmen\n• You oversee the assembly and initial commissioning of the vehicles in collaboration with our customers\n• You maintain collaboration with our suppliers and ensure timely and high-quality implementation",
+      "de": "PROFIL\n\n• Du besitzt ein abgeschlossenes HF- oder Hochschulstudium in Elektrotechnik oder einem vergleichbaren Bereich\n\n• Du konntest bereits erste Erfahrungen in der Energieverteilung, den Antriebssystemen oder Steuerungs- und Leittechnik sammeln, idealerweise sogar schon im Schienenfahrzeugbau\n\n• Du kommunizierst fliessend auf Deutsch (Niveau C2) und besitzt gute Englischkenntnisse (Niveau B2)\n\n• Du hast Freude an der Zusammenarbeit in interdisziplinären Teams und und Kenntnisse im Umgang mit E-CAD-Programmen\n\n• Du schätzt das Arbeiten mit hoher Eigenverantwortung und besitzt ausgeprägte Kommunikations- und Koordinationsfähigkeiten\n\nAUFGABEN\n\n• Du bist verantwortlich für die verschiedenen Teilsysteme im Elektroengineering sowie die Auslegung und Integration der elektrischen Anlagen in unsere Fahrzeuge\n\n• Du begleitest den Fahrzeugentstehungsprozess durch die E rstellung von Konzepten und Spezifikationen\n\n• Du legst die elektrischen Komponenten gemäss Kundenanforderungen und aktuell geltender Normen aus\n\n• Du übernimmst die technische Koordination mit anderen Disziplinen (Software-Erstellung, Einbauplanung, mechanisches Engineering, Brandschutz usw.)\n\n• Du erstellst die Elektro-Funktionsübersichten im E-CAD als Basis für die Schemazeichner\n\n• Du betreust die Montage und Erstinbetriebnahme der Fahrzeuge in Zusammenarbeit mit unseren Kunden\n\n• Du pflegst die Zusammenarbeit mit unseren Lieferanten und sicherst die termingerechte sowie qualitativ hochwertigen Umsetzung",
+      "fr": "PROFIL\n• Vous êtes titulaire d'un diplôme HF ou universitaire en génie électrique ou dans un domaine comparable\n• Vous avez déjà acquis une première expérience dans la distribution d'énergie, les systèmes d'entraînement ou la technologie de contrôle et de commande, idéalement même dans la construction de véhicules ferroviaires\n• Vous communiquez couramment en allemand (niveau C2) et possédez de bonnes compétences en anglais (niveau B2)\n• Vous aimez travailler dans des équipes interdisciplinaires et connaissez l'utilisation des programmes E-CAD\n• Vous appréciez travailler avec un haut niveau de responsabilité personnelle et possédez de solides compétences en communication et en coordination. TÂCHES\n• Vous êtes responsable des différents sous-systèmes en génie électrique ainsi que la conception et l'intégration des systèmes électriques dans nos véhicules\n• Vous accompagnez le processus de développement des véhicules en créant des concepts et des spécifications\n• Vous concevez les composants électriques selon les exigences du client et les normes en vigueur\n• Vous prenez en charge la coordination technique avec d'autres disciplines (création de logiciels, planification d'installation, ingénierie mécanique, protection incendie, etc.)\n• Vous créez les aperçus des fonctions électriques dans E-CAD comme base pour les dessinateurs de schémas\n• Vous supervisez le montage et la première mise en service des véhicules en collaboration avec nos clients\n• Vous entretenez la collaboration avec nos fournisseurs et assurez mise en œuvre rapide et de haute qualité"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-elettrico-in-tecnico-elettrico-in-per-veicoli-speciali-stadler-rail-bussnang",
+      "en": "electrical-engineer-in-electrical-technician-in-for-special-vehicles-stadler-rail-bussnang",
+      "de": "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch",
+      "fr": "ingenieur-electricien-ingenieur-electricien-pour-vehicules-speciaux-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-18T10:55:06.426Z",
+    "previousSlugs": [
+      "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch",
+      "elektroingenieur-in-elektrotechniker-in-per-spezialfahrzeuge-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
+    "title": "Lead Engineer Fahrgastinformationssysteme und Netzwerktechnik",
+    "titleByLocale": {
+      "it": "Lead Ingegnere Fahrgastinformationssysteme e Netzwerktechnik",
+      "en": "Lead Engineer Fahrgastinformationssysteme und Netzwerktechnik",
+      "de": "Lead Ingenieur Fahrgastinformationssysteme und Netzwerktechnik",
+      "fr": "Ingénieur en chef des systèmes d'information des passagers et de la technologie de réseau"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Frauenfeld",
+    "addressLocality": "Frauenfeld",
+    "descriptionByLocale": {
+      "it": "PROFILO\n• Formazione tecnica completata a livello universitario (SUP/Università) in ingegneria elettrica, automazione o ingegneria dei sistemi\n• Vantaggio dell'esperienza con FIS, ingegneria di rete, sicurezza informatica\n• Esperienza nel campo dell'ingegneria dei sistemi e del coordinamento di discipline specialistiche/sottoprogetti\n• Piacere di lavorare in un ambiente dinamico\n• COMPITI affidabili in tedesco e buone conoscenze dell'inglese\n• Assumi la direzione professionale dei settori dell'ingegneria dei sistemi, dell'ingegneria elettrica e della pianificazione delle installazioni elettriche nei nostri progetti di modernizzazione della rete/FIS e lavori a stretto contatto con il responsabile del progetto tecnico\n• Controlli la cooperazione tecnica con fornitori e fornitori di servizi esterni e garantisci la qualità e l'implementazione tempestiva\n• Implementi il capitolato d'oneri del cliente tenendo conto di tutti i requisiti pertinenti\n• Sviluppi soluzioni di sistema integrate in stretto coordinamento con l'ingegneria del software, l'ingegneria meccanica e la gestione delle approvazioni e della sicurezza\n• Analizzi i sistemi esistenti e le soluzioni di modernizzazione\n• Dalla fase concettuale ai test e alle approvazioni accompagnando l'implementazione tecnica",
+      "en": "PROFILE\n• Completed technical training at university level (FH/Universität) in electrical engineering, automation or systems engineering\n• Experience with FIS, network technology, cyber security is an advantage\n• Experience in systems engineering and the coordination of disciplines/sub-projects\n• Pleasure in working in a dynamic environment\n• Business fluent in German and good English TASKS\n• You take over the technical management of the areas of system, electrical engineering and electrical installation planning in our FIS/network modernisation projects and work closely with the Technical Project Manager\n• You control the technical cooperation with suppliers and external service providers and ensure quality and timely implementation\n• You implement customer requirements and take into account all relevant requirements\n• In close coordination with software, mechanical engineering, as well as approval and safety management, you develop integrated system solutions\n• You analyse existing systems and derive modernisation solutions\n• From the concept phase to testing and approval, you accompany the technical implementation",
+      "de": "PROFIL\n\n• Abgeschlossene technische Ausbildung auf Hochschulniveau (FH/Universität) in Elektrotechnik, Automation oder Systemtechnik\n\n• Erfahrung mit FIS, Netzwerktechnik, Cyber Security von Vorteil\n\n• Erfahrung im Bereich Systems Engineering und in der Koordination von Fachdisziplinen/Teilprojekten\n\n• Freude in einem dynamischen Umfeld tätig zu sein\n\n• Verhandlungssicher in Deutsch- sowie gute Englischkenntnisse\n\nAUFGABEN\n\n• Du übernimmst die fachliche Leitung der Bereiche Systems-, Elektro-Engineering und Elektro‑Einbauplanung in unseren FIS/Netzwerk‑Modernisierungsprojekten und arbeitest dabei eng mit dem Technischen Projektleiter zusammen\n\n• Du steuerst die technische Zusammenarbeit mit Lieferanten und externen Dienstleistern und stellst Qualität und termingerechte Umsetzung sicher\n\n• Du setzt das Kundenpflichtenheft um und berücksichtigst dabei alle relevanten Anforderungen\n\n• In enger Abstimmung mit Software-, mechanischem Engineering, sowie Zulassungs- und Safety‑Management entwickelst du integrierte Systemlösungen\n\n• Du analysierst bestehende Systeme und leitest Modernisierungslösungen ab\n\n• Von der Konzeptphase bis hin zu Tests und Zulassung begleitest du die technische Umsetzung",
+      "fr": "PROFIL\n• Formation technique de niveau universitaire (HES/université) en génie électrique, automatisation ou ingénierie des systèmes\n• Expérience de la fis, de l'ingénierie des réseaux, de la cybersécurité avantageuse\n• Expérience dans le domaine de l'ingénierie des systèmes et de la coordination des disciplines professionnelles/sous-projets\n• Plaisir d'être actif dans un environnement dynamique\n• Maîtrise de la négociation en allemand et bonnes compétences en anglais TÂCHES\n• Tu assumes la direction technique des domaines de l'ingénierie des systèmes, de l'ingénierie électrique et de la planification de l'installation électrique dans nos projets de modernisation fis/réseau et tu travailles en étroite collaboration avec le chef de projet technique\n• Tu gères la coopération technique avec les fournisseurs et les prestataires de services externes et tu assure la qualité et la mise en œuvre dans les délais impartis\n• Tu mets en œuvre le cahier des charges du client en tenant compte de toutes les exigences pertinentes\n• En étroite coordination avec l'ingénierie logicielle, mécanique et la gestion de l'homologation et de la sécurité, tu développes des solutions de systèmes intégrés\n• Tu analyses les systèmes existants et conduis des solutions de modernisation\n• De la phase de conception jusqu'à l'homologation et l'homologation, tu accompagnes la mise en œuvre technique"
+    },
+    "slugByLocale": {
+      "it": "lead-ingegnere-fahrgastinformationssysteme-e-netzwerktechnik-stadler-rail-frauenfeld",
+      "en": "lead-engineer-passenger-information-systems-and-network-technology-stadler-rail-frauenfeld",
+      "de": "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+      "fr": "ingenieur-en-chef-des-systemes-d-information-des-passagers-et-de-la-technologie-de-reseau-stadler-rail-frauenfeld"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-18T10:55:06.426Z",
+    "previousSlugs": [
+      "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+      "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch",
+        "lead-engineer-sistemi-informativi-per-i-passeggeri-e-tecnologia-di-rete-stadler-rail-frauenfeld"
+      ],
+      "en": [
+        "lead-engineer-fahrgastinformationssysteme-und-netzwerktechnik-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8500",
+    "salaryMin": 79000,
+    "salaryMax": 120000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-di-sviluppo-trasmissioni-assiali-stadler-rail-bussnang",
+    "title": "Entwicklungsingenieur:in Radsatzgetriebe",
+    "titleByLocale": {
+      "it": "Ingegnere di sviluppo trasmissioni assiali",
+      "en": "Axle Transmission Development Engineer",
+      "de": "Entwicklungsingenieur:in Radsatzgetriebe",
+      "fr": "Ingénieur de développement de transmissions d'essieu"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "Profilo - Possiedi una passione per la realizzazione di progetti di veicoli ferroviari affascinanti - Hai un diploma di studio come ingegnere meccanico (FH/HF/ETH/TU) o una qualificazione equivalente - Porti esperienza obbligatoria nella costruzione di trasmissioni, preferibilmente nel settore dei veicoli ferroviari - Hai ottime conoscenze in CAD 3D, preferibilmente in CATIA V5 / Catia V6 - Porti conoscenze preferibilmente nella progettazione e calcolo di ingranaggi a denti in KISSsoft - Lavori autonomamente, sei resistente, flessibile e comunicativo in tedesco e inglese Descrizione - Leggi complessi assi di trasmissione autonomamente, li calcoli e li costruisci - Crea documenti di produzione e specifiche tecniche per componenti e gruppi di componenti - Definisci le interfacce con il sistema di sospensione e l'alimentazione insieme alle rispettive sezioni tecniche - Funzioni come punto di contatto per i nostri progettisti, i fornitori e per la montaggio delle trasmissioni in caso di domande tecniche - Specifica gli esperimenti e i test di tipo e li accompagna durante la loro esecuzione - Lavori continuamente per migliorare i nostri prodotti e processi Contatto - (nessun testo disponibile)",
+      "en": "Profile - You have a passion for realizing fascinating railway vehicle projects - You have a degree in mechanical engineering (FH/HF/ETH/TU) or equivalent qualification - You have mandatory experience in transmission construction, preferably in the railway vehicle sector - You have excellent knowledge in 3D CAD, preferably in CATIA V5 / Catia V6 - You have knowledge, preferably in the design and calculation of gear teeth in KISSsoft - You work independently, are resilient, flexible, and communicative in German and English Description - You read complex axle transmissions independently, calculate and construct them - You create production documents and technical specifications for components and component groups - You define interfaces with the suspension system and power supply together with the respective technical sections - You act as a point of contact for our designers, suppliers, and transmission assembly in case of technical questions - You specify experiments and type tests and accompany them during execution - You continuously work to improve our products and processes Contact - (no text available)",
+      "de": "PROFIL\n\n• Du besitzt eine Passion für die Realisierung von faszinierenden Schienenfahrzeugprojekten\n\n• Du hast ein abgeschlossenes Studium als Maschineningenieur:in (FH/HF/ETH/TU) oder eine vergleichbare Qualifikation\n\n• Du bringst zwingend Erfahrung in der Getriebekonstruktion mit, idealerweise im Bereich Schienenfahrzeuge\n\n• Du hast sehr gute 3D-CAD-Kenntnisse, vorzugsweise in CATIA V5 / Catia V6\n\n• Du bringst idealerweise Kentnisse in der Auslegung und Berechnung von Stirnradverzahnungen in KISSsoft mit\n\n• Du arbeitest selbstständig, bist belastbar, flexibel und kommunikationsstark in deutsch und englisch\n\nAUFGABEN\n\n• Du legst komplexe Achsgetriebe selbstständig aus, berechnest und konstruierst sie\n\n• Du erstellst fertigungsgerechte Unterlagen sowie technische Spezifikationen für Bauteile und Baugruppen\n\n• Du definierst Schnittstellen zu Fahrwerk und Antrieb gemeinsam mit den jeweiligen Fachstellen\n\n• Du fungierst als Schnittstelle für unsere Projektleiter:innen, Lieferanten und für die Getriebemontage bei technischen Fragestellungen\n\n• Du spezifizierst Versuche und Typentests und begleitest deren Durchführung\n\n• Du arbeitest kontinuierlich bei der Verbesserung unserer Produkte und Prozesse mit",
+      "fr": "Profil - Vous avez une passion pour la réalisation de projets de véhicules ferroviaires fascinants - Vous avez un diplôme d'études en ingénierie mécanique (FH/HF/ETH/TU) ou une qualification équivalente - Vous avez une expérience obligatoire dans la construction de transmissions, de préférence dans le secteur des véhicules ferroviaires - Vous avez d'excellentes connaissances en CAD 3D, de préférence en CATIA V5 / Catia V6 - Vous avez des connaissances, de préférence dans la conception et le calcul des engrenages à dents en KISSsoft - Vous travaillez de manière autonome, êtes résilient, flexible et communicatif en allemand et en anglais Description - Vous lisez des transmissions d'essieu complexes de manière autonome, les calculez et les construisez - Vous créez des documents de production et des spécifications techniques pour les composants et les groupes de composants - Vous définissez les interfaces avec le système de suspension et l'alimentation électrique en collaboration avec les sections techniques respectives - Vous êtes le point de contact pour nos concepteurs, nos fournisseurs et l'assemblage des transmissions en cas de questions techniques - Vous spécifiez les expériences et les tests de type et les accompagnez pendant leur exécution - Vous travaillez en continu pour améliorer nos produits et processus Contact - (aucun texte disponible)"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-di-sviluppo-trasmissioni-assiali-stadler-rail-bussnang",
+      "en": "axle-transmission-development-engineer-stadler-rail-bussnang",
+      "de": "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch",
+      "fr": "ingenieur-de-developpement-de-transmissions-d-essieu-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-07-18T10:55:06.426Z",
+    "previousSlugs": [
+      "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "entwicklungsingenieur-in-radsatzgetriebe-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "ingegnere-operativo-it-stadler-rail-bussnang",
     "title": "IT Operation Engineer",
     "titleByLocale": {
