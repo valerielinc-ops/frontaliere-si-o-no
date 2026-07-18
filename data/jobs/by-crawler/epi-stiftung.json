@@ -53,14 +53,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-        "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-          "dipl-infermieristica-professionale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
@@ -89,8 +87,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich",
         "it": "mitarbeiterin-collaboratore-trice-reinigung-housekeeping-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        "en": "employee-cleaning-staff-housekeeping-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "employe-personnel-de-nettoyage-menage-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -137,6 +135,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-reinigung-housekeeping-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
@@ -162,8 +166,8 @@
       "slugByLocale": {
         "de": "leiterin-leiter-restaurant-epi-stiftung-zurich",
         "it": "leiterin-leiter-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "leiterin-leiter-restaurant-epi-stiftung-zurich",
-        "fr": "leiterin-leiter-restaurant-epi-stiftung-zurich"
+        "en": "head-head-restaurant-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "chef-chef-restaurant-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -209,6 +213,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-restaurant-epi-stiftung-zurich"
+        ],
+        "en": [
+          "leiterin-leiter-restaurant-epi-stiftung-zurich"
+        ],
+        "fr": [
           "leiterin-leiter-restaurant-epi-stiftung-zurich"
         ]
       },
@@ -297,12 +307,12 @@
     },
     {
       "id": "epi-stiftung-d0212a6fd706",
-      "slug": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
+      "slug": "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
-        "it": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
-        "en": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich",
-        "fr": "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+        "it": "specialista-specialista-agogik-area-di-lavoro-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "specialist-specialist-agogik-work-area-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "specialiste-specialiste-agogik-domaine-d-activite-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -358,16 +368,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.083Z"
+      "firstSeenAt": "2026-07-17T22:07:13.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+        ],
+        "en": [
+          "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachmitarbeiterin-fachmitarbeiter-agogik-bereich-arbeiten-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-4f32dd8a8d3e",
-      "slug": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
+      "slug": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "it": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "en": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "fr": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        "it": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -423,7 +447,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.082Z"
+      "firstSeenAt": "2026-07-17T22:07:13.082Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        ],
+        "en": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-55a9eb876e52",
@@ -431,8 +469,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
         "it": "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
-        "en": "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
-        "fr": "fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich"
+        "en": "specialist-professional-support-efz-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "specialiste-soutien-professionnel-efz-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -515,12 +553,12 @@
     },
     {
       "id": "epi-stiftung-35b08e1610e6",
-      "slug": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
+      "slug": "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
-        "it": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
-        "en": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
-        "fr": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich"
+        "it": "stv-team-leader-area-living-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "stv-team-leader-living-area-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "lieu-de-vie-du-chef-d-equipe-stv-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -576,7 +614,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.077Z"
+      "firstSeenAt": "2026-07-17T22:07:13.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich"
+        ],
+        "en": [
+          "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-a0d4d52d77f8",
@@ -584,8 +636,8 @@
       "slugByLocale": {
         "de": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
         "it": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "fr": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "en": "study-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "etude-dipl-specialiste-des-soins-infirmiers-a-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -632,6 +684,12 @@
       "previousSlugsByLocale": {
         "it": [
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "en": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
@@ -653,12 +711,12 @@
     },
     {
       "id": "epi-stiftung-927b6a9eeb39",
-      "slug": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+      "slug": "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "it": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "en": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "fr": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        "it": "centri-di-formazione-asilo-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "trainees-daycare-centres-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "stagiaires-garderies-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -714,7 +772,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.073Z"
+      "firstSeenAt": "2026-07-17T22:07:13.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "en": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-da42905dbac2",
@@ -722,8 +794,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich",
         "it": "mitarbeiterin-collaboratore-trice-reinigung-restaurant-e-seminar-epi-park-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        "en": "employee-cleaning-restaurant-and-seminar-epi-park-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "nettoyage-des-employes-restaurant-et-seminaire-epi-park-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -770,6 +842,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
@@ -791,12 +869,12 @@
     },
     {
       "id": "epi-stiftung-fe310c1153ae",
-      "slug": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+      "slug": "team-leader-team-leader-day-centre-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "it": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+        "it": "team-leader-team-leader-day-centre-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "fr": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        "fr": "chef-d-equipe-centre-de-jour-du-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -852,7 +930,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.070Z"
+      "firstSeenAt": "2026-07-17T22:07:13.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-796a9ae19029",
@@ -860,8 +949,8 @@
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
         "it": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "en": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "fr": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung"
+        "en": "team-leader-living-groups-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "chef-d-equipe-groupes-vivants-avec-un-comportement-complexe-et-stimulant-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -921,12 +1010,12 @@
     },
     {
       "id": "epi-stiftung-6ffb8bc82473",
-      "slug": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+      "slug": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "de": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "it": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+        "it": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "fr": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        "fr": "education-sociale-des-etudiants-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -982,7 +1071,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-17T22:07:13.061Z"
+      "firstSeenAt": "2026-07-17T22:07:13.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+      ]
     }
   ]
 }
