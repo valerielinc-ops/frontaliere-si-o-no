@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-07-17T22:42:20.296Z",
+  "assembledAt": "2026-07-18T11:15:43.711Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.164Z",
+      "crawledAt": "2026-07-18T11:15:40.746Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -76,11 +77,13 @@
       },
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
+          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -105,8 +108,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -145,7 +148,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.163Z",
+      "crawledAt": "2026-07-18T11:15:40.745Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -173,18 +177,24 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -247,17 +257,19 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.162Z",
+      "crawledAt": "2026-07-18T11:15:40.744Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -322,7 +334,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.161Z",
+      "crawledAt": "2026-07-18T11:15:40.743Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -339,92 +352,19 @@
         "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "codificatore-medico-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "codificateur-medical-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.706Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-814a2a6c3683",
-      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Assistant technique en stérilisation",
-      "titleByLocale": {
-        "it": "Assistente tecnico in Sterilizzazione",
-        "en": "Technical Assistant in Sterilization",
-        "de": "Technischer Assistent der Sterilisation",
-        "fr": "Assistant technique en stérilisation"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
-        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
-        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\nDescriptif du poste :\nDans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\nVotre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\nVos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\nProfil requis :\nVous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\nVous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\nNiveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\nAvantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://app.beehire.com/invite/AWZGWt1g8",
-      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.160Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:27:39.540Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -483,13 +423,16 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.160Z",
+      "crawledAt": "2026-07-18T11:15:40.742Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -557,16 +500,18 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.159Z",
+      "crawledAt": "2026-07-18T11:15:40.741Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "mutua-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -590,30 +535,30 @@
       }
     },
     {
-      "id": "ghol-621128b79220",
-      "slug": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-814a2a6c3683",
+      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "logopedist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "logopade-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Logopédiste",
+      "title": "Assistant technique en stérilisation",
       "titleByLocale": {
-        "it": "Logopedista",
-        "en": "Logopedist",
-        "de": "Logopäde",
-        "fr": "Logopédiste"
+        "it": "Assistente tecnico in Sterilizzazione",
+        "en": "Technical Assistant in Sterilization",
+        "de": "Technischer Assistent der Sterilisation",
+        "fr": "Assistant technique en stérilisation"
       },
-      "description": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Description du poste :\n Afin de renforcer notre équipe de thérapeutes en STROKE UNIT, nous recherchons un·e logopédiste motivé·e pour intervenir auprès de patients·es adultes hospitalisés·ées en phase aiguë. Vous intégrerez une équipe dynamique d'environ 20 thérapeutes sur le site de Nyon (logopédistes, ergothérapeutes et physiothérapeutes) travaillant en étroite collaboration avec les équipes médicales et soignantes.\n Dans le cadre de votre activité, vous serez principalement amené·e à :\n\n• Réaliser les évaluations logopédiques auprès de patients·es adultes présentant des troubles du langage, de la parole et de la communication.\n\n• Participer au dépistage et à l'évaluation des dysphagies, ainsi qu'aux recommandations concernant l'alimentation et la sécurité de la déglutition.\n\n• Assurer la prise en charge précoce et initier les traitements logopédiques en phase aiguë.\n\n• Collaborer étroitement avec les médecins, infirmier·ères et autres professionnels de la l’hôpital.\n\n• Participer aux colloques interdisciplinaires et contribuer à la continuité du parcours de soins.\n\n• Assurer la traçabilité de vos interventions dans le dossier patient·e informatisé.\n\n• Participer à la formation du personnel soignant\n Profil requis :\n\n• Expérience clinique auprès d'une population adulte indispensable, notamment dans les domaines du langage, de la parole et de la déglutition.\n\n• Les candidatures de jeunes diplômé·es sont les bienvenues, pour autant qu'elles disposent d'une expérience de stages significative auprès d'adultes.\n\n• Intérêt pour le travail en milieu hospitalier aigu et la prise en charge précoce.\n\n• Intérêt à se former dans le domaine neurologique\n\n• Capacité à travailler de manière autonome tout en appréciant la collaboration interprofessionnelle.\n\n• Sens de l'organisation, flexibilité et excellentes compétences relationnelles.\n Niveau de formation :\n\n• Master en logopédie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé).\n Avantages :\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité de bénéficier d’une collaboration interdisciplinaire riche avec les différents·es soignants·es.\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique).\n Intéressé·e par ce challenge ? Alors adressez-nous votre candidature !",
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
       "descriptionByLocale": {
-        "it": "GHOL è l'ospedale regionale di riferimento per l'Occidente tedesco con le sue strutture a Nyon e Rolle. Unisciti a noi è l'opportunità di lavorare quotidianamente con più di 900 dipendenti per garantire la salute e il benessere dei pazienti e delle loro famiglie. Descrizione della posizione: Al fine di rafforzare il nostro team di terapeuti STROKE UNIT, stiamo cercando un logopedista motivato per intervenire con pazienti adulti acutamente ricoverati. Integrerai un team dinamico di circa 20 terapeuti sul sito di Nyon (logisti, terapisti e fisioterapisti del lavoro) lavorando in stretta collaborazione con team medici e sanitari. Nell'ambito della vostra attività, sarete principalmente tenuti a:\n• Condurre valutazioni logopediche in pazienti adulti con disturbi di discorso, comunicazione e discorso.\n• Partecipa alla proiezione e alla valutazione della disfagia, nonché alle raccomandazioni per il cibo e la deglutizione sicura.\n• Assicurare la gestione precoce e avviare i trattamenti logopedici nella fase acuta.\n• Lavorare a stretto contatto con medici, infermieri e altri professionisti ospedalieri.\n• Partecipare a simposi interdisciplinari e contribuire alla continuità del percorso di cura.\n• Traccia le tue procedure nel file del paziente computerizzato.\n• Partecipare alla formazione dei caregiver Profilo richiesto:\n• Esperienza clinica con un'indispensabile popolazione adulta, soprattutto nelle aree di lingua, discorso e ingoia.\n• Applicazioni da giovani laureati sono benvenuti, a condizione che abbiano una significativa esperienza di stage con gli adulti.\n• Interessi nel lavoro ospedaliero acuto e nella cura precoce.\n• Interessi nella formazione neurologica\n• Capacità di lavorare in modo indipendente mentre godendo la collaborazione interprofessionale.\n• Senso organizzativo, flessibilità e eccellenti capacità relazionali. Livello di formazione:\n• Master in logopedia o diploma equivalente riconosciuto dalla Croce Rossa svizzera (richiesto). Vantaggi: All'interno di GHOL, svilupperai le tue competenze attraverso una vera politica di formazione continua e l'opportunità di beneficiare di una ricca collaborazione interdisciplinare con i vari operatori sanitari. Potrai beneficiare di condizioni di lavoro interessanti (localizzazione, nuovo ospedale, spirito di squadra, supporto da un rispondente clinico). Ti interessa questa sfida? Allora mandaci la tua domanda!",
-        "en": "GHOL is the regional reference hospital for the German West with its structures in Nyon and Rolle. Joining us is an opportunity to work daily with more than 900 employees to ensure the health and well-being of patients and their families. Description of position: In order to strengthen our team of STROKE UNIT therapists, we are looking for a motivated logopedist to intervene with acutely hospitalized adult patients. You will integrate a dynamic team of about 20 therapists on the Nyon site (logists, occupational therapists and physiotherapists) working in close collaboration with medical and healthcare teams. As part of your activity, you will be mainly required to:\n• Conduct logopedic evaluations in adult patients with speech, communication and speech disorders.\n• Participate in the screening and evaluation of dysphagia, as well as recommendations for food and safe swallowing.\n• Ensure early management and initiate logopedic treatments in the acute phase.\n• Work closely with doctors, nurses and other hospital professionals.\n• Participate in interdisciplinary symposia and contribute to the continuity of the care path.\n• Trace your procedures in the computerized patient file.\n• Participate in the training of caregivers Profile required:\n• Clinical experience with an indispensable adult population, especially in the areas of language, speech and swallowing.\n• Applications from young graduates are welcome, provided they have a significant experience of internships with adults.\n• Interest in acute hospital work and early care.\n• Interest in neurological training\n• Ability to work independently while enjoying interprofessional collaboration.\n• Organizational sense, flexibility and excellent relational skills. Level of training:\n• Master in logopedia or equivalent diploma recognized by the Swiss Red Cross (required). Benefits: Within GHOL, you will develop your skills through a real policy of continuing training and the opportunity to benefit from a rich interdisciplinary collaboration with the various healthcare providers. You will benefit from attractive working conditions (localization, new hospital, team spirit, support from a clinical respondent). Interested in this challenge? Then send us your application!",
-        "de": "GHOL ist das regionale Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon und Rolle. Die Teilnahme an uns ist eine Gelegenheit, täglich mit mehr als 900 Mitarbeitern zu arbeiten, um die Gesundheit und das Wohlbefinden der Patienten und ihrer Familien zu gewährleisten. Beschreibung der Position: Um unser Team von STROKE UNIT Therapeuten zu stärken, suchen wir einen motivierten Logopäden, um bei akut hospitalisierten erwachsenen Patienten einzugreifen. Sie werden ein dynamisches Team von etwa 20 Therapeuten auf dem Nyon-Standort integrieren (Logiker, Ergotherapeuten und Physiotherapeuten), die in enger Zusammenarbeit mit medizinischen und Gesundheitsteams arbeiten. Im Rahmen Ihrer Tätigkeit werden Sie hauptsächlich aufgefordert:\n• Führen Sie logopädische Untersuchungen bei erwachsenen Patienten mit Sprach-, Kommunikations- und Sprachstörungen durch.\n• Beteiligen Sie sich am Screening und der Bewertung von Dysphagie sowie an Empfehlungen für Lebensmittel und sicheres Schlucken.\n• Gewährleistung eines frühzeitigen Managements und Einleitung von logopädischen Behandlungen in der akuten Phase.\n• Arbeiten Sie eng mit Ärzten, Krankenschwestern und anderen Krankenhausfachkräften zusammen.\n• Nehmen Sie an interdisziplinären Symposien teil und tragen Sie zur Kontinuität des Pflegewegs bei.\n• Verfolgen Sie Ihre Verfahren in der computerisierten Patientenakte.\n• Teilnahme an der Ausbildung von Betreuern Profil erforderlich:\n• Klinische Erfahrung mit einer unverzichtbaren erwachsenen Bevölkerung, insbesondere in den Bereichen Sprache, Sprache und Schlucken.\n• Bewerbungen von jungen Absolventen sind willkommen, sofern sie über umfangreiche Erfahrungen mit Praktika mit Erwachsenen verfügen.\n• Interesse an akuter Krankenhausarbeit und frühzeitiger Pflege.\n• Interesse am neurologischen Training\n• Fähigkeit, unabhängig zu arbeiten und gleichzeitig interprofessionelle Zusammenarbeit zu genießen.\n• Organisatorischer Sinn, Flexibilität und ausgezeichnete Beziehungsfähigkeiten. Ausbildungsniveau:\n• Master in Logopedia oder gleichwertige Diplom vom Schweizerischen Roten Kreuz anerkannt (erforderlich). Leistungen: Innerhalb von GHOL entwickeln Sie Ihre Fähigkeiten durch eine echte Weiterbildungspolitik und die Möglichkeit, von einer reichen interdisziplinären Zusammenarbeit mit den verschiedenen Gesundheitsdienstleistern zu profitieren. Sie profitieren von attraktiven Arbeitsbedingungen (Lokalisierung, neues Krankenhaus, Teamgeist, Unterstützung durch einen klinischen Befragten). Interesse an dieser Challenge? Dann senden Sie uns Ihre Bewerbung!",
-        "fr": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\nDescription du poste :\nAfin de renforcer notre équipe de thérapeutes en STROKE UNIT, nous recherchons un·e logopédiste motivé·e pour intervenir auprès de patients·es adultes hospitalisés·ées en phase aiguë. Vous intégrerez une équipe dynamique d'environ 20 thérapeutes sur le site de Nyon (logopédistes, ergothérapeutes et physiothérapeutes) travaillant en étroite collaboration avec les équipes médicales et soignantes.\nDans le cadre de votre activité, vous serez principalement amené·e à :\n\n• Réaliser les évaluations logopédiques auprès de patients·es adultes présentant des troubles du langage, de la parole et de la communication.\n\n• Participer au dépistage et à l'évaluation des dysphagies, ainsi qu'aux recommandations concernant l'alimentation et la sécurité de la déglutition.\n\n• Assurer la prise en charge précoce et initier les traitements logopédiques en phase aiguë.\n\n• Collaborer étroitement avec les médecins, infirmier·ères et autres professionnels de la l’hôpital.\n\n• Participer aux colloques interdisciplinaires et contribuer à la continuité du parcours de soins.\n\n• Assurer la traçabilité de vos interventions dans le dossier patient·e informatisé.\n\n• Participer à la formation du personnel soignant\nProfil requis :\n\n• Expérience clinique auprès d'une population adulte indispensable, notamment dans les domaines du langage, de la parole et de la déglutition.\n\n• Les candidatures de jeunes diplômé·es sont les bienvenues, pour autant qu'elles disposent d'une expérience de stages significative auprès d'adultes.\n\n• Intérêt pour le travail en milieu hospitalier aigu et la prise en charge précoce.\n\n• Intérêt à se former dans le domaine neurologique\n\n• Capacité à travailler de manière autonome tout en appréciant la collaboration interprofessionnelle.\n\n• Sens de l'organisation, flexibilité et excellentes compétences relationnelles.\nNiveau de formation :\n\n• Master en logopédie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé).\nAvantages :\nAu sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité de bénéficier d’une collaboration interdisciplinaire riche avec les différents·es soignants·es.\nVous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique).\nIntéressé·e par ce challenge ? Alors adressez-nous votre candidature !"
+        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
+        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
+        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\nDescriptif du poste :\nDans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\nVotre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\nVos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\nProfil requis :\nVous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\nVous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\nNiveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\nAvantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -622,44 +567,46 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "healthcare-therapy",
+      "category": "healthcare",
       "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
+      "contract": "full-time",
+      "employmentType": "OTHER",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-03",
-      "url": "https://app.beehire.com/invite/Hx8j9fccF",
-      "applyUrl": "https://app.beehire.com/invite/Hx8j9fccF",
+      "postedDate": "2026-06-15",
+      "url": "https://app.beehire.com/invite/AWZGWt1g8",
+      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.158Z",
+      "crawledAt": "2026-07-18T11:15:40.741Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-07-03T12:09:19.089Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-06-15T14:27:39.540Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -709,14 +656,16 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.158Z",
+      "crawledAt": "2026-07-18T11:15:40.740Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -726,6 +675,83 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:47:49.679Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-621128b79220",
+      "slug": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "logopedist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "logopade-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Logopédiste",
+      "titleByLocale": {
+        "it": "Logopedista",
+        "en": "Logopedist",
+        "de": "Logopäde",
+        "fr": "Logopédiste"
+      },
+      "description": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\n Description du poste :\n Afin de renforcer notre équipe de thérapeutes en STROKE UNIT, nous recherchons un·e logopédiste motivé·e pour intervenir auprès de patients·es adultes hospitalisés·ées en phase aiguë. Vous intégrerez une équipe dynamique d'environ 20 thérapeutes sur le site de Nyon (logopédistes, ergothérapeutes et physiothérapeutes) travaillant en étroite collaboration avec les équipes médicales et soignantes.\n Dans le cadre de votre activité, vous serez principalement amené·e à :\n\n• Réaliser les évaluations logopédiques auprès de patients·es adultes présentant des troubles du langage, de la parole et de la communication.\n\n• Participer au dépistage et à l'évaluation des dysphagies, ainsi qu'aux recommandations concernant l'alimentation et la sécurité de la déglutition.\n\n• Assurer la prise en charge précoce et initier les traitements logopédiques en phase aiguë.\n\n• Collaborer étroitement avec les médecins, infirmier·ères et autres professionnels de la l’hôpital.\n\n• Participer aux colloques interdisciplinaires et contribuer à la continuité du parcours de soins.\n\n• Assurer la traçabilité de vos interventions dans le dossier patient·e informatisé.\n\n• Participer à la formation du personnel soignant\n Profil requis :\n\n• Expérience clinique auprès d'une population adulte indispensable, notamment dans les domaines du langage, de la parole et de la déglutition.\n\n• Les candidatures de jeunes diplômé·es sont les bienvenues, pour autant qu'elles disposent d'une expérience de stages significative auprès d'adultes.\n\n• Intérêt pour le travail en milieu hospitalier aigu et la prise en charge précoce.\n\n• Intérêt à se former dans le domaine neurologique\n\n• Capacité à travailler de manière autonome tout en appréciant la collaboration interprofessionnelle.\n\n• Sens de l'organisation, flexibilité et excellentes compétences relationnelles.\n Niveau de formation :\n\n• Master en logopédie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé).\n Avantages :\n Au sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité de bénéficier d’une collaboration interdisciplinaire riche avec les différents·es soignants·es.\n Vous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique).\n Intéressé·e par ce challenge ? Alors adressez-nous votre candidature !",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale regionale di riferimento per l'Occidente tedesco con le sue strutture a Nyon e Rolle. Unisciti a noi è l'opportunità di lavorare quotidianamente con più di 900 dipendenti per garantire la salute e il benessere dei pazienti e delle loro famiglie. Descrizione della posizione: Al fine di rafforzare il nostro team di terapeuti STROKE UNIT, stiamo cercando un logopedista motivato per intervenire con pazienti adulti acutamente ricoverati. Integrerai un team dinamico di circa 20 terapeuti sul sito di Nyon (logisti, terapisti e fisioterapisti del lavoro) lavorando in stretta collaborazione con team medici e sanitari. Nell'ambito della vostra attività, sarete principalmente tenuti a:\n• Condurre valutazioni logopediche in pazienti adulti con disturbi di discorso, comunicazione e discorso.\n• Partecipa alla proiezione e alla valutazione della disfagia, nonché alle raccomandazioni per il cibo e la deglutizione sicura.\n• Assicurare la gestione precoce e avviare i trattamenti logopedici nella fase acuta.\n• Lavorare a stretto contatto con medici, infermieri e altri professionisti ospedalieri.\n• Partecipare a simposi interdisciplinari e contribuire alla continuità del percorso di cura.\n• Traccia le tue procedure nel file del paziente computerizzato.\n• Partecipare alla formazione dei caregiver Profilo richiesto:\n• Esperienza clinica con un'indispensabile popolazione adulta, soprattutto nelle aree di lingua, discorso e ingoia.\n• Applicazioni da giovani laureati sono benvenuti, a condizione che abbiano una significativa esperienza di stage con gli adulti.\n• Interessi nel lavoro ospedaliero acuto e nella cura precoce.\n• Interessi nella formazione neurologica\n• Capacità di lavorare in modo indipendente mentre godendo la collaborazione interprofessionale.\n• Senso organizzativo, flessibilità e eccellenti capacità relazionali. Livello di formazione:\n• Master in logopedia o diploma equivalente riconosciuto dalla Croce Rossa svizzera (richiesto). Vantaggi: All'interno di GHOL, svilupperai le tue competenze attraverso una vera politica di formazione continua e l'opportunità di beneficiare di una ricca collaborazione interdisciplinare con i vari operatori sanitari. Potrai beneficiare di condizioni di lavoro interessanti (localizzazione, nuovo ospedale, spirito di squadra, supporto da un rispondente clinico). Ti interessa questa sfida? Allora mandaci la tua domanda!",
+        "en": "GHOL is the regional reference hospital for the German West with its structures in Nyon and Rolle. Joining us is an opportunity to work daily with more than 900 employees to ensure the health and well-being of patients and their families. Description of position: In order to strengthen our team of STROKE UNIT therapists, we are looking for a motivated logopedist to intervene with acutely hospitalized adult patients. You will integrate a dynamic team of about 20 therapists on the Nyon site (logists, occupational therapists and physiotherapists) working in close collaboration with medical and healthcare teams. As part of your activity, you will be mainly required to:\n• Conduct logopedic evaluations in adult patients with speech, communication and speech disorders.\n• Participate in the screening and evaluation of dysphagia, as well as recommendations for food and safe swallowing.\n• Ensure early management and initiate logopedic treatments in the acute phase.\n• Work closely with doctors, nurses and other hospital professionals.\n• Participate in interdisciplinary symposia and contribute to the continuity of the care path.\n• Trace your procedures in the computerized patient file.\n• Participate in the training of caregivers Profile required:\n• Clinical experience with an indispensable adult population, especially in the areas of language, speech and swallowing.\n• Applications from young graduates are welcome, provided they have a significant experience of internships with adults.\n• Interest in acute hospital work and early care.\n• Interest in neurological training\n• Ability to work independently while enjoying interprofessional collaboration.\n• Organizational sense, flexibility and excellent relational skills. Level of training:\n• Master in logopedia or equivalent diploma recognized by the Swiss Red Cross (required). Benefits: Within GHOL, you will develop your skills through a real policy of continuing training and the opportunity to benefit from a rich interdisciplinary collaboration with the various healthcare providers. You will benefit from attractive working conditions (localization, new hospital, team spirit, support from a clinical respondent). Interested in this challenge? Then send us your application!",
+        "de": "GHOL ist das regionale Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen in Nyon und Rolle. Die Teilnahme an uns ist eine Gelegenheit, täglich mit mehr als 900 Mitarbeitern zu arbeiten, um die Gesundheit und das Wohlbefinden der Patienten und ihrer Familien zu gewährleisten. Beschreibung der Position: Um unser Team von STROKE UNIT Therapeuten zu stärken, suchen wir einen motivierten Logopäden, um bei akut hospitalisierten erwachsenen Patienten einzugreifen. Sie werden ein dynamisches Team von etwa 20 Therapeuten auf dem Nyon-Standort integrieren (Logiker, Ergotherapeuten und Physiotherapeuten), die in enger Zusammenarbeit mit medizinischen und Gesundheitsteams arbeiten. Im Rahmen Ihrer Tätigkeit werden Sie hauptsächlich aufgefordert:\n• Führen Sie logopädische Untersuchungen bei erwachsenen Patienten mit Sprach-, Kommunikations- und Sprachstörungen durch.\n• Beteiligen Sie sich am Screening und der Bewertung von Dysphagie sowie an Empfehlungen für Lebensmittel und sicheres Schlucken.\n• Gewährleistung eines frühzeitigen Managements und Einleitung von logopädischen Behandlungen in der akuten Phase.\n• Arbeiten Sie eng mit Ärzten, Krankenschwestern und anderen Krankenhausfachkräften zusammen.\n• Nehmen Sie an interdisziplinären Symposien teil und tragen Sie zur Kontinuität des Pflegewegs bei.\n• Verfolgen Sie Ihre Verfahren in der computerisierten Patientenakte.\n• Teilnahme an der Ausbildung von Betreuern Profil erforderlich:\n• Klinische Erfahrung mit einer unverzichtbaren erwachsenen Bevölkerung, insbesondere in den Bereichen Sprache, Sprache und Schlucken.\n• Bewerbungen von jungen Absolventen sind willkommen, sofern sie über umfangreiche Erfahrungen mit Praktika mit Erwachsenen verfügen.\n• Interesse an akuter Krankenhausarbeit und frühzeitiger Pflege.\n• Interesse am neurologischen Training\n• Fähigkeit, unabhängig zu arbeiten und gleichzeitig interprofessionelle Zusammenarbeit zu genießen.\n• Organisatorischer Sinn, Flexibilität und ausgezeichnete Beziehungsfähigkeiten. Ausbildungsniveau:\n• Master in Logopedia oder gleichwertige Diplom vom Schweizerischen Roten Kreuz anerkannt (erforderlich). Leistungen: Innerhalb von GHOL entwickeln Sie Ihre Fähigkeiten durch eine echte Weiterbildungspolitik und die Möglichkeit, von einer reichen interdisziplinären Zusammenarbeit mit den verschiedenen Gesundheitsdienstleistern zu profitieren. Sie profitieren von attraktiven Arbeitsbedingungen (Lokalisierung, neues Krankenhaus, Teamgeist, Unterstützung durch einen klinischen Befragten). Interesse an dieser Challenge? Dann senden Sie uns Ihre Bewerbung!",
+        "fr": "Le GHOL est l’hôpital régional de référence pour l’Ouest lémanique avec ses structures à Nyon et Rolle. Nous rejoindre, c’est saisir l’opportunité d’œuvrer quotidiennement avec plus de 900 collaborateurs·trices afin d’assurer la santé et le bien-être des patients·es et de leur famille.\nDescription du poste :\nAfin de renforcer notre équipe de thérapeutes en STROKE UNIT, nous recherchons un·e logopédiste motivé·e pour intervenir auprès de patients·es adultes hospitalisés·ées en phase aiguë. Vous intégrerez une équipe dynamique d'environ 20 thérapeutes sur le site de Nyon (logopédistes, ergothérapeutes et physiothérapeutes) travaillant en étroite collaboration avec les équipes médicales et soignantes.\nDans le cadre de votre activité, vous serez principalement amené·e à :\n\n• Réaliser les évaluations logopédiques auprès de patients·es adultes présentant des troubles du langage, de la parole et de la communication.\n\n• Participer au dépistage et à l'évaluation des dysphagies, ainsi qu'aux recommandations concernant l'alimentation et la sécurité de la déglutition.\n\n• Assurer la prise en charge précoce et initier les traitements logopédiques en phase aiguë.\n\n• Collaborer étroitement avec les médecins, infirmier·ères et autres professionnels de la l’hôpital.\n\n• Participer aux colloques interdisciplinaires et contribuer à la continuité du parcours de soins.\n\n• Assurer la traçabilité de vos interventions dans le dossier patient·e informatisé.\n\n• Participer à la formation du personnel soignant\nProfil requis :\n\n• Expérience clinique auprès d'une population adulte indispensable, notamment dans les domaines du langage, de la parole et de la déglutition.\n\n• Les candidatures de jeunes diplômé·es sont les bienvenues, pour autant qu'elles disposent d'une expérience de stages significative auprès d'adultes.\n\n• Intérêt pour le travail en milieu hospitalier aigu et la prise en charge précoce.\n\n• Intérêt à se former dans le domaine neurologique\n\n• Capacité à travailler de manière autonome tout en appréciant la collaboration interprofessionnelle.\n\n• Sens de l'organisation, flexibilité et excellentes compétences relationnelles.\nNiveau de formation :\n\n• Master en logopédie ou un diplôme équivalent reconnu par la Croix Rouge Suisse (exigé).\nAvantages :\nAu sein du GHOL, vous développerez vos compétences grâce à une réelle politique de formation continue et à l’opportunité de bénéficier d’une collaboration interdisciplinaire riche avec les différents·es soignants·es.\nVous bénéficierez de conditions de travail attrayantes (localisation, hôpital neuf, esprit d’équipe, soutien d’une répondante clinique).\nIntéressé·e par ce challenge ? Alors adressez-nous votre candidature !"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-therapy",
+      "sector": "Salute / Ospedale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "url": "https://app.beehire.com/invite/Hx8j9fccF",
+      "applyUrl": "https://app.beehire.com/invite/Hx8j9fccF",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-18T11:15:40.739Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "logopedista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "logopediste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T12:09:19.089Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -784,14 +810,16 @@
       "applyUrl": "https://app.beehire.com/invite/8zFgXWDML",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.157Z",
+      "crawledAt": "2026-07-18T11:15:40.738Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -859,13 +887,16 @@
       "applyUrl": "https://app.beehire.com/invite/Q6HqoOgej",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.156Z",
+      "crawledAt": "2026-07-18T11:15:40.737Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique"
+        "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+        "segreteria-medica-ufficio-privato-di-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique"
+          "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique",
+          "segreteria-medica-ufficio-privato-di-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "secretaire-medicale-cabinet-prive-du-dr-bloch-groupement-hospitalier-de-l-ouest-lemanique"
@@ -933,14 +964,16 @@
       "applyUrl": "https://app.beehire.com/invite/3u8B76lVr",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:42:18.155Z",
+      "crawledAt": "2026-07-18T11:15:40.736Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "coordinatore-qualita-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "coordinateur-trice-qualite-groupement-hospitalier-de-l-ouest-lemanique-nyon"
