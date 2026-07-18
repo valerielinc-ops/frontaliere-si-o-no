@@ -156604,7 +156604,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-07-18T12:27:11.837Z",
+      "crawledAt": "2026-07-18T00:08:57.048Z",
       "firstSeenAt": "2026-07-07T00:44:00.265Z",
       "titleByLocale": {
         "it": "Venditore: in Food",
@@ -156650,7 +156650,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-bern-6ytiqt",
-          "verkaufer-in-food-coop-genossenschaft-bern"
+          "verkaufer-in-food-coop-genossenschaft-bern",
+          "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-bern-6ytiqt"
@@ -156662,14 +156663,14 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-bern-6ytiqt",
         "verkaufer-in-food-coop-genossenschaft-bern",
-        "verkaufer-in-food-convenience-coop-genossenschaft-bern"
+        "verkaufer-in-food-convenience-coop-genossenschaft-bern",
+        "verkaufer-in-food-studentenaushilfe-coop-genossenschaft-bern"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Berna",
         "canton": "BE"
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
