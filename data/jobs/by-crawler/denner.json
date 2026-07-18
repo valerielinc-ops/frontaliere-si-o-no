@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-07-17T22:06:47.841Z",
+  "assembledAt": "2026-07-18T10:32:45.920Z",
   "jobs": [
     {
       "id": "denner-c7737a26c402",
@@ -64,16 +64,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/65e20527-616f-485d-9313-c164d53093ad",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:44.913Z",
+      "crawledAt": "2026-07-18T10:32:43.317Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-bern"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.498Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -150,14 +153,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5daa7a81-0258-4bf8-ba3d-e3942e381992",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:44.911Z",
+      "crawledAt": "2026-07-18T10:32:43.316Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-bern-bumpliz"
+        "verkaufer-in-denner-bern-bumpliz",
+        "venditore-denner-bern-bumpliz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-bern-bumpliz"
         ],
         "en": [
           "verkaufer-in-denner-bern-bumpliz"
@@ -167,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.006Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -243,18 +249,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/db29eec3-674a-4f95-bb2d-4ea266addc71",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:44.404Z",
+      "crawledAt": "2026-07-18T10:32:42.826Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "vendeur-denner-rubigen"
+        "vendeur-denner-rubigen",
+        "venditore-denner-ag-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "vendeur-denner-rubigen"
+          "vendeur-denner-rubigen",
+          "venditore-denner-ag-rubigen"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.004Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -331,16 +340,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/475f931a-3799-412f-9dc5-63e132f016bc",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:44.400Z",
+      "crawledAt": "2026-07-18T10:32:42.823Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-abtwil-sg",
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-branch-manager-in-denner-abtwil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-2"
+          "stv-filialleiter-in-denner-2",
+          "stv-branch-manager-in-denner-abtwil-sg"
         ],
         "en": [
           "stv-filialleiter-in-denner-abtwil-sg"
@@ -350,6 +361,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.525Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "baseSalary": {
@@ -426,14 +438,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/ad7aab8b-3cbb-48fc-8a33-493f04101e21",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:44.397Z",
+      "crawledAt": "2026-07-18T10:32:42.822Z",
       "previousSlugs": [
         "verkaufer-in-denner-sarnen",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-sarnen"
         ],
         "en": [
           "verkaufer-in-denner-sarnen"
@@ -443,6 +457,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:03:19.107Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -519,15 +534,17 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/6f936d74-93c6-42a7-a803-acdbb9615686",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:43.998Z",
+      "crawledAt": "2026-07-18T10:32:42.428Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-rothenburg",
         "stv-branch-manager-in-denner-rothenburg",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-rothenburg"
         ],
         "en": [
           "stv-filialleiter-in-denner-rothenburg",
@@ -538,6 +555,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T11:03:19.105Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -615,18 +633,20 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/d87cdfbe-b340-4f34-9240-1969a15bfe53",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:43.994Z",
+      "crawledAt": "2026-07-18T10:32:42.425Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistant-in-branch-management-denner-rothenburg",
         "assistant-dans-la-gestion-des-succursales-denner-rothenburg",
         "assistente-nella-gestione-delle-branche-denner-rothenburg",
-        "assistent-in-filialleitung-denner-rothenburg"
+        "assistent-in-filialleitung-denner-rothenburg",
+        "assistente-nella-gestione-delle-branche-denner-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistente-nella-gestione-delle-branche-denner-rothenburg"
+          "assistente-nella-gestione-delle-branche-denner-rothenburg",
+          "assistente-nella-gestione-delle-branche-denner-ag-rothenburg"
         ],
         "en": [
           "assistent-in-filialleitung-denner",
@@ -641,6 +661,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.067Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "baseSalary": {
@@ -716,17 +737,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/warenbewirtschafterin-materialbedarfsplanerin-sap/cffcfc97-f3d4-4387-842f-3c5c974f1530",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:43.989Z",
+      "crawledAt": "2026-07-18T10:32:42.421Z",
       "previousSlugs": [
         "warenbewirtschafter-in-materialbedarfsplaner-in-sap-denner",
         "goods-manager-in-material-requirements-planner-in-sap-denner-zurich",
         "gestionnaire-des-biens-dans-planificateur-des-besoins-en-materiel-dans-sap-denner-zurich",
-        "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-zurich"
+        "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-zurich",
+        "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "warenbewirtschafter-in-materialbedarfsplaner-in-sap-denner",
-          "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-zurich"
+          "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-zurich",
+          "goods-manager-in-pianificatore-dei-requisiti-dei-materiali-in-sap-denner-ag-zurich"
         ],
         "en": [
           "warenbewirtschafter-in-materialbedarfsplaner-in-sap-denner",
@@ -741,6 +764,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.062Z",
+      "needsRetranslation": true,
       "salaryMin": 117000,
       "salaryMax": 180000,
       "baseSalary": {
@@ -817,18 +841,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0129a5bd-2422-48e6-bf8c-bcb85511eaaa",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:43.482Z",
+      "crawledAt": "2026-07-18T10:32:41.920Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-schlieren"
+        "verkaufer-in-denner-schlieren",
+        "venditore-denner-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-schlieren"
+          "verkaufer-in-denner-schlieren",
+          "venditore-denner-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-07-14T22:08:19.977Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -847,10 +874,10 @@
       "id": "denner-1d9882bfb52b",
       "slug": "assistente-nella-gestione-delle-branche-denner-zurich",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
+        "it": "assistente-nella-gestione-delle-branche-denner-zurich",
         "en": "assistant-branch-manager-denner-ag-zurich",
         "de": "assistent-in-filialleitung-denner-ag-zurich-mlzv0z",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-zurich"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -906,20 +933,27 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/bb0b004b-09e7-4107-a5f9-302544aa8884",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:43.478Z",
+      "crawledAt": "2026-07-18T10:32:41.915Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
+        "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
+        "directeur-adjoint-de-succursale-denner-ag-zurich",
+        "assistente-nella-gestione-delle-branche-denner-zurich",
         "assistant-dans-la-gestion-des-succursales-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "vice-direttore-di-filiale-denner-ag-zurich-3cd714",
+          "assistente-nella-gestione-delle-branche-denner-zurich"
         ],
         "fr": [
+          "directeur-adjoint-de-succursale-denner-ag-zurich",
           "assistant-dans-la-gestion-des-succursales-denner-zurich"
         ]
       },
       "firstSeenAt": "2026-07-14T11:03:18.286Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -996,7 +1030,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/assistant-adjoint-assistante-adjointe/e0c618f1-6031-4cbd-9700-8c61178ba328",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:06:43.476Z",
+      "crawledAt": "2026-07-18T10:32:41.913Z",
       "previousSlugs": [
         "assistant-adjoint-assistante-adjointe-denner",
         "assistant-assistant-assistant-denner-nyon"
@@ -1013,6 +1047,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:08:19.928Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -1089,18 +1124,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/0f974344-cf78-4f1c-9222-b2283a3b4390",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.956Z",
+      "crawledAt": "2026-07-18T10:32:41.412Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+        "venditore-con-salario-orario-denner-ag-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+          "venditore-con-salario-orario-denner-ag-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:39.996Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -1177,20 +1215,22 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-partner-betriebe/verkauferin-im-stundenlohn/1eb23085-e12c-411c-86d8-4dd880cb67b6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.954Z",
+      "crawledAt": "2026-07-18T10:32:41.410Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-steckborn",
         "seller-in-the-hourly-wage-denner-steckborn",
         "vendeur-dans-le-salaire-horaire-denner-steckborn",
-        "venditore-nel-salario-orario-denner-steckborn"
+        "venditore-nel-salario-orario-denner-steckborn",
+        "venditore-nel-salario-orario-migros-ticino-steckborn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-steckborn"
+          "venditore-nel-salario-orario-denner-steckborn",
+          "venditore-nel-salario-orario-migros-ticino-steckborn"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-steckborn",
@@ -1205,6 +1245,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:39.995Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1281,16 +1322,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/717a2c6a-facd-4784-a3f9-5e4733abeb34",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.951Z",
+      "crawledAt": "2026-07-18T10:32:41.407Z",
       "previousSlugs": [
         "verkaufer-in-denner-2",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-liebefeld"
+        "verkaufer-in-denner-liebefeld",
+        "venditore-denner-liebefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-2",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-liebefeld"
         ],
         "en": [
           "verkaufer-in-denner-liebefeld"
@@ -1300,6 +1343,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:39.990Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1376,18 +1420,20 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/68e0a905-62c4-4391-a5f9-1a385d258150",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.441Z",
+      "crawledAt": "2026-07-18T10:32:40.894Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-effretikon",
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "stv-branch-manager-in-denner-effretikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner-3",
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-2"
+          "stv-filialleiter-in-denner-2",
+          "stv-branch-manager-in-denner-effretikon"
         ],
         "en": [
           "stv-filialleiter-in-denner-effretikon"
@@ -1397,6 +1443,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:39.297Z",
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1474,15 +1521,17 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/f493ff38-d144-42d4-b49c-c313977b26b5",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.435Z",
+      "crawledAt": "2026-07-18T10:32:40.888Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner-2",
-        "assistent-in-filialleitung-denner"
+        "assistent-in-filialleitung-denner",
+        "assistente-nella-gestione-delle-branche-denner-effretikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner-2",
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-effretikon"
         ],
         "en": [
           "assistent-in-filialleitung-denner"
@@ -1492,6 +1541,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:39.291Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1568,16 +1618,18 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/d0216738-612f-4215-b634-1157e060b891",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:42.428Z",
+      "crawledAt": "2026-07-18T10:32:40.882Z",
       "previousSlugs": [
         "verkaufer-in-denner-3",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-jona"
+        "verkaufer-in-denner-jona",
+        "venditore-denner-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-3",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-jona"
         ],
         "en": [
           "verkaufer-in-denner-jona"
@@ -1587,6 +1639,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:18.039Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1664,16 +1717,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/91f34d8f-f94b-4dc3-8ac3-3159b582b1e2",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:41.884Z",
+      "crawledAt": "2026-07-18T10:32:40.318Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner"
+        "assistent-in-filialleitung-denner",
+        "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld-555cb2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld-555cb2"
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:17.611Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1751,16 +1807,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/3245ffd0-ba73-4cc4-b33a-155ff54a3d02",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:41.882Z",
+      "crawledAt": "2026-07-18T10:32:40.316Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner"
+        "assistent-in-filialleitung-denner",
+        "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner"
+          "assistent-in-filialleitung-denner",
+          "assistente-nella-gestione-delle-branche-denner-ag-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:17.608Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1837,16 +1896,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/c73e9392-972e-4a2b-8179-d992d6682f78",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:41.879Z",
+      "crawledAt": "2026-07-18T10:32:40.313Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-schluein-2408df"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-schluein-2408df"
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:17.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -1923,18 +1985,21 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/25e995c0-facd-4be1-a130-1b343e3a458e",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:41.247Z",
+      "crawledAt": "2026-07-18T10:32:39.807Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-widnau"
+        "verkaufer-in-denner-widnau",
+        "venditore-denner-ag-widnau-0b5ac8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-widnau"
+          "verkaufer-in-denner-widnau",
+          "venditore-denner-ag-widnau-0b5ac8"
         ]
       },
       "firstSeenAt": "2026-07-16T22:15:39.321Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2011,16 +2076,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/a66b7236-627c-48fd-95ad-2fff0e9bd813",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:41.242Z",
+      "crawledAt": "2026-07-18T10:32:39.803Z",
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-widnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-widnau"
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:17.173Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -2096,18 +2164,20 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse/29affe2f-e72c-4b7b-a267-2c8c375de494",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-17T22:06:41.237Z",
+      "crawledAt": "2026-07-18T10:32:39.800Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner",
         "seller-seller-denner-renens-vd",
         "verkaufer-verkaufer-denner-renens-vd",
         "venditore-venditore-denner-renens-vd",
-        "vendeur-vendeuse-denner-renens-vd"
+        "vendeur-vendeuse-denner-renens-vd",
+        "venditore-venditore-denner-sa-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner",
-          "venditore-venditore-denner-renens-vd"
+          "venditore-venditore-denner-renens-vd",
+          "venditore-venditore-denner-sa-renens-vd"
         ],
         "en": [
           "vendeur-vendeuse-denner",
@@ -2122,6 +2192,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:37.840Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "baseSalary": {
@@ -2198,14 +2269,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/29ad0192-d087-4675-9568-251ebe6288ab",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:40.367Z",
+      "crawledAt": "2026-07-18T10:32:39.278Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-emmenbrucke"
+        "verkaufer-in-im-stundenlohn-denner-emmenbrucke",
+        "venditore-nel-salario-orario-denner-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "venditore-nel-salario-orario-denner-emmenbrucke"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-emmenbrucke"
@@ -2215,6 +2288,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:16.742Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -2291,14 +2365,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/c55d66c4-6c23-4eda-a393-0b35b21d39c1",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:40.359Z",
+      "crawledAt": "2026-07-18T10:32:39.270Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-basel",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-basel-ce00c4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-basel-ce00c4"
         ],
         "en": [
           "stv-filialleiter-in-denner-basel"
@@ -2308,6 +2384,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:16.697Z",
+      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "baseSalary": {
@@ -2385,16 +2462,19 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/teamleiterin-interner-transport-magenwil/94a908df-1827-439c-b28b-9d02a401f65b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:40.357Z",
+      "crawledAt": "2026-07-18T10:32:39.268Z",
       "previousSlugs": [
-        "teamleiter-in-interner-transport-magenwil-denner"
+        "teamleiter-in-interner-transport-magenwil-denner",
+        "team-leader-nel-trasporto-interno-magenwil-denner-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-interner-transport-magenwil-denner"
+          "teamleiter-in-interner-transport-magenwil-denner",
+          "team-leader-nel-trasporto-interno-magenwil-denner-ag-magenwil"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.000Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2466,20 +2546,22 @@
       "workPercentage": "20-50%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16T21:02:47+0200",
+      "postedDate": "2026-07-16T12:26:49+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/37bcf87f-7429-4b37-9402-3425ecb60750",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:39.748Z",
+      "crawledAt": "2026-07-18T10:32:38.755Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-allschwil",
         "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-ag-breitenbach"
+        "venditore-nel-salario-orario-denner-ag-breitenbach",
+        "venditore-nel-salario-orario-denner-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-ag-breitenbach"
+          "venditore-nel-salario-orario-denner-ag-breitenbach",
+          "venditore-nel-salario-orario-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-allschwil"
@@ -2489,6 +2571,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:15:37.814Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2565,14 +2648,16 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/5261d816-1eef-463d-b675-c82835436ca8",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:39.747Z",
+      "crawledAt": "2026-07-18T10:32:38.754Z",
       "previousSlugs": [
         "verkaufer-in-denner-allschwil",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "venditore-denner-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-denner-allschwil"
@@ -2582,6 +2667,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:15:37.058Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2658,14 +2744,15 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/c8816b09-3bc0-4e5b-9ef1-bb882e287490",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:39.745Z",
+      "crawledAt": "2026-07-18T10:32:38.751Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-dgsjiy",
         "verkaufer-in-im-stundenlohn-denner-c24dro",
         "verkaufer-in-im-stundenlohn-denner-ieg13f",
         "verkaufer-in-im-stundenlohn-denner-sissach",
-        "verkaufer-in-im-stundenlohn-denner-riehen"
+        "verkaufer-in-im-stundenlohn-denner-riehen",
+        "venditore-nel-salario-orario-denner-ag-riehen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2674,10 +2761,12 @@
           "verkaufer-in-im-stundenlohn-denner-c24dro",
           "verkaufer-in-im-stundenlohn-denner-ieg13f",
           "verkaufer-in-im-stundenlohn-denner-sissach",
-          "verkaufer-in-im-stundenlohn-denner-riehen"
+          "verkaufer-in-im-stundenlohn-denner-riehen",
+          "venditore-nel-salario-orario-denner-ag-riehen"
         ]
       },
       "firstSeenAt": "2026-07-17T11:21:49.978Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "baseSalary": {
@@ -2696,10 +2785,10 @@
       "id": "denner-0f13c61b036b",
       "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
+        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "en": "assistant-branch-manager-denner-ag-wadenswil-23a774",
         "de": "assistent-in-filialleitung-denner-ag-wadenswil-dmwt2p",
-        "fr": "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774"
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2755,22 +2844,29 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/2c3a067a-6797-41cb-9cb5-8320e8603b91",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:38.988Z",
+      "crawledAt": "2026-07-18T10:32:38.130Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
         "assistent-in-filialleitung-denner-wadenswil",
+        "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
+        "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774",
+        "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
-          "assistent-in-filialleitung-denner-wadenswil"
+          "assistent-in-filialleitung-denner-wadenswil",
+          "vice-direttore-di-filiale-denner-ag-wadenswil-23a774",
+          "assistente-nella-gestione-delle-branche-denner-wadenswil"
         ],
         "fr": [
+          "directeur-adjoint-de-succursale-denner-ag-wadenswil-23a774",
           "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
         ]
       },
       "firstSeenAt": "2026-07-16T22:15:37.051Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2787,11 +2883,11 @@
     },
     {
       "id": "denner-58c713f8cd72",
-      "slug": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-denner-egerkingen",
+      "slug": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-denner-ag-egerkingen-wnjhay",
       "slugByLocale": {
         "it": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-denner-ag-egerkingen-wnjhay",
         "en": "specialist-in-occupational-safety-and-health-protection-denner-ag-egerkingen",
-        "de": "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner",
+        "de": "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner-ag-egerkingen-wnjhay",
         "fr": "specialiste-de-la-securite-et-de-la-sante-au-travail-denner-ag-egerkingen"
       },
       "company": "Denner",
@@ -2850,24 +2946,30 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/spezialistin-arbeitssicherheit-und-gesundheitsschutz/3ecc9a53-7b13-42de-ad26-0a1d8bfca65c",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:38.981Z",
-      "firstSeenAt": "2026-07-17T11:21:49.354Z",
+      "crawledAt": "2026-07-18T10:32:38.124Z",
+      "previousSlugs": [
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner",
+        "specialist-in-occupational-safety-and-health-protection-denner-egerkingen",
+        "specialiste-de-la-securite-et-de-la-sante-au-travail-denner-egerkingen",
+        "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-denner-egerkingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner"
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner",
+          "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-denner-egerkingen"
         ],
         "en": [
           "specialist-in-occupational-safety-and-health-protection-denner-egerkingen"
         ],
         "fr": [
           "specialiste-de-la-securite-et-de-la-sante-au-travail-denner-egerkingen"
+        ],
+        "de": [
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner"
         ]
       },
-      "previousSlugs": [
-        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner",
-        "specialist-in-occupational-safety-and-health-protection-denner-egerkingen",
-        "specialiste-de-la-securite-et-de-la-sante-au-travail-denner-egerkingen"
-      ],
+      "firstSeenAt": "2026-07-17T11:21:49.354Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -2884,11 +2986,11 @@
     },
     {
       "id": "denner-f673ccb29900",
-      "slug": "venditore-denner-pfungen",
+      "slug": "venditore-denner-ag-pfungen",
       "slugByLocale": {
         "it": "venditore-denner-ag-pfungen",
         "en": "seller-denner-ag-pfungen",
-        "de": "verkaufer-in-denner-pfungen",
+        "de": "verkaufer-in-denner-ag-pfungen",
         "fr": "vendeur-denner-ag-pfungen"
       },
       "company": "Denner",
@@ -2940,24 +3042,26 @@
       "workPercentage": "40%",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-17T13:18:29+0200",
+      "postedDate": "2026-07-17T12:26:27+0200",
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/f4f3e32a-8da9-4536-bc19-7af96b50805d",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T22:06:38.976Z",
+      "crawledAt": "2026-07-18T10:32:38.118Z",
       "previousSlugs": [
         "verkaufer-in-denner-4",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner",
         "verkaufer-in-denner-pfungen",
         "seller-denner-pfungen",
-        "vendeur-denner-pfungen"
+        "vendeur-denner-pfungen",
+        "venditore-denner-pfungen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-4",
           "verkaufer-in-denner-6",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "venditore-denner-pfungen"
         ],
         "en": [
           "verkaufer-in-denner-pfungen",
@@ -2966,9 +3070,13 @@
         "fr": [
           "verkaufer-in-denner-pfungen",
           "vendeur-denner-pfungen"
+        ],
+        "de": [
+          "verkaufer-in-denner-pfungen"
         ]
       },
       "firstSeenAt": "2026-07-17T11:21:49.348Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -2982,215 +3090,6 @@
         }
       },
       "country": "CH"
-    },
-    {
-      "id": "denner-43c877c8565c",
-      "slug": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
-      "slugByLocale": {
-        "it": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld",
-        "en": "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-yffowm",
-        "de": "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "fr": "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld"
-      },
-      "company": "Denner",
-      "companyKey": "denner",
-      "companyDomain": "denner.ch",
-      "title": "Transportdisponent*in Frauenfeld",
-      "titleByLocale": {
-        "it": "Spedizionista di trasporto* in Frauenfeld",
-        "en": "Transport dispatcher* in Frauenfeld",
-        "de": "Transportdisponent*in Frauenfeld",
-        "fr": "Transporteur* à Frauenfeld"
-      },
-      "description": "Hinter den Kulissen dafür sorgen, dass unser Laden läuft? Willkommen im frischen Siegerteam. Ohne Logistik läuft bei uns gar nichts. Sie ist Nadelöhr, Effizienzbooster und Herzschlag in einem. Hier brauchen wir absolute Profis wie dich. Denner. Das ist unser Laden.\n\n## Mansioni\n- Filialtouren planen, Fahrzeuge unserer Vertragsfahrer kostenbewusst disponieren\n- Tagesaufträge erfassen und koordinieren\n- Bei Tourenplanänderungen mithelfen\n- Einen zeitnahen und reibungslosen Informationsfluss an unsere Filialen und Fahrer*innen sicherstellen\n- Kunden- und Lieferantenanfragen bezüglich Transporte beantworten und bearbeiten\n- Allgemeine administrative Tätigkeiten ausführen\n\n## Requisiti\n- Mindestens 3 Jahre Erfahrung: in einer vergleichbaren Funktion\n- Abgeschlossene Grund- oder Weiterbildung: im Transportbereich\n- Ausgewiesene Geographiekenntnisse für die Ostschweiz inkl. Graubünden sowie Zürich\n- Gewohnt, mitzudenken und Arbeiten selbstständig anzupacken\n- Mit den MS Office Anwendungen bist du gut vertraut\n- Teamplayer mit guter Kommunikationsfähigkeit\n- Deutsch (fliessend)\n\n## Cosa offriamo\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter.\n- Eigenverantwortung & Freiraum: Viel Raum für deine Ideen und um gemeinsam mit uns etwas zu bewegen.\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Firmenparkplatz: Gratis Parkplatz: Du kommst mit dem Auto? Wir bieten dir einen gratis Parkplatz.\n\n## Contatto\n## Bewerbung & Kontakt Fabienne Tschantré ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Abschlussgespräch vor Vertragsausstellung Vor der Vertragsausstellung führen wir ein Abschlussgespräch durch, um offene Fragen beider Seiten zu klären und vertragliche Details zu regeln. Sind alle Punkte geklärt, folgt das schriftliche Angebot. Dauer bis Rückmeldung: Bis zu einer Woche Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "Dietro le quinte assicurarsi che il nostro negozio funzioni? Benvenuto nella squadra vincente. Senza logistica, niente funziona per noi. È occhio di ago, booster di efficienza e battito cardiaco in uno. Qui abbiamo bisogno di professionisti assoluti come te. Denner. Questo e' il nostro negozio. ## Mansioni - Pianifica gite su rotaia, progetta veicoli dei nostri autisti - Registrazione e coordinamento degli ordini quotidiani - Aiuto con le modifiche del programma di tour - Assicurare un flusso tempestivo e regolare di informazioni ai nostri rami e driver - Rispondere e elaborare richieste di clienti e fornitori per quanto riguarda i trasporti - Attività amministrative generali ##\n• Requisiti - Almeno 3 anni di esperienza: in funzione paragonabile - Formazione iniziale o successiva completa: nel trasporto - Competenze geografia per la Svizzera orientale incl. Grigioni e Zurigo - Accusato di pensare e lavorare in modo indipendente - Conosci bene le applicazioni MS Office - Giocatori di squadra con buone capacità di comunicazione - tedesco (flusso) ## Cosa di Friamo - Migros Bank: Meglio off con interessi e tasse sui vostri conti privati, di investimento o di ipoteca. - Promozione mirata: dalla lavastoviglie al milionario? Forse non esattamente, ma: Chi ha morso e talento, arriva rapidamente. - Responsabilità e libertà personali: un sacco di spazio per le vostre idee e fare la differenza insieme a noi. - Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio. - Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi. - Parcheggio dell'azienda: Parcheggio gratuito: Viene in auto? Vi offriamo un parcheggio gratuito. ## Contatto ## Applicazione & Contatto Fabienne Tschantré ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione sul progresso o il ritiro dal processo di reclutamento sarà comunicata telefonicamente o via e-mail. Durata fino al feedback: fino a tre settimane di discussione con HR & reparto specializzato La discussione è condotta virtualmente o in loco con la persona responsabile delle risorse umane e/o del reparto specializzato. Si tratta principalmente di imparare di più sul personale e le competenze specialistiche e dà a entrambi i lati l'opportunità di valutare la dimensione culturale in azienda e team. Durata fino al feedback: fino a tre settimane di test Un giorno di prova o mezza giornata offre la possibilità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane di discussione finale prima dell'emissione del contratto Prima dell'emissione del contratto, conduciamo una discussione finale per chiarire le domande aperte di entrambe le parti e per regolare i dettagli contrattuali. Se tutti i punti sono chiariti, l'offerta scritta segue. Durata fino al feedback: fino a una settimana offerta e rilascio dei contratti Dopo la nostra offerta di lavoro orale, i punti contrattuali più importanti sono verificati di nuovo. Dopo l'accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.",
-        "en": "Behind the scenes make sure our store runs? Welcome to the fresh winning team. Without logistics, nothing works for us. She is needle eye, efficiency booster and heartbeat in one. Here we need absolute professionals like you. Denner. This is our store. ## Mansioni - Plan branch tours, plan vehicles of our contract drivers cost-consciously - Recording and coordinating daily orders - Help with tour plan changes - Ensure a timely and smooth flow of information to our branches and drivers - Answer and process customer and supplier inquiries regarding transports - General administrative activities ##\n• Requirements - At least 3 years of experience: in a comparable function - Completed initial or further training: in transport - Proven geography skills for Eastern Switzerland incl. Graubünden and Zurich - Accustomed to thinking and working independently - You are well familiar with MS Office applications - Team players with good communication skills - German (flowing) ## Cosa of Friamo - Migros Bank: Better off with interest and fees on your private, investment or mortgage accounts. - Targeted promotion: From dishwasher to millionaire? Maybe not exactly, but: Who has bite and talent, comes quickly. - Personal responsibility & freedom: plenty of room for your ideas and to make a difference together with us. - Holidays: 6 weeks holidays for all and even more days for service anniversaries. - Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected. - Company parking: Free parking: You come by car?\n• We offer you a free parking space. ## Contatto ## Application & Contact Fabienne Tschantré ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision on progress or withdrawal from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks of discussion with HR & specialist department The discussion is conducted virtually or on site with the responsible person from HR and/or the specialist department. It is primarily about learning more about the personnel and specialist skills and gives both sides the opportunity to assess the cultural fit into the company and team. Duration until feedback: up to three weeks of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And vice versa, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks final discussion before contract issuance Before the contract issuance, we conduct a final discussion in order to clarify open questions of both sides and to regulate contractual details. If all points are clarified, the written offer follows. Duration until feedback: Up to one week offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.",
-        "de": "Hinter den Kulissen dafür sorgen, dass unser Laden läuft? Willkommen im frischen Siegerteam. Ohne Logistik läuft bei uns gar nichts. Sie ist Nadelöhr, Effizienzbooster und Herzschlag in einem. Hier brauchen wir absolute Profis wie dich. Denner. Das ist unser Laden. ## Mansioni - Filialtouren planen, Fahrzeuge unserer Vertragsfahrer kostenbewusst disponieren - Tagesaufträge erfassen und koordinieren - Bei Tourenplanänderungen mithelfen - Einen zeitnahen und reibungslosen Informationsfluss an unsere Filialen und Fahrer*innen sicherstellen - Kunden- und Lieferantenanfragen bezüglich Transporte beantworten und bearbeiten - Allgemeine administrative Tätigkeiten ausführen ##\n• Requisiti - Mindestens 3 Jahre Erfahrung: in einer vergleichbaren Funktion - Abgeschlossene Grund- oder Weiterbildung: im Transportbereich - Ausgewiesene Geographiekenntnisse für die Ostschweiz inkl. Graubünden sowie Zürich - Gewohnt, mitzudenken und Arbeiten selbstständig anzupacken - Mit den MS Office Anwendungen bist du gut vertraut - Teamplayer mit guter Kommunikationsfähigkeit - Deutsch (fliessend) ##\n• Cosa offriamo - Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti. - Gezielte Förderung: Vom Tellerwäscher zum Millionär? Vielleicht nicht gerade, aber: Wer Biss und Talent hat, kommt schnell weiter. - Eigenverantwortung & Freiraum: Viel Raum für deine Ideen und um gemeinsam mit uns etwas zu bewegen. - Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu. - Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden. - Firmenparkplatz: Gratis Parkplatz: Du kommst mit dem Auto?\n• Wir bieten dir einen gratis Parkplatz. ## Contatto ## Bewerbung & Kontakt Fabienne Tschantré ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Abschlussgespräch vor Vertragsausstellung Vor der Vertragsausstellung führen wir ein Abschlussgespräch durch, um offene Fragen beider Seiten zu klären und vertragliche Details zu regeln. Sind alle Punkte geklärt, folgt das schriftliche Angebot. Dauer bis Rückmeldung: Bis zu einer Woche Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "Dans les coulisses, assurez-vous que notre magasin fonctionne ? Bienvenue dans la nouvelle équipe gagnante. Sans logistique, rien ne fonctionne pour nous. C'est une aiguille, un booster d'efficacité et un battement de cœur. Ici nous avons besoin de professionnels absolus comme vous. Denner. C'est notre magasin. ## Mansioni - Planifiez des visites de branche, planifiez les véhicules de nos conducteurs contractuels en connaissance de cause - Enregistrement et coordination des commandes quotidiennes - Aide pour les changements de plan de visite - Assurer un flux d'information en temps opportun et en douceur à nos succursales et à nos conducteurs - Réponse et traitement des demandes des clients et des fournisseurs concernant les transports - Activités administratives générales ##\n• Exigences - Au moins 3 ans d'expérience: dans une fonction comparable - Formation initiale ou continue: dans les transports - Compétences en géographie éprouvées pour la Suisse orientale incl. Graubünden et Zurich - Habitué à penser et à travailler de façon indépendante - Vous connaissez bien les applications MS Office - Joueurs d'équipe avec de bonnes compétences en communication - Allemand (débit) ## Cosa de Friamo - Migros Bank : Mieux vaut payer les intérêts et les frais sur vos comptes privés, d'investissement ou hypothécaires. - Promotion ciblée : du lave-vaisselle au millionnaire ? Peut-être pas exactement, mais: Qui a mordu et talent, vient rapidement. - Responsabilité personnelle et liberté : beaucoup de place pour vos idées et faire une différence avec nous. - Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service. - Abonnement mobile: Spoiled au choix: Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté. - Parking de l'entreprise: Parking gratuit: Vous venez en voiture? Nous vous offrons une place de parking gratuite. ## Contatto ## Demande et contact Fabienne Tschantré ## Processus de recrutement Sélection préalable des demandes Nous revoyons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines de discussions avec les RH et le département spécialisé La discussion est menée pratiquement ou sur place avec la personne responsable des RH ou le département spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée jusqu'à la rétroaction : jusqu'à trois semaines de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et vice versa, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à la rétroaction : jusqu'à trois semaines de discussion finale avant la délivrance du contrat Avant la délivrance du contrat, nous menons une discussion finale afin de clarifier les questions ouvertes des deux parties et de réglementer les détails contractuels. Si tous les points sont clarifiés, l'offre écrite suit. Durée jusqu'à retour d'information : jusqu'à une semaine d'offre et de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes."
-      },
-      "requirements": [
-        "Mindestens 3 Jahre Erfahrung: in einer vergleichbaren Funktion",
-        "Abgeschlossene Grund- oder Weiterbildung: im Transportbereich",
-        "Ausgewiesene Geographiekenntnisse für die Ostschweiz inkl. Graubünden sowie Zürich",
-        "Gewohnt, mitzudenken und Arbeiten selbstständig anzupacken",
-        "Mit den MS Office Anwendungen bist du gut vertraut",
-        "Teamplayer mit guter Kommunikationsfähigkeit",
-        "Deutsch (fliessend)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Mindestens 3 Jahre Erfahrung: in einer vergleichbaren Funktion",
-          "Abgeschlossene Grund- oder Weiterbildung: im Transportbereich",
-          "Ausgewiesene Geographiekenntnisse für die Ostschweiz inkl. Graubünden sowie Zürich",
-          "Gewohnt, mitzudenken und Arbeiten selbstständig anzupacken",
-          "Mit den MS Office Anwendungen bist du gut vertraut",
-          "Teamplayer mit guter Kommunikationsfähigkeit",
-          "Deutsch (fliessend)"
-        ]
-      },
-      "location": "Frauenfeld",
-      "postalCode": "8500",
-      "canton": "TG",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "streetAddress": "Denner Frauenfeld",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13T00:17:51+0200",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/transportdisponentin-frauenfeld/a5e1cd4a-ac20-4f46-8c39-fdc1cc8f13c7",
-      "source": "Denner/Migros Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:15:51.851Z",
-      "previousSlugs": [
-        "transportdisponent-in-frauenfeld-denner",
-        "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
-        "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "transportmanifestant-a-frauenfeld-denner-frauenfeld",
-        "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
-        "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld",
-        "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-        "transporteur-a-frauenfeld-denner-ag-frauenfeld",
-        "transporteur-a-frauenfeld-denner-frauenfeld"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "transportdisponent-in-frauenfeld-denner",
-          "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
-          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transportmanifestant-a-frauenfeld-denner-frauenfeld",
-          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
-          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld",
-          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi"
-        ],
-        "en": [
-          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transport-dispatcher-in-frauenfeld-denner-frauenfeld",
-          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transport-dispatcher-in-frauenfeld-denner-ag-frauenfeld"
-        ],
-        "fr": [
-          "transportdisponent-in-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-2vqlbi",
-          "transportmanifestant-a-frauenfeld-denner-frauenfeld",
-          "transportmanifestant-a-frauenfeld-denner-ag-frauenfeld-yffowm",
-          "transporteur-a-frauenfeld-denner-ag-frauenfeld",
-          "transporteur-a-frauenfeld-denner-frauenfeld"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T22:15:04.508Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "denner-a9d3e660c799",
-      "slug": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-ag-dietlikon",
-      "slugByLocale": {
-        "it": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-ag-dietlikon",
-        "en": "department-manager-inbound-outbound-logistics-dietlikon-denner-ag-dietlikon",
-        "de": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "fr": "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-ag-dietlikon"
-      },
-      "company": "Denner",
-      "companyKey": "denner",
-      "companyDomain": "denner.ch",
-      "title": "Abteilungsleiter*in Wareneingang & Warenausgang Dietlikon",
-      "titleByLocale": {
-        "it": "Capo reparto* in merci in entrata e in uscita Dietlikon",
-        "en": "Head of department* in goods incoming and outgoing Dietlikon",
-        "de": "Abteilungsleiter*in Wareneingang & Warenausgang Dietlikon",
-        "fr": "Chef de département* en biens entrants et sortants Dietlikon"
-      },
-      "description": "Hinter den Kulissen dafür sorgen, dass unser Laden läuft? Willkommen im frischen Siegerteam.Ohne Logistik läuft bei uns gar nichts. Sie ist Nadelöhr, Effizienzbooster und Herzschlag in einem. Hier brauchen wir absolute Profis wie dich. Denner. Das ist unser Laden.\n\n## Mansioni\n- Die eigenen Fachbereiche organisieren, leiten und den operativen Betrieb gewährleisten\n- Drei Teams (rund 20 Mitarbeitende) führen und weiterentwickeln\n- Qualität, Leistung und Zielerreichung in den Fachbereichen sicherstellen\n- Zusammenarbeit im Sinne der Polyvalenz mit anderen Bereichen und Abteilungen begünstigen\n- Arbeitssicherheit nach betriebsinternen Gegebenheiten gewährleisten\n\n## Requisiti\n- 6 - 10 Jahre Berufserfahrung: in einer vergleichbaren Position\n- Eidg. Fachausweis: im Bereich Logistik oder höhere Fachschule mit Fokus auf Logistik, BWL oder Leadership\n- Sehr gute Kommunikationsfähigkeit und hohe Leadership- und Sozialkompetenzen\n- Ausgeprägte Systemaffinität für Standard Applikationen (MS Office; SAP)\n- Stilsicheres Deutsch in Wort & Schrift\n- \"Macherqualitäten\", die auch gerne persönlich auf der Fläche, mit den Leuten, zum tragen kommen\n- Deutsch (verhandlungssicher)\n- Italienisch (von Vorteil)\n- Englisch (von Vorteil)\n\n## Cosa offriamo\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Individuelle Weiterbildung: Interne Trainings und finanzielle Unterstützung bei sinnvollen externen Aus- und Weiterbildungen.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Firmenparkplatz: Gratis Parkplatz: Du kommst mit dem Auto? Wir bieten dir einen gratis Parkplatz.\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Gestaltungs- und Entscheidungsspielraum: Möglichkeit, die Erfolgsgeschichte von Denner mitzugestalten und eigene Ideen umzusetzen\n\n## Contatto\n## Bewerbung & Kontakt Fabienne Tschantré ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Persönlichkeits-/Leistungstest Unter bestimmten Bedingungen setzen wir als zusätzlicher Schritt einen Persönlichkeitstest (BIP, Scales Test o.ä.) zur Unterstützung der Selektion ein. Die Resultate des Tests werden unter Umständen persönlich nachbesprochen und bilden die Basis für die weitere Selektion. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Abschlussgespräch vor Vertragsausstellung Vor der Vertragsausstellung führen wir ein Abschlussgespräch durch, um offene Fragen beider Seiten zu klären und vertragliche Details zu regeln. Sind alle Punkte geklärt, folgt das schriftliche Angebot. Dauer bis Rückmeldung: Bis zu einer Woche Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "Dietro le quinte assicurarsi che il nostro negozio funzioni? Benvenuto nella squadra vincente. Senza logistica, niente funziona per noi. È occhio di ago, booster di efficienza e battito cardiaco in uno. Qui abbiamo bisogno di professionisti assoluti come te. Denner. Questo e' il nostro negozio.\n\n## Mansioni\n- Organizzare, gestire e garantire operazioni operative\n- Tre squadre (circa 20 dipendenti) guidano e sviluppano ulteriormente\n- Assicurare qualità, prestazioni e obiettivi nelle aree specializzate\n- Facilitare la cooperazione nel senso della polivalenza con altri settori e dipartimenti\n- Assicurare la sicurezza professionale secondo le condizioni aziendali\n\n## Requisiti\n- 6 - 10 anni di esperienza professionale: in una posizione comparabile\n- Eidg. Scheda professionale: nel campo della logistica o della scuola tecnica superiore con attenzione alla logistica, all'amministrazione aziendale o alla leadership\n- Molto buone capacità di comunicazione e alta leadership e competenze sociali\n- Forte affinità di sistema per applicazioni standard (MS Office); SAP\n- Tedesco stilistico in Word & Writing\n- \"Maker quality\", che piace anche venire personalmente in superficie, con la gente\n- in tedesco (negoziato fiducioso)\n- Italiano (vantaggioso)\n- Inglese (vantageous)\n\n## Cosa di friamo\n- Migros Bank: migliore corsa su interessi e tasse dei vostri conti privati, di investimento o di ipoteca.\n- Formazione individuale: formazione interna e sostegno finanziario per una formazione esterna significativa e un'ulteriore formazione.\n- Abbonamento mobile: A scelta: Con Galaxus Mobile, Wingo o Sunrise già da CHF 10.- uno o l'altro realmente connessi.\n- Parcheggio: Parcheggio gratuito: Viene in auto? Vi offriamo un parcheggio gratuito.\n- Vacanze: 6 settimane vacanze per tutti e ancora più giorni per gli anniversari di servizio.\n- Progettazione e decision-making leeway: opportunità di aiutare a plasmare la storia di successo di Denner e implementare le proprie idee\n\n## Contatto\n## Applicazione & Contatto Fabienne Tschantré ## Processo di reclutamento Rivediamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione di anticipare o revocare il processo di reclutamento sarà comunicata telefonicamente o via email. Durata fino al feedback: fino a tre settimane di discussione con reparto HR & specializzato La discussione è condotta virtualmente o in loco con la persona responsabile delle risorse umane e/o del reparto specializzato. Si tratta principalmente di imparare di più sul personale e le competenze specialistiche e dà a entrambi i lati l'opportunità di valutare la dimensione culturale in azienda e team. Durata del feedback: Fino a tre settimane Test di personalità / performance In determinate condizioni, usiamo un test di personalità (BIP, Scales Test, ecc.) come ulteriore passo per sostenere la selezione. I risultati del test possono essere discussi personalmente e costituire la base per un'ulteriore selezione. Durata fino al feedback: fino a una settimana di test Un giorno di prova o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E al contrario, ci dà la possibilità di valutare quanto bene qualcuno si inserisce nella squadra. Durata fino al feedback: fino a tre settimane di discussione finale prima dell'emissione del contratto Prima dell'emissione del contratto, conduciamo una discussione finale per chiarire le domande aperte di entrambe le parti e per regolare i dettagli contrattuali. Se tutti i punti sono chiariti, l'offerta scritta segue. Durata fino al feedback: fino a una settimana offerta & offerta di contratto Dopo la nostra offerta di lavoro orale, i punti di contratto più importanti sono verificati di nuovo. Dopo accordo, il contratto viene commissionato e inviato per posta. Durata fino al feedback: Fino a tre settimane ## Nota per i fornitori di servizi del personale Per questa posizione consideriamo solo applicazioni dirette.",
-        "en": "Behind the scenes make sure our store runs? Welcome to the fresh winning team.Without logistics, nothing works for us. She is needle eye, efficiency booster and heartbeat in one. Here we need absolute professionals like you. Denner. This is our store.\n\n## Mansioni\n- Organise, manage and ensure operational operations\n- Three teams (around 20 employees) lead and further develop\n- Ensure quality, performance and goal achievement in the specialist areas\n- Facilitating cooperation in the sense of polyvalence with other areas and departments\n- Ensure occupational safety according to company conditions\n\n## Requirements\n- 6 - 10 years of professional experience: in a comparable position\n- Eidg. Professional card: in the field of logistics or higher technical school with focus on logistics, business administration or leadership\n- Very good communication skills and high leadership and social skills\n- Strong system affinity for standard applications (MS Office); SAP\n- Stylistic German in Word & Writing\n- \"Maker qualities\", which also like to come personally on the surface, with the people\n- in German (negotiation confident)\n- Italian (advantageous)\n- English (advantageous)\n\n## Cosa of friamo\n- Migros Bank: Better ride on interest and fees of your private, investment or mortgage accounts.\n- Individual training: Internal training and financial support for meaningful external training and further education.\n- Mobile subscription: Spoiled for choice: With Galaxus Mobile, Wingo or Sunrise already from CHF 10.- one or the other really connected.\n- Company parking: Free parking: You come by car? We offer you a free parking space.\n- Holidays: 6 weeks holidays for all and even more days for service anniversaries.\n- Design and decision-making leeway: opportunity to help shape Denner’s success story and implement your own ideas\n\n## Contatto\n## Application & Contact Fabienne Tschantré ## Recruitment process Pre-selection of applications We continuously review applications received, create a pre-selection and release them to the manager for viewing. The decision to advance or withdraw from the recruitment process will be communicated by telephone or email. Duration until feedback: Up to three weeks of discussion with HR & specialist department The discussion is conducted virtually or on site with the responsible person from HR and/or the specialist department. It is primarily about learning more about the personnel and specialist skills and gives both sides the opportunity to assess the cultural fit into the company and team. Duration to feedback: Up to three weeks Personality/Performance Test Under certain conditions, we use a personality test (BIP, Scales Test, etc.) as an additional step to support selection. The results of the test may be discussed personally and form the basis for further selection. Duration until feedback: up to one week of test work A trial day or half day gives the opportunity to get to know the future working environment and the team members better. And conversely, it gives us a chance to assess how well someone fits into the team. Duration until feedback: Up to three weeks final discussion before contract issuance Before the contract issuance, we conduct a final discussion in order to clarify open questions of both sides and to regulate contractual details. If all points are clarified, the written offer follows. Duration until feedback: Up to one week offer & contract issuance After our oral job offer, the most important contract points are verified again. After agreement, the contract is commissioned and sent by post. Duration until feedback: Up to three weeks ## Note for personnel service providers For this position we only consider direct applications.",
-        "de": "Hinter den Kulissen dafür sorgen, dass unser Laden läuft? Willkommen im frischen Siegerteam.Ohne Logistik läuft bei uns gar nichts. Sie ist Nadelöhr, Effizienzbooster und Herzschlag in einem. Hier brauchen wir absolute Profis wie dich. Denner. Das ist unser Laden.\n\n## Mansioni\n- Die eigenen Fachbereiche organisieren, leiten und den operativen Betrieb gewährleisten\n- Drei Teams (rund 20 Mitarbeitende) führen und weiterentwickeln\n- Qualität, Leistung und Zielerreichung in den Fachbereichen sicherstellen\n- Zusammenarbeit im Sinne der Polyvalenz mit anderen Bereichen und Abteilungen begünstigen\n- Arbeitssicherheit nach betriebsinternen Gegebenheiten gewährleisten\n\n## Requisiti\n- 6 - 10 Jahre Berufserfahrung: in einer vergleichbaren Position\n- Eidg. Fachausweis: im Bereich Logistik oder höhere Fachschule mit Fokus auf Logistik, BWL oder Leadership\n- Sehr gute Kommunikationsfähigkeit und hohe Leadership- und Sozialkompetenzen\n- Ausgeprägte Systemaffinität für Standard Applikationen (MS Office; SAP)\n- Stilsicheres Deutsch in Wort & Schrift\n- \"Macherqualitäten\", die auch gerne persönlich auf der Fläche, mit den Leuten, zum tragen kommen\n- Deutsch (verhandlungssicher)\n- Italienisch (von Vorteil)\n- Englisch (von Vorteil)\n\n## Cosa offriamo\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Individuelle Weiterbildung: Interne Trainings und finanzielle Unterstützung bei sinnvollen externen Aus- und Weiterbildungen.\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Firmenparkplatz: Gratis Parkplatz: Du kommst mit dem Auto? Wir bieten dir einen gratis Parkplatz.\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Gestaltungs- und Entscheidungsspielraum: Möglichkeit, die Erfolgsgeschichte von Denner mitzugestalten und eigene Ideen umzusetzen\n\n## Contatto\n## Bewerbung & Kontakt Fabienne Tschantré ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Persönlichkeits-/Leistungstest Unter bestimmten Bedingungen setzen wir als zusätzlicher Schritt einen Persönlichkeitstest (BIP, Scales Test o.ä.) zur Unterstützung der Selektion ein. Die Resultate des Tests werden unter Umständen persönlich nachbesprochen und bilden die Basis für die weitere Selektion. Dauer bis Rückmeldung: Bis zu einer Woche Probearbeiten Ein Schnuppertag oder -halbtag gibt die Möglichkeit das zukünftige Arbeitsumfeld und die Teammitglieder besser kennenzulernen. Und umgekehrt gibt es uns eine Chance einzuschätzen, wie gut jemand in das Team passt. Dauer bis Rückmeldung: Bis zu drei Wochen Abschlussgespräch vor Vertragsausstellung Vor der Vertragsausstellung führen wir ein Abschlussgespräch durch, um offene Fragen beider Seiten zu klären und vertragliche Details zu regeln. Sind alle Punkte geklärt, folgt das schriftliche Angebot. Dauer bis Rückmeldung: Bis zu einer Woche Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "Dans les coulisses, assurez-vous que notre magasin fonctionne ? Bienvenue dans la nouvelle équipe gagnante. Sans logistique, rien ne fonctionne pour nous. C'est une aiguille, un booster d'efficacité et un battement de cœur. Ici nous avons besoin de professionnels absolus comme vous. Denner. C'est notre magasin.\n\n## Mansioni\n- Organiser, gérer et assurer les opérations opérationnelles\n- Trois équipes (environ 20 employés) dirigent et développent\n- Assurer la qualité, le rendement et la réalisation des objectifs dans les domaines spécialisés\n- Faciliter la coopération dans le sens de la polyvalence avec d'autres domaines et départements\n- Assurer la sécurité au travail selon les conditions de l'entreprise\n\n## Exigences\n- 6 à 10 ans d'expérience professionnelle: dans un poste comparable\n- Oui. Carte professionnelle: dans le domaine de la logistique ou de l'école technique supérieure avec un accent sur la logistique, l'administration des affaires ou le leadership\n- Très bonnes compétences en communication, leadership élevé et compétences sociales\n- Forte affinité du système pour les applications standard (MS Office); SAP\n- L'allemand styliste en Word & Writing\n- \"Les qualités de fabricant\", qui aiment aussi venir personnellement à la surface, avec le peuple\n- en allemand (négociation confiante)\n- Italien (avantageux)\n- Anglais (avantageux)\n\n## Cosa de friamo\n- Migros Bank: Mieux vaut rouler sur les intérêts et les frais de vos comptes privés, d'investissement ou hypothécaires.\n- Formation individuelle: formation interne et soutien financier pour une formation externe et une formation continue utiles.\n- Abonnement mobile : porté au choix : Avec Galaxus Mobile, Wingo ou Sunrise déjà à partir de CHF 10.- l'un ou l'autre vraiment connecté.\n- Parking de l'entreprise: Parking gratuit: Vous venez en voiture? Nous vous offrons une place de parking gratuite.\n- Vacances: 6 semaines de vacances pour tous et encore plus de jours pour les anniversaires de service.\n- Conception et prise de décision : l'occasion d'aider à façonner l'histoire de réussite de Denner et de mettre en œuvre vos propres idées\n\n## Contatto\n## Demande et contact Fabienne Tschantré ## Processus de recrutement Sélection préalable des demandes Nous examinons continuellement les demandes reçues, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancer ou de se retirer du processus de recrutement sera communiquée par téléphone ou par courriel. Durée jusqu'à la rétroaction : Jusqu'à trois semaines de discussions avec les RH et le département spécialisé La discussion est menée pratiquement ou sur place avec la personne responsable des RH ou du service spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. Durée de la rétroaction : Jusqu'à trois semaines Test de personnalité/performance Dans certaines conditions, nous utilisons un test de personnalité (BIP, Test de balances, etc.) comme étape supplémentaire pour soutenir la sélection. Les résultats du test peuvent être discutés personnellement et constituer la base d'une sélection ultérieure. Durée jusqu'à la rétroaction : jusqu'à une semaine de travail d'essai Une journée d'essai ou une demi-journée permet de mieux connaître l'environnement de travail futur et les membres de l'équipe. Et inversement, cela nous donne une chance d'évaluer comment quelqu'un s'intègre bien dans l'équipe. Durée jusqu'à la rétroaction : Jusqu'à trois semaines de discussion finale avant la délivrance du contrat Avant la délivrance du contrat, nous menons une discussion finale afin de clarifier les questions ouvertes des deux parties et de réglementer les détails contractuels. Si tous les points sont clarifiés, l'offre écrite suit. Durée jusqu'au retour d'information : jusqu'à une semaine d'offre et de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau. Après accord, le contrat est commandé et envoyé par la poste. Durée jusqu'à la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes."
-      },
-      "requirements": [
-        "6 - 10 Jahre Berufserfahrung: in einer vergleichbaren Position",
-        "Eidg. Fachausweis: im Bereich Logistik oder höhere Fachschule mit Fokus auf Logistik, BWL oder Leadership",
-        "Sehr gute Kommunikationsfähigkeit und hohe Leadership- und Sozialkompetenzen",
-        "Ausgeprägte Systemaffinität für Standard Applikationen (MS Office; SAP)",
-        "Stilsicheres Deutsch in Wort & Schrift",
-        "\"Macherqualitäten\", die auch gerne persönlich auf der Fläche, mit den Leuten, zum tragen kommen",
-        "Deutsch (verhandlungssicher)",
-        "Italienisch (von Vorteil)",
-        "Englisch (von Vorteil)"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "6 - 10 Jahre Berufserfahrung: in einer vergleichbaren Position",
-          "Eidg. Fachausweis: im Bereich Logistik oder höhere Fachschule mit Fokus auf Logistik, BWL oder Leadership",
-          "Sehr gute Kommunikationsfähigkeit und hohe Leadership- und Sozialkompetenzen",
-          "Ausgeprägte Systemaffinität für Standard Applikationen (MS Office; SAP)",
-          "Stilsicheres Deutsch in Wort & Schrift",
-          "\"Macherqualitäten\", die auch gerne persönlich auf der Fläche, mit den Leuten, zum tragen kommen",
-          "Deutsch (verhandlungssicher)",
-          "Italienisch (von Vorteil)"
-        ]
-      },
-      "location": "Dietlikon",
-      "postalCode": "8305",
-      "canton": "ZH",
-      "addressLocality": "Dietlikon",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "streetAddress": "Denner Dietlikon",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13T03:47:10+0200",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/abteilungsleiterin-wareneingang-warenausgang-dietlikon/82db05c8-395e-4ce8-bdc7-69441dc659ed",
-      "source": "Denner/Migros Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:15:51.849Z",
-      "previousSlugs": [
-        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T22:15:04.506Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 117000,
-          "maxValue": 180000,
-          "unitText": "YEAR"
-        }
-      },
-      "country": "CH",
-      "crawlerMissStreak": 2
     }
   ]
 }
