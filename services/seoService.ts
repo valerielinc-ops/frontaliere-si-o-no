@@ -4613,6 +4613,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-logopedista-ticino-stipendio-requisiti': { name: 'Lavorare come logopedista in Ticino da', path: '/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-mobilita-svizzera-ferrovia-strade': { name: 'Mobilità Svizzera', path: '/articoli-svizzera/mobilita-svizzera-ferrovia-strade/', parent: 'blog' },
     'blog-stipendio-logopedista-frontaliero-ticino': { name: 'Salari logopedisti frontalieri Ticino', path: '/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino', parent: 'blog' },
+    'blog-farmacista-frontaliero-ticino': { name: 'Farmacista frontaliere in Ticino', path: '/articoli-frontaliere/farmacista-frontaliero-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

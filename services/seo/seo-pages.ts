@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3295,
+ "numberOfItems": 3296,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8011,7 +8011,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3292, "name": "Quanto guadagna un fisioterapista frontaliere i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-fisioterapista` },
           { "@type": "ListItem", "position": 3293, "name": "Logopedista in Ticino: stipendio, requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3294, "name": "Mobilità in Svizzera: cresce il favore per la f...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-svizzera-ferrovia-strade` },
-          { "@type": "ListItem", "position": 3295, "name": "Quanto guadagna un logopedista frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino` }
+          { "@type": "ListItem", "position": 3295, "name": "Quanto guadagna un logopedista frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino` },
+          { "@type": "ListItem", "position": 3296, "name": "Quanto guadagna un farmacista frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/farmacista-frontaliero-ticino` }
  ]
  },
  {

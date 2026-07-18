@@ -8609,6 +8609,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Quanto guadagna un logopedista frontaliere in Ticino?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'I salari dei logopedisti frontalieri in Ticino: come si differenziano dalle retribuzioni italiane?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Un logopedista frontaliero guida una seduta di terapia linguistica in un ospedale di Lugano, Ticino.',
+    'blog.article.farmacista-frontaliero-ticino.title': 'Quanto guadagna un farmacista frontaliere in Ticino?',
+    'blog.article.farmacista-frontaliero-ticino.excerpt': 'Il Nuovo Accordo Frontalieri prevede una franchigia di €10\'000 per i nuovi frontalieri.',
+    'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Un farmacista frontaliere lavora in un ospedale a Lugano',
 };
 
 export default blogMetaIt;

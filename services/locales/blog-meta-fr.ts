@@ -8609,6 +8609,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Combien gagne un orthophoniste frontalier au Tessin ?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'Les salaires des orthophonistes frontaliers au Tessin : en quoi diffèrent-ils des salaires italiens ?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Un logopède frontalier conduit une séance de thérapie du langage dans un hôpital de Lugano, Tessin.',
+    'blog.article.farmacista-frontaliero-ticino.title': 'Combien gagne un pharmacien frontalier au Tessin ?',
+    'blog.article.farmacista-frontaliero-ticino.excerpt': 'Le nouvel accord frontalier prévoit une franchise de 10000 € pour les nouveaux frontaliers.',
+    'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Un pharmacien travaille dans un hôpital à Lugano',
 };
 
 export default blogMetaFr;
