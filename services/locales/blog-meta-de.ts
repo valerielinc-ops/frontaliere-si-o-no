@@ -8586,6 +8586,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-ticino-frontalieri.title': 'Der Mythos der Schweiz wankt: 152.000 Arbeitslose',
     'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Arbeitslosenquote in der Schweiz steigt auf 3,2% im Januar 2026, mit einem Anstieg der Arbeitslosen auf 152.300 Einheiten',
     'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Lugano von dem See aus',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Änderungen an der Straße in der Via Intra Premeno',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'Die Fahrverbote gelten vom 20. Juli bis 7. August 2026.',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Elektrische Netzarbeiten in Via Intra Premeno und Via alla Campagna',
 };
 
 export default blogMetaDe;

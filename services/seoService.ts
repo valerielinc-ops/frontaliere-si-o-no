@@ -4591,6 +4591,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-docenti-frontalieri-ticino-normativa': { name: 'Lavoro frontalieri', path: '/articoli-svizzera/lavoro-docenti-frontalieri-ticino-normativa/', parent: 'blog' },
     'blog-disoccupazione-ticino-frontalieri': { name: 'Disoccupazione in Svizzera', path: '/articoli-frontaliere/disoccupazione-ticino-frontalieri', parent: 'blog' },
     'blog-svizzera-disoccupazione-frontalieri-mozione-quadri': { name: 'Mozione disoccupazione frontalieri', path: '/articoli-svizzera/svizzera-disoccupazione-frontalieri-mozione-quadri/', parent: 'blog' },
+    'blog-lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna': { name: 'Lavori di rete elettrica in via Intra', path: '/articoli-frontaliere/lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna', parent: 'blog' },
  };
 
  const info = sectionNames[section];

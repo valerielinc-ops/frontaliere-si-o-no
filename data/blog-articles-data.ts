@@ -25802,6 +25802,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna',
+ category: 'novita',
+ date: '2026-07-18T08:25:19.485Z',
+ image: '/images/blog/lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

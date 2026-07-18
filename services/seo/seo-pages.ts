@@ -4715,7 +4715,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3284,
+ "numberOfItems": 3285,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8000,7 +8000,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3281, "name": "Lavorare in remoto da un terzo paese: implicazi...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-remoto-vacanza-fiscalita-frontalieri` },
           { "@type": "ListItem", "position": 3282, "name": "Docenti frontalieri in Ticino: chiarita la norm...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-docenti-frontalieri-ticino-normativa` },
           { "@type": "ListItem", "position": 3283, "name": "Vacilla il mito della Svizzera: 152mila senza l...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-ticino-frontalieri` },
-          { "@type": "ListItem", "position": 3284, "name": "Svizzera: mozione contro disoccupazione ai fron...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-mozione-quadri` }
+          { "@type": "ListItem", "position": 3284, "name": "Svizzera: mozione contro disoccupazione ai fron...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-disoccupazione-frontalieri-mozione-quadri` },
+          { "@type": "ListItem", "position": 3285, "name": "Modifiche alla viabilità in via Intra Premeno", "url": `${BASE_URL}/articoli-frontaliere/lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna` }
  ]
  },
  {

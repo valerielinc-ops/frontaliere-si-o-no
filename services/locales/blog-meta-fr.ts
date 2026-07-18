@@ -8588,6 +8588,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-ticino-frontalieri.title': 'Le mythe de la Suisse est ébranlé : 152 000 chômeurs',
     'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Le taux de chômage en Suisse s\'élève à 3,2% en janvier 2026, avec une augmentation du nombre de chômeurs à 152 300 unités',
     'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Vue de Lugano du lac',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Modifications de la voirie dans la via Intra Premeno',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'Les restrictions de circulation seront en vigueur du 20 juillet au 7 août 2026.',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Travaux de réseau électrique dans la rue Intra Premeno et la Campagna',
 };
 
 export default blogMetaFr;

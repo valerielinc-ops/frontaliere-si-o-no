@@ -8588,6 +8588,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-ticino-frontalieri.title': 'Vacilla il mito della Svizzera: 152mila senza lavoro',
     'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Tasso di disoccupazione in Svizzera sale al 3,2% nel gennaio 2026, con un aumento dei senza lavoro a 152.300 unità',
     'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'Vista di Lugano dal lago',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Modifiche alla viabilità in via Intra Premeno',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'Le limitazioni alla circolazione saranno in vigore dal 20 luglio al 7 agosto 2026.',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Lavori di rete elettrica in via Intra Premeno e via alla Campagna',
 };
 
 export default blogMetaIt;

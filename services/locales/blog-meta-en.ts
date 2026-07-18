@@ -8587,6 +8587,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-ticino-frontalieri.title': 'The myth of Switzerland is shaken: 152,000 people out of work',
     'blog.article.disoccupazione-ticino-frontalieri.excerpt': 'Switzerland\'s unemployment rate rises to 3.2% in January 2026, with the jobless rising to 152,300',
     'blog.article.disoccupazione-ticino-frontalieri.imageAlt': 'View of Lugano from the lake',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.title': 'Changes to the roads in Via Intra Premeno',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.excerpt': 'The driving restrictions will be in force from 20 July to 7 August 2026.',
+    'blog.article.lavori-alla-rete-elettrica-modifiche-alla-viabilita-in-via-intra-premeno-e-via-alla-campagna.imageAlt': 'Electrical network works in via Intra Premeno and via alla Campagna',
 };
 
 export default blogMetaEn;
