@@ -15,6 +15,7 @@ import {
  getChains, filterSupermarkets, type Supermarket,
 } from '@/data/supermarketData';
 import { lazyRetry } from '@/services/lazyRetry';
+import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 
 // Lazy-load Leaflet map to avoid loading ~200KB on initial render
 const SupermarketMap = lazyRetry(() => import('@/components/vita/SupermarketMap'));
@@ -609,6 +610,7 @@ const ShoppingCalculator: React.FC = () => {
  </div>
  <p className="text-xs text-muted mt-2">{t('shopping.disclaimer')}</p>
  </div>
+ <PartnerRecommendations context="shopping" />
  <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
  </div>
  );
