@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-07-19T10:49:23.078Z",
+  "assembledAt": "2026-07-19T22:29:56.948Z",
   "jobs": [
     {
       "id": "nestle-1410122633",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
         "en": "team-leader-maintenance-h-f-d-nestle-ch",
-        "de": "wartung-des-teamleiters-h-f-d-nestle-avenches-ch",
+        "de": "team-leader-maintenance-m-w-d-nestle-avenches-ch",
         "fr": "team-leader-maintenance-h-f-d-nestle-ch"
       },
       "company": "Nestlé",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Capo squadra Maintenance (f/m/d)",
         "en": "Team Leader Maintenance (H/F/D)",
-        "de": "Wartung des Teamleiters (H/F/D)",
+        "de": "Team Leader Maintenance (H/F/D)",
         "fr": "Team Leader Maintenance (H/F/D)"
       },
       "description": "Chez Nespresso Suisse nous pensons qu’il est possible d’élever l’univers du café et nous voulons contribuer positivement à changer les vies et les paysages pour le mieux. Élu meilleur employeur 2025, nous plaçons chacun de nos 14 000 collaborateurs, sans exception, au cœur de notre réussite. Pour y parvenir, nous adoptons quatre comportements essentiels : « We Inspire, we Care, we Act, and we iNnovate ». Et vous ? Voulez-vous nous accompagner dans cette aventure passionnante ? Rejoignez l’équipe Nespresso ! Et réimaginez la nature du café. Réimaginez votre avenir.\n\nInstantané du poste",
@@ -33,7 +33,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Team-Leader-Maintenance-%28HFD%29/1410122633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:49:20.072Z",
+      "crawledAt": "2026-07-19T22:29:54.293Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,18 +50,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "team-leader-maintenance-h-f-d-nestle-ch",
+        "wartung-des-teamleiters-h-f-d-nestle-avenches-ch",
+        "capo-squadra-maintenance-f-m-d-nestle-avenches-ch",
         "team-leader-maintenance-m-w-d-nestle-avenches-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-leader-maintenance-h-f-d-nestle-ch"
+          "team-leader-maintenance-h-f-d-nestle-ch",
+          "capo-squadra-maintenance-f-m-d-nestle-avenches-ch"
         ],
         "de": [
           "team-leader-maintenance-h-f-d-nestle-ch",
+          "wartung-des-teamleiters-h-f-d-nestle-avenches-ch",
           "team-leader-maintenance-m-w-d-nestle-avenches-ch"
         ]
       },
       "firstSeenAt": "2026-07-16T11:33:55.352Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -107,7 +112,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Head-of-AI-&-Digital-Nestl%C3%A9-R&D-Deep-Tech-Center/1409459833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:19.231Z",
+      "crawledAt": "2026-07-19T22:29:53.389Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,11 +128,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
+        "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch",
+        "responsabile-ai-digital-nestle-r-d-deep-tech-center-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
+          "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch",
+          "responsabile-ai-digital-nestle-r-d-deep-tech-center-nestle-orbe-ch"
         ],
         "de": [
           "head-of-ai-digital-nestle-r-d-deep-tech-center-nestle-ch"
@@ -149,7 +156,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1269774501",
@@ -182,7 +190,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Instandhaltungsmechanikerin/1269774501/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:49:18.392Z",
+      "crawledAt": "2026-07-19T22:29:52.494Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -199,12 +207,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhaltungsmechaniker-in-nestle-ch",
-        "instandhaltungsmechaniker-in-nestle-basel-ch"
+        "instandhaltungsmechaniker-in-nestle-basel-ch",
+        "manutenzione-nestle-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhaltungsmechaniker-in-nestle-ch",
-          "instandhaltungsmechaniker-in-nestle-basel-ch"
+          "instandhaltungsmechaniker-in-nestle-basel-ch",
+          "manutenzione-nestle-basel-ch"
         ],
         "en": [
           "instandhaltungsmechaniker-in-nestle-basel-ch"
@@ -248,7 +258,7 @@
         "it": "Produktions-Spezialist/-in",
         "en": "Produktions-Spezialist/-in",
         "de": "Produktions-Spezialist/-in",
-        "fr": "Produktions-Spézaliste/-in"
+        "fr": "Produktions-Spezialist/-in"
       },
       "description": "Produktions-Spezialist/-in — Nestlé, Basel, CH.\n\nKey details:\n• Location: Basel, CH, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -262,7 +272,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Produktions-Spezialist-in/1269789201/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:17.533Z",
+      "crawledAt": "2026-07-19T22:29:51.565Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -286,6 +296,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:28:41.150Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -331,7 +342,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Quality-Specialist/1411192733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:16.674Z",
+      "crawledAt": "2026-07-19T22:29:50.619Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -348,11 +359,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "quality-specialist-nestle-ch",
-        "quality-specialist-nestle-konolfingen-ch"
+        "quality-specialist-nestle-konolfingen-ch",
+        "quality-specialista-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-specialist-nestle-ch"
+          "quality-specialist-nestle-ch",
+          "quality-specialista-nestle-konolfingen-ch"
         ],
         "en": [
           "quality-specialist-nestle-konolfingen-ch"
@@ -396,7 +409,7 @@
         "it": "Stagiaire Pré-HES - Tecnologia alimentare (gioventù)",
         "en": "Stagiaire Pré-HES - Food Technology (Youth)",
         "de": "Stagiaire Pré-HES - Lebensmitteltechnologie (Jugend)",
-        "fr": "Stagiaire Pré-HES - Technologie alimentaire (Jeunesse)"
+        "fr": "Stagiaire Pré-HES - Food Technology (Youth)"
       },
       "description": "Stagiaire Pré-HES - Food Technology (Youth) — Nestlé, La Tour-de-Peilz, CH.\n\nKey details:\n• Location: La Tour-de-Peilz, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -410,7 +423,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:15.836Z",
+      "crawledAt": "2026-07-19T22:29:49.719Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -427,11 +440,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-pre-hes-food-technology-youth-nestle-ch",
-        "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch"
+        "stagiaire-pre-hes-food-technology-youth-nestle-la-tour-de-peilz-ch",
+        "stagiaire-pre-hes-tecnologia-alimentare-gioventu-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-pre-hes-food-technology-youth-nestle-ch"
+          "stagiaire-pre-hes-food-technology-youth-nestle-ch",
+          "stagiaire-pre-hes-tecnologia-alimentare-gioventu-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
           "stagiaire-pre-hes-food-technology-youth-nestle-ch"
@@ -488,7 +503,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Commercial-Intern/1414702133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:14.963Z",
+      "crawledAt": "2026-07-19T22:29:48.833Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -504,11 +519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commercial-intern-nestle-ch"
+        "commercial-intern-nestle-ch",
+        "commercial-tirocinante-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commercial-intern-nestle-ch"
+          "commercial-intern-nestle-ch",
+          "commercial-tirocinante-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
           "commercial-intern-nestle-ch"
@@ -547,7 +564,7 @@
       "title": "Tierarztberater/in / Vet Advisor",
       "titleByLocale": {
         "it": "Tierarztberater/in / Vet Consulente",
-        "en": "Veterinary Advisor/Vet Advisor",
+        "en": "Tierarztberater/in / Vet Advisor",
         "de": "Tierarztberater/in / Vet Berater",
         "fr": "Tierarztberater/in / Vet Conseiller"
       },
@@ -563,7 +580,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:49:14.127Z",
+      "crawledAt": "2026-07-19T22:29:47.936Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -579,11 +596,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tierarztberater-in-vet-advisor-nestle-ch"
+        "tierarztberater-in-vet-advisor-nestle-ch",
+        "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tierarztberater-in-vet-advisor-nestle-ch"
+          "tierarztberater-in-vet-advisor-nestle-ch",
+          "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch"
         ],
         "fr": [
           "tierarztberater-in-vet-advisor-nestle-ch"
@@ -636,7 +655,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Senior-Technician-in-Lipids-Analytics/1408503233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:13.263Z",
+      "crawledAt": "2026-07-19T22:29:47.012Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -652,11 +671,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-technician-in-lipids-analytics-nestle-ch"
+        "senior-technician-in-lipids-analytics-nestle-ch",
+        "tecnico-senior-in-lipids-analytics-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-technician-in-lipids-analytics-nestle-ch"
+          "senior-technician-in-lipids-analytics-nestle-ch",
+          "tecnico-senior-in-lipids-analytics-nestle-lausanne-ch"
         ],
         "de": [
           "senior-technician-in-lipids-analytics-nestle-ch"
@@ -696,7 +717,7 @@
       "titleByLocale": {
         "it": "Prodotti speciali Anlagenführer/-in",
         "en": "Anlagenführer/-in Special Products",
-        "de": "Anlagenführer/-in Spezialprodukte",
+        "de": "Anlagenführer/-in Special Products",
         "fr": "Anlagenführer/-dans Produits spéciaux"
       },
       "description": "Anlagenführer/-in Special Products — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -711,7 +732,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products/1407549433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:12.435Z",
+      "crawledAt": "2026-07-19T22:29:46.103Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -728,11 +749,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagenfuhrer-in-special-products-nestle-ch",
-        "anlagenfuhrer-in-special-products-nestle-konolfingen-ch"
+        "anlagenfuhrer-in-special-products-nestle-konolfingen-ch",
+        "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-special-products-nestle-ch"
+          "anlagenfuhrer-in-special-products-nestle-ch",
+          "prodotti-speciali-anlagenfuhrer-in-nestle-konolfingen-ch"
         ],
         "de": [
           "anlagenfuhrer-in-special-products-nestle-ch",
@@ -743,6 +766,7 @@
         ]
       },
       "firstSeenAt": "2026-06-23T22:51:58.233Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -788,7 +812,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:11.577Z",
+      "crawledAt": "2026-07-19T22:29:45.196Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -861,7 +885,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:10.717Z",
+      "crawledAt": "2026-07-19T22:29:44.224Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -877,11 +901,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
+        "associate-r-d-specialist-packaging-material-characterization-nestle-ch",
+        "associate-r-d-specialista-packaging-material-characterization-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
+          "associate-r-d-specialist-packaging-material-characterization-nestle-ch",
+          "associate-r-d-specialista-packaging-material-characterization-nestle-orbe-ch"
         ],
         "de": [
           "associate-r-d-specialist-packaging-material-characterization-nestle-ch"
@@ -922,7 +948,7 @@
       "titleByLocale": {
         "it": "Operatore dell'impianto di riempimento",
         "en": "Anlagenführer/in Abfüllung",
-        "de": "Anlagenführer/Abfüllung",
+        "de": "Anlagenführer/in Abfüllung",
         "fr": "Anlagenführer/en Abfüllung"
       },
       "description": "Anlagenführer/in Abfüllung — Nestlé, Basel, CH.\n\nKey details:\n• Location: Basel, CH, BS canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -937,7 +963,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Anlagenf%C3%BChrerin-Abf%C3%BCllung/1293376401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:09.878Z",
+      "crawledAt": "2026-07-19T22:29:43.303Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -953,11 +979,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-abfullung-nestle-ch"
+        "anlagenfuhrer-in-abfullung-nestle-ch",
+        "operatore-dell-impianto-di-riempimento-nestle-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-abfullung-nestle-ch"
+          "anlagenfuhrer-in-abfullung-nestle-ch",
+          "operatore-dell-impianto-di-riempimento-nestle-basel-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1007,7 +1035,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Litigation-Lead/1409743033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:09.018Z",
+      "crawledAt": "2026-07-19T22:29:42.418Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1023,17 +1051,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-litigation-lead-nestle-ch"
+        "global-litigation-lead-nestle-ch",
+        "responsabile-globale-del-contenzioso-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-litigation-lead-nestle-ch"
+          "global-litigation-lead-nestle-ch",
+          "responsabile-globale-del-contenzioso-nestle-vevey-ch"
         ],
         "fr": [
           "global-litigation-lead-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-06-30T12:31:53.492Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1079,7 +1110,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:49:08.182Z",
+      "crawledAt": "2026-07-19T22:29:41.534Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1095,11 +1126,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
+        "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
+        "apprendista-operatore-di-macchine-automatizzate-nestle-henniez-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
+          "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch",
+          "apprendista-operatore-di-macchine-automatizzate-nestle-henniez-ch"
         ],
         "en": [
           "apprenti-e-operateur-trice-de-machines-automatisees-nestle-ch"
@@ -1154,7 +1187,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:49:07.325Z",
+      "crawledAt": "2026-07-19T22:29:40.652Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1170,11 +1203,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
+        "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
+        "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
+          "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch",
+          "apprendista-tecnologo-della-birra-e-delle-bevande-nestle-henniez-ch"
         ],
         "en": [
           "apprenti-e-technologue-du-brassage-et-des-boissons-nestle-ch"
@@ -1215,7 +1250,7 @@
         "it": "Stagiaire Pré-HEG - Ressources Humaines (Giovani)",
         "en": "Stagiaire Pré-HEG - Ressources Humaines (Youth)",
         "de": "Stagiaire Pré-HEG - Ressourcen Humaines (Jugendlich)",
-        "fr": "Stagiaire Pré-HEG - Ressources Humaines (Jeunesse)"
+        "fr": "Stagiaire Pré-HEG - Ressources Humaines (Youth)"
       },
       "description": "Stagiaire Pré-HEG - Ressources Humaines (Youth) — Nestlé, Lausanne, CH.\n\nKey details:\n• Location: Lausanne, CH, VD canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
       "descriptionByLocale": {
@@ -1229,7 +1264,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:06.485Z",
+      "crawledAt": "2026-07-19T22:29:39.744Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1245,11 +1280,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
+        "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
+        "stagiaire-pre-heg-ressources-humaines-giovani-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
+          "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch",
+          "stagiaire-pre-heg-ressources-humaines-giovani-nestle-lausanne-ch"
         ],
         "de": [
           "stagiaire-pre-heg-ressources-humaines-youth-nestle-ch"
@@ -1302,7 +1339,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Accounting-&-Reporting-Intern/1415149133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:05.647Z",
+      "crawledAt": "2026-07-19T22:29:38.854Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1318,11 +1355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "accounting-reporting-intern-nestle-ch"
+        "accounting-reporting-intern-nestle-ch",
+        "accounting-reporting-tirocinante-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accounting-reporting-intern-nestle-ch"
+          "accounting-reporting-intern-nestle-ch",
+          "accounting-reporting-tirocinante-nestle-vevey-ch"
         ],
         "de": [
           "accounting-reporting-intern-nestle-ch"
@@ -1332,6 +1371,7 @@
         ]
       },
       "firstSeenAt": "2026-07-15T11:35:48.875Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1377,7 +1417,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Specialist-Protein/1410105333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:04.794Z",
+      "crawledAt": "2026-07-19T22:29:37.949Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1393,11 +1433,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-specialist-protein-nestle-ch"
+        "associate-specialist-protein-nestle-ch",
+        "associate-specialista-protein-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-specialist-protein-nestle-ch"
+          "associate-specialist-protein-nestle-ch",
+          "associate-specialista-protein-nestle-lausanne-ch"
         ],
         "de": [
           "associate-specialist-protein-nestle-ch"
@@ -1452,7 +1494,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:49:03.942Z",
+      "crawledAt": "2026-07-19T22:29:37.013Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1469,11 +1511,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operateur-de-production-4-8-h-f-d-nestle-ch",
-        "operateur-de-production-4-8-h-f-d-nestle-avenches-ch"
+        "operateur-de-production-4-8-h-f-d-nestle-avenches-ch",
+        "operateur-de-production-4-8-f-m-d-nestle-avenches-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-h-f-d-nestle-ch"
+          "operateur-de-production-4-8-h-f-d-nestle-ch",
+          "operateur-de-production-4-8-f-m-d-nestle-avenches-ch"
         ],
         "en": [
           "operateur-de-production-4-8-h-f-d-nestle-ch"
@@ -1531,7 +1575,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:49:03.101Z",
+      "crawledAt": "2026-07-19T22:29:36.106Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1547,11 +1591,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
+        "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch",
+        "vivier-de-talent-tecnico-di-manutenzione-5x8-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
+          "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch",
+          "vivier-de-talent-tecnico-di-manutenzione-5x8-nestle-orbe-ch"
         ],
         "en": [
           "vivier-de-talent-technicien-de-maintenance-5x8-nestle-ch"
@@ -1607,7 +1653,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:02.244Z",
+      "crawledAt": "2026-07-19T22:29:35.206Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1623,11 +1669,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-corporate-spokesperson-nestle-ch"
+        "senior-corporate-spokesperson-nestle-ch",
+        "portavoce-aziendale-senior-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-corporate-spokesperson-nestle-ch"
+          "senior-corporate-spokesperson-nestle-ch",
+          "portavoce-aziendale-senior-nestle-vevey-ch"
         ],
         "de": [
           "senior-corporate-spokesperson-nestle-ch"
@@ -1683,7 +1731,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:01.404Z",
+      "crawledAt": "2026-07-19T22:29:34.308Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1699,11 +1747,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-material-science-specialist-recycled-pet-nestle-ch"
+        "packaging-material-science-specialist-recycled-pet-nestle-ch",
+        "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-material-science-specialist-recycled-pet-nestle-ch"
+          "packaging-material-science-specialist-recycled-pet-nestle-ch",
+          "packaging-material-science-specialista-recycled-pet-nestle-lausanne-ch"
         ],
         "de": [
           "packaging-material-science-specialist-recycled-pet-nestle-ch"
@@ -1759,7 +1809,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:49:00.526Z",
+      "crawledAt": "2026-07-19T22:29:33.414Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1775,11 +1825,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-packaging-materials-specialist-nestle-ch"
+        "associate-packaging-materials-specialist-nestle-ch",
+        "associate-packaging-materials-specialista-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-packaging-materials-specialist-nestle-ch"
+          "associate-packaging-materials-specialist-nestle-ch",
+          "associate-packaging-materials-specialista-nestle-lausanne-ch"
         ],
         "de": [
           "associate-packaging-materials-specialist-nestle-ch"
@@ -1835,7 +1887,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:59.692Z",
+      "crawledAt": "2026-07-19T22:29:32.517Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1851,11 +1903,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialist-macronutrient-physiology-nestle-ch"
+        "specialist-macronutrient-physiology-nestle-ch",
+        "specialista-macronutrient-physiology-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-macronutrient-physiology-nestle-ch"
+          "specialist-macronutrient-physiology-nestle-ch",
+          "specialista-macronutrient-physiology-nestle-lausanne-ch"
         ],
         "de": [
           "specialist-macronutrient-physiology-nestle-ch"
@@ -1911,7 +1965,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Instandhaltungsplaner-In-%28AMM-Planner%29-100/1405023033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:58.841Z",
+      "crawledAt": "2026-07-19T22:29:31.607Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1927,11 +1981,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "instandhaltungsplaner-in-amm-planner-100-nestle-ch"
+        "instandhaltungsplaner-in-amm-planner-100-nestle-ch",
+        "pianificazione-operativa-in-amm-planner-100-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "instandhaltungsplaner-in-amm-planner-100-nestle-ch"
+          "instandhaltungsplaner-in-amm-planner-100-nestle-ch",
+          "pianificazione-operativa-in-amm-planner-100-nestle-konolfingen-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1966,7 +2022,7 @@
       "titleByLocale": {
         "it": "Laborant: in Mikrobiologie",
         "en": "Laborant:in Mikrobiologie",
-        "de": "Laborant: in Mikrobiologie",
+        "de": "Laborant:in Mikrobiologie",
         "fr": "Travailleur:en Mikrobiologie"
       },
       "description": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -1981,7 +2037,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:57.988Z",
+      "crawledAt": "2026-07-19T22:29:30.723Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1997,11 +2053,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-mikrobiologie-nestle-ch"
+        "laborant-in-mikrobiologie-nestle-ch",
+        "laborant-in-mikrobiologie-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-mikrobiologie-nestle-ch"
+          "laborant-in-mikrobiologie-nestle-ch",
+          "laborant-in-mikrobiologie-nestle-konolfingen-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2051,7 +2109,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:57.116Z",
+      "crawledAt": "2026-07-19T22:29:29.793Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2067,11 +2125,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "smart-sensors-specialist-nestle-ch"
+        "smart-sensors-specialist-nestle-ch",
+        "smart-sensors-specialista-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "smart-sensors-specialist-nestle-ch"
+          "smart-sensors-specialist-nestle-ch",
+          "smart-sensors-specialista-nestle-orbe-ch"
         ],
         "de": [
           "smart-sensors-specialist-nestle-ch"
@@ -2127,7 +2187,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien_ne-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:56.248Z",
+      "crawledAt": "2026-07-19T22:29:28.894Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2189,7 +2249,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien_ne-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:55.375Z",
+      "crawledAt": "2026-07-19T22:29:27.981Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2235,7 +2295,7 @@
       "titleByLocale": {
         "it": "Anlagenführer: in Produktion 100%",
         "en": "Anlagenführer:in Produktion 100%",
-        "de": "Anlagenführer: in Produktion 100%",
+        "de": "Anlagenführer:in Produktion 100%",
         "fr": "Anlagenführer: en Produktion 100%"
       },
       "description": "Anlagenführer:in Produktion 100% — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
@@ -2250,7 +2310,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:54.521Z",
+      "crawledAt": "2026-07-19T22:29:27.072Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2312,7 +2372,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Technical-Coordinator-Nespresso/1413632733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:53.681Z",
+      "crawledAt": "2026-07-19T22:29:26.176Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2328,11 +2388,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-coordinator-nespresso-nestle-ch"
+        "technical-coordinator-nespresso-nestle-ch",
+        "technical-coordinatore-nespresso-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-coordinator-nespresso-nestle-ch"
+          "technical-coordinator-nespresso-nestle-ch",
+          "technical-coordinatore-nespresso-nestle-la-tour-de-peilz-ch"
         ],
         "de": [
           "technical-coordinator-nespresso-nestle-ch"
@@ -2387,7 +2449,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-Procurement-Manager-Warehousing/1414739633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:52.791Z",
+      "crawledAt": "2026-07-19T22:29:25.277Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2403,6 +2465,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:21:04.072Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2448,7 +2511,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-International-Customer-Supply-Chain-Specialist-Business-Growth-Solutions/1408861833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:51.922Z",
+      "crawledAt": "2026-07-19T22:29:24.375Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2465,12 +2528,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "international-customer-supply-chain-specialist-nestle-ch",
-        "international-customer-supply-chain-specialist-business-growth-solutions-nestle-ch"
+        "international-customer-supply-chain-specialist-business-growth-solutions-nestle-ch",
+        "international-customer-supply-chain-specialista-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "international-customer-supply-chain-specialist-nestle-ch",
-          "international-customer-supply-chain-specialist-business-growth-solutions-nestle-ch"
+          "international-customer-supply-chain-specialist-business-growth-solutions-nestle-ch",
+          "international-customer-supply-chain-specialista-nestle-la-tour-de-peilz-ch"
         ]
       },
       "firstSeenAt": "2026-06-26T22:31:50.471Z",
@@ -2486,7 +2551,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1410303133",
@@ -2519,7 +2585,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Project-Coordination-Manager-Event-Manager-Business-Growth-Solutions/1410303133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:51.038Z",
+      "crawledAt": "2026-07-19T22:29:23.489Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2538,13 +2604,15 @@
         "event-manager-nestle-ch",
         "event-manager-nestle-la-tour-de-peilz-ch",
         "event-manager-business-growth-solutions-nestle-ch",
-        "project-coordination-manager-event-manager-business-growth-solutions-nestle-ch"
+        "project-coordination-manager-event-manager-business-growth-solutions-nestle-ch",
+        "gestione-eventi-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "event-manager-nestle-ch",
           "event-manager-business-growth-solutions-nestle-ch",
-          "project-coordination-manager-event-manager-business-growth-solutions-nestle-ch"
+          "project-coordination-manager-event-manager-business-growth-solutions-nestle-ch",
+          "gestione-eventi-nestle-la-tour-de-peilz-ch"
         ],
         "en": [
           "event-manager-nestle-la-tour-de-peilz-ch",
@@ -2603,7 +2671,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Demand-&-Supply-Planner-Business-Growth-Solutions/1414138133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:50.189Z",
+      "crawledAt": "2026-07-19T22:29:22.594Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2620,12 +2688,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "demand-supply-planner-nestle-ch",
-        "demand-supply-planner-business-growth-solutions-nestle-ch"
+        "demand-supply-planner-business-growth-solutions-nestle-ch",
+        "pianificatore-di-domanda-e-di-alimentazione-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "demand-supply-planner-nestle-ch",
-          "demand-supply-planner-business-growth-solutions-nestle-ch"
+          "demand-supply-planner-business-growth-solutions-nestle-ch",
+          "pianificatore-di-domanda-e-di-alimentazione-nestle-la-tour-de-peilz-ch"
         ],
         "fr": [
           "demand-supply-planner-nestle-ch"
@@ -2677,7 +2747,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Loyalty%2C-Onboarding-&-Retention-Lead-Nespresso/1412840133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:49.350Z",
+      "crawledAt": "2026-07-19T22:29:21.691Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2694,12 +2764,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "loyalty-onboarding-retention-lead-nestle-ch",
-        "loyalty-onboarding-retention-lead-nespresso-nestle-ch"
+        "loyalty-onboarding-retention-lead-nespresso-nestle-ch",
+        "loyalty-onboarding-retentions-lead-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "loyalty-onboarding-retention-lead-nestle-ch",
-          "loyalty-onboarding-retention-lead-nespresso-nestle-ch"
+          "loyalty-onboarding-retention-lead-nespresso-nestle-ch",
+          "loyalty-onboarding-retentions-lead-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:21:43.885Z",
@@ -2748,7 +2820,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Brand-Manager/1408486933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:48.484Z",
+      "crawledAt": "2026-07-19T22:29:20.794Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2772,6 +2844,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:21:43.119Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2817,7 +2890,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager/1413308933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:47.624Z",
+      "crawledAt": "2026-07-19T22:29:19.867Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2833,17 +2906,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-manager-nestle-ch"
+        "key-account-manager-nestle-ch",
+        "gestione-account-chiave-nestle-la-tour-de-peilz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-nestle-ch"
+          "key-account-manager-nestle-ch",
+          "gestione-account-chiave-nestle-la-tour-de-peilz-ch"
         ],
         "fr": [
           "key-account-manager-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T11:43:55.042Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2889,7 +2965,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Key-Account-Manager-Horeca-&-Premium-Vending-Nespresso/1402331033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:46.748Z",
+      "crawledAt": "2026-07-19T22:29:18.963Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2917,7 +2993,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "nestle-1414613533",
@@ -2950,7 +3027,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Edge-AI-&-Connectivity-Specialist/1414613533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:45.884Z",
+      "crawledAt": "2026-07-19T22:29:18.045Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2966,11 +3043,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "edge-ai-connectivity-specialist-nestle-ch"
+        "edge-ai-connectivity-specialist-nestle-ch",
+        "edge-ai-connectivity-specialista-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "edge-ai-connectivity-specialist-nestle-ch"
+          "edge-ai-connectivity-specialist-nestle-ch",
+          "edge-ai-connectivity-specialista-nestle-orbe-ch"
         ],
         "de": [
           "edge-ai-connectivity-specialist-nestle-ch"
@@ -3025,7 +3104,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Packaging-Senior-Specialist-Global-Research-and-Development-Expert-for-PET-%28Polyethylene-Terephtha/1412799633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:45.005Z",
+      "crawledAt": "2026-07-19T22:29:17.126Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3041,11 +3120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
+        "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene",
+        "packaging-senior-specialista-global-ricerca-and-development-expert-for-pet-polyethylene-terephtha-nestle-orbe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
+          "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene",
+          "packaging-senior-specialista-global-ricerca-and-development-expert-for-pet-polyethylene-terephtha-nestle-orbe-ch"
         ],
         "de": [
           "packaging-senior-specialist-global-research-and-development-expert-for-pet-polyethylene"
@@ -3100,7 +3181,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur_trice-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:44.147Z",
+      "crawledAt": "2026-07-19T22:29:16.227Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3118,12 +3199,14 @@
       "previousSlugs": [
         "operateur-de-production-h-f-d-nestle-ch",
         "operateur-trice-de-production-h-f-d-nestle-ch",
-        "operateur-de-production-h-f-d-nestle-romont-ch"
+        "operateur-de-production-h-f-d-nestle-romont-ch",
+        "operateur-de-production-f-m-d-nestle-romont-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-production-h-f-d-nestle-ch",
-          "operateur-trice-de-production-h-f-d-nestle-ch"
+          "operateur-trice-de-production-h-f-d-nestle-ch",
+          "operateur-de-production-f-m-d-nestle-romont-ch"
         ],
         "en": [
           "operateur-de-production-h-f-d-nestle-ch"
@@ -3137,6 +3220,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:23.920Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3182,7 +3266,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-InstandhalterIn-Mechanik/1407536233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:43.290Z",
+      "crawledAt": "2026-07-19T22:29:15.330Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3199,18 +3283,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "instandhalterin-mechanik-nestle-ch",
-        "instandhalterin-mechanik-nestle-konolfingen-ch"
+        "instandhalterin-mechanik-nestle-konolfingen-ch",
+        "instandhalter-in-mechanik-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalterin-mechanik-nestle-ch",
-          "instandhalterin-mechanik-nestle-konolfingen-ch"
+          "instandhalterin-mechanik-nestle-konolfingen-ch",
+          "instandhalter-in-mechanik-nestle-konolfingen-ch"
         ],
         "en": [
           "instandhalterin-mechanik-nestle-konolfingen-ch"
         ]
       },
       "firstSeenAt": "2026-06-23T22:51:12.427Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3256,7 +3343,7 @@
       "url": "https://jobdetails.nestle.com/job/Z%C3%BCrich-Coffee-Specialist-Nespresso/1403654933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:48:42.422Z",
+      "crawledAt": "2026-07-19T22:29:14.433Z",
       "addressLocality": "Zürich, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3273,12 +3360,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "coffee-specialist-nestle-ch",
-        "coffee-specialist-nespresso-nestle-ch"
+        "coffee-specialist-nespresso-nestle-ch",
+        "coffee-specialista-nestle-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coffee-specialist-nestle-ch",
-          "coffee-specialist-nespresso-nestle-ch"
+          "coffee-specialist-nespresso-nestle-ch",
+          "coffee-specialista-nestle-zurich-ch"
         ],
         "de": [
           "coffee-specialist-nestle-ch"
@@ -3334,7 +3423,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Talent-Assessment-Manager/1414704033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:41.559Z",
+      "crawledAt": "2026-07-19T22:29:13.549Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3350,6 +3439,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:20:57.359Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3395,7 +3485,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Automaticien_ne-&-Sp%C3%A9cialiste-Digital/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:40.694Z",
+      "crawledAt": "2026-07-19T22:29:12.660Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3412,18 +3502,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-e-digital-performance-nestle-ch",
-        "automaticien-ne-specialiste-digital-nestle-ch"
+        "automaticien-ne-specialiste-digital-nestle-ch",
+        "ingenieur-e-digitale-e-performance-nestle-henniez-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-e-digital-performance-nestle-ch",
-          "automaticien-ne-specialiste-digital-nestle-ch"
+          "automaticien-ne-specialiste-digital-nestle-ch",
+          "ingenieur-e-digitale-e-performance-nestle-henniez-ch"
         ],
         "en": [
           "ingenieur-e-digital-performance-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:29.386Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3469,7 +3562,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Intern-Polysaccharide-Structure-and-Functionality/1412200533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:39.822Z",
+      "crawledAt": "2026-07-19T22:29:11.744Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3485,11 +3578,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "r-d-intern-polysaccharide-structure-and-functionality-nestle-ch"
+        "r-d-intern-polysaccharide-structure-and-functionality-nestle-ch",
+        "r-d-tirocinante-polysaccharide-structure-and-functionality-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-intern-polysaccharide-structure-and-functionality-nestle-ch"
+          "r-d-intern-polysaccharide-structure-and-functionality-nestle-ch",
+          "r-d-tirocinante-polysaccharide-structure-and-functionality-nestle-lausanne-ch"
         ],
         "de": [
           "r-d-intern-polysaccharide-structure-and-functionality-nestle-ch"
@@ -3544,7 +3639,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Recipe-Formulation-Specialist-IF-&-Toddler/1413824133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:38.970Z",
+      "crawledAt": "2026-07-19T22:29:10.810Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3560,11 +3655,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "recipe-formulation-specialist-if-toddler-nestle-ch"
+        "recipe-formulation-specialist-if-toddler-nestle-ch",
+        "recipe-formulation-specialista-if-toddler-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "recipe-formulation-specialist-if-toddler-nestle-ch"
+          "recipe-formulation-specialist-if-toddler-nestle-ch",
+          "recipe-formulation-specialista-if-toddler-nestle-konolfingen-ch"
         ],
         "de": [
           "recipe-formulation-specialist-if-toddler-nestle-ch"
@@ -3619,7 +3716,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Digital-Food-Safety-Early-Warning-Specialist/1411239433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:38.131Z",
+      "crawledAt": "2026-07-19T22:29:09.921Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3635,11 +3732,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "digital-food-safety-early-warning-specialist-nestle-ch"
+        "digital-food-safety-early-warning-specialist-nestle-ch",
+        "digital-food-safety-early-warning-specialista-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-food-safety-early-warning-specialist-nestle-ch"
+          "digital-food-safety-early-warning-specialist-nestle-ch",
+          "digital-food-safety-early-warning-specialista-nestle-lausanne-ch"
         ],
         "de": [
           "digital-food-safety-early-warning-specialist-nestle-ch"
@@ -3694,7 +3793,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-in-Design-Excellence/1413816833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:37.281Z",
+      "crawledAt": "2026-07-19T22:29:08.980Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3710,14 +3809,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nestep-in-design-excellence-nestle-ch"
+        "nestep-in-design-excellence-nestle-ch",
+        "nestep-nell-eccellenza-del-design-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nestep-in-design-excellence-nestle-ch"
+          "nestep-in-design-excellence-nestle-ch",
+          "nestep-nell-eccellenza-del-design-nestle-vevey-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T13:26:14.702Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3763,7 +3865,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Global-Marketing-&-Innovation-Lead-Oncology/1413152533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:36.423Z",
+      "crawledAt": "2026-07-19T22:29:08.092Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3779,6 +3881,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-17T11:43:44.833Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "baseSalary": {
@@ -3824,7 +3927,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:35.596Z",
+      "crawledAt": "2026-07-19T22:29:07.178Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3840,11 +3943,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sr-specialist-scientific-data-engineering-nestle-ch"
+        "sr-specialist-scientific-data-engineering-nestle-ch",
+        "sr-specialista-scientific-data-engineering-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-specialist-scientific-data-engineering-nestle-ch"
+          "sr-specialist-scientific-data-engineering-nestle-ch",
+          "sr-specialista-scientific-data-engineering-nestle-lausanne-ch"
         ],
         "de": [
           "sr-specialist-scientific-data-engineering-nestle-ch"
@@ -3900,7 +4005,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Ing%C3%A9nieur-e-am%C3%A9lioration-continue-%28HFD%29/1414907233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:34.740Z",
+      "crawledAt": "2026-07-19T22:29:06.296Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3916,11 +4021,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-e-amelioration-continue-h-fd-nestle-ch"
+        "ingenieur-e-amelioration-continue-h-fd-nestle-ch",
+        "ingegnere-di-miglioramento-continuo-h-fd-nestle-romont-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-amelioration-continue-h-fd-nestle-ch"
+          "ingenieur-e-amelioration-continue-h-fd-nestle-ch",
+          "ingegnere-di-miglioramento-continuo-h-fd-nestle-romont-ch"
         ],
         "en": [
           "ingenieur-e-amelioration-continue-h-fd-nestle-ch"
@@ -3975,7 +4082,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie-%28mwd%29/1411208033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:33.850Z",
+      "crawledAt": "2026-07-19T22:29:05.392Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3991,17 +4098,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-efz-chemie-m-w-d-nestle-ch"
+        "laborant-in-efz-chemie-m-w-d-nestle-ch",
+        "laborant-in-cfc-chemie-m-w-d-nestle-konolfingen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-efz-chemie-m-w-d-nestle-ch"
+          "laborant-in-efz-chemie-m-w-d-nestle-ch",
+          "laborant-in-cfc-chemie-m-w-d-nestle-konolfingen-ch"
         ],
         "fr": [
           "laborant-in-efz-chemie-m-w-d-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:21:40.046Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4047,7 +4157,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-NeStep-in-R&D-Events-and-Engagement/1414605933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:32.981Z",
+      "crawledAt": "2026-07-19T22:29:04.465Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4063,6 +4173,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-14T11:20:54.376Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4108,7 +4219,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Head-of-Employee-Experience-&-Belonging/1408434333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:32.093Z",
+      "crawledAt": "2026-07-19T22:29:03.584Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4124,11 +4235,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-employee-experience-belonging-nestle-ch"
+        "head-of-employee-experience-belonging-nestle-ch",
+        "responsabile-employee-experience-belonging-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-employee-experience-belonging-nestle-ch"
+          "head-of-employee-experience-belonging-nestle-ch",
+          "responsabile-employee-experience-belonging-nestle-vevey-ch"
         ],
         "de": [
           "head-of-employee-experience-belonging-nestle-ch"
@@ -4183,7 +4296,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor-Nespresso/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:48:31.226Z",
+      "crawledAt": "2026-07-19T22:29:02.696Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4201,12 +4314,14 @@
       "previousSlugs": [
         "mentor-nestle-ch",
         "mentor-nestle-basel-ch",
-        "mentor-nespresso-nestle-ch"
+        "mentor-nespresso-nestle-ch",
+        "mentore-nestle-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mentor-nestle-ch",
-          "mentor-nespresso-nestle-ch"
+          "mentor-nespresso-nestle-ch",
+          "mentore-nestle-basel-ch"
         ],
         "de": [
           "mentor-nestle-basel-ch",
@@ -4260,7 +4375,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Chef-de-Partie-Cook-Nestl%C3%A9-Research/1411925733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:30.384Z",
+      "crawledAt": "2026-07-19T22:29:01.788Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4276,17 +4391,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-partie-cook-nestle-research-nestle-ch"
+        "chef-de-partie-cook-nestle-research-nestle-ch",
+        "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-cook-nestle-research-nestle-ch"
+          "chef-de-partie-cook-nestle-research-nestle-ch",
+          "chef-de-partie-cook-nestle-ricerca-nestle-lausanne-ch"
         ],
         "de": [
           "chef-de-partie-cook-nestle-research-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T22:46:27.739Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4332,7 +4450,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Technicien-Senior-Pilot-Plant-Technologies-laiti%C3%A8res-et-proc%C3%A9d%C3%A9s-alimentaires-Nestl%C3%A9-Research/1411944733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:29.545Z",
+      "crawledAt": "2026-07-19T22:29:00.883Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4393,7 +4511,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sous-Chef/1409872133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:28.697Z",
+      "crawledAt": "2026-07-19T22:28:59.979Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4410,17 +4528,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sous-chef-nestle-ch",
-        "sous-chef-nestle-lausanne-ch"
+        "sous-chef-nestle-lausanne-ch",
+        "chef-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-nestle-ch"
+          "sous-chef-nestle-ch",
+          "chef-nestle-lausanne-ch"
         ],
         "en": [
           "sous-chef-nestle-lausanne-ch"
         ]
       },
       "firstSeenAt": "2026-06-30T22:50:28.517Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4466,7 +4587,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Global-Marketing-Operations-Strategy-Lead/1412082233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:27.821Z",
+      "crawledAt": "2026-07-19T22:28:59.053Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4482,6 +4603,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-15T11:35:49.808Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -4527,7 +4649,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Facilities-Maintenance-Specialist-%28FH%29/1402809433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:48:26.975Z",
+      "crawledAt": "2026-07-19T22:28:58.050Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4543,17 +4665,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facilities-maintenance-specialist-f-h-nestle-ch"
+        "facilities-maintenance-specialist-f-h-nestle-ch",
+        "facilities-maintenance-specialista-f-h-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facilities-maintenance-specialist-f-h-nestle-ch"
+          "facilities-maintenance-specialist-f-h-nestle-ch",
+          "facilities-maintenance-specialista-f-h-nestle-vevey-ch"
         ],
         "de": [
           "facilities-maintenance-specialist-f-h-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T12:37:41.832Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4585,7 +4710,7 @@
         "it": "Fieldworker/in HORECA - Nestlé Waters",
         "en": "Fieldworker/in HORECA - Nestlé Waters",
         "de": "Aussendienstmitarbeiter/in HORECA - Nestlé Waters",
-        "fr": "Travailleur de terrain/in HORECA - Nestlé Waters"
+        "fr": "Aussendienstmitarbeiter/in HORECA - Nestlé Waters"
       },
       "description": "Standort: Einsatzgebiet Ostschweiz (SG, AI, AR, GR, Liechtenstein)\nArbeitsmodell: Aussendienst / Vollzeit\nVertragsart: Unbefristet\n\nBe a force for good and accelerate change that improves lives and the planet.\n\nAls Aussendienstmitarbeiter/in HORECA bei Nestlé Waters (Suisse) AG ist deine Mission, unsere Marken im Gastronomieumfeld erfolgreich zu positionieren und nachhaltiges Wachstum in deiner Region voranzutreiben. Du machst einen Unterschied, indem du eng mit deinen Kundinnen und Kunden sowie internen Teams zusammenarbeitest, um starke Beziehungen aufzubauen und wirkungsvolle Verkaufsaktivitäten umzusetzen. Du trägst dazu bei, unsere Präsenz im HORECA‑Kanal weiter auszubauen und die Performance in deinem Gebiet zu stärken. DiesAufgabe bietet Ihnen die Chance, die Zukunft der Getränke aktiv mitzugestalten – und Erlebnisse zu schaffen, die den Alltag vieler Menschen bereichern.\n\nWie Sie als Aussendienstmitarbeiter/in HORECA Wirkung entfalten\n\n• Akquisition neuer Kundinnen und Kunden und Aufbau zusätzlicher Gastronomiebetriebe in deiner Region.\n\n• Betreuung bestehender Kundschaft und Ausbau langfristiger Partnerschaften.\n\n• Ausarbeitung verkaufssteigernder Konzepte und Umsetzung gemeinsam mit deinen Kundinnen und Kunden.\n\n• Beratung von Gastronomiebetrieben sowie weiteren relevanten Kanälen und Getränkehändlern zu Sortiment, Lösungen und Geschäftsentwicklung.\n\n• Umsetzung definierter Sales‑Cycle‑Aktivitäten zur Unterstützung der Zielerreichung.\n\n• Durchführung von Promotionen und Verantwortung für die Umsatzziele der bekannten Marken in deinem Gebiet.\n\nWas Sie erfolgreich macht\n\n• Solide Erfahrung im Verkauf sowie fundierte Kenntnisse der Gastronomiebranche und ihrer Abläufe.\n\n• Verkaufsorientierte Denkweise mit Fokus auf nachhaltige Kundenbeziehungen.\n\n• Gute Kenntnis deiner Region und der lokalen Gastronomiebetriebe.\n\n• Fliessende Deutschkenntnisse; Französisch ist von Vorteil.\n\n• Verkörperung unserer Werte: Care, Grit, Connection und Ingenuity.\n\nBei Nestlé Waters stehen Menschen im Mittelpunkt\n\nUnsere Benefits sind darauf ausgerichtet, Ihre persönliche Entwicklung und Ihr Wohlbefinden zu unterstützen - damit Sie im Beruf und im Leben aufblühen können:\n\n• Flexible Arbeitsmodelle, inkl. Hybrid‑Optionen (für Office‑basierte Rollen)\n\n• Überdurchschnittliche Ferienregelung\n\n• Vielfältige Lern‑ und Entwicklungsmöglichkeiten\n\n• Leistungsorientierter Bonus\n\n• Gesundheitsbeiträge & Employee Assistance Program\n\n• Attraktive Arbeitgeberbeiträge zur Pensionskasse\n\n• Grosszügige Elternurlaube & umfassende Familienunterstützung\n\n• Attraktive Mitarbeitendenrabatte auf zahlreiche Produkte und Services\n\nWas Sie in unserem Bewerbungsprozess erwartet\n\nWir setzen uns für einen inklusiven und respektvollen Bewerbungsprozess ein und stellen bei Bedarf gerne angemessene Unterstützung zur Verfügung. Unsere Arbeitsplätze sind vollständig barrierefrei und werden durch eine starke Sicherheitskultur unterstützt, mit modernen Einrichtungen und Prozessen, die ein sicheres Umfeld für alle gewährleisten.\n\nDer Bewerbungsprozess umfasst in der Regel ein Videointerview mit Talent Acquisition, ein Gespräch mit dem Fachbereich sowie ein abschließendes Gespräch mit Angebot. Wir prüfen eingehende Bewerbungen fortlaufend und schliessen die Stelle, sobald wir eine überzeugende Auswahl geeigneter Kandidat:innen identifiziert haben - daher empfehlen wir eine frühzeitige Bewerbung. Alle Informationen werden vertraulich behandelt.\n\nBereit, gemeinsam zu wachsen?\n\nBewerben Sie sich jetzt und beschleunigen Sie Veränderungen, die Leben und unseren Planeten verbessern.",
       "descriptionByLocale": {
@@ -4599,7 +4724,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Aussendienstmitarbeiterin-HORECA-Nestl%C3%A9-Waters/1413813233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:48:26.128Z",
+      "crawledAt": "2026-07-19T22:28:57.144Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4615,17 +4740,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
+        "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch",
+        "fieldworker-in-horeca-nestle-waters-nestle-henniez-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
+          "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch",
+          "fieldworker-in-horeca-nestle-waters-nestle-henniez-ch"
         ],
         "en": [
           "aussendienstmitarbeiter-in-horeca-nestle-waters-nestle-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T13:26:13.563Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -4671,7 +4799,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:48:25.261Z",
+      "crawledAt": "2026-07-19T22:28:56.216Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4688,11 +4816,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-logistik-nestle-ch",
-        "mitarbeiter-in-logistik-nestle-basel-ch"
+        "mitarbeiter-in-logistik-nestle-basel-ch",
+        "addetto-a-alla-logistica-nestle-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-nestle-ch"
+          "mitarbeiter-in-logistik-nestle-ch",
+          "addetto-a-alla-logistica-nestle-basel-ch"
         ],
         "en": [
           "mitarbeiter-in-logistik-nestle-basel-ch"
@@ -4751,7 +4881,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-NeStep-Talent-in-IT-Switzerland/1410447333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:24.411Z",
+      "crawledAt": "2026-07-19T22:28:55.316Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4767,11 +4897,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nestep-talent-in-it-switzerland-nestle-ch"
+        "nestep-talent-in-it-switzerland-nestle-ch",
+        "nestep-talent-in-svizzera-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nestep-talent-in-it-switzerland-nestle-ch"
+          "nestep-talent-in-it-switzerland-nestle-ch",
+          "nestep-talent-in-svizzera-nestle-vevey-ch"
         ],
         "de": [
           "nestep-talent-in-it-switzerland-nestle-ch"
@@ -4812,7 +4944,7 @@
         "it": "Senior Nutrition & Health Assistant",
         "en": "Senior Nutrition & Health Administrative Assistant",
         "de": "Senior Nutrition & Health Administrative Assistent",
-        "fr": "Assistant administratif principal en nutrition et en santé"
+        "fr": "Senior Nutrition & Health Administrative Assistant"
       },
       "description": "Location: Konolfingen, Lausanne or Vevey with flexibility to commute to the other sites (2-4 times/month)\nWork model: On site / Hybrid\n\nActivity rate: 80% -100%\nContract type / duration: Permanent Contract\n\nBe a force for good and accelerate change that improves lives and the planet.\n\nAs a Senior NPTC Nutrition & Health Administrative Assistant at Nestlé Product Technology Centre, your mission will be to maximize the effectiveness of the R&D Centre Head and leadership team by acting as a trusted support partner in a high-exposure position.\n\nYou will play a pivotal role in enabling senior leaders to operate effectively across a complex, multi-site R&D environment, and will bring strong judgment, anticipation, prioritization and stakeholder management skills, while coordinating sensitive operational topics with autonomy and discretion.\n\nHow you’ll make an impact as a Senior NPTC Nutrition & Health Administrative Assistant\n\n• Act as a trusted support partner to the NPTC Head and Leadership Team, enabling strategic focus and effective decision-making.\n\n• Manage complex calendars, priorities and schedules, anticipating conflicts and ensuring timely preparation and follow-up.\n\n• Prepare agendas, minutes, action tracking and key documents with accuracy, structure and confidentiality.\n\n• Coordinate collaboration and information flow across Vevey, Konolfingen and other NPTC units.\n\n• Organize leadership meetings, site events and complex workshops, including logistics, content and follow-up.\n\n• Maintain SharePoint and intranet content, ensuring accurate and accessible information.\n\n• Review and enhance presentations, documents and leadership communications for clarity and impact.\n\n• Handle sensitive information with sound judgment, professionalism and discretion.\n\n• Support newcomer onboarding and communication to help them navigate the organization.\n\n• Provide autonomous support on audits, reporting, follow-ups and ad hoc operational priorities.\n\nWhat will make you successful\n\n• Solid experience in a senior administrative, executive assistant, coordination or project support role within an international, matrixed and fast-moving organization.\n\n• Strong ability to manage complexity, anticipate needs, prioritize competing demands and keep senior stakeholders aligned and informed.\n\n• Proficiency with Microsoft Office tools, especially Outlook, PowerPoint, Excel and Teams, with confidence in preparing high-quality documents, presentations and simple data follow-ups.\n\n• Excellent communication skills in English, with the ability to adapt messages for different senior stakeholders; French and/or German would be an asset in this multi-site environment.\n\n• A proactive, resilient and solutions-oriented mindset, demonstrating courage, collaboration, speed and continuous learning.\n\nWhat to expect from our hiring process\n\nWe are committed to an inclusive and respectful hiring experience and are happy to provide reasonable accommodations if needed. Our workplaces are fully accessible and supported by a strong safety culture, with modern installations and procedures to ensure a safe environment for everyone.\n\nThe hiring process typically includes a video interview with Talent Acquisition, an interview with the hiring team, and a final discussion and offer. We review applications as they are received and close the role once a strong list of relevant candidates is identified, so we encourage you to apply early. All information is treated confidentially.\n\nStay vigilant: Nestlé will only contact candidates via official company email addresses and will never ask for payments or sensitive personal information at any stage of the hiring process.\n\nReady to Be a Force for Good?\n\nApply now and accelerate change that improves lives and the planet.\n\n#nestlecareerswitzerland",
       "descriptionByLocale": {
@@ -4826,7 +4958,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Nutrition-&-Health-Administrative-Assistant/1411701033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:23.563Z",
+      "crawledAt": "2026-07-19T22:28:54.383Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4850,6 +4982,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:41:32.363Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -4895,7 +5028,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Swiss-Tax-Specialist/1410869833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:22.702Z",
+      "crawledAt": "2026-07-19T22:28:53.483Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4911,11 +5044,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "swiss-tax-specialist-nestle-ch"
+        "swiss-tax-specialist-nestle-ch",
+        "swiss-tax-specialista-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "swiss-tax-specialist-nestle-ch"
+          "swiss-tax-specialist-nestle-ch",
+          "swiss-tax-specialista-nestle-vevey-ch"
         ],
         "de": [
           "swiss-tax-specialist-nestle-ch"
@@ -4970,7 +5105,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:21.828Z",
+      "crawledAt": "2026-07-19T22:28:52.575Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4986,11 +5121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-r-d-specialist-flavors-nestle-ch"
+        "associate-r-d-specialist-flavors-nestle-ch",
+        "associate-r-d-specialista-flavors-nestle-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-r-d-specialist-flavors-nestle-ch"
+          "associate-r-d-specialist-flavors-nestle-ch",
+          "associate-r-d-specialista-flavors-nestle-lausanne-ch"
         ],
         "de": [
           "associate-r-d-specialist-flavors-nestle-ch"
@@ -5046,7 +5183,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Communications-Manager-Content-&-Editorial/1396565233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:48:20.966Z",
+      "crawledAt": "2026-07-19T22:28:51.660Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -5062,11 +5199,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "communications-manager-content-editorial-nestle-ch"
+        "communications-manager-content-editorial-nestle-ch",
+        "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "communications-manager-content-editorial-nestle-ch"
+          "communications-manager-content-editorial-nestle-ch",
+          "responsabile-comunicazione-contenuto-editoriale-nestle-vevey-ch"
         ],
         "de": [
           "communications-manager-content-editorial-nestle-ch"
