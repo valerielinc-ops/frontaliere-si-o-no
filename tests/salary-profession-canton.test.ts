@@ -21,6 +21,7 @@ import {
   renderSalaryProfessionCantonPage,
   emitSalaryProfessionCantonPages,
 } from '../build-plugins/salaryProfessionCantonPages';
+import { renderProfessionCantonPage } from '../build-plugins/professionCantonLandings';
 import { _resetProfessionJobsAggregateCache, type FeaturedJob, type ProfessionJobsSnapshot } from '../build-plugins/professionJobsAggregate';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import {
@@ -140,6 +141,23 @@ describe('salaryProfessionCanton — render', () => {
       // Cross-link to the localized job-intent page (jobs live there, plan §4.2).
       expect(html).toContain(buildProfessionCantonPath(locale, 'ZH', 'infermiere'));
     }
+  });
+});
+
+describe('professionCantonLandings — job-intent → salary-intent cross-link (plan §4.2)', () => {
+  const JOBSNAP = {
+    liveCount: 12,
+    fresh30Count: 5,
+    medianSalaryChf: 84000,
+    featured: [],
+    topEmployers: [{ name: 'Ospedale Regionale', count: 6 }],
+  };
+  it('links to the salary page for an eligible profession, and NOT for a non-eligible one', () => {
+    const eligible = renderProfessionCantonPage({ locale: 'it', cantonKey: 'ZH', id: 'infermiere', snapshot: JOBSNAP, distDir: '' });
+    expect(eligible.html).toContain(buildSalaryProfessionCantonPath('it', 'ZH', 'infermiere'));
+
+    const nonEligible = renderProfessionCantonPage({ locale: 'it', cantonKey: 'ZH', id: 'autista', snapshot: JOBSNAP, distDir: '' });
+    expect(nonEligible.html).not.toContain('/stipendio-autista-zurigo/');
   });
 });
 
