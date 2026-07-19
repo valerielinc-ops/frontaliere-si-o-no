@@ -8635,6 +8635,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'How much does a border ergotherapist earn in Ticino?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Salary of a border ergotherapist in Ticino: how is it calculated and what influences the salary?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Frontalier ergotherapist with work permit and residence permit in hand, with the background of Lake Lugano',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Working as a dietitian in Ticino: salary, requirements and G leave',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Discover the requirements and procedures to work as a dietitian in Ticino as a border worker',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'View of Lugano, Ticino',
 };
 
 export default blogMetaEn;

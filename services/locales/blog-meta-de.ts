@@ -8634,6 +8634,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'Wie viel verdient ein Grenzergotherapeut im Tessin?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Gehalt eines Grenzergotherapeuten im Tessin: Wie wird es berechnet und was beeinflusst das Gehalt?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Frontalier Ergotherapeut mit Arbeitserlaubnis und Aufenthaltstitel in der Hand, mit dem Hintergrund von Lago Lugano',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Dietista in Ticino: Stipendio, Requisiti e Permessi',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Entdecken Sie die Anforderungen und Verfahren für die Arbeit als Ernährungsberater im Tessin als Grenzgänger',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'Blick auf Lugano, Tessin',
 };
 
 export default blogMetaDe;

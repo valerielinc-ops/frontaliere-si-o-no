@@ -51123,6 +51123,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-dietista-ticino-stipendio-requisiti': {
+    title: 'Lavorare come dietista in Ticino: stipendio, requisiti e permesso G',
+    description: 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, dietista, stipendio, requisiti',
+    ogTitle: 'Lavorare come dietista in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G',
+    ogDescription: 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere',
+    canonicalPath: '/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come dietista in Ticino: stipendio, requisiti e permesso G",
+      "description": "Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-dietista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, Ticino"
+      },
+      "datePublished": "2026-07-19T08:31:00+00:00",
+      "dateModified": "2026-07-19T08:31:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
