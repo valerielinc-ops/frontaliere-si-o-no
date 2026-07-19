@@ -33,6 +33,18 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.73.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3730.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3730.embedWidgets.title',
+        descKey: 'whatsNew.v3730.embedWidgets.desc',
+      },
+    ],
+  },
+  {
     version: '3.72.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3720.title',
@@ -74,6 +86,18 @@ export const RELEASES: Release[] = [
         titleKey: 'whatsNew.v3680.salaryLandings.title',
         descKey: 'whatsNew.v3680.salaryLandings.desc',
         link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
+    version: '3.67.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3670.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3670.facilities.title',
+        descKey: 'whatsNew.v3670.facilities.desc',
       },
     ],
   },
