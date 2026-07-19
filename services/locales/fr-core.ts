@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3670.title': 'Établissements de santé qui recrutent',
+ 'whatsNew.v3670.facilities.title': 'Emplois par hôpital et clinique',
+ 'whatsNew.v3670.facilities.desc': 'De nouvelles pages pour chaque établissement de santé suisse avec ses postes ouverts, les métiers de la santé recherchés et le salaire médian réel, reliées au parcours infirmiers et assistants en soins.',
  'whatsNew.v3700.title': 'Pages entreprise : salaires et postes ouverts',
  'whatsNew.v3700.employerProfiles.title': 'Profils des entreprises qui recrutent',
  'whatsNew.v3700.employerProfiles.desc': 'De nouvelles pages dédiées pour des centaines d’employeurs : postes ouverts, salaire médian, sites et tendance des recrutements, en un coup d’œil.',

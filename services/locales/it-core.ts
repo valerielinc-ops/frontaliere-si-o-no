@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3670.title': 'Strutture sanitarie che assumono',
+ 'whatsNew.v3670.facilities.title': 'Offerte per ospedale e clinica',
+ 'whatsNew.v3670.facilities.desc': 'Nuove pagine per struttura sanitaria svizzera con le offerte attive, i ruoli sanitari che assumono e lo stipendio mediano reale, collegate al percorso infermieri e OSS.',
  'whatsNew.v3700.title': 'Pagine azienda: stipendi e posizioni aperte',
  'whatsNew.v3700.employerProfiles.title': 'Profili delle aziende che assumono',
  'whatsNew.v3700.employerProfiles.desc': 'Nuove pagine dedicate per centinaia di aziende: posizioni aperte, stipendio mediano, sedi e trend delle assunzioni, tutto in un colpo d’occhio.',

@@ -1240,6 +1240,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergothérapie au Tessin : salaire et exigences',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Savoir ce que la loi exige pour un frontalier qui veut travailler comme ergothérapeute au Tessin, et quelles sont les conditions requises pour obtenir le permis G.',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano, avec le lac et les montagnes en arrière-plan',
+    'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergothérapie au Tessin : salaire et différences avec l\'Italie',
+    'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers.',
+    'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'Un travailleur frontalier en ergothérapie travaillant dans un hôpital de Lugano.',
 };
 
 export default blogMetaChFr;

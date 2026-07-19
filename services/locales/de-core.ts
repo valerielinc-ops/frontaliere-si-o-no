@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3670.title': 'Gesundheitseinrichtungen mit offenen Stellen',
+ 'whatsNew.v3670.facilities.title': 'Stellen nach Spital und Klinik',
+ 'whatsNew.v3670.facilities.desc': 'Neue Seiten für jede Schweizer Gesundheitseinrichtung mit ihren offenen Stellen, den gesuchten Gesundheitsberufen und dem realen Medianlohn, verbunden mit dem Pflege- und Betreuungspfad.',
  'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
  'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
  'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',

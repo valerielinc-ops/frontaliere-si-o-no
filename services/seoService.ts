@@ -4627,6 +4627,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quanto-guadagna-un-ergoterapista-frontaliere-in-ticino': { name: 'Stipendio reale di un ergoterapista', path: '/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino', parent: 'blog' },
     'blog-frontaliere-ergoterapista-ticino-stipendio-requisiti': { name: 'Frontaliere ergoterapista Ticino', path: '/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna': { name: 'Startup svizzere', path: '/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna', parent: 'blog' },
+    'blog-frontalieri-ticino-ergoterapista': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontalieri-ticino-ergoterapista/', parent: 'blog' },
+    'blog-frontalieri-ergoterapista-stipendio-ticino': { name: 'Stipendio ergoterapista frontaliere in', path: '/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
