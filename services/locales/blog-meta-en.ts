@@ -8617,6 +8617,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'How much does a border midwife earn in Ticino? The facts about pay',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Data on the remuneration of border midwives in Ticino: how income is calculated and what are the differences compared to Italy',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'A woman with a child in her arms, in a hospital setting',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'How much does a border dental assistant earn in Ticino?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'The salary of a border dental assistant in Ticino is influenced by salary tables and double taxation conventions.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'A realistic scene of Lugano city center with Piazza della Riforma and San Lorenzo church in the foreground.',
 };
 
 export default blogMetaEn;

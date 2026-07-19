@@ -8618,6 +8618,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quel est le salaire d\'une sage-femme au Tessin ?',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Les données sur la rémunération des sages-femmes frontalières au Tessin : comment est calculé le revenu et quelles sont les différences par rapport à l\'Italie',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Une femme avec un enfant dans ses bras, dans un établissement hospitalier',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Combien gagne un assistant dentaire frontalier au Tessin ?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Le salaire d\'un assistant dentaire frontalier au Tessin est influencé par les barèmes salariaux et les conventions de double imposition.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Une scène réaliste du centre-ville de Lugano avec la place della Riforma et l\'église San Lorenzo en arrière-plan.',
 };
 
 export default blogMetaFr;

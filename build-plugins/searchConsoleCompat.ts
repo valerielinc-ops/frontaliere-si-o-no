@@ -12,6 +12,7 @@ import {
  type FuelType,
 } from './fuelDailyData';
 import { isProfessionCantonPath } from './professionCantonData';
+import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
@@ -488,6 +489,21 @@ export function resolveSearchConsoleCompatTarget(
  // never sees the plugin's own route table otherwise) stops reporting it
  // unresolvable.
  if (isProfessionCantonPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Same self-map rationale as isProfessionCantonPath above, for the
+ // salary-intent (profession × canton) family (salaryProfessionCantonPages.ts,
+ // issue #4461): every enumerated (canton × eligible-profession) combo emits
+ // either a full salary page or a below-floor noindex bridge at the SAME path
+ // unconditionally, so a stale-snapshot 404 for this shape always has a live
+ // target today. isSalaryProfessionCantonPath checks a module-load-precomputed
+ // Map (PATH_INDEX), so this stays O(1) per call inside the 150k+-path loop.
+ if (isSalaryProfessionCantonPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

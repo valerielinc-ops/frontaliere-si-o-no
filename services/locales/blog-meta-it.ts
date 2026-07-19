@@ -8618,6 +8618,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all\'Italia',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Una donna con un bambino in braccio, in un ambiente ospedaliero',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Il salario di un assistente dentale frontaliere in Ticino è influenzato dalle tabelle salariali e dalle convenzioni doppie imposizioni.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Una scena fotorealistica del centro di Lugano con la piazza della Riforma e la chiesa di San Lorenzo in primo piano.',
 };
 
 export default blogMetaIt;
