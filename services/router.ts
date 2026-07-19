@@ -66,6 +66,16 @@ import {
   parseCostOfLivingLandingPath,
 } from '../build-plugins/costOfLivingLandingsData';
 import {
+  HOLIDAY_LANDING_ROUTES,
+  isHolidaysLandingPath,
+  parseHolidaysLandingPath,
+} from '../build-plugins/holidaysLandingsData';
+import {
+  SALARY_LANDING_ROUTES,
+  isSalaryLandingPath,
+  parseSalaryLandingPath,
+} from '../build-plugins/bfsSalaryLandingsData';
+import {
   COMPARISONS_HUB_ROUTES,
   isComparisonsHubPath,
   parseComparisonsHubPath,
@@ -2787,6 +2797,37 @@ export function parsePath(pathname: string): ParseResult {
      if (parsed) {
        return {
          route: { activeTab: 'confronti', confrontiSubTab: 'cost-of-living', staticOverlay: true },
+         locale: parsed.locale as Locale,
+       };
+     }
+   }
+ }
+
+ // #4480 — Frontaliere public-holiday landings (/giorni-festivi-ticino/ +
+ // /giorni-festivi-svizzera-italia/ + locale variants). 2 page types × 4
+ // locales = 8 URLs. Static HTML emitted outside `#root`; staticOverlay keeps
+ // the per-page calendar visible so the SPA doesn't replace it with the guide.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (HOLIDAY_LANDING_ROUTES.includes(normalized) || isHolidaysLandingPath(pathname)) {
+     const parsed = parseHolidaysLandingPath(pathname);
+     if (parsed) {
+       return { route: { activeTab: 'guida', staticOverlay: true }, locale: parsed.locale as Locale };
+     }
+   }
+ }
+
+ // #4481 — BFS salary-by-age / salary-by-education landings
+ // (/stipendio-medio-svizzera-30-anni/, /stipendio-svizzera-laurea/ + locale
+ // variants). 5 ages + 4 education levels × 4 locales = 36 URLs. Static HTML
+ // emitted outside `#root`; staticOverlay keeps the per-page content visible.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (SALARY_LANDING_ROUTES.includes(normalized) || isSalaryLandingPath(pathname)) {
+     const parsed = parseSalaryLandingPath(pathname);
+     if (parsed) {
+       return {
+         route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true },
          locale: parsed.locale as Locale,
        };
      }
