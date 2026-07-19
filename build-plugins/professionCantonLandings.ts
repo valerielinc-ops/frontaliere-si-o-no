@@ -27,11 +27,7 @@ import {
   buildCantonSeoProseFaqItems,
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
-import {
-  GROSSREGION_MEDIAN_MONTHLY,
-  NATIONAL_MEDIAN_MONTHLY,
-  CANTON_TO_GROSSREGION,
-} from './shared/cantonSalaryIndex';
+import { cantonAnnualMedianChf } from './shared/cantonSalaryIndex';
 import {
   aggregateProfessionJobsByCanton,
   type ProfessionJobsSnapshot,
@@ -46,7 +42,6 @@ import {
 } from './professionLandingsData';
 import {
   SALARY_STATS_CANTON_SLUGS,
-  SALARY_STATS_FACTOR_CODE,
   buildSalaryStatsPath,
 } from './salaryStatsData';
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
@@ -174,13 +169,6 @@ function fmtChf(n: number, locale: ProfessionLocale): string {
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
-function cantonAnnualMedian(cantonKey: string): number {
-  const code = SALARY_STATS_FACTOR_CODE[cantonKey] ?? cantonKey;
-  const region = CANTON_TO_GROSSREGION[code];
-  const monthly = region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
-  return monthly * 12;
-}
-
 interface BridgeCopy {
   title: (role: string, canton: string) => string;
   body: (role: string, canton: string) => string;
@@ -248,7 +236,7 @@ export function renderProfessionCantonPage(opts: {
 
   // Real corpus median for this canton+profession; fall back to the canton's
   // BFS annual median when the matched jobs carry no salary data.
-  const median = snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedian(cantonKey);
+  const median = snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedianChf(cantonKey);
   const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
