@@ -62,19 +62,30 @@ describe('resolveComuneCanton', () => {
     }
   });
 
-  it('excludes every BG/BS/TN/BZ comune — all are 76km+ from the nearest tagged crossing', () => {
+  it('resolves most BG/BS/TN/BZ comuni to Grigioni now that real Grigioni crossings exist (Umbrail, Munt La Schera, Martina-Nauders, Samnaun-Spiss, Forcola di Livigno) — except Rabbi (TN), still too far', () => {
+    // Was "excludes every BG/BS/TN/BZ comune" until the nationwide border-crossing
+    // data PR added Graubünden's first-ever entries: before that, this dataset had
+    // zero canton-'GR' crossings, so this fallback could only ever resolve Ticino/
+    // Vallese (see the original comment on PROVINCE_CANTON/resolveCantonByBorderProximity).
+    // Alta Val Venosta (BZ) sits right on the Val Müstair corridor the new Grigioni
+    // crossings cover — Tubre is 11.8km from Umbrail alone — so most of this batch
+    // now resolves correctly, same distance-based logic as always, just with real
+    // Grigioni reference points to compare against for the first time.
     const farProvinces = ['BG', 'BS', 'TN', 'BZ'];
     const far = MUNICIPALITIES.filter((m) => farProvinces.includes(m.province));
     expect(far.length).toBe(26); // 3 + 11 + 2 + 10
-    for (const m of far) {
-      expect(resolveComuneCanton(m)).toBeFalsy();
+    const resolved = far.filter((m) => resolveComuneCanton(m));
+    const unresolved = far.filter((m) => !resolveComuneCanton(m));
+    for (const m of resolved) {
+      expect(resolveComuneCanton(m)).toBe('Grigioni');
     }
+    expect(unresolved.map((m) => m.name)).toEqual(['Rabbi']);
   });
 
-  it('excludes Tubre (BZ) specifically — nearest to Val Müstair, but still ~131km from the nearest Ticino/Vallese crossing in the dataset (no Grigioni crossing exists to confirm it)', () => {
+  it('resolves Tubre (BZ) to Grigioni — 11.8km from Umbrail (Giogo di Santa Maria), the nearest real Grigioni crossing added alongside this test', () => {
     const tubre = byName('Tubre');
     expect(tubre).toBeTruthy();
-    expect(resolveComuneCanton(tubre)).toBeFalsy();
+    expect(resolveComuneCanton(tubre)).toBe('Grigioni');
   });
 
   it('resolves a concrete MB comune (Meda) to Ticino with a real margin over the nearest Vallese crossing', () => {
