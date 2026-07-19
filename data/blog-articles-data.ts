@@ -25982,6 +25982,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'assistente-di-studio-medico-frontaliere',
+ category: 'fiscale',
+ date: '2026-07-19T10:11:15.172Z',
+ image: '/images/blog/assistente-di-studio-medico-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'tecnicodisalaoperatoriaticinostipendiorientati',
+ category: 'pratico',
+ date: '2026-07-19T10:35:27.056Z',
+ image: '/images/blog/tecnicodisalaoperatoriaticinostipendiorientati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
