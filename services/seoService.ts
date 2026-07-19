@@ -4620,6 +4620,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ostetrica-frontaliere-ticino-quanto-guadagna': { name: 'Risorse per frontaliere', path: '/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna', parent: 'blog' },
     'blog-stipendio-assistente-dentale-frontaliere-ticino': { name: 'Stipendio assistente dentale frontaliere', path: '/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-ostetrica-stipendio-ticino': { name: 'Stipendio frontaliere', path: '/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/', parent: 'blog' },
+    'blog-costi-traffico-svizzera-2023': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/costi-traffico-svizzera-2023', parent: 'blog' },
  };
 
  const info = sectionNames[section];
