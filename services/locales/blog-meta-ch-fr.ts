@@ -1267,6 +1267,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Combien gagne un technicien de salle d\'opération frontalière au Tessin',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Données sur la rémunération d\'un technicien de salle d\'opération frontalière au Tessin.',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Photographie d\'un technicien de salle opératoire dans un hôpital suisse.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Frontière vétérinaire au Tessin : salaire et exigences',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Guide pratique pour les vétérinaires frontaliers : reconnaissance des diplômes, encadrement des salaires, impôts et prestations de sécurité sociale en Suisse.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Cabinet vétérinaire en Suisse',
 };
 
 export default blogMetaChFr;

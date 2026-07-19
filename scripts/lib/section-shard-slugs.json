@@ -1,0 +1,6 @@
+{
+  "_comment": "Single source of truth for the canton-section Pages-shard mechanism (push-section-shard.sh, strip-section-subtree.sh, deploy.yml, post-deploy-validate-dist.yml). Each locale value is the URL slug ONLY (no locale prefix) — consumers derive the dist subtree path as: it -> \"<slug>\", en/de/fr -> \"<loc>/<slug>\". Values verified against data/canton-url-slugs.json + build-plugins/shared/cantonResolvers.mjs (resolveCantonSection). The Cloudflare Worker (infra/cloudflare-worker/locale-router.js) cannot import this file (must stay a single self-contained paste-able script per its own header comment) so it mirrors these same literal values inline in SECTION_ROUTES — keep both in sync if a slug ever changes.",
+  "ticino": { "it": "cerca-lavoro-ticino", "en": "find-jobs-ticino", "de": "jobs-im-tessin", "fr": "trouver-emploi-tessin" },
+  "svizzera": { "it": "cerca-lavoro-svizzera", "en": "find-jobs-switzerland", "de": "jobs-in-schweiz", "fr": "trouver-emploi-suisse" },
+  "zurigo": { "it": "cerca-lavoro-zurigo", "en": "find-jobs-zurich", "de": "jobs-in-zurich", "fr": "trouver-emploi-zurich" }
+}

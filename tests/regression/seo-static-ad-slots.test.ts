@@ -210,6 +210,17 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     { file: 'build-plugins/salaryProfessionCantonPages.ts', count: 1 },
     { file: 'build-plugins/professionCantonLandings.ts', count: 1 },
     { file: 'build-plugins/healthFacilitiesPlugin.ts', count: 1 },
+    // Issue #4528 (rollout part 2 of #4485) — preexisting SSG families.
+    // professionCityLandings.ts and salaryStatsChCantonPages.ts excluded:
+    // both already modified by in-flight PR #4525 (overlap-file guard).
+    { file: 'build-plugins/nursingLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/professionLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/sectionPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/annualReportPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderMunicipalityPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/frSalaireNetLandingPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderWaitMapPlugin.ts', count: 1 },
+    { file: 'build-plugins/relatedSearchClustersPlugin.ts', count: 2 },
   ];
 
   for (const spec of FAMILY_SPECS) {

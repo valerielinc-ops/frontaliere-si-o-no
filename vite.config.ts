@@ -69,6 +69,7 @@ import { professionCantonLandings } from './build-plugins/professionCantonLandin
 import { salaryProfessionCantonPages } from './build-plugins/salaryProfessionCantonPages';
 import { salaryBadgeEmbedPlugin } from './build-plugins/salaryBadgeEmbedPlugin';
 import { professionCityLandings } from './build-plugins/professionCityLandings';
+import { professionCityLinksPlugin } from './build-plugins/professionCityLinksPlugin';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
 import { exchangeRatePagesPlugin } from './build-plugins/exchangeRatePagesPlugin';
 // blogContextualLinksPlugin import retained for tests / type re-exports.
@@ -97,11 +98,14 @@ import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandings
 import { frontalierePillarPlugin } from './build-plugins/frontalierePillarPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
+import { publisherAdLinksPlugin } from './build-plugins/publisherAdLinksPlugin';
 import { employerProfilePagesPlugin } from './build-plugins/employerProfilePagesPlugin';
+import { employerProfilePagesLinksPlugin } from './build-plugins/employerProfilePagesLinksPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
 import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
+import { bfsSalaryLinksPlugin } from './build-plugins/bfsSalaryLinksPlugin';
 import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
@@ -371,6 +375,36 @@ export default defineConfig(({ mode }) => {
  // signals from professionCantonLandings (emitted paths) + staticPagesPlugin
  // (sitemap-page HTML). Idempotent via `data-profession-cantons-links`.
  professionCantonLandingsLinksPlugin(__dirname),
+ // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
+ // into each locale's HTML sitemap page (main-nav reachable) so the ~468
+ // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully
+ // unreachable (audit:max-bfs-depth, 468/468 orphaned). Awaits explicit
+ // signals from employerProfilePagesPlugin (emitted profiles) +
+ // staticPagesPlugin (sitemap-page HTML). Idempotent via
+ // `data-employer-profiles-links`.
+ employerProfilePagesLinksPlugin(__dirname),
+ // Profession×city orphan fix — inject a "jobs by city and profession" block
+ // into each locale's HTML sitemap page (main-nav reachable) so the ~208
+ // /lavoro-{city}-{role}/ pages reach BFS depth ≤ 3 instead of shipping
+ // 62.65% unreachable (audit:max-bfs-depth). Awaits explicit signals from
+ // professionCityLandings (emitted paths) + staticPagesPlugin (sitemap-page
+ // HTML). Idempotent via `data-profession-cities-links`.
+ professionCityLinksPlugin(__dirname),
+ // BFS salary-by-age/education orphan fix — inject a "salary by age and
+ // education" block into each locale's HTML sitemap page (main-nav
+ // reachable) so the ~20 stipendio-svizzera-{age|education}/ pages reach
+ // BFS depth ≤ 3 instead of shipping 55.56% unreachable
+ // (audit:max-bfs-depth). Awaits explicit signals from bfsSalaryLandingsPlugin
+ // (emitted paths) + staticPagesPlugin (sitemap-page HTML). Idempotent via
+ // `data-bfs-salary-links`.
+ bfsSalaryLinksPlugin(__dirname),
+ // Publisher-ad (paid) orphan fix — inject a "sponsored listings" CTA into
+ // each locale's HTML sitemap page (main-nav reachable) so /lavoro/{slug}/
+ // ad pages reach BFS depth ≤ 3 instead of shipping fully unreachable
+ // (audit:max-bfs-depth) — revenue-critical paid content. Awaits explicit
+ // signals from publisherAdPagesPlugin (emitted ads) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via `data-publisher-ads-links`.
+ publisherAdLinksPlugin(__dirname),
  // Salary-intent profession×canton orphan fix — inject a "salary by profession
  // and canton" block into each locale HTML sitemap page (main-nav reachable) so
  // the /stipendio-{prof}-{canton}/ pages reach BFS depth ≤ 2 instead of shipping
