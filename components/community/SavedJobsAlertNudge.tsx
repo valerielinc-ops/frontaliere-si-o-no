@@ -37,6 +37,8 @@ export interface SavedJobsAlertNudgeProps {
   locale: Locale;
   /** Called once the toast should disappear (any reason). */
   onClose: () => void;
+  /** Called on the accept TAP (known + anonymous) — the nudge_accepted funnel step. */
+  onAcceptTapped?: () => void;
   /** Called after a successful one-tap create (known users only). */
   onAccepted: () => void;
   /** Called when an anonymous visitor taps accept — route to the alert form. */
@@ -60,6 +62,7 @@ export default function SavedJobsAlertNudge({
   email,
   locale,
   onClose,
+  onAcceptTapped,
   onAccepted,
   onAnonymousAccept,
   onDismissed,
@@ -70,6 +73,7 @@ export default function SavedJobsAlertNudge({
   const [status, setStatus] = useState<SavedJobsAlertNudgeStatus>('idle');
 
   const handleAccept = useCallback(async () => {
+    if (status === 'idle' && onAcceptTapped) onAcceptTapped();
     if (!userId || !email) {
       // Anonymous: hand off to the always-mounted JobAlertForm (owns auth).
       onAnonymousAccept();
@@ -85,7 +89,7 @@ export default function SavedJobsAlertNudge({
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [userId, email, categoryLabel, cantonCode, locale, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe]);
+  }, [status, userId, email, categoryLabel, cantonCode, locale, onAcceptTapped, onAccepted, onAnonymousAccept, onClose, onErrored, subscribe]);
 
   const handleDismiss = useCallback(() => {
     onDismissed();

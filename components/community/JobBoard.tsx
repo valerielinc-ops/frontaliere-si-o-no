@@ -18,6 +18,7 @@ const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobD
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
+const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
@@ -35,7 +36,20 @@ import {
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import { professionSynonymText } from '@/services/professionSynonyms';
-import { cantonSearchTokens, CANTON_CODES } from '@/services/cantonList';
+import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
+import {
+  loadSavedJobs,
+  toggleSavedJob,
+  deriveSavedJobsAlertCriteria,
+  loadNudgeState,
+  saveNudgeState,
+  shouldShowSavedJobsNudge,
+  recordNudgeDismissed,
+  recordNudgeAccepted,
+  SAVED_JOBS_CHANGED_EVENT,
+  SAVED_JOBS_NUDGE_THRESHOLD,
+  type SavedJobEntry,
+} from '@/services/savedJobsService';
 import {
  type BehaviorData,
  getBehaviorData,
@@ -65,6 +79,7 @@ import {
  ArrowLeft,
  ArrowUpRight,
  BookOpen,
+ Bookmark,
  Briefcase,
  Building2,
  Calculator,
@@ -428,6 +443,10 @@ export interface JobListing {
 }
 
 const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
+
+// Delay before the saved-jobs alert nudge toast slides in (#4467) — long
+// enough to not collide with the save interaction that triggered it.
+const SAVED_NUDGE_SHOW_DELAY_MS = 1200;
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
 
 /** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
@@ -1878,16 +1897,34 @@ interface JobCardProps {
  locale: string;
  t: (key: string, params?: Record<string, string>) => string;
  onSelect: (job: JobListing) => void;
+ /** Whether the job is in the visitor's saved list (#4466). */
+ saved: boolean;
+ /** Toggle save/unsave for this job. */
+ onToggleSave: (job: JobListing) => void;
 }
-const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, locale, t, onSelect }: JobCardProps) => (
+const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, locale, t, onSelect, saved, onToggleSave }: JobCardProps) => (
  <article
  key={job.id}
- className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ className={`relative rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
  job.featured
  ? 'border-warning-border bg-warning-subtle hover:border-warning'
  : 'border-edge bg-surface/50 hover:border-accent-border'
  }`}
  >
+ {/* Save toggle: absolutely positioned (out of flow → zero CLS) with a
+ matching pr-9 gutter reserved on the title block below so text never
+ reflows under it. Sibling of the <a>, never nested inside it (a11y). */}
+ <button
+ type="button"
+ onClick={() => onToggleSave(job)}
+ aria-pressed={saved}
+ aria-label={saved ? t('jobBoard.save.remove') : t('jobBoard.save.add')}
+ className={`absolute top-1 right-1 z-10 inline-flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg transition-colors ${
+ saved ? 'text-accent' : 'text-muted hover:text-accent'
+ }`}
+ >
+ <Bookmark className={`w-5 h-5 ${saved ? 'fill-current' : ''}`} aria-hidden="true" />
+ </button>
  <a
  href={jobHref}
  onClick={(e) => { e.preventDefault(); onSelect(job); }}
@@ -1901,7 +1938,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
  <span className="text-base sm:text-lg">{CATEGORY_EMOJI[job.category]}</span>
  )}
  </div>
- <div className="min-w-0 flex-1">
+ <div className="min-w-0 flex-1 pr-9">
  <h2 className="text-sm sm:text-base font-bold font-display text-heading leading-tight">
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
  {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-warning fill-warning" />}
@@ -2162,6 +2199,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredSelectedLocation = useDeferredValue(selectedLocation);
  const deferredSelectedSector = useDeferredValue(selectedSector);
  const deferredShowNewOnly = useDeferredValue(showNewOnly);
+ // ── Saved jobs (#4466) + alert nudge (#4467) ──
+ // localStorage-first list; loaded in a post-mount effect (same INP pattern
+ // as behaviorData below) and kept in sync across surfaces via the
+ // SAVED_JOBS_CHANGED_EVENT window event dispatched by the service.
+ const [savedJobs, setSavedJobs] = useState<SavedJobEntry[]>([]);
+ const [showSavedOnly, setShowSavedOnly] = useState(false);
+ const deferredShowSavedOnly = useDeferredValue(showSavedOnly);
+ const [savedNudge, setSavedNudge] = useState<{ categoryLabel: string; cantonCode: string | null } | null>(null);
+ // Once per SPA session: never re-arm the nudge after any show/dismiss cycle.
+ const savedNudgeArmedRef = useRef(false);
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const searchDebounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -2210,6 +2257,42 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!enablePersonalization) return;
  setJobMatchProfile(loadJobMatchProfile());
  }, [enablePersonalization]);
+
+ // Saved jobs (#4466): post-mount localStorage read (INP pattern above) +
+ // re-read on every mutation broadcast by services/savedJobsService.ts, so
+ // the list card stars, the detail chip and the filter-pill counter stay in
+ // sync no matter which surface toggled the save.
+ useEffect(() => {
+ setSavedJobs(loadSavedJobs());
+ const onChanged = () => setSavedJobs(loadSavedJobs());
+ window.addEventListener(SAVED_JOBS_CHANGED_EVENT, onChanged);
+ return () => window.removeEventListener(SAVED_JOBS_CHANGED_EVENT, onChanged);
+ }, []);
+
+ const savedJobIds = useMemo(() => new Set(savedJobs.map((entry) => entry.id)), [savedJobs]);
+
+ const handleToggleSave = useCallback((job: JobListing, surface: 'list' | 'detail' = 'list') => {
+ const nowSaved = toggleSavedJob({
+ id: job.id,
+ slug: job.slug ?? null,
+ title: job.title,
+ company: job.company,
+ canton: job.canton ?? null,
+ category: job.category ?? null,
+ });
+ Analytics.trackEvent(nowSaved ? 'job_saved' : 'job_unsaved', {
+ job_id: job.id,
+ job_canton: job.canton || '(none)',
+ job_category: job.category || '(none)',
+ job_company: job.company || '(none)',
+ surface,
+ });
+ }, []);
+
+ const handleToggleSaveFromList = useCallback(
+ (job: JobListing) => handleToggleSave(job, 'list'),
+ [handleToggleSave],
+ );
 
  // Track filter usage changes
  useEffect(() => {
@@ -2336,8 +2419,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedLocation !== 'all') count++;
  if (selectedSector !== 'all') count++;
  if (showNewOnly) count++;
+ if (showSavedOnly) count++;
  return count;
- }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly]);
+ }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSavedOnly]);
 
  const resetAllFilters = useCallback(() => {
  applySearchQuery('');
@@ -2348,6 +2432,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSelectedLocation('all');
  setSelectedSector('all');
  setShowNewOnly(false);
+ setShowSavedOnly(false);
  }, []);
  const [page, setPage] = useState(() => readPageFromUrl());
  // Salary-range filter from the calculator's reverse bridge (issue #4307).
@@ -2978,6 +3063,93 @@ const JobBoard: React.FC<JobBoardProps> = ({
  trackJobAlertCtaShownOnce('job_match_pill', jobMatchAlertCategoryLabel);
  }, [jobMatchAlertVisible, jobMatchAlertCategoryLabel]);
 
+ // ── Saved-jobs alert nudge (#4467, epic #4465) ───────────────────────────
+ // At ≥SAVED_JOBS_NUDGE_THRESHOLD saved jobs, offer an email alert prefilled
+ // with the dominant category/canton of the saved list. Non-invasive: fixed
+ // toast (zero CLS), at most once per SPA session, 14-day cooldown after an
+ // explicit dismiss, terminal after accept (gating in
+ // services/savedJobsService.ts). Known users (userId+email) get a true
+ // one-tap subscribe; anonymous users are routed to the always-mounted
+ // JobAlertForm, which owns the auth/email-capture flow.
+ useEffect(() => {
+ if (!enableJobAlerts) return;
+ if (savedNudgeArmedRef.current) return;
+ if (savedJobs.length < SAVED_JOBS_NUDGE_THRESHOLD) return;
+ if (!shouldShowSavedJobsNudge(savedJobs.length, loadNudgeState(), new Date())) return;
+ const { category, cantonCode } = deriveSavedJobsAlertCriteria(savedJobs);
+ if (!category || !(category in CATEGORY_EMOJI)) return;
+ const label = t(`jobBoard.filter.${category}`);
+ if (!label) return;
+ let cancelled = false;
+ let timerId: number | null = null;
+ (async () => {
+ // Known users: skip when an existing alert already covers the dominant
+ // category, or the 3-alert quota is full (same eligibility checks as
+ // the job-match pill above, same session-scoped cache).
+ if (userId && userEmail) {
+ try {
+ const { getUserAlerts, findMatchingAlertForCategory, MAX_ALERTS_PER_USER } = await import(
+ '@/services/jobAlertService'
+ );
+ const existing = await fetchUserAlertsCached(userId, getUserAlerts);
+ if (cancelled) return;
+ if (findMatchingAlertForCategory(existing, label) || existing.length >= MAX_ALERTS_PER_USER) return;
+ } catch {
+ return; // best-effort — skip rather than risk a duplicate/broken alert
+ }
+ }
+ if (cancelled) return;
+ timerId = window.setTimeout(() => {
+ if (cancelled) return;
+ savedNudgeArmedRef.current = true;
+ setSavedNudge({ categoryLabel: label, cantonCode });
+ Analytics.trackEvent('nudge_shown', {
+ nudge: 'saved_jobs_alert',
+ saved_count: savedJobs.length,
+ nudge_category: category,
+ nudge_canton: cantonCode || '(none)',
+ });
+ }, SAVED_NUDGE_SHOW_DELAY_MS);
+ })();
+ return () => {
+ cancelled = true;
+ if (timerId !== null) window.clearTimeout(timerId);
+ };
+ }, [enableJobAlerts, savedJobs, userId, userEmail]);
+
+ const handleSavedNudgeClose = useCallback(() => setSavedNudge(null), []);
+
+ // Fired on the accept TAP (known + anonymous) — the funnel step between
+ // nudge_shown and alert_created.
+ const handleSavedNudgeAcceptTapped = useCallback(() => {
+ Analytics.trackEvent('nudge_accepted', {
+ nudge: 'saved_jobs_alert',
+ method: userId && userEmail ? 'one_tap' : 'form_redirect',
+ });
+ }, [userId, userEmail]);
+
+ // One-tap create succeeded (known users only).
+ const handleSavedNudgeAccepted = useCallback(() => {
+ saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
+ invalidateUserAlertsCache();
+ Analytics.trackEvent('alert_created', {
+ source: 'saved_jobs_nudge',
+ alert_keywords: savedNudge?.categoryLabel || '(none)',
+ alert_canton: savedNudge?.cantonCode || '(none)',
+ });
+ Analytics.trackJobAlertCreated({
+ keywords: savedNudge?.categoryLabel || '',
+ location: savedNudge?.cantonCode || '',
+ frequency: 'weekly',
+ surface: 'saved_jobs_nudge',
+ });
+ }, [savedNudge]);
+
+ const handleSavedNudgeDismissed = useCallback(() => {
+ saveNudgeState(recordNudgeDismissed(loadNudgeState(), new Date()));
+ Analytics.trackEvent('nudge_dismissed', { nudge: 'saved_jobs_alert' });
+ }, []);
+
  // ── Job-board filter alert CTA (issue #4298) ─────────────────────────────
  // Same one-tap pattern as the job-match pill above, but driven by the
  // board's OWN active filters (profession dropdown + free-text search +
@@ -3446,6 +3618,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
+ // "Salvati" view (#4466): same mechanics as the new-only pill — an
+ // AND-filter over the loaded pool keyed on the localStorage saved ids.
+ if (deferredShowSavedOnly && !savedJobIds.has(job.id)) return false;
  if (salaryRangeFilter.min !== null) {
  // `?salarioMin=`/`?salarioMax=` are CHF annual figures (see readSalaryRangeFromUrl's
  // docblock above); job.salaryMin/salaryMax are raw numbers with no currency
@@ -3464,7 +3639,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (jobMax < salaryRangeFilter.min || jobMinRaw > rangeMax) return false;
  }
  return true;
- }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, salaryRangeFilter]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter]);
 
  // strictFilteredJobs: AND-match on every search token (current behavior).
  // The OR-fallback layer below kicks in when this is empty for a
@@ -5209,6 +5384,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  locale={locale}
  t={t}
  onSelect={openDetail}
+ saved={savedJobIds.has(job.id)}
+ onToggleSave={handleToggleSaveFromList}
  />
  );
 
@@ -5767,6 +5944,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setJobDetailPromptCategory(null);
  backToList();
  }}
+ />
+ </Suspense>
+ ) : null;
+
+ // Saved-jobs alert nudge toast (#4467). Suppressed while the job-detail
+ // alert prompt is on screen — never two toasts in the same corner.
+ const savedJobsNudgeJsx = (savedNudge && !jobDetailPromptVisible) ? (
+ <Suspense fallback={null}>
+ <SavedJobsAlertNudge
+ categoryLabel={savedNudge.categoryLabel}
+ cantonCode={savedNudge.cantonCode}
+ cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ onClose={handleSavedNudgeClose}
+ onAcceptTapped={handleSavedNudgeAcceptTapped}
+ onAccepted={handleSavedNudgeAccepted}
+ onAnonymousAccept={() => {
+ // Hand off to the always-mounted JobAlertForm (owns auth + email
+ // capture), prefilling the derived keyword. The form only mounts on
+ // the LIST view — same queued-request + backToList dance as the
+ // job-detail prompt's onManage above. Accept is terminal for the
+ // nudge; the form flow has its own job_alert_created tracking.
+ saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
+ requestJobAlertOpen(savedNudge.categoryLabel);
+ if (isJobDetailView) backToList();
+ }}
+ onDismissed={handleSavedNudgeDismissed}
  />
  </Suspense>
  ) : null;
@@ -7776,6 +7982,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </article>
  {jobDetailPromptJsx}
+ {savedJobsNudgeJsx}
  </div>
  );
  }
@@ -7920,6 +8127,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {salary}
  </span>
  )}
+ {/* Save toggle (#4466): in-flow chip, present from first paint → zero CLS. */}
+ <button
+ type="button"
+ onClick={() => handleToggleSave(selectedJob, 'detail')}
+ aria-pressed={savedJobIds.has(selectedJob.id)}
+ className={`px-2.5 py-1 min-h-[28px] rounded-full inline-flex items-center gap-1 font-semibold border transition-colors ${
+ savedJobIds.has(selectedJob.id)
+ ? 'bg-accent-subtle text-accent border-accent-border'
+ : 'bg-surface text-subtle border-edge hover:text-accent hover:border-accent-border'
+ }`}
+ >
+ <Bookmark className={`w-3 h-3 ${savedJobIds.has(selectedJob.id) ? 'fill-current' : ''}`} aria-hidden="true" />
+ {savedJobIds.has(selectedJob.id) ? t('jobBoard.save.saved') : t('jobBoard.save.cta')}
+ </button>
  </div>
  </header>
 
@@ -8227,6 +8448,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </nav>
  {jobDetailPromptJsx}
+ {savedJobsNudgeJsx}
  </div>
  );
  }
@@ -8499,6 +8721,36 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  <Sparkles className="w-3.5 h-3.5" />
  {t('jobBoard.filter.newOnly')}
+ </button>
+
+ {/* Saved-jobs view toggle (#4466) — same mechanics as the new-only pill,
+ with a persistent total-saved counter badge. */}
+ <button
+ type="button"
+ onClick={() => {
+ const next = !showSavedOnly;
+ setShowSavedOnly(next);
+ if (next) {
+ Analytics.trackEvent('saved_list_viewed', { saved_count: savedJobs.length });
+ }
+ }}
+ className={`inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] text-sm font-medium rounded-xl border transition-[color,background-color,border-color,box-shadow] ${
+ showSavedOnly
+ ? 'bg-accent-strong border-accent text-on-accent hover:bg-accent-strong-hover shadow-sm shadow-accent/20'
+ : 'bg-surface border-edge text-subtle hover:bg-surface-raised'
+ }`}
+ aria-label={t('jobBoard.filter.saved')}
+ aria-pressed={showSavedOnly}
+ >
+ <Bookmark className={`w-3.5 h-3.5 ${savedJobs.length > 0 && !showSavedOnly ? 'fill-current text-accent' : ''}`} />
+ {t('jobBoard.filter.saved')}
+ {savedJobs.length > 0 && (
+ <span className={`inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1 rounded-full text-xs font-bold ${
+ showSavedOnly ? 'bg-surface text-accent' : 'bg-accent-subtle text-accent'
+ }`}>
+ {savedJobs.length}
+ </span>
+ )}
  </button>
 
  {/* Reset all filters */}
@@ -8900,7 +9152,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <JobBoardResultsLoader cards={6} />
  )}
 
- {filteredJobs.length === 0 && !resultsResolving && (
+ {filteredJobs.length === 0 && !resultsResolving && showSavedOnly && (
+ <div className="text-center py-12 text-muted">
+ <Bookmark className="w-10 h-10 mx-auto mb-3 opacity-30" />
+ <p className="font-medium">{t('jobBoard.saved.emptyTitle')}</p>
+ <p className="text-sm mt-1">{t('jobBoard.saved.emptyHint')}</p>
+ </div>
+ )}
+
+ {filteredJobs.length === 0 && !resultsResolving && !showSavedOnly && (
  <div className="text-center py-12 text-muted">
  <Briefcase className="w-10 h-10 mx-auto mb-3 opacity-30" />
  <p className="font-medium">{t('jobBoard.noResults')}</p>
@@ -8983,6 +9243,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {jobDetailPromptJsx}
+ {savedJobsNudgeJsx}
 
  {authGateModalJsx}
 
