@@ -2,7 +2,12 @@
 /**
  * BLS AG job parser — Fetcher and job builder.
  *
- * Source: https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen
+ * Listing source: https://www.bls.ch/api/JobPortal/JobsInit (JSON — see
+ *   JOBS_API_URL below). The corporate page itself
+ *   (https://www.bls.ch/en/unternehmen/jobs-und-karriere/offene-stellen)
+ *   migrated to a JS-hydrated widget that reads this endpoint client-side;
+ *   parseListingPage() (HTML anchor scrape) is kept as a fallback only
+ *   (2026-07, #4523).
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllBlsJobs()  — Fetch and parse all jobs
