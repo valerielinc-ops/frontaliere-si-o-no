@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3312,
+ "numberOfItems": 3313,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8029,7 +8029,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3309, "name": "Di più startup svizzere, solo 7% del capitale v...", "url": `${BASE_URL}/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna` },
           { "@type": "ListItem", "position": 3310, "name": "Ergoterapia in Ticino: stipendio e differenze c...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-ergoterapista` },
           { "@type": "ListItem", "position": 3311, "name": "Quanto guadagna un ergoterapista frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino` },
-          { "@type": "ListItem", "position": 3312, "name": "Quanto guadagna un frontaliere dietista in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/salario-frontaliere-dietista-ticino` }
+          { "@type": "ListItem", "position": 3312, "name": "Quanto guadagna un frontaliere dietista in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/salario-frontaliere-dietista-ticino` },
+          { "@type": "ListItem", "position": 3313, "name": "Lavorare come dietista in Ticino: stipendio, re...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti` }
  ]
  },
  {

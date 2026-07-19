@@ -4630,6 +4630,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-ergoterapista': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontalieri-ticino-ergoterapista/', parent: 'blog' },
     'blog-frontalieri-ergoterapista-stipendio-ticino': { name: 'Stipendio ergoterapista frontaliere in', path: '/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino', parent: 'blog' },
     'blog-salario-frontaliere-dietista-ticino': { name: 'Salario frontaliere dietista Ticino', path: '/articoli-svizzera/salario-frontaliere-dietista-ticino/', parent: 'blog' },
+    'blog-frontaliere-dietista-ticino-stipendio-requisiti': { name: 'Lavorare come dietista in Ticino da', path: '/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
