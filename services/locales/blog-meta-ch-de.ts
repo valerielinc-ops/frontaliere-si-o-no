@@ -1246,6 +1246,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-frontaliere-dietista-ticino.title': 'Wie viel verdient ein Grenzgänger-Diätetiker im Tessin?',
     'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'Das Gehalt eines diätetischen Grenzgängers im Tessin kann je nach Altersgruppe und Arbeitsstellung variieren.',
     'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontalier Ernährungswissenschaftler in Ticino',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.title': 'Mehrere Kernkraftwerke gefährden tausende Arbeitsplätze, ZHAW',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.excerpt': 'Eine aktuelle Studie der Zürcher Hochschule für Angewandte Wissenschaften (ZHAW) zeigt, dass der Bau neuer Kernkraftwerke Tausende von Arbeitsplätzen in den Bereichen Bau und erneuerbare Energien gefährden würde.',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.imageAlt': 'Eine Schweizer Stadt mit einem Kernkraftwerk',
 };
 
 export default blogMetaChDe;
