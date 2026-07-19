@@ -9,11 +9,7 @@ import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { lazyRetry } from '@/services/lazyRetry';
 import ProviderLogo from '@/components/shared/ProviderLogo';
-
-function appendUtm(url: string, providerName: string): string {
- const sep = url.includes('?') ? '&' : '?';
- return `${url}${sep}utm_source=frontaliereticino&utm_medium=referral&utm_campaign=exchange_compare&utm_content=${encodeURIComponent(providerName.toLowerCase().replace(/\s+/g, '-'))}`;
-}
+import { resolveGoHref } from '@/services/affiliateService';
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
@@ -71,8 +67,19 @@ interface ExchangeProvider {
  features: string[];
  type: 'neobank' | 'traditional' | 'service';
  referralUrl?: string; // Optional referral link
+ /**
+  * Partner id in services/affiliateService.ts PARTNERS. When set, clicks
+  * route via the static /go/{goId}/ redirect page (uniform edge tracking)
+  * instead of linking the referral URL directly. Redirect target unchanged.
+  */
+ goId?: string;
  transferTimeKey: string;
  featureKeys: string[];
+}
+
+/** /go/-routed href for a referral provider (falls back to the direct URL). */
+function providerGoHref(provider: ExchangeProvider): string {
+ return resolveGoHref(provider.goId, provider.referralUrl);
 }
 
 const providers: ExchangeProvider[] = [
@@ -90,7 +97,8 @@ const providers: ExchangeProvider[] = [
  features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata', 'Iscriviti da qui: bonus referral'],
  featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount', 'feature_wise_referral_bonus'],
  type: 'service',
- referralUrl: 'https://wise.com/invite/ihpn/luigis147'
+ referralUrl: 'https://wise.com/invite/ihpn/luigis147',
+    goId: 'wise'
  },
  {
  name: 'Revolut',
@@ -106,7 +114,8 @@ const providers: ExchangeProvider[] = [
  features: ['Cambio gratuito fino a 1000 EUR/mese (Standard)', 'Oltre limite: 1% commissione uso corretto', 'Weekend: markup 1%'],
  featureKeys: ['feature_free_exchange_1000', 'feature_fair_usage_1pct', 'feature_weekend_markup_1pct'],
  type: 'neobank',
- referralUrl: 'https://revolut.com/referral/?referral-code=luigi4mdv!FEB1-26-AR-H1&geo-redirect'
+ referralUrl: 'https://revolut.com/referral/?referral-code=luigi4mdv!FEB1-26-AR-H1&geo-redirect',
+    goId: 'revolut'
  },
  {
  name: 'Yuh',
@@ -182,7 +191,8 @@ const providers: ExchangeProvider[] = [
  features: ['Banca digitale italiana', 'Commissione 0.5%', 'Spread nascosto ~1.8%'],
  featureKeys: ['feature_italian_digital_bank', 'feature_commission_05', 'feature_hidden_spread_18'],
  type: 'traditional',
- referralUrl: 'https://fineco.mobi/passaparola'
+ referralUrl: 'https://fineco.mobi/passaparola',
+    goId: 'fineco'
  },
  {
  name: 'Intesa Sanpaolo',
@@ -213,7 +223,8 @@ const providers: ExchangeProvider[] = [
  features: ['Commissione 4 CHF + 0.3%', 'Spread nascosto ~2.8%', 'Gruppo Crédit Agricole'],
  featureKeys: ['feature_commission_4chf_03', 'feature_hidden_spread_28', 'feature_credit_agricole_group'],
  type: 'traditional',
- referralUrl: 'https://www.credit-agricole.it/invito?mgm=LUIGSAGG112A'
+ referralUrl: 'https://www.credit-agricole.it/invito?mgm=LUIGSAGG112A',
+    goId: 'creditagricole'
  },
  {
  name: 'UniCredit',
@@ -259,7 +270,8 @@ const providers: ExchangeProvider[] = [
  features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano', '🎁 Da frontalieticino.ch: 25€ in regalo con 3000 CHF di ordini nei primi 30 giorni'],
  featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy', 'feature_cambiavalute_referral_bonus'],
  type: 'service',
- referralUrl: 'https://dashboard.cambiavalute.ch/r/28693'
+ referralUrl: 'https://dashboard.cambiavalute.ch/r/28693',
+    goId: 'cambiavalute'
  }
 ];
 
@@ -440,7 +452,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
  {topAffiliate && (
  <a
- href={appendUtm(topAffiliate.provider.referralUrl!, topAffiliate.provider.name)}
+ href={providerGoHref(topAffiliate.provider)}
  target="_blank"
  rel="noopener noreferrer"
  onClick={() => { Analytics.trackExternalLink(topAffiliate.provider.referralUrl!, topAffiliate.provider.name); Analytics.trackAffiliateClick(topAffiliate.provider.name, 'exchange'); }}
@@ -568,7 +580,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
  {best.provider.referralUrl ? (
  <a
- href={appendUtm(best.provider.referralUrl, best.provider.name)}
+ href={providerGoHref(best.provider)}
  target="_blank"
  rel="noopener noreferrer"
  onClick={() => { Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name); Analytics.trackAffiliateClick(best.provider.name, 'exchange'); }}
@@ -652,7 +664,7 @@ const CurrencyExchange: React.FC = () => {
  
  const CardWrapper = result.provider.referralUrl ? 'a' : 'div';
  const cardProps = result.provider.referralUrl ? {
- href: appendUtm(result.provider.referralUrl, result.provider.name),
+ href: providerGoHref(result.provider),
  target: '_blank',
  rel: 'noopener noreferrer',
  onClick: () => { Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name); Analytics.trackAffiliateClick(result.provider.name, 'exchange'); },

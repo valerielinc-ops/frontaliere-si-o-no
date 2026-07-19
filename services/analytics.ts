@@ -1638,7 +1638,7 @@ export const Analytics = {
  /**
  * Assicurazione sanitaria
  */
- trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare', provider?: string) => {
+ trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare' | 'lamal_ssn_pdf_request', provider?: string) => {
  log('health_insurance', { action, provider_name: provider });
  },
 

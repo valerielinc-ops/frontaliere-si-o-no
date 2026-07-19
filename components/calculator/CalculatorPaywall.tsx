@@ -17,7 +17,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import type { SimulationResult, SimulationInputs } from '../../types';
-import { generateCalculatorPdfReport } from '@/services/pdfReport';
+import { generateCalculatorPdfReport, pdfBlobToBase64 } from '@/services/pdfReport';
 import {
   useAuth,
   getAuthEmail,
@@ -38,8 +38,7 @@ export const JOB_EMAIL_KEY = 'ft_job_email';
 export { NEWSLETTER_SUBSCRIBED_KEY };
 export const PAYWALL_DISMISS_DAYS = 30;
 
-const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
-const SEND_CALCULATOR_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorReport`;
+import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 
 /**
  * Returns true when the paywall dismissal is still active (ISO timestamp <30 days old).
@@ -212,23 +211,6 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     onClose();
   }, [onClose]);
 
-  const blobToBase64 = useCallback((blob: Blob): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result;
-        if (typeof result !== 'string') {
-          reject(new Error('invalid_reader_result'));
-          return;
-        }
-        const comma = result.indexOf(',');
-        resolve(comma >= 0 ? result.slice(comma + 1) : result);
-      };
-      reader.onerror = () => reject(reader.error || new Error('file_reader_error'));
-      reader.readAsDataURL(blob);
-    });
-  }, []);
-
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === 'loading') return;
@@ -242,7 +224,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
     setErrorMessage('');
     try {
       const pdfBlob = await generateCalculatorPdfReport({ result, inputs, locale }, trimmed);
-      const pdfBase64 = await blobToBase64(pdfBlob);
+      const pdfBase64 = await pdfBlobToBase64(pdfBlob);
       const resultSummary = {
         netCH_CHF: Math.round(result.chResident.netIncomeAnnual),
         netIT_CHF: Math.round(result.itResident.netIncomeAnnual),
@@ -271,7 +253,7 @@ const CalculatorPaywall: React.FC<CalculatorPaywallProps> = ({ result, inputs, o
       setErrorMessage(t('calculator.paywall.errorToast'));
       setStatus('error');
     }
-  }, [email, result, inputs, locale, onClose, status, t, blobToBase64, fetchImpl]);
+  }, [email, result, inputs, locale, onClose, status, t, fetchImpl]);
 
   const titleId = useMemo(() => `calc-paywall-title-${Math.random().toString(36).slice(2, 8)}`, []);
 

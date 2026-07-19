@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, Suspense } from 'react';
 import Callout from '@/components/shared/Callout';
 import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy, FileText } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import LamalSsnBreakeven, { type CheapestPremium } from '@/components/comparators/LamalSsnBreakeven';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -207,6 +207,23 @@ const HealthInsurance: React.FC = () => {
  return { id: ins.id, name: ins.name, website: ins.website, models };
  });
  }, [data, currentPremiums]);
+
+ // Cheapest standard-model premium for the LAMal-vs-SSN breakeven tool
+ // (#4440) — real UFSP data for the currently selected canton/commune.
+ const computeCheapestPremium = useCallback(
+ (toolFranchise: number, toolAgeGroup: AgeGroup): CheapestPremium | null => {
+ if (!currentPremiums) return null;
+ let best: CheapestPremium | null = null;
+ for (const ins of insurers) {
+ const p = calculatePremiumFromData(currentPremiums[ins.id], 'standard', toolFranchise, toolAgeGroup, false);
+ if (p !== null && (best === null || p < best.premium)) {
+ best = { premium: p, insurerName: ins.name };
+ }
+ }
+ return best;
+ },
+ [currentPremiums, insurers],
+ );
 
  const ageGroup: AgeGroup = age < 19 ? '0-18' : age <= 25 ? '19-25' : '26+';
  const availableFranchises = ageGroup === '0-18' ? FRANCHISES_CHILD : FRANCHISES;
@@ -603,6 +620,15 @@ const HealthInsurance: React.FC = () => {
  <Info size={20} className="text-accent" />
  LAMal svizzera vs SSN italiano
  </h3>
+ {/* Interactive breakeven mini-tool (#4440) — verdict from real UFSP premiums */}
+ <div className="mb-4">
+ <LamalSsnBreakeven
+ defaultAge={age}
+ franchisesAdult={FRANCHISES}
+ franchisesChild={FRANCHISES_CHILD}
+ computeCheapestPremium={computeCheapestPremium}
+ />
+ </div>
  <div className="grid md:grid-cols-2 gap-4 mb-4">
  <div className="p-4 bg-surface/60 rounded-xl">
  <p className="font-bold text-accent mb-2">Scegli LAMal se:</p>
@@ -692,7 +718,6 @@ const HealthInsurance: React.FC = () => {
  </div>
  )}
 
- <PartnerRecommendations context="health" />
  <Suspense fallback={<div className="min-h-[200px]" />}>
  <LeadMagnetCTA variant="insurance" delay={5000} />
  </Suspense>

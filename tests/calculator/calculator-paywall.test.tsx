@@ -29,6 +29,7 @@ vi.mock('@/services/i18n', () => ({
 
 vi.mock('@/services/pdfReport', () => ({
   generateCalculatorPdfReport: vi.fn(async () => new Blob(['fake-pdf'], { type: 'application/pdf' })),
+  pdfBlobToBase64: vi.fn(async () => 'ZmFrZS1wZGY='),
   computeCalculatorPdfMetrics: vi.fn(() => ({
     netIT_EUR: 30000,
     netCH_CHF: 45000,

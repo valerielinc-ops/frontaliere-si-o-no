@@ -9,7 +9,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getPartnersForContext, buildAffiliateUrl, type ComparatorContext, type AffiliatePartner } from '@/services/affiliateService';
+import { getPartnersForContext, buildGoPath, partnerRelAttr, type ComparatorContext, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 interface PartnerRecommendationsProps {
@@ -29,9 +29,9 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
 
  return (
  <a
- href={buildAffiliateUrl(partner, context)}
+ href={buildGoPath(partner)}
  target="_blank"
- rel="noopener noreferrer sponsored"
+ rel={partnerRelAttr(partner)}
  onClick={handleClick}
  className="group flex items-start gap-3 p-4 bg-surface/60 rounded-[6px] border border-edge/50 hover:border-edge hover:shadow-stripe-sm transition-[color,background-color,border-color,box-shadow] duration-200"
  >
