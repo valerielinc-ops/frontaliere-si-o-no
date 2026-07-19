@@ -18,7 +18,8 @@ const CalculatorJobBridge = lazyRetry(() => import('./CalculatorJobBridge'));
 import { shouldShowPaywallFromStorage, SIM_COMPLETE_COUNTER_KEY, VISIT_COUNTER_KEY } from './CalculatorPaywall';
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
-import { useTranslation } from '../../services/i18n';
+import { useTranslation, getLocale } from '../../services/i18n';
+import { buildNearestExchangeAmountPath } from '../../services/exchangeSsgPaths';
 import { buildShareURL } from '../../services/urlStateService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
@@ -709,6 +710,16 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  ≈ CHF {formatCurrency(chResident.netIncomeMonthly)}
  </div>
  )}
+ {/* Cross-link to the static CHF/EUR exchange vertical (epic #4452):
+     nearest curated amount page for this net salary. Plain <a> so the
+     link works pre-hydration and is crawlable; trailing slash by
+     construction via buildNearestExchangeAmountPath. */}
+ <a
+ href={buildNearestExchangeAmountPath(getLocale(), chResident.netIncomeMonthly)}
+ className="inline-block mt-2 text-xs font-semibold text-accent hover:underline"
+ >
+ {t('results.exchangeVerticalLink')} →
+ </a>
  </div>
  {!isFocusMode && (
  <>

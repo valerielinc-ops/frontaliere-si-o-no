@@ -10,7 +10,9 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  # contents: write — the SSG-snapshot step below commits
+  # data/exchange-rate-snapshot.json back to main (epic #4452).
+  contents: write
   issues: write
 
 jobs:
@@ -42,6 +44,34 @@ jobs:
 
       - name: Update exchange rate history
         run: node scripts/update-exchange-history.mjs
+
+      # Refresh the committed SSG snapshot (epic #4452): the static
+      # /cambio-franco-euro/ pages read data/exchange-rate-snapshot.json at
+      # build time (never Firestore). The script SELF-VALIDATES its output
+      # (plausibility band, series length, window integrity) and exits 1 on
+      # any anomaly, so this bot-direct-to-main commit can never poison a
+      # committed-snapshot invariant (AGENTS.md § Build And Test).
+      # No explicit deploy trigger: the daily fuel-prices workflow (06:37 UTC,
+      # one hour after this cron) commits + triggers the deploy that picks
+      # this snapshot up.
+      - name: Refresh SSG exchange snapshot
+        run: node scripts/snapshot-exchange-history.mjs
+
+      - name: Commit SSG snapshot (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/exchange-rate-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No exchange snapshot changes."
+          else
+            git commit -m "💱 Daily CHF/EUR SSG snapshot refresh"
+            # Centralized rebase-retry helper handles concurrent pushes from
+            # other workflows; the snapshot is a deterministic output of the
+            # script, so re-run it before retrying.
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd 'node scripts/snapshot-exchange-history.mjs && git add data/exchange-rate-snapshot.json'
+          fi
 
       - name: Report failure to GitHub Issues
         if: failure()

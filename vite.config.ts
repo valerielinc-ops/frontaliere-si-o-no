@@ -69,6 +69,7 @@ import { professionCantonLandings } from './build-plugins/professionCantonLandin
 import { salaryProfessionCantonPages } from './build-plugins/salaryProfessionCantonPages';
 import { professionCityLandings } from './build-plugins/professionCityLandings';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
+import { exchangeRatePagesPlugin } from './build-plugins/exchangeRatePagesPlugin';
 // blogContextualLinksPlugin import retained for tests / type re-exports.
 // Its plugin export is now consumed internally by `postWalkCoordinatorPlugin`.
 import { blogContextualLinksPlugin } from './build-plugins/blogContextualLinksPlugin';
@@ -184,6 +185,9 @@ export default defineConfig(({ mode }) => {
  salaryProfessionCantonPages(__dirname),
  professionCityLandings(__dirname),
  healthPremiumsLandingPlugin(__dirname),
+ // CHF/EUR exchange vertical (epic #4452): hub + amount long-tail pages
+ // from the committed data/exchange-rate-snapshot.json (daily cron refresh).
+ exchangeRatePagesPlugin(__dirname),
  borderWaitPagesPlugin(__dirname),
  weatherBorderWaitFusionPlugin(__dirname),
  marketReportPlugin(__dirname),
