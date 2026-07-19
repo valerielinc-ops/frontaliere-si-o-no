@@ -228,6 +228,74 @@ function mergeFirestoreContacts(contacts, fsContacts) {
 }
 
 /**
+ * Read back the Firestore send mirror (`employer_outreach_sends`, written by
+ * recordSendToFirestore below) as Map(companyKey → touches[]).
+ *
+ * Why: the local send-log.json is gitignored and does NOT survive a fresh CI
+ * checkout — without this hydration a scheduled GitHub Actions run would see an
+ * empty log and re-send the same touch to companies already contacted from
+ * another machine. Firestore is the durable cross-machine memory; the local
+ * file stays the fast path (and the only place for manual suppressions).
+ *
+ * Best-effort like the other loaders: missing SA / any error → empty Map and
+ * the send falls back to the local log only.
+ */
+async function loadFirestoreSends() {
+  const map = new Map();
+  try {
+    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+    if (!credPath || !fs.existsSync(credPath)) return map;
+    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
+    const { getFirestore } = await import('firebase-admin/firestore');
+    if (getApps().length === 0) {
+      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
+      if (cred.project_id) {
+        initializeApp({ credential: cert(cred) });
+      } else {
+        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+      }
+    }
+    const db = getFirestore();
+    const snap = await db.collection('employer_outreach_sends').get();
+    snap.forEach((doc) => {
+      const d = doc.data() || {};
+      const key = (d.companyKey || doc.id || '').trim();
+      if (key) map.set(key, Array.isArray(d.touches) ? d.touches : []);
+    });
+    if (map.size) console.log(`🗂  Firestore send-log: ${map.size} aziende con touch già inviate (dedup cross-machine).`);
+  } catch (err) {
+    console.warn(`↷ Firestore send-log non disponibile (${err.message}) — uso solo send-log locale.`);
+  }
+  return map;
+}
+
+/**
+ * Union the Firestore touches into the local send log (per touch number, local
+ * entries win). Mutates and returns `log`. Never touches `suppressed` — that
+ * flag stays a local/manual concern (one-click suppression has its own
+ * Firestore collection, loaded separately by loadFirestoreSuppression).
+ */
+function mergeFirestoreSends(log, fsSends) {
+  for (const [key, touches] of fsSends) {
+    const entry = log[key] || (log[key] = { touches: [] });
+    if (!Array.isArray(entry.touches)) entry.touches = [];
+    for (const t of touches) {
+      const touchNum = Number(t?.touch);
+      if (!Number.isFinite(touchNum)) continue;
+      if (!entry.touches.some((x) => Number(x?.touch) === touchNum)) {
+        entry.touches.push({
+          touch: touchNum,
+          sentAt: String(t?.sentAt || ''),
+          provider: String(t?.provider || ''),
+          messageId: String(t?.messageId || ''),
+        });
+      }
+    }
+  }
+  return log;
+}
+
+/**
  * Best-effort mirror of a REAL send to Firestore so the admin dashboard
  * (adminEmployerInsights → AdminPanel "Insights Aziende") can show which touch
  * went out and when — the local send-log.json is gitignored and only lives on
@@ -291,6 +359,10 @@ async function run() {
   // real sends. Best-effort: no SA creds → no-op, local file is used as-is.
   mergeFirestoreContacts(contacts, await loadFirestoreContacts());
   const sendLog = loadSendLog(logPath);
+  // Hydrate cross-machine touch history from Firestore (best-effort, no-op
+  // without credentials) — required for stateless CI runs where the local
+  // send-log.json starts empty on every checkout (dedup + cap would reset).
+  mergeFirestoreSends(sendLog, await loadFirestoreSends());
 
   const topExplicit = process.argv.includes('--top');
   let targets = report.employers.slice(0, top);
