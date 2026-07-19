@@ -1237,6 +1237,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Quanto guadagna un tecnico di radiologia frontaliere in Ticino?',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all\'Italia',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Tecnici di radiologia al lavoro in ospedale',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergoterapia in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano, con il lago e le montagne in sfondo',
 };
 
 export default blogMetaChIt;

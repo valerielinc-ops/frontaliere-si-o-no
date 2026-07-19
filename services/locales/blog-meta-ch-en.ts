@@ -1237,6 +1237,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'How much does a border radiology technician earn in Ticino?',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'The remuneration of a border radiology technician in Ticino: factors affecting remuneration and differences compared to Italy',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologists at work in hospital',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergotherapy in Ticino: salary and requirements',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Know what the law requires for a border worker who wants to work as an ergotherapist in Ticino, and what are the necessary requirements to obtain the G permit.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano, with the lake and mountains in the background',
 };
 
 export default blogMetaChEn;

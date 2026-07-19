@@ -3707,6 +3707,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-ergoterapista-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-19T07:17:12.441Z',
+    image: '/images/blog/frontaliere-ergoterapista-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

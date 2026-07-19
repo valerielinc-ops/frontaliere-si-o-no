@@ -15969,6 +15969,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-ergoterapista-ticino-stipendio-requisiti': {
+    title: 'Ergoterapia in Ticino: stipendio e requisiti | Frontaliere Ticino',
+    description: 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ergoterapia, stipendio, requisiti, sapere',
+    ogTitle: 'Frontaliere ergoterapista Ticino stipendio requisiti',
+    ogDescription: 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ergoterapia in Ticino: stipendio e requisiti",
+      "description": "Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ergoterapista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano, con il lago e le montagne in sfondo"
+      },
+      "datePublished": "2026-07-19T07:17:12+00:00",
+      "dateModified": "2026-07-19T07:17:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
