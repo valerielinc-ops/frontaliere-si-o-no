@@ -8656,6 +8656,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Border doctors in Ticino: salary, requirements and title recognition',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'The average salaries for border doctors in Ticino, the requirements to work as a border doctor, the recognition of the educational qualification and the G permit.',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'A scenic view of Lake Lugano with a sailboat in the foreground',
+    'blog.article.medico-frontaliere-stipendio-ticino.title': 'How much does a border doctor earn in Ticino?',
+    'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Key facts: A border doctor in Ticino can benefit from a higher income than in Italy, thanks to the New Frontier Agreement.',
+    'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'A doctor in Ticino sits at a desk with a stethoscope in hand, smiling at the patient.',
 };
 
 export default blogMetaEn;
