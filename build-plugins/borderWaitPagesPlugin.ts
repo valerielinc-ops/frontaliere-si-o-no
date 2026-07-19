@@ -2535,11 +2535,13 @@ export function buildEmbedWidgetSnapshot(current: BorderWaitCurrent): BorderWait
     canonicalUrl: `${BASE_URL}${buildRootHubPath('it')}`,
     crossings: TOP_5_CROSSINGS.map((slug) => {
       const reading = current.perCrossing[slug];
+      const liveWait = reading?.totalCrossingMinutes ?? reading?.waitTimeMinutes ?? null;
+      const colorLabel = statusColor(liveWait).label;
       return {
         slug,
         name: BORDER_CROSSING_DISPLAY[slug],
-        waitMinutes: reading ? Math.round(reading.waitTimeMinutes) : null,
-        status: reading?.status ?? 'green',
+        waitMinutes: liveWait === null ? null : Math.round(liveWait),
+        status: colorLabel === 'ok' ? 'green' : colorLabel === 'warn' ? 'yellow' : 'red',
       };
     }),
   };
