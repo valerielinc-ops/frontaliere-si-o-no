@@ -10,6 +10,11 @@
  * Kept intentionally minimal: the heavy lifting (PDF rendering) is done in the
  * browser, so this endpoint only needs to wrap Resend's attachment API and
  * record the capture in Firestore.
+ *
+ * Supports multiple report kinds via the allowlisted `source` param:
+ *   - 'calculator_paywall' (default) — Italy-vs-Switzerland salary report
+ *   - 'lamal_ssn_tool'               — LAMal-vs-SSN health breakeven report
+ * The source doubles as the newsletter acquisitionSource tag.
  */
 
 import admin from 'firebase-admin';
@@ -22,6 +27,8 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <report@frontaliereticino.ch>';
 const BRAND_BLUE = '#2563EB';
 const MAX_PDF_BYTES = 2 * 1024 * 1024; // 2MB — paywall PDFs are ~20-80KB in practice
+
+const ALLOWED_SOURCES = new Set(['calculator_paywall', 'lamal_ssn_tool']);
 
 function escapeHtml(str) {
   return String(str || '')
@@ -70,6 +77,36 @@ function buildBodyHtml(locale, summary) {
 </html>`;
 }
 
+function buildLamalSsnBodyHtml(locale, summary) {
+  const lang = normalizeLocale(locale);
+  const lamalAnnual = Number(summary?.lamalAnnualCHF || 0);
+  const ssnMin = Number(summary?.ssnMinCHF || 0);
+  const ssnMax = Number(summary?.ssnMaxCHF || 0);
+  return `<!DOCTYPE html>
+<html lang="${htmlLang(lang)}">
+<head><meta charset="UTF-8"><title>${t(lang, 'brandName')} — PDF report</title></head>
+<body style="margin:0;padding:32px 16px;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1f2937;">
+  <table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
+    <table width="100%" style="max-width:600px;background:#fff;border-radius:16px;padding:32px 28px;border:1px solid #dbe2ea;">
+      <tr><td>
+        <div style="font-size:22px;font-weight:800;color:${BRAND_BLUE};margin-bottom:4px;">${t(lang, 'brandName')}</div>
+        <h1 style="font-size:24px;color:#0f172a;margin:16px 0 8px;">Il tuo confronto LAMal vs SSN</h1>
+        <p style="font-size:15px;line-height:1.6;">Grazie! In allegato trovi il PDF con il confronto personalizzato tra LAMal svizzera e SSN italiano.</p>
+        <ul style="font-size:14px;line-height:1.8;padding-left:20px;">
+          <li>Costo LAMal stimato: <strong>CHF ${Math.round(Math.abs(lamalAnnual)).toLocaleString('it-IT')}/anno</strong></li>
+          <li>Contributo SSN stimato (3–6%): <strong>CHF ${Math.round(Math.abs(ssnMin)).toLocaleString('it-IT')} – ${Math.round(Math.abs(ssnMax)).toLocaleString('it-IT')}/anno</strong></li>
+        </ul>
+        <p style="font-size:13px;color:#6b7280;margin-top:24px;">
+          Ricevi questa email perch\u00e9 hai richiesto il report PDF su ${escapeHtml(BASE_URL)}.
+          Se non sei stato tu, ignora pure questo messaggio.
+        </p>
+      </td></tr>
+    </table>
+  </td></tr></table>
+</body>
+</html>`;
+}
+
 /**
  * Core logic — separated from the onRequest handler so it can be tested
  * without spinning up an emulator.
@@ -80,8 +117,12 @@ export async function handleSendCalculatorReport({
   resultSummary,
   locale,
   sourcePath,
+  source,
   db: injectedDb,
 }) {
+  // Allowlisted acquisition source — unknown values fall back to the
+  // original paywall tag so the endpoint stays backwards-compatible.
+  const src = ALLOWED_SOURCES.has(source) ? source : 'calculator_paywall';
   if (!validateEmail(email)) {
     return { status: 400, body: { success: false, error: 'invalid_email' } };
   }
@@ -118,8 +159,8 @@ export async function handleSendCalculatorReport({
     email: normalizedEmail,
     updated_at: now,
     preferred_locale: lang,
-    last_source: 'calculator_paywall',
-    calculator_paywall: {
+    last_source: src,
+    [src]: {
       captured_at: now,
       source_path: sourcePath || '/',
       result_summary: resultSummary || null,
@@ -131,8 +172,8 @@ export async function handleSendCalculatorReport({
       await subscriberRef.set({
         ...baseDoc,
         created_at: now,
-        source: 'calculator_paywall',
-        source_channel: 'calculator_paywall',
+        source: src,
+        source_channel: src,
         status: 'pending',
         isActive: false,
         signup_locale: lang,
@@ -146,7 +187,10 @@ export async function handleSendCalculatorReport({
     return { status: 503, body: { success: false, error: 'firestore_unavailable' } };
   }
 
-  const attachmentFilename = `frontaliere-ticino-confronto-${new Date().toISOString().slice(0, 10)}.pdf`;
+  const isLamal = src === 'lamal_ssn_tool';
+  const attachmentFilename = isLamal
+    ? `frontaliere-ticino-lamal-ssn-${new Date().toISOString().slice(0, 10)}.pdf`
+    : `frontaliere-ticino-confronto-${new Date().toISOString().slice(0, 10)}.pdf`;
   // The cascade's sendViaResend calls Resend's raw REST API (fetch + JSON),
   // not the SDK — the REST API's attachments[].content wants a base64
   // STRING (unlike the SDK, which accepts a Buffer and encodes it for you).
@@ -155,8 +199,8 @@ export async function handleSendCalculatorReport({
     payload: {
       from: FROM_EMAIL,
       to: normalizedEmail,
-      subject: 'Il tuo confronto Italia-Svizzera (PDF)',
-      html: buildBodyHtml(lang, resultSummary),
+      subject: isLamal ? 'Il tuo confronto LAMal vs SSN (PDF)' : 'Il tuo confronto Italia-Svizzera (PDF)',
+      html: isLamal ? buildLamalSsnBodyHtml(lang, resultSummary) : buildBodyHtml(lang, resultSummary),
       attachments: [
         {
           filename: attachmentFilename,
@@ -164,7 +208,7 @@ export async function handleSendCalculatorReport({
         },
       ],
       tags: [
-        { name: 'campaign_id', value: 'calculator_paywall' },
+        { name: 'campaign_id', value: src },
         { name: 'type', value: 'transactional' },
         { name: 'locale', value: lang },
       ],
@@ -189,8 +233,8 @@ export async function handleSendCalculatorReport({
       .collection('events')
       .add({
         email: normalizedEmail,
-        event_type: 'calculator_paywall_pdf_sent',
-        source_channel: 'calculator_paywall',
+        event_type: `${src}_pdf_sent`,
+        source_channel: src,
         message_id: emailData?.id || null,
         locale: lang,
         timestamp: now,
