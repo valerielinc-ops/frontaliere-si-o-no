@@ -764,6 +764,17 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  color: 'text-accent',
  keywords: ['permesso B', 'permesso G', 'quiz', 'permit', 'Bewilligung', 'permis', 'frontaliere', 'residenza', 'grenzgänger', 'cross-border', 'quale permesso', 'meglio B o G'],
  },
+ // ─── Wizard: Sei pronto a diventare frontaliere? ───
+ {
+ id: 'frontaliere-wizard',
+ title: t('frontaliereWizard.title') || 'Sei pronto a diventare frontaliere?',
+ description: t('frontaliereWizard.subtitle') || 'Test di prontezza + piano personalizzato per iniziare a lavorare in Svizzera',
+ section: t('frontaliereWizard.badge') || 'Test frontaliere',
+ tab: 'frontaliere-wizard',
+ icon: Compass,
+ color: 'text-success',
+ keywords: ['diventare frontaliere', 'come diventare frontaliere', 'test', 'wizard', 'sei pronto', 'piano', 'primi passi', 'iniziare', 'become cross-border', 'Grenzgänger werden', 'devenir frontalier', 'prontezza', 'readiness', 'checklist'],
+ },
  // ─── Calcolatore Tredicesima ───
  {
  id: 'tredicesima',
