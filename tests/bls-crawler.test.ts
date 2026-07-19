@@ -4,6 +4,7 @@ import {
   BLS_COMPANY_NAME,
   isBlsJob,
   isTrustedDomain,
+  parseJobsApiResponse,
 } from '../scripts/lib/bls-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,64 @@ describe('BLS AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── parseJobsApiResponse (JobsInit JSON API — #4523 fix) ──
+  describe('parseJobsApiResponse', () => {
+    it('parses Jobs[] entries into listing-entry shape', () => {
+      const json = {
+        Jobs: [
+          {
+            Title: 'Kältesystemtechniker: in Lüftung und Klima',
+            Lead: 'Frutigen, 80-100%',
+            Category: 'Skilled manual jobs',
+            Region: 'Frutigen',
+            URL: 'https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352',
+          },
+        ],
+      };
+      const entries = parseJobsApiResponse(json);
+      expect(entries).toHaveLength(1);
+      expect(entries[0]).toMatchObject({
+        url: json.Jobs[0].URL,
+        slug: 'kaeltesystemtechniker-in-lueftung-und-klima',
+        uuid: '2a7b3bed-4367-4ac7-b091-f2a5cbb4e352',
+        title: 'Kältesystemtechniker: in Lüftung und Klima',
+        locationRaw: 'Frutigen',
+        pensum: '80-100%',
+      });
+    });
+
+    it('parses a single-value pensum (no range)', () => {
+      const json = {
+        Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/offene-stellen/x/uuid-1' }],
+      };
+      expect(parseJobsApiResponse(json)[0].pensum).toBe('100%');
+    });
+
+    it('falls back to Region when Lead has no location prefix', () => {
+      const json = {
+        Jobs: [{ Title: 'X', Lead: '80%', Region: 'Bönigen', URL: 'https://jobs.bls.ch/offene-stellen/x/uuid-2' }],
+      };
+      expect(parseJobsApiResponse(json)[0].locationRaw).toBe('Bönigen');
+    });
+
+    it('skips entries whose URL does not match the offene-stellen detail pattern', () => {
+      const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/1000754/jobabo?lang=en' }] };
+      expect(parseJobsApiResponse(json)).toHaveLength(0);
+    });
+
+    it('dedupes by uuid', () => {
+      const url = 'https://jobs.bls.ch/offene-stellen/x/uuid-3';
+      const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: url }, { Title: 'X dup', Lead: 'Bern, 100%', URL: url }] };
+      expect(parseJobsApiResponse(json)).toHaveLength(1);
+    });
+
+    it('handles missing/malformed Jobs array gracefully', () => {
+      expect(parseJobsApiResponse({})).toEqual([]);
+      expect(parseJobsApiResponse(null)).toEqual([]);
+      expect(parseJobsApiResponse({ Jobs: null })).toEqual([]);
     });
   });
 
