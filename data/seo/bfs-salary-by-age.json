@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "description": "Salario mensile lordo mediano in Svizzera per classe d’età e livello di formazione (BFS/OFS, Rilevazione della struttura dei salari).",
+    "source": "BFS/OFS — Rilevazione svizzera della struttura dei salari (RSS/LSE), STAT-TAB",
+    "cubes": {
+      "age": "px-x-0304010000_101",
+      "education": "px-x-0304010000_112"
+    },
+    "pxwebEndpoint": "https://www.pxweb.bfs.admin.ch/api/v1/it/",
+    "waveYear": 2022,
+    "currency": "CHF",
+    "basis": "median gross monthly wage, standardised (4⅓ weeks), Switzerland total, private + public sector",
+    "refreshScript": "scripts/update-bfs-salary-by-age.mjs",
+    "refreshCadence": "per-lse-wave",
+    "generatedAt": "2026-07-19"
+  },
+  "nationalMedianChf": 6788,
+  "ageBands": [
+    {
+      "id": "20-29",
+      "label": "20–29",
+      "medianChf": 5500,
+      "anchorAges": [
+        20,
+        25
+      ]
+    },
+    {
+      "id": "30-39",
+      "label": "30–39",
+      "medianChf": 6600,
+      "anchorAges": [
+        30,
+        35
+      ]
+    },
+    {
+      "id": "40-49",
+      "label": "40–49",
+      "medianChf": 7100,
+      "anchorAges": [
+        40,
+        45
+      ]
+    },
+    {
+      "id": "50-59",
+      "label": "50–59",
+      "medianChf": 7000,
+      "anchorAges": [
+        50,
+        55
+      ]
+    },
+    {
+      "id": "60plus",
+      "label": "60+",
+      "medianChf": 6900,
+      "anchorAges": [
+        60
+      ]
+    }
+  ],
+  "educationLevels": [
+    {
+      "id": "scuola-obbligatoria",
+      "medianChf": 5300,
+      "name": {
+        "it": "Scuola dell’obbligo",
+        "en": "Compulsory education only",
+        "de": "Obligatorische Schule",
+        "fr": "Scolarité obligatoire"
+      }
+    },
+    {
+      "id": "apprendistato-afc",
+      "medianChf": 6100,
+      "name": {
+        "it": "Apprendistato (AFC)",
+        "en": "Vocational apprenticeship (VET)",
+        "de": "Berufslehre (EFZ)",
+        "fr": "Apprentissage (CFC)"
+      }
+    },
+    {
+      "id": "formazione-superiore",
+      "medianChf": 7900,
+      "name": {
+        "it": "Formazione professionale superiore",
+        "en": "Higher vocational education",
+        "de": "Höhere Berufsbildung",
+        "fr": "Formation professionnelle supérieure"
+      }
+    },
+    {
+      "id": "universita",
+      "medianChf": 9500,
+      "name": {
+        "it": "Università / SUP",
+        "en": "University / University of Applied Sciences",
+        "de": "Universität / Fachhochschule",
+        "fr": "Université / Haute école"
+      }
+    }
+  ]
+}

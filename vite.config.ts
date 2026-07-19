@@ -99,6 +99,8 @@ import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
 import { employerProfilePagesPlugin } from './build-plugins/employerProfilePagesPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
+import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
+import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
@@ -233,6 +235,14 @@ export default defineConfig(({ mode }) => {
  // (Semrush CH 880/mo). Self-contained: no router edit, no SPA route. The
  // static HTML serves SEO/first-paint; SPA fallback hydrates on /fr/calculer-salaire/.
  frSalaireNetLandingPlugin(__dirname),
+ // #4480 — frontaliere public-holiday landings: Ticino/CH calendar + CH-vs-IT
+ // comparison (2 page types × 4 locales = 8 static pages). Dataset-driven
+ // (data/seo/frontaliere-holidays.json). Curated set, no floor loop.
+ holidaysLandingsPlugin(__dirname),
+ // #4481 — BFS salary-by-age / salary-by-education landings (5 ages + 4
+ // education levels × 4 locales = 36 static pages). Dataset-driven
+ // (data/seo/bfs-salary-by-age.json). CTA → net-salary calculator.
+ bfsSalaryLandingsPlugin(__dirname),
  // C3 — Google News compliance section pages: 7 topic areas × 4 locales = 28
  // static HTML aggregator pages listing the latest 20 matching blog
  // articles per section. Static-only (no SPA route, no nav-tab impact).
