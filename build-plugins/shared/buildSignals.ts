@@ -73,6 +73,17 @@ const jobsSeoPagesSignal = makeSignal();
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 
+/** A health facility emitted as a full (above-floor) indexable page. */
+export interface EmittedFacility {
+  readonly slug: string;
+  readonly canton: string;
+  readonly name: string;
+  readonly liveCount: number;
+}
+
+const nursingLandingsSignal = makeSignal();
+const healthFacilitiesSignal = makeValueSignal<readonly EmittedFacility[]>();
+
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
 export function resolveStaticPagesFlushed(): void {
@@ -142,4 +153,28 @@ export const professionCantonsFlushed: Promise<readonly string[]> =
   professionCantonsSignal.promise;
 export function resolveProfessionCantonsFlushed(paths: readonly string[]): void {
   professionCantonsSignal.resolve(paths);
+}
+
+/**
+ * Resolves once {@link nursingLandingsPlugin} has flushed its landing pages.
+ * Consumed by {@link healthFacilitiesLinksPlugin} so it can safely read +
+ * patch the nursing landing HTML on disk before injecting the "facilities
+ * hiring near you" cross-link block (mirrors the staticPagesFlushed →
+ * professionLandingsLinksPlugin barrier contract).
+ */
+export const nursingLandingsFlushed: Promise<void> = nursingLandingsSignal.promise;
+export function resolveNursingLandingsFlushed(): void {
+  nursingLandingsSignal.resolve();
+}
+
+/**
+ * Resolves with the list of above-floor health facilities that
+ * {@link healthFacilitiesPlugin} emitted this build (a data-dependent subset
+ * of the committed registry). Consumed by {@link healthFacilitiesLinksPlugin},
+ * which links the nursing landings to them — never to a below-floor facility.
+ */
+export const healthFacilitiesFlushed: Promise<readonly EmittedFacility[]> =
+  healthFacilitiesSignal.promise;
+export function resolveHealthFacilitiesFlushed(facilities: readonly EmittedFacility[]): void {
+  healthFacilitiesSignal.resolve(facilities);
 }
