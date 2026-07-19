@@ -2527,6 +2527,11 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3720.title': 'Feiertage und Lohn nach Alter',
+ 'whatsNew.v3720.holidays.title': 'Feiertagskalender: Tessin / Schweiz vs. Italien',
+ 'whatsNew.v3720.holidays.desc': 'Neue Seiten mit den offiziellen Feiertagen des Tessins und Italiens für dieses und nächstes Jahr, den Tagen, die NICHT übereinstimmen (wenn das Tessin frei hat und Italien arbeitet und umgekehrt) und den Brückentagen zur Urlaubsplanung.',
+ 'whatsNew.v3720.salaryByAge.title': 'Durchschnittslohn in der Schweiz nach Alter und Ausbildung',
+ 'whatsNew.v3720.salaryByAge.desc': 'Neue Seiten mit dem Schweizer Medianlohn (BFS-Daten) nach Altersklasse (20, 30, 40, 50, 60) und Ausbildungsniveau, jeweils mit direktem Link zum Nettolohn-Rechner.',
  'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
  'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
  'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',

@@ -2614,6 +2614,11 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3720.title': 'Giorni festivi e stipendio per età',
+ 'whatsNew.v3720.holidays.title': 'Calendario festivi Ticino / Svizzera vs Italia',
+ 'whatsNew.v3720.holidays.desc': 'Nuove pagine con i giorni festivi ufficiali di Ticino e Italia per l’anno in corso e il prossimo, i festivi che NON coincidono (quando il Ticino chiude e l’Italia lavora, e viceversa) e i ponti per pianificare le ferie.',
+ 'whatsNew.v3720.salaryByAge.title': 'Stipendio medio in Svizzera per età e formazione',
+ 'whatsNew.v3720.salaryByAge.desc': 'Nuove pagine con la mediana salariale svizzera (dati BFS) per fascia d’età (20, 30, 40, 50, 60 anni) e per livello di formazione, con collegamento diretto al calcolatore dello stipendio netto.',
  'whatsNew.v3700.title': 'Pagine azienda: stipendi e posizioni aperte',
  'whatsNew.v3700.employerProfiles.title': 'Profili delle aziende che assumono',
  'whatsNew.v3700.employerProfiles.desc': 'Nuove pagine dedicate per centinaia di aziende: posizioni aperte, stipendio mediano, sedi e trend delle assunzioni, tutto in un colpo d’occhio.',

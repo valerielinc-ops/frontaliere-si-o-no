@@ -2524,6 +2524,11 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3720.title': 'Public holidays and salary by age',
+ 'whatsNew.v3720.holidays.title': 'Holiday calendar: Ticino / Switzerland vs Italy',
+ 'whatsNew.v3720.holidays.desc': 'New pages listing the official public holidays of Ticino and Italy for this year and next, the days that do NOT coincide (when Ticino closes and Italy works, and vice versa) and the bridge days to plan your leave.',
+ 'whatsNew.v3720.salaryByAge.title': 'Average Swiss salary by age and education',
+ 'whatsNew.v3720.salaryByAge.desc': 'New pages with the Swiss median wage (BFS data) by age band (20, 30, 40, 50, 60) and by education level, each linking straight to the net-salary calculator.',
  'whatsNew.v3700.title': 'Company pages: salaries and open roles',
  'whatsNew.v3700.employerProfiles.title': 'Profiles of the companies that are hiring',
  'whatsNew.v3700.employerProfiles.desc': 'New dedicated pages for hundreds of employers: open positions, median salary, locations and hiring trend, all at a glance.',
