@@ -25928,6 +25928,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna',
+ category: 'novita',
+ date: '2026-07-19T07:35:36.793Z',
+ image: '/images/blog/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
