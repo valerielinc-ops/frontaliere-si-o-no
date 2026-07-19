@@ -63,44 +63,76 @@ const SHARD_ORIGIN = {
   fr: 'origin-fr.frontaliereticino.ch',
 };
 
-// Ticino-section shards — ONE Pages repo PER LOCALE (frontaliere-ticino-<loc>).
-// The Ticino job section is the single largest subtree in the build: ~4.2 GB /
-// ~222k pages in IT alone (the cross-canton bridge mirrors essentially every
-// active CH job under the legacy TI section), and the bridge runs independently
-// in every locale, so en/de/fr each carry a comparably large Ticino mirror.
-// A SINGLE combined repo would therefore be ~16 GB — over the 10 GB Pages cap
-// itself — so each locale's Ticino subtree gets its OWN ~4 GB shard repo, served
-// from origin-ticino-<loc>.frontaliereticino.ch. This keeps the IT apex AND every
-// en/de/fr locale shard under the actions/deploy-pages 10 GB hard cap (the limit
-// that failed the 2026-06-30 IT deploy: "total size is less than 10GB"). Routing
-// it through the Worker is fine on Workers Paid (10M req/mo, overage ~$0.30/M).
-//   it → /cerca-lavoro-ticino/**        de → /de/jobs-im-tessin/**
-//   en → /en/find-jobs-ticino/**        fr → /fr/trouver-emploi-tessin/**
-const TICINO_ORIGIN = {
-  it: 'origin-ticino-it.frontaliereticino.ch',
-  en: 'origin-ticino-en.frontaliereticino.ch',
-  de: 'origin-ticino-de.frontaliereticino.ch',
-  fr: 'origin-ticino-fr.frontaliereticino.ch',
+// Section shards — ONE Pages repo PER LOCALE PER SECTION (frontaliere-<section>-<loc>).
+// Ticino was the original carve-out (the single largest subtree in the build:
+// ~4.2 GB / ~222k pages in IT alone — the cross-canton bridge mirrors essentially
+// every active CH job under the legacy TI section, and the bridge runs
+// independently in every locale, so en/de/fr each carry a comparably large
+// Ticino mirror; a SINGLE combined repo would be ~16 GB, over the 10 GB Pages cap
+// itself). The site outgrew the 10 GB actions/deploy-pages cap again, so the same
+// treatment now applies to svizzera (the nationwide aggregator) and zurigo
+// (Zurich canton) — each section's locale subtree gets its OWN shard repo, served
+// from origin-<section>-<loc>.frontaliereticino.ch. Routing it through the Worker
+// is fine on Workers Paid (10M req/mo, overage ~$0.30/M).
+//
+// Slug source of truth: scripts/lib/section-shard-slugs.json. This file cannot
+// import it (must stay a single self-contained paste-able script — see the file
+// header above), so the literal prefixes/origins below MIRROR that JSON — keep
+// both in sync if a slug ever changes.
+//   ticino:   it → /cerca-lavoro-ticino/**      en → /en/find-jobs-ticino/**
+//             de → /de/jobs-im-tessin/**        fr → /fr/trouver-emploi-tessin/**
+//   svizzera: it → /cerca-lavoro-svizzera/**    en → /en/find-jobs-switzerland/**
+//             de → /de/jobs-in-schweiz/**       fr → /fr/trouver-emploi-suisse/**
+//   zurigo:   it → /cerca-lavoro-zurigo/**      en → /en/find-jobs-zurich/**
+//             de → /de/jobs-in-zurich/**        fr → /fr/trouver-emploi-zurich/**
+const SECTION_ORIGIN = {
+  ticino: {
+    it: 'origin-ticino-it.frontaliereticino.ch',
+    en: 'origin-ticino-en.frontaliereticino.ch',
+    de: 'origin-ticino-de.frontaliereticino.ch',
+    fr: 'origin-ticino-fr.frontaliereticino.ch',
+  },
+  svizzera: {
+    it: 'origin-svizzera-it.frontaliereticino.ch',
+    en: 'origin-svizzera-en.frontaliereticino.ch',
+    de: 'origin-svizzera-de.frontaliereticino.ch',
+    fr: 'origin-svizzera-fr.frontaliereticino.ch',
+  },
+  zurigo: {
+    it: 'origin-zurigo-it.frontaliereticino.ch',
+    en: 'origin-zurigo-en.frontaliereticino.ch',
+    de: 'origin-zurigo-de.frontaliereticino.ch',
+    fr: 'origin-zurigo-fr.frontaliereticino.ch',
+  },
 };
 
-// Ticino-section path prefixes → which locale's shard + 404-recovery to use.
-// Matched BEFORE LOCALE_RE so an /en|/de|/fr Ticino path resolves to its Ticino
-// shard, not origin-{loc}. The IT prefix (/cerca-lavoro-ticino) is newly routed
-// through the Worker via dedicated wrangler routes (the apex bypasses the Worker
-// for everything else); the three localized prefixes already reach the Worker
-// under the existing /en|/de|/fr routes, so matchTicino re-targets them in-code.
-const TICINO_ROUTES = [
-  { prefix: '/cerca-lavoro-ticino', locale: 'it' },
-  { prefix: '/en/find-jobs-ticino', locale: 'en' },
-  { prefix: '/de/jobs-im-tessin', locale: 'de' },
-  { prefix: '/fr/trouver-emploi-tessin', locale: 'fr' },
+// Section path prefixes → which section + locale's shard + 404-recovery to use.
+// Matched BEFORE LOCALE_RE so an /en|/de|/fr section path resolves to its section
+// shard, not origin-{loc}. Each section's IT prefix is routed through the Worker
+// via a dedicated wrangler route (the apex bypasses the Worker for everything
+// else); the localized prefixes already reach the Worker under the existing
+// /en|/de|/fr routes, so matchSection re-targets them in-code.
+const SECTION_ROUTES = [
+  { section: 'ticino', prefix: '/cerca-lavoro-ticino', locale: 'it' },
+  { section: 'ticino', prefix: '/en/find-jobs-ticino', locale: 'en' },
+  { section: 'ticino', prefix: '/de/jobs-im-tessin', locale: 'de' },
+  { section: 'ticino', prefix: '/fr/trouver-emploi-tessin', locale: 'fr' },
+  { section: 'svizzera', prefix: '/cerca-lavoro-svizzera', locale: 'it' },
+  { section: 'svizzera', prefix: '/en/find-jobs-switzerland', locale: 'en' },
+  { section: 'svizzera', prefix: '/de/jobs-in-schweiz', locale: 'de' },
+  { section: 'svizzera', prefix: '/fr/trouver-emploi-suisse', locale: 'fr' },
+  { section: 'zurigo', prefix: '/cerca-lavoro-zurigo', locale: 'it' },
+  { section: 'zurigo', prefix: '/en/find-jobs-zurich', locale: 'en' },
+  { section: 'zurigo', prefix: '/de/jobs-in-zurich', locale: 'de' },
+  { section: 'zurigo', prefix: '/fr/trouver-emploi-zurich', locale: 'fr' },
 ];
 
-// Returns the matching TICINO_ROUTES entry (with its locale) when the path is the
-// Ticino section root, the .html flat root, or anything under it; null otherwise.
-// Anchored so a look-alike section like /cerca-lavoro-ticino-altro never matches.
-function matchTicino(pathname) {
-  for (const route of TICINO_ROUTES) {
+// Returns the matching SECTION_ROUTES entry ({ section, prefix, locale }) when the
+// path is a section root, the .html flat root, or anything under it; null
+// otherwise. Anchored so a look-alike section like /cerca-lavoro-ticino-altro
+// never matches.
+function matchSection(pathname) {
+  for (const route of SECTION_ROUTES) {
     if (
       pathname === route.prefix ||
       pathname === `${route.prefix}.html` ||
@@ -614,14 +646,14 @@ async function serveStaleOnError(url, reason) {
   return null;
 }
 
-// Serve a request from a GitHub Pages shard origin (locale shard or the Ticino
+// Serve a request from a GitHub Pages shard origin (locale shard or a section
 // shard). Rewrites only the upstream Host to `origin` (the gray-cloud custom
 // domain reachable solely from this Worker); the public URL the user sees never
 // changes. Applies the full shard pipeline: tiered edge cache + one retry,
 // stale-if-error from the apex-keyed Cache API, origin→apex Location rewrite,
 // Cache-Control stamping, apex-keyed fail-open warmup on 200s, and the job-orphan
 // 301 recoveries on 404s. `recoveryLocale` (it|en|de|fr) selects which
-// within-locale recovery map/board to use — for the IT Ticino subtree it is
+// within-locale recovery map/board to use — for an IT section subtree it is
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
 async function serveShard(request, url, origin, recoveryLocale, ctx) {
@@ -760,14 +792,14 @@ export default {
       }
     }
 
-    // Ticino-section shard — checked BEFORE the locale match so an /en|/de|/fr
-    // Ticino path (e.g. /en/find-jobs-ticino/...) resolves to origin-ticino, the
-    // carved-out shard, instead of origin-{loc}. The IT /cerca-lavoro-ticino
+    // Section shard — checked BEFORE the locale match so an /en|/de|/fr section
+    // path (e.g. /en/find-jobs-ticino/..., /en/find-jobs-zurich/...) resolves to
+    // its carved-out section shard, instead of origin-{loc}. Each section's IT
     // prefix reaches the Worker via its own wrangler routes; all other IT paths
     // stay a pure apex passthrough (the !match branch below).
-    const tic = matchTicino(url.pathname);
-    if (tic) {
-      return serveShard(request, url, TICINO_ORIGIN[tic.locale], tic.locale, ctx);
+    const sec = matchSection(url.pathname);
+    if (sec) {
+      return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx);
     }
 
     const match = url.pathname.match(LOCALE_RE);

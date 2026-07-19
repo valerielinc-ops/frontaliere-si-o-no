@@ -414,71 +414,99 @@ jobs:
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
-      # ── Ticino shard (keeps the IT apex under the 10 GB Pages cap) ──────────
-      # Push dist/cerca-lavoro-ticino to its OWN Pages repo (frontaliere-ticino-it,
-      # ~4 GB) and strip it from dist BEFORE deploy-it-pages-prep packs the
-      # artifact, so the IT github-pages artifact drops below the
-      # actions/deploy-pages 10 GB cap (the limit that failed the 2026-06-30
-      # deploy). One repo PER LOCALE — a single combined Ticino repo would be
-      # ~16 GB, over the cap itself. Runs BEFORE the IT offload (inside
-      # deploy-it-pages-prep) so push-ticino-shard offloads its own staged copy
-      # exactly once. Push gates on the deploy key; strip additionally gates on
-      # TICINO_SHARD_LIVE + the push ok-marker (populate-then-strip) → a full no-op
-      # until the owner provisions + flips the split.
-      - name: Push Ticino shard (IT → frontaliere-ticino-it)
+      # ── Section shards (keep the IT apex under the 10 GB Pages cap) ────────
+      # Push each oversized job-board section (ticino/svizzera/zurigo) to its
+      # OWN per-locale Pages repo (frontaliere-<section>-it, several GB each)
+      # and strip it from dist BEFORE deploy-it-pages-prep packs the artifact,
+      # so the IT github-pages artifact drops below the actions/deploy-pages
+      # 10 GB cap. One repo PER (section, locale) — a single combined repo per
+      # section would itself exceed the cap. Runs BEFORE the IT offload
+      # (inside deploy-it-pages-prep) so each push-section-shard.sh invocation
+      # offloads its own staged copy exactly once. Push gates on the deploy
+      # key; strip additionally gates on <SECTION>_SHARD_LIVE + the push
+      # ok-marker (populate-then-strip) → a full no-op until the owner
+      # provisions + flips a given section's split. See
+      # docs/TICINO-SHARD-RUNBOOK.md for the mechanism (written for the first
+      # section, ticino; svizzera/zurigo reuse it via
+      # scripts/lib/section-shard-slugs.json).
+      - name: Push section shards (IT → frontaliere-<section>-it)
         if: matrix.locale == 'it'
         # A push failure must never block the apex publish: the strip then no-ops
-        # (no ok-marker) so Ticino stays in the apex (>10 GB, deploy fails — but
-        # never UNSERVED). The shard otherwise keeps serving its previous build.
+        # (no ok-marker) so that section stays in the apex (>10 GB, deploy fails —
+        # but never UNSERVED). The shard otherwise keeps serving its previous build.
         continue-on-error: true
         env:
           SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
           SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
           SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
           SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
+          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
+          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: bash scripts/lib/push-ticino-shard.sh it dist
+        run: |
+          set -uo pipefail
+          for section in ticino svizzera zurigo; do
+            bash scripts/lib/push-section-shard.sh "$section" it dist
+          done
 
-      # Same-run tar artifact for post-deploy-validate-dist's Ticino rehydrate
+      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
       # fast path — mirrors "Pack locale shard dist (tar)" below. Previously
       # validate-dist rehydrated each Ticino subtree by `git clone --depth 1`
       # of the ~4 GB shard repo, one locale at a time (~12min wall on run
-      # 28564001685). push-ticino-shard.sh already builds an offloaded staged
-      # copy at $RUNNER_TEMP/ticino-src-it/dist/$sub (byte-identical to what it
-      # just force-pushed) and now leaves it in place instead of deleting it —
-      # pack that into one tar (same stack-overflow-avoidance reason as the
-      # locale tar: upload-artifact enumerates every file, so a raw ~220k-file
-      # tree would fail the same way). validate-dist still falls back to the
-      # git clone when this artifact is missing/corrupt.
-      - name: Pack Ticino shard dist (tar) for post-deploy validation
-        if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
+      # 28564001685). push-section-shard.sh already builds an offloaded staged
+      # copy at $RUNNER_TEMP/<section>-src-it/dist/$sub (byte-identical to what
+      # it just force-pushed) and leaves it in place instead of deleting it —
+      # pack that into one tar per section (same stack-overflow-avoidance
+      # reason as the locale tar: upload-artifact enumerates every file, so a
+      # raw ~220k-file tree would fail the same way). validate-dist still
+      # falls back to the git clone when a given section's artifact is
+      # missing/corrupt. Per-section LIVE gate lives INSIDE the loop (not the
+      # step `if:`) since each section has its own repo variable.
+      - name: Pack section shard dist (tar) for post-deploy validation
+        if: matrix.locale == 'it'
         continue-on-error: true
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
         run: |
-          set -euo pipefail
-          sub="cerca-lavoro-ticino"
-          src="$RUNNER_TEMP/ticino-src-it/dist"
-          if [ ! -d "$src/$sub" ]; then
-            echo "no staged ticino-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
-            exit 0
-          fi
-          tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-it.tar" "$sub"
-          ls -lh "$RUNNER_TEMP/ticino-dist-it.tar"
-          # Byte-identity guard (#2761 item 1): this tar and push-ticino-shard.sh's
-          # own push both read the SAME already-offloaded "$src/$sub" staged copy
-          # (see the comment above push_ticino_shard's stage_src note) — nothing
-          # mutates it in between, so the two paths are guaranteed to agree. This
-          # count check makes that guarantee self-verifying: if it ever drifts,
-          # discard the tar so validate-dist safely falls back to git-clone
-          # instead of silently validating a partial/mismatched tree.
-          packed_n=$(tar -tf "$RUNNER_TEMP/ticino-dist-it.tar" | { grep -vc '/$' || true; })
-          src_n=$(find "$src/$sub" -type f | wc -l)
-          if [ "$packed_n" -ne "$src_n" ]; then
-            echo "::warning::ticino-dist-it.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-            rm -f "$RUNNER_TEMP/ticino-dist-it.tar"
-          fi
-          rm -rf "$src"
-      - name: Upload Ticino shard dist for post-deploy validation
+          set -uo pipefail
+          for section in ticino svizzera zurigo; do
+            live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            if [ "${!live_var:-}" != "true" ]; then
+              continue
+            fi
+            sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+            src="$RUNNER_TEMP/${section}-src-it/dist"
+            if [ ! -d "$src/$sub" ]; then
+              echo "no staged $section-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
+              continue
+            fi
+            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-it.tar" "$sub"
+            ls -lh "$RUNNER_TEMP/$section-dist-it.tar"
+            # Byte-identity guard (#2761 item 1): this tar and push-section-shard.sh's
+            # own push both read the SAME already-offloaded "$src/$sub" staged copy
+            # (see the comment above push_section_shard's stage_src note) — nothing
+            # mutates it in between, so the two paths are guaranteed to agree. This
+            # count check makes that guarantee self-verifying: if it ever drifts,
+            # discard the tar so validate-dist safely falls back to git-clone
+            # instead of silently validating a partial/mismatched tree.
+            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-it.tar" | { grep -vc '/$' || true; })
+            src_n=$(find "$src/$sub" -type f | wc -l)
+            if [ "$packed_n" -ne "$src_n" ]; then
+              echo "::warning::$section-dist-it.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-it.tar"
+            fi
+            rm -rf "$src"
+          done
+      - name: Upload ticino shard dist for post-deploy validation
         if: matrix.locale == 'it' && vars.TICINO_SHARD_LIVE == 'true'
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -488,12 +516,38 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+      - name: Upload svizzera shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: svizzera-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/svizzera-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload zurigo shard dist for post-deploy validation
+        if: matrix.locale == 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: zurigo-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/zurigo-dist-it.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
 
-      - name: Strip Ticino subtree (IT)
+      - name: Strip section subtrees (IT)
         if: matrix.locale == 'it'
         env:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-        run: bash scripts/lib/strip-ticino-subtree.sh it dist
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+        run: |
+          set -uo pipefail
+          for section in ticino svizzera zurigo; do
+            bash scripts/lib/strip-section-subtree.sh "$section" it dist
+          done
 
       # ── IT shard → GitHub Pages + CDN (Pages-serving shard) ──────────────
       # deploy-it-pages-prep.sh runs the monolith's post-build bash IN ORDER:
@@ -695,14 +749,14 @@ jobs:
           done
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
-      # ── NON-IT shards (en/de/fr) → frontaliere-<loc> shard repos ─────────
-      # Ticino shard push FIRST (before the offload below) so push-ticino-shard
-      # stages the RAW subtree (find-jobs-ticino / jobs-im-tessin /
-      # trouver-emploi-tessin) and offloads its own copy exactly once; then strip
-      # it so the locale shard drops below the 10 GB Pages cap. One repo PER LOCALE
-      # (frontaliere-ticino-<loc>). Push gates on the deploy key; strip on
-      # TICINO_SHARD_LIVE + the push ok-marker.
-      - name: Push Ticino shard (non-IT → frontaliere-ticino-<loc>)
+      # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
+      # Section shard push FIRST (before the offload below) so
+      # push-section-shard.sh stages the RAW subtree and offloads its own
+      # copy exactly once; then strip it so the locale shard drops below the
+      # 10 GB Pages cap. One repo PER (section, locale) (frontaliere-<section>-<loc>).
+      # Push gates on the deploy key; strip on <SECTION>_SHARD_LIVE + the push
+      # ok-marker.
+      - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
         if: matrix.locale != 'it'
         continue-on-error: true
         env:
@@ -710,46 +764,67 @@ jobs:
           SHARD_TICINO_EN_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_EN_DEPLOY_KEY }}
           SHARD_TICINO_DE_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_DE_DEPLOY_KEY }}
           SHARD_TICINO_FR_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_FR_DEPLOY_KEY }}
+          SHARD_SVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_SVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_SVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_SVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_SVIZZERA_FR_DEPLOY_KEY }}
+          SHARD_ZURIGO_IT_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_IT_DEPLOY_KEY }}
+          SHARD_ZURIGO_EN_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_EN_DEPLOY_KEY }}
+          SHARD_ZURIGO_DE_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_DE_DEPLOY_KEY }}
+          SHARD_ZURIGO_FR_DEPLOY_KEY: ${{ secrets.SHARD_ZURIGO_FR_DEPLOY_KEY }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_RUN_ID: ${{ github.run_id }}
-        run: bash scripts/lib/push-ticino-shard.sh "${{ matrix.locale }}" dist
-
-      # Same-run tar artifact for post-deploy-validate-dist's Ticino rehydrate
-      # fast path — see the IT leg's "Pack Ticino shard dist" step above for
-      # the full rationale (git-clone fallback was ~12min wall across the 4
-      # legs combined, run 28564001685).
-      - name: Pack Ticino shard dist (tar) for post-deploy validation
-        if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
-        continue-on-error: true
         run: |
-          set -euo pipefail
-          case "${{ matrix.locale }}" in
-            en) sub="en/find-jobs-ticino" ;;
-            de) sub="de/jobs-im-tessin" ;;
-            fr) sub="fr/trouver-emploi-tessin" ;;
-            *) echo "::error::unsupported locale '${{ matrix.locale }}'"; exit 1 ;;
-          esac
-          src="$RUNNER_TEMP/ticino-src-${{ matrix.locale }}/dist"
-          if [ ! -d "$src/$sub" ]; then
-            echo "no staged ticino-${{ matrix.locale }} subtree (push skipped/failed) — validate-dist will fall back to git clone"
-            exit 0
-          fi
-          tar -C "$src" -cf "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar" "$sub"
-          ls -lh "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar"
-          # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack Ticino
-          # shard dist" step above for the full rationale: this tar and
-          # push-ticino-shard.sh's own push both read the SAME already-offloaded
-          # "$src/$sub" staged copy, nothing mutates it in between, so a count
-          # mismatch here can only mean a tar bug — discard rather than upload a
-          # tar validate-dist could trust incorrectly.
-          packed_n=$(tar -tf "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar" | { grep -vc '/$' || true; })
-          src_n=$(find "$src/$sub" -type f | wc -l)
-          if [ "$packed_n" -ne "$src_n" ]; then
-            echo "::warning::ticino-dist-${{ matrix.locale }}.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
-            rm -f "$RUNNER_TEMP/ticino-dist-${{ matrix.locale }}.tar"
-          fi
-          rm -rf "$src"
-      - name: Upload Ticino shard dist for post-deploy validation
+          set -uo pipefail
+          for section in ticino svizzera zurigo; do
+            bash scripts/lib/push-section-shard.sh "$section" "${{ matrix.locale }}" dist
+          done
+
+      # Same-run tar artifact for post-deploy-validate-dist's section rehydrate
+      # fast path — see the IT leg's "Pack section shard dist" step above for
+      # the full rationale (git-clone fallback was ~12min wall across the 4
+      # legs combined, run 28564001685). Per-section LIVE gate lives INSIDE
+      # the loop (not the step `if:`) since each section has its own repo
+      # variable.
+      - name: Pack section shard dist (tar) for post-deploy validation
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+        run: |
+          set -uo pipefail
+          loc="${{ matrix.locale }}"
+          for section in ticino svizzera zurigo; do
+            live_var="$(echo "$section" | tr a-z A-Z)_SHARD_LIVE"
+            if [ "${!live_var:-}" != "true" ]; then
+              continue
+            fi
+            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
+            sub="$loc/$slug"
+            src="$RUNNER_TEMP/${section}-src-$loc/dist"
+            if [ ! -d "$src/$sub" ]; then
+              echo "no staged $section-$loc subtree (push skipped/failed) — validate-dist will fall back to git clone"
+              continue
+            fi
+            tar -C "$src" -cf "$RUNNER_TEMP/$section-dist-$loc.tar" "$sub"
+            ls -lh "$RUNNER_TEMP/$section-dist-$loc.tar"
+            # Byte-identity guard (#2761 item 1) — see the IT leg's "Pack section
+            # shard dist" step above for the full rationale: this tar and
+            # push-section-shard.sh's own push both read the SAME already-offloaded
+            # "$src/$sub" staged copy, nothing mutates it in between, so a count
+            # mismatch here can only mean a tar bug — discard rather than upload a
+            # tar validate-dist could trust incorrectly.
+            packed_n=$(tar -tf "$RUNNER_TEMP/$section-dist-$loc.tar" | { grep -vc '/$' || true; })
+            src_n=$(find "$src/$sub" -type f | wc -l)
+            if [ "$packed_n" -ne "$src_n" ]; then
+              echo "::warning::$section-dist-$loc.tar file count mismatch (packed=$packed_n src=$src_n) — discarding tar, validate-dist will fall back to git-clone"
+              rm -f "$RUNNER_TEMP/$section-dist-$loc.tar"
+            fi
+            rm -rf "$src"
+          done
+      - name: Upload ticino shard dist for post-deploy validation
         if: matrix.locale != 'it' && vars.TICINO_SHARD_LIVE == 'true'
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -759,12 +834,38 @@ jobs:
           compression-level: 1
           retention-days: 1
           if-no-files-found: ignore
+      - name: Upload svizzera shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.SVIZZERA_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: svizzera-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
+      - name: Upload zurigo shard dist for post-deploy validation
+        if: matrix.locale != 'it' && vars.ZURIGO_SHARD_LIVE == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: zurigo-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 1
+          if-no-files-found: ignore
 
-      - name: Strip Ticino subtree (non-IT)
+      - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
         env:
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
-        run: bash scripts/lib/strip-ticino-subtree.sh "${{ matrix.locale }}" dist
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+        run: |
+          set -uo pipefail
+          for section in ticino svizzera zurigo; do
+            bash scripts/lib/strip-section-subtree.sh "$section" "${{ matrix.locale }}" dist
+          done
 
       - name: Offload shard refs to CDN
         if: matrix.locale != 'it'

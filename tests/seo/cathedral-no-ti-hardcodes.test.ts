@@ -24,6 +24,14 @@ const ALLOWLIST = [
   //    only quotes the literals inside the legacyTiSectionRoot() docblock. ──
   'build-plugins/shared/cantonSection.ts',
 
+  // ── section-shard-slugs.json: single source of truth for the canton
+  //    Pages-shard mechanism's section×locale slug table (ticino/svizzera/
+  //    zurigo). JSON cannot carry an inline ` // cathedral-allow:` comment,
+  //    so this whole-file entry is the only viable mechanism — the literal
+  //    IS the canonical data here, not a hardcode leaking outside the
+  //    architecture (it replaces the old per-script TI-only hardcoding). ──
+  'scripts/lib/section-shard-slugs.json',
+
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
   // Lines shifted +1 by the minifyHtml import added at the top of the file
   // (May 2026 — apply minifier to soft-landing emit path).

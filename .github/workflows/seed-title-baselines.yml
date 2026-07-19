@@ -178,57 +178,68 @@ jobs:
           done
           df -h / | tail -1
 
-      # Mirrors the locale rehydrate above for the carved-out Ticino section,
-      # copied verbatim from post-deploy-validate-dist.yml's "Rehydrate
-      # Ticino shards into dist/ (when Ticino split active)" step.
-      - name: Rehydrate Ticino shards into dist/ (when Ticino split active)
-        if: ${{ vars.TICINO_SHARD_LIVE == 'true' }}
+      # Mirrors the locale rehydrate above for the carved-out canton-section
+      # shards (Ticino/Svizzera/Zurigo). Slug map + fast-path/clone-fallback
+      # pattern mirrored from post-deploy-validate-dist.yml's rehydrate_section().
+      - name: Rehydrate section shards into dist/ (Ticino/Svizzera/Zurigo, when active)
+        if: ${{ vars.TICINO_SHARD_LIVE == 'true' || vars.SVIZZERA_SHARD_LIVE == 'true' || vars.ZURIGO_SHARD_LIVE == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ steps.latest.outputs.run_id }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
         run: |
           set -uo pipefail
-          declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
-          for loc in it en de fr; do
-            sub="${TICINO_SUB[$loc]}"
-            if [ -d "dist/$sub" ]; then
-              echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
-              continue
-            fi
-
-            dl="$RUNNER_TEMP/ticino-dist-$loc"
-            rm -rf "$dl"; mkdir -p "$dl"
-            if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
-              mkdir -p "dist/$(dirname "$sub")"
-              rm -rf "dist/$sub"
-              tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
-              rm -rf "$dl"
+          declare -A SECTION_SUB=(
+            [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
+            [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
+            [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
+          )
+          for section in ticino svizzera zurigo; do
+            live_var="${section^^}_SHARD_LIVE"
+            [ "${!live_var:-}" = "true" ] || { echo "$section shard not live — skip"; continue; }
+            for loc in it en de fr; do
+              sub="${SECTION_SUB[$section:$loc]}"
               if [ -d "dist/$sub" ]; then
-                echo "rehydrated Ticino $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+                echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
               fi
-              echo "[rehydrate] ticino-$loc tar present but no $sub subtree after extract — falling back to git clone"
-            else
-              rm -rf "$dl"
-              echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
-            fi
 
-            tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
-            rm -rf "$tmp"
-            if ! git clone --depth 1 --single-branch --branch main \
-                 "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
-              echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
-              continue
-            fi
-            if [ -d "$tmp/$sub" ]; then
-              mkdir -p "dist/$(dirname "$sub")"
-              rm -rf "dist/$sub"
-              cp -r "$tmp/$sub" "dist/$sub"
-              echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
-            else
-              echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
-            fi
-            rm -rf "$tmp"
+              dl="$RUNNER_TEMP/$section-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "$section-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/$section-dist-$loc.tar" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
+                rm -rf "$dl"
+                if [ -d "dist/$sub" ]; then
+                  echo "rehydrated $section $loc from tar artifact: $(find "dist/$sub" -type f | wc -l) files"
+                  continue
+                fi
+                echo "[rehydrate] $section-$loc tar present but no $sub subtree after extract — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
+              rm -rf "$tmp"
+              if ! git clone --depth 1 --single-branch --branch main \
+                   "https://github.com/valerielinc-ops/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
+                continue
+              fi
+              if [ -d "$tmp/$sub" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                cp -r "$tmp/$sub" "dist/$sub"
+                echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
+              else
+                echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
+              fi
+              rm -rf "$tmp"
+            done
           done
           df -h / | tail -1
 

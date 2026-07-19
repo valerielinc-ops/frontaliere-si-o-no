@@ -14,13 +14,14 @@ name: Measure Deploy Delta
 # `measure-dist-delta.py` here never materializes a `dist/` tree at all — it
 # streams two whole `artifact.tar` files directly (`A/artifact.tar`,
 # `B/artifact.tar`) and diffs their members by content hash in place. Bolting
-# on the "Rehydrate locale/Ticino shards into dist/" steps would require a
-# different, larger change: pulling the matching locale/Ticino shard tars for
+# on the "Rehydrate locale/section shards into dist/" steps would require a
+# different, larger change: pulling the matching locale/section shard tars for
 # BOTH run_a and run_b and diffing each shard pair separately, then merging
-# those deltas into the report — not a copy-paste of the two rehydrate steps.
+# those deltas into the report — not a copy-paste of the rehydrate steps.
 # The `github-pages`-only download here is a real completeness gap (the
-# reported delta undercounts churn once LOCALE_SHARDS_LIVE/TICINO_SHARD_LIVE
-# strip locales into shard repos) but it is a distinct, larger fix left
+# reported delta undercounts churn once LOCALE_SHARDS_LIVE/TICINO_SHARD_LIVE/
+# SVIZZERA_SHARD_LIVE/ZURIGO_SHARD_LIVE strip sections into shard repos) but
+# it is a distinct, larger fix left
 # out of scope for this sweep; this tool is diagnostic/measurement-only (not
 # a validation-gate baseline), so the gap does not silently weaken a ratchet.
 

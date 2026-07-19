@@ -34,8 +34,10 @@
  * (IT) and its `en/find-jobs-ticino` / `de/jobs-im-tessin` /
  * `fr/trouver-emploi-tessin` counterparts are stripped from the IT apex AND
  * from every locale shard's own tree, and pushed to FOUR MORE dedicated repos
- * `frontaliere-ticino-{it,en,de,fr}` (see TICINO_SHARD_REPOS below and
- * docs/TICINO-SHARD-RUNBOOK.md). Missing this union was the root cause of
+ * `frontaliere-ticino-{it,en,de,fr}` (see SECTION_SHARD_REPOS below and
+ * docs/TICINO-SHARD-RUNBOOK.md; svizzera/zurigo were added the same way,
+ * generalized — see docs/SECTION-SHARD-RUNBOOK.md). Missing this union was
+ * the root cause of
  * issue #3173 (19 real offenders on 2026-06-30 → thousands of false-positive
  * Ticino-section 404s from 2026-07-01 onward, once this script's served set
  * no longer matched what the locale-router Worker actually serves).
@@ -100,6 +102,7 @@
  */
 
 import { readFile, access, mkdtemp, rm, readdir, stat } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -149,29 +152,42 @@ const SHARD_REPOS = {
   fr: 'valerielinc-ops/frontaliere-fr',
 };
 
-// Ticino-section shards (issue #3173 root cause, added 2026-07-03): PR #3177
-// (2026-06-30) carved the Ticino job/company section out of the IT apex AND
-// every en/de/fr locale shard into FOUR dedicated per-locale Pages repos
-// (frontaliere-ticino-<loc>), gated by the `TICINO_SHARD_LIVE` repo variable
-// (flipped true 2026-07-01T06:30Z — see docs/TICINO-SHARD-RUNBOOK.md). Once
-// live, strip-ticino-subtree.sh removes cerca-lavoro-ticino / en/find-jobs-ticino
-// / de/jobs-im-tessin / fr/trouver-emploi-tessin from the apex and from every
-// locale shard's own dist before push — the content is real and served (via
-// the locale-router Worker → origin-ticino-<loc>), just no longer present in
-// SHARD_REPOS' trees. This script's SHARD_REPOS map was never updated in that
-// PR (post-deploy-validate-dist.yml's rehydrate step was, in the same PR — this
-// was the missed sibling), so from 2026-07-01 onward EVERY Ticino-section
-// en/de/fr page was a false-positive 404-risk (19 real offenders on 06-30 →
-// 3581 false + real by 07-02, almost entirely `find-jobs-ticino` /
-// `jobs-im-tessin` / `trouver-emploi-tessin` URLs). Keep in lockstep with
-// TICINO_SUB in .github/workflows/post-deploy-validate-dist.yml and the `case`
-// in scripts/lib/push-ticino-shard.sh.
-const TICINO_SHARD_REPOS = {
-  it: 'valerielinc-ops/frontaliere-ticino-it',
-  en: 'valerielinc-ops/frontaliere-ticino-en',
-  de: 'valerielinc-ops/frontaliere-ticino-de',
-  fr: 'valerielinc-ops/frontaliere-ticino-fr',
-};
+// Canton-section shards (issue #3173 root cause, added 2026-07-03; GENERALIZED
+// 2026-07-19 from Ticino-only — see below). PR #3177 (2026-06-30) carved the
+// Ticino job/company section out of the IT apex AND every en/de/fr locale
+// shard into FOUR dedicated per-locale Pages repos (frontaliere-ticino-<loc>),
+// gated by the `TICINO_SHARD_LIVE` repo variable (flipped true
+// 2026-07-01T06:30Z — see docs/TICINO-SHARD-RUNBOOK.md). Once live,
+// strip-section-subtree.sh removes the section's subtree from the apex and
+// from every locale shard's own dist before push — the content is real and
+// served (via the locale-router Worker → origin-<section>-<loc>), just no
+// longer present in SHARD_REPOS' trees. This script's shard map was never
+// updated in PR #3177 (post-deploy-validate-dist.yml's rehydrate step was, in
+// the same PR — this was the missed sibling), so from 2026-07-01 onward EVERY
+// Ticino-section en/de/fr page was a false-positive 404-risk (19 real
+// offenders on 06-30 → 3581 false + real by 07-02). To not repeat that when a
+// 3rd/4th section is added, this now reads section×locale from the SAME
+// single-source-of-truth JSON the rest of the shard mechanism uses
+// (scripts/lib/section-shard-slugs.json — shared with push-section-shard.sh /
+// strip-section-subtree.sh / post-deploy-validate-dist.yml's rehydrate_section
+// / locale-router.js's SECTION_ROUTES) instead of a second hardcoded copy, so
+// a future section is covered automatically with no change here.
+const SECTION_SLUGS = JSON.parse(
+  readFileSync(join(ROOT, 'scripts/lib/section-shard-slugs.json'), 'utf8')
+);
+const SECTION_SHARD_REPOS = Object.fromEntries(
+  Object.keys(SECTION_SLUGS)
+    .filter((section) => !section.startsWith('_'))
+    .map((section) => [
+      section,
+      Object.fromEntries(
+        Object.keys(SECTION_SLUGS[section]).map((loc) => [
+          loc,
+          `valerielinc-ops/frontaliere-${section}-${loc}`,
+        ])
+      ),
+    ])
+);
 
 // Degenerate-clone floor: a successful clone of a real locale shard returns
 // hundreds of thousands of served pages, whereas an empty/partial tree (renamed
@@ -198,9 +214,10 @@ function shardFloor(loc) {
 // Same floor guard, separate knobs, for the Ticino shards (~222k pages each per
 // docs/TICINO-SHARD-RUNBOOK.md — degenerate-clone risk is identical to the
 // locale shards, so reuse DEFAULT_SHARD_FLOOR unless overridden).
-function ticinoShardFloor(loc) {
-  const raw = process.env[`AUDIT_404_TICINO_SHARD_FLOOR_${loc.toUpperCase()}`]
-    ?? process.env.AUDIT_404_TICINO_SHARD_FLOOR;
+function sectionShardFloor(section, loc) {
+  const sectionUpper = section.toUpperCase();
+  const raw = process.env[`AUDIT_404_${sectionUpper}_SHARD_FLOOR_${loc.toUpperCase()}`]
+    ?? process.env[`AUDIT_404_${sectionUpper}_SHARD_FLOOR`];
   if (raw == null) return DEFAULT_SHARD_FLOOR;
   const n = Number(raw);
   return Number.isFinite(n) && n >= 0 ? n : DEFAULT_SHARD_FLOOR;
@@ -303,6 +320,14 @@ function treeEntryToRoute(entry) {
   return normPath('/' + e);
 }
 
+// Returns the list of tracked file paths, or `null` if the repo has no
+// commits yet (a genuinely empty repo — e.g. a section shard repo freshly
+// `gh repo create`d but not yet seeded by the first push-section-shard.sh
+// run). That's NOT a degenerate clone: the section's content is simply still
+// served from wherever it hasn't been stripped from yet, so callers that can
+// tolerate a not-yet-seeded shard should treat `null` as "0 pages, skip the
+// floor check" rather than a failure. Any other clone/list error still
+// throws (auth, network, wrong repo name — real problems).
 async function listShardTree(repo) {
   const dir = await mkdtemp(join(tmpdir(), 'audit404-'));
   try {
@@ -310,10 +335,15 @@ async function listShardTree(repo) {
       'clone', '--filter=blob:none', '--no-checkout', '--depth', '1', '--quiet',
       `https://github.com/${repo}.git`, dir,
     ], { maxBuffer: 64 * 1024 * 1024 });
-    const { stdout } = await execFileP('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD'], {
-      maxBuffer: 256 * 1024 * 1024,
-    });
-    return stdout.split('\n').filter(Boolean);
+    try {
+      const { stdout } = await execFileP('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD'], {
+        maxBuffer: 256 * 1024 * 1024,
+      });
+      return stdout.split('\n').filter(Boolean);
+    } catch (err) {
+      if (/Not a valid object name HEAD/.test(String(err.stderr || err.message || ''))) return null;
+      throw err;
+    }
   } finally {
     await rm(dir, { recursive: true, force: true }).catch(() => {});
   }
@@ -342,7 +372,7 @@ async function listDistRoutes() {
 
 async function buildServedSet() {
   const served = new Set();
-  const meta = { shards: {}, ticinoShards: {}, itSource: null, distRoutes: 0 };
+  const meta = { shards: {}, sectionShards: {}, itSource: null, distRoutes: 0 };
 
   // Main IT routes: prefer local dist; else use the live IT sitemap <loc>s.
   const distRoutes = await listDistRoutes();
@@ -358,7 +388,11 @@ async function buildServedSet() {
   if (!NO_SHARDS) {
     for (const [loc, repo] of Object.entries(SHARD_REPOS)) {
       log(`[404] listing ${loc} shard tree (${repo}) …`);
-      const entries = await listShardTree(repo);
+      // These locale shards must ALWAYS have content (unlike section shards
+      // below) — a `null` here (empty repo) is exactly as bad as n=0 from a
+      // truncated tree, so it flows into the same floor check rather than a
+      // silent skip.
+      const entries = (await listShardTree(repo)) ?? [];
       let n = 0;
       for (const e of entries) {
         if (!/\.html$/i.test(e)) continue;
@@ -378,28 +412,43 @@ async function buildServedSet() {
       }
     }
 
-    // Ticino-section shards (issue #3173): additive to the locale shards
-    // above, NOT a replacement — since 2026-07-01 the Ticino subtree is
-    // stripped out of the IT apex and out of every en/de/fr locale shard, so
-    // without this loop every Ticino-section page looks unserved even though
-    // it's live on frontaliere-ticino-<loc>. See TICINO_SHARD_REPOS comment.
-    for (const [loc, repo] of Object.entries(TICINO_SHARD_REPOS)) {
-      log(`[404] listing ${loc} Ticino shard tree (${repo}) …`);
-      const entries = await listShardTree(repo);
-      let n = 0;
-      for (const e of entries) {
-        if (!/\.html$/i.test(e)) continue;
-        served.add(treeEntryToRoute(e));
-        n++;
-      }
-      const floor = ticinoShardFloor(loc);
-      meta.ticinoShards[loc] = n;
-      log(`[404]   ticino-${loc}: ${n} served pages (floor ${floor})`);
-      // Same degenerate-clone guard as the locale shards above — a renamed
-      // repo / failed push / rate-limited clone must fail loud, not silently
-      // report tens of thousands of false Ticino-section 404s.
-      if (n < floor) {
-        throw new Error(`ticino shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this is expected (e.g. TICINO_SHARD_LIVE rolled back), lower it via AUDIT_404_TICINO_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_TICINO_SHARD_FLOOR).`);
+    // Canton-section shards (Ticino/Svizzera/Zurigo, issue #3173): additive to
+    // the locale shards above, NOT a replacement — once a section's
+    // `<SECTION>_SHARD_LIVE` flips, its subtree is stripped out of the IT apex
+    // and out of every en/de/fr locale shard, so without this loop every page
+    // in that section looks unserved even though it's live on
+    // frontaliere-<section>-<loc>. See SECTION_SHARD_REPOS comment.
+    for (const [section, repos] of Object.entries(SECTION_SHARD_REPOS)) {
+      meta.sectionShards[section] = {};
+      for (const [loc, repo] of Object.entries(repos)) {
+        log(`[404] listing ${loc} ${section} shard tree (${repo}) …`);
+        const entries = await listShardTree(repo);
+        if (entries === null) {
+          // Genuinely empty repo (no commits) — this section isn't seeded/
+          // live yet (e.g. a new section between `gh repo create` and its
+          // first push-section-shard.sh run). Its content is still fully
+          // served from wherever it hasn't been stripped from, so this
+          // contributes 0 pages with NO floor check — not a degenerate-clone
+          // regression. See listShardTree()'s doc comment.
+          meta.sectionShards[section][loc] = null;
+          log(`[404]   ${section}-${loc}: not seeded yet (empty repo) — skipping`);
+          continue;
+        }
+        let n = 0;
+        for (const e of entries) {
+          if (!/\.html$/i.test(e)) continue;
+          served.add(treeEntryToRoute(e));
+          n++;
+        }
+        const floor = sectionShardFloor(section, loc);
+        meta.sectionShards[section][loc] = n;
+        log(`[404]   ${section}-${loc}: ${n} served pages (floor ${floor})`);
+        // Same degenerate-clone guard as the locale shards above — a renamed
+        // repo / failed push / rate-limited clone must fail loud, not
+        // silently report tens of thousands of false section-scoped 404s.
+        if (n < floor) {
+          throw new Error(`${section} shard ${loc} (${repo}) returned only ${n} pages (< floor ${floor}) — degenerate clone, refusing to emit a poisoned report. If this is expected (e.g. ${section.toUpperCase()}_SHARD_LIVE rolled back), lower it via AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR_${loc.toUpperCase()} (or AUDIT_404_${section.toUpperCase()}_SHARD_FLOOR).`);
+        }
       }
     }
   }
@@ -481,7 +530,7 @@ async function main() {
   log('[404] building served-path set (main IT + shards) …');
   const { served, meta } = await buildServedSet();
   const resolves = makeResolver(served, meta);
-  log(`[404] served set: ${served.size} paths | IT source: ${meta.itSource} | shards: ${JSON.stringify(meta.shards)} | ticino shards: ${JSON.stringify(meta.ticinoShards)}`);
+  log(`[404] served set: ${served.size} paths | IT source: ${meta.itSource} | shards: ${JSON.stringify(meta.shards)} | section shards: ${JSON.stringify(meta.sectionShards)}`);
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -574,7 +623,7 @@ async function main() {
   const total404 = a.wouldBe404 + b.wouldBe404;
 
   process.stdout.write('\n=== 404-RISK AUDIT ===\n');
-  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)}; ticino shards: ${JSON.stringify(meta.ticinoShards)})\n\n`);
+  process.stdout.write(`served set: ${served.size} paths (IT: ${meta.itSource}; shards: ${JSON.stringify(meta.shards)}; section shards: ${JSON.stringify(meta.sectionShards)})\n\n`);
   process.stdout.write(`(A) Sitemap coverage:       ${a.wouldBe404} / ${a.totalUrls} URLs would 404\n`);
   for (const u of a.sample) process.stdout.write(`      ✗ ${u}\n`);
   process.stdout.write(`\n(B) Newsletter hub links:   ${b.wouldBe404} would 404 (${b.companiesSampled} companies × 4 locales)\n`);
