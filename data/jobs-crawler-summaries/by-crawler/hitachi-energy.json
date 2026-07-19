@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-07-19T10:42:55.810Z",
-  "total": 89,
+  "generatedAt": "2026-07-19T21:58:11.580Z",
+  "total": 88,
   "newCount": 2,
-  "updatedCount": 84,
-  "removedCount": 0,
+  "updatedCount": 83,
+  "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 128207,
-  "avgDurationMs": 128207,
+  "durationMs": 333586,
+  "avgDurationMs": 333586,
   "durationHistory": [
-    128207
+    333586
   ],
   "newJobs": [
     {
@@ -1126,7 +1126,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Head of Bid & Proposal Markt Schweiz 80 - 100% (w/m/d)",
+      "slug": "capo-del-mercato-offerte-e-proposte-svizzera-80-100-f-m-d-hitachi-energy-baden-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-193856",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/Head-of-Distribution-Sales_R0126988/apply",
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "companyDomain": "hitachienergy.com",
+      "location": "Baden, Switzerland",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Vendita & Marketing",
+      "source": "hitachi-energy-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-13",
+      "employmentType": "full-time",
+      "contractType": "regular",
+      "validThrough": "",
+      "id": "hitachi-energy-15064dc0f614",
+      "salaryMin": 103500,
+      "salaryMax": 159500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-18T10:30:32.146Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Installation Project Manager 80 - 100% (f/m/d)",
