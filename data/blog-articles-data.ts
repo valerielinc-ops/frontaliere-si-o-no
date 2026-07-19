@@ -25892,6 +25892,42 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'stipendio-assistente-dentale-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-07-19T05:54:11.603Z',
+ image: '/images/blog/stipendio-assistente-dentale-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'costi-traffico-svizzera-2023',
+ category: 'pratico',
+ date: '2026-07-19T06:19:14.029Z',
+ image: '/images/blog/costi-traffico-svizzera-2023.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontaliere-tecnico-radiologia-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-19T06:40:35.911Z',
+ image: '/images/blog/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'quanto-guadagna-un-ergoterapista-frontaliere-in-ticino',
+ category: 'fiscale',
+ date: '2026-07-19T07:04:22.803Z',
+ image: '/images/blog/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

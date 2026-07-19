@@ -50889,6 +50889,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendio-assistente-dentale-frontaliere-ticino': {
+    title: 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    description: 'Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, assistente, dentale',
+    ogTitle: 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    ogDescription: 'Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni.',
+    canonicalPath: '/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un assistente dentale frontaliere in Ticino?",
+      "description": "Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-assistente-dentale-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica del centro di Lugano con la piazza della Riforma e la chiesa di San Lorenzo in primo piano."
+      },
+      "datePublished": "2026-07-19T05:54:11+00:00",
+      "dateModified": "2026-07-19T05:54:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-traffico-svizzera-2023': {
+    title: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    description: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, costi, raggiungono, miliardi',
+    ogTitle: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    ogDescription: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costi-traffico-svizzera-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico in Svizzera: i costi raggiungono 117 miliardi",
+      "description": "Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-traffico-svizzera-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico automobilistico su una autostrada svizzera in Ticino"
+      },
+      "datePublished": "2026-07-19T06:19:14+00:00",
+      "dateModified": "2026-07-19T06:19:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-tecnico-radiologia-ticino-stipendio-requisiti': {
+    title: 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
+    description: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, tecnico, radiologia, stipendio, requisiti',
+    ogTitle: 'Lavorare come tecnico di radiologia in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G",
+      "description": "Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tecnico di radiologia frontaliere lavora in un ospedale di Lugano"
+      },
+      "datePublished": "2026-07-19T06:40:36+00:00",
+      "dateModified": "2026-07-19T06:40:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quanto-guadagna-un-ergoterapista-frontaliere-in-ticino': {
+    title: 'Stipendio ergoterapista: salari e differenze con l\'Italia',
+    description: 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, ergoterapista, salari, differenze',
+    ogTitle: 'Stipendio reale di un ergoterapista frontaliere in Ticino',
+    ogDescription: 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
+    canonicalPath: '/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio ergoterapista: salari e differenze con l'Italia",
+      "description": "L'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ergoterapista frontaliere lavora nel Canton Ticino"
+      },
+      "datePublished": "2026-07-19T07:04:22+00:00",
+      "dateModified": "2026-07-19T07:04:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

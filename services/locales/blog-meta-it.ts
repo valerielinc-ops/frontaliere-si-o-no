@@ -8618,6 +8618,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all\'Italia',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Una donna con un bambino in braccio, in un ambiente ospedaliero',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Il salario di un assistente dentale frontaliere in Ticino è influenzato dalle tabelle salariali e dalle convenzioni doppie imposizioni.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Una scena fotorealistica del centro di Lugano con la piazza della Riforma e la chiesa di San Lorenzo in primo piano.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Ecco i dati dell\'Ufficio federale di statistica.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Traffico automobilistico su una autostrada svizzera in Ticino',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo di studio e permesso G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Un tecnico di radiologia frontaliere lavora in un ospedale di Lugano',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Stipendio ergoterapista: salari e differenze con l\'Italia',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergoterapista frontaliere lavora nel Canton Ticino',
 };
 
 export default blogMetaIt;

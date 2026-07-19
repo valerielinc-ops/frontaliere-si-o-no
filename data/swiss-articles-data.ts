@@ -3680,6 +3680,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-ostetrica-stipendio-ticino',
+    category: 'fiscale',
+    date: '2026-07-19T06:09:49.069Z',
+    image: '/images/blog/frontaliere-ostetrica-stipendio-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'guida-busta-paga-svizzera-2026',
+    category: 'pratico',
+    date: '2026-07-19T06:29:33.235Z',
+    image: '/images/blog/guida-busta-paga-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-ticino-salario-tecnico-radiologia',
+    category: 'pratico',
+    date: '2026-07-19T06:50:07.140Z',
+    image: '/images/blog/frontaliere-ticino-salario-tecnico-radiologia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-ergoterapista-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-19T07:17:12.441Z',
+    image: '/images/blog/frontaliere-ergoterapista-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

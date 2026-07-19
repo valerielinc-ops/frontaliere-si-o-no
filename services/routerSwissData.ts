@@ -432,6 +432,10 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mobilita-svizzera-ferrovia-strade': { it: 'mobilita-svizzera-ferrovia-strade', en: 'swiss-mobility-railway-road-investment', de: 'schweizer-mobilitaet-bahn-strasse', fr: 'mobilite-suisse-rail-route' },
  'coronavirus-frontalieri-svizzera': { it: 'coronavirus-frontalieri-svizzera', en: 'coronavirus-frontalieri-svizzera', de: 'coronavirus-frontalieri-schweiz', fr: 'coronavirus-frontaliers-suisse' },
  'ostetrica-frontaliere-ticino': { it: 'ostetrica-frontaliere-ticino', en: 'trending-topic-frontaliere-ostetrica-ticino', de: 'frontaliere-ostetrica-ticino', fr: 'frontaliere-ostetrica-ticino' },
+ 'frontaliere-ostetrica-stipendio-ticino': { it: 'frontaliere-ostetrica-stipendio-ticino', en: 'frontalier-nurse-salary-ticino', de: 'frontalierin-krankenschwester-lohn-tessin', fr: 'infirmiere-frontaliere-salaire-tessin' },
+ 'guida-busta-paga-svizzera-2026': { it: 'guida-busta-paga-svizzera-2026', en: 'swiss-pay-stub-guide-2026', de: 'leitfaden-lohnabrechnung-schweiz-2026', fr: 'guide-feuille-paie-suisse-2026' },
+ 'frontaliere-ticino-salario-tecnico-radiologia': { it: 'frontaliere-ticino-salario-tecnico-radiologia', en: 'frontaliere-ticino-salary-radiologist', de: 'frontaliere-ticino-lohn-radiologe', fr: 'frontaliere-ticino-salaire-radiologue' },
+ 'frontaliere-ergoterapista-ticino-stipendio-requisiti': { it: 'frontaliere-ergoterapista-ticino-stipendio-requisiti', en: 'frontaliere-ergoterapista-ticino-salary-requirements', de: 'frontaliere-ergotherapeutin-ticino-gehalt-anforderungen', fr: 'frontaliere-ergotherapeute-ticino-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

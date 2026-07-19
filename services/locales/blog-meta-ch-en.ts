@@ -1228,6 +1228,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Ticino midwife salary: salaries and differences with Italy',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'What does a border midwife gain in Ticino? And how does it change compared to Italy?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'A woman in a white coat prepares for a birth, with a doctor in the background.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'How much does a border midwife earn in Ticino?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Actual salary of a border midwife in Ticino: salary band, differences compared to Italy, factors affecting salary.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Frontalier nurse in Ticino',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'The Swiss paycheck: guide to withholdings and the rest net',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Learn how to read a Swiss paycheck and what each withholding means',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Swiss pay stub guide 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'How much does a border radiology technician earn in Ticino?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'The remuneration of a border radiology technician in Ticino: factors affecting remuneration and differences compared to Italy',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologists at work in hospital',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergotherapy in Ticino: salary and requirements',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Know what the law requires for a border worker who wants to work as an ergotherapist in Ticino, and what are the necessary requirements to obtain the G permit.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano, with the lake and mountains in the background',
 };
 
 export default blogMetaChEn;

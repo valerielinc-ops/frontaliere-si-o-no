@@ -66,6 +66,7 @@ import { weeklyEmployersPlugin } from './build-plugins/weeklyEmployersPlugin';
 import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin';
 import { salaryStatsChCantonPages } from './build-plugins/salaryStatsChCantonPages';
 import { professionCantonLandings } from './build-plugins/professionCantonLandings';
+import { salaryProfessionCantonPages } from './build-plugins/salaryProfessionCantonPages';
 import { professionCityLandings } from './build-plugins/professionCityLandings';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
 import { exchangeRatePagesPlugin } from './build-plugins/exchangeRatePagesPlugin';
@@ -85,6 +86,7 @@ import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
 import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
 import { professionCantonLandingsLinksPlugin } from './build-plugins/professionCantonLandingsLinksPlugin';
+import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
@@ -93,6 +95,7 @@ import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandings
 import { frontalierePillarPlugin } from './build-plugins/frontalierePillarPlugin';
 import { faqHubPlugin } from './build-plugins/faqHubPlugin';
 import { publisherAdPagesPlugin } from './build-plugins/publisherAdPagesPlugin';
+import { employerProfilePagesPlugin } from './build-plugins/employerProfilePagesPlugin';
 import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
@@ -179,6 +182,10 @@ export default defineConfig(({ mode }) => {
  jobMarketSnapshotPlugin(__dirname),
  salaryStatsChCantonPages(__dirname),
  professionCantonLandings(__dirname),
+ // Salary-intent profession×canton landings (#4461) — /stipendio-{prof}-{canton}/
+ // (+ locale variants) for the 8 professions with a real median preset, non-TI
+ // cantons, gated on the same MIN_JOBS floor as professionCantonLandings.
+ salaryProfessionCantonPages(__dirname),
  professionCityLandings(__dirname),
  healthPremiumsLandingPlugin(__dirname),
  // CHF/EUR exchange vertical (epic #4452): hub + amount long-tail pages
@@ -217,6 +224,7 @@ export default defineConfig(({ mode }) => {
  // run in any order after the other landing plugins.
  faqHubPlugin(__dirname),
  publisherAdPagesPlugin(__dirname),
+ employerProfilePagesPlugin(__dirname),
  // FR landing — single page targeting "calcul salaire net suisse frontalier"
  // (Semrush CH 880/mo). Self-contained: no router edit, no SPA route. The
  // static HTML serves SEO/first-paint; SPA fallback hydrates on /fr/calculer-salaire/.
@@ -337,6 +345,12 @@ export default defineConfig(({ mode }) => {
  // signals from professionCantonLandings (emitted paths) + staticPagesPlugin
  // (sitemap-page HTML). Idempotent via `data-profession-cantons-links`.
  professionCantonLandingsLinksPlugin(__dirname),
+ // Salary-intent profession×canton orphan fix — inject a "salary by profession
+ // and canton" block into each locale HTML sitemap page (main-nav reachable) so
+ // the /stipendio-{prof}-{canton}/ pages reach BFS depth ≤ 2 instead of shipping
+ // unreachable (audit:max-bfs-depth). Awaits signals from
+ // salaryProfessionCantonPages (emitted paths) + staticPagesPlugin (sitemap HTML).
+ salaryProfessionCantonLinksPlugin(__dirname),
  // Salary-hub orphan fix — patch the calculator hub (/calcola-stipendio/
  // + 3 locale twins) with a single anchor to /calcola-stipendio/scenari/
  // (and locale variants) so BFS from `/` reaches every one of the 1 732

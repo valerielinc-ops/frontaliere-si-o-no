@@ -4618,6 +4618,14 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-ostetrica-frontaliere-ticino': { name: 'Stipendio reale di un\'ostetrica', path: '/articoli-svizzera/ostetrica-frontaliere-ticino/', parent: 'blog' },
     'blog-ostetrica-frontaliere-ticino-quanto-guadagna': { name: 'Risorse per frontaliere', path: '/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna', parent: 'blog' },
+    'blog-stipendio-assistente-dentale-frontaliere-ticino': { name: 'Stipendio assistente dentale frontaliere', path: '/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino', parent: 'blog' },
+    'blog-frontaliere-ostetrica-stipendio-ticino': { name: 'Stipendio frontaliere', path: '/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/', parent: 'blog' },
+    'blog-costi-traffico-svizzera-2023': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/costi-traffico-svizzera-2023', parent: 'blog' },
+    'blog-guida-busta-paga-svizzera-2026': { name: 'Busta paga svizzera', path: '/articoli-svizzera/guida-busta-paga-svizzera-2026/', parent: 'blog' },
+    'blog-frontaliere-tecnico-radiologia-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontaliere-ticino-salario-tecnico-radiologia': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontaliere-ticino-salario-tecnico-radiologia/', parent: 'blog' },
+    'blog-quanto-guadagna-un-ergoterapista-frontaliere-in-ticino': { name: 'Stipendio reale di un ergoterapista', path: '/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino', parent: 'blog' },
+    'blog-frontaliere-ergoterapista-ticino-stipendio-requisiti': { name: 'Frontaliere ergoterapista Ticino', path: '/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

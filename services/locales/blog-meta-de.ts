@@ -8616,6 +8616,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Wie viel verdient eine Grenzgängerin im Tessin? Tatsachen über die Vergütung',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Die Daten zur Entlohnung von Grenzgängerinnen im Tessin: Wie wird das Einkommen berechnet und was sind die Unterschiede zu Italien',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Eine Frau mit einem Kind in den Armen, in einem Krankenhaus',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Wie viel verdient eine Grenzzahnärztin im Tessin?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Das Gehalt einer Grenzzahnassistentin im Tessin wird durch Lohntabellen und Doppelbesteuerungsabkommen beeinflusst.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Eine realistische Szene des Zentrums von Lugano mit der Piazza della Riforma und der Kirche San Lorenzo im Vordergrund.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Verkehr in der Schweiz: Die Kosten erreichen 117 Milliarden',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': '2023 kostete der Verkehr in der Schweiz 117 Milliarden Franken. Das Auto dominiert mit 68 Prozent der Fahrten. Hier die Zahlen des Bundesamtes für Statistik.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Autoverkehr auf einer Schweizer Autobahn im Tessin',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Röntgentechniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt der Radiologietechniker im Tessin für Grenzgänger, Voraussetzungen für die Arbeit als Radiologietechniker in der Schweiz, Anerkennung des Bildungsabschlusses und G-Bewilligung',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgänger Röntgentechniker arbeitet in einem Krankenhaus in Lugano',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Ergotherapeutengehalt: Löhne und Unterschiede zu Italien',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'Der Artikel untersucht die Lohnspanne eines Grenzergotherapeuten im Tessin und vergleicht die Unterschiede mit der italienischen Lohnspanne.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Ein Ergotherapeut arbeitet am Ticino',
 };
 
 export default blogMetaDe;

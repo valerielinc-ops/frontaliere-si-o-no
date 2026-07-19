@@ -8618,6 +8618,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quel est le salaire d\'une sage-femme au Tessin ?',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Les données sur la rémunération des sages-femmes frontalières au Tessin : comment est calculé le revenu et quelles sont les différences par rapport à l\'Italie',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Une femme avec un enfant dans ses bras, dans un établissement hospitalier',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Combien gagne un assistant dentaire frontalier au Tessin ?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Le salaire d\'un assistant dentaire frontalier au Tessin est influencé par les barèmes salariaux et les conventions de double imposition.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Une scène réaliste du centre-ville de Lugano avec la place della Riforma et l\'église San Lorenzo en arrière-plan.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Trafic en Suisse : les coûts atteignent 117 milliards',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'En 2023, le trafic en Suisse a coûté 117 milliards de francs. La voiture domine avec 68 % des déplacements. Voici les données de l\'Office fédéral de la statistique.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Trafic automobile sur une autoroute suisse au Tessin',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Technicien en radiologie au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des techniciens en radiologie au Tessin pour les frontaliers, conditions pour travailler en tant que technicien en radiologie en Suisse, reconnaissance du diplôme et permis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Un technicien de radiologie frontalier travaille dans un hôpital de Lugano',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Salaire ergothérapeute : salaires et différences avec l\'Italie',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'article examine la fourchette salariale d\'un ergothérapeute frontalier au Tessin, en comparant les différences avec la fourchette salariale italienne.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergothérapeute frontalier travaille dans le canton du Tessin',
 };
 
 export default blogMetaFr;

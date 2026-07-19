@@ -8617,6 +8617,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'How much does a border midwife earn in Ticino? The facts about pay',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Data on the remuneration of border midwives in Ticino: how income is calculated and what are the differences compared to Italy',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'A woman with a child in her arms, in a hospital setting',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'How much does a border dental assistant earn in Ticino?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'The salary of a border dental assistant in Ticino is influenced by salary tables and double taxation conventions.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'A realistic scene of Lugano city center with Piazza della Riforma and San Lorenzo church in the foreground.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Traffic in Switzerland: costs reach 117 billion',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'In 2023, traffic in Switzerland cost 117 billion francs. The car dominates with 68% of trips. Here is the data from the Federal Statistical Office.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Car traffic on a Swiss highway in Ticino',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Radiology technician in Ticino: salary, requirements and permit G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Average salary of radiology technicians in Ticino for border workers, requirements to work as a radiology technician in Switzerland, recognition of the qualification and G permit',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'A cross-border radiology technician working in Lugano hospital',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Ergotherapist salary: salaries and differences with Italy',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'The article examines the salary bracket of a border ergotherapist in Ticino, comparing the differences with the Italian salary bracket.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'A cross-border ergotherapist works in the Canton Ticino',
 };
 
 export default blogMetaEn;

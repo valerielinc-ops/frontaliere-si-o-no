@@ -1228,6 +1228,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Salaire obstétrique Tessin : salaires et différences avec l\'Italie',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Qu\'est-ce qu\'une sage-femme frontalière gagne au Tessin ? Et comment cela change-t-il par rapport à l\'Italie ?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Une femme en un costume blanc se prépare pour une naissance, avec un médecin en arrière-plan.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Combien gagne une sage-femme frontalière au Tessin ?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Salaire réel d\'une sage-femme frontalière au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Infirmière frontalière au Tessin',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'Le bulletin de paie suisse : guide des retenues et le reste net',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Découvrez comment lire un bulletin de paie suisse et ce que chaque retenue signifie',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Guide de la feuille de paie suisse 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Combien gagne un technicien en radiologie frontalière au Tessin ?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La rémunération d\'un technicien en radiologie frontalière au Tessin : facteurs affectant la rémunération et différences par rapport à l\'Italie',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologues en milieu hospitalier',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergothérapie au Tessin : salaire et exigences',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Savoir ce que la loi exige pour un frontalier qui veut travailler comme ergothérapeute au Tessin, et quelles sont les conditions requises pour obtenir le permis G.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano, avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

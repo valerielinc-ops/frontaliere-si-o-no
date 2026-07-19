@@ -1228,6 +1228,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Stipendio ostetrica Ticino: salari e differenze con l\'Italia',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Una donna in abito bianco si prepara per un parto, con un medico in secondo piano.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Quanto guadagna un ostetrica frontaliere in Ticino?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Stipendio reale di un ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Ostetrica frontaliere nel Ticino',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'La busta paga svizzera: guida alle trattenute e il resto netto',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Scopri come leggere una busta paga svizzera e cosa significa ogni trattenuta',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Guida alla busta paga svizzera 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Quanto guadagna un tecnico di radiologia frontaliere in Ticino?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all\'Italia',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Tecnici di radiologia al lavoro in ospedale',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergoterapia in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano, con il lago e le montagne in sfondo',
 };
 
 export default blogMetaChIt;
