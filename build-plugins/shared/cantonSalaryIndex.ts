@@ -17,6 +17,9 @@
  */
 
 import { CANTON_DISPLAY } from './cantonDisplay';
+// Relative import (not `@/`) — this module is in the Vite build-config graph,
+// which must never pull the `@/` alias for a VALUE import.
+import { CH_SOCIAL_RATE } from '../../constants';
 
 export type Grossregion =
   | 'lemanique'
@@ -268,8 +271,6 @@ function interpolateTaxCurve(curve: number[], gross: number): number {
   return curve[last];
 }
 
-/** Flat AVS/AI/APG/AC/LPP social-charge rate; mirrors CH_SOCIAL_RATE in SalaryCompare.tsx. */
-const CH_SOCIAL_RATE = 0.136;
 
 /** Net monthly pay for an annual gross at a canton code (falls back to the national-average tax curve for an unmapped code). */
 function netMonthlyForCode(grossAnnual: number, code: string | null | undefined): number {
