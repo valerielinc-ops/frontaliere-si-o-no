@@ -8659,6 +8659,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.medico-frontaliere-stipendio-ticino.title': 'How much does a border doctor earn in Ticino?',
     'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Key facts: A border doctor in Ticino can benefit from a higher income than in Italy, thanks to the New Frontier Agreement.',
     'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'A doctor in Ticino sits at a desk with a stethoscope in hand, smiling at the patient.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'How much does a border veterinarian earn in Ticino?',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'The salaries of border veterinarians in Ticino are subject to different taxes and contribution schemes.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramic view of Lugano, with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;
