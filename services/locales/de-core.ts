@@ -2511,6 +2511,11 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3630.title': 'Interaktiver LAMal-vs-SSN-Vergleich',
+ 'whatsNew.v3630.affiliate.title': 'Empfohlene Gesundheits-Tools',
+ 'whatsNew.v3630.affiliate.desc': 'Neue empfohlene Ressourcen im Krankenkassen-Vergleich und auf den Pr\u00e4mienseiten, mit einheitlich getrackten Partnerlinks.',
+ 'whatsNew.v3630.comparators.title': 'LAMal oder SSN? Pers\u00f6nliches Urteil',
+ 'whatsNew.v3630.comparators.desc': 'Einkommen, Alter und Franchise eingeben: der Vergleich berechnet mit echten BAG-Pr\u00e4mien, ob sich LAMal oder SSN lohnt \u2014 den Vergleich gibt es als PDF per E-Mail.',
  'whatsNew.v3490.title': 'Neuer Bereich Schweiz-Artikel',
  'whatsNew.v3490.svizzeraSection.title': 'Artikel aus der ganzen Schweiz',
  'whatsNew.v3490.svizzeraSection.desc': 'Ein neuer Artikelbereich zu Wirtschaft, Steuern, Arbeit und Leben für alle, die in der Schweiz leben oder arbeiten — nicht nur für Grenzgänger. Im Umschalter "Schweiz" unter Artikel zu finden.',

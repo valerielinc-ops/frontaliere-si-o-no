@@ -2511,6 +2511,11 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3630.title': 'Comparaison interactive LAMal vs SSN',
+ 'whatsNew.v3630.affiliate.title': 'Outils sant\u00e9 recommand\u00e9s',
+ 'whatsNew.v3630.affiliate.desc': 'Nouvelles ressources recommand\u00e9es dans le comparateur de caisses maladie et les pages de primes, avec liens partenaires suivis de mani\u00e8re uniforme.',
+ 'whatsNew.v3630.comparators.title': 'LAMal ou SSN ? Verdict personnalis\u00e9',
+ 'whatsNew.v3630.comparators.desc': 'Saisissez revenu, \u00e2ge et franchise : le comparateur calcule si la LAMal ou le SSN gagne avec les primes OFSP r\u00e9elles, et vous pouvez recevoir la comparaison en PDF par email.',
  'whatsNew.v3490.title': 'Nouvelle section Articles Suisse',
  'whatsNew.v3490.svizzeraSection.title': 'Articles de toute la Suisse',
  'whatsNew.v3490.svizzeraSection.desc': 'Une nouvelle section d\'articles sur l\'économie, la fiscalité, le travail et la vie pour toute personne vivant ou travaillant en Suisse — pas seulement les frontaliers. À trouver sous le bouton "Suisse" dans Articles.',

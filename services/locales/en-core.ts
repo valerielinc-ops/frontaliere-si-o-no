@@ -2508,6 +2508,11 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3630.title': 'Interactive LAMal vs SSN comparison',
+ 'whatsNew.v3630.affiliate.title': 'Recommended health tools',
+ 'whatsNew.v3630.affiliate.desc': 'New recommended resources in the health-insurance comparator and premium pages, with uniformly tracked partner links.',
+ 'whatsNew.v3630.comparators.title': 'LAMal or SSN? Personalised verdict',
+ 'whatsNew.v3630.comparators.desc': 'Enter income, age and deductible: the comparator computes whether LAMal or SSN wins using real FOPH premiums, and you can get the comparison as a PDF by email.',
  'whatsNew.v3490.title': 'New Switzerland Articles section',
  'whatsNew.v3490.svizzeraSection.title': 'Articles from all of Switzerland',
  'whatsNew.v3490.svizzeraSection.desc': 'A new article section on economy, taxes, work and living for anyone living or working in Switzerland — not just cross-border workers. Find it under the "Switzerland" toggle inside Articles.',
