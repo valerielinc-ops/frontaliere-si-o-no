@@ -8649,6 +8649,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assistente-di-studio-medico-frontaliere.title': 'Wie viel verdient ein Grenzarzthelfer im Tessin?',
     'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'Die Bezahlung einer Grenzarzthelferin im Tessin hängt von der Erfahrung und der Rolle ab.',
     'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Ein medizinischer Studienassistent arbeitet in einem Krankenhaus in Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'OP-Techniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Der OP-Techniker ist ein hochspezialisierter Fachmann, der in einer Hochdruckumgebung arbeitet. Seine Hauptverantwortung besteht darin, Anästhesisten und andere Mitglieder des Pflegeteams bei chirurgischen Eingriffen zu unterstützen.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Ein Frontalier, der als Operationszimmer-Techniker in einem Krankenhaus in Lugano arbeitet',
 };
 
 export default blogMetaDe;

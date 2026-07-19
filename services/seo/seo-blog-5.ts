@@ -51318,6 +51318,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tecnicodisalaoperatoriaticinostipendiorientati': {
+    title: 'Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G',
+    description: 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di',
+    keywords: 'frontalieri, ticino, svizzera, italia, tecnico, sala, operatoria, stipendio',
+    ogTitle: 'Lavorare come tecnico di sala operatoria in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    ogDescription: 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di',
+    canonicalPath: '/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G",
+      "description": "Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tecnicodisalaoperatoriaticinostipendiorientati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora come tecnico di sala operatoria in un ospedale di Lugano"
+      },
+      "datePublished": "2026-07-19T10:35:27+00:00",
+      "dateModified": "2026-07-19T10:35:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

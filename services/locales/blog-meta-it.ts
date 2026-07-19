@@ -8651,6 +8651,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.assistente-di-studio-medico-frontaliere.title': 'Quanto guadagna un assistente di studio medico frontaliere in Ticino?',
     'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall\'esperienza e dal ruolo.',
     'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Un assistente di studio medico frontaliere lavora in un ospedale a Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di supportare gli anestesisti e gli altri membri del team di cura durante le procedure chirurgiche.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Un frontaliere che lavora come tecnico di sala operatoria in un ospedale di Lugano',
 };
 
 export default blogMetaIt;
