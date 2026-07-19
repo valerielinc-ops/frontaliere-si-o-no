@@ -209,6 +209,7 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     { file: 'build-plugins/employerProfilePagesPlugin.ts', count: 1 },
     { file: 'build-plugins/salaryProfessionCantonPages.ts', count: 1 },
     { file: 'build-plugins/professionCantonLandings.ts', count: 1 },
+    { file: 'build-plugins/healthFacilitiesPlugin.ts', count: 1 },
   ];
 
   for (const spec of FAMILY_SPECS) {
