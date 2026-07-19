@@ -80,8 +80,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-0383411c0618",
@@ -98,7 +97,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
       "titleByLocale": {
-        "it": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
+        "it": "Ti stiamo cercando; IF Maestro 6 Lezioni di terza classe",
         "en": "We are looking for you; IF Teacher 6 Lessons 3rd Class",
         "de": "Wir suchen dich; IF Lehrperson 6 Lektionen 3. Klasse",
         "fr": "Nous vous recherchons; IF Enseignant 6 leçons 3ème classe"
@@ -152,7 +151,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.272Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -244,7 +242,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "ksml-ae9d77d798d5",
@@ -551,8 +551,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-380728042d3d",
@@ -569,7 +568,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
       "titleByLocale": {
-        "it": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
+        "it": "5 ° / 6 ° grado, 7 - 9,5 lezioni D, NMG, BG, (M+I)",
         "en": "Sub-board 5./6. Class, 7 - 9.5 Lessons",
         "de": "Teilpensum 5./6. Klasse, 7 - 9.5 Lektionen D, NMG, BG, (M+I)",
         "fr": "Sous-tableau 5./6. Classe 7 - 9.5 Enseignements"
@@ -635,7 +634,6 @@
         ]
       },
       "firstSeenAt": "2026-07-11T10:51:51.752Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -745,16 +743,16 @@
       "title": "STV gesucht: 10L IF im 1. Quartal",
       "titleByLocale": {
         "de": "STV gesucht: 10L IF im 1. Quartal",
-        "it": "STV gesucht: 10L IF im 1. Quartal",
-        "en": "STV gesucht: 10L IF im 1. Quartal",
-        "fr": "STV gesucht: 10L IF im 1. Quartal"
+        "it": "STV ha voluto: 10L IF nel 1 ° trimestre",
+        "en": "STV wanted: 10L IF in the 1st quarter",
+        "fr": "STV voulait : 10L IF au 1er trimestre"
       },
       "description": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, ist trotz seiner hundertjährigen Geschichte innovativ und voller Ideen. Es gibt nur zwei Schulklassen (Basisstufe und 3.–6. Klasse) und ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nAufgaben\nAufgrund einer Operation suchen wir im ersten Quartal eine Stellvertretung für 10 Lektionen IF an unserer Basisstufe. Du begleitest von Montag bis Mittwochmorgen zwei bVSA-Kinder und bietest zudem Unterstützung in der Klasse.\n\nAnforderungen\nDu hast idealerweise eine heilpädagogische Ausbildung oder Erfahrung in der Förderung von Kindern mit sonderpädagogischen Massnahmen. Die orientierst dich bei Förderung an die bestehenden Bildungspläne.\n\nDu bist eine aufgestellte und flexible Persönlichkeit und arbeitest gerne in einem familiären Umfeld. Die gute Zusammenarbeit mit den betreffenden Lehrpersonen ist dir ebenso wichtig wie uns.\n\nWir bieten\n...einen besonderen Schulort, kontaktfreudige Kinder, ein tolles Team und eine unterstützende Schulleitung. Du wirst dich bei uns wohlfühlen.",
       "descriptionByLocale": {
         "de": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, ist trotz seiner hundertjährigen Geschichte innovativ und voller Ideen. Es gibt nur zwei Schulklassen (Basisstufe und 3.–6. Klasse) und ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nAufgaben\nAufgrund einer Operation suchen wir im ersten Quartal eine Stellvertretung für 10 Lektionen IF an unserer Basisstufe. Du begleitest von Montag bis Mittwochmorgen zwei bVSA-Kinder und bietest zudem Unterstützung in der Klasse.\n\nAnforderungen\nDu hast idealerweise eine heilpädagogische Ausbildung oder Erfahrung in der Förderung von Kindern mit sonderpädagogischen Massnahmen. Die orientierst dich bei Förderung an die bestehenden Bildungspläne.\n\nDu bist eine aufgestellte und flexible Persönlichkeit und arbeitest gerne in einem familiären Umfeld. Die gute Zusammenarbeit mit den betreffenden Lehrpersonen ist dir ebenso wichtig wie uns.\n\nWir bieten\n...einen besonderen Schulort, kontaktfreudige Kinder, ein tolles Team und eine unterstützende Schulleitung. Du wirst dich bei uns wohlfühlen.",
-        "it": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, ist trotz seiner hundertjährigen Geschichte innovativ und voller Ideen. Es gibt nur zwei Schulklassen (Basisstufe und 3.–6. Klasse) und ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nAufgaben\nAufgrund einer Operation suchen wir im ersten Quartal eine Stellvertretung für 10 Lektionen IF an unserer Basisstufe. Du begleitest von Montag bis Mittwochmorgen zwei bVSA-Kinder und bietest zudem Unterstützung in der Klasse.\n\nAnforderungen\nDu hast idealerweise eine heilpädagogische Ausbildung oder Erfahrung in der Förderung von Kindern mit sonderpädagogischen Massnahmen. Die orientierst dich bei Förderung an die bestehenden Bildungspläne.\n\nDu bist eine aufgestellte und flexible Persönlichkeit und arbeitest gerne in einem familiären Umfeld. Die gute Zusammenarbeit mit den betreffenden Lehrpersonen ist dir ebenso wichtig wie uns.\n\nWir bieten\n...einen besonderen Schulort, kontaktfreudige Kinder, ein tolles Team und eine unterstützende Schulleitung. Du wirst dich bei uns wohlfühlen.",
-        "en": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, ist trotz seiner hundertjährigen Geschichte innovativ und voller Ideen. Es gibt nur zwei Schulklassen (Basisstufe und 3.–6. Klasse) und ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nAufgaben\nAufgrund einer Operation suchen wir im ersten Quartal eine Stellvertretung für 10 Lektionen IF an unserer Basisstufe. Du begleitest von Montag bis Mittwochmorgen zwei bVSA-Kinder und bietest zudem Unterstützung in der Klasse.\n\nAnforderungen\nDu hast idealerweise eine heilpädagogische Ausbildung oder Erfahrung in der Förderung von Kindern mit sonderpädagogischen Massnahmen. Die orientierst dich bei Förderung an die bestehenden Bildungspläne.\n\nDu bist eine aufgestellte und flexible Persönlichkeit und arbeitest gerne in einem familiären Umfeld. Die gute Zusammenarbeit mit den betreffenden Lehrpersonen ist dir ebenso wichtig wie uns.\n\nWir bieten\n...einen besonderen Schulort, kontaktfreudige Kinder, ein tolles Team und eine unterstützende Schulleitung. Du wirst dich bei uns wohlfühlen.",
-        "fr": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, ist trotz seiner hundertjährigen Geschichte innovativ und voller Ideen. Es gibt nur zwei Schulklassen (Basisstufe und 3.–6. Klasse) und ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nAufgaben\nAufgrund einer Operation suchen wir im ersten Quartal eine Stellvertretung für 10 Lektionen IF an unserer Basisstufe. Du begleitest von Montag bis Mittwochmorgen zwei bVSA-Kinder und bietest zudem Unterstützung in der Klasse.\n\nAnforderungen\nDu hast idealerweise eine heilpädagogische Ausbildung oder Erfahrung in der Förderung von Kindern mit sonderpädagogischen Massnahmen. Die orientierst dich bei Förderung an die bestehenden Bildungspläne.\n\nDu bist eine aufgestellte und flexible Persönlichkeit und arbeitest gerne in einem familiären Umfeld. Die gute Zusammenarbeit mit den betreffenden Lehrpersonen ist dir ebenso wichtig wie uns.\n\nWir bieten\n...einen besonderen Schulort, kontaktfreudige Kinder, ein tolles Team und eine unterstützende Schulleitung. Du wirst dich bei uns wohlfühlen."
+        "it": "Ritratto\nLa Matzwil School è qualcosa di speciale: un'affascinante scuola, immersa nella natura, è innovativa e piena di idee nonostante i suoi cento anni di storia. Ci sono solo due classi scolastiche (livello base e 3-6 ° grado) e una grande squadra.\n\nPer ulteriori informazioni cliccare su https://www.schulematzwil.ch\n\nCompiti\nA causa di un'operazione, stiamo cercando un deputato per 10 lezioni IF al nostro livello base nel primo trimestre. Si accompagnano due bambini bVSA dal lunedì al mercoledì mattina e offrono anche supporto nella classe.\n\nRequisiti\nIdealmente, hai un'educazione curativa o un'esperienza nella promozione dei bambini con misure educative speciali. Questo ti guida ai piani educativi esistenti.\n\nSei una personalità consolidata e flessibile e piace lavorare in un ambiente familiare. La buona collaborazione con gli insegnanti competenti è altrettanto importante per voi quanto per noi.\n\nOffriamo\n...un luogo scolastico speciale, bambini socievoli, una grande squadra e una gestione scolastica di supporto. Ti sentirai a tuo agio con noi.",
+        "en": "Portrait\nThe Matzwil School is something special: a charming schoolhouse, surrounded by nature, is innovative and full of ideas despite its hundred years of history. There are only two school classes (basic level and 3-6th grade) and a great team.\n\nFor more information click at https://www.schulematzwil.ch\n\nTasks\nDue to an operation, we are looking for a deputy for 10 lessons IF at our base level in the first quarter. You accompany two bVSA children from Monday to Wednesday morning and also offer support in the class.\n\nRequirements\nIdeally, you have a curative education or experience in the promotion of children with special educational measures. This guides you to the existing educational plans.\n\nYou are an established and flexible personality and like to work in a family environment. Good cooperation with the relevant teachers is just as important to you as to us.\n\nWe offer\n...a special school location, sociable children, a great team and a supportive school management. You will feel comfortable with us.",
+        "fr": "Portrait\nL'école Matzwil est quelque chose de spécial : une charmante école, entourée par la nature, est innovante et pleine d'idées malgré ses cent ans d'histoire. Il n'y a que deux classes scolaires (niveau de base et 3-6e année) et une grande équipe.\n\nPour plus d'informations, cliquez sur https://www.schulematzwil.ch\n\nTâche\nEn raison d'une opération, nous cherchons un adjoint pour 10 leçons FI au niveau de notre base au premier trimestre. Vous accompagnez deux enfants bVSA du lundi au mercredi matin et offrez également un soutien dans la classe.\n\nExigences\nIdéalement, vous avez une éducation curative ou une expérience dans la promotion des enfants avec des mesures éducatives spéciales. Cela vous guide vers les plans éducatifs existants.\n\nVous êtes une personnalité établie et flexible et aimez travailler dans un milieu familial. Une bonne coopération avec les enseignants concernés est tout aussi importante pour vous que pour nous.\n\nNous offrons\n... une école spéciale, des enfants sociables, une excellente équipe et une gestion scolaire. Vous serez à l'aise avec nous."
       },
       "location": "Matzwil",
       "canton": "BE",
@@ -781,7 +779,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -863,7 +860,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:15:22.057Z",
-      "needsRetranslation": true,
       "salaryMin": 31500,
       "salaryMax": 47800,
       "baseSalary": {
@@ -979,7 +975,7 @@
         "it": "Insegnante di Materie Tessili e Design, Cicli 1 e 2, 6 ore",
         "en": "Secondary Subject Teacher Textiles and Design Cycles 1 and 2, 6 Lessons",
         "de": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen",
-        "fr": "Stv. Fachlehrperson Textiles Gestalten Zyklen 1 und 2, 6 Lektionen"
+        "fr": "Stv. professeur spécialisé Textiles Designing Cycles 1 et 2, 6 leçons"
       },
       "description": "Porträt\nWillkommen in Wimmis!\nAn der Schule Wimmis unterrichten 48 Lehrpersonen rund 400 Schülerinnen und Schüler an drei Standorten. Im Schulhaus Oberdorf befinden sich 6 Klassen.\nUnser Team - unsere Stärke!\n\nAufgaben\nAls Fachlehrerperson unterrichten, fördern und unterstützen Sie Kinder der 1., 2. und 3./4. Klasse im Fach Textiles Gestalten. Sie unterrichten insgesamt 6 Lektionen. Der Unterricht findet am Donnerstag von 8.20-11.50 und 13.30-15.05 Uhr statt.\n\nSie unterrichten während der Mutterschaftsvertretung und einem anschliessenden Urlaub als Stellvertreterin. Eine Weiterführung ab Sommer 2027 in eine unbefristete Anstellung ist evtl. möglich.\n\nSie engagieren sich im Unterrichtsteam und sind bereit, an der Schul- und Organisationsentwicklung mitzuarbeiten.\n\nAnforderungen\nHaben Sie ein Herz für Kinder und können diese begeistern und motivieren? Verfügen Sie über ein Lehrdiplom für den Bereich Gestalten? Sind Sie eine engagierte, kommunikative und humorvolle Persönlichkeit mit Freude und Interesse an der Zusammenarbeit mit dem Stufen- und Schulhausteam? Pflegen Sie einen offenen und direkten Austausch mit den Eltern sowie allen anderen Anspruchsgruppen?\n\nFalls ja sind Sie genau die Lehrperson, die wir für unser Team suchen!\n\nWir bieten\n- tolle TTG-Räume\n- gut ausgestattete Schulinfrastruktur mit moderner ICT-Umgebung\n- angenehmes Arbeitsklima in einem engagierten, offenen Team\n- Unterstützung durch Lehrpersonen, IF-Lehrpersonen, Schulsozialarbeit und Schulleitung\n- guter ÖV-Anschluss, sehr gute Erreichbarkeit mit dem Auto dank direktem Autobahnanschluss und Gratisparkplatz",
       "descriptionByLocale": {
@@ -1031,7 +1027,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.472Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1117,8 +1112,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksml-ff6e65e5937e",
@@ -1195,7 +1189,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.182Z",
-      "needsRetranslation": true,
       "salaryMin": 58200,
       "salaryMax": 88400,
       "baseSalary": {
@@ -1482,7 +1475,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
       "titleByLocale": {
-        "it": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
+        "it": "Vice Franz 4. Kl. & BG 5./6. Kl., 7 lezioni",
         "en": "Deputy Franz 4. Kl. & BG 5./6. Kl., 7 lessons",
         "de": "Stellvertretung Franz 4. Kl. & BG 5./6. Kl., 7 Lektionen",
         "fr": "Conseiller Franz 4. Kl. & BG 5./6. Kl., 7 leçons"
@@ -1537,7 +1530,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.354Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1875,7 +1867,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:07:43.337Z",
-      "needsRetranslation": true,
       "salaryMin": 4100,
       "salaryMax": 6200,
       "baseSalary": {
@@ -2951,7 +2942,7 @@
       "title": "Psychomotoriktherapeut/in 10-14 Lektionen",
       "titleByLocale": {
         "it": "terapeuta psicomotore in 10-14 lezioni",
-        "en": "Psychomotoriktherapeut/in 10-14 Lektionen",
+        "en": "Psychomotor therapist in 10-14 lessons",
         "de": "Psychomotoriktherapeut/in 10-14 Lektionen",
         "fr": "Psychomothérapeute en 10-14 leçons"
       },
@@ -3109,7 +3100,7 @@
       "slug": "professore-di-scuola-superiore-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
       "slugByLocale": {
         "it": "professore-di-scuola-superiore-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
-        "en": "oberstufenlehrperson-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund",
+        "en": "high-school-teacher-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872",
         "de": "oberstufenlehrperson-23-l-osz-orpund-orpund-39872",
         "fr": "professeur-de-lycee-23-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-orpund-39872"
       },
@@ -3120,7 +3111,7 @@
       "title": "Oberstufenlehrperson 23 L.",
       "titleByLocale": {
         "it": "Insegnante di scuola superiore 23 L.",
-        "en": "Oberstufenlehrperson 23 L.",
+        "en": "High school teacher 23 L.",
         "de": "Oberstufenlehrperson 23 L.",
         "fr": "Enseignant(e) de lycée 23 L."
       },
@@ -3179,7 +3170,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.469Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4328,7 +4318,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T22:44:55.081Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5557,7 +5546,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
       "titleByLocale": {
-        "it": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
+        "it": "Aiuto di classe 3°–6° classe (16–18 ore settimanali)",
         "en": "Class aid 3rd–6th class (16–18 hours per week)",
         "de": "Klassenhilfe 3.–6. Klasse (16–18 Std. pro Woche)",
         "fr": "Aides de catégorie 3e à 6e classe (16 à 18 heures par semaine)"
@@ -5611,7 +5600,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:15:21.257Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -5907,7 +5895,7 @@
       "title": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
       "titleByLocale": {
         "it": "Istruttore IF ( 6L bVSA) Ciclo 3 a Spiez",
-        "en": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
+        "en": "IF instructor ( 6L bVSA) Cycle 3 in Spiez",
         "de": "IF-Lehrperson ( 6L bVSA) Zyklus 3 in Spiez",
         "fr": "instructeur IF ( 6L bVSA) Cycle 3 à Spiez"
       },
@@ -5961,7 +5949,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:51:43.172Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -6499,7 +6486,7 @@
       "title": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
       "titleByLocale": {
         "it": "Flexible, kreative e vielseitige Lehrperson (Z2/3) 50%",
-        "en": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
+        "en": "Flexible, creative and versatile teacher (Z2/3) 50 %",
         "de": "Flexible, kreative und vielseitige Lehrperson (Z2/3) 50%",
         "fr": "Enseignant(e) flexible, créatif(ve) et polyvalent(e) (Z2/3) 50%"
       },
@@ -6551,7 +6538,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.463Z",
-      "needsRetranslation": true,
       "salaryMin": 34300,
       "salaryMax": 52000,
       "baseSalary": {
@@ -6580,7 +6566,7 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
       "titleByLocale": {
-        "it": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
+        "it": "Istruttore specializzato Ciclo 3 (Sec.1), Totale 22L. Math., Franz., Tedesco, Inglese",
         "en": "Specialist instructor Cycle 3 (Sec.1), Total 22L. Math., Franz., German, English",
         "de": "Fachlehrperson Zyklus 3 (Sek.1), Total 22L. Math., Franz., Deutsch, Englisch",
         "fr": "instructeur spécialisé Cycle 3 (Sec.1), Total 22L. Math., Franz., allemand, anglais"
@@ -6634,7 +6620,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T12:43:39.493Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7012,7 +6997,7 @@
       "title": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
       "titleByLocale": {
         "it": "Insegnante specializzato Sek1, 16.5 lezioni, 2° trimestre in SJ 26/27",
-        "en": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
+        "en": "Specialist teacher Sek1, 16.5 lessons, 2nd quarter in SJ 26/27",
         "de": "Fachlehrperson Sek1, 16.5 Lektionen, 2. Quartal im SJ 26/27",
         "fr": "Professeur spécialiste Sek1, 16,5 leçons, 2ème trimestre en SJ 26/27"
       },
@@ -7096,16 +7081,16 @@
       "title": "Fachlehrperson 5/6, 5 Lektionen (Französisch, bildn. Gestalten), DO-Vormittag",
       "titleByLocale": {
         "de": "Fachlehrperson 5/6, 5 Lektionen (Französisch, bildn. Gestalten), DO-Vormittag",
-        "it": "Fachlehrperson 5/6, 5 Lektionen (Französisch, bildn. Gestalten), DO-Vormittag",
-        "en": "Fachlehrperson 5/6, 5 Lektionen (Französisch, bildn. Gestalten), DO-Vormittag",
-        "fr": "Fachlehrperson 5/6, 5 Lektionen (Französisch, bildn. Gestalten), DO-Vormittag"
+        "it": "Insegnante specializzato 5/6, 5 lezioni (francese, insegnamento). Design, domattina",
+        "en": "Specialist teacher 5/6, 5 lessons (French, teaching). Design, DO morning",
+        "fr": "Professeur spécialisé 5/6, 5 leçons (français, enseignement). Conception, faire matin"
       },
       "description": "Porträt\nGemeinsam – wertschätzend – vertrauensvoll – selbstständig – verständlich; dies sind die Grundsätze, nach welchen wir unseren Schulalltag gestalten.\nIn der Schule Grosshöchstetten wird das Miteinander verlässlich gelebt und es herrscht eine vertrauensvolle Arbeitsatmosphäre. Die sehr gute Organisation und die klaren Strukturen helfen dabei und erleichtern den Arbeitsalltag.\nWir unterrichten 25 Klassen (Kindergarten bis Sekundarstufe 1) an mehreren Standorten. Arbeitsort ist das Schulhaus Alpenweg.\n\nAufgaben\nPer 01.08.2026 suchen wir zur Verstärkung unseres Teams eine Fachlehrperson für eine unserer Klassen 5/6.\n\nDas Unterrichtspensum von 5 Lektionen setzt sich wie folgt zusammen:\n3 L Französisch, 2 L bildnerisches Gestalten\n\nUnterrichtszeiten:\nDonnerstag, 07.30 bis 11.50 Uhr\n\nAnforderungen\nGrundhaltung:\n- Sie besitzen ein grosses Herz für Kinder und begleiten diese mit Interesse und Freude im Schulalltag.\n- Ihnen ist die Beziehungsgestaltung zu den Schülerinnen und Schülern sehr wichtig (und Sie sind bereit, in die Beziehung zu investieren).\n- Sie verfügen über eine natürliche Autorität und ein gutes Durchsetzungsvermögen.\n- Sie haben Freude am Lehrerberuf, welche sich in Ihrer engagierten, initiativen und kreativen Arbeitsweise zeigt.\n- Sie sind gerne Teil eines Teams, bringen Ihre Stärken ein und tragen Entscheide loyal mit.\n- Sie besitzen entsprechende Fachkompetenzen für die Fachbereiche (inkl. sehr gute Französisch-Kenntnisse).\n\nQualifikationen:\n- Unterrichtsbefähigung Primarstufe\n\nSonderprivatauszug:\nVor dem Ausstellen einer Anstellungsverfügung wird der Sonderprivatauszug eingefordert.\n\nWir bieten\n- eine befristete Anstellung bis 31.07.2027 (eine mögliche Verlängerung kann frühzeitig besprochen werden)\n- sehr gute Unterstützung durch die Klassenlehrperson, das Schulhaus-Team und die Schulleitung\n- zeitgemässe Infrastruktur\n- modernes Konzept Medien und Informatik (Arbeit mit Google Workspace, LehrerOffice, Chromebooks und KLAPP)\n\nSie werden sich an der Schule Grosshöchstetten wohlfühlen!",
       "descriptionByLocale": {
         "de": "Porträt\nGemeinsam – wertschätzend – vertrauensvoll – selbstständig – verständlich; dies sind die Grundsätze, nach welchen wir unseren Schulalltag gestalten.\nIn der Schule Grosshöchstetten wird das Miteinander verlässlich gelebt und es herrscht eine vertrauensvolle Arbeitsatmosphäre. Die sehr gute Organisation und die klaren Strukturen helfen dabei und erleichtern den Arbeitsalltag.\nWir unterrichten 25 Klassen (Kindergarten bis Sekundarstufe 1) an mehreren Standorten. Arbeitsort ist das Schulhaus Alpenweg.\n\nAufgaben\nPer 01.08.2026 suchen wir zur Verstärkung unseres Teams eine Fachlehrperson für eine unserer Klassen 5/6.\n\nDas Unterrichtspensum von 5 Lektionen setzt sich wie folgt zusammen:\n3 L Französisch, 2 L bildnerisches Gestalten\n\nUnterrichtszeiten:\nDonnerstag, 07.30 bis 11.50 Uhr\n\nAnforderungen\nGrundhaltung:\n- Sie besitzen ein grosses Herz für Kinder und begleiten diese mit Interesse und Freude im Schulalltag.\n- Ihnen ist die Beziehungsgestaltung zu den Schülerinnen und Schülern sehr wichtig (und Sie sind bereit, in die Beziehung zu investieren).\n- Sie verfügen über eine natürliche Autorität und ein gutes Durchsetzungsvermögen.\n- Sie haben Freude am Lehrerberuf, welche sich in Ihrer engagierten, initiativen und kreativen Arbeitsweise zeigt.\n- Sie sind gerne Teil eines Teams, bringen Ihre Stärken ein und tragen Entscheide loyal mit.\n- Sie besitzen entsprechende Fachkompetenzen für die Fachbereiche (inkl. sehr gute Französisch-Kenntnisse).\n\nQualifikationen:\n- Unterrichtsbefähigung Primarstufe\n\nSonderprivatauszug:\nVor dem Ausstellen einer Anstellungsverfügung wird der Sonderprivatauszug eingefordert.\n\nWir bieten\n- eine befristete Anstellung bis 31.07.2027 (eine mögliche Verlängerung kann frühzeitig besprochen werden)\n- sehr gute Unterstützung durch die Klassenlehrperson, das Schulhaus-Team und die Schulleitung\n- zeitgemässe Infrastruktur\n- modernes Konzept Medien und Informatik (Arbeit mit Google Workspace, LehrerOffice, Chromebooks und KLAPP)\n\nSie werden sich an der Schule Grosshöchstetten wohlfühlen!",
-        "it": "Porträt\nGemeinsam – wertschätzend – vertrauensvoll – selbstständig – verständlich; dies sind die Grundsätze, nach welchen wir unseren Schulalltag gestalten.\nIn der Schule Grosshöchstetten wird das Miteinander verlässlich gelebt und es herrscht eine vertrauensvolle Arbeitsatmosphäre. Die sehr gute Organisation und die klaren Strukturen helfen dabei und erleichtern den Arbeitsalltag.\nWir unterrichten 25 Klassen (Kindergarten bis Sekundarstufe 1) an mehreren Standorten. Arbeitsort ist das Schulhaus Alpenweg.\n\nAufgaben\nPer 01.08.2026 suchen wir zur Verstärkung unseres Teams eine Fachlehrperson für eine unserer Klassen 5/6.\n\nDas Unterrichtspensum von 5 Lektionen setzt sich wie folgt zusammen:\n3 L Französisch, 2 L bildnerisches Gestalten\n\nUnterrichtszeiten:\nDonnerstag, 07.30 bis 11.50 Uhr\n\nAnforderungen\nGrundhaltung:\n- Sie besitzen ein grosses Herz für Kinder und begleiten diese mit Interesse und Freude im Schulalltag.\n- Ihnen ist die Beziehungsgestaltung zu den Schülerinnen und Schülern sehr wichtig (und Sie sind bereit, in die Beziehung zu investieren).\n- Sie verfügen über eine natürliche Autorität und ein gutes Durchsetzungsvermögen.\n- Sie haben Freude am Lehrerberuf, welche sich in Ihrer engagierten, initiativen und kreativen Arbeitsweise zeigt.\n- Sie sind gerne Teil eines Teams, bringen Ihre Stärken ein und tragen Entscheide loyal mit.\n- Sie besitzen entsprechende Fachkompetenzen für die Fachbereiche (inkl. sehr gute Französisch-Kenntnisse).\n\nQualifikationen:\n- Unterrichtsbefähigung Primarstufe\n\nSonderprivatauszug:\nVor dem Ausstellen einer Anstellungsverfügung wird der Sonderprivatauszug eingefordert.\n\nWir bieten\n- eine befristete Anstellung bis 31.07.2027 (eine mögliche Verlängerung kann frühzeitig besprochen werden)\n- sehr gute Unterstützung durch die Klassenlehrperson, das Schulhaus-Team und die Schulleitung\n- zeitgemässe Infrastruktur\n- modernes Konzept Medien und Informatik (Arbeit mit Google Workspace, LehrerOffice, Chromebooks und KLAPP)\n\nSie werden sich an der Schule Grosshöchstetten wohlfühlen!",
-        "en": "Porträt\nGemeinsam – wertschätzend – vertrauensvoll – selbstständig – verständlich; dies sind die Grundsätze, nach welchen wir unseren Schulalltag gestalten.\nIn der Schule Grosshöchstetten wird das Miteinander verlässlich gelebt und es herrscht eine vertrauensvolle Arbeitsatmosphäre. Die sehr gute Organisation und die klaren Strukturen helfen dabei und erleichtern den Arbeitsalltag.\nWir unterrichten 25 Klassen (Kindergarten bis Sekundarstufe 1) an mehreren Standorten. Arbeitsort ist das Schulhaus Alpenweg.\n\nAufgaben\nPer 01.08.2026 suchen wir zur Verstärkung unseres Teams eine Fachlehrperson für eine unserer Klassen 5/6.\n\nDas Unterrichtspensum von 5 Lektionen setzt sich wie folgt zusammen:\n3 L Französisch, 2 L bildnerisches Gestalten\n\nUnterrichtszeiten:\nDonnerstag, 07.30 bis 11.50 Uhr\n\nAnforderungen\nGrundhaltung:\n- Sie besitzen ein grosses Herz für Kinder und begleiten diese mit Interesse und Freude im Schulalltag.\n- Ihnen ist die Beziehungsgestaltung zu den Schülerinnen und Schülern sehr wichtig (und Sie sind bereit, in die Beziehung zu investieren).\n- Sie verfügen über eine natürliche Autorität und ein gutes Durchsetzungsvermögen.\n- Sie haben Freude am Lehrerberuf, welche sich in Ihrer engagierten, initiativen und kreativen Arbeitsweise zeigt.\n- Sie sind gerne Teil eines Teams, bringen Ihre Stärken ein und tragen Entscheide loyal mit.\n- Sie besitzen entsprechende Fachkompetenzen für die Fachbereiche (inkl. sehr gute Französisch-Kenntnisse).\n\nQualifikationen:\n- Unterrichtsbefähigung Primarstufe\n\nSonderprivatauszug:\nVor dem Ausstellen einer Anstellungsverfügung wird der Sonderprivatauszug eingefordert.\n\nWir bieten\n- eine befristete Anstellung bis 31.07.2027 (eine mögliche Verlängerung kann frühzeitig besprochen werden)\n- sehr gute Unterstützung durch die Klassenlehrperson, das Schulhaus-Team und die Schulleitung\n- zeitgemässe Infrastruktur\n- modernes Konzept Medien und Informatik (Arbeit mit Google Workspace, LehrerOffice, Chromebooks und KLAPP)\n\nSie werden sich an der Schule Grosshöchstetten wohlfühlen!",
-        "fr": "Porträt\nGemeinsam – wertschätzend – vertrauensvoll – selbstständig – verständlich; dies sind die Grundsätze, nach welchen wir unseren Schulalltag gestalten.\nIn der Schule Grosshöchstetten wird das Miteinander verlässlich gelebt und es herrscht eine vertrauensvolle Arbeitsatmosphäre. Die sehr gute Organisation und die klaren Strukturen helfen dabei und erleichtern den Arbeitsalltag.\nWir unterrichten 25 Klassen (Kindergarten bis Sekundarstufe 1) an mehreren Standorten. Arbeitsort ist das Schulhaus Alpenweg.\n\nAufgaben\nPer 01.08.2026 suchen wir zur Verstärkung unseres Teams eine Fachlehrperson für eine unserer Klassen 5/6.\n\nDas Unterrichtspensum von 5 Lektionen setzt sich wie folgt zusammen:\n3 L Französisch, 2 L bildnerisches Gestalten\n\nUnterrichtszeiten:\nDonnerstag, 07.30 bis 11.50 Uhr\n\nAnforderungen\nGrundhaltung:\n- Sie besitzen ein grosses Herz für Kinder und begleiten diese mit Interesse und Freude im Schulalltag.\n- Ihnen ist die Beziehungsgestaltung zu den Schülerinnen und Schülern sehr wichtig (und Sie sind bereit, in die Beziehung zu investieren).\n- Sie verfügen über eine natürliche Autorität und ein gutes Durchsetzungsvermögen.\n- Sie haben Freude am Lehrerberuf, welche sich in Ihrer engagierten, initiativen und kreativen Arbeitsweise zeigt.\n- Sie sind gerne Teil eines Teams, bringen Ihre Stärken ein und tragen Entscheide loyal mit.\n- Sie besitzen entsprechende Fachkompetenzen für die Fachbereiche (inkl. sehr gute Französisch-Kenntnisse).\n\nQualifikationen:\n- Unterrichtsbefähigung Primarstufe\n\nSonderprivatauszug:\nVor dem Ausstellen einer Anstellungsverfügung wird der Sonderprivatauszug eingefordert.\n\nWir bieten\n- eine befristete Anstellung bis 31.07.2027 (eine mögliche Verlängerung kann frühzeitig besprochen werden)\n- sehr gute Unterstützung durch die Klassenlehrperson, das Schulhaus-Team und die Schulleitung\n- zeitgemässe Infrastruktur\n- modernes Konzept Medien und Informatik (Arbeit mit Google Workspace, LehrerOffice, Chromebooks und KLAPP)\n\nSie werden sich an der Schule Grosshöchstetten wohlfühlen!"
+        "it": "Ritratto\nInsieme – apprezzatamente – con fiducia – indipendentemente – comprensibilmente; Questi sono i principi con cui formiamo la nostra giornata scolastica.\nNella scuola Grosshochetten, la cooperazione è vissuta in modo affidabile e c'è un'atmosfera di lavoro affidabile. L'organizzazione molto buona e le strutture chiare aiutano e facilitano il lavoro quotidiano.\nInsegneremo 25 classi (asilo al livello secondario 1) in diverse località. Luogo di lavoro è la casa della scuola Alpenweg.\n\nCompiti\nDal 01.08.2026 cerchiamo un insegnante specializzato per una delle nostre classi 5/6 per rafforzare il nostro team.\n\nLa lezione di 5 lezioni è composta come segue:\n3 L Francese, 2 L disegni artistici\n\nClassi:\nGiovedì, 7.30 alle 11.50.\n\nRequisiti\nAtteggiamento di base:\n- Hanno un grande cuore per i bambini e li accompagnano con interesse e gioia nella vita quotidiana della scuola.\n- Il design di relazione con gli studenti è molto importante per voi (e siete disposti a investire nella relazione).\n- Hanno autorità naturale e buona assertività.\n- Vi piace la professione di insegnamento, che mostra nel vostro impegno, iniziativa e lavoro creativo.\n- Ti piace essere parte di una squadra, portare i tuoi punti di forza e prendere decisioni lealmente.\n- Essi hanno competenze adeguate per le aree tematiche (compresa la conoscenza molto buona del francese).\n\nQualifiche:\n- Formazione primaria\n\nSpeciale estratto privato:\nPrima di rilasciare una decisione di lavoro, è richiesto l'estratto privato speciale.\n\nOffriamo\n- occupazione temporanea fino al 31.07.2027 (una possibile proroga può essere discussa in anticipo)\n- molto buon supporto dall'insegnante di classe, la squadra della scuola e la gestione della scuola\n- Infrastrutture contemporanee\n- concetto moderno di media e informatica (lavorare con Google Workspace, LehrerOffice, Chromebooks e KLAPP)\n\nTi sentirai a tuo agio ai Grand Prix di scuola!",
+        "en": "Portrait\nTogether – appreciatively – trustfully – independently – understandably; These are the principles by which we shape our school day.\nIn the school Grosshochetten, cooperation is reliably lived and there is a trusting working atmosphere. The very good organization and the clear structures help and facilitate everyday work.\nWe teach 25 classes (kindergarten to secondary level 1) in several locations. Place of work is the school house Alpenweg.\n\nTasks\nAs of 01.08.2026 we are looking for a specialist teacher for one of our classes 5/6 to strengthen our team.\n\nThe lesson of 5 lessons is composed as follows:\n3 L French, 2 L artistic designs\n\nClasses:\nThursday, 7.30 a.m. to 11.50 a.m.\n\nRequirements\nBasic attitude:\n- They have a big heart for children and accompany them with interest and joy in everyday school life.\n- Relationship design with students is very important to you (and you are willing to invest in the relationship).\n- They have natural authority and good assertiveness.\n- You enjoy the teaching profession, which shows in your committed, initiative and creative work.\n- You like to be part of a team, bring your strengths and carry decisions loyally.\n- They have appropriate expertise for the subject areas (including very good knowledge of French).\n\nQualifications:\n- Primary education qualification\n\nSpecial private extract:\nBefore issuing an employment decision, the special private extract shall be requested.\n\nWe offer\n- temporary employment until 31.07.2027 (a possible extension can be discussed early)\n- very good support from the class teacher, the school house team and the school management\n- Contemporary infrastructure\n- modern concept of media and computer science (work with Google Workspace, LehrerOffice, Chromebooks and KLAPP)\n\nYou will feel at ease at the school Grand Prixes!",
+        "fr": "Portrait\nEnsemble – reconnaissants – confiants – indépendants – compréhensibles; Ce sont les principes par lesquels nous façonnons notre journée scolaire.\nDans l'école Grosshochetten, la coopération est vécue de manière fiable et il y a une atmosphère de travail confiante. La très bonne organisation et les structures claires aident et facilitent le travail quotidien.\nNous enseignons 25 classes (maternelle au niveau secondaire 1) à plusieurs endroits. Le lieu de travail est la maison d'école Alpenweg.\n\nTâche\nAu 01.08.2026, nous recherchons un professeur spécialisé pour l'une de nos classes 5/6 afin de renforcer notre équipe.\n\nLa leçon de 5 leçons se compose comme suit:\n3 L français, 2 L dessins artistiques\n\nClasses:\nJeudi 7 h 30 à 11 h 50\n\nExigences\nL'attitude de base:\n- Ils ont un grand cœur pour les enfants et les accompagnent avec intérêt et joie dans la vie scolaire quotidienne.\n- La conception des relations avec les étudiants est très importante pour vous (et vous êtes prêt à investir dans la relation).\n- Ils ont une autorité naturelle et une bonne assurance.\n- Vous appréciez la profession d'enseignant, qui montre votre engagement, votre initiative et votre travail créatif.\n- Vous aimez faire partie d'une équipe, apporter vos forces et prendre des décisions loyalement.\n- Ils disposent d'une expertise appropriée dans les domaines (y compris une très bonne connaissance du français).\n\nQualifications\n- Diplôme d ' études primaires\n\nExtrait privé spécial:\nAvant de rendre une décision d'emploi, l'extrait privé spécial est demandé.\n\nNous offrons\n- emploi temporaire jusqu'au 31.07.2027 (une éventuelle prolongation peut être discutée tôt)\n- très bon soutien de l'enseignant de classe, de l'équipe de la maison scolaire et de la direction de l'école\n- Infrastructure contemporaine\n- concept moderne des médias et de l'informatique (travail avec Google Workspace, LehrerOffice, Chromebooks et KLAPP)\n\nVous vous sentirez à l'aise au Grand Prix de l'école!"
       },
       "location": "Grosshöchstetten",
       "canton": "BE",
@@ -7132,7 +7117,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7298,7 +7282,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.460Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -7585,7 +7568,7 @@
       "title": "DaZ-Lehrperson",
       "titleByLocale": {
         "it": "Istruttore DAZ",
-        "en": "DaZ-Lehrperson",
+        "en": "DAZ instructor",
         "de": "DaZ-Lehrperson",
         "fr": "instructeur DAZ"
       },
@@ -7637,7 +7620,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.329Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8013,7 +7995,7 @@
       "title": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
       "titleByLocale": {
         "it": "Das Weissenheim cerca: Insegnante di classe, Ciclo 2, 14 lezioni",
-        "en": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
+        "en": "The Weissenheim is looking for: class teacher, cycle 2, 14 lessons",
         "de": "Das Weissenheim sucht: Klassenlehrperson, Zyklus 2, 14 Lektionen",
         "fr": "Das Weissenheim recherche : Enseignant·e de classe, Cycle 2, 14 leçons"
       },
@@ -8071,7 +8053,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.458Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8222,7 +8203,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:55:33.368Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -8545,7 +8525,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T22:55:33.367Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "60-lernhaus-beo-heimgarten-bern-muristrasse-29-39369"
@@ -9258,7 +9237,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -9892,7 +9870,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.449Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -10304,8 +10281,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-eada34470f98",

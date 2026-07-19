@@ -1966,7 +1966,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -2033,7 +2032,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3201,7 +3199,6 @@
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -3270,7 +3267,6 @@
           "specialista-assistenza-sanitaria-professionale-bambini-e-medicina-della-gioventu-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "country": "CH",
       "salaryMin": 41080,
@@ -6736,7 +6732,7 @@
       "crawledAt": "2026-07-19T11:10:41.834Z",
       "slug": "infermieristica-professional-intermediate-care-imc-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-intermediate-care-imc-kantonsspital-graubunden-chur",
+        "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
         "it": "infermieristica-professional-intermediate-care-imc-kantonsspital-graubunden-chur",
         "en": "nursing-professional-intermediate-care-imc-kantonsspital-graubunden-chur",
         "fr": "soins-intermediaires-professionnels-en-soins-infirmiers-sim-kantonsspital-graubunden-chur"
@@ -6784,6 +6780,9 @@
         "fr": [
           "pflegefachfrau-pflegefachmann-intermediate-care-imc-kantonsspital-graubunden-chur",
           "infirmier-infirmiere-en-soins-intermediaires-kantonsspital-graubunden-chur"
+        ],
+        "de": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-imc-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
