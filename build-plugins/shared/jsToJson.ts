@@ -18,6 +18,8 @@
  *   - baseUrl:      origin substituted for `${BASE_URL}` / bare `BASE_URL`
  *   - buildDateIso: ISO timestamp substituted for `BUILD_DATE_ISO`
  */
+import { EXCHANGE_RATE_EUR } from '../../services/seo/exchangeRateMeta';
+
 export const jsToJson = (
   js: string,
   opts: { baseUrl: string; buildDateIso: string },
@@ -26,6 +28,13 @@ export const jsToJson = (
   let s = js;
   // Replace BUILD_DATE_ISO variable reference with the build timestamp
   s = s.replace(/\bBUILD_DATE_ISO\b/g, `"${buildDateIso}"`);
+  // Replace EXCHANGE_RATE_EUR (live CHF->EUR rate from the committed daily
+  // snapshot — see services/seo/exchangeRateMeta.ts) so structuredData
+  // literals in seo-pages.ts can reference it instead of a stale hardcoded
+  // rate. Substituted here (not via opts) so every caller — emitter AND the
+  // tests/static-pages-seo-entry-lookup.test.ts guard — resolves it
+  // identically by construction.
+  s = s.replace(/\bEXCHANGE_RATE_EUR\b/g, `"${EXCHANGE_RATE_EUR}"`);
   // Replace ${BASE_URL} template literals AND bare BASE_URL variable references
   s = s.replace(/\$\{BASE_URL\}/g, baseUrl);
   s = s.replace(/\bBASE_URL\b/g, `"${baseUrl}"`);

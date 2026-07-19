@@ -63,6 +63,7 @@ const translations: Record<string, string> = {
  'currency.mid_market_tooltip': 'Il tasso mid-market è il tasso reale tra le valute, senza margini aggiunti dalle banche.',
  'currency.updated': 'Aggiornato',
  'currency.history_title': 'Storico Tasso CHF/EUR',
+ 'currency.static_hub_link': 'Vedi la pagina completa: tasso di oggi, storico 12 mesi e guida per frontalieri',
  'currency.no_data_available': 'Nessun dato disponibile',
  'currency.average': 'Media',
  'currency.period_1m': '1 Mese',

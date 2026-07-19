@@ -145,6 +145,7 @@ const frCalculator: Record<string, string> = {
  'results.liveInTicino': 'Vivre au Tessin',
  'results.liveInItaly': 'Vivre en Italie',
  'results.netMonthlyResidual': 'Net mensuel résiduel',
+ 'results.exchangeVerticalLink': 'Combien en euros ? Historique du taux CHF/EUR',
  'results.downloadPDF': 'Télécharger PDF',
  'results.share.button': 'Partager la simulation',
  'results.share.copied': 'Lien copié !',

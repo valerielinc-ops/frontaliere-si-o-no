@@ -58,6 +58,7 @@ const deComparatori: Record<string, string> = {
  'currency.mid_market_tooltip': 'Der Mid-Market-Kurs ist der echte Wechselkurs zwischen Währungen, ohne Aufschläge der Banken.',
  'currency.updated': 'Aktualisiert',
  'currency.history_title': 'CHF/EUR Kursverlauf',
+ 'currency.static_hub_link': 'Zur vollständigen Seite: aktueller Kurs, 12-Monats-Verlauf und Grenzgänger-Guide',
  'currency.no_data_available': 'Keine Daten verfügbar',
  'currency.average': 'Durchschnitt',
  'currency.period_1m': '1 Monat',

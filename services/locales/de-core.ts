@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3660.title': 'CHF/EUR-Wechselkurs im Blick',
+ 'whatsNew.v3660.exchange-ssg.title': 'Franken-Euro-Kurs: neue eigene Seiten',
+ 'whatsNew.v3660.exchange-ssg.desc': 'Aktueller CHF/EUR-Kurs, 12-Monats-Verlauf und Umrechnung typischer Löhne (1000–10000 CHF), mit Tipps zum richtigen Zeitpunkt und zum Sparen bei den Gebühren.',
  'whatsNew.v3650.title': 'Interaktiver LAMal-vs-SSN-Vergleich',
  'whatsNew.v3650.affiliate.title': 'Empfohlene Gesundheits-Tools',
  'whatsNew.v3650.affiliate.desc': 'Neue empfohlene Ressourcen im Krankenkassen-Vergleich und auf den Pr\u00e4mienseiten, mit einheitlich getrackten Partnerlinks.',

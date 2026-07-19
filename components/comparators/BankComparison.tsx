@@ -1,4 +1,5 @@
 import React, { useState, useMemo, Suspense } from 'react';
+import { WISE_REFERRAL_URL, FINECO_REFERRAL_URL } from '@/services/exchangePartners';
 import Callout from '@/components/shared/Callout';
 import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
@@ -115,7 +116,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  pros: [t('banks.wise.pro1'), t('banks.wise.pro2'), t('banks.wise.pro3'), t('banks.wise.pro4')],
  cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
  color: 'from-success-strong to-info-strong',
- website: 'https://wise.com/invite/ihpn/luigis147',
+ website: WISE_REFERRAL_URL,
  goId: 'wise',
  acceptsFrontalieri: true
  },
@@ -144,7 +145,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
  cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
  color: 'from-info-strong to-accent-strong',
- website: 'https://fineco.mobi/passaparola',
+ website: FINECO_REFERRAL_URL,
  goId: 'fineco',
  acceptsFrontalieri: true
  },

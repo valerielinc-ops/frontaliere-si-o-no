@@ -58,6 +58,7 @@ const frComparatori: Record<string, string> = {
  'currency.mid_market_tooltip': 'Le taux mid-market est le taux réel entre les devises, sans marge ajoutée par les banques.',
  'currency.updated': 'Mis à jour',
  'currency.history_title': 'Historique Taux CHF/EUR',
+ 'currency.static_hub_link': 'Voir la page complète : taux du jour, historique 12 mois et guide frontalier',
  'currency.no_data_available': 'Aucune donnée disponible',
  'currency.average': 'Moyenne',
  'currency.period_1m': '1 Mois',

@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3660.title': 'Taux CHF/EUR sous contrôle',
+ 'whatsNew.v3660.exchange-ssg.title': 'Change franc-euro : nouvelles pages dédiées',
+ 'whatsNew.v3660.exchange-ssg.desc': 'Taux CHF/EUR du jour, historique 12 mois et conversion des salaires typiques (1000–10000 CHF), avec des conseils sur quand changer et comment économiser sur les frais.',
  'whatsNew.v3650.title': 'Comparaison interactive LAMal vs SSN',
  'whatsNew.v3650.affiliate.title': 'Outils sant\u00e9 recommand\u00e9s',
  'whatsNew.v3650.affiliate.desc': 'Nouvelles ressources recommand\u00e9es dans le comparateur de caisses maladie et les pages de primes, avec liens partenaires suivis de mani\u00e8re uniforme.',
