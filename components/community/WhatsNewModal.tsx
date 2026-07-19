@@ -46,6 +46,18 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.79.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3790.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3790.fiscalMunicipality.title',
+        descKey: 'whatsNew.v3790.fiscalMunicipality.desc',
+      },
+    ],
+  },
+  {
     version: '3.78.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3780.title',
