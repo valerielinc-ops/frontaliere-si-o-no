@@ -1249,6 +1249,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.title': 'More nuclear power plants put thousands of jobs at risk, ZHAW',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.excerpt': 'A recent study by the Zurich University of Applied Sciences (ZHAW) indicates that the construction of new nuclear power plants would put thousands of jobs at risk in the construction and renewable energy sectors.',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.imageAlt': 'A Swiss city with a nuclear plant',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Working as an optician in Ticino: salary, requirements and title recognition',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Optical border optometrists in Ticino: average salary, requirements, recognition of qualification and G permit.',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'A frontier worker waiting to receive a work permit at an optometrist\'s office in Lugano.',
 };
 
 export default blogMetaChEn;
