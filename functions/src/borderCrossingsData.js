@@ -24,8 +24,23 @@ export function slugifyCrossingName(name) {
 }
 
 /**
- * Active border crossings between Italy and Switzerland (Lombardia → Ticino).
- * Sourced from data/borderCrossings.ts with `trafficLevel: 'closed'` entries removed.
+ * Border crossings tracked by the live TomTom/HERE wait-time collector.
+ * Hand-kept mirror of data/borderCrossings.ts — NOT generated or imported
+ * from it (this file must stay importable without firebase-admin/server-side
+ * deps, see file header). Currently Italy ↔ Ticino only; entries here are a
+ * subset of data/borderCrossings.ts with `trafficLevel: 'closed'` crossings
+ * removed (the scheduler has nothing live to poll for a permanently-closed
+ * crossing).
+ *
+ * Adding a new crossing (any country/canton — this collector doesn't care,
+ * see below): append one object with EXACTLY these 3 fields, nothing else:
+ *   { name: '<crossing name — must match data/borderCrossings.ts name field
+ *            byte-for-byte, it's the join key via slugifyCrossingName()>',
+ *     lat: <number>, lng: <number> }
+ * Do NOT add `country`/`canton`/`foreignSide`/etc from the richer
+ * data/borderCrossings.ts shape — this collector only ever geocodes and
+ * displays a name, so those fields would be dead weight here. Do NOT add a
+ * crossing whose data/borderCrossings.ts `trafficLevel` is `'closed'`.
  *
  * @type {Array<{name: string, lat: number, lng: number}>}
  */

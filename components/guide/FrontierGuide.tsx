@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
+import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 // NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
@@ -104,13 +105,6 @@ function crossingSlug(crossing: BorderCrossing): string {
 function municipalityProfilePath(name: string): string {
  return `/vivere-in-ticino/comuni-di-frontiera/${slugifyPath(name)}/`;
 }
-
-// Province code → full name mapping
-const PROVINCE_NAMES: Record<string, string> = {
- CO: 'Como', VA: 'Varese', VB: 'Verbania', SO: 'Sondrio', LC: 'Lecco',
- AO: 'Aosta', VC: 'Vercelli', MB: 'Monza-Brianza', BG: 'Bergamo',
- BS: 'Brescia', TN: 'Trento', BZ: 'Bolzano',
-};
 
 // Determine nearest border crossing based on province and coordinates
 function getBorderCrossing(province: string, lat: number, lng: number, name: string): string {
