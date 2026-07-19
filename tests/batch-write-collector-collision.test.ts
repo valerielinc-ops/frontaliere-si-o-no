@@ -11,9 +11,14 @@
  * regression in the `add()` → `claim()` wiring itself (not just the registry
  * internals) would be caught here.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 
 import { WriteCollector } from '@/build-plugins/batchWrite';
+import { initManifest, saveManifest } from '@/build-plugins/contentHash';
 import {
   reset,
   clearDeclarationsForTest,
@@ -78,5 +83,48 @@ describe('WriteCollector collision visibility', () => {
     expect(collector.overwrittenInPlugin).toBe(0);
     expect(collector.skippedByCollision).toBe(1);
     expect(getCollisions()).toHaveLength(0);
+  });
+
+  it('collision is still recorded when the owner write is short-circuited by the content-hash manifest', () => {
+    setModeForTest('report');
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-manifest-'));
+    try {
+      const distDir = path.join(tmpRoot, 'dist');
+      const rel = 'tasse-frontalieri-comune/como/index.html';
+      const filePath = path.join(distDir, rel);
+      const canonicalContent = '<html>canonical</html>';
+
+      // Simulate a file already on disk, unchanged since the previous build:
+      // the manifest recorded its hash last run, and the same content is on
+      // disk now.
+      fs.mkdirSync(path.dirname(filePath), { recursive: true });
+      fs.writeFileSync(filePath, canonicalContent, 'utf-8');
+      const cacheDir = path.join(tmpRoot, '.build-cache');
+      fs.mkdirSync(cacheDir, { recursive: true });
+      const hash = createHash('sha256').update(canonicalContent, 'utf-8').digest('hex');
+      fs.writeFileSync(
+        path.join(cacheDir, 'build-manifest.json'),
+        JSON.stringify({ version: 1, files: { [rel]: hash } }),
+        'utf-8',
+      );
+      initManifest(tmpRoot);
+
+      const owner = new WriteCollector({ pluginName: 'fiscalMunicipalityPagesPlugin', distDir });
+      const intruder = new WriteCollector({ pluginName: 'someFuturePlugin', distDir });
+
+      owner.add(filePath, canonicalContent);
+      expect(owner.skippedByHash).toBe(1);
+      expect(owner.count).toBe(0);
+
+      intruder.add(filePath, '<html>rogue</html>');
+
+      const collisions = getCollisions();
+      expect(collisions).toHaveLength(1);
+      expect(collisions[0].first.plugin).toBe('fiscalMunicipalityPagesPlugin');
+      expect(collisions[0].attempted.plugin).toBe('someFuturePlugin');
+    } finally {
+      saveManifest();
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
   });
 });
