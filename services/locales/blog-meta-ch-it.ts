@@ -1249,6 +1249,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.title': 'Di più centrali nucleari mettono a rischio migliaia posti lavoro, ZHAW',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.excerpt': 'Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio migliaia di posti di lavoro nei settori dell\'edilizia e delle energie rinnovabili.',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.imageAlt': 'Una città svizzera con un impianto nucleare',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere in attesa di ricevere il permesso di lavoro presso un ottico optometrista a Lugano.',
 };
 
 export default blogMetaChIt;
