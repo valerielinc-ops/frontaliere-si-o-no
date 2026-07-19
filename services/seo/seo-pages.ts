@@ -3729,7 +3729,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'frontaliere-wizard': {
  title: 'Sei Pronto a Diventare Frontaliere? Test in 2 Minuti | Frontaliere',
- description: 'Test di prontezza per aspiranti frontalieri: rispondi a 7 domande su confine, permesso G, lavoro, famiglia, settore e lingua e ricevi un piano personalizzato con i passi da fare.',
+ description: 'Test di prontezza per aspiranti frontalieri: 7 domande su confine, permesso G, lavoro, famiglia e lingua, poi un piano personalizzato con i passi da fare.',
  keywords: 'diventare frontaliere, come diventare frontaliere svizzera, test frontaliere, sei pronto frontaliere, piano frontaliere, iniziare a lavorare in svizzera, primi passi frontaliere, guida nuovo frontaliere',
  ogTitle: 'Sei Pronto a Diventare Frontaliere? Scoprilo in 2 Minuti',
  ogDescription: 'Rispondi a 7 domande e ricevi il tuo punteggio di prontezza + un piano personalizzato con i passi da fare per iniziare a lavorare in Svizzera.',
@@ -3737,7 +3737,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebApplication",
+ "@type": "WebPage",
  "name": "Sei Pronto a Diventare Frontaliere?",
  "url": `${BASE_URL}/sei-pronto-a-diventare-frontaliere/`,
  "description": "Wizard di qualificazione per aspiranti frontalieri: 7 domande, punteggio di prontezza e piano d'azione personalizzato con link a guide, comparatori e calcolatori.",
