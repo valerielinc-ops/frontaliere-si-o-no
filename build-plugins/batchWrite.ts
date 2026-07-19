@@ -197,6 +197,20 @@ export class WriteCollector {
  this._skippedByLocale++;
  return;
  }
+ // Cross-plugin/intra-plugin write collision check runs BEFORE any
+ // physical-write short-circuit below (skipExisting, content-hash manifest).
+ // Those short-circuits decide whether bytes hit disk, not whether the path
+ // was logically claimed — running claim() after them left pathHistory
+ // empty for a manifest-skipped (unchanged-content) path, so a later rogue
+ // write to that same path in the same build was treated as a first claim
+ // instead of a collision (zero report, zero throw). claim() throws
+ // WriteCollisionError in `throw` mode and returns 'skip-write' for
+ // idempotent re-claims (identical content) or declared-shared losers.
+ const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
+ if (outcome === 'skip-write') {
+ this._skippedByCollision++;
+ return;
+ }
  if (this.skipExisting && fs.existsSync(filePath)) return;
  // Check content hash manifest — skip writing if content is identical to last build
  const manifest = getManifest();
@@ -210,14 +224,6 @@ export class WriteCollector {
  if (!fileExists) {
   manifest.shouldWrite(rel, content);
  }
- }
- // Cross-plugin/intra-plugin write collision check.
- // claim() throws WriteCollisionError in `throw` mode and returns 'skip-write'
- // for idempotent re-claims (identical content) or declared-shared losers.
- const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
- if (outcome === 'skip-write') {
- this._skippedByCollision++;
- return;
  }
  // Map.set semantics: if this filePath was already queued by an earlier
  // add() in the same build, this call REPLACES the queued content. The
