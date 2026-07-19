@@ -3506,6 +3506,10 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3640.title': 'More visibility for employers',
+  'whatsNew.v3640.employerCta.title': 'Quick access for hiring companies',
+  'whatsNew.v3640.employerCta.desc': 'If your company is hiring, you will now find the "Publish your job ad" link in the footer and on the employer pages: featured listing, dedicated SEO page and newsletter blast included.',
+
   'whatsNew.v3630.title': 'Save the jobs you care about',
   'whatsNew.v3630.savedJobs.title': 'Saved jobs',
   'whatsNew.v3630.savedJobs.desc': 'Tap the bookmark on a job to save it and find it again in the new “Saved” view on the job board — no sign-up needed.',

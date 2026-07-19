@@ -3509,6 +3509,10 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3640.title': 'Mehr Sichtbarkeit für Arbeitgeber',
+  'whatsNew.v3640.employerCta.title': 'Schnellzugriff für einstellende Unternehmen',
+  'whatsNew.v3640.employerCta.desc': 'Wenn Ihr Unternehmen einstellt, finden Sie jetzt den Link «Veröffentlichen Sie Ihre Stellenanzeige» im Footer und auf den Arbeitgeberseiten: hervorgehobene Anzeige, eigene SEO-Seite und Newsletter-Versand inklusive.',
+
   'whatsNew.v3630.title': 'Speichern Sie interessante Stellen',
   'whatsNew.v3630.savedJobs.title': 'Gespeicherte Stellen',
   'whatsNew.v3630.savedJobs.desc': 'Tippen Sie auf das Lesezeichen einer Stelle, um sie zu speichern und in der neuen Ansicht «Gespeichert» der Jobbörse wiederzufinden — ohne Registrierung.',

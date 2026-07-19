@@ -3509,6 +3509,10 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3640.title': 'Plus de visibilité pour les employeurs',
+  'whatsNew.v3640.employerCta.title': 'Accès rapide pour les entreprises qui recrutent',
+  'whatsNew.v3640.employerCta.desc': 'Si votre entreprise recrute, vous trouverez désormais le lien « Publiez votre annonce » dans le pied de page et sur les pages employeurs : annonce mise en avant, page SEO dédiée et envoi newsletter inclus.',
+
   'whatsNew.v3630.title': 'Enregistrez les offres qui vous intéressent',
   'whatsNew.v3630.savedJobs.title': 'Offres enregistrées',
   'whatsNew.v3630.savedJobs.desc': 'Touchez le signet d\'une offre pour l\'enregistrer et la retrouver dans la nouvelle vue « Enregistrées » du tableau — sans inscription.',
