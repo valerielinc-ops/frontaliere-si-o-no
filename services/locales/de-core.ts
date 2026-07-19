@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3730.title': 'Widgets für Ihre Website',
+ 'whatsNew.v3730.embedWidgets.title': 'Gehalts-Badge und Grenzwartezeiten-Widgets für Ihre Website',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blogs, Foren und Fachseiten können unsere Widgets jetzt kostenlos einbinden: Mediangehalt nach Beruf, Live-Grenzwartezeiten und der CHF/EUR-Kurs. Copy-paste-Code bereit auf frontaliereticino.ch/embed/.',
  'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
  'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
  'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',

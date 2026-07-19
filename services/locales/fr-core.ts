@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3730.title': 'Des widgets à ajouter à votre site',
+ 'whatsNew.v3730.embedWidgets.title': 'Badge salaire et widgets d’attente aux douanes pour votre site',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blogs, forums et sites spécialisés peuvent désormais intégrer gratuitement nos widgets : salaire médian par profession, attentes en temps réel aux douanes et taux CHF/EUR. Code copier-coller prêt sur frontaliereticino.ch/embed/.',
  'whatsNew.v3700.title': 'Pages entreprise : salaires et postes ouverts',
  'whatsNew.v3700.employerProfiles.title': 'Profils des entreprises qui recrutent',
  'whatsNew.v3700.employerProfiles.desc': 'De nouvelles pages dédiées pour des centaines d’employeurs : postes ouverts, salaire médian, sites et tendance des recrutements, en un coup d’œil.',

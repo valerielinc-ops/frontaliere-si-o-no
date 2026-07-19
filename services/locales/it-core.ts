@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3730.title': 'Widget da aggiungere al tuo sito',
+ 'whatsNew.v3730.embedWidgets.title': 'Badge stipendi e attese dogane per il tuo sito',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blog, forum e siti di settore possono ora incorporare gratis i nostri widget: stipendio medio per professione, attese live alle dogane e cambio CHF/EUR. Codice copia-incolla pronto su frontaliereticino.ch/embed/.',
  'whatsNew.v3700.title': 'Pagine azienda: stipendi e posizioni aperte',
  'whatsNew.v3700.employerProfiles.title': 'Profili delle aziende che assumono',
  'whatsNew.v3700.employerProfiles.desc': 'Nuove pagine dedicate per centinaia di aziende: posizioni aperte, stipendio mediano, sedi e trend delle assunzioni, tutto in un colpo d’occhio.',
