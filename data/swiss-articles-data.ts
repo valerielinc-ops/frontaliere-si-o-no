@@ -3743,6 +3743,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'frontaliere-ottico-optometrista-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-19T09:09:34.026Z',
+    image: '/images/blog/frontaliere-ottico-optometrista-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

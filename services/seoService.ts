@@ -4633,6 +4633,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-dietista-ticino-stipendio-requisiti': { name: 'Lavorare come dietista in Ticino da', path: '/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw': { name: 'Centrali nucleari', path: '/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/', parent: 'blog' },
     'blog-frontaliere-ticino-ottico-optometrista': { name: 'Ticino', path: '/articoli-frontaliere/frontaliere-ticino-ottico-optometrista', parent: 'blog' },
+    'blog-frontaliere-ottico-optometrista-ticino-stipendio-requisiti': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-ottico-optometrista-ticino-guida': { name: 'Lavoro Ottico Ticino', path: '/articoli-frontaliere/ottico-optometrista-ticino-guida', parent: 'blog' },
  };
 
  const info = sectionNames[section];

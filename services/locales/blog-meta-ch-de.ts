@@ -1249,6 +1249,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.title': 'Mehrere Kernkraftwerke gefährden tausende Arbeitsplätze, ZHAW',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.excerpt': 'Eine aktuelle Studie der Zürcher Hochschule für Angewandte Wissenschaften (ZHAW) zeigt, dass der Bau neuer Kernkraftwerke Tausende von Arbeitsplätzen in den Bereichen Bau und erneuerbare Energien gefährden würde.',
     'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.imageAlt': 'Eine Schweizer Stadt mit einem Kernkraftwerk',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Lavorare come ottico in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Grenzoptiker im Tessin: Durchschnittsgehalt, Voraussetzungen, Anerkennung des Bildungsabschlusses und G-Genehmigung.',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzarbeiter, der ein Arbeitsvisum bei einem Optometristen in Lugano erwarten muss.',
 };
 
 export default blogMetaChDe;
