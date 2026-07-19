@@ -8630,6 +8630,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Stipendio ergoterapista: salari e differenze con l\'Italia',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergoterapista frontaliere lavora nel Canton Ticino',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.title': 'Di più startup svizzere, solo 7% del capitale va a imprese con CEO donna',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.excerpt': 'Secondo un nuovo studio dell\'associazione di investitori SECA, solo il 7% del capitale a rischio raccolto è andato a imprese con CEO donna.',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.imageAlt': 'Vista panoramica del Lago di Lugano',
 };
 
 export default blogMetaIt;
