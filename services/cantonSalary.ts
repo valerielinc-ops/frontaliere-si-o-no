@@ -10,6 +10,7 @@
  */
 import index from '@/data/swiss-canton-salary-index.json';
 import taxBurden from '@/data/swiss-canton-tax-burden.json';
+import { DEFAULT_TECH_PARAMS } from '@/constants';
 
 /** Sentinel for the national (all-Switzerland) view — scale 1.0. */
 export const NATIONAL_CANTON = 'CH';
@@ -88,3 +89,79 @@ export function cantonTaxBurdenPct(gross: number, code?: string | null): number 
       : NATIONAL_CURVE;
   return interpolateCurve(curve, gross);
 }
+
+// ── "Same job in another canton" net estimate (issue #4471) ──────────────────
+
+/**
+ * Flat CH social-security rate for a resident (AVS/AI/IPG + AD + LAINF + IGM +
+ * LPP mid-band), reused from the calculator's default technical parameters so
+ * the comparison never drifts from the main engine's contribution assumptions.
+ */
+const SOCIAL_RATE =
+  DEFAULT_TECH_PARAMS.avsRate +
+  DEFAULT_TECH_PARAMS.acRate +
+  DEFAULT_TECH_PARAMS.laaRate +
+  DEFAULT_TECH_PARAMS.ijmRate +
+  DEFAULT_TECH_PARAMS.lppRate35_44;
+
+export interface CantonNetEstimate {
+  /** Target canton ISO code (e.g. 'ZH'). */
+  canton: string;
+  /** Same-role gross scaled to the target canton's wage level (CHF/year). */
+  grossAnnualCHF: number;
+  /** Estimated net for a RESIDENT taxed in that canton (CHF/month). */
+  netMonthlyCHF: number;
+}
+
+/**
+ * Estimate the monthly net a resident would take home for the SAME role in
+ * another canton, starting from the user's current Ticino gross salary.
+ *
+ * Two official signals combine (both already sourced in this module):
+ *   1. Wage level — the gross is rescaled from Ticino's wage level to the target
+ *      canton's (BFS grossregion medians, `cantonGrossScale`). "Same job" ⇒ the
+ *      pay a comparable role commands in that region.
+ *   2. Tax burden — the residents' total cantonal+municipal income-tax burden at
+ *      that gross (`cantonTaxBurdenPct`, ESTV), minus flat social security.
+ *
+ * Returns `null` for a non-positive/unusable gross so callers hide the row
+ * rather than render a fabricated figure.
+ */
+export function estimateCantonNetMonthly(
+  userGrossAnnualCHF: number,
+  toCanton: string,
+  fromCanton: string = 'TI',
+): CantonNetEstimate | null {
+  const gross = Number(userGrossAnnualCHF);
+  if (!Number.isFinite(gross) || gross <= 0) return null;
+  const c = String(toCanton || '').toUpperCase().trim();
+  if (!c) return null;
+
+  const fromScale = cantonGrossScale(fromCanton);
+  const toScale = cantonGrossScale(c);
+  if (!fromScale) return null;
+  const grossAnnual = gross * (toScale / fromScale);
+
+  const socialCHF = grossAnnual * SOCIAL_RATE;
+  const taxCHF = grossAnnual * (cantonTaxBurdenPct(grossAnnual, c) / 100);
+  const netAnnual = grossAnnual - socialCHF - taxCHF;
+
+  return {
+    canton: c,
+    grossAnnualCHF: Math.round(grossAnnual),
+    netMonthlyCHF: Math.round(netAnnual / 12),
+  };
+}
+
+/**
+ * Default set of high-interest comparison cantons for the calculator's
+ * "same job in other cantons" section — the metros frontaliere audiences most
+ * often weigh against Ticino. `TI` itself is excluded by the caller.
+ */
+export const CANTON_COMPARISON_DEFAULTS: readonly string[] = Object.freeze([
+  'ZH',
+  'GE',
+  'ZG',
+  'BS',
+  'VD',
+]);
