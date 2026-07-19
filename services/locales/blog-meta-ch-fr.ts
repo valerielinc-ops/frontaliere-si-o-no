@@ -1231,6 +1231,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Combien gagne une sage-femme frontalière au Tessin ?',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Salaire réel d\'une sage-femme frontalière au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Infirmière frontalière au Tessin',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'Le bulletin de paie suisse : guide des retenues et le reste net',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Découvrez comment lire un bulletin de paie suisse et ce que chaque retenue signifie',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Guide de la feuille de paie suisse 2026',
 };
 
 export default blogMetaChFr;

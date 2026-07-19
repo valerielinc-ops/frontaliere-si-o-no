@@ -1231,6 +1231,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'How much does a border midwife earn in Ticino?',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Actual salary of a border midwife in Ticino: salary band, differences compared to Italy, factors affecting salary.',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Frontalier nurse in Ticino',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'The Swiss paycheck: guide to withholdings and the rest net',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Learn how to read a Swiss paycheck and what each withholding means',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Swiss pay stub guide 2026',
 };
 
 export default blogMetaChEn;

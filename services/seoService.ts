@@ -4621,6 +4621,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendio-assistente-dentale-frontaliere-ticino': { name: 'Stipendio assistente dentale frontaliere', path: '/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-ostetrica-stipendio-ticino': { name: 'Stipendio frontaliere', path: '/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/', parent: 'blog' },
     'blog-costi-traffico-svizzera-2023': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/costi-traffico-svizzera-2023', parent: 'blog' },
+    'blog-guida-busta-paga-svizzera-2026': { name: 'Busta paga svizzera', path: '/articoli-svizzera/guida-busta-paga-svizzera-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
