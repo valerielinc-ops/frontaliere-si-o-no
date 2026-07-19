@@ -19,7 +19,7 @@ import {
   buildRootHubPath,
 } from '../../build-plugins/borderWaitData.ts';
 import { fmtMinutes } from '../../services/borderWaitFormat.ts';
-import { SITE_URL, buildArticleUrl } from './social-post-utils.mjs';
+import { SITE_URL, buildArticleUrl, MONTHS_IT } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
 import {
   computeRanking,
@@ -31,11 +31,6 @@ import { RANKING_ARTICLE_SLUGS } from './border-wait-ranking-content.mjs';
 
 // How many crossings to show in each of the fast/slow shortlists.
 export const TELEGRAM_BORDER_TOP = 5;
-
-const MONTHS_IT = [
-  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
-  'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
-];
 
 /** "13–19 luglio 2026" (same month collapses to one month name). */
 function humanRangeIt(weekStart, weekEnd) {

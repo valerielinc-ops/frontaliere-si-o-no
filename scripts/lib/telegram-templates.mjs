@@ -15,6 +15,7 @@
 import {
   buildJobUrl,
   formatJobSalaryLabel,
+  EMPLOYMENT_TYPE_LABEL,
   SITE_URL,
 } from './social-post-utils.mjs';
 import { escapeHtml } from './telegram-client.mjs';
@@ -25,14 +26,6 @@ export const DEFAULT_JOBS_LIMIT = 5;
 
 // Canonical IT-locale job-board hub (trailing slash — site convention).
 export const JOB_BOARD_HUB_URL = `${SITE_URL}/cerca-lavoro-ticino/`;
-
-// employmentType → Italian user-facing label (mirrors the Reddit/FB scheduler).
-const EMPLOYMENT_TYPE_LABEL = {
-  FULL_TIME: 'Tempo pieno',
-  PART_TIME: 'Part-time',
-  CONTRACTOR: 'Contratto',
-  TEMPORARY: 'Temporaneo',
-};
 
 /** One numbered job entry: linked title + a meta line (city · salary · type). */
 function jobEntry(job, index) {

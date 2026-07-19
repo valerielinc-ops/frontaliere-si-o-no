@@ -55,6 +55,25 @@ export const CANTON_NAME_BY_CODE = {
   BASILEA: 'Basilea', APPENZELLO: 'Appenzello',
 };
 
+// ── Shared display constants ────────────────────────────────
+// Single source for constants that would otherwise be copy-pasted across the
+// per-channel posters (project rule §6: a constant duplicated literally in ≥2
+// files MUST live in ONE shared module so drift is impossible by-construction).
+
+/** job.employmentType → Italian user-facing label. */
+export const EMPLOYMENT_TYPE_LABEL = {
+  FULL_TIME: 'Tempo pieno',
+  PART_TIME: 'Part-time',
+  CONTRACTOR: 'Contratto',
+  TEMPORARY: 'Temporaneo',
+};
+
+/** Italian month names, 0-indexed (January = index 0). */
+export const MONTHS_IT = [
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+  'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+];
+
 // ── Sanitization helpers ────────────────────────────────────
 
 export function stripHtml(s) {
