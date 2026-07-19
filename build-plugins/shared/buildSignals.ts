@@ -72,6 +72,8 @@ const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
+const professionCitiesSignal = makeValueSignal<readonly string[]>();
+const bfsSalarySignal = makeValueSignal<readonly string[]>();
 const salaryProfessionCantonsSignal = makeValueSignal<readonly string[]>();
 const salaryStatsSignal = makeSignal();
 
@@ -85,6 +87,15 @@ export interface EmittedFacility {
 
 const nursingLandingsSignal = makeSignal();
 const healthFacilitiesSignal = makeValueSignal<readonly EmittedFacility[]>();
+
+/** An indexable employer-profile page emitted this build, one entry per locale. */
+export interface EmittedEmployerProfile {
+  readonly locale: 'it' | 'en' | 'de' | 'fr';
+  readonly path: string;
+  readonly label: string;
+}
+
+const employerProfilesSignal = makeValueSignal<readonly EmittedEmployerProfile[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -158,6 +169,64 @@ export function resolveProfessionCantonsFlushed(paths: readonly string[]): void 
 }
 
 /**
+ * Resolves with the list of canonical paths {@link professionCityLandings}
+ * actually wrote this build (job-floor + word-count gated subset of the
+ * enumerated profession×city routes). Consumed by
+ * {@link professionCityLinksPlugin}, which injects a "jobs by city and
+ * profession" link block into the per-locale HTML sitemap pages so
+ * BFS-from-`/` reaches every emitted page (closes the
+ * `sitemap-profession-cities.xml` orphan tier flagged by
+ * `audit:max-bfs-depth`, 62.65% unreachable), mirroring the
+ * professionCantonsFlushed contract.
+ */
+export const professionCitiesFlushed: Promise<readonly string[]> =
+  professionCitiesSignal.promise;
+export function resolveProfessionCitiesFlushed(paths: readonly string[]): void {
+  professionCitiesSignal.resolve(paths);
+}
+
+/**
+ * Resolves with every non-thin page path {@link bfsSalaryLandingsPlugin}
+ * actually wrote this build (age-anchor + education-level landings, all
+ * locales). The family only cross-links its own 3-nearest siblings (a
+ * disconnected island with no external inbound link), so it shipped
+ * 55.56% unreachable per `audit:max-bfs-depth`. Consumed by
+ * {@link bfsSalaryLinksPlugin}, which — since the whole family is only
+ * ~9 identities × 4 locales — links every one of them directly from the
+ * per-locale HTML sitemap page rather than relying on ring propagation.
+ */
+export const bfsSalaryFlushed: Promise<readonly string[]> = bfsSalarySignal.promise;
+export function resolveBfsSalaryFlushed(paths: readonly string[]): void {
+  bfsSalarySignal.resolve(paths);
+}
+
+/** An indexable, non-canary publisher-ad detail page emitted this build. */
+export interface EmittedPublisherAd {
+  readonly locale: 'it' | 'en' | 'de' | 'fr';
+  readonly path: string;
+  readonly label: string;
+}
+
+const publisherAdsSignal = makeValueSignal<readonly EmittedPublisherAd[]>();
+
+/**
+ * Resolves with every indexable, non-canary `/lavoro/{slug}/` publisher-ad
+ * page {@link publisherAdPagesPlugin} wrote this build. Paid ad content with
+ * no crawlable inbound link anywhere on the site (job-card renderers build
+ * their own canton/section href rather than respecting a publisher ad's own
+ * URL) — currently only 1 URL, but 100% unreachable per
+ * `audit:max-bfs-depth`, and revenue-critical (CLAUDE.md §7-adjacent: paid
+ * content must be discoverable). Consumed by {@link publisherAdLinksPlugin},
+ * which injects a CTA into the per-locale HTML sitemap page, mirroring the
+ * professionCantonsFlushed contract.
+ */
+export const publisherAdsFlushed: Promise<readonly EmittedPublisherAd[]> =
+  publisherAdsSignal.promise;
+export function resolvePublisherAdsFlushed(ads: readonly EmittedPublisherAd[]): void {
+  publisherAdsSignal.resolve(ads);
+}
+
+/**
  * Resolves once {@link nursingLandingsPlugin} has flushed its landing pages.
  * Consumed by {@link healthFacilitiesLinksPlugin} so it can safely read +
  * patch the nursing landing HTML on disk before injecting the "facilities
@@ -208,4 +277,21 @@ export function resolveSalaryProfessionCantonsFlushed(paths: readonly string[]):
 export const salaryStatsFlushed: Promise<void> = salaryStatsSignal.promise;
 export function resolveSalaryStatsFlushed(): void {
   salaryStatsSignal.resolve();
+}
+
+/**
+ * Resolves with every indexable `/aziende/{slug}/` employer-profile page
+ * {@link employerProfilePagesPlugin} wrote this build (one entry per
+ * indexable locale — below-floor noindex bridges excluded). Consumed by
+ * {@link employerProfilePagesLinksPlugin}, which injects a "Lavorare in..."
+ * link block into the per-locale HTML sitemap pages so BFS-from-`/` reaches
+ * every emitted page (closes the `sitemap-employer-profiles.xml` orphan tier
+ * flagged by `audit:max-bfs-depth`, 468/468 unreachable), mirroring the
+ * professionCantonsFlushed contract. Carries `label` (the company display
+ * name) directly since the URL slug is a one-way hash of it.
+ */
+export const employerProfilesFlushed: Promise<readonly EmittedEmployerProfile[]> =
+  employerProfilesSignal.promise;
+export function resolveEmployerProfilesFlushed(profiles: readonly EmittedEmployerProfile[]): void {
+  employerProfilesSignal.resolve(profiles);
 }

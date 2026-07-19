@@ -25,6 +25,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
+import { resolveBfsSalaryFlushed } from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import {
@@ -681,14 +682,19 @@ export function bfsSalaryLandingsPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_BFS_SALARY === '1') {
         console.log('\x1b[33m[bfs-salary]\x1b[0m Skipped (SKIP_BFS_SALARY=1)');
+        resolveBfsSalaryFlushed([]);
         return;
       }
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveBfsSalaryFlushed([]);
+        return;
+      }
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'bfsSalaryLandingsPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: readonly string[] }> = [];
+      const emittedPaths: string[] = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
 
@@ -708,6 +714,7 @@ export function bfsSalaryLandingsPlugin(rootDir: string): Plugin {
         } else if (itSeen()) {
           sitemapEntries.push({ canonical: rendered.urlPath, alternates: altLinks });
         }
+        emittedPaths.push(rendered.urlPath);
         pagesWritten++;
       };
 
@@ -747,6 +754,7 @@ export function bfsSalaryLandingsPlugin(rootDir: string): Plugin {
       if (fs.existsSync(np.join(distDir, 'sitemap-bfs-salary.xml'))) {
         patchSitemapIndex(distDir, dateStamp);
       }
+      resolveBfsSalaryFlushed(emittedPaths);
     },
   };
 }

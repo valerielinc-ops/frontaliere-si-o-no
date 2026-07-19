@@ -427,6 +427,20 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;
+        // Same below-floor-bridge treatment as the liveCount<MIN_JOBS branch
+        // above: a bare `continue` here leaves the page's disk slot empty for
+        // this plugin's own sitemap check but not for a locale-partitioned CI
+        // build (scripts/ci/prune-locale-shard.mjs), which reruns this same
+        // gate independently per locale and can reach a different verdict for
+        // the same (canton, profession) pair — the "winning" shard's stale/
+        // foreign content then sits at a URL another shard's sitemap lists as
+        // self-canonical, failing audit:sitemap-canonicals downstream.
+        for (const locale of PROFESSION_LOCALES) {
+          const canonicalPath = buildProfessionCantonPath(locale, cantonKey, id);
+          const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cantonKey, id));
+          result.bridgesWritten++;
+        }
         continue;
       }
       for (const r of rendered) {

@@ -48,6 +48,7 @@ import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -419,14 +420,19 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_EMPLOYER_PROFILE_PAGES === '1') {
         console.log('\x1b[33m[employer-profile-pages]\x1b[0m Skipped (SKIP_EMPLOYER_PROFILE_PAGES=1)');
+        resolveEmployerProfilesFlushed([]);
         return;
       }
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveEmployerProfilesFlushed([]);
+        return;
+      }
 
       const dsPath = np.resolve(rootDir, 'data/employer-profiles.json');
       if (!fs.existsSync(dsPath)) {
         console.log('\x1b[33m[employer-profile-pages]\x1b[0m no employer-profiles.json — nothing to emit.');
+        resolveEmployerProfilesFlushed([]);
         return;
       }
       let dataset: EmployerDataset;
@@ -434,12 +440,14 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         dataset = JSON.parse(fs.readFileSync(dsPath, 'utf-8')) as EmployerDataset;
       } catch (err) {
         console.warn('\x1b[33m[employer-profile-pages]\x1b[0m dataset parse failed:', err);
+        resolveEmployerProfilesFlushed([]);
         return;
       }
       const profiles = dataset.profiles || [];
       const belowFloor = dataset.belowFloor || [];
       if (profiles.length === 0 && belowFloor.length === 0) {
         console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset — nothing to emit.');
+        resolveEmployerProfilesFlushed([]);
         return;
       }
 
@@ -459,6 +467,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      const emittedProfiles: EmittedEmployerProfile[] = [];
       let profilePages = 0;
       let bridgePages = 0;
       let thinDowngraded = 0;
@@ -551,6 +560,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           profilePages++;
 
+          if (indexable) {
+            emittedProfiles.push({ locale, path: urlPath, label: profile.name });
+          }
+
           if (locale === 'it' && indexable) {
             sitemapEntries.push({ canonical: urlPath, alternates });
           }
@@ -608,6 +621,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         `${profilePages} profile pages (${thinDowngraded} noindex-thin) + ${bridgePages} bridge pages ` +
         `— flushed ${written} files.`,
       );
+      resolveEmployerProfilesFlushed(emittedProfiles);
     },
   };
 }

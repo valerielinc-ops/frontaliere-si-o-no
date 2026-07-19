@@ -771,11 +771,17 @@ export async function emitChCantonSnapshotPages(
       });
 
       const words = countHtmlBodyWords(html);
+      const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
       if (words < MIN_INDEXABLE_WORDS) {
         result.pagesSkippedForWordCount++;
+        // Same below-floor-bridge treatment as the cantonsSkipped loop below —
+        // a bare `continue` here (sibling bug class, see jobsSeoPagesPlugin.ts
+        // "Structural 404 fix" comment) leaves this locale's slot empty for a
+        // locale-partitioned CI build to fill with a different verdict.
+        collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cantonCode));
+        result.bridgesWritten++;
         continue;
       }
-      const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
       collector.add(np.join(outDir, 'index.html'), html);
       result.pagesWritten++;
     }

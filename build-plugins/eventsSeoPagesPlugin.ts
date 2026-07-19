@@ -1438,7 +1438,12 @@ export function renderHubPage(params: {
   const canonicalPath = pathFor(locale, canton);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
-  const upcoming = events.slice(0, 60);
+  // Was 60 — the date-sorted tail beyond the cap never got a link anywhere,
+  // contributing to sitemap-eventi.xml's 14.99% BFS-depth orphan rate
+  // (audit:max-bfs-depth). Raised so canton/digest hubs surface more of the
+  // family within depth budget; see build-plugins/eventsSeoPagesPlugin.ts
+  // header for the depth ≤2 hub design this caps still nest under.
+  const upcoming = events.slice(0, 100);
 
   const comuneEntries = [...byComune.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
   const comuneGrid =
@@ -1609,7 +1614,12 @@ export function renderEventsIndexPage(params: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
   const totalComuni = cantonStats.reduce((sum, c) => sum + c.comuneCount, 0);
-  const upcoming = events.slice(0, 60);
+  // Was 60 — the date-sorted tail beyond the cap never got a link anywhere,
+  // contributing to sitemap-eventi.xml's 14.99% BFS-depth orphan rate
+  // (audit:max-bfs-depth). Raised so canton/digest hubs surface more of the
+  // family within depth budget; see build-plugins/eventsSeoPagesPlugin.ts
+  // header for the depth ≤2 hub design this caps still nest under.
+  const upcoming = events.slice(0, 100);
 
   const cantonGrid = cantonStats
     .map(
@@ -1728,7 +1738,9 @@ export function renderComunePage(params: {
   const copy = copyFor(canton, locale);
   const canonicalPath = pathFor(locale, canton, comune);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const list = events.slice(0, 40);
+  // Was 40 — see the `upcoming` cap above for why this was raised (same
+  // audit:max-bfs-depth orphan-tail fix).
+  const list = events.slice(0, 80);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
   // #4414: real weekly count + soonest upcoming event for this comune —
   // scoped to the FULL comune `events` list (not the 40-item display slice)
@@ -1987,7 +1999,9 @@ export function renderOtherEventsPage(params: {
   const oeCopy = otherEventsCopyFor(canton, locale);
   const canonicalPath = pathFor(locale, canton, OTHER_EVENTS_COMUNE_KEY);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const list = events.slice(0, 40);
+  // Was 40 — see the `upcoming` cap above for why this was raised (same
+  // audit:max-bfs-depth orphan-tail fix).
+  const list = events.slice(0, 80);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
@@ -2471,7 +2485,10 @@ export function renderEventDetailPage(params: {
   const when = humanDate(event.startDate, locale);
   const time = event.startTime ? ` · ${esc(event.startTime)}` : '';
   const cat = categoryLabel(event.category, locale);
-  const others = sameComuneEvents.filter((e) => e.id !== event.id).slice(0, 6);
+  // Was 6 — raised alongside the hub/digest list caps above (same
+  // audit:max-bfs-depth orphan-tail fix): more sibling cross-links per
+  // detail page means more paths into the date-sorted tail.
+  const others = sameComuneEvents.filter((e) => e.id !== event.id).slice(0, 10);
   const map = osmLink(event, displayComune);
   const description = localizedDescription(event, locale);
   const visual = categoryVisual(event.category);
@@ -2735,7 +2752,9 @@ export function renderDigestPage(params: {
   const dc = digestCopyFor(def, canton, locale);
   const canonicalPath = pathForDigest(locale, canton, def.slug);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const list = events.slice(0, 60);
+  // Was 60 — see the `upcoming` cap above for why this was raised (same
+  // audit:max-bfs-depth orphan-tail fix).
+  const list = events.slice(0, 100);
   const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
 
   const comuneGrid = [...byComune.entries()]
