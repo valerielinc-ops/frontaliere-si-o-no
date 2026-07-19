@@ -3680,6 +3680,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-ostetrica-stipendio-ticino',
+    category: 'fiscale',
+    date: '2026-07-19T06:09:49.069Z',
+    image: '/images/blog/frontaliere-ostetrica-stipendio-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

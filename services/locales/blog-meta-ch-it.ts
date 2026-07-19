@@ -1228,6 +1228,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Stipendio ostetrica Ticino: salari e differenze con l\'Italia',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Una donna in abito bianco si prepara per un parto, con un medico in secondo piano.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Quanto guadagna un ostetrica frontaliere in Ticino?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Stipendio reale di un ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Ostetrica frontaliere nel Ticino',
 };
 
 export default blogMetaChIt;

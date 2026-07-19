@@ -432,6 +432,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'mobilita-svizzera-ferrovia-strade': { it: 'mobilita-svizzera-ferrovia-strade', en: 'swiss-mobility-railway-road-investment', de: 'schweizer-mobilitaet-bahn-strasse', fr: 'mobilite-suisse-rail-route' },
  'coronavirus-frontalieri-svizzera': { it: 'coronavirus-frontalieri-svizzera', en: 'coronavirus-frontalieri-svizzera', de: 'coronavirus-frontalieri-schweiz', fr: 'coronavirus-frontaliers-suisse' },
  'ostetrica-frontaliere-ticino': { it: 'ostetrica-frontaliere-ticino', en: 'trending-topic-frontaliere-ostetrica-ticino', de: 'frontaliere-ostetrica-ticino', fr: 'frontaliere-ostetrica-ticino' },
+ 'frontaliere-ostetrica-stipendio-ticino': { it: 'frontaliere-ostetrica-stipendio-ticino', en: 'frontalier-nurse-salary-ticino', de: 'frontalierin-krankenschwester-lohn-tessin', fr: 'infirmiere-frontaliere-salaire-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

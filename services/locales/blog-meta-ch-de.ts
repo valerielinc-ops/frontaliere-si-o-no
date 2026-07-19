@@ -1228,6 +1228,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Tessiner Hebammengehalt: Löhne und Unterschiede zu Italien',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Was verdient eine Grenzgeburtshelferin im Tessin? Und wie verändert es sich im Vergleich zu Italien?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Eine Frau in einem weißen Kittel bereitet sich auf eine Geburt vor, mit einem Arzt im Hintergrund.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Wie viel verdient eine Grenzgängerin im Tessin?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Reallohn einer Grenzgängerin im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Frontalierin Krankenschwester im Tessin',
 };
 
 export default blogMetaChDe;
