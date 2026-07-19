@@ -3698,6 +3698,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-ticino-salario-tecnico-radiologia',
+    category: 'pratico',
+    date: '2026-07-19T06:50:07.140Z',
+    image: '/images/blog/frontaliere-ticino-salario-tecnico-radiologia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

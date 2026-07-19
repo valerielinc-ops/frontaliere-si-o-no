@@ -1234,6 +1234,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-busta-paga-svizzera-2026.title': 'The Swiss paycheck: guide to withholdings and the rest net',
     'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Learn how to read a Swiss paycheck and what each withholding means',
     'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Swiss pay stub guide 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'How much does a border radiology technician earn in Ticino?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'The remuneration of a border radiology technician in Ticino: factors affecting remuneration and differences compared to Italy',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologists at work in hospital',
 };
 
 export default blogMetaChEn;
