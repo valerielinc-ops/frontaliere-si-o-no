@@ -3752,6 +3752,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'podologo-frontaliere-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-19T09:32:48.127Z',
+    image: '/images/blog/podologo-frontaliere-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
