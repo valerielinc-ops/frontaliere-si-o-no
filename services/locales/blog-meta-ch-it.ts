@@ -1240,6 +1240,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergoterapia in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano, con il lago e le montagne in sfondo',
+    'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergoterapia in Ticino: stipendio e differenze con l\'Italia',
+    'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
+    'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'Un ergoterapista frontaliere lavora in un ospedale di Lugano.',
 };
 
 export default blogMetaChIt;
