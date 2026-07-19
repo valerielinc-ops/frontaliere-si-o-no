@@ -1228,6 +1228,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino.title': 'Ticino midwife salary: salaries and differences with Italy',
     'blog.article.ostetrica-frontaliere-ticino.excerpt': 'What does a border midwife gain in Ticino? And how does it change compared to Italy?',
     'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'A woman in a white coat prepares for a birth, with a doctor in the background.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'How much does a border midwife earn in Ticino?',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Actual salary of a border midwife in Ticino: salary band, differences compared to Italy, factors affecting salary.',
+    'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Frontalier nurse in Ticino',
 };
 
 export default blogMetaChEn;
