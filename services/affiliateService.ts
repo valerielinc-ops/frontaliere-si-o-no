@@ -9,11 +9,17 @@
  * - Partner referrals (insurance brokers, tax consultants)
  * - Contextual recommendations based on active comparator
  * 
- * Active partner referral programs:
- * - Wise: https://wise.com/invite/ihpn/luigis147 (free card or zero fees up to CHF 600)
- * - Fineco: https://fineco.mobi/passaparola (codice AA8381747 — bonus 50€)
- * - Crédit Agricole: https://www.credit-agricole.it/invito?mgm=LUIGSAGG112A (buono Amazon 50€)
+ * Active partner referral programs: canonical referral URLs live in
+ * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise bonus:
+ * free card or zero fees up to CHF 600 · Fineco: codice AA8381747, bonus 50€ ·
+ * Crédit Agricole: buono Amazon 50€.
  */
+
+import {
+  WISE_REFERRAL_URL,
+  FINECO_REFERRAL_URL,
+  CREDIT_AGRICOLE_IT_REFERRAL_URL,
+} from './exchangePartners';
 
 export type ComparatorContext = 
  | 'exchange'
@@ -75,7 +81,7 @@ export const PARTNERS: AffiliatePartner[] = [
  name: 'Wise',
  taglineKey: 'affiliate.wise.tagline',
  descriptionKey: 'affiliate.wise.description',
- url: 'https://wise.com/invite/ihpn/luigis147',
+ url: WISE_REFERRAL_URL,
  badgeKey: 'affiliate.badge.mostUsed',
  color: 'from-success-strong to-success-strong',
  emoji: '💸',
@@ -91,7 +97,7 @@ export const PARTNERS: AffiliatePartner[] = [
  name: 'Fineco Bank',
  taglineKey: 'affiliate.fineco.tagline',
  descriptionKey: 'affiliate.fineco.description',
- url: 'https://fineco.mobi/passaparola',
+ url: FINECO_REFERRAL_URL,
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-info-strong to-info-strong',
  emoji: '🇮🇹',
@@ -105,7 +111,7 @@ export const PARTNERS: AffiliatePartner[] = [
  name: 'Crédit Agricole',
  taglineKey: 'affiliate.creditagricole.tagline',
  descriptionKey: 'affiliate.creditagricole.description',
- url: 'https://www.credit-agricole.it/invito?mgm=LUIGSAGG112A',
+ url: CREDIT_AGRICOLE_IT_REFERRAL_URL,
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-success-strong to-info-strong-hover',
  emoji: '🏦',

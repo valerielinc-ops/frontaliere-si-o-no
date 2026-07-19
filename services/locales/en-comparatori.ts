@@ -58,6 +58,7 @@ const enComparatori: Record<string, string> = {
  'currency.mid_market_tooltip': 'The mid-market rate is the real rate between currencies, with no markups added by banks.',
  'currency.updated': 'Updated',
  'currency.history_title': 'CHF/EUR Rate History',
+ 'currency.static_hub_link': "See the full page: today's rate, 12-month history and cross-border guide",
  'currency.no_data_available': 'No data available',
  'currency.average': 'Average',
  'currency.period_1m': '1 Month',

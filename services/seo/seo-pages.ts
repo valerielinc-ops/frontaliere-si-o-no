@@ -6,6 +6,7 @@
 // this file at build time. Keep the same format as other seo-*.ts entries.
 
 import type { SEOMetadata } from '../seoService';
+import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -1173,7 +1174,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "currency": "CHF",
  "currentExchangeRate": {
  "@type": "UnitPriceSpecification",
- "price": "0.94",
+ "price": EXCHANGE_RATE_EUR,
  "priceCurrency": "EUR",
  "referenceQuantity": {
  "@type": "QuantitativeValue",
