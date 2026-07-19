@@ -2,13 +2,13 @@
   "_meta": {
     "purpose": "Factual per-company profiles for the evergreen /aziende/<slug>/ employer pages (build-plugins/employerProfilePagesPlugin.ts). Corpus-derived facts only — no editorial judgement, no PII. Regenerate: node scripts/build-employer-profiles.mjs.",
     "schemaVersion": 1,
-    "generatedAt": "2026-07-19T05:32:38.096Z",
+    "generatedAt": "2026-07-19T16:55:29.513Z",
     "floor": 5,
     "bridgeFloor": 2,
     "trendWindowDays": 28,
-    "sourceJobs": 18832,
-    "aboveFloorCount": 473,
-    "belowFloorCount": 183
+    "sourceJobs": 18623,
+    "aboveFloorCount": 471,
+    "belowFloorCount": 186
   },
   "profiles": [
     {
@@ -16,11 +16,11 @@
       "name": "Coop Genossenschaft",
       "companyKey": "coop-ticino",
       "sector": null,
-      "activeJobs": 964,
+      "activeJobs": 962,
       "cantons": [
         {
           "name": "ZH",
-          "count": 253
+          "count": 252
         },
         {
           "name": "BE",
@@ -46,7 +46,7 @@
       "cities": [
         {
           "name": "Zürich",
-          "count": 97
+          "count": 96
         },
         {
           "name": "Bern",
@@ -70,11 +70,11 @@
         }
       ],
       "salaryMedianChf": 86250,
-      "salarySamples": 964,
+      "salarySamples": 962,
       "trend": {
-        "added": 1788,
+        "added": 1757,
         "removed": 0,
-        "net": 1788,
+        "net": 1757,
         "windowDays": 28
       }
     },
@@ -166,9 +166,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 429,
       "trend": {
-        "added": 523,
+        "added": 527,
         "removed": 0,
-        "net": 523,
+        "net": 527,
         "windowDays": 28
       }
     },
@@ -233,9 +233,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 388,
       "trend": {
-        "added": 126,
+        "added": 123,
         "removed": 0,
-        "net": 126,
+        "net": 123,
         "windowDays": 28
       }
     },
@@ -367,9 +367,9 @@
       "salaryMedianChf": 55500,
       "salarySamples": 352,
       "trend": {
-        "added": 850,
+        "added": 809,
         "removed": 0,
-        "net": 850,
+        "net": 809,
         "windowDays": 28
       }
     },
@@ -429,9 +429,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 299,
       "trend": {
-        "added": 308,
+        "added": 304,
         "removed": 0,
-        "net": 308,
+        "net": 304,
         "windowDays": 28
       }
     },
@@ -496,9 +496,9 @@
       "salaryMedianChf": 64750,
       "salarySamples": 296,
       "trend": {
-        "added": 149,
+        "added": 148,
         "removed": 0,
-        "net": 149,
+        "net": 148,
         "windowDays": 28
       }
     },
@@ -630,9 +630,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 260,
       "trend": {
-        "added": 314,
+        "added": 305,
         "removed": 0,
-        "net": 314,
+        "net": 305,
         "windowDays": 28
       }
     },
@@ -641,11 +641,11 @@
       "name": "PEMSA",
       "companyKey": "pemsa",
       "sector": "Edilizia e tecnica",
-      "activeJobs": 216,
+      "activeJobs": 215,
       "cantons": [
         {
           "name": "FR",
-          "count": 53
+          "count": 52
         },
         {
           "name": "TI",
@@ -690,55 +690,16 @@
           "count": 16
         },
         {
-          "name": "Bulle",
+          "name": "Locarno",
           "count": 8
         }
       ],
       "salaryMedianChf": 76000,
-      "salarySamples": 216,
+      "salarySamples": 215,
       "trend": {
-        "added": 444,
+        "added": 443,
         "removed": 0,
-        "net": 444,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "hoch-health-ostschweiz",
-      "name": "HOCH Health Ostschweiz",
-      "companyKey": "hoch-health",
-      "sector": "Sanità / Ospedali",
-      "activeJobs": 208,
-      "cantons": [
-        {
-          "name": "SG",
-          "count": 208
-        }
-      ],
-      "cities": [
-        {
-          "name": "St. Gallen",
-          "count": 115
-        },
-        {
-          "name": "Uznach",
-          "count": 44
-        },
-        {
-          "name": "Wil",
-          "count": 26
-        },
-        {
-          "name": "Grabs",
-          "count": 23
-        }
-      ],
-      "salaryMedianChf": 72250,
-      "salarySamples": 208,
-      "trend": {
-        "added": 1349,
-        "removed": 0,
-        "net": 1349,
+        "net": 443,
         "windowDays": 28
       }
     },
@@ -779,9 +740,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 203,
       "trend": {
-        "added": 93,
+        "added": 94,
         "removed": 0,
-        "net": 93,
+        "net": 94,
         "windowDays": 28
       }
     },
@@ -846,9 +807,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 199,
       "trend": {
-        "added": 166,
+        "added": 161,
         "removed": 0,
-        "net": 166,
+        "net": 161,
         "windowDays": 28
       }
     },
@@ -889,9 +850,52 @@
       "salaryMedianChf": 84500,
       "salarySamples": 186,
       "trend": {
-        "added": 413,
+        "added": 400,
         "removed": 0,
-        "net": 413,
+        "net": 400,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "zurich-insurance-sede-ticino",
+      "name": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "sector": null,
+      "activeJobs": 186,
+      "cantons": [
+        {
+          "name": "TI",
+          "count": 176
+        },
+        {
+          "name": "ZH",
+          "count": 10
+        }
+      ],
+      "cities": [
+        {
+          "name": "Lugano",
+          "count": 138
+        },
+        {
+          "name": "Ticino",
+          "count": 38
+        },
+        {
+          "name": "Zürich",
+          "count": 9
+        },
+        {
+          "name": "Zurich",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 117750,
+      "salarySamples": 186,
+      "trend": {
+        "added": 301,
+        "removed": 0,
+        "net": 301,
         "windowDays": 28
       }
     },
@@ -963,54 +967,11 @@
       }
     },
     {
-      "slug": "zurich-insurance-sede-ticino",
-      "name": "Zurich Insurance (sede Ticino)",
-      "companyKey": "zurich-insurance-sede-ticino",
-      "sector": null,
-      "activeJobs": 179,
-      "cantons": [
-        {
-          "name": "TI",
-          "count": 169
-        },
-        {
-          "name": "ZH",
-          "count": 10
-        }
-      ],
-      "cities": [
-        {
-          "name": "Lugano",
-          "count": 132
-        },
-        {
-          "name": "Ticino",
-          "count": 37
-        },
-        {
-          "name": "Zürich",
-          "count": 9
-        },
-        {
-          "name": "Zurich",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 117750,
-      "salarySamples": 179,
-      "trend": {
-        "added": 275,
-        "removed": 0,
-        "net": 275,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "stadler-rail",
       "name": "Stadler Rail",
       "companyKey": "stadler-rail",
       "sector": "Rail vehicle manufacturing",
-      "activeJobs": 171,
+      "activeJobs": 170,
       "cantons": [
         {
           "name": "TG",
@@ -1022,7 +983,7 @@
         },
         {
           "name": "ZH",
-          "count": 25
+          "count": 24
         },
         {
           "name": "SO",
@@ -1048,7 +1009,7 @@
         },
         {
           "name": "Wallisellen",
-          "count": 21
+          "count": 20
         },
         {
           "name": "Olten",
@@ -1060,11 +1021,11 @@
         }
       ],
       "salaryMedianChf": 72250,
-      "salarySamples": 171,
+      "salarySamples": 170,
       "trend": {
-        "added": 87,
+        "added": 85,
         "removed": 0,
-        "net": 87,
+        "net": 85,
         "windowDays": 28
       }
     },
@@ -1129,9 +1090,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 167,
       "trend": {
-        "added": 175,
+        "added": 166,
         "removed": 0,
-        "net": 175,
+        "net": 166,
         "windowDays": 28
       }
     },
@@ -1164,9 +1125,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 163,
       "trend": {
-        "added": 53,
+        "added": 52,
         "removed": 0,
-        "net": 53,
+        "net": 52,
         "windowDays": 28
       }
     },
@@ -1238,6 +1199,53 @@
       }
     },
     {
+      "slug": "etat-de-fribourg",
+      "name": "Etat de Fribourg",
+      "companyKey": "etat-de-fribourg",
+      "sector": "Amministrazione Pubblica",
+      "activeJobs": 133,
+      "cantons": [
+        {
+          "name": "FR",
+          "count": 133
+        }
+      ],
+      "cities": [
+        {
+          "name": "Fribourg",
+          "count": 86
+        },
+        {
+          "name": "Mont-Vully",
+          "count": 11
+        },
+        {
+          "name": "Hauterive",
+          "count": 10
+        },
+        {
+          "name": "Givisiez",
+          "count": 7
+        },
+        {
+          "name": "Marsens",
+          "count": 7
+        },
+        {
+          "name": "Villars-sur-Glâne",
+          "count": 7
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 133,
+      "trend": {
+        "added": 197,
+        "removed": 0,
+        "net": 197,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "genossenschaft-migros-ostschweiz",
       "name": "Genossenschaft Migros Ostschweiz",
       "companyKey": "migros-ticino",
@@ -1301,73 +1309,6 @@
         "added": 66,
         "removed": 0,
         "net": 66,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "ffs-officine-ferrovie-federali",
-      "name": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "sector": null,
-      "activeJobs": 130,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 37
-        },
-        {
-          "name": "SO",
-          "count": 30
-        },
-        {
-          "name": "ZH",
-          "count": 17
-        },
-        {
-          "name": "VD",
-          "count": 12
-        },
-        {
-          "name": "BS",
-          "count": 9
-        },
-        {
-          "name": "AG",
-          "count": 6
-        }
-      ],
-      "cities": [
-        {
-          "name": "Olten",
-          "count": 19
-        },
-        {
-          "name": "Bern",
-          "count": 18
-        },
-        {
-          "name": "Basel",
-          "count": 9
-        },
-        {
-          "name": "Winterthur",
-          "count": 8
-        },
-        {
-          "name": "Zürich",
-          "count": 8
-        },
-        {
-          "name": "Biel/Bienne",
-          "count": 7
-        }
-      ],
-      "salaryMedianChf": 98750,
-      "salarySamples": 130,
-      "trend": {
-        "added": 136,
-        "removed": 0,
-        "net": 136,
         "windowDays": 28
       }
     },
@@ -1462,53 +1403,6 @@
         "added": 137,
         "removed": 0,
         "net": 137,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "etat-de-fribourg",
-      "name": "Etat de Fribourg",
-      "companyKey": "etat-de-fribourg",
-      "sector": "Amministrazione Pubblica",
-      "activeJobs": 126,
-      "cantons": [
-        {
-          "name": "FR",
-          "count": 126
-        }
-      ],
-      "cities": [
-        {
-          "name": "Fribourg",
-          "count": 86
-        },
-        {
-          "name": "Mont-Vully",
-          "count": 11
-        },
-        {
-          "name": "Hauterive",
-          "count": 10
-        },
-        {
-          "name": "Givisiez",
-          "count": 7
-        },
-        {
-          "name": "Marsens",
-          "count": 4
-        },
-        {
-          "name": "Granges-Paccot",
-          "count": 3
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 126,
-      "trend": {
-        "added": 197,
-        "removed": 0,
-        "net": 197,
         "windowDays": 28
       }
     },
@@ -1611,6 +1505,73 @@
       }
     },
     {
+      "slug": "ffs-officine-ferrovie-federali",
+      "name": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "sector": null,
+      "activeJobs": 118,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 35
+        },
+        {
+          "name": "SO",
+          "count": 30
+        },
+        {
+          "name": "ZH",
+          "count": 17
+        },
+        {
+          "name": "VD",
+          "count": 12
+        },
+        {
+          "name": "BS",
+          "count": 6
+        },
+        {
+          "name": "AG",
+          "count": 3
+        }
+      ],
+      "cities": [
+        {
+          "name": "Olten",
+          "count": 19
+        },
+        {
+          "name": "Bern",
+          "count": 18
+        },
+        {
+          "name": "Winterthur",
+          "count": 8
+        },
+        {
+          "name": "Zürich",
+          "count": 8
+        },
+        {
+          "name": "Basel",
+          "count": 6
+        },
+        {
+          "name": "Ostermundigen",
+          "count": 6
+        }
+      ],
+      "salaryMedianChf": 98750,
+      "salarySamples": 118,
+      "trend": {
+        "added": 134,
+        "removed": 0,
+        "net": 134,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "kantonsspital-aarau-ksa",
       "name": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1631,56 +1592,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 111,
       "trend": {
-        "added": 157,
+        "added": 159,
         "removed": 0,
-        "net": 157,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "kantonale-verwaltung-zurich",
-      "name": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "sector": "Amministrazione Pubblica",
-      "activeJobs": 109,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 109
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zürich",
-          "count": 68
-        },
-        {
-          "name": "Regensdorf",
-          "count": 6
-        },
-        {
-          "name": "Winterthur",
-          "count": 6
-        },
-        {
-          "name": "Uster",
-          "count": 4
-        },
-        {
-          "name": "Horgen",
-          "count": 3
-        },
-        {
-          "name": "Lindau",
-          "count": 3
-        }
-      ],
-      "salaryMedianChf": 92500,
-      "salarySamples": 109,
-      "trend": {
-        "added": 177,
-        "removed": 0,
-        "net": 177,
+        "net": 159,
         "windowDays": 28
       }
     },
@@ -1791,11 +1705,58 @@
       }
     },
     {
+      "slug": "kantonale-verwaltung-zurich",
+      "name": "Kantonale Verwaltung Zürich",
+      "companyKey": "kanton-zuerich",
+      "sector": "Amministrazione Pubblica",
+      "activeJobs": 108,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 108
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zürich",
+          "count": 66
+        },
+        {
+          "name": "Regensdorf",
+          "count": 6
+        },
+        {
+          "name": "Winterthur",
+          "count": 6
+        },
+        {
+          "name": "Uitikon",
+          "count": 4
+        },
+        {
+          "name": "Uster",
+          "count": 4
+        },
+        {
+          "name": "Horgen",
+          "count": 3
+        }
+      ],
+      "salaryMedianChf": 92500,
+      "salarySamples": 108,
+      "trend": {
+        "added": 177,
+        "removed": 0,
+        "net": 177,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "mcdonald-s-switzerland",
       "name": "McDonald's Switzerland",
       "companyKey": "mcdonald-s-switzerland",
       "sector": "Ristorazione / Fast Food",
-      "activeJobs": 108,
+      "activeJobs": 107,
       "cantons": [
         {
           "name": "VD",
@@ -1848,12 +1809,12 @@
           "count": 3
         }
       ],
-      "salaryMedianChf": 84000,
-      "salarySamples": 108,
+      "salaryMedianChf": 86250,
+      "salarySamples": 107,
       "trend": {
-        "added": 172,
+        "added": 175,
         "removed": 0,
-        "net": 172,
+        "net": 175,
         "windowDays": 28
       }
     },
@@ -1878,76 +1839,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 106,
       "trend": {
-        "added": 81,
+        "added": 80,
         "removed": 0,
-        "net": 81,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "reboot-monkey",
-      "name": "Reboot Monkey",
-      "companyKey": "reboot-monkey",
-      "sector": "Tecnologia / Data Center",
-      "activeJobs": 105,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 18
-        },
-        {
-          "name": "VD",
-          "count": 13
-        },
-        {
-          "name": "LU",
-          "count": 9
-        },
-        {
-          "name": "TI",
-          "count": 9
-        },
-        {
-          "name": "ZG",
-          "count": 8
-        },
-        {
-          "name": "GE",
-          "count": 6
-        }
-      ],
-      "cities": [
-        {
-          "name": "Winterthur",
-          "count": 4
-        },
-        {
-          "name": "Zug",
-          "count": 4
-        },
-        {
-          "name": "Aargau",
-          "count": 2
-        },
-        {
-          "name": "Basel",
-          "count": 2
-        },
-        {
-          "name": "Bern",
-          "count": 2
-        },
-        {
-          "name": "Biel",
-          "count": 2
-        }
-      ],
-      "salaryMedianChf": 78000,
-      "salarySamples": 105,
-      "trend": {
-        "added": 24,
-        "removed": 0,
-        "net": 24,
+        "net": 80,
         "windowDays": 28
       }
     },
@@ -2058,6 +1952,73 @@
         "added": 182,
         "removed": 0,
         "net": 182,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "reboot-monkey",
+      "name": "Reboot Monkey",
+      "companyKey": "reboot-monkey",
+      "sector": "Tecnologia / Data Center",
+      "activeJobs": 104,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 18
+        },
+        {
+          "name": "VD",
+          "count": 13
+        },
+        {
+          "name": "LU",
+          "count": 9
+        },
+        {
+          "name": "TI",
+          "count": 9
+        },
+        {
+          "name": "ZG",
+          "count": 8
+        },
+        {
+          "name": "BE",
+          "count": 5
+        }
+      ],
+      "cities": [
+        {
+          "name": "Winterthur",
+          "count": 4
+        },
+        {
+          "name": "Zug",
+          "count": 4
+        },
+        {
+          "name": "Aargau",
+          "count": 2
+        },
+        {
+          "name": "Basel",
+          "count": 2
+        },
+        {
+          "name": "Bern",
+          "count": 2
+        },
+        {
+          "name": "Biel",
+          "count": 2
+        }
+      ],
+      "salaryMedianChf": 78000,
+      "salarySamples": 104,
+      "trend": {
+        "added": 25,
+        "removed": 0,
+        "net": 25,
         "windowDays": 28
       }
     },
@@ -2195,7 +2156,7 @@
       "name": "Bachem AG",
       "companyKey": "bachem",
       "sector": "Biotecnologia / Farmaceutica",
-      "activeJobs": 96,
+      "activeJobs": 94,
       "cantons": [
         {
           "name": "BL",
@@ -2207,7 +2168,7 @@
         },
         {
           "name": "VS",
-          "count": 4
+          "count": 2
         }
       ],
       "cities": [
@@ -2221,15 +2182,15 @@
         },
         {
           "name": "Vionnaz",
-          "count": 4
+          "count": 2
         }
       ],
       "salaryMedianChf": 78000,
-      "salarySamples": 96,
+      "salarySamples": 94,
       "trend": {
-        "added": 60,
+        "added": 58,
         "removed": 0,
-        "net": 60,
+        "net": 58,
         "windowDays": 28
       }
     },
@@ -2414,6 +2375,61 @@
       }
     },
     {
+      "slug": "ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+      "name": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "companyKey": "ksml",
+      "sector": "Istruzione / Scuola pubblica",
+      "activeJobs": 84,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 81
+        },
+        {
+          "name": "VS",
+          "count": 2
+        },
+        {
+          "name": "AG",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Bern",
+          "count": 8
+        },
+        {
+          "name": "Thun",
+          "count": 5
+        },
+        {
+          "name": "Grosshöchstetten",
+          "count": 4
+        },
+        {
+          "name": "Lyss",
+          "count": 4
+        },
+        {
+          "name": "Wiedlisbach",
+          "count": 4
+        },
+        {
+          "name": "Belp",
+          "count": 3
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 84,
+      "trend": {
+        "added": 130,
+        "removed": 0,
+        "net": 130,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "genossenschaft-migros-zurich",
       "name": "Genossenschaft Migros Zürich",
       "companyKey": "migros-ticino",
@@ -2556,99 +2572,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 83,
       "trend": {
-        "added": 35,
+        "added": 36,
         "removed": 0,
-        "net": 35,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
-      "name": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-      "companyKey": "ksml",
-      "sector": "Istruzione / Scuola pubblica",
-      "activeJobs": 83,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 80
-        },
-        {
-          "name": "VS",
-          "count": 2
-        },
-        {
-          "name": "AG",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Bern",
-          "count": 8
-        },
-        {
-          "name": "Thun",
-          "count": 5
-        },
-        {
-          "name": "Lyss",
-          "count": 4
-        },
-        {
-          "name": "Wiedlisbach",
-          "count": 4
-        },
-        {
-          "name": "Belp",
-          "count": 3
-        },
-        {
-          "name": "Grosshöchstetten",
-          "count": 3
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 83,
-      "trend": {
-        "added": 130,
-        "removed": 0,
-        "net": 130,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "julius-baer",
-      "name": "Julius Baer",
-      "companyKey": "julius-baer",
-      "sector": "Banking / Wealth Management",
-      "activeJobs": 82,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 79
-        },
-        {
-          "name": "GE",
-          "count": 3
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zurich",
-          "count": 79
-        },
-        {
-          "name": "Geneva",
-          "count": 3
-        }
-      ],
-      "salaryMedianChf": 121375,
-      "salarySamples": 82,
-      "trend": {
-        "added": 126,
-        "removed": 0,
-        "net": 126,
+        "net": 36,
         "windowDays": 28
       }
     },
@@ -2720,6 +2646,41 @@
       }
     },
     {
+      "slug": "julius-baer",
+      "name": "Julius Baer",
+      "companyKey": "julius-baer",
+      "sector": "Banking / Wealth Management",
+      "activeJobs": 81,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 78
+        },
+        {
+          "name": "GE",
+          "count": 3
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zurich",
+          "count": 78
+        },
+        {
+          "name": "Geneva",
+          "count": 3
+        }
+      ],
+      "salaryMedianChf": 127750,
+      "salarySamples": 81,
+      "trend": {
+        "added": 126,
+        "removed": 0,
+        "net": 126,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "epfl",
       "name": "EPFL",
       "companyKey": "epfl",
@@ -2772,9 +2733,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 79,
       "trend": {
-        "added": 44,
+        "added": 43,
         "removed": 0,
-        "net": 44,
+        "net": 43,
         "windowDays": 28
       }
     },
@@ -3150,9 +3111,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 71,
       "trend": {
-        "added": 27,
+        "added": 24,
         "removed": 0,
-        "net": 27,
+        "net": 24,
         "windowDays": 28
       }
     },
@@ -3217,9 +3178,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 69,
       "trend": {
-        "added": 38,
+        "added": 37,
         "removed": 0,
-        "net": 38,
+        "net": 37,
         "windowDays": 28
       }
     },
@@ -3276,9 +3237,9 @@
       "salaryMedianChf": 104500,
       "salarySamples": 67,
       "trend": {
-        "added": 182,
+        "added": 180,
         "removed": 0,
-        "net": 182,
+        "net": 180,
         "windowDays": 28
       }
     },
@@ -3342,9 +3303,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 66,
       "trend": {
-        "added": 57,
+        "added": 53,
         "removed": 0,
-        "net": 57,
+        "net": 53,
         "windowDays": 28
       }
     },
@@ -3376,6 +3337,45 @@
         "added": 21,
         "removed": 0,
         "net": 21,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "hoch-health-ostschweiz",
+      "name": "HOCH Health Ostschweiz",
+      "companyKey": "hoch-health",
+      "sector": "Sanità / Ospedali",
+      "activeJobs": 65,
+      "cantons": [
+        {
+          "name": "SG",
+          "count": 65
+        }
+      ],
+      "cities": [
+        {
+          "name": "St. Gallen",
+          "count": 32
+        },
+        {
+          "name": "Uznach",
+          "count": 16
+        },
+        {
+          "name": "Wil",
+          "count": 10
+        },
+        {
+          "name": "Grabs",
+          "count": 7
+        }
+      ],
+      "salaryMedianChf": 72250,
+      "salarySamples": 65,
+      "trend": {
+        "added": 1483,
+        "removed": 0,
+        "net": 1483,
         "windowDays": 28
       }
     },
@@ -3557,60 +3557,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 62,
       "trend": {
-        "added": 96,
+        "added": 95,
         "removed": 0,
-        "net": 96,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "hug",
-      "name": "HUG",
-      "companyKey": "hug",
-      "sector": "Sanità",
-      "activeJobs": 61,
-      "cantons": [
-        {
-          "name": "GE",
-          "count": 59
-        },
-        {
-          "name": "VS",
-          "count": 2
-        }
-      ],
-      "cities": [
-        {
-          "name": "Genève",
-          "count": 52
-        },
-        {
-          "name": "Thônex",
-          "count": 3
-        },
-        {
-          "name": "Crans-Montana",
-          "count": 2
-        },
-        {
-          "name": "Vernier",
-          "count": 2
-        },
-        {
-          "name": "Confignon",
-          "count": 1
-        },
-        {
-          "name": "Geneve",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 76000,
-      "salarySamples": 61,
-      "trend": {
-        "added": 76,
-        "removed": 0,
-        "net": 76,
+        "net": 95,
         "windowDays": 28
       }
     },
@@ -3675,76 +3624,76 @@
       "salaryMedianChf": 87750,
       "salarySamples": 61,
       "trend": {
-        "added": 138,
+        "added": 142,
         "removed": 0,
-        "net": 138,
+        "net": 142,
         "windowDays": 28
       }
     },
     {
-      "slug": "emil-frey",
-      "name": "Emil Frey",
-      "companyKey": "emil-frey",
-      "sector": "Automotive retail / dealership group",
-      "activeJobs": 58,
+      "slug": "afry",
+      "name": "AFRY",
+      "companyKey": "afry",
+      "sector": "Ingegneria & Consulenza",
+      "activeJobs": 59,
       "cantons": [
         {
           "name": "ZH",
-          "count": 29
+          "count": 34
         },
         {
-          "name": "AG",
-          "count": 10
-        },
-        {
-          "name": "BE",
+          "name": "GR",
           "count": 6
         },
         {
           "name": "VD",
-          "count": 5
+          "count": 4
         },
         {
-          "name": "SO",
+          "name": "FR",
           "count": 3
         },
         {
           "name": "SZ",
-          "count": 2
+          "count": 3
+        },
+        {
+          "name": "VS",
+          "count": 3
         }
       ],
       "cities": [
         {
           "name": "Zürich",
-          "count": 10
+          "count": 33
         },
         {
-          "name": "Safenwil",
-          "count": 9
+          "name": "Chur",
+          "count": 6
         },
         {
-          "name": "Volketswil",
-          "count": 7
+          "name": "Lausanne",
+          "count": 4
         },
         {
-          "name": "Glattbrugg",
-          "count": 5
+          "name": "Brig",
+          "count": 3
         },
         {
-          "name": "Ostermundigen",
-          "count": 5
+          "name": "Fribourg",
+          "count": 3
         },
         {
-          "name": "Dübendorf",
+          "name": "Ingenbohl",
           "count": 3
         }
       ],
-      "salaryMedianChf": 92500,
-      "salarySamples": 58,
+      "salaryMedianChf": 104500,
+      "salarySamples": 59,
       "trend": {
-        "added": 47,
+        "added": 117,
         "removed": 0,
-        "net": 47,
+        "net": 117,
         "windowDays": 28
       }
     },
@@ -3816,6 +3765,73 @@
       }
     },
     {
+      "slug": "emil-frey",
+      "name": "Emil Frey",
+      "companyKey": "emil-frey",
+      "sector": "Automotive retail / dealership group",
+      "activeJobs": 57,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 29
+        },
+        {
+          "name": "AG",
+          "count": 10
+        },
+        {
+          "name": "BE",
+          "count": 6
+        },
+        {
+          "name": "VD",
+          "count": 5
+        },
+        {
+          "name": "SO",
+          "count": 2
+        },
+        {
+          "name": "SZ",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zürich",
+          "count": 10
+        },
+        {
+          "name": "Safenwil",
+          "count": 9
+        },
+        {
+          "name": "Volketswil",
+          "count": 7
+        },
+        {
+          "name": "Glattbrugg",
+          "count": 5
+        },
+        {
+          "name": "Ostermundigen",
+          "count": 5
+        },
+        {
+          "name": "Dübendorf",
+          "count": 3
+        }
+      ],
+      "salaryMedianChf": 92500,
+      "salarySamples": 57,
+      "trend": {
+        "added": 47,
+        "removed": 0,
+        "net": 47,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "genossenschaft-migros-basel",
       "name": "Genossenschaft Migros Basel",
       "companyKey": "migros-ticino",
@@ -3864,9 +3880,60 @@
       "salaryMedianChf": 78000,
       "salarySamples": 57,
       "trend": {
-        "added": 33,
+        "added": 34,
         "removed": 0,
-        "net": 33,
+        "net": 34,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "hug",
+      "name": "HUG",
+      "companyKey": "hug",
+      "sector": "Sanità",
+      "activeJobs": 57,
+      "cantons": [
+        {
+          "name": "GE",
+          "count": 55
+        },
+        {
+          "name": "VS",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Genève",
+          "count": 49
+        },
+        {
+          "name": "Thônex",
+          "count": 3
+        },
+        {
+          "name": "Crans-Montana",
+          "count": 2
+        },
+        {
+          "name": "Confignon",
+          "count": 1
+        },
+        {
+          "name": "Geneve",
+          "count": 1
+        },
+        {
+          "name": "Vernier",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 76000,
+      "salarySamples": 57,
+      "trend": {
+        "added": 76,
+        "removed": 0,
+        "net": 76,
         "windowDays": 28
       }
     },
@@ -3910,73 +3977,6 @@
         "added": 47,
         "removed": 0,
         "net": 47,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "afry",
-      "name": "AFRY",
-      "companyKey": "afry",
-      "sector": "Ingegneria & Consulenza",
-      "activeJobs": 55,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 34
-        },
-        {
-          "name": "GR",
-          "count": 6
-        },
-        {
-          "name": "SZ",
-          "count": 3
-        },
-        {
-          "name": "VD",
-          "count": 3
-        },
-        {
-          "name": "VS",
-          "count": 3
-        },
-        {
-          "name": "TI",
-          "count": 2
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zürich",
-          "count": 33
-        },
-        {
-          "name": "Chur",
-          "count": 6
-        },
-        {
-          "name": "Brig",
-          "count": 3
-        },
-        {
-          "name": "Ingenbohl",
-          "count": 3
-        },
-        {
-          "name": "Lausanne",
-          "count": 3
-        },
-        {
-          "name": "Bellinzona",
-          "count": 2
-        }
-      ],
-      "salaryMedianChf": 104500,
-      "salarySamples": 55,
-      "trend": {
-        "added": 117,
-        "removed": 0,
-        "net": 117,
         "windowDays": 28
       }
     },
@@ -4044,40 +4044,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 55,
       "trend": {
-        "added": 189,
+        "added": 168,
         "removed": 0,
-        "net": 189,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "cern",
-      "name": "CERN",
-      "companyKey": "cern",
-      "sector": "Ricerca / Scienza",
-      "activeJobs": 54,
-      "cantons": [
-        {
-          "name": "GE",
-          "count": 54
-        }
-      ],
-      "cities": [
-        {
-          "name": "Geneva",
-          "count": 53
-        },
-        {
-          "name": "Meyrin",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 76000,
-      "salarySamples": 54,
-      "trend": {
-        "added": 107,
-        "removed": 0,
-        "net": 107,
+        "net": 168,
         "windowDays": 28
       }
     },
@@ -4164,6 +4133,37 @@
       }
     },
     {
+      "slug": "cern",
+      "name": "CERN",
+      "companyKey": "cern",
+      "sector": "Ricerca / Scienza",
+      "activeJobs": 53,
+      "cantons": [
+        {
+          "name": "GE",
+          "count": 53
+        }
+      ],
+      "cities": [
+        {
+          "name": "Geneva",
+          "count": 52
+        },
+        {
+          "name": "Meyrin",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 76000,
+      "salarySamples": 53,
+      "trend": {
+        "added": 107,
+        "removed": 0,
+        "net": 107,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "kanton-st-gallen",
       "name": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -4211,33 +4211,6 @@
         "added": 65,
         "removed": 0,
         "net": 65,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "sro-ag-spital-region-oberaargau",
-      "name": "SRO AG (Spital Region Oberaargau)",
-      "companyKey": "sro",
-      "sector": "Sanità / Ospedali",
-      "activeJobs": 53,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 53
-        }
-      ],
-      "cities": [
-        {
-          "name": "Langenthal",
-          "count": 53
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 53,
-      "trend": {
-        "added": 58,
-        "removed": 0,
-        "net": 58,
         "windowDays": 28
       }
     },
@@ -4356,9 +4329,36 @@
       "salaryMedianChf": 92500,
       "salarySamples": 52,
       "trend": {
-        "added": 18,
+        "added": 15,
         "removed": 0,
-        "net": 18,
+        "net": 15,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "sro-ag-spital-region-oberaargau",
+      "name": "SRO AG (Spital Region Oberaargau)",
+      "companyKey": "sro",
+      "sector": "Sanità / Ospedali",
+      "activeJobs": 52,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 52
+        }
+      ],
+      "cities": [
+        {
+          "name": "Langenthal",
+          "count": 52
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 52,
+      "trend": {
+        "added": 55,
+        "removed": 0,
+        "net": 55,
         "windowDays": 28
       }
     },
@@ -4423,9 +4423,9 @@
       "salaryMedianChf": 52650,
       "salarySamples": 51,
       "trend": {
-        "added": 43,
+        "added": 42,
         "removed": 0,
-        "net": 43,
+        "net": 42,
         "windowDays": 28
       }
     },
@@ -4588,9 +4588,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 49,
       "trend": {
-        "added": 36,
+        "added": 35,
         "removed": 0,
-        "net": 36,
+        "net": 35,
         "windowDays": 28
       }
     },
@@ -4736,33 +4736,6 @@
       }
     },
     {
-      "slug": "google-switzerland",
-      "name": "Google Switzerland",
-      "companyKey": "google-switzerland",
-      "sector": "Tecnologia / R&D",
-      "activeJobs": 48,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 48
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zürich",
-          "count": 48
-        }
-      ],
-      "salaryMedianChf": 92500,
-      "salarySamples": 48,
-      "trend": {
-        "added": 82,
-        "removed": 0,
-        "net": 82,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "concordia",
       "name": "Concordia",
       "companyKey": "concordia",
@@ -4826,6 +4799,33 @@
         "added": 79,
         "removed": 0,
         "net": 79,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "google-switzerland",
+      "name": "Google Switzerland",
+      "companyKey": "google-switzerland",
+      "sector": "Tecnologia / R&D",
+      "activeJobs": 47,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 47
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zürich",
+          "count": 47
+        }
+      ],
+      "salaryMedianChf": 92500,
+      "salarySamples": 47,
+      "trend": {
+        "added": 82,
+        "removed": 0,
+        "net": 82,
         "windowDays": 28
       }
     },
@@ -4947,33 +4947,6 @@
       }
     },
     {
-      "slug": "on-running",
-      "name": "On Running",
-      "companyKey": "on-running",
-      "sector": "Sportswear / Calzature sportive",
-      "activeJobs": 46,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 46
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zürich",
-          "count": 46
-        }
-      ],
-      "salaryMedianChf": 127750,
-      "salarySamples": 46,
-      "trend": {
-        "added": 93,
-        "removed": 0,
-        "net": 93,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "psychiatrie-baselland",
       "name": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -5052,7 +5025,7 @@
       "name": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
       "sector": "Commercio al dettaglio",
-      "activeJobs": 45,
+      "activeJobs": 44,
       "cantons": [
         {
           "name": "ZH",
@@ -5060,7 +5033,7 @@
         },
         {
           "name": "BE",
-          "count": 10
+          "count": 9
         },
         {
           "name": "AG",
@@ -5105,40 +5078,14 @@
           "count": 2
         }
       ],
-      "salaryMedianChf": 51750,
-      "salarySamples": 45,
+      "salaryMedianChf": 49275,
+      "salarySamples": 44,
       "trend": {
         "added": 55,
         "removed": 0,
         "net": 55,
         "windowDays": 28
       }
-    },
-    {
-      "slug": "galenica-ag-galenica",
-      "name": "Galenica AG (Galenica)",
-      "companyKey": "galenica",
-      "sector": null,
-      "activeJobs": 45,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 45
-        }
-      ],
-      "cities": [
-        {
-          "name": "Bern",
-          "count": 44
-        },
-        {
-          "name": "Thun",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 102000,
-      "salarySamples": 45,
-      "trend": null
     },
     {
       "slug": "coop-ristorante",
@@ -5321,9 +5268,62 @@
       "salaryMedianChf": 86250,
       "salarySamples": 44,
       "trend": {
-        "added": 86,
+        "added": 80,
         "removed": 0,
-        "net": 86,
+        "net": 80,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "galenica-ag-galenica",
+      "name": "Galenica AG (Galenica)",
+      "companyKey": "galenica",
+      "sector": null,
+      "activeJobs": 43,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 43
+        }
+      ],
+      "cities": [
+        {
+          "name": "Bern",
+          "count": 42
+        },
+        {
+          "name": "Thun",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 102000,
+      "salarySamples": 43,
+      "trend": null
+    },
+    {
+      "slug": "on-running",
+      "name": "On Running",
+      "companyKey": "on-running",
+      "sector": "Sportswear / Calzature sportive",
+      "activeJobs": 43,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 43
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zürich",
+          "count": 43
+        }
+      ],
+      "salaryMedianChf": 127750,
+      "salarySamples": 43,
+      "trend": {
+        "added": 93,
+        "removed": 0,
+        "net": 93,
         "windowDays": 28
       }
     },
@@ -5772,9 +5772,9 @@
       "salaryMedianChf": 46800,
       "salarySamples": 39,
       "trend": {
-        "added": 65,
+        "added": 64,
         "removed": 0,
-        "net": 65,
+        "net": 64,
         "windowDays": 28
       }
     },
@@ -5839,9 +5839,9 @@
       "salaryMedianChf": 46300,
       "salarySamples": 39,
       "trend": {
-        "added": 35,
+        "added": 32,
         "removed": 0,
-        "net": 35,
+        "net": 32,
         "windowDays": 28
       }
     },
@@ -5869,41 +5869,6 @@
         "added": 54,
         "removed": 0,
         "net": 54,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "endress-hauser",
-      "name": "Endress+Hauser",
-      "companyKey": "endress-hauser",
-      "sector": "Strumentazione industriale / Automazione",
-      "activeJobs": 38,
-      "cantons": [
-        {
-          "name": "BL",
-          "count": 37
-        },
-        {
-          "name": "VD",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Reinach",
-          "count": 37
-        },
-        {
-          "name": "Bussigny",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 78000,
-      "salarySamples": 38,
-      "trend": {
-        "added": 50,
-        "removed": 0,
-        "net": 50,
         "windowDays": 28
       }
     },
@@ -6010,69 +5975,37 @@
       }
     },
     {
-      "slug": "groupe-mutuel",
-      "name": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "sector": "Assicurazioni / Sanità",
+      "slug": "endress-hauser",
+      "name": "Endress+Hauser",
+      "companyKey": "endress-hauser",
+      "sector": "Strumentazione industriale / Automazione",
       "activeJobs": 37,
       "cantons": [
         {
-          "name": "VS",
-          "count": 7
-        },
-        {
-          "name": "ZH",
-          "count": 6
-        },
-        {
-          "name": "BE",
-          "count": 5
+          "name": "BL",
+          "count": 36
         },
         {
           "name": "VD",
-          "count": 4
-        },
-        {
-          "name": "SG",
-          "count": 3
-        },
-        {
-          "name": "AG",
-          "count": 2
+          "count": 1
         }
       ],
       "cities": [
         {
-          "name": "Lausanne",
-          "count": 4
+          "name": "Reinach",
+          "count": 36
         },
         {
-          "name": "Sion",
-          "count": 4
-        },
-        {
-          "name": "Bern",
-          "count": 3
-        },
-        {
-          "name": "Martigny",
-          "count": 3
-        },
-        {
-          "name": "Winterthur",
-          "count": 3
-        },
-        {
-          "name": "Zürich",
-          "count": 3
+          "name": "Bussigny",
+          "count": 1
         }
       ],
-      "salaryMedianChf": 97250,
+      "salaryMedianChf": 78000,
       "salarySamples": 37,
       "trend": {
-        "added": 25,
+        "added": 50,
         "removed": 0,
-        "net": 25,
+        "net": 50,
         "windowDays": 28
       }
     },
@@ -6132,6 +6065,73 @@
         "added": 4,
         "removed": 0,
         "net": 4,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "groupe-mutuel",
+      "name": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "sector": "Assicurazioni / Sanità",
+      "activeJobs": 36,
+      "cantons": [
+        {
+          "name": "VS",
+          "count": 6
+        },
+        {
+          "name": "ZH",
+          "count": 6
+        },
+        {
+          "name": "BE",
+          "count": 5
+        },
+        {
+          "name": "VD",
+          "count": 4
+        },
+        {
+          "name": "SG",
+          "count": 3
+        },
+        {
+          "name": "AG",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Lausanne",
+          "count": 4
+        },
+        {
+          "name": "Sion",
+          "count": 4
+        },
+        {
+          "name": "Bern",
+          "count": 3
+        },
+        {
+          "name": "Winterthur",
+          "count": 3
+        },
+        {
+          "name": "Zürich",
+          "count": 3
+        },
+        {
+          "name": "Aarau",
+          "count": 2
+        }
+      ],
+      "salaryMedianChf": 97250,
+      "salarySamples": 36,
+      "trend": {
+        "added": 24,
+        "removed": 0,
+        "net": 24,
         "windowDays": 28
       }
     },
@@ -6223,9 +6223,9 @@
       "salaryMedianChf": 83625,
       "salarySamples": 36,
       "trend": {
-        "added": 18,
+        "added": 17,
         "removed": 0,
-        "net": 18,
+        "net": 17,
         "windowDays": 28
       }
     },
@@ -6419,9 +6419,9 @@
       "salaryMedianChf": 107500,
       "salarySamples": 35,
       "trend": {
-        "added": 115,
+        "added": 108,
         "removed": 0,
-        "net": 115,
+        "net": 108,
         "windowDays": 28
       }
     },
@@ -6603,64 +6603,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 35,
       "trend": {
-        "added": 62,
+        "added": 59,
         "removed": 0,
-        "net": 62,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "agie-charmilles-sa",
-      "name": "AGIE Charmilles SA",
-      "companyKey": "agie-charmilles",
-      "sector": "Macchine utensili",
-      "activeJobs": 34,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 28
-        },
-        {
-          "name": "TI",
-          "count": 4
-        },
-        {
-          "name": "GE",
-          "count": 2
-        }
-      ],
-      "cities": [
-        {
-          "name": "Langnau im Emmental",
-          "count": 12
-        },
-        {
-          "name": "Biel/Bienne",
-          "count": 10
-        },
-        {
-          "name": "Biel",
-          "count": 6
-        },
-        {
-          "name": "Losone",
-          "count": 2
-        },
-        {
-          "name": "Meyrin",
-          "count": 2
-        },
-        {
-          "name": "Bellinzona",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 96750,
-      "salarySamples": 34,
-      "trend": {
-        "added": 52,
-        "removed": 0,
-        "net": 52,
+        "net": 59,
         "windowDays": 28
       }
     },
@@ -6878,9 +6823,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 34,
       "trend": {
-        "added": 54,
+        "added": 53,
         "removed": 0,
-        "net": 54,
+        "net": 53,
         "windowDays": 28
       }
     },
@@ -7054,6 +6999,73 @@
       }
     },
     {
+      "slug": "swiss-medical-network",
+      "name": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "sector": "Sanità / Healthcare",
+      "activeJobs": 33,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 13
+        },
+        {
+          "name": "BS",
+          "count": 6
+        },
+        {
+          "name": "VD",
+          "count": 3
+        },
+        {
+          "name": "NE",
+          "count": 2
+        },
+        {
+          "name": "SG",
+          "count": 2
+        },
+        {
+          "name": "AG",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Saint-Imier",
+          "count": 7
+        },
+        {
+          "name": "Basel",
+          "count": 6
+        },
+        {
+          "name": "Bern",
+          "count": 2
+        },
+        {
+          "name": "Biel",
+          "count": 2
+        },
+        {
+          "name": "Lausanne",
+          "count": 2
+        },
+        {
+          "name": "Neuchâtel",
+          "count": 2
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 33,
+      "trend": {
+        "added": 114,
+        "removed": 0,
+        "net": 114,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "etat-de-vaud-administration-cantonale-vaudoise",
       "name": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -7151,73 +7163,6 @@
         "added": 5,
         "removed": 0,
         "net": 5,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "swiss-medical-network",
-      "name": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "sector": "Sanità / Healthcare",
-      "activeJobs": 32,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 12
-        },
-        {
-          "name": "BS",
-          "count": 6
-        },
-        {
-          "name": "VD",
-          "count": 3
-        },
-        {
-          "name": "NE",
-          "count": 2
-        },
-        {
-          "name": "SG",
-          "count": 2
-        },
-        {
-          "name": "AG",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Saint-Imier",
-          "count": 7
-        },
-        {
-          "name": "Basel",
-          "count": 6
-        },
-        {
-          "name": "Bern",
-          "count": 2
-        },
-        {
-          "name": "Biel",
-          "count": 2
-        },
-        {
-          "name": "Lausanne",
-          "count": 2
-        },
-        {
-          "name": "Neuchâtel",
-          "count": 2
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 32,
-      "trend": {
-        "added": 114,
-        "removed": 0,
-        "net": 114,
         "windowDays": 28
       }
     },
@@ -7759,9 +7704,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 28,
       "trend": {
-        "added": 13,
+        "added": 12,
         "removed": 0,
-        "net": 13,
+        "net": 12,
         "windowDays": 28
       }
     },
@@ -8009,9 +7954,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 27,
       "trend": {
-        "added": 29,
+        "added": 27,
         "removed": 0,
-        "net": 29,
+        "net": 27,
         "windowDays": 28
       }
     },
@@ -8376,9 +8321,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 25,
       "trend": {
-        "added": 19,
+        "added": 18,
         "removed": 0,
-        "net": 19,
+        "net": 18,
         "windowDays": 28
       }
     },
@@ -9232,9 +9177,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 22,
       "trend": {
-        "added": 14,
+        "added": 13,
         "removed": 0,
-        "net": 14,
+        "net": 13,
         "windowDays": 28
       }
     },
@@ -9434,73 +9379,6 @@
         "added": 28,
         "removed": 0,
         "net": 28,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "transgourmet",
-      "name": "Transgourmet",
-      "companyKey": "transgourmet",
-      "sector": "Commercio all'ingrosso alimentare",
-      "activeJobs": 22,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 8
-        },
-        {
-          "name": "ZH",
-          "count": 5
-        },
-        {
-          "name": "GR",
-          "count": 2
-        },
-        {
-          "name": "SO",
-          "count": 2
-        },
-        {
-          "name": "BL",
-          "count": 1
-        },
-        {
-          "name": "LU",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Moosseedorf",
-          "count": 6
-        },
-        {
-          "name": "Chur",
-          "count": 2
-        },
-        {
-          "name": "Hinwil",
-          "count": 2
-        },
-        {
-          "name": "Bellach",
-          "count": 1
-        },
-        {
-          "name": "Dietikon",
-          "count": 1
-        },
-        {
-          "name": "Dübendorf",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 22,
-      "trend": {
-        "added": 37,
-        "removed": 0,
-        "net": 37,
         "windowDays": 28
       }
     },
@@ -9756,9 +9634,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 21,
       "trend": {
-        "added": 44,
+        "added": 43,
         "removed": 0,
-        "net": 44,
+        "net": 43,
         "windowDays": 28
       }
     },
@@ -10025,33 +9903,6 @@
       }
     },
     {
-      "slug": "medartis",
-      "name": "Medartis",
-      "companyKey": "medartis",
-      "sector": "MedTech / Dispositivi medici",
-      "activeJobs": 20,
-      "cantons": [
-        {
-          "name": "BS",
-          "count": 20
-        }
-      ],
-      "cities": [
-        {
-          "name": "Basel",
-          "count": 20
-        }
-      ],
-      "salaryMedianChf": 78000,
-      "salarySamples": 20,
-      "trend": {
-        "added": 11,
-        "removed": 0,
-        "net": 11,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "migrolino",
       "name": "migrolino",
       "companyKey": "migros-ticino",
@@ -10158,6 +10009,73 @@
         "added": 12,
         "removed": 0,
         "net": 12,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "transgourmet",
+      "name": "Transgourmet",
+      "companyKey": "transgourmet",
+      "sector": "Commercio all'ingrosso alimentare",
+      "activeJobs": 20,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 8
+        },
+        {
+          "name": "ZH",
+          "count": 4
+        },
+        {
+          "name": "GR",
+          "count": 2
+        },
+        {
+          "name": "SO",
+          "count": 2
+        },
+        {
+          "name": "LU",
+          "count": 1
+        },
+        {
+          "name": "NE",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Moosseedorf",
+          "count": 6
+        },
+        {
+          "name": "Chur",
+          "count": 2
+        },
+        {
+          "name": "Hinwil",
+          "count": 2
+        },
+        {
+          "name": "Bellach",
+          "count": 1
+        },
+        {
+          "name": "Dietikon",
+          "count": 1
+        },
+        {
+          "name": "Gamsen",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 20,
+      "trend": {
+        "added": 37,
+        "removed": 0,
+        "net": 37,
         "windowDays": 28
       }
     },
@@ -10346,6 +10264,33 @@
         "added": 24,
         "removed": 0,
         "net": 24,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "medartis",
+      "name": "Medartis",
+      "companyKey": "medartis",
+      "sector": "MedTech / Dispositivi medici",
+      "activeJobs": 19,
+      "cantons": [
+        {
+          "name": "BS",
+          "count": 19
+        }
+      ],
+      "cities": [
+        {
+          "name": "Basel",
+          "count": 19
+        }
+      ],
+      "salaryMedianChf": 78000,
+      "salarySamples": 19,
+      "trend": {
+        "added": 11,
+        "removed": 0,
+        "net": 11,
         "windowDays": 28
       }
     },
@@ -10674,9 +10619,9 @@
       "salaryMedianChf": 44975,
       "salarySamples": 18,
       "trend": {
-        "added": 14,
+        "added": 13,
         "removed": 0,
-        "net": 14,
+        "net": 13,
         "windowDays": 28
       }
     },
@@ -10717,9 +10662,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 18,
       "trend": {
-        "added": 33,
+        "added": 32,
         "removed": 0,
-        "net": 33,
+        "net": 32,
         "windowDays": 28
       }
     },
@@ -10959,9 +10904,9 @@
       "salaryMedianChf": 105250,
       "salarySamples": 17,
       "trend": {
-        "added": 22,
+        "added": 21,
         "removed": 0,
-        "net": 22,
+        "net": 21,
         "windowDays": 28
       }
     },
@@ -11138,6 +11083,61 @@
       }
     },
     {
+      "slug": "agie-charmilles-sa",
+      "name": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "sector": "Macchine utensili",
+      "activeJobs": 16,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 10
+        },
+        {
+          "name": "TI",
+          "count": 4
+        },
+        {
+          "name": "GE",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Langnau im Emmental",
+          "count": 7
+        },
+        {
+          "name": "Biel/Bienne",
+          "count": 2
+        },
+        {
+          "name": "Losone",
+          "count": 2
+        },
+        {
+          "name": "Meyrin",
+          "count": 2
+        },
+        {
+          "name": "Bellinzona",
+          "count": 1
+        },
+        {
+          "name": "Bellinzone",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 96750,
+      "salarySamples": 16,
+      "trend": {
+        "added": 52,
+        "removed": 0,
+        "net": 52,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "axpo-group",
       "name": "Axpo Group",
       "companyKey": "axpo-group",
@@ -11170,36 +11170,9 @@
       "salaryMedianChf": 91500,
       "salarySamples": 16,
       "trend": {
-        "added": 21,
+        "added": 20,
         "removed": 0,
-        "net": 21,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "badrutt-s-palace-hotel",
-      "name": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "sector": "Ospitalità / Hotellerie",
-      "activeJobs": 16,
-      "cantons": [
-        {
-          "name": "GR",
-          "count": 16
-        }
-      ],
-      "cities": [
-        {
-          "name": "St. Moritz",
-          "count": 16
-        }
-      ],
-      "salaryMedianChf": 72250,
-      "salarySamples": 16,
-      "trend": {
-        "added": 25,
-        "removed": 0,
-        "net": 25,
+        "net": 20,
         "windowDays": 28
       }
     },
@@ -11506,6 +11479,33 @@
       }
     },
     {
+      "slug": "badrutt-s-palace-hotel",
+      "name": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "sector": "Ospitalità / Hotellerie",
+      "activeJobs": 15,
+      "cantons": [
+        {
+          "name": "GR",
+          "count": 15
+        }
+      ],
+      "cities": [
+        {
+          "name": "St. Moritz",
+          "count": 15
+        }
+      ],
+      "salaryMedianChf": 72250,
+      "salarySamples": 15,
+      "trend": {
+        "added": 27,
+        "removed": 0,
+        "net": 27,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "gesundheitszentrum-dielsdorf",
       "name": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -11530,9 +11530,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 15,
       "trend": {
-        "added": 11,
+        "added": 10,
         "removed": 0,
-        "net": 11,
+        "net": 10,
         "windowDays": 28
       }
     },
@@ -11748,9 +11748,9 @@
       "salaryMedianChf": 155750,
       "salarySamples": 15,
       "trend": {
-        "added": 14,
+        "added": 13,
         "removed": 0,
-        "net": 14,
+        "net": 13,
         "windowDays": 28
       }
     },
@@ -11897,9 +11897,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 15,
       "trend": {
-        "added": 8,
+        "added": 7,
         "removed": 0,
-        "net": 8,
+        "net": 7,
         "windowDays": 28
       }
     },
@@ -12108,41 +12108,6 @@
       }
     },
     {
-      "slug": "komax",
-      "name": "Komax",
-      "companyKey": "komax",
-      "sector": "Industria / Automazione",
-      "activeJobs": 14,
-      "cantons": [
-        {
-          "name": "LU",
-          "count": 12
-        },
-        {
-          "name": "BE",
-          "count": 2
-        }
-      ],
-      "cities": [
-        {
-          "name": "Dierikon",
-          "count": 12
-        },
-        {
-          "name": "Thun",
-          "count": 2
-        }
-      ],
-      "salaryMedianChf": 87000,
-      "salarySamples": 14,
-      "trend": {
-        "added": 27,
-        "removed": 0,
-        "net": 27,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "landi-schweiz-ag",
       "name": "LANDI Schweiz AG",
       "companyKey": "volg-fenaco",
@@ -12318,7 +12283,12 @@
       ],
       "salaryMedianChf": 87750,
       "salarySamples": 14,
-      "trend": null
+      "trend": {
+        "added": 14,
+        "removed": 0,
+        "net": 14,
+        "windowDays": 28
+      }
     },
     {
       "slug": "arxada",
@@ -12434,9 +12404,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 13,
       "trend": {
-        "added": 24,
+        "added": 23,
         "removed": 0,
-        "net": 24,
+        "net": 23,
         "windowDays": 28
       }
     },
@@ -12668,6 +12638,73 @@
       }
     },
     {
+      "slug": "aldi-suisse",
+      "name": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "sector": null,
+      "activeJobs": 12,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 4
+        },
+        {
+          "name": "BE",
+          "count": 2
+        },
+        {
+          "name": "SG",
+          "count": 2
+        },
+        {
+          "name": "TG",
+          "count": 2
+        },
+        {
+          "name": "GL",
+          "count": 1
+        },
+        {
+          "name": "SO",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Winterthur",
+          "count": 2
+        },
+        {
+          "name": "Aadorf",
+          "count": 1
+        },
+        {
+          "name": "Amriswil",
+          "count": 1
+        },
+        {
+          "name": "Biberist",
+          "count": 1
+        },
+        {
+          "name": "Glarus",
+          "count": 1
+        },
+        {
+          "name": "Langenthal",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 98000,
+      "salarySamples": 12,
+      "trend": {
+        "added": 30,
+        "removed": 0,
+        "net": 30,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "baloise",
       "name": "Baloise",
       "companyKey": "baloise",
@@ -12882,6 +12919,41 @@
       }
     },
     {
+      "slug": "komax",
+      "name": "Komax",
+      "companyKey": "komax",
+      "sector": "Industria / Automazione",
+      "activeJobs": 12,
+      "cantons": [
+        {
+          "name": "LU",
+          "count": 10
+        },
+        {
+          "name": "BE",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Dierikon",
+          "count": 10
+        },
+        {
+          "name": "Thun",
+          "count": 2
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 12,
+      "trend": {
+        "added": 27,
+        "removed": 0,
+        "net": 27,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "migros-logistics",
       "name": "Migros Logistics",
       "companyKey": "migros-ticino",
@@ -12929,53 +13001,6 @@
         "added": 16,
         "removed": 0,
         "net": 16,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "patek-philippe",
-      "name": "Patek Philippe",
-      "companyKey": "patek-philippe",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "activeJobs": 12,
-      "cantons": [
-        {
-          "name": "GE",
-          "count": 8
-        },
-        {
-          "name": "BE",
-          "count": 3
-        },
-        {
-          "name": "NE",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Plan-Les-Ouates",
-          "count": 7
-        },
-        {
-          "name": "Saint-Imier",
-          "count": 3
-        },
-        {
-          "name": "Genève",
-          "count": 1
-        },
-        {
-          "name": "La Chaux-de-Fonds",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 95625,
-      "salarySamples": 12,
-      "trend": {
-        "added": 18,
-        "removed": 0,
-        "net": 18,
         "windowDays": 28
       }
     },
@@ -13157,9 +13182,9 @@
       "salaryMedianChf": 82125,
       "salarySamples": 12,
       "trend": {
-        "added": 11,
+        "added": 12,
         "removed": 0,
-        "net": 11,
+        "net": 12,
         "windowDays": 28
       }
     },
@@ -13235,36 +13260,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 12,
       "trend": {
-        "added": 22,
+        "added": 20,
         "removed": 0,
-        "net": 22,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "spitalzentrum-biel-centre-hospitalier-bienne",
-      "name": "Spitalzentrum Biel / Centre hospitalier Bienne",
-      "companyKey": "szb-chb",
-      "sector": "Sanità / Ospedali",
-      "activeJobs": 12,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 12
-        }
-      ],
-      "cities": [
-        {
-          "name": "Biel/Bienne",
-          "count": 12
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 12,
-      "trend": {
-        "added": 32,
-        "removed": 0,
-        "net": 32,
+        "net": 20,
         "windowDays": 28
       }
     },
@@ -13336,124 +13334,6 @@
       }
     },
     {
-      "slug": "ufa-ag",
-      "name": "UFA AG",
-      "companyKey": "volg-fenaco",
-      "sector": "Cooperativa Agricola",
-      "activeJobs": 12,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 8
-        },
-        {
-          "name": "LU",
-          "count": 2
-        },
-        {
-          "name": "SG",
-          "count": 1
-        },
-        {
-          "name": "VD",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Herzogenbuchsee",
-          "count": 8
-        },
-        {
-          "name": "Sursee",
-          "count": 2
-        },
-        {
-          "name": "Oberbüren",
-          "count": 1
-        },
-        {
-          "name": "Puidoux",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 72250,
-      "salarySamples": 12,
-      "trend": {
-        "added": 9,
-        "removed": 0,
-        "net": 9,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "aldi-suisse",
-      "name": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "sector": null,
-      "activeJobs": 11,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 3
-        },
-        {
-          "name": "BE",
-          "count": 2
-        },
-        {
-          "name": "SG",
-          "count": 2
-        },
-        {
-          "name": "TG",
-          "count": 2
-        },
-        {
-          "name": "GL",
-          "count": 1
-        },
-        {
-          "name": "SO",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Aadorf",
-          "count": 1
-        },
-        {
-          "name": "Amriswil",
-          "count": 1
-        },
-        {
-          "name": "Biberist",
-          "count": 1
-        },
-        {
-          "name": "Glarus",
-          "count": 1
-        },
-        {
-          "name": "Langenthal",
-          "count": 1
-        },
-        {
-          "name": "Meilen",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 98000,
-      "salarySamples": 11,
-      "trend": {
-        "added": 30,
-        "removed": 0,
-        "net": 30,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "ameos-schweiz",
       "name": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -13508,6 +13388,53 @@
       }
     },
     {
+      "slug": "bls-ag",
+      "name": "BLS AG",
+      "companyKey": "bls",
+      "sector": "Trasporti / Ferrovia",
+      "activeJobs": 11,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 9
+        },
+        {
+          "name": "FR",
+          "count": 2
+        }
+      ],
+      "cities": [
+        {
+          "name": "Bern",
+          "count": 5
+        },
+        {
+          "name": "Bönigen",
+          "count": 2
+        },
+        {
+          "name": "Givisiez",
+          "count": 2
+        },
+        {
+          "name": "Burgdorf",
+          "count": 1
+        },
+        {
+          "name": "Hasle bei Burgdorf",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 11,
+      "trend": {
+        "added": 9,
+        "removed": 0,
+        "net": 9,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "debiopharm",
       "name": "Debiopharm",
       "companyKey": "debiopharm",
@@ -13555,9 +13482,9 @@
       "salaryMedianChf": 96750,
       "salarySamples": 11,
       "trend": {
-        "added": 75,
+        "added": 59,
         "removed": 0,
-        "net": 75,
+        "net": 59,
         "windowDays": 28
       }
     },
@@ -13806,6 +13733,53 @@
       "trend": null
     },
     {
+      "slug": "patek-philippe",
+      "name": "Patek Philippe",
+      "companyKey": "patek-philippe",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "activeJobs": 11,
+      "cantons": [
+        {
+          "name": "GE",
+          "count": 8
+        },
+        {
+          "name": "BE",
+          "count": 2
+        },
+        {
+          "name": "NE",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Plan-Les-Ouates",
+          "count": 7
+        },
+        {
+          "name": "Saint-Imier",
+          "count": 2
+        },
+        {
+          "name": "Genève",
+          "count": 1
+        },
+        {
+          "name": "La Chaux-de-Fonds",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 105000,
+      "salarySamples": 11,
+      "trend": {
+        "added": 18,
+        "removed": 0,
+        "net": 18,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "planzer",
       "name": "Planzer",
       "companyKey": "planzer",
@@ -14016,6 +13990,49 @@
       }
     },
     {
+      "slug": "ufa-ag",
+      "name": "UFA AG",
+      "companyKey": "volg-fenaco",
+      "sector": "Cooperativa Agricola",
+      "activeJobs": 11,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 8
+        },
+        {
+          "name": "LU",
+          "count": 2
+        },
+        {
+          "name": "SG",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Herzogenbuchsee",
+          "count": 8
+        },
+        {
+          "name": "Sursee",
+          "count": 2
+        },
+        {
+          "name": "Oberbüren",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 72250,
+      "salarySamples": 11,
+      "trend": {
+        "added": 9,
+        "removed": 0,
+        "net": 9,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "audemars-piguet",
       "name": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -14064,9 +14081,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 10,
       "trend": {
-        "added": 10,
+        "added": 9,
         "removed": 0,
-        "net": 10,
+        "net": 9,
         "windowDays": 28
       }
     },
@@ -14099,9 +14116,9 @@
       "salaryMedianChf": 82125,
       "salarySamples": 10,
       "trend": {
-        "added": 16,
+        "added": 15,
         "removed": 0,
-        "net": 16,
+        "net": 15,
         "windowDays": 28
       }
     },
@@ -14126,56 +14143,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 10,
       "trend": {
-        "added": 5,
+        "added": 4,
         "removed": 0,
-        "net": 5,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "bls-ag",
-      "name": "BLS AG",
-      "companyKey": "bls",
-      "sector": "Trasporti / Ferrovia",
-      "activeJobs": 10,
-      "cantons": [
-        {
-          "name": "BE",
-          "count": 8
-        },
-        {
-          "name": "FR",
-          "count": 2
-        }
-      ],
-      "cities": [
-        {
-          "name": "Bern",
-          "count": 4
-        },
-        {
-          "name": "Bönigen",
-          "count": 2
-        },
-        {
-          "name": "Givisiez",
-          "count": 2
-        },
-        {
-          "name": "Burgdorf",
-          "count": 1
-        },
-        {
-          "name": "Hasle bei Burgdorf",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 10,
-      "trend": {
-        "added": 9,
-        "removed": 0,
-        "net": 9,
+        "net": 4,
         "windowDays": 28
       }
     },
@@ -14340,9 +14310,9 @@
       "salaryMedianChf": 78375,
       "salarySamples": 10,
       "trend": {
-        "added": 22,
+        "added": 21,
         "removed": 0,
-        "net": 22,
+        "net": 21,
         "windowDays": 28
       }
     },
@@ -14460,127 +14430,6 @@
         "added": 13,
         "removed": 0,
         "net": 13,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "iwc",
-      "name": "IWC",
-      "companyKey": "richemont",
-      "sector": "Lusso / Orologeria",
-      "activeJobs": 10,
-      "cantons": [
-        {
-          "name": "SH",
-          "count": 10
-        }
-      ],
-      "cities": [
-        {
-          "name": "Schaffhausen",
-          "count": 10
-        }
-      ],
-      "salaryMedianChf": 72250,
-      "salarySamples": 10,
-      "trend": {
-        "added": 11,
-        "removed": 0,
-        "net": 11,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "jumbo",
-      "name": "JUMBO",
-      "companyKey": "jumbo",
-      "sector": "Commercio al dettaglio",
-      "activeJobs": 10,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 3
-        },
-        {
-          "name": "SG",
-          "count": 2
-        },
-        {
-          "name": "BE",
-          "count": 1
-        },
-        {
-          "name": "BL",
-          "count": 1
-        },
-        {
-          "name": "FR",
-          "count": 1
-        },
-        {
-          "name": "VD",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Gossau",
-          "count": 2
-        },
-        {
-          "name": "Bienne",
-          "count": 1
-        },
-        {
-          "name": "Bulle",
-          "count": 1
-        },
-        {
-          "name": "Epalinges",
-          "count": 1
-        },
-        {
-          "name": "Feuerthalen",
-          "count": 1
-        },
-        {
-          "name": "Hinwil",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 92500,
-      "salarySamples": 10,
-      "trend": {
-        "added": 74,
-        "removed": 0,
-        "net": 74,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "klinik-schloss-mammern",
-      "name": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "sector": "Sanità / Ospedali",
-      "activeJobs": 10,
-      "cantons": [
-        {
-          "name": "TG",
-          "count": 10
-        }
-      ],
-      "cities": [
-        {
-          "name": "Mammern",
-          "count": 10
-        }
-      ],
-      "salaryMedianChf": 72500,
-      "salarySamples": 10,
-      "trend": {
-        "added": 21,
-        "removed": 0,
-        "net": 21,
         "windowDays": 28
       }
     },
@@ -14885,6 +14734,33 @@
         "added": 45,
         "removed": 0,
         "net": 45,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "spitalzentrum-biel-centre-hospitalier-bienne",
+      "name": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "companyKey": "szb-chb",
+      "sector": "Sanità / Ospedali",
+      "activeJobs": 10,
+      "cantons": [
+        {
+          "name": "BE",
+          "count": 10
+        }
+      ],
+      "cities": [
+        {
+          "name": "Biel/Bienne",
+          "count": 10
+        }
+      ],
+      "salaryMedianChf": 86250,
+      "salarySamples": 10,
+      "trend": {
+        "added": 32,
+        "removed": 0,
+        "net": 32,
         "windowDays": 28
       }
     },
@@ -15535,6 +15411,33 @@
       }
     },
     {
+      "slug": "iwc",
+      "name": "IWC",
+      "companyKey": "richemont",
+      "sector": "Lusso / Orologeria",
+      "activeJobs": 9,
+      "cantons": [
+        {
+          "name": "SH",
+          "count": 9
+        }
+      ],
+      "cities": [
+        {
+          "name": "Schaffhausen",
+          "count": 9
+        }
+      ],
+      "salaryMedianChf": 72250,
+      "salarySamples": 9,
+      "trend": {
+        "added": 11,
+        "removed": 0,
+        "net": 11,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "kzu-kompetenzzentrum-pflege-und-gesundheit",
       "name": "KZU Kompetenzzentrum Pflege und Gesundheit",
       "companyKey": "kzu",
@@ -15557,45 +15460,29 @@
       "trend": null
     },
     {
-      "slug": "landi-zuri-unterland-genossenschaft",
-      "name": "LANDI Züri Unterland Genossenschaft",
-      "companyKey": "volg-fenaco",
-      "sector": "Agricoltura & Dettaglio",
+      "slug": "msc-group",
+      "name": "MSC Group",
+      "companyKey": "msc-cargo",
+      "sector": "Logistica e crocieristica",
       "activeJobs": 9,
       "cantons": [
         {
-          "name": "ZH",
+          "name": "GE",
           "count": 9
         }
       ],
       "cities": [
         {
-          "name": "Rafz",
-          "count": 3
-        },
-        {
-          "name": "Höri",
-          "count": 2
-        },
-        {
-          "name": "Oberglatt",
-          "count": 2
-        },
-        {
-          "name": "Hüntwangen",
-          "count": 1
-        },
-        {
-          "name": "Nürensdorf",
-          "count": 1
+          "name": "Geneva",
+          "count": 9
         }
       ],
-      "salaryMedianChf": 92500,
+      "salaryMedianChf": 127500,
       "salarySamples": 9,
       "trend": {
-        "added": 9,
+        "added": 78,
         "removed": 0,
-        "net": 9,
+        "net": 78,
         "windowDays": 28
       }
     },
@@ -16060,9 +15947,9 @@
       "salaryMedianChf": 140000,
       "salarySamples": 8,
       "trend": {
-        "added": 15,
+        "added": 14,
         "removed": 0,
-        "net": 15,
+        "net": 14,
         "windowDays": 28
       }
     },
@@ -16216,9 +16103,9 @@
       "salaryMedianChf": 63000,
       "salarySamples": 8,
       "trend": {
-        "added": 24,
+        "added": 23,
         "removed": 0,
-        "net": 24,
+        "net": 23,
         "windowDays": 28
       }
     },
@@ -16290,9 +16177,9 @@
       "salaryMedianChf": 86625,
       "salarySamples": 8,
       "trend": {
-        "added": 3,
+        "added": 4,
         "removed": 0,
-        "net": 3,
+        "net": 4,
         "windowDays": 28
       }
     },
@@ -16371,9 +16258,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 8,
       "trend": {
-        "added": 143,
+        "added": 138,
         "removed": 0,
-        "net": 143,
+        "net": 138,
         "windowDays": 28
       }
     },
@@ -16406,9 +16293,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 8,
       "trend": {
-        "added": 128,
+        "added": 136,
         "removed": 0,
-        "net": 128,
+        "net": 136,
         "windowDays": 28
       }
     },
@@ -16437,9 +16324,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 8,
       "trend": {
-        "added": 107,
+        "added": 115,
         "removed": 0,
-        "net": 107,
+        "net": 115,
         "windowDays": 28
       }
     },
@@ -16518,6 +16405,33 @@
         "added": 3,
         "removed": 0,
         "net": 3,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "klinik-schloss-mammern",
+      "name": "Klinik Schloss Mammern",
+      "companyKey": "klinik-schloss-mammern",
+      "sector": "Sanità / Ospedali",
+      "activeJobs": 8,
+      "cantons": [
+        {
+          "name": "TG",
+          "count": 8
+        }
+      ],
+      "cities": [
+        {
+          "name": "Mammern",
+          "count": 8
+        }
+      ],
+      "salaryMedianChf": 76875,
+      "salarySamples": 8,
+      "trend": {
+        "added": 21,
+        "removed": 0,
+        "net": 21,
         "windowDays": 28
       }
     },
@@ -16620,37 +16534,6 @@
       }
     },
     {
-      "slug": "rfsm-reseau-fribourgeois-sante-mentale",
-      "name": "RFSM - Réseau fribourgeois santé mentale",
-      "companyKey": "rfsm-fribourg",
-      "sector": "Santé mentale / Psychiatrie",
-      "activeJobs": 8,
-      "cantons": [
-        {
-          "name": "FR",
-          "count": 8
-        }
-      ],
-      "cities": [
-        {
-          "name": "Marsens",
-          "count": 4
-        },
-        {
-          "name": "Villars-sur-Glâne",
-          "count": 4
-        }
-      ],
-      "salaryMedianChf": 86250,
-      "salarySamples": 8,
-      "trend": {
-        "added": 4,
-        "removed": 0,
-        "net": 4,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "schultheis-mockli-ag",
       "name": "Schultheis-Möckli AG",
       "companyKey": "burkhalter-group",
@@ -16683,41 +16566,6 @@
       "salaryMedianChf": 62250,
       "salarySamples": 8,
       "trend": null
-    },
-    {
-      "slug": "smg-swiss-marketplace-group",
-      "name": "SMG Swiss Marketplace Group",
-      "companyKey": "smg-swiss-marketplace-group",
-      "sector": "Marketplace digitale / Tecnologia",
-      "activeJobs": 8,
-      "cantons": [
-        {
-          "name": "ZH",
-          "count": 7
-        },
-        {
-          "name": "FR",
-          "count": 1
-        }
-      ],
-      "cities": [
-        {
-          "name": "Zürich",
-          "count": 7
-        },
-        {
-          "name": "Fribourg",
-          "count": 1
-        }
-      ],
-      "salaryMedianChf": 123250,
-      "salarySamples": 8,
-      "trend": {
-        "added": 10,
-        "removed": 0,
-        "net": 10,
-        "windowDays": 28
-      }
     },
     {
       "slug": "spitex-basel",
@@ -17047,9 +16895,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 7,
       "trend": {
-        "added": 2,
+        "added": 1,
         "removed": 0,
-        "net": 2,
+        "net": 1,
         "windowDays": 28
       }
     },
@@ -17236,12 +17084,7 @@
       ],
       "salaryMedianChf": 75750,
       "salarySamples": 7,
-      "trend": {
-        "added": 1,
-        "removed": 0,
-        "net": 1,
-        "windowDays": 28
-      }
+      "trend": null
     },
     {
       "slug": "imwinkelried-luftung-und-klima-ag",
@@ -17366,6 +17209,41 @@
       }
     },
     {
+      "slug": "landi-zuri-unterland-genossenschaft",
+      "name": "LANDI Züri Unterland Genossenschaft",
+      "companyKey": "volg-fenaco",
+      "sector": "Agricoltura & Dettaglio",
+      "activeJobs": 7,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 7
+        }
+      ],
+      "cities": [
+        {
+          "name": "Rafz",
+          "count": 3
+        },
+        {
+          "name": "Höri",
+          "count": 2
+        },
+        {
+          "name": "Oberglatt",
+          "count": 2
+        }
+      ],
+      "salaryMedianChf": 92500,
+      "salarySamples": 7,
+      "trend": {
+        "added": 9,
+        "removed": 0,
+        "net": 9,
+        "windowDays": 28
+      }
+    },
+    {
       "slug": "lombardi-group",
       "name": "Lombardi Group",
       "companyKey": "lombardi-group",
@@ -17471,33 +17349,6 @@
         "added": 7,
         "removed": 0,
         "net": 7,
-        "windowDays": 28
-      }
-    },
-    {
-      "slug": "msc-group",
-      "name": "MSC Group",
-      "companyKey": "msc-cargo",
-      "sector": "Logistica e crocieristica",
-      "activeJobs": 7,
-      "cantons": [
-        {
-          "name": "GE",
-          "count": 7
-        }
-      ],
-      "cities": [
-        {
-          "name": "Geneva",
-          "count": 7
-        }
-      ],
-      "salaryMedianChf": 127500,
-      "salarySamples": 7,
-      "trend": {
-        "added": 84,
-        "removed": 0,
-        "net": 84,
         "windowDays": 28
       }
     },
@@ -17999,9 +17850,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 6,
       "trend": {
-        "added": 5,
+        "added": 4,
         "removed": 0,
-        "net": 5,
+        "net": 4,
         "windowDays": 28
       }
     },
@@ -18095,6 +17946,65 @@
         "added": 8,
         "removed": 0,
         "net": 8,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "jumbo",
+      "name": "JUMBO",
+      "companyKey": "jumbo",
+      "sector": "Commercio al dettaglio",
+      "activeJobs": 6,
+      "cantons": [
+        {
+          "name": "SG",
+          "count": 2
+        },
+        {
+          "name": "BE",
+          "count": 1
+        },
+        {
+          "name": "FR",
+          "count": 1
+        },
+        {
+          "name": "VD",
+          "count": 1
+        },
+        {
+          "name": "VS",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Gossau",
+          "count": 2
+        },
+        {
+          "name": "Bienne",
+          "count": 1
+        },
+        {
+          "name": "Bulle",
+          "count": 1
+        },
+        {
+          "name": "Epalinges",
+          "count": 1
+        },
+        {
+          "name": "Monthey",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 102000,
+      "salarySamples": 6,
+      "trend": {
+        "added": 74,
+        "removed": 0,
+        "net": 74,
         "windowDays": 28
       }
     },
@@ -18208,9 +18118,9 @@
       "salaryMedianChf": 116375,
       "salarySamples": 6,
       "trend": {
-        "added": 13,
+        "added": 12,
         "removed": 0,
-        "net": 13,
+        "net": 12,
         "windowDays": 28
       }
     },
@@ -18400,6 +18310,41 @@
         "added": 5,
         "removed": 0,
         "net": 5,
+        "windowDays": 28
+      }
+    },
+    {
+      "slug": "smg-swiss-marketplace-group",
+      "name": "SMG Swiss Marketplace Group",
+      "companyKey": "smg-swiss-marketplace-group",
+      "sector": "Marketplace digitale / Tecnologia",
+      "activeJobs": 6,
+      "cantons": [
+        {
+          "name": "ZH",
+          "count": 5
+        },
+        {
+          "name": "FR",
+          "count": 1
+        }
+      ],
+      "cities": [
+        {
+          "name": "Zürich",
+          "count": 5
+        },
+        {
+          "name": "Fribourg",
+          "count": 1
+        }
+      ],
+      "salaryMedianChf": 105625,
+      "salarySamples": 6,
+      "trend": {
+        "added": 10,
+        "removed": 0,
+        "net": 10,
         "windowDays": 28
       }
     },
@@ -19355,33 +19300,6 @@
       }
     },
     {
-      "slug": "spitex-limmat-aare-reuss-ag",
-      "name": "Spitex Limmat Aare Reuss AG",
-      "companyKey": "spitex-ch",
-      "sector": "Sanità / Ospedali",
-      "activeJobs": 5,
-      "cantons": [
-        {
-          "name": "AG",
-          "count": 5
-        }
-      ],
-      "cities": [
-        {
-          "name": "Untersiggenthal",
-          "count": 5
-        }
-      ],
-      "salaryMedianChf": 78000,
-      "salarySamples": 5,
-      "trend": {
-        "added": 8,
-        "removed": 0,
-        "net": 8,
-        "windowDays": 28
-      }
-    },
-    {
       "slug": "stiftung-wagerenhof",
       "name": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -19930,13 +19848,6 @@
       "canton": "GR"
     },
     {
-      "slug": "citta-di-bellinzona",
-      "name": "Città di Bellinzona",
-      "activeJobs": 3,
-      "sector": null,
-      "canton": "TI"
-    },
-    {
       "slug": "clinique-de-valere",
       "name": "Clinique de Valère",
       "activeJobs": 3,
@@ -20077,13 +19988,6 @@
       "canton": "FR"
     },
     {
-      "slug": "landi-unterwalden-ag",
-      "name": "LANDI Unterwalden AG",
-      "activeJobs": 3,
-      "sector": "Agricoltura & Dettaglio",
-      "canton": "NW"
-    },
-    {
       "slug": "landi-zola-ag",
       "name": "LANDI Zola AG",
       "activeJobs": 3,
@@ -20201,6 +20105,13 @@
       "activeJobs": 3,
       "sector": "Sanità / Ospedali",
       "canton": "SO"
+    },
+    {
+      "slug": "spitex-limmat-aare-reuss-ag",
+      "name": "Spitex Limmat Aare Reuss AG",
+      "activeJobs": 3,
+      "sector": "Sanità / Ospedali",
+      "canton": "AG"
     },
     {
       "slug": "strassle-installationen-ag",
@@ -20348,6 +20259,13 @@
       "activeJobs": 2,
       "sector": "Sanità / Ospedali",
       "canton": "GR"
+    },
+    {
+      "slug": "citta-di-bellinzona",
+      "name": "Città di Bellinzona",
+      "activeJobs": 2,
+      "sector": null,
+      "canton": "TI"
     },
     {
       "slug": "climeworks",
@@ -20581,6 +20499,13 @@
       "canton": "VS"
     },
     {
+      "slug": "landi-unterwalden-ag",
+      "name": "LANDI Unterwalden AG",
+      "activeJobs": 2,
+      "sector": "Agricoltura & Dettaglio",
+      "canton": "NW"
+    },
+    {
       "slug": "langle-staub-gmbh",
       "name": "Längle & Staub GmbH",
       "activeJobs": 2,
@@ -20733,6 +20658,20 @@
       "activeJobs": 2,
       "sector": "Sanità / Ospedali",
       "canton": "BL"
+    },
+    {
+      "slug": "spitex-region-birs-gmbh",
+      "name": "Spitex Region Birs GmbH",
+      "activeJobs": 2,
+      "sector": "Sanità / Ospedali",
+      "canton": "BL"
+    },
+    {
+      "slug": "spitex-rothenburg",
+      "name": "Spitex Rothenburg",
+      "activeJobs": 2,
+      "sector": "Sanità / Ospedali",
+      "canton": "LU"
     },
     {
       "slug": "spitexverein-wadenswil",
