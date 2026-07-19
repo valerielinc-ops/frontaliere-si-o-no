@@ -1264,6 +1264,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Grenzgänger Assistenten im Tessin: Gehalt und Voraussetzungen',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Quellenangabe: Italien vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730) für Grenzgänger.',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Eine Szene eines grenzüberschreitenden Medizinerhelfers in der Schweiz',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Wie viel verdient ein Grenz-OP-Techniker im Tessin',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Angaben zur Entlohnung eines Grenz-OP-Technikers im Tessin.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografie eines Operationstechnikers in einem Schweizer Spital.',
 };
 
 export default blogMetaChDe;

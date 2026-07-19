@@ -1264,6 +1264,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Assistenti medici frontalieri: salaire et exigences',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Réglage de la source : l\'Italie évite la double imposition avec le crédit d\'impôt (cadre CE de 730) pour les frontaliers.',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Une scène d\'un aide médical frontalier en Suisse',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Combien gagne un technicien de salle d\'opération frontalière au Tessin',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Données sur la rémunération d\'un technicien de salle d\'opération frontalière au Tessin.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Photographie d\'un technicien de salle opératoire dans un hôpital suisse.',
 };
 
 export default blogMetaChFr;

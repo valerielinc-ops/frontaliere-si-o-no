@@ -4643,6 +4643,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tecnicodisalaoperatoriaticinostipendiorientati': { name: 'Lavorare come tecnico di sala operatoria', path: '/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati', parent: 'blog' },
     'blog-frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti': { name: 'Frontalieri assistenti di studio medico in', path: '/articoli-svizzera/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-medico-ticino-stipendio-requisiti': { name: 'Lavorare come medico frontaliere in Ticino', path: '/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontalieri-stipendio-tecnico-sala-operatoria': { name: 'frontalieri-stipendio', path: '/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

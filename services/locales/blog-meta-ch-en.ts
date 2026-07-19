@@ -1264,6 +1264,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Frontier medical office assistants in Ticino: salary and requirements',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Source setting: Italy avoids double taxation with the tax credit (EC framework of 730) for border workers.',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'A scene of a Ticino cross-border medical assistant',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'How much does a border operating room technician earn in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Data on the remuneration of a border operating room technician in Ticino.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotography of a surgical technologist in a Swiss hospital.',
 };
 
 export default blogMetaChEn;
