@@ -8609,6 +8609,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-logopedista-frontaliero-ticino.title': 'Combien gagne un orthophoniste frontalier au Tessin ?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.excerpt': 'Les salaires des orthophonistes frontaliers au Tessin : en quoi diffèrent-ils des salaires italiens ?',
     'blog.article.stipendio-logopedista-frontaliero-ticino.imageAlt': 'Un logopède frontalier conduit une séance de thérapie du langage dans un hôpital de Lugano, Tessin.',
+    'blog.article.farmacista-frontaliero-ticino.title': 'Combien gagne un pharmacien frontalier au Tessin ?',
+    'blog.article.farmacista-frontaliero-ticino.excerpt': 'Le nouvel accord frontalier prévoit une franchise de 10000 € pour les nouveaux frontaliers.',
+    'blog.article.farmacista-frontaliero-ticino.imageAlt': 'Un pharmacien travaille dans un hôpital à Lugano',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.title': 'Travailler comme sage-femme en Tessin: salaire et réussite',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.excerpt': 'La frontalière qui travaille comme sage-femme au Tessin a droit à un salaire moyen d\'environ CHF 60\'000 par an, mais doit remplir certaines conditions et obtenir le permis G.',
+    'blog.article.frontaliere-ostetrica-ticino-stipendio-requisiti.imageAlt': 'Une frontalière qui travaille comme sage-femme dans un hôpital de Lugano.',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Quel est le salaire d\'une sage-femme au Tessin ?',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Les données sur la rémunération des sages-femmes frontalières au Tessin : comment est calculé le revenu et quelles sont les différences par rapport à l\'Italie',
+    'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Une femme avec un enfant dans ses bras, dans un établissement hospitalier',
 };
 
 export default blogMetaFr;

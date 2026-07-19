@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-07-18T10:26:53.397Z",
+  "generatedAt": "2026-07-18T21:58:58.601Z",
   "total": 23,
   "newCount": 0,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11502,
-  "avgDurationMs": 11502,
+  "durationMs": 12257,
+  "avgDurationMs": 12257,
   "durationHistory": [
-    11502
+    12257
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -186,6 +186,7 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,

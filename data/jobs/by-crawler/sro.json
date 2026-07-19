@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sro",
-  "assembledAt": "2026-07-18T10:16:13.651Z",
+  "assembledAt": "2026-07-18T21:52:45.785Z",
   "jobs": [
     {
       "id": "sro-143c0810c1d3",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a9685e90-9b1a-4b91-bc79-cfbee3ecf8c1",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:51.485Z",
+      "crawledAt": "2026-07-18T21:52:43.313Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/43e1a2d6-0eb4-44d9-a277-6f055a79f1a8",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:50.829Z",
+      "crawledAt": "2026-07-18T21:52:42.667Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0342e9b4-dda5-49c1-a3c9-7326f99eb915",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:50.165Z",
+      "crawledAt": "2026-07-18T21:52:41.963Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3ad9a072-8bb8-4a9f-80e9-c39b88004340",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:49.573Z",
+      "crawledAt": "2026-07-18T21:52:41.380Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/80464367-5393-4c53-8d2a-4d3fa2df5492",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T21:56:56.204Z",
+      "crawledAt": "2026-07-18T21:52:40.767Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -419,7 +419,8 @@
         "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal",
         "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
         "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-        "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal"
+        "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal",
+        "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -432,7 +433,8 @@
           "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal",
           "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
           "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-          "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal"
+          "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal",
+          "psicologo-psicologo-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "psychologin-psychologen-stationare-psychiatrie-80-sro-langenthal",
@@ -495,7 +497,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/732845ad-08c6-464a-a4b3-b5820b1bc577",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:48.311Z",
+      "crawledAt": "2026-07-18T21:52:40.191Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -553,29 +555,29 @@
     },
     {
       "id": "sro-6510cb7a2336",
-      "slug": "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+      "slug": "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
+        "it": "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
         "de": "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-        "it": "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-        "en": "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
-        "fr": "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+        "fr": "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
       "companyDomain": "sro.ch",
       "title": "Oberpsychologin / Oberpsychologen 80 - 100 % Alterspsychiatrie",
       "titleByLocale": {
+        "it": "Oberpsicologo / Oberpsychologist 80 - psichiatria al 100%",
+        "en": "Oberpsychologist / Oberpsychologist 80 - 100% age psychiatry",
         "de": "Oberpsychologin / Oberpsychologen 80 - 100 % Alterspsychiatrie",
-        "it": "Oberpsychologin / Oberpsychologen 80 - 100 % Alterspsychiatrie",
-        "en": "Oberpsychologin / Oberpsychologen 80 - 100 % Alterspsychiatrie",
-        "fr": "Oberpsychologin / Oberpsychologen 80 - 100 % Alterspsychiatrie"
+        "fr": "Oberpsychologue / Oberpsychologue 80 - 100% psychiatrie"
       },
       "description": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Notfalltriage, stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär. Zur Verstärkung unseres Teams in der Alterspsychiatrie SRO in Langenthal suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen Das bringen Sie mit\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit Bei uns arbeiten\n• Ein kleines interdisziplinäres Team mit kurzen Kommunikationswegen, viel Raum für fachlichen Austausch und Mitgestaltung\n• Vielseitige diagnostische und therapeutische Tätigkeit mit der Möglichkeit, eigene Schwerpunktangebote aufzubauen\n• Regelmässige interne und externe Supervision (Team/Fall) sowie Intervision\n• Umfangreiches internes Fortbildungsprogramm\n• Moderne Arbeits- und Anstellungsbedingungen nach GAV SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit",
       "descriptionByLocale": {
+        "it": "Il Psychiatric Services SRO fornisce assistenza psichiatrica regionale, comunitaria e orientata al paziente per 80.000 residenti. Abbiamo strutture di assistenza moderne e integrate come triage di emergenza, assistenza acuta mobile stazion-equivalente, assistenza psichiatrica integrativa, pazienti psicoterapeutici e psichiatrici sociali in 4 sedi con offerte speciali, nonché clinica diurna riabilitazione, clinica diurna acuta, psichiatria di vecchiaia con ambulatorio e clinica diurna e un'offerta di pazienti con 34 posti nell'ospedale Langenthal. Abbiamo il riconoscimento SIWF come istituto di formazione della categoria A per 3 anni, ambulatorio e ambulatorio. Per rafforzare il nostro team nell'era psichiatria SRO a Langenthal, stiamo cercando un Lo fanno con noi.\n• Esecuzione di psicoterapie (impostazione individuale e di gruppo)\n• Consulenza per pazienti e parenti\n• Sviluppo dei concetti di terapia individuale e partecipazione allo sviluppo concettuale dell'offerta psicologica di età\n• Supervisione clinica e coaching degli psicologi nella formazione specialistica\n• Partecipazione alle discussioni interdisciplinari\n• Laurea completa in psicologia e formazione completa di psicoterapia (approvazione FSP o equivalente)\n• Diversi anni di esperienza nella psicoterapia e interesse per una specializzazione nella psicoterapia di età\n• Alto livello di lavoro di squadra, competenze sociali e responsabilità personale\n• Prontezza per la cooperazione trasversale Lavorare con noi\n• Un piccolo team interdisciplinare con brevi percorsi di comunicazione, ampio spazio per lo scambio professionale e la partecipazione\n• Versatile attività diagnostica e terapeutica con l'opportunità di costruire il proprio focus offre\n• Controllo interno ed esterno regolare (team/caso) e intervisione\n• Ampio programma di formazione interna\n• Condizioni di lavoro e di lavoro moderne secondo GAV SRO AG Psychiatric Services, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nCompiti:\n• Esecuzione di psicoterapie (impostazione individuale e di gruppo)\n• Consulenza per pazienti e parenti\n• Sviluppo dei concetti di terapia individuale e partecipazione allo sviluppo concettuale dell'offerta psicologica di età\n• Supervisione clinica e coaching degli psicologi nella formazione specialistica\n• Partecipazione a riunioni di casi interdisciplinari\n\nRequisiti\n• Laurea completa in psicologia e formazione completa di psicoterapia (approvazione FSP o equivalente)\n• Diversi anni di esperienza nella psicoterapia e interesse per una specializzazione nella psicoterapia di età\n• Alto livello di lavoro di squadra, competenze sociali e responsabilità personale\n• Prontezza per la cooperazione trasversale",
+        "en": "The Psychiatric Services SRO provides regional, community-based and patient-oriented psychiatric care for 80,000 residents. We have modern, integrated care structures such as emergency triage, station-equivalent mobile acute care, integrative psychiatric care, social psychiatric and psychotherapeutic outpatients at 4 locations with special offers, as well as rehabilitation day clinic, acute day clinic, old-age psychiatry with ambulatory and day clinic and an inpatient offer with 34 beds in the Langenthal hospital. We have the SIWF recognition as a training institution of category A for 3 years, both outpatient and inpatient. In order to strengthen our team in the age psychiatry SRO in Langenthal, we are looking for an They do it with us.\n• Performing psychotherapies (individual and group setting)\n• Advice for patients and relatives\n• Development of individual therapy concepts and participation in the conceptual further development of the age psychological offer\n• Clinical supervision and coaching of psychologists in specialist training\n• Participation in interdisciplinary case discussions\n• Completed psychology degree and completed psychotherapy training (FSP-approved or equivalent)\n• Several years of experience in psychotherapy and interest in a specialization in age psychotherapy\n• High level of teamwork, social skills and personal responsibility\n• Readiness for cross-sectoral cooperation Working with us\n• A small interdisciplinary team with short communication paths, plenty of space for professional exchange and participation\n• Versatile diagnostic and therapeutic activity with the opportunity to build up your own focus offers\n• Regular internal and external supervision (team/case) and intervision\n• Extensive internal training programme\n• Modern working and employment conditions according to GAV SRO AG Psychiatric Services, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nTasks:\n• Performing psychotherapies (individual and group setting)\n• Advice for patients and relatives\n• Development of individual therapy concepts and participation in the conceptual further development of the age psychological offer\n• Clinical supervision and coaching of psychologists in specialist training\n• Participation in interdisciplinary case meetings\n\nRequirements\n• Completed psychology degree and completed psychotherapy training (FSP-approved or equivalent)\n• Several years of experience in psychotherapy and interest in a specialization in age psychotherapy\n• High level of teamwork, social skills and personal responsibility\n• Readiness for cross-cutting cooperation",
         "de": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Notfalltriage, stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär. Zur Verstärkung unseres Teams in der Alterspsychiatrie SRO in Langenthal suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen Das bringen Sie mit\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit Bei uns arbeiten\n• Ein kleines interdisziplinäres Team mit kurzen Kommunikationswegen, viel Raum für fachlichen Austausch und Mitgestaltung\n• Vielseitige diagnostische und therapeutische Tätigkeit mit der Möglichkeit, eigene Schwerpunktangebote aufzubauen\n• Regelmässige interne und externe Supervision (Team/Fall) sowie Intervision\n• Umfangreiches internes Fortbildungsprogramm\n• Moderne Arbeits- und Anstellungsbedingungen nach GAV SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit",
-        "it": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Notfalltriage, stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär. Zur Verstärkung unseres Teams in der Alterspsychiatrie SRO in Langenthal suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen Das bringen Sie mit\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit Bei uns arbeiten\n• Ein kleines interdisziplinäres Team mit kurzen Kommunikationswegen, viel Raum für fachlichen Austausch und Mitgestaltung\n• Vielseitige diagnostische und therapeutische Tätigkeit mit der Möglichkeit, eigene Schwerpunktangebote aufzubauen\n• Regelmässige interne und externe Supervision (Team/Fall) sowie Intervision\n• Umfangreiches internes Fortbildungsprogramm\n• Moderne Arbeits- und Anstellungsbedingungen nach GAV SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit",
-        "en": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Notfalltriage, stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär. Zur Verstärkung unseres Teams in der Alterspsychiatrie SRO in Langenthal suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen Das bringen Sie mit\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit Bei uns arbeiten\n• Ein kleines interdisziplinäres Team mit kurzen Kommunikationswegen, viel Raum für fachlichen Austausch und Mitgestaltung\n• Vielseitige diagnostische und therapeutische Tätigkeit mit der Möglichkeit, eigene Schwerpunktangebote aufzubauen\n• Regelmässige interne und externe Supervision (Team/Fall) sowie Intervision\n• Umfangreiches internes Fortbildungsprogramm\n• Moderne Arbeits- und Anstellungsbedingungen nach GAV SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit",
-        "fr": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Notfalltriage, stationsäquivalente Mobile Akutbehandlung, Integrativ aufsuchende Psychiatriepflege, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Rehabilitationstagesklinik, Akuttagesklinik, Alterspsychiatrie mit Ambulatorium und Tagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Wir verfügen über die SIWF-Anerkennung als Weiterbildungsstätte der Kategorie A für 3 Jahre, sowohl ambulant als auch stationär. Zur Verstärkung unseres Teams in der Alterspsychiatrie SRO in Langenthal suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen Das bringen Sie mit\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit Bei uns arbeiten\n• Ein kleines interdisziplinäres Team mit kurzen Kommunikationswegen, viel Raum für fachlichen Austausch und Mitgestaltung\n• Vielseitige diagnostische und therapeutische Tätigkeit mit der Möglichkeit, eigene Schwerpunktangebote aufzubauen\n• Regelmässige interne und externe Supervision (Team/Fall) sowie Intervision\n• Umfangreiches internes Fortbildungsprogramm\n• Moderne Arbeits- und Anstellungsbedingungen nach GAV SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Durchführung von Psychotherapien (Einzel- und Gruppensetting)\n• Beratung von Patienten und Angehörigen\n• Entwicklung individueller Therapiekonzepte und Mitwirkung bei der konzeptionellen Weiterentwicklung des alterspsychologischen Angebots\n• Klinische Supervision und Coaching von Psychologinnen oder Psychologen in Fachausbildung\n• Mitwirkung an interdisziplinären Fallbesprechungen\n\nAnforderungen:\n• Abgeschlossenes Psychologiestudium und abgeschlossene Psychotherapieausbildung (FSP-anerkannt oder äquivalent)\n• Mehrjährige Erfahrung in der Psychotherapie und Interesse an einer Spezialisierung in der Alterspsychotherapie\n• Hohe Teamfähigkeit, Sozialkompetenz und Eigenverantwortung\n• Bereitschaft zu bereichsübergreifender Zusammenarbeit"
+        "fr": "Le Bureau des services psychiatriques fournit des soins psychiatriques régionaux, communautaires et axés sur le patient à 80 000 résidents. Nous disposons de structures de soins modernes et intégrées telles que le triage d'urgence, les soins actifs mobiles équivalents aux stations, les soins psychiatriques intégratifs, les consultations psychiatriques sociales et psychothérapeutiques à 4 endroits avec des offres spéciales, ainsi que la clinique de jour de réadaptation, la clinique de jour aiguë, la psychiatrie de la vieillesse avec ambulatoire et clinique de jour et une offre de soins hospitaliers avec 34 lits à l'hôpital Langenthal. Nous avons la reconnaissance SIWF en tant qu'institution de formation de la catégorie A pendant 3 ans, à la fois ambulatoire et hospitalier. Afin de renforcer notre équipe dans l'âge psychiatrie SRO à Langenthal, nous cherchons un Ils le font avec nous.\n• Les psychothérapies (mise en place individuelle et en groupe)\n• Conseils aux patients et aux parents\n• Développement des concepts de thérapie individuelle et participation au développement conceptuel de l'offre psychologique d'âge\n• Supervision clinique et encadrement des psychologues en formation spécialisée\n• Participation à des discussions de cas interdisciplinaires\n• Diplôme de psychologie et formation en psychothérapie terminée (approuvé par le FSP ou équivalent)\n• Plusieurs années d'expérience en psychothérapie et intérêt pour une spécialisation en psychothérapie d'âge\n• Niveau élevé de travail d'équipe, de compétences sociales et de responsabilité personnelle\n• Préparation à la coopération intersectorielle Travailler avec nous\n• Une petite équipe interdisciplinaire avec de courtes voies de communication, beaucoup d'espace pour les échanges professionnels et la participation\n• Diagnostic polyvalent et activité thérapeutique avec la possibilité de développer vos propres offres de focus\n• Surveillance interne et externe régulière (équipe/cas) et intervision\n• Un vaste programme de formation interne\n• Conditions de travail et d'emploi modernes selon GAV SRO AG Services psychiatriques, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nTâches :\n• Les psychothérapies (mise en place individuelle et en groupe)\n• Conseils aux patients et aux parents\n• Développement des concepts de thérapie individuelle et participation au développement conceptuel de l'offre psychologique d'âge\n• Supervision clinique et encadrement des psychologues en formation spécialisée\n• Participation à des réunions interdisciplinaires de cas\n\nExigences\n• Diplôme de psychologie et formation en psychothérapie terminée (approuvé par le FSP ou équivalent)\n• Plusieurs années d'expérience en psychothérapie et intérêt pour une spécialisation en psychothérapie d'âge\n• Niveau élevé de travail d'équipe, de compétences sociales et de responsabilité personnelle\n• Préparation à la coopération intersectorielle"
       },
       "needsRetranslation": true,
       "location": "Langenthal",
@@ -583,7 +585,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/0647a662-af32-434f-a99d-85c7c1c5ef4d",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:47.682Z",
+      "crawledAt": "2026-07-18T21:52:39.576Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -599,14 +601,33 @@
       "postedDate": "2026-07-18",
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/0647a662-af32-434f-a99d-85c7c1c5ef4d",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "validThrough": "2026-08-14",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+        "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal",
+        "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+        "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberpsychologist-oberpsychologist-80-100-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
+          "oberpsychologue-oberpsychologue-80-100-psychiatrie-sro-ag-spital-region-oberaargau-langenthal",
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal",
+          "oberpsicologo-oberpsychologist-80-psichiatria-al-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologen-80-100-alterspsychiatrie-sro-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-07-18T10:26:47.682Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -618,8 +639,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-18T10:26:47.682Z"
+      }
     },
     {
       "id": "sro-c8a20933b90a",
@@ -647,12 +667,13 @@
         "de": "Die Psychiatrischen Dienste SRO gewährleisten eine regionale, gemeindenahe und patientenorientierte psychiatrische Versorgung für 80 000 Einwohner. Wir verfügen über moderne, integrierte Versorgungsstrukturen wie Mobile Krisenintervention, Notfall-Triage, sozialpsychiatrische und psychotherapeutische Ambulatorien an 4 Standorten mit Spezialangeboten, sowie Alterspsychiatrie, Tagesklinik, Akuttagesklinik und ein stationäres Angebot mit 34 Betten im Spital Langenthal. Für unser Team im Psychiatrischen Ambulatorium in Langenthal suchen wir per 1. Oktober 2026 oder nach Vereinbarung eine/n Das bewirken Sie bei uns In der Oberarztrolle übernehmen Sie Tutorate und Führungsfunktion für Assistenzärzte sowie pharmakologisches Coaching von Psychologen und werden in dieser Aufgabe vom Ärztlichen Leiter Ambulatorium unterstützt. Therapeutisch arbeiten Sie vorwiegend selbständig in unserem interdisziplinären Team des Ambulatoriums mit psychisch erkrankten Menschen aus dem gesamten diagnostischen Spektrum. Sie nehmen diese in ihren komplexen Lebensbezügen sowie ihren Kompetenzen und Ressourcen wahr. Beziehungskonstanz in der Fallführung und respektvolles Verhandeln mit den Betroffenen auf Augenhöhe sind wichtige Behandlungsansätze in unserem Dienst. Sie arbeiten eng mit zuweisenden Stellen in einem multiprofessionellen Team zusammen. Das bringen Sie mit Für die vorwiegend selbständige Arbeit erwarten wir eine abgeschlossene oder weit fortgeschrittene Facharztausbildung Psychiatrie und Psychotherapie. Sie sind eine teamorientierte Persönlichkeit, welche sich für Sozialpsychiatrie interessiert und Freude am Beruf hat. Unseren Patienten begegnen Sie empathisch und respektvoll. Eine Prise Humor rundet \n• Ihr Profil ab. Bei uns arbeiten SRO AG Psychiatrische Dienste, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nAufgaben:\nIn der Oberarztrolle übernehmen Sie Tutorate und Führungsfunktion für Assistenzärzte sowie pharmakologisches Coaching von Psychologen und werden in dieser Aufgabe vom Ärztlichen Leiter Ambulatorium unterstützt. Therapeutisch arbeiten Sie vorwiegend selbständig in unserem interdisziplinären Team des Ambulatoriums mit psychisch erkrankten Menschen aus dem gesamten diagnostischen Spektrum. Sie nehmen diese in ihren komplexen Lebensbezügen sowie ihren Kompetenzen und Ressourcen wahr. Beziehungskonstanz in der Fallführung und respektvolles Verhandeln mit den Betroffenen auf Augenhöhe sind wichtige Behandlungsansätze in unserem Dienst. Sie arbeiten eng mit zuweisenden Stellen in einem multiprofessionellen Team zusammen.\n\nAnforderungen:\nFür die vorwiegend selbständige Arbeit erwarten wir eine abgeschlossene oder weit fortgeschrittene Facharztausbildung Psychiatrie und Psychotherapie. Sie sind eine teamorientierte Persönlichkeit, welche sich für Sozialpsychiatrie interessiert und Freude am Beruf hat. Unseren Patienten begegnen Sie empathisch und respektvoll. Eine Prise Humor rundet \n• Ihr Profil ab.",
         "fr": "Le Bureau des services psychiatriques fournit des soins psychiatriques régionaux, communautaires et axés sur le patient à 80 000 résidents. Nous disposons de structures de soins modernes et intégrées telles que les interventions mobiles en cas de crise, le triage d'urgence, les consultations psychiatriques et psychothérapeutiques sociales à 4 endroits avec des offres spéciales, ainsi que la psychiatrie de la vieillesse, la clinique de jour, la clinique de jour aiguë et une offre d'hospitalisation avec 34 lits à l'hôpital Langenthal. Pour notre équipe à l'Ambulatoire Psychiatrique de Langenthal, nous cherchons un Dans le rôle médical senior, vous assumez des fonctions de tutorat et de leadership pour les médecins adjoints ainsi que de coaching pharmacologique des psychologues et sont soutenus dans cette tâche par le directeur médical ambulatoire. Thérapeutiquement, vous travaillez principalement indépendamment dans notre équipe interdisciplinaire de l'ambulatoire avec des personnes mentalement malades de tout le spectre diagnostique. Ils les perçoivent dans leurs références de vie complexes ainsi que leurs compétences et ressources. La constance des relations dans la gestion des cas et la négociation respectueuse avec les personnes touchées au niveau des yeux sont des approches de traitement importantes dans notre service. Ils travaillent en étroite collaboration avec des postes d'affectation dans une équipe multiprofessionnelle. Pour le travail essentiellement indépendant, nous attendons une formation spécialisée complète ou avancée psychiatrie et psychothérapie. Vous êtes une personnalité axée sur l'équipe qui s'intéresse à la psychiatrie sociale et apprécie la profession. Vous rencontrez nos patients avec empathie et respect. Une touche d'humour\n• votre profil. SRO AG Services psychiatriques, Marktgasse 18, CH-4900 Langenthal T 062 916 33 50, info@sro.ch, www.sro.ch\n\nTâches :\nDans le rôle médical supérieur, vous assumez le rôle de tutorat et de leadership pour les médecins adjoints ainsi que le coaching pharmacologique des psychologues et sont soutenus dans cette tâche par le directeur médical ambulatoire. Thérapeutiquement, vous travaillez principalement indépendamment dans notre équipe interdisciplinaire de l'ambulatoire avec des personnes mentalement malades de tout le spectre diagnostique. Ils les perçoivent dans leurs références de vie complexes ainsi que leurs compétences et ressources. La constance des relations dans la gestion des cas et la négociation respectueuse avec les personnes touchées au niveau des yeux sont des approches de traitement importantes dans notre service. Ils travaillent en étroite collaboration avec des postes d'affectation dans une équipe multiprofessionnelle.\n\nExigences\nPour le travail essentiellement indépendant, nous attendons une formation spécialisée complète ou avancée psychiatrie et psychothérapie. Vous êtes une personnalité axée sur l'équipe qui s'intéresse à la psychiatrie sociale et apprécie la profession. Vous rencontrez nos patients avec empathie et respect. Une touche d'humour\n• votre profil."
       },
+      "needsRetranslation": true,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/28c75c2f-07ee-460c-b49c-e62c3a1057f5",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T21:56:53.388Z",
+      "crawledAt": "2026-07-18T21:52:38.961Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -679,7 +700,8 @@
         "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
         "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -687,18 +709,19 @@
           "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
           "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
-          "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+          "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medico-senior-adulto-psichiatria-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
           "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
+        "de": [
+          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+        ],
         "fr": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-80-100-sro-langenthal",
           "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal"
-        ],
-        "de": [
-          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-07-13T21:59:29.851Z",
@@ -747,7 +770,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/75d46429-93c8-469b-9088-5bd31944e294",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:46.521Z",
+      "crawledAt": "2026-07-18T21:52:38.369Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -837,7 +860,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e5432b6a-d9ac-468e-b3d2-00ae4068cd37",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:45.978Z",
+      "crawledAt": "2026-07-18T21:52:37.837Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -921,7 +944,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/842bce7c-cafe-430a-b358-7743ef701be3",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:45.381Z",
+      "crawledAt": "2026-07-18T21:52:37.259Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1011,7 +1034,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/24254ffd-9d2a-48a8-9486-608e0298a9af",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:44.771Z",
+      "crawledAt": "2026-07-18T21:52:36.670Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1097,7 +1120,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f3aab3c8-40b8-4474-9755-ba1e556e4c3c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:44.185Z",
+      "crawledAt": "2026-07-18T21:52:36.095Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1178,7 +1201,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d21dad9e-7430-4608-81aa-cb32f8b5360d",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:43.626Z",
+      "crawledAt": "2026-07-18T21:52:35.547Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1262,7 +1285,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/32e4ba8a-c063-47ed-8da3-5d5f848d61e8",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:43.058Z",
+      "crawledAt": "2026-07-18T21:52:34.994Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1350,7 +1373,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d0fdd5ab-c7b6-43ee-af40-01e6a73b048b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:42.512Z",
+      "crawledAt": "2026-07-18T21:52:34.460Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1414,37 +1437,37 @@
     },
     {
       "id": "sro-7870c429212a",
-      "slug": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+      "slug": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
       "slugByLocale": {
+        "it": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
+        "en": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
         "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-        "it": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-        "en": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-        "fr": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
       "companyDomain": "sro.ch",
       "title": "Leitende Ärztin/Leitenden Arzt Gynäkologie 60 - 100 %",
       "titleByLocale": {
+        "it": "Senior Physician/Chief Physician Gynecology 60 - 100%",
+        "en": "Senior Physician/Chief Physician Gynecology 60 - 100%",
         "de": "Leitende Ärztin/Leitenden Arzt Gynäkologie 60 - 100 %",
-        "it": "Leitende Ärztin/Leitenden Arzt Gynäkologie 60 - 100 %",
-        "en": "Leitende Ärztin/Leitenden Arzt Gynäkologie 60 - 100 %",
-        "fr": "Leitende Ärztin/Leitenden Arzt Gynäkologie 60 - 100 %"
+        "fr": "Médecin principal/médecin en chef Gynécologie 60 - 100%"
       },
       "description": "Für unsere Standorte Niederbipp, Wynau und Huttwil suchen wir zur Ergänzung unseres Teams per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Zu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik. Das bringen Sie mit Sie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nZu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik.\n\nAnforderungen:\nSie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen.",
       "descriptionByLocale": {
+        "it": "Per le nostre sedi a Niederbipp, Wynau e Huttwil, cerchiamo un team che ci accompagni immediatamente o d'accordo. I vostri compiti principali includono la gestione e l'organizzazione di ginecologia e ostetricia in una posizione di SRO AG. La cura indipendente e il trattamento dei pazienti nelle loro ore di ufficio è una parte importante della vostra funzione. Sei anche attivo e attivamente partecipa alle operazioni di servizio presso la sede di Langenthal. Inoltre, si partecipa all'ulteriore sviluppo della Frauenklinik. Hai il titolo specialistico di ginecologia e ostetricia e hanno già acquisito esperienza di leadership come medico leader o come medico senior. Essi soddisfano i criteri di ammissibilità per una licenza professionale, così come i criteri OKP per la fatturazione indipendente e hanno un certificato di sonografia per la ginecologia e l'ostetricia del SGUM (o certificato riconosciuto equivalente). Hanno una conoscenza approfondita in tutto il campo della ginecologia, un focus sulla ginecologia operativa è vantaggioso. La volontà di assumersi la responsabilità, la resilienza, il piacere di lavorare in modo indipendente e il lavoro di squadra sono altri prerequisiti importanti. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nCompiti:\nI suoi compiti principali includono la gestione e l'organizzazione di ginecologia e ostetricia in una sede di SRO AG. La cura indipendente e il trattamento dei pazienti nelle loro ore di ufficio è una parte importante della vostra funzione. Sei anche attivo e attivamente partecipa alle operazioni di servizio presso la sede di Langenthal. Inoltre, si partecipa all'ulteriore sviluppo della Frauenklinik.\n\nRequisiti\nHai il titolo specialistico di ginecologia e ostetricia e hanno già acquisito esperienza di leadership come medico senior o come medico senior. Essi soddisfano i criteri di ammissibilità per una licenza professionale, così come i criteri OKP per la fatturazione indipendente e hanno un certificato di sonografia per la ginecologia e l'ostetricia del SGUM (o certificato riconosciuto equivalente). Hanno una conoscenza approfondita in tutto il campo della ginecologia, un focus sulla ginecologia operativa è vantaggioso. La volontà di assumersi la responsabilità, la resilienza, il piacere di lavorare in modo indipendente e il lavoro di squadra sono altri prerequisiti importanti.",
+        "en": "For our locations in Niederbipp, Wynau and Huttwil, we are looking for a team to complement us immediately or by agreement. Your main tasks include the management and organization of gynecology and obstetrics at a location of SRO AG. The independent care and treatment of patients in their office hours is an important part of your function. You are also operationally active and actively participate in the service operations at the Langenthal location. Furthermore, you participate in the further development of the Frauenklinik. You have the specialist title of gynecology and obstetrics and have already gained leadership experience as a leading physician or as a senior physician. They meet the eligibility criteria for a professional license, as well as the OKP criteria for independent billing and have a sonography certificate for gynecology and obstetrics of the SGUM (or equivalent recognised certificate). They have in-depth knowledge in the entire field of gynecology, a focus on operative gynecology is beneficial. The willingness to take on responsibility, resilience, pleasure in working independently and teamwork are other important prerequisites. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks:\nHer main tasks include the management and organization of gynecology and obstetrics at a location of SRO AG. The independent care and treatment of patients in their office hours is an important part of your function. You are also operationally active and actively participate in the service operations at the Langenthal location. Furthermore, you participate in the further development of the Frauenklinik.\n\nRequirements\nYou have the specialist title of gynecology and obstetrics and have already gained leadership experience as a senior physician or as a senior physician. They meet the eligibility criteria for a professional license, as well as the OKP criteria for independent billing and have a sonography certificate for gynecology and obstetrics of the SGUM (or equivalent recognised certificate). They have in-depth knowledge in the entire field of gynecology, a focus on operative gynecology is beneficial. The willingness to take on responsibility, resilience, pleasure in working independently and teamwork are other important prerequisites.",
         "de": "Für unsere Standorte Niederbipp, Wynau und Huttwil suchen wir zur Ergänzung unseres Teams per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Zu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik. Das bringen Sie mit Sie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nZu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik.\n\nAnforderungen:\nSie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen.",
-        "it": "Für unsere Standorte Niederbipp, Wynau und Huttwil suchen wir zur Ergänzung unseres Teams per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Zu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik. Das bringen Sie mit Sie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nZu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik.\n\nAnforderungen:\nSie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen.",
-        "en": "Für unsere Standorte Niederbipp, Wynau und Huttwil suchen wir zur Ergänzung unseres Teams per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Zu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik. Das bringen Sie mit Sie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nZu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik.\n\nAnforderungen:\nSie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen.",
-        "fr": "Für unsere Standorte Niederbipp, Wynau und Huttwil suchen wir zur Ergänzung unseres Teams per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns Zu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik. Das bringen Sie mit Sie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nZu Ihren Hauptaufgaben gehören die Führung und Organisation der Gynäkologie und Geburtshilfe an einem Standort der SRO AG. Die selbstständige Betreuung und Behandlung der Patientinnen in ihrer Sprechstunde ist ein wichtiger Bestandteil Ihrer Funktion. Ebenfalls sind Sie operativ tätig und bringen sich aktiv in den Dienstbetrieb am Standort Langenthal mit ein. Des Weiteren beteiligen Sie sich an der Weiterentwicklung der Frauenklinik.\n\nAnforderungen:\nSie verfügen über den Facharzttitel Gynäkologie und Geburtshilfe und haben bereits Führungserfahrung als Leitende Ärztin/Leitender Arzt oder als Oberärztin/Oberarzt gesammelt. Sie erfüllen die Zulassungskriterien für eine Berufsausübungsbewilligung, sowie die OKP-Kriterien zur eigenständigen Abrechnung und verfügen über einen Fähigkeitsausweis Sonografie für Gynäkologie und Geburtshilfe der SGUM (oder äquivalentes anerkanntes Zertifikat). Sie haben profunde Kenntnisse im gesamten Bereich der Gynäkologie, ein Schwerpunktitel operative Gynäkologie ist von Vorteil. Die Bereitschaft Verantwortung zu übernehmen, Belastbarkeit, Freude am selbstständigen Arbeiten und Teamfähigkeit sind weitere wichtige Voraussetzungen."
+        "fr": "Pour nos emplacements à Niederbipp, Wynau et Huttwil, nous recherchons une équipe pour nous compléter immédiatement ou d'un commun accord. \n• Vos tâches principales comprennent la gestion et l'organisation de la gynécologie et de l'obstétrique à un emplacement de SRO AG. Les soins indépendants et le traitement des patients dans leurs heures de bureau est une partie importante de votre fonction. Vous êtes également actif sur le plan opérationnel et participez activement aux opérations de service à l'emplacement de Langenthal. De plus, vous participez au développement du Frauenklinik. Vous avez le titre de spécialiste de la gynécologie et de l'obstétrique et avez déjà acquis une expérience de leadership en tant que médecin principal ou en tant que médecin principal. Ils répondent aux critères d'admissibilité à une licence professionnelle, ainsi qu'aux critères OKP pour la facturation indépendante et possèdent un certificat de sonographie pour la gynécologie et l'obstétrique du SGUM (ou certificat équivalent reconnu). Ils ont une connaissance approfondie dans tout le domaine de la gynécologie, un accent sur la gynécologie opérationnelle est bénéfique. La volonté d'assumer la responsabilité, la résilience, le plaisir de travailler de manière indépendante et le travail d'équipe sont d'autres conditions préalables importantes. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\nSes principales tâches comprennent la gestion et l'organisation de la gynécologie et de l'obstétrique à un endroit de SRO AG. Les soins indépendants et le traitement des patients dans leurs heures de bureau est une partie importante de votre fonction. Vous êtes également actif sur le plan opérationnel et participez activement aux opérations de service à l'emplacement de Langenthal. De plus, vous participez au développement du Frauenklinik.\n\nExigences\nVous avez le titre de spécialiste de la gynécologie et de l'obstétrique et avez déjà acquis une expérience de leadership en tant que médecin senior ou en tant que médecin senior. Ils répondent aux critères d'admissibilité à une licence professionnelle, ainsi qu'aux critères OKP pour la facturation indépendante et possèdent un certificat de sonographie pour la gynécologie et l'obstétrique du SGUM (ou certificat équivalent reconnu). Ils ont une connaissance approfondie dans tout le domaine de la gynécologie, un accent sur la gynécologie opérationnelle est bénéfique. La volonté d'assumer la responsabilité, la résilience, le plaisir de travailler de manière indépendante et le travail d'équipe sont d'autres conditions préalables importantes."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Divers",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/adcf08b7-8abf-453a-922e-632c44b76705",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:41.872Z",
+      "crawledAt": "2026-07-18T21:52:33.882Z",
       "addressLocality": "Divers",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1460,27 +1483,41 @@
       "postedDate": "2026-07-18",
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/adcf08b7-8abf-453a-922e-632c44b76705",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "validThrough": "2026-08-14",
       "department": "Gesundheitswesen",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+        "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+          "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        ],
+        "en": [
+          "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        ]
+      },
+      "firstSeenAt": "2026-07-18T10:26:41.872Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-18T10:26:41.872Z"
+      }
     },
     {
       "id": "sro-5e0d17eb1926",
@@ -1514,7 +1551,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f38fa843-c4ed-4091-bd76-de9e062559da",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:41.240Z",
+      "crawledAt": "2026-07-18T21:52:33.235Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1598,7 +1635,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/57a83f7b-d8c2-4f6a-b512-dbdf1f85b334",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:40.643Z",
+      "crawledAt": "2026-07-18T21:52:32.638Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1685,7 +1722,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/706ca0e0-7abd-44e2-81f4-23554bf1cf49",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:40.046Z",
+      "crawledAt": "2026-07-18T21:52:32.054Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1769,7 +1806,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/114f5ead-ea18-417f-a169-da49c20b601a",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:39.475Z",
+      "crawledAt": "2026-07-18T21:52:31.497Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1853,7 +1890,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b8c0ef3b-dedc-4e9d-8f4c-fe5a3198b4d2",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:38.886Z",
+      "crawledAt": "2026-07-18T21:52:30.755Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1937,7 +1974,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/429ad6d9-ee63-48ed-a718-5cc077ead24f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:38.227Z",
+      "crawledAt": "2026-07-18T21:52:30.105Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2019,7 +2056,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/3b065b37-1106-4a1d-8604-426cf4126a8f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:37.568Z",
+      "crawledAt": "2026-07-18T21:52:29.444Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2105,7 +2142,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a5559cc4-ee05-4a3b-bee8-829f8479c14c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:36.988Z",
+      "crawledAt": "2026-07-18T21:52:28.874Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2189,7 +2226,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/1679fe17-cd15-4f06-9463-b8d3be2cffb4",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:36.371Z",
+      "crawledAt": "2026-07-18T21:52:28.301Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2275,7 +2312,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/9bd61cb7-5163-4657-be4c-2b1ec5c4efeb",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:35.758Z",
+      "crawledAt": "2026-07-18T21:52:27.709Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2329,29 +2366,29 @@
     },
     {
       "id": "sro-ebaea2fbfe71",
-      "slug": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+      "slug": "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
+        "it": "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-rescue-paramedics-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-        "it": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-        "en": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
-        "fr": "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+        "fr": "dipl-paramedicaux-de-sauvetage-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
       "companyDomain": "sro.ch",
       "title": "Dipl. Rettungssanitäter/in HF 60 - 100 %",
       "titleByLocale": {
+        "it": "Dipl. Paramedici di salvataggio / HF 60 - 100%",
+        "en": "Dipl. Rescue paramedics / HF 60 - 100 %",
         "de": "Dipl. Rettungssanitäter/in HF 60 - 100 %",
-        "it": "Dipl. Rettungssanitäter/in HF 60 - 100 %",
-        "en": "Dipl. Rettungssanitäter/in HF 60 - 100 %",
-        "fr": "Dipl. Rettungssanitäter/in HF 60 - 100 %"
+        "fr": "Dipl. Paramédicaux de sauvetage / HF 60 - 100 %"
       },
       "description": "Die SRO AG ist das regionale Spitalzentrum im Oberaargau, Kanton Bern. Das Zentrum in Langenthal, seine drei Gesundheitszentren in Huttwil, Niederbipp und Herzogenbuchsee und eine Grundversorgerpraxis in Wynau bieten eine umfassende und hochwertige medizinische Versorgung für die Bevölkerung der Region. Die Zufriedenheit unserer Patientinnen und Patienten wie auch unserer Mitarbeiterinnen und Mitarbeiter steht für uns im Mittelpunkt. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/einen Das bewirken Sie bei uns\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung. Das bringen Sie mit\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet Bei uns arbeiten\n• Sie arbeiten eigenständig in einem innovativen und hochmotivierten Team\n• Moderne Infrastruktur sowie attraktive Fort- und Weiterbildungsmöglichkeiten erwarten Sie.\n• Ausserdem profitieren Sie von zeitgemässen Anstellungsbedingungen gemäss GAV – fair, transparent und verlässlich. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet",
       "descriptionByLocale": {
+        "it": "SRO AG è il centro ospedaliero regionale di Oberaargau, Cantone di Berna. Il centro di Langenthal, i suoi tre centri sanitari a Hutttwil, Niederbipp e Herzogenbuchsee e una pratica di assistenza di base in Wynau forniscono un'assistenza medica completa e di alta qualità per la popolazione della regione. La soddisfazione dei nostri pazienti e dei nostri dipendenti è la nostra attenzione. Al fine di integrare il nostro team, stiamo cercando un immediato o d'accordo.\n• Guidare e organizzare missioni primarie e secondarie - coordinate la sequenza di missione e garantire strutture chiare.\n• Attuazione delle misure mediche secondo la delegazione – L'utente utilizza la propria esperienza in modo mirato e agisce in ogni momento secondo gli standard applicabili.\n• Assicurare le infrastrutture e le attrezzature necessarie – Garantiscono la disponibilità operativa di infrastrutture e materiali.\n• Mantenere un protocollo operativo digitale – Essi raccolgono tutti i dati operativi in modo digitale e garantiscono così una documentazione senza soluzione di continuità.\n• Operazione in tre sedi (Langenthal, Niederbipp, Madiswil) – operazioni versatili e variegate in ambienti urbani e rurali.\n• Cura e guida dei tirocinanti – Essi accompagnano gli studenti in uso, impartiscono conoscenze pratiche e promuovono il loro sviluppo. Ecco cosa portano con loro.\n• Formazione completa come Dipl. EMT/RF (o SRC riconosciuto equivalente)\n• Patente di guida categoria C1 o D1 (121/122)\n• Competenze approfondite e gestione delle missioni strutturate\n• Alto livello di competenza sociale e resilienza\n• Buone capacità di comunicazione – lavoro empatico e mirato con noi\n• Lavori in modo indipendente in un team innovativo e altamente motivato\n• Le infrastrutture moderne e le interessanti opportunità di istruzione e formazione vi aspettano.\n• Si beneficiano anche di condizioni di lavoro aggiornate in conformità con GAV – equo, trasparente e affidabile. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nCompiti:\n• Guidare e organizzare missioni primarie e secondarie - coordinate la sequenza di missione e garantire strutture chiare.\n• Attuazione delle misure mediche secondo la delegazione – L'utente utilizza la propria esperienza in modo mirato e agisce in ogni momento secondo gli standard applicabili.\n• Assicurare le infrastrutture e le attrezzature necessarie – Garantiscono la disponibilità operativa di infrastrutture e materiali.\n• Mantenere un protocollo operativo digitale – Essi raccolgono tutti i dati operativi in modo digitale e garantiscono così una documentazione senza soluzione di continuità.\n• Operazione in tre sedi (Langenthal, Niederbipp, Madiswil) – operazioni versatili e variegate in ambienti urbani e rurali.\n• Cura e guida dei tirocinanti – Essi accompagnano gli studenti in uso, impartiscono conoscenze pratiche e promuovono il loro sviluppo.\n\nRequisiti\n• Formazione completa come Dipl. EMT/RF (o SRC riconosciuto equivalente)\n• Patente di guida categoria C1 o D1 (121/122)\n• Competenze approfondite e gestione delle missioni strutturate\n• Alto livello di competenza sociale e resilienza\n• Buone capacità comunicative – empatiche e mirate",
+        "en": "SRO AG is the regional hospital center in Oberaargau, Canton of Bern. The centre in Langenthal, its three health centres in Huttwil, Niederbipp and Herzogenbuchsee and a basic care practice in Wynau provide comprehensive and high-quality medical care for the population of the region. The satisfaction of our patients as well as our employees is our focus. In order to supplement our team, we are looking for an immediately or by agreement.\n• Leading and organizing primary and secondary missions - you coordinate the mission sequence and ensure clear structures.\n• Implementation of medical measures according to delegation – You use your expertise in a targeted manner and act at all times according to applicable standards.\n• Ensuring the required infrastructure and equipment – They ensure the operational readiness of infrastructure and materials.\n• Keeping a digital operational protocol – They collect all operational data digitally and thus ensure seamless documentation.\n• Operation at three locations (Langenthal, Niederbipp, Madiswil) – versatile and varied operations in urban and rural environments.\n• Care and guidance of trainees – They accompany learners in use, impart practical knowledge and promote their development. This is what they bring with them.\n• Completed training as a Dipl. EMT/RF (or SRC recognised equivalent)\n• Driving licence category C1 or D1 (121/122)\n• In-depth expertise and structured mission management\n• High level of social competence and resilience\n• Good communication skills – empathetic and targeted work with us\n• You work independently in an innovative and highly motivated team\n• Modern infrastructure and attractive further education and training opportunities await you.\n• You also benefit from up-to-date employment conditions in accordance with GAV – fair, transparent and reliable. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks:\n• Leading and organizing primary and secondary missions - you coordinate the mission sequence and ensure clear structures.\n• Implementation of medical measures according to delegation – You use your expertise in a targeted manner and act at all times according to applicable standards.\n• Ensuring the required infrastructure and equipment – They ensure the operational readiness of infrastructure and materials.\n• Keeping a digital operational protocol – They collect all operational data digitally and thus ensure seamless documentation.\n• Operation at three locations (Langenthal, Niederbipp, Madiswil) – versatile and varied operations in urban and rural environments.\n• Care and guidance of trainees – They accompany learners in use, impart practical knowledge and promote their development.\n\nRequirements\n• Completed training as a Dipl. EMT/RF (or SRC recognised equivalent)\n• Driving licence category C1 or D1 (121/122)\n• In-depth expertise and structured mission management\n• High level of social competence and resilience\n• Good communication skills – empathetic and targeted",
         "de": "Die SRO AG ist das regionale Spitalzentrum im Oberaargau, Kanton Bern. Das Zentrum in Langenthal, seine drei Gesundheitszentren in Huttwil, Niederbipp und Herzogenbuchsee und eine Grundversorgerpraxis in Wynau bieten eine umfassende und hochwertige medizinische Versorgung für die Bevölkerung der Region. Die Zufriedenheit unserer Patientinnen und Patienten wie auch unserer Mitarbeiterinnen und Mitarbeiter steht für uns im Mittelpunkt. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/einen Das bewirken Sie bei uns\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung. Das bringen Sie mit\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet Bei uns arbeiten\n• Sie arbeiten eigenständig in einem innovativen und hochmotivierten Team\n• Moderne Infrastruktur sowie attraktive Fort- und Weiterbildungsmöglichkeiten erwarten Sie.\n• Ausserdem profitieren Sie von zeitgemässen Anstellungsbedingungen gemäss GAV – fair, transparent und verlässlich. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet",
-        "it": "Die SRO AG ist das regionale Spitalzentrum im Oberaargau, Kanton Bern. Das Zentrum in Langenthal, seine drei Gesundheitszentren in Huttwil, Niederbipp und Herzogenbuchsee und eine Grundversorgerpraxis in Wynau bieten eine umfassende und hochwertige medizinische Versorgung für die Bevölkerung der Region. Die Zufriedenheit unserer Patientinnen und Patienten wie auch unserer Mitarbeiterinnen und Mitarbeiter steht für uns im Mittelpunkt. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/einen Das bewirken Sie bei uns\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung. Das bringen Sie mit\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet Bei uns arbeiten\n• Sie arbeiten eigenständig in einem innovativen und hochmotivierten Team\n• Moderne Infrastruktur sowie attraktive Fort- und Weiterbildungsmöglichkeiten erwarten Sie.\n• Ausserdem profitieren Sie von zeitgemässen Anstellungsbedingungen gemäss GAV – fair, transparent und verlässlich. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet",
-        "en": "Die SRO AG ist das regionale Spitalzentrum im Oberaargau, Kanton Bern. Das Zentrum in Langenthal, seine drei Gesundheitszentren in Huttwil, Niederbipp und Herzogenbuchsee und eine Grundversorgerpraxis in Wynau bieten eine umfassende und hochwertige medizinische Versorgung für die Bevölkerung der Region. Die Zufriedenheit unserer Patientinnen und Patienten wie auch unserer Mitarbeiterinnen und Mitarbeiter steht für uns im Mittelpunkt. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/einen Das bewirken Sie bei uns\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung. Das bringen Sie mit\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet Bei uns arbeiten\n• Sie arbeiten eigenständig in einem innovativen und hochmotivierten Team\n• Moderne Infrastruktur sowie attraktive Fort- und Weiterbildungsmöglichkeiten erwarten Sie.\n• Ausserdem profitieren Sie von zeitgemässen Anstellungsbedingungen gemäss GAV – fair, transparent und verlässlich. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet",
-        "fr": "Die SRO AG ist das regionale Spitalzentrum im Oberaargau, Kanton Bern. Das Zentrum in Langenthal, seine drei Gesundheitszentren in Huttwil, Niederbipp und Herzogenbuchsee und eine Grundversorgerpraxis in Wynau bieten eine umfassende und hochwertige medizinische Versorgung für die Bevölkerung der Region. Die Zufriedenheit unserer Patientinnen und Patienten wie auch unserer Mitarbeiterinnen und Mitarbeiter steht für uns im Mittelpunkt. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/einen Das bewirken Sie bei uns\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung. Das bringen Sie mit\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet Bei uns arbeiten\n• Sie arbeiten eigenständig in einem innovativen und hochmotivierten Team\n• Moderne Infrastruktur sowie attraktive Fort- und Weiterbildungsmöglichkeiten erwarten Sie.\n• Ausserdem profitieren Sie von zeitgemässen Anstellungsbedingungen gemäss GAV – fair, transparent und verlässlich. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Führen und organisieren von Primär- und Sekundäreinsätzen - Sie koordinieren den Einsatzablauf und sorgen für klare Strukturen.\n• Umsetzen medizinischer Massnahmen gemäss Delegation – Sie setzen Ihr Fachwissen gezielt ein und handeln jederzeit nach geltenden Standards.\n• Sicherstellen der benötigten Infrastruktur und Ausrüstung – Sie gewährleisten die Einsatzbereitschaft von Infrastruktur und Material.\n• Führen eines digitalen Einsatzprotokolls – Sie erfassen alle Einsatzdaten digital und sichern so eine lückenlose Dokumentation.\n• Einsatz an drei Standorten (Langenthal, Niederbipp, Madiswil) – vielseitige und abwechslungsreiche Einsätze im städtischen wie ländlichen Umfeld.\n• Betreuung und Anleitung der Auszubildenden – Sie begleiten Lernende im Einsatz, vermitteln Praxiswissen und fördern deren Entwicklung.\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF (oder SRK anerkannt gleichwertig)\n• Führerausweis Kategorie C1oder D1 (121/122)\n• Fundiertes Fachwissen und strukturiertes Einsatzmanagement\n• Hohes Mass an Sozialkompetenz und Belastbarkeit\n• Gute Kommunikationsfähigkeit – empathisch und zielgerichtet"
+        "fr": "SRO AG est le centre hospitalier régional d'Oberaargau, canton de Berne. Le centre de Langenthal, ses trois centres de santé à Huttwil, Niederbipp et Herzogenbuchsee et une pratique de soins de base à Wynau fournissent des soins médicaux complets et de haute qualité à la population de la région. La satisfaction de nos patients et de nos employés est notre priorité. Afin de compléter notre équipe, nous sommes à la recherche d'un immédiatement ou par accord.\n• Diriger et organiser les missions primaires et secondaires - vous coordonnez la séquence de la mission et assurez des structures claires.\n• Mise en œuvre des mesures médicales selon la délégation – Vous utilisez votre expertise de manière ciblée et agissez en tout temps selon les normes applicables.\n• Assurer l'infrastructure et l'équipement requis – Ils assurent la disponibilité opérationnelle des infrastructures et des matériaux.\n• Maintenir un protocole opérationnel numérique – Ils recueillent toutes les données opérationnelles numériquement et assurent ainsi une documentation transparente.\n• Opération sur trois sites (Langenthal, Niederbipp, Madiswil) – opérations polyvalentes et variées en milieu urbain et rural.\n• Soins et orientation des stagiaires – Ils accompagnent les apprenants en cours d'utilisation, transmettent des connaissances pratiques et favorisent leur développement. C'est ce qu'ils apportent.\n• Formation terminée en tant que diplômé EMT/RF (ou équivalent reconnu par le SRC)\n• Permis de conduire de catégorie C1 ou D1 (121/122)\n• Expertise approfondie et gestion structurée des missions\n• Niveau élevé de compétence sociale et de résilience\n• Bonnes compétences en communication – travail empathique et ciblé avec nous\n• Vous travaillez indépendamment dans une équipe innovante et très motivée\n• Une infrastructure moderne et des possibilités de formation et d'enseignement complémentaires attrayants vous attendent.\n• Vous bénéficiez également de conditions d'emploi à jour conformément à GAV – équitables, transparentes et fiables. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Diriger et organiser les missions primaires et secondaires - vous coordonnez la séquence de la mission et assurez des structures claires.\n• Mise en œuvre des mesures médicales selon la délégation – Vous utilisez votre expertise de manière ciblée et agissez en tout temps selon les normes applicables.\n• Assurer l'infrastructure et l'équipement requis – Ils assurent la disponibilité opérationnelle des infrastructures et des matériaux.\n• Maintenir un protocole opérationnel numérique – Ils recueillent toutes les données opérationnelles numériquement et assurent ainsi une documentation transparente.\n• Opération sur trois sites (Langenthal, Niederbipp, Madiswil) – opérations polyvalentes et variées en milieu urbain et rural.\n• Soins et orientation des stagiaires – Ils accompagnent les apprenants en cours d'utilisation, transmettent des connaissances pratiques et favorisent leur développement.\n\nExigences\n• Formation terminée en tant que diplômé EMT/RF (ou équivalent reconnu par le SRC)\n• Permis de conduire de catégorie C1 ou D1 (121/122)\n• Expertise approfondie et gestion structurée des missions\n• Niveau élevé de compétence sociale et de résilience\n• Bonnes compétences en communication – empathique et ciblée"
       },
       "needsRetranslation": true,
       "location": "Langenthal",
@@ -2359,7 +2396,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ced6d403-df75-4f0f-9062-423d59bee504",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:35.118Z",
+      "crawledAt": "2026-07-18T21:52:27.076Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2375,14 +2412,51 @@
       "postedDate": "2026-07-18",
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/ced6d403-df75-4f0f-9062-423d59bee504",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "validThrough": "2026-08-14",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "dipl-rescue-paramedics-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-paramedicaux-de-sauvetage-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-soccorritore-a-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-emergency-medical-technician-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "diplome-e-en-techniques-d-urgence-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "tecnico-di-radiologia-diplomato-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+        "specialiste-en-radiologie-diplome-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "infermiere-di-soccorso-diplomato-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-assistant-sanitaire-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+        "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-rescue-paramedics-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-paramedicaux-de-sauvetage-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-soccorritore-a-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-emergency-medical-technician-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "diplome-e-en-techniques-d-urgence-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "tecnico-di-radiologia-diplomato-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+          "specialiste-en-radiologie-diplome-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "infermiere-di-soccorso-diplomato-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-assistant-sanitaire-hf-60-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal",
+          "dipl-paramedici-di-salvataggio-hf-60-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-rettungssanitater-in-hf-60-100-sro-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-07-18T10:26:35.118Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -2394,8 +2468,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-18T10:26:35.118Z"
+      }
     },
     {
       "id": "sro-3f33ec52c3b4",
@@ -2429,7 +2502,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/21c9123d-f41f-4ddb-ab42-d30aeeae70dc",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:34.436Z",
+      "crawledAt": "2026-07-18T21:52:26.409Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2513,7 +2586,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/33cce9c9-e4cf-4d40-b976-4226987b1bdc",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:33.794Z",
+      "crawledAt": "2026-07-18T21:52:25.762Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2594,7 +2667,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d94e4e28-85d5-4001-99fe-1a6be6711b2c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:33.200Z",
+      "crawledAt": "2026-07-18T21:52:25.188Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2678,7 +2751,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/57f4432f-4d00-4a33-8d44-de2d1e2f44ec",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:32.551Z",
+      "crawledAt": "2026-07-18T21:52:24.525Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2762,7 +2835,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/18fcafaa-f32f-4278-aa75-97baafc3a7dd",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:31.862Z",
+      "crawledAt": "2026-07-18T21:52:23.890Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2843,7 +2916,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5b84beff-fbdb-4cc5-863f-bebc13d4fd94",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:31.218Z",
+      "crawledAt": "2026-07-18T21:52:23.258Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2945,7 +3018,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/cc5cc897-53dc-426b-ac3f-5751cf9562c8",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:30.559Z",
+      "crawledAt": "2026-07-18T21:52:22.617Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3037,7 +3110,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e69a68df-78b4-4306-a146-5ef4dcf20b60",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:29.893Z",
+      "crawledAt": "2026-07-18T21:52:21.974Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3129,7 +3202,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/73cee318-e0cd-435a-b7bf-3df66f410a26",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:29.260Z",
+      "crawledAt": "2026-07-18T21:52:21.343Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3213,7 +3286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b7d3d635-07ce-447b-ac01-f772140e6231",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:28.580Z",
+      "crawledAt": "2026-07-18T21:52:20.689Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3297,7 +3370,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/6a81e5da-4d0a-4a27-a184-8f05c2a10fff",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:27.919Z",
+      "crawledAt": "2026-07-18T21:52:20.056Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3345,7 +3418,7 @@
       "title": "Dipl. Pflegefachperson Endoskopie 60 - 100 %",
       "titleByLocale": {
         "it": "Dipl. Endoscopia 60 - 100%",
-        "en": "Dipl. Caregiver Endoscopy 60 - 100%",
+        "en": "Dipl. Pflegefachperson Endoskopie 60 - 100 %",
         "de": "Dipl. Pflegefachperson Endoskopie 60 - 100 %",
         "fr": "Dipl. Endoscopie du soignant 60 - 100%"
       },
@@ -3356,12 +3429,13 @@
         "de": "Zur Ergänzung unseres Teams suchen wir per 1. August 2026 oder nach Vereinbarung eine Das bewirken Sie bei uns Sie treﬀen Vorbereitungen für die endoskopischen Untersuchungen und überwachen und betreuen die stationären und ambulanten Patientinnen und Patienten während und nach den Behandlungen. Sie assistieren während den Untersuchungen. Das Vorbereiten der Geräte und des Instrumentariums für diagnostische und therapeutische Untersuchungen sowie administrative Arbeiten gehören ebenfalls zu Ihrer vielseitigen Tätigkeit. Das bringen Sie mit Sie verfügen über die Ausbildung als dipl. Pflegefachperson und haben von Vorteil bereits Erfahrung in der Endoskopie. Sie interessieren sich für medizinische Methodik, arbeiten gerne interdisziplinär, sind dienstleistungsorientiert und betreuen unsere Patientinnen und Patienten mit Empathie und Sozialkompetenz. Belastbarkeit, Flexibilität sowie eine zuvorkommende Kommunikationsweise sind uns wichtig. Bei uns arbeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\nSie treﬀen Vorbereitungen für die endoskopischen Untersuchungen und überwachen und betreuen die stationären und ambulanten Patientinnen und Patienten während und nach den Behandlungen. Sie assistieren während den Untersuchungen. Das Vorbereiten der Geräte und des Instrumentariums für diagnostische und therapeutische Untersuchungen sowie administrative Arbeiten gehören ebenfalls zu Ihrer vielseitigen Tätigkeit.\n\nAnforderungen:\nSie verfügen über die Ausbildung als dipl. Pflegefachperson und haben von Vorteil bereits Erfahrung in der Endoskopie. Sie interessieren sich für medizinische Methodik, arbeiten gerne interdisziplinär, sind dienstleistungsorientiert und betreuen unsere Patientinnen und Patienten mit Empathie und Sozialkompetenz. Belastbarkeit, Flexibilität sowie eine zuvorkommende Kommunikationsweise sind uns wichtig.",
         "fr": "Pour compléter notre équipe, nous cherchons 1. Août 2026 ou sur rendez-vous Ceci est fait avec nous Vous préparez les examens endoscopiques et surveillez et soignez les patients hospitalisés et externes pendant et après les traitements. Ils aident pendant les enquêtes. La préparation des appareils et instruments pour les examens diagnostiques et thérapeutiques ainsi que le travail administratif font également partie de votre travail polyvalent. Cela vous apportera avec vous l'entraînement comme un dipl. Une infirmière et déjà une expérience en endoscopie. Ils s'intéressent à la méthodologie médicale, aiment travailler interdisciplinairement, sont orientés vers le service et s'occupent de nos patients avec empathie et compétences sociales. La résilience, la flexibilité et un mode de communication courtois sont importants pour nous. SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\nIls préparent les examens endoscopiques et surveillent et soignent les patients hospitalisés et externes pendant et après les traitements. Ils aident pendant les enquêtes. La préparation des appareils et instruments pour les examens diagnostiques et thérapeutiques ainsi que le travail administratif font également partie de votre travail polyvalent.\n\nExigences\nVous avez l'entraînement comme un dipl. Une infirmière et déjà une expérience en endoscopie. Ils s'intéressent à la méthodologie médicale, aiment travailler interdisciplinairement, sont orientés vers le service et s'occupent de nos patients avec empathie et compétences sociales. La résilience, la flexibilité et un mode de communication courtois sont importants pour nous."
       },
+      "needsRetranslation": true,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/e3aa5ad4-bf8c-4154-8ec6-8639902c5b78",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T21:56:30.904Z",
+      "crawledAt": "2026-07-18T21:52:19.421Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3385,12 +3459,14 @@
       "department": "Gesundheitswesen",
       "previousSlugs": [
         "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal",
-        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal",
-          "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-radiologiefachperson-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-endoscopia-60-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-endoskopie-60-100-sro-langenthal"
@@ -3445,7 +3521,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/febf8a3c-87be-4abe-8db6-39cf63b4f16b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:26.563Z",
+      "crawledAt": "2026-07-18T21:52:18.775Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3531,7 +3607,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b0481841-e3f3-444a-b355-690c60dd5187",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:25.891Z",
+      "crawledAt": "2026-07-18T21:52:18.108Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3617,7 +3693,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2583f8f8-144c-412b-83d7-416b3b68ee18",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:25.158Z",
+      "crawledAt": "2026-07-18T21:52:17.485Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3700,7 +3776,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b15264af-4e3e-43e8-8814-48dcd375a5e6",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:24.590Z",
+      "crawledAt": "2026-07-18T21:52:16.925Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3779,7 +3855,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7ee20972-bf6a-45b3-8141-fac52edaa307",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:24.024Z",
+      "crawledAt": "2026-07-18T21:52:16.361Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3862,7 +3938,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a072ae05-2e1d-4859-bc7e-e1bd59c87922",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:23.379Z",
+      "crawledAt": "2026-07-18T21:52:15.730Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3946,7 +4022,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/59834c31-8ac8-4988-b2c7-eb491432ffb7",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:22.736Z",
+      "crawledAt": "2026-07-18T21:52:15.096Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4027,7 +4103,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/c28cc555-e373-4bad-81dc-5d76f97c28d7",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:22.063Z",
+      "crawledAt": "2026-07-18T21:52:14.458Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4111,7 +4187,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f6ae7169-9880-4176-b587-04ea590f396f",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:21.420Z",
+      "crawledAt": "2026-07-18T21:52:13.827Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4189,7 +4265,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/8f1f9499-0c4c-4320-a31c-9ca0c5b5edce",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:20.828Z",
+      "crawledAt": "2026-07-18T21:52:13.202Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4273,7 +4349,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/42f9c1d3-3bc2-441a-bc5d-dbaf13cab75c",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:20.124Z",
+      "crawledAt": "2026-07-18T21:52:12.560Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4339,29 +4415,29 @@
     },
     {
       "id": "sro-302f2b06cd0f",
-      "slug": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
+      "slug": "arztsekretar-in-orthopala-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
+        "it": "arztsekretar-in-orthopala-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "medical-secretary-orthopaedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "it": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "en": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "fr": "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        "fr": "secretaire-medical-orthopedie-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
       "companyDomain": "sro.ch",
       "title": "Arztsekretär/in Orthopädie 80 - 100 %",
       "titleByLocale": {
-        "de": "Arztsekretär/in Orthopädie 80 - 100 %",
         "it": "Arztsekretär/in Orthopäla 80 - 100 %",
-        "en": "Arztsekretär/in Orthopädie 80 - 100 %",
-        "fr": "Arztsekretär/in Orthopädie 80 - 100 %"
+        "en": "Medical secretary/orthopaedics 80 - 100 %",
+        "de": "Arztsekretär/in Orthopädie 80 - 100 %",
+        "fr": "Secrétaire médical/orthopédie 80 - 100 %"
       },
       "description": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Eine sorgfältige Einführung in Ihre Aufgaben und die verschiedenen Prozesse sind garantiert\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit",
       "descriptionByLocale": {
+        "it": "Il segretariato della clinica ortopedica assicura una pratica regolare per circa 22 medici e medici assistenti. Per completare il nostro team, stiamo cercando un immediato o d'accordo Lo fanno con noi.\n• Organizzazione e coordinamento delle varie ore di ufficio\n• Ricezione dei pazienti per le ore di consultazione ambulatoriale compreso l'appuntamento\n• Completamento dei lavori amministrativi e organizzativi del segretariato\n• Proofread e inviare tutte le relazioni mediche\n• Sostenere il team medico in attività amministrative\n• Contatto telefonico con corpi interni ed esterni\n• Hai completato l'allenamento da/per dipl. Segreteria medica e conoscenza degli utenti esperti nei programmi MS Office, KISIM e SAP sono vantaggiosi\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura è obbligatoria, la conoscenza di una seconda lingua (e/f) è anche un vantaggio\n• Come personalità amichevole, cortese e orientata al servizio, il contatto paziente vi dà grande piacere\n• Ti piace lavorare in un team, avere una rapida comprensione, flessibilità e resistenza Lavorare con noi\n• Un'area di responsabilità varia e impegnativa con stretto contatto con gli organismi interni ed esterni\n• Un team esperto e collaborativo\n• Un ambiente di lavoro in cui puoi contribuire alle tue qualità professionali e umane\n• Un'attenta introduzione ai vostri compiti e ai vari processi sono garantiti\n• Condizioni di lavoro moderne e condizioni di lavoro contemporanee secondo GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nCompiti:\n• Organizzazione e coordinamento delle varie ore di ufficio\n• Ricezione dei pazienti per le ore di consultazione ambulatoriale compreso l'appuntamento\n• Completamento dei lavori amministrativi e organizzativi del segretariato\n• Proofread e inviare tutte le relazioni mediche\n• Sostenere il team medico in attività amministrative\n• Contatto telefonico con corpi interni ed esterni\n\nRequisiti\n• Hai completato l'allenamento da/per dipl. Segreteria medica e conoscenza degli utenti esperti nei programmi MS Office, KISIM e SAP sono vantaggiosi\n• Molto buona conoscenza del tedesco nelle parole e nella scrittura è obbligatoria, la conoscenza di una seconda lingua (e/f) è anche un vantaggio\n• Come personalità amichevole, cortese e orientata al servizio, il contatto paziente vi dà grande piacere\n• A loro piace lavorare in un team, avere una rapida comprensione, flessibilità e resilienza",
+        "en": "The secretariat of the Orthopaedic Clinic ensures a smooth practice for around 22 doctors and assistant doctors. To complement our team, we are looking for an immediately or by agreement They do it with us.\n• Organisation and coordination of the various office hours\n• Reception of patients for outpatient consultation hours including appointment\n• Completion of administrative and organisational work of the Secretariat\n• Proofread and send all medical reports\n• Supporting the medical team in administrative activities\n• Telephone contact with internal and external bodies\n• You have completed training to/from dipl. Medical secretary and experienced user knowledge in the MS Office programs, KISIM and SAP are advantageous\n• Very good knowledge of German in words and writing is mandatory, knowledge of a second language (e/f) is also an advantage\n• As a friendly, courteous and service-oriented personality, patient contact gives you great pleasure\n• You enjoy working in a team, have a quick understanding, flexibility and resilience Working with us\n• A varied and demanding area of responsibility with close contact to internal and external bodies\n• An experienced and collaborative team\n• A working environment in which you can contribute your professional and human qualities\n• A careful introduction to your tasks and the various processes are guaranteed\n• Modern working conditions and contemporary employment conditions according to GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTasks:\n• Organisation and coordination of the various office hours\n• Reception of patients for outpatient consultation hours including appointment\n• Completion of administrative and organisational work of the Secretariat\n• Proofread and send all medical reports\n• Supporting the medical team in administrative activities\n• Telephone contact with internal and external bodies\n\nRequirements\n• You have completed training to/from dipl. Medical secretary and experienced user knowledge in the MS Office programs, KISIM and SAP are advantageous\n• Very good knowledge of German in words and writing is mandatory, knowledge of a second language (e/f) is also an advantage\n• As a friendly, courteous and service-oriented personality, patient contact gives you great pleasure\n• They like to work in a team, have a quick comprehension, flexibility and resilience",
         "de": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Eine sorgfältige Einführung in Ihre Aufgaben und die verschiedenen Prozesse sind garantiert\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit",
-        "it": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Eine sorgfältige Einführung in Ihre Aufgaben und die verschiedenen Prozesse sind garantiert\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit",
-        "en": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Eine sorgfältige Einführung in Ihre Aufgaben und die verschiedenen Prozesse sind garantiert\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit",
-        "fr": "Das Sekretariat der Orthopädischen Klinik stellt den reibungslosen Praxisablauf für rund 22 Ärzte und Assistenzärzte sicher. Zur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Das bewirken Sie bei uns\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen Das bringen Sie mit\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit Bei uns arbeiten\n• Ein abwechslungsreiches und anspruchsvolles Aufgabengebiet mit regem Kontakt zu internen und externen Stellen\n• Ein eingespieltes und kollegiales Team\n• Ein Arbeitsumfeld, in welchem Sie Ihre fachlichen und menschlichen Qualitäten einbringen können\n• Eine sorgfältige Einführung in Ihre Aufgaben und die verschiedenen Prozesse sind garantiert\n• Moderne Arbeitsbedingungen und zeitgemässe Anstellungsbedingungen nach GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Organisation und Koordination der verschiedenen Sprechstunden\n• Empfang der Patienten für die ambulanten Sprechstunden inklusiveTerminvergabe\n• Erledigung von administrativen und organisatorischen Arbeiten des Sekretariats\n• Korrekturlesen und versenden von sämtlichen medizinischen Berichten\n• Unterstützung des Ärzteteams bei administrativen Tätigkeiten\n• Telefonischer Kontakt mit internen und externen Stellen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung zum/zur dipl. Arztsekretär/in sowie versierte Anwenderkenntnisse in den MS-Office-Programmen, KISIM und SAP von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift sind zwingend, Kenntnisse einer zweiten Sprache (e/f) sind zudem von Vorteil\n• Als freundliche, zuvorkommende und dienstleistungsorientierte Persönlichkeit macht Ihnen der Patientenkontakt grosse Freude\n• Sie arbeiten gerne im Team, verfügen über eine rasche Auffassungsgabe, Flexibilität und Belastbarkeit"
+        "fr": "Le secrétariat de la Clinique d'orthopédie assure une bonne pratique à environ 22 médecins et médecins adjoints. Pour compléter notre équipe, nous cherchons immédiatement ou par accord Ils le font avec nous.\n• Organisation et coordination des différentes heures de bureau\n• Réception des patients pour les heures de consultation externe, y compris le rendez-vous\n• Achèvement des travaux administratifs et organisationnels du Secrétariat\n• Relecture et envoi de tous les rapports médicaux\n• Soutenir l'équipe médicale dans les activités administratives\n• Contact téléphonique avec des organismes internes et externes\n• Vous avez suivi une formation depuis/vers le dipl. Secrétaire médical et connaissances utilisateur expérimentés dans les programmes MS Office, KISIM et SAP sont avantageux\n• Une très bonne connaissance de l'allemand en mots et en écriture est obligatoire, la connaissance d'une langue seconde (e/f) est également un avantage\n• En tant que personnalité amicale, courtoise et orientée vers le service, le contact patient vous procure un grand plaisir\n• Vous aimez travailler en équipe, avoir une compréhension rapide, la flexibilité et la résilience Travailler avec nous\n• Un domaine de responsabilité varié et exigeant avec des contacts étroits avec les organismes internes et externes\n• Une équipe expérimentée et collaborative\n• Un environnement de travail dans lequel vous pouvez contribuer à vos qualités professionnelles et humaines\n• Une introduction attentive à vos tâches et les différents processus sont garantis\n• Conditions de travail modernes et conditions d'emploi contemporaines selon GAV SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Organisation et coordination des différentes heures de bureau\n• Réception des patients pour les heures de consultation externe, y compris le rendez-vous\n• Achèvement des travaux administratifs et organisationnels du Secrétariat\n• Relecture et envoi de tous les rapports médicaux\n• Soutenir l'équipe médicale dans les activités administratives\n• Contact téléphonique avec des organismes internes et externes\n\nExigences\n• Vous avez suivi une formation depuis/vers le dipl. Secrétaire médical et connaissances utilisateur expérimentés dans les programmes MS Office, KISIM et SAP sont avantageux\n• Une très bonne connaissance de l'allemand en mots et en écriture est obligatoire, la connaissance d'une langue seconde (e/f) est également un avantage\n• En tant que personnalité amicale, courtoise et orientée vers le service, le contact patient vous procure un grand plaisir\n• Ils aiment travailler en équipe, avoir une compréhension rapide, la flexibilité et la résilience"
       },
       "needsRetranslation": true,
       "location": "Langenthal",
@@ -4369,7 +4445,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ffc4420a-5967-46c2-a584-d4788acc4132",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:19.504Z",
+      "crawledAt": "2026-07-18T21:52:11.946Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4385,14 +4461,59 @@
       "postedDate": "2026-07-18",
       "applyUrl": "https://ohws.prospective.ch/public/v1/jobs/ffc4420a-5967-46c2-a584-d4788acc4132",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "validThrough": "2026-08-14",
       "department": "Gesundheitswesen",
+      "previousSlugs": [
+        "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+        "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+        "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+        "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
+        "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
+        "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
+        "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+        "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
+          "chefarztsekretar-in-80-100-orthopala-sro-ag-spital-region-oberaargau-langenthal",
+          "chief-medical-secretary-in-80-100-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+          "secretaire-medical-en-chef-en-80-100-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+          "responsabile-di-reparto-80-100-per-il-reparto-di-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
+          "ward-manager-80-100-for-the-orthopedic-ward-sro-ag-spital-region-oberaargau-langenthal",
+          "stationsleiter-in-80-100-fur-die-orthopadische-bettenstation-sro-langenthal",
+          "chef-de-service-80-100-pour-le-service-d-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        ],
+        "en": [
+          "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "fr": [
+          "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        ]
+      },
+      "firstSeenAt": "2026-07-18T10:26:19.504Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -4404,8 +4525,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-18T10:26:19.504Z"
+      }
     },
     {
       "id": "sro-e4b5e9868c1d",
@@ -4439,7 +4559,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/768a5dd1-1b70-4648-8e93-7d03f5fed4a3",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:18.884Z",
+      "crawledAt": "2026-07-18T21:52:11.342Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4521,7 +4641,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4b2b424c-0b97-43d4-8826-3bd54d7d666b",
       "source": "SRO AG (Spital Region Oberaargau) Dedicated Parser (TYPO3 listing + Prospective.ch detail JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:18.265Z",
+      "crawledAt": "2026-07-18T21:52:10.738Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",

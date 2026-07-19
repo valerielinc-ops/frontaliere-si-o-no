@@ -3662,6 +3662,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'coronavirus-frontalieri-svizzera',
+    category: 'pratico',
+    date: '2026-07-18T23:03:47.059Z',
+    image: '/images/blog/coronavirus-frontalieri-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ostetrica-frontaliere-ticino',
+    category: 'pratico',
+    date: '2026-07-18T23:27:32.925Z',
+    image: '/images/blog/ostetrica-frontaliere-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stgag",
-  "assembledAt": "2026-07-18T10:27:56.832Z",
+  "assembledAt": "2026-07-18T21:56:00.601Z",
   "jobs": [
     {
       "id": "stgag-49b7a40bf50e",
@@ -34,7 +34,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3379/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:54.698Z",
+      "crawledAt": "2026-07-18T21:55:58.374Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3672/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:53.795Z",
+      "crawledAt": "2026-07-18T21:55:57.415Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -141,6 +141,18 @@
         "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch",
         "assistant-infirmier-ou-assistant-infirmier-diagnostic-medical-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-munsterlingen",
+        "segretario-medico-patologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "medical-secretary-in-pathology-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "arztsekretar-in-pathologie-stgag-ch",
+        "secretaire-medical-en-pathologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "arztsekretar-in-pathologie-stgag-munsterlingen",
+        "segretario-medico-patologia-spital-thurgau-stgag-munsterlingen",
+        "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
+        "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
+        "arztsekretar-in-orthopadie-stgag-munsterlingen",
+        "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen",
+        "medical-secretary-in-pathology-spital-thurgau-stgag-munsterlingen",
+        "secretaire-medical-en-pathologie-spital-thurgau-stgag-munsterlingen",
         "segreteria-medica-in-diagnostica-medica-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
@@ -151,17 +163,32 @@
           "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch",
           "assistant-infirmier-ou-assistant-infirmier-diagnostic-medical-spital-thurgau-stgag-kantonsspital-munsterlingen",
           "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-munsterlingen",
+          "segretario-medico-patologia-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "medical-secretary-in-pathology-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "arztsekretar-in-pathologie-stgag-ch",
+          "secretaire-medical-en-pathologie-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "arztsekretar-in-pathologie-stgag-munsterlingen",
+          "segretario-medico-patologia-spital-thurgau-stgag-munsterlingen",
+          "arztsekretar-in-orthopala-spital-thurgau-stgag-munsterlingen",
+          "medical-secretary-in-orthopaedics-spital-thurgau-stgag-munsterlingen",
+          "arztsekretar-in-orthopadie-stgag-munsterlingen",
+          "secretaire-medical-en-orthopedie-spital-thurgau-stgag-munsterlingen",
+          "medical-secretary-in-pathology-spital-thurgau-stgag-munsterlingen",
+          "secretaire-medical-en-pathologie-spital-thurgau-stgag-munsterlingen",
           "segreteria-medica-in-diagnostica-medica-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
-          "nursing-assistant-or-nursing-assistant-in-medical-diagnostics-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "nursing-assistant-or-nursing-assistant-in-medical-diagnostics-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "medical-secretary-in-pathology-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "de": [
           "arztsekretar-in-medizinische-diagnostik-stgag-munsterlingen",
-          "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch"
+          "pflegeassistent-in-oder-pflegehelfer-in-medizinische-diagnostik-stgag-ch",
+          "arztsekretar-in-pathologie-stgag-ch"
         ],
         "fr": [
-          "assistant-infirmier-ou-assistant-infirmier-diagnostic-medical-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "assistant-infirmier-ou-assistant-infirmier-diagnostic-medical-spital-thurgau-stgag-kantonsspital-munsterlingen",
+          "secretaire-medical-en-pathologie-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-07-15T22:04:08.888Z",
@@ -210,7 +237,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3686/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:52.918Z",
+      "crawledAt": "2026-07-18T21:55:56.574Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -286,7 +313,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3715/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:52.016Z",
+      "crawledAt": "2026-07-18T21:55:55.711Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -408,7 +435,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3716/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:51.097Z",
+      "crawledAt": "2026-07-18T21:55:54.870Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -479,7 +506,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1500/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:50.188Z",
+      "crawledAt": "2026-07-18T21:55:54.021Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -553,7 +580,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1536/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:49.253Z",
+      "crawledAt": "2026-07-18T21:55:53.158Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -624,7 +651,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3326/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:48.349Z",
+      "crawledAt": "2026-07-18T21:55:52.276Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -698,7 +725,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3718/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:27:47.433Z",
+      "crawledAt": "2026-07-18T21:55:51.429Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -744,9 +771,9 @@
       "id": "stgag-62a233f4deeb",
       "slug": "med-praxisassistenten-in-infektiologie-stgag-munsterlingen",
       "slugByLocale": {
-        "de": "med-praxisassistenten-in-infektiologie-stgag-ch",
         "it": "med-praxisassistenten-in-infektiologie-stgag-munsterlingen",
         "en": "med-praxisassistenten-in-infektiologie-stgag-munsterlingen",
+        "de": "med-praxisassistenten-in-infektiologie-stgag-ch",
         "fr": "med-praxisassistenten-in-infektiologie-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
@@ -754,24 +781,25 @@
       "companyDomain": "stgag.ch",
       "title": "Med. Praxisassistenten/-in Infektiologie",
       "titleByLocale": {
-        "de": "Med. Praxisassistenten/-in Infektiologie",
         "it": "Assistente Medico Infettologia",
         "en": "Medical Practice Assistant in Infectious Diseases",
+        "de": "Med. Praxisassistenten/-in Infektiologie",
         "fr": "Assistant Médical en Infectiologie"
       },
       "description": "Zur Ergänzung des Teams suchen wir ab 1. November 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Infektiologie 50% Sie übernehmen Organisation und Koordination der ambulanten Sprechstunde (HIV, Hepatitis, sexuell übertragbare Infektionen, Reisemedizin) Blutentnahmen, Laborkontrollen, therapeutische Injektionen und Assistenz bei Untersuchungen wie z.B Lumbalpunktionen – an den Standorten Münsterlingen und Frauenfeld\n\nMitarbeit im personalärztlichen Dienst sowie durchführen von Impfchecks inklusive Impfungen\n\nUnterstützen der Ärztinnen und Ärzte im administrativen Bereich (Berichte schreiben, Studienprotokolle führen, Abrechnung erfassen)\n\nAusbildung als Medizinische Praxisassistent/in\n\nInteresse an Infektionskrankheiten: Bereitschaft, sich in diesem Bereich weiterzubilden\n\nOffenheit und Toleranz gegenüber anderen Lebensformen\n\nSorgfalt im Umgang mit sensiblen Informationen\n\nOrganisationstalent und Flexibilität in der Planung\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "de": "Beschreibung\nZur Ergänzung des Teams suchen wir ab 1. November 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Infektiologie 50%. Sie übernehmen Organisation und Koordination der ambulanten Sprechstunde (HIV, Hepatitis, sexuell übertragbare Infektionen, Reisemedizin) Blutentnahmen, Laborkontrollen, therapeutische Injektionen und Assistenz bei Untersuchungen wie z.B. Lumbalpunktionen – an den Standorten Münsterlingen und Frauenfeld.\n\nMitarbeit im personalärztlichen Dienst sowie durchführen von Impfchecks inklusive Impfungen\n\nUnterstützen der Ärztinnen und Ärzte im administrativen Bereich (Berichte schreiben, Studienprotokolle führen, Abrechnung erfassen)\n\nAusbildung als Medizinische Praxisassistent/in\n\nInteresse an Infektionskrankheiten: Bereitschaft, sich in diesem Bereich weiterzubilden\n\nOffenheit und Toleranz gegenüber anderen Lebensformen\n\nSorgfalt im Umgang mit sensiblen Informationen\n\nOrganisationstalent und Flexibilität in der Planung\n\nBereich\n- Med.-technisches & Med.-therapeutisches Personal\n\nArt\n- Teilzeit\n\nBefristung\n- Unbefristet",
         "it": "Descrizione\nPer completare il team, cerchiamo dal 1° Novembre 2026 o, previo accordo, un/una medico/a Assistente ambulatoriale infettivologia 50%. Si occupano dell'organizzazione e del coordinamento delle visite ambulatoriali (HIV, epatite, infezioni sessualmente trasmissibili, medicina di viaggio), dei prelievi di sangue, dei controlli di laboratorio, delle iniezioni terapeutiche e dell'assistenza in esami come le punture lombari – nelle sedi di Münsterlingen e Frauenfeld.\n\nCollaborazione al servizio medico del personale ed esecuzione di controlli vaccinali, comprese le vaccinazioni\n\nSostenere i medici in ambito amministrativo (redigere rapporti, tenere protocolli di studio, registrare i conti)\n\nFormazione come assistente di studio medico\n\nInteresse per le malattie infettive: disponibilità a perfezionarsi in questo settore\n\nApertura e tolleranza verso altre forme di vita\n\nCura nella gestione di informazioni sensibili\n\nTalento organizzativo e flessibilità nella pianificazione\n\nArea\n- Personale tecnico-medico e medico-terapeutico\n\nTipo\n- Part-time\n\nScadenza\n- A tempo indeterminato",
         "en": "Description To complement the team, we will be looking for a medic starting November 1, 2026 or by appointment. Infectiology practice assistants 50%. They will organise and coordinate outpatient consultation hours (HIV, hepatitis, sexually transmitted infections, travel medicine) blood sampling, laboratory controls, therapeutic injections and assistance in examinations such as luminal punctures – at the Münsterlingen and Frauenfeld sites.\n\nWork with personal doctor and carry out vaccination checks including vaccinations\n\nSupport of doctors in the administrative field (write reports, conduct study records, record accounting)\n\nTraining as a medical assistant\n\nInterest in infectious diseases: willingness to develop further in this field\n\nOpenness and tolerance towards other forms of life\n\nCare in handling sensitive information\n\nOrganizational talent and flexibility in planning\n\nArea - Med.-technical & med.-therapeutic staff\n\nType - Part-time\n\nTemporary period - Indefinite",
+        "de": "Zur Ergänzung des Teams suchen wir ab 1. November 2026 oder nach Vereinbarung eine/n Med. Praxisassistenten/-in Infektiologie 50% Sie übernehmen Organisation und Koordination der ambulanten Sprechstunde (HIV, Hepatitis, sexuell übertragbare Infektionen, Reisemedizin) Blutentnahmen, Laborkontrollen, therapeutische Injektionen und Assistenz bei Untersuchungen wie z.B Lumbalpunktionen – an den Standorten Münsterlingen und Frauenfeld\n\nMitarbeit im personalärztlichen Dienst sowie durchführen von Impfchecks inklusive Impfungen\n\nUnterstützen der Ärztinnen und Ärzte im administrativen Bereich (Berichte schreiben, Studienprotokolle führen, Abrechnung erfassen)\n\nAusbildung als Medizinische Praxisassistent/in\n\nInteresse an Infektionskrankheiten: Bereitschaft, sich in diesem Bereich weiterzubilden\n\nOffenheit und Toleranz gegenüber anderen Lebensformen\n\nSorgfalt im Umgang mit sensiblen Informationen\n\nOrganisationstalent und Flexibilität in der Planung\n\n• Bereich: Med.-technisches & Med.-therapeutisches Personal\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Description Pour compléter l'équipe, nous allons chercher un médecin à partir du 1er novembre 2026 ou sur rendez-vous. Assistants de pratique en infectiologie 50%. Ils organiseront et coordonneront des heures de consultation ambulatoire (VIH, hépatite, infections sexuellement transmissibles, médecine de voyage) échantillonnage sanguin, contrôles de laboratoire, injections thérapeutiques et assistance dans des examens tels que les ponctions luminales – sur les sites de Münsterlingen et de Frauenfeld.\n\nTravailler avec un médecin personnel et effectuer des contrôles de vaccination, y compris des vaccinations\n\nAppui aux médecins dans le domaine administratif (rédiger des rapports, tenir des dossiers d'étude, tenir des comptes)\n\nFormation d'assistant médical\n\nIntérêt pour les maladies infectieuses: volonté de se développer davantage dans ce domaine\n\nOuverture et tolérance envers les autres formes de vie\n\nPrise en charge des informations sensibles\n\nCompétences organisationnelles et souplesse dans la planification\n\nSecteur - Med.-technical & med.-therapeutic staff\n\nType - Temps partiel\n\nPériode temporaire - Indefinite"
       },
+      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3719/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T21:56:47.432Z",
+      "crawledAt": "2026-07-18T21:55:50.511Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -787,216 +815,20 @@
       "postedDate": "2026-07-17",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3719/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
+      "requirementsByLocale": {},
       "firstSeenAt": "2026-07-17T21:56:47.432Z",
-      "previousSlugs": [
-        "med-praxisassistenten-in-infektiologie-stgag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "med-praxisassistenten-in-infektiologie-stgag-ch"
-        ]
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
       }
-    },
-    {
-      "id": "stgag-51a3edb2485d",
-      "slug": "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-kantonsspital-frauenfeld",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "en": "dipl-nursing-specialist-woman-hf-fh-midwife-postpartum-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "de": "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-femme-hf-fh-sage-femme-postpartum-spital-thurgau-stgag-kantonsspital-frauenfeld"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica/donna HF/FH, ostetrica postpartum",
-        "en": "Dipl. Nursing specialist/woman HF/FH, midwife postpartum",
-        "de": "Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett",
-        "fr": "Dipl. Spécialiste des soins infirmiers/femme HF/FH, sage-femme postpartum"
-      },
-      "description": "Für unsere moderne Familienabteilung suchen wir ab sofort oder nach Vereinbarung eine /n Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett 80 -100% Die Begleitung von Familien im Wochenbett ist Ihre Leidenschaft? Sie möchten Familien in den ersten Tagen nach der Geburt in einem ruhigen, wertschätzenden und selbstbestimmten Wochenbett begleiten? Dann gestalten Sie mit uns die Zukunft der Versorgung: In unserer neuen familienzentrierten Familienabteilung stellen wir die Bedürfnisse von Mutter, Kind und Familie in den Mittelpunkt. Pflegefachpersonen und Hebammen arbeiten multiprofessionell zusammen und gestalten gemeinsam eine moderne, ganzheitliche Betreuung im Frühwochenbett. Du übernimmst Betreuung von Müttern und deren Neugeborenen\n\nBetreuung und Überwachung von Frauen mit Komplikationen in der Schwangerschaft\n\nMitverantwortung bei der Ausbildung von Studierenden/Lernenden\n\naktive Mitarbeit bei der Weiterentwicklung der Pflege\n\nPflegefachmann/-frau HF/FH\n\nDu bist ein/e Teamplayer/-in mit einer einfühlsamen Persönlichkeit\n\nBerufserfahrung im Akutspital und/oder im Fachgebiet ist wünschenswert\n\nausgeprägtes Qualitäts- und Dienstleistungsbewusstsein\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Per il nostro moderno reparto di famiglia stiamo cercando un /n Dipl d'ora in poi o d'accordo. Specialista infermieristico HF/FH, letto post-partum ostetrico 80 -100% L'accompagnamento delle famiglie nel postpartum è la vostra passione? Vuoi accompagnare le famiglie in un post-partum tranquillo, apprezzativo e autodeterminato nei primi giorni dalla nascita? Poi plasmare il futuro della cura con noi: Nel nostro nuovo reparto familiare incentrato sulla famiglia, ci concentriamo sulle esigenze della madre, del bambino e della famiglia. Infermieri e ostetriche lavorano insieme multi-professionalmente e congiuntamente progettano una cura moderna, olistica nel letto della prima settimana. Prenditi cura delle madri e dei loro neonati\n\nCura e monitoraggio delle donne con complicazioni in gravidanza\n\nPartecipazione alla formazione degli studenti/learners\n\nPartecipazione attiva all'ulteriore sviluppo della cura\n\nInfermieristica professionale HF/FH\n\nSei un giocatore di squadra con una personalità sensibile\n\nL'esperienza professionale nell'ospedale acuto e/o nell'area specializzata è auspicabile\n\nForte qualità e consapevolezza dei servizi\n\n• Area: Cura (compresa l'ostetrica)\n• Tipo: Tempo pieno\n• Termine temporaneo: illimitato",
-        "en": "For our modern family department we are looking for a /n Dipl from now on or by agreement. Nursing specialist HF/FH, midwife postpartum bed 80 -100% Accompaniment of families in the postpartum is your passion? Do you want to accompany families in a quiet, appreciative and self-determined postpartum in the first days after birth? Then shape the future of care with us: In our new family-centered family department, we focus on the needs of mother, child and family. Nurses and midwives work together multi-professionally and jointly design a modern, holistic care in the early week bed. You take care of mothers and their newborns\n\nCare and monitoring of women with complications in pregnancy\n\nParticipation in the training of students/learners\n\nActive participation in the further development of care\n\nNursing professional HF/FH\n\nYou are a team player with a sensitive personality\n\nProfessional experience in the acute hospital and/or specialist area is desirable\n\nStrong quality and service awareness\n\n• Area: Care (including midwife)\n• Type: Full-time\n• Temporary term: unlimited",
-        "de": "Für unsere moderne Familienabteilung suchen wir ab sofort oder nach Vereinbarung eine /n Dipl. Pflegefachmann/-frau HF/FH, Hebamme Wochenbett 80 -100% Die Begleitung von Familien im Wochenbett ist Ihre Leidenschaft? Sie möchten Familien in den ersten Tagen nach der Geburt in einem ruhigen, wertschätzenden und selbstbestimmten Wochenbett begleiten? Dann gestalten Sie mit uns die Zukunft der Versorgung: In unserer neuen familienzentrierten Familienabteilung stellen wir die Bedürfnisse von Mutter, Kind und Familie in den Mittelpunkt. Pflegefachpersonen und Hebammen arbeiten multiprofessionell zusammen und gestalten gemeinsam eine moderne, ganzheitliche Betreuung im Frühwochenbett. Du übernimmst Betreuung von Müttern und deren Neugeborenen\n\nBetreuung und Überwachung von Frauen mit Komplikationen in der Schwangerschaft\n\nMitverantwortung bei der Ausbildung von Studierenden/Lernenden\n\naktive Mitarbeit bei der Weiterentwicklung der Pflege\n\nPflegefachmann/-frau HF/FH\n\nDu bist ein/e Teamplayer/-in mit einer einfühlsamen Persönlichkeit\n\nBerufserfahrung im Akutspital und/oder im Fachgebiet ist wünschenswert\n\nausgeprägtes Qualitäts- und Dienstleistungsbewusstsein\n\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet",
-        "fr": "Pour notre service familial moderne, nous sommes à la recherche d'un /n Dipl à partir de maintenant ou par accord. Spécialiste des soins infirmiers HF/FH, sage-femme lit postpartum 80 -100% L'accompagnement des familles dans le postpartum est votre passion? Voulez-vous accompagner les familles dans un postpartum calme, reconnaissant et auto-déterminé dans les premiers jours après la naissance? Puis façonnez l'avenir des soins avec nous: Dans notre nouveau département familial, nous nous concentrons sur les besoins de la mère, de l'enfant et de la famille. Les infirmières et les sages-femmes travaillent ensemble de façon multiprofessionnelle et conçoivent conjointement un soin moderne et holistique dans le lit de la semaine. Tu prends soin des mères et de leurs nouveau-nés\n\nSoins et suivi des femmes ayant des complications pendant la grossesse\n\nParticipation à la formation des étudiants/apprenants\n\nParticipation active au développement des soins\n\nProfessionnels des soins infirmiers HF/FH\n\nVous êtes un joueur d'équipe avec une personnalité sensible\n\nUne expérience professionnelle dans le domaine de l'hôpital aigu et/ou spécialisé est souhaitable\n\nBonne qualité et sensibilisation aux services\n\n• Zone: soins (y compris la sage-femme)\n• Type: Temps plein\n• Terme temporaire : illimité"
-      },
-      "needsRetranslation": false,
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3709/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:22.744Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3709/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen",
-        "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-munsterlingen",
-        "dipl-nursing-specialist-woman-hf-fh-midwife-postpartum-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialiste-des-soins-infirmiers-femme-hf-fh-sage-femme-postpartum-spital-thurgau-stgag-munsterlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-spital-thurgau-stgag-munsterlingen",
-          "dipl-infermieristica-donna-hf-fh-ostetrica-postpartum-spital-thurgau-stgag-munsterlingen"
-        ],
-        "en": [
-          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-          "dipl-nursing-specialist-woman-hf-fh-midwife-postpartum-spital-thurgau-stgag-munsterlingen"
-        ],
-        "de": [
-          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen"
-        ],
-        "fr": [
-          "dipl-pflegefachmann-frau-hf-fh-hebamme-wochenbett-stgag-munsterlingen",
-          "dipl-specialiste-des-soins-infirmiers-femme-hf-fh-sage-femme-postpartum-spital-thurgau-stgag-munsterlingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T22:00:15.079Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stgag-ac406cbe58af",
-      "slug": "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-kantonsspital-munsterlingen",
-      "slugByLocale": {
-        "it": "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "specialist-in-radiology-with-focus-on-abdominal-radiology-oa-or-oa-mbf-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "de": "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-        "fr": "specialiste-en-radiologie-avec-un-accent-sur-la-radiologie-abdominale-oa-ou-oa-mbf-spital-thurgau-stgag-kantonsspital"
-      },
-      "company": "Spital Thurgau (STGAG)",
-      "companyKey": "stgag",
-      "companyDomain": "stgag.ch",
-      "title": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)",
-      "titleByLocale": {
-        "it": "Facharzt/-ärztin per Radiologie con Schwerpunkt abdominelle Radiologie (OA o OA mbF)",
-        "en": "Specialist in radiology with focus on abdominal radiology (OA or OA mbF)",
-        "de": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)",
-        "fr": "Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF)"
-      },
-      "description": "Zur Verstärkung unseres Teams an den Spitalstandorten Münsterlingen und Frauenfeld suchen wir per sofort oder nach Vereinbarung eine/n Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF) 80-100% Sie übernehmen Eigenständige Planung, Durchführung und Befundung radiologischer Untersuchungen mit Schwerpunkt abdominelle Radiologie\n\nBildgesteuerte Interventionen im Abdominalbereich (Biopsien, Drainagen etc.)\n\nMitglied des Expertennetzwerkes des Team Radiologie Plus.\n\nRepräsentanz der abdominalradiologischen Schwerpunktkompetenz gegenüber Klinikern und Zuweisern\n\nIdealerweise Diplom einer anerkannten europäischen oder nationalen Fachgesellschaft für abdominelle Radiologie (z.B. ESGAR)\n\nBreite klinische Erfahrung in abdominalradiologischen Fragestellungen (MRI, CT, Sonografie)\n\nDas Team Radiologie Plus ist ein Zusammenschluss von mehreren etablierten radiologischen Instituten in der Ostschweiz inklusive der radiologischen Abteilungen der Thurgauer Kantonsspitäler Frauenfeld und Münsterlingen unter einem gemeinsamen Dach. Das Team Radiologie Plus gewährleistet zudem die teleradiologische Versorgung mehrerer Kliniken und medizinischer Einrichtungen in den Kantonen Thurgau, St. Gallen und Graubünden. Unser Portfolio umfasst das komplette Angebotsspektrum der bildgebenden Diagnostik, der interventionellen Radiologie, der Nuklearmedizin und Strahlentherapie. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Für weitere Informationen besuchen Sie gerne unserer Website Team Radiologie Plus . ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team nelle sedi ospedaliere Münsterlingen e Frauenfeld, stiamo cercando uno specialista in radiologia con un focus sulla radiologia addominale (OA o OA mbF) 80-100%. Si prende su pianificazione indipendente, implementazione e diagnosi di esami radiologici con un focus sulla radiologia addominale\n\nInterventi orientati all'immagine nell'area addominale (biopsie, scarichi, ecc.)\n\nMembro della rete esperta del team Radiologie Plus.\n\nRappresentanza delle principali competenze radiologiche addominali nei confronti di medici e referenti\n\nDiploma idealmente di un'associazione europea o nazionale riconosciuta di radiologia addominale (ad esempio ESGAR)\n\nAmpia esperienza clinica nelle questioni radiologiche addominali (MRI, CT, sonografia)\n\nIl team Radiology Plus è un'associazione di diversi istituti radiologici stabiliti nella Svizzera orientale, tra cui i dipartimenti radiologici degli ospedali cantonali Thurgau Frauenfeld e Münsterlingen sotto un unico tetto. Il team di Radiologie Plus fornisce anche cure teleradiologiche per diverse cliniche e strutture mediche nei cantoni di Thurgau, San Gallo e Grigioni. Il nostro portafoglio comprende la gamma completa di diagnostica di imaging, radiologia interventistica, medicina nucleare e radioterapia. Preferiamo applicazioni dirette, agenti di lavoro si astenersi dal contatto. Per maggiori informazioni visitate il nostro sito web Team Radiology Plus. Tutte le nostre POSIZIONI\n\n• Area: Personale medico\n• Tipo: A tempo pieno, part-time\n• Termine temporaneo: illimitato",
-        "en": "To strengthen our team at the hospital locations Münsterlingen and Frauenfeld, we are looking for a specialist in radiology with a focus on abdominal radiology (OA or OA mbF) 80-100%. You take on independent planning, implementation and diagnosis of radiological examinations with a focus on abdominal radiology\n\nImage-guided interventions in the abdominal area (biopsies, drainages, etc.)\n\nMember of the expert network of the Radiologie Plus team.\n\nRepresentation of key abdominal radiological competence towards clinicians and referees\n\nIdeally diploma of a recognised European or national association of abdominal radiology (e.g. ESGAR)\n\nBroad clinical experience in abdominal radiological issues (MRI, CT, sonography)\n\nThe Radiology Plus team is an association of several established radiological institutes in eastern Switzerland, including the radiological departments of the Thurgau cantonal hospitals Frauenfeld and Münsterlingen under one roof. The Radiologie Plus team also provides teleradiological care for several clinics and medical facilities in the cantons of Thurgau, St. Gallen and Graubünden. Our portfolio includes the complete range of imaging diagnostics, interventional radiology, nuclear medicine and radiation therapy. We prefer direct applications, job agents please refrain from contacting. For more information please visit our website Team Radiology Plus. ALL OUR OPEN POSITIONS\n\n• Area: Medical staff\n• Type: Full-time, part-time\n• Temporary term: unlimited",
-        "de": "Zur Verstärkung unseres Teams an den Spitalstandorten Münsterlingen und Frauenfeld suchen wir per sofort oder nach Vereinbarung eine/n Facharzt/-ärztin für Radiologie mit Schwerpunkt abdominelle Radiologie (OA oder OA mbF) 80-100% Sie übernehmen Eigenständige Planung, Durchführung und Befundung radiologischer Untersuchungen mit Schwerpunkt abdominelle Radiologie\n\nBildgesteuerte Interventionen im Abdominalbereich (Biopsien, Drainagen etc.)\n\nMitglied des Expertennetzwerkes des Team Radiologie Plus.\n\nRepräsentanz der abdominalradiologischen Schwerpunktkompetenz gegenüber Klinikern und Zuweisern\n\nIdealerweise Diplom einer anerkannten europäischen oder nationalen Fachgesellschaft für abdominelle Radiologie (z.B. ESGAR)\n\nBreite klinische Erfahrung in abdominalradiologischen Fragestellungen (MRI, CT, Sonografie)\n\nDas Team Radiologie Plus ist ein Zusammenschluss von mehreren etablierten radiologischen Instituten in der Ostschweiz inklusive der radiologischen Abteilungen der Thurgauer Kantonsspitäler Frauenfeld und Münsterlingen unter einem gemeinsamen Dach. Das Team Radiologie Plus gewährleistet zudem die teleradiologische Versorgung mehrerer Kliniken und medizinischer Einrichtungen in den Kantonen Thurgau, St. Gallen und Graubünden. Unser Portfolio umfasst das komplette Angebotsspektrum der bildgebenden Diagnostik, der interventionellen Radiologie, der Nuklearmedizin und Strahlentherapie. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. Für weitere Informationen besuchen Sie gerne unserer Website Team Radiologie Plus . ALLE UNSERE OFFENEN STELLEN\n\n• Bereich: Ärztliches Personal\n• Art: Vollzeit, Teilzeit möglich\n• Befristung: Unbefristet",
-        "fr": "Pour renforcer notre équipe sur les sites hospitaliers Münsterlingen et Frauenfeld, nous recherchons un spécialiste en radiologie avec un accent sur la radiologie abdominale (OA ou OA mbF) 80-100%. Vous prenez en charge la planification indépendante, la mise en œuvre et le diagnostic des examens radiologiques en mettant l'accent sur la radiologie abdominale\n\nInterventions guidées par l'image dans la zone abdominale (biopsies, drainages, etc.)\n\nMembre du réseau d'experts de l'équipe Radiologie Plus.\n\nReprésentation des compétences radiologiques abdominales clés auprès des cliniciens et des arbitres\n\nDiplôme idéal d'une association européenne ou nationale reconnue de radiologie abdominale (par exemple ESGAR)\n\nGrande expérience clinique dans les questions radiologiques abdominales (IRM, CT, sonographie)\n\nL'équipe Radiology Plus est une association de plusieurs instituts radiologiques établis dans l'est de la Suisse, dont les départements radiologiques des hôpitaux cantonaux de Thurgau Frauenfeld et Münsterlingen sous un même toit. L'équipe Radiologie Plus fournit également des soins téléradiologiques à plusieurs cliniques et établissements médicaux des cantons de Thurgau, St. Gallen et Graubünden. Notre portefeuille comprend la gamme complète de diagnostics d'imagerie, de radiologie interventionnelle, de médecine nucléaire et de radiothérapie. Nous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter. Pour plus d'informations, visitez notre site Web Team Radiology Plus. Toutes nos positions ouvertes\n\n• Secteur : personnel médical\n• Type: Temps plein, temps partiel\n• Terme temporaire : illimité"
-      },
-      "location": "Münsterlingen",
-      "canton": "TG",
-      "url": "https://rekrutierung.stgag.ch/Vacancies/3323/Description/1",
-      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T11:10:21.533Z",
-      "addressLocality": "Münsterlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8596",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3323/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-        "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen",
-        "radiology-specialist-spital-thurgau-stgag-munsterlingen",
-        "facharztin-arzt-fur-radiologie-stgag-munsterlingen",
-        "specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-        "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-munsterlingen",
-        "specialist-in-radiology-with-focus-on-abdominal-radiology-oa-or-oa-mbf-spital-thurgau-stgag-munsterlingen",
-        "specialiste-en-radiologie-avec-un-accent-sur-la-radiologie-abdominale-oa-ou-oa-mbf-spital-thurgau-stgag-munsterlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-          "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen",
-          "radiology-specialist-spital-thurgau-stgag-munsterlingen",
-          "facharztin-arzt-fur-radiologie-stgag-munsterlingen",
-          "specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-          "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-munsterlingen"
-        ],
-        "en": [
-          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-          "radiology-specialist-spital-thurgau-stgag-munsterlingen",
-          "specialist-in-radiology-with-focus-on-abdominal-radiology-oa-or-oa-mbf-spital-thurgau-stgag-munsterlingen"
-        ],
-        "de": [
-          "facharztin-arzt-fur-radiologie-stgag-munsterlingen"
-        ],
-        "fr": [
-          "facharzt-arztin-fur-radiologie-mit-schwerpunkt-abdominelle-radiologie-oa-oder-oa-mbf-stgag",
-          "specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-          "specialiste-en-radiologie-avec-un-accent-sur-la-radiologie-abdominale-oa-ou-oa-mbf-spital-thurgau-stgag-munsterlingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T22:00:13.972Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }

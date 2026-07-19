@@ -1,166 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-07-18T10:25:10.024Z",
+  "assembledAt": "2026-07-18T21:50:51.258Z",
   "jobs": [
-    {
-      "id": "talan-2b500bb7c102",
-      "slug": "senior-consulente-e-dba-talan-geneve",
-      "slugByLocale": {
-        "it": "senior-consulente-e-dba-talan-geneve",
-        "en": "senior-consultant-e-dba-talan-geneve-switzerland",
-        "de": "senior-berater-e-dba-talan-geneve",
-        "fr": "senior-consultant-e-dba-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Sénior Consultant(e) DBA",
-      "titleByLocale": {
-        "it": "Sénior Consulente(e) DBA",
-        "en": "Senior DBA Consultant",
-        "de": "Sénior Berater(e) DBA",
-        "fr": "Sénior Consultant(e) DBA"
-      },
-      "description": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\n Database Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n 🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n 🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\n Compétences techniques\n Indispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\n Appréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n 🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n 🌍 Langues\n\n• Français : courant\n\n• Anglais : courant",
-      "descriptionByLocale": {
-        "it": "Come parte del rafforzamento del suo team IT, il nostro cliente sta cercando un esperto Database Administrator (DBA) per garantire la gestione, le prestazioni e la sicurezza delle sue infrastrutture di database in un ambiente multi-tecnologico. Amministrazione del database\n• Installare, configurare e amministrare database ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Assicurare monitoraggio delle prestazioni, manutenzione e ottimizzazione\n• Gestione delle operazioni di backup / ripristino e piani di recupero\n• Diagnosi e risoluzione degli incidenti tecnici (prestazioni, errori, disponibilità)\n• Progettazione e realizzazione di architetture di database:\n• Alta disponibilità\n• clustering\n• replicazione\n• Garantire coerenza, integrità e accessibilità dei dati\n• Collabora con i team di sviluppo per garantire scalabilità e prestazioni applicative\n• Contribuire (se possibile) alla realizzazione dei laghi dati Sicurezza e conformità\n• Attuazione e applicazione delle politiche di sicurezza IT\n• Implementare buone pratiche di sicurezza del database\n• Garantire il rispetto delle norme e dei requisiti interni\n• Collabora con gli stakeholder sulle questioni di sicurezza e sulla conformità Collaborazione e miglioramento continuo\n• Lavorare a stretto contatto con i team IT e gli scambi\n• Proporre miglioramenti alle architetture e ai processi esistenti\n• Assicurare il monitoraggio tecnologico delle soluzioni di database\n• Minimo 3 anni di esperienza nell'amministrazione del database\n• Competenza su:\n• Oracle\n• Server SQL Server\n• Sybase\n• Esperienza su:\n• Protezione dei dati\n• RMAN\n• Un'esperienza data lago è un plus Competenza tecnica Indispensabile\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Regolazione delle prestazioni\n• Backup / recupero (RMAN)\n• Alta disponibilità / replica\n• DataGuard\n• PostgreSQL e MongoDB Apprezzato (bello avere)\n• Architettura data lago\n• Moderni ambienti di dati competenze morbide\n• Eccellente rapporto e comunicazione\n• Spirito analitico e problem solving\n• Rigor, organizzazione e senso del dettaglio\n• Capacità di gestire pressione e priorità\n• Spirito di squadra e adattabilità Lingue\n• Francese: attuale\n• Inglese: attuale",
-        "en": "As part of the strengthening of its IT team, our client is looking for an experienced Database Administrator (DBA) to ensure the management, performance and security of its database infrastructures in a multi-technology environment. Database Administration\n• Install, configure and administer databases ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n• Ensure performance monitoring, maintenance and optimization\n• Manage backup / restore operations and recovery plans\n• Diagnosis and resolve technical incidents (performance, errors, availability)\n• Design and implement database architectures:\n• High availability\n• clustering\n• replication\n• Ensuring consistency, integrity and accessibility of data\n• Collaborate with development teams to ensure scalability and application performance\n• Contribute (if possible) to the implementation of data lakes Security & Compliance\n• Implement and enforce IT security policies\n• Implement good database security practices\n• Ensure compliance with internal standards and requirements\n• Collaborate with stakeholders on security issues and compliance Collaboration & Continuous Improvement\n• Work closely with IT teams and trades\n• Propose improvements on existing architectures and processes\n• Ensure technological monitoring of database solutions\n• Minimum 3 years of experience in database administration\n• Expertise on:\n• Oracle\n• SQL Server\n• Sybase\n• Experience on:\n• Data Guard\n• RMAN\n• A data lake experience is a plus Technical expertise Indispensable\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Performance tuning\n• Backup / recovery (RMAN)\n• High availability / replication\n• DataGuard\n• PostgreSQL and MongoDB Appreciated (nice to have)\n• Architecture data lake\n• Modern data environments Soft skills\n• Excellent relationship and communication\n• Analytical spirit and problem solving\n• Rigor, organization and sense of detail\n• Ability to manage pressure and priorities\n• Team spirit and adaptability Languages\n• French: current\n• English: current",
-        "de": "Im Rahmen der Stärkung des IT-Teams sucht unser Kunde einen erfahrenen Datenbankadministrator (DBA), um die Verwaltung, Leistung und Sicherheit seiner Datenbankinfrastrukturen in einer Multitechnologie-Umgebung zu gewährleisten. Datenbankverwaltung\n• Installation, Konfiguration und Verwaltung von Datenbanken (Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Gewährleistung von Leistungsüberwachung, Wartung und Optimierung\n• Verwalten von Backup- / Wiederherstellungsvorgängen und Wiederherstellungsplänen\n• Diagnose und Behebung technischer Vorfälle (Leistung, Fehler, Verfügbarkeit)\n• Entwerfen und Implementieren von Datenbankarchitekturen:\n• Hohe Verfügbarkeit\n• Clustering\n• Replikation\n• Gewährleistung der Konsistenz, Integrität und Zugänglichkeit der Daten\n• Zusammenarbeit mit Entwicklungsteams, um Skalierbarkeit und Anwendungsleistung sicherzustellen\n• Beitrag (wenn möglich) zur Implementierung von Data Lakes Sicherheit & Compliance\n• Implementierung und Durchsetzung von IT-Sicherheitsrichtlinien\n• Implementierung guter Datenbanksicherheitspraktiken\n• Gewährleistung der Einhaltung interner Standards und Anforderungen\n• Zusammenarbeit mit Stakeholdern in Sicherheitsfragen und Compliance Zusammenarbeit & kontinuierliche Verbesserung\n• Enge Zusammenarbeit mit IT-Teams und Trades\n• Verbesserung bestehender Architekturen und Prozesse vorschlagen\n• Gewährleistung der technologischen Überwachung von Datenbanklösungen\n• Mindestens 3 Jahre Erfahrung in der Datenbankverwaltung\n• Fachwissen zu:\n• Orakel\n• SQL Server\n• Sybase\n• Erfahrungen mit:\n• Datensicherung\n• RMAN\n• Ein Data Lake Erlebnis ist ein Plus Technische Expertise Unverzichtbar\n• Multi-SGBD-Administration (Oracle, SQL Server, Sybase)\n• Leistungsabstimmung\n• Backup / Recovery (RMAN)\n• Hochverfügbarkeit / Replikation\n• DataGuard\n• PostgreSQL und MongoDB Geschätzt (nice to have)\n• Architektur Datensee\n• Moderne Datenumgebungen Soft Skills\n• Ausgezeichnete Beziehung und Kommunikation\n• Analytischer Geist und Problemlösung\n• Strenge, Organisation und Sinn für Details\n• Fähigkeit, Druck und Prioritäten zu verwalten\n• Teamgeist und Anpassungsfähigkeit Sprachen\n• Französisch: aktuell\n• Englisch: aktuell",
-        "fr": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\nDatabase Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\nCompétences techniques\nIndispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\nAppréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n🌍 Langues\n\n• Français : courant\n\n• Anglais : courant"
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.486Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
-      "jobReqId": "744000126257121",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-consultant-e-dba-talan-geneve-switzerland",
-        "senior-consulente-e-dba-talan-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-consultant-e-dba-talan-geneve-switzerland",
-          "senior-consulente-e-dba-talan-geneve"
-        ],
-        "de": [
-          "senior-consultant-e-dba-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:41:37.249Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-6e0c26bb9825",
-      "slug": "fiori-sapui5-btp-sviluppatore-talan-geneva",
-      "slugByLocale": {
-        "it": "fiori-sapui5-btp-sviluppatore-talan-geneva",
-        "en": "fiori-sapui5-btp-developer-talan-geneva",
-        "de": "fiori-sapui5-btp-entwickler-talan-geneva",
-        "fr": "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur Fiori/SAPUI5 & BTP",
-      "titleByLocale": {
-        "it": "Fiori/SAPUI5 & BTP Sviluppatore",
-        "en": "Fiori/SAPUI5 & BTP Developer",
-        "de": "Fiori/SAPUI5 & BTP Entwickler",
-        "fr": "Développeur Fiori/SAPUI5 & BTP"
-      },
-      "description": "Objectif de la mission  :\n Concevoir et développer des applications performantes dans un environnement SAP Fiori/SAPUI5 en s’appuyant sur des services OData et la plateforme SAP BTP. Contribuer à la conception de solutions modernes, évolutives et conformes aux standards SAP. Participer activement aux projets de transformation digitale ainsi qu’aux phases de conception technique, en mettant l’accent sur l’expérience utilisateur.\n Responsabilités principales  :\n\n• Développement et maintenance d’applications SAP Fiori et SAPUI5.\n\n• Développement et intégration de services OData pour répondre aux besoins métiers.\n\n• Conception et développement d’extensions et d’applications sur SAP BTP.\n\n• Participation à la conception technique et à l’industrialisation des développements.\n\n• Collaboration étroite avec les équipes fonctionnelles et techniques pour garantir la qualité des livrables.\n\n• Maîtrise de SAP Fiori/SAPUI5 et des langages JavaScript, HTML5, CSS.\n\n• Expérience dans le développement et la consommation de services OData et sur SAP BTP.\n\n• Connaissance des bonnes pratiques de conception et développement d’applications SAP modernes.\n\n• Atouts : SAP CAP, Node.js ou Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps pour SAP, connaissance fonctionnelle des modules FI, CO, MM, SD, HR.\n\n• Français courant et anglais B2",
-      "descriptionByLocale": {
-        "it": "Obiettivo della missione: Progettare e sviluppare applicazioni ad alte prestazioni in un ambiente SAP Fiori/SAPUI5 utilizzando i servizi OData e la piattaforma SAP BTP. Contribuisci alla progettazione di soluzioni moderne, scalabili e conformi a SAP. Partecipa attivamente a progetti di trasformazione digitale e fasi di progettazione tecnica, con un focus sull'esperienza degli utenti. Responsabilità chiave:\n• Sviluppo e manutenzione delle applicazioni SAP Fiori e SAPUI5.\n• Sviluppo e integrazione dei servizi OData per soddisfare le esigenze aziendali.\n• Progettazione e sviluppo di estensioni e applicazioni su SAP BTP.\n• Partecipazione alla progettazione tecnica e all'industrializzazione degli sviluppi.\n• Chiudi la collaborazione con team funzionali e tecnici per garantire la qualità dei prodotti.\n• Mastery di SAP Fiori/SAPUI5 e linguaggi JavaScript, HTML5, CSS.\n• Esperienza nello sviluppo e nel consumo di servizi OData e su SAP BTP.\n• Conoscenza delle buone pratiche di progettazione e sviluppo delle moderne applicazioni SAP.\n• Benefici: SAP CAP, Node.js o Java, SAP Integration Suite/API, SAP Build Apps/Low-code, DevOps for SAP, conoscenza funzionale dei moduli FI, CO, MM, SD, HR.\n• Francese attuale e inglese B2",
-        "en": "Mission objective: Design and develop high-performance applications in a SAP Fiori/SAPUI5 environment using OData services and the SAP BTP platform. Contribute to the design of modern, scalable and SAP-compliant solutions. Actively participate in digital transformation projects and technical design phases, with a focus on user experience. Key responsibilities:\n• Development and maintenance of SAP Fiori and SAPUI applications5.\n• Development and integration of OData services to meet business needs.\n• Design and development of extensions and applications on SAP BTP.\n• Participation in the technical design and industrialization of developments.\n• Close collaboration with functional and technical teams to ensure the quality of deliverables.\n• Mastery of SAP Fiori/SAPUI5 and JavaScript languages, HTML5, CSS.\n• Experience in developing and consuming OData services and on SAP BTP.\n• Knowledge of good design practices and development of modern SAP applications.\n• Assets: SAP CAP, Node.js or Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps for SAP, functional knowledge of FI, CO, MM, SD, HR modules.\n• Current French and English B2",
-        "de": "Missionsziel: Entwerfen und Entwickeln von Hochleistungsanwendungen in einer SAP Fiori/SAPUI5-Umgebung mit OData Services und der SAP BTP-Plattform. Tragen Sie zum Design moderner, skalierbarer und SAP-konformer Lösungen bei. Beteiligen Sie sich aktiv an digitalen Transformationsprojekten und technischen Designphasen mit Fokus auf User Experience. Hauptzuständigkeiten:\n• Entwicklung und Wartung von SAP Fiori und SAPUI Anwendungen5.\n• Entwicklung und Integration von OData-Diensten zur Erfüllung der Geschäftsanforderungen.\n• Design und Entwicklung von Erweiterungen und Anwendungen auf SAP BTP.\n• Teilnahme an der technischen Gestaltung und Industrialisierung von Entwicklungen.\n• Enge Zusammenarbeit mit funktionalen und technischen Teams, um die Qualität der Ergebnisse zu gewährleisten.\n• Beherrschung von SAP Fiori/SAPUI5 und JavaScript Sprachen, HTML5, CSS.\n• Erfahrung in der Entwicklung und Nutzung von OData Services und in SAP BTP.\n• Kenntnisse über gute Designpraktiken und Entwicklung moderner SAP-Anwendungen.\n• Assets: SAP CAP, Node.js oder Java, SAP Integration Suite/APIs, SAP Build Apps/Low-Code, DevOps für SAP, Funktionskenntnisse von FI, CO, MM, SD, HR Modulen.\n• Aktuelles Französisch und Englisch B2",
-        "fr": "Objectif de la mission  :\nConcevoir et développer des applications performantes dans un environnement SAP Fiori/SAPUI5 en s’appuyant sur des services OData et la plateforme SAP BTP. Contribuer à la conception de solutions modernes, évolutives et conformes aux standards SAP. Participer activement aux projets de transformation digitale ainsi qu’aux phases de conception technique, en mettant l’accent sur l’expérience utilisateur.\nResponsabilités principales  :\n\n• Développement et maintenance d’applications SAP Fiori et SAPUI5.\n\n• Développement et intégration de services OData pour répondre aux besoins métiers.\n\n• Conception et développement d’extensions et d’applications sur SAP BTP.\n\n• Participation à la conception technique et à l’industrialisation des développements.\n\n• Collaboration étroite avec les équipes fonctionnelles et techniques pour garantir la qualité des livrables.\n\n• Maîtrise de SAP Fiori/SAPUI5 et des langages JavaScript, HTML5, CSS.\n\n• Expérience dans le développement et la consommation de services OData et sur SAP BTP.\n\n• Connaissance des bonnes pratiques de conception et développement d’applications SAP modernes.\n\n• Atouts : SAP CAP, Node.js ou Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps pour SAP, connaissance fonctionnelle des modules FI, CO, MM, SD, HR.\n\n• Français courant et anglais B2"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.484Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
-      "jobReqId": "744000126720699",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland",
-        "fiori-sapui5-btp-sviluppatore-talan-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland",
-          "fiori-sapui5-btp-sviluppatore-talan-geneva"
-        ],
-        "en": [
-          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
-        ],
-        "de": [
-          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "talan-eb62a0c9e410",
       "slug": "consulente-e-fonctionnel-le-sap-fi-co-talan-geneva",
@@ -193,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000112844097-consultant-e-fonctionnel-le-sap-fi-co?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.483Z",
+      "crawledAt": "2026-07-18T21:50:49.471Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -271,7 +112,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.482Z",
+      "crawledAt": "2026-07-18T21:50:49.470Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -321,38 +162,38 @@
       }
     },
     {
-      "id": "talan-8b2dd9df4445",
-      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+      "id": "talan-2b500bb7c102",
+      "slug": "senior-consulente-e-dba-talan-geneve",
       "slugByLocale": {
-        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
-        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
-        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+        "it": "senior-consulente-e-dba-talan-geneve",
+        "en": "senior-consultant-e-dba-talan-geneve-switzerland",
+        "de": "senior-berater-e-dba-talan-geneve",
+        "fr": "senior-consultant-e-dba-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "MS Cloud Engineer & Product Specialist (M365)",
+      "title": "Sénior Consultant(e) DBA",
       "titleByLocale": {
-        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
-        "en": "MS Cloud Engineer & Product Specialist (M365)",
-        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
-        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
+        "it": "Sénior Consulente(e) DBA",
+        "en": "Senior DBA Consultant",
+        "de": "Sénior Berater(e) DBA",
+        "fr": "Sénior Consultant(e) DBA"
       },
-      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
+      "description": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\n Database Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n 🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n 🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\n Compétences techniques\n Indispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\n Appréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n 🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n 🌍 Langues\n\n• Français : courant\n\n• Anglais : courant",
       "descriptionByLocale": {
-        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
-        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
-        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
-        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
+        "it": "Come parte del rafforzamento del suo team IT, il nostro cliente sta cercando un esperto Database Administrator (DBA) per garantire la gestione, le prestazioni e la sicurezza delle sue infrastrutture di database in un ambiente multi-tecnologico. Amministrazione del database\n• Installare, configurare e amministrare database ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Assicurare monitoraggio delle prestazioni, manutenzione e ottimizzazione\n• Gestione delle operazioni di backup / ripristino e piani di recupero\n• Diagnosi e risoluzione degli incidenti tecnici (prestazioni, errori, disponibilità)\n• Progettazione e realizzazione di architetture di database:\n• Alta disponibilità\n• clustering\n• replicazione\n• Garantire coerenza, integrità e accessibilità dei dati\n• Collabora con i team di sviluppo per garantire scalabilità e prestazioni applicative\n• Contribuire (se possibile) alla realizzazione dei laghi dati Sicurezza e conformità\n• Attuazione e applicazione delle politiche di sicurezza IT\n• Implementare buone pratiche di sicurezza del database\n• Garantire il rispetto delle norme e dei requisiti interni\n• Collabora con gli stakeholder sulle questioni di sicurezza e sulla conformità Collaborazione e miglioramento continuo\n• Lavorare a stretto contatto con i team IT e gli scambi\n• Proporre miglioramenti alle architetture e ai processi esistenti\n• Assicurare il monitoraggio tecnologico delle soluzioni di database\n• Minimo 3 anni di esperienza nell'amministrazione del database\n• Competenza su:\n• Oracle\n• Server SQL Server\n• Sybase\n• Esperienza su:\n• Protezione dei dati\n• RMAN\n• Un'esperienza data lago è un plus Competenza tecnica Indispensabile\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Regolazione delle prestazioni\n• Backup / recupero (RMAN)\n• Alta disponibilità / replica\n• DataGuard\n• PostgreSQL e MongoDB Apprezzato (bello avere)\n• Architettura data lago\n• Moderni ambienti di dati competenze morbide\n• Eccellente rapporto e comunicazione\n• Spirito analitico e problem solving\n• Rigor, organizzazione e senso del dettaglio\n• Capacità di gestire pressione e priorità\n• Spirito di squadra e adattabilità Lingue\n• Francese: attuale\n• Inglese: attuale",
+        "en": "As part of the strengthening of its IT team, our client is looking for an experienced Database Administrator (DBA) to ensure the management, performance and security of its database infrastructures in a multi-technology environment. Database Administration\n• Install, configure and administer databases ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n• Ensure performance monitoring, maintenance and optimization\n• Manage backup / restore operations and recovery plans\n• Diagnosis and resolve technical incidents (performance, errors, availability)\n• Design and implement database architectures:\n• High availability\n• clustering\n• replication\n• Ensuring consistency, integrity and accessibility of data\n• Collaborate with development teams to ensure scalability and application performance\n• Contribute (if possible) to the implementation of data lakes Security & Compliance\n• Implement and enforce IT security policies\n• Implement good database security practices\n• Ensure compliance with internal standards and requirements\n• Collaborate with stakeholders on security issues and compliance Collaboration & Continuous Improvement\n• Work closely with IT teams and trades\n• Propose improvements on existing architectures and processes\n• Ensure technological monitoring of database solutions\n• Minimum 3 years of experience in database administration\n• Expertise on:\n• Oracle\n• SQL Server\n• Sybase\n• Experience on:\n• Data Guard\n• RMAN\n• A data lake experience is a plus Technical expertise Indispensable\n• Multi-SGBD Administration (Oracle, SQL Server, Sybase)\n• Performance tuning\n• Backup / recovery (RMAN)\n• High availability / replication\n• DataGuard\n• PostgreSQL and MongoDB Appreciated (nice to have)\n• Architecture data lake\n• Modern data environments Soft skills\n• Excellent relationship and communication\n• Analytical spirit and problem solving\n• Rigor, organization and sense of detail\n• Ability to manage pressure and priorities\n• Team spirit and adaptability Languages\n• French: current\n• English: current",
+        "de": "Im Rahmen der Stärkung des IT-Teams sucht unser Kunde einen erfahrenen Datenbankadministrator (DBA), um die Verwaltung, Leistung und Sicherheit seiner Datenbankinfrastrukturen in einer Multitechnologie-Umgebung zu gewährleisten. Datenbankverwaltung\n• Installation, Konfiguration und Verwaltung von Datenbanken (Oracle, Sybase, SQL Server, PostgreSQL, MongoDB)\n• Gewährleistung von Leistungsüberwachung, Wartung und Optimierung\n• Verwalten von Backup- / Wiederherstellungsvorgängen und Wiederherstellungsplänen\n• Diagnose und Behebung technischer Vorfälle (Leistung, Fehler, Verfügbarkeit)\n• Entwerfen und Implementieren von Datenbankarchitekturen:\n• Hohe Verfügbarkeit\n• Clustering\n• Replikation\n• Gewährleistung der Konsistenz, Integrität und Zugänglichkeit der Daten\n• Zusammenarbeit mit Entwicklungsteams, um Skalierbarkeit und Anwendungsleistung sicherzustellen\n• Beitrag (wenn möglich) zur Implementierung von Data Lakes Sicherheit & Compliance\n• Implementierung und Durchsetzung von IT-Sicherheitsrichtlinien\n• Implementierung guter Datenbanksicherheitspraktiken\n• Gewährleistung der Einhaltung interner Standards und Anforderungen\n• Zusammenarbeit mit Stakeholdern in Sicherheitsfragen und Compliance Zusammenarbeit & kontinuierliche Verbesserung\n• Enge Zusammenarbeit mit IT-Teams und Trades\n• Verbesserung bestehender Architekturen und Prozesse vorschlagen\n• Gewährleistung der technologischen Überwachung von Datenbanklösungen\n• Mindestens 3 Jahre Erfahrung in der Datenbankverwaltung\n• Fachwissen zu:\n• Orakel\n• SQL Server\n• Sybase\n• Erfahrungen mit:\n• Datensicherung\n• RMAN\n• Ein Data Lake Erlebnis ist ein Plus Technische Expertise Unverzichtbar\n• Multi-SGBD-Administration (Oracle, SQL Server, Sybase)\n• Leistungsabstimmung\n• Backup / Recovery (RMAN)\n• Hochverfügbarkeit / Replikation\n• DataGuard\n• PostgreSQL und MongoDB Geschätzt (nice to have)\n• Architektur Datensee\n• Moderne Datenumgebungen Soft Skills\n• Ausgezeichnete Beziehung und Kommunikation\n• Analytischer Geist und Problemlösung\n• Strenge, Organisation und Sinn für Details\n• Fähigkeit, Druck und Prioritäten zu verwalten\n• Teamgeist und Anpassungsfähigkeit Sprachen\n• Französisch: aktuell\n• Englisch: aktuell",
+        "fr": "Dans le cadre du renforcement de son équipe IT, notre client recherche un(e) Database Administrator (DBA) expérimenté(e) pour assurer la gestion, la performance et la sécurité de ses infrastructures bases de données dans un environnement multi-technologies.\nDatabase Administration\n\n• Installer, configurer et administrer des bases de données ( Oracle, Sybase, SQL Server, PostgreSQL, MongoDB )\n\n• Assurer le monitoring, la maintenance et l’optimisation des performances\n\n• Gérer les opérations de backup / restore et plans de reprise\n\n• Diagnostiquer et résoudre les incidents techniques (performance, erreurs, disponibilité)\n\n• Concevoir et mettre en œuvre des architectures bases de données :\n• haute disponibilité\n\n• clustering\n\n• réplication\n\n• Garantir la cohérence, l’intégrité et l’accessibilité des données\n\n• Collaborer avec les équipes de développement pour assurer la scalabilité et la performance des applications\n\n• Contribuer (si possible) à la mise en place de data lakes\n🔐 Sécurité & Conformité\n\n• Appliquer et faire respecter les politiques de sécurité IT\n\n• Mettre en œuvre les bonnes pratiques de sécurité des bases de données\n\n• Assurer la conformité aux standards et exigences internes\n\n• Collaborer avec les parties prenantes sur les enjeux de sécurité et conformité\n🤝 Collaboration & Amélioration continue\n\n• Travailler en étroite collaboration avec les équipes IT et métiers\n\n• Proposer des améliorations sur les architectures et processus existants\n\n• Assurer une veille technologique sur les solutions bases de données\n\n• Minimum 3 ans d’expérience en administration de bases de données\n\n• Expertise avérée sur :\n• Oracle\n\n• SQL Server\n\n• Sybase\n\n• Expérience sur :\n• Data Guard\n\n• RMAN\n\n• Une expérience data lake est un plus\nCompétences techniques\nIndispensables\n\n• Administration multi-SGBD (Oracle, SQL Server, Sybase)\n\n• Performance tuning\n\n• Backup / recovery (RMAN)\n\n• Haute disponibilité / réplication\n\n• DataGuard\n\n• PostgreSQL et MongoDB\nAppréciées (nice to have)\n\n• Architecture data lake\n\n• Environnements modernes data\n🧠 Soft skills\n\n• Excellent relationnel et communication\n\n• Esprit analytique et résolution de problèmes\n\n• Rigueur, organisation et sens du détail\n\n• Capacité à gérer la pression et les priorités\n\n• Esprit d’équipe et adaptabilité\n🌍 Langues\n\n• Français : courant\n\n• Anglais : courant"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Genève, , Switzerland",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.481Z",
+      "crawledAt": "2026-07-18T21:50:49.470Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -366,34 +207,34 @@
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
-      "jobReqId": "744000135283150",
+      "postedDate": "2026-05-13",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126257121-senior-consultant-e-dba-?oga=true",
+      "jobReqId": "744000126257121",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-        "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+        "senior-consultant-e-dba-talan-geneve-switzerland",
+        "senior-consulente-e-dba-talan-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
-          "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+          "senior-consultant-e-dba-talan-geneve-switzerland",
+          "senior-consulente-e-dba-talan-geneve"
         ],
         "de": [
-          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+          "senior-consultant-e-dba-talan-geneve-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-03T23:41:37.237Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
+      "firstSeenAt": "2026-07-03T23:41:37.249Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
+          "minValue": 97500,
+          "maxValue": 165500,
           "unitText": "YEAR"
         }
       }
@@ -430,7 +271,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720720-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.481Z",
+      "crawledAt": "2026-07-18T21:50:49.468Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -480,76 +321,235 @@
       }
     },
     {
-      "id": "talan-87a4c9893f84",
-      "slug": "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland",
+      "id": "talan-6e0c26bb9825",
+      "slug": "fiori-sapui5-btp-sviluppatore-talan-geneva",
       "slugByLocale": {
-        "it": "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland",
-        "en": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
-        "de": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
-        "fr": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland"
+        "it": "fiori-sapui5-btp-sviluppatore-talan-geneva",
+        "en": "fiori-sapui5-btp-developer-talan-geneva",
+        "de": "fiori-sapui5-btp-entwickler-talan-geneva",
+        "fr": "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "Business Development & Advisory Lead – Data & AI",
+      "title": "Développeur Fiori/SAPUI5 & BTP",
       "titleByLocale": {
-        "it": "Sviluppo aziendale & Advisory Lead – Dati & AI",
-        "en": "Business Development & Advisory Lead – Data & AI",
-        "de": "Business Development & Advisory Lead – Daten & KI",
-        "fr": "Business Development & Advisory Lead – Data & AI"
+        "it": "Fiori/SAPUI5 & BTP Sviluppatore",
+        "en": "Fiori/SAPUI5 & BTP Developer",
+        "de": "Fiori/SAPUI5 & BTP Entwickler",
+        "fr": "Développeur Fiori/SAPUI5 & BTP"
       },
-      "description": "Contexte :\n Dans le cadre de la croissance de sa Business Line Data & AI en Suisse, Talan recherche un profil à fort potentiel capable de contribuer activement au développement de son activité de conseil et de transformation Data & IA.\n Rattaché directement au Directeur de la Business Line, vous jouerez un rôle central dans le développement des offres, les activités d'avant-vente, la relation avec les décideurs et la structuration de la croissance de l'activité en Suisse romande.\n Vos responsabilités :\n Développement commercial et avant-vente\n\n• Identifier et développer des opportunités auprès des comptes existants.\n\n• Détecter les enjeux stratégiques des organisations et construire des propositions de valeur adaptées.\n\n• Piloter les avant-ventes complexes et les réponses aux appels d'offres.\n\n• Contribuer directement à l'atteinte des objectifs commerciaux de la Business Line.\n\n• Participer aux soutenances et négociations auprès des décideurs métiers et IT.\n\n• Développer et entretenir un réseau professionnel en Suisse romande.\n Développement des offres\n\n• Participer à la structuration et à l'évolution du portefeuille d'offres Data & AI.\n\n• Identifier les tendances du marché et les attentes émergentes des clients.\n\n• Contribuer à la création de nouvelles propositions de valeur autour des sujets :\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produire des contenus à forte valeur ajoutée pour soutenir le positionnement de Talan sur le marché.\n\nReprésentation et rayonnement\n\n• Représenter Talan lors de conférences, événements et tables rondes.\n\n• Développer la visibilité de la Business Line sur le marché suisse.\n\n• Contribuer au rayonnement de l'expertise Data & AI de Talan auprès des décideurs.\n\nFormation et expérience\n\n• Formation supérieure (Ingénieur, Université ou Grande École).\n\n• Minimum 8 années d'expérience dans le conseil, les services numériques ou les activités de transformation.\n\n• Expérience significative dans les activités de développement commercial et d'avant-vente.\n\n• Expérience auprès de décideurs de niveau C-Level, Direction Métiers ou Direction IT.\n Compétences\n Vous disposez d'une excellente compréhension des enjeux liés à :\n\n• la stratégie Data ;\n\n• les plateformes Data modernes ;\n\n• l'intelligence artificielle et l'IA générative ;\n\n• la transformation des organisations ;\n\n• la création de valeur par la donnée.\n Vous n'êtes pas nécessairement un expert technique, mais vous comprenez suffisamment les sujets pour :\n\n• dialoguer avec les experts ;\n\n• piloter les avant-ventes ;\n\n• construire des offres ;\n\n• convaincre les décideurs.\n Qualités personnelles\n Nous recherchons avant tout une personnalité :\n\n• entrepreneuriale ;\n\n• autonome ;\n\n• orientée résultats ;\n\n• capable de créer de nouvelles opportunités ;\n\n• reconnue pour sa crédibilité auprès des décideurs ;\n\n• à l'aise dans des environnements en forte croissance.\n Vous aimez construire, développer et faire grandir une activité.\n Langues\n\n• Français courant indispensable.\n\n• Anglais courant indispensable.\n\n• Allemand constitue un atout.\n Localisation\n\n• Suisse romande.\n\n• Préférence pour Lausanne afin de favoriser la proximité avec les équipes et la mobilité sur l'ensemble du territoire couvert.\n\nCe qui différencie ce poste\n\n• Travail en proximité directe avec le Directeur et les practices leads Data & AI Suisse.\n\n• Forte autonomie.\n\n• Impact concret sur la stratégie et la croissance de l'activité.\n\n• Exposition directe aux décideurs.\n\n• Participation aux grands enjeux Data & AI des organisations suisses.\n\n• Véritable trajectoire vers un rôle de leadership de la Business Line.",
+      "description": "Objectif de la mission  :\n Concevoir et développer des applications performantes dans un environnement SAP Fiori/SAPUI5 en s’appuyant sur des services OData et la plateforme SAP BTP. Contribuer à la conception de solutions modernes, évolutives et conformes aux standards SAP. Participer activement aux projets de transformation digitale ainsi qu’aux phases de conception technique, en mettant l’accent sur l’expérience utilisateur.\n Responsabilités principales  :\n\n• Développement et maintenance d’applications SAP Fiori et SAPUI5.\n\n• Développement et intégration de services OData pour répondre aux besoins métiers.\n\n• Conception et développement d’extensions et d’applications sur SAP BTP.\n\n• Participation à la conception technique et à l’industrialisation des développements.\n\n• Collaboration étroite avec les équipes fonctionnelles et techniques pour garantir la qualité des livrables.\n\n• Maîtrise de SAP Fiori/SAPUI5 et des langages JavaScript, HTML5, CSS.\n\n• Expérience dans le développement et la consommation de services OData et sur SAP BTP.\n\n• Connaissance des bonnes pratiques de conception et développement d’applications SAP modernes.\n\n• Atouts : SAP CAP, Node.js ou Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps pour SAP, connaissance fonctionnelle des modules FI, CO, MM, SD, HR.\n\n• Français courant et anglais B2",
       "descriptionByLocale": {
-        "it": "Sfondo:\nNell'ambito della crescita della sua Business Line Data & AI in Svizzera, Talan sta cercando un profilo ad alto potenziale in grado di contribuire attivamente allo sviluppo del suo business di consulenza e trasformazione Data & IA.\nCollegato direttamente al direttore della Business Line, svolgerai un ruolo centrale nello sviluppo di offerte, attività pre-vendita, il rapporto con i decisori e la strutturazione della crescita aziendale in Svizzera francofona.\nLe tue responsabilità:\nSviluppo aziendale e pre-vendita\n\n• Identificare e sviluppare opportunità con i conti esistenti.\n\n• Identificare le questioni strategiche che affrontano le organizzazioni e costruire proposte di valore appropriate.\n\n• Pre-sales complesso pilota e risposte alle gare.\n\n• Contribuisci direttamente agli obiettivi aziendali della Business Line.\n\n• Partecipare ad advocacy e trattative con i decisori aziendali e IT.\n\n• Sviluppare e mantenere una rete professionale in Svizzera francofona.\nSviluppo delle offerte\n\n• Partecipa alla strutturazione e all'evoluzione del portafoglio offerta da Data & AI.\n\n• Identificare le tendenze del mercato e le aspettative dei clienti emergenti.\n\n• Contribuire alla creazione di nuove proposte di valore intorno agli argomenti:\n• Strategia dei dati\n\n• Piattaforme di dati moderne\n\n• Intelligenza artificiale & GenAI\n\n• Governance dei dati\n\n• Trasformazione dei dati\n\n• Produrre contenuti ad alto valore per supportare il posizionamento di Talan sul mercato.\n\nRappresentanza e divulgazione\n\n• Rappresentare Talan a conferenze, eventi e tavole rotonde.\n\n• Sviluppare la visibilità della Business Line sul mercato svizzero.\n\n• Contribuisci alla diffusione delle competenze di Talan Data & AI tra i responsabili politici.\n\nFormazione ed esperienza\n\n• Istruzione superiore (ingegneria, Università o Grande École).\n\n• Esperienza minima di 8 anni di consulenza, servizi digitali o attività di trasformazione.\n\n• Esperienza significativa nello sviluppo aziendale e nelle attività pre-vendita.\n\n• Esperienza con i decisori C-Level, la Direzione Trades o la Direzione IT.\nCompetenze\nHai un'ottima comprensione dei problemi relativi a:\n\n• Strategia dei dati;\n\n• intelligenza artificiale e AI generale;\n\n• la trasformazione delle organizzazioni;\n\n• creazione valore per dati.\nNon sei necessariamente un esperto tecnico, ma capisci abbastanza gli argomenti da:\n\n• dialogo con gli esperti;\n\n• pre-vendita pilota;\n\n• offerte di costruzione;\n\n• convincenti decisori.\nidoneità personale\nCerchiamo soprattutto una personalità:\n\n• imprenditoriale;\n\n• autonomo;\n\n• risultati orientati;\n\n• capace di creare nuove opportunità;\n\n• riconosciuto per la sua credibilità con i decisori;\n\n• confortevole in ambienti in rapida crescita.\nTi piace costruire, sviluppare e crescere un'attività.\nLingue\n\n• Corrente francese indispensabile.\n\n• Inglese attuale essenziale.\n\n• Il tedesco e' una risorsa.\nLocation\n\n• Svizzera occidentale.\n\n• Preferenze per Losanna al fine di promuovere la vicinanza a team e la mobilità in tutto il territorio coperto.\n\nCiò che distingue questa posizione\n\n• I lavori in prossimità del Direttore e le pratiche portano Data & AI Svizzera.\n\n• Forte autonomia.\n\n• Impatto concreto sulla strategia aziendale e la crescita.\n\n• Esposizione diretta ai decisori.\n\n• Partecipazione ai principali temi di Data & AI delle organizzazioni svizzere.\n\n• Vero percorso verso un ruolo di leadership della Business Line.",
-        "en": "Background:\nAs part of the growth of its Business Line Data & AI in Switzerland, Talan is looking for a high-potential profile capable of actively contributing to the development of its Data & IA consulting and transformation business.\nLinked directly to the Director of the Business Line, you will play a central role in the development of offers, pre-sales activities, the relationship with decision-makers and the structuring of business growth in French-speaking Switzerland.\nYour responsibilities:\nBusiness development and pre-sales\n\n• Identify and develop opportunities with existing accounts.\n\n• Identify the strategic issues facing organizations and build appropriate value proposals.\n\n• Pilot complex pre-sales and responses to tenders.\n\n• Contribute directly to the business objectives of the Business Line.\n\n• Participate in advocacy and negotiations with business decision-makers and IT.\n\n• Develop and maintain a professional network in French-speaking Switzerland.\nDevelopment of offers\n\n• Participate in the structuring and evolution of the Data & AI offer portfolio.\n\n• Identify market trends and emerging customer expectations.\n\n• Contribute to the creation of new value proposals around topics:\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produce high-value content to support Talan's positioning on the market.\n\nRepresentation and outreach\n\n• Represent Talan at conferences, events and round tables.\n\n• Develop the visibility of the Business Line on the Swiss market.\n\n• Contribute to the dissemination of Talan's Data & AI expertise among policy makers.\n\nTraining and experience\n\n• Higher education (Engineering, University or Grande École).\n\n• Minimum 8 years experience in consulting, digital services or transformation activities.\n\n• Significant experience in business development and pre-sales activities.\n\n• Experience with C-Level decision-makers, Trades Directorate or IT Directorate.\nCompetences\nYou have an excellent understanding of the issues related to:\n\n• Data strategy;\n\n• artificial intelligence and general AI;\n\n• the transformation of organizations;\n\n• value creation by data.\nYou are not necessarily a technical expert, but you understand enough the topics to:\n\n• dialogue with experts;\n\n• pilot pre-sales;\n\n• building offers;\n\n• convincing decision-makers.\nPersonal suitability\nWe seek above all a personality:\n\n• entrepreneurial;\n\n• autonomous;\n\n• results-oriented;\n\n• capable of creating new opportunities;\n\n• recognized for its credibility with decision-makers;\n\n• comfortable in fast growing environments.\nYou like to build, develop and grow an activity.\nLanguages\n\n• French current indispensable.\n\n• Essential current English.\n\n• German is an asset.\nLocation\n\n• Western Switzerland.\n\n• Preference for Lausanne in order to promote proximity to teams and mobility throughout the covered territory.\n\nWhat distinguishes this position\n\n• Work in direct proximity with the Director and the practices leads Data & AI Switzerland.\n\n• Strong autonomy.\n\n• Concrete impact on business strategy and growth.\n\n• Direct exposure to decision makers.\n\n• Participation in the major Data & AI issues of Swiss organisations.\n\n• True path towards a leadership role of the Business Line.",
-        "de": "Hintergrund:\nIm Rahmen des Wachstums des Geschäftsfelds Data & AI in der Schweiz sucht Talan ein Profil mit hohem Potenzial, das aktiv zur Entwicklung seines Data & IA-Beratungs- und Transformationsgeschäfts beitragen kann.\nDirekt mit dem Direktor der Business Line verbunden, spielen Sie eine zentrale Rolle bei der Entwicklung von Angeboten, Pre-Sales-Aktivitäten, der Beziehung zu Entscheidungsträgern und der Strukturierung des Geschäftswachstums in der französischsprachigen Schweiz.\nIhre Aufgaben:\nGeschäftsentwicklung und Pre-Sales\n\n• Identifizieren und entwickeln Sie Chancen mit bestehenden Konten.\n\n• Identifizieren Sie die strategischen Probleme, mit denen Organisationen konfrontiert sind, und erstellen Sie geeignete Wertvorschläge.\n\n• Pilotkomplexe Vorverkäufe und Antworten auf Ausschreibungen.\n\n• direkt zu den Geschäftszielen des Geschäftsbereichs beitragen.\n\n• Beteiligen Sie sich an Advocacy und Verhandlungen mit Geschäftsentscheidern und IT.\n\n• Aufbau und Pflege eines professionellen Netzwerks in der französischsprachigen Schweiz.\nEntwicklung von Angeboten\n\n• Beteiligen Sie sich an der Strukturierung und Weiterentwicklung des Data & AI Angebotsportfolios.\n\n• Identifizieren Sie Markttrends und neue Kundenerwartungen.\n\n• Tragen Sie zur Erstellung neuer Wertvorschläge zu Themen bei:\n• Datenstrategie\n\n• Moderne Datenplattformen\n\n• Künstliche Intelligenz & GenAI\n\n• Data Governance\n\n• Datentransformation\n\n• Produzieren Sie hochwertige Inhalte, um Talans Positionierung auf dem Markt zu unterstützen.\n\nVertretung und Öffentlichkeitsarbeit\n\n• Repräsentieren Sie Talan bei Konferenzen, Veranstaltungen und runden Tischen.\n\n• Ausbau der Sichtbarkeit des Business Line auf dem Schweizer Markt.\n\n• Beitrag zur Verbreitung von Talans Data & AI-Expertise unter politischen Entscheidungsträgern.\n\nAusbildung und Erfahrung\n\n• Hochschulbildung (Ingenieurwesen, Universität oder Grande École).\n\n• Mindestens 8 Jahre Erfahrung in Beratung, digitalen Dienstleistungen oder Transformationsaktivitäten.\n\n• Bedeutende Erfahrung in der Geschäftsentwicklung und Pre-Sales-Aktivitäten.\n\n• Erfahrung mit C-Level-Entscheidungsträgern, Trades Directorate oder IT Directorate.\nKompetenzen\nSie haben ein ausgezeichnetes Verständnis der Probleme im Zusammenhang mit:\n\n• Datenstrategie;\n\n• Künstliche Intelligenz und allgemeine KI;\n\n• die Transformation von Organisationen;\n\n• Wertschöpfung durch Daten.\nSie sind nicht unbedingt ein technischer Experte, aber Sie verstehen die Themen genug, um:\n\n• Dialog mit Experten;\n\n• Pilotvorverkauf;\n\n• Bauangebote;\n\n• Entscheidungsträger überzeugen.\nPersönliche Eignung\nWir suchen vor allem eine Persönlichkeit:\n\n• unternehmerisch;\n\n• autonom;\n\n• ergebnisorientiert;\n\n• fähig, neue Möglichkeiten zu schaffen;\n\n• für seine Glaubwürdigkeit bei Entscheidungsträgern anerkannt;\n\n• komfortabel in schnell wachsenden Umgebungen.\nSie bauen, entwickeln und wachsen gerne eine Aktivität.\nSprachen\n\n• Französisch Strom unverzichtbar.\n\n• Essential Current Englisch.\n\n• Deutsch ist ein Asset.\nStandort\n\n• Westschweiz.\n\n• Lausanne wird bevorzugt, um die Nähe zu Teams und die Mobilität im gesamten Gebiet zu fördern.\n\nWas diese Position auszeichnet\n\n• Arbeiten in direkter Nähe mit dem Direktor und den Praxen leitet Data & AI Schweiz.\n\n• Starke Autonomie.\n\n• Konkrete Auswirkungen auf Geschäftsstrategie und Wachstum.\n\n• Direkte Exposition gegenüber Entscheidungsträgern.\n\n• Teilnahme an den wichtigsten Data & AI-Themen von Schweizer Organisationen.\n\n• Wahrer Weg zu einer Führungsrolle des Business Line.",
-        "fr": "Contexte :\nDans le cadre de la croissance de sa Business Line Data & AI en Suisse, Talan recherche un profil à fort potentiel capable de contribuer activement au développement de son activité de conseil et de transformation Data & IA.\nRattaché directement au Directeur de la Business Line, vous jouerez un rôle central dans le développement des offres, les activités d'avant-vente, la relation avec les décideurs et la structuration de la croissance de l'activité en Suisse romande.\nVos responsabilités :\nDéveloppement commercial et avant-vente\n\n• Identifier et développer des opportunités auprès des comptes existants.\n\n• Détecter les enjeux stratégiques des organisations et construire des propositions de valeur adaptées.\n\n• Piloter les avant-ventes complexes et les réponses aux appels d'offres.\n\n• Contribuer directement à l'atteinte des objectifs commerciaux de la Business Line.\n\n• Participer aux soutenances et négociations auprès des décideurs métiers et IT.\n\n• Développer et entretenir un réseau professionnel en Suisse romande.\nDéveloppement des offres\n\n• Participer à la structuration et à l'évolution du portefeuille d'offres Data & AI.\n\n• Identifier les tendances du marché et les attentes émergentes des clients.\n\n• Contribuer à la création de nouvelles propositions de valeur autour des sujets :\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produire des contenus à forte valeur ajoutée pour soutenir le positionnement de Talan sur le marché.\n\nReprésentation et rayonnement\n\n• Représenter Talan lors de conférences, événements et tables rondes.\n\n• Développer la visibilité de la Business Line sur le marché suisse.\n\n• Contribuer au rayonnement de l'expertise Data & AI de Talan auprès des décideurs.\n\nFormation et expérience\n\n• Formation supérieure (Ingénieur, Université ou Grande École).\n\n• Minimum 8 années d'expérience dans le conseil, les services numériques ou les activités de transformation.\n\n• Expérience significative dans les activités de développement commercial et d'avant-vente.\n\n• Expérience auprès de décideurs de niveau C-Level, Direction Métiers ou Direction IT.\nCompétences\nVous disposez d'une excellente compréhension des enjeux liés à :\n\n• la stratégie Data ;\n\n• les plateformes Data modernes ;\n\n• l'intelligence artificielle et l'IA générative ;\n\n• la transformation des organisations ;\n\n• la création de valeur par la donnée.\nVous n'êtes pas nécessairement un expert technique, mais vous comprenez suffisamment les sujets pour :\n\n• dialoguer avec les experts ;\n\n• piloter les avant-ventes ;\n\n• construire des offres ;\n\n• convaincre les décideurs.\nQualités personnelles\nNous recherchons avant tout une personnalité :\n\n• entrepreneuriale ;\n\n• autonome ;\n\n• orientée résultats ;\n\n• capable de créer de nouvelles opportunités ;\n\n• reconnue pour sa crédibilité auprès des décideurs ;\n\n• à l'aise dans des environnements en forte croissance.\nVous aimez construire, développer et faire grandir une activité.\nLangues\n\n• Français courant indispensable.\n\n• Anglais courant indispensable.\n\n• Allemand constitue un atout.\nLocalisation\n\n• Suisse romande.\n\n• Préférence pour Lausanne afin de favoriser la proximité avec les équipes et la mobilité sur l'ensemble du territoire couvert.\n\nCe qui différencie ce poste\n\n• Travail en proximité directe avec le Directeur et les practices leads Data & AI Suisse.\n\n• Forte autonomie.\n\n• Impact concret sur la stratégie et la croissance de l'activité.\n\n• Exposition directe aux décideurs.\n\n• Participation aux grands enjeux Data & AI des organisations suisses.\n\n• Véritable trajectoire vers un rôle de leadership de la Business Line."
+        "it": "Obiettivo della missione: Progettare e sviluppare applicazioni ad alte prestazioni in un ambiente SAP Fiori/SAPUI5 utilizzando i servizi OData e la piattaforma SAP BTP. Contribuisci alla progettazione di soluzioni moderne, scalabili e conformi a SAP. Partecipa attivamente a progetti di trasformazione digitale e fasi di progettazione tecnica, con un focus sull'esperienza degli utenti. Responsabilità chiave:\n• Sviluppo e manutenzione delle applicazioni SAP Fiori e SAPUI5.\n• Sviluppo e integrazione dei servizi OData per soddisfare le esigenze aziendali.\n• Progettazione e sviluppo di estensioni e applicazioni su SAP BTP.\n• Partecipazione alla progettazione tecnica e all'industrializzazione degli sviluppi.\n• Chiudi la collaborazione con team funzionali e tecnici per garantire la qualità dei prodotti.\n• Mastery di SAP Fiori/SAPUI5 e linguaggi JavaScript, HTML5, CSS.\n• Esperienza nello sviluppo e nel consumo di servizi OData e su SAP BTP.\n• Conoscenza delle buone pratiche di progettazione e sviluppo delle moderne applicazioni SAP.\n• Benefici: SAP CAP, Node.js o Java, SAP Integration Suite/API, SAP Build Apps/Low-code, DevOps for SAP, conoscenza funzionale dei moduli FI, CO, MM, SD, HR.\n• Francese attuale e inglese B2",
+        "en": "Mission objective: Design and develop high-performance applications in a SAP Fiori/SAPUI5 environment using OData services and the SAP BTP platform. Contribute to the design of modern, scalable and SAP-compliant solutions. Actively participate in digital transformation projects and technical design phases, with a focus on user experience. Key responsibilities:\n• Development and maintenance of SAP Fiori and SAPUI applications5.\n• Development and integration of OData services to meet business needs.\n• Design and development of extensions and applications on SAP BTP.\n• Participation in the technical design and industrialization of developments.\n• Close collaboration with functional and technical teams to ensure the quality of deliverables.\n• Mastery of SAP Fiori/SAPUI5 and JavaScript languages, HTML5, CSS.\n• Experience in developing and consuming OData services and on SAP BTP.\n• Knowledge of good design practices and development of modern SAP applications.\n• Assets: SAP CAP, Node.js or Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps for SAP, functional knowledge of FI, CO, MM, SD, HR modules.\n• Current French and English B2",
+        "de": "Missionsziel: Entwerfen und Entwickeln von Hochleistungsanwendungen in einer SAP Fiori/SAPUI5-Umgebung mit OData Services und der SAP BTP-Plattform. Tragen Sie zum Design moderner, skalierbarer und SAP-konformer Lösungen bei. Beteiligen Sie sich aktiv an digitalen Transformationsprojekten und technischen Designphasen mit Fokus auf User Experience. Hauptzuständigkeiten:\n• Entwicklung und Wartung von SAP Fiori und SAPUI Anwendungen5.\n• Entwicklung und Integration von OData-Diensten zur Erfüllung der Geschäftsanforderungen.\n• Design und Entwicklung von Erweiterungen und Anwendungen auf SAP BTP.\n• Teilnahme an der technischen Gestaltung und Industrialisierung von Entwicklungen.\n• Enge Zusammenarbeit mit funktionalen und technischen Teams, um die Qualität der Ergebnisse zu gewährleisten.\n• Beherrschung von SAP Fiori/SAPUI5 und JavaScript Sprachen, HTML5, CSS.\n• Erfahrung in der Entwicklung und Nutzung von OData Services und in SAP BTP.\n• Kenntnisse über gute Designpraktiken und Entwicklung moderner SAP-Anwendungen.\n• Assets: SAP CAP, Node.js oder Java, SAP Integration Suite/APIs, SAP Build Apps/Low-Code, DevOps für SAP, Funktionskenntnisse von FI, CO, MM, SD, HR Modulen.\n• Aktuelles Französisch und Englisch B2",
+        "fr": "Objectif de la mission  :\nConcevoir et développer des applications performantes dans un environnement SAP Fiori/SAPUI5 en s’appuyant sur des services OData et la plateforme SAP BTP. Contribuer à la conception de solutions modernes, évolutives et conformes aux standards SAP. Participer activement aux projets de transformation digitale ainsi qu’aux phases de conception technique, en mettant l’accent sur l’expérience utilisateur.\nResponsabilités principales  :\n\n• Développement et maintenance d’applications SAP Fiori et SAPUI5.\n\n• Développement et intégration de services OData pour répondre aux besoins métiers.\n\n• Conception et développement d’extensions et d’applications sur SAP BTP.\n\n• Participation à la conception technique et à l’industrialisation des développements.\n\n• Collaboration étroite avec les équipes fonctionnelles et techniques pour garantir la qualité des livrables.\n\n• Maîtrise de SAP Fiori/SAPUI5 et des langages JavaScript, HTML5, CSS.\n\n• Expérience dans le développement et la consommation de services OData et sur SAP BTP.\n\n• Connaissance des bonnes pratiques de conception et développement d’applications SAP modernes.\n\n• Atouts : SAP CAP, Node.js ou Java, SAP Integration Suite/APIs, SAP Build Apps/Low-code, DevOps pour SAP, connaissance fonctionnelle des modules FI, CO, MM, SD, HR.\n\n• Français courant et anglais B2"
       },
-      "needsRetranslation": true,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000138091780-business-development-advisory-lead-data-ai?oga=true",
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.468Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
+      "crawledAt": "2026-07-18T21:50:49.468Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000138091780-business-development-advisory-lead-data-ai?oga=true",
-      "jobReqId": "744000138091780",
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
+      "jobReqId": "744000126720699",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
-        "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland"
+        "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland",
+        "fiori-sapui5-btp-sviluppatore-talan-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
-          "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland"
+          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland",
+          "fiori-sapui5-btp-sviluppatore-talan-geneva"
+        ],
+        "en": [
+          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "developpeur-fiori-sapui5-btp-talan-geneva-ge-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-17T10:53:12.799Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
+      "firstSeenAt": "2026-07-03T23:41:37.239Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-8b2dd9df4445",
+      "slug": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland",
+        "en": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "de": "ms-cloud-ingenieur-product-spezialist-m365-talan-geneve",
+        "fr": "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "MS Cloud Engineer & Product Specialist (M365)",
+      "titleByLocale": {
+        "it": "MS Cloud Ingegnere & Product Specialista (M365)",
+        "en": "MS Cloud Engineer & Product Specialist (M365)",
+        "de": "MS Cloud Ingenieur & Product Spezialist (M365)",
+        "fr": "MS Cloud Ingénieur & Product Spécialiste (M365)"
+      },
+      "description": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\n Missions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\n Compétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant.",
+      "descriptionByLocale": {
+        "it": "Nei nostri team di consulenza e ingegneria, supporta un client nella sua migrazione Cloud. Questo è un ruolo ibrido tra tecnologia e Product Management. La vostra missione: definire le direzioni, organizzare la governance e garantire la transizione agli strumenti M365, integrando i vincoli normativi. Missioni:\n• Governance M365: Progettazione, implementare e automatizzare la governance M365. Impostare la pianificazione e organizzare l'accesso alle applicazioni (Planner, Viva, Teams).\n• Sicurezza e rischi: protezione delle perdite di dati quadro (DLP), collaborazione interna e accesso condizionale. Partecipa a valutazioni legali per convalidare la conformità della conservazione dei dati nel cloud.\n• Migrazione tecnica: Supervia la migrazione delle caselle di posta a Exchange Online, la revisione del traffico di posta, l'archiviazione, la ritenzione e il backup.\n• Spazio collaborativo: Distribuisci SharePoint Online e OneDrive per le squadre.\n• Gestione del prodotto: Trasmettere la visione, riunire i team tecnici e aziendali e garantire la comunicazione con gli stakeholder esterni. Stiamo cercando un profilo in grado di divulgare la tecnica, mettendo in discussione quello esistente e conducendo la pianificazione. Capacità obbligatorie:\n• Esperienza: da 3 a 5 anni di esperienza in un ruolo simile (MS Cloud Engineer, Consulente M365, Architetto).\n• Tecnica: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Gestione del prodotto: Pratica nella gestione della roadmap, pianificazione, coordinamento del team e comunicazione esterna.\n• Leadership: Capacità di unire gli interlocutori e portare il cambiamento.\n• Rischi: Conoscenza della conformità e della protezione delle perdite di dati (DLP).\n• Corrente inglese e francese.",
+        "en": "In our consulting and engineering teams, you support a client in its Cloud migration. This is a hybrid role between technology and Product Management. Your mission: to define directions, organize governance and secure the transition to M365 tools, integrating regulatory constraints. Missions:\n• Governance M365: Design, implement and automate governance M365. Set schedule and organize access to applications (Planner, Viva, Teams).\n• Security & Risks: Framework data leak protection (DLP), internal collaboration and conditional access. Participate in legal assessments to validate compliance of data storage in the Cloud.\n• Technical migration: Supervise the migration of mailboxes to Exchange Online, revision of mail traffic, archiving, retention and backup.\n• Collaborative Space: Deploy SharePoint Online and OneDrive for teams.\n• Product Management: Transmit the vision, bring together technical and business teams, and ensure communication with external stakeholders. We are looking for a profile capable of popularizing the technique, questioning the existing one and conducting planning. Mandatory skills:\n• Experience: 3 to 5 years of experience in a similar role (MS Cloud Engineer, Consultant M365, Architect).\n• Technique: Modern Workplace Environment Management (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n• Product Management: Practice in roadmap management, planning, team coordination and external communication.\n• Leadership: Ability to unite interlocutors and lead change.\n• Risks: Knowledge of Compliance and Data Leak Protection (DLP).\n• English and French current.",
+        "de": "In unseren Beratungs- und Engineering-Teams unterstützen Sie einen Kunden bei seiner Cloud-Migration. Dies ist eine hybride Rolle zwischen Technologie und Produktmanagement. Ihre Mission: Richtungen zu definieren, Governance zu organisieren und den Übergang zu M365-Tools zu sichern, indem Sie regulatorische Einschränkungen integrieren. Missionen:\n• Governance M365: Design, Implementierung und Automatisierung von Governance M365. Legen Sie einen Zeitplan fest und organisieren Sie den Zugriff auf Anwendungen (Planner, Viva, Teams).\n• Security & Risks: Framework Data Leak Protection (DLP), interne Zusammenarbeit und bedingter Zugriff. Nehmen Sie an rechtlichen Bewertungen teil, um die Einhaltung der Datenspeicherung in der Cloud zu validieren.\n• Technische Migration: Überwachung der Migration von Postfächern zu Exchange Online, Überarbeitung des E-Mail-Verkehrs, Archivierung, Aufbewahrung und Sicherung.\n• Collaborative Space: Bereitstellen von SharePoint Online und OneDrive für Teams.\n• Produktmanagement: Übertragen Sie die Vision, bringen Sie technische und geschäftliche Teams zusammen und gewährleisten Sie die Kommunikation mit externen Stakeholdern. Wir suchen nach einem Profil, das in der Lage ist, die Technik zu popularisieren, die bestehende in Frage zu stellen und die Planung durchzuführen. Pflichtqualifikationen:\n• Erfahrung: 3 bis 5 Jahre Erfahrung in einer ähnlichen Rolle (MS Cloud Engineer, Consultant M365, Architekt).\n• Technik: Modern Workplace Environment Management (Teams, Viva, Planer, Exchange Online, SharePoint, OneDrive).\n• Produktmanagement: Praxis in Roadmapmanagement, Planung, Teamkoordination und externer Kommunikation.\n• Führung: Fähigkeit, Gesprächspartner zu vereinen und Veränderungen zu führen.\n• Risiken: Wissen über Compliance und Data Leak Protection (DLP).\n• Englisch und Französisch aktuell.",
+        "fr": "Dans nos équipes conseil et ingénierie, vous accompagnez un client dans sa migration Cloud. C'est un rôle hybride entre technique et Product Management. Votre mission : définir les orientations, organiser la gouvernance et sécuriser le passage vers les outils M365, en intégrant des contraintes réglementaires.\nMissions :\n\n• Gouvernance M365 : Concevoir, implémenter et automatiser la gouvernance M365. Définir le planning et organiser l'accès aux applications (Planner, Viva, Teams).\n\n• Sécurité & Risques : Cadrer la protection contre la fuite de données (DLP), la collaboration interne et les accès conditionnels. Participer aux évaluations légales pour valider la conformité du stockage des données dans le Cloud.\n\n• Migration technique : Superviser la migration des boîtes aux lettres vers Exchange Online, la révision du trafic mail, l'archivage, la rétention et le backup.\n\n• Espace collaboratif : Déployer SharePoint Online et OneDrive pour les équipes.\n\n• Product Management : Transmettre la vision, rassembler les équipes techniques et métiers, et assurer la communication avec les parties prenantes externes.\n\nNous recherchons un profil capable de vulgariser la technique, de questionner l'existant et de mener des plannings.\nCompétences obligatoires :\n\n• Expérience : 3 à 5 ans d’expérience dans un rôle similaire (MS Cloud Engineer, Consultant M365, Architecte).\n\n• Technique : Maîtrise de l'environnement Modern Workplace (Teams, Viva, Planner, Exchange Online, SharePoint, OneDrive).\n\n• Product Management : Pratique de la gestion de roadmap, de la planification, de la coordination d'équipes et de la communication externe.\n\n• Leadership : Capacité à fédérer des interlocuteurs et mener le changement.\n\n• Risques : Connaissances en conformité et Data Leak Protection (DLP).\n\n• Anglais et Français courant."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-18T21:50:49.467Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
+      "jobReqId": "744000135283150",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+        "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland",
+          "ms-cloud-ingegnere-product-specialista-m365-talan-geneve-switzerland"
+        ],
+        "de": [
+          "ms-cloud-engineer-product-specialist-m365-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T23:41:37.237Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-07-18T21:50:49.456Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-14",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland",
+        "qa-ingegnere-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland",
+          "qa-ingegnere-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
@@ -586,7 +586,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137468618-lead-technique-mdm-semarchy-h-f-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.465Z",
+      "crawledAt": "2026-07-18T21:50:49.445Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -664,7 +664,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000136176174-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.464Z",
+      "crawledAt": "2026-07-18T21:50:49.443Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -711,76 +711,76 @@
       }
     },
     {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "id": "talan-87a4c9893f84",
+      "slug": "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland",
       "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+        "it": "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland",
+        "en": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
+        "de": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
+        "fr": "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
+      "title": "Business Development & Advisory Lead – Data & AI",
       "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
+        "it": "Sviluppo aziendale & Advisory Lead – Dati & AI",
+        "en": "Business Development & Advisory Lead – Data & AI",
+        "de": "Business Development & Advisory Lead – Daten & KI",
+        "fr": "Business Development & Advisory Lead – Data & AI"
       },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "description": "Contexte :\n Dans le cadre de la croissance de sa Business Line Data & AI en Suisse, Talan recherche un profil à fort potentiel capable de contribuer activement au développement de son activité de conseil et de transformation Data & IA.\n Rattaché directement au Directeur de la Business Line, vous jouerez un rôle central dans le développement des offres, les activités d'avant-vente, la relation avec les décideurs et la structuration de la croissance de l'activité en Suisse romande.\n Vos responsabilités :\n Développement commercial et avant-vente\n\n• Identifier et développer des opportunités auprès des comptes existants.\n\n• Détecter les enjeux stratégiques des organisations et construire des propositions de valeur adaptées.\n\n• Piloter les avant-ventes complexes et les réponses aux appels d'offres.\n\n• Contribuer directement à l'atteinte des objectifs commerciaux de la Business Line.\n\n• Participer aux soutenances et négociations auprès des décideurs métiers et IT.\n\n• Développer et entretenir un réseau professionnel en Suisse romande.\n Développement des offres\n\n• Participer à la structuration et à l'évolution du portefeuille d'offres Data & AI.\n\n• Identifier les tendances du marché et les attentes émergentes des clients.\n\n• Contribuer à la création de nouvelles propositions de valeur autour des sujets :\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produire des contenus à forte valeur ajoutée pour soutenir le positionnement de Talan sur le marché.\n\nReprésentation et rayonnement\n\n• Représenter Talan lors de conférences, événements et tables rondes.\n\n• Développer la visibilité de la Business Line sur le marché suisse.\n\n• Contribuer au rayonnement de l'expertise Data & AI de Talan auprès des décideurs.\n\nFormation et expérience\n\n• Formation supérieure (Ingénieur, Université ou Grande École).\n\n• Minimum 8 années d'expérience dans le conseil, les services numériques ou les activités de transformation.\n\n• Expérience significative dans les activités de développement commercial et d'avant-vente.\n\n• Expérience auprès de décideurs de niveau C-Level, Direction Métiers ou Direction IT.\n Compétences\n Vous disposez d'une excellente compréhension des enjeux liés à :\n\n• la stratégie Data ;\n\n• les plateformes Data modernes ;\n\n• l'intelligence artificielle et l'IA générative ;\n\n• la transformation des organisations ;\n\n• la création de valeur par la donnée.\n Vous n'êtes pas nécessairement un expert technique, mais vous comprenez suffisamment les sujets pour :\n\n• dialoguer avec les experts ;\n\n• piloter les avant-ventes ;\n\n• construire des offres ;\n\n• convaincre les décideurs.\n Qualités personnelles\n Nous recherchons avant tout une personnalité :\n\n• entrepreneuriale ;\n\n• autonome ;\n\n• orientée résultats ;\n\n• capable de créer de nouvelles opportunités ;\n\n• reconnue pour sa crédibilité auprès des décideurs ;\n\n• à l'aise dans des environnements en forte croissance.\n Vous aimez construire, développer et faire grandir une activité.\n Langues\n\n• Français courant indispensable.\n\n• Anglais courant indispensable.\n\n• Allemand constitue un atout.\n Localisation\n\n• Suisse romande.\n\n• Préférence pour Lausanne afin de favoriser la proximité avec les équipes et la mobilité sur l'ensemble du territoire couvert.\n\nCe qui différencie ce poste\n\n• Travail en proximité directe avec le Directeur et les practices leads Data & AI Suisse.\n\n• Forte autonomie.\n\n• Impact concret sur la stratégie et la croissance de l'activité.\n\n• Exposition directe aux décideurs.\n\n• Participation aux grands enjeux Data & AI des organisations suisses.\n\n• Véritable trajectoire vers un rôle de leadership de la Business Line.",
       "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+        "it": "Sfondo:\nNell'ambito della crescita della sua Business Line Data & AI in Svizzera, Talan sta cercando un profilo ad alto potenziale in grado di contribuire attivamente allo sviluppo del suo business di consulenza e trasformazione Data & IA.\nCollegato direttamente al direttore della Business Line, svolgerai un ruolo centrale nello sviluppo di offerte, attività pre-vendita, il rapporto con i decisori e la strutturazione della crescita aziendale in Svizzera francofona.\nLe tue responsabilità:\nSviluppo aziendale e pre-vendita\n\n• Identificare e sviluppare opportunità con i conti esistenti.\n\n• Identificare le questioni strategiche che affrontano le organizzazioni e costruire proposte di valore appropriate.\n\n• Pre-sales complesso pilota e risposte alle gare.\n\n• Contribuisci direttamente agli obiettivi aziendali della Business Line.\n\n• Partecipare ad advocacy e trattative con i decisori aziendali e IT.\n\n• Sviluppare e mantenere una rete professionale in Svizzera francofona.\nSviluppo delle offerte\n\n• Partecipa alla strutturazione e all'evoluzione del portafoglio offerta da Data & AI.\n\n• Identificare le tendenze del mercato e le aspettative dei clienti emergenti.\n\n• Contribuire alla creazione di nuove proposte di valore intorno agli argomenti:\n• Strategia dei dati\n\n• Piattaforme di dati moderne\n\n• Intelligenza artificiale & GenAI\n\n• Governance dei dati\n\n• Trasformazione dei dati\n\n• Produrre contenuti ad alto valore per supportare il posizionamento di Talan sul mercato.\n\nRappresentanza e divulgazione\n\n• Rappresentare Talan a conferenze, eventi e tavole rotonde.\n\n• Sviluppare la visibilità della Business Line sul mercato svizzero.\n\n• Contribuisci alla diffusione delle competenze di Talan Data & AI tra i responsabili politici.\n\nFormazione ed esperienza\n\n• Istruzione superiore (ingegneria, Università o Grande École).\n\n• Esperienza minima di 8 anni di consulenza, servizi digitali o attività di trasformazione.\n\n• Esperienza significativa nello sviluppo aziendale e nelle attività pre-vendita.\n\n• Esperienza con i decisori C-Level, la Direzione Trades o la Direzione IT.\nCompetenze\nHai un'ottima comprensione dei problemi relativi a:\n\n• Strategia dei dati;\n\n• intelligenza artificiale e AI generale;\n\n• la trasformazione delle organizzazioni;\n\n• creazione valore per dati.\nNon sei necessariamente un esperto tecnico, ma capisci abbastanza gli argomenti da:\n\n• dialogo con gli esperti;\n\n• pre-vendita pilota;\n\n• offerte di costruzione;\n\n• convincenti decisori.\nidoneità personale\nCerchiamo soprattutto una personalità:\n\n• imprenditoriale;\n\n• autonomo;\n\n• risultati orientati;\n\n• capace di creare nuove opportunità;\n\n• riconosciuto per la sua credibilità con i decisori;\n\n• confortevole in ambienti in rapida crescita.\nTi piace costruire, sviluppare e crescere un'attività.\nLingue\n\n• Corrente francese indispensabile.\n\n• Inglese attuale essenziale.\n\n• Il tedesco e' una risorsa.\nLocation\n\n• Svizzera occidentale.\n\n• Preferenze per Losanna al fine di promuovere la vicinanza a team e la mobilità in tutto il territorio coperto.\n\nCiò che distingue questa posizione\n\n• I lavori in prossimità del Direttore e le pratiche portano Data & AI Svizzera.\n\n• Forte autonomia.\n\n• Impatto concreto sulla strategia aziendale e la crescita.\n\n• Esposizione diretta ai decisori.\n\n• Partecipazione ai principali temi di Data & AI delle organizzazioni svizzere.\n\n• Vero percorso verso un ruolo di leadership della Business Line.",
+        "en": "Background:\nAs part of the growth of its Business Line Data & AI in Switzerland, Talan is looking for a high-potential profile capable of actively contributing to the development of its Data & IA consulting and transformation business.\nLinked directly to the Director of the Business Line, you will play a central role in the development of offers, pre-sales activities, the relationship with decision-makers and the structuring of business growth in French-speaking Switzerland.\nYour responsibilities:\nBusiness development and pre-sales\n\n• Identify and develop opportunities with existing accounts.\n\n• Identify the strategic issues facing organizations and build appropriate value proposals.\n\n• Pilot complex pre-sales and responses to tenders.\n\n• Contribute directly to the business objectives of the Business Line.\n\n• Participate in advocacy and negotiations with business decision-makers and IT.\n\n• Develop and maintain a professional network in French-speaking Switzerland.\nDevelopment of offers\n\n• Participate in the structuring and evolution of the Data & AI offer portfolio.\n\n• Identify market trends and emerging customer expectations.\n\n• Contribute to the creation of new value proposals around topics:\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produce high-value content to support Talan's positioning on the market.\n\nRepresentation and outreach\n\n• Represent Talan at conferences, events and round tables.\n\n• Develop the visibility of the Business Line on the Swiss market.\n\n• Contribute to the dissemination of Talan's Data & AI expertise among policy makers.\n\nTraining and experience\n\n• Higher education (Engineering, University or Grande École).\n\n• Minimum 8 years experience in consulting, digital services or transformation activities.\n\n• Significant experience in business development and pre-sales activities.\n\n• Experience with C-Level decision-makers, Trades Directorate or IT Directorate.\nCompetences\nYou have an excellent understanding of the issues related to:\n\n• Data strategy;\n\n• artificial intelligence and general AI;\n\n• the transformation of organizations;\n\n• value creation by data.\nYou are not necessarily a technical expert, but you understand enough the topics to:\n\n• dialogue with experts;\n\n• pilot pre-sales;\n\n• building offers;\n\n• convincing decision-makers.\nPersonal suitability\nWe seek above all a personality:\n\n• entrepreneurial;\n\n• autonomous;\n\n• results-oriented;\n\n• capable of creating new opportunities;\n\n• recognized for its credibility with decision-makers;\n\n• comfortable in fast growing environments.\nYou like to build, develop and grow an activity.\nLanguages\n\n• French current indispensable.\n\n• Essential current English.\n\n• German is an asset.\nLocation\n\n• Western Switzerland.\n\n• Preference for Lausanne in order to promote proximity to teams and mobility throughout the covered territory.\n\nWhat distinguishes this position\n\n• Work in direct proximity with the Director and the practices leads Data & AI Switzerland.\n\n• Strong autonomy.\n\n• Concrete impact on business strategy and growth.\n\n• Direct exposure to decision makers.\n\n• Participation in the major Data & AI issues of Swiss organisations.\n\n• True path towards a leadership role of the Business Line.",
+        "de": "Hintergrund:\nIm Rahmen des Wachstums des Geschäftsfelds Data & AI in der Schweiz sucht Talan ein Profil mit hohem Potenzial, das aktiv zur Entwicklung seines Data & IA-Beratungs- und Transformationsgeschäfts beitragen kann.\nDirekt mit dem Direktor der Business Line verbunden, spielen Sie eine zentrale Rolle bei der Entwicklung von Angeboten, Pre-Sales-Aktivitäten, der Beziehung zu Entscheidungsträgern und der Strukturierung des Geschäftswachstums in der französischsprachigen Schweiz.\nIhre Aufgaben:\nGeschäftsentwicklung und Pre-Sales\n\n• Identifizieren und entwickeln Sie Chancen mit bestehenden Konten.\n\n• Identifizieren Sie die strategischen Probleme, mit denen Organisationen konfrontiert sind, und erstellen Sie geeignete Wertvorschläge.\n\n• Pilotkomplexe Vorverkäufe und Antworten auf Ausschreibungen.\n\n• direkt zu den Geschäftszielen des Geschäftsbereichs beitragen.\n\n• Beteiligen Sie sich an Advocacy und Verhandlungen mit Geschäftsentscheidern und IT.\n\n• Aufbau und Pflege eines professionellen Netzwerks in der französischsprachigen Schweiz.\nEntwicklung von Angeboten\n\n• Beteiligen Sie sich an der Strukturierung und Weiterentwicklung des Data & AI Angebotsportfolios.\n\n• Identifizieren Sie Markttrends und neue Kundenerwartungen.\n\n• Tragen Sie zur Erstellung neuer Wertvorschläge zu Themen bei:\n• Datenstrategie\n\n• Moderne Datenplattformen\n\n• Künstliche Intelligenz & GenAI\n\n• Data Governance\n\n• Datentransformation\n\n• Produzieren Sie hochwertige Inhalte, um Talans Positionierung auf dem Markt zu unterstützen.\n\nVertretung und Öffentlichkeitsarbeit\n\n• Repräsentieren Sie Talan bei Konferenzen, Veranstaltungen und runden Tischen.\n\n• Ausbau der Sichtbarkeit des Business Line auf dem Schweizer Markt.\n\n• Beitrag zur Verbreitung von Talans Data & AI-Expertise unter politischen Entscheidungsträgern.\n\nAusbildung und Erfahrung\n\n• Hochschulbildung (Ingenieurwesen, Universität oder Grande École).\n\n• Mindestens 8 Jahre Erfahrung in Beratung, digitalen Dienstleistungen oder Transformationsaktivitäten.\n\n• Bedeutende Erfahrung in der Geschäftsentwicklung und Pre-Sales-Aktivitäten.\n\n• Erfahrung mit C-Level-Entscheidungsträgern, Trades Directorate oder IT Directorate.\nKompetenzen\nSie haben ein ausgezeichnetes Verständnis der Probleme im Zusammenhang mit:\n\n• Datenstrategie;\n\n• Künstliche Intelligenz und allgemeine KI;\n\n• die Transformation von Organisationen;\n\n• Wertschöpfung durch Daten.\nSie sind nicht unbedingt ein technischer Experte, aber Sie verstehen die Themen genug, um:\n\n• Dialog mit Experten;\n\n• Pilotvorverkauf;\n\n• Bauangebote;\n\n• Entscheidungsträger überzeugen.\nPersönliche Eignung\nWir suchen vor allem eine Persönlichkeit:\n\n• unternehmerisch;\n\n• autonom;\n\n• ergebnisorientiert;\n\n• fähig, neue Möglichkeiten zu schaffen;\n\n• für seine Glaubwürdigkeit bei Entscheidungsträgern anerkannt;\n\n• komfortabel in schnell wachsenden Umgebungen.\nSie bauen, entwickeln und wachsen gerne eine Aktivität.\nSprachen\n\n• Französisch Strom unverzichtbar.\n\n• Essential Current Englisch.\n\n• Deutsch ist ein Asset.\nStandort\n\n• Westschweiz.\n\n• Lausanne wird bevorzugt, um die Nähe zu Teams und die Mobilität im gesamten Gebiet zu fördern.\n\nWas diese Position auszeichnet\n\n• Arbeiten in direkter Nähe mit dem Direktor und den Praxen leitet Data & AI Schweiz.\n\n• Starke Autonomie.\n\n• Konkrete Auswirkungen auf Geschäftsstrategie und Wachstum.\n\n• Direkte Exposition gegenüber Entscheidungsträgern.\n\n• Teilnahme an den wichtigsten Data & AI-Themen von Schweizer Organisationen.\n\n• Wahrer Weg zu einer Führungsrolle des Business Line.",
+        "fr": "Contexte :\nDans le cadre de la croissance de sa Business Line Data & AI en Suisse, Talan recherche un profil à fort potentiel capable de contribuer activement au développement de son activité de conseil et de transformation Data & IA.\nRattaché directement au Directeur de la Business Line, vous jouerez un rôle central dans le développement des offres, les activités d'avant-vente, la relation avec les décideurs et la structuration de la croissance de l'activité en Suisse romande.\nVos responsabilités :\nDéveloppement commercial et avant-vente\n\n• Identifier et développer des opportunités auprès des comptes existants.\n\n• Détecter les enjeux stratégiques des organisations et construire des propositions de valeur adaptées.\n\n• Piloter les avant-ventes complexes et les réponses aux appels d'offres.\n\n• Contribuer directement à l'atteinte des objectifs commerciaux de la Business Line.\n\n• Participer aux soutenances et négociations auprès des décideurs métiers et IT.\n\n• Développer et entretenir un réseau professionnel en Suisse romande.\nDéveloppement des offres\n\n• Participer à la structuration et à l'évolution du portefeuille d'offres Data & AI.\n\n• Identifier les tendances du marché et les attentes émergentes des clients.\n\n• Contribuer à la création de nouvelles propositions de valeur autour des sujets :\n• Data Strategy\n\n• Modern Data Platforms\n\n• Artificial Intelligence & GenAI\n\n• Data Governance\n\n• Data Transformation\n\n• Produire des contenus à forte valeur ajoutée pour soutenir le positionnement de Talan sur le marché.\n\nReprésentation et rayonnement\n\n• Représenter Talan lors de conférences, événements et tables rondes.\n\n• Développer la visibilité de la Business Line sur le marché suisse.\n\n• Contribuer au rayonnement de l'expertise Data & AI de Talan auprès des décideurs.\n\nFormation et expérience\n\n• Formation supérieure (Ingénieur, Université ou Grande École).\n\n• Minimum 8 années d'expérience dans le conseil, les services numériques ou les activités de transformation.\n\n• Expérience significative dans les activités de développement commercial et d'avant-vente.\n\n• Expérience auprès de décideurs de niveau C-Level, Direction Métiers ou Direction IT.\nCompétences\nVous disposez d'une excellente compréhension des enjeux liés à :\n\n• la stratégie Data ;\n\n• les plateformes Data modernes ;\n\n• l'intelligence artificielle et l'IA générative ;\n\n• la transformation des organisations ;\n\n• la création de valeur par la donnée.\nVous n'êtes pas nécessairement un expert technique, mais vous comprenez suffisamment les sujets pour :\n\n• dialoguer avec les experts ;\n\n• piloter les avant-ventes ;\n\n• construire des offres ;\n\n• convaincre les décideurs.\nQualités personnelles\nNous recherchons avant tout une personnalité :\n\n• entrepreneuriale ;\n\n• autonome ;\n\n• orientée résultats ;\n\n• capable de créer de nouvelles opportunités ;\n\n• reconnue pour sa crédibilité auprès des décideurs ;\n\n• à l'aise dans des environnements en forte croissance.\nVous aimez construire, développer et faire grandir une activité.\nLangues\n\n• Français courant indispensable.\n\n• Anglais courant indispensable.\n\n• Allemand constitue un atout.\nLocalisation\n\n• Suisse romande.\n\n• Préférence pour Lausanne afin de favoriser la proximité avec les équipes et la mobilité sur l'ensemble du territoire couvert.\n\nCe qui différencie ce poste\n\n• Travail en proximité directe avec le Directeur et les practices leads Data & AI Suisse.\n\n• Forte autonomie.\n\n• Impact concret sur la stratégie et la croissance de l'activité.\n\n• Exposition directe aux décideurs.\n\n• Participation aux grands enjeux Data & AI des organisations suisses.\n\n• Véritable trajectoire vers un rôle de leadership de la Business Line."
       },
       "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000138091780-business-development-advisory-lead-data-ai?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:25:07.462Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
+      "crawledAt": "2026-07-18T21:50:49.441Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "",
+      "streetAddress": "",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "IT / SAP / AI Consulting",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000138091780-business-development-advisory-lead-data-ai?oga=true",
+      "jobReqId": "744000138091780",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland",
-        "qa-ingegnere-ebanking-talan-geneve-switzerland"
+        "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
+        "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland",
-          "qa-ingegnere-ebanking-talan-geneve-switzerland"
+          "business-development-advisory-lead-data-ai-talan-lausanne-vd-switzerland",
+          "sviluppo-aziendale-advisory-lead-dati-ai-talan-lausanne-vd-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
+      "firstSeenAt": "2026-07-17T10:53:12.799Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
+          "minValue": 97500,
+          "maxValue": 165500,
           "unitText": "YEAR"
         }
       }
