@@ -1234,6 +1234,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-busta-paga-svizzera-2026.title': 'La busta paga svizzera: guida alle trattenute e il resto netto',
     'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Scopri come leggere una busta paga svizzera e cosa significa ogni trattenuta',
     'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Guida alla busta paga svizzera 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Quanto guadagna un tecnico di radiologia frontaliere in Ticino?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all\'Italia',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Tecnici di radiologia al lavoro in ospedale',
 };
 
 export default blogMetaChIt;

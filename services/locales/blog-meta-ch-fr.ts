@@ -1234,6 +1234,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-busta-paga-svizzera-2026.title': 'Le bulletin de paie suisse : guide des retenues et le reste net',
     'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Découvrez comment lire un bulletin de paie suisse et ce que chaque retenue signifie',
     'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Guide de la feuille de paie suisse 2026',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Combien gagne un technicien en radiologie frontalière au Tessin ?',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La rémunération d\'un technicien en radiologie frontalière au Tessin : facteurs affectant la rémunération et différences par rapport à l\'Italie',
+    'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologues en milieu hospitalier',
 };
 
 export default blogMetaChFr;
