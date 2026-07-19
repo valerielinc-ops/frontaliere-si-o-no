@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-beaulieu",
-  "assembledAt": "2026-07-18T23:04:32.985Z",
+  "assembledAt": "2026-07-19T11:17:46.015Z",
   "jobs": [
     {
       "id": "clinique-generale-beaulieu-dd4750afef34",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135076878-aide-soignant-e-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T23:04:30.662Z",
+      "crawledAt": "2026-07-19T11:17:44.083Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T23:04:30.660Z",
+      "crawledAt": "2026-07-19T11:17:44.081Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138339766-infirmier-ere-chirurgie-nuit",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T23:04:30.659Z",
+      "crawledAt": "2026-07-19T11:17:44.079Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -216,12 +216,14 @@
         "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
         "nurse-surgery-night-clinique-generale-beaulieu-geneve",
         "krankenschwester-chirurgie-nacht-clinique-generale-beaulieu-geneve",
-        "chirurgia-notturna-clinique-generale-beaulieu-geneve"
+        "chirurgia-notturna-clinique-generale-beaulieu-geneve",
+        "chirurgia-notturna-swiss-medical-network-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
-          "chirurgia-notturna-clinique-generale-beaulieu-geneve"
+          "chirurgia-notturna-clinique-generale-beaulieu-geneve",
+          "chirurgia-notturna-swiss-medical-network-geneve"
         ],
         "en": [
           "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
