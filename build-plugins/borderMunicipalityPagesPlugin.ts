@@ -21,7 +21,6 @@ import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { hasIndexableFiscalPage, fiscalPathFor } from './fiscalMunicipalityData';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -142,17 +141,6 @@ const BUTTON_LABELS = {
     fr: 'Comparer une alternative',
   },
 } satisfies Record<string, Record<Locale, string>>;
-
-// Reverse cross-link to the FISCAL guide page (fiscalMunicipalityPagesPlugin) —
-// distinct intent (fiscale vs vita), shown only where an INDEXABLE fiscal page
-// exists so the anti-cannibalization pairing is bidirectional exactly for the
-// competing pages.
-const FISCAL_CROSSLINK_LABEL: Record<Locale, string> = {
-  it: 'Tasse frontalieri: vecchio vs nuovo regime',
-  en: 'Cross-border tax: old vs new regime',
-  de: 'Grenzgänger-Steuern: alt vs. neu',
-  fr: 'Impôts frontaliers : ancien vs nouveau',
-};
 
 const WAIT_SOURCE_FALLBACK: Record<Locale, string> = {
   it: 'dataset interno / storico dogane',
@@ -901,7 +889,6 @@ function renderPage(params: {
     <section class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(copy.compareTitle)}</h2>
       <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        ${hasIndexableFiscalPage(slugify(municipality.name)) ? `<a class="rounded-md border border-accent-border bg-accent-subtle p-4 text-sm font-semibold text-heading hover:border-accent-strong" href="${fiscalPathFor(locale, slugify(municipality.name))}">${esc(FISCAL_CROSSLINK_LABEL[locale])}</a>` : ''}
         ${ACTION_LINKS.map((link) => `<a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${link.href}">${esc(link.label[locale])}</a>`).join('')}
       </div>
     </section>
