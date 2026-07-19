@@ -16,6 +16,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
@@ -945,6 +946,7 @@ function renderPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.title(municipality),
@@ -953,7 +955,7 @@ function renderPage(params: {
     hreflangHtml: buildAlternates(municipality),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [breadcrumbLd, placeLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'municipalities' },
     distDir,

@@ -47,6 +47,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import {
@@ -917,9 +918,9 @@ function renderReport(opts: {
     </section>
   `;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
-
   const wordCount = countHtmlBodyWords(body);
+
+  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const html = buildSeoPageHtml({
     locale,

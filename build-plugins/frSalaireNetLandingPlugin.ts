@@ -60,6 +60,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { FX_HREF } from './shared/comparatorHref';
 import { WriteCollector } from './batchWrite';
@@ -501,9 +502,9 @@ function renderPage(opts: RenderOpts): RenderResult {
       ${renderInternalLinks()}
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
-
   const wordCount = countHtmlBodyWords(body);
+
+  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const html = buildSeoPageHtml({
     locale: LOCALE,

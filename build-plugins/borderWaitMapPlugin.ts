@@ -33,6 +33,7 @@ import {
   MIN_INDEXABLE_WORDS,
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   LINK_ACCENT_STYLE,
@@ -614,9 +615,9 @@ function renderPage(opts: {
     </section>
   `;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}</main>`;
-
   const wordCount = countHtmlBodyWords(body);
+
+  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const html = buildSeoPageHtml({
     locale,
