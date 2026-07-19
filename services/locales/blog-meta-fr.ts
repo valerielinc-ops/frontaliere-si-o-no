@@ -8642,6 +8642,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-ottico-optometrista.title': 'Combien gagne un opticien frontalier au Tessin ?',
     'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'Une analyse des salaires d\'un opticien frontalier au Tessin, basée sur le nouvel accord frontalier de 2024.',
     'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'Un opticien dans un cabinet d\'optométrie à Lugano',
+    'blog.article.ottico-optometrista-ticino-guida.title': 'Opticien optométriste au Tessin : salaire et exigences',
+    'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guide complet pour l\'opticien frontalier : exigences professionnelles, salaires moyens au Tessin, permis G et réglementation fiscale mise à jour.',
+    'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Cabinet d\'opticien optométriste au Tessin avec équipements modernes',
 };
 
 export default blogMetaFr;

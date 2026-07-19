@@ -8642,6 +8642,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-ottico-optometrista.title': 'Quanto guadagna un ottico optometrista frontaliere in Ticino?',
     'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'Un\'analisi dei salari di un ottico optometrista frontaliere in Ticino, basata sul Nuovo Accordo Frontalieri del 2024.',
     'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'Un ottico optometrista in un ambulatorio in Lugano',
+    'blog.article.ottico-optometrista-ticino-guida.title': 'Ottico optometrista in Ticino: stipendio e requisiti',
+    'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guida completa per l\'ottico optometrista frontaliere: requisiti professionali, stipendi medi in Ticino, Permesso G e normativa fiscale aggiornata.',
+    'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Studio di un ottico optometrista in Ticino con attrezzature moderne',
 };
 
 export default blogMetaIt;
