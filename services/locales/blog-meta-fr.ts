@@ -8645,6 +8645,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Opticien optométriste au Tessin : salaire et exigences',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guide complet pour l\'opticien frontalier : exigences professionnelles, salaires moyens au Tessin, permis G et réglementation fiscale mise à jour.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Cabinet d\'opticien optométriste au Tessin avec équipements modernes',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Combien gagne un podiatre frontalier au Tessin ?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Le revenu d\'un podiatre frontalier au Tessin est influencé par plusieurs facteurs, dont la franchise, la retenue et la double imposition.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologue travaillant en Suisse, dans le canton du Tessin, photographié avec une caméra DSLR dans une scène réaliste.',
 };
 
 export default blogMetaFr;
