@@ -20,6 +20,7 @@ import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -215,7 +216,13 @@ interface Copy {
   faq3a: string;
   hubTitle: string;
   hubText: string;
-  vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => string;
+  /**
+   * `altCantonName`/`altCantonCode` describe whichever canton the closer
+   * (non-primary) crossing actually belongs to — currently always Valais/VS
+   * since that's the only alternate canton in today's data, but the copy no
+   * longer bakes that assumption into the literal text.
+   */
+  vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => string;
 }
 
 const COPY = {
@@ -267,7 +274,7 @@ const COPY = {
     faq3a: 'No. Servono a orientare la scelta abitativa e il pendolarismo. La tassazione dipende anche da data di assunzione, status vecchio/nuovo frontaliere, dichiarazione italiana, deduzioni e situazione familiare.',
     hubTitle: 'Esplora i comuni più cercati',
     hubText: 'Parti da un comune concreto: la scheda mostra cosa cambia su dogana, tempi, tasse locali e collegamenti utili.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Sei più vicino al valico ${vsCrossing} che porta verso il Vallese (cantone VS). Se lavori in Ticino il passaggio TI utile resta ${tiCrossing}, usato in tutti i tempi qui sotto.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Sei più vicino al valico ${vsCrossing} che porta verso il ${altCantonName} (cantone ${altCantonCode}). Se lavori in Ticino il passaggio TI utile resta ${tiCrossing}, usato in tutti i tempi qui sotto.`,
   },
   en: {
     updated: 'Updated',
@@ -317,7 +324,7 @@ const COPY = {
     faq3a: 'No. These pages help with orientation. Tax treatment depends on hiring date, old/new cross-border status, Italian filing, deductions and family situation.',
     hubTitle: 'Explore popular municipalities',
     hubText: 'Start from a concrete municipality: each profile shows border crossing, timing, local taxes and useful links.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `You are closer to ${vsCrossing}, which leads into Valais (canton VS). If you commute to Ticino the useful TI crossing remains ${tiCrossing}, used in all timings below.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `You are closer to ${vsCrossing}, which leads into ${altCantonName} (canton ${altCantonCode}). If you commute to Ticino the useful TI crossing remains ${tiCrossing}, used in all timings below.`,
   },
   de: {
     updated: 'Aktualisiert',
@@ -367,7 +374,7 @@ const COPY = {
     faq3a: 'Nein. Die Seite dient zur Orientierung. Die Besteuerung hängt von Einstellungsdatum, altem/neuem Grenzgängerstatus, italienischer Erklärung, Abzügen und Familie ab.',
     hubTitle: 'Beliebte Gemeinden erkunden',
     hubText: 'Starte bei einer konkreten Gemeinde: jede Karte zeigt Grenze, Zeiten, lokale Steuern und nützliche Links.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Du bist näher an ${vsCrossing}, das ins Wallis (Kanton VS) führt. Wer ins Tessin pendelt, nutzt weiterhin den TI-Übergang ${tiCrossing} — er liegt allen Zeiten unten zugrunde.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Du bist näher an ${vsCrossing}, das ins ${altCantonName} (Kanton ${altCantonCode}) führt. Wer ins Tessin pendelt, nutzt weiterhin den TI-Übergang ${tiCrossing} — er liegt allen Zeiten unten zugrunde.`,
   },
   fr: {
     updated: 'Mis à jour',
@@ -417,7 +424,7 @@ const COPY = {
     faq3a: 'Non. Cette page sert d’orientation. Le traitement fiscal dépend de la date d’embauche, du statut ancien/nouveau frontalier, de la déclaration italienne, des déductions et de la famille.',
     hubTitle: 'Explorer les communes populaires',
     hubText: 'Partez d’une commune concrète: chaque fiche montre douane, temps, taxes locales et liens utiles.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Vous êtes plus proche du poste ${vsCrossing}, qui mène au Valais (canton VS). Pour le Tessin, le passage TI utile reste ${tiCrossing}, utilisé dans tous les temps ci-dessous.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Vous êtes plus proche du poste ${vsCrossing}, qui mène au ${altCantonName} (canton ${altCantonCode}). Pour le Tessin, le passage TI utile reste ${tiCrossing}, utilisé dans tous les temps ci-dessous.`,
   },
 } satisfies Record<Locale, Copy>;
 
@@ -488,8 +495,21 @@ function nearestCrossings(municipality: Municipality): Array<{ crossing: BorderC
     .sort((a, b) => a.distanceKm - b.distanceKm);
 }
 
-function nearestTiCrossings(municipality: Municipality): Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }> {
-  return nearestCrossings(municipality).filter((entry) => entry.crossing.canton === 'TI');
+/**
+ * Canton this municipality-page generator's routes target. Every Italian
+ * border municipality in TICINO_CORRIDOR_PROVINCES today commutes toward
+ * Ticino, so this is the one corridor canton in scope right now — taking it
+ * as a parameter (instead of a bare 'TI' literal inside the filter) is what
+ * lets a future non-TI corridor reuse nearestCantonCrossings() without
+ * hardcoding the canton again.
+ */
+const PRIMARY_CORRIDOR_CANTON = 'TI';
+
+function nearestCantonCrossings(
+  municipality: Municipality,
+  canton: string = PRIMARY_CORRIDOR_CANTON,
+): Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }> {
+  return nearestCrossings(municipality).filter((entry) => entry.crossing.canton === canton);
 }
 
 function formatInt(n: number, locale: Locale): string {
@@ -801,12 +821,14 @@ function renderPage(params: {
   const { municipality, locale, dateStamp, distDir, waitSnapshot } = params;
   const copy = COPY[locale];
   const allRoutes = nearestCrossings(municipality);
-  const tiRoutes = nearestTiCrossings(municipality);
+  const tiRoutes = nearestCantonCrossings(municipality);
   const routes = tiRoutes;
   const [primary, alternate] = routes;
   const crossing = primary.crossing;
-  const showVsAlt = allRoutes[0]?.crossing.canton !== 'TI';
+  const showVsAlt = allRoutes[0]?.crossing.canton !== PRIMARY_CORRIDOR_CANTON;
   const vsAltCrossing = showVsAlt ? allRoutes[0]?.crossing.name ?? '' : '';
+  const vsAltCantonCode = showVsAlt ? allRoutes[0]?.crossing.canton ?? '' : '';
+  const vsAltCantonName = showVsAlt ? getCantonDisplayName(vsAltCantonCode, locale as CantonDisplayLocale) : '';
   const commute = estimateCommute(municipality, primary.distanceKm, crossing, waitSnapshot, primary.slug);
   const canonicalPath = pathFor(locale, municipality);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -853,7 +875,7 @@ function renderPage(params: {
     ${renderHydrationPanel({ locale, municipality, routes, waitSnapshot, copy })}
 
     ${showVsAlt ? `<aside class="mt-6 rounded-md border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-body">
-      <p>${esc(copy.vsAlternativeNote(vsAltCrossing, crossing.name))}</p>
+      <p>${esc(copy.vsAlternativeNote(vsAltCrossing, vsAltCantonName, vsAltCantonCode, crossing.name))}</p>
     </aside>` : ''}
 
     <section class="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
@@ -1007,7 +1029,7 @@ function buildHubPatch(municipalities: Municipality[]): string {
     .map((name) => byName.get(name))
     .filter((m): m is Municipality => Boolean(m))
     .map((m) => {
-      const [nearest] = nearestTiCrossings(m);
+      const [nearest] = nearestCantonCrossings(m);
       return `<a class="rounded-md border border-edge bg-surface p-4 hover:border-accent-border" href="${pathFor('it', m)}">
         <span class="block text-sm font-semibold text-heading">${esc(m.name)}</span>
         <span class="mt-1 block text-xs text-muted">${esc(m.province)} · ${formatDecimal(m.distanceKm, 'it')} km · ${esc(nearest.crossing.name)}</span>

@@ -78,6 +78,7 @@ import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanu
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
   FUEL_LOCALE_PREFIX,
@@ -222,6 +223,24 @@ function esc(s: unknown): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+// Per-locale "Canton X" prefix for the AdministrativeArea `name` in the Place
+// JSON-LD block (see renderLeafPage's `placeLd.containedInPlace`). Only TI
+// and VS exist in today's crossing data and both correctly take "du" in
+// French ("canton du Tessin" / "canton du Valais") — a genuinely
+// different-gender canton (e.g. "canton de Vaud") would need this prefix
+// table extended, not just the name lookup below.
+const CANTON_ADMIN_AREA_PREFIX: Record<BorderWaitLocale, string> = {
+  it: 'Canton ',
+  en: 'Canton of ',
+  de: 'Kanton ',
+  fr: 'Canton du ',
+};
+
+/** Localized "Canton X" administrative-area name, derived from the crossing's own canton code instead of a hardcoded Ticino literal. */
+function cantonAdministrativeAreaName(code: string, locale: BorderWaitLocale): string {
+  return `${CANTON_ADMIN_AREA_PREFIX[locale]}${getCantonDisplayName(code, locale as CantonDisplayLocale)}`;
 }
 
 // ── Hero card helpers (exported for tests) ───────────────────────
@@ -1630,6 +1649,11 @@ function renderLeafPage(inp: LeafInputs): string {
         url: canonicalUrl,
         address: {
           '@type': 'PostalAddress',
+          // Always 'CH': the Place being described is the Swiss-side
+          // checkpoint itself (hence addressRegion: reg.canton, a BFS
+          // canton code). addressLocality names the nearest foreign-side
+          // town for orientation only — reg.country (the foreign side's
+          // own country) does not apply to this address.
           addressCountry: 'CH',
           addressRegion: reg.canton,
           addressLocality: reg.foreignSide,
@@ -1641,8 +1665,11 @@ function renderLeafPage(inp: LeafInputs): string {
         },
         containedInPlace: {
           '@type': 'AdministrativeArea',
-          name: locale === 'de' ? 'Kanton Tessin' : locale === 'fr' ? 'Canton du Tessin' : locale === 'en' ? 'Canton of Ticino' : 'Canton Ticino',
-          address: { '@type': 'PostalAddress', addressRegion: 'TI', addressCountry: 'CH' },
+          name: cantonAdministrativeAreaName(reg.canton, locale),
+          // addressCountry is always 'CH' here regardless of reg.country:
+          // this block describes the canton (a Swiss administrative area),
+          // not the crossing's foreign side.
+          address: { '@type': 'PostalAddress', addressRegion: reg.canton, addressCountry: 'CH' },
         },
         openingHoursSpecification: reg.open24h
           ? {
