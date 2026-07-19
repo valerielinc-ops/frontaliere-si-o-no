@@ -58,7 +58,7 @@ const DEFAULT_RENT_BY_PROVINCE = {
 // ── Province full names for geocoding queries ────────────────
 const PROVINCE_FULL = {
   CO: 'Como', VA: 'Varese', VB: 'Verbano-Cusio-Ossola', SO: 'Sondrio', LC: 'Lecco',
-  AO: "Valle d'Aosta", VC: 'Vercelli', MB: 'Monza e Brianza', BG: 'Bergamo',
+  AO: "Valle d'Aosta", VC: 'Vercelli', MB: 'Monza-Brianza', BG: 'Bergamo',
   BS: 'Brescia', TN: 'Trento', BZ: 'Bolzano',
 };
 
@@ -400,7 +400,7 @@ async function main() {
   const provinceOrder = ['CO', 'VA', 'VB', 'SO', 'LC', 'AO', 'VC', 'MB', 'BG', 'BS', 'TN', 'BZ'];
   const provinceFullNames = {
     CO: 'Como', VA: 'Varese', VB: 'Verbano-Cusio-Ossola', SO: 'Sondrio', LC: 'Lecco',
-    AO: 'Aosta', VC: 'Vercelli', MB: 'Monza e Brianza', BG: 'Bergamo', BS: 'Brescia',
+    AO: 'Aosta', VC: 'Vercelli', MB: 'Monza-Brianza', BG: 'Bergamo', BS: 'Brescia',
     TN: 'Trento', BZ: 'Bolzano',
   };
 
