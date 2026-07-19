@@ -20,6 +20,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -199,6 +200,10 @@ ${sourcesHtml}
   });
 
   const wordCount = countHtmlBodyWords(bodyHtml);
+  const bodyHtmlWithAd = bodyHtml.replace(
+    /<\/div>\s*$/,
+    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`,
+  );
   const html = buildSeoPageHtml({
     locale,
     title: buildTitleWithBrand(copy.title),
@@ -209,7 +214,7 @@ ${sourcesHtml}
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: hreflangLines.join('\n'),
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
-    bodyHtml,
+    bodyHtml: bodyHtmlWithAd,
     distDir,
     hubChrome: { hubKey: 'guida', activeSubTab: 'pillar' },
   });
