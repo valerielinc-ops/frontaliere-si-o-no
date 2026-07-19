@@ -48,6 +48,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -467,9 +468,8 @@ function renderPage(opts: {
       <p class="s-y8VKoI">${esc(copy.lede)}</p>
     </section>`;
 
-  const bodyHtml = `<main class="s-it71Rt">${body}</main>`;
-
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `<main class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const jsonLdScripts = [breadcrumbLd, faqLd, articleLd];
   if (itemListLd) jsonLdScripts.push(itemListLd);

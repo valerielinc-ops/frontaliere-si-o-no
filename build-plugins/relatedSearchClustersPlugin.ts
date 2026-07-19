@@ -50,6 +50,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { ORPHAN_LANDING_SECTION } from './orphanQueryData';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -1824,6 +1825,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
     ${seoContextBlock}
+    ${endOfContentMultiplexHtml({ indexable: true })}
   </div>`;
 
   // Cluster keywords can exceed 60+ chars when the candidate slug is a long
@@ -2022,6 +2024,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
         </div>
       </details>`;
     })()}
+    ${endOfContentMultiplexHtml({ indexable: true })}
   </article>`;
 
   const title = buildTitleWithBrand(`${copy.hubTitle}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}`);

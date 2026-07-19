@@ -43,6 +43,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import {
   H1_STYLE,
   H2_STYLE,
@@ -1084,7 +1085,7 @@ function renderSectionPage(opts: {
       <p class="s-q3nqK4"><a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">← ${esc(localeCopy.editorialOrg)}</a></p>
     </section>`;
 
-  const bodyHtml = `<div class="s-it71Rt">${body}</div>`;
+  const bodyHtml = `<div class="s-it71Rt">${body}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
