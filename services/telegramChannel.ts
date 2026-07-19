@@ -11,20 +11,8 @@
  * are server-only and deliberately NOT exposed here.
  */
 
-function readChannelUrl(): string {
-  // `import.meta.env` is Vite-injected at build time. Guard the access so this
-  // module is safe to import from a non-Vite context (tests, tooling) where the
-  // env may be absent.
-  try {
-    const env = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env;
-    return (env?.VITE_TELEGRAM_CHANNEL_URL ?? '').trim();
-  } catch {
-    return '';
-  }
-}
-
 /** The configured public channel URL (e.g. `https://t.me/frontaliereticino`) or ''. */
-export const TELEGRAM_CHANNEL_URL: string = readChannelUrl();
+export const TELEGRAM_CHANNEL_URL: string = (import.meta.env.VITE_TELEGRAM_CHANNEL_URL ?? '').trim();
 
 /** True only when a well-formed public Telegram channel URL is configured. */
 export function isTelegramChannelConfigured(): boolean {

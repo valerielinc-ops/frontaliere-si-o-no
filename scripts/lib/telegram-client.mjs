@@ -62,13 +62,7 @@ export function escapeHtml(s) {
  * catches and returns `{ ok:false, error }`. Truncates over-long text to the
  * API's hard limit so a big digest can't be rejected outright.
  *
- * @param {object} opts
- * @param {string} opts.token — BotFather token.
- * @param {string|number} opts.chatId — channel @username or -100… id.
- * @param {string} opts.text — message body (HTML parse mode by default).
- * @param {'HTML'|'MarkdownV2'} [opts.parseMode]
- * @param {boolean} [opts.disablePreview] — suppress link previews (default true).
- * @param {typeof fetch} [opts.fetchImpl]
+ * @param {{ token: string, chatId: string|number, text: string, parseMode?: string, disablePreview?: boolean, fetchImpl?: typeof fetch }} [opts]
  * @returns {Promise<{ok:boolean, messageId:number|null, error:string|null}>}
  */
 export async function sendMessage({
