@@ -8636,6 +8636,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'Quanto guadagna un ergoterapista frontaliere in Ticino?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Stipendio di un ergoterapista frontaliere in Ticino: come si calcola e cosa influenza la retribuzione?',
     'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Ergoterapista frontaliere con cartellino del lavoro e visto di soggiorno in mano, con lo sfondo del lago Lugano',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Lavorare come dietista in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere',
+    'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'Vista di Lugano, Ticino',
 };
 
 export default blogMetaIt;

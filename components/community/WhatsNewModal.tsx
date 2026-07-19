@@ -45,6 +45,25 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.72.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3720.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3720.holidays.title',
+        descKey: 'whatsNew.v3720.holidays.desc',
+        link: { tab: 'guida' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3720.salaryByAge.title',
+        descKey: 'whatsNew.v3720.salaryByAge.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
     version: '3.71.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3710.title',

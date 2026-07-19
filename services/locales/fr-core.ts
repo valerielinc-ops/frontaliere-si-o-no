@@ -2543,6 +2543,11 @@ Règles :
  'whatsNew.v3710.consulting.title': 'Conseil personnalisé dans le funnel',
  'whatsNew.v3710.consulting.desc': 'Le conseil fiscal sur mesure est désormais accessible depuis le calculateur et en bas des articles fiscaux.',
 
+ 'whatsNew.v3720.title': 'Jours fériés et salaire par âge',
+ 'whatsNew.v3720.holidays.title': 'Calendrier des jours fériés : Tessin / Suisse vs Italie',
+ 'whatsNew.v3720.holidays.desc': 'De nouvelles pages listant les jours fériés officiels du Tessin et de l’Italie pour cette année et la suivante, les jours qui NE coïncident PAS (quand le Tessin ferme et que l’Italie travaille, et inversement) et les ponts pour planifier vos congés.',
+ 'whatsNew.v3720.salaryByAge.title': 'Salaire suisse moyen par âge et formation',
+ 'whatsNew.v3720.salaryByAge.desc': 'De nouvelles pages avec le salaire médian suisse (données BFS) par tranche d’âge (20, 30, 40, 50, 60 ans) et par niveau de formation, chacune renvoyant directement au calculateur de salaire net.',
  'whatsNew.v3730.title': 'Des widgets à ajouter à votre site',
  'whatsNew.v3730.embedWidgets.title': 'Badge salaire et widgets d’attente aux douanes pour votre site',
  'whatsNew.v3730.embedWidgets.desc': 'Blogs, forums et sites spécialisés peuvent désormais intégrer gratuitement nos widgets : salaire médian par profession, attentes en temps réel aux douanes et taux CHF/EUR. Code copier-coller prêt sur frontaliereticino.ch/embed/.',
