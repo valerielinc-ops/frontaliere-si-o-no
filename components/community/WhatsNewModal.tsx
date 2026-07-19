@@ -71,6 +71,19 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.75.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3750.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3750.professionCities.title',
+        descKey: 'whatsNew.v3750.professionCities.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
     version: '3.73.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3730.title',

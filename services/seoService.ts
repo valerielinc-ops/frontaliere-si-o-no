@@ -4638,6 +4638,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-podologo-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come podologo in Ticino da', path: '/articoli-svizzera/podologo-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-podologo-frontaliere-ticino-guadagna': { name: 'Podologo frontaliere in Ticino', path: '/articoli-frontaliere/podologo-frontaliere-ticino-guadagna', parent: 'blog' },
     'blog-podologo-frontaliere-ticino-guida': { name: 'Podologo in Ticino', path: '/articoli-svizzera/podologo-frontaliere-ticino-guida/', parent: 'blog' },
+    'blog-assistente-di-studio-medico-frontaliere': { name: 'Quanto guadagna un assistente di studio', path: '/articoli-frontaliere/assistente-di-studio-medico-frontaliere', parent: 'blog' },
+    'blog-indennita-di-disoccupazione-svizzere-ai-frontalieri': { name: 'Frontalieri e indennità di disoccupazione', path: '/articoli-svizzera/indennita-di-disoccupazione-svizzere-ai-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

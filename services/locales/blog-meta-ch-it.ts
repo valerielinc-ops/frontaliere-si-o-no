@@ -1258,6 +1258,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologo in Ticino: stipendio, requisiti e permesso G',
     'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
     'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Studio podologico moderno in Svizzera con attrezzatura medica',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida delle indennità di disoccupazione per i frontalieri.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Un frontaliere sta pagando i contributi in Svizzera e ricevendo l\'indennità dalle casse del paese di residenza.',
 };
 
 export default blogMetaChIt;

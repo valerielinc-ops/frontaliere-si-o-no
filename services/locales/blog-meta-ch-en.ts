@@ -1258,6 +1258,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guida.title': 'Podiatrist in Ticino: salary, requirements and permit G',
     'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Complete guide for border podiatrists: analysis of professional requirements, average salaries and tax legislation updated to 2024.',
     'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Modern podiatry clinic in Switzerland with medical equipment',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Swiss unemployment benefits for frontier workers: conflicting positions',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'The EU Permanent Representatives Committee has approved a measure to replace the country of residence with the country of last employment for the validation of unemployment benefits for frontier workers.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'A frontaliere paying contributions in Switzerland and receiving unemployment benefits from the country of residence.',
 };
 
 export default blogMetaChEn;

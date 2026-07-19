@@ -3770,6 +3770,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'indennita-di-disoccupazione-svizzere-ai-frontalieri',
+    category: 'pratico',
+    date: '2026-07-19T10:23:00.484Z',
+    image: '/images/blog/indennita-di-disoccupazione-svizzere-ai-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

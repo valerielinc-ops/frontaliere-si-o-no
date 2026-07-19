@@ -1258,6 +1258,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologue au Tessin : salaire, exigences et permis G',
     'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guide complet pour les podologues frontaliers : analyse des exigences professionnelles, des salaires moyens et de la législation fiscale mise à jour à 2024.',
     'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Clinique de podologie moderne en Suisse avec équipement médical',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Indemnités de chômage suisses aux frontaliers : positions opposées',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Le Comité des représentants permanents de l\'UE a approuvé une mesure visant à remplacer le pays de résidence par le pays de dernier emploi pour la validation des allocations de chômage pour les frontaliers.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Un frontalier paie des contributions en Suisse et reçoit des indemnités de chômage du pays de résidence.',
 };
 
 export default blogMetaChFr;
