@@ -8660,6 +8660,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.medico-frontaliere-stipendio-ticino.title': 'Quanto guadagna un medico frontaliere in Ticino?',
     'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Fatti chiave: un medico frontaliere in Ticino può beneficiare di un reddito più alto rispetto all\'Italia, grazie al Nuovo Accordo Frontalieri.',
     'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'Un medico frontaliere in Ticino siede a un tavolo da lavoro con uno stetoscopio in mano, sorridendo al paziente.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'Quanto guadagna un veterinario frontaliere in Ticino?',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'Gli stipendi dei veterinari frontaliere in Ticino sono soggetti a diverse imposte e regimi contributivi.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramica di Lugano, con il Lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

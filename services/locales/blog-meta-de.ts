@@ -8658,6 +8658,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.medico-frontaliere-stipendio-ticino.title': 'Wie viel verdient ein Grenzarzt im Tessin?',
     'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Wesentliche Fakten: Ein Grenzarzt im Tessin kann dank der Neuen Frontalieri-Vereinbarung von einem höheren Einkommen profitieren als Italien.',
     'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'Ein Arzt in Ticino sitzt an einem Schreibtisch mit einem Stethoskop in der Hand und lächelt dem Patienten zu.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'Wie viel verdient ein Grenztierarzt im Tessin?',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'Die Gehälter von Grenztierärzten im Tessin unterliegen unterschiedlichen Steuern und Beitragsregelungen.',
+    'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramabild von Lugano, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;
