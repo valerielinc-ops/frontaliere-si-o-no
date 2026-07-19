@@ -151,6 +151,7 @@ const translations: Record<string, string> = {
  'results.liveInTicino': 'Vivere in Ticino',
  'results.liveInItaly': 'Vivere in Italia',
  'results.netMonthlyResidual': 'Netto Mensile Residuo',
+ 'results.exchangeVerticalLink': 'Quanto vale in euro? Storico cambio CHF/EUR',
  'results.downloadPDF': 'Scarica PDF',
  'results.share.button': 'Condividi simulazione',
  'results.share.copied': 'Link copiato!',

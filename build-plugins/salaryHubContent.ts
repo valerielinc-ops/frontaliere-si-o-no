@@ -16,6 +16,7 @@ import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
+import { buildNearestExchangeAmountPath } from '../services/exchangeSsgPaths';
 import {
   renderSalaryLandingShell,
   type SalaryLandingData,
@@ -593,6 +594,16 @@ function buildHubSalaryLandingData(
   };
 }
 
+// Cross-link to the static CHF/EUR exchange vertical (epic #4452): each
+// scenario page points at the curated amount page nearest to its gross
+// salary, closing the salary-hub -> exchange loop required by issue #4454.
+const EXCHANGE_SCENARIO_LINK_LABEL: Record<Locale, (chf: string) => string> = {
+  it: (chf) => `Quanto valgono ${chf} CHF in euro? Tasso di oggi e storico`,
+  en: (chf) => `What are ${chf} CHF worth in euro? Today's rate and history`,
+  de: (chf) => `Wie viel sind ${chf} CHF in Euro? Aktueller Kurs und Verlauf`,
+  fr: (chf) => `Combien valent ${chf} CHF en euros ? Taux du jour et historique`,
+};
+
 export function generatePageHtml(
   scenario: SalaryHubScenario,
   result: SimulationResult,
@@ -656,6 +667,7 @@ export function generatePageHtml(
     <h2>${l.budgetTitle}</h2><p>${l.budgetExplain(scenario, result)}</p>
     <h2>${l.tipsTitle}</h2><p>${l.tipsExplain(scenario, result)}</p>
     <h2>${l.relatedTitle}</h2><div class="related-grid">${relatedHtml}</div>
+    <p><a href="${buildNearestExchangeAmountPath(locale, scenario.salary)}">${EXCHANGE_SCENARIO_LINK_LABEL[locale](fmtCHF(scenario.salary))} →</a></p>
     ${renderAuthoritativeSourcesHtml(locale)}
     <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
   </section>`;

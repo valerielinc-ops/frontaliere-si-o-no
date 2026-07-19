@@ -25,6 +25,7 @@ import {
  type JobCareClusterKey,
 } from './jobEditorialLanding';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
+import { isExchangeSsgPath } from './exchangeRateSsgData';
 
 type SupportedLocale = CantonLocale;
 
@@ -486,6 +487,20 @@ export function resolveSearchConsoleCompatTarget(
  // isHealthFacilityPath checks a module-load-precomputed Set (PATH_INDEX),
  // so this stays O(1) per call inside the 150k+-path compat loop.
  if (isHealthFacilityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // CHF/EUR exchange vertical (epic #4452): hub + curated amount pages are
+ // emitted UNCONDITIONALLY on every build (static amount set, no data-driven
+ // floor), so a URL matching this exact enumerated family always has a live
+ // target at the SAME path. isExchangeSsgPath checks a Set precompiled at
+ // module load (exchangeRateSsgData.ts) — O(1) per call inside the
+ // 150k+-path compat loop, same rationale as the self-maps above.
+ if (isExchangeSsgPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

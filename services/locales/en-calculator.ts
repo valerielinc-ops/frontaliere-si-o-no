@@ -145,6 +145,7 @@ const enCalculator: Record<string, string> = {
  'results.liveInTicino': 'Living in Ticino',
  'results.liveInItaly': 'Living in Italy',
  'results.netMonthlyResidual': 'Net Monthly Residual',
+ 'results.exchangeVerticalLink': 'What is it worth in euro? CHF/EUR rate history',
  'results.downloadPDF': 'Download PDF',
  'results.share.button': 'Share simulation',
  'results.share.copied': 'Link copied!',
