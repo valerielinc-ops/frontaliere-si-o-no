@@ -411,6 +411,29 @@ const enCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Complex situation?',
  'calculator.consultingCta.body': '30 min of personalized consulting with a cross-border expert — €49. Book your slot.',
  'calculator.consultingCta.button': 'Book consultation',
+
+ // Salary alert from results (#4469)
+ 'results.salaryAlert.headline': 'Alert me when jobs with net pay ≥ {amount} are posted',
+ 'results.salaryAlert.body': "We'll email you as soon as new Ticino jobs matching your salary go live. Free, one tap, no spam.",
+ 'results.salaryAlert.button': 'Yes, email me',
+ 'results.salaryAlert.retry': 'Try again',
+ 'results.salaryAlert.error': "We couldn't create the alert. Please try again.",
+ 'results.salaryAlert.successTitle': 'Alert active ✓',
+ 'results.salaryAlert.successBody': "We'll email you as soon as Ticino jobs with net pay ≥ {amount} appear.",
+
+ // Multi-canton net comparison (#4471)
+ 'results.cantonCompare.title': 'The same job in other cantons',
+ 'results.cantonCompare.subtitle': 'Estimated monthly net for a resident in the same role, with active jobs in that canton.',
+ 'results.cantonCompare.disclaimer': 'Estimate based on the regional wage level (BFS) and cantonal tax burden (ESTV). Real figures vary by municipality and personal situation.',
+
+ // Ticino municipal multiplier (#4470)
+ 'results.municipalTax.title': 'Municipal tax (Ticino residents)',
+ 'results.municipalTax.subtitle': "If you live in Ticino on a B/C permit, your net changes with your municipality's tax multiplier. It does not affect cross-border workers, taxed at source.",
+ 'results.municipalTax.selectLabel': 'Municipality of residence',
+ 'results.municipalTax.cantonAverage': 'Cantonal average',
+ 'results.municipalTax.netIn': 'Monthly net in {municipality}',
+ 'results.municipalTax.netAverage': 'Monthly net (cantonal average)',
+ 'results.municipalTax.source': 'Source: municipal tax multipliers, Canton of Ticino {year}. Indicative estimate.',
  // E2 — Calculator paywall (soft paywall for PDF report)
  'calculator.paywall.title': 'Your free Italy vs Switzerland PDF report',
  'calculator.paywall.body': 'We\u2019ll email you the PDF with your numbers plus the 2026 tax guide.',

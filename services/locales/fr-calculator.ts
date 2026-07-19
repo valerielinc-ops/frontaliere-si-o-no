@@ -411,6 +411,29 @@ const frCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Situation complexe\u00a0?',
  'calculator.consultingCta.body': '30 min de conseil personnalis\u00e9 avec un expert frontalier \u2014 49\u00a0\u20ac. R\u00e9servez votre cr\u00e9neau.',
  'calculator.consultingCta.button': 'R\u00e9server une consultation',
+
+ // Salary alert from results (#4469)
+ 'results.salaryAlert.headline': 'Pr\u00e9viens-moi quand des offres avec net \u2265 {amount} sont publi\u00e9es',
+ 'results.salaryAlert.body': "On t'\u00e9crit d\u00e8s que de nouvelles offres au Tessin correspondent \u00e0 ton salaire. Gratuit, un tap, sans spam.",
+ 'results.salaryAlert.button': 'Oui, pr\u00e9viens-moi par e-mail',
+ 'results.salaryAlert.retry': 'R\u00e9essayer',
+ 'results.salaryAlert.error': "Impossible de cr\u00e9er l'alerte. R\u00e9essaie.",
+ 'results.salaryAlert.successTitle': 'Alerte activ\u00e9e \u2713',
+ 'results.salaryAlert.successBody': "On t'\u00e9crit d\u00e8s que des offres au Tessin avec net \u2265 {amount} apparaissent.",
+
+ // Multi-canton net comparison (#4471)
+ 'results.cantonCompare.title': 'Le m\u00eame emploi dans d\'autres cantons',
+ 'results.cantonCompare.subtitle': 'Net mensuel estim\u00e9 pour un r\u00e9sident au m\u00eame poste, avec les offres actives dans ce canton.',
+ 'results.cantonCompare.disclaimer': 'Estimation bas\u00e9e sur le niveau salarial r\u00e9gional (OFS) et la charge fiscale cantonale (AFC). Les valeurs r\u00e9elles varient selon la commune et la situation personnelle.',
+
+ // Ticino municipal multiplier (#4470)
+ 'results.municipalTax.title': 'Imp\u00f4t communal (r\u00e9sidents au Tessin)',
+ 'results.municipalTax.subtitle': "Si tu vis au Tessin avec un permis B/C, le net varie selon le multiplicateur communal. Cela ne concerne pas les frontaliers, impos\u00e9s \u00e0 la source.",
+ 'results.municipalTax.selectLabel': 'Commune de domicile',
+ 'results.municipalTax.cantonAverage': 'Moyenne cantonale',
+ 'results.municipalTax.netIn': 'Net mensuel \u00e0 {municipality}',
+ 'results.municipalTax.netAverage': 'Net mensuel (moyenne cantonale)',
+ 'results.municipalTax.source': "Source : multiplicateurs communaux d'imp\u00f4t, Canton du Tessin {year}. Estimation indicative.",
  // E2 — Calculator paywall (soft paywall for PDF report)
  'calculator.paywall.title': 'Votre comparatif Italie-Suisse en PDF gratuit',
  'calculator.paywall.body': 'Vous recevrez par e-mail le PDF avec vos chiffres et le guide fiscal 2026.',

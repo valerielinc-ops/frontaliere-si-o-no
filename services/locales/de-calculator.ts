@@ -411,6 +411,29 @@ const deCalculator: Record<string, string> = {
  'calculator.consultingCta.headline': 'Komplexe Situation?',
  'calculator.consultingCta.body': '30 Min. persönliche Beratung mit einem Grenzgänger-Experten — 49 €. Buchen Sie Ihren Termin.',
  'calculator.consultingCta.button': 'Beratung buchen',
+
+ // Salary alert from results (#4469)
+ 'results.salaryAlert.headline': 'Benachrichtige mich bei Stellen mit Nettolohn ≥ {amount}',
+ 'results.salaryAlert.body': 'Wir schreiben dir per E-Mail, sobald neue Stellen im Tessin zu deinem Gehalt passen. Gratis, ein Tipp, kein Spam.',
+ 'results.salaryAlert.button': 'Ja, per E-Mail benachrichtigen',
+ 'results.salaryAlert.retry': 'Erneut versuchen',
+ 'results.salaryAlert.error': 'Der Alert konnte nicht erstellt werden. Bitte versuche es erneut.',
+ 'results.salaryAlert.successTitle': 'Alert aktiv ✓',
+ 'results.salaryAlert.successBody': 'Wir melden uns per E-Mail, sobald Tessiner Stellen mit Nettolohn ≥ {amount} erscheinen.',
+
+ // Multi-canton net comparison (#4471)
+ 'results.cantonCompare.title': 'Derselbe Job in anderen Kantonen',
+ 'results.cantonCompare.subtitle': 'Geschätzter monatlicher Nettolohn für Ansässige in derselben Rolle, mit aktiven Stellen im jeweiligen Kanton.',
+ 'results.cantonCompare.disclaimer': 'Schätzung auf Basis des regionalen Lohnniveaus (BFS) und der kantonalen Steuerbelastung (ESTV). Reale Werte variieren je nach Gemeinde und persönlicher Situation.',
+
+ // Ticino municipal multiplier (#4470)
+ 'results.municipalTax.title': 'Gemeindesteuer (Ansässige im Tessin)',
+ 'results.municipalTax.subtitle': 'Wenn du mit B/C-Bewilligung im Tessin wohnst, ändert sich der Nettolohn je nach Gemeindesteuerfuss. Grenzgänger (quellenbesteuert) sind nicht betroffen.',
+ 'results.municipalTax.selectLabel': 'Wohngemeinde',
+ 'results.municipalTax.cantonAverage': 'Kantonaler Durchschnitt',
+ 'results.municipalTax.netIn': 'Monatlicher Nettolohn in {municipality}',
+ 'results.municipalTax.netAverage': 'Monatlicher Nettolohn (kantonaler Durchschnitt)',
+ 'results.municipalTax.source': 'Quelle: Gemeindesteuerfüsse, Kanton Tessin {year}. Richtwert.',
  // E2 — Calculator paywall (soft paywall for PDF report)
  'calculator.paywall.title': 'Ihr kostenloser Italien-Schweiz-Vergleich als PDF',
  'calculator.paywall.body': 'Sie erhalten das PDF mit Ihren Zahlen plus den Steuerleitfaden 2026 per E-Mail.',

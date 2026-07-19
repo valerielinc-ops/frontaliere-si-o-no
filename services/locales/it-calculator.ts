@@ -423,6 +423,29 @@ const translations: Record<string, string> = {
  'calculator.consultingCta.headline': 'Situazione complessa?',
  'calculator.consultingCta.body': '30 min di consulenza personalizzata con esperto frontaliere — €49. Prenota il tuo slot.',
  'calculator.consultingCta.button': 'Prenota consulenza',
+
+ // Salary alert from results (#4469)
+ 'results.salaryAlert.headline': 'Avvisami quando escono offerte con netto ≥ {amount}',
+ 'results.salaryAlert.body': 'Ti scriviamo appena pubblichiamo nuove offerte in Ticino in linea con il tuo stipendio. Gratis, un tap, niente spam.',
+ 'results.salaryAlert.button': 'Sì, avvisami via email',
+ 'results.salaryAlert.retry': 'Riprova',
+ 'results.salaryAlert.error': "Non siamo riusciti a creare l'alert. Riprova.",
+ 'results.salaryAlert.successTitle': 'Alert attivato ✓',
+ 'results.salaryAlert.successBody': 'Ti scriviamo appena escono offerte in Ticino con netto ≥ {amount}.',
+
+ // Multi-canton net comparison (#4471)
+ 'results.cantonCompare.title': 'Lo stesso lavoro in altri cantoni',
+ 'results.cantonCompare.subtitle': 'Netto mensile stimato per un residente con lo stesso ruolo, con le offerte attive in quel cantone.',
+ 'results.cantonCompare.disclaimer': 'Stima basata sul livello salariale regionale (BFS) e sul carico fiscale cantonale (ESTV). I valori reali variano per comune e situazione personale.',
+
+ // Ticino municipal multiplier (#4470)
+ 'results.municipalTax.title': 'Imposta comunale (residenti in Ticino)',
+ 'results.municipalTax.subtitle': 'Se vivi in Ticino con permesso B/C, il netto cambia in base al moltiplicatore comunale. Non riguarda i frontalieri, tassati alla fonte.',
+ 'results.municipalTax.selectLabel': 'Comune di domicilio',
+ 'results.municipalTax.cantonAverage': 'Media cantonale',
+ 'results.municipalTax.netIn': 'Netto mensile a {municipality}',
+ 'results.municipalTax.netAverage': 'Netto mensile (media cantonale)',
+ 'results.municipalTax.source': "Fonte: moltiplicatori comunali d'imposta, Cantone Ticino {year}. Stima indicativa.",
  // E2 — Calculator paywall (soft paywall for PDF report)
  'calculator.paywall.title': 'Il tuo confronto Italia-Svizzera in PDF gratuito',
  'calculator.paywall.body': 'Riceverai via email il PDF con i tuoi numeri + guida tasse 2026.',

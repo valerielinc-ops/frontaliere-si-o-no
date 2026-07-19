@@ -57,6 +57,15 @@ export interface JobAlertConfig {
    */
   specificJobId?: string | null;
   specificCompanyKey?: string | null;
+  /**
+   * Desired minimum monthly NET salary (CHF), prefilled from the calculator
+   * simulation when the alert is created from the results view (issue #4469 —
+   * "avvisami per offerte con netto ≥ X"). Stored as the user's salary
+   * expectation criterion and surfaced back in the alert manager. `null`/absent
+   * = no salary expectation (default). Kept optional so Firestore reads stay
+   * backwards-compatible with alerts created before the field existed.
+   */
+  minNetMonthlyCHF?: number | null;
 }
 
 export interface JobAlert extends JobAlertConfig {
@@ -207,6 +216,8 @@ export async function createAlert(
     // Job-specific scope (per-job / per-employer alert). null = normal alert.
     specificJobId: config.specificJobId ?? null,
     specificCompanyKey: config.specificCompanyKey ?? null,
+    // Salary expectation prefilled from the calculator (issue #4469).
+    minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
     // State.
     active: true,
     createdAt: serverTimestamp(),
@@ -230,11 +241,24 @@ export async function createAlert(
     ...config,
     cantonFilter,
     frequencyOverride: config.frequencyOverride === true,
+    minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
     active: true,
     createdAt: new Date(),
     lastMatchedAt: null,
     matchCount: 0,
   };
+}
+
+/**
+ * Normalise a desired minimum monthly net salary (issue #4469): a positive,
+ * finite number is rounded to a whole CHF; anything else (null, 0, negative,
+ * NaN) collapses to `null` so Firestore never stores a junk expectation and
+ * downstream consumers can treat the field as a single optional gate.
+ */
+export function normalizeMinNet(input: number | null | undefined): number | null {
+  const n = Number(input);
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return Math.round(n);
 }
 
 /**
@@ -274,6 +298,9 @@ export async function getUserAlerts(userId: string): Promise<JobAlert[]> {
       // Legacy alerts (pre-adaptive-frequency) have no `frequencyOverride`
       // field — absent means engine-managed, not manually pinned.
       frequencyOverride: d.frequencyOverride === true,
+      // Legacy alerts (pre-#4469) have no salary expectation — normalise absent
+      // / junk values to null so consumers treat the field as one optional gate.
+      minNetMonthlyCHF: normalizeMinNet(d.minNetMonthlyCHF),
       locale: d.locale || 'it',
       active: d.active,
       createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
@@ -413,6 +440,56 @@ export async function subscribeJobAlertOneTap(
 }
 
 /**
+ * Build the canonical `JobAlertConfig` for a salary alert created from the
+ * calculator results view (issue #4469 — "avvisami per offerte con netto ≥ X").
+ *
+ * Prefilled from the simulation: an optional profession keyword, the region as a
+ * canton geo-scope (validated 2-letter ISO code, e.g. `'TI'`), and the desired
+ * minimum monthly net salary. Weekly cadence, engine-managed (no
+ * `frequencyOverride`) like the other one-tap presets. Shared by the authed
+ * one-tap path and the anonymous pending-replay path so both persist identical
+ * criteria. Empty `profession` ⇒ no keyword (canton + salary expectation still
+ * scope the alert).
+ */
+export function buildSalaryAlertConfig(opts: {
+  profession?: string | null;
+  cantonCode?: string | null;
+  minNetMonthlyCHF?: number | null;
+  locale: 'it' | 'en' | 'de' | 'fr';
+}): JobAlertConfig {
+  const keyword = stripKeywordEmoji(String(opts.profession || '')).trim();
+  const canton = opts.cantonCode ? String(opts.cantonCode).trim().toUpperCase() : null;
+  return {
+    keywords: keyword ? [keyword] : [],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: canton ? [canton] : null,
+    frequency: 'weekly',
+    locale: opts.locale,
+    minNetMonthlyCHF: normalizeMinNet(opts.minNetMonthlyCHF),
+  };
+}
+
+/**
+ * 1-tap subscribe helper for a salary alert from the calculator (issue #4469).
+ * Delegates to `createAlert` (the single write path that also fires the GA4
+ * subscriber segment). The max-3 active-alerts limit propagates to the caller.
+ */
+export async function subscribeSalaryAlert(
+  userId: string,
+  email: string,
+  opts: {
+    profession?: string | null;
+    cantonCode?: string | null;
+    minNetMonthlyCHF?: number | null;
+    locale: 'it' | 'en' | 'de' | 'fr';
+  },
+): Promise<JobAlert> {
+  return createAlert(userId, email, buildSalaryAlertConfig(opts));
+}
+
+/**
  * 1-tap subscribe helper for a SPECIFIC job ("Avvisami per questo annuncio").
  *
  * Pins the alert to a single job id via `specificJobId` so the matcher
@@ -474,6 +551,10 @@ export async function updateAlert(
   // not just pin (`true`) — see components/community/JobAlertForm.tsx.
   if ('frequencyOverride' in changes) {
     updateData.frequencyOverride = changes.frequencyOverride === true;
+  }
+  // Use `in` so callers can clear the salary expectation (pass `null`/0).
+  if ('minNetMonthlyCHF' in changes) {
+    updateData.minNetMonthlyCHF = normalizeMinNet(changes.minNetMonthlyCHF);
   }
   if (changes.locale) updateData.locale = changes.locale;
 

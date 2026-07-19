@@ -15,6 +15,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { cantonGrossScale, cantonTaxBurdenPct, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
 import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
 import { buildPath } from '@/services/router';
+import { CH_SOCIAL_RATE } from '@/constants';
 
 const SalarySurvey = lazyRetry(() => import('@/components/community/SalarySurvey'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -22,7 +23,6 @@ const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'))
 // ── Net calculation helpers ──────────────────────────────────────────────────
 
 const PPP_FACTOR = 0.65;
-const CH_SOCIAL_RATE = 0.136;
 
 function chWithholding(gross: number, canton?: string | null): number {
  return gross * (cantonTaxBurdenPct(gross, canton) / 100);
