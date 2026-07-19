@@ -980,6 +980,7 @@ const SEO_SECTION_TITLE_KEY_MAP: Record<string, string> = {
  contracts: 'contracts.title',
  'tfr-calculator': 'tfr.title',
  'permit-quiz': 'permitQuiz.title',
+ 'frontaliere-wizard': 'frontaliereWizard.title',
  'tredicesima': 'tredicesima.title',
  'weekly-digest': 'weeklyDigest.title',
  'tool-of-week': 'toolOfWeek.title',
@@ -1068,6 +1069,7 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  contracts: 'seo.contracts.description',
  'tfr-calculator': 'seo.tfrCalculator.description',
  'permit-quiz': 'seo.permitQuiz.description',
+ 'frontaliere-wizard': 'seo.frontaliereWizard.description',
  tredicesima: 'seo.tredicesima.description',
  'weekly-digest': 'seo.weeklyDigest.description',
  'tool-of-week': 'seo.toolOfWeek.description',
@@ -1324,6 +1326,16 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  ? 'Quiz Permis B ou G'
  : 'Quiz Permesso B o G',
  path: '/quiz-permesso-b-o-g',
+ },
+ 'frontaliere-wizard': {
+ name: locale === 'en'
+ ? 'Ready to become a cross-border worker?'
+ : locale === 'de'
+ ? 'Bereit, Grenzgänger zu werden?'
+ : locale === 'fr'
+ ? 'Prêt à devenir frontalier ?'
+ : 'Sei pronto a diventare frontaliere?',
+ path: '/sei-pronto-a-diventare-frontaliere',
  },
  'tredicesima': {
  name: locale === 'en'
