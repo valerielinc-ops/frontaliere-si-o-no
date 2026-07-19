@@ -11398,5 +11398,119 @@
         "pending": 2
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-19T13:00:09.678Z",
+    "label": "before",
+    "total": 24658,
+    "needsRetranslation": 1677,
+    "suppressed": 35,
+    "incomplete": 90,
+    "complete": 24568,
+    "missingByLocale": {
+      "it": 61,
+      "en": 37,
+      "de": 41,
+      "fr": 45
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 23
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Manor AG",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-19T14:10:32.514Z",
+    "label": "after",
+    "total": 24658,
+    "needsRetranslation": 1423,
+    "suppressed": 35,
+    "incomplete": 88,
+    "complete": 24570,
+    "missingByLocale": {
+      "it": 60,
+      "en": 37,
+      "de": 39,
+      "fr": 45
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 22
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 17
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      },
+      {
+        "company": "Manor AG",
+        "pending": 2
+      }
+    ]
   }
 ]
