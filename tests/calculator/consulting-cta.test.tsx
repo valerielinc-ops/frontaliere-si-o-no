@@ -98,9 +98,36 @@ describe('ConsultingCTA — analytics', () => {
   await waitFor(() => {
    expect(Analytics.trackFunnelStep).toHaveBeenCalledTimes(1);
   });
+  // The view step now carries the placement dimension so the calculator and
+  // fisco-article view→booking funnels stay separable (issue #4487).
   expect(Analytics.trackFunnelStep).toHaveBeenCalledWith(
    'consulting_cta_view',
-   { funnel: 'consulting' },
+   { funnel: 'consulting', placement: 'calculator' },
+  );
+ });
+
+ it('fisco-article placement fires distinct cta_id + section + utm attribution', async () => {
+  await loadLocale('it');
+  render(<ConsultingCTA enabledOverride placement="fisco-article" />);
+
+  const io = MockIO.instances[MockIO.instances.length - 1];
+  io.trigger(true);
+  await waitFor(() => {
+   expect(Analytics.trackFunnelStep).toHaveBeenCalledWith(
+    'consulting_cta_view',
+    { funnel: 'consulting', placement: 'fisco-article' },
+   );
+  });
+
+  const link = screen.getByRole('link', { name: /Prenota una consulenza/i });
+  fireEvent.click(link);
+  expect(Analytics.trackCtaClick).toHaveBeenCalledWith(
+   'article_consulting_cta',
+   expect.objectContaining({
+    section: 'fisco_article',
+    utm_source: 'fisco_article',
+    utm_campaign: 'fisco_article',
+   }),
   );
  });
 

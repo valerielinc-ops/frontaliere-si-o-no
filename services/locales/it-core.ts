@@ -2614,6 +2614,22 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ // Consulting CTA at end of fiscal articles (#4487)
+ 'consultingCta.article.headline': 'Dubbi sulla tua situazione fiscale?',
+ 'consultingCta.article.body': '30 minuti con un esperto di fiscalità frontaliera per chiarire il tuo caso specifico — €49, slot limitati.',
+ 'consultingCta.article.button': 'Prenota una consulenza',
+
+ // v3.71.0 — potenziamento calcolatore
+ 'whatsNew.v3710.title': 'Calcolatore potenziato: alert, imposta comunale, confronto cantoni',
+ 'whatsNew.v3710.salaryAlert.title': 'Alert stipendio dal calcolatore',
+ 'whatsNew.v3710.salaryAlert.desc': 'Dopo la simulazione attivi in un tap un avviso via email quando escono offerte con netto pari o superiore al tuo.',
+ 'whatsNew.v3710.municipalTax.title': 'Imposta comunale nel netto',
+ 'whatsNew.v3710.municipalTax.desc': 'Per chi risiede in Ticino, il netto tiene conto del moltiplicatore comunale del comune scelto.',
+ 'whatsNew.v3710.cantonCompare.title': 'Lo stesso lavoro in altri cantoni',
+ 'whatsNew.v3710.cantonCompare.desc': 'Scopri il netto stimato per lo stesso ruolo a Zurigo, Ginevra, Zugo e altri cantoni, con link alle offerte.',
+ 'whatsNew.v3710.consulting.title': 'Consulenza personalizzata nel funnel',
+ 'whatsNew.v3710.consulting.desc': 'La consulenza fiscale su misura è ora raggiungibile dal calcolatore e in fondo agli articoli fiscali.',
+
  'whatsNew.v3700.title': 'Pagine azienda: stipendi e posizioni aperte',
  'whatsNew.v3700.employerProfiles.title': 'Profili delle aziende che assumono',
  'whatsNew.v3700.employerProfiles.desc': 'Nuove pagine dedicate per centinaia di aziende: posizioni aperte, stipendio mediano, sedi e trend delle assunzioni, tutto in un colpo d’occhio.',

@@ -2527,6 +2527,22 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ // Consulting CTA at end of fiscal articles (#4487)
+ 'consultingCta.article.headline': 'Fragen zu deiner Steuersituation?',
+ 'consultingCta.article.body': '30 Minuten mit einem Grenzgänger-Steuerexperten, um deinen konkreten Fall zu klären — €49, begrenzte Plätze.',
+ 'consultingCta.article.button': 'Beratung buchen',
+
+ // v3.71.0 — Rechner-Upgrade
+ 'whatsNew.v3710.title': 'Rechner-Upgrade: Alerts, Gemeindesteuer, Kantonsvergleich',
+ 'whatsNew.v3710.salaryAlert.title': 'Lohn-Alert aus dem Rechner',
+ 'whatsNew.v3710.salaryAlert.desc': 'Nach der Simulation aktivierst du mit einem Tipp einen E-Mail-Alert für Stellen mit Nettolohn ab deinem Niveau.',
+ 'whatsNew.v3710.municipalTax.title': 'Gemeindesteuer im Nettolohn',
+ 'whatsNew.v3710.municipalTax.desc': 'Für Tessiner Ansässige berücksichtigt der Nettolohn nun den Steuerfuss der gewählten Gemeinde.',
+ 'whatsNew.v3710.cantonCompare.title': 'Derselbe Job in anderen Kantonen',
+ 'whatsNew.v3710.cantonCompare.desc': 'Sieh den geschätzten Nettolohn für dieselbe Rolle in Zürich, Genf, Zug und weiteren Kantonen, mit Links zu Stellen.',
+ 'whatsNew.v3710.consulting.title': 'Persönliche Beratung im Funnel',
+ 'whatsNew.v3710.consulting.desc': 'Massgeschneiderte Steuerberatung ist jetzt direkt aus dem Rechner und am Ende von Steuerartikeln erreichbar.',
+
  'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
  'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
  'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',

@@ -2524,6 +2524,22 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ // Consulting CTA at end of fiscal articles (#4487)
+ 'consultingCta.article.headline': 'Questions about your tax situation?',
+ 'consultingCta.article.body': '30 minutes with a cross-border tax expert to clarify your specific case — €49, limited slots.',
+ 'consultingCta.article.button': 'Book a consultation',
+
+ // v3.71.0 — calculator boost
+ 'whatsNew.v3710.title': 'Calculator boost: alerts, municipal tax, canton comparison',
+ 'whatsNew.v3710.salaryAlert.title': 'Salary alert from the calculator',
+ 'whatsNew.v3710.salaryAlert.desc': 'After a simulation, turn on an email alert in one tap for jobs with net pay at or above yours.',
+ 'whatsNew.v3710.municipalTax.title': 'Municipal tax in the net',
+ 'whatsNew.v3710.municipalTax.desc': 'For Ticino residents, the net now reflects the tax multiplier of the chosen municipality.',
+ 'whatsNew.v3710.cantonCompare.title': 'The same job in other cantons',
+ 'whatsNew.v3710.cantonCompare.desc': 'See the estimated net for the same role in Zurich, Geneva, Zug and other cantons, with links to jobs.',
+ 'whatsNew.v3710.consulting.title': 'Personalized consulting in the funnel',
+ 'whatsNew.v3710.consulting.desc': 'Tailored tax consulting is now reachable from the calculator and at the end of fiscal articles.',
+
  'whatsNew.v3700.title': 'Company pages: salaries and open roles',
  'whatsNew.v3700.employerProfiles.title': 'Profiles of the companies that are hiring',
  'whatsNew.v3700.employerProfiles.desc': 'New dedicated pages for hundreds of employers: open positions, median salary, locations and hiring trend, all at a glance.',

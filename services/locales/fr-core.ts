@@ -2527,6 +2527,22 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ // Consulting CTA at end of fiscal articles (#4487)
+ 'consultingCta.article.headline': 'Des questions sur ta situation fiscale ?',
+ 'consultingCta.article.body': '30 minutes avec un expert en fiscalité frontalière pour clarifier ton cas précis — €49, places limitées.',
+ 'consultingCta.article.button': 'Réserver une consultation',
+
+ // v3.71.0 — calculateur boosté
+ 'whatsNew.v3710.title': 'Calculateur boosté : alertes, impôt communal, comparaison cantons',
+ 'whatsNew.v3710.salaryAlert.title': 'Alerte salaire depuis le calculateur',
+ 'whatsNew.v3710.salaryAlert.desc': 'Après une simulation, active en un tap une alerte e-mail pour les offres au net égal ou supérieur au tien.',
+ 'whatsNew.v3710.municipalTax.title': 'Impôt communal dans le net',
+ 'whatsNew.v3710.municipalTax.desc': 'Pour les résidents au Tessin, le net tient désormais compte du multiplicateur communal de la commune choisie.',
+ 'whatsNew.v3710.cantonCompare.title': 'Le même emploi dans d\'autres cantons',
+ 'whatsNew.v3710.cantonCompare.desc': 'Découvre le net estimé pour le même poste à Zurich, Genève, Zoug et d\'autres cantons, avec des liens vers les offres.',
+ 'whatsNew.v3710.consulting.title': 'Conseil personnalisé dans le funnel',
+ 'whatsNew.v3710.consulting.desc': 'Le conseil fiscal sur mesure est désormais accessible depuis le calculateur et en bas des articles fiscaux.',
+
  'whatsNew.v3700.title': 'Pages entreprise : salaires et postes ouverts',
  'whatsNew.v3700.employerProfiles.title': 'Profils des entreprises qui recrutent',
  'whatsNew.v3700.employerProfiles.desc': 'De nouvelles pages dédiées pour des centaines d’employeurs : postes ouverts, salaire médian, sites et tendance des recrutements, en un coup d’œil.',
