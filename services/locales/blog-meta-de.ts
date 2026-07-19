@@ -8643,6 +8643,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Augenoptiker im Tessin: Gehalt und Voraussetzungen',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Vollständiger Leitfaden für Grenzoptiker: berufliche Anforderungen, Durchschnittslöhne im Tessin, G-Genehmigung und aktualisierte Steuervorschriften.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Optiker-Optometrist-Praxis im Tessin mit moderner Ausstattung',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Wie viel verdient ein Grenzfusspfleger im Tessin?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Das Einkommen eines Grenzfusspflegers im Tessin wird von mehreren Faktoren beeinflusst, darunter Franchise, Quellensteuer und Doppelbesteuerung.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Ein Podologe, der in der Schweiz in Ticino arbeitet, Fotografie mit DSLR-Kamera in einer realistischen Szene im Kanton Tessin.',
 };
 
 export default blogMetaDe;

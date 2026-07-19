@@ -8644,6 +8644,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Optometrist in Ticino: salary and requirements',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Complete guide for the border optometrist optician: professional requirements, average salaries in Ticino, G Permit and updated tax legislation.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Optician optometrist office in Ticino with modern equipment',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'How much does a border podiatrist earn in Ticino?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'The income of a border podiatrist in Ticino is influenced by several factors, including deductible, withholding and double taxation.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'A podologist working in Ticino, Switzerland, image captured by DSLR camera in a realistic scene set in the Ticino canton.',
 };
 
 export default blogMetaEn;
