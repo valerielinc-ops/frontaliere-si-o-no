@@ -355,11 +355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
+          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
@@ -385,8 +387,8 @@
       "slugByLocale": {
         "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "en": "procurement-business-partner-villeret-straumann-ch",
-        "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
-        "fr": "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret"
+        "de": "einkaufs-partner-villeret-straumann-villeret",
+        "fr": "procurement-business-partner-villeret-straumann-villeret"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -436,18 +438,24 @@
       },
       "previousSlugs": [
         "procurement-business-partner-villeret-straumann-ch",
+        "beschaffungsgeschaftspartner-villeret-straumann-villeret",
+        "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
+        "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "einkaufs-partner-villeret-straumann-villeret",
         "procurement-business-partner-villeret-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "procurement-business-partner-villeret-straumann-ch"
+          "procurement-business-partner-villeret-straumann-ch",
+          "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret"
         ],
         "de": [
+          "beschaffungsgeschaftspartner-villeret-straumann-villeret",
           "einkaufs-partner-villeret-straumann-villeret"
         ],
         "fr": [
           "procurement-business-partner-villeret-straumann-ch",
+          "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
           "procurement-business-partner-villeret-straumann-villeret"
         ]
       },
@@ -472,7 +480,7 @@
       "slugByLocale": {
         "it": "steward-dei-dati-principali-straumann-villeret",
         "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
-        "de": "stammdatenverwalter-straumann-villeret",
+        "de": "master-data-steward-straumann-villeret",
         "fr": "master-data-steward-straumann-ch"
       },
       "company": "Straumann",
@@ -516,14 +524,18 @@
       "previousSlugs": [
         "master-data-steward-straumann-ch",
         "maitre-de-la-garde-des-donnees-straumann-villeret",
+        "stammdatenverwalter-straumann-villeret",
+        "steward-dei-dati-principali-straumann-villeret",
         "master-data-steward-straumann-villeret"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-data-steward-straumann-ch"
+          "master-data-steward-straumann-ch",
+          "steward-dei-dati-principali-straumann-villeret"
         ],
         "de": [
           "master-data-steward-straumann-ch",
+          "stammdatenverwalter-straumann-villeret",
           "master-data-steward-straumann-villeret"
         ],
         "fr": [
@@ -626,12 +638,14 @@
       "previousSlugs": [
         "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
         "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
-        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"
+        "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck",
+        "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manufacturing-engineer-medical-devices-80-100-galvosurge-straumann-ch",
-          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck"
+          "ingegnere-di-prodotto-e-produzione-dispositivi-medici-80-100-galvosurge-straumann-berneck",
+          "product-manufacturing-ingegnere-medical-devices-80-100-galvosurge-straumann-berneck"
         ],
         "de": [
           "produkt-und-fertigungsingenieur-medizinprodukte-80-100-galvosurge-straumann-berneck"

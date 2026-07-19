@@ -76,7 +76,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -141,6 +141,14 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -253,7 +261,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-d93a11884c66",
@@ -343,11 +359,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+        "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+        "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern"
+          "kundenberater-in-im-kundencenter-srg-srg-ssr-bern",
+          "consulente-clienti-nel-centro-assistenza-srg-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:40.347Z",
@@ -472,7 +490,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-2a49e73ed1d6",
@@ -548,11 +574,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+        "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+        "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern"
+          "stagiaire-recherchiste-pour-l-39-emission-on-en-parle-srg-ssr-bern",
+          "tirocinante-ricercatore-per-il-programma-ne-parliamo-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-06-29T11:35:18.709Z",
@@ -916,11 +944,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "assistent-in-finanzen-srg-ssr-bern"
+        "assistent-in-finanzen-srg-ssr-bern",
+        "assistente-in-finanza-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-finanzen-srg-ssr-bern"
+          "assistent-in-finanzen-srg-ssr-bern",
+          "assistente-in-finanza-srg-ssr-bern"
         ],
         "en": [
           "assistent-in-finanzen-srg-ssr-bern"
@@ -1016,18 +1046,23 @@
       },
       "previousSlugs": [
         "auditeur-trice-interne-srg-ssr-bern",
-        "auditeur-trice-interne-srg-ssr-bern-2"
+        "auditeur-trice-interne-srg-ssr-bern-2",
+        "revisore-interno-srg-ssr-bern-97427c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auditeur-trice-interne-srg-ssr-bern",
-          "auditeur-trice-interne-srg-ssr-bern-2"
+          "auditeur-trice-interne-srg-ssr-bern-2",
+          "revisore-interno-srg-ssr-bern-97427c"
         ],
         "en": [
           "auditeur-trice-interne-srg-ssr-bern-2"
         ],
         "de": [
           "auditeur-trice-interne-srg-ssr-bern-2"
+        ],
+        "fr": [
+          "auditeur-trice-interne-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:56.421Z",
@@ -1290,11 +1325,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -1469,11 +1506,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "mediendokumentalist-in-musik-srg-ssr-zurich"
+        "mediendokumentalist-in-musik-srg-ssr-zurich",
+        "documentalist-multimediale-in-musica-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mediendokumentalist-in-musik-srg-ssr-zurich"
+          "mediendokumentalist-in-musik-srg-ssr-zurich",
+          "documentalist-multimediale-in-musica-srg-ssr-zurich"
         ],
         "en": [
           "mediendokumentalist-in-musik-srg-ssr-zurich"
@@ -1651,11 +1690,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"
+        "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
+        "internship-in-media-research-data-analytics-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"
+          "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich",
+          "internship-in-media-research-data-analytics-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-medienforschung-amp-data-analytics-srg-ssr-zurich"

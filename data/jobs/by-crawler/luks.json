@@ -81,7 +81,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -125,13 +125,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
+        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern",
+        "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
+          "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
+          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern",
           "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
@@ -381,11 +385,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fur-op-lagerung-und-gipszimmer-60-100-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fur-op-lagerung-und-gipszimmer-60-100-luks-luzern",
+        "infermiere-a-specializzata-a-in-assistenza-operativa-e-stanza-gesso-al-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fur-op-lagerung-und-gipszimmer-60-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fur-op-lagerung-und-gipszimmer-60-100-luks-luzern",
+          "infermiere-a-specializzata-a-in-assistenza-operativa-e-stanza-gesso-al-60-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.992Z",
@@ -633,11 +639,13 @@
         ]
       },
       "previousSlugs": [
-        "weiterbildungsplatz-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-mit-schwerpunkt"
+        "weiterbildungsplatz-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-mit-schwerpunkt",
+        "stage-di-formazione-per-dipl-esperto-a-di-cure-intensive-pediatriche-nds-hf-con-specializzazione-in-pediartria-90-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildungsplatz-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-mit-schwerpunkt"
+          "weiterbildungsplatz-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-mit-schwerpunkt",
+          "stage-di-formazione-per-dipl-esperto-a-di-cure-intensive-pediatriche-nds-hf-con-specializzazione-in-pediartria-90-100"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.989Z",
@@ -725,11 +733,13 @@
         ]
       },
       "previousSlugs": [
-        "expertin-experte-intensivpflege-nds-hf-schwerpunkt-padiatrie-80-100-luks-luzern"
+        "expertin-experte-intensivpflege-nds-hf-schwerpunkt-padiatrie-80-100-luks-luzern",
+        "esperta-esperto-di-cure-intensive-pediatriche-nds-hf-specializzata-in-pediatria-80-100-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-intensivpflege-nds-hf-schwerpunkt-padiatrie-80-100-luks-luzern"
+          "expertin-experte-intensivpflege-nds-hf-schwerpunkt-padiatrie-80-100-luks-luzern",
+          "esperta-esperto-di-cure-intensive-pediatriche-nds-hf-specializzata-in-pediatria-80-100-luzerner-kantonsspital-luks"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.987Z",
@@ -819,11 +829,13 @@
       },
       "previousSlugs": [
         "zivildienstleistende-als-mitarbeiter-reinigungsdienst-pflichtenheft-76825-luks-sursee",
-        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum-2"
+        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum-2",
+        "personale-di-servizio-civile-come-addetti-alle-pulizie-incarico-76825-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-reinigungsdienst-pflichtenheft-76825-luks-sursee"
+          "zivildienstleistende-als-mitarbeiter-reinigungsdienst-pflichtenheft-76825-luks-sursee",
+          "personale-di-servizio-civile-come-addetti-alle-pulizie-incarico-76825-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.984Z",
@@ -924,7 +936,8 @@
         "segretaria-o-di-studio-medico-specializzata-in-chirurgia-vascolare-60-100-luzerner-kantonsspital-luks-luzern",
         "medical-secretary-mpa-in-vascular-surgery-60-100-luzerner-kantonsspital-luks-luzern",
         "mpa-als-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luks-luzern",
-        "secretaire-medical-mpa-en-chirurgie-vasculaire-60-100-luzerner-kantonsspital-luks-luzern"
+        "secretaire-medical-mpa-en-chirurgie-vasculaire-60-100-luzerner-kantonsspital-luks-luzern",
+        "medico-specialista-in-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -932,7 +945,8 @@
           "segretaria-o-di-studio-medico-specializzata-in-chirurgia-vascolare-60-100-luzerner-kantonsspital-luks-luzern",
           "medical-secretary-mpa-in-vascular-surgery-60-100-luzerner-kantonsspital-luks-luzern",
           "mpa-als-arztsekretarin-arztsekretar-mba-gefasschirurgie-60-100-luks-luzern",
-          "secretaire-medical-mpa-en-chirurgie-vasculaire-60-100-luzerner-kantonsspital-luks-luzern"
+          "secretaire-medical-mpa-en-chirurgie-vasculaire-60-100-luzerner-kantonsspital-luks-luzern",
+          "medico-specialista-in-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "medical-secretary-mpa-in-vascular-surgery-60-100-luzerner-kantonsspital-luks-luzern"
@@ -1101,12 +1115,14 @@
       },
       "previousSlugs": [
         "zivildienstleistende-als-mitarbeiter-allrounder-kuche-pflichtenheft-50973-luks-wolhusen",
-        "zivildienstleistende-als-allrounder-kuche-50973-luks-wolhusen"
+        "zivildienstleistende-als-allrounder-kuche-50973-luks-wolhusen",
+        "prestatore-di-servizio-civile-come-dipendente-polivalente-cucina-progetto-50973-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-mitarbeiter-allrounder-kuche-pflichtenheft-50973-luks-wolhusen",
-          "zivildienstleistende-als-allrounder-kuche-50973-luks-wolhusen"
+          "zivildienstleistende-als-allrounder-kuche-50973-luks-wolhusen",
+          "prestatore-di-servizio-civile-come-dipendente-polivalente-cucina-progetto-50973-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.981Z",
@@ -1190,11 +1206,13 @@
         "ergoterapista-ergoterapista-60-100-luzerner-kantonsspital-luks-wolhusen",
         "ergotherapeutin-ergotherapeut-60-100-luks-wolhusen",
         "therapeute-en-ergotherapie-60-100-luzerner-kantonsspital-luks-wolhusen",
-        "ergotherapeutin-ergotherapeutin-60-100-luzerner-kantonsspital-luks-wolhusen"
+        "ergotherapeutin-ergotherapeutin-60-100-luzerner-kantonsspital-luks-wolhusen",
+        "stage-per-fisioterapia-ergoterapia-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorpraktikanten-in-physio-ergotherapie-luks-wolhusen"
+          "vorpraktikanten-in-physio-ergotherapie-luks-wolhusen",
+          "stage-per-fisioterapia-ergoterapia-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.980Z",
@@ -1283,11 +1301,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-pflege-fur-bettenstation-mit-nephrologie-hamatologie-gastroenterologie-und"
+        "teamleiter-in-pflege-fur-bettenstation-mit-nephrologie-hamatologie-gastroenterologie-und",
+        "capo-team-di-cure-per-la-stazione-di-lettini-con-nefrologia-ematologia-gastroenterologia-e-medicina-interna-generale-al"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-pflege-fur-bettenstation-mit-nephrologie-hamatologie-gastroenterologie-und"
+          "teamleiter-in-pflege-fur-bettenstation-mit-nephrologie-hamatologie-gastroenterologie-und",
+          "capo-team-di-cure-per-la-stazione-di-lettini-con-nefrologia-ematologia-gastroenterologia-e-medicina-interna-generale-al"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.978Z",
@@ -1381,11 +1401,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-br-pflegeassistent-pflichtenheft-76823-luks-sursee"
+        "zivildienstleistende-als-br-pflegeassistent-pflichtenheft-76823-luks-sursee",
+        "prestatore-di-servizio-civile-come-assistente-alla-cura-progetto-76823-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-br-pflegeassistent-pflichtenheft-76823-luks-sursee"
+          "zivildienstleistende-als-br-pflegeassistent-pflichtenheft-76823-luks-sursee",
+          "prestatore-di-servizio-civile-come-assistente-alla-cura-progetto-76823-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.977Z",
@@ -1475,11 +1497,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-mitarbeiter-arealbereich-pflichtenheft-76699-luks-wolhusen"
+        "zivildienstleistende-als-mitarbeiter-arealbereich-pflichtenheft-76699-luks-wolhusen",
+        "prestatore-di-servizio-civile-come-dipendente-dell-area-specifica-76699-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-arealbereich-pflichtenheft-76699-luks-wolhusen"
+          "zivildienstleistende-als-mitarbeiter-arealbereich-pflichtenheft-76699-luks-wolhusen",
+          "prestatore-di-servizio-civile-come-dipendente-dell-area-specifica-76699-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.976Z",
@@ -1572,11 +1596,13 @@
         ]
       },
       "previousSlugs": [
-        "fachexpertin-fachexperte-fur-zentrum-fur-intensivmedizin-80-100-luks-luzern"
+        "fachexpertin-fachexperte-fur-zentrum-fur-intensivmedizin-80-100-luks-luzern",
+        "esperta-specializzata-per-il-centro-di-medicina-intensiva-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpertin-fachexperte-fur-zentrum-fur-intensivmedizin-80-100-luks-luzern"
+          "fachexpertin-fachexperte-fur-zentrum-fur-intensivmedizin-80-100-luks-luzern",
+          "esperta-specializzata-per-il-centro-di-medicina-intensiva-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.971Z",
@@ -1669,11 +1695,13 @@
         "zivildienstleistende-als-koch-pflichtenheft-101150-luks-luzern",
         "fournisseur-de-services-publics-en-qualite-de-chef-service-numero-101150-luzerner-kantonsspital-luks-luzern",
         "civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern",
-        "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern"
+        "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern",
+        "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-koch-hauptkuche-pflichtenheft-51535-luks-sursee"
+          "zivildienstleistende-als-koch-hauptkuche-pflichtenheft-51535-luks-sursee",
+          "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.969Z",
@@ -1760,11 +1788,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-mitarbeiter-abwasch-und-rustkuche-pflichtenheft-51536-luks-sursee"
+        "zivildienstleistende-als-mitarbeiter-abwasch-und-rustkuche-pflichtenheft-51536-luks-sursee",
+        "personale-di-servizio-civile-come-collaboratore-lavaggio-e-preparazione-cucina-specifica-51536-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-abwasch-und-rustkuche-pflichtenheft-51536-luks-sursee"
+          "zivildienstleistende-als-mitarbeiter-abwasch-und-rustkuche-pflichtenheft-51536-luks-sursee",
+          "personale-di-servizio-civile-come-collaboratore-lavaggio-e-preparazione-cucina-specifica-51536-luzerner-kantonsspital"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.968Z",
@@ -1862,11 +1892,13 @@
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-fh-radio-onkologie-100-luks-luzern"
+        "radiologiefachfrau-radiologiefachmann-hf-fh-radio-onkologie-100-luks-luzern",
+        "tecnico-a-di-radiologia-hf-fh-radio-oncologia-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-fh-radio-onkologie-100-luks-luzern"
+          "radiologiefachfrau-radiologiefachmann-hf-fh-radio-onkologie-100-luks-luzern",
+          "tecnico-a-di-radiologia-hf-fh-radio-oncologia-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.966Z",
@@ -1943,11 +1975,13 @@
         ]
       },
       "previousSlugs": [
-        "akademische-leitung-klinische-chemie-famh-80-100-luks-luzern"
+        "akademische-leitung-klinische-chemie-famh-80-100-luks-luzern",
+        "direzione-accademica-chimica-clinica-famh-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "akademische-leitung-klinische-chemie-famh-80-100-luks-luzern"
+          "akademische-leitung-klinische-chemie-famh-80-100-luks-luzern",
+          "direzione-accademica-chimica-clinica-famh-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.965Z",
@@ -2047,7 +2081,8 @@
         "specialista-della-salute-geriatria-acuta-60-100-luzerner-kantonsspital-luks-luzern",
         "professional-health-professional-health-acute-geriatrics-60-100-luzerner-kantonsspital-luks-luzern",
         "fachfrau-gesundheit-fachmann-gesundheit-akutgeriatrie-60-100-luks-luzern",
-        "sante-professionnelle-sante-professionnelle-geriatrie-aigue-60-100-luzerner-kantonsspital-luks-luzern"
+        "sante-professionnelle-sante-professionnelle-geriatrie-aigue-60-100-luzerner-kantonsspital-luks-luzern",
+        "specialista-della-salute-specialista-della-salute-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2055,7 +2090,8 @@
           "specialista-della-salute-geriatria-acuta-60-100-luzerner-kantonsspital-luks-luzern",
           "professional-health-professional-health-acute-geriatrics-60-100-luzerner-kantonsspital-luks-luzern",
           "fachfrau-gesundheit-fachmann-gesundheit-akutgeriatrie-60-100-luks-luzern",
-          "sante-professionnelle-sante-professionnelle-geriatrie-aigue-60-100-luzerner-kantonsspital-luks-luzern"
+          "sante-professionnelle-sante-professionnelle-geriatrie-aigue-60-100-luzerner-kantonsspital-luks-luzern",
+          "specialista-della-salute-specialista-della-salute-60-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "professional-health-professional-health-acute-geriatrics-60-100-luzerner-kantonsspital-luks-luzern"
@@ -2146,11 +2182,13 @@
         ]
       },
       "previousSlugs": [
-        "praktikant-in-pflege-80-100-interdisziplinare-abteilung-luks-sursee"
+        "praktikant-in-pflege-80-100-interdisziplinare-abteilung-luks-sursee",
+        "stage-in-infermieristica-80-100-dipartimento-interdisciplinare-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-80-100-interdisziplinare-abteilung-luks-sursee"
+          "praktikant-in-pflege-80-100-interdisziplinare-abteilung-luks-sursee",
+          "stage-in-infermieristica-80-100-dipartimento-interdisciplinare-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.963Z",
@@ -2246,11 +2284,13 @@
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-gynakologische-senologie-brustzentrum-standort-luzern-80"
+        "leitende-arztin-leitender-arzt-gynakologische-senologie-brustzentrum-standort-luzern-80",
+        "medico-specialista-in-senologia-ginecologica-direttore-del-centro-per-il-seno-luzern-80-100-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-gynakologische-senologie-brustzentrum-standort-luzern-80"
+          "leitende-arztin-leitender-arzt-gynakologische-senologie-brustzentrum-standort-luzern-80",
+          "medico-specialista-in-senologia-ginecologica-direttore-del-centro-per-il-seno-luzern-80-100-luzerner-kantonsspital-luks"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.962Z",
@@ -2340,11 +2380,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-brustzentrum-80-100-luks-luzern"
+        "oberarztin-oberarzt-brustzentrum-80-100-luks-luzern",
+        "primario-di-senologia-centro-mammella-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-brustzentrum-80-100-luks-luzern"
+          "oberarztin-oberarzt-brustzentrum-80-100-luks-luzern",
+          "primario-di-senologia-centro-mammella-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.961Z",
@@ -2434,11 +2476,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-fur-zentrum-fur-intensivmedizin-60-100-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-fur-zentrum-fur-intensivmedizin-60-100-luks-luzern",
+        "infermiera-in-specializzata-per-il-centro-di-terapia-intensiva-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-fur-zentrum-fur-intensivmedizin-60-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-zentrum-fur-intensivmedizin-60-100-luks-luzern",
+          "infermiera-in-specializzata-per-il-centro-di-terapia-intensiva-60-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.960Z",
@@ -2526,11 +2570,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-fur-gefasschirurgie-80-100-luks-luzern"
+        "oberarztin-oberarzt-fur-gefasschirurgie-80-100-luks-luzern",
+        "primario-a-di-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-fur-gefasschirurgie-80-100-luks-luzern"
+          "oberarztin-oberarzt-fur-gefasschirurgie-80-100-luks-luzern",
+          "primario-a-di-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.958Z",
@@ -2627,11 +2673,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-100-im-rehazentrum-interdisziplinare-privatabteilung-luks"
+        "pflegefachfrau-pflegefachmann-hf-100-im-rehazentrum-interdisziplinare-privatabteilung-luks",
+        "infermiere-a-specializzato-a-hf-100-nel-centro-di-riabilitazione-interdipartimentale-reparto-privato-luzerner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-100-im-rehazentrum-interdisziplinare-privatabteilung-luks"
+          "pflegefachfrau-pflegefachmann-hf-100-im-rehazentrum-interdisziplinare-privatabteilung-luks",
+          "infermiere-a-specializzato-a-hf-100-nel-centro-di-riabilitazione-interdipartimentale-reparto-privato-luzerner"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.954Z",
@@ -2723,12 +2771,14 @@
       },
       "previousSlugs": [
         "infermieristica-professionale-infermieristica-hf-fh-30-100-infermieristica-piscina-luzerner-kantonsspital-luks-luzern",
-        "pflegefachfrau-pflegefachmann-hf-fh-30-100-pflegepool-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-30-100-pflegepool-luks-luzern",
+        "infermieristica-hf-fh-30-100-piscina-per-infermieri-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermieristica-professionale-infermieristica-hf-fh-30-100-infermieristica-piscina-luzerner-kantonsspital-luks-luzern",
-          "pflegefachfrau-pflegefachmann-hf-fh-30-100-pflegepool-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-30-100-pflegepool-luks-luzern",
+          "infermieristica-hf-fh-30-100-piscina-per-infermieri-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.952Z",
@@ -2822,11 +2872,13 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern"
+        "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern",
+        "specialista-della-salute-60-80-pool-di-cure-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern"
+          "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern",
+          "specialista-della-salute-60-80-pool-di-cure-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.953Z",
@@ -2910,11 +2962,13 @@
       },
       "previousSlugs": [
         "teamleiterin-teamleiter-pflege-zentrum-fur-intensivmedizin-80-luks-luzern",
-        "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern"
+        "fachfrau-fachmann-gesundheit-60-80-pflegepool-luks-luzern",
+        "capo-team-capo-team-intensivista-centro-per-la-medicina-intensiva-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-pflege-zentrum-fur-intensivmedizin-80-luks-luzern"
+          "teamleiterin-teamleiter-pflege-zentrum-fur-intensivmedizin-80-luks-luzern",
+          "capo-team-capo-team-intensivista-centro-per-la-medicina-intensiva-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.953Z",
@@ -2995,11 +3049,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-pflege-viszeral-und-gefasschirurgie-60-100-luks-luzern"
+        "teamleiterin-teamleiter-pflege-viszeral-und-gefasschirurgie-60-100-luks-luzern",
+        "capo-team-infermiere-chirurgia-viscerale-e-vascolare-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-pflege-viszeral-und-gefasschirurgie-60-100-luks-luzern"
+          "teamleiterin-teamleiter-pflege-viszeral-und-gefasschirurgie-60-100-luks-luzern",
+          "capo-team-infermiere-chirurgia-viscerale-e-vascolare-60-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.949Z",
@@ -3167,11 +3223,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern",
+        "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern",
+          "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.948Z",
@@ -3244,11 +3302,13 @@
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-auf-der-neurorehabilitation-80-100-luks-luzern",
-        "pflegefachkraft-hf-fh-fur-neurorehabilitation-80-100-luzerner-kantonsspital-luks-luzern"
+        "pflegefachkraft-hf-fh-fur-neurorehabilitation-80-100-luzerner-kantonsspital-luks-luzern",
+        "infermiere-a-specializzato-a-in-neuroriabilitazione-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-auf-der-neurorehabilitation-80-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-auf-der-neurorehabilitation-80-100-luks-luzern",
+          "infermiere-a-specializzato-a-in-neuroriabilitazione-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-auf-der-neurorehabilitation-80-100-luks-luzern"
@@ -3346,11 +3406,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-fur-aufwachraume-80-100-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-fur-aufwachraume-80-100-luks-luzern",
+        "infermiere-iinfermiere-hf-fh-per-sale-operatorie-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-fur-aufwachraume-80-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-aufwachraume-80-100-luks-luzern",
+          "infermiere-iinfermiere-hf-fh-per-sale-operatorie-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.938Z",
@@ -3371,7 +3433,7 @@
       "id": "luks-cd28a3f0272f",
       "slug": "operatorin-operator-technik-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern",
+        "it": "operatorin-operator-technik-80-luzerner-kantonsspital-luks-luzern",
         "en": "technical-operator-80-luzerner-kantonsspital-luks-luzern",
         "de": "operatorin-operator-technik-80-luks-luzern",
         "fr": "operateur-technique-80-luzerner-kantonsspital-luks-luzern"
@@ -3467,7 +3529,9 @@
         "technicien-d-exploitation-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
-        "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4"
+        "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
+        "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern",
+        "operatorin-operator-technik-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3480,10 +3544,13 @@
           "technicien-d-exploitation-80-luzerner-kantonsspital-luks-luzern",
           "operateur-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
           "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
-          "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4"
+          "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
+          "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern",
+          "operatorin-operator-technik-80-luzerner-kantonsspital-luks-luzern"
         ],
         "de": [
-          "betreiber-technik-80-luzerner-kantonsspital-luks-luzern"
+          "betreiber-technik-80-luzerner-kantonsspital-luks-luzern",
+          "operatorin-operator-technik-80-luks-luzern"
         ],
         "fr": [
           "operateur-operateur-technologie-80-luzerner-kantonsspital-luks-luzern"
@@ -3505,11 +3572,11 @@
     },
     {
       "id": "luks-cbdf7fb6b239",
-      "slug": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
+      "slug": "operatorin-operator-technik-80-luks-luzern",
       "slugByLocale": {
         "de": "operatorin-operator-technik-80-luks-luzern",
-        "it": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
-        "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
+        "it": "operatorin-operator-technik-80-luks-luzern",
+        "en": "operatorin-operator-technik-80-luks-luzern",
         "fr": "operatorin-operator-technik-80-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -3566,18 +3633,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T21:55:50.817Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operatorin-operator-technik-80-luks-luzern"
-        ],
-        "en": [
-          "operatorin-operator-technik-80-luks-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "operatorin-operator-technik-80-luks-luzern"
-      ]
+      "firstSeenAt": "2026-07-18T21:55:50.817Z"
     },
     {
       "id": "luks-aaa8432417a1",
@@ -3636,11 +3692,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-interdisziplinare-notfallstation-60-100-luks-sursee"
+        "oberarztin-oberarzt-interdisziplinare-notfallstation-60-100-luks-sursee",
+        "medico-specialista-di-area-interdisciplinare-di-emergenza-60-100-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-interdisziplinare-notfallstation-60-100-luks-sursee"
+          "oberarztin-oberarzt-interdisziplinare-notfallstation-60-100-luks-sursee",
+          "medico-specialista-di-area-interdisciplinare-di-emergenza-60-100-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.928Z",
@@ -3715,12 +3773,14 @@
       },
       "previousSlugs": [
         "teamleiter-in-aufwachraume-fach-und-fuhrungszustandigkeit-holding-area-ambulantes",
-        "teamleiter-in-aufwachraume-fach-e-fuhrungszustandigkeit-holding-area-ambulantes-operationszentrum-80-100-luzerner-kantonsspital-luks-luzern"
+        "teamleiter-in-aufwachraume-fach-e-fuhrungszustandigkeit-holding-area-ambulantes-operationszentrum-80-100-luzerner-kantonsspital-luks-luzern",
+        "capo-team-area-di-risveglio-responsabilita-specialistiche-e-di-leadership-centro-operativo-ambulatoriale-80-100-luzerner"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-aufwachraume-fach-und-fuhrungszustandigkeit-holding-area-ambulantes",
-          "teamleiter-in-aufwachraume-fach-e-fuhrungszustandigkeit-holding-area-ambulantes-operationszentrum-80-100-luzerner-kantonsspital-luks-luzern"
+          "teamleiter-in-aufwachraume-fach-e-fuhrungszustandigkeit-holding-area-ambulantes-operationszentrum-80-100-luzerner-kantonsspital-luks-luzern",
+          "capo-team-area-di-risveglio-responsabilita-specialistiche-e-di-leadership-centro-operativo-ambulatoriale-80-100-luzerner"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.931Z",
@@ -3812,11 +3872,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-pflege-fur-die-medizinische-privat-halbprivatbettenstation-14-og"
+        "teamleiterin-teamleiter-pflege-fur-die-medizinische-privat-halbprivatbettenstation-14-og",
+        "capo-team-infermiere-per-la-stazione-di-cure-mediche-privata-half-privata-al-14-piano-70-100-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-pflege-fur-die-medizinische-privat-halbprivatbettenstation-14-og"
+          "teamleiterin-teamleiter-pflege-fur-die-medizinische-privat-halbprivatbettenstation-14-og",
+          "capo-team-infermiere-per-la-stazione-di-cure-mediche-privata-half-privata-al-14-piano-70-100-luzerner-kantonsspital-luks"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.926Z",
@@ -3905,11 +3967,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-neuropadiatrie-kinderspital-80-100-luks-luzern"
+        "oberarztin-oberarzt-neuropadiatrie-kinderspital-80-100-luks-luzern",
+        "primario-a-di-neuropediatria-kinderspital-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-neuropadiatrie-kinderspital-80-100-luks-luzern"
+          "oberarztin-oberarzt-neuropadiatrie-kinderspital-80-100-luks-luzern",
+          "primario-a-di-neuropediatria-kinderspital-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.924Z",
@@ -4077,11 +4141,13 @@
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-gynakologie-geburtshilfe-100-luks-wolhusen"
+        "leitende-arztin-leitender-arzt-gynakologie-geburtshilfe-100-luks-wolhusen",
+        "medico-specialista-in-ostetricia-e-ginecologia-100-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-gynakologie-geburtshilfe-100-luks-wolhusen"
+          "leitende-arztin-leitender-arzt-gynakologie-geburtshilfe-100-luks-wolhusen",
+          "medico-specialista-in-ostetricia-e-ginecologia-100-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.911Z",
@@ -4172,11 +4238,13 @@
         ]
       },
       "previousSlugs": [
-        "praktikum-risk-und-beschwerdemanagement-100-luks-luzern"
+        "praktikum-risk-und-beschwerdemanagement-100-luks-luzern",
+        "praktikum-gestione-del-rischio-e-delle-lamentele-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-risk-und-beschwerdemanagement-100-luks-luzern"
+          "praktikum-risk-und-beschwerdemanagement-100-luks-luzern",
+          "praktikum-gestione-del-rischio-e-delle-lamentele-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.909Z",
@@ -4269,11 +4337,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-fh-hf-ambulatorium-gastroenterologie-hepatologie-100-luks"
+        "pflegefachfrau-pflegefachmann-fh-hf-ambulatorium-gastroenterologie-hepatologie-100-luks",
+        "specialista-infermieristica-fh-hf-ambulatorium-gastroenterologia-epatologia-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-fh-hf-ambulatorium-gastroenterologie-hepatologie-100-luks"
+          "pflegefachfrau-pflegefachmann-fh-hf-ambulatorium-gastroenterologie-hepatologie-100-luks",
+          "specialista-infermieristica-fh-hf-ambulatorium-gastroenterologia-epatologia-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.905Z",
@@ -4375,11 +4445,13 @@
         "coordinatore-trice-paziente-medico-di-cardiologia-chirurgica-100-luzerner-kantonsspital-luks-luzern",
         "medical-patient-coordinator-cardiac-surgery-100-luzerner-kantonsspital-luks-luzern",
         "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-herzchirurgie-100",
-        "coordonnateur-trice-medical-chirurgie-cardiaque-100-luzerner-kantonsspital-luks-luzern"
+        "coordonnateur-trice-medical-chirurgie-cardiaque-100-luzerner-kantonsspital-luks-luzern",
+        "coordinatrice-paziente-medico-coordinatore-paziente-medico-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-80"
+          "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-80",
+          "coordinatrice-paziente-medico-coordinatore-paziente-medico-chirurgia-vascolare-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.902Z",
@@ -4477,11 +4549,13 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-augenklinik-40-100-luks-luzern"
+        "fachfrau-fachmann-operationstechnik-hf-augenklinik-40-100-luks-luzern",
+        "specialista-di-tecnologia-operativa-oculistica-hf-clinica-oculistica-40-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-augenklinik-40-100-luks-luzern"
+          "fachfrau-fachmann-operationstechnik-hf-augenklinik-40-100-luks-luzern",
+          "specialista-di-tecnologia-operativa-oculistica-hf-clinica-oculistica-40-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.900Z",
@@ -4575,11 +4649,13 @@
         "medico-specialista-in-oncologia-pediatrica-e-ematologia-luzerner-kantonsspital-luks-luzern",
         "leitende-arztin-leitender-arzt-padiatrische-onkologie-und-hamatologie-kinderspital-80-100",
         "senior-physician-in-pediatric-oncology-and-hematology-luzerner-kantonsspital-luks-luzern",
-        "medico-chef-en-oncologie-et-hematologie-pediatriques-luzerner-kantonsspital-luks-luzern"
+        "medico-chef-en-oncologie-et-hematologie-pediatriques-luzerner-kantonsspital-luks-luzern",
+        "specialista-in-radioterapia-oncologica-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-radio-onkologie-80-100-luks-luzern"
+          "oberarztin-oberarzt-radio-onkologie-80-100-luks-luzern",
+          "specialista-in-radioterapia-oncologica-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.899Z",
@@ -4668,11 +4744,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-innere-medizin-80-100-luks-sursee"
+        "oberarztin-oberarzt-innere-medizin-80-100-luks-sursee",
+        "medico-specialista-in-medicina-interna-80-100-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-innere-medizin-80-100-luks-sursee"
+          "oberarztin-oberarzt-innere-medizin-80-100-luks-sursee",
+          "medico-specialista-in-medicina-interna-80-100-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.896Z",
@@ -4768,11 +4846,13 @@
         ]
       },
       "previousSlugs": [
-        "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks"
+        "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks",
+        "posti-di-formazione-per-dipl-esperto-a-di-cure-intensive-nds-hf-80-100-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks"
+          "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks",
+          "posti-di-formazione-per-dipl-esperto-a-di-cure-intensive-nds-hf-80-100-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.897Z",
@@ -4853,11 +4933,13 @@
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-kinderorthopadie-und-traumatologie-kinderspital-80-100-luks"
+        "leitende-arztin-leitender-arzt-kinderorthopadie-und-traumatologie-kinderspital-80-100-luks",
+        "medico-specialista-in-ortopedia-pediatrica-e-traumatologia-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-kinderorthopadie-und-traumatologie-kinderspital-80-100-luks"
+          "leitende-arztin-leitender-arzt-kinderorthopadie-und-traumatologie-kinderspital-80-100-luks",
+          "medico-specialista-in-ortopedia-pediatrica-e-traumatologia-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.894Z",
@@ -4945,11 +5027,13 @@
         ]
       },
       "previousSlugs": [
-        "service-fachangestellte-fachangestellter-fur-patientenservice-80-100-luks-luzern"
+        "service-fachangestellte-fachangestellter-fur-patientenservice-80-100-luks-luzern",
+        "specialista-di-servizio-specialista-di-servizio-per-il-servizio-pazienti-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-fachangestellte-fachangestellter-fur-patientenservice-80-100-luks-luzern"
+          "service-fachangestellte-fachangestellter-fur-patientenservice-80-100-luks-luzern",
+          "specialista-di-servizio-specialista-di-servizio-per-il-servizio-pazienti-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.878Z",
@@ -5021,11 +5105,13 @@
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-standortleitung-adipositaszentrum-sursee-80-100-luks-sursee"
+        "oberarztin-oberarzt-standortleitung-adipositaszentrum-sursee-80-100-luks-sursee",
+        "medico-specialista-di-sesso-maschile-femminile-responsabile-del-centro-di-adiposita-di-sursee-80-100-luzerner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-standortleitung-adipositaszentrum-sursee-80-100-luks-sursee"
+          "oberarztin-oberarzt-standortleitung-adipositaszentrum-sursee-80-100-luks-sursee",
+          "medico-specialista-di-sesso-maschile-femminile-responsabile-del-centro-di-adiposita-di-sursee-80-100-luzerner"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.872Z",
@@ -5104,11 +5190,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-stufe-1-80-100-7-og-luks-luzern"
+        "pflegeexpertin-pflegeexperte-stufe-1-80-100-7-og-luks-luzern",
+        "esperto-a-di-assistenza-infermieristica-di-livello-1-7-piano-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-pflegeexperte-stufe-1-80-100-7-og-luks-luzern"
+          "pflegeexpertin-pflegeexperte-stufe-1-80-100-7-og-luks-luzern",
+          "esperto-a-di-assistenza-infermieristica-di-livello-1-7-piano-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegeexpertin-pflegeexperte-stufe-1-80-100-7-og-luks-luzern"
@@ -5185,11 +5273,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
+        "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
+        "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
+          "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
+          "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
@@ -5284,11 +5374,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-10-west-80-100-luks-luzern"
+        "teamleiterin-teamleiter-10-west-80-100-luks-luzern",
+        "capo-team-10-ovest-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiterin-teamleiter-10-west-80-100-luks-luzern"
+          "teamleiterin-teamleiter-10-west-80-100-luks-luzern",
+          "capo-team-10-ovest-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.866Z",
@@ -5383,11 +5475,13 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
+        "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
+        "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
+          "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
+          "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
@@ -5561,11 +5655,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-patientenservice-im-neuen-kinderspital-40-100-luks-luzern"
+        "mitarbeiterin-mitarbeiter-patientenservice-im-neuen-kinderspital-40-100-luks-luzern",
+        "addetto-a-al-servizio-dei-pazienti-nel-nuovo-ospedale-pediatrico-40-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-patientenservice-im-neuen-kinderspital-40-100-luks-luzern"
+          "mitarbeiterin-mitarbeiter-patientenservice-im-neuen-kinderspital-40-100-luks-luzern",
+          "addetto-a-al-servizio-dei-pazienti-nel-nuovo-ospedale-pediatrico-40-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.862Z",
@@ -5722,11 +5818,13 @@
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-als-springer-in-40-100-luks-luzern",
-        "pflegefachkraft-hf-fh-als-springer-in-40-100-luzerner-kantonsspital-luks-luzern"
+        "pflegefachkraft-hf-fh-als-springer-in-40-100-luzerner-kantonsspital-luks-luzern",
+        "infermiere-infermiere-diplomato-a-hf-fh-come-springer-a-40-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-als-springer-in-40-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-als-springer-in-40-100-luks-luzern",
+          "infermiere-infermiere-diplomato-a-hf-fh-come-springer-a-40-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-als-springer-in-40-100-luks-luzern"
@@ -5804,12 +5902,14 @@
       },
       "previousSlugs": [
         "infermiera-infermiere-specialista-hf-fh-infermiera-acuta-40-100-luzerner-kantonsspital-luks-luzern",
-        "pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-40-100-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-40-100-luks-luzern",
+        "infermiera-infermiera-specialista-hf-fh-infermiera-acuta-40-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiera-infermiere-specialista-hf-fh-infermiera-acuta-40-100-luzerner-kantonsspital-luks-luzern",
-          "pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-40-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-40-100-luks-luzern",
+          "infermiera-infermiera-specialista-hf-fh-infermiera-acuta-40-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.823Z",
@@ -5888,11 +5988,13 @@
         ]
       },
       "previousSlugs": [
-        "leitung-pflege-zentrum-fur-intensivmedizin-80-100-luks-luzern"
+        "leitung-pflege-zentrum-fur-intensivmedizin-80-100-luks-luzern",
+        "direzione-assistenza-infermieristica-centro-di-medicina-intensiva-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-pflege-zentrum-fur-intensivmedizin-80-100-luks-luzern"
+          "leitung-pflege-zentrum-fur-intensivmedizin-80-100-luks-luzern",
+          "direzione-assistenza-infermieristica-centro-di-medicina-intensiva-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.818Z",
@@ -5981,11 +6083,13 @@
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-intensivmedizin-50-100-luks-stans"
+        "leitende-arztin-leitender-arzt-intensivmedizin-50-100-luks-stans",
+        "medico-specialista-in-medicina-intensiva-50-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-intensivmedizin-50-100-luks-stans"
+          "leitende-arztin-leitender-arzt-intensivmedizin-50-100-luks-stans",
+          "medico-specialista-in-medicina-intensiva-50-100-luzerner-kantonsspital-luks-stans"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.815Z",
@@ -6084,11 +6188,13 @@
       },
       "previousSlugs": [
         "linux-system-engineer-80-100-luks-luzern",
-        "linux-systemingenieur-80-100-luzerner-kantonsspital-luks-luzern"
+        "linux-systemingenieur-80-100-luzerner-kantonsspital-luks-luzern",
+        "ingegnere-di-sistema-linux-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "linux-system-engineer-80-100-luks-luzern"
+          "linux-system-engineer-80-100-luks-luzern",
+          "ingegnere-di-sistema-linux-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "de": [
           "linux-systemingenieur-80-100-luzerner-kantonsspital-luks-luzern"
@@ -6194,12 +6300,14 @@
         "stage-di-formazione-per-dipl-esperta-esperto-di-anestesia-nds-hf-80-100-luzerner-kantonsspital-luks-luzern",
         "training-position-for-dipl-expert-in-anesthesia-nursing-nds-hf-80-100-luzerner-kantonsspital-luks-luzern",
         "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-luks",
-        "stage-de-formation-pour-dipl-expert-en-soins-anesthesiques-nds-hf-80-100-luzerner-kantonsspital-luks-luzern"
+        "stage-de-formation-pour-dipl-expert-en-soins-anesthesiques-nds-hf-80-100-luzerner-kantonsspital-luks-luzern",
+        "posti-di-formazione-per-dipl-esperto-a-di-cure-intensive-nds-hf-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks-2",
-          "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks"
+          "weiterbildungsplatze-zur-zum-dipl-expertin-experten-intensivpflege-nds-hf-80-100-luks",
+          "posti-di-formazione-per-dipl-esperto-a-di-cure-intensive-nds-hf-80-100-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.893Z",
@@ -6268,12 +6376,14 @@
       "previousSlugs": [
         "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern",
         "fisico-medico-per-diagnostica-100-luzerner-kantonsspital-luks-luzern",
-        "physicien-ne-medical-le-en-diagnostic-100-luzerner-kantonsspital-luks-luzern"
+        "physicien-ne-medical-le-en-diagnostic-100-luzerner-kantonsspital-luks-luzern",
+        "fisico-medico-diagnostico-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern",
-          "fisico-medico-per-diagnostica-100-luzerner-kantonsspital-luks-luzern"
+          "fisico-medico-per-diagnostica-100-luzerner-kantonsspital-luks-luzern",
+          "fisico-medico-diagnostico-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "diagnostische-medizinphysikerin-diagnostischer-medizinphysiker-100-luks-luzern"
@@ -6719,7 +6829,7 @@
       "id": "luks-a3d313a184bb",
       "slug": "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
+        "it": "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
         "en": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
         "de": "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
         "fr": "spitalseelsorgerine-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
@@ -6769,11 +6879,15 @@
         "neuropsicologo-neuropsicologo-80-luzerner-kantonsspital-luks-luzern",
         "neuropsychologist-neuropsychologist-80-luzerner-kantonsspital-luks-luzern",
         "neuropsychologin-neuropsychologe-80-luks-luzern",
-        "neuropsychologue-neuropsychologue-80-luzerner-kantonsspital-luks-luzern"
+        "neuropsychologue-neuropsychologue-80-luzerner-kantonsspital-luks-luzern",
+        "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
+        "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
+          "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
+          "hospitalseelsorger-hospitalseelsorger-50-luzerner-kantonsspital-luks-luzern",
+          "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-28T13:23:23.979Z",
@@ -7024,11 +7138,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-mitarbeiter-archive-pflichtenheft-101163-luks-falkenberg"
+        "zivildienstleistende-als-mitarbeiter-archive-pflichtenheft-101163-luks-falkenberg",
+        "prestatore-di-servizio-civile-come-dipendente-archivio-requisiti-101163-luzerner-kantonsspital-luks-falkenberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-archive-pflichtenheft-101163-luks-falkenberg"
+          "zivildienstleistende-als-mitarbeiter-archive-pflichtenheft-101163-luks-falkenberg",
+          "prestatore-di-servizio-civile-come-dipendente-archivio-requisiti-101163-luzerner-kantonsspital-luks-falkenberg"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:08.040Z",
@@ -7098,12 +7214,14 @@
         "zivildienstleistende-come-hilfspfleger-op-management-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-als-hilfspfleger-op-management-pflichtenheft-101140-luks-luzern",
         "civil-servant-as-an-assistant-op-management-luzerner-kantonsspital-luks-luzern",
-        "fonctionnaire-assistant-gestion-des-op-luzerner-kantonsspital-luks-luzern"
+        "fonctionnaire-assistant-gestion-des-op-luzerner-kantonsspital-luks-luzern",
+        "prestatore-di-servizio-civile-come-assistente-infermieristico-op-management-requisiti-101140-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-come-hilfspfleger-op-management-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
-          "zivildienstleistende-als-hilfspfleger-op-management-pflichtenheft-101140-luks-luzern"
+          "zivildienstleistende-als-hilfspfleger-op-management-pflichtenheft-101140-luks-luzern",
+          "prestatore-di-servizio-civile-come-assistente-infermieristico-op-management-requisiti-101140-luzerner-kantonsspital-luks"
         ],
         "en": [
           "civil-servant-as-an-assistant-op-management-luzerner-kantonsspital-luks-luzern"
@@ -7176,11 +7294,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "care-coordinator-60-luks-luzern"
+        "care-coordinator-60-luks-luzern",
+        "coordinatore-assistenziale-60-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "care-coordinator-60-luks-luzern"
+          "care-coordinator-60-luks-luzern",
+          "coordinatore-assistenziale-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "care-coordinator-60-luks-luzern"
@@ -7538,12 +7658,14 @@
       },
       "previousSlugs": [
         "sozialarbeiterin-sozialarbeiter-austrittsmanagement-sozialberatung-80-luks-luzern",
-        "sozialarbeiter-in-austrittsmanagement-sozialberatung-80-luks-luzern"
+        "sozialarbeiter-in-austrittsmanagement-sozialberatung-80-luks-luzern",
+        "assistente-sociale-gestione-uscite-supporto-sociale-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-austrittsmanagement-sozialberatung-80-luks-luzern",
-          "sozialarbeiter-in-austrittsmanagement-sozialberatung-80-luks-luzern"
+          "sozialarbeiter-in-austrittsmanagement-sozialberatung-80-luks-luzern",
+          "assistente-sociale-gestione-uscite-supporto-sociale-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.887Z",
@@ -7801,11 +7923,13 @@
       },
       "previousSlugs": [
         "application-manager-kerndiagnostik-80-100-luks-luzern",
-        "anwendungsmanager-kerndiagnostik-80-100-luzerner-kantonsspital-luks-luzern"
+        "anwendungsmanager-kerndiagnostik-80-100-luzerner-kantonsspital-luks-luzern",
+        "manager-di-applicazioni-diagnostiche-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-kerndiagnostik-80-100-luks-luzern"
+          "application-manager-kerndiagnostik-80-100-luks-luzern",
+          "manager-di-applicazioni-diagnostiche-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "de": [
           "anwendungsmanager-kerndiagnostik-80-100-luzerner-kantonsspital-luks-luzern"
@@ -7875,11 +7999,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
+        "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
+        "specialista-dell-ospedale-servizio-medico-specialistico-ospedaliero-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
+          "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern",
+          "specialista-dell-ospedale-servizio-medico-specialistico-ospedaliero-50-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "spitalfacharztin-spitalfacharzt-personalarztlicher-dienst-50-luks-luzern"
@@ -8102,11 +8228,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialisierte-fachperson-immobilienmanagement-100-luks-luzern"
+        "spezialisierte-fachperson-immobilienmanagement-100-luks-luzern",
+        "gestione-della-proprieta-specialistica-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialisierte-fachperson-immobilienmanagement-100-luks-luzern"
+          "spezialisierte-fachperson-immobilienmanagement-100-luks-luzern",
+          "gestione-della-proprieta-specialistica-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "spezialisierte-fachperson-immobilienmanagement-100-luks-luzern"
@@ -8599,11 +8727,13 @@
       },
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-patiententransporte-departemente-medizin-und-chirurgie",
-        "zivildienstleistende-als-allrounder-patiententransporte-abteilung-medizin-und-chirurgie-pflichtenheft-101144-luzerner"
+        "zivildienstleistende-als-allrounder-patiententransporte-abteilung-medizin-und-chirurgie-pflichtenheft-101144-luzerner",
+        "prestatore-di-servizio-civile-come-tuttofare-per-trasporti-pazienti-dipartimenti-di-medicina-e-chirurgia-specifica"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-patiententransporte-departemente-medizin-und-chirurgie"
+          "zivildienstleistende-als-allrounder-patiententransporte-departemente-medizin-und-chirurgie",
+          "prestatore-di-servizio-civile-come-tuttofare-per-trasporti-pazienti-dipartimenti-di-medicina-e-chirurgia-specifica"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-patiententransporte-departemente-medizin-und-chirurgie"
@@ -8682,12 +8812,14 @@
       },
       "previousSlugs": [
         "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-pflichtenheft-105638-luks",
-        "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-kinderspital-pflichtenheft"
+        "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-kinderspital-pflichtenheft",
+        "prestatore-di-servizio-civile-come-assistente-pediatrico-day-hospital-specifica-105638-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-pflichtenheft-105638-luks",
-          "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-kinderspital-pflichtenheft"
+          "zivildienstleistende-als-hilfspfleger-kinderspital-tagesklinik-kinderspital-pflichtenheft",
+          "prestatore-di-servizio-civile-come-assistente-pediatrico-day-hospital-specifica-105638-luzerner-kantonsspital-luks"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.994Z",
@@ -8757,12 +8889,14 @@
         "zivildienstleistende-als-hilfspfleger-chirurgische-klinik-pflichtenheft-101140-luks-luzern",
         "zivildienstleistende-come-hilfspfleger-chirurgische-klinik-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
         "civil-service-provider-as-an-auxiliary-care-provider-chirurgical-clinic-compulsory-issue-101140-luzerner-kantonsspital",
-        "fournisseur-de-services-publics-en-tant-que-dispensateur-de-soins-auxiliaires-clinic-chirurgical-numero-obligatoire"
+        "fournisseur-de-services-publics-en-tant-que-dispensateur-de-soins-auxiliaires-clinic-chirurgical-numero-obligatoire",
+        "prestatore-di-servizio-civile-come-assistente-infermieristico-clinica-chirurgica-specifica-101140-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-hilfspfleger-chirurgische-klinik-pflichtenheft-101140-luks-luzern",
-          "zivildienstleistende-come-hilfspfleger-chirurgische-klinik-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern"
+          "zivildienstleistende-come-hilfspfleger-chirurgische-klinik-pflichtenheft-101140-luzerner-kantonsspital-luks-luzern",
+          "prestatore-di-servizio-civile-come-assistente-infermieristico-clinica-chirurgica-specifica-101140-luzerner-kantonsspital"
         ],
         "en": [
           "civil-service-provider-as-an-auxiliary-care-provider-chirurgical-clinic-compulsory-issue-101140-luzerner-kantonsspital"
@@ -9149,12 +9283,14 @@
         "zivildienstleistende-als-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192-luks",
         "zivildienstleistende-come-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192-luzerner-kantonsspital-luks-sursee",
         "civil-service-provider-as-an-auxiliary-nursing-clinic-surgery-duty-number-115192-luzerner-kantonsspital-luks-sursee",
-        "fournisseur-de-service-civil-en-tant-que-dispensaire-auxiliaire-chirurgie-numero-de-service-115192-luzerner"
+        "fournisseur-de-service-civil-en-tant-que-dispensaire-auxiliaire-chirurgie-numero-de-service-115192-luzerner",
+        "zivildienstleistende-come-assistenti-alla-cura-di-giorno-in-chirurgia-requisiti-115192-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192-luks",
-          "zivildienstleistende-come-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192-luzerner-kantonsspital-luks-sursee"
+          "zivildienstleistende-come-hilfspfleger-tagesklinik-chirurgie-pflichtenheft-115192-luzerner-kantonsspital-luks-sursee",
+          "zivildienstleistende-come-assistenti-alla-cura-di-giorno-in-chirurgia-requisiti-115192-luzerner-kantonsspital-luks"
         ],
         "en": [
           "civil-service-provider-as-an-auxiliary-nursing-clinic-surgery-duty-number-115192-luzerner-kantonsspital-luks-sursee"
@@ -9303,11 +9439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen"
+        "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen",
+        "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopala-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen"
+          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen",
+          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopala-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:57:13.770Z",
@@ -9546,11 +9684,13 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-80-100-zentrum-fur-intensivmedizin-luks-luzern",
-        "zivildienstleistende-als-koch-hauptkuche-pflichtenheft-51535-luks-sursee"
+        "zivildienstleistende-als-koch-hauptkuche-pflichtenheft-51535-luks-sursee",
+        "specialista-della-salute-80-100-centro-per-la-medicina-intensiva-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-80-100-zentrum-fur-intensivmedizin-luks-luzern"
+          "fachfrau-fachmann-gesundheit-80-100-zentrum-fur-intensivmedizin-luks-luzern",
+          "specialista-della-salute-80-100-centro-per-la-medicina-intensiva-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.969Z",
@@ -9571,7 +9711,7 @@
       "id": "luks-9673673dbe9a",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
-        "it": "infermieristica-hf-fh-endoscopia-40-60-luzerner-kantonsspital-luks-sursee",
+        "it": "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luzerner-kantonsspital-luks-sursee",
         "en": "nurse-hf-fh-endoscopy-60-luzerner-kantonsspital-luks-sursee",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-60-luks-sursee",
         "fr": "infirmiere-endoscopie-hf-fh-60-luzerner-kantonsspital-luks-sursee"
@@ -9619,13 +9759,17 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luks-sursee",
         "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-60-luks-sursee",
-        "pflegefachfrau-pflegefachmann-hf-fh-endoskopie60-luzerner-kantonsspital-luks-sursee"
+        "pflegefachfrau-pflegefachmann-hf-fh-endoskopie60-luzerner-kantonsspital-luks-sursee",
+        "infermieristica-hf-fh-endoscopia-40-60-luzerner-kantonsspital-luks-sursee",
+        "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luks-sursee",
           "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-60-luks-sursee",
-          "pflegefachfrau-pflegefachmann-hf-fh-endoskopie60-luzerner-kantonsspital-luks-sursee"
+          "pflegefachfrau-pflegefachmann-hf-fh-endoskopie60-luzerner-kantonsspital-luks-sursee",
+          "infermieristica-hf-fh-endoscopia-40-60-luzerner-kantonsspital-luks-sursee",
+          "pflegefachfrau-pflegefachmann-hf-fh-endoskopie-40-60-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-06-15T15:08:11.647Z",
@@ -9798,12 +9942,14 @@
       },
       "previousSlugs": [
         "mpa-notfallpraxis-40-80-luks-luzern",
-        "mpa-notfallpraxis-80-luks-luzern"
+        "mpa-notfallpraxis-80-luks-luzern",
+        "pratica-di-emergenza-mpa-40-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-notfallpraxis-40-80-luks-luzern",
-          "mpa-notfallpraxis-80-luks-luzern"
+          "mpa-notfallpraxis-80-luks-luzern",
+          "pratica-di-emergenza-mpa-40-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.842Z",
@@ -9884,12 +10030,14 @@
       },
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-80-luks-luzern",
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-40-80-luks"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-40-80-luks",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-di-emergenza-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-80-luks-luzern",
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-40-80-luks"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-notfallpraxis-40-80-luks",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-di-emergenza-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.841Z",
@@ -9979,11 +10127,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-mitarbeiter-gartnerei-pflichtenheft-107876-luks-sursee"
+        "zivildienstleistende-als-mitarbeiter-gartnerei-pflichtenheft-107876-luks-sursee",
+        "zivildienstisti-come-dipendenti-di-un-vivaio-progetto-107876-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-gartnerei-pflichtenheft-107876-luks-sursee"
+          "zivildienstleistende-als-mitarbeiter-gartnerei-pflichtenheft-107876-luks-sursee",
+          "zivildienstisti-come-dipendenti-di-un-vivaio-progetto-107876-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.983Z",
@@ -10294,7 +10444,8 @@
         "fachfrau-fachmann-gesundheit-efz-hamatologie-medizinische-onkologie-30-80-luks-luzern",
         "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-50-luzerner-kantonsspital-luks-luzern",
         "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-80-luzerner-kantonsspital-luks-luzern",
-        "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-50-luzerner-kantonsspital-luks-luzern"
+        "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-50-luzerner-kantonsspital-luks-luzern",
+        "specialista-di-salute-efz-ematologia-medicina-oncologica-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10302,7 +10453,8 @@
           "fachfrau-fachmann-gesundheit-efz-hamatologie-medizinische-onkologie-30-50-luks-luzern",
           "fachfrau-fachmann-gesundheit-efz-hamatologie-medizinische-onkologie-30-80-luks-luzern",
           "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-80-luzerner-kantonsspital-luks-luzern",
-          "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-50-luzerner-kantonsspital-luks-luzern"
+          "fachfrau-fachmann-gesundheit-cfc-hamatologie-medizinische-onkologie-30-50-luzerner-kantonsspital-luks-luzern",
+          "specialista-di-salute-efz-ematologia-medicina-oncologica-50-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-hamatologie-medizinische-onkologie-50-luks-luzern"
@@ -10376,11 +10528,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtenheft",
-        "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtentheft-101146-luzerner-kantonsspital"
+        "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtentheft-101146-luzerner-kantonsspital",
+        "addetto-al-servizio-civile-come-tuttofare-laboratorio-chimica-clinica-e-immunologia-scheda-di-incarico-101146-luzerner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtenheft"
+          "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtenheft",
+          "addetto-al-servizio-civile-come-tuttofare-laboratorio-chimica-clinica-e-immunologia-scheda-di-incarico-101146-luzerner"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-labor-klinische-chemie-und-immunologie-pflichtenheft"
@@ -10476,16 +10630,19 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-101147"
+          "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-101147",
+          "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-10147"
         ],
         "it": [
           "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-10147",
-          "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-101147"
+          "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-101147",
+          "prestatore-di-servizio-civile-come-tuttofare-in-amministrazione-ematologia-laboratorio-specifica-10147-luzerner"
         ]
       },
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-101147",
-        "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-10147"
+        "zivildienstleistende-als-allrounder-administration-hamatologie-labor-pflichtenheft-10147",
+        "prestatore-di-servizio-civile-come-tuttofare-in-amministrazione-ematologia-laboratorio-specifica-10147-luzerner"
       ],
       "firstSeenAt": "2026-05-19T13:05:08.049Z",
       "salaryMin": 69500,
@@ -10567,11 +10724,13 @@
         ]
       },
       "previousSlugs": [
-        "vorpraktikant-in-physiotherapie-akutbereich-luks-luzern"
+        "vorpraktikant-in-physiotherapie-akutbereich-luks-luzern",
+        "stage-per-fisioterapia-area-acuta-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorpraktikant-in-physiotherapie-akutbereich-luks-luzern"
+          "vorpraktikant-in-physiotherapie-akutbereich-luks-luzern",
+          "stage-per-fisioterapia-area-acuta-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.916Z",
@@ -10640,11 +10799,13 @@
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-lager-pharmazie-pflichtenheft-101149-luks-luzern",
         "civil-service-provider-as-allrounder-lager-pharmazie-specifications-101149-luzerner-kantonsspital-luks-luzern",
-        "service-civil-comme-allrounder-pharmacie-livret-de-taches-101149-luzerner-kantonsspital-luks-luzern"
+        "service-civil-comme-allrounder-pharmacie-livret-de-taches-101149-luzerner-kantonsspital-luks-luzern",
+        "zivildienstleistende-come-allrounder-magazzino-pharmazie-pflichtenheft-101149-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-lager-pharmazie-pflichtenheft-101149-luks-luzern"
+          "zivildienstleistende-als-allrounder-lager-pharmazie-pflichtenheft-101149-luks-luzern",
+          "zivildienstleistende-come-allrounder-magazzino-pharmazie-pflichtenheft-101149-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "civil-service-provider-as-allrounder-lager-pharmazie-specifications-101149-luzerner-kantonsspital-luks-luzern",
@@ -10719,11 +10880,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-amp",
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-frauenklinik-80-100-luzerner-kantonsspital"
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-frauenklinik-80-100-luzerner-kantonsspital",
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-come-stv-bereichsleitung-kidz-frauenklinik-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-amp"
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-amp",
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-come-stv-bereichsleitung-kidz-frauenklinik-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "dipl-radiologiefachfrau-radiologiefachmann-hf-fh-als-stv-bereichsleitung-kidz-frauenklinik-80-100-luzerner-kantonsspital"
@@ -10816,11 +10979,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-allrounder-medizintechnik-pflichtenheft-101159-luks-luzern"
+        "zivildienstleistende-als-allrounder-medizintechnik-pflichtenheft-101159-luks-luzern",
+        "prestatore-di-servizio-civile-come-tuttofare-in-tecnologia-medica-requisiti-101159-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-medizintechnik-pflichtenheft-101159-luks-luzern"
+          "zivildienstleistende-als-allrounder-medizintechnik-pflichtenheft-101159-luks-luzern",
+          "prestatore-di-servizio-civile-come-tuttofare-in-tecnologia-medica-requisiti-101159-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-medizintechnik-pflichtenheft-101159-luks-luzern"
@@ -10977,11 +11142,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung",
-        "civil-service-performers-as-all-rounders-space-and-structural-maintenance-specifications-101154-luzerner-kantonsspital"
+        "civil-service-performers-as-all-rounders-space-and-structural-maintenance-specifications-101154-luzerner-kantonsspital",
+        "prestatore-di-servizio-civile-come-tuttofare-per-allestimento-spazi-e-manutenzione-edile-requisiti-101154-luzerner"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung"
+          "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung",
+          "prestatore-di-servizio-civile-come-tuttofare-per-allestimento-spazi-e-manutenzione-edile-requisiti-101154-luzerner"
         ],
         "en": [
           "civil-service-performers-as-all-rounders-space-and-structural-maintenance-specifications-101154-luzerner-kantonsspital",
@@ -11136,11 +11303,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
+        "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern",
+        "zivildienstante-come-tuttofare-elettricista-progetto-101155-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
+          "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern",
+          "zivildienstante-come-tuttofare-elettricista-progetto-101155-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
@@ -11302,14 +11471,16 @@
         "zivildienstleistende-come-koch-pflichtenheft-101150-luzerner-kantonsspital-luks-luzern",
         "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee",
         "civil-service-provider-as-a-chef-duty-number-101150-luzerner-kantonsspital-luks-luzern",
-        "fournisseur-de-services-publics-en-qualite-de-chef-service-numero-101150-luzerner-kantonsspital-luks-luzern"
+        "fournisseur-de-services-publics-en-qualite-de-chef-service-numero-101150-luzerner-kantonsspital-luks-luzern",
+        "personale-di-servizio-civile-come-cuoco-posizione-101150-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-koch-pflichtenheft-101150-luks-luzern",
           "zivildienstleistende-als-koch-hauptkuche-pflichtenheft-51535-luks-sursee",
           "zivildienstleistende-come-koch-pflichtenheft-101150-luzerner-kantonsspital-luks-luzern",
-          "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee"
+          "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee",
+          "personale-di-servizio-civile-come-cuoco-posizione-101150-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "civil-service-provider-as-a-chef-duty-number-101150-luzerner-kantonsspital-luks-luzern"
@@ -11581,12 +11752,14 @@
         "lagerhelfer-als-allrounder-zivildienst-anforderungsbeschreibung-101156-luzerner-kantonsspital-luks-luzern",
         "civilian-service-personnel-as-a-jack-of-all-trades-in-the-drawing-office-position-101157-luzerner-kantonsspital-luks",
         "zivildienstleistende-als-allrounder-zeichnungsburo-pflichtenheft-101157-luks-luzern",
-        "prestataire-de-service-civil-comme-polyvalent-dans-le-bureau-de-dessin-poste-101157-luzerner-kantonsspital-luks-luzern"
+        "prestataire-de-service-civil-comme-polyvalent-dans-le-bureau-de-dessin-poste-101157-luzerner-kantonsspital-luks-luzern",
+        "prestatore-di-servizio-civile-come-tuttofare-magazzino-ts-incarico-101156-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-allrounder-lager-ts-pflichtenheft-101156-luks-luzern",
-          "prestatore-di-servizio-civile-come-tuttofare-in-ufficio-tecnico-incarico-101157-luzerner-kantonsspital-luks-luzern"
+          "prestatore-di-servizio-civile-come-tuttofare-in-ufficio-tecnico-incarico-101157-luzerner-kantonsspital-luks-luzern",
+          "prestatore-di-servizio-civile-come-tuttofare-magazzino-ts-incarico-101156-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-lager-ts-pflichtenheft-101156-luks-luzern"
@@ -11815,12 +11988,14 @@
         "prestatore-di-servizio-civile-come-assistente-medico-clinica-chirurgica-requisiti-101138-luzerner-kantonsspital-luks",
         "civilian-service-provider-as-assistant-physician-surgical-clinic-requirements-101138-luzerner-kantonsspital-luks-luzern",
         "zivildienstleistende-als-assistenzarzt-chirurgische-klinik-pflichtenheft-101138-luks",
-        "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks"
+        "prestataire-de-service-civil-comme-medecin-assistant-clinique-chirurgicale-exigences-101138-luzerner-kantonsspital-luks",
+        "prestatore-di-servizio-civile-come-professionista-sanitario-clinica-chirurgica-requisiti-101139-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-chirurgische-klinik",
-          "prestatore-di-servizio-civile-come-assistente-medico-clinica-chirurgica-requisiti-101138-luzerner-kantonsspital-luks"
+          "prestatore-di-servizio-civile-come-assistente-medico-clinica-chirurgica-requisiti-101138-luzerner-kantonsspital-luks",
+          "prestatore-di-servizio-civile-come-professionista-sanitario-clinica-chirurgica-requisiti-101139-luzerner-kantonsspital"
         ]
       },
       "firstSeenAt": "2026-05-31T22:55:31.960Z",
@@ -11887,11 +12062,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-medizinische-klinik"
+        "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-medizinische-klinik",
+        "prestatore-di-servizio-civile-come-operatore-sanitario-clinica-medica-requisiti-101139-luzerner-kantonsspital-luks"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-medizinische-klinik"
+          "zivildienstleistende-als-pflegefachmann-fachmann-gesundheit-medizinische-klinik",
+          "prestatore-di-servizio-civile-come-operatore-sanitario-clinica-medica-requisiti-101139-luzerner-kantonsspital-luks"
         ]
       },
       "firstSeenAt": "2026-06-24T11:50:41.004Z",
@@ -12038,11 +12215,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-tagesklinik-chirurgie-holding-area-frauenklinik-60-90"
+        "pflegefachfrau-pflegefachmann-hf-tagesklinik-chirurgie-holding-area-frauenklinik-60-90",
+        "infermieristica-specialista-hf-day-clinica-chirurgia-holding-area-frauenklinik-60-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-tagesklinik-chirurgie-holding-area-frauenklinik-60-90"
+          "pflegefachfrau-pflegefachmann-hf-tagesklinik-chirurgie-holding-area-frauenklinik-60-90",
+          "infermieristica-specialista-hf-day-clinica-chirurgia-holding-area-frauenklinik-60-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-tagesklinik-chirurgie-holding-area-frauenklinik-60-90"
@@ -12115,11 +12294,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-als-disponentin-disponent-fur-die-koordination-der-betten"
+        "pflegefachfrau-pflegefachmann-als-disponentin-disponent-fur-die-koordination-der-betten",
+        "pflegefachfrau-pflegefachmann-come-disponentin-disponent-per-la-koordination-der-betten-e-op-kapazitaten-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-als-disponentin-disponent-fur-die-koordination-der-betten"
+          "pflegefachfrau-pflegefachmann-als-disponentin-disponent-fur-die-koordination-der-betten",
+          "pflegefachfrau-pflegefachmann-come-disponentin-disponent-per-la-koordination-der-betten-e-op-kapazitaten-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-als-disponentin-disponent-fur-die-koordination-der-betten"
@@ -12350,11 +12531,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-direktionssekretariat-80-100-luks-stans"
+        "mitarbeiterin-mitarbeiter-direktionssekretariat-80-100-luks-stans",
+        "mitarbeiterin-collaboratore-trice-direktionssekretariat-80-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-direktionssekretariat-80-100-luks-stans"
+          "mitarbeiterin-mitarbeiter-direktionssekretariat-80-100-luks-stans",
+          "mitarbeiterin-collaboratore-trice-direktionssekretariat-80-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-direktionssekretariat-80-100-luks-stans"
@@ -12454,12 +12637,14 @@
       },
       "previousSlugs": [
         "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum-2",
-        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum"
+        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum",
+        "prestatore-di-servizio-civile-come-assistente-infermieristico-di-anestesia-e-centro-operatorio-ambulatoriale-anestesia"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum-2",
-          "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum"
+          "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum",
+          "prestatore-di-servizio-civile-come-assistente-infermieristico-di-anestesia-e-centro-operatorio-ambulatoriale-anestesia"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.984Z",
@@ -12526,11 +12711,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeut-in-80-100-luks-stans"
+        "physiotherapeut-in-80-100-luks-stans",
+        "fisioterapista-in-80-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-80-100-luks-stans"
+          "physiotherapeut-in-80-100-luks-stans",
+          "fisioterapista-in-80-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "physiotherapeut-in-80-100-luks-stans"
@@ -12603,11 +12790,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebselektrikerin-betriebselektriker-100-luks-wolhusen"
+        "betriebselektrikerin-betriebselektriker-100-luks-wolhusen",
+        "elettricista-aziendale-al-100-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektrikerin-betriebselektriker-100-luks-wolhusen"
+          "betriebselektrikerin-betriebselektriker-100-luks-wolhusen",
+          "elettricista-aziendale-al-100-luzerner-kantonsspital-luks-wolhusen"
         ],
         "en": [
           "betriebselektrikerin-betriebselektriker-100-luks-wolhusen"
@@ -12761,13 +12950,15 @@
       "previousSlugs": [
         "arztsekretarin-arztsekretar-radiologie-100-befristet-bis-31-12-2026-luks-luzern",
         "arztsekretarin-arztsekretar-radiologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
-        "segretario-medico-segretario-medico-radiologia-100-temporanea-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
+        "segretario-medico-segretario-medico-radiologia-100-temporanea-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
+        "segretario-medico-radiologia-limitato-al-100-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-radiologie-100-befristet-bis-31-12-2026-luks-luzern",
           "arztsekretarin-arztsekretar-radiologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
-          "segretario-medico-segretario-medico-radiologia-100-temporanea-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
+          "segretario-medico-segretario-medico-radiologia-100-temporanea-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
+          "segretario-medico-radiologia-limitato-al-100-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretar-radiologie-100-befristet-bis-31-12-2026-luks-luzern"
@@ -12921,12 +13112,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luks-luzern",
-        "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luzerner-kantonsspital-luks-luzern",
+        "specialista-hf-fh-nephrology-dialyse-60-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luks-luzern",
-          "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luzerner-kantonsspital-luks-luzern",
+          "specialista-hf-fh-nephrology-dialyse-60-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-nephrologie-dialyse-60-100-luks-luzern"
@@ -13157,11 +13350,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-100-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-100-luks-luzern",
+        "specializzato-per-infermieri-hf-fh-ambulatorium-cardiologia-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-100-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-100-luks-luzern",
+          "specializzato-per-infermieri-hf-fh-ambulatorium-cardiologia-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-100-luks-luzern"
@@ -13565,11 +13760,13 @@
       "previousSlugs": [
         "controllerin-controller-kostenrechnung-80-100-luks-luzern",
         "controleur-comptabilite-des-couts-80-100-luzerner-kantonsspital-luks-luzern",
-        "controllerin-controller-kostenrechnung-80-100-luzerner-kantonsspital-luks-luzern"
+        "controllerin-controller-kostenrechnung-80-100-luzerner-kantonsspital-luks-luzern",
+        "regolatore-controller-contabilita-dei-costi-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controllerin-controller-kostenrechnung-80-100-luks-luzern"
+          "controllerin-controller-kostenrechnung-80-100-luks-luzern",
+          "regolatore-controller-contabilita-dei-costi-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "controllerin-controller-kostenrechnung-80-100-luks-luzern"
@@ -13601,7 +13798,7 @@
         "it": "endoscopia-infermieristica-per-ic-40-60-luzerner-kantonsspital-luks-stans",
         "en": "pflegefachperson-hf-endoskopie-40-60-luks-stans-2",
         "de": "pflegefachperson-hf-endoskopie-40-60-luks-stans",
-        "fr": "pflegefachperson-hf-endoskopie-40-60-luks-stans-2"
+        "fr": "endoscopie-hf-40-60-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -13646,14 +13843,17 @@
       "previousSlugs": [
         "pflegefachperson-hf-endoskopie-40-60-luks-stans-2",
         "pflegefachperson-hf-endoskopie-40-60-luks-stans",
+        "endoscopia-infermieristica-per-ic-40-60-luzerner-kantonsspital-luks-stans",
         "endoscopie-hf-40-60-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-endoskopie-40-60-luks-stans-2",
-          "pflegefachperson-hf-endoskopie-40-60-luks-stans"
+          "pflegefachperson-hf-endoskopie-40-60-luks-stans",
+          "endoscopia-infermieristica-per-ic-40-60-luzerner-kantonsspital-luks-stans"
         ],
         "fr": [
+          "pflegefachperson-hf-endoskopie-40-60-luks-stans-2",
           "endoscopie-hf-40-60-luzerner-kantonsspital-luks-stans"
         ]
       },
@@ -13870,11 +14070,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-oder-fage-efz-ambulatorium-pneumologie-60-luks-luzern"
+        "mpa-oder-fage-efz-ambulatorium-pneumologie-60-luks-luzern",
+        "mpa-o-fage-cfc-ambulatorium-pneumologie-60-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-oder-fage-efz-ambulatorium-pneumologie-60-luks-luzern"
+          "mpa-oder-fage-efz-ambulatorium-pneumologie-60-luks-luzern",
+          "mpa-o-fage-cfc-ambulatorium-pneumologie-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "mpa-oder-fage-efz-ambulatorium-pneumologie-60-luks-luzern"
@@ -13944,11 +14146,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "augenoptikerin-augenoptiker-augenklinik-50-80-luks-luzern"
+        "augenoptikerin-augenoptiker-augenklinik-50-80-luks-luzern",
+        "optometrista-optometrista-eye-clinic-50-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "augenoptikerin-augenoptiker-augenklinik-50-80-luks-luzern"
+          "augenoptikerin-augenoptiker-augenklinik-50-80-luks-luzern",
+          "optometrista-optometrista-eye-clinic-50-80-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "augenoptikerin-augenoptiker-augenklinik-50-80-luks-luzern"
@@ -14038,16 +14242,19 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee"
+          "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee",
+          "fachfrau-fachmann-operationstechnik-hf-50-100-luks-sursee"
         ],
         "it": [
           "fachfrau-fachmann-operationstechnik-hf-50-100-luks-sursee",
-          "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee"
+          "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee",
+          "specialista-di-tecnologia-operativa-hf-50-100-luzerner-kantonsspital-luks-sursee"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-hf-50-100-luks-sursee",
-        "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee"
+        "dipl-fachperson-operationstechnik-hf-50-100-luks-sursee",
+        "specialista-di-tecnologia-operativa-hf-50-100-luzerner-kantonsspital-luks-sursee"
       ],
       "firstSeenAt": "2026-05-19T13:05:07.891Z",
       "salaryMin": 69500,
@@ -14538,7 +14745,7 @@
       "id": "luks-c6467453140f",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "infermieristica-professionale-hf-fh-cura-virtuale-80-luzerner-kantonsspital-luks-luzern",
+        "it": "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luzerner-kantonsspital-luks-luzern",
         "en": "virtual-care-nurse-80-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luks-luzern",
         "fr": "infirmier-ere-virtual-care-80-luzerner-kantonsspital-luks-luzern"
@@ -14590,11 +14797,15 @@
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luks-luzern",
-        "pflegefachfrau-pflegefachmann-hf-fh-virtuelle-pflege-80-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-virtuelle-pflege-80-luzerner-kantonsspital-luks-luzern",
+        "infermieristica-professionale-hf-fh-cura-virtuale-80-luzerner-kantonsspital-luks-luzern",
+        "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luks-luzern",
+          "infermieristica-professionale-hf-fh-cura-virtuale-80-luzerner-kantonsspital-luks-luzern",
+          "pflegefachfrau-pflegefachmann-hf-fh-virtual-care-80-luzerner-kantonsspital-luks-luzern"
         ],
         "de": [
           "pflegefachfrau-pflegefachmann-hf-fh-virtuelle-pflege-80-luzerner-kantonsspital-luks-luzern"
@@ -14913,11 +15124,13 @@
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum"
+        "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum",
+        "zivildienstleistende-come-assistenti-infermieri-anestesia-e-centro-operatorio-ambulatoriale-comprese-sale-risveglio-e"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum"
+          "zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum",
+          "zivildienstleistende-come-assistenti-infermieri-anestesia-e-centro-operatorio-ambulatoriale-comprese-sale-risveglio-e"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.986Z",
@@ -15068,12 +15281,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-sekretariat-neonatologie-40-50-luks-luzern",
-        "mpa-sekretariat-neonatologie-40-50-luzerner-kantonsspital-luks-luzern"
+        "mpa-sekretariat-neonatologie-40-50-luzerner-kantonsspital-luks-luzern",
+        "segreteria-mpa-neonatologia-40-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-sekretariat-neonatologie-40-50-luks-luzern",
-          "mpa-sekretariat-neonatologie-40-50-luzerner-kantonsspital-luks-luzern"
+          "mpa-sekretariat-neonatologie-40-50-luzerner-kantonsspital-luks-luzern",
+          "segreteria-mpa-neonatologia-40-50-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "mpa-sekretariat-neonatologie-40-50-luks-luzern"
@@ -15224,11 +15439,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-100-luks-stans"
+        "fachfrau-mann-gesundheit-efz-100-luks-stans",
+        "fachfrau-mann-gesundheit-cfc-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-100-luks-stans"
+          "fachfrau-mann-gesundheit-efz-100-luks-stans",
+          "fachfrau-mann-gesundheit-cfc-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-100-luks-stans"
@@ -15302,12 +15519,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
-        "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern"
+        "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
+        "sottosegretario-medico-mba-histologie-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
-          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern"
+          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern",
+          "sottosegretario-medico-mba-histologie-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
@@ -15705,7 +15924,8 @@
         "pflegefachfrau-pflegefachmann-hf-fh-aufwachraum-mit-zertifikat-uwp-imc-45-luks-wolhusen",
         "certified-imc-uwp-45-hf-fh-nurse-recovery-room-luzerner-kantonsspital-luks-wolhusen",
         "infirmier-ere-hf-fh-specialise-e-en-salle-de-reveil-avec-certificat-imc-uwp-45-luzerner-kantonsspital-luks-wolhusen",
-        "pflegefachfrau-pflegefachmann-hf-imc-90-luks-wolhusen"
+        "pflegefachfrau-pflegefachmann-hf-imc-90-luks-wolhusen",
+        "infermieristica-professionale-hf-imc-90-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15718,7 +15938,8 @@
           "pflegefachfrau-pflegefachmann-hf-fh-aufwachraum-mit-zertifikat-uwp-imc-45-luks-wolhusen",
           "certified-imc-uwp-45-hf-fh-nurse-recovery-room-luzerner-kantonsspital-luks-wolhusen",
           "infirmier-ere-hf-fh-specialise-e-en-salle-de-reveil-avec-certificat-imc-uwp-45-luzerner-kantonsspital-luks-wolhusen",
-          "pflegefachfrau-pflegefachmann-hf-imc-90-luks-wolhusen"
+          "pflegefachfrau-pflegefachmann-hf-imc-90-luks-wolhusen",
+          "infermieristica-professionale-hf-imc-90-luzerner-kantonsspital-luks-wolhusen"
         ],
         "en": [
           "healthcare-assistant-hf-imc-70-100-luzerner-kantonsspital-luks-wolhusen",
@@ -15957,14 +16178,16 @@
         "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
         "analista-biomedico-hf-80-100-luzerner-kantonsspital-luks-luzern",
         "biomedical-analyst-hf-80-100-luzerner-kantonsspital-luks-luzern",
-        "analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern"
+        "analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern",
+        "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
           "analista-biomedico-hf-80-100-luzerner-kantonsspital-luks-luzern",
           "biomedical-analyst-hf-80-100-luzerner-kantonsspital-luks-luzern",
-          "analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern"
+          "analyste-biomedical-hf-80-100-luzerner-kantonsspital-luks-luzern",
+          "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern",
@@ -16116,11 +16339,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-op-lagerungspflege-60-luks-stans"
+        "fachfrau-fachmann-op-lagerungspflege-60-luks-stans",
+        "specialista-specialista-in-cure-chirurgiche-60-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-op-lagerungspflege-60-luks-stans"
+          "fachfrau-fachmann-op-lagerungspflege-60-luks-stans",
+          "specialista-specialista-in-cure-chirurgiche-60-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "fachfrau-fachmann-op-lagerungspflege-60-luks-stans"
@@ -16347,12 +16572,14 @@
       "previousSlugs": [
         "zivildienstleistende-als-allrounder-patiententransporte-augenklinik-pflichtenheft-101144",
         "zivildienstleistende-come-allrounder-patiententransporte-frauenklinik-pflichtenheft-101144-luzerner-kantonsspital-luks",
-        "zivildienstleistende-als-allrounder-patiententransporte-frauenklinik-pflichtenheft-101144"
+        "zivildienstleistende-als-allrounder-patiententransporte-frauenklinik-pflichtenheft-101144",
+        "servizio-civile-come-operatore-polivalente-trasporto-pazienti-clinica-oculistica-scheda-101144-luzerner-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistende-als-allrounder-patiententransporte-augenklinik-pflichtenheft-101144",
-          "zivildienstleistende-come-allrounder-patiententransporte-frauenklinik-pflichtenheft-101144-luzerner-kantonsspital-luks"
+          "zivildienstleistende-come-allrounder-patiententransporte-frauenklinik-pflichtenheft-101144-luzerner-kantonsspital-luks",
+          "servizio-civile-come-operatore-polivalente-trasporto-pazienti-clinica-oculistica-scheda-101144-luzerner-kantonsspital"
         ],
         "en": [
           "zivildienstleistende-als-allrounder-patiententransporte-augenklinik-pflichtenheft-101144"
@@ -16450,13 +16677,15 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-80-rehabilitation-luks-wolhusen",
         "fachfrau-fachmann-gesundheit-cfc-80-rehabilitation-luzerner-kantonsspital-luks-wolhusen",
-        "fachfrau-fachmann-gesundheit-efz-50-100-rehabilitation-luks-wolhusen"
+        "fachfrau-fachmann-gesundheit-efz-50-100-rehabilitation-luks-wolhusen",
+        "specialista-di-salute-efz-80-riabilitazione-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-80-rehabilitation-luks-wolhusen",
           "fachfrau-fachmann-gesundheit-cfc-80-rehabilitation-luzerner-kantonsspital-luks-wolhusen",
-          "fachfrau-fachmann-gesundheit-efz-50-100-rehabilitation-luks-wolhusen"
+          "fachfrau-fachmann-gesundheit-efz-50-100-rehabilitation-luks-wolhusen",
+          "specialista-di-salute-efz-80-riabilitazione-luzerner-kantonsspital-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.950Z",
@@ -16602,12 +16831,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-sursee"
+          "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-sursee",
+          "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-luzern"
         ],
         "it": [
           "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-luzern",
           "fornitore-di-servizi-civili-come-patologia-di-laboratorio-tuttofare-specifiche-115191-luzerner-kantonsspital-luks-luzern",
-          "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-sursee"
+          "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-sursee",
+          "prestatore-di-servizio-civile-come-tuttofare-di-laboratorio-patologia-incarico-115191-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "civil-service-provider-as-all-rounder-laboratory-pathology-specifications-115191-luzerner-kantonsspital-luks-luzern",
@@ -16622,7 +16853,8 @@
         "zivildienstleistende-als-allrounder-labor-pathologie-pflichtenheft-115191-luks-luzern",
         "fornitore-di-servizi-civili-come-patologia-di-laboratorio-tuttofare-specifiche-115191-luzerner-kantonsspital-luks-luzern",
         "civil-service-provider-as-all-rounder-laboratory-pathology-specifications-115191-luzerner-kantonsspital-luks-luzern",
-        "fournisseur-de-service-public-en-tant-que-pathologie-de-laboratoire-complete-specifications-115191-luzerner"
+        "fournisseur-de-service-public-en-tant-que-pathologie-de-laboratoire-complete-specifications-115191-luzerner",
+        "prestatore-di-servizio-civile-come-tuttofare-di-laboratorio-patologia-incarico-115191-luzerner-kantonsspital-luks-luzern"
       ],
       "firstSeenAt": "2026-05-19T13:05:08.028Z",
       "salaryMin": 69500,
@@ -16766,11 +16998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "data-scientist-infektionspravention-80-100-luks-luzern"
+        "data-scientist-infektionspravention-80-100-luks-luzern",
+        "prevenzione-dell-infezione-degli-scienziati-dati-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-scientist-infektionspravention-80-100-luks-luzern"
+          "data-scientist-infektionspravention-80-100-luks-luzern",
+          "prevenzione-dell-infezione-degli-scienziati-dati-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "data-scientist-infektionspravention-80-100-luks-luzern"
@@ -16840,11 +17074,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizintechnikerin-medizintechniker-100-luks-luzern"
+        "medizintechnikerin-medizintechniker-100-luks-luzern",
+        "tecnico-medico-tecnico-medico-100-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizintechnikerin-medizintechniker-100-luks-luzern"
+          "medizintechnikerin-medizintechniker-100-luks-luzern",
+          "tecnico-medico-tecnico-medico-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "medizintechnikerin-medizintechniker-100-luks-luzern"
@@ -16994,11 +17230,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fage-notfallstation-60-100-luks-sursee"
+        "fage-notfallstation-60-100-luks-sursee",
+        "fage-stazione-di-emergenza-60-100-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fage-notfallstation-60-100-luks-sursee"
+          "fage-notfallstation-60-100-luks-sursee",
+          "fage-stazione-di-emergenza-60-100-luzerner-kantonsspital-luks-sursee"
         ],
         "en": [
           "fage-notfallstation-60-100-luks-sursee"
@@ -17071,11 +17309,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expertin-experte-notfallpflege-nds-hf-80-luks-sursee"
+        "expertin-experte-notfallpflege-nds-hf-80-luks-sursee",
+        "expert-expert-emergency-care-nds-hf-80-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-notfallpflege-nds-hf-80-luks-sursee"
+          "expertin-experte-notfallpflege-nds-hf-80-luks-sursee",
+          "expert-expert-emergency-care-nds-hf-80-luzerner-kantonsspital-luks-sursee"
         ],
         "fr": [
           "expertin-experte-notfallpflege-nds-hf-80-luks-sursee"
@@ -17145,11 +17385,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-notfallstation-40-luks-sursee"
+        "mpa-notfallstation-40-luks-sursee",
+        "stazione-di-emergenza-mpa-40-luzerner-kantonsspital-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-notfallstation-40-luks-sursee"
+          "mpa-notfallstation-40-luks-sursee",
+          "stazione-di-emergenza-mpa-40-luzerner-kantonsspital-luks-sursee"
         ],
         "en": [
           "mpa-notfallstation-40-luks-sursee"
@@ -17299,11 +17541,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-50-100-rehabilitation-luks-wolhusen"
+        "pflegefachfrau-pflegefachmann-hf-50-100-rehabilitation-luks-wolhusen",
+        "infermiera-infermiera-professional-hf-50-100-riabilitazione-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-50-100-rehabilitation-luks-wolhusen"
+          "pflegefachfrau-pflegefachmann-hf-50-100-rehabilitation-luks-wolhusen",
+          "infermiera-infermiera-professional-hf-50-100-riabilitazione-luzerner-kantonsspital-luks-wolhusen"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-50-100-rehabilitation-luks-wolhusen"
