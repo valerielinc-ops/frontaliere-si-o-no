@@ -120,6 +120,28 @@ function logStatus(log, key, touchNum, maxTouches) {
 }
 
 /**
+ * Ensure the firebase-admin app is initialized and return a Firestore handle,
+ * or null when GOOGLE_APPLICATION_CREDENTIALS is missing/unreadable. Shared by
+ * the three Firestore loaders below (suppression / contacts / sends) so the
+ * init boilerplate lives once (AGENTS §6).
+ */
+async function getFirestoreDb() {
+  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!credPath || !fs.existsSync(credPath)) return null;
+  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
+  const { getFirestore } = await import('firebase-admin/firestore');
+  if (getApps().length === 0) {
+    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
+    if (cred.project_id) {
+      initializeApp({ credential: cert(cred) });
+    } else {
+      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+    }
+  }
+  return getFirestore();
+}
+
+/**
  * Read the Firestore-backed one-click suppression list written by the
  * outreachUnsubscribe Cloud Function (collection `employer_outreach_suppression`,
  * doc id = companyKey). Returns a Set of suppressed companyKeys.
@@ -136,17 +158,8 @@ async function loadFirestoreSuppression() {
       console.warn('↷ Firestore suppression: GOOGLE_APPLICATION_CREDENTIALS non impostato — uso solo send-log locale.');
       return suppressed;
     }
-    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-    const { getFirestore } = await import('firebase-admin/firestore');
-    if (getApps().length === 0) {
-      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-      if (cred.project_id) {
-        initializeApp({ credential: cert(cred) });
-      } else {
-        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-      }
-    }
-    const db = getFirestore();
+    const db = await getFirestoreDb();
+    if (!db) return suppressed;
     const snap = await db.collection('employer_outreach_suppression').get();
     snap.forEach((doc) => {
       const key = (doc.data()?.companyKey || doc.id || '').trim();
@@ -177,17 +190,8 @@ async function loadFirestoreContacts() {
       console.warn('↷ Firestore contacts: GOOGLE_APPLICATION_CREDENTIALS non impostato — uso solo contacts.json locale.');
       return map;
     }
-    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-    const { getFirestore } = await import('firebase-admin/firestore');
-    if (getApps().length === 0) {
-      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-      if (cred.project_id) {
-        initializeApp({ credential: cert(cred) });
-      } else {
-        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-      }
-    }
-    const db = getFirestore();
+    const db = await getFirestoreDb();
+    if (!db) return map;
     const snap = await db.collection('employer_contacts').get();
     snap.forEach((doc) => {
       const d = doc.data() || {};
@@ -245,17 +249,8 @@ async function loadFirestoreSends() {
   try {
     const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
     if (!credPath || !fs.existsSync(credPath)) return map;
-    const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-    const { getFirestore } = await import('firebase-admin/firestore');
-    if (getApps().length === 0) {
-      const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-      if (cred.project_id) {
-        initializeApp({ credential: cert(cred) });
-      } else {
-        initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-      }
-    }
-    const db = getFirestore();
+    const db = await getFirestoreDb();
+    if (!db) return map;
     const snap = await db.collection('employer_outreach_sends').get();
     snap.forEach((doc) => {
       const d = doc.data() || {};
