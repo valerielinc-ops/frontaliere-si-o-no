@@ -1264,6 +1264,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri.',
     'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena di un frontaliere assistente di studio medico in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografia di un tecnico di sala operatoria in un ospedale svizzero.',
 };
 
 export default blogMetaChIt;
