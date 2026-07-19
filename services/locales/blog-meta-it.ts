@@ -8654,6 +8654,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di supportare gli anestesisti e gli altri membri del team di cura durante le procedure chirurgiche.',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Un frontaliere che lavora come tecnico di sala operatoria in un ospedale di Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Medici frontalieri in Ticino: stipendio, requisiti e riconoscimento titolo',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena fotorealistica del Lago di Lugano con una barca a vela in primo piano',
 };
 
 export default blogMetaIt;

@@ -8652,6 +8652,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'OP-Techniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Der OP-Techniker ist ein hochspezialisierter Fachmann, der in einer Hochdruckumgebung arbeitet. Seine Hauptverantwortung besteht darin, Anästhesisten und andere Mitglieder des Pflegeteams bei chirurgischen Eingriffen zu unterstützen.',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Ein Frontalier, der als Operationszimmer-Techniker in einem Krankenhaus in Lugano arbeitet',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Grenzärzte im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Die Durchschnittsgehälter für Grenzmediziner im Tessin, die Voraussetzungen für die Arbeit als Grenzmediziner, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Eine fotorealistische Szene des Luganer Sees mit einem Segelboot im Vordergrund',
 };
 
 export default blogMetaDe;
