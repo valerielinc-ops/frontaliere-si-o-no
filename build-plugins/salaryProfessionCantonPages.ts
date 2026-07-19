@@ -540,7 +540,7 @@ ${primaryCta}
 ${hubs}
 ${methodology}
 ${sourcesBlock}
-${prose}</div>`;
+${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

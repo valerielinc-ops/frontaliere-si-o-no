@@ -993,7 +993,7 @@ function generateHubPage(
       `<li style="display:inline-block;margin:0 8px 8px 0"><a href="${buildExchangeAmountPath(locale, amount)}" class="${CARD_BODY_CLASS}" style="display:inline-block;padding:8px 14px;text-decoration:none;font-weight:600">${fmtNum(locale, amount)} CHF</a></li>`,
   ).join('');
 
-  const bodyHtml = `<article class="max-w-5xl mx-auto px-4 py-6">
+  const contentHtml = `<article class="max-w-5xl mx-auto px-4 py-6">
 ${breadcrumbHtml}
 <header>
   <h1 style="${H1_STYLE}">${esc(copy.hubH1)}</h1>
@@ -1060,7 +1060,11 @@ ${tips}
 </section>
 
 ${renderFaqSection(copy, copy.hubFaq)}
-${renderDiscoverMore(locale, copy.discoverCtas)}
+${renderDiscoverMore(locale, copy.discoverCtas)}`;
+
+  const indexable = countHtmlBodyWords(contentHtml) >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${contentHtml}
+${endOfContentMultiplexHtml({ indexable })}
 </article>`;
 
   const alternates: Record<ExchangeLocale, string> = {
@@ -1180,7 +1184,7 @@ function generateAmountPage(
 
   const calcPrefill = `${CALCULATOR_PATH[locale]}?reddito=${amount}`;
 
-  const bodyHtml = `<article class="max-w-5xl mx-auto px-4 py-6">
+  const contentHtml = `<article class="max-w-5xl mx-auto px-4 py-6">
 ${breadcrumbHtml}
 <header>
   <h1 style="${H1_STYLE}">${esc(copy.amountH1(amountStr))}</h1>
@@ -1227,7 +1231,11 @@ ${renderFaqSection(copy, faq)}
   <ul style="list-style:none;margin:10px 0 0;padding:0">${neighbourLinks}</ul>
   <p style="margin:10px 0 0"><a href="${buildExchangeHubPath(locale)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.backToHub)} →</a></p>
 </section>
-${renderDiscoverMore(locale, copy.discoverCtas)}
+${renderDiscoverMore(locale, copy.discoverCtas)}`;
+
+  const indexable = countHtmlBodyWords(contentHtml) >= MIN_INDEXABLE_WORDS;
+  const bodyHtml = `${contentHtml}
+${endOfContentMultiplexHtml({ indexable })}
 </article>`;
 
   const alternates: Record<ExchangeLocale, string> = {

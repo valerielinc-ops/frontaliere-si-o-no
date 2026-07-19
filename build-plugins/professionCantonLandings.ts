@@ -313,7 +313,7 @@ ${tiles}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
-${prose}</div>`;
+${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

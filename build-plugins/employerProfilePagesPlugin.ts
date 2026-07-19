@@ -528,6 +528,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
           if (!indexable) thinDowngraded++;
 
+          // End-of-content multiplex — gated on `indexable`, so below-floor /
+          // thin profiles (noindex) never carry a manual slot (MFA-safety).
+          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
+
           const html = buildSeoPageHtml({
             locale,
             title: `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
@@ -538,7 +542,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             ogLocale: OG_LOCALE[locale],
             hreflangHtml,
             jsonLdScripts,
-            bodyHtml,
+            bodyHtml: bodyWithAd,
             distDir,
             skipMainWrap: true,
           });
