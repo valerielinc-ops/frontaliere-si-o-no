@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3700.title': 'Pagine azienda: stipendi e posizioni aperte',
+ 'whatsNew.v3700.employerProfiles.title': 'Profili delle aziende che assumono',
+ 'whatsNew.v3700.employerProfiles.desc': 'Nuove pagine dedicate per centinaia di aziende: posizioni aperte, stipendio mediano, sedi e trend delle assunzioni, tutto in un colpo d’occhio.',
  'whatsNew.v3680.title': 'Stipendio per professione e cantone',
  'whatsNew.v3680.salaryLandings.title': 'Quanto guadagni per professione e cantone',
  'whatsNew.v3680.salaryLandings.desc': 'Nuove pagine con la mediana lorda, il netto stimato e le offerte attive per professione (infermiere, ingegnere, farmacista e altre) in ogni cantone svizzero, con confronto tra regioni.',

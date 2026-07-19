@@ -21,6 +21,16 @@
  *   - `build-plugins/jobsSeoPagesPlugin.ts` sitemap emitter — only the
  *     primary canonical enters `sitemap-jobs.xml`; alias slugs are
  *     skipped (bridge pages are reachable but not advertised).
+ *   - `build-plugins/employerProfilePagesPlugin.ts` (via
+ *     `build-plugins/shared/companyProfileSlug.mjs`) — folds alias slugs
+ *     into the canonical so the evergreen `/aziende/<slug>/` surface never
+ *     emits a second indexable page for an already-canonicalised brand.
+ *
+ * Runtime data + resolvers live in the sibling `brandCanonicalMap.mjs` so a
+ * raw-node script (scripts/build-employer-profiles.mjs) can share the SAME
+ * dedup map as the TS build plugins — a .ts module cannot be imported by node.
+ * This file is the typed façade: it re-exports the runtime with types and owns
+ * the `BrandCanonicalEntry` interface.
  *
  * Design rules:
  *   1. Primary slug = `canonicalEmployerBrandKey(company, companyKey)`
@@ -29,8 +39,15 @@
  *   2. Aliases must be lowercase, URL-safe (/^[a-z0-9-]+$/), and
  *      different from the canonical (self-redirect would loop).
  *   3. The map is the ONLY source of truth — plugins must not hardcode
- *      aliases inline. Adding a new brand = append one record here.
+ *      aliases inline. Adding a new brand = append one record in the .mjs.
  */
+import {
+  BRAND_CANONICAL_MAP as RAW_BRAND_CANONICAL_MAP,
+  resolveBrandCanonical as rawResolveBrandCanonical,
+  isBrandAlias as rawIsBrandAlias,
+  listAllBrandAliases as rawListAllBrandAliases,
+  listAllBrandCanonicals as rawListAllBrandCanonicals,
+} from './brandCanonicalMap.mjs';
 
 export interface BrandCanonicalEntry {
   /**
@@ -47,134 +64,33 @@ export interface BrandCanonicalEntry {
 }
 
 /**
- * Declarative brand-canonical dedup map.
- * Keyed by canonical slug for O(1) primary lookup.
+ * Declarative brand-canonical dedup map. Keyed by canonical slug for O(1)
+ * primary lookup. (Runtime source: `brandCanonicalMap.mjs`.)
  */
-export const BRAND_CANONICAL_MAP: Readonly<Record<string, BrandCanonicalEntry>> = {
-  'guess-europe-sagl': {
-    canonical: 'guess-europe-sagl',
-    aliases: [
-      'guess',
-      'guess-europe',
-      'guess-sagl',
-      'guess-europe-switzerland',
-      'guess-ticino',
-    ],
-  },
-  'medacta-international-sa': {
-    canonical: 'medacta-international-sa',
-    aliases: [
-      'medacta',
-      'medacta-international',
-      'medacta-sa',
-      'medacta-italia',
-      'medacta-rancate',
-    ],
-  },
-  'casale-sa': {
-    canonical: 'casale-sa',
-    aliases: [
-      'casale',
-      'casale-lugano',
-      'casale-chemical',
-      'casale-group',
-    ],
-  },
-  // Migros umbrella canonical. The `migros` slug is a synthetic
-  // umbrella hub (NOT a real subsidiary) injected by the
-  // jobsSeoPagesPlugin company aggregation (BRAND_UMBRELLAS regex): it
-  // unions all jobs from Migros-group entities present in the dataset
-  // (Banca Migros, Scuola Club Migros, Cooperativa Migros Ticino, ...)
-  // onto a single indexable hub page `azienda-migros`. This union is
-  // driven by a name/slug regex, INDEPENDENT of the aliases below, so
-  // an alias's jobs always still surface on the umbrella — declaring an
-  // alias here never orphans its jobs.
-  //
-  // `migros-ticino` is the nationwide Migros crawler key (widened to
-  // all 26 cantons by #1231: 483 jobs, only ~7 in Ticino). Letting its
-  // hub `azienda-migros-ticino` stay self-canonical+indexable (PR #1274)
-  // made TWO indexable hubs carry the same 483 jobs → duplicate content
-  // (#1247). So it bridges to the umbrella here, alongside the cosmetic
-  // `gruppo-migros` variation, consolidating all brand signals on one
-  // canonical. The company-hub emitter skips self-emitting a hub for any
-  // alias key (`isBrandAlias` guard in jobsSeoPagesPlugin) so the
-  // noindex bridge owns the alias path.
-  //
-  // Real, SEPARATE subsidiary hubs (banca-migros, scuola-club-migros)
-  // are NOT aliases — they keep their own distinct indexable canonicals.
-  'migros': {
-    canonical: 'migros',
-    aliases: [
-      'migros-ticino',
-      'gruppo-migros',
-    ],
-  },
-} as const;
-
-/**
- * Reverse lookup: aliasSlug → canonical slug.
- * Built once at module load; callers should not mutate.
- */
-const ALIAS_TO_CANONICAL: ReadonlyMap<string, string> = (() => {
-  const map = new Map<string, string>();
-  for (const entry of Object.values(BRAND_CANONICAL_MAP)) {
-    for (const alias of entry.aliases) {
-      if (alias === entry.canonical) {
-        // Defensive — an alias that equals canonical would self-loop.
-        // We throw so the build fails fast rather than silently emitting bad pages.
-        throw new Error(
-          `[brandCanonicalMap] Alias "${alias}" equals canonical for brand "${entry.canonical}". ` +
-          'Aliases must be distinct from the canonical slug.',
-        );
-      }
-      const existing = map.get(alias);
-      if (existing && existing !== entry.canonical) {
-        throw new Error(
-          `[brandCanonicalMap] Alias "${alias}" is already mapped to canonical "${existing}"; ` +
-          `cannot remap to "${entry.canonical}". Each alias must belong to exactly one brand.`,
-        );
-      }
-      map.set(alias, entry.canonical);
-    }
-  }
-  return map;
-})();
+export const BRAND_CANONICAL_MAP: Readonly<Record<string, BrandCanonicalEntry>> =
+  RAW_BRAND_CANONICAL_MAP as Readonly<Record<string, BrandCanonicalEntry>>;
 
 /**
  * If `slug` is a known alias, return the canonical slug.
  * If `slug` is a canonical primary, return it unchanged.
  * Otherwise return `null` — caller treats it as an unmanaged slug.
  */
-export function resolveBrandCanonical(slug: string): string | null {
-  if (!slug) return null;
-  if (BRAND_CANONICAL_MAP[slug]) return slug;
-  return ALIAS_TO_CANONICAL.get(slug) ?? null;
-}
+export const resolveBrandCanonical: (slug: string) => string | null = rawResolveBrandCanonical;
 
 /**
  * True when `slug` is a non-canonical alias that needs a bridge page.
  */
-export function isBrandAlias(slug: string): boolean {
-  if (!slug) return false;
-  return ALIAS_TO_CANONICAL.has(slug);
-}
+export const isBrandAlias: (slug: string) => boolean = rawIsBrandAlias;
 
 /**
  * All alias slugs declared across the map. Used by the sitemap emitter
  * to skip aliases and by tests to iterate.
  */
-export function listAllBrandAliases(): ReadonlyArray<{ alias: string; canonical: string }> {
-  const out: Array<{ alias: string; canonical: string }> = [];
-  for (const [alias, canonical] of ALIAS_TO_CANONICAL) {
-    out.push({ alias, canonical });
-  }
-  return out;
-}
+export const listAllBrandAliases: () => ReadonlyArray<{ alias: string; canonical: string }> =
+  rawListAllBrandAliases;
 
 /**
  * All canonical primary slugs declared. Used by tests to assert that
  * exactly one primary page per brand carries the self-canonical.
  */
-export function listAllBrandCanonicals(): ReadonlyArray<string> {
-  return Object.keys(BRAND_CANONICAL_MAP);
-}
+export const listAllBrandCanonicals: () => ReadonlyArray<string> = rawListAllBrandCanonicals;
