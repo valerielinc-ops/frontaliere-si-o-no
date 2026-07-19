@@ -73,11 +73,15 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
   });
 
   it('has valid latitude/longitude for every crossing', () => {
+    // Switzerland + immediately-adjacent border territory across all supported
+    // neighbours (IT/FR/DE/AT/LI), not just the original Ticino-only scope:
+    // south Chiasso ~45.8 to north Schaffhausen/Basel ~47.8,
+    // west Geneva/Jura ~5.9 to east Samnaun/Val Müstair ~10.6.
     for (const c of SCHEDULER_CROSSINGS) {
-      expect(c.lat).toBeGreaterThan(44);
-      expect(c.lat).toBeLessThan(47);
-      expect(c.lng).toBeGreaterThan(8);
-      expect(c.lng).toBeLessThan(10);
+      expect(c.lat).toBeGreaterThan(45.5);
+      expect(c.lat).toBeLessThan(48);
+      expect(c.lng).toBeGreaterThan(5.5);
+      expect(c.lng).toBeLessThan(11);
     }
   });
 });
