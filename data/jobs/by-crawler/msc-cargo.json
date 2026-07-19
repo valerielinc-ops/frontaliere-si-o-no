@@ -226,7 +226,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T23:01:15.221Z"
+      "firstSeenAt": "2026-07-18T23:01:15.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
+          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva",
+        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-2e9827752273",
@@ -371,7 +381,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T23:01:12.867Z"
+      "firstSeenAt": "2026-07-18T23:01:12.867Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "marketing-full-funnell-analyst-msc-geneva"
+        ],
+        "it": [
+          "marketing-full-funnel-analista-msc-group-geneva"
+        ],
+        "fr": [
+          "marketing-full-funnel-analyste-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-full-funnell-analyst-msc-geneva",
+        "marketing-full-funnel-analista-msc-group-geneva",
+        "marketing-full-funnel-analyste-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -436,7 +462,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T23:01:11.703Z"
+      "firstSeenAt": "2026-07-18T23:01:11.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-fleet-supervisore-shore-excursions-msc-group-geneva"
+        ],
+        "de": [
+          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva"
+        ],
+        "fr": [
+          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-fleet-supervisore-shore-excursions-msc-group-geneva",
+        "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
+        "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -702,7 +744,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -711,6 +754,9 @@
         ],
         "de": [
           "sr-director-of-guest-experience-development-delivery-msc-geneva"
+        ],
+        "fr": [
+          "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-07-16T11:36:14.531Z",
