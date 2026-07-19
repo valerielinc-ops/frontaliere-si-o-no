@@ -118,11 +118,17 @@ describe('B9 — external Google Maps link', () => {
     for (const c of borderCrossings) {
       expect(typeof c.lat, `lat for "${c.name}"`).toBe('number');
       expect(typeof c.lng, `lng for "${c.name}"`).toBe('number');
-      // Ticino area: lat ≈ 45.8–46.2, lng ≈ 8.7–9.1
+      // Switzerland + immediately-adjacent border territory across all supported
+      // neighbours (IT/FR/DE/AT/LI), not just the original Ticino-only scope:
+      // south Chiasso ~45.8 to north Schaffhausen/Basel ~47.8,
+      // west Geneva/Jura ~5.9 to east Samnaun/Val Müstair ~10.6, plus the
+      // Grigioni/Vallese Italy-border passes (Gran San Bernardo ~7.17,
+      // Umbrail ~10.43) that pushed the bounds slightly wider than either
+      // sibling range alone (widened 2026-07, union of all 5 regime PRs).
       expect(c.lat, `lat out of range for "${c.name}"`).toBeGreaterThan(44);
-      expect(c.lat, `lat out of range for "${c.name}"`).toBeLessThan(47);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(8);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(10);
+      expect(c.lat, `lat out of range for "${c.name}"`).toBeLessThan(48);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(5.5);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(11);
     }
   });
 });
