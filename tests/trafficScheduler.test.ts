@@ -73,11 +73,14 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
   });
 
   it('has valid latitude/longitude for every crossing', () => {
+    // Switzerland-Italy border region (Ticino/Grigioni/Vallese):
+    // lat ≈ 45.8–46.7, lng ≈ 7.1–10.5 (widened 2026-07 for the GR/VS
+    // border crossings added alongside the historical Ticino-only set).
     for (const c of SCHEDULER_CROSSINGS) {
       expect(c.lat).toBeGreaterThan(44);
       expect(c.lat).toBeLessThan(47);
-      expect(c.lng).toBeGreaterThan(8);
-      expect(c.lng).toBeLessThan(10);
+      expect(c.lng).toBeGreaterThan(7);
+      expect(c.lng).toBeLessThan(11);
     }
   });
 });

@@ -73,4 +73,12 @@ export const BORDER_CROSSINGS = [
  { name: 'Piaggio Valmara (Cannobio-Brissago)', lat: 46.0905, lng: 8.7240 },
  { name: 'Camedo (Re-Centovalli)', lat: 46.1592, lng: 8.6312 },
  { name: 'Sempione (Iselle-Gondo)', lat: 46.2422, lng: 8.1430 },
+ // Grigioni e Vallese — completamento italia-svizzera (2026-07)
+ { name: 'Passo dello Spluga (Montespluga)', lat: 46.5053, lng: 9.3303 },
+ { name: 'Forcola di Livigno', lat: 46.4408, lng: 10.0562 },
+ { name: 'Tunnel Munt La Schera (Passo del Gallo)', lat: 46.6384, lng: 10.1968 },
+ { name: "Giogo di Santa Maria (Passo dell'Umbrail)", lat: 46.5416, lng: 10.4332 },
+ { name: 'Campocologno-Tirano', lat: 46.2331, lng: 10.1426 },
+ { name: 'Castasegna-Villa di Chiavenna', lat: 46.3331, lng: 9.5164 },
+ { name: 'Traforo del Gran San Bernardo', lat: 45.8644, lng: 7.1728 },
 ];

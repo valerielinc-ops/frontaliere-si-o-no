@@ -790,6 +790,165 @@ export const borderCrossings: BorderCrossing[] = [
  },
  ],
  },
+ // GRIGIONI E VALLESE — completamento italia-svizzera (2026-07)
+ // Fonte: ricerca dedicata (Wikipedia IT/DE + fonti di cronaca locale/
+ // turistiche/operatore ufficiale, incrociate multi-fonte). Nessun dato di
+ // traffico storico reale per questi valichi: avgWaitMorning/avgWaitEvening/
+ // trafficLevel/peak OMESSI di proposito, mai fabbricati. Chiusure stagionali
+ // dei passi alpini (Spluga, Forcola di Livigno, Umbrail) codificate come
+ // testo descrittivo in `hours` — lo schema `type` non ha un valore dedicato
+ // "passo di montagna", quindi si usa `statale`/`locale` per vicinanza.
+ {
+ name: 'Passo dello Spluga (Montespluga)',
+ country: 'IT',
+ foreignSide: 'Montespluga (Madesimo)',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.5053,
+ lng: 9.3303,
+ type: 'statale',
+ open24h: false,
+ customsPresent: true,
+ hours: 'Chiuso da neve, tipicamente inizio dic-fine apr (verificare stagione ogni anno)',
+ tips: 'border.tips.spluga',
+ webcams: [
+ {
+ // Pagina widget (montespluga.panomax.com) non è hotlinkabile
+ // direttamente: usa l'immagine og:image dell'operatore Panomax,
+ // verificata live 2026-07-19 (JPEG fresco ~98KB, cache-control
+ // max-age=60, last-modified a pochi minuti dalla richiesta).
+ label: 'Dogana di Montespluga – area doganale (Superwebcam Panomax)',
+ imageUrl: 'https://panodata.panomax.com/cams/11465/preview_og.jpg',
+ sourceName: 'Panomax – Dogana di Montespluga',
+ sourceUrl: 'https://montespluga.panomax.com/',
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Forcola di Livigno',
+ country: 'IT',
+ foreignSide: 'Livigno',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.4408,
+ lng: 10.0562,
+ type: 'locale',
+ open24h: false,
+ customsPresent: true,
+ hours: "Chiusura notturna 22:00-6:00 anche in stagione; chiuso da neve nov-mag/giu (verificare stagione ogni anno)",
+ tips: 'border.tips.forcolaLivigno',
+ // Webcam candidata (Comune di Livigno, webview.livigno.eu/webcam/
+ // passo-forcola/16053) verificata 2026-07-19: la risorsa live
+ // "full.jpg" risponde 200 ma è in realtà una foto statica con
+ // didascalia "Passo Forcola CHIUSO - Foto Nov 2016" e solo il
+ // timestamp overlay aggiornato in automatico — feed morto, non un
+ // falso positivo del monitor. Nessun `webcams` per questa voce.
+ },
+ {
+ name: 'Tunnel Munt La Schera (Passo del Gallo)',
+ country: 'IT',
+ foreignSide: 'Livigno (Ponte del Gallo)',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.6384,
+ lng: 10.1968,
+ type: 'locale',
+ open24h: true,
+ customsPresent: true,
+ hours: "24h tutto l'anno (tunnel a pedaggio, unica alternativa invernale alla Forcola); sabato fasce orarie a senso unico direzionale",
+ tips: 'border.tips.muntLaSchera',
+ // Webcam candidata (meteo-webcam.it/passo-del-gallo-tunnel-munt-la-schera/)
+ // verificata 2026-07-19: la pagina ospita solo foto statiche d'archivio
+ // (2013-2018), nessun feed live incorporato. Nessun `webcams` aggiunto.
+ },
+ {
+ name: "Giogo di Santa Maria (Passo dell'Umbrail)",
+ country: 'IT',
+ foreignSide: 'Bormio (versante Stelvio)',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.5416,
+ lng: 10.4332,
+ type: 'locale',
+ open24h: false,
+ customsPresent: true,
+ hours: 'Chiuso da neve, tipicamente ott/nov-mag/giu (verificare stagione ogni anno)',
+ tips: 'border.tips.umbrail',
+ webcams: [
+ {
+ // Coordinate NON fornite dalla ricerca originale (flag esplicito
+ // "non verificate") — verificate qui in modo indipendente su due
+ // fonti concordanti (it.wikipedia.org/wiki/Giogo_di_Santa_Maria +
+ // de.wikipedia.org/wiki/Umbrailpass), entrambe ~46.5416N/10.4332E.
+ label: "Vista su Val Müstair dall'Hotel Alpenrose (Passo dell'Umbrail)",
+ imageUrl: 'https://webcam.fliriconrad.ch/alpenroseumbrail.jpg',
+ sourceName: 'Hotel Alpenrose – Umbrail (Val Müstair)',
+ sourceUrl: 'https://alpenrose-umbrail.ch/',
+ refreshIntervalMs: 60000,
+ },
+ ],
+ },
+ {
+ name: 'Campocologno-Tirano',
+ country: 'IT',
+ foreignSide: 'Tirano',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.2331,
+ lng: 10.1426,
+ type: 'locale',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h presunto (bassa quota, non alpino); una fonte lo descrive come "traffico tollerato/limitato" — regime esatto non confermato su fonte BAZG diretta',
+ tips: 'border.tips.campocolognoTirano',
+ // Nessuna webcam trovata sul valico stesso (solo webcam del trenino
+ // rosso/viadotto Bernina Express a Brusio, non inquadrano la dogana).
+ },
+ {
+ name: 'Castasegna-Villa di Chiavenna',
+ country: 'IT',
+ foreignSide: 'Villa di Chiavenna',
+ canton: 'GR',
+ province: 'SO',
+ lat: 46.3331,
+ lng: 9.5164,
+ type: 'statale',
+ open24h: true,
+ customsPresent: true,
+ hours: '24h presunto (bassa quota, Val Bregaglia, nessuna chiusura stagionale nota); orari doganali esatti non verificati',
+ tips: 'border.tips.castasegna',
+ // Nessuna webcam trovata sul punto esatto del valico (solo webcam più
+ // a monte in Val Bregaglia, es. Soglio, non sul crossing).
+ },
+ {
+ name: 'Traforo del Gran San Bernardo',
+ country: 'IT',
+ foreignSide: 'Saint-Rhémy-en-Bosses',
+ canton: 'VS',
+ province: 'AO',
+ lat: 45.8644,
+ lng: 7.1728,
+ type: 'statale',
+ open24h: true,
+ customsPresent: true,
+ hours: "24h per traffico leggero (tunnel, indipendente dalla neve); traffico merci orari doganali limitati, verificare sul sito dell'operatore",
+ tips: 'border.tips.granSanBernardo',
+ webcams: [
+ {
+ // Pagina operatore (letunnel.com/en/meteo/webcam/) espone 4 immagini;
+ // verificate 2026-07-19: solo "camera2.jpg" ha timestamp overlay e
+ // Last-Modified realmente correnti (portale con veicoli in transito
+ // visibili). Le altre 3 (image01/02/03.jpg) rispondono 200 ma sono
+ // ferme a ~12 giorni prima della verifica — feed stagnanti, esclusi.
+ label: 'Portale del Traforo del Gran San Bernardo (lato accesso)',
+ imageUrl: 'https://webcam.letunnel.com/webcam/camera2.jpg',
+ sourceName: 'Le Tunnel – operatore Traforo del Gran San Bernardo',
+ sourceUrl: 'https://letunnel.com/en/meteo/webcam/',
+ refreshIntervalMs: 900000,
+ },
+ ],
+ },
 ];
 
 // ── Computed averages overlay ────────────────────────────────────

@@ -118,11 +118,13 @@ describe('B9 — external Google Maps link', () => {
     for (const c of borderCrossings) {
       expect(typeof c.lat, `lat for "${c.name}"`).toBe('number');
       expect(typeof c.lng, `lng for "${c.name}"`).toBe('number');
-      // Ticino area: lat ≈ 45.8–46.2, lng ≈ 8.7–9.1
+      // Switzerland-Italy border region (Ticino/Grigioni/Vallese):
+      // lat ≈ 45.8–46.7, lng ≈ 7.1–10.5 (widened 2026-07 for the GR/VS
+      // border crossings added alongside the historical Ticino-only set).
       expect(c.lat, `lat out of range for "${c.name}"`).toBeGreaterThan(44);
       expect(c.lat, `lat out of range for "${c.name}"`).toBeLessThan(47);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(8);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(10);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(7);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(11);
     }
   });
 });
