@@ -58,6 +58,19 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.78.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3780.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3780.frontaliereWizard.title',
+        descKey: 'whatsNew.v3780.frontaliereWizard.desc',
+        link: { tab: 'frontaliere-wizard' },
+      },
+    ],
+  },
+  {
     version: '3.77.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3770.title',

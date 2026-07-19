@@ -4576,6 +4576,18 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Le calendrier scolaire tessinois est-il identique à l'italien ?", a: "Non. Les écoles italiennes frontalières (Côme, Varèse, Valteline) suivent un calendrier différent, avec une rentrée à la mi-septembre, des vacances d'été plus longues et aucune vacance d'automne. Les parents frontaliers ayant des enfants dans les deux systèmes doivent croiser les dates pour trouver des fenêtres de vacances communes." }
  },
 
+ // ── Frontaliere Readiness Wizard ──
+ "Come faccio a sapere se sono pronto a diventare frontaliere?": {
+ en: { q: "How do I know if I'm ready to become a cross-border worker?", a: "Answer the wizard's 7 questions about border distance, G permit, job situation, family, sector, language and financial preparation: you'll get a readiness score and a personalized plan with the concrete steps to follow." },
+ de: { q: "Woher weiss ich, ob ich bereit bin, Grenzgänger zu werden?", a: "Beantworte die 7 Fragen des Wizards zu Grenznähe, G-Bewilligung, Jobsituation, Familie, Branche, Sprache und finanzieller Vorbereitung: Du erhältst einen Bereitschafts-Score und einen personalisierten Plan mit den konkreten nächsten Schritten." },
+ fr: { q: "Comment savoir si je suis prêt à devenir frontalier ?", a: "Répondez aux 7 questions du wizard sur la distance de la frontière, le permis G, la situation professionnelle, la famille, le secteur, la langue et la préparation financière : vous obtiendrez un score de préparation et un plan personnalisé avec les étapes concrètes à suivre." }
+ },
+ "Quali sono i primi passi per lavorare in Svizzera come frontaliere?": {
+ en: { q: "What are the first steps to work in Switzerland as a cross-border worker?", a: "Typically: check your permit type (B or G), find a job in Switzerland, calculate your net salary, open a CHF account, choose health insurance and plan your commute through the border crossings. The wizard orders these steps based on your situation." },
+ de: { q: "Was sind die ersten Schritte, um als Grenzgänger in der Schweiz zu arbeiten?", a: "In der Regel: Bewilligungstyp prüfen (B oder G), einen Job in der Schweiz finden, den Nettolohn berechnen, ein CHF-Konto eröffnen, die Krankenversicherung wählen und den Arbeitsweg über die Grenzübergänge planen. Der Wizard ordnet diese Schritte nach deiner Situation." },
+ fr: { q: "Quelles sont les premières étapes pour travailler en Suisse comme frontalier ?", a: "En général : vérifier le type de permis (B ou G), trouver un emploi en Suisse, calculer le salaire net, ouvrir un compte en CHF, choisir l'assurance maladie et organiser le trajet par les postes-frontière. Le wizard ordonne ces étapes selon votre situation." }
+ },
+
 };
 
 /**

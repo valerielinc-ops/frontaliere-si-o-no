@@ -407,6 +407,7 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'contracts',
       'tfr-calculator',
       'permit-quiz',
+      'frontaliere-wizard',
       'tredicesima',
       'weekly-digest',
       'tool-of-week',

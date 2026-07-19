@@ -3725,6 +3725,52 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ],
  },
 
+ // ─── Frontaliere Readiness Wizard ─────────────────────────────────────,
+
+ 'frontaliere-wizard': {
+ title: 'Sei Pronto a Diventare Frontaliere? Test in 2 Minuti | Frontaliere',
+ description: 'Test di prontezza per aspiranti frontalieri: 7 domande su confine, permesso G, lavoro, famiglia e lingua, poi un piano personalizzato con i passi da fare.',
+ keywords: 'diventare frontaliere, come diventare frontaliere svizzera, test frontaliere, sei pronto frontaliere, piano frontaliere, iniziare a lavorare in svizzera, primi passi frontaliere, guida nuovo frontaliere',
+ ogTitle: 'Sei Pronto a Diventare Frontaliere? Scoprilo in 2 Minuti',
+ ogDescription: 'Rispondi a 7 domande e ricevi il tuo punteggio di prontezza + un piano personalizzato con i passi da fare per iniziare a lavorare in Svizzera.',
+ canonicalPath: '/sei-pronto-a-diventare-frontaliere/',
+ structuredData: [
+ {
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Sei Pronto a Diventare Frontaliere?",
+ "url": `${BASE_URL}/sei-pronto-a-diventare-frontaliere/`,
+ "description": "Wizard di qualificazione per aspiranti frontalieri: 7 domande, punteggio di prontezza e piano d'azione personalizzato con link a guide, comparatori e calcolatori.",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "All",
+ "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+ "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "Come faccio a sapere se sono pronto a diventare frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Rispondi alle 7 domande del wizard su distanza dal confine, permesso G, situazione lavorativa, famiglia, settore, lingua e preparazione finanziaria: otterrai un punteggio di prontezza e un piano personalizzato con i passi concreti da seguire."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Quali sono i primi passi per lavorare in Svizzera come frontaliere?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "In genere: verificare il tipo di permesso (B o G), trovare un lavoro in Svizzera, calcolare lo stipendio netto, aprire un conto in CHF, scegliere l'assicurazione malattia e organizzare il tragitto ai valichi di frontiera. Il wizard ordina questi passi in base alla tua situazione."
+ }
+ }
+ ]
+ }
+ ],
+ },
+
  // ─── Tredicesima / Quattordicesima Calculator ────────────────────────,
 
  'tredicesima': {
