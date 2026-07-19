@@ -483,7 +483,7 @@ jobs:
             if [ "${!live_var:-}" != "true" ]; then
               continue
             fi
-            sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l]' scripts/lib/section-shard-slugs.json)"
+            sub="$(jq -r --arg s "$section" --arg l "it" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             src="$RUNNER_TEMP/${section}-src-it/dist"
             if [ ! -d "$src/$sub" ]; then
               echo "no staged $section-it subtree (push skipped/failed) — validate-dist will fall back to git clone"
@@ -801,7 +801,7 @@ jobs:
             if [ "${!live_var:-}" != "true" ]; then
               continue
             fi
-            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l]' scripts/lib/section-shard-slugs.json)"
+            slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
             sub="$loc/$slug"
             src="$RUNNER_TEMP/${section}-src-$loc/dist"
             if [ ! -d "$src/$sub" ]; then
