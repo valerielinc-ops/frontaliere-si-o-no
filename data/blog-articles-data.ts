@@ -25991,6 +25991,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tecnicodisalaoperatoriaticinostipendiorientati',
+ category: 'pratico',
+ date: '2026-07-19T10:35:27.056Z',
+ image: '/images/blog/tecnicodisalaoperatoriaticinostipendiorientati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
