@@ -4539,7 +4539,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
  setAdRefreshKey((k) => k + 1);
- }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly]);
+ }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {
@@ -5963,14 +5963,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onAcceptTapped={handleSavedNudgeAcceptTapped}
  onAccepted={handleSavedNudgeAccepted}
  onAnonymousAccept={() => {
- // Hand off to the always-mounted JobAlertForm (owns auth + email
- // capture), prefilling the derived keyword. The form only mounts on
- // the LIST view — same queued-request + backToList dance as the
- // job-detail prompt's onManage above. Accept is terminal for the
- // nudge; the form flow has its own job_alert_created tracking.
+ // Hand off to the JobAlertForm (owns auth + email capture),
+ // prefilling the derived keyword. Accept is terminal for the nudge;
+ // the form flow has its own job_alert_created tracking. On the LIST
+ // view the form is already mounted → the `openJobAlert` DOM event
+ // expands + scrolls it. From DETAIL the form isn't mounted → same
+ // queued-request + backToList dance as the prompt's onManage above.
  saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
+ if (isJobDetailView) {
  requestJobAlertOpen(savedNudge.categoryLabel);
- if (isJobDetailView) backToList();
+ backToList();
+ } else {
+ window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: savedNudge.categoryLabel } }));
+ }
  }}
  onDismissed={handleSavedNudgeDismissed}
  />
@@ -8685,8 +8690,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  )}
 
- {/* Filter toggle bar */}
- <div className="flex items-center gap-2">
+ {/* Filter toggle bar — wraps so the saved-jobs pill (#4466) never forces
+ horizontal overflow on narrow mobile widths. */}
+ <div className="flex flex-wrap items-center gap-2">
  <button
  type="button"
  onClick={() => setFiltersExpanded(!filtersExpanded)}
