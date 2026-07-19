@@ -73,11 +73,16 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
   });
 
   it('has valid latitude/longitude for every crossing', () => {
+    // Switzerland + immediate cross-border region (all cantons/countries, not
+    // just Ticino — dataset is country-agnostic since PR #4541). Bounding box
+    // covers CH's actual extent (~45.8–47.8N, ~5.96–10.5E) plus a small buffer
+    // for foreign-side towns just across the border (e.g. Schaffhausen/Basel-
+    // area DE crossings reach ~47.8N).
     for (const c of SCHEDULER_CROSSINGS) {
       expect(c.lat).toBeGreaterThan(44);
-      expect(c.lat).toBeLessThan(47);
-      expect(c.lng).toBeGreaterThan(8);
-      expect(c.lng).toBeLessThan(10);
+      expect(c.lat).toBeLessThan(48);
+      expect(c.lng).toBeGreaterThan(5.5);
+      expect(c.lng).toBeLessThan(11);
     }
   });
 });

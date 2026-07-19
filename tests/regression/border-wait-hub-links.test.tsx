@@ -118,11 +118,15 @@ describe('B9 — external Google Maps link', () => {
     for (const c of borderCrossings) {
       expect(typeof c.lat, `lat for "${c.name}"`).toBe('number');
       expect(typeof c.lng, `lng for "${c.name}"`).toBe('number');
-      // Ticino area: lat ≈ 45.8–46.2, lng ≈ 8.7–9.1
+      // Switzerland + immediate cross-border region (all cantons/countries, not
+      // just Ticino — dataset is country-agnostic since PR #4541). Bounding box
+      // covers CH's actual extent (~45.8–47.8N, ~5.96–10.5E) plus a small buffer
+      // for foreign-side towns just across the border (e.g. Schaffhausen/Basel-
+      // area DE crossings reach ~47.8N).
       expect(c.lat, `lat out of range for "${c.name}"`).toBeGreaterThan(44);
-      expect(c.lat, `lat out of range for "${c.name}"`).toBeLessThan(47);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(8);
-      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(10);
+      expect(c.lat, `lat out of range for "${c.name}"`).toBeLessThan(48);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeGreaterThan(5.5);
+      expect(c.lng, `lng out of range for "${c.name}"`).toBeLessThan(11);
     }
   });
 });
