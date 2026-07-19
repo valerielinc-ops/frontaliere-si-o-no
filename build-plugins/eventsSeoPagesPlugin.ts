@@ -43,6 +43,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -1568,6 +1569,7 @@ export function renderHubPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.hubTitle,
@@ -1576,7 +1578,7 @@ export function renderHubPage(params: {
     hreflangHtml: buildAlternates(canton),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
@@ -1695,6 +1697,7 @@ export function renderEventsIndexPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.metaTitle,
@@ -1703,7 +1706,7 @@ export function renderEventsIndexPage(params: {
     hreflangHtml: buildNationalAlternates(),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
@@ -1813,6 +1816,7 @@ export function renderComunePage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.comuneTitle(comune),
@@ -1821,7 +1825,7 @@ export function renderComunePage(params: {
     hreflangHtml: buildAlternates(canton, comune),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
@@ -2065,6 +2069,7 @@ export function renderOtherEventsPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oeCopy.metaTitle,
@@ -2073,7 +2078,7 @@ export function renderOtherEventsPage(params: {
     hreflangHtml: buildAlternates(canton, OTHER_EVENTS_COMUNE_KEY),
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
@@ -2576,6 +2581,7 @@ export function renderEventDetailPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: !isPast && wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.metaTitle(title, displayComune),
@@ -2584,7 +2590,7 @@ export function renderEventDetailPage(params: {
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
     robots: !isPast && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,
@@ -2811,6 +2817,7 @@ export function renderDigestPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.title,
@@ -2823,7 +2830,7 @@ export function renderDigestPage(params: {
     // (else a "no events this weekend" page gets indexed + sitemapped).
     robots: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
-    bodyHtml: body,
+    bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
     hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
     distDir,

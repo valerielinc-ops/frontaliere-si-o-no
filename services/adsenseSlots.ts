@@ -51,6 +51,31 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
+ /** Static SSG "family" landings: end-of-content multiplex (issue #4485).
+  *
+  *  Shared by the build-plugin families that previously ran Auto Ads only —
+  *  events, career, cost-of-living, comparisons, FAQ, pillar, exchange-rate,
+  *  employer-profile and profession×canton — emitted once at the very bottom
+  *  of the page content via `endOfContentMultiplexHtml()`
+  *  (build-plugins/lib/adSlotHtml.ts). `autorelaxed` (multiplex) is the format
+  *  the homepage / end-of-article placements proved earns far above display
+  *  (in-page multiplex RPM €6.64 vs €0.20 display — see HOMEPAGE_MID_DISPLAY).
+  *
+  *  Slot id REUSES ARTICLE_END_MULTIPLEX ('5196931137') — an active autorelaxed
+  *  end-of-content multiplex unit. These SSG family pages never co-render the
+  *  blog end-of-article multiplex, so there is no same-page cannibalization
+  *  (same cross-context reuse pattern as CALCULATOR_POST_RESULT /
+  *  FT_DRIVEBY_ATF_DISPLAY). A dedicated `FT_SSG_END_MULTIPLEX` unit CANNOT be
+  *  created from this automation (AdSense `adunits.create` returns 403 —
+  *  console-only). Owner upgrade for isolated reporting: create a Multiplex
+  *  unit named `FT_SSG_END_MULTIPLEX` in the AdSense console and swap the `slot`
+  *  below — that single edit re-points every SSG family page. */
+ SSG_END_MULTIPLEX: {
+ slot: '5196931137',
+ format: 'autorelaxed',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 400,
+ },
  /** Job listing: desktop in-feed (responsive DISPLAY).
   *
   *  Switched 2026-06-25 from the FEED native unit (9770600968) to a responsive

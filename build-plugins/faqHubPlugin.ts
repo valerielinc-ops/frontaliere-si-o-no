@@ -38,6 +38,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import {
@@ -445,7 +446,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `<main class="fh-main">${body}</main>`;
+  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({

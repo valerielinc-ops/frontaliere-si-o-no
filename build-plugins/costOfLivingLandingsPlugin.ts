@@ -50,6 +50,7 @@ import type { Plugin } from 'vite';
 const __dirname_col_plugin = np.dirname(fileURLToPath(import.meta.url));
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedDate } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -537,9 +538,8 @@ function renderPage(opts: {
       <a href="${esc(hubUrl)}" class="s-card" style="text-decoration:none;font-weight:700;border-radius:12px">${esc(L.ctaCompare)}</a>
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
-
   const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const html = buildSeoPageHtml({
     locale,

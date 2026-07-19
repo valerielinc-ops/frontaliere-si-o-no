@@ -36,6 +36,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
 import {
   LINK_ACCENT_STYLE,
@@ -427,7 +428,7 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}</main>`;
+  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({

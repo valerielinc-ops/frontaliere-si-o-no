@@ -66,3 +66,31 @@ export function infeedAdListItemHtml(opts?: { spanFull?: boolean }): string {
 export function infeedAdGridBlockHtml(): string {
   return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation">${infeedAdInnerHtml()}</div>`;
 }
+
+/**
+ * End-of-content multiplex ad for the static SSG "family" landing pages that
+ * previously ran Auto Ads only — events, career, cost-of-living, comparisons,
+ * FAQ, pillar, exchange-rate, employer-profile and profession×canton
+ * (issue #4485). Emitted ONCE, at the very bottom of the page content, after
+ * all editorial / data sections. `SSG_END_MULTIPLEX` is `autorelaxed`
+ * (multiplex), the proven high-RPM manual format (in-page multiplex €6.64 vs
+ * €0.20 display).
+ *
+ * ACCOUNT-SAFETY GATE (MFA / AdSense policy): a manual ad unit on a thin or
+ * `noindex` bridge page is an MFA signal that risks account-level action.
+ * This helper returns '' unless the page is `index,follow` above-floor — every
+ * caller passes `indexable` from the SAME condition that sets the page's
+ * `robots` meta, so a noindex/thin page can NEVER carry the slot by
+ * construction. Auto Ads still cover every page and are never gated
+ * (Non-Negotiable #7); this only adds the proven manual multiplex on
+ * indexable pages.
+ *
+ * Zero CLS: the `<ins>` reserves `SSG_END_MULTIPLEX.placeholderMinHeight` px
+ * via adSlotHtml's inline `min-height`. The `<section>` is content-width and
+ * centered so the slot renders correctly whether it sits inside the page
+ * container or as its sibling in the root.
+ */
+export function endOfContentMultiplexHtml(opts: { indexable: boolean }): string {
+  if (!opts.indexable) return '';
+  return `<section class="max-w-3xl mx-auto px-4 mt-8" aria-label="advertisement">${adSlotHtml('SSG_END_MULTIPLEX')}</section>`;
+}

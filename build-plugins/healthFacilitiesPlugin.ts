@@ -26,6 +26,7 @@ import * as np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { formatUpdatedDate } from './shared/humanDate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -312,6 +313,7 @@ function renderFacilityPage(
     ${funnelSection}
     ${proseSection}
     ${faqSection}
+    ${endOfContentMultiplexHtml({ indexable: true })}
   </div>`;
 
   // ── JSON-LD ──
