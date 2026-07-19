@@ -149,7 +149,17 @@ export function inlineTextToHtml(text: string): string {
   // wrap section headers in `===== Cosa offriamo: =====`.
   const s = String(text).replace(/[_=~]{3,}/g, ' ').replace(/ {2,}/g, ' ');
   if (/<(strong|em|a|span|br)\b/i.test(s)) {
-    return stripExternalHtmlAttributes(s);
+    // Sources that mix real structural tags with literal, unconverted
+    // `**bold**` markdown in the same string (seen from partially
+    // pre-formatted ATS/crawler output) hit this branch. Scrub `**` here
+    // too — same as computeJobDescriptionTextToHtml's structural-tag
+    // branch above — or it leaks into <main> and trips
+    // audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
+    return stripExternalHtmlAttributes(
+      s
+        .replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ')
+        .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>'),
+    );
   }
   return inlinesToHtml(parseInline(s));
 }

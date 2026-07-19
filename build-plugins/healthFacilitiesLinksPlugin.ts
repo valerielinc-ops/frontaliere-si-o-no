@@ -51,7 +51,8 @@ import { NEAR_YOU_BLOCK } from './healthFacilitiesCopy';
 // HTML) is skipped. Within one build the producer always re-renders the
 // landing fresh, so the marker can only be absent when this injector runs.
 const MARKER = 'data-health-facility-links';
-const MAX_FACILITY_LINKS = 8;
+// Was 8 — see pickFacilities() below for why raising this alone wasn't enough.
+const MAX_FACILITY_LINKS = 24;
 
 function esc(s: string): string {
   return String(s)
@@ -61,7 +62,19 @@ function esc(s: string): string {
     .replace(/"/g, '&quot;');
 }
 
-/** Rank the above-floor facilities for a given nursing landing id. */
+/**
+ * Rank the above-floor facilities for a given nursing landing id.
+ *
+ * `nurses` and `oss` used to both take the identical top-N by liveCount, so
+ * across all 3 ids × 4 locales only N unique facilities ever got linked (was
+ * N=8 → 428/436 = 98.2% of the family stayed orphaned, tripping the
+ * new-shard check in audit:max-bfs-depth). No per-facility "care-assistant
+ * openings" signal exists on {@link EmittedFacility} to split on topically
+ * (the file header doc predates this — it was never actually implemented),
+ * so instead `nurses`/`oss` take disjoint even/odd slices of the SAME
+ * ranked list — a real, data-available way to make the two ids' link sets
+ * non-overlapping — while `healthcare-ticino` keeps its TI-first behaviour.
+ */
 function pickFacilities(id: NursingLandingId, all: readonly EmittedFacility[]): EmittedFacility[] {
   const byCount = [...all].sort((a, b) => b.liveCount - a.liveCount);
   if (id === 'healthcare-ticino') {
@@ -69,7 +82,8 @@ function pickFacilities(id: NursingLandingId, all: readonly EmittedFacility[]): 
     const rest = byCount.filter((f) => f.canton !== 'TI');
     return [...ti, ...rest].slice(0, MAX_FACILITY_LINKS);
   }
-  return byCount.slice(0, MAX_FACILITY_LINKS);
+  const parity = id === 'oss' ? 1 : 0;
+  return byCount.filter((_, i) => i % 2 === parity).slice(0, MAX_FACILITY_LINKS);
 }
 
 function facilityLinkLabel(f: EmittedFacility, locale: HealthFacilityLocale): string {

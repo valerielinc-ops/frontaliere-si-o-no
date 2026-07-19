@@ -73,6 +73,7 @@ import {
   renderStatGrid,
   pickStatTileTone,
 } from './shared/seoContentTokens';
+import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
 const MIN_JOBS = 3;
@@ -480,6 +481,16 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;
+        // Same below-floor-bridge treatment as the liveCount<MIN_JOBS branch
+        // above (sibling bug class, see professionCantonLandings.ts): a bare
+        // `continue` here leaves this pair's slot empty for a locale-
+        // partitioned CI build to fill with a different verdict per locale.
+        for (const locale of PROFESSION_LOCALES) {
+          const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
+          const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cityKey, id));
+          result.bridgesWritten++;
+        }
         continue;
       }
       for (const r of rendered) {
@@ -511,11 +522,18 @@ export function professionCityLandings(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
-      if (process.env.SKIP_PROFESSION_CITIES === '1') return;
+      if (process.env.SKIP_PROFESSION_CITIES === '1') {
+        resolveProfessionCitiesFlushed([]);
+        return;
+      }
       const distDir = np.resolve(rootDir, 'dist');
       const res = await emitProfessionCityPages({ rootDir, distDir });
       // eslint-disable-next-line no-console
       console.log(`[profession-cities] emitted ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate)`);
+      // Hand emitted canonical paths to professionCityLinksPlugin so it can
+      // de-orphan exactly the pages shipped (CLAUDE.md regola #5: close
+      // orphans with real internal links, not by relaxing the gate).
+      resolveProfessionCitiesFlushed(res.emittedPaths);
     },
   };
 }
