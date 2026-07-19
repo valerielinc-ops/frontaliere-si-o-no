@@ -10,7 +10,7 @@
  */
 import index from '@/data/swiss-canton-salary-index.json';
 import taxBurden from '@/data/swiss-canton-tax-burden.json';
-import { DEFAULT_TECH_PARAMS } from '@/constants';
+import { CH_SOCIAL_RATE } from '@/constants';
 
 /** Sentinel for the national (all-Switzerland) view — scale 1.0. */
 export const NATIONAL_CANTON = 'CH';
@@ -92,18 +92,6 @@ export function cantonTaxBurdenPct(gross: number, code?: string | null): number 
 
 // ── "Same job in another canton" net estimate (issue #4471) ──────────────────
 
-/**
- * Flat CH social-security rate for a resident (AVS/AI/IPG + AD + LAINF + IGM +
- * LPP mid-band), reused from the calculator's default technical parameters so
- * the comparison never drifts from the main engine's contribution assumptions.
- */
-const SOCIAL_RATE =
-  DEFAULT_TECH_PARAMS.avsRate +
-  DEFAULT_TECH_PARAMS.acRate +
-  DEFAULT_TECH_PARAMS.laaRate +
-  DEFAULT_TECH_PARAMS.ijmRate +
-  DEFAULT_TECH_PARAMS.lppRate35_44;
-
 export interface CantonNetEstimate {
   /** Target canton ISO code (e.g. 'ZH'). */
   canton: string;
@@ -142,7 +130,7 @@ export function estimateCantonNetMonthly(
   if (!fromScale) return null;
   const grossAnnual = gross * (toScale / fromScale);
 
-  const socialCHF = grossAnnual * SOCIAL_RATE;
+  const socialCHF = grossAnnual * CH_SOCIAL_RATE;
   const taxCHF = grossAnnual * (cantonTaxBurdenPct(grossAnnual, c) / 100);
   const netAnnual = grossAnnual - socialCHF - taxCHF;
 
