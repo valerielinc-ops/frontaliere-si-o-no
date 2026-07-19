@@ -132,6 +132,12 @@ const SECTOR_JOBS_LABEL: Record<Locale, string> = {
 const JOB_BOARD_LABEL: Record<Locale, string> = {
   it: 'Bacheca offerte Ticino', en: 'Ticino job board', de: 'Stellenbörse Tessin', fr: 'Offres d’emploi Tessin',
 };
+const TITLE_SUFFIX: Record<Locale, string> = {
+  it: 'posizioni aperte e stipendi',
+  en: 'open positions and salaries',
+  de: 'offene Stellen und Gehälter',
+  fr: 'postes ouverts et salaires',
+};
 
 /** Format a CHF annual amount with Swiss grouping (e.g. "CHF 86’250"). */
 function fmtChf(v: number): string {
@@ -491,7 +497,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
           const html = buildSeoPageHtml({
             locale,
-            title: `${H1_PREFIX[locale]} ${profile.name}: posizioni aperte e stipendi`,
+            title: `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
             description: introProse(liveProfile, locale).slice(0, 160),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',
