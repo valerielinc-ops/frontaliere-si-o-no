@@ -1252,6 +1252,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Travailler comme opticien en Suisse: salaire et reconnaissance',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Les opticiens frontaliers au Tessin : salaire moyen, exigences, reconnaissance du diplôme et permis G.',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier attendant de recevoir un permis de travail auprès d\'un optométriste à Lugano.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme podologue au Tessin : exigences et reconnaissance',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un podologue frontalier au Tessin, conditions pour travailler comme podologue au Tessin en tant que frontalier et reconnaissance du diplôme d\'études.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologue dans un environnement de travail en Ticino',
 };
 
 export default blogMetaChFr;

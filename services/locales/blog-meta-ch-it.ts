@@ -1252,6 +1252,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere in attesa di ricevere il permesso di lavoro presso un ottico optometrista a Lugano.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come podologo in Ticino: requisiti e riconoscimento',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologo in un ambiente di lavoro in Ticino',
 };
 
 export default blogMetaChIt;

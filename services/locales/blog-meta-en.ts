@@ -8641,6 +8641,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-ottico-optometrista.title': 'How much does a border optometrist in Ticino earn?',
     'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'An analysis of the salaries of a border optometrist optician in Ticino, based on the New Border Agreement of 2024.',
     'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'An optician in an optometrist\'s office in Lugano',
+    'blog.article.ottico-optometrista-ticino-guida.title': 'Optometrist in Ticino: salary and requirements',
+    'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Complete guide for the border optometrist optician: professional requirements, average salaries in Ticino, G Permit and updated tax legislation.',
+    'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Optician optometrist office in Ticino with modern equipment',
 };
 
 export default blogMetaEn;

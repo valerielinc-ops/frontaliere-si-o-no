@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Trophy, Star, Flame, Target, Award, Sparkles, CheckCircle2, Zap, Lock } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { ACHIEVEMENTS, loadState, getLevel, LEVEL_TITLES, type GamificationState } from '@/services/gamificationService';
+import FrontaliereChecklist from '@/components/community/FrontaliereChecklist';
 
 const GamificationPage: React.FC = () => {
  const { t } = useTranslation();
@@ -88,6 +89,10 @@ const GamificationPage: React.FC = () => {
  <div className="text-xs text-on-accent/80 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
  </div>
  </div>
+
+ {/* Percorso frontaliere checklist — persistent, XP-earning journey over the
+     existing guides (progressive disclosure, never login-first). */}
+ <FrontaliereChecklist />
 
  {/* Category filter tabs */}
  <div className="flex gap-2 overflow-x-auto pb-1">

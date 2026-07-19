@@ -1252,6 +1252,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Lavorare come ottico in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Grenzoptiker im Tessin: Durchschnittsgehalt, Voraussetzungen, Anerkennung des Bildungsabschlusses und G-Genehmigung.',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzarbeiter, der ein Arbeitsvisum bei einem Optometristen in Lugano erwarten muss.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Arbeiten als Podologe im Tessin: Voraussetzungen und Anerkennung',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzgänger-Fusspflegers im Tessin, Voraussetzungen für die Arbeit als Grenzgänger-Fusspfleger im Tessin und Anerkennung des Abschlusses.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologe in einem Arbeitsumfeld in Ticino',
 };
 
 export default blogMetaChDe;
