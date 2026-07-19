@@ -1511,7 +1511,7 @@ function renderLeafPage(inp: LeafInputs): string {
             : locale === 'fr'
               ? 'Moyenne matin'
               : 'Morning average',
-      )}:</strong> ${esc(reg.avgWaitMorning)}</li>`,
+      )}:</strong> ${esc(reg.avgWaitMorning ?? 'n.d.')}</li>`,
     );
     infoRows.push(
       `<li class="s-IHVixW"><strong>${esc(
@@ -1522,7 +1522,7 @@ function renderLeafPage(inp: LeafInputs): string {
             : locale === 'fr'
               ? 'Moyenne soir'
               : 'Evening average',
-      )}:</strong> ${esc(reg.avgWaitEvening)}</li>`,
+      )}:</strong> ${esc(reg.avgWaitEvening ?? 'n.d.')}</li>`,
     );
   }
   const infoHtml = infoRows.length
@@ -1564,7 +1564,7 @@ function renderLeafPage(inp: LeafInputs): string {
             if (!altReg) return '';
             const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
             const altDisp = BORDER_CROSSING_DISPLAY[slug];
-            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning)}`;
+            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning ?? 'n.d.')}`;
             return `<li class="s-card" style="border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
           })
           .filter(Boolean)
