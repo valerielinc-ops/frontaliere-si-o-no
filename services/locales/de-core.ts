@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
+ 'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
+ 'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',
  'whatsNew.v3650.title': 'Interaktiver LAMal-vs-SSN-Vergleich',
  'whatsNew.v3650.affiliate.title': 'Empfohlene Gesundheits-Tools',
  'whatsNew.v3650.affiliate.desc': 'Neue empfohlene Ressourcen im Krankenkassen-Vergleich und auf den Pr\u00e4mienseiten, mit einheitlich getrackten Partnerlinks.',

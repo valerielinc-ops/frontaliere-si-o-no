@@ -447,6 +447,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
           );
         const listed = group.slice(0, MAX_JOBS_LISTED);
+        // Display the LIVE active count (corpus at build time) rather than the
+        // committed snapshot, and gate indexability on it — so a dataset that
+        // has drifted below the floor since it was generated auto-downgrades to
+        // noindex instead of shipping a thin/empty indexable page.
+        const liveActive = group.length;
+        const liveProfile: EmployerProfile = { ...profile, activeJobs: liveActive };
         const hreflangHtml = hreflangFor(slug);
         const alternates = [
           ...LOCALES.map((alt) => `${alt}|${BASE_URL}${profilePath(alt, slug)}`),
@@ -456,7 +462,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         for (const locale of LOCALES) {
           const urlPath = profilePath(locale, slug);
           const canonicalUrl = `${BASE_URL}${urlPath}`;
-          const bodyHtml = renderProfileBody(profile, listed, locale);
+          const bodyHtml = renderProfileBody(liveProfile, listed, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
           // JobPosting ItemList (supplementary list-page signal; the
@@ -480,13 +486,13 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             }));
           }
 
-          const indexable = wordCount >= MIN_INDEXABLE_WORDS && profile.activeJobs >= 5;
+          const indexable = wordCount >= MIN_INDEXABLE_WORDS && liveActive >= 5;
           if (!indexable) thinDowngraded++;
 
           const html = buildSeoPageHtml({
             locale,
             title: `${H1_PREFIX[locale]} ${profile.name}: posizioni aperte e stipendi`,
-            description: introProse(profile, locale).slice(0, 160),
+            description: introProse(liveProfile, locale).slice(0, 160),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',
             ogType: 'website',

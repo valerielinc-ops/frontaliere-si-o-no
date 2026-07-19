@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3700.title': 'Pages entreprise : salaires et postes ouverts',
+ 'whatsNew.v3700.employerProfiles.title': 'Profils des entreprises qui recrutent',
+ 'whatsNew.v3700.employerProfiles.desc': 'De nouvelles pages dédiées pour des centaines d’employeurs : postes ouverts, salaire médian, sites et tendance des recrutements, en un coup d’œil.',
  'whatsNew.v3650.title': 'Comparaison interactive LAMal vs SSN',
  'whatsNew.v3650.affiliate.title': 'Outils sant\u00e9 recommand\u00e9s',
  'whatsNew.v3650.affiliate.desc': 'Nouvelles ressources recommand\u00e9es dans le comparateur de caisses maladie et les pages de primes, avec liens partenaires suivis de mani\u00e8re uniforme.',

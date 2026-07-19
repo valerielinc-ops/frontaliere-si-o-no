@@ -2524,6 +2524,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3700.title': 'Company pages: salaries and open roles',
+ 'whatsNew.v3700.employerProfiles.title': 'Profiles of the companies that are hiring',
+ 'whatsNew.v3700.employerProfiles.desc': 'New dedicated pages for hundreds of employers: open positions, median salary, locations and hiring trend, all at a glance.',
  'whatsNew.v3650.title': 'Interactive LAMal vs SSN comparison',
  'whatsNew.v3650.affiliate.title': 'Recommended health tools',
  'whatsNew.v3650.affiliate.desc': 'New recommended resources in the health-insurance comparator and premium pages, with uniformly tracked partner links.',
