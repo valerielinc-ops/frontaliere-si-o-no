@@ -1,0 +1,76 @@
+name: Refresh Employer Profiles
+
+# Regenerates data/employer-profiles.json (the FACTUAL dataset behind the
+# evergreen /aziende/<slug>/ pages, build-plugins/employerProfilePagesPlugin.ts)
+# from the current active-job corpus + hiring history, and commits it to main
+# when it drifts. Keeps the committed snapshot fresh WITHOUT a blocking
+# staleness gate on the PR path (a hard `--check` gate would turn main red on
+# every daily crawler push, since the corpus changes constantly — issue #1035
+# class). Reviewer follow-up on PR #4511.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Twice a week, off-peak (04:40 UTC Mon+Thu) to avoid deploy/cron contention.
+    - cron: '40 4 * * 1,4'
+
+permissions:
+  contents: write
+  issues: write     # for github-issue-creator on failure
+
+concurrency:
+  group: refresh-employer-profiles
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Assemble active-job corpus
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Regenerate employer-profiles dataset
+        run: node scripts/build-employer-profiles.mjs --stats && node scripts/build-employer-profiles.mjs
+
+      # Validate the regenerated dataset BEFORE committing (bot-direct-to-main =
+      # same invariant gate as a PR): the compat self-map + plugin emit must
+      # stay green so a refresh can never poison main with a dataset that
+      # breaks the committed-snapshot tests.
+      - name: Validate dataset (compat self-map + plugin emit)
+        run: npx vitest run tests/employer-profile-pages.test.ts tests/search-console-compat.test.ts
+
+      - name: Commit and push employer-profiles snapshot
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          # Commit ONLY the dataset — assemble-jobs mutates other tracked data
+          # files (expired-jobs/stats-history) that are NOT this workflow's
+          # concern; leave them uncommitted in the runner.
+          git add data/employer-profiles.json
+          git diff --cached --quiet && echo "No employer-profiles changes to commit" && exit 0
+          git commit -m "chore(data): refresh employer-profiles snapshot [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs && node scripts/build-employer-profiles.mjs && git add data/employer-profiles.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: Refresh Employer Profiles" \
+            --description "Employer-profiles refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

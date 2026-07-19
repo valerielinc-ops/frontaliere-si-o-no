@@ -2586,6 +2586,18 @@ export function parsePath(pathname: string): ParseResult {
    return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
  }
 
+ // Evergreen employer-profile pages — /aziende/<slug>/ + /en|/de|/fr variants
+ // (build-plugins/employerProfilePagesPlugin.ts, epic #4462). Single literal
+ // `/aziende/` segment for every locale (mirrors the `/lavoro/` publisher
+ // family). Without staticOverlay the SPA has no route for these single-segment
+ // paths → it renders a 404 view that wipes the static SEO content on hydrate.
+ // staticOverlay keeps the emitted employer-profile / below-floor-bridge body
+ // visible while the SPA hydrates only header + footer (lite shell).
+ if (/^\/aziende\/[a-z0-9][a-z0-9-]*\/?$/.test(path) ||
+     /^\/(en|de|fr)\/aziende\/[a-z0-9][a-z0-9-]*\/?$/.test(path)) {
+   return { route: { activeTab: 'job-board', staticOverlay: true }, locale };
+ }
+
  // Job-market snapshot static SEO pages (F4) — /mercato-lavoro-ticino/, weekly + monthly archives.
  // staticOverlay keeps the per-snapshot/per-sector page content visible.
  if (JOB_MARKET_SNAPSHOT_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isJobMarketSnapshotPath(pathname)) {

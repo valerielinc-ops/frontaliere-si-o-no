@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3700.title': 'Unternehmensseiten: Gehälter und offene Stellen',
+ 'whatsNew.v3700.employerProfiles.title': 'Profile der Unternehmen, die einstellen',
+ 'whatsNew.v3700.employerProfiles.desc': 'Neue eigene Seiten für Hunderte Arbeitgeber: offene Stellen, Mediangehalt, Standorte und Einstellungstrend auf einen Blick.',
  'whatsNew.v3680.title': 'Lohn nach Beruf und Kanton',
  'whatsNew.v3680.salaryLandings.title': 'Was du nach Beruf und Kanton verdienst',
  'whatsNew.v3680.salaryLandings.desc': 'Neue Seiten mit Bruttomedian, geschätztem Netto und aktiven Stellen nach Beruf (Pflegefachperson, Ingenieur, Apotheker und mehr) in jedem Schweizer Kanton, mit Regionenvergleich.',
