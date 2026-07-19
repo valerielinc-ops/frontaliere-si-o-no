@@ -1240,6 +1240,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergotherapy in Ticino: salary and requirements',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Know what the law requires for a border worker who wants to work as an ergotherapist in Ticino, and what are the necessary requirements to obtain the G permit.',
     'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano, with the lake and mountains in the background',
+    'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergotherapy in Ticino: salary and differences with Italy',
+    'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Tax at source on income from work: ONLY withheld in Switzerland for border workers.',
+    'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'A frontier nurse working in a Lugano hospital.',
 };
 
 export default blogMetaChEn;
