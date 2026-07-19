@@ -3725,6 +3725,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'salario-frontaliere-dietista-ticino',
+    category: 'fiscale',
+    date: '2026-07-19T08:14:05.797Z',
+    image: '/images/blog/salario-frontaliere-dietista-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
