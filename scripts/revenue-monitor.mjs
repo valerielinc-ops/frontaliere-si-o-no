@@ -40,6 +40,9 @@ const SITE_URL = 'https://frontaliereticino.ch';
 // Publisher pricing constants — single source of truth mirrored from
 // services/publisherPricing.ts (drift-guarded by tests/publisher-pricing-mirror.test.ts).
 import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
+// Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
+// same helper used by newsletter/blast/job-alert broadcast gates).
+import { isCanaryJob } from './lib/canaryAd.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -448,19 +451,18 @@ export function buildComparisonRows(current, baseline = BASELINE) {
 // ── Publisher stream metrics (issue #4448) ──────────────────
 // Local-only source: data/jobs/by-crawler/publisher-submitted.json (committed
 // slice synced from Firestore by publisher-jobs-sync). Active = validThrough
-// still in the future. The owner's canary ad (scripts/seed-canary-publisher-ad.mjs,
-// fixed id canary-owner-demo) is excluded from counts and MRR so the estimate
-// only reflects real customers. MRR ≈ sponsored ads × CHF 49/30 days.
+// still in the future. The owner's canary ad (canary:true flag, canonical
+// isCanaryJob gate in scripts/lib/canaryAd.mjs) is excluded from counts and
+// MRR so the estimate only reflects real customers.
+// MRR ≈ sponsored ads × CHF 49/30 days.
 export function computePublisherMetrics(slice, now = new Date()) {
   const jobs = Array.isArray(slice?.jobs) ? slice.jobs : [];
-  const isCanary = (j) =>
-    String(j?.publisherJobId || '').startsWith('canary') || String(j?.id || '').includes('canary-owner-demo');
   const isActive = (j) => {
     const vt = Date.parse(String(j?.validThrough || ''));
     return Number.isFinite(vt) ? vt >= now.getTime() : true; // no validThrough → treat as active
   };
   const active = jobs.filter(isActive);
-  const real = active.filter((j) => !isCanary(j));
+  const real = active.filter((j) => !isCanaryJob(j));
   const sponsoredActive = real.filter((j) => String(j?.tier || '') === 'sponsored').length;
   return {
     activeAds: real.length,
