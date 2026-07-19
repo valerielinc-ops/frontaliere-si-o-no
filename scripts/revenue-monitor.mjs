@@ -31,12 +31,16 @@
  * blocking CI.
  */
 
-import { writeFileSync, mkdirSync, existsSync, appendFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, appendFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
+// Publisher pricing constants — single source of truth mirrored from
+// services/publisherPricing.ts (drift-guarded by tests/publisher-pricing-mirror.test.ts).
+import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
+const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
 // only — never survive a fresh CI checkout). A compact append-only summary is
@@ -428,7 +432,43 @@ export function buildComparisonRows(current, baseline = BASELINE) {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
 
+  // Publisher stream (issue #4448) — no historical baseline yet, so rows are
+  // informational (compare(x, null) → '⚪ n/a'); they can never mark a
+  // regression. Trend lives in the committed history jsonl.
+  if (current.publisher) {
+    const p = current.publisher;
+    rows.push({ metric: 'Publisher active ads', baseline: null, current: p.activeAds, ...compare(p.activeAds, null) });
+    rows.push({ metric: 'Publisher sponsored (paid) ads', baseline: null, current: p.sponsoredActive, ...compare(p.sponsoredActive, null) });
+    rows.push({ metric: 'Publisher est. MRR (CHF)', baseline: null, current: p.estMrrCHF, ...compare(p.estMrrCHF, null) });
+  }
+
   return rows;
+}
+
+// ── Publisher stream metrics (issue #4448) ──────────────────
+// Local-only source: data/jobs/by-crawler/publisher-submitted.json (committed
+// slice synced from Firestore by publisher-jobs-sync). Active = validThrough
+// still in the future. The owner's canary ad (scripts/seed-canary-publisher-ad.mjs,
+// fixed id canary-owner-demo) is excluded from counts and MRR so the estimate
+// only reflects real customers. MRR ≈ sponsored ads × CHF 49/30 days.
+export function computePublisherMetrics(slice, now = new Date()) {
+  const jobs = Array.isArray(slice?.jobs) ? slice.jobs : [];
+  const isCanary = (j) =>
+    String(j?.publisherJobId || '').startsWith('canary') || String(j?.id || '').includes('canary-owner-demo');
+  const isActive = (j) => {
+    const vt = Date.parse(String(j?.validThrough || ''));
+    return Number.isFinite(vt) ? vt >= now.getTime() : true; // no validThrough → treat as active
+  };
+  const active = jobs.filter(isActive);
+  const real = active.filter((j) => !isCanary(j));
+  const sponsoredActive = real.filter((j) => String(j?.tier || '') === 'sponsored').length;
+  return {
+    activeAds: real.length,
+    sponsoredActive,
+    freeActive: real.length - sponsoredActive,
+    canaryActive: active.length - real.length,
+    estMrrCHF: Number((sponsoredActive * PRICE_PER_UNIT_CHF).toFixed(2)),
+  };
 }
 
 // ── Rendering ───────────────────────────────────────────────
@@ -510,13 +550,34 @@ export function buildHistoryEntry(current, rows, dateStr) {
           clsP75Desktop: current.posthog.clsP75Desktop ?? null,
         }
       : null,
+    // Publisher stream (issue #4448) — additive key: older history lines simply
+    // lack it, existing consumers ignore unknown keys (format preserved).
+    publisher: current.publisher
+      ? {
+          activeAds: current.publisher.activeAds ?? null,
+          sponsoredActive: current.publisher.sponsoredActive ?? null,
+          freeActive: current.publisher.freeActive ?? null,
+          estMrrCHF: current.publisher.estMrrCHF ?? null,
+        }
+      : null,
     regressions,
   };
 }
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const current = { adsense: null, gsc: null, posthog: null, errors: [], warnings: [] };
+  const current = { adsense: null, gsc: null, posthog: null, publisher: null, errors: [], warnings: [] };
+
+  // Publisher stream (issue #4448) — purely local read, no network/auth. Fail-soft
+  // like every other source: a broken/missing slice file only adds a warning.
+  try {
+    const slice = JSON.parse(readFileSync(PUBLISHER_SLICE_FILE, 'utf8'));
+    current.publisher = computePublisherMetrics(slice);
+    log('🧑‍💼', `Publisher: ${current.publisher.activeAds} active ads (${current.publisher.sponsoredActive} sponsored) → est. MRR CHF ${current.publisher.estMrrCHF}`);
+  } catch (e) {
+    current.warnings.push(`Publisher metrics skipped: ${e.message}`);
+    log('⚪', `Publisher metrics skipped: ${e.message}`);
+  }
 
   try {
     const adsenseToken = await getAdSenseToken();
