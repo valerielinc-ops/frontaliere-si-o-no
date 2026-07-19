@@ -1231,6 +1231,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-ostetrica-stipendio-ticino.title': 'Wie viel verdient eine Grenzgängerin im Tessin?',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.excerpt': 'Reallohn einer Grenzgängerin im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
     'blog.article.frontaliere-ostetrica-stipendio-ticino.imageAlt': 'Frontalierin Krankenschwester im Tessin',
+    'blog.article.guida-busta-paga-svizzera-2026.title': 'Die Schweizer Lohnabrechnung: Leitfaden für Einbehalte und den Netto-Rest',
+    'blog.article.guida-busta-paga-svizzera-2026.excerpt': 'Erfahren Sie, wie Sie eine Schweizer Gehaltsabrechnung lesen und was jeder Einbehalt bedeutet',
+    'blog.article.guida-busta-paga-svizzera-2026.imageAlt': 'Leitfaden für die Lohnabrechnung der Schweiz 2026',
 };
 
 export default blogMetaChDe;
