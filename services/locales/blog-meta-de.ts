@@ -8616,6 +8616,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.title': 'Wie viel verdient eine Grenzgängerin im Tessin? Tatsachen über die Vergütung',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.excerpt': 'Die Daten zur Entlohnung von Grenzgängerinnen im Tessin: Wie wird das Einkommen berechnet und was sind die Unterschiede zu Italien',
     'blog.article.ostetrica-frontaliere-ticino-quanto-guadagna.imageAlt': 'Eine Frau mit einem Kind in den Armen, in einem Krankenhaus',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Wie viel verdient eine Grenzzahnärztin im Tessin?',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Das Gehalt einer Grenzzahnassistentin im Tessin wird durch Lohntabellen und Doppelbesteuerungsabkommen beeinflusst.',
+    'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Eine realistische Szene des Zentrums von Lugano mit der Piazza della Riforma und der Kirche San Lorenzo im Vordergrund.',
 };
 
 export default blogMetaDe;
