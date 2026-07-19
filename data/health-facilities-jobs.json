@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-19T04:31:53.850Z",
+  "generatedAt": "2026-07-19T04:52:39.629Z",
   "source": "data/swiss-hospitals.json ⨯ data/jobs.json (employer-name match + geo fallback) via build-plugins/healthFacilitiesMatch.ts",
   "minJobsFloor": 3,
   "counts": {
@@ -624,9 +624,9 @@
       ],
       "commuterOrigins": [],
       "jobCountSnapshot": 49,
-      "healthcareJobCountSnapshot": 22,
+      "healthcareJobCountSnapshot": 23,
       "healthcareRoleCountsSnapshot": {
-        "medico": 11,
+        "medico": 12,
         "infermiere": 7,
         "oss": 1,
         "terapista": 1,
@@ -676,9 +676,9 @@
       ],
       "commuterOrigins": [],
       "jobCountSnapshot": 47,
-      "healthcareJobCountSnapshot": 32,
+      "healthcareJobCountSnapshot": 34,
       "healthcareRoleCountsSnapshot": {
-        "medico": 6,
+        "medico": 8,
         "oss": 5,
         "terapista": 1,
         "infermiere": 14,
@@ -1984,9 +1984,9 @@
       ],
       "commuterOrigins": [],
       "jobCountSnapshot": 9,
-      "healthcareJobCountSnapshot": 7,
+      "healthcareJobCountSnapshot": 8,
       "healthcareRoleCountsSnapshot": {
-        "medico": 3,
+        "medico": 4,
         "infermiere": 4
       },
       "medianSalaryChfSnapshot": 78000,

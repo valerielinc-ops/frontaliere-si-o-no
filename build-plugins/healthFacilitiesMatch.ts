@@ -169,12 +169,12 @@ const ROLE_PATTERNS: ReadonlyArray<{ role: HealthcareRole; rx: RegExp }> = [
   { role: 'ostetrica', rx: /\b(ostetric|levatric|sage-?femme|hebamme|midwife)/i },
   { role: 'terapista', rx: /\b(terapist|physiotherap|fisioterapist|ergoterapist|ergotherap|logopedist|logopäd|logoped|orthophonist|physiotherapeut)/i },
   { role: 'tecnico', rx: /\b(tecnico sanitario|laboratorio analisi|radiolog|tecnico di laboratorio|mtra|trm\b|biomedical|laborant)/i },
-  { role: 'medico', rx: /\b(medico|médecin|arzt|ärztin|oberarzt|assistenzarzt|physician|doctor|primario|caposervizio medic|chirurg)/i },
+  { role: 'medico', rx: /\b(medico|médecin|[a-zäöü]*arzt|[a-zäöü]*ärztin|physician|doctor|primario|caposervizio medic|chirurg)/i },
 ];
 
 /** Umbrella test — is this title a healthcare/care role at all? */
 const HEALTHCARE_UMBRELLA_RX =
-  /\b(infermier|nurse|krankenpfleg|krankenschwester|pflegefach|pflegehelfer|pflegeassist|fachperson gesundheit|fachfrau gesundheit|fachmann gesundheit|fachperson betreuung|operatore socio-?sanitari|\boss\b|fa-?ge|assc|aide-?soignant|nursing assistant|healthcare assistant|infirmier|infirmière|medico|médecin|arzt|ärztin|physician|doctor|primario|chirurg|terapist|physiotherap|fisioterapist|ergoterapist|ergotherap|logopedist|logopäd|caregiver|ostetric|levatric|sage-?femme|hebamme|midwife|radiolog|laboratorio analisi|tecnico sanitario|pflege)/i;
+  /\b(infermier|nurse|krankenpfleg|krankenschwester|pflegefach|pflegehelfer|pflegeassist|fachperson gesundheit|fachfrau gesundheit|fachmann gesundheit|fachperson betreuung|operatore socio-?sanitari|\boss\b|fa-?ge|assc|aide-?soignant|nursing assistant|healthcare assistant|infirmier|infirmière|medico|médecin|[a-zäöü]*arzt|[a-zäöü]*ärztin|physician|doctor|primario|chirurg|terapist|physiotherap|fisioterapist|ergoterapist|ergotherap|logopedist|logopäd|caregiver|ostetric|levatric|sage-?femme|hebamme|midwife|radiolog|laboratorio analisi|tecnico sanitario|pflege)/i;
 
 const NON_HEALTHCARE_RX = /\b(tierpfleg|tierarzt|veterinari|\bvet\b|assistenzpsycholog)/i;
 
