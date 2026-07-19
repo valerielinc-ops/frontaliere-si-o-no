@@ -67,6 +67,7 @@ import {
  renderHighlightsChips,
  renderRightRail,
 } from './shared/jobDetailHtml';
+import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import {
@@ -3455,6 +3456,7 @@ ${staticAnalyticsHtml}
  recordPhase('prose', __tPh_prose);
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
+ ${renderEmployerCtaJobPage(locale, 'job_page')}
  <nav class="fn">
  <a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
  const cSlug = companyHubSlugBuild(job.company, job.companyKey);

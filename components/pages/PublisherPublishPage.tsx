@@ -498,6 +498,10 @@ const PublisherPublishPage: React.FC = () => {
  useEffect(() => {
  Analytics.trackPageView('/pubblica-offerta/', 'Publisher Publish Page');
  Analytics.trackUIInteraction('publisher', 'page', 'publish_page', 'view');
+ // Publisher funnel step 2 (issue #4448): for new publishers this page opens
+ // on the plan-phase pricing selector. Surface + locale only — no PII.
+ Analytics.trackEvent('pricing_view', { surface: 'publish_page', locale });
+ // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
 
  // ── Stripe checkout return ──────────────────────────────────
@@ -511,6 +515,9 @@ const PublisherPublishPage: React.FC = () => {
  if (params.get('publisher_checkout') !== 'success') return;
  setCheckoutSuccess(true);
  Analytics.trackUIInteraction('publisher', 'checkout', 'return', 'success');
+ // Publisher funnel step 4 (issue #4448): Stripe redirected back with
+ // checkout success — the publisher has paid. Surface + locale only, no PII.
+ Analytics.trackEvent('paid', { surface: 'publish_page', locale });
  params.delete('publisher_checkout');
  const qs = params.toString();
  window.history.replaceState(
@@ -974,6 +981,15 @@ const PublisherPublishPage: React.FC = () => {
  if (!user || planPayBusy) return;
  setPlanPayBusy(true);
  setPlanPayError('');
+ // Publisher funnel step 3 (issue #4448): checkout intent, fired before the
+ // Stripe session is created so abandoned checkouts still count. No PII —
+ // surface/locale/plan/units only.
+ Analytics.trackEvent('checkout_started', {
+ surface: 'publish_page',
+ locale,
+ plan: tier === 'azienda' ? 'azienda' : 'per_ad',
+ units: tier === 'azienda' ? 1 : planUnits,
+ });
  try {
  const idToken = await user.getIdToken();
  const res = await fetch(CREATE_CHECKOUT_ENDPOINT, {

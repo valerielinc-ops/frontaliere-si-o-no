@@ -41,6 +41,7 @@ import {
   type WeeklyCountableJob,
 } from './weeklyEmployersPlugin';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
+import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   MIN_JOBS_FOR_CANTON_PAGE,
@@ -385,6 +386,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     ${employerTable}
     ${methodologyBlock}
     <p class="s-Zti1kS"><a href="${esc(inp.searchHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
+    ${renderEmployerCtaBlock(inp.locale, 'weekly_employers_canton')}
     ${proseHtml}
   </main>`;
 

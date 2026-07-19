@@ -11,6 +11,9 @@ const enSeoLinks: Record<string, string> = {
   'seoLinks.footer.gasolineToday': "Today's gasoline price",
   'seoLinks.footer.healthPremiumsByCommune': 'Health premiums by commune',
 
+  // Employer acquisition CTA (footer, issue #4446) — benefit-first copy.
+  'seoLinks.footer.employerCta': 'Hiring? Publish your job ad',
+
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Companies hiring this week',
 

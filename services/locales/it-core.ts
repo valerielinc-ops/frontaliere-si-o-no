@@ -3596,6 +3596,10 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3640.title': 'Più visibilità per chi assume',
+  'whatsNew.v3640.employerCta.title': 'Accesso rapido per le aziende che assumono',
+  'whatsNew.v3640.employerCta.desc': 'Se la tua azienda assume, ora trovi il collegamento «Pubblicate il vostro annuncio» nel piè di pagina e nelle pagine dedicate alle aziende: annuncio in evidenza, pagina SEO dedicata e segnalazione alla newsletter incluse.',
+
   'whatsNew.v3630.title': 'Salva le offerte che ti interessano',
   'whatsNew.v3630.savedJobs.title': 'Annunci salvati',
   'whatsNew.v3630.savedJobs.desc': 'Tocca il segnalibro su un annuncio per salvarlo e ritrovarlo nella nuova vista «Salvati» della bacheca — senza registrazione.',

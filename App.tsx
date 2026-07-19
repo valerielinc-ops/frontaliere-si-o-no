@@ -2813,6 +2813,22 @@ const App: React.FC = () => {
  <SafeLazy boundary="footer-donation" fallback={<SkeletonFooterSlot height="min-h-[48px]" />}><DonationBanner variant="inline" /></SafeLazy>
  </div>
 
+ {/* Employer acquisition CTA — benefit-first copy (issue #4446).
+   * data-employer-cta feeds the PostHog funnel (employer_cta_view /
+   * employer_cta_click via the global hook in services/analytics.ts).
+   * Fixed min-height reserves space → zero CLS. */}
+ <div className="max-w-xl mx-auto mt-3">
+ <a
+ href={buildPath({ activeTab: 'for-employers' })}
+ data-employer-cta="spa_footer"
+ data-testid="footer-employer-cta"
+ className="flex items-center justify-center gap-2 rounded-xl border border-accent-border bg-accent-subtle px-4 py-3 text-sm font-semibold text-link hover:border-accent transition-colors no-underline min-h-[48px]"
+ >
+ <Briefcase className="w-4 h-4 shrink-0" aria-hidden="true" />
+ <span>{t('seoLinks.footer.employerCta')}</span>
+ </a>
+ </div>
+
  {/* Version badge with GitHub link */}
  <div className="flex items-center justify-center mt-2 mb-2">
  <a

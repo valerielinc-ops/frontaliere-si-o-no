@@ -1,0 +1,163 @@
+name: Cold Email Outreach (employer acquisition)
+
+# Employer-acquisition outreach for the publisher portal (epic #4445 / #4447).
+#
+# SAFETY MODEL (data/employer-outreach/PLAN.md: real sends are NEVER automatic):
+#   - schedule (cron)      → ALWAYS dry-run: refreshes the target report and
+#     prints the exact batch that WOULD go out (preview in the step summary).
+#   - workflow_dispatch    → dry-run by default; the REAL send requires BOTH
+#     mode=send AND confirm=true (double operator opt-in). The sender script
+#     adds its own gate on top (--send requires --confirm) and only ever emails
+#     VERIFIED addresses (never inferred ones).
+#
+# DAILY CAP: DAILY_COMPANY_CAP companies per run (explicit below, prudent vs
+# the provider cascade headroom — Mailjet free tier 200/day shared). One run
+# per day max via the cron; concurrency group serializes manual overlaps.
+#
+# OPT-OUT / STOP: RFC 8058 one-click unsubscribe headers (outreachUnsubscribe
+# Cloud Function → Firestore `employer_outreach_suppression`) + reply-STOP
+# drain (process-stop-replies). send-cold-emails.mjs loads the suppression
+# list before every real send and skips suppressed companies.
+#
+# DEDUP ACROSS RUNS: the local send-log.json is gitignored and does not survive
+# a fresh checkout — send-cold-emails.mjs hydrates touch history from Firestore
+# `employer_outreach_sends` (written on every real send), so CI runs can never
+# re-send an already-delivered touch or exceed MAX_TOUCHES_PER_COMPANY.
+
+on:
+  schedule:
+    - cron: '25 6 * * 1-5' # weekdays 06:25 UTC — dry-run preview of the day's batch
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run = preview only (default) · send = REAL send to verified contacts'
+        type: choice
+        options:
+          - dry-run
+          - send
+        default: dry-run
+      confirm:
+        description: 'Required for mode=send (double opt-in — real emails go out)'
+        type: boolean
+        default: false
+      touch:
+        description: 'Sequence touch number (1-4)'
+        required: false
+        default: '1'
+      top:
+        description: 'Companies cap for this run (defaults to the daily cap)'
+        required: false
+        default: ''
+
+env:
+  # Explicit DAILY CAP — max companies contacted per run (one scheduled run/day).
+  # Raise deliberately; never beyond provider-cascade headroom (Mailjet 200/day).
+  DAILY_COMPANY_CAP: '5'
+  # Hard ceiling of touches per company across the whole sequence.
+  MAX_TOUCHES_PER_COMPANY: '4'
+
+concurrency:
+  group: cold-email-outreach
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  outreach:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set (contacts + suppression + send dedup live in Firestore)"; exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config (email providers + GA4)
+        run: node scripts/load-rc-env.mjs
+
+      - name: Refresh employer target report (GA4, 90 days)
+        # Same source as employer-traffic-refresh.yml — the report ranks the
+        # 581 known employers (data/crawler-manifest.json universe) by real
+        # candidate traffic we sent them, so the pitch numbers are current.
+        run: node scripts/employer-traffic-report.mjs --source ga4 --days 90 --min 1 --json data/employer-outreach/report.json
+
+      - name: Drain STOP replies into suppression (best-effort)
+        continue-on-error: true
+        run: node scripts/process-stop-replies.mjs --apply
+
+      - name: Run outreach (dry-run default; real send only with mode=send + confirm)
+        env:
+          TOUCH_INPUT: ${{ github.event.inputs.touch }}
+          TOP_INPUT: ${{ github.event.inputs.top }}
+          MODE: ${{ github.event.inputs.mode }}
+          CONFIRM: ${{ github.event.inputs.confirm }}
+        run: |
+          TOUCH="$TOUCH_INPUT"
+          TOP="$TOP_INPUT"
+          TOUCH="${TOUCH:-1}"
+          TOP="${TOP:-$DAILY_COMPANY_CAP}"
+          # Never allow a manual run to exceed the daily cap.
+          if [ "$TOP" -gt "$DAILY_COMPANY_CAP" ] 2>/dev/null; then
+            echo "::warning::top=$TOP exceeds DAILY_COMPANY_CAP=$DAILY_COMPANY_CAP — clamping."
+            TOP="$DAILY_COMPANY_CAP"
+          fi
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ]; then
+            echo "📨 REAL SEND — touch $TOUCH, cap $TOP companies, max $MAX_TOUCHES_PER_COMPANY touches/company"
+            node scripts/send-cold-emails.mjs --send --confirm \
+              --touch "$TOUCH" --top "$TOP" --max-touches "$MAX_TOUCHES_PER_COMPANY" \
+              | tee /tmp/outreach.log
+          else
+            if [ "$MODE" = "send" ]; then
+              echo "::warning::mode=send requested WITHOUT confirm=true — falling back to dry-run."
+            fi
+            echo "🧪 DRY-RUN — touch $TOUCH, cap $TOP companies (no email goes out)"
+            node scripts/send-cold-emails.mjs \
+              --touch "$TOUCH" --top "$TOP" --max-touches "$MAX_TOUCHES_PER_COMPANY" \
+              | tee /tmp/outreach.log
+          fi
+          {
+            echo "## Cold email outreach — $( [ "$MODE" = "send" ] && [ "$CONFIRM" = "true" ] && echo 'REAL SEND' || echo 'dry-run preview' )"
+            echo ""
+            echo '```'
+            tail -n 120 /tmp/outreach.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
