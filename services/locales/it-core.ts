@@ -1254,6 +1254,8 @@ const translations: Record<string, string> = {
  // Forum
  'forum.title': 'Community Frontalieri',
  'forum.subtitle': 'Fai domande, condividi esperienze e aiuta altri frontalieri. La tua esperienza è preziosa!',
+ 'forum.telegram.title': 'Unisciti al canale Telegram',
+ 'forum.telegram.desc': 'Le offerte di lavoro del giorno e la classifica settimanale delle attese alle dogane, direttamente su Telegram.',
  'forum.allCategories': 'Tutte le categorie',
  'forum.recent': 'Recenti',
  'forum.popular': 'Popolari',
@@ -2619,6 +2621,9 @@ Regole:
  'whatsNew.v3720.holidays.desc': 'Nuove pagine con i giorni festivi ufficiali di Ticino e Italia per l’anno in corso e il prossimo, i festivi che NON coincidono (quando il Ticino chiude e l’Italia lavora, e viceversa) e i ponti per pianificare le ferie.',
  'whatsNew.v3720.salaryByAge.title': 'Stipendio medio in Svizzera per età e formazione',
  'whatsNew.v3720.salaryByAge.desc': 'Nuove pagine con la mediana salariale svizzera (dati BFS) per fascia d’età (20, 30, 40, 50, 60 anni) e per livello di formazione, con collegamento diretto al calcolatore dello stipendio netto.',
+ 'whatsNew.v3760.title': 'Canale Telegram frontalieri',
+ 'whatsNew.v3760.telegram.title': 'Offerte del giorno e classifica dogane su Telegram',
+ 'whatsNew.v3760.telegram.desc': 'Abbiamo aperto un canale Telegram: ogni giorno le nuove offerte di lavoro in Ticino e, ogni settimana, la classifica delle dogane per tempo di attesa. Trovi il link nel piè di pagina e nella pagina della community.',
  'whatsNew.v3730.title': 'Widget da aggiungere al tuo sito',
  'whatsNew.v3730.embedWidgets.title': 'Badge stipendi e attese dogane per il tuo sito',
  'whatsNew.v3730.embedWidgets.desc': 'Blog, forum e siti di settore possono ora incorporare gratis i nostri widget: stipendio medio per professione, attese live alle dogane e cambio CHF/EUR. Codice copia-incolla pronto su frontaliereticino.ch/embed/.',

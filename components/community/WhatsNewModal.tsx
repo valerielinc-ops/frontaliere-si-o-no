@@ -33,6 +33,18 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.76.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3760.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3760.telegram.title',
+        descKey: 'whatsNew.v3760.telegram.desc',
+      },
+    ],
+  },
+  {
     version: '3.73.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3730.title',
