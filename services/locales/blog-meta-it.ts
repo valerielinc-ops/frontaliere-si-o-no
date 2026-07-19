@@ -8627,6 +8627,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo di studio e permesso G',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Un tecnico di radiologia frontaliere lavora in un ospedale di Lugano',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Stipendio ergoterapista: salari e differenze con l\'Italia',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergoterapista frontaliere lavora nel Canton Ticino',
 };
 
 export default blogMetaIt;

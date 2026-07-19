@@ -25919,6 +25919,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'quanto-guadagna-un-ergoterapista-frontaliere-in-ticino',
+ category: 'fiscale',
+ date: '2026-07-19T07:04:22.803Z',
+ image: '/images/blog/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

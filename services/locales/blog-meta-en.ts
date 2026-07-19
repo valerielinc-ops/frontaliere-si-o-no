@@ -8626,6 +8626,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Radiology technician in Ticino: salary, requirements and permit G',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Average salary of radiology technicians in Ticino for border workers, requirements to work as a radiology technician in Switzerland, recognition of the qualification and G permit',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'A cross-border radiology technician working in Lugano hospital',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Ergotherapist salary: salaries and differences with Italy',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'The article examines the salary bracket of a border ergotherapist in Ticino, comparing the differences with the Italian salary bracket.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'A cross-border ergotherapist works in the Canton Ticino',
 };
 
 export default blogMetaEn;
