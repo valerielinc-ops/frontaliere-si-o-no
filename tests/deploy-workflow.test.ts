@@ -162,13 +162,16 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     }
   });
 
-  it('locale + Ticino rehydrate loops check tar-extraction completeness, not just directory existence', () => {
+  it('locale + section (Ticino/Svizzera/Zurigo) rehydrate loops check tar-extraction completeness, not just directory existence', () => {
     // The old (insufficient) guard was a bare existence check right after
     // `tar -C dist -xf ... || true`. Both loops must now compute an
     // `expected_n` from the tar's own listing BEFORE relying on the
     // extracted directory, and gate the "accept this tar" branch on
     // `actual_n` meeting `expected_n` — not merely on the directory existing.
-    for (const label of ['locale-dist-\\$loc', 'ticino-dist-\\$loc']) {
+    // The section loop's tar filename is `$section-dist-$loc.tar` (a shell
+    // variable, not a literal per-section name) since rehydrate_section()
+    // covers ticino/svizzera/zurigo through the same code path.
+    for (const label of ['locale-dist-\\$loc', '\\$section-dist-\\$loc']) {
       const re = new RegExp(
         `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
         `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
