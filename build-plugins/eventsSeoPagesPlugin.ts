@@ -1569,15 +1569,14 @@ export function renderHubPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.hubTitle,
     description: copy.hubDesc,
     canonicalUrl,
     hreflangHtml: buildAlternates(canton),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -1698,15 +1697,14 @@ export function renderEventsIndexPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.metaTitle,
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: buildNationalAlternates(),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -1818,15 +1816,14 @@ export function renderComunePage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: copy.comuneTitle(comune),
     description: copy.comuneDesc(comune),
     canonicalUrl,
     hreflangHtml: buildAlternates(canton, comune),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2072,15 +2069,14 @@ export function renderOtherEventsPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: oeCopy.metaTitle,
     description: oeCopy.metaDesc,
     canonicalUrl,
     hreflangHtml: buildAlternates(canton, OTHER_EVENTS_COMUNE_KEY),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],
@@ -2585,15 +2581,14 @@ export function renderEventDetailPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = !isPast && wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: !isPast && wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.metaTitle(title, displayComune),
     description: dc.metaDesc(title, displayComune, when),
     canonicalUrl,
     hreflangHtml: buildEventAlternates(canton, comune, eventSlug),
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: !isPast && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: eventLdScript ? [eventLdScript, breadcrumbLd, faqLd] : [breadcrumbLd, faqLd],
@@ -2822,8 +2817,7 @@ export function renderDigestPage(params: {
   });
 
   const wordCount = countHtmlBodyWords(body);
-  const indexable = events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS;
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable })}`;
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS })}`;
   const html = buildSeoPageHtml({
     locale,
     title: dc.title,
@@ -2834,7 +2828,7 @@ export function renderDigestPage(params: {
     // chrome (lede + methodology + FAQ) alone always clears MIN_INDEXABLE_WORDS,
     // so an EMPTY window must be gated on events.length, not the body word count
     // (else a "no events this weekend" page gets indexed + sitemapped).
-    robots: indexable ? 'index,follow' : 'noindex,follow',
+    robots: events.length > 0 && wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: LOCALE_OG[locale],
     bodyHtml,
     jsonLdScripts: [itemListLd, breadcrumbLd, faqLd],

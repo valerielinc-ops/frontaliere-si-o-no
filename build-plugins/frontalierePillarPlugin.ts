@@ -145,7 +145,7 @@ ${professionCards}
   </ul>
 </section>`;
 
-  const contentHtml = `<div class="max-w-3xl mx-auto px-4 py-6">
+  const bodyHtml = `<div class="max-w-3xl mx-auto px-4 py-6">
 ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
@@ -158,7 +158,8 @@ ${sectionsHtml}
 ${professionsHtml}
 ${faqHtml}
 ${relatedHtml}
-${sourcesHtml}`;
+${sourcesHtml}
+</div>`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -198,10 +199,11 @@ ${sourcesHtml}`;
     },
   });
 
-  const wordCount = countHtmlBodyWords(contentHtml);
-  const bodyHtml = `${contentHtml}
-${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}
-</div>`;
+  const wordCount = countHtmlBodyWords(bodyHtml);
+  const bodyHtmlWithAd = bodyHtml.replace(
+    /<\/div>\s*$/,
+    `${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`,
+  );
   const html = buildSeoPageHtml({
     locale,
     title: buildTitleWithBrand(copy.title),
@@ -212,7 +214,7 @@ ${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: hreflangLines.join('\n'),
     jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
-    bodyHtml,
+    bodyHtml: bodyHtmlWithAd,
     distDir,
     hubChrome: { hubKey: 'guida', activeSubTab: 'pillar' },
   });

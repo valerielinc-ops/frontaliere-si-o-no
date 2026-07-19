@@ -446,8 +446,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ${renderRelatedLinks(copy)}
   `;
 
-  const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -514,6 +513,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   // (already linked on this page) instead of a per-page inline <style> block.
   // The classes keep the rendered HTML under the 200 KB page-weight gate; the
   // shared sheet drops the ~2 KB block from every FAQ hub page.
+  const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
     locale,

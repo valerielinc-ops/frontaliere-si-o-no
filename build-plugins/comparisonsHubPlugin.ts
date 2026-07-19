@@ -428,8 +428,7 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -507,6 +506,8 @@ function renderPage(opts: {
       },
     ],
   });
+
+  const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
     locale,
