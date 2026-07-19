@@ -8630,6 +8630,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Salaire ergothérapeute : salaires et différences avec l\'Italie',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'article examine la fourchette salariale d\'un ergothérapeute frontalier au Tessin, en comparant les différences avec la fourchette salariale italienne.',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergothérapeute frontalier travaille dans le canton du Tessin',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.title': '7% du capital va aux entreprises avec des femmes PDG',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.excerpt': 'Selon une nouvelle étude de l\'association d\'investisseurs SECA, seuls 7 % des capitaux à risque levés sont allés à des entreprises dont le PDG est une femme.',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.imageAlt': 'Vue panoramique du lac de Lugano',
 };
 
 export default blogMetaFr;

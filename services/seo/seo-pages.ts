@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3308,
+ "numberOfItems": 3309,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8025,7 +8025,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3305, "name": "Tecnico di radiologia in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3306, "name": "Quanto guadagna un tecnico di radiologia fronta...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-salario-tecnico-radiologia` },
           { "@type": "ListItem", "position": 3307, "name": "Stipendio ergoterapista: salari e differenze co...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino` },
-          { "@type": "ListItem", "position": 3308, "name": "Ergoterapia in Ticino: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ergoterapista-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3308, "name": "Ergoterapia in Ticino: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ergoterapista-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3309, "name": "Di più startup svizzere, solo 7% del capitale v...", "url": `${BASE_URL}/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna` }
  ]
  },
  {
