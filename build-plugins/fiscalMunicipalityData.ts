@@ -101,3 +101,14 @@ const FISCAL_PATH_SET: ReadonlySet<string> = (() => {
 export function isFiscalMunicipalityPath(inputPath: string): boolean {
   return FISCAL_PATH_SET.has(normalizePath(inputPath));
 }
+
+/** Slugs that have an INDEXABLE fiscal page (above the floor). Used by the
+ *  "vivere a {comune}" pages (borderMunicipalityPagesPlugin) to add the reverse
+ *  cross-link — only where both pages are indexable, so the anti-cannibalization
+ *  pairing is bidirectional exactly for the pages that could compete. */
+const FISCAL_ABOVE_FLOOR_SLUGS: ReadonlySet<string> = new Set(FISCAL_ABOVE_FLOOR.map((m) => m.slug));
+
+/** True when the comune has an indexable fiscal page at `fiscalPathFor(locale, slug)`. */
+export function hasIndexableFiscalPage(slug: string): boolean {
+  return FISCAL_ABOVE_FLOOR_SLUGS.has(slug);
+}
