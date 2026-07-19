@@ -73,11 +73,14 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
   });
 
   it('has valid latitude/longitude for every crossing', () => {
+    // Switzerland bounding box (all border cantons, not just Ticino):
+    // lat ≈ 45.8 (Ticino south) – 47.8 (Basel/Schaffhausen north),
+    // lng ≈ 5.9 (Genève) – 10.5 (Val Poschiavo/Müstair east).
     for (const c of SCHEDULER_CROSSINGS) {
       expect(c.lat).toBeGreaterThan(44);
-      expect(c.lat).toBeLessThan(47);
-      expect(c.lng).toBeGreaterThan(8);
-      expect(c.lng).toBeLessThan(10);
+      expect(c.lat).toBeLessThan(48);
+      expect(c.lng).toBeGreaterThan(5.5);
+      expect(c.lng).toBeLessThan(10.6);
     }
   });
 });
