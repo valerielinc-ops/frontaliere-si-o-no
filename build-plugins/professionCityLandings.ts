@@ -24,6 +24,7 @@ import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords, buildCanonicalBridgePage } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -307,7 +308,7 @@ ${header}
 ${tiles}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
-${prose}</div>`;
+${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',
