@@ -79,6 +79,7 @@ import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
+import { fiscalMunicipalityPagesPlugin } from './build-plugins/fiscalMunicipalityPagesPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -261,6 +262,11 @@ export default defineConfig(({ mode }) => {
  // Keep this after staticPagesPlugin: with sequential closeBundle hooks,
  // running it earlier would wait on a signal that cannot be resolved yet.
  borderMunicipalityPagesPlugin(__dirname),
+ // Per-comune FISCAL guide pages ("tasse frontaliere residente a {comune}:
+ // vecchio vs nuovo regime", epic #4482). Self-contained (own dist paths,
+ // no hub patch), so ordering vs staticPagesPlugin is not load-bearing.
+ // Default-on; escape hatch SKIP_FISCAL_MUNICIPALITY_PAGES=1.
+ fiscalMunicipalityPagesPlugin(__dirname),
  // Per-comune Ticino events pages (issue #2963). Same post-staticPages
  // ordering as borderMunicipalityPagesPlugin: it patches the
  // /vivere-in-ticino/ hubs after they are flushed and awaits

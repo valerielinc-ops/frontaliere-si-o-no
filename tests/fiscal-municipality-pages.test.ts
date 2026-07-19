@@ -1,0 +1,112 @@
+import { describe, expect, it } from 'vitest';
+
+import fiscalDataset from '@/data/fiscal-municipalities.json';
+import {
+  isFiscalMunicipalityPath,
+  fiscalPathFor,
+  FISCAL_ABOVE_FLOOR,
+  FISCAL_BELOW_FLOOR,
+} from '@/build-plugins/fiscalMunicipalityData';
+import {
+  computeRegimes,
+  renderAboveFloorPage,
+  renderBridgePage,
+} from '@/build-plugins/fiscalMunicipalityPagesPlugin';
+import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
+
+const DIST = '/tmp/__fiscal_dist_does_not_exist__';
+
+describe('fiscal-municipalities dataset (#4483)', () => {
+  it('declares its source and year and a non-empty above-floor set', () => {
+    expect(fiscalDataset.source).toMatch(/MEF/i);
+    expect(fiscalDataset.year).toBe(2024);
+    expect(fiscalDataset.aboveFloor.length).toBeGreaterThan(20);
+    expect(fiscalDataset.belowFloor.length).toBeGreaterThan(0);
+  });
+
+  it('every above-floor comune has a real addizionale, a valid slug and sits in the 20 km band', () => {
+    for (const m of FISCAL_ABOVE_FLOOR) {
+      expect(m.slug).toMatch(/^[a-z0-9-]+$/);
+      expect(m.population).toBeGreaterThanOrEqual(5000);
+      expect(m.distanceKm).toBeLessThanOrEqual(20);
+      expect(['CO', 'VA', 'VB']).toContain(m.province);
+      expect(Number.isFinite(m.irpefAddizionale)).toBe(true);
+    }
+  });
+});
+
+describe('fiscal scenario engine (#4484)', () => {
+  it('old regime keeps more net than the new regime and the addizionale scales with the rate', () => {
+    const low = computeRegimes(0.5);
+    const high = computeRegimes(0.8);
+    // Old (Swiss-only) net > new (concurrent Italian) net — the accordo effect.
+    expect(low.oldNetMonthlyEUR).toBeGreaterThan(low.newNetMonthlyEUR);
+    expect(low.diffMonthlyEUR).toBeGreaterThan(0);
+    // A higher municipal surtax means a bigger addizionale line.
+    expect(high.addizionaleAnnualEUR).toBeGreaterThan(low.addizionaleAnnualEUR);
+    expect(low.addizionaleAnnualEUR).toBeGreaterThan(0);
+  });
+});
+
+describe('fiscal above-floor page render (#4484)', () => {
+  const como = FISCAL_ABOVE_FLOOR.find((m) => m.slug === 'como')!;
+
+  it('renders an indexable page with the fiscal H1, a numeric scenario and >50 words', () => {
+    const { html, wordCount, urlPath } = renderAboveFloorPage({
+      municipality: como,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    expect(urlPath).toBe('/tasse-frontalieri-comune/como/');
+    expect(wordCount).toBeGreaterThan(50);
+    expect(html).toContain('vecchio vs nuovo regime');
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?index,follow/);
+    // A real EUR figure from the numeric scenario must appear (anti-thin):
+    // a euro sign plus a thousands-grouped amount (e.g. "60.280 €").
+    expect(html).toContain('€');
+    expect(html).toMatch(/\d{2}\.\d{3}/);
+    // Cross-link to the "vivere a" page (distinct intent, anti-cannibalization).
+    expect(html).toContain('/vivere-in-ticino/comuni-di-frontiera/como/');
+  });
+
+  it('has a fiscal title distinct from the "vivere a" page title', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: como,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    // fiscal intent ("Tasse ...") — never the "vivere da frontaliere" wording.
+    expect(html).toContain('Tasse frontaliere Como');
+    expect(html).not.toContain('vivere da frontaliere e lavorare in Ticino');
+  });
+});
+
+describe('fiscal below-floor bridge + self-map (#4484)', () => {
+  const small = FISCAL_BELOW_FLOOR[0];
+
+  it('renders a noindex,follow bridge at the same URL', () => {
+    const html = renderBridgePage({ municipality: small, locale: 'it', distDir: DIST });
+    expect(html).toMatch(/name=["']?robots["']?\s+content=["']?noindex,follow/);
+  });
+
+  it('self-maps every emitted fiscal path (above + below, all locales) to itself', () => {
+    const samples = [FISCAL_ABOVE_FLOOR[0], FISCAL_BELOW_FLOOR[0]];
+    for (const m of samples) {
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const p = fiscalPathFor(locale, m.slug);
+        expect(isFiscalMunicipalityPath(p)).toBe(true);
+        expect(resolveSearchConsoleCompatTarget(p)).toEqual({
+          canonicalPath: p,
+          kind: 'legacy',
+          locale,
+        });
+      }
+    }
+  });
+
+  it('does not claim an unrelated municipality path as live', () => {
+    expect(isFiscalMunicipalityPath('/tasse-frontalieri-comune/citta-inventata-xyz/')).toBe(false);
+  });
+});
