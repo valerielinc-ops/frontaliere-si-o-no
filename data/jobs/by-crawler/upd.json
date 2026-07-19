@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-70ba7bd1b159",
-      "slug": "assistenzpsychologin-assistenzpsychologe-tam-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-tam-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-tam-upd-bern",
-        "it": "assistenzpsychologin-assistenzpsychologe-tam-upd-bern",
-        "en": "assistenzpsychologin-assistenzpsychologe-tam-upd-bern",
-        "fr": "assistenzpsychologin-assistenzpsychologe-tam-upd-bern"
+        "it": "assistente-psicologo-assistente-psicologo-tam-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "assistant-psychologist-assistant-psychologist-tam-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "psychologue-adjoint-psychologue-adjoint-tam-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T22:06:43.704Z"
+      "firstSeenAt": "2026-07-18T22:06:43.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-assistenzpsychologe-tam-upd-bern"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-tam-upd-bern"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-tam-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologe-tam-upd-bern"
+      ]
     },
     {
       "id": "upd-e7fde9e590f4",
