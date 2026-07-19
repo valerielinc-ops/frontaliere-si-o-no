@@ -2082,8 +2082,7 @@
           "macellaio-specialista-della-carne-coop-genossenschaft-meggen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-7oygdj",
           "butcher-meat-specialist-coop-genossenschaft-meggen-7oygdj",
-          "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern"
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-nt3zmd",
@@ -2102,8 +2101,7 @@
         "macellaio-specialista-della-carne-coop-genossenschaft-meggen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-7oygdj",
         "butcher-meat-specialist-coop-genossenschaft-meggen-7oygdj",
-        "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern"
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -2356,8 +2354,7 @@
           "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern",
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-5d3n3s",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-einsiedeln",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-einsiedeln"
         ],
         "en": [
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-winterthur",
@@ -2424,8 +2421,7 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-5d3n3s",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-meggen-luzern-7oygdj",
         "boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj",
-        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-5d3n3s",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-emmen-luzern"
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-winterthur-5d3n3s"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -4296,8 +4292,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
@@ -4307,8 +4302,7 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-einsiedeln-schwyz-3n807p"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -4355,9 +4349,9 @@
       },
       "slugByLocale": {
         "it": "stv-rayonleiter-in-fruchte-e-gemuse-coop-burgdorf-bern-xx6xi1",
-        "en": "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1",
+        "en": "stv-rayonleiter-in-fruits-and-vegetables-coop-genossenschaft-burgdorf",
         "de": "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1",
-        "fr": "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1"
+        "fr": "stv-rayonleiter-en-fruits-et-legumes-coop-genossenschaft-burgdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -4384,7 +4378,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1"
+        ],
+        "fr": [
+          "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1"
+        ]
+      },
+      "previousSlugs": [
+        "stv-rayonleiter-in-fruchte-und-gemuse-coop-burgdorf-bern-xx6xi1"
+      ]
     },
     {
       "id": "company-gzjw8t",
@@ -37053,7 +37058,7 @@
         "it": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
         "en": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
         "de": "marketing-assistent-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co",
-        "fr": "assistant-marketing-article-festif-m-w-d-80-100-coop-basel-stadt-k9k3co"
+        "fr": "marketing-assistant-festtagsartikel-m-w-d-80-100-coop-basel-stadt-k9k3co"
       },
       "requirementsByLocale": {},
       "addressLocality": "Basel",
@@ -37974,7 +37979,7 @@
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "slugByLocale": {
         "it": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880",
-        "en": "rayon-leader-in-garden-jumbo-affoltern-am-albis-zurich-z2t880",
+        "en": "rayonleiter-in-garden-jumbo-affoltern-am-albis-zurich-z2t880",
         "de": "rayonleiter-in-garden-jumbo-affoltern-am-albis",
         "fr": "chef-de-rayon-a-garden-jumbo-affoltern-am-albis"
       },
@@ -43773,7 +43778,7 @@
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "slugByLocale": {
         "it": "rayonleiter-in-garden-jumbo-thalwil-zurich-u2r2s2",
-        "en": "rayon-leader-in-garden-jumbo-thalwil-zurich-u2r2s2",
+        "en": "rayonleiter-in-garden-jumbo-thalwil-zurich-u2r2s2",
         "de": "rayonleiter-in-garden-jumbo-thalwil",
         "fr": "chef-de-rayon-a-garden-jumbo-thalwil"
       },
@@ -51631,9 +51636,9 @@
       },
       "slugByLocale": {
         "it": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x",
-        "en": "property-manager-in-coop-immobilien-dietikon-zurich-bup22x",
+        "en": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x",
         "de": "immobilienbewirtschafter-in-coop-immobilien-dietikon",
-        "fr": "gestionnaire-immobilier-in-coop-immobilien-dietikon-zurich-bup22x"
+        "fr": "immobilienbewirtschafter-in-coop-immobilien-dietikon-zurich-bup22x"
       },
       "requirementsByLocale": {},
       "addressLocality": "Dietikon",
@@ -54466,9 +54471,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj",
-        "en": "seller-in-food-coop-wil-sg-sankt-gallen-eunluj",
+        "en": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj",
         "de": "verkaufer-in-food-coop-genossenschaft-wil-sg-a11e31",
-        "fr": "verkaufer-dans-les-aliments-coop-wil-sg-sankt-gallen-eunluj"
+        "fr": "verkaufer-in-food-coop-wil-sg-sankt-gallen-eunluj"
       },
       "requirementsByLocale": {
         "de": [
@@ -55372,9 +55377,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-frischprodukte-coop-bubendorf-basel-landschaft-wszf2f",
-        "en": "seller-fresh-products-coop-bubendorf-basel-landschaft-wszf2f",
+        "en": "verkaufer-in-frischprodukte-coop-bubendorf-basel-landschaft-wszf2f",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-bubendorf",
-        "fr": "vendeur-produits-frais-coop-bubendorf-basel-landschaft-wszf2f"
+        "fr": "verkaufer-in-frischprodukte-coop-bubendorf-basel-landschaft-wszf2f"
       },
       "requirementsByLocale": {
         "de": [
@@ -56805,9 +56810,9 @@
       },
       "slugByLocale": {
         "it": "hauswart-coop-city-bern-z1ekum",
-        "en": "caretaker-coop-city-bern-z1ekum",
+        "en": "hauswart-coop-city-bern-z1ekum",
         "de": "hauswart-coop-genossenschaft-bern",
-        "fr": "concierge-coop-city-bern-z1ekum"
+        "fr": "hauswart-coop-city-bern-z1ekum"
       },
       "requirementsByLocale": {
         "de": [
@@ -58799,9 +58804,9 @@
       },
       "slugByLocale": {
         "it": "kommissionierer-in-f-g-coop-genossenschaft-chur-graubunden-ih3ajd",
-        "en": "order-picker-f-g-coop-chur-graubunden-ih3ajd",
+        "en": "kommissionierer-in-f-g-coop-genossenschaft-chur-graubunden-ih3ajd",
         "de": "kommissionierer-in-in-f-g-coop-genossenschaft-chur",
-        "fr": "preparateur-de-commandes-f-g-coop-chur-graubunden-ih3ajd"
+        "fr": "kommissionierer-in-f-g-coop-genossenschaft-chur-graubunden-ih3ajd"
       },
       "requirementsByLocale": {
         "de": [
@@ -59208,9 +59213,9 @@
       "firstSeenAt": "2026-07-06T15:41:34.683Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-457ll7",
-        "en": "seller-in-food-coop-city-st-gallen-sankt-gallen-457ll7",
+        "en": "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-457ll7",
         "de": "verkaufer-in-food-coop-genossenschaft-st-gallen",
-        "fr": "vendeur-dans-la-nourriture-coop-city-st-gallen-sankt-gallen-457ll7"
+        "fr": "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-457ll7"
       },
       "titleByLocale": {
         "it": "Venditore: in Food",
@@ -62683,7 +62688,7 @@
       },
       "slugByLocale": {
         "it": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
-        "en": "facility-technician-m-w-d-bergquellfisch-frutigen-bern-1lrh2g",
+        "en": "facility-technician-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "de": "facility-techniker-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g",
         "fr": "facility-technicien-m-w-d-coop-genossenschaft-frutigen-bern-1lrh2g"
       },
@@ -62949,9 +62954,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-luzern-m1j74n",
-        "en": "sales-consultant-import-parfumerie-luzern-m1j74n",
+        "en": "verkaufsberater-in-import-parfumerie-luzern-m1j74n",
         "de": "verkaufsberater-in-coop-genossenschaft-luzern",
-        "fr": "conseiller-de-vente-import-parfumerie-luzern-m1j74n"
+        "fr": "verkaufsberater-in-import-parfumerie-luzern-m1j74n"
       },
       "requirementsByLocale": {
         "de": [
@@ -71550,9 +71555,9 @@
       "firstSeenAt": "2026-07-10T14:29:33.341Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-d7ps9l",
-        "en": "sales-consultant-in-import-parfumerie-st-gallen-sankt-gallen-d7ps9l",
+        "en": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-d7ps9l",
         "de": "verkaufsberater-in-coop-genossenschaft-st-gallen",
-        "fr": "consultant-en-ventes-import-parfumerie-st-gallen-sankt-gallen-d7ps9l"
+        "fr": "verkaufsberater-in-import-parfumerie-st-gallen-sankt-gallen-d7ps9l"
       },
       "titleByLocale": {
         "it": "Consulente commerciale:in",
@@ -72151,9 +72156,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
-        "en": "sales-consultant-import-parfumerie-basel-stadt-th9lio",
+        "en": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio",
         "de": "verkaufsberater-in-coop-genossenschaft-basel",
-        "fr": "conseiller-de-vente-import-parfumerie-basel-stadt-th9lio"
+        "fr": "verkaufsberater-in-coop-genossenschaft-basel-stadt-th9lio"
       },
       "requirementsByLocale": {
         "de": [
@@ -72252,9 +72257,9 @@
       },
       "slugByLocale": {
         "it": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
-        "en": "warehouse-operator-livique-oberentfelden-aargau-h6aalq",
+        "en": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq",
         "de": "lagerist-in-coop-genossenschaft-oberentfelden",
-        "fr": "magasinier-livique-oberentfelden-aargau-h6aalq"
+        "fr": "lagerist-in-coop-genossenschaft-oberentfelden-aargau-h6aalq"
       },
       "requirementsByLocale": {
         "de": [
@@ -72588,9 +72593,9 @@
       },
       "slugByLocale": {
         "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
-        "en": "home-delivery-technician-for-household-appliances-fust-pratteln-basel-landschaft-576dn5",
+        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-pratteln-d6fb1e",
-        "fr": "technicien-ne-de-livraison-a-domicile-pour-appareils-electromenagers-fust-pratteln-basel-landschaft-576dn5"
+        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-576dn5"
       },
       "requirementsByLocale": {},
       "addressLocality": "Pratteln",
@@ -73060,9 +73065,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-textil-coop-city-olten-solothurn-wxbw42",
-        "en": "textile-sales-consultant-coop-city-olten-solothurn-wxbw42",
+        "en": "verkaufsberater-in-textil-coop-city-olten-solothurn-wxbw42",
         "de": "verkaufsberater-in-textil-coop-genossenschaft-olten",
-        "fr": "conseiller-ere-de-vente-textile-coop-city-olten-solothurn-wxbw42"
+        "fr": "verkaufsberater-in-textil-coop-city-olten-solothurn-wxbw42"
       },
       "requirementsByLocale": {},
       "addressLocality": "Olten",
@@ -73242,9 +73247,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-do-it-jumbo-widnau-sankt-gallen-otugu3",
-        "en": "sales-consultant-in-do-it-jumbo-widnau-sankt-gallen-otugu3",
+        "en": "verkaufsberater-in-do-it-jumbo-widnau-sankt-gallen-otugu3",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-widnau",
-        "fr": "consultant-commercial-a-do-it-jumbo-widnau-sankt-gallen-otugu3"
+        "fr": "verkaufsberater-in-do-it-jumbo-widnau-sankt-gallen-otugu3"
       },
       "requirementsByLocale": {
         "de": [
@@ -73351,7 +73356,7 @@
         "it": "lagerist-in-jumbo-chur-graubunden-ut7ptz",
         "en": "lagerist-in-jumbo-chur-graubunden-ut7ptz",
         "de": "lagerist-in-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "lageriste-in-jumbo-chur-graubunden-ut7ptz"
+        "fr": "lagerist-in-jumbo-chur-graubunden-ut7ptz"
       },
       "requirementsByLocale": {
         "de": [
@@ -73556,9 +73561,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-do-it-jumbo-heimberg-bern-mf8qnp",
-        "en": "sales-consultant-in-do-it-jumbo-heimberg-bern-mf8qnp",
+        "en": "verkaufsberater-in-do-it-jumbo-heimberg-bern-mf8qnp",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-heimberg",
-        "fr": "consultant-commercial-a-do-it-jumbo-heimberg-bern-mf8qnp"
+        "fr": "verkaufsberater-in-do-it-jumbo-heimberg-bern-mf8qnp"
       },
       "requirementsByLocale": {
         "de": [
@@ -74146,9 +74151,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-christ-orologi-gioielli-basel-stadt-nyhkxe",
-        "en": "sales-consultant-christ-orologi-gioielli-basel-stadt-nyhkxe",
+        "en": "verkaufsberater-in-christ-orologi-gioielli-basel-stadt-nyhkxe",
         "de": "verkaufsberater-in-christ-uhren-schmuck-ag-basel",
-        "fr": "conseiller-de-vente-christ-orologi-gioielli-basel-stadt-nyhkxe"
+        "fr": "verkaufsberater-in-christ-orologi-gioielli-basel-stadt-nyhkxe"
       },
       "requirementsByLocale": {
         "de": [
@@ -74400,9 +74405,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-basel-stadt-troa5a",
-        "en": "sales-consultant-import-parfumerie-basel-stadt-troa5a",
+        "en": "verkaufsberater-in-import-parfumerie-basel-stadt-troa5a",
         "de": "verkaufsberater-in-coop-genossenschaft-basel-dad894",
-        "fr": "conseiller-de-vente-import-parfumerie-basel-stadt-troa5a"
+        "fr": "verkaufsberater-in-import-parfumerie-basel-stadt-troa5a"
       },
       "requirementsByLocale": {
         "de": [
@@ -74679,9 +74684,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-9z1bar",
-        "en": "sales-consultant-import-parfumerie-rapperswil-jona-sankt-gallen-9z1bar",
+        "en": "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-9z1bar",
         "de": "verkaufsberater-in-coop-genossenschaft-rapperswil-jona",
-        "fr": "conseiller-de-vente-import-parfumerie-rapperswil-jona-sankt-gallen-9z1bar"
+        "fr": "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen-9z1bar"
       },
       "requirementsByLocale": {
         "de": [
@@ -74946,9 +74951,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-genossenschaft-ebnat-kappel-sankt-gallen-en8zgd",
-        "en": "sales-assistant-food-coop-ebnat-kappel-sankt-gallen-en8zgd",
+        "en": "verkaufer-in-food-coop-genossenschaft-ebnat-kappel-sankt-gallen-en8zgd",
         "de": "verkaufer-in-food-coop-genossenschaft-ebnat-kappel-be086e",
-        "fr": "vendeur-euse-food-coop-ebnat-kappel-sankt-gallen-en8zgd"
+        "fr": "verkaufer-in-food-coop-genossenschaft-ebnat-kappel-sankt-gallen-en8zgd"
       },
       "requirementsByLocale": {
         "de": [
@@ -75212,9 +75217,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-jumbo-laupen-bern-5vx1yr",
-        "en": "sales-advisor-in-jumbo-laupen-bern-5vx1yr",
+        "en": "verkaufsberater-in-jumbo-laupen-bern-5vx1yr",
         "de": "verkaufsberater-in-jumbo-jumbo-division-der-coop-genossenschaft-laupen",
-        "fr": "conseiller-commercial-en-jumbo-laupen-bern-5vx1yr"
+        "fr": "verkaufsberater-in-jumbo-laupen-bern-5vx1yr"
       },
       "requirementsByLocale": {
         "de": [
@@ -78248,9 +78253,9 @@
       },
       "slugByLocale": {
         "it": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft",
-        "en": "emerging-retail-leaders-coop-mels-sankt-gallen-iqa2ft",
+        "en": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft",
         "de": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-d13185",
-        "fr": "jeunes-talents-de-direction-retail-coop-mels-sankt-gallen-iqa2ft"
+        "fr": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-mels-sankt-gallen-iqa2ft"
       },
       "requirementsByLocale": {},
       "addressLocality": "Mels",
@@ -79627,9 +79632,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-altstatten-sankt-gallen-bpsshv",
-        "en": "food-sales-assistant-coop-altstatten-sankt-gallen-bpsshv",
+        "en": "verkaufer-in-food-coop-altstatten-sankt-gallen-bpsshv",
         "de": "verkaufer-in-food-coop-genossenschaft-altstatten",
-        "fr": "vendeur-euse-en-alimentation-coop-altstatten-sankt-gallen-bpsshv"
+        "fr": "verkaufer-in-food-coop-altstatten-sankt-gallen-bpsshv"
       },
       "requirementsByLocale": {
         "de": [
@@ -79900,9 +79905,9 @@
       },
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
-        "en": "managing-director-christ-orologi-gioielli-regensdorf-zurich-afappf",
+        "en": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf",
         "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-62b536",
-        "fr": "directeur-trice-christ-orologi-gioielli-regensdorf-zurich-afappf"
+        "fr": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-regensdorf-zurich-afappf"
       },
       "requirementsByLocale": {
         "de": [
@@ -85363,9 +85368,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-frischprodukte-coop-sennwald-sankt-gallen-bzl83u",
-        "en": "sales-assistant-fresh-products-coop-sennwald-sankt-gallen-bzl83u",
+        "en": "verkaufer-in-frischprodukte-coop-sennwald-sankt-gallen-bzl83u",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-sennwald",
-        "fr": "vendeur-euse-produits-frais-coop-sennwald-sankt-gallen-bzl83u"
+        "fr": "verkaufer-in-frischprodukte-coop-sennwald-sankt-gallen-bzl83u"
       },
       "requirementsByLocale": {
         "de": [
@@ -87132,9 +87137,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-schanis-sankt-gallen-gqreb7",
-        "en": "sales-advisor-in-garden-jumbo-schanis-sankt-gallen-gqreb7",
+        "en": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-schanis-sankt-gallen-gqreb7",
         "de": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-schanis",
-        "fr": "conseiller-en-ventes-a-garden-jumbo-schanis-sankt-gallen-gqreb7"
+        "fr": "verkaufsberater-in-garden-jumbo-division-der-coop-genossenschaft-schanis-sankt-gallen-gqreb7"
       },
       "requirementsByLocale": {
         "de": [
@@ -87241,9 +87246,9 @@
       },
       "slugByLocale": {
         "it": "betriebselektriker-in-coop-genossenschaft-schafisheim-aargau-s8ta81",
-        "en": "operations-electrician-coop-schafisheim-aargau-s8ta81",
+        "en": "betriebselektriker-in-coop-genossenschaft-schafisheim-aargau-s8ta81",
         "de": "betriebselektriker-in-coop-genossenschaft-schafisheim",
-        "fr": "electricien-de-maintenance-coop-schafisheim-aargau-s8ta81"
+        "fr": "betriebselektriker-in-coop-genossenschaft-schafisheim-aargau-s8ta81"
       },
       "requirementsByLocale": {},
       "addressLocality": "Schafisheim",
@@ -87578,9 +87583,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-allschwil-basel-landschaft-1eowsb",
-        "en": "food-sales-assistant-coop-allschwil-basel-landschaft-1eowsb",
+        "en": "verkaufer-in-food-coop-allschwil-basel-landschaft-1eowsb",
         "de": "verkaufer-in-food-coop-genossenschaft-allschwil",
-        "fr": "vendeur-euse-en-alimentation-coop-allschwil-basel-landschaft-1eowsb"
+        "fr": "verkaufer-in-food-coop-allschwil-basel-landschaft-1eowsb"
       },
       "requirementsByLocale": {
         "de": [
@@ -87914,9 +87919,9 @@
       },
       "slugByLocale": {
         "it": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv",
-        "en": "shunting-specialist-railcare-wangen-bei-olten-solothurn-gco6iv",
+        "en": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv",
         "de": "rangierspezialist-in-railcare-wangen-bei-olten",
-        "fr": "specialiste-de-man-uvre-railcare-wangen-bei-olten-solothurn-gco6iv"
+        "fr": "rangierspezialist-in-railcare-wangen-bei-olten-solothurn-gco6iv"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wangen bei Olten",
@@ -90670,9 +90675,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "mechaniker-in-halba-pratteln-basel-landschaft-wl6q2u",
-        "en": "mechanic-halba-pratteln-basel-landschaft-wl6q2u",
+        "en": "mechaniker-in-halba-pratteln-basel-landschaft-wl6q2u",
         "de": "mechaniker-in-coop-genossenschaft-pratteln-8ee926",
-        "fr": "mecanicien-halba-pratteln-basel-landschaft-wl6q2u"
+        "fr": "mechaniker-in-halba-pratteln-basel-landschaft-wl6q2u"
       },
       "addressLocality": "Pratteln",
       "addressCountry": "CH",
@@ -90838,9 +90843,9 @@
       },
       "slugByLocale": {
         "it": "mechaniker-in-coop-genossenschaft-schafisheim-aargau-ok3ybk",
-        "en": "mechanic-coop-schafisheim-aargau-ok3ybk",
+        "en": "mechaniker-in-coop-genossenschaft-schafisheim-aargau-ok3ybk",
         "de": "mechaniker-in-coop-genossenschaft-schafisheim",
-        "fr": "mecanicien-ne-coop-schafisheim-aargau-ok3ybk"
+        "fr": "mechaniker-in-coop-genossenschaft-schafisheim-aargau-ok3ybk"
       },
       "requirementsByLocale": {},
       "addressLocality": "Schafisheim",
@@ -92418,9 +92423,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-sennwald-sankt-gallen-lznl68",
-        "en": "sales-consultant-in-do-it-jumbo-sennwald-sankt-gallen-lznl68",
+        "en": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-sennwald-sankt-gallen-lznl68",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-sennwald",
-        "fr": "consultant-commercial-a-do-it-jumbo-sennwald-sankt-gallen-lznl68"
+        "fr": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-sennwald-sankt-gallen-lznl68"
       },
       "addressLocality": "Sennwald",
       "addressCountry": "CH",
@@ -93015,9 +93020,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-do-it-jumbo-chur-graubunden-6rkagt",
-        "en": "sales-consultant-in-do-it-jumbo-chur-graubunden-6rkagt",
+        "en": "verkaufsberater-in-do-it-jumbo-chur-graubunden-6rkagt",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-chur",
-        "fr": "consultant-commercial-a-do-it-jumbo-chur-graubunden-6rkagt"
+        "fr": "verkaufsberater-in-do-it-jumbo-chur-graubunden-6rkagt"
       },
       "addressLocality": "Chur",
       "addressCountry": "CH",
@@ -93119,9 +93124,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
-        "en": "chauffeur-in-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
+        "en": "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u",
         "de": "chauffeur-in-kat-c-ce-fust-swiss-household-services-ag-oberburen",
-        "fr": "chauffeur-dans-le-cat-c-ce-fust-oberburen-sankt-gallen-y86c7u"
+        "fr": "chauffeur-in-kat-c-ce-fust-oberburen-sankt-gallen-y86c7u"
       },
       "addressLocality": "Oberbüren",
       "addressCountry": "CH",
@@ -94773,7 +94778,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-inkl-tagesverantwortung-coop-genossenschaft-fraubrunnen-bern-m3z0r4",
-        "en": "sales-assistant-food-including-daily-responsibility-coop-fraubrunnen-bern-m3z0r4",
+        "en": "verkaufer-in-food-inkl-tagesverantwortung-coop-genossenschaft-fraubrunnen-bern-m3z0r4",
         "de": "verkaufer-in-food-inkl-tagliche-verantwortung-coop-genossenschaft-fraubrunnen",
         "fr": "verkaufer-in-encre-alimentaire-tagesverantwortung-coop-genossenschaft-fraubrunnen"
       },
@@ -95136,9 +95141,9 @@
       },
       "slugByLocale": {
         "it": "layouter-in-coop-ch-coop-genossenschaft-spreitenbach-aargau-id0d96",
-        "en": "layoutr-in-coop-ch-spreitenbach-aargau-id0d96",
+        "en": "layouter-in-coop-ch-coop-genossenschaft-spreitenbach-aargau-id0d96",
         "de": "layouter-in-coop-ch-coop-genossenschaft-spreitenbach",
-        "fr": "layoutr-in-coop-ch-spreitenbach-aargau-id0d96"
+        "fr": "layouter-in-coop-ch-coop-genossenschaft-spreitenbach-aargau-id0d96"
       },
       "requirementsByLocale": {},
       "addressLocality": "Spreitenbach",
@@ -95220,9 +95225,9 @@
       },
       "slugByLocale": {
         "it": "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-hr80zl",
-        "en": "picker-in-dairy-coop-gossau-sankt-gallen-hr80zl",
+        "en": "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-hr80zl",
         "de": "kommissionierer-in-molkerei-coop-genossenschaft-gossau",
-        "fr": "cueillette-dans-les-produits-laitiers-coop-gossau-sankt-gallen-hr80zl"
+        "fr": "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-hr80zl"
       },
       "requirementsByLocale": {
         "de": [
@@ -95490,9 +95495,9 @@
       },
       "slugByLocale": {
         "it": "kochin-koch-m-w-d-coop-ristorante-saanen-bern-uz9ljh",
-        "en": "chef-cook-m-w-d-coop-ristorante-saanen-bern-uz9ljh",
+        "en": "kochin-koch-m-w-d-coop-ristorante-saanen-bern-uz9ljh",
         "de": "kochin-koch-w-m-d-coop-genossenschaft-saanen",
-        "fr": "chef-cuisinier-m-w-d-coop-ristorante-saanen-bern-uz9ljh"
+        "fr": "kochin-koch-m-w-d-coop-ristorante-saanen-bern-uz9ljh"
       },
       "requirementsByLocale": {
         "de": [
@@ -96132,9 +96137,9 @@
       },
       "slugByLocale": {
         "it": "kochin-koch-m-w-d-coop-ristorante-dietlikon-zurich-46majv",
-        "en": "chef-cook-m-w-d-coop-ristorante-dietlikon-zurich-46majv",
+        "en": "kochin-koch-m-w-d-coop-ristorante-dietlikon-zurich-46majv",
         "de": "kochin-koch-w-m-d-coop-genossenschaft-dietlikon",
-        "fr": "chef-cuisinier-m-w-d-coop-ristorante-dietlikon-zurich-46majv"
+        "fr": "kochin-koch-m-w-d-coop-ristorante-dietlikon-zurich-46majv"
       },
       "requirementsByLocale": {
         "de": [
@@ -97034,9 +97039,9 @@
       },
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich-cjzk4b",
-        "en": "director-christ-orologi-gioielli-winterthur-zurich-cjzk4b",
+        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich-cjzk4b",
         "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-winterthur",
-        "fr": "directeur-christ-orologi-gioielli-winterthur-zurich-cjzk4b"
+        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-winterthur-zurich-cjzk4b"
       },
       "requirementsByLocale": {
         "de": [
@@ -97285,9 +97290,9 @@
       },
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-wbvv81",
-        "en": "managing-director-import-parfumerie-visp-wallis-wbvv81",
+        "en": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-wbvv81",
         "de": "geschaftsfuhrer-in-coop-genossenschaft-visp",
-        "fr": "directeur-general-import-parfumerie-visp-wallis-wbvv81"
+        "fr": "geschaftsfuhrer-in-import-parfumerie-visp-wallis-wbvv81"
       },
       "requirementsByLocale": {
         "de": [
@@ -149258,9 +149263,9 @@
       },
       "slugByLocale": {
         "it": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh",
-        "en": "future-retail-leaders-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh",
+        "en": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh",
         "de": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-065067",
-        "fr": "futurs-leaders-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh"
+        "fr": "nachwuchsfuhrungskrafte-retail-coop-genossenschaft-wattwil-sankt-gallen-f5i2hh"
       },
       "requirementsByLocale": {},
       "addressLocality": "Wattwil",
@@ -150869,9 +150874,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-x5ted3",
-        "en": "sales-consultant-coop-genossenschaft-dielsdorf-zurich-x5ted3",
+        "en": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-x5ted3",
         "de": "verkaufsberater-in-coop-genossenschaft-dielsdorf",
-        "fr": "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf-zurich-x5ted3"
+        "fr": "verkaufsberater-in-import-parfumerie-dielsdorf-zurich-x5ted3"
       },
       "requirementsByLocale": {
         "de": [
@@ -150903,12 +150908,14 @@
           "verkaufsberater-in-coop-genossenschaft-dielsdorf-x5ted3",
           "sales-consultant-coop-genossenschaft-dielsdorf",
           "sales-consultant-coop-genossenschaft-dielsdorf-x5ted3",
-          "sales-consultant-import-parfumerie-dielsdorf-zurich-x5ted3"
+          "sales-consultant-import-parfumerie-dielsdorf-zurich-x5ted3",
+          "sales-consultant-coop-genossenschaft-dielsdorf-zurich-x5ted3"
         ],
         "fr": [
           "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf",
           "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf-x5ted3",
-          "conseiller-ere-de-vente-import-parfumerie-dielsdorf-zurich-x5ted3"
+          "conseiller-ere-de-vente-import-parfumerie-dielsdorf-zurich-x5ted3",
+          "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf-zurich-x5ted3"
         ]
       },
       "previousSlugs": [
@@ -150919,7 +150926,9 @@
         "sales-consultant-coop-genossenschaft-dielsdorf-x5ted3",
         "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf-x5ted3",
         "sales-consultant-import-parfumerie-dielsdorf-zurich-x5ted3",
-        "conseiller-ere-de-vente-import-parfumerie-dielsdorf-zurich-x5ted3"
+        "conseiller-ere-de-vente-import-parfumerie-dielsdorf-zurich-x5ted3",
+        "sales-consultant-coop-genossenschaft-dielsdorf-zurich-x5ted3",
+        "conseiller-ere-de-vente-coop-genossenschaft-dielsdorf-zurich-x5ted3"
       ],
       "sourceLang": "de",
       "salaryMin": 73500,
@@ -152101,9 +152110,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm",
-        "en": "food-sales-assistant-coop-genossenschaft-birsfelden-basel-landschaft-704jdm",
+        "en": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm",
         "de": "verkaufer-in-food-coop-genossenschaft-birsfelden",
-        "fr": "assistant-commercial-alimentaire-coop-genossenschaft-birsfelden-basel-landschaft-704jdm"
+        "fr": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm"
       },
       "requirementsByLocale": {
         "de": [
@@ -155652,9 +155661,9 @@
       },
       "slugByLocale": {
         "it": "grilleur-in-coop-embrach-zurich-fso0qe",
-        "en": "griller-in-coop-genossenschaft-embrach-zurich-fso0qe",
+        "en": "grilleur-in-coop-embrach-zurich-fso0qe",
         "de": "grilleur-in-coop-genossenschaft-embrach",
-        "fr": "grille-dans-coop-genossenschaft-embrach-zurich-fso0qe"
+        "fr": "grilleur-in-coop-embrach-zurich-fso0qe"
       },
       "requirementsByLocale": {
         "de": [
