@@ -8648,6 +8648,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Quanto guadagna un podologo frontaliere in Ticino?',
     'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione.',
     'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologo frontaliere in Ticino, immagine fotorealistica DSLR ambientata in Canton Ticino.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'Quanto guadagna un assistente di studio medico frontaliere in Ticino?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall\'esperienza e dal ruolo.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Un assistente di studio medico frontaliere lavora in un ospedale a Lugano',
 };
 
 export default blogMetaIt;

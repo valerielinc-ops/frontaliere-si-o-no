@@ -8647,6 +8647,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guadagna.title': 'How much does a border podiatrist earn in Ticino?',
     'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'The income of a border podiatrist in Ticino is influenced by several factors, including deductible, withholding and double taxation.',
     'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'A podologist working in Ticino, Switzerland, image captured by DSLR camera in a realistic scene set in the Ticino canton.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'How much does a border medical study assistant earn in Ticino?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'The remuneration of a border medical study assistant in Ticino depends on experience and role.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'A medical study assistant works in a hospital in Lugano',
 };
 
 export default blogMetaEn;
