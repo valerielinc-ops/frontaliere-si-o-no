@@ -1255,6 +1255,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come podologo in Ticino: requisiti e riconoscimento',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologo in un ambiente di lavoro in Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Studio podologico moderno in Svizzera con attrezzatura medica',
 };
 
 export default blogMetaChIt;

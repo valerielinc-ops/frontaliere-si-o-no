@@ -241,3 +241,54 @@ describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
     }
   });
 });
+
+// Issue #4528: rollout part 2 — the SAME end-of-content multiplex helper
+// extended to the ~10 pre-existing content families that PR #4521 (issue #4485)
+// audited as still Auto-Ads-only. Same MFA-safety gate (shared helper, already
+// covered above), same per-family call-count + import guard, same below-floor
+// bridge exclusion. A refactor that silently drops any of these calls re-opens
+// the display-vs-multiplex RPM gap on that family.
+describe('SEO SSG-family end-of-content multiplex — rollout 2 (#4528)', () => {
+  // Counts match the number of index,follow render templates per plugin.
+  // relatedSearchClustersPlugin has two (cluster page + paginated hub page);
+  // every other family has a single render path.
+  const FAMILY_SPECS_2: Array<{ file: string; count: number }> = [
+    { file: 'build-plugins/nursingLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/professionLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/professionCityLandings.ts', count: 1 },
+    { file: 'build-plugins/sectionPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/salaryStatsChCantonPages.ts', count: 1 },
+    { file: 'build-plugins/annualReportPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderMunicipalityPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/frSalaireNetLandingPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderWaitMapPlugin.ts', count: 1 },
+    { file: 'build-plugins/relatedSearchClustersPlugin.ts', count: 2 },
+  ];
+
+  for (const spec of FAMILY_SPECS_2) {
+    it(`${spec.file} calls endOfContentMultiplexHtml ${spec.count}× and imports it from './lib/adSlotHtml'`, () => {
+      const src = fs.readFileSync(path.join(ROOT, spec.file), 'utf8');
+      const calls = src.match(/endOfContentMultiplexHtml\(\s*\{/g) ?? [];
+      expect(calls).toHaveLength(spec.count);
+      expect(src, `${spec.file} must import endOfContentMultiplexHtml from './lib/adSlotHtml'`)
+        .toMatch(/import\s*\{[^}]*\bendOfContentMultiplexHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+    });
+  }
+
+  // The two rollout-2 families that also emit a noindex below-floor bridge must
+  // keep that bridge free of any manual multiplex (same MFA invariant as the
+  // #4485 bridges above).
+  it('rollout-2 below-floor bridge emitters carry no end-of-content multiplex', () => {
+    const bridges: Array<{ file: string; fn: string }> = [
+      { file: 'build-plugins/professionCityLandings.ts', fn: 'renderBelowFloorBridge' },
+      { file: 'build-plugins/relatedSearchClustersPlugin.ts', fn: 'renderClusterBelowFloorBridge' },
+    ];
+    for (const { file, fn } of bridges) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      const body = extractFunctionBody(src, fn);
+      expect(body, `Could not locate ${fn} in ${file}`).not.toBe('');
+      expect(body, `${fn} (noindex bridge) must not emit a manual multiplex`)
+        .not.toContain('endOfContentMultiplexHtml');
+    }
+  });
+});
