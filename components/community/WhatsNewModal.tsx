@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.68.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3680.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3680.salaryLandings.title',
+        descKey: 'whatsNew.v3680.salaryLandings.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
     version: '3.66.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3660.title',
@@ -41,7 +54,6 @@ export const RELEASES: Release[] = [
         type: 'feature',
         titleKey: 'whatsNew.v3660.exchange-ssg.title',
         descKey: 'whatsNew.v3660.exchange-ssg.desc',
-
       },
     ],
   },

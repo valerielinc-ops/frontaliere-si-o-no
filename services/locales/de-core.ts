@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3680.title': 'Lohn nach Beruf und Kanton',
+ 'whatsNew.v3680.salaryLandings.title': 'Was du nach Beruf und Kanton verdienst',
+ 'whatsNew.v3680.salaryLandings.desc': 'Neue Seiten mit Bruttomedian, geschätztem Netto und aktiven Stellen nach Beruf (Pflegefachperson, Ingenieur, Apotheker und mehr) in jedem Schweizer Kanton, mit Regionenvergleich.',
  'whatsNew.v3660.title': 'CHF/EUR-Wechselkurs im Blick',
  'whatsNew.v3660.exchange-ssg.title': 'Franken-Euro-Kurs: neue eigene Seiten',
  'whatsNew.v3660.exchange-ssg.desc': 'Aktueller CHF/EUR-Kurs, 12-Monats-Verlauf und Umrechnung typischer Löhne (1000–10000 CHF), mit Tipps zum richtigen Zeitpunkt und zum Sparen bei den Gebühren.',

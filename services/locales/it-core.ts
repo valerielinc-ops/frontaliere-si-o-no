@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3680.title': 'Stipendio per professione e cantone',
+ 'whatsNew.v3680.salaryLandings.title': 'Quanto guadagni per professione e cantone',
+ 'whatsNew.v3680.salaryLandings.desc': 'Nuove pagine con la mediana lorda, il netto stimato e le offerte attive per professione (infermiere, ingegnere, farmacista e altre) in ogni cantone svizzero, con confronto tra regioni.',
  'whatsNew.v3660.title': 'Cambio franco-euro sotto controllo',
  'whatsNew.v3660.exchange-ssg.title': 'Cambio franco-euro: nuove pagine dedicate',
  'whatsNew.v3660.exchange-ssg.desc': 'Tasso CHF/EUR di oggi, storico 12 mesi e conversione degli stipendi tipici (1000–10000 CHF), con consigli su quando cambiare e come risparmiare sulle commissioni.',
