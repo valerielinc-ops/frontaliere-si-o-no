@@ -1,16 +1,16 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-07-18T10:45:23.879Z",
-  "total": 6,
+  "generatedAt": "2026-07-18T22:11:11.810Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8850,
-  "avgDurationMs": 8850,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11226,
+  "avgDurationMs": 11226,
   "durationHistory": [
-    8850
+    11226
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-481&cHash=ab6ec5d181bc2200b9091dacde2898b9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:45:20.361Z",
+      "crawledAt": "2026-07-18T22:11:07.962Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-528&cHash=88e33377daaa77f070b8fff50c44a193",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:45:16.986Z",
+      "crawledAt": "2026-07-18T22:11:03.719Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-530&cHash=0ee055ce35ffdf3d0fee58f4912f6fb0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:45:17.879Z",
+      "crawledAt": "2026-07-18T22:11:04.914Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-529&cHash=d4f19de832552b6503947a9af5469122",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:45:18.635Z",
+      "crawledAt": "2026-07-18T22:11:05.901Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-534&cHash=1ca4d2394dae9c08f74b599db4133869",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:45:19.503Z",
+      "crawledAt": "2026-07-18T22:11:06.922Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,8 +200,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "wagerenhof-e5f225fce6d0",
       "slug": "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
@@ -242,5 +241,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

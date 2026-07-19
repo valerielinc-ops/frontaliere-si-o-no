@@ -25865,6 +25865,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'farmacista-frontaliero-ticino',
+ category: 'pratico',
+ date: '2026-07-18T22:53:36.653Z',
+ image: '/images/blog/farmacista-frontaliero-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontaliere-ostetrica-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-18T23:16:03.599Z',
+ image: '/images/blog/frontaliere-ostetrica-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'ostetrica-frontaliere-ticino-quanto-guadagna',
+ category: 'fiscale',
+ date: '2026-07-18T23:37:44.080Z',
+ image: '/images/blog/ostetrica-frontaliere-ticino-quanto-guadagna.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

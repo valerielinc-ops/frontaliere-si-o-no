@@ -1,6 +1,6 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-07-18T11:33:35.643Z",
+  "assembledAt": "2026-07-18T22:16:25.972Z",
   "jobs": [
     {
       "id": "caritas-schweiz-4ac86da4b8d7",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/126757/2335/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:33.083Z",
+      "crawledAt": "2026-07-18T22:16:22.969Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://apply.refline.ch/126757/2333/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:32.652Z",
+      "crawledAt": "2026-07-18T22:16:22.539Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://apply.refline.ch/126757/2330/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:32.218Z",
+      "crawledAt": "2026-07-18T22:16:22.108Z",
       "addressLocality": "Gulu / Uganda",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://apply.refline.ch/126757/2325/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:31.756Z",
+      "crawledAt": "2026-07-18T22:16:21.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://apply.refline.ch/126757/2332/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:31.302Z",
+      "crawledAt": "2026-07-18T22:16:21.216Z",
       "addressLocality": "Waldibrücke, Emmen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://apply.refline.ch/126757/2320/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:33:30.868Z",
+      "crawledAt": "2026-07-18T22:16:20.785Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -524,7 +524,7 @@
       "url": "https://apply.refline.ch/126757/2327/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:30.434Z",
+      "crawledAt": "2026-07-18T22:16:20.351Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://apply.refline.ch/126757/2326/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:33:29.999Z",
+      "crawledAt": "2026-07-18T22:16:19.919Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -690,7 +690,7 @@
       "url": "https://apply.refline.ch/126757/2329/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-18T11:33:29.566Z",
+      "crawledAt": "2026-07-18T22:16:19.486Z",
       "addressLocality": "Syrien",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -739,180 +739,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "caritas-schweiz-5908bbeca530",
-      "slug": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-      "slugByLocale": {
-        "it": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "en": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "de": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "fr": "infirmiere-hf-fh-60-80-m-f-j-caritas-schweiz-zentralschweiz"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Pflegefachperson HF/FH 60-80% (m/w/d)",
-      "titleByLocale": {
-        "it": "Infermiera HF/FH 60-80% (m/f/d)",
-        "en": "Pflegefachperson HF/FH 60-80% (m/w/d)",
-        "de": "Pflegefachperson HF/FH 60-80% (m/w/d)",
-        "fr": "Infirmière HF/FH 60-80% (m/f/j)"
-      },
-      "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nPflegefachperson HF/FH 60-80% (m/w/d)\n\nIm Angebot \"Angehörige pflegen\" erhalten pflegebedürftige Klientinnen und Klienten eine bestmögliche personenzentrierte Pflege durch ihre Angehörigen. Die pflegenden Angehörigen werden durch Pflegefachpersonen HF/FH beraten, begleitet und unterstützt. Für die geleistete Arbeit werden die pflegenden Angehörigen honoriert sowie versichert.\nWir suchen nach Vereinbarung eine Pflegefachperson HF/FH mit Fallführung für die Region Zentralschweiz.\n\nWir bieten: hohe Autonomie, flexible Arbeitszeiten, Homeoffice und Mitgestaltung beim Ausbau dieses Angebots.\n\nIhre Aufgaben\n\n• Sie leiten den Pflegeprozess und stellen eine bestmögliche personenzentrierte Pflegequalität bei den Klientinnen und Klienten sicher\n• Sie beraten und unterstützen die pflegenden Angehörigen\n• Sie organisieren Entlastungsangebote\n• Sie gestalten den Ausbau des Angebots mit\n• Sie arbeiten gerne selbständig, sind gut organisiert und handeln verantwortungsbewusst\n• Als engagierte Pflegefachperson verfügen Sie über ausgeprägte kommunikative Fähigkeiten\n• Für diese verantwortungsvolle Aufgabe setzen wir einen HF/FH Abschluss und pflegerische Erfahrungen vorzugsweise in der Spitex voraus\n• Sie verfügen über einen gültigen Führerausweis und ein eigenes Auto",
-      "descriptionByLocale": {
-        "it": "• Fare la cosa giusta. In Svizzera e in circa 20 paesi su quattro continenti. Impegnarsi con noi per la visione di una società solidale, come Infermiera HF/FH 60-80% (m/f/d) Nell'offerta \"Care per i membri\" i clienti bisognosi di cura ricevono la migliore cura possibile incentrato sulla persona dai loro parenti. I parenti di cura sono consigliati, accompagnati e supportati da specialisti di cura HF/FH. Per il lavoro svolto, i parenti di cura sono onorati e assicurati. Per accordo stiamo cercando un'infermiera HF/FH con gestione dei casi per la regione della Svizzera centrale. Offriamo: alta autonomia, orari di lavoro flessibili, ufficio di casa e la partecipazione all'espansione di questa offerta. I loro compiti\n• Si guida il processo di cura e garantire la migliore qualità di cura incentrato sulla persona per i clienti\n• Forniscono guida e sostegno alla famiglia.\n• Organizzano offerte di soccorso\n• Aiutano ad espandere l'offerta\n• A loro piace lavorare in modo indipendente, sono ben organizzati e agiscono responsabilmente\n• Come infermiera impegnata, hai forti capacità di comunicazione\n• Per questo compito responsabile, abbiamo bisogno di una laurea HF/FH e di un'esperienza di cura, preferibilmente in Spitex.\n• Hai una patente di guida valida e la tua auto",
-        "en": "• Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as Nurse HF/FH 60-80% (m/f/d) In the offer \"Care for members\" clients in need of care receive the best possible person-centered care by their relatives. The caring relatives are advised, accompanied and supported by care specialists HF/FH. For the work done, the caring relatives are honored and insured. By agreement we are looking for a nurse HF/FH with case management for the Central Switzerland region. We offer: high autonomy, flexible working hours, home office and participation in the expansion of this offer. Their tasks\n• You lead the care process and ensure the best possible person-centered care quality for clients\n• They provide guidance and support to the family.\n• They organise relief offers\n• They help to expand the offer\n• They like to work independently, are well organised and act responsibly\n• As a committed nurse, you have strong communication skills\n• For this responsible task, we require an HF/FH degree and nursing experience, preferably in Spitex.\n• You have a valid driving license and your own car",
-        "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nPflegefachperson HF/FH 60-80% (m/w/d)\n\nIm Angebot \"Angehörige pflegen\" erhalten pflegebedürftige Klientinnen und Klienten eine bestmögliche personenzentrierte Pflege durch ihre Angehörigen. Die pflegenden Angehörigen werden durch Pflegefachpersonen HF/FH beraten, begleitet und unterstützt. Für die geleistete Arbeit werden die pflegenden Angehörigen honoriert sowie versichert.\nWir suchen nach Vereinbarung eine Pflegefachperson HF/FH mit Fallführung für die Region Zentralschweiz.\n\nWir bieten: hohe Autonomie, flexible Arbeitszeiten, Homeoffice und Mitgestaltung beim Ausbau dieses Angebots.\n\nIhre Aufgaben\n\n• Sie leiten den Pflegeprozess und stellen eine bestmögliche personenzentrierte Pflegequalität bei den Klientinnen und Klienten sicher\n• Sie beraten und unterstützen die pflegenden Angehörigen\n• Sie organisieren Entlastungsangebote\n• Sie gestalten den Ausbau des Angebots mit\n• Sie arbeiten gerne selbständig, sind gut organisiert und handeln verantwortungsbewusst\n• Als engagierte Pflegefachperson verfügen Sie über ausgeprägte kommunikative Fähigkeiten\n• Für diese verantwortungsvolle Aufgabe setzen wir einen HF/FH Abschluss und pflegerische Erfahrungen vorzugsweise in der Spitex voraus\n• Sie verfügen über einen gültigen Führerausweis und ein eigenes Auto",
-        "fr": "• Faire la bonne chose. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire, Infirmière HF/FH 60-80% (m/f/j) Dans l'offre « Soins aux membres » les clients qui ont besoin de soins reçoivent les meilleurs soins axés sur la personne par leurs proches. Les proches aidants sont conseillés, accompagnés et soutenus par des spécialistes en soins HF/FH. Pour le travail effectué, les proches aidants sont honorés et assurés. Par accord, nous recherchons une infirmière HF/FH avec la gestion de cas pour la région de Suisse centrale. Nous offrons: une grande autonomie, des horaires de travail flexibles, un bureau à domicile et la participation à l'expansion de cette offre. Leurs tâches\n• Vous dirigez le processus de soins et vous assurez la meilleure qualité possible de soins centrés sur la personne pour les clients\n• Ils fournissent conseils et soutien à la famille.\n• Ils organisent des offres de secours\n• Ils aident à élargir l'offre\n• Ils aiment travailler indépendamment, sont bien organisés et agissent de manière responsable\n• En tant qu'infirmière engagée, vous avez de solides compétences en communication\n• Pour cette tâche responsable, nous avons besoin d'un diplôme HF/FH et d'une expérience infirmière, de préférence dans Spitex.\n• Vous avez un permis de conduire valide et votre propre voiture"
-      },
-      "location": "Zentralschweiz",
-      "canton": "LU",
-      "url": "https://apply.refline.ch/126757/2299/pub/3/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:45:20.887Z",
-      "addressLocality": "Zentralschweiz",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6002",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://apply.refline.ch/126757/2299/pub/3/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 60,
-      "pensumMax": 80,
-      "pensum": "60 - 80%",
-      "previousSlugs": [
-        "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-        "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
-        ],
-        "en": [
-          "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-          "care-professional-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
-          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
-        ],
-        "fr": [
-          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T22:27:04.258Z",
-      "salaryMin": 55600,
-      "salaryMax": 84800,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55600,
-          "maxValue": 84800,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
-      "id": "caritas-schweiz-078bb3d552b9",
-      "slug": "social-padagogic-persona-di-riferimento-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-      "slugByLocale": {
-        "it": "social-padagogic-persona-di-riferimento-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-        "en": "social-padagogic-reference-person-mna-100-in-zurich-uster-m-f-d-caritas-schweiz-zurich",
-        "de": "sozialpadagogische-bezugsperson-mna-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
-        "fr": "personne-de-reference-socio-dagogique-mna-100-en-zurich-uster-m-f-d-caritas-schweiz-zurich"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Sozialpädagogische Bezugsperson MNA 100 % in Zürich-Uster (m/w/d)",
-      "titleByLocale": {
-        "it": "Social pädagogic persona di riferimento MNA 100% in Zürich-Uster (m/f/d)",
-        "en": "Social pädagogic reference person MNA 100% in Zürich-Uster (m/f/d)",
-        "de": "Sozialpädagogische Bezugsperson MNA 100 % in Zürich-Uster (m/w/d)",
-        "fr": "Personne de référence socio-dagogique MNA 100% en Zürich-Uster (m/f/d)"
-      },
-      "description": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugsperson MNA 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
-      "descriptionByLocale": {
-        "it": "• Fare la cosa giusta. In Svizzera e in circa 20 paesi in quattro continenti. Impegnarsi con noi per la visione di una società solidale, come Persona di riferimento pedagogico sociale MNA 100% a Zurigo-Uster (m/f/d) La Caritas Svizzera opera in diverse sedi del Canton Zurigo dal marzo 2024. Come specialista e responsabile socio-educativo, sei responsabile della cura, del sostegno e dell'integrazione dei richiedenti asilo minori non accompagnati presso il Centro MNA di Aathalstrasse di Zurigo-Uster. I loro compiti\n• Sostegno sociale pedagogico e psicosociale e sostegno dei giovani nell'ambito del sistema delle persone di riferimento\n• Promozione dei giovani nelle diverse aree della vita (scuola, tempo libero, salute, gestione del denaro) con obiettivi individuali e controlli degli obiettivi\n• Sviluppo delle strutture quotidiane e delle attività di svago per e con i giovani\n• Promuovere l'autosufficienza, l'autooccupazione e l'integrità psicologica e sociale e stabilire un quadro vincolante per la convivenza\n• Intervento della crisi e gestione dei conflitti\n• Coordinamento interdisciplinare attivo e pianificazione nel team (ad esempio una stretta collaborazione con il supporto dei minori)\n• Responsabilità di bilancio in conformità con la direttiva di trasposizione del Canton ZH e le esigenze della Caritas Svizzera, nonché la preparazione delle fatture\n• Rete esterna con partner di cooperazione e organizzazioni\n• Co-responsabilità per la creazione di una buona atmosfera casa e per il rispetto delle regole della casa e della sicurezza nel centro\n• Formazione socio-pedagogica riconosciuta completa (o equivalente)\n• Esperienza nella migrazione e/o nella gioventù\n• Conoscenza molto buona del tedesco, ulteriore conoscenza delle lingue straniere benefico\n• Competenza interculturale\n• Volontà e flessibilità per il tempo di lavoro variabile nel tempo (lavoro di turno/settimana)\n• Alto senso di responsabilità e qualità per lavorare con giovani vulnerabili e vulnerabili\n• Iniziativa, indipendenza, lavoro di squadra e assertività\n• Alta resilienza e resilienza\n• Buona conoscenza di Microsoft Office\n• Gomma affidabile",
-        "en": "• Doing the right thing. In Switzerland and in around 20 countries on four continents. Engage with us for the vision of a solidarity society, as Social pedagogical reference person MNA 100% in Zurich-Uster (m/f/d) Caritas Switzerland has been operating asylum centres at various locations in the canton of Zurich since March 2024. As a socio-educational specialist and caregiver, you are responsible for the personal and age-appropriate care, support and integration of unaccompanied minor asylum seekers at the MNA Centre on Aathalstrasse in Zurich-Uster. Their tasks\n• Social pedagogical and psychosocial support and support of young people within the framework of the reference person system\n• Promotion of young people in the different areas of life (school, leisure, health, handling of money) with individual goals and goal checks\n• Development of needs-based daily structures and leisure activities for and with young people\n• Promoting social and self-sufficiency, self-employment and psychological and social integrity and establishing a binding framework for cohabitation\n• Crisis intervention and conflict management\n• Active interdisciplinary coordination and planning in the team (e.g. close cooperation with support of minors)\n• Budget responsibility in accordance with the transposition directive of the Canton of ZH and the requirements of Caritas Switzerland, as well as preparation of billings\n• External networking with cooperation partners and organisations\n• Co-responsibility for the creation of a good house atmosphere and for compliance with house rules and security in the center\n• Completed recognised socio-pedagogical training (or equivalent)\n• Experience in migration and/or youth work desirable\n• Very good knowledge of German, further knowledge of foreign languages beneficial\n• Intercultural competence\n• Willingness and flexibility to work time varying in time (shift/weekend work)\n• High sense of responsibility and quality for working with vulnerable, vulnerable young people\n• Initiative, independence, teamwork and assertiveness\n• High resilience and resilience\n• Good Microsoft Office knowledge\n• Reliable gum",
-        "de": "• Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\n\nSozialpädagogische Bezugsperson MNA 100 % in Zürich-Uster (m/w/d)\n\nCaritas Schweiz betreibt seit März 2024 im kantonalen Auftrag Asylzentren an unterschiedlichen Standorten im Kanton Zürich. Als sozialpädagogische Fach- und Bezugsperson sind Sie für die persönliche und altersgerechte Betreuung, Begleitung und Integration der unbegleiteten minderjährigen Asylsuchenden im MNA-Zentrum an der Aathalstrasse in Zürich-Uster verantwortlich.\n\nIhre Aufgaben\n\n• Sozialpädagogische und psychosoziale Begleitung und Betreuung der Jugendlichen im Rahmen des Bezugspersonensystems\n• Förderung der Jugendlichen in den verschiedenen Lebensbereichen (Schule, Freizeit, Gesundheit, Umgang mit Geld) mit individuellen Zielsetzungen und Zielüberprüfungen\n• Erarbeitung bedarfsgerechter Tagesstrukturen und Freizeitangeboten für und mit den Jugendlichen\n• Förderung der Sozial- und Selbstkompetenz, der Selbständigkeit und der psychischen und sozialen Integrität sowie Etablierung eines verbindlichen Rahmens für das gemeinschaftliche Zusammenleben\n• Krisenintervention und Konfliktbearbeitung\n• Aktive interdisziplinäre Koordination und Planung im Team (u.a. enge Zusammenarbeit mit Beistandschaft der minderjährigen Jugendlichen)\n• Budgetverantwortung gemäss der Umsetzungsrichtlinie des Kantons ZH und den Vorgaben der Caritas Schweiz, sowie erstellen der Abrechnungen\n• Externe Vernetzung mit Kooperationspartnern und Organisationen\n• Mitverantwortung für die Schaffung einer guten Hausatmosphäre und für die Einhaltung der Hausordnung und Sicherheit im Zentrum\n• Abgeschlossene anerkannte sozialpädagogische Ausbildung (oder gleichwertig)\n• Erfahrung im Migrationsbereich und/oder Jugendarbeit wünschenswert\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse von Vorteil\n• Interkulturelle Kompetenz\n• Bereitschaft und Flexibilität zeitlich variierende Arbeitszeiten zu leisten (Schicht-/Wochenendarbeit)\n• Hohes Verantwortungs- und Qualitätsbewusstsein für die Arbeit mit vulnerablen, schutzbedürftigen Jugendlichen\n• Eigeninitiative, Selbständigkeit, Teamfähigkeit sowie Durchsetzungsvermögen\n• Hohe Resilienz und Belastbarkeit\n• Gute Microsoft-Office Kenntnisse\n• Einwandfreier Leumund",
-        "fr": "• Faire ce qu'il faut. En Suisse et dans une vingtaine de pays sur quatre continents. Engager avec nous la vision d'une société solidaire, Personne de référence sociopédagogique MNA 100% à Zurich-Uster (m/f/d) Caritas Suisse exploite des centres d'asile dans divers endroits du canton de Zurich depuis mars 2024. En tant que spécialiste socioéducatif et soignant, vous êtes responsable des soins, du soutien et de l'intégration personnels et adaptés à l'âge des demandeurs d'asile mineurs non accompagnés au Centre MNA sur Aathalstrasse à Zurich-Uster. Leurs tâches\n• Soutien sociopédagogique et psychosocial des jeunes dans le cadre du système des personnes de référence\n• Promotion des jeunes dans les différents domaines de la vie (école, loisirs, santé, gestion de l'argent) avec des objectifs individuels et des contrôles d'objectifs\n• Développement de structures quotidiennes axées sur les besoins et d'activités de loisirs pour et avec les jeunes\n• Promouvoir l ' autonomie sociale, le travail indépendant et l ' intégrité psychologique et sociale et établir un cadre contraignant pour la cohabitation\n• Intervention en cas de crise et gestion des conflits\n• Coordination et planification interdisciplinaires actives au sein de l'équipe (par exemple coopération étroite avec le soutien des mineurs)\n• Responsabilité budgétaire conformément à la directive de transposition du canton de ZH et aux exigences de Caritas Suisse, ainsi que préparation des factures\n• Mise en réseau externe avec les partenaires et organisations de coopération\n• Coresponsabilité pour la création d'une bonne ambiance et pour le respect des règles de la maison et de la sécurité dans le centre\n• Formation sociopédagogique reconnue (ou équivalent)\n• Expérience de la migration et/ou du travail des jeunes souhaitable\n• Très bonne connaissance de l'allemand, meilleure connaissance des langues étrangères bénéfique\n• Compétence interculturelle\n• Volonté et flexibilité du temps de travail en fonction du temps (travail posté/fin de semaine)\n• Un haut sentiment de responsabilité et de qualité pour travailler avec les jeunes vulnérables\n• Initiative, indépendance, travail d'équipe et assurance\n• Haute résilience et résilience\n• Bonne connaissance de Microsoft Office\n• Gomme fiable"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/126757/2249/pub/14/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-16T22:16:31.838Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6002",
-      "category": "Sociale / Educazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://apply.refline.ch/126757/2249/pub/14/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
-        "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
-        "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich",
-        "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
-          "social-p-u00e4dagogic-persona-di-riferimento-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
-        ],
-        "en": [
-          "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
-          "social-p-u00e4dagogic-reference-person-mna-100-in-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
-        ],
-        "fr": [
-          "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
-          "personne-de-reference-socio-dagogique-mna-100-en-z-u00fcrich-uster-m-f-d-caritas-schweiz-zurich"
-        ],
-        "de": [
-          "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz"
-        ]
-      },
-      "firstSeenAt": "2026-06-26T11:01:55.939Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
