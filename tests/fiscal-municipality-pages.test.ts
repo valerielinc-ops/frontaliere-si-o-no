@@ -1,4 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
+import { afterEach, describe, expect, it } from 'vitest';
 
 import fiscalDataset from '@/data/fiscal-municipalities.json';
 import {
@@ -11,6 +15,7 @@ import {
   computeRegimes,
   renderAboveFloorPage,
   renderBridgePage,
+  patchSitemapIndex,
 } from '@/build-plugins/fiscalMunicipalityPagesPlugin';
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
 
@@ -108,5 +113,60 @@ describe('fiscal below-floor bridge + self-map (#4484)', () => {
 
   it('does not claim an unrelated municipality path as live', () => {
     expect(isFiscalMunicipalityPath('/tasse-frontalieri-comune/citta-inventata-xyz/')).toBe(false);
+  });
+});
+
+describe('patchSitemapIndex against the real sitemap.xml format (#4544)', () => {
+  let tmpDist: string;
+
+  afterEach(() => {
+    if (tmpDist) fs.rmSync(tmpDist, { recursive: true, force: true });
+  });
+
+  // Mirrors the exact indentation/element shape emitted into dist/sitemap.xml
+  // (copied verbatim from public/sitemap.xml — multi-line <sitemap> blocks,
+  // never self-closing) so the regex is exercised against the real format,
+  // not an idealized fixture.
+  const REAL_SITEMAP_INDEX = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://frontaliereticino.ch/sitemap-pages.xml</loc>
+    <lastmod>2026-03-26</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://frontaliereticino.ch/sitemap-blog.xml</loc>
+    <lastmod>2026-07-19</lastmod>
+  </sitemap>
+</sitemapindex>
+`;
+
+  function writeFixture(): string {
+    tmpDist = fs.mkdtempSync(path.join(os.tmpdir(), 'fiscal-sitemap-'));
+    fs.writeFileSync(path.join(tmpDist, 'sitemap.xml'), REAL_SITEMAP_INDEX, 'utf-8');
+    return tmpDist;
+  }
+
+  it('inserts a new <sitemap> entry on first build without breaking the index', () => {
+    const dist = writeFixture();
+    patchSitemapIndex(dist, '2026-07-19');
+    const out = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf-8');
+    expect(out).toMatch(
+      /<loc>https:\/\/frontaliereticino\.ch\/sitemap-comuni-fiscale\.xml<\/loc>\s*<lastmod>2026-07-19<\/lastmod>/,
+    );
+    // Still a single well-formed index (no duplicate/mangled closing tag).
+    expect(out.match(/<\/sitemapindex>/g)?.length).toBe(1);
+    expect(out.match(/<sitemap>/g)?.length).toBe(3);
+  });
+
+  it('updates lastmod in place on a subsequent build instead of duplicating the entry', () => {
+    const dist = writeFixture();
+    patchSitemapIndex(dist, '2026-07-19');
+    patchSitemapIndex(dist, '2026-07-20');
+    const out = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf-8');
+    expect(out.match(/sitemap-comuni-fiscale\.xml/g)?.length).toBe(1);
+    expect(out).toMatch(
+      /<loc>https:\/\/frontaliereticino\.ch\/sitemap-comuni-fiscale\.xml<\/loc>\s*<lastmod>2026-07-20<\/lastmod>/,
+    );
+    expect(out.match(/<sitemap>/g)?.length).toBe(3);
   });
 });
