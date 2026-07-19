@@ -1267,6 +1267,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'How much does a border operating room technician earn in Ticino',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Data on the remuneration of a border operating room technician in Ticino.',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotography of a surgical technologist in a Swiss hospital.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Veterinary border in Ticino: salary and requirements',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Practical guide for border veterinarians: recognition of qualifications, salary classification, taxes and social security obligations in Switzerland.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Veterinary clinic in Switzerland',
 };
 
 export default blogMetaChEn;

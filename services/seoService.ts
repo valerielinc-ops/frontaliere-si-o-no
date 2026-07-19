@@ -4657,6 +4657,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-medico-ticino-stipendio-requisiti': { name: 'Lavorare come medico frontaliere in Ticino', path: '/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontalieri-stipendio-tecnico-sala-operatoria': { name: 'frontalieri-stipendio', path: '/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/', parent: 'blog' },
     'blog-medico-frontaliere-stipendio-ticino': { name: 'Ticino, Svizzera', path: '/articoli-frontaliere/medico-frontaliere-stipendio-ticino', parent: 'blog' },
+    'blog-frontaliere-veterinario-ticino-requisiti': { name: 'Frontaliere veterinario', path: '/articoli-svizzera/frontaliere-veterinario-ticino-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
