@@ -1,0 +1,3201 @@
+{
+  "generatedAt": "2026-07-19T04:52:39.629Z",
+  "source": "data/swiss-hospitals.json ⨯ data/jobs.json (employer-name match + geo fallback) via build-plugins/healthFacilitiesMatch.ts",
+  "minJobsFloor": 3,
+  "counts": {
+    "hospitalsTotal": 463,
+    "hospitalsMatched": 235,
+    "facilities": 127,
+    "aboveFloor": 111,
+    "belowFloor": 16,
+    "byMatchType": {
+      "employer": 117,
+      "geo": 10
+    }
+  },
+  "facilities": [
+    {
+      "slug": "hirslanden",
+      "companyKeys": [
+        "hirslanden"
+      ],
+      "name": "Hirslanden Klinik",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hirslanden Klinik Aarau",
+        "Hirslanden Klinik Birshof, Münchenstein",
+        "Hirslanden Klinik Linde, Biel",
+        "Hirslanden Klinik St. Anna in Meggen",
+        "Hirslanden Klinik St. Anna, Luzern",
+        "Hirslanden Klinik Stephanshorn, St. Gallen",
+        "Hirslanden Klinik am Rosenberg, Heiden"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 388,
+      "healthcareJobCountSnapshot": 257,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 47,
+        "infermiere": 162,
+        "oss": 13,
+        "altro": 4,
+        "terapista": 10,
+        "tecnico": 16,
+        "ostetrica": 5
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hoch-health",
+      "companyKeys": [
+        "hoch-health"
+      ],
+      "name": "HOCH Health Ostschweiz",
+      "canton": "SG",
+      "city": "St. Gallen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "HOCH Health Ostschweiz (Gruppe), St. Gallen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 208,
+      "healthcareJobCountSnapshot": 109,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 33,
+        "infermiere": 49,
+        "oss": 5,
+        "terapista": 6,
+        "altro": 10,
+        "tecnico": 5,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "luks",
+      "companyKeys": [
+        "luks"
+      ],
+      "name": "Luzerner Kantonsspital (LUKS)",
+      "canton": "LU",
+      "city": "Luzern",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Luzerner Kantonsspital, LUKS (Gruppe)",
+        "Luzerner Kantonsspital, LUKS (Standort Kantonsspital Luzern)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 203,
+      "healthcareJobCountSnapshot": 111,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 6,
+        "infermiere": 55,
+        "medico": 37,
+        "terapista": 4,
+        "tecnico": 7,
+        "ostetrica": 2
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "tertianum",
+      "companyKeys": [
+        "tertianum"
+      ],
+      "name": "Tertianum",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Tertianum Neutal Berlingen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 199,
+      "healthcareJobCountSnapshot": 133,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 86,
+        "oss": 41,
+        "terapista": 1,
+        "altro": 5
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "eoc-ente-ospedaliero-cantonale",
+      "companyKeys": [
+        "eoc-ente-ospedaliero-cantonale"
+      ],
+      "name": "EOC – Ente Ospedaliero Cantonale",
+      "canton": "TI",
+      "city": "Bellinzona",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "EOC Ente ospedaliero cantonale (Clinica di Riabilitazione di Novaggio)",
+        "EOC Ente ospedaliero cantonale (Gruppe), Bellinzona",
+        "EOC Ente ospedaliero cantonale (Ospedale di Acquarossa)",
+        "EOC Ente ospedaliero cantonale (Ospedale di Bellinzona)",
+        "EOC Ente ospedaliero cantonale (Ospedale di Faido)",
+        "EOC Ente ospedaliero cantonale (Ospedale di Locarno)",
+        "EOC Ente ospedaliero cantonale (Ospedale di Lugano)",
+        "EOC Ente ospedaliero cantonale (Ospedale di Mendrisio)"
+      ],
+      "commuterOrigins": [
+        "CO",
+        "VA",
+        "VB"
+      ],
+      "jobCountSnapshot": 186,
+      "healthcareJobCountSnapshot": 121,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 31,
+        "medico": 70,
+        "terapista": 6,
+        "tecnico": 2,
+        "oss": 2,
+        "altro": 1,
+        "ostetrica": 9
+      },
+      "medianSalaryChfSnapshot": 84500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "solothurner-spitaeler",
+      "companyKeys": [
+        "solothurner-spitaeler"
+      ],
+      "name": "Solothurner Spitäler (soH)",
+      "canton": "SO",
+      "city": "Solothurn",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Solothurner Spitäler AG (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 163,
+      "healthcareJobCountSnapshot": 92,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 26,
+        "infermiere": 54,
+        "tecnico": 5,
+        "terapista": 4,
+        "oss": 3
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksa",
+      "companyKeys": [
+        "ksa"
+      ],
+      "name": "Kantonsspital Aarau (KSA)",
+      "canton": "AG",
+      "city": "Aarau",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Aarau"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 111,
+      "healthcareJobCountSnapshot": 72,
+      "healthcareRoleCountsSnapshot": {
+        "altro": 7,
+        "medico": 28,
+        "infermiere": 29,
+        "tecnico": 4,
+        "terapista": 3,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "kantonsspital-graubuenden-ksgr",
+      "companyKeys": [
+        "kantonsspital-graubuenden-ksgr"
+      ],
+      "name": "Kantonsspital Graubünden",
+      "canton": "GR",
+      "city": "Chur",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Graubünden (Gruppe), Chur",
+        "Kantonsspital Graubünden, Chur"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 109,
+      "healthcareJobCountSnapshot": 67,
+      "healthcareRoleCountsSnapshot": {
+        "tecnico": 6,
+        "terapista": 3,
+        "medico": 27,
+        "infermiere": 29,
+        "oss": 1,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 58040,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "unispital-basel",
+      "companyKeys": [
+        "unispital-basel"
+      ],
+      "name": "Universitätsspital Basel",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Felix Platter Spital, Standort Universitätsspital Basel",
+        "Kriseninterventionsstation (KIS) der Universitären Psychiatrischen Kliniken (UPK) am Universitätsspital Basel",
+        "Universitätsspital Basel (USB)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 106,
+      "healthcareJobCountSnapshot": 65,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 24,
+        "oss": 9,
+        "infermiere": 21,
+        "ostetrica": 1,
+        "altro": 1,
+        "tecnico": 8,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksb",
+      "companyKeys": [
+        "ksb"
+      ],
+      "name": "Kantonsspital Baden (KSB)",
+      "canton": "AG",
+      "city": "Baden",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Baden (Kantonsspital Baden AG)",
+        "Kantonsspital Baden AG (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 90,
+      "healthcareJobCountSnapshot": 50,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 22,
+        "terapista": 5,
+        "altro": 3,
+        "medico": 18,
+        "oss": 1,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksbl",
+      "companyKeys": [
+        "ksbl"
+      ],
+      "name": "Kantonsspital Baselland (KSBL)",
+      "canton": "BL",
+      "city": "Liestal",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Baselland (Gruppe), Liestal",
+        "Kantonsspital Baselland (Standort Liestal)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 83,
+      "healthcareJobCountSnapshot": 49,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 22,
+        "medico": 13,
+        "terapista": 4,
+        "altro": 3,
+        "tecnico": 1,
+        "oss": 4,
+        "ostetrica": 2
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "pdag",
+      "companyKeys": [
+        "pdag"
+      ],
+      "name": "Psychiatrische Dienste Aargau (PDAG)",
+      "canton": "AG",
+      "city": "Windisch",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatrische Dienste (Solothurner Spitäler AG)",
+        "Psychiatrische Dienste Aargau, Windisch"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 67,
+      "healthcareJobCountSnapshot": 45,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 21,
+        "terapista": 3,
+        "medico": 20,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "fmi",
+      "companyKeys": [
+        "fmi"
+      ],
+      "name": "Spitäler fmi AG",
+      "canton": "BE",
+      "city": "Unterseen",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Spitäler FMI Frutigen Meiringen Interlaken (Gruppe), Unterseen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 66,
+      "healthcareJobCountSnapshot": 35,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 6,
+        "infermiere": 18,
+        "medico": 7,
+        "terapista": 2,
+        "altro": 2
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksw",
+      "companyKeys": [
+        "ksw"
+      ],
+      "name": "Kantonsspital Winterthur (KSW)",
+      "canton": "ZH",
+      "city": "Winterthur",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Winterthur"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 66,
+      "healthcareJobCountSnapshot": 40,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 22,
+        "infermiere": 13,
+        "tecnico": 3,
+        "altro": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "puk-zuerich",
+      "companyKeys": [
+        "puk-zuerich"
+      ],
+      "name": "Psychiatrische Universitätsklinik Zürich",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatrische Universitätsklinik Zürich (PUK)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 62,
+      "healthcareJobCountSnapshot": 42,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 25,
+        "medico": 13,
+        "terapista": 3,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hopital-du-valais",
+      "companyKeys": [
+        "hopital-du-valais"
+      ],
+      "name": "Hôpital du Valais",
+      "canton": "VS",
+      "city": "Brig",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital du Valais (site Hôpital de Sierre)",
+        "Hôpital du Valais - Centre hospitalier du Valais Romand CHVR, Sion",
+        "Hôpital du Valais / Spital Wallis (Gruppe), Sion",
+        "Hôpital du Valais / Spital Wallis (Standort Hôpital de Sion)",
+        "Hôpital du Valais / Spital Wallis (site Centre Valaisan de Pneumologie Crans-Montana)",
+        "Hôpital du Valais / Spital Wallis (site Hôpital de Malévoz), Monthey",
+        "Hôpital du Valais / Spital Wallis (site Hôpital de Martigny)"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 56,
+      "healthcareJobCountSnapshot": 33,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 16,
+        "tecnico": 3,
+        "infermiere": 12,
+        "ostetrica": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-limmattal",
+      "companyKeys": [
+        "spital-limmattal"
+      ],
+      "name": "Spital Limmattal",
+      "canton": "ZH",
+      "city": "Schlieren",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Limmattal, Schlieren"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 55,
+      "healthcareJobCountSnapshot": 32,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 6,
+        "medico": 6,
+        "infermiere": 14,
+        "altro": 3,
+        "tecnico": 2,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ehc-vd",
+      "companyKeys": [
+        "ehc-vd"
+      ],
+      "name": "Ensemble hospitalier de la Côte (EHC)",
+      "canton": "VD",
+      "city": "Morges",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "EHC Ensemble hospitalier de la Côte (Gruppe), Morges",
+        "EHC Ensemble hospitalier de la Côte (Standort Hôpital de Gilly)",
+        "EHC Ensemble hospitalier de la Côte (Standort Hôpital de Morges)",
+        "EHC Ensemble hospitalier de la Côte (Standort Hôpital d´Aubonne)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 54,
+      "healthcareJobCountSnapshot": 31,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 13,
+        "infermiere": 7,
+        "terapista": 4,
+        "oss": 4,
+        "tecnico": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "lups",
+      "companyKeys": [
+        "lups"
+      ],
+      "name": "Luzerner Psychiatrie (LUPS)",
+      "canton": "LU",
+      "city": "Kriens",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Luzerner Psychiatrie (LUPS), Klinik Sarnen",
+        "Luzerner Psychiatrie, LUPS (Gruppe), St. Urban"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 52,
+      "healthcareJobCountSnapshot": 34,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 9,
+        "medico": 23,
+        "altro": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-thurgau",
+      "companyKeys": [
+        "spital-thurgau"
+      ],
+      "name": "Spital Thurgau (STGAG)",
+      "canton": "TG",
+      "city": "Münsterlingen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Thurgau AG Kantonsspitäler Frauenfeld & Münsterlingen (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 52,
+      "healthcareJobCountSnapshot": 30,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 6,
+        "infermiere": 21,
+        "oss": 1,
+        "tecnico": 2
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-uster",
+      "companyKeys": [
+        "spital-uster"
+      ],
+      "name": "Spital Uster",
+      "canton": "ZH",
+      "city": "Uster",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Uster"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 52,
+      "healthcareJobCountSnapshot": 38,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 18,
+        "medico": 18,
+        "tecnico": 1,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spitaeler-schaffhausen",
+      "companyKeys": [
+        "spitaeler-schaffhausen"
+      ],
+      "name": "Spitäler Schaffhausen",
+      "canton": "SH",
+      "city": "Schaffhausen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spitäler Schaffhausen (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 49,
+      "healthcareJobCountSnapshot": 23,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 12,
+        "infermiere": 7,
+        "oss": 1,
+        "terapista": 1,
+        "tecnico": 2
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "kispi",
+      "companyKeys": [
+        "kispi"
+      ],
+      "name": "Universitäts-Kinderspital Zürich",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Universitäts-Kinderspital Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 47,
+      "healthcareJobCountSnapshot": 32,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 21,
+        "medico": 6,
+        "altro": 2,
+        "terapista": 1,
+        "tecnico": 2
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-maennedorf",
+      "companyKeys": [
+        "spital-maennedorf"
+      ],
+      "name": "Spital Männedorf",
+      "canton": "ZH",
+      "city": "Männedorf",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Männedorf"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 47,
+      "healthcareJobCountSnapshot": 34,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 8,
+        "oss": 5,
+        "terapista": 1,
+        "infermiere": 14,
+        "ostetrica": 2,
+        "altro": 2,
+        "tecnico": 2
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "kliniken-valens",
+      "companyKeys": [
+        "kliniken-valens"
+      ],
+      "name": "Kliniken Valens",
+      "canton": "AR",
+      "city": "Gais",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Kliniken Valens (Gruppe)",
+        "Kliniken Valens (Standort Rehazentrum Valens)",
+        "Kliniken Valens (Standort Rehazentrum Walenstadtberg)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 46,
+      "healthcareJobCountSnapshot": 20,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 14,
+        "oss": 1,
+        "tecnico": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 81750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "pbl",
+      "companyKeys": [
+        "pbl"
+      ],
+      "name": "Psychiatrie Baselland",
+      "canton": "BL",
+      "city": "Liestal",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatrie Baselland, Liestal"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 46,
+      "healthcareJobCountSnapshot": 27,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 13,
+        "terapista": 2,
+        "medico": 11,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-emmental",
+      "companyKeys": [
+        "spital-emmental"
+      ],
+      "name": "Spital Emmental",
+      "canton": "BE",
+      "city": "Burgdorf",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Regionalspital Emmental AG (Gruppe), Burgdorf",
+        "Regionalspital Emmental AG, Alterspsychiatrie Burgdorf",
+        "Regionalspital Emmental AG, Krisenintervention Burgdorf"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 44,
+      "healthcareJobCountSnapshot": 31,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 13,
+        "terapista": 1,
+        "infermiere": 9,
+        "tecnico": 3,
+        "altro": 1,
+        "oss": 3,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "balgrist",
+      "companyKeys": [
+        "balgrist"
+      ],
+      "name": "Universitätsklinik Balgrist",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Universitätsklinik Balgrist, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 43,
+      "healthcareJobCountSnapshot": 23,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 10,
+        "oss": 1,
+        "medico": 12
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-buelach",
+      "companyKeys": [
+        "spital-buelach"
+      ],
+      "name": "Spital Bülach",
+      "canton": "ZH",
+      "city": "Bülach",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Bülach"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 41,
+      "healthcareJobCountSnapshot": 25,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 7,
+        "infermiere": 11,
+        "altro": 2,
+        "oss": 1,
+        "tecnico": 2,
+        "ostetrica": 2
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "see-spital",
+      "companyKeys": [
+        "see-spital"
+      ],
+      "name": "See-Spital",
+      "canton": "ZH",
+      "city": "Horgen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "See­-Spital (Gruppe), Horgen",
+        "See­-Spital (Standort Horgen)",
+        "See­-Spital (Standort Kilchberg), Kilchberg (ZH)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 36,
+      "healthcareJobCountSnapshot": 25,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 9,
+        "infermiere": 12,
+        "tecnico": 2,
+        "oss": 1,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hfr-hopital-fribourgeois",
+      "companyKeys": [
+        "hfr-hopital-fribourgeois"
+      ],
+      "name": "Hôpital fribourgeois (HFR)",
+      "canton": "FR",
+      "city": "Fribourg",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "HFR - Hôpital fribourgeois (Gruppe)",
+        "HFR - Hôpital fribourgeois (Site Hôpital de Fribourg)",
+        "HFR - Hôpital fribourgeois (Site Hôpital de Riaz)",
+        "HFR - Hôpital fribourgeois (Standort Billens)",
+        "HFR - Hôpital fribourgeois (Standort Meyriez-Murten)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 32,
+      "healthcareJobCountSnapshot": 19,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 3,
+        "infermiere": 7,
+        "medico": 9
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-zofingen",
+      "companyKeys": [
+        "spital-zofingen"
+      ],
+      "name": "Spital Zofingen",
+      "canton": "AG",
+      "city": "Zofingen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Zofingen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 32,
+      "healthcareJobCountSnapshot": 24,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 12,
+        "medico": 9,
+        "oss": 1,
+        "tecnico": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "swiss-medical-network",
+      "companyKeys": [
+        "swiss-medical-network"
+      ],
+      "name": "Swiss Medical Network",
+      "canton": "BE",
+      "city": "Saint-Imier",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital de Moutier, Swiss Medical Network",
+        "Hôpital de St-Imier, Swiss Medical Network"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 32,
+      "healthcareJobCountSnapshot": 26,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 2,
+        "medico": 15,
+        "infermiere": 6,
+        "ostetrica": 3
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "zurzach-care",
+      "companyKeys": [
+        "zurzach-care"
+      ],
+      "name": "ZURZACH Care",
+      "canton": "AG",
+      "city": "Baden",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "ZURZACH Care (Gruppe), Bad Zurzach",
+        "ZURZACH Care Klinik für Schlafmedizin Bad Zurzach",
+        "ZURZACH Care Rehaklinik Bad Zurzach",
+        "ZURZACH Care Rehaklinik Baden",
+        "ZURZACH Care Rehaklinik Baden-Dättwil",
+        "ZURZACH Care Rehaklinik Basel",
+        "ZURZACH Care Rehaklinik Braunwald",
+        "ZURZACH Care Rehaklinik Glarus",
+        "ZURZACH Care Rehaklinik Kilchberg, Kilchberg ZH",
+        "ZURZACH Care Rehaklinik Sonnmatt Luzern",
+        "ZURZACH Care Rehaklinik Zollikerberg"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 31,
+      "healthcareJobCountSnapshot": 22,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 5,
+        "terapista": 3,
+        "infermiere": 8,
+        "oss": 5,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "claraspital",
+      "companyKeys": [
+        "claraspital"
+      ],
+      "name": "St. Claraspital",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "St. Claraspital, Basel"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 30,
+      "healthcareJobCountSnapshot": 13,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 7,
+        "tecnico": 2,
+        "oss": 1,
+        "medico": 3
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hib-broye",
+      "companyKeys": [
+        "hib-broye"
+      ],
+      "name": "Hôpital Intercantonal de la Broye (HIB)",
+      "canton": "VD",
+      "city": "Payerne",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital Intercantonal de la Broye - HIB (Gruppe), Payerne",
+        "Hôpital Intercantonal de la Broye - HIB (Standort Payerne)",
+        "Hôpital Intercantonal de la Broye - HIB (site Estavayer-le-Lac)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 26,
+      "healthcareJobCountSnapshot": 14,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 7,
+        "tecnico": 1,
+        "altro": 1,
+        "oss": 1,
+        "medico": 2,
+        "terapista": 2
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "pdgr",
+      "companyKeys": [
+        "pdgr"
+      ],
+      "name": "Psychiatrische Dienste Graubünden",
+      "canton": "GR",
+      "city": "Chur",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatrische Dienste Graubünden (PDGR), Jugendpsychiatrische Station Chur",
+        "Psychiatrische Dienste Graubünden (PDGR), Klinik Beverin Cazis",
+        "Psychiatrische Dienste Graubünden (PDGR), Klinik Waldhaus Chur",
+        "Psychiatrische Dienste Graubünden, PDGR (Gruppe), Chur"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 24,
+      "healthcareJobCountSnapshot": 17,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 9,
+        "altro": 1,
+        "terapista": 1,
+        "medico": 6
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "gzo-wetzikon",
+      "companyKeys": [
+        "gzo-wetzikon"
+      ],
+      "name": "GZO Spital Wetzikon",
+      "canton": "ZH",
+      "city": "Wetzikon",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "GZO Spital Wetzikon"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 23,
+      "healthcareJobCountSnapshot": 14,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 6,
+        "oss": 1,
+        "medico": 7
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-affoltern",
+      "companyKeys": [
+        "spital-affoltern"
+      ],
+      "name": "Spital Affoltern AG",
+      "canton": "ZH",
+      "city": "Affoltern am Albis",
+      "category": "psychiatry",
+      "matchType": "geo",
+      "sites": [
+        "Spital Affoltern, Affoltern am Albis"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 23,
+      "healthcareJobCountSnapshot": 16,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 8,
+        "tecnico": 1,
+        "terapista": 4
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksgl",
+      "companyKeys": [
+        "ksgl"
+      ],
+      "name": "Kantonsspital Glarus (KSGL)",
+      "canton": "GL",
+      "city": "Glarus",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Glarus"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 22,
+      "healthcareJobCountSnapshot": 13,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 6,
+        "medico": 5,
+        "terapista": 1,
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": 81750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ukbb",
+      "companyKeys": [
+        "ukbb"
+      ],
+      "name": "Universitäts-Kinderspital beider Basel",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Universitäts­Kinderspital beider Basel (UKBB)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 22,
+      "healthcareJobCountSnapshot": 16,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 8,
+        "medico": 6,
+        "altro": 1,
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "kispi-sg",
+      "companyKeys": [
+        "kispi-sg"
+      ],
+      "name": "Ostschweizer Kinderspital",
+      "canton": "SG",
+      "city": "St. Gallen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Ostschweizer Kinderspital, St. Gallen",
+        "Therapiestation Romerhuus, Ostschweizer Kinderspital, St. Gallen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 21,
+      "healthcareJobCountSnapshot": 13,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 8,
+        "infermiere": 5
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-schwyz",
+      "companyKeys": [
+        "spital-schwyz"
+      ],
+      "name": "Spital Schwyz",
+      "canton": "SZ",
+      "city": "Schwyz",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Schwyz"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 21,
+      "healthcareJobCountSnapshot": 11,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 6,
+        "oss": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hochgebirgsklinik-davos",
+      "companyKeys": [
+        "hochgebirgsklinik-davos"
+      ],
+      "name": "Hochgebirgsklinik Davos",
+      "canton": "GR",
+      "city": "Davos",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hochgebirgsklinik Davos, Davos Wolfgang"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 20,
+      "healthcareJobCountSnapshot": 14,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 8,
+        "oss": 3,
+        "terapista": 1,
+        "altro": 1,
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "zuger-kantonsspital",
+      "companyKeys": [
+        "zuger-kantonsspital"
+      ],
+      "name": "Zuger Kantonsspital",
+      "canton": "ZG",
+      "city": "Baar",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Zuger Kantonsspital, Baar"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 20,
+      "healthcareJobCountSnapshot": 12,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 7,
+        "tecnico": 2,
+        "oss": 1,
+        "medico": 2
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "pzm-muensingen",
+      "companyKeys": [
+        "pzm-muensingen"
+      ],
+      "name": "Psychiatriezentrum Münsingen",
+      "canton": "BE",
+      "city": "Münsingen",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatriezentrum Münsingen (PZM)",
+        "Psychiatriezentrum Münsingen (PZM), Psychiatrie Biel, Kriseninterventionsstation",
+        "Psychiatriezentrum Münsingen, PZM (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 19,
+      "healthcareJobCountSnapshot": 16,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 12,
+        "altro": 2,
+        "medico": 1,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-thusis",
+      "companyKeys": [
+        "spital-thusis"
+      ],
+      "name": "Spital Thusis",
+      "canton": "GR",
+      "city": "Thusis",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital Thusis"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 18,
+      "healthcareJobCountSnapshot": 15,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 10,
+        "medico": 3,
+        "altro": 1,
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": 65050,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "stiftung-diaconis",
+      "companyKeys": [
+        "stiftung-diaconis"
+      ],
+      "name": "Stiftung Diaconis",
+      "canton": "BE",
+      "city": "Bern",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Stiftung Diaconis Palliative Care, Bern"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 17,
+      "healthcareJobCountSnapshot": 10,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 5,
+        "altro": 5
+      },
+      "medianSalaryChfSnapshot": 81950,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "merian-iselin",
+      "companyKeys": [
+        "merian-iselin"
+      ],
+      "name": "Merian Iselin Klinik",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Merian Iselin Klinik, Basel"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 16,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 5,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 82625,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "rehab-basel",
+      "companyKeys": [
+        "rehab-basel"
+      ],
+      "name": "REHAB Basel",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "REHAB Basel"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 16,
+      "healthcareJobCountSnapshot": 12,
+      "healthcareRoleCountsSnapshot": {
+        "altro": 2,
+        "infermiere": 5,
+        "oss": 4,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-lengg",
+      "companyKeys": [
+        "klinik-lengg"
+      ],
+      "name": "Klinik Lengg",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Lengg, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 15,
+      "healthcareJobCountSnapshot": 14,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "infermiere": 11,
+        "terapista": 1,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ksow",
+      "companyKeys": [
+        "ksow"
+      ],
+      "name": "Kantonsspital Obwalden",
+      "canton": "OW",
+      "city": "Sarnen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Obwalden, Sarnen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 15,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "medico": 5,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 71975,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "triaplus",
+      "companyKeys": [
+        "triaplus"
+      ],
+      "name": "Triaplus AG",
+      "canton": "ZG",
+      "city": "Baar",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Triaplus AG (vorm. Psychiatrische Klinik Zugersee), Oberwil b. Zug"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 14,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ipw",
+      "companyKeys": [
+        "ipw"
+      ],
+      "name": "Integrierte Psychiatrie Winterthur (ipw)",
+      "canton": "ZH",
+      "city": "Winterthur",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Integrierte Psychiatrie Winterthur - Zürcher Unterland (ipw)",
+        "Integrierte Psychiatrie Winterthur - Zürcher Unterland (ipw), Kriseninterventionszentrum (KIZ)",
+        "Integrierte Psychiatrie Winterthur - Zürcher Unterland, Standort Klinik Hard, Embrach"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 13,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 4,
+        "infermiere": 4
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "reha-bellikon",
+      "companyKeys": [
+        "reha-bellikon"
+      ],
+      "name": "Rehaklinik Bellikon",
+      "canton": "AG",
+      "city": "Bellikon",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Rehaklinik Bellikon"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 13,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "rhne-reseau-hospitalier-neuchatelois",
+      "companyKeys": [
+        "rhne-reseau-hospitalier-neuchatelois"
+      ],
+      "name": "Réseau hospitalier neuchâtelois (RHNE)",
+      "canton": "NE",
+      "city": "Neuchâtel",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Réseau Hospitalier Neuchâtelois RHNe (Gruppe)",
+        "Réseau Hospitalier Neuchâtelois RHNe (Standort La Chaux-de-Fonds)",
+        "Réseau Hospitalier Neuchâtelois RHNe (Standort La Chrysalide), La Chaux-de-Fonds",
+        "Réseau Hospitalier Neuchâtelois RHNe (Standort Le Locle)",
+        "Réseau Hospitalier Neuchâtelois RHNe (Standort Pourtalès)",
+        "Réseau Hospitalier Neuchâtelois RHNe (Standort Val-de-Ruz), Fontaines NE"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 13,
+      "healthcareJobCountSnapshot": 9,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 4,
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 104500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "sanatorium-kilchberg",
+      "companyKeys": [
+        "sanatorium-kilchberg"
+      ],
+      "name": "Sanatorium Kilchberg",
+      "canton": "ZH",
+      "city": "Kilchberg",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Sanatorium Kilchberg, Kilchberg ZH"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 13,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 3,
+        "medico": 3,
+        "oss": 2
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ghol",
+      "companyKeys": [
+        "ghol"
+      ],
+      "name": "Groupement Hospitalier de l'Ouest Lémanique",
+      "canton": "VD",
+      "city": "Nyon",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Gruppe), Nyon",
+        "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Standort Hôpital de Nyon)",
+        "Groupement Hospitalier de l`Ouest Lémanique - GHOL (Standort Hôpital de Rolle)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 12,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "terapista": 1,
+        "ostetrica": 1,
+        "altro": 1,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 89750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-gut",
+      "companyKeys": [
+        "klinik-gut"
+      ],
+      "name": "Klinik Gut AG",
+      "canton": "GR",
+      "city": "Fläsch",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Gut AG (Gruppe), St. Moritz",
+        "Klinik Gut AG (Standort Chur)",
+        "Klinik Gut AG (Standort Fläsch)",
+        "Klinik Gut AG (Standort St. Moritz)"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 12,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 2,
+        "infermiere": 3
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "privatklinik-wyss",
+      "companyKeys": [
+        "privatklinik-wyss"
+      ],
+      "name": "Privatklinik Wyss",
+      "canton": "BE",
+      "city": "Münchenbuchsee",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Privatklinik Wyss, Münchenbuchsee"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 12,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 6,
+        "oss": 1,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 87625,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "szb-chb",
+      "companyKeys": [
+        "szb-chb"
+      ],
+      "name": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "canton": "BE",
+      "city": "Biel/Bienne",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spitalzentrum Biel"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 12,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "institution-lavigny",
+      "companyKeys": [
+        "institution-lavigny"
+      ],
+      "name": "Institution de Lavigny",
+      "canton": "VD",
+      "city": "Lavigny",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Institution de Lavigny"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 11,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 1,
+        "infermiere": 1,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "privatklinik-meiringen",
+      "companyKeys": [
+        "privatklinik-meiringen"
+      ],
+      "name": "Privatklinik Meiringen",
+      "canton": "BE",
+      "city": "Meiringen",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Privatklinik Meiringen AG Zentrum für seelische Gesundheit",
+        "Privatklinik Meiringen, Burnoutstation, Hasliberg Hohfluh"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 11,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 6,
+        "altro": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "psgn",
+      "companyKeys": [
+        "psgn"
+      ],
+      "name": "Psychiatrie St.Gallen",
+      "canton": "SG",
+      "city": "Wil SG",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Psychiatrie St. Gallen Nord, Krisenintervention St. Gallen",
+        "Psychiatrie St. Gallen, Klinik Wil, Wil SG"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 11,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 2
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "bethesda-spital",
+      "companyKeys": [
+        "bethesda-spital"
+      ],
+      "name": "Bethesda Spital",
+      "canton": "BS",
+      "city": "Basel",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Bethesda Spital, Basel"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 2,
+        "tecnico": 2,
+        "infermiere": 1,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "kispi-zurich",
+      "companyKeys": [
+        "kispi-zurich"
+      ],
+      "name": "Universitäts-Kinderspital Zürich (Kispi)",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Stadtspital Triemli, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 76650,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-schloss-mammern",
+      "companyKeys": [
+        "klinik-schloss-mammern"
+      ],
+      "name": "Klinik Schloss Mammern",
+      "canton": "TG",
+      "city": "Mammern",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Schloss Mammern"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 9,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 2,
+        "medico": 5,
+        "infermiere": 2
+      },
+      "medianSalaryChfSnapshot": 72750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-sgm",
+      "companyKeys": [
+        "klinik-sgm"
+      ],
+      "name": "Klinik SGM Langenthal",
+      "canton": "BE",
+      "city": "Langenthal",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Klinik SGM Langenthal Psychosomatik, Psychiatrie, Psychotherapie"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 7,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 103250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-sonnenhalde",
+      "companyKeys": [
+        "klinik-sonnenhalde"
+      ],
+      "name": "Klinik Sonnenhalde",
+      "canton": "BS",
+      "city": "Riehen",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Sonnenhalde, Riehen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 7,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 2,
+        "infermiere": 5
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "leukerbad-clinic",
+      "companyKeys": [
+        "leukerbad-clinic"
+      ],
+      "name": "Leukerbad Clinic",
+      "canton": "VS",
+      "city": "Leukerbad",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Leukerbad Clinic (RZL Rehabilitationszentrum Leukerbad AG)"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 7,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1,
+        "medico": 2,
+        "altro": 1,
+        "infermiere": 2,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 103500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-sts",
+      "companyKeys": [
+        "spital-sts"
+      ],
+      "name": "Spital STS",
+      "canton": "BE",
+      "city": "Thun",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Spital STS Thun-Simmental-Saanenland (Gruppe)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 7,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "oss": 1,
+        "infermiere": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "stgag",
+      "companyKeys": [
+        "stgag"
+      ],
+      "name": "Spital Thurgau (STGAG)",
+      "canton": "TG",
+      "city": "Münsterlingen",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Herz-­Neuro­-Zentrum Bodensee, Münsterlingen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 10,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "medico": 6
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "clinique-de-genolier",
+      "companyKeys": [
+        "clinique-de-genolier"
+      ],
+      "name": "Clinique de Genolier",
+      "canton": "VD",
+      "city": "Genolier",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique de Genolier"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "tecnico": 1,
+        "medico": 1,
+        "infermiere": 3,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "cnp",
+      "companyKeys": [
+        "cnp"
+      ],
+      "name": "Centre Neuchâtelois de Psychiatrie (CNP)",
+      "canton": "NE",
+      "city": "Neuchâtel",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "CNP Centre Neuchâtelois de psychiatrie (Gruppe), Marin-Epagnier",
+        "CNP Centre Neuchâtelois de psychiatrie (Standort Préfargier), Marin-Epagnier"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 104500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "gesundheitszentrum-fricktal",
+      "companyKeys": [
+        "gesundheitszentrum-fricktal"
+      ],
+      "name": "Gesundheitszentrum Fricktal",
+      "canton": "AG",
+      "city": "Rheinfelden",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Gesundheitszentrum Fricktal (Gruppe), Rheinfelden"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 4,
+        "infermiere": 4
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hopital-la-tour",
+      "companyKeys": [
+        "hopital-la-tour"
+      ],
+      "name": "Hôpital de La Tour",
+      "canton": "GE",
+      "city": "Meyrin",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital de La Tour, Meyrin"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 1,
+        "oss": 1,
+        "medico": 3,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 68400,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hrc",
+      "companyKeys": [
+        "hrc"
+      ],
+      "name": "Hôpital Riviera-Chablais (HRC)",
+      "canton": "VD",
+      "city": "Rennaz",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Gruppe), Vevey",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Monthey)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Montreux)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Mottex – Blonay)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Rennaz)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Vevey Providence)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (Standort Vevey Samaritain)",
+        "Hôpital Riviera-Chablais, Vaud Valais - HRC (site Aigle)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "ostetrica": 1
+      },
+      "medianSalaryChfSnapshot": 105000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "nant",
+      "companyKeys": [
+        "nant"
+      ],
+      "name": "Fondation de Nant",
+      "canton": "VD",
+      "city": "Corsier-sur-Vevey",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Secteur Psychiatrique Est Fondation de Nant (Gruppe), Corsier-sur-Vevey",
+        "Secteur Psychiatrique Est Fondation de Nant - Unité hospitalière Jaman, La Tour-de-Peilz",
+        "Secteur Psychiatrique Est Fondation de Nant, Corsier-sur-Vevey"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 6
+      },
+      "medianSalaryChfSnapshot": 68400,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "pallas-kliniken",
+      "companyKeys": [
+        "pallas-kliniken"
+      ],
+      "name": "Pallas Kliniken",
+      "canton": "SO",
+      "city": "Olten",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Pallas Kliniken AG (Gruppe), Olten"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "privatklinik-bethanien",
+      "companyKeys": [
+        "privatklinik-bethanien"
+      ],
+      "name": "Privatklinik Bethanien",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Stadtspital Waid, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 9,
+      "healthcareJobCountSnapshot": 8,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1,
+        "infermiere": 7
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "berit-klinik",
+      "companyKeys": [
+        "berit-klinik"
+      ],
+      "name": "Berit Klinik",
+      "canton": "AR",
+      "city": "Speicher",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Berit Klinik (Gruppe), Speicher",
+        "Berit Klinik Alkoholkurzzeittherapie PSA Wattwil",
+        "Berit Klinik Goldach",
+        "Berit Klinik Rehabilitation & Kur, Niederteufen",
+        "Berit Klinik Wattwil",
+        "Berit Klinik, Speicher"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "infermiere": 3,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 97000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "clinique-la-source",
+      "companyKeys": [
+        "clinique-la-source"
+      ],
+      "name": "Clinique de La Source",
+      "canton": "VD",
+      "city": "Lausanne",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique de La Source, Lausanne"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 7,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 4
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "clinique-le-noirmont",
+      "companyKeys": [
+        "clinique-le-noirmont"
+      ],
+      "name": "Clinique Le Noirmont",
+      "canton": "JU",
+      "city": "Le Noirmont",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Clinique le Noirmont, Le Noirmont"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 1,
+        "medico": 4
+      },
+      "medianSalaryChfSnapshot": 92700,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "h-ju-hopital-du-jura",
+      "companyKeys": [
+        "h-ju-hopital-du-jura"
+      ],
+      "name": "Hôpital du Jura (H-JU)",
+      "canton": "JU",
+      "city": "Delémont",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital du Jura (Gruppe), Porrentruy",
+        "Hôpital du Jura (Standort Delémont)",
+        "Hôpital du Jura (Standort Porrentruy)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 4,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1,
+        "infermiere": 1,
+        "medico": 2
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-adelheid",
+      "companyKeys": [
+        "klinik-adelheid"
+      ],
+      "name": "Klinik Adelheid",
+      "canton": "ZG",
+      "city": "Unterägeri",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Adelheid, Unterägeri"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-schuetzen",
+      "companyKeys": [
+        "klinik-schuetzen"
+      ],
+      "name": "Klinik Schützen Rheinfelden",
+      "canton": "AG",
+      "city": "Rheinfelden",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Schützen Rheinfelden"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "medico": 3
+      },
+      "medianSalaryChfSnapshot": 87250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-wyssholzli",
+      "companyKeys": [
+        "klinik-wyssholzli"
+      ],
+      "name": "Klinik Wysshölzli",
+      "canton": "BE",
+      "city": "Herzogenbuchsee",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Wysshölzli, Herzogenbuchsee"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": 91800,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "lhm-luzerner-hohenklinik-montana",
+      "companyKeys": [
+        "lhm-luzerner-hohenklinik-montana"
+      ],
+      "name": "Luzerner Höhenklinik Montana",
+      "canton": "VS",
+      "city": "Crans-Montana",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Luzerner Höhenklinik Montana, Crans-Montana"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 8,
+      "healthcareJobCountSnapshot": 7,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 4,
+        "infermiere": 2,
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "cereneo",
+      "companyKeys": [
+        "cereneo"
+      ],
+      "name": "Cereneo",
+      "canton": "LU",
+      "city": "Weggis",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Cereneo AG Neurorehabilitationsklinik, Vitznau",
+        "Cereneo Hertenstein, Weggis"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 7,
+      "healthcareJobCountSnapshot": 4,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1,
+        "infermiere": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-seeschau",
+      "companyKeys": [
+        "klinik-seeschau"
+      ],
+      "name": "Klinik Seeschau",
+      "canton": "TG",
+      "city": "Kreuzlingen",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Seeschau, Kreuzlingen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 7,
+      "healthcareJobCountSnapshot": 4,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "oss": 2
+      },
+      "medianSalaryChfSnapshot": 36150,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "ophtalmique",
+      "companyKeys": [
+        "ophtalmique"
+      ],
+      "name": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
+      "canton": "VD",
+      "city": "Lausanne",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital Ophtalmique Jules Gonin Fondation Asile des Aveugles, Lausanne"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 7,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "uroviva",
+      "companyKeys": [
+        "uroviva"
+      ],
+      "name": "Uroviva",
+      "canton": "ZH",
+      "city": "Bülach",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Uroviva Klinik für Urologie, Bülach"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 7,
+      "healthcareJobCountSnapshot": 6,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 1,
+        "medico": 5
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-im-hasel",
+      "companyKeys": [
+        "klinik-im-hasel"
+      ],
+      "name": "Klinik im Hasel",
+      "canton": "AG",
+      "city": "Gontenschwil",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Im Hasel, Gontenschwil"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 6,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "oss": 1,
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "rsbj",
+      "companyKeys": [
+        "rsbj"
+      ],
+      "name": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
+      "canton": "VD",
+      "city": "Sainte-Croix",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Réseau Santé Balcon du Jura Vaudois (RSBJ), Ste­Croix"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 6,
+      "healthcareJobCountSnapshot": 4,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 3,
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": 70125,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "hopital-de-lavaux",
+      "companyKeys": [
+        "hopital-de-lavaux"
+      ],
+      "name": "Hôpital de Lavaux",
+      "canton": "VD",
+      "city": "Bourg-en-Lavaux",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Hôpital de Lavaux, Cully"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 5,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-aadorf",
+      "companyKeys": [
+        "klinik-aadorf"
+      ],
+      "name": "Klinik Aadorf",
+      "canton": "TG",
+      "city": "Aadorf",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Aadorf AG Klinische Psychotherapie"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 5,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 72250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-arlesheim",
+      "companyKeys": [
+        "klinik-arlesheim"
+      ],
+      "name": "Klinik Arlesheim",
+      "canton": "BL",
+      "city": "Arlesheim",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Arlesheim"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 5,
+      "healthcareJobCountSnapshot": 4,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 3,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 58500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "modellstation-somosa",
+      "companyKeys": [
+        "modellstation-somosa"
+      ],
+      "name": "Modellstation SOMOSA",
+      "canton": "ZH",
+      "city": "Winterthur",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Modellstation SOMOSA, Winterthur"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 5,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "palliativklinik",
+      "companyKeys": [
+        "palliativklinik"
+      ],
+      "name": "Palliativklinik im Park",
+      "canton": "BL",
+      "city": "Arlesheim",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "PALLIATIVKLINIK IM PARK, Arlesheim"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 5,
+      "healthcareJobCountSnapshot": 5,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 1,
+        "infermiere": 1,
+        "medico": 3
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "berner-klinik-montana",
+      "companyKeys": [
+        "berner-klinik-montana"
+      ],
+      "name": "Berner Klinik Montana",
+      "canton": "VS",
+      "city": "Crans-Montana",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Berner Klinik Montana, Crans-Montana"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "altro": 1,
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "entero",
+      "companyKeys": [
+        "entero"
+      ],
+      "name": "entero",
+      "canton": "AG",
+      "city": "Egliswil",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "entero Klinik, Egliswil",
+        "entero Klinik, Entwöhnung Egliswil",
+        "entero Klinik, Entwöhnung Niederlenz",
+        "entero Klinik, Entzug Neuenhof"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "forel-klinik",
+      "companyKeys": [
+        "forel-klinik"
+      ],
+      "name": "Forel Klinik",
+      "canton": "ZH",
+      "city": "Ellikon an der Thur",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Forel Klinik, Ellikon an der Thur"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": 83250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "klinik-susenberg",
+      "companyKeys": [
+        "klinik-susenberg"
+      ],
+      "name": "Klinik Susenberg",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Klinik Susenberg, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 3
+      },
+      "medianSalaryChfSnapshot": 106750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "privatklinik-hohenegg",
+      "companyKeys": [
+        "privatklinik-hohenegg"
+      ],
+      "name": "Privatklinik Hohenegg",
+      "canton": "ZH",
+      "city": "Meilen",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Privatklinik Hohenegg, Meilen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 3
+      },
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "privatklinik-obach",
+      "companyKeys": [
+        "privatklinik-obach"
+      ],
+      "name": "Privatklinik Obach",
+      "canton": "SO",
+      "city": "Solothurn",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Privatklinik Obach, SMN, Solothurn"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 2
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "upd",
+      "companyKeys": [
+        "upd"
+      ],
+      "name": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "canton": "BE",
+      "city": "Bern",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Universitäre Psychiatrische Dienste Bern (UPD), Ostermundigen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 3
+      },
+      "medianSalaryChfSnapshot": 86250,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "usz",
+      "companyKeys": [
+        "usz"
+      ],
+      "name": "Universitätsspital Zürich (USZ)",
+      "canton": "ZH",
+      "city": "Schlieren",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Universitätsspital Zürich (USZ)"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 4,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": 92500,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "clinique-de-valere",
+      "companyKeys": [
+        "clinique-de-valere"
+      ],
+      "name": "Clinique de Valère",
+      "canton": "VS",
+      "city": "Sion",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique de Valère, SMN, Sion"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 3,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1,
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "clinique-generale-beaulieu",
+      "companyKeys": [
+        "clinique-generale-beaulieu"
+      ],
+      "name": "Clinique Générale-Beaulieu",
+      "canton": "GE",
+      "city": "Genève",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique Générale-Beaulieu, Genève"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 3,
+      "healthcareJobCountSnapshot": 3,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2,
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": 76000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "salina-reha",
+      "companyKeys": [
+        "salina-reha"
+      ],
+      "name": "Salina Rehaklinik Rheinfelden",
+      "canton": "AG",
+      "city": "Rheinfelden",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Salina Rehaklinik, Rheinfelden"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 3,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 1,
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": 78000,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "spital-nidwalden",
+      "companyKeys": [
+        "spital-nidwalden"
+      ],
+      "name": "Spital Nidwalden",
+      "canton": "NW",
+      "city": "Stans",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Kantonsspital Nidwalden, Stans"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 3,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": 87750,
+      "aboveFloorSnapshot": true
+    },
+    {
+      "slug": "adus-klinik",
+      "companyKeys": [
+        "adus-klinik"
+      ],
+      "name": "ADUS Klinik",
+      "canton": "ZH",
+      "city": "Dielsdorf",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Adus Medica, Dielsdorf"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "clinica-varini",
+      "companyKeys": [
+        "clinica-varini"
+      ],
+      "name": "Clinica Varini",
+      "canton": "TI",
+      "city": "Orselina",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Clinica Dr. Spinedi c/o Clinica Santa Croce, Orselina"
+      ],
+      "commuterOrigins": [
+        "CO",
+        "VA",
+        "VB"
+      ],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "clinique-de-la-plaine",
+      "companyKeys": [
+        "clinique-de-la-plaine"
+      ],
+      "name": "Clinique de la Plaine",
+      "canton": "GE",
+      "city": "Genève",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique de la Plaine, Genève"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "altro": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "daler-hopital",
+      "companyKeys": [
+        "daler-hopital"
+      ],
+      "name": "Hôpital Daler",
+      "canton": "FR",
+      "city": "Fribourg",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Hôpital Jules Daler, Fribourg"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "ergolz-klinik",
+      "companyKeys": [
+        "ergolz-klinik"
+      ],
+      "name": "Ergolz Klinik",
+      "canton": "BL",
+      "city": "Liestal",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Ergolz­-Klinik, Liestal"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 2
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "moncucco",
+      "companyKeys": [
+        "moncucco"
+      ],
+      "name": "Gruppo Ospedaliero Moncucco",
+      "canton": "TI",
+      "city": "Lugano",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Gruppe ospedaliero Moncucco Clinica Moncucco, Lugano"
+      ],
+      "commuterOrigins": [
+        "CO",
+        "VA",
+        "VB"
+      ],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "reha-andeer",
+      "companyKeys": [
+        "reha-andeer"
+      ],
+      "name": "Reha Andeer",
+      "canton": "GR",
+      "city": "Andeer",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "reha andeer, Andeer"
+      ],
+      "commuterOrigins": [
+        "SO",
+        "BS"
+      ],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "oss": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "rehaklinik-hasliberg",
+      "companyKeys": [
+        "rehaklinik-hasliberg"
+      ],
+      "name": "Rehaklinik Hasliberg",
+      "canton": "BE",
+      "city": "Bern",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Rehaklinik Hasliberg, Hasliberg Hohfluh"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 2,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 2
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "villa-im-park",
+      "companyKeys": [
+        "villa-im-park"
+      ],
+      "name": "Privatklinik Villa im Park",
+      "canton": "AG",
+      "city": "Rothrist",
+      "category": "acute",
+      "matchType": "geo",
+      "sites": [
+        "Klinik Villa im Park, Rothrist"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 2,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "infermiere": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "aarreha-schinznach",
+      "companyKeys": [
+        "aarreha-schinznach"
+      ],
+      "name": "aarReha Schinznach",
+      "canton": "AG",
+      "city": "Windisch",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "aarReha Schinznach, Klinik Zofingen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "terapista": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "clinica-hildebrand",
+      "companyKeys": [
+        "clinica-hildebrand"
+      ],
+      "name": "Clinica Hildebrand Centro di riabilitazione",
+      "canton": "TI",
+      "city": "Brissago",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Clinica Hildebrand Centro di riabilitazione Brissago"
+      ],
+      "commuterOrigins": [
+        "CO",
+        "VA",
+        "VB"
+      ],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "medico": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "clinique-de-montchoisi",
+      "companyKeys": [
+        "clinique-de-montchoisi"
+      ],
+      "name": "Clinique de Montchoisi",
+      "canton": "VD",
+      "city": "Lausanne",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique de Montchoisi, Lausanne"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "clinique-generale-ste-anne",
+      "companyKeys": [
+        "clinique-generale-ste-anne"
+      ],
+      "name": "Clinique Générale Ste-Anne",
+      "canton": "FR",
+      "city": "Fribourg",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Clinique Générale Ste-Anne, SMN, Fribourg"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "crr-suva-sion",
+      "companyKeys": [
+        "crr-suva-sion"
+      ],
+      "name": "Clinique romande de réadaptation (CRR Suva)",
+      "canton": "VS",
+      "city": "Sion",
+      "category": "rehab",
+      "matchType": "employer",
+      "sites": [
+        "Clinique romande de réadaptation SuvaCare (CRR), Sion"
+      ],
+      "commuterOrigins": [
+        "VB"
+      ],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "schulthess-klinik",
+      "companyKeys": [
+        "schulthess-klinik"
+      ],
+      "name": "Schulthess Klinik",
+      "canton": "ZH",
+      "city": "Zürich",
+      "category": "acute",
+      "matchType": "employer",
+      "sites": [
+        "Schulthess Klinik, Zürich"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 1,
+      "healthcareRoleCountsSnapshot": {
+        "tecnico": 1
+      },
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    },
+    {
+      "slug": "therapiezentrum-meggen",
+      "companyKeys": [
+        "therapiezentrum-meggen"
+      ],
+      "name": "Therapiezentrum Meggen",
+      "canton": "LU",
+      "city": "Meggen",
+      "category": "psychiatry",
+      "matchType": "employer",
+      "sites": [
+        "Therapiezentrum Meggen"
+      ],
+      "commuterOrigins": [],
+      "jobCountSnapshot": 1,
+      "healthcareJobCountSnapshot": 0,
+      "healthcareRoleCountsSnapshot": {},
+      "medianSalaryChfSnapshot": null,
+      "aboveFloorSnapshot": false
+    }
+  ]
+}

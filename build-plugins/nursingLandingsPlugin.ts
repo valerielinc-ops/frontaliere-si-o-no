@@ -94,6 +94,7 @@ import {
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
+import { resolveNursingLandingsFlushed } from './shared/buildSignals';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -533,11 +534,16 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_NURSING === '1') {
         console.log('\x1b[33m[nursing-landings]\x1b[0m Skipped (SKIP_NURSING=1)');
+        // Unblock the downstream links injector — nothing to link against.
+        resolveNursingLandingsFlushed();
         return;
       }
 
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveNursingLandingsFlushed();
+        return;
+      }
 
       const dateStamp = new Date().toISOString().slice(0, 10);
 
@@ -612,6 +618,10 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
 
       const t0 = Date.now();
       const written = await collector.flush();
+      // Signal downstream link injectors (healthFacilitiesLinksPlugin) that the
+      // landing HTML is final on disk. Fires AFTER flush, same contract as the
+      // other producers in buildSignals.ts.
+      resolveNursingLandingsFlushed();
       console.log(
         `\x1b[36m[nursing-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
