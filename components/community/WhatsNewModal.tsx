@@ -71,6 +71,18 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.67.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3670.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3670.facilities.title',
+        descKey: 'whatsNew.v3670.facilities.desc',
+      },
+    ],
+  },
+  {
     version: '3.66.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3660.title',

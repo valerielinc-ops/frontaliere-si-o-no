@@ -81,6 +81,8 @@ import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
+import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
+import { healthFacilitiesLinksPlugin } from './build-plugins/healthFacilitiesLinksPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
 import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
@@ -202,6 +204,10 @@ export default defineConfig(({ mode }) => {
  annualReportPlugin(__dirname),
  borderWaitMapPlugin(__dirname),
  nursingLandingsPlugin(__dirname),
+ // Health-facilities hub (epic #4455): one page per Swiss hospital/clinic
+ // employer with live matched jobs (full JobPosting schema) + noindex
+ // below-floor bridges. Self-mapped in searchConsoleCompat.ts.
+ healthFacilitiesPlugin(__dirname),
  // AE-2 — 4 career quick-win landings × 4 locales = 16 HTML outputs. Uses
  // concorsi.ti.ch snapshot + SECO AVG registry for cited content.
  careerLandingsPlugin(__dirname),
@@ -332,6 +338,10 @@ export default defineConfig(({ mode }) => {
  // the target HTML files already exist on disk. Idempotent via
  // `data-ae3-profession-links` marker.
  professionLandingsLinksPlugin(__dirname),
+ // Health-facilities #4458 — inject a "facilities hiring near you" block into
+ // the nursing landings (viceversa link direction). Awaits nursingLandings +
+ // healthFacilities flush signals. Idempotent via `data-health-facility-links`.
+ healthFacilitiesLinksPlugin(__dirname),
  // Per-canton profession landings orphan fix — inject a "jobs by canton and
  // profession" block into each locale HTML sitemap page (main-nav reachable)
  // so the ~332 /lavoro-{canton}-{role}/ pages reach BFS depth ≤ 3 instead of
