@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-07-19T10:46:14.882Z",
+  "updatedAt": "2026-07-19T22:13:22.161Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/finanz-und-hr-controller/e282d10b-2a5e-4eb7-b10c-265c3c049cc9": {
       "location": "Berne",
@@ -102,6 +102,12 @@
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-17"
+    },
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/dbe47126-2e16-4580-84e0-a42ef20cbec7": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
     },
     "https://jobs.admin.ch/posti-vacanti/steuerspezialist-in-erhebung-mwst-team-1/b1906596-cb59-4fa3-8fe5-e6a411a97fa7": {
       "location": "Bern",
@@ -283,6 +289,12 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-14"
     },
+    "https://jobs.admin.ch/posti-vacanti/jurist-in/cbf50570-1507-4b17-a1ab-9495518db0fd": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
+    },
     "https://jobs.admin.ch/posti-vacanti/head-of-entreprise-architecture/0304afb2-2e72-48a1-a6af-323776ce37e0": {
       "location": "Schermenwaldstrasse 13, 3063 Ittigen",
       "canton": "BE",
@@ -313,12 +325,6 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-14"
     },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-regionalkoordination-osteuropa-und-zentralasien-abteilung-eurasien/564c597d-aead-42a4-8baa-9e8d283bd8d4": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-07-13"
-    },
     "https://jobs.admin.ch/posti-vacanti/leiter-in-ehealth-suisse/76a64ea5-2603-4b64-8eae-f62841a74e29": {
       "location": "Bern",
       "canton": "BE",
@@ -331,11 +337,23 @@
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-14"
     },
+    "https://jobs.admin.ch/posti-vacanti/projektmanager-in-kompetenzzentrum-sprachen/f0464105-4827-4011-b128-55f871b8949b": {
+      "location": "Ittigen",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
+    },
     "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-professional-1253/01ccd94b-2513-41ea-acf3-b51a1761bc4f": {
       "location": "Bern",
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-13"
+    },
+    "https://jobs.admin.ch/posti-vacanti/wirtschaftsinformatiker-in-junior/80b3d962-e67c-4841-b25c-fc9a4686cfab": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
     },
     "https://jobs.admin.ch/posti-vacanti/ict-sicherheits-officer-728-30-1162/b03ce98f-08f6-4bf1-bbaa-741c86226eda": {
       "location": "Bern",
@@ -396,6 +414,18 @@
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-07-12"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-kompetenzzentrum-web-und-audiovisuelles/5b75ddcc-15e3-44d0-8610-f530958acfa5": {
+      "location": "Ittigen und Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
+    },
+    "https://jobs.admin.ch/posti-vacanti/leiter-in-administration-und-kanzlei/217a0629-e162-4c56-b29b-7f47934e1b07": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
     },
     "https://jobs.admin.ch/posti-vacanti/chef-in-uebermittlung-kommunikation-elektronische-systeme-allgemeine-werkstaetten-ukea/0834c6a3-0f88-4660-b125-0baf8e1e4891": {
       "location": "Hinwil",
@@ -798,12 +828,6 @@
       "canton": "BE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-30"
-    },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-daten-entwicklungszusammenarbeit-der-schweiz/82050177-2785-40ba-85c6-cc4938659e48": {
-      "location": "Zollikofen",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-07-02"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-wirtschaftsinformatik-hr-it/3f0bf77e-2f2e-4762-a451-b776a47d16ae": {
       "location": "Bern",
@@ -1230,6 +1254,12 @@
       "canton": "UR",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-25"
+    },
+    "https://jobs.admin.ch/posti-vacanti/projektkaufrau-mann/4b265877-c852-4a62-bac2-615ceb98cb37": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-07-19"
     },
     "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-fuer-die-abteilung-vi/f41122f8-baf8-46a0-94f4-4053b0710be6": {
       "location": "St. Gallen",
