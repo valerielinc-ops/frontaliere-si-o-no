@@ -1,12 +1,13 @@
 /**
  * Lock the path-extraction logic of the zero-Claude workflows-scope pre-flight gate
- * (scripts/ci/check-workflows-scope.mjs). Structural fix for escalation #3887.
+ * (scripts/ci/check-workflows-scope.mjs). Structural fix for escalation #3887,
+ * broadened by #4518 (full-body scan, not just backticks/code-blocks).
  *
  * The gate runs BEFORE Claude in issue-fix.yml to short-circuit issues that explicitly
  * cite .github/workflows/** files. It is intentionally CONSERVATIVE (PROCEED-SAFE):
- * only explicit backtick refs and code-block paths trigger a block; plain prose and
- * bare .yml names are passed through (the pre-commit hook and drainer's detectWorkflowScoped
- * handle broader detection).
+ * only the literal `.github/workflows/<name>.yml`/`.yaml` substring triggers a block —
+ * bare .yml names without the prefix, and generic workflow-prose without the literal
+ * path, are passed through (the pre-commit hook handles diagnosis-time discoveries).
  *
  * Mode 2 (issue #4227): the recurrence detector's pure predicates (isCiTimeoutIssue,
  * hasBlockedWorkflowsScopeMarker, filterExactTitleRecurrences) — see that module's
@@ -60,6 +61,28 @@ describe('extractWorkflowPaths — BLOCKED (explicit .github/workflows/** paths)
     const body = ['```', '# file: .github/workflows/deploy.yml', '```'].join('\n');
     const paths = extractWorkflowPaths(body);
     expect(paths).toContain('.github/workflows/deploy.yml');
+  });
+
+  it('detects a bare markdown bullet-list path with no backticks/fence (issue #4518, live-sampled #4453)', () => {
+    const body = [
+      '## File di partenza',
+      '',
+      '- .github/workflows/update-exchange-history.yml (cron gia attivo)',
+      '- build-plugins/borderWaitPagesPlugin.ts (pattern snapshot->SSG)',
+    ].join('\n');
+    const paths = extractWorkflowPaths(body);
+    expect(paths).toContain('.github/workflows/update-exchange-history.yml');
+  });
+
+  it('detects a bare path in plain prose, trimming trailing sentence punctuation', () => {
+    const body = 'The fix needs a new step in .github/workflows/traffic-scheduler.yml, then redeploy.';
+    const paths = extractWorkflowPaths(body);
+    expect(paths).toContain('.github/workflows/traffic-scheduler.yml');
+  });
+
+  it('detects a .yaml (not .yml) extension', () => {
+    const body = 'Edit .github/workflows/foo.yaml directly.';
+    expect(extractWorkflowPaths(body)).toContain('.github/workflows/foo.yaml');
   });
 });
 
