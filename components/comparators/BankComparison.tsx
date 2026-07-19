@@ -4,6 +4,7 @@ import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, X
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
+import { buildGoPath } from '@/services/affiliateService';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -22,6 +23,12 @@ interface Bank {
  cons: string[];
  color: string;
  website: string;
+ /**
+  * Partner id in services/affiliateService.ts PARTNERS. When set, the card
+  * links the static /go/{goId}/ redirect page (uniform edge tracking) with
+  * rel="sponsored" instead of the referral URL directly.
+  */
+ goId?: string;
  acceptsFrontalieri: boolean;
 }
 
@@ -109,6 +116,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
  color: 'from-success-strong to-info-strong',
  website: 'https://wise.com/invite/ihpn/luigis147',
+ goId: 'wise',
  acceptsFrontalieri: true
  },
  {
@@ -137,6 +145,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
  color: 'from-info-strong to-accent-strong',
  website: 'https://fineco.mobi/passaparola',
+ goId: 'fineco',
  acceptsFrontalieri: true
  },
  {
@@ -279,10 +288,13 @@ const BankComparison: React.FC = () => {
  {filtered.map((bank) => {
  const CardWrapper = bank.website ? 'a' : 'div';
  const cardProps = bank.website ? {
- href: bank.website,
+ href: bank.goId ? buildGoPath({ id: bank.goId }) : bank.website,
  target: '_blank',
- rel: 'noopener noreferrer',
- onClick: () => Analytics.trackBankComparison('link_click', bank.name, bank.country),
+ rel: bank.goId ? 'noopener noreferrer sponsored' : 'noopener noreferrer',
+ onClick: () => {
+ Analytics.trackBankComparison('link_click', bank.name, bank.country);
+ if (bank.goId) Analytics.trackAffiliateClick(bank.goId, 'banks');
+ },
  className: `block bg-surface rounded-stripe border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
  } : {
  className: `bg-surface rounded-stripe border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
