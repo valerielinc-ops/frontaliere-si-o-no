@@ -32,6 +32,7 @@ import { truncateCodeUnits } from './shared/safeTruncate';
 import { composeSerpJobTitle } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
+import { resolvePublisherAdsFlushed, type EmittedPublisherAd } from './shared/buildSignals';
 import { renderPublisherMarkdown } from '../services/publisherMarkdown';
 import { generateInitialsLogo } from '../services/logoService';
 
@@ -348,14 +349,19 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_PUBLISHER_AD_PAGES === '1') {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m Skipped (SKIP_PUBLISHER_AD_PAGES=1)');
+        resolvePublisherAdsFlushed([]);
         return;
       }
       const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolvePublisherAdsFlushed([]);
+        return;
+      }
 
       const slicePath = np.resolve(rootDir, 'data/jobs/by-crawler/publisher-submitted.json');
       if (!fs.existsSync(slicePath)) {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m no publisher-submitted.json — nothing to emit.');
+        resolvePublisherAdsFlushed([]);
         return;
       }
       let records: AdRecord[] = [];
@@ -364,10 +370,12 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
         records = Array.isArray(parsed) ? parsed : (parsed.jobs || parsed.records || []);
       } catch (err) {
         console.warn('\x1b[33m[publisher-ad-pages]\x1b[0m slice parse failed:', err);
+        resolvePublisherAdsFlushed([]);
         return;
       }
       if (!records.length) {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m 0 publisher ads — nothing to emit.');
+        resolvePublisherAdsFlushed([]);
         return;
       }
 
@@ -387,6 +395,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'publisherAdPagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      const emittedAds: EmittedPublisherAd[] = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
       let canarySkipped = 0;
@@ -453,6 +462,14 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           pagesWritten++;
 
+          // Same indexable + non-canary gate as the IT-only sitemap push
+          // below, but per-locale: feeds publisherAdLinksPlugin's CTA on
+          // every locale's HTML sitemap page (audit:max-bfs-depth — paid ad
+          // content had zero crawlable inbound link anywhere on the site).
+          if (wordCount >= MIN_INDEXABLE_WORDS && !isCanaryOrTestAd(rec)) {
+            emittedAds.push({ locale, path: urlPath, label: title });
+          }
+
           // Whenever the CTA resolves to the /candidatura/ sub-page (in-house /
           // forward-email ads, plus the defensive self-link fallback), emit that
           // page too (200-status stub; the SPA mounts the apply form — see
@@ -515,6 +532,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
       console.log(
         `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}${canarySkipped ? `, ${canarySkipped} canary/test excluded from sitemap` : ''}) — flushed ${written} files.`,
       );
+      resolvePublisherAdsFlushed(emittedAds);
     },
   };
 }

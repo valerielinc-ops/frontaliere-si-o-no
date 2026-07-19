@@ -71,15 +71,31 @@ export const WEEKLY_EMPLOYERS_HUB_RX =
   /(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//;
 
 /**
+ * Evergreen employer-profile page, one per company (`/aziende/{slug}/`, IT
+ * unprefixed; `/en|/de|/fr/aziende/{slug}/` elsewhere — see
+ * `build-plugins/employerProfilePagesPlugin.ts:61`, epic #4462/#4511). A
+ * literal `/aziende/` segment never collides with the hyphenated
+ * `aziende-che-assumono` weekly-employers family above (`-` vs `/` right
+ * after the token), so match order doesn't matter here either.
+ *
+ * Same classifier-drift class as every other bucket in this file: shipped
+ * 2026-07 without a matcher, so it fell into the `spa-other`/`spa-locale`
+ * catch-all in `audit-title-length`/`audit-text-html-ratio` and regressed
+ * both baselines (2026-07-19).
+ */
+export const EMPLOYER_PROFILES_RX = /(?:^|\/)aziende\/[^/]+\/?$/;
+
+/**
  * @param {string} normalisedPath path that already starts with `/` and has had
  *   the `dist/` prefix and trailing `index.html` stripped.
- * @returns {'career-landings' | 'weekly-employers' | 'weekly-employers-hub' | null}
- *   `null` when none of the three families match — caller continues its own
+ * @returns {'career-landings' | 'weekly-employers' | 'weekly-employers-hub' | 'employer-profiles' | null}
+ *   `null` when none of the families match — caller continues its own
  *   classification chain.
  */
 export function classifyEmployerLandingFeature(normalisedPath) {
   if (CAREER_LANDINGS_RX.test(normalisedPath)) return 'career-landings';
   if (WEEKLY_EMPLOYERS_LEAF_RX.test(normalisedPath)) return 'weekly-employers';
   if (WEEKLY_EMPLOYERS_HUB_RX.test(normalisedPath)) return 'weekly-employers-hub';
+  if (EMPLOYER_PROFILES_RX.test(normalisedPath)) return 'employer-profiles';
   return null;
 }
