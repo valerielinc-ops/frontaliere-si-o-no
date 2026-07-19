@@ -50928,6 +50928,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costi-traffico-svizzera-2023': {
+    title: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    description: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, costi, raggiungono, miliardi',
+    ogTitle: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    ogDescription: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costi-traffico-svizzera-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico in Svizzera: i costi raggiungono 117 miliardi",
+      "description": "Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-traffico-svizzera-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico automobilistico su una autostrada svizzera in Ticino"
+      },
+      "datePublished": "2026-07-19T06:19:14+00:00",
+      "dateModified": "2026-07-19T06:19:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

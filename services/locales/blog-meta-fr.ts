@@ -8621,6 +8621,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Combien gagne un assistant dentaire frontalier au Tessin ?',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Le salaire d\'un assistant dentaire frontalier au Tessin est influencé par les barèmes salariaux et les conventions de double imposition.',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Une scène réaliste du centre-ville de Lugano avec la place della Riforma et l\'église San Lorenzo en arrière-plan.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Trafic en Suisse : les coûts atteignent 117 milliards',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'En 2023, le trafic en Suisse a coûté 117 milliards de francs. La voiture domine avec 68 % des déplacements. Voici les données de l\'Office fédéral de la statistique.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Trafic automobile sur une autoroute suisse au Tessin',
 };
 
 export default blogMetaFr;

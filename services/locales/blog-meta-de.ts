@@ -8619,6 +8619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Wie viel verdient eine Grenzzahnärztin im Tessin?',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Das Gehalt einer Grenzzahnassistentin im Tessin wird durch Lohntabellen und Doppelbesteuerungsabkommen beeinflusst.',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Eine realistische Szene des Zentrums von Lugano mit der Piazza della Riforma und der Kirche San Lorenzo im Vordergrund.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Verkehr in der Schweiz: Die Kosten erreichen 117 Milliarden',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': '2023 kostete der Verkehr in der Schweiz 117 Milliarden Franken. Das Auto dominiert mit 68 Prozent der Fahrten. Hier die Zahlen des Bundesamtes für Statistik.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Autoverkehr auf einer Schweizer Autobahn im Tessin',
 };
 
 export default blogMetaDe;
