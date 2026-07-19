@@ -8624,6 +8624,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costi-traffico-svizzera-2023.title': 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
     'blog.article.costi-traffico-svizzera-2023.excerpt': 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Ecco i dati dell\'Ufficio federale di statistica.',
     'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Traffico automobilistico su una autostrada svizzera in Ticino',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo di studio e permesso G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Un tecnico di radiologia frontaliere lavora in un ospedale di Lugano',
 };
 
 export default blogMetaIt;

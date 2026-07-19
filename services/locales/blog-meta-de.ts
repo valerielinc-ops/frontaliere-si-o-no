@@ -8622,6 +8622,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costi-traffico-svizzera-2023.title': 'Verkehr in der Schweiz: Die Kosten erreichen 117 Milliarden',
     'blog.article.costi-traffico-svizzera-2023.excerpt': '2023 kostete der Verkehr in der Schweiz 117 Milliarden Franken. Das Auto dominiert mit 68 Prozent der Fahrten. Hier die Zahlen des Bundesamtes für Statistik.',
     'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Autoverkehr auf einer Schweizer Autobahn im Tessin',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Röntgentechniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt der Radiologietechniker im Tessin für Grenzgänger, Voraussetzungen für die Arbeit als Radiologietechniker in der Schweiz, Anerkennung des Bildungsabschlusses und G-Bewilligung',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgänger Röntgentechniker arbeitet in einem Krankenhaus in Lugano',
 };
 
 export default blogMetaDe;

@@ -4622,6 +4622,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ostetrica-stipendio-ticino': { name: 'Stipendio frontaliere', path: '/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/', parent: 'blog' },
     'blog-costi-traffico-svizzera-2023': { name: 'Traffico e Mobilità', path: '/articoli-frontaliere/costi-traffico-svizzera-2023', parent: 'blog' },
     'blog-guida-busta-paga-svizzera-2026': { name: 'Busta paga svizzera', path: '/articoli-svizzera/guida-busta-paga-svizzera-2026/', parent: 'blog' },
+    'blog-frontaliere-tecnico-radiologia-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
