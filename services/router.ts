@@ -58,6 +58,7 @@ import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } fr
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
 import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePillarPath } from '../build-plugins/frontalierePillarData';
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
+import { isSalaryProfessionCantonPath, parseSalaryProfessionCantonPath } from '../build-plugins/salaryProfessionCantonData';
 import { isProfessionCityPath, parseProfessionCityPath } from '../build-plugins/professionCityData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
@@ -2511,6 +2512,14 @@ export function parsePath(pathname: string): ParseResult {
  // per-canton salary content visible (hydrates to the salary-compare sub-tab).
  if (isSalaryStatsPath(pathname)) {
    const parsed = parseSalaryStatsPath(pathname);
+   return { route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
+ }
+
+ // Salary-intent profession×canton landings (#4461) — /stipendio-{prof}-{canton}/
+ // + localised variants. Build-time static HTML; staticOverlay keeps the
+ // profession-specific salary content visible (hydrates to salary-compare).
+ if (isSalaryProfessionCantonPath(pathname)) {
+   const parsed = parseSalaryProfessionCantonPath(pathname);
    return { route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
  }
 

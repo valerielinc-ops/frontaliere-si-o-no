@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3680.title': 'Salaire par métier et canton',
+ 'whatsNew.v3680.salaryLandings.title': 'Combien vous gagnez par métier et canton',
+ 'whatsNew.v3680.salaryLandings.desc': 'De nouvelles pages avec le médian brut, le net estimé et les offres actives par métier (infirmier, ingénieur, pharmacien et plus) dans chaque canton suisse, avec comparaison entre régions.',
  'whatsNew.v3660.title': 'Taux CHF/EUR sous contrôle',
  'whatsNew.v3660.exchange-ssg.title': 'Change franc-euro : nouvelles pages dédiées',
  'whatsNew.v3660.exchange-ssg.desc': 'Taux CHF/EUR du jour, historique 12 mois et conversion des salaires typiques (1000–10000 CHF), avec des conseils sur quand changer et comment économiser sur les frais.',

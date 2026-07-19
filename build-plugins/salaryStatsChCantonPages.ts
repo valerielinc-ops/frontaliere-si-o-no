@@ -21,6 +21,7 @@ import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { cleanSitemapFiles } from './shared/distNamespaceCleanup';
+import { resolveSalaryStatsFlushed } from './shared/buildSignals';
 import { CALC_HREF } from './shared/calcHref';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import {
@@ -504,11 +505,19 @@ export function salaryStatsChCantonPages(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
-      if (process.env.SKIP_SALARY_STATS === '1') return;
+      if (process.env.SKIP_SALARY_STATS === '1') {
+        // Unblock the downstream salary-profession links injector — the hub
+        // pages it patches simply won't exist this build (it handles that).
+        resolveSalaryStatsFlushed();
+        return;
+      }
       const distDir = np.resolve(rootDir, 'dist');
       const res = await emitChCantonSalaryStatsPages({ distDir });
       // eslint-disable-next-line no-console
       console.log(`[salary-stats] emitted ${res.pagesWritten} pages (${res.pagesSkippedForWordCount} skipped for word count)`);
+      // Signal the salary-profession links injector that every canton hub page
+      // is on disk, so it can patch each with its profession-spoke block.
+      resolveSalaryStatsFlushed();
     },
   };
 }
