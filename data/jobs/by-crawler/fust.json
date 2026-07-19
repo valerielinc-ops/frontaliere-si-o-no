@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-07-19T11:16:26.429Z",
+  "assembledAt": "2026-07-19T09:52:59.017Z",
   "jobs": [
     {
       "id": "company-bxftgw",
@@ -598,7 +598,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-07-19T11:16:22.027Z",
+      "crawledAt": "2026-07-18T22:00:35.411Z",
       "firstSeenAt": "2026-07-17T22:30:05.510Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -625,7 +625,10 @@
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
           "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
-          "servicetechniker-in-professional-solutions-fust-oberburen"
+          "servicetechniker-in-professional-solutions-fust-oberburen",
+          "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+          "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-bern",
+          "service-technician-in-home-service-fust-swiss-household-services-ag-oberburen"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
@@ -643,7 +646,10 @@
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen-8fm84c",
         "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-oberburen",
         "servicetechniker-in-professional-solutions-fust-oberburen-8fm84c",
-        "servicetechniker-in-professional-solutions-fust-oberburen"
+        "servicetechniker-in-professional-solutions-fust-oberburen",
+        "tecnico-di-servizio-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
+        "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-bern",
+        "service-technician-in-home-service-fust-swiss-household-services-ag-oberburen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17424,19 +17430,29 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bischofszell",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dagmersellen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-birsfelden",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-balgach"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-balgach",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-siebnen-schwyz",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-siebnen-schwyz",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-siebnen-schwyz-hlxwo2",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-siebnen-schwyz",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-siebnen-schwyz"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-luzern-675hws",
           "butcher-meat-specialist-coop-genossenschaft-luzern",
           "butcher-coop-genossenschaft-luzern-675hws",
-          "butcher-coop-genossenschaft-luzern"
+          "butcher-coop-genossenschaft-luzern",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-siebnen-schwyz"
         ],
         "fr": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-luzern-675hws",
           "boucher-e-specialiste-de-la-viande-coop-genossenschaft-luzern",
           "boucher-ere-coop-genossenschaft-luzern-675hws",
-          "boucher-ere-coop-genossenschaft-luzern"
+          "boucher-ere-coop-genossenschaft-luzern",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-siebnen-schwyz"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-siebnen-schwyz-hlxwo2"
         ]
       },
       "previousSlugs": [
@@ -17454,7 +17470,12 @@
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bischofszell",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dagmersellen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-birsfelden",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-balgach"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-balgach",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-siebnen-schwyz",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-siebnen-schwyz",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-siebnen-schwyz-hlxwo2",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-siebnen-schwyz",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-siebnen-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -21893,82 +21914,6 @@
         }
       },
       "addressLocality": "Volketswil, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "company-1hpris",
-      "slug": "magaziner-in-vendita-coop-genossenschaft-zollikerberg-zurich-1hpris",
-      "company": "Coop Genossenschaft",
-      "title": "Magaziner:in Verkauf",
-      "location": "Zollikerberg, Zürich",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Aufgaben\n\n- Wenn Waren im Lager ankommen, nimmst du sie mit prüfendem Auge an.\n\n- Dank dir ist das Warenlager immer ordentlich und sauber.\n\n- Du sorgst für Nachschub bei Getränken und setzt sie ins beste Licht.\n\n- Aufgestellt und freundlich bedienst und berätst du deine Kundschaft.\n\n- Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen und springst auch mal an der Kasse ein – kein Problem.\n\nAnforderungen\n\n- Du hast bereits Erfahrung im Verkauf oder in der Logistik gesammelt? Super!\n\n- Voller Einsatz und eine hohe Dienstleistungsbereitschaft sind für dich selbstverständlich.\n\n- Deutsch sprechen und schreiben – das kannst du.\n\n- Du bist fit und in einer guten körperlichen Verfassung.\n\n- Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n\n- Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n- Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle\n\n- Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n- Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n- Kommunikation : interne App für Mitarbeitende\n\n- Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\nDeine Ansprechperson\nValeria Mazziari Randazzo\nHR Marketing",
-      "requirements": [
-        "Deutsch sprechen und schreiben – das kannst du."
-      ],
-      "featured": false,
-      "postedDate": "2026-06-25",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/magaziner-in-verkauf/1311daf6-59ba-4b7d-bcb2-9439fa940f51",
-      "source": "Company Careers Crawler",
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-06-24T22:05:27.057Z",
-      "firstSeenAt": "2026-06-24T22:05:27.057Z",
-      "titleByLocale": {
-        "de": "Magaziner:in Verkauf",
-        "it": "Magaziner:in vendita",
-        "en": "Magaziner:in Sales",
-        "fr": "Magaziner:in Vente"
-      },
-      "descriptionByLocale": {
-        "de": "Aufgaben - Wenn Waren im Lager ankommen, nimmst du sie mit prüfendem Auge an. - Dank dir ist das Warenlager immer ordentlich und sauber. - Du sorgst für Nachschub bei Getränken und setzt sie ins beste Licht. - Aufgestellt und freundlich bedienst und berätst du deine Kundschaft. - Im Teamwork unterstützt du auch deine Kolleginnen und Kollegen in anderen Bereichen und springst auch mal an der Kasse ein – kein Problem.\n• Anforderungen - Du hast bereits Erfahrung im Verkauf oder in der Logistik gesammelt? Super! - Voller Einsatz und eine hohe Dienstleistungsbereitschaft sind für dich selbstverständlich. - Deutsch sprechen und schreiben – das kannst du. - Du bist fit und in einer guten körperlichen Verfassung. - Vergünstigungen : Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten - Anstellungsbedingungen : Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub - Arbeitszeit : 5 Wochen Ferien, flexible Arbeitszeitmodelle - Weiterbildung : Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop - Nachhaltigkeit : Engagement für Mensch, Tier und Natur mit über 400 Taten - Kommunikation : interne App für Mitarbeitende - Gesundheit : Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote Deine Ansprechperson Valeria Mazziari Randazzo HR Marketing",
-        "it": "Compiti\n\n- Quando le merci arrivano al magazzino, accettarle con un occhio scrutinizzante.\n\n- Grazie a voi, il magazzino è sempre pulito e pulito.\n\n- Fornire forniture per bevande e metterli nella migliore luce.\n\n- In piedi e amichevole, servi e consiglia i vostri clienti.\n\n- Nel lavoro di squadra, supporta anche i colleghi in altre aree e salta al checkout – nessun problema.\n\nRequisiti\n\n- Hai già acquisito esperienza nelle vendite o nella logistica? Fantastico!\n\n- Il pieno impegno e l'elevata disponibilità a fornire servizi sono una questione ovviamente per voi.\n\n- Parlare e scrivere tedesco – si può.\n\n- Siete in forma e in buone condizioni fisiche.\n\n- Sconti: Sconti sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, Sconto sulla Mobility CarSharing, Sconto del personale anche per i partner:in (vivere nella stessa famiglia), Sconti su abbonamento GA, Sconti sugli eventi culturali\n\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e parità di retribuzione certificata, premi di fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n\n- Tempo di lavoro: 5 settimane ferie, modelli di tempo di lavoro flessibili\n\n- Formazione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e della Coop\n\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n\n- Comunicazione: applicazione interna dei dipendenti\n\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\nLa persona di contatto\nValeria Mazziari Randazzo\nHR Marketing",
-        "en": "Tasks\n\n- When goods arrive at the warehouse, accept them with a scrutinizing eye.\n\n- Thanks to you, the warehouse is always neat and clean.\n\n- You provide supplies for drinks and put them in the best light.\n\n- Standing up and friendly, you serve and advise your customers.\n\n- In teamwork, you also support your colleagues in other areas and jump in at the checkout – no problem.\n\nRequirements\n\n- Have you already gained experience in sales or logistics? Great!\n\n- Full commitment and a high willingness to provide services are a matter of course for you.\n\n- Speak and write German – you can.\n\n- You are fit and in good physical condition.\n\n- Discounts : Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n\n- Working time : 5 weeks holidays, flexible working time models\n\n- Training : More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n\n- Sustainability: Commitment to people, animals and nature with over 400 actions\n\n- Communication : internal app for employees\n\n- Health : Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\nYour contact person\nValeria Mazziari Randazzo\nHR Marketing",
-        "fr": "Tâches\n\n- Lorsque les marchandises arrivent à l'entrepôt, les accepter d'un œil éblouissant.\n\n- Grâce à vous, l'entrepôt est toujours propre et propre.\n\n- Vous fournissez des fournitures pour les boissons et les mettez dans la meilleure lumière.\n\n- Debout et amical, vous servez et conseillez vos clients.\n\n- En équipe, vous aidez également vos collègues dans d'autres domaines et sautez à la caisse – aucun problème.\n\nExigences\n\n- Avez-vous déjà acquis de l'expérience en ventes ou en logistique? Génial !\n\n- Un engagement total et une grande volonté de fournir des services sont une question bien sûr pour vous.\n\n- Parlez et écrivez l'allemand – vous pouvez.\n\n- Vous êtes en bon état physique.\n\n- Réductions : Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Remise sur l'achat, Réduction sur le partage de voiture de mobilité, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n\n- Temps de travail : 5 semaines de vacances, modèles flexibles de temps de travail\n\n- Formation : Plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et perfectionnement offerts par le L-GAV et le Coop\n\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n\n- Communication : application interne pour les salariés\n\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\nVotre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines"
-      },
-      "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-genossenschaft-zollikerberg-zurich-1hpris",
-        "en": "magaziner-in-sales-coop-genossenschaft-zollikerberg-zurich-1hpris",
-        "de": "magaziner-in-verkauf-coop-genossenschaft-zollikerberg-zurich-1hpris",
-        "fr": "magaziner-in-vente-coop-genossenschaft-zollikerberg-zurich-1hpris"
-      },
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [
-          "Deutsch sprechen und schreiben – das kannst du."
-        ],
-        "fr": []
-      },
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "magaziner-in-verkauf-coop-genossenschaft-zollikerberg-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "magaziner-in-verkauf-coop-genossenschaft-zollikerberg-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Zollikerberg, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
