@@ -75,18 +75,24 @@ export const CANTON_TO_GROSSREGION: Record<string, Grossregion> = {
 };
 
 /**
- * Canton-wide annual gross median CHF from the BFS grossregion index. Accepts a
+ * Canton-wide gross MONTHLY median CHF from the BFS grossregion index. Accepts a
  * URL-group key (BASILEA, APPENZELLO) or a BFS code; a URL-group key is mapped to
  * its representative BFS code (BASILEA -> BS) via SALARY_STATS_FACTOR_CODE first.
- * Unknown -> national median. Single source for the profession-canton
- * (professionCantonLandings.ts) and profession-city (professionCityLandings.ts)
- * landing families — was copy-pasted in both before #4488 (AGENTS.md #6).
+ * Unknown -> national median. Single source for the lookup chain
+ * (SALARY_STATS_FACTOR_CODE -> CANTON_TO_GROSSREGION -> GROSSREGION_MEDIAN_MONTHLY)
+ * that the profession-canton (professionCantonLandings.ts), profession-city
+ * (professionCityLandings.ts) and salary-stats (salaryStatsChCantonPages.ts)
+ * landing families each copy-pasted before #4488 (AGENTS.md #6).
  */
-export function cantonAnnualMedianChf(cantonKey: string): number {
+export function cantonMonthlyMedianChf(cantonKey: string): number {
   const code = SALARY_STATS_FACTOR_CODE[cantonKey] ?? cantonKey;
   const region = CANTON_TO_GROSSREGION[code];
-  const monthly = region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
-  return monthly * 12;
+  return region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
+}
+
+/** Canton-wide annual gross median CHF (= {@link cantonMonthlyMedianChf} × 12). */
+export function cantonAnnualMedianChf(cantonKey: string): number {
+  return cantonMonthlyMedianChf(cantonKey) * 12;
 }
 
 export const BORDER_CANTONS: ReadonlySet<string> = new Set([
