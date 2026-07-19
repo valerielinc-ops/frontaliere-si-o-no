@@ -159,6 +159,15 @@ function main() {
   const records = [];
   for (const f of facilities.values()) {
     const e = f.employer;
+    // Canton = the employer's DOMINANT job canton, not the directory
+    // hospital's canton. Deliberate (reviewer adversarial check, PR #4514): a
+    // multi-canton group (e.g. Hirslanden, 7 directory sites across ZH/BE/AG)
+    // collapses to ONE facility page, and every canton-dependent consumer
+    // downstream (job-board CTA target, bridge CTA `canton === 'TI'`,
+    // pickFacilities region ranking in healthFacilitiesLinksPlugin) should
+    // point where the LIVE JOBS actually are — that is what the visitor
+    // clicks through to. The directory hospital's canton only breaks the tie
+    // when the employer has no canton-tagged jobs at all.
     const canton = dominant(e.cantonCounts) || f.hospitals[0].canton || '';
     const healthcareJobs = e.jobs.filter((j) => classifyHealthcareRole(j.title, j.titleByLocale));
     const roleCounts = {};

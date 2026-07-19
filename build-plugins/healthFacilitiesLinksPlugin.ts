@@ -42,6 +42,14 @@ import {
 } from './healthFacilitiesData';
 import { NEAR_YOU_BLOCK } from './healthFacilitiesCopy';
 
+// Idempotency marker. Stale-block note (reviewer adversarial check, PR
+// #4514): a landing HTML carrying this marker from a PREVIOUS build with a
+// different facility list cannot occur in practice — production dist/ is
+// always built from scratch (CI monolith + per-locale shards both start
+// empty), and dev/watch builds run with FAST_BUILD=1 where the whole SEO
+// plugin block (including nursingLandingsPlugin, the producer of the target
+// HTML) is skipped. Within one build the producer always re-renders the
+// landing fresh, so the marker can only be absent when this injector runs.
 const MARKER = 'data-health-facility-links';
 const MAX_FACILITY_LINKS = 8;
 

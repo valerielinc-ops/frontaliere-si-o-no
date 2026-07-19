@@ -496,38 +496,47 @@ export async function emitHealthFacilityPages(opts: {
     const liveCount = snapshot?.liveCount ?? 0;
     const aboveFloor = !!snapshot && liveCount >= HEALTH_FACILITY_MIN_JOBS;
 
-    if (aboveFloor) {
-      emitted.push({ slug: facility.slug, canton: facility.canton, name: facility.name, liveCount });
+    // All-or-nothing per facility across the 4 locales (mirrors the sibling
+    // guard in professionCantonLandings.ts): render every locale FIRST, and
+    // only ship the full pages when ALL of them clear the word gate. A single
+    // locale dropping below MIN_INDEXABLE_WORDS while the others ship would
+    // (1) dangle hreflang alternates pointing at a noindex bridge and
+    // (2) let healthFacilitiesLinksPlugin (fed by `emitted`) link a URL that
+    // is a bridge in that locale — violating the #4458 "never link
+    // below-floor" invariant. Demoting the whole facility keeps hreflang,
+    // sitemap and the emitted list mutually consistent.
+    let renders: Array<{ locale: HealthFacilityLocale; html: string }> | null = null;
+    if (aboveFloor && snapshot) {
+      const rendered = HEALTH_FACILITY_LOCALES.map((locale) => ({
+        locale,
+        ...renderFacilityPage(locale, facility, snapshot, dateStamp, distDir),
+      }));
+      if (rendered.every((r) => r.wordCount >= MIN_INDEXABLE_WORDS)) {
+        renders = rendered;
+      }
     }
 
-    for (const locale of HEALTH_FACILITY_LOCALES) {
-      const outDir = np.join(distDir, buildHealthFacilityPath(locale, facility.slug).replace(/^\/+/, ''));
-      const outPath = np.join(outDir, 'index.html');
-
-      if (aboveFloor && snapshot) {
-        const { html, wordCount } = renderFacilityPage(locale, facility, snapshot, dateStamp, distDir);
-        if (wordCount < MIN_INDEXABLE_WORDS) {
-          // Below the word gate → bridge instead of a thin indexable page.
-          collector.add(outPath, renderBelowFloorBridge(locale, facility, distDir));
-          bridgesWritten++;
-          continue;
-        }
-        collector.add(outPath, html);
+    if (renders && snapshot) {
+      emitted.push({ slug: facility.slug, canton: facility.canton, name: facility.name, liveCount });
+      for (const { locale, html } of renders) {
+        const outDir = np.join(distDir, buildHealthFacilityPath(locale, facility.slug).replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), html);
         pagesWritten++;
         sitemapPaths.push(buildHealthFacilityPath(locale, facility.slug));
-      } else {
-        collector.add(outPath, renderBelowFloorBridge(locale, facility, distDir));
+      }
+    } else {
+      for (const locale of HEALTH_FACILITY_LOCALES) {
+        const outDir = np.join(distDir, buildHealthFacilityPath(locale, facility.slug).replace(/^\/+/, ''));
+        collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, facility, distDir));
         bridgesWritten++;
       }
     }
   }
 
-  // Dedupe sitemap paths (the it push above can double-add).
-  const uniqueSitemap = [...new Set(sitemapPaths)];
   await collector.flush();
 
-  if (uniqueSitemap.length > 0) {
-    fs.writeFileSync(np.join(distDir, SITEMAP_FILE), buildSitemap(uniqueSitemap, dateStamp), 'utf-8');
+  if (sitemapPaths.length > 0) {
+    fs.writeFileSync(np.join(distDir, SITEMAP_FILE), buildSitemap(sitemapPaths, dateStamp), 'utf-8');
     patchSitemapIndex(distDir, dateStamp);
   }
 
