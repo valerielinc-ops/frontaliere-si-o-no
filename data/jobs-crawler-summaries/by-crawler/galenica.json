@@ -1,19 +1,21 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-19T11:35:49.186Z",
+  "generatedAt": "2026-07-19T22:42:18.899Z",
   "total": 369,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 98435,
-  "avgDurationMs": 98435,
+  "unchangedCount": 1,
+  "durationMs": 106874,
+  "avgDurationMs": 106874,
   "durationHistory": [
-    98435
+    106874
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistante en pharmacie  (f/h/d)",
       "company": "Galenica AG (Galenica)",
@@ -40,7 +42,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,7 +51,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
