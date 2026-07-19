@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-07-19T16:18:50.382Z",
+  "savedAt": "2026-07-19T22:30:14.689Z",
   "entries": [
     {
       "key": "d75719e12bc559369b74abd12b1a133042ef5e67255856876010887a99333ff9",
@@ -179265,96 +179265,6 @@
       }
     },
     {
-      "key": "f6d22b903d15dfb2edb3445aeadcaeb0c67dbe402a7fda3b1ef8c680f02c7175",
-      "touchedAt": 1784412646049,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title (Business System Analyst), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
-      }
-    },
-    {
-      "key": "dbf5673c63601ecf8231641f42c34130db9a9fac8c0f1b161f4b6542d00a948e",
-      "touchedAt": 1784412646291,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job summary, key accountabilities, and job qualifications."
-      }
-    },
-    {
-      "key": "3a96e346f456f553856b8217c05eaaa44758a509dbea1dcc07d7aed5e404fe6c",
-      "touchedAt": 1784412646533,
-      "value": {
-        "isJob": true,
-        "confidence": 0.8,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "cb3abcd2c666c3e0a2cc73bfc40d708361cbb755a171d4fc469181f0391251a9",
-      "touchedAt": 1784412646820,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "3d1148113db00d43f6c5200939247ad5b8d5e7ffb833b43bfe0d27a1e116311f",
-      "touchedAt": 1784412647065,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, including a job summary, key accountabilities, and a call to action to apply for the position."
-      }
-    },
-    {
-      "key": "6bdbecd589226c094950b6de1bdd576275759f19618a32281a2bd5b6757f0e8d",
-      "touchedAt": 1784412647291,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "c9b1986193bb285c92c91da617761d5102319a812852e890b77c99c6726b0595",
-      "touchedAt": 1784412647547,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "54e7405309f319cce207348c883a9ad315c5de206a7f0478596612d7d09a53d5",
-      "touchedAt": 1784412647822,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "2ae01bec40355866a8016f674fbf16c7df3f77d37666a7e02ce85d9da6b6f8c5",
-      "touchedAt": 1784412648144,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "c62ac091d2a8608af09aa601529c83c03c484372d9df85f3d14d69d1ebc6004b",
-      "touchedAt": 1784412648488,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
-      }
-    },
-    {
       "key": "e3127ef00b064a795ddbba79aa2b5f15d88dc192ee9a06ff0ccf3fbfebd7ff9a",
       "touchedAt": 1784412648782,
       "value": {
@@ -181594,24 +181504,6 @@
       }
     },
     {
-      "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
-      "touchedAt": 1784459550450,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
-      "touchedAt": 1784459567661,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and application context, which are typical characteristics of a real job detail page. The presence of a job description, required skills, and a clear call to action to apply for the position further supports this classification."
-      }
-    },
-    {
       "key": "32762d828a040847a80000d4c6b02f50a25770e1bd8f433ad145a04baa78331e",
       "touchedAt": 1784459572536,
       "value": {
@@ -181627,15 +181519,6 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, qualifications, and compensation information."
-      }
-    },
-    {
-      "key": "366616f0dc9c5978f73f81618c33689de08514cd020085e522dcb6e69b6079fe",
-      "touchedAt": 1784459573880,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
       }
     },
     {
@@ -181657,48 +181540,12 @@
       }
     },
     {
-      "key": "c17960da46b07ae681ff89e0480912ce5b774d69762de61fcfd1a5935e8a0ee9",
-      "touchedAt": 1784459575886,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
-      }
-    },
-    {
-      "key": "2e8c1405523c7e55f503aefbdb901e7cc3c903b55a8d28faa0eeca84ecdc1cc7",
-      "touchedAt": 1784459576646,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
-      }
-    },
-    {
-      "key": "352cd8aafad005f4daa36f2e99cf380f2b10cd2406ba9b175b8051f0dbefd628",
-      "touchedAt": 1784459577392,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
-      }
-    },
-    {
       "key": "8a75142abd815dbc9dc8ed530fda6825e2161f18c28173bc45862180f41223fb",
       "touchedAt": 1784459577997,
       "value": {
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "98ad352ca93770b7bf51e8a5c64e1f77365f730838174dd9472708c6c9c1671b",
-      "touchedAt": 1784459578616,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a clear job description, required skills and experience, and benefits offered by the company. The page also provides a direct link to apply for the job and a contact person for further information."
       }
     },
     {
@@ -181834,60 +181681,6 @@
         "isJob": true,
         "confidence": 0.9,
         "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "1c1df678517bee41748bab9dcc66c9b8ba3cbfd08e3d22197f608b80e8978f77",
-      "touchedAt": 1784459589630,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
-      }
-    },
-    {
-      "key": "ee6ff7df725eee7237f593f2c6d3697f96ad492aa22fa671f0a2369cb3a4d503",
-      "touchedAt": 1784459590728,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "954074f5010c39819b982705991ada8654ba8a0e5b882b87bf196f91272934a2",
-      "touchedAt": 1784459591871,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, required skills and qualifications, and a call to action to apply for the position."
-      }
-    },
-    {
-      "key": "dc78b0836f0abe30854d2b5de1bf7091c70ce478ff3cec74d75c3b1496c2dca1",
-      "touchedAt": 1784459592816,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "4cc87753b3972a720f71caf1a271ef9bfd3689adf75223c7b9d3e36f3afc706e",
-      "touchedAt": 1784459593962,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
-      }
-    },
-    {
-      "key": "e5d6f2fe06bfbd2392382fa3fa6a112fdbcd4c45c9722df9a514566cec2eec94",
-      "touchedAt": 1784459594854,
-      "value": {
-        "isJob": true,
-        "confidence": 0.9,
-        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
       }
     },
     {
@@ -190103,6 +189896,294 @@
       "key": "c351490b125a01a134843f44d9016ac225628dfa8a70925187f9f0532ddc5675",
       "touchedAt": 1784477925604,
       "value": "Sauna Master (m/w/d) — Kulm Hotel St. Moritz, St. Moritz (Engadin, Graubünden). Pensum: 100%.\n\nC'est ce que vous déplacez avec nous • Créer des moments parfaits de piscine : Vous assurez un fonctionnement harmonieux dans la piscine et le sauna, en gardant un œil attentif sur chaque détail.\n\n• Un hôte de Heartfelt : Vous accueillez nos invités avec un sourire et offrez un service attentif tout au long du SPA et de la piscine.\n\n• Hygiène au plus haut niveau : vous garantissez la propreté et l'ordre dans l'espace SPA et effectuez des contrôles de qualité quotidiens.\n\n• Crafting Moments of Well-being: Avec vos qualifications supplémentaires en infusions de sauna (Aufgüsse), aqua gym, vous contribuez activement à l'expérience de détente et la joie d'être dans l'eau.\n\nC'est vous • Qualification professionnelle: Formation professionnelle terminée en tant que sauveteur, Spécialiste des opérations de pool (Fachangestellte/r für Bäderbetriebe), ou une qualification équivalente.\n\n• Expérience pertinente: Expérience prouvée dans les opérations de piscine et la supervision de l'eau, ainsi que dans la conduite des infusions de sauna.\n\n• Certifications: Idéalement, vous possédez le Brevet Plus Pool (SLRG) et avez une bonne connaissance des premiers soins et de la BLS-AED.\n\n• Compétences linguistiques : Excellentes compétences en allemand et en anglais ; les langues supplémentaires sont un avantage.\n\n• Personnalité : Une personnalité attentive et chaleureuse, avec un fort sentiment de sécurité, de service et d'hospitalité.\n\nAvantages Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel et de nombreux avantages.\n\nAppliquer maintenant\n\nThérapeute de massage (m/p/p) Hôtel Kulm\n\n100 %\n\nLes gens à 1800m au-dessus du niveau de la mer façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du Luxury Kulm Group, vous faites partie de la clé de notre succès. Ensemble, nous faisons de chaque séjour une source d'inspiration profonde, unique et distinctive.\n\nC'est votre chance de faire partie de notre culture de façonnage : Ce que vous déplacez avec nousMasser des tissus profonds, masser engadin signature et relaxer le massageCollecter les préférences des clients et les entrer dans la base de données des invités.Assurer la qualité du service et la satisfaction des clients grâce à un excellent service et conseils.\n\nC'est vousQualifié en tant que spa thérapeute, masseur de bien-être ou qualification similaire.Plusieurs années d'expérience professionnelle dans l'industrie du spa, de préférence dans un hôtel haut de gamme ou un environnement de villégiature.Connaissance exceptionnelle de diverses techniques de massage et de bien-être..Compétences de communication exclusives et la capacité de construire une relation professionnelle avec nos clients.Compétences linguistiques : La fluidité en allemand et en anglais sont nécessaires, la connaissance de l'italien est avantageuse.\n\nNous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel, et de nombreux avantages.\n\nRéceptionniste de Spa (m/w/d) Hôtel Kulm\n\nLes gens à 1800m au-dessus du niveau de la mer façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du Luxury Kulm Group, vous faites partie de la clé de notre succès. Ensemble, nous faisons de chaque séjour une source d'inspiration profonde, unique et distinctive.\n\nC'est votre chance de faire partie de notre culture de mode : C'est ce que vous déplacez avec nousAssurer des processus de traitement en douceur dans les SPAVentes par la consultation professionnelle des clientsRéservationProper manipulation et nettoyage des outils et des équipements dans les SPACompliance avec les réglementations d'hygièneProcurer des informations sur les offres SPATous les travaux de pré- et post-préparation pour des opérations de réception optimalesInventoire et contrôle d'entrepôt C'est vous Qualification professionnelle : Vous avez suivi une formation professionnelle en hospitalité ou en apprentissage commercial ; un spa, bien-être ou beauté\n\nLa qualification est un avantageSystèmes Connaissances : Vous êtes confiant avec les systèmes de réservation spa et PMS et MS Office ; vous travaillez avec précision avec la gestion de l'argent comptant, la facturation et la fermeture quotidienne.Langues : Vous maîtrisez couramment l'allemand et l'anglais ; d'autres langues sont un avantage.Expérience de répétition : Vous apportez une expérience éprouvée dans un spa ou un bureau de réception hôtel, idéalement dans l'hospitalité 5 étoiles, y compris la planification des rendez-vous, les ventes au détail et la manipulation des demandes de traitement.\n\nAvantages Chez Kulm Group, nos employés sont au cœur de notre succès. Nous offrons des possibilités de développement attrayantes, des hébergements confortables, des repas abordables dans le restaurant du personnel et de nombreux avantages.\n\nCommission de Cuisine Pâtisserie (m/w/d) Grand Hôtel Kronenhof\n\nLes gens à 1800m au-dessus du niveau de la mer façonnent le Luxury Mountain Travel. Notre communauté dynamique et internationale offre à nos clients un luxe intelligent pour une expérience de vacances inoubliable. En tant que membre du Luxury Kulm Group, vous faites partie de la clé de notre succès. Ensemble, nous faisons de chaque séjour une source d'inspiration profonde, unique et distinctive.\n\nC'est votre chance de faire partie de notre culture de mode : C'est ce que vous déménagez avec nousMise en place : Vous êtes responsable de la préparation et de l'organisation de la pâtisserie pour les clients HP, service à la carte, banquets, et parfois la cantine du personnel.Création quotidienne de desserts : Avec 80% de produits frais, vous créez de délicieuses pralines, friandises, gâteaux et pâtisseries sucrées pour le petit déjeuner.\n\nVous êtes également responsable de nos opérations externes.Créations de desserts créatifs : Apportez vos idées et développez des créations de desserts innovantes et attrayantes qui ravissent nos clients.Initiation client : Respondez aux demandes spéciales de nos clients et remplissez-les avec la plus grande précision et la plus grande convivialité.Amélioration continue : contribuez activement à l'optimisation de nos workflows et contribuez au développement continu de nos standards de qualité.Teamwork : Travaillez en étroite collaboration avec vos collègues pour assurer un processus sans heurt dans la pâtisserie.Hygiène et sécurité : veillez au respect de l'hygiène et de la sécurité\n\nles normes dans la cuisine.\n\nC'est vousEntraînement complet en tant que professionnel/patissier3 ans d'expérience professionnelle en pâtisserie, idéalement dans l'hospitalité haut de gammePassion pour créer des délicatesses sucrées et un œil au détailCréativité et enthousiasme pour l'innovationEsprit d'équipe et compétences en communicationResilience et flexibilitéLangues: Fluency in Italian. Anglais ou Allemand en plus. AvantagesAu sein du Groupe Kulm, nos collaborateurs sont au cœur de notre succès."
+    },
+    {
+      "key": "954074f5010c39819b982705991ada8654ba8a0e5b882b87bf196f91272934a2",
+      "touchedAt": 1784500168826,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, required skills and qualifications, and a call to action to apply for the position."
+      }
+    },
+    {
+      "key": "dc78b0836f0abe30854d2b5de1bf7091c70ce478ff3cec74d75c3b1496c2dca1",
+      "touchedAt": 1784500169109,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "4cc87753b3972a720f71caf1a271ef9bfd3689adf75223c7b9d3e36f3afc706e",
+      "touchedAt": 1784500169370,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "e5d6f2fe06bfbd2392382fa3fa6a112fdbcd4c45c9722df9a514566cec2eec94",
+      "touchedAt": 1784500169668,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "9ba309363d194ae5cbbe36b3dd0b74ee121257e8bd418ed583eca707cfd872a6",
+      "touchedAt": 1784500169973,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page. However, the page also contains some generic information about the company and its culture, which might be considered as a drawback. Nevertheless, the overall structure and content of the page suggest that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "0bfdfb40f580d326577d332d42ec36c95fd4cd2afb63c053be148265df37c7d6",
+      "touchedAt": 1784500170374,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a call to action to apply for the job. The page also provides information about the company culture, benefits, and working conditions, which suggests that it is a real job detail page rather than a generic careers listing or news page."
+      }
+    },
+    {
+      "key": "f21d14d3ee2cc9eb2c64fce061f90cd3dc689c685ccfd4d5076acf3f51774e48",
+      "touchedAt": 1784500170657,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Business System Analyst), responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "f35f2b81d20421f21249b6f007495355680ac55293930f5fded042c58631dcf8",
+      "touchedAt": 1784500170975,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, required skills/qualifications, and benefits. The page also provides a clear call to action to apply for the job."
+      }
+    },
+    {
+      "key": "3a605d7966aa4be16380fa0aa3fea7a77d02cf616e7723076793dbb7489784f7",
+      "touchedAt": 1784500171333,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "4d4a47cea757cd481d14e7680d6b7f1434739ba26d2850c4fd14f713fec4ff95",
+      "touchedAt": 1784500171693,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "973d50a9eca42e6e67c621165ff6b0433c04b67b60426e203c27e961b4042bff",
+      "touchedAt": 1784500171985,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job description, required skills, and benefits. It also has a clear call-to-action to apply for the job."
+      }
+    },
+    {
+      "key": "211e3b67678c9789990cd6f8c3e98a7971c87a389cef7a16ff0142ffda0b63f1",
+      "touchedAt": 1784500172277,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "1c1df678517bee41748bab9dcc66c9b8ba3cbfd08e3d22197f608b80e8978f77",
+      "touchedAt": 1784500172662,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "ea4953fe5335683611910bb7d0f7d91cb1b727d1887dc334b2b0332ca89375a3",
+      "touchedAt": 1784500173103,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "ee6ff7df725eee7237f593f2c6d3697f96ad492aa22fa671f0a2369cb3a4d503",
+      "touchedAt": 1784500173480,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating that it is a real single job detail page."
+      }
+    },
+    {
+      "key": "f6d22b903d15dfb2edb3445aeadcaeb0c67dbe402a7fda3b1ef8c680f02c7175",
+      "touchedAt": 1784500173784,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title (Business System Analyst), responsibilities/requirements, and application context, which meets the rules for a REAL SINGLE JOB DETAIL page."
+      }
+    },
+    {
+      "key": "dbf5673c63601ecf8231641f42c34130db9a9fac8c0f1b161f4b6542d00a948e",
+      "touchedAt": 1784500174114,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a job summary, key accountabilities, and job qualifications."
+      }
+    },
+    {
+      "key": "3a96e346f456f553856b8217c05eaaa44758a509dbea1dcc07d7aed5e404fe6c",
+      "touchedAt": 1784500174385,
+      "value": {
+        "isJob": true,
+        "confidence": 0.8,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "cb3abcd2c666c3e0a2cc73bfc40d708361cbb755a171d4fc469181f0391251a9",
+      "touchedAt": 1784500174664,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and requirements, as well as an application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "3d1148113db00d43f6c5200939247ad5b8d5e7ffb833b43bfe0d27a1e116311f",
+      "touchedAt": 1784500174969,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, including a job summary, key accountabilities, and a call to action to apply for the position."
+      }
+    },
+    {
+      "key": "6bdbecd589226c094950b6de1bdd576275759f19618a32281a2bd5b6757f0e8d",
+      "touchedAt": 1784500175243,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "c9b1986193bb285c92c91da617761d5102319a812852e890b77c99c6726b0595",
+      "touchedAt": 1784500175510,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "54e7405309f319cce207348c883a9ad315c5de206a7f0478596612d7d09a53d5",
+      "touchedAt": 1784500175800,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "2ae01bec40355866a8016f674fbf16c7df3f77d37666a7e02ce85d9da6b6f8c5",
+      "touchedAt": 1784500176139,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "c62ac091d2a8608af09aa601529c83c03c484372d9df85f3d14d69d1ebc6004b",
+      "touchedAt": 1784500176447,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "94e2df269dee06298ca5f282e72f6d0b4f7f43028a60f3fca25a492c6a34831f",
+      "touchedAt": 1784500183776,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "8fdc8149e0005a7ec7b3cd4cab8ed4b0713d90211efadb31d2dda43d4d006509",
+      "touchedAt": 1784500184079,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities, and application context, which are typical characteristics of a real job detail page. The presence of a job description, required skills, and a clear call to action to apply for the position further supports this classification."
+      }
+    },
+    {
+      "key": "366616f0dc9c5978f73f81618c33689de08514cd020085e522dcb6e69b6079fe",
+      "touchedAt": 1784500203260,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "c17960da46b07ae681ff89e0480912ce5b774d69762de61fcfd1a5935e8a0ee9",
+      "touchedAt": 1784500203881,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, detailed job responsibilities, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "2e8c1405523c7e55f503aefbdb901e7cc3c903b55a8d28faa0eeca84ecdc1cc7",
+      "touchedAt": 1784500204472,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which meets the criteria for a real single job detail page."
+      }
+    },
+    {
+      "key": "352cd8aafad005f4daa36f2e99cf380f2b10cd2406ba9b175b8051f0dbefd628",
+      "touchedAt": 1784500205073,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, which are typical characteristics of a real single job detail page."
+      }
+    },
+    {
+      "key": "98ad352ca93770b7bf51e8a5c64e1f77365f730838174dd9472708c6c9c1671b",
+      "touchedAt": 1784500205815,
+      "value": {
+        "isJob": true,
+        "confidence": 0.9,
+        "reason": "The page contains a concrete role title, responsibilities/requirements, and application context, including a clear job description, required skills and experience, and benefits offered by the company. The page also provides a direct link to apply for the job and a contact person for further information."
+      }
     }
   ]
 }
