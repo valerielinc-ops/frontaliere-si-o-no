@@ -28,7 +28,9 @@ export interface WebcamRef {
 
 export interface BorderCrossing {
  name: string;
- italianSide: string;
+ /** Country the foreign side of the crossing belongs to. */
+ country: 'IT' | 'FR' | 'DE' | 'AT' | 'LI';
+ foreignSide: string;
  canton: string;
  province: string;
  lat: number;
@@ -37,10 +39,15 @@ export interface BorderCrossing {
  open24h: boolean;
  customsPresent: boolean;
  hours: string;
- avgWaitMorning: string;
- avgWaitEvening: string;
- trafficLevel: 'high' | 'medium' | 'low' | 'closed';
- peak: string;
+ /**
+  * Optional: crossings without real traffic-history data yet (e.g. newly
+  * added non-Ticino borders) omit these rather than carrying fabricated
+  * values. Consumers must handle the missing case.
+  */
+ avgWaitMorning?: string;
+ avgWaitEvening?: string;
+ trafficLevel?: 'high' | 'medium' | 'low' | 'closed';
+ peak?: string;
  tips: string;
  /**
   * Whether BAZG (Swiss Federal Office of Customs and Border Security) publishes
@@ -70,7 +77,8 @@ export const borderCrossings: BorderCrossing[] = [
  // COMO - TICINO
  {
  name: 'Chiasso Centro (Ponte Chiasso)',
- italianSide: 'Como',
+ country: 'IT',
+ foreignSide: 'Como',
  canton: 'TI',
  province: 'CO',
  lat: 45.8326,
@@ -96,7 +104,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Chiasso-Brogeda',
- italianSide: 'Como',
+ country: 'IT',
+ foreignSide: 'Como',
  canton: 'TI',
  province: 'CO',
  lat: 45.8409,
@@ -130,7 +139,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Chiasso-Strada',
- italianSide: 'Como',
+ country: 'IT',
+ foreignSide: 'Como',
  canton: 'TI',
  province: 'CO',
  lat: 45.8332,
@@ -156,7 +166,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Maslianico-Pizzamiglio',
- italianSide: 'Maslianico',
+ country: 'IT',
+ foreignSide: 'Maslianico',
  canton: 'TI',
  province: 'CO',
  lat: 45.8438,
@@ -173,7 +184,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Maslianico-Roggiana',
- italianSide: 'Maslianico',
+ country: 'IT',
+ foreignSide: 'Maslianico',
  canton: 'TI',
  province: 'CO',
  lat: 45.8476,
@@ -190,7 +202,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Bizzarone-Novazzano',
- italianSide: 'Bizzarone',
+ country: 'IT',
+ foreignSide: 'Bizzarone',
  canton: 'TI',
  province: 'CO',
  lat: 45.8401,
@@ -207,7 +220,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Ronago-Novazzano',
- italianSide: 'Ronago',
+ country: 'IT',
+ foreignSide: 'Ronago',
  canton: 'TI',
  province: 'CO',
  lat: 45.8362,
@@ -224,7 +238,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Crociale dei Mulini',
- italianSide: 'Faloppio',
+ country: 'IT',
+ foreignSide: 'Faloppio',
  canton: 'TI',
  province: 'CO',
  lat: 45.8340,
@@ -241,7 +256,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Drezzo-Pedrinate',
- italianSide: 'Drezzo',
+ country: 'IT',
+ foreignSide: 'Drezzo',
  canton: 'TI',
  province: 'CO',
  lat: 45.8206,
@@ -258,7 +274,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: "Lanzo d'Intelvi-Arogno",
- italianSide: "Lanzo d'Intelvi",
+ country: 'IT',
+ foreignSide: "Lanzo d'Intelvi",
  canton: 'TI',
  province: 'CO',
  lat: 45.9624,
@@ -296,7 +313,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: "Campione d'Italia-Bissone",
- italianSide: 'Campione (enclave)',
+ country: 'IT',
+ foreignSide: 'Campione (enclave)',
  canton: 'TI',
  province: 'CO',
  lat: 45.9618,
@@ -329,7 +347,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Oria-Gandria',
- italianSide: 'Valsolda',
+ country: 'IT',
+ foreignSide: 'Valsolda',
  canton: 'TI',
  province: 'CO',
  lat: 46.0168,
@@ -357,7 +376,8 @@ export const borderCrossings: BorderCrossing[] = [
  // VARESE - TICINO
  {
  name: 'Gaggiolo (Cantello-Stabio)',
- italianSide: 'Cantello',
+ country: 'IT',
+ foreignSide: 'Cantello',
  canton: 'TI',
  province: 'VA',
  lat: 45.8411,
@@ -398,7 +418,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'San Pietro (Clivio-Stabio)',
- italianSide: 'Clivio',
+ country: 'IT',
+ foreignSide: 'Clivio',
  canton: 'TI',
  province: 'VA',
  lat: 45.8595,
@@ -431,7 +452,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Clivio-Ligornetto',
- italianSide: 'Clivio',
+ country: 'IT',
+ foreignSide: 'Clivio',
  canton: 'TI',
  province: 'VA',
  lat: 45.8638,
@@ -448,7 +470,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Rodero-Stabio',
- italianSide: 'Rodero',
+ country: 'IT',
+ foreignSide: 'Rodero',
  canton: 'TI',
  province: 'VA',
  lat: 45.8334,
@@ -474,7 +497,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Saltrio-Arzo',
- italianSide: 'Saltrio',
+ country: 'IT',
+ foreignSide: 'Saltrio',
  canton: 'TI',
  province: 'VA',
  lat: 45.8740,
@@ -503,7 +527,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Ponte Tresa',
- italianSide: 'Lavena Ponte Tresa',
+ country: 'IT',
+ foreignSide: 'Lavena Ponte Tresa',
  canton: 'TI',
  province: 'VA',
  lat: 45.9670,
@@ -520,7 +545,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Porto Ceresio-Brusino',
- italianSide: 'Porto Ceresio',
+ country: 'IT',
+ foreignSide: 'Porto Ceresio',
  canton: 'TI',
  province: 'VA',
  lat: 45.9135,
@@ -537,7 +563,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Cremenaga-Ponte Cremenaga',
- italianSide: 'Cremenaga',
+ country: 'IT',
+ foreignSide: 'Cremenaga',
  canton: 'TI',
  province: 'VA',
  lat: 45.9907,
@@ -554,7 +581,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Luino-Fornasette',
- italianSide: 'Luino',
+ country: 'IT',
+ foreignSide: 'Luino',
  canton: 'TI',
  province: 'VA',
  lat: 45.9931,
@@ -580,7 +608,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Zenna-Dirinella',
- italianSide: 'Zenna',
+ country: 'IT',
+ foreignSide: 'Zenna',
  canton: 'TI',
  province: 'VA',
  lat: 46.1040,
@@ -612,7 +641,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Biegno-Indemini',
- italianSide: 'Curiglia con Monteviasco',
+ country: 'IT',
+ foreignSide: 'Curiglia con Monteviasco',
  canton: 'TI',
  province: 'VA',
  lat: 46.0955,
@@ -638,7 +668,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Dumenza-Cassinone',
- italianSide: 'Dumenza',
+ country: 'IT',
+ foreignSide: 'Dumenza',
  canton: 'TI',
  province: 'VA',
  lat: 46.0052,
@@ -665,7 +696,8 @@ export const borderCrossings: BorderCrossing[] = [
  // VERBANIA - TICINO / VS
  {
  name: 'Piaggio Valmara (Cannobio-Brissago)',
- italianSide: 'Cannobio',
+ country: 'IT',
+ foreignSide: 'Cannobio',
  canton: 'TI',
  province: 'VB',
  lat: 46.0905,
@@ -691,7 +723,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Camedo (Re-Centovalli)',
- italianSide: 'Re (Olgia)',
+ country: 'IT',
+ foreignSide: 'Re (Olgia)',
  canton: 'TI',
  province: 'VB',
  lat: 46.1592,
@@ -724,7 +757,8 @@ export const borderCrossings: BorderCrossing[] = [
  },
  {
  name: 'Sempione (Iselle-Gondo)',
- italianSide: 'Trasquera (Iselle)',
+ country: 'IT',
+ foreignSide: 'Trasquera (Iselle)',
  canton: 'VS',
  province: 'VB',
  lat: 46.2422,

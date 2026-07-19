@@ -1650,7 +1650,7 @@ const UserProfile: React.FC = () => {
  >
  <option value="">{t('profile.selectDogana')}</option>
  {borderCrossings.map(bc => (
- <option key={bc.name} value={bc.name}>{bc.name} ({bc.italianSide})</option>
+ <option key={bc.name} value={bc.name}>{bc.name} ({bc.foreignSide})</option>
  ))}
  </select>
  {/* Dogana traffic info badge */}
@@ -1663,19 +1663,23 @@ const UserProfile: React.FC = () => {
  low: 'bg-success-subtle text-success',
  closed: 'bg-surface-raised text-subtle',
  };
+ // Crossings without traffic-history data yet (e.g. future non-Ticino
+ // borders) fall back to the neutral "closed" tone/n.d. label rather
+ // than crashing on an undefined lookup key.
+ const trafficKey = bc.trafficLevel ?? 'closed';
  return (
  <div className="flex flex-wrap gap-2 mt-2">
- <span className={`px-2 py-0.5 text-xs font-bold rounded-md ${levelColors[bc.trafficLevel]}`}>
- {bc.trafficLevel === 'high' ? '🔴' : bc.trafficLevel === 'medium' ? '🟡' : '🟢'} {t('profile.doganaTraffic')}: {bc.trafficLevel}
+ <span className={`px-2 py-0.5 text-xs font-bold rounded-md ${levelColors[trafficKey]}`}>
+ {bc.trafficLevel === 'high' ? '🔴' : bc.trafficLevel === 'medium' ? '🟡' : bc.trafficLevel === 'low' ? '🟢' : '⚪'} {t('profile.doganaTraffic')}: {bc.trafficLevel ?? 'n.d.'}
  </span>
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
- 🌅 {t('profile.doganaMorning')}: {bc.avgWaitMorning}
+ 🌅 {t('profile.doganaMorning')}: {bc.avgWaitMorning ?? 'n.d.'}
  </span>
  <span className="px-2 py-0.5 bg-warning-subtle text-warning text-xs font-bold rounded-md">
- 🌆 {t('profile.doganaEvening')}: {bc.avgWaitEvening}
+ 🌆 {t('profile.doganaEvening')}: {bc.avgWaitEvening ?? 'n.d.'}
  </span>
  <span className="px-2 py-0.5 bg-accent-subtle text-accent text-xs font-bold rounded-md">
- ⏰ {t('profile.doganaPeak')}: {bc.peak}
+ ⏰ {t('profile.doganaPeak')}: {bc.peak ?? 'n.d.'}
  </span>
  </div>
  );

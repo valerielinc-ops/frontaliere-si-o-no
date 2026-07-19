@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useDeferredValue, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
+import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 // NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
@@ -105,13 +106,6 @@ function municipalityProfilePath(name: string): string {
  return `/vivere-in-ticino/comuni-di-frontiera/${slugifyPath(name)}/`;
 }
 
-// Province code → full name mapping
-const PROVINCE_NAMES: Record<string, string> = {
- CO: 'Como', VA: 'Varese', VB: 'Verbania', SO: 'Sondrio', LC: 'Lecco',
- AO: 'Aosta', VC: 'Vercelli', MB: 'Monza-Brianza', BG: 'Bergamo',
- BS: 'Brescia', TN: 'Trento', BZ: 'Bolzano',
-};
-
 // Determine nearest border crossing based on province and coordinates
 function getBorderCrossing(province: string, lat: number, lng: number, name: string): string {
  if (name ==="Campione d'Italia") return 'Campione (enclave)';
@@ -183,6 +177,17 @@ function currentWaitLabel(slug: string, snapshot: WaitSnapshot = CURRENT_BORDER_
  const current = snapshot.perCrossing?.[slug];
  const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
  return typeof total === 'number' ? `${Math.max(0, Math.round(total))} min` : 'n.d.';
+}
+
+/**
+ * Parses the low (`index=0`) or high (`index=1`) bound of a "X-Y min"
+ * wait-time range label. Returns NaN when the range is missing (crossings
+ * without traffic-history data yet), so existing NaN-guarded comparisons
+ * downstream stay correct instead of throwing on `undefined.split(...)`.
+ */
+function parseWaitBound(range: string | undefined, index: 0 | 1): number {
+ const part = range?.split('-')[index];
+ return part !== undefined ? parseInt(part, 10) : NaN;
 }
 
 function trafficToneClasses(level: BorderCrossing['trafficLevel']): string {
@@ -748,8 +753,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  borderCrossing: nearest.name || getBorderCrossing(m.province, m.lat, m.lng, m.name),
  borderCrossingSlug: slug,
  borderCrossingDistanceKm: haversineKm({ lat: m.lat, lng: m.lng }, nearest),
- borderCrossingMorning: nearest.avgWaitMorning,
- borderCrossingEvening: nearest.avgWaitEvening,
+ borderCrossingMorning: nearest.avgWaitMorning ?? 'n.d.',
+ borderCrossingEvening: nearest.avgWaitEvening ?? 'n.d.',
  borderCrossingHours: nearest.hours,
  borderCrossingTraffic: nearest.trafficLevel,
  borderCrossingCustomsPresent: nearest.customsPresent,
@@ -799,7 +804,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
  const borderCrossings = useMemo(() => centralizedBorderCrossings.map(c => ({
  name: c.name,
- italianSide: c.italianSide,
+ foreignSide: c.foreignSide,
  avgWaitMorning: c.avgWaitMorning,
  avgWaitEvening: c.avgWaitEvening,
  peak: c.peak,
@@ -818,23 +823,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  if (borderFilter === 'low-traffic') return border.traffic === 'low';
  if (borderFilter === '24h') return border.hours === '24h';
  if (borderFilter === 'morning') {
- const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
+ const maxWait = parseWaitBound(border.avgWaitMorning, 1);
  return !isNaN(maxWait) && maxWait <= 10;
  }
  if (borderFilter === 'evening') {
- const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
+ const maxWait = parseWaitBound(border.avgWaitEvening, 1);
  return !isNaN(maxWait) && maxWait <= 12;
  }
  return true;
  })
  .sort((a, b) => {
  if (selectedTime === 'morning') {
- const aWait = parseInt(a.avgWaitMorning.split('-')[0]) || 999;
- const bWait = parseInt(b.avgWaitMorning.split('-')[0]) || 999;
+ const aWait = parseWaitBound(a.avgWaitMorning, 0) || 999;
+ const bWait = parseWaitBound(b.avgWaitMorning, 0) || 999;
  return aWait - bWait;
  } else if (selectedTime === 'evening') {
- const aWait = parseInt(a.avgWaitEvening.split('-')[0]) || 999;
- const bWait = parseInt(b.avgWaitEvening.split('-')[0]) || 999;
+ const aWait = parseWaitBound(a.avgWaitEvening, 0) || 999;
+ const bWait = parseWaitBound(b.avgWaitEvening, 0) || 999;
  return aWait - bWait;
  }
  return 0;
@@ -1240,7 +1245,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => {
  setBorderFilter('morning');
  const count = borderCrossings.filter(b => {
- const maxWait = parseInt(b.avgWaitMorning.split('-')[1]);
+ const maxWait = parseWaitBound(b.avgWaitMorning, 1);
  return !isNaN(maxWait) && maxWait <= 10;
  }).length;
  Analytics.trackBorderFilter('morning', count);
@@ -1253,7 +1258,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => {
  setBorderFilter('evening');
  const count = borderCrossings.filter(b => {
- const maxWait = parseInt(b.avgWaitEvening.split('-')[1]);
+ const maxWait = parseWaitBound(b.avgWaitEvening, 1);
  return !isNaN(maxWait) && maxWait <= 12;
  }).length;
  Analytics.trackBorderFilter('evening', count);
@@ -1274,7 +1279,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => {
  setSelectedTime('morning');
  const count = borderCrossings.filter(b => {
- const maxWait = parseInt(b.avgWaitMorning.split('-')[1]);
+ const maxWait = parseWaitBound(b.avgWaitMorning, 1);
  return !isNaN(maxWait) && maxWait <= 8;
  }).length;
  Analytics.trackBorderTimeSelection('morning', count);
@@ -1287,7 +1292,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => {
  setSelectedTime('evening');
  const count = borderCrossings.filter(b => {
- const maxWait = parseInt(b.avgWaitEvening.split('-')[1]);
+ const maxWait = parseWaitBound(b.avgWaitEvening, 1);
  return !isNaN(maxWait) && maxWait <= 12;
  }).length;
  Analytics.trackBorderTimeSelection('evening', count);
@@ -1331,11 +1336,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  if (borderFilter === 'low-traffic') return border.traffic === 'low';
  if (borderFilter === '24h') return border.hours === '24h';
  if (borderFilter === 'morning') {
- const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
+ const maxWait = parseWaitBound(border.avgWaitMorning, 1);
  return !isNaN(maxWait) && maxWait <= 10;
  }
  if (borderFilter === 'evening') {
- const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
+ const maxWait = parseWaitBound(border.avgWaitEvening, 1);
  return !isNaN(maxWait) && maxWait <= 12;
  }
  return true;
@@ -1353,10 +1358,10 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <Popup>
  <div className="text-sm min-w-[200px]">
  <div className="font-bold text-strong mb-1">{border.name}</div>
- <div className="text-sm text-subtle mb-2">📍 {border.italianSide}</div>
+ <div className="text-sm text-subtle mb-2">📍 {border.foreignSide}</div>
  <div className="text-xs space-y-1">
- <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
- <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
+ <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning ?? 'n.d.'}</div>
+ <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening ?? 'n.d.'}</div>
  <div><strong>⏰ {t('guide.border.hours')}:</strong> {t(border.hours)}</div>
  <div className="pt-2 border-t border-edge">
  <strong>💡</strong> {t(border.tips)}
@@ -1392,8 +1397,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid md:grid-cols-2 gap-4">
  {filteredBorderCrossings.map((border, idx) => {
  const isRecommended = 
- (selectedTime === 'morning' && parseInt(border.avgWaitMorning.split('-')[1]) <= 8) ||
- (selectedTime === 'evening' && parseInt(border.avgWaitEvening.split('-')[1]) <= 12) ||
+ (selectedTime === 'morning' && parseWaitBound(border.avgWaitMorning, 1) <= 8) ||
+ (selectedTime === 'evening' && parseWaitBound(border.avgWaitEvening, 1) <= 12) ||
  (selectedTime === 'night' && border.hours === '24h' && border.traffic === 'low');
 
  return (
@@ -1419,18 +1424,18 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  >
   {border.name}
  </a>
- <p className="text-sm text-muted">📍 {border.italianSide}</p>
+ <p className="text-sm text-muted">📍 {border.foreignSide}</p>
  </div>
  </div>
 
  <div className="space-y-2">
  <div className="flex items-center justify-between">
  <span className="text-sm text-subtle">{t('guide.border.waitMorning')} (🌅 7-9)</span>
- <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-warning' : 'text-subtle'}`}>{border.avgWaitMorning}</span>
+ <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-warning' : 'text-subtle'}`}>{border.avgWaitMorning ?? 'n.d.'}</span>
  </div>
  <div className="flex items-center justify-between">
  <span className="text-sm text-subtle">{t('guide.border.waitEvening')} (🌆 17-19)</span>
- <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-accent' : 'text-subtle'}`}>{border.avgWaitEvening}</span>
+ <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-accent' : 'text-subtle'}`}>{border.avgWaitEvening ?? 'n.d.'}</span>
  </div>
  <div className="pt-2 border-t border-edge">
  <div className="text-sm text-muted mb-1">⏰ {t('guide.border.openingHours')}</div>
@@ -1438,7 +1443,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
  <div className="pt-2 border-t border-edge">
  <div className="text-sm text-muted mb-1">🔴 {t('guide.border.peakHours')}</div>
- <div className="text-xs font-semibold text-strong">{t(border.peak)}</div>
+ <div className="text-xs font-semibold text-strong">{border.peak ? t(border.peak) : 'n.d.'}</div>
  </div>
  <div className="p-2.5 bg-neutral-subtle rounded-lg border border-neutral-border">
  <div className="text-xs text-neutral">

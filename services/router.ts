@@ -205,6 +205,27 @@ export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'sala
 
 // ── Border crossing deep links (indexable URLs) ─────────────
 
+/**
+ * Slug IDs for `/guida/border/{id}` deep links (SPA route matching) and
+ * `/traffico-dogane/{id}/oggi/` static pages. Hand-kept mirror of
+ * `data/borderCrossings.ts` — must match `build-plugins/borderWaitData.ts`'s
+ * `BorderCrossingSlug`/`BORDER_WAIT_CROSSINGS` 1:1 (duplicated there rather
+ * than imported, to avoid a cycle: that file imports from this one).
+ *
+ * New crossing → add its slug (must equal `slugifyCrossingName(name)` from
+ * `data/borderCrossings.ts`) to this array AND to
+ * `build-plugins/borderWaitData.ts` (see the "Adding a new crossing"
+ * checklist above `BorderCrossingRegion` there for the full list of maps
+ * that need an entry too). Missing it here just means the SPA deep-link
+ * route (`/guida/border/{id}`) 404s for that crossing — the static
+ * `/traffico-dogane/...` pages are driven entirely by borderWaitData.ts, not
+ * this array — but keep both in sync regardless, per the file comments on
+ * both sides.
+ *
+ * Sempione (canton VS) exists in `data/borderCrossings.ts` but is
+ * deliberately absent from this array too — same pre-existing gap noted in
+ * borderWaitData.ts, not introduced by this refactor.
+ */
 export const ALL_BORDER_CROSSING_IDS = [
  'chiasso-centro',
  'chiasso-brogeda',

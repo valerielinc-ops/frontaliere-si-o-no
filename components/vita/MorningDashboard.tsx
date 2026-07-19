@@ -254,13 +254,13 @@ const MorningDashboard: React.FC = () => {
 
  // Traffic summary
  const topCrossings = useMemo(() => {
- const openCrossings = borderCrossings.filter(bc => bc.trafficLevel !== 'closed');
+ const openCrossings = borderCrossings.filter(bc => bc.trafficLevel !== undefined && bc.trafficLevel !== 'closed');
  return openCrossings
  .map(bc => {
  const live = traffic.find(t => t.crossingName === bc.name);
  return {
  name: bc.name,
- italianSide: bc.italianSide,
+ foreignSide: bc.foreignSide,
  waitMinutes: live?.totalCrossingMinutes ?? live?.waitTimeMinutes ?? 0,
  status: live?.status ?? (bc.trafficLevel === 'high' ? 'yellow' as const : 'green' as const),
  type: bc.type,
@@ -429,7 +429,7 @@ const MorningDashboard: React.FC = () => {
  {crossing.name}
  </div>
  <div className="text-sm text-muted">
- {crossing.italianSide}
+ {crossing.foreignSide}
  </div>
  </div>
  <div className="text-right flex-shrink-0">

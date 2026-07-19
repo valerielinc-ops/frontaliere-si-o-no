@@ -29,6 +29,11 @@ export type BorderWaitLocale = 'it' | 'en' | 'de' | 'fr';
  * Crossing IDs mirror `services/router.ts#ALL_BORDER_CROSSING_IDS` 1:1 —
  * kept duplicated here (not imported) to avoid a cycle with router.ts, which
  * itself imports from this module.
+ *
+ * New crossing → add its slug here (must equal
+ * `slugifyCrossingName(crossing.name)` from `data/borderCrossings.ts`). See
+ * the full "Adding a new crossing" checklist above `BorderCrossingRegion`
+ * below for every other map that also needs an entry.
  */
 export type BorderCrossingSlug =
   | 'chiasso-centro'
@@ -58,11 +63,55 @@ export type BorderCrossingSlug =
   | 'camedo'
   | 'piaggio-valmara';
 
+/**
+ * Closed union of crossing "regional hub" groupings — currently one per
+ * Italian province feeding the Ticino corridor ('ticino-como' groups the
+ * Como-province crossings, etc.). NOT derived from `data/borderCrossings.ts`
+ * — this whole file is a hand-kept mirror, kept in sync with
+ * `services/router.ts#ALL_BORDER_CROSSING_IDS` (see that file's own comment)
+ * and, transitively, with `data/borderCrossings.ts`.
+ *
+ * ── Adding a new crossing: full checklist ──────────────────────────
+ *  1. If it needs a genuinely new regional hub (e.g. a first Grigioni or a
+ *     France/Germany/Austria/Liechtenstein region), add a member to this
+ *     union — e.g. 'grigioni-valposchiavo' or 'geneve-annemasse'.
+ *  2. Add the region's display label to BORDER_REGION_DISPLAY (below).
+ *  3. Add the region to BORDER_WAIT_REGIONS (below) — only if new.
+ *  4. Add the crossing's slug to BorderCrossingSlug (below this block) —
+ *     must equal `slugifyCrossingName(crossing.name)` from
+ *     `data/borderCrossings.ts` (same slugify implementation, see
+ *     `services/borderCrossingSlug.ts`).
+ *  5. Add the slug to BORDER_WAIT_CROSSINGS (below).
+ *  6. Add a display-name entry to BORDER_CROSSING_DISPLAY.
+ *  7. Add a region entry to CROSSING_TO_REGION.
+ *  8. Add a fuel-zone entry to CROSSING_TO_FUEL_ZONE — extend the
+ *     'chiasso' | 'mendrisio' | 'lugano' union first if none of the
+ *     existing 3 zones is actually nearest.
+ *  9. Add a weekly-city entry to CROSSING_TO_WEEKLY_CITY — same idea.
+ * 10. Mirror the new slug into `services/router.ts#ALL_BORDER_CROSSING_IDS`
+ *     (required 1:1 — not imported, to avoid a cycle, since this file is
+ *     imported BY router.ts). Skipping this only breaks the SPA
+ *     `/guida/border/{id}` deep link; the static `/traffico-dogane/...`
+ *     pages below are driven entirely by this file.
+ * 11. The "Count: N locales × (...)" comment on BORDER_WAIT_ROUTES further
+ *     down is a manually computed illustration, not derived — update or
+ *     drop the exact number when the crossing/region count changes.
+ *
+ * Sempione (canton VS, in data/borderCrossings.ts) is deliberately absent
+ * from every map in this file — there is no static /traffico-dogane/...
+ * page for it today. That's a pre-existing gap, not introduced by this
+ * refactor; a future agent adding real VS coverage needs to walk this same
+ * checklist for it, not assume it's already wired somewhere.
+ */
 export type BorderCrossingRegion = 'ticino-como' | 'ticino-varese' | 'ticino-verbano';
 
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
-/** Full crossing registry (26) — must match ALL_BORDER_CROSSING_IDS in router.ts. */
+/**
+ * Full crossing registry (26) — must match ALL_BORDER_CROSSING_IDS in
+ * router.ts. New crossing → append its slug here too (see "Adding a new
+ * crossing" checklist above BorderCrossingRegion, step 5).
+ */
 export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'chiasso-centro',
   'chiasso-brogeda',
@@ -101,7 +150,10 @@ export const TOP_5_CROSSINGS: readonly BorderCrossingSlug[] = [
   'ponte-tresa',
 ] as const;
 
-/** Display names — proper nouns, same across all locales. */
+/**
+ * Display names — proper nouns, same across all locales. New crossing → add
+ * its name here (checklist above BorderCrossingRegion, step 6).
+ */
 export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'chiasso-centro': 'Chiasso Centro',
   'chiasso-brogeda': 'Chiasso Brogeda',
@@ -131,7 +183,13 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'piaggio-valmara': 'Piaggio Valmara (Cannobio-Brissago)',
 };
 
-/** Regional grouping by Italian province. */
+/**
+ * Regional hub grouping — by Italian province today, but the underlying
+ * concept is "which regional hub page this crossing belongs to", not
+ * literally "province" (a future non-Italian region keys by whatever foreign
+ * administrative unit makes sense there). New crossing → add its region here
+ * (checklist above BorderCrossingRegion, step 7).
+ */
 export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion> = {
   'chiasso-centro': 'ticino-como',
   'chiasso-brogeda': 'ticino-como',
@@ -161,7 +219,11 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'piaggio-valmara': 'ticino-verbano',
 };
 
-/** Closest fuel-daily zone for each crossing (used by related-links helper). */
+/**
+ * Closest fuel-daily zone for each crossing (used by related-links helper).
+ * New crossing → add its nearest zone here; extend the union first if none
+ * of the existing 3 fits (checklist above BorderCrossingRegion, step 8).
+ */
 export const CROSSING_TO_FUEL_ZONE: Record<BorderCrossingSlug, 'chiasso' | 'mendrisio' | 'lugano'> = {
   'chiasso-centro': 'chiasso',
   'chiasso-brogeda': 'chiasso',
@@ -191,7 +253,11 @@ export const CROSSING_TO_FUEL_ZONE: Record<BorderCrossingSlug, 'chiasso' | 'mend
   'piaggio-valmara': 'lugano',
 };
 
-/** Closest weekly-employers city slug for each crossing. */
+/**
+ * Closest weekly-employers city slug for each crossing. New crossing → add
+ * its nearest city here; extend the union first if none of the existing
+ * values fits (checklist above BorderCrossingRegion, step 9).
+ */
 export const CROSSING_TO_WEEKLY_CITY: Record<
   BorderCrossingSlug,
   'chiasso' | 'mendrisio' | 'lugano'
@@ -249,9 +315,17 @@ export const BORDER_WAIT_TODAY_SLUG: Record<BorderWaitLocale, string> = {
   fr: 'aujourd-hui',
 };
 
-/** Regional hub slugs (ticino-como / ticino-varese) — same across locales. */
+/**
+ * Every BorderCrossingRegion member, as a runtime array — same across
+ * locales. New region → append it here too (checklist above
+ * BorderCrossingRegion, step 3).
+ */
 export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese', 'ticino-verbano'] as const;
 
+/**
+ * Region display labels. New region → add its label here (checklist above
+ * BorderCrossingRegion, step 2).
+ */
 export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'ticino-como': 'Ticino — Como',
   'ticino-varese': 'Ticino — Varese',

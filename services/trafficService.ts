@@ -53,7 +53,7 @@ interface BorderWaitSnapshot {
 const BORDER_WAIT_SNAPSHOT = borderWaitCurrent as BorderWaitSnapshot;
 
 const BORDER_CROSSINGS: BorderCrossingCoordinates[] = centralizedCrossings
- .filter(c => c.trafficLevel !== 'closed')
+ .filter(c => c.trafficLevel !== undefined && c.trafficLevel !== 'closed')
  .map(c => ({ name: c.name }));
 
 export function hasLiveTrafficData(data: TrafficData[]): boolean {
