@@ -236,25 +236,30 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
-      # Locale-shard and Ticino-shard rehydrate merged into ONE step (still
-      # two background-shell functions rather than two sequential steps), but
-      # rehydrate_ticino is deliberately started only AFTER rehydrate_locale
-      # has fully finished — NOT concurrently with it. For en/de/fr,
-      # rehydrate_ticino writes into `dist/$loc/<ticino-subpath>` (e.g.
-      # `dist/en/find-jobs-ticino`), a path nested INSIDE `dist/$loc`. The
-      # locale shard artifact/repo does NOT include the Ticino subtree
-      # (stripped separately by strip-ticino-subtree.sh), so if
-      # rehydrate_locale's `rm -rf "dist/$loc"` + repopulate for that same
-      # locale ran while rehydrate_ticino was still writing there, it would
-      # silently wipe whatever Ticino content had just landed — scheduling-
-      # dependent, so it would not reproduce on every run. Caught in PR #4278
-      # review before merge; sequencing them removes the race while still
-      # collapsing both loops into one step. Each function keeps its
-      # ORIGINAL error-handling contract byte-for-byte: rehydrate_locale is
-      # hard-fail (`set -euo pipefail` — an incomplete/missing shard is a
-      # real gate and must fail the job), rehydrate_ticino is soft-fail
-      # (`set -uo pipefail`, no `-e` — emits `::warning::` and continues,
-      # degrading coverage for that locale without aborting the run).
+      # Locale-shard and section-shard rehydrate merged into ONE step (still
+      # background-shell functions rather than one-step-per-section), but
+      # each rehydrate_section call is deliberately started only AFTER
+      # rehydrate_locale has fully finished — NOT concurrently with it. For
+      # en/de/fr, rehydrate_section writes into `dist/$loc/<section-subpath>`
+      # (e.g. `dist/en/find-jobs-ticino`), a path nested INSIDE `dist/$loc`.
+      # The locale shard artifact/repo does NOT include any section subtree
+      # (stripped separately by that section's strip-<section>-subtree.sh),
+      # so if rehydrate_locale's `rm -rf "dist/$loc"` + repopulate for that
+      # same locale ran while a rehydrate_section call was still writing
+      # there, it would silently wipe whatever section content had just
+      # landed — scheduling-dependent, so it would not reproduce on every
+      # run. Caught in PR #4278 review before merge (originally for the
+      # single Ticino section); sequencing them removes the race while still
+      # collapsing the loops into one step. Each function keeps its ORIGINAL
+      # error-handling contract byte-for-byte: rehydrate_locale is hard-fail
+      # (`set -euo pipefail` — an incomplete/missing shard is a real gate and
+      # must fail the job), rehydrate_section is soft-fail (`set -uo
+      # pipefail`, no `-e` — emits `::warning::` and continues, degrading
+      # coverage for that locale without aborting the run). Ticino, Svizzera
+      # and Zurigo run concurrently WITH EACH OTHER once locale is done —
+      # each writes a disjoint dist/ subtree so there's no cross-section
+      # race — tracked via separate background PIDs the same way LOCALE_PID
+      # is below.
       # Booleans come in via `env:` (not inlined into the script body via
       # ${{ }}) to avoid templating untrusted values into bash, matching
       # the DEPLOY_RUN_ID/GH_TOKEN pattern already used elsewhere in this
@@ -276,26 +281,33 @@ jobs:
       # locale whose shard push failed stays in the main artifact and is left
       # untouched).
       #
-      # Mirrors the locale rehydrate above for the carved-out Ticino section.
-      # deploy.yml strips dist/<ticino-subtree> from the apex/locale artifacts
-      # (strip-ticino-subtree.sh) and publishes ONE Pages repo PER LOCALE
-      # (frontaliere-ticino-<loc>, push-ticino-shard.sh). Restore each subtree
-      # so validators that walk dist for the Ticino URLs don't false-flag them
-      # missing. PRIMARY: same-run per-locale tar artifact (`ticino-dist-
-      # <loc>-<run>`, "Pack Ticino shard dist" step in deploy.yml) built from
-      # push-ticino-shard.sh's already-offloaded staged copy — byte-identical
-      # to what was force-pushed. Fetched via `gh run download` (same-run, no
-      # API lag). FALLBACK: full `git clone` of the shard repo when the
-      # artifact is missing/corrupt — a locale is NEVER silently un-validated.
-      # Before the tar artifact existed, all 4 legs paid the git-clone path
-      # unconditionally: ~12min combined wall on run 28564001685 (~250k
-      # files/clone × 4, sequential).
-      - name: Rehydrate locale then Ticino shards into dist/ (when sharding active)
+      # Mirrors the locale rehydrate above for each carved-out section — Ticino
+      # first, then Svizzera and Zurigo added the same way once they too
+      # outgrew the 10GB Pages cap. deploy.yml strips dist/<section-subtree>
+      # from the apex/locale artifacts (strip-<section>-subtree.sh) and
+      # publishes ONE Pages repo PER LOCALE PER SECTION
+      # (frontaliere-<section>-<loc>, push-<section>-shard.sh). Restore each
+      # subtree so validators that walk dist for a section's URLs don't
+      # false-flag them missing. The section→locale→slug map is the single
+      # source of truth at scripts/lib/section-shard-slugs.json, shared with
+      # the push/strip scripts and the Cloudflare Worker's SECTION_ROUTES.
+      # PRIMARY: same-run per-locale tar artifact (`<section>-dist-<loc>-
+      # <run>`, "Pack <section> shard dist" step in deploy.yml) built from
+      # push-<section>-shard.sh's already-offloaded staged copy — byte-
+      # identical to what was force-pushed. Fetched via `gh run download`
+      # (same-run, no API lag). FALLBACK: full `git clone` of the shard repo
+      # when the artifact is missing/corrupt — a locale is NEVER silently
+      # un-validated. Before the tar artifact existed (Ticino era), all 4
+      # legs paid the git-clone path unconditionally: ~12min combined wall on
+      # run 28564001685 (~250k files/clone × 4, sequential).
+      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
         run: |
           rehydrate_locale() {
             set -euo pipefail
@@ -382,19 +394,24 @@ jobs:
             df -h / | tail -1
           }
 
-          rehydrate_ticino() {
+          rehydrate_section() {
             set -uo pipefail
-            declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+            local section="$1"
+            declare -A SECTION_SUB=(
+              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
+              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
+              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
+            )
             for loc in it en de fr; do
-              sub="${TICINO_SUB[$loc]}"
+              sub="${SECTION_SUB[$section:$loc]}"
               if [ -d "dist/$sub" ]; then
-                echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
+                echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
               fi
 
-              dl="$RUNNER_TEMP/ticino-dist-$loc"
+              dl="$RUNNER_TEMP/$section-dist-$loc"
               rm -rf "$dl"; mkdir -p "$dl"
-              if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+              if gh run download "$DEPLOY_RUN_ID" --name "$section-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/$section-dist-$loc.tar" ]; then
                 mkdir -p "dist/$(dirname "$sub")"
                 rm -rf "dist/$sub"
                 # Completeness, not just existence (#2761 item 2, mirrors the locale
@@ -405,38 +422,38 @@ jobs:
                 # truncated/corrupted tar that a bare directory check would miss.
                 # `|| true` throughout: any anomaly here must fall through to the
                 # git-clone fallback below, not abort under `set -e`.
-                expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-                tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+                expected_n=$(tar -tf "$dl/$section-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
                 rm -rf "$dl"
                 actual_n=0
                 if [ -d "dist/$sub" ]; then
                   actual_n=$(find "dist/$sub" -type f | wc -l)
                 fi
                 if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                  echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
                   continue
                 fi
                 rm -rf "dist/$sub"
-                echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+                echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
               else
                 rm -rf "$dl"
-                echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+                echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
               fi
 
-              tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+              tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
               rm -rf "$tmp"
               if ! git clone --depth 1 --single-branch --branch main \
-                   "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
-                echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+                   "https://github.com/valerielinc-ops/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
                 continue
               fi
               if [ -d "$tmp/$sub" ]; then
                 mkdir -p "dist/$(dirname "$sub")"
                 rm -rf "dist/$sub"
                 cp -r "$tmp/$sub" "dist/$sub"
-                echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+                echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
               else
-                echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+                echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
               fi
               rm -rf "$tmp"
             done
@@ -455,17 +472,36 @@ jobs:
             wait "$LOCALE_PID" || LOCALE_RC=$?
           fi
 
-          # Ticino starts only once locale has fully finished (see the
-          # rehydrate_ticino/rehydrate_locale ordering note above) — not
+          # Section shards start only once locale has fully finished (see the
+          # rehydrate_section/rehydrate_locale ordering note above) — not
           # backgrounded alongside it. Soft-fail by design (warnings only) —
-          # never let its exit code affect the job.
+          # never let their exit code affect the job. Ticino/Svizzera/Zurigo
+          # run concurrently WITH EACH OTHER (each writes a disjoint dist/
+          # subtree, so there's no cross-section race), each tracked via its
+          # own PID and gated on its own SHARD_LIVE var.
           TICINO_PID=""
           if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_ticino &
+            rehydrate_section ticino &
             TICINO_PID=$!
+          fi
+          SVIZZERA_PID=""
+          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
+            rehydrate_section svizzera &
+            SVIZZERA_PID=$!
+          fi
+          ZURIGO_PID=""
+          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
+            rehydrate_section zurigo &
+            ZURIGO_PID=$!
           fi
           if [ -n "$TICINO_PID" ]; then
             wait "$TICINO_PID" || true
+          fi
+          if [ -n "$SVIZZERA_PID" ]; then
+            wait "$SVIZZERA_PID" || true
+          fi
+          if [ -n "$ZURIGO_PID" ]; then
+            wait "$ZURIGO_PID" || true
           fi
 
           if [ "$LOCALE_RC" -ne 0 ]; then
@@ -757,18 +793,20 @@ jobs:
             cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
           fi
 
-      # Same merged locale+Ticino rehydrate as validate-dist-source (see that
+      # Same merged locale+section rehydrate as validate-dist-source (see that
       # job's step for the full rationale). Duplicated rather than factored
       # out into a composite action so this PR stays a surgical CI-speed
       # change — each of the two jobs runs on its own fresh runner and needs
       # its own copy of dist/ rehydrated identically, since the post-build
       # audits below walk the same logical site as the source validators do.
-      - name: Rehydrate locale then Ticino shards into dist/ (when sharding active)
+      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
           TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
         run: |
           rehydrate_locale() {
             set -euo pipefail
@@ -815,53 +853,58 @@ jobs:
             df -h / | tail -1
           }
 
-          rehydrate_ticino() {
+          rehydrate_section() {
             set -uo pipefail
-            declare -A TICINO_SUB=( [it]=cerca-lavoro-ticino [en]=en/find-jobs-ticino [de]=de/jobs-im-tessin [fr]=fr/trouver-emploi-tessin )
+            local section="$1"
+            declare -A SECTION_SUB=(
+              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
+              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
+              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
+            )
             for loc in it en de fr; do
-              sub="${TICINO_SUB[$loc]}"
+              sub="${SECTION_SUB[$section:$loc]}"
               if [ -d "dist/$sub" ]; then
-                echo "Ticino $loc ($sub) present in artifact — skip rehydrate"
+                echo "$section $loc ($sub) present in artifact — skip rehydrate"
                 continue
               fi
 
-              dl="$RUNNER_TEMP/ticino-dist-$loc"
+              dl="$RUNNER_TEMP/$section-dist-$loc"
               rm -rf "$dl"; mkdir -p "$dl"
-              if gh run download "$DEPLOY_RUN_ID" --name "ticino-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/ticino-dist-$loc.tar" ]; then
+              if gh run download "$DEPLOY_RUN_ID" --name "$section-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/$section-dist-$loc.tar" ]; then
                 mkdir -p "dist/$(dirname "$sub")"
                 rm -rf "dist/$sub"
-                expected_n=$(tar -tf "$dl/ticino-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
-                tar -C dist -xf "$dl/ticino-dist-$loc.tar" || true
+                expected_n=$(tar -tf "$dl/$section-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
                 rm -rf "$dl"
                 actual_n=0
                 if [ -d "dist/$sub" ]; then
                   actual_n=$(find "dist/$sub" -type f | wc -l)
                 fi
                 if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
-                  echo "rehydrated Ticino $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
                   continue
                 fi
                 rm -rf "dist/$sub"
-                echo "[rehydrate] ticino-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+                echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
               else
                 rm -rf "$dl"
-                echo "[rehydrate] ticino-$loc artifact absent — falling back to git clone"
+                echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
               fi
 
-              tmp="$RUNNER_TEMP/rehydrate-ticino-$loc"
+              tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
               rm -rf "$tmp"
               if ! git clone --depth 1 --single-branch --branch main \
-                   "https://github.com/valerielinc-ops/frontaliere-ticino-$loc.git" "$tmp" 2>/dev/null; then
-                echo "::warning::ticino-$loc shard clone failed — validators may flag $loc Ticino pages missing"
+                   "https://github.com/valerielinc-ops/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
                 continue
               fi
               if [ -d "$tmp/$sub" ]; then
                 mkdir -p "dist/$(dirname "$sub")"
                 rm -rf "dist/$sub"
                 cp -r "$tmp/$sub" "dist/$sub"
-                echo "rehydrated Ticino $loc from frontaliere-ticino-$loc: $(find "dist/$sub" -type f | wc -l) files"
+                echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
               else
-                echo "::warning::frontaliere-ticino-$loc has no $sub subtree — $loc Ticino left missing"
+                echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
               fi
               rm -rf "$tmp"
             done
@@ -880,16 +923,34 @@ jobs:
             wait "$LOCALE_PID" || LOCALE_RC=$?
           fi
 
-          # Ticino starts only once locale has fully finished (see
+          # Section shards start only once locale has fully finished (see
           # validate-dist-source's copy of this step for the full ordering
-          # rationale) — not backgrounded alongside it.
+          # rationale) — not backgrounded alongside it. Ticino/Svizzera/Zurigo
+          # run concurrently WITH EACH OTHER (each writes a disjoint dist/
+          # subtree, so there's no cross-section race).
           TICINO_PID=""
           if [ "$TICINO_SHARD_LIVE" = "true" ]; then
-            rehydrate_ticino &
+            rehydrate_section ticino &
             TICINO_PID=$!
+          fi
+          SVIZZERA_PID=""
+          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
+            rehydrate_section svizzera &
+            SVIZZERA_PID=$!
+          fi
+          ZURIGO_PID=""
+          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
+            rehydrate_section zurigo &
+            ZURIGO_PID=$!
           fi
           if [ -n "$TICINO_PID" ]; then
             wait "$TICINO_PID" || true
+          fi
+          if [ -n "$SVIZZERA_PID" ]; then
+            wait "$SVIZZERA_PID" || true
+          fi
+          if [ -n "$ZURIGO_PID" ]; then
+            wait "$ZURIGO_PID" || true
           fi
 
           if [ "$LOCALE_RC" -ne 0 ]; then

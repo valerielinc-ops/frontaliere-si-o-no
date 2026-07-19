@@ -1,5 +1,7 @@
 # Runbook: scorporo della sezione Ticino su Pages-shard per-locale
 
+> Questo è il caso storico/originale del meccanismo; la versione generalizzata (parametrizzata su `{section}`) e le sezioni successive (`svizzera`, `zurigo`, …) sono documentate in [`SECTION-SHARD-RUNBOOK.md`](./SECTION-SHARD-RUNBOOK.md).
+
 Procedura per portare live lo scorporo della sezione Ticino su **un repo GitHub
 Pages per locale** — `frontaliere-ticino-{it,en,de,fr}` — ognuno servito da
 `origin-ticino-<loc>.frontaliereticino.ch` dietro il locale-router Worker.
@@ -161,10 +163,14 @@ fallire il cap, ma la sezione non è mai **non servita**).
 
 ## File coinvolti
 
-- `infra/cloudflare-worker/locale-router.js` — `matchTicino` + `serveShard` → `TICINO_ORIGIN[loc]`.
+> Aggiornamento post-generalizzazione: gli script/nomi qui sotto sono lo stato
+> **storico** (solo Ticino). Lo stato **attuale** (Ticino + svizzera + zurigo,
+> script parametrizzati) è in [`SECTION-SHARD-RUNBOOK.md#file-coinvolti`](./SECTION-SHARD-RUNBOOK.md#file-coinvolti).
+
+- `infra/cloudflare-worker/locale-router.js` — `matchTicino` + `serveShard` → `TICINO_ORIGIN[loc]` (generalizzato in `matchSection`/`SECTION_ORIGIN`).
 - `infra/cloudflare-worker/wrangler.toml` — route IT `/cerca-lavoro-ticino*`.
-- `scripts/lib/push-ticino-shard.sh` — stage+offload+push per-locale → `frontaliere-ticino-<loc>`.
-- `scripts/lib/strip-ticino-subtree.sh` — strip (variabile + ok-marker) per-leg.
-- `.github/workflows/deploy.yml` — push + strip Ticino in ogni leg.
+- `scripts/lib/push-ticino-shard.sh` — stage+offload+push per-locale → `frontaliere-ticino-<loc>` (rimosso; sostituito da `scripts/lib/push-section-shard.sh`, parametrizzato su sezione).
+- `scripts/lib/strip-ticino-subtree.sh` — strip (variabile + ok-marker) per-leg (rimosso; sostituito da `scripts/lib/strip-section-subtree.sh`).
+- `.github/workflows/deploy.yml` — push + strip Ticino in ogni leg (ora itera su `ticino svizzera zurigo`).
 - `.github/workflows/post-deploy-validate-dist.yml` — rehydration (clone dei 4 repo).
-- `tests/locale-router-ticino-shard.test.ts` — routing Ticino (9 casi).
+- `tests/locale-router-section-shard.test.ts` — routing generico multi-sezione (rinominato da `tests/locale-router-ticino-shard.test.ts`).
