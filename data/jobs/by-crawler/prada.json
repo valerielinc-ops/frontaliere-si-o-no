@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-07-19T10:53:38.187Z",
+  "assembledAt": "2026-07-19T22:06:11.062Z",
   "jobs": [
     {
       "id": "prada-994ee760c1da",
@@ -43,8 +43,9 @@
       "url": "https://jobs.pradagroup.com/job/Las-Vegas-Stock-Associate%2C-Las-Vegas-Bellagio-NV-89044/1396218533/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:53:36.007Z",
+      "crawledAt": "2026-07-19T22:06:08.302Z",
       "firstSeenAt": "2026-07-18T11:12:02.697Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -101,7 +102,7 @@
       "url": "https://jobs.pradagroup.com/job/Chiba-Repair-Laboratory-&-Quality-Control-Assistant-Manager/1265991801/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:53:34.678Z",
+      "crawledAt": "2026-07-19T22:06:06.902Z",
       "previousSlugs": [
         "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
       ],
@@ -130,7 +131,8 @@
         }
       },
       "country": "CH",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "prada-332f237b0ca4",
@@ -173,8 +175,9 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:53:31.944Z",
+      "crawledAt": "2026-07-19T22:06:04.064Z",
       "firstSeenAt": "2026-07-07T22:19:25.934Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -255,7 +258,8 @@
       },
       "country": "CH",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
