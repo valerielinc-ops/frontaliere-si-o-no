@@ -89180,7 +89180,9 @@
     "canton": "LU",
     "createdAt": "2026-05-21",
     "slugByLocale": {
-      "de": "operatorin-operator-technik-80-luks-luzern"
+      "de": "operatorin-operator-technik-80-luks-luzern",
+      "it": "operatore-operatore-tecnica-80-luzerner-kantonsspital-luks-luzern-e4aad4",
+      "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern"
     }
   },
   "id|luks.ch|1da79621-cb90-4683-a808-57338604e086": {
@@ -347945,7 +347947,10 @@
   "id|galenica.com|3121306": {
     "canonicalSlug": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
     "slugByLocale": {
-      "en": "galenica-galenica-ag-head-of-marketing-w-m-d-bern"
+      "en": "galenica-galenica-ag-head-of-marketing-w-m-d-bern",
+      "it": "responsabile-marketing-w-m-d-galenica-ag-galenica-bern-acd82c",
+      "de": "leiter-marketing-w-m-d-galenica-ag-galenica-bern-acd82c",
+      "fr": "responsable-marketing-w-m-d-galenica-ag-galenica-bern-acd82c"
     },
     "createdAt": "2026-07-18",
     "canton": "BE"
@@ -347953,7 +347958,8 @@
   "id|galenica.com|3121550": {
     "canonicalSlug": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
     "slugByLocale": {
-      "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern"
+      "en": "galenica-galenica-ag-sachbearbeiter-sachbearbeiterin-frontoffice-inkl-teamleitung-w-m-d-bern",
+      "it": "sachbearbeiter-sachbearbeiterin-inchiostro-frontale-teamleitung-w-m-d-galenica-ag-galenica-bern-fb7109"
     },
     "createdAt": "2026-07-18",
     "canton": "BE"
@@ -347961,7 +347967,9 @@
   "id|galenica.com|3122146": {
     "canonicalSlug": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
     "slugByLocale": {
-      "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern"
+      "en": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-galenica-bern-15bc95",
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-galenica-bern"
     },
     "createdAt": "2026-07-18",
     "canton": "BE"
@@ -348382,5 +348390,41 @@
     },
     "createdAt": "2026-07-19",
     "canton": "SZ"
+  },
+  "id|solique.ch|4037806": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+    },
+    "createdAt": "2026-07-19",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4037809": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+    },
+    "createdAt": "2026-07-19",
+    "canton": "ZH"
+  },
+  "id|galenica.com|3121610": {
+    "canonicalSlug": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-94bf75",
+    "slugByLocale": {
+      "it": "farmacia-assistente-farmacia-assistentin-w-m-d-galenica-ag-galenica-bern-94bf75",
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+      "fr": "pharma-assistant-pharma-assistant-p-m-j-galenica-ag-galenica-bern-94bf75"
+    },
+    "createdAt": "2026-07-19",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692394": {
+    "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
+    "slugByLocale": {
+      "it": "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
+      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal",
+      "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-langenthal"
+    },
+    "createdAt": "2026-07-19",
+    "canton": "BE"
   }
 }
