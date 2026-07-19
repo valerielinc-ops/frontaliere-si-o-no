@@ -4,7 +4,7 @@ import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, X
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-import { buildGoPath } from '@/services/affiliateService';
+import { isGoIdEnabled, resolveGoHref } from '@/services/affiliateService';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -288,9 +288,9 @@ const BankComparison: React.FC = () => {
  {filtered.map((bank) => {
  const CardWrapper = bank.website ? 'a' : 'div';
  const cardProps = bank.website ? {
- href: bank.goId ? buildGoPath({ id: bank.goId }) : bank.website,
+ href: resolveGoHref(bank.goId, bank.website),
  target: '_blank',
- rel: bank.goId ? 'noopener noreferrer sponsored' : 'noopener noreferrer',
+ rel: isGoIdEnabled(bank.goId) ? 'noopener noreferrer sponsored' : 'noopener noreferrer',
  onClick: () => {
  Analytics.trackBankComparison('link_click', bank.name, bank.country);
  if (bank.goId) Analytics.trackAffiliateClick(bank.goId, 'banks');

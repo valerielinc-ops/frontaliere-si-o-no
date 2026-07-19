@@ -9,7 +9,7 @@ import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { lazyRetry } from '@/services/lazyRetry';
 import ProviderLogo from '@/components/shared/ProviderLogo';
-import { buildGoPath } from '@/services/affiliateService';
+import { resolveGoHref } from '@/services/affiliateService';
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
@@ -79,7 +79,7 @@ interface ExchangeProvider {
 
 /** /go/-routed href for a referral provider (falls back to the direct URL). */
 function providerGoHref(provider: ExchangeProvider): string {
- return provider.goId ? buildGoPath({ id: provider.goId }) : provider.referralUrl || '#';
+ return resolveGoHref(provider.goId, provider.referralUrl);
 }
 
 const providers: ExchangeProvider[] = [

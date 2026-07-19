@@ -111,6 +111,10 @@ const ForEmployersPage: React.FC = () => {
   useEffect(() => {
     Analytics.trackPageView('/per-le-aziende/', 'For Employers Landing');
     Analytics.trackUIInteraction('publisher', 'page', 'for_employers', 'view');
+    // Publisher funnel step 2 (issue #4448): the plan/pricing cards are the
+    // centrepiece of this landing — a page view IS a pricing view. No PII.
+    Analytics.trackEvent('pricing_view', { surface: 'for_employers', locale });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ── SEO meta (title + description) — this page IS indexable. ──

@@ -222,6 +222,22 @@ export function buildGoPath(partner: Pick<AffiliatePartner, 'id'>): string {
 }
 
 /**
+ * Resolve the href for a component-local goId against the PARTNERS registry:
+ * the /go/{id}/ page only exists for partners with enabled:true (see
+ * build-plugins/affiliateRedirectPlugin.ts), so a disabled/unknown id must
+ * fall back to the direct URL instead of linking a 404.
+ */
+export function resolveGoHref(goId: string | undefined, fallback: string | undefined): string {
+ if (goId && PARTNERS.some(p => p.id === goId && p.enabled)) return buildGoPath({ id: goId });
+ return fallback || '#';
+}
+
+/** True when the /go/{id}/ redirect page exists (partner enabled). */
+export function isGoIdEnabled(goId: string | undefined): boolean {
+ return !!goId && PARTNERS.some(p => p.id === goId && p.enabled);
+}
+
+/**
  * rel attribute for a partner link: paid/referral programs must carry
  * rel="sponsored"; non-paid institutional links must not.
  */

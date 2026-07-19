@@ -17,6 +17,9 @@ const translations: Record<string, string> = {
   'seoLinks.footer.gasolineToday': 'Prezzo benzina oggi',
   'seoLinks.footer.healthPremiumsByCommune': 'Premi malattia per comune',
 
+  // Employer acquisition CTA (footer, issue #4446) — benefit-first copy.
+  'seoLinks.footer.employerCta': 'Assumete? Pubblicate il vostro annuncio',
+
   // Footer weekly-employers teaser (closes 4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Aziende che assumono questa settimana',
 
