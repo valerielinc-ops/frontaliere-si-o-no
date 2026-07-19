@@ -1255,6 +1255,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme podologue au Tessin : exigences et reconnaissance',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un podologue frontalier au Tessin, conditions pour travailler comme podologue au Tessin en tant que frontalier et reconnaissance du diplôme d\'études.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologue dans un environnement de travail en Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologue au Tessin : salaire, exigences et permis G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guide complet pour les podologues frontaliers : analyse des exigences professionnelles, des salaires moyens et de la législation fiscale mise à jour à 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Clinique de podologie moderne en Suisse avec équipement médical',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Indemnités de chômage suisses aux frontaliers : positions opposées',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Le Comité des représentants permanents de l\'UE a approuvé une mesure visant à remplacer le pays de résidence par le pays de dernier emploi pour la validation des allocations de chômage pour les frontaliers.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Un frontalier paie des contributions en Suisse et reçoit des indemnités de chômage du pays de résidence.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Assistenti medici frontalieri: salaire et exigences',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Réglage de la source : l\'Italie évite la double imposition avec le crédit d\'impôt (cadre CE de 730) pour les frontaliers.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Une scène d\'un aide médical frontalier en Suisse',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Combien gagne un technicien de salle d\'opération frontalière au Tessin',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Données sur la rémunération d\'un technicien de salle d\'opération frontalière au Tessin.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Photographie d\'un technicien de salle opératoire dans un hôpital suisse.',
 };
 
 export default blogMetaChFr;

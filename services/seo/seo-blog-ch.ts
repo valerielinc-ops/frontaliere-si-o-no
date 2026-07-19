@@ -16203,6 +16203,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-podologo-frontaliere-ticino-guida': {
+    title: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    description: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, podologo, stipendio, requisiti, permesso',
+    ogTitle: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    ogDescription: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
+    canonicalPath: '/articoli-svizzera/podologo-frontaliere-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Podologo in Ticino: stipendio, requisiti e permesso G",
+      "description": "Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/podologo-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio podologico moderno in Svizzera con attrezzatura medica"
+      },
+      "datePublished": "2026-07-19T09:57:28+00:00",
+      "dateModified": "2026-07-19T09:57:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/podologo-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-di-disoccupazione-svizzere-ai-frontalieri': {
+    title: 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    description: 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, disoccupazione, svizzere, posizioni',
+    ogTitle: 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    ogDescription: 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida',
+    canonicalPath: '/articoli-svizzera/indennita-di-disoccupazione-svizzere-ai-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte",
+      "description": "Il Comitato dei rappresentanti permanenti dell'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-di-disoccupazione-svizzere-ai-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere sta pagando i contributi in Svizzera e ricevendo l'indennità dalle casse del paese di residenza."
+      },
+      "datePublished": "2026-07-19T10:23:00+00:00",
+      "dateModified": "2026-07-19T10:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-di-disoccupazione-svizzere-ai-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti': {
+    title: 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    description: 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenti, studio, medico, stipendio',
+    ogTitle: 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    ogDescription: 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti",
+      "description": "Impostazione della fonte: l'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730) per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere assistente di studio medico in Ticino"
+      },
+      "datePublished": "2026-07-19T11:53:39+00:00",
+      "dateModified": "2026-07-19T11:53:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-stipendio-tecnico-sala-operatoria': {
+    title: 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    description: 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, tecnico, sala',
+    ogTitle: 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    ogDescription: 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
+    canonicalPath: '/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino",
+      "description": "Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-stipendio-tecnico-sala-operatoria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un tecnico di sala operatoria in un ospedale svizzero."
+      },
+      "datePublished": "2026-07-19T12:24:27+00:00",
+      "dateModified": "2026-07-19T12:24:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1255,6 +1255,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Lavorare come podologo in Ticino: requisiti e riconoscimento',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologo in un ambiente di lavoro in Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Studio podologico moderno in Svizzera con attrezzatura medica',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida delle indennità di disoccupazione per i frontalieri.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Un frontaliere sta pagando i contributi in Svizzera e ricevendo l\'indennità dalle casse del paese di residenza.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena di un frontaliere assistente di studio medico in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografia di un tecnico di sala operatoria in un ospedale svizzero.',
 };
 
 export default blogMetaChIt;

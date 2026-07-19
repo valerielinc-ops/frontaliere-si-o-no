@@ -8645,6 +8645,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Opticien optométriste au Tessin : salaire et exigences',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guide complet pour l\'opticien frontalier : exigences professionnelles, salaires moyens au Tessin, permis G et réglementation fiscale mise à jour.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Cabinet d\'opticien optométriste au Tessin avec équipements modernes',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Combien gagne un podiatre frontalier au Tessin ?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Le revenu d\'un podiatre frontalier au Tessin est influencé par plusieurs facteurs, dont la franchise, la retenue et la double imposition.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologue travaillant en Suisse, dans le canton du Tessin, photographié avec une caméra DSLR dans une scène réaliste.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'Combien gagne un assistant de cabinet médical frontalier au Tessin ?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'La rémunération d\'un assistant de cabinet médical frontalier au Tessin dépend de l\'expérience et du rôle.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Un assistant de recherche médicale travaille dans un hôpital à Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Technicien de salle d\'opération au Tessin : salaire, exigences et permis G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Le technicien de salle d\'opération est un professionnel hautement spécialisé qui travaille dans un environnement à haute pression. Sa principale responsabilité est de soutenir les anesthésistes et les autres membres de l\'équipe soignante lors des interventions chirurgicales.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Un frontalière qui travaille comme technicien de salle d\'opération dans un hôpital de Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Médecins frontaliers au Tessin : salaire, exigences et reconnaissance du titre',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Les salaires moyens des médecins frontaliers au Tessin, les exigences pour travailler en tant que médecin frontalier, la reconnaissance du diplôme d\'études et le permis G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Une vue pittoresque du lac de Lugano avec un bateau à voile en premier plan',
 };
 
 export default blogMetaFr;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-18T22:33:32.786Z",
+  "assembledAt": "2026-07-19T11:11:32.571Z",
   "jobs": [
     {
       "id": "postauto-318dbdb3c660",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:30.238Z",
+      "crawledAt": "2026-07-19T11:11:29.113Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -59,13 +59,15 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -121,7 +124,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:29.280Z",
+      "crawledAt": "2026-07-19T11:11:28.150Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -175,7 +179,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-chur",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -201,7 +205,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:28.180Z",
+      "crawledAt": "2026-07-19T11:11:27.042Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -226,15 +230,19 @@
         "postauto-fahrer-in-postauto-chur",
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "autista-postbus-postauto-ag-chur",
+          "postbus-driver-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -287,7 +295,7 @@
       "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:27.261Z",
+      "crawledAt": "2026-07-19T11:11:26.070Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -310,14 +318,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
       "salaryMin": 94500,
@@ -364,7 +376,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:26.034Z",
+      "crawledAt": "2026-07-19T11:11:25.037Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -389,12 +401,14 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "autista-postbus-postauto-ag-sarnen",
+        "autista-postbus-postauto-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "autista-postbus-postauto-ag-sarnen",
+          "autista-postbus-postauto-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -424,7 +438,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-stans",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -450,7 +464,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:24.978Z",
+      "crawledAt": "2026-07-19T11:11:23.958Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -473,13 +487,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
@@ -528,7 +546,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:23.897Z",
+      "crawledAt": "2026-07-19T11:11:22.937Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -553,12 +571,14 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -614,7 +634,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:22.889Z",
+      "crawledAt": "2026-07-19T11:11:22.086Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -637,11 +657,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -656,7 +678,9 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -703,7 +727,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:21.934Z",
+      "crawledAt": "2026-07-19T11:11:21.101Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -728,12 +752,14 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -789,7 +815,7 @@
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:20.978Z",
+      "crawledAt": "2026-07-19T11:11:20.114Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -814,12 +840,14 @@
         "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
         "personnel-in-disposition-control-center-center-postauto-ag-spiez",
         "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez",
-        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
         ],
         "en": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
@@ -875,7 +903,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:19.999Z",
+      "crawledAt": "2026-07-19T11:11:19.084Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -897,11 +925,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur"
+        "postauto-fahrer-in-postauto-chur",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -955,7 +985,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:19.050Z",
+      "crawledAt": "2026-07-19T11:11:18.120Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -991,6 +1021,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1009,7 +1040,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -1035,7 +1066,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:18.094Z",
+      "crawledAt": "2026-07-19T11:11:17.127Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1059,15 +1090,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -1120,7 +1155,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:17.140Z",
+      "crawledAt": "2026-07-19T11:11:16.120Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1142,11 +1177,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1174,7 +1211,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1200,7 +1237,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:16.063Z",
+      "crawledAt": "2026-07-19T11:11:15.122Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1224,15 +1261,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1285,7 +1326,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:15.090Z",
+      "crawledAt": "2026-07-19T11:11:14.130Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1307,11 +1348,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1339,7 +1382,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1365,7 +1408,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:14.139Z",
+      "crawledAt": "2026-07-19T11:11:13.158Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1389,15 +1432,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1450,7 +1497,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:13.206Z",
+      "crawledAt": "2026-07-19T11:11:12.121Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1472,11 +1519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1504,7 +1553,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1530,7 +1579,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T22:33:11.888Z",
+      "crawledAt": "2026-07-19T11:11:10.611Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1553,13 +1602,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },

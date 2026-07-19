@@ -8645,6 +8645,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Ottico optometrista in Ticino: stipendio e requisiti',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guida completa per l\'ottico optometrista frontaliere: requisiti professionali, stipendi medi in Ticino, Permesso G e normativa fiscale aggiornata.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Studio di un ottico optometrista in Ticino con attrezzature moderne',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Quanto guadagna un podologo frontaliere in Ticino?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologo frontaliere in Ticino, immagine fotorealistica DSLR ambientata in Canton Ticino.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'Quanto guadagna un assistente di studio medico frontaliere in Ticino?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall\'esperienza e dal ruolo.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Un assistente di studio medico frontaliere lavora in un ospedale a Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di supportare gli anestesisti e gli altri membri del team di cura durante le procedure chirurgiche.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Un frontaliere che lavora come tecnico di sala operatoria in un ospedale di Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Medici frontalieri in Ticino: stipendio, requisiti e riconoscimento titolo',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena fotorealistica del Lago di Lugano con una barca a vela in primo piano',
 };
 
 export default blogMetaIt;

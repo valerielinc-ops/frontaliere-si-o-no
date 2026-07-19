@@ -3761,6 +3761,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'podologo-frontaliere-ticino-guida',
+    category: 'pratico',
+    date: '2026-07-19T09:57:28.456Z',
+    image: '/images/blog/podologo-frontaliere-ticino-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'indennita-di-disoccupazione-svizzere-ai-frontalieri',
+    category: 'pratico',
+    date: '2026-07-19T10:23:00.484Z',
+    image: '/images/blog/indennita-di-disoccupazione-svizzere-ai-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-19T11:53:39.514Z',
+    image: '/images/blog/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontalieri-stipendio-tecnico-sala-operatoria',
+    category: 'pratico',
+    date: '2026-07-19T12:24:27.266Z',
+    image: '/images/blog/frontalieri-stipendio-tecnico-sala-operatoria.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

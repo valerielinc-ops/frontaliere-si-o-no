@@ -17,6 +17,7 @@ import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -31,9 +32,8 @@ import {
 } from './shared/cantonSeoProse';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import {
-  GROSSREGION_MEDIAN_MONTHLY,
   NATIONAL_MEDIAN_MONTHLY,
-  CANTON_TO_GROSSREGION,
+  cantonMonthlyMedianChf,
   cantonNetSalaryBandForCode,
 } from './shared/cantonSalaryIndex';
 import {
@@ -216,11 +216,6 @@ function localeFactorCode(cantonKey: string): string {
   return SALARY_STATS_FACTOR_CODE[cantonKey] ?? cantonKey;
 }
 
-function cantonMonthlyMedian(cantonKey: string): number {
-  const region = CANTON_TO_GROSSREGION[localeFactorCode(cantonKey)];
-  return region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
-}
-
 export function renderSalaryStatsPage(opts: {
   locale: SalaryStatsLocale;
   cantonKey: string;
@@ -233,7 +228,7 @@ export function renderSalaryStatsPage(opts: {
   const canonicalPath = buildSalaryStatsPath(locale, cantonSlug);
   const homeHref = locale === 'it' ? '/' : `${SALARY_STATS_LOCALE_PREFIX[locale]}/`;
 
-  const monthly = cantonMonthlyMedian(cantonKey);
+  const monthly = cantonMonthlyMedianChf(cantonKey);
   const annual = monthly * 12;
   const vsNational = Math.round((monthly / NATIONAL_MEDIAN_MONTHLY) * 100);
   const monthlyStr = `CHF ${fmtChf(monthly, locale)}`;
@@ -354,7 +349,7 @@ ${netBlock}
 ${cta}
 ${methodology}
 ${sourcesBlock}
-${prose}</div>`;
+${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

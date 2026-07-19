@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.80.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3800.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3800.minimumWage.title',
+        descKey: 'whatsNew.v3800.minimumWage.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
     version: '3.78.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3780.title',
@@ -55,6 +68,31 @@ export const RELEASES: Release[] = [
         titleKey: 'whatsNew.v3770.checklist.title',
         descKey: 'whatsNew.v3770.checklist.desc',
         link: { tab: 'gamification' },
+      },
+    ],
+  },
+  {
+    version: '3.76.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3760.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3760.telegram.title',
+        descKey: 'whatsNew.v3760.telegram.desc',
+      },
+    ],
+  },
+  {
+    version: '3.75.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3750.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3750.professionCities.title',
+        descKey: 'whatsNew.v3750.professionCities.desc',
+        link: { tab: 'job-board' },
       },
     ],
   },

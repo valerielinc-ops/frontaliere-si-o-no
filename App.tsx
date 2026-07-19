@@ -202,8 +202,9 @@ import {
  Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
  LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
  FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
- Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info
+ Banknote, Fuel, Scale, Loader2, Menu, X, ScrollText, Info, Send
 } from 'lucide-react';
+import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
@@ -2978,6 +2979,21 @@ const App: React.FC = () => {
  >
  <HelpCircle className="w-3.5 h-3.5" aria-hidden="true" />
  domande frequenti frontalieri
+ </a>
+ </li>
+ )}
+ {/* Telegram broadcast channel — rendered only once the channel is
+   * configured (VITE_TELEGRAM_CHANNEL_URL). Never a dead link. */}
+ {isTelegramChannelConfigured() && (
+ <li>
+ <a
+ href={TELEGRAM_CHANNEL_URL}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
+ >
+ <Send className="w-3.5 h-3.5" aria-hidden="true" />
+ {t('seoLinks.footer.telegram')}
  </a>
  </li>
  )}

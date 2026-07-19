@@ -8644,6 +8644,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Optometrist in Ticino: salary and requirements',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Complete guide for the border optometrist optician: professional requirements, average salaries in Ticino, G Permit and updated tax legislation.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Optician optometrist office in Ticino with modern equipment',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'How much does a border podiatrist earn in Ticino?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'The income of a border podiatrist in Ticino is influenced by several factors, including deductible, withholding and double taxation.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'A podologist working in Ticino, Switzerland, image captured by DSLR camera in a realistic scene set in the Ticino canton.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'How much does a border medical study assistant earn in Ticino?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'The remuneration of a border medical study assistant in Ticino depends on experience and role.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'A medical study assistant works in a hospital in Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Operating room technician in Ticino: salary, requirements and permit G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'The operating room technician is a highly specialized professional who works in a high-pressure environment. Her primary responsibility is to support anesthesiologists and other members of the care team during surgical procedures.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'A frontline worker working as an operating room technician in a hospital in Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Border doctors in Ticino: salary, requirements and title recognition',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'The average salaries for border doctors in Ticino, the requirements to work as a border doctor, the recognition of the educational qualification and the G permit.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'A scenic view of Lake Lugano with a sailboat in the foreground',
 };
 
 export default blogMetaEn;

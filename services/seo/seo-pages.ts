@@ -4762,7 +4762,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3318,
+ "numberOfItems": 3326,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8081,7 +8081,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3315, "name": "Quanto guadagna un ottico optometrista frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-ottico-optometrista` },
           { "@type": "ListItem", "position": 3316, "name": "Lavorare come ottico in Ticino: stipendio, requ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ottico-optometrista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3317, "name": "Ottico optometrista in Ticino: stipendio e requ...", "url": `${BASE_URL}/articoli-frontaliere/ottico-optometrista-ticino-guida` },
-          { "@type": "ListItem", "position": 3318, "name": "Lavorare come podologo in Ticino: requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3318, "name": "Lavorare come podologo in Ticino: requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3319, "name": "Quanto guadagna un podologo frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guadagna` },
+          { "@type": "ListItem", "position": 3320, "name": "Podologo in Ticino: stipendio, requisiti e perm...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guida` },
+          { "@type": "ListItem", "position": 3321, "name": "Quanto guadagna un assistente di studio medico ...", "url": `${BASE_URL}/articoli-frontaliere/assistente-di-studio-medico-frontaliere` },
+          { "@type": "ListItem", "position": 3322, "name": "Indennità di disoccupazione svizzere ai frontal...", "url": `${BASE_URL}/articoli-frontaliere/indennita-di-disoccupazione-svizzere-ai-frontalieri` },
+          { "@type": "ListItem", "position": 3323, "name": "Tecnico di sala operatoria in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati` },
+          { "@type": "ListItem", "position": 3324, "name": "Frontalieri assistenti di studio medico in Tici...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3325, "name": "Medici frontalieri in Ticino: stipendio, requis...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3326, "name": "Quanto guadagna un tecnico di sala operatoria f...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-stipendio-tecnico-sala-operatoria` }
  ]
  },
  {

@@ -8643,6 +8643,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Augenoptiker im Tessin: Gehalt und Voraussetzungen',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Vollständiger Leitfaden für Grenzoptiker: berufliche Anforderungen, Durchschnittslöhne im Tessin, G-Genehmigung und aktualisierte Steuervorschriften.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Optiker-Optometrist-Praxis im Tessin mit moderner Ausstattung',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Wie viel verdient ein Grenzfusspfleger im Tessin?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Das Einkommen eines Grenzfusspflegers im Tessin wird von mehreren Faktoren beeinflusst, darunter Franchise, Quellensteuer und Doppelbesteuerung.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Ein Podologe, der in der Schweiz in Ticino arbeitet, Fotografie mit DSLR-Kamera in einer realistischen Szene im Kanton Tessin.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'Wie viel verdient ein Grenzarzthelfer im Tessin?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'Die Bezahlung einer Grenzarzthelferin im Tessin hängt von der Erfahrung und der Rolle ab.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Ein medizinischer Studienassistent arbeitet in einem Krankenhaus in Lugano',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'OP-Techniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Der OP-Techniker ist ein hochspezialisierter Fachmann, der in einer Hochdruckumgebung arbeitet. Seine Hauptverantwortung besteht darin, Anästhesisten und andere Mitglieder des Pflegeteams bei chirurgischen Eingriffen zu unterstützen.',
+    'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Ein Frontalier, der als Operationszimmer-Techniker in einem Krankenhaus in Lugano arbeitet',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Grenzärzte im Tessin: Gehalt, Voraussetzungen und Anerkennung des Titels',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Die Durchschnittsgehälter für Grenzmediziner im Tessin, die Voraussetzungen für die Arbeit als Grenzmediziner, die Anerkennung des Bildungsabschlusses und die Erlaubnis G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Eine fotorealistische Szene des Luganer Sees mit einem Segelboot im Vordergrund',
 };
 
 export default blogMetaDe;
