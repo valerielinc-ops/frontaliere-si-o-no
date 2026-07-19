@@ -21,6 +21,7 @@ import { staticPagesFlushed } from './shared/buildSignals';
 import { MUNICIPALITIES, type Municipality } from '../data/municipalities';
 import { borderCrossings, type BorderCrossing } from '../data/borderCrossings';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type WaitSnapshot = {
@@ -216,7 +217,13 @@ interface Copy {
   faq3a: string;
   hubTitle: string;
   hubText: string;
-  vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => string;
+  /**
+   * `altCantonName`/`altCantonCode` describe whichever canton the closer
+   * (non-primary) crossing actually belongs to — currently always Valais/VS
+   * since that's the only alternate canton in today's data, but the copy no
+   * longer bakes that assumption into the literal text.
+   */
+  vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => string;
 }
 
 const COPY = {
@@ -268,7 +275,7 @@ const COPY = {
     faq3a: 'No. Servono a orientare la scelta abitativa e il pendolarismo. La tassazione dipende anche da data di assunzione, status vecchio/nuovo frontaliere, dichiarazione italiana, deduzioni e situazione familiare.',
     hubTitle: 'Esplora i comuni più cercati',
     hubText: 'Parti da un comune concreto: la scheda mostra cosa cambia su dogana, tempi, tasse locali e collegamenti utili.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Sei più vicino al valico ${vsCrossing} che porta verso il Vallese (cantone VS). Se lavori in Ticino il passaggio TI utile resta ${tiCrossing}, usato in tutti i tempi qui sotto.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Sei più vicino al valico ${vsCrossing} che porta verso il ${altCantonName} (cantone ${altCantonCode}). Se lavori in Ticino il passaggio TI utile resta ${tiCrossing}, usato in tutti i tempi qui sotto.`,
   },
   en: {
     updated: 'Updated',
@@ -318,7 +325,7 @@ const COPY = {
     faq3a: 'No. These pages help with orientation. Tax treatment depends on hiring date, old/new cross-border status, Italian filing, deductions and family situation.',
     hubTitle: 'Explore popular municipalities',
     hubText: 'Start from a concrete municipality: each profile shows border crossing, timing, local taxes and useful links.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `You are closer to ${vsCrossing}, which leads into Valais (canton VS). If you commute to Ticino the useful TI crossing remains ${tiCrossing}, used in all timings below.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `You are closer to ${vsCrossing}, which leads into ${altCantonName} (canton ${altCantonCode}). If you commute to Ticino the useful TI crossing remains ${tiCrossing}, used in all timings below.`,
   },
   de: {
     updated: 'Aktualisiert',
@@ -368,7 +375,7 @@ const COPY = {
     faq3a: 'Nein. Die Seite dient zur Orientierung. Die Besteuerung hängt von Einstellungsdatum, altem/neuem Grenzgängerstatus, italienischer Erklärung, Abzügen und Familie ab.',
     hubTitle: 'Beliebte Gemeinden erkunden',
     hubText: 'Starte bei einer konkreten Gemeinde: jede Karte zeigt Grenze, Zeiten, lokale Steuern und nützliche Links.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Du bist näher an ${vsCrossing}, das ins Wallis (Kanton VS) führt. Wer ins Tessin pendelt, nutzt weiterhin den TI-Übergang ${tiCrossing} — er liegt allen Zeiten unten zugrunde.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Du bist näher an ${vsCrossing}, das ins ${altCantonName} (Kanton ${altCantonCode}) führt. Wer ins Tessin pendelt, nutzt weiterhin den TI-Übergang ${tiCrossing} — er liegt allen Zeiten unten zugrunde.`,
   },
   fr: {
     updated: 'Mis à jour',
@@ -418,7 +425,7 @@ const COPY = {
     faq3a: 'Non. Cette page sert d’orientation. Le traitement fiscal dépend de la date d’embauche, du statut ancien/nouveau frontalier, de la déclaration italienne, des déductions et de la famille.',
     hubTitle: 'Explorer les communes populaires',
     hubText: 'Partez d’une commune concrète: chaque fiche montre douane, temps, taxes locales et liens utiles.',
-    vsAlternativeNote: (vsCrossing: string, tiCrossing: string) => `Vous êtes plus proche du poste ${vsCrossing}, qui mène au Valais (canton VS). Pour le Tessin, le passage TI utile reste ${tiCrossing}, utilisé dans tous les temps ci-dessous.`,
+    vsAlternativeNote: (vsCrossing: string, altCantonName: string, altCantonCode: string, tiCrossing: string) => `Vous êtes plus proche du poste ${vsCrossing}, qui mène au ${altCantonName} (canton ${altCantonCode}). Pour le Tessin, le passage TI utile reste ${tiCrossing}, utilisé dans tous les temps ci-dessous.`,
   },
 } satisfies Record<Locale, Copy>;
 
@@ -489,8 +496,21 @@ function nearestCrossings(municipality: Municipality): Array<{ crossing: BorderC
     .sort((a, b) => a.distanceKm - b.distanceKm);
 }
 
-function nearestTiCrossings(municipality: Municipality): Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }> {
-  return nearestCrossings(municipality).filter((entry) => entry.crossing.canton === 'TI');
+/**
+ * Canton this municipality-page generator's routes target. Every Italian
+ * border municipality in TICINO_CORRIDOR_PROVINCES today commutes toward
+ * Ticino, so this is the one corridor canton in scope right now — taking it
+ * as a parameter (instead of a bare 'TI' literal inside the filter) is what
+ * lets a future non-TI corridor reuse nearestCantonCrossings() without
+ * hardcoding the canton again.
+ */
+const PRIMARY_CORRIDOR_CANTON = 'TI';
+
+function nearestCantonCrossings(
+  municipality: Municipality,
+  canton: string = PRIMARY_CORRIDOR_CANTON,
+): Array<{ crossing: BorderCrossing; slug: string; distanceKm: number }> {
+  return nearestCrossings(municipality).filter((entry) => entry.crossing.canton === canton);
 }
 
 function formatInt(n: number, locale: Locale): string {
@@ -574,10 +594,15 @@ function renderScenarioBody(params: {
   const irpef = formatDecimal(municipality.irpefAddizionale, locale);
   const rent = formatInt(municipality.avgRentMonthly, locale);
   const carCost = formatInt(commute.costMonthly, locale);
+  // Crossings without traffic-history data yet (e.g. future non-Ticino
+  // borders) fall back to 'n.d.' rather than interpolating "undefined"
+  // into the generated prose.
+  const avgMorning = crossing.avgWaitMorning ?? 'n.d.';
+  const avgEvening = crossing.avgWaitEvening ?? 'n.d.';
 
   if (locale === 'en') {
     return {
-      commute: `From ${municipality.name}, the nearest crossing in the model is ${crossing.name}, about ${crossingKm} km as the crow flies from the municipal centre. With the current snapshot the crossing weighs around ${liveWait}; on ordinary days the declared historical wait is ${crossing.avgWaitMorning} in the morning and ${crossing.avgWaitEvening} in the evening.`,
+      commute: `From ${municipality.name}, the nearest crossing in the model is ${crossing.name}, about ${crossingKm} km as the crow flies from the municipal centre. With the current snapshot the crossing weighs around ${liveWait}; on ordinary days the declared historical wait is ${avgMorning} in the morning and ${avgEvening} in the evening.`,
       jobs: `For a job in Ticino, a prudent estimate is around ${mendrisio} minutes to Mendrisio, ${lugano} minutes to Lugano and ${locarno} minutes to Locarno, including the approach to the crossing and the wait. These are orientation estimates: incidents, school traffic and weather can change the result a lot.`,
       money: `The real game is adding net salary, housing and time. Here you have a local surcharge of ${irpef}%, indicative rent of EUR ${rent} and an estimated monthly car cost from EUR ${carCost}. Before moving, compare at least three municipalities in the same corridor.`,
     };
@@ -585,7 +610,7 @@ function renderScenarioBody(params: {
 
   if (locale === 'de') {
     return {
-      commute: `Von ${municipality.name} ist ${crossing.name} der nächste Übergang im Modell, etwa ${crossingKm} km Luftlinie vom Gemeindezentrum entfernt. Mit der aktuellen Momentaufnahme zählt der Übergang rund ${liveWait}; an normalen Tagen liegt der historische Richtwert bei ${crossing.avgWaitMorning} am Morgen und ${crossing.avgWaitEvening} am Abend.`,
+      commute: `Von ${municipality.name} ist ${crossing.name} der nächste Übergang im Modell, etwa ${crossingKm} km Luftlinie vom Gemeindezentrum entfernt. Mit der aktuellen Momentaufnahme zählt der Übergang rund ${liveWait}; an normalen Tagen liegt der historische Richtwert bei ${avgMorning} am Morgen und ${avgEvening} am Abend.`,
       jobs: `Für eine Stelle im Tessin ist eine vorsichtige Schätzung etwa ${mendrisio} Minuten nach Mendrisio, ${lugano} Minuten nach Lugano und ${locarno} Minuten nach Locarno, inklusive Anfahrt zur Grenze und Wartezeit. Es sind Orientierungswerte: Unfälle, Schulverkehr und Wetter ändern das Ergebnis stark.`,
       money: `Entscheidend ist die Summe aus Nettolohn, Wohnen und Zeit. Hier stehen kommunaler Zuschlag ${irpef}%, indikative Miete EUR ${rent} und geschätzte monatliche Autokosten ab EUR ${carCost}. Vergleiche vor einem Umzug mindestens drei Gemeinden desselben Korridors.`,
     };
@@ -593,14 +618,14 @@ function renderScenarioBody(params: {
 
   if (locale === 'fr') {
     return {
-      commute: `Depuis ${municipality.name}, le passage le plus proche dans le modèle est ${crossing.name}, à environ ${crossingKm} km à vol d'oiseau du centre communal. Avec l'instantané actuel, le passage pèse environ ${liveWait}; les jours ordinaires, l'attente historique déclarée est ${crossing.avgWaitMorning} le matin et ${crossing.avgWaitEvening} le soir.`,
+      commute: `Depuis ${municipality.name}, le passage le plus proche dans le modèle est ${crossing.name}, à environ ${crossingKm} km à vol d'oiseau du centre communal. Avec l'instantané actuel, le passage pèse environ ${liveWait}; les jours ordinaires, l'attente historique déclarée est ${avgMorning} le matin et ${avgEvening} le soir.`,
       jobs: `Pour un emploi au Tessin, une estimation prudente est d'environ ${mendrisio} minutes vers Mendrisio, ${lugano} minutes vers Lugano et ${locarno} minutes vers Locarno, avec l'approche de la douane et l'attente. Ce sont des repères: accidents, écoles et météo peuvent beaucoup changer le résultat.`,
       money: `Le vrai jeu consiste à additionner net, logement et temps. Ici vous avez une surtaxe communale de ${irpef}%, un loyer indicatif de EUR ${rent} et un coût voiture mensuel estimé dès EUR ${carCost}. Avant de changer de résidence, comparez au moins trois communes du même corridor.`,
     };
   }
 
   return {
-    commute: `Da ${municipality.name} la dogana più vicina nel modello è ${crossing.name}, a circa ${crossingKm} km in linea d'aria dal centro comunale. Con lo snapshot attuale il passaggio pesa circa ${liveWait}; nei giorni ordinari il dato storico dichiarato è ${crossing.avgWaitMorning} al mattino e ${crossing.avgWaitEvening} alla sera.`,
+    commute: `Da ${municipality.name} la dogana più vicina nel modello è ${crossing.name}, a circa ${crossingKm} km in linea d'aria dal centro comunale. Con lo snapshot attuale il passaggio pesa circa ${liveWait}; nei giorni ordinari il dato storico dichiarato è ${avgMorning} al mattino e ${avgEvening} alla sera.`,
     jobs: `Per un lavoro in Ticino, una stima prudente è circa ${mendrisio} minuti verso Mendrisio, ${lugano} minuti verso Lugano e ${locarno} minuti verso Locarno, includendo avvicinamento alla dogana e attesa. Sono stime orientative: incidenti, scuole e meteo cambiano molto il risultato.`,
     money: `Il gioco vero è sommare netto, casa e tempo. Qui hai addizionale comunale ${irpef}%, affitto indicativo EUR ${rent} e costo auto mensile stimato da EUR ${carCost}. Prima di cambiare residenza, confronta almeno tre comuni dello stesso corridoio.`,
   };
@@ -671,9 +696,14 @@ function buildHydrationData(params: {
       summaryTemplate: copy.simulatorSummary('{crossing}', '{destination}', '{minutes}', '{wait}'),
     },
     routes: routes.slice(0, 2).map(({ crossing, slug, distanceKm }) => {
-      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, crossing.avgWaitMorning);
-      const morningMinutes = waitMinutesFromLabel(crossing.avgWaitMorning, nowMinutes);
-      const eveningMinutes = waitMinutesFromLabel(crossing.avgWaitEvening, morningMinutes);
+      // Crossings without traffic-history data yet fall back to 'n.d.'
+      // (matches waitLabel()'s convention) rather than crashing on
+      // `undefined.matchAll(...)` inside waitMinutesFromLabel().
+      const morningLabel = crossing.avgWaitMorning ?? 'n.d.';
+      const eveningLabel = crossing.avgWaitEvening ?? 'n.d.';
+      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, morningLabel);
+      const morningMinutes = waitMinutesFromLabel(morningLabel, nowMinutes);
+      const eveningMinutes = waitMinutesFromLabel(eveningLabel, morningMinutes);
       const approachMinutes = Math.round(distanceKm * 1.7);
       const destinationBase = destinationBaseMinutes(crossing);
       const carCost = (baseMinutes: number) =>
@@ -684,8 +714,8 @@ function buildHydrationData(params: {
         href: `/traffico-dogane/${slug}/oggi/`,
         waits: {
           now: { minutes: nowMinutes, label: waitLabel(waitSnapshot, slug) },
-          morning: { minutes: morningMinutes, label: crossing.avgWaitMorning },
-          evening: { minutes: eveningMinutes, label: crossing.avgWaitEvening },
+          morning: { minutes: morningMinutes, label: morningLabel },
+          evening: { minutes: eveningMinutes, label: eveningLabel },
         },
         destinations: {
           mendrisio: {
@@ -792,12 +822,14 @@ function renderPage(params: {
   const { municipality, locale, dateStamp, distDir, waitSnapshot } = params;
   const copy = COPY[locale];
   const allRoutes = nearestCrossings(municipality);
-  const tiRoutes = nearestTiCrossings(municipality);
+  const tiRoutes = nearestCantonCrossings(municipality);
   const routes = tiRoutes;
   const [primary, alternate] = routes;
   const crossing = primary.crossing;
-  const showVsAlt = allRoutes[0]?.crossing.canton !== 'TI';
+  const showVsAlt = allRoutes[0]?.crossing.canton !== PRIMARY_CORRIDOR_CANTON;
   const vsAltCrossing = showVsAlt ? allRoutes[0]?.crossing.name ?? '' : '';
+  const vsAltCantonCode = showVsAlt ? allRoutes[0]?.crossing.canton ?? '' : '';
+  const vsAltCantonName = showVsAlt ? getCantonDisplayName(vsAltCantonCode, locale as CantonDisplayLocale) : '';
   const commute = estimateCommute(municipality, primary.distanceKm, crossing, waitSnapshot, primary.slug);
   const canonicalPath = pathFor(locale, municipality);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -844,7 +876,7 @@ function renderPage(params: {
     ${renderHydrationPanel({ locale, municipality, routes, waitSnapshot, copy })}
 
     ${showVsAlt ? `<aside class="mt-6 rounded-md border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-body">
-      <p>${esc(copy.vsAlternativeNote(vsAltCrossing, crossing.name))}</p>
+      <p>${esc(copy.vsAlternativeNote(vsAltCrossing, vsAltCantonName, vsAltCantonCode, crossing.name))}</p>
     </aside>` : ''}
 
     <section class="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
@@ -873,8 +905,8 @@ function renderPage(params: {
           <p class="mt-1 text-sm">${esc(copy.currentWait)}: <strong>${esc(liveWait)}</strong></p>
         </div>
         <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-          <div><dt class="font-medium text-subtle">${esc(copy.morning)}</dt><dd class="text-heading">${esc(crossing.avgWaitMorning)}</dd></div>
-          <div><dt class="font-medium text-subtle">${esc(copy.evening)}</dt><dd class="text-heading">${esc(crossing.avgWaitEvening)}</dd></div>
+          <div><dt class="font-medium text-subtle">${esc(copy.morning)}</dt><dd class="text-heading">${esc(crossing.avgWaitMorning ?? 'n.d.')}</dd></div>
+          <div><dt class="font-medium text-subtle">${esc(copy.evening)}</dt><dd class="text-heading">${esc(crossing.avgWaitEvening ?? 'n.d.')}</dd></div>
           <div><dt class="font-medium text-subtle">${esc(copy.hours)}</dt><dd class="text-heading">${esc(crossing.hours)}</dd></div>
           <div><dt class="font-medium text-subtle">${esc(copy.customs)}</dt><dd class="text-heading">${crossing.customsPresent ? esc(copy.yes) : esc(copy.no)}</dd></div>
         </dl>
@@ -1002,7 +1034,7 @@ function buildHubPatch(municipalities: Municipality[]): string {
     .map((name) => byName.get(name))
     .filter((m): m is Municipality => Boolean(m))
     .map((m) => {
-      const [nearest] = nearestTiCrossings(m);
+      const [nearest] = nearestCantonCrossings(m);
       return `<a class="rounded-md border border-edge bg-surface p-4 hover:border-accent-border" href="${pathFor('it', m)}">
         <span class="block text-sm font-semibold text-heading">${esc(m.name)}</span>
         <span class="mt-1 block text-xs text-muted">${esc(m.province)} · ${formatDecimal(m.distanceKm, 'it')} km · ${esc(nearest.crossing.name)}</span>

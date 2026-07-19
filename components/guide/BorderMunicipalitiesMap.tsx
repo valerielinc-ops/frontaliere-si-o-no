@@ -233,7 +233,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="text-xs">
  <p className="font-bold">{bc.name}</p>
  <p>{bc.type} — {bc.hours}</p>
- <p>⏱ AM: {bc.avgWaitMorning}</p>
+ <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
  </div>
  </Popup>
  </CircleMarker>
@@ -622,7 +622,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="text-xs">
  <p className="font-bold">{bc.name}</p>
  <p>{bc.type} — {bc.hours}</p>
- <p>⏱ AM: {bc.avgWaitMorning}</p>
+ <p>⏱ AM: {bc.avgWaitMorning ?? 'n.d.'}</p>
  </div>
  </Popup>
  </CircleMarker>

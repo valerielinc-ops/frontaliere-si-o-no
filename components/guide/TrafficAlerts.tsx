@@ -13,6 +13,7 @@ import { buildOggiPath, type BorderWaitLocale, type BorderCrossingSlug } from '@
 import { reportCaughtError } from '@/services/errorReporter';
 import { MAP_COLORS } from '@/services/mapColors';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { getProvinceName } from '@/services/provinceList';
 
 const borderCrossings = centralizedCrossings.map(c => ({
  ...c,
@@ -107,7 +108,11 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
  const [liveTrafficAvailable, setLiveTrafficAvailable] = useState(false);
  const [selectedCrossing, setSelectedCrossing] = useState<string | null>(null);
- const [filterRegion, setFilterRegion] = useState<'all' | 'CO' | 'VA'>('all');
+ // Not a hardcoded union: options are derived from whatever provinces/
+ // countries actually exist in `borderCrossings` at render time (see
+ // `availableProvinces` below), so a newly added province (e.g. 'VB', or a
+ // future non-Italian one) is automatically selectable with no code change.
+ const [filterRegion, setFilterRegion] = useState<string>('all');
 
  const loadTrafficData = async () => {
  setLoading(true);
@@ -150,7 +155,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  const allCrossingsWithTraffic = useMemo(() => {
  return borderCrossings
- .filter(c => c.trafficLevel !== 'closed')
+ .filter(c => c.trafficLevel !== undefined && c.trafficLevel !== 'closed')
  .map(c => {
  const traffic = trafficData.find(t => t.crossingName === c.name);
  return {
@@ -167,6 +172,15 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  })
  .sort((a, b) => effectiveWait(a.traffic) - effectiveWait(b.traffic));
  }, [trafficData]);
+
+ // Filter-chip options, derived from the crossings actually on screen
+ // (post trafficLevel-exclusion) instead of a hardcoded province list —
+ // mirrors the same pattern already used for the municipality filter in
+ // BorderMunicipalitiesMap.tsx/FrontierGuide.tsx.
+ const availableProvinces = useMemo(
+ () => Array.from(new Set(allCrossingsWithTraffic.map(({ crossing }) => crossing.province))).sort(),
+ [allCrossingsWithTraffic]
+ );
 
  const filteredCrossingsWithTraffic = useMemo(() => {
  if (filterRegion === 'all') return allCrossingsWithTraffic;
@@ -197,7 +211,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <Filter size={13} className="text-muted" />
  <span className="text-xs font-bold text-subtle">{t('traffic.filterBy')}:</span>
  </div>
- {(['all', 'CO', 'VA'] as const).map((r) => (
+ {['all', ...availableProvinces].map((r) => (
  <button
  key={r}
  onClick={() => setFilterRegion(r)}
@@ -207,7 +221,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
- {r === 'all' ? t('traffic.regionAll') : r === 'CO' ? 'Ticino–Como' : 'Ticino–Varese'}
+ {r === 'all' ? t('traffic.regionAll') : getProvinceName(r)}
  </button>
  ))}
  </div>
