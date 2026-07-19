@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Aggiungi un widget Frontaliere Ticino al tuo sito</title>
+<meta name="description" content="Widget gratuiti ed embeddabili di Frontaliere Ticino: cambio CHF/EUR, attese alle dogane e stipendio medio per professione. Copia il codice e incollalo nel tuo sito.">
+<!--
+  Frontaliere Ticino — "embed this widget" gallery (webmaster-facing).
+
+  Human-readable copy-paste page for the three self-hosted iframe widgets in
+  this folder (currency-widget.html, border-wait-widget.html, salary-badge.html).
+  Every widget carries a visible editorial follow link back to the canonical
+  page — the backlink is the point. No third-party script; all copy-to-clipboard
+  logic is inline. noindex,follow (utility page, not SEO content).
+-->
+<style>
+  :root{color-scheme:light dark}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.55;padding:24px 16px}
+  @media (prefers-color-scheme:dark){body{background:#0f172a;color:#e2e8f0}}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:26px;line-height:1.2;margin:0 0 8px}
+  .lede{font-size:15px;color:#475569;margin:0 0 8px}
+  @media (prefers-color-scheme:dark){.lede{color:#94a3b8}}
+  .note{font-size:13px;color:#64748b;margin:0 0 28px}
+  section{margin:0 0 34px;padding:20px;border:1px solid rgba(148,163,184,.35);border-radius:14px;background:#fff}
+  @media (prefers-color-scheme:dark){section{background:rgba(30,41,59,.5);border-color:rgba(148,163,184,.25)}}
+  h2{font-size:19px;margin:0 0 4px}
+  .desc{font-size:14px;color:#475569;margin:0 0 16px}
+  @media (prefers-color-scheme:dark){.desc{color:#94a3b8}}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media (min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+  .preview{min-width:0}
+  .preview iframe{width:100%;border:0}
+  .code{min-width:0}
+  label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#6366f1;margin:0 0 6px}
+  select{width:100%;padding:8px 10px;border-radius:8px;border:1px solid rgba(148,163,184,.5);background:#fff;color:#0f172a;font-size:14px;margin:0 0 12px}
+  @media (prefers-color-scheme:dark){select{background:#0f172a;color:#e2e8f0}}
+  textarea{width:100%;min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.5;padding:10px;border-radius:8px;border:1px solid rgba(148,163,184,.5);background:#f1f5f9;color:#0f172a;resize:vertical}
+  @media (prefers-color-scheme:dark){textarea{background:#020617;color:#e2e8f0}}
+  .copy{margin-top:8px;padding:9px 16px;border:0;border-radius:8px;background:#4f46e5;color:#fff;font-size:13px;font-weight:700;cursor:pointer}
+  .copy:hover{background:#4338ca}
+  .copy.ok{background:#16a34a}
+  footer{font-size:13px;color:#64748b;margin-top:12px}
+  footer a{color:#4f46e5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Aggiungi un widget Frontaliere Ticino al tuo sito</h1>
+  <p class="lede">Widget gratuiti, leggeri e sempre aggiornati. Copia il codice, incollalo nel tuo sito e mostra ai tuoi lettori dati utili sui frontalieri del Ticino.</p>
+  <p class="note">Nessuno script di terze parti: ogni widget è un <code>&lt;iframe&gt;</code> autonomo servito da frontaliereticino.ch. Ogni widget include un link alla fonte. Uso libero, basta lasciare il link di attribuzione.</p>
+
+  <!-- ── Salary badge (parametric) ─────────────────────────────── -->
+  <section>
+    <h2>Stipendio medio per professione</h2>
+    <p class="desc">Mostra la mediana lorda annua di una professione in Ticino, con link alla pagina di approfondimento. Scegli la professione e copia il codice.</p>
+    <div class="grid">
+      <div class="preview">
+        <label>Anteprima</label>
+        <iframe id="salaryPreview" title="Anteprima badge stipendio" height="220" loading="lazy" style="max-width:480px"></iframe>
+      </div>
+      <div class="code">
+        <label for="prof">Professione</label>
+        <select id="prof" aria-label="Scegli la professione"></select>
+        <label for="salarySnippet">Codice da incollare</label>
+        <textarea id="salarySnippet" readonly aria-label="Codice del badge stipendio"></textarea>
+        <button class="copy" type="button" data-target="salarySnippet">Copia il codice</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Border wait ───────────────────────────────────────────── -->
+  <section>
+    <h2>Attese alle dogane (live)</h2>
+    <p class="desc">Tempi di attesa in tempo reale ai principali valichi doganali del Ticino, aggiornati ogni 15-30 minuti.</p>
+    <div class="grid">
+      <div class="preview">
+        <label>Anteprima</label>
+        <iframe src="https://frontaliereticino.ch/embed/border-wait-widget.html" title="Anteprima attese dogane" height="360" loading="lazy" style="max-width:480px"></iframe>
+      </div>
+      <div class="code">
+        <label for="borderSnippet">Codice da incollare</label>
+        <textarea id="borderSnippet" readonly aria-label="Codice del widget attese dogane">&lt;iframe
+  src="https://frontaliereticino.ch/embed/border-wait-widget.html"
+  title="Attese dogane live · Frontaliere Ticino"
+  width="100%"
+  height="360"
+  loading="lazy"
+  style="border:0;max-width:480px"&gt;&lt;/iframe&gt;</textarea>
+        <button class="copy" type="button" data-target="borderSnippet">Copia il codice</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Currency ──────────────────────────────────────────────── -->
+  <section>
+    <h2>Cambio CHF/EUR</h2>
+    <p class="desc">Tasso di cambio franco-euro e stipendio mediano frontaliere, con link al calcolatore del netto.</p>
+    <div class="grid">
+      <div class="preview">
+        <label>Anteprima</label>
+        <iframe src="https://frontaliereticino.ch/embed/currency-widget.html" title="Anteprima cambio CHF/EUR" height="280" loading="lazy" style="max-width:480px"></iframe>
+      </div>
+      <div class="code">
+        <label for="currencySnippet">Codice da incollare</label>
+        <textarea id="currencySnippet" readonly aria-label="Codice del widget cambio">&lt;iframe
+  src="https://frontaliereticino.ch/embed/currency-widget.html"
+  title="Cambio CHF/EUR · Frontaliere Ticino"
+  width="100%"
+  height="280"
+  loading="lazy"
+  style="border:0;max-width:480px"&gt;&lt;/iframe&gt;</textarea>
+        <button class="copy" type="button" data-target="currencySnippet">Copia il codice</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Torna a <a href="https://frontaliereticino.ch/" rel="noopener">frontaliereticino.ch</a> · dati indicativi aggiornati automaticamente.
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var ORIGIN = 'https://frontaliereticino.ch';
+    // Baked-in fallback list (overwritten by the live snapshot when available).
+    var PROFESSIONS = [
+      { id: 'infermiere', label: 'Infermiere' },
+      { id: 'ingegnere', label: 'Ingegnere' },
+      { id: 'farmacista', label: 'Farmacista' },
+      { id: 'ostetrica', label: 'Ostetrica' },
+      { id: 'educatore', label: 'Educatore' },
+      { id: 'cuoco', label: 'Cuoco' },
+      { id: 'psicologo', label: 'Psicologo' },
+      { id: 'assistente-sociale', label: 'Assistente sociale' }
+    ];
+
+    var select = document.getElementById('prof');
+    var snippet = document.getElementById('salarySnippet');
+    var preview = document.getElementById('salaryPreview');
+
+    function salarySnippet(id, label) {
+      var src = ORIGIN + '/embed/salary-badge.html?professione=' + encodeURIComponent(id);
+      return '<iframe\n  src="' + src + '"\n  title="Stipendio medio ' + label + ' in Ticino · Frontaliere Ticino"\n  width="100%"\n  height="220"\n  loading="lazy"\n  style="border:0;max-width:480px"></iframe>';
+    }
+
+    function renderOptions() {
+      select.innerHTML = PROFESSIONS.map(function (p) {
+        return '<option value="' + p.id + '">' + p.label + '</option>';
+      }).join('');
+    }
+
+    function update() {
+      var opt = PROFESSIONS[select.selectedIndex] || PROFESSIONS[0];
+      if (!opt) return;
+      snippet.value = salarySnippet(opt.id, opt.label);
+      preview.src = ORIGIN + '/embed/salary-badge.html?professione=' + encodeURIComponent(opt.id);
+    }
+
+    renderOptions();
+    update();
+    select.addEventListener('change', update);
+
+    // Prefer the live profession list so the dropdown always matches the data.
+    fetch('/embed/salary-badge-data.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (data && Array.isArray(data.professions) && data.professions.length) {
+          PROFESSIONS = data.professions.map(function (p) { return { id: p.id, label: p.label }; });
+          renderOptions();
+          update();
+        }
+      })
+      .catch(function () {});
+
+    // Copy-to-clipboard (no third-party lib).
+    var buttons = document.querySelectorAll('.copy');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var ta = document.getElementById(this.getAttribute('data-target'));
+        var btn = this;
+        if (!ta) return;
+        var done = function () {
+          var orig = btn.textContent;
+          btn.textContent = 'Copiato!';
+          btn.classList.add('ok');
+          setTimeout(function () { btn.textContent = orig; btn.classList.remove('ok'); }, 1600);
+        };
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(ta.value).then(done, function () { ta.select(); document.execCommand('copy'); done(); });
+          } else {
+            ta.select(); document.execCommand('copy'); done();
+          }
+        } catch (e) { ta.select(); }
+      });
+    }
+  })();
+</script>
+</body>
+</html>

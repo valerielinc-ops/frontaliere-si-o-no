@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3730.title': 'Des widgets à ajouter à votre site',
+ 'whatsNew.v3730.embedWidgets.title': 'Badge salaire et widgets d’attente aux douanes pour votre site',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blogs, forums et sites spécialisés peuvent désormais intégrer gratuitement nos widgets : salaire médian par profession, attentes en temps réel aux douanes et taux CHF/EUR. Code copier-coller prêt sur frontaliereticino.ch/embed/.',
  'whatsNew.v3670.title': 'Établissements de santé qui recrutent',
  'whatsNew.v3670.facilities.title': 'Emplois par hôpital et clinique',
  'whatsNew.v3670.facilities.desc': 'De nouvelles pages pour chaque établissement de santé suisse avec ses postes ouverts, les métiers de la santé recherchés et le salaire médian réel, reliées au parcours infirmiers et assistants en soins.',
