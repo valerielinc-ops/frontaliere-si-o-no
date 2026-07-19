@@ -15,6 +15,9 @@ const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
 const CalculatorPaywall = lazyRetry(() => import('./CalculatorPaywall'));
 const CalculatorJobBridge = lazyRetry(() => import('./CalculatorJobBridge'));
+const SalaryAlertCTA = lazyRetry(() => import('./SalaryAlertCTA').then(m => ({ default: m.SalaryAlertCTA })));
+const CantonNetComparison = lazyRetry(() => import('./CantonNetComparison').then(m => ({ default: m.CantonNetComparison })));
+const TicinoMunicipalTax = lazyRetry(() => import('./TicinoMunicipalTax').then(m => ({ default: m.TicinoMunicipalTax })));
 import { shouldShowPaywallFromStorage, SIM_COMPLETE_COUNTER_KEY, VISIT_COUNTER_KEY } from './CalculatorPaywall';
 import { Analytics } from '../../services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -797,6 +800,11 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </div>
  )}
 
+ {/* Salary alert — one-tap "avvisami per netto ≥ X" (issue #4469) */}
+ <Suspense fallback={null}>
+ <SalaryAlertCTA netMonthlyCHF={itResident.netIncomeMonthly} />
+ </Suspense>
+
  {/* E3: Post-simulation consulting CTA — inline box pointing to /consulenza */}
  <Suspense fallback={null}>
  <ConsultingCTA />
@@ -805,6 +813,20 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  {/* Calculator↔job-board reverse bridge (issue #4307) */}
  <Suspense fallback={null}>
  <CalculatorJobBridge annualIncomeCHF={inputs.annualIncomeCHF} />
+ </Suspense>
+
+ {/* Same job in other cantons — net comparison (issue #4471) */}
+ <Suspense fallback={null}>
+ <CantonNetComparison grossAnnualCHF={inputs.annualIncomeCHF} />
+ </Suspense>
+
+ {/* TI municipal multiplier — CH-resident net refinement (issue #4470) */}
+ <Suspense fallback={null}>
+ <TicinoMunicipalTax
+ baseChTaxAnnualCHF={chResident.taxes}
+ baseNetMonthlyCHF={chResident.netIncomeMonthly}
+ monthsBasis={monthsBasis}
+ />
  </Suspense>
 
  {/* Source methodology — AI SEO citability */}

@@ -29,6 +29,16 @@ export const DEFAULT_TECH_PARAMS = {
  itWorkDeduction: 0,
 };
 
+/**
+ * Flat Swiss social-charge rate (AVS/AI/APG + AC + LAINF/IGM + LPP) used to
+ * turn a canton GROSS into a resident NET in the per-canton salary estimators.
+ * Single source of truth for `components/comparators/SalaryCompare.tsx`,
+ * `build-plugins/shared/cantonSalaryIndex.ts` and `services/cantonSalary.ts` —
+ * previously each held its own literal `0.136`, which drift-by-construction
+ * could desync (see AGENTS.md #6 "costante duplicata → estrai in UN modulo").
+ */
+export const CH_SOCIAL_RATE = 0.136;
+
 // Funzione per calcolare spese in base al numero di componenti
 export const calculateDynamicExpenses = (familyMembers: number, target: 'CH' | 'IT') => {
  // Coefficienti per scalare le spese in base ai componenti

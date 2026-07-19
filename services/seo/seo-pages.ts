@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3314,
+ "numberOfItems": 3315,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8031,7 +8031,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3311, "name": "Quanto guadagna un ergoterapista frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino` },
           { "@type": "ListItem", "position": 3312, "name": "Quanto guadagna un frontaliere dietista in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/salario-frontaliere-dietista-ticino` },
           { "@type": "ListItem", "position": 3313, "name": "Lavorare come dietista in Ticino: stipendio, re...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3314, "name": "Di più centrali nucleari mettono a rischio migl...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw` }
+          { "@type": "ListItem", "position": 3314, "name": "Di più centrali nucleari mettono a rischio migl...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw` },
+          { "@type": "ListItem", "position": 3315, "name": "Quanto guadagna un ottico optometrista frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-ottico-optometrista` }
  ]
  },
  {
