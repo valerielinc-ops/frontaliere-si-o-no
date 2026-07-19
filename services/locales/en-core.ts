@@ -2524,6 +2524,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3680.title': 'Salary by profession and canton',
+ 'whatsNew.v3680.salaryLandings.title': 'How much you earn by profession and canton',
+ 'whatsNew.v3680.salaryLandings.desc': 'New pages with the median gross, estimated net and active openings by profession (nurse, engineer, pharmacist and more) in every Swiss canton, with a cross-region comparison.',
  'whatsNew.v3650.title': 'Interactive LAMal vs SSN comparison',
  'whatsNew.v3650.affiliate.title': 'Recommended health tools',
  'whatsNew.v3650.affiliate.desc': 'New recommended resources in the health-insurance comparator and premium pages, with uniformly tracked partner links.',

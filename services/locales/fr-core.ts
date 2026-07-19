@@ -2527,6 +2527,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3680.title': 'Salaire par métier et canton',
+ 'whatsNew.v3680.salaryLandings.title': 'Combien vous gagnez par métier et canton',
+ 'whatsNew.v3680.salaryLandings.desc': 'De nouvelles pages avec le médian brut, le net estimé et les offres actives par métier (infirmier, ingénieur, pharmacien et plus) dans chaque canton suisse, avec comparaison entre régions.',
  'whatsNew.v3650.title': 'Comparaison interactive LAMal vs SSN',
  'whatsNew.v3650.affiliate.title': 'Outils sant\u00e9 recommand\u00e9s',
  'whatsNew.v3650.affiliate.desc': 'Nouvelles ressources recommand\u00e9es dans le comparateur de caisses maladie et les pages de primes, avec liens partenaires suivis de mani\u00e8re uniforme.',

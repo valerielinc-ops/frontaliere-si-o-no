@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3680.title': 'Lohn nach Beruf und Kanton',
+ 'whatsNew.v3680.salaryLandings.title': 'Was du nach Beruf und Kanton verdienst',
+ 'whatsNew.v3680.salaryLandings.desc': 'Neue Seiten mit Bruttomedian, geschätztem Netto und aktiven Stellen nach Beruf (Pflegefachperson, Ingenieur, Apotheker und mehr) in jedem Schweizer Kanton, mit Regionenvergleich.',
  'whatsNew.v3650.title': 'Interaktiver LAMal-vs-SSN-Vergleich',
  'whatsNew.v3650.affiliate.title': 'Empfohlene Gesundheits-Tools',
  'whatsNew.v3650.affiliate.desc': 'Neue empfohlene Ressourcen im Krankenkassen-Vergleich und auf den Pr\u00e4mienseiten, mit einheitlich getrackten Partnerlinks.',

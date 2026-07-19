@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3680.title': 'Stipendio per professione e cantone',
+ 'whatsNew.v3680.salaryLandings.title': 'Quanto guadagni per professione e cantone',
+ 'whatsNew.v3680.salaryLandings.desc': 'Nuove pagine con la mediana lorda, il netto stimato e le offerte attive per professione (infermiere, ingegnere, farmacista e altre) in ogni cantone svizzero, con confronto tra regioni.',
  'whatsNew.v3650.title': 'Confronto LAMal vs SSN interattivo',
  'whatsNew.v3650.affiliate.title': 'Strumenti consigliati per la salute',
  'whatsNew.v3650.affiliate.desc': 'Nuove risorse consigliate nel comparatore casse malati e nelle pagine premi, con link partner tracciati in modo uniforme.',
