@@ -1,0 +1,304 @@
+{
+  "meta": {
+    "description": "Giorni festivi ufficiali di Canton Ticino / Svizzera e Italia, con classificazione di coincidenza per i frontalieri.",
+    "source": "Ticino: giorni festivi ufficiali cantonali. Italia: festività nazionali (L. 260/1949 e succ.). Date pasquali via algoritmo di Gauss/Meeus.",
+    "refreshScript": "scripts/update-holidays-dataset.mjs",
+    "refreshCadence": "annual",
+    "years": [
+      2026,
+      2027
+    ],
+    "generatedAt": "2026-07-19"
+  },
+  "holidays": [
+    {
+      "id": "capodanno",
+      "name": {
+        "it": "Capodanno",
+        "en": "New Year's Day",
+        "de": "Neujahr",
+        "fr": "Nouvel An"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": true,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-01-01",
+        "2027": "2027-01-01"
+      }
+    },
+    {
+      "id": "epifania",
+      "name": {
+        "it": "Epifania",
+        "en": "Epiphany",
+        "de": "Dreikönigstag",
+        "fr": "Épiphanie"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-01-06",
+        "2027": "2027-01-06"
+      }
+    },
+    {
+      "id": "venerdi-santo",
+      "name": {
+        "it": "Venerdì Santo",
+        "en": "Good Friday",
+        "de": "Karfreitag",
+        "fr": "Vendredi Saint"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": false,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-04-03",
+        "2027": "2027-03-26"
+      }
+    },
+    {
+      "id": "lunedi-angelo",
+      "name": {
+        "it": "Lunedì dell'Angelo",
+        "en": "Easter Monday",
+        "de": "Ostermontag",
+        "fr": "Lundi de Pâques"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-04-06",
+        "2027": "2027-03-29"
+      }
+    },
+    {
+      "id": "liberazione",
+      "name": {
+        "it": "Anniversario della Liberazione",
+        "en": "Liberation Day (Italy)",
+        "de": "Tag der Befreiung (Italien)",
+        "fr": "Fête de la Libération (Italie)"
+      },
+      "ticino": false,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "italy-only",
+      "dates": {
+        "2026": "2026-04-25",
+        "2027": "2027-04-25"
+      }
+    },
+    {
+      "id": "festa-lavoro",
+      "name": {
+        "it": "Festa del Lavoro",
+        "en": "Labour Day",
+        "de": "Tag der Arbeit",
+        "fr": "Fête du Travail"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-05-01",
+        "2027": "2027-05-01"
+      }
+    },
+    {
+      "id": "ascensione",
+      "name": {
+        "it": "Ascensione",
+        "en": "Ascension Day",
+        "de": "Auffahrt",
+        "fr": "Ascension"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": true,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-05-14",
+        "2027": "2027-05-06"
+      }
+    },
+    {
+      "id": "lunedi-pentecoste",
+      "name": {
+        "it": "Lunedì di Pentecoste",
+        "en": "Whit Monday",
+        "de": "Pfingstmontag",
+        "fr": "Lundi de Pentecôte"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": false,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-05-25",
+        "2027": "2027-05-17"
+      }
+    },
+    {
+      "id": "corpus-domini",
+      "name": {
+        "it": "Corpus Domini",
+        "en": "Corpus Christi",
+        "de": "Fronleichnam",
+        "fr": "Fête-Dieu"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": false,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-06-04",
+        "2027": "2027-05-27"
+      }
+    },
+    {
+      "id": "repubblica",
+      "name": {
+        "it": "Festa della Repubblica",
+        "en": "Republic Day (Italy)",
+        "de": "Tag der Republik (Italien)",
+        "fr": "Fête de la République (Italie)"
+      },
+      "ticino": false,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "italy-only",
+      "dates": {
+        "2026": "2026-06-02",
+        "2027": "2027-06-02"
+      }
+    },
+    {
+      "id": "pietro-paolo",
+      "name": {
+        "it": "Santi Pietro e Paolo",
+        "en": "Saints Peter and Paul",
+        "de": "Peter und Paul",
+        "fr": "Saints Pierre et Paul"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": false,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-06-29",
+        "2027": "2027-06-29"
+      }
+    },
+    {
+      "id": "festa-nazionale",
+      "name": {
+        "it": "Festa nazionale svizzera",
+        "en": "Swiss National Day",
+        "de": "Bundesfeier",
+        "fr": "Fête nationale suisse"
+      },
+      "ticino": true,
+      "italy": false,
+      "swissFederal": true,
+      "coincidence": "ticino-only",
+      "dates": {
+        "2026": "2026-08-01",
+        "2027": "2027-08-01"
+      }
+    },
+    {
+      "id": "assunzione",
+      "name": {
+        "it": "Assunzione di Maria",
+        "en": "Assumption of Mary",
+        "de": "Mariä Himmelfahrt",
+        "fr": "Assomption"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-08-15",
+        "2027": "2027-08-15"
+      }
+    },
+    {
+      "id": "ognissanti",
+      "name": {
+        "it": "Ognissanti",
+        "en": "All Saints' Day",
+        "de": "Allerheiligen",
+        "fr": "Toussaint"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-11-01",
+        "2027": "2027-11-01"
+      }
+    },
+    {
+      "id": "immacolata",
+      "name": {
+        "it": "Immacolata Concezione",
+        "en": "Immaculate Conception",
+        "de": "Mariä Empfängnis",
+        "fr": "Immaculée Conception"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-12-08",
+        "2027": "2027-12-08"
+      }
+    },
+    {
+      "id": "natale",
+      "name": {
+        "it": "Natale",
+        "en": "Christmas Day",
+        "de": "Weihnachten",
+        "fr": "Noël"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": true,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-12-25",
+        "2027": "2027-12-25"
+      }
+    },
+    {
+      "id": "santo-stefano",
+      "name": {
+        "it": "Santo Stefano",
+        "en": "St Stephen's Day",
+        "de": "Stephanstag",
+        "fr": "Saint-Étienne"
+      },
+      "ticino": true,
+      "italy": true,
+      "swissFederal": false,
+      "coincidence": "both",
+      "dates": {
+        "2026": "2026-12-26",
+        "2027": "2027-12-26"
+      }
+    }
+  ]
+}
