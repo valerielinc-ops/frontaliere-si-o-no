@@ -14,16 +14,16 @@ compatibility_date = "2026-01-01"
 # (deploy-worker.yml runs it; after a MANUAL `npx wrangler deploy`, run it too).
 # NB: the account is on Workers Paid (10M req/mo included, overage ~$0.30/M), so
 # the old free 100k/day invocation cap no longer binds — Worker-routed traffic
-# volume is no longer a scoping constraint (the Ticino routes below add the IT
-# bulk's busiest section deliberately).
+# volume is no longer a scoping constraint (the section routes below add three of
+# the IT bulk's largest sections deliberately).
 #
-# The Worker is scoped to the locale paths PLUS the Ticino section across all four
-# locales. The locale scope uses three exact patterns (subtree /*, bare, .html) so
-# look-alikes like /enterprise never match; the Ticino IT scope uses one wildcard
-# (see its comment below) so query-string hits are covered — a look-alike like
-# /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code. The
-# in-code LOCALE_RE + matchTicino are the authoritative matching guards. Non-Ticino
-# IT paths stay pure Cloudflare passthrough with no Worker subrequest.
+# The Worker is scoped to the locale paths PLUS the ticino/svizzera/zurigo section
+# IT prefixes. The locale scope uses three exact patterns (subtree /*, bare, .html)
+# so look-alikes like /enterprise never match; each section's IT scope uses one
+# wildcard (see its comment below) so query-string hits are covered — a look-alike
+# like /cerca-lavoro-ticino-altro matches that CF route but is rejected in-code.
+# The in-code LOCALE_RE + matchSection are the authoritative matching guards.
+# Non-section IT paths stay pure Cloudflare passthrough with no Worker subrequest.
 routes = [
   { pattern = "frontaliereticino.ch/en/*",    zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en",      zone_name = "frontaliereticino.ch" },
@@ -35,10 +35,10 @@ routes = [
   { pattern = "frontaliereticino.ch/fr",      zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr.html", zone_name = "frontaliereticino.ch" },
   # Ticino section (IT apex prefix) → origin-ticino-it (one shard repo per locale;
-  # see locale-router.js TICINO_ORIGIN). The en/de/fr Ticino subpaths
+  # see locale-router.js SECTION_ORIGIN.ticino). The en/de/fr Ticino subpaths
   # (/en/find-jobs-ticino, /de/jobs-im-tessin, /fr/trouver-emploi-tessin) already
   # reach the Worker via the /en|/de|/fr routes above and are re-targeted to
-  # origin-ticino-<loc> in-code (matchTicino), so only the IT prefix needs a new
+  # origin-ticino-<loc> in-code (matchSection), so only the IT prefix needs a new
   # route here — the IT apex otherwise bypasses the Worker entirely.
   #
   # ONE wildcard `…/cerca-lavoro-ticino*` (NOT bare + /* + .html exact routes): a
@@ -47,9 +47,31 @@ routes = [
   # newsletter hits would bypass the Worker and — after the strip flip — 404 at
   # the apex. The wildcard covers the bare path, /, .html, deep paths, AND query
   # strings. Look-alikes like /cerca-lavoro-ticino-altro also match the CF route
-  # but matchTicino returns null for them in-code → harmless apex passthrough.
+  # but matchSection returns null for them in-code → harmless apex passthrough.
   # Same pattern as the disiscrivi-* proxies above.
   { pattern = "frontaliereticino.ch/cerca-lavoro-ticino*", zone_name = "frontaliereticino.ch" },
+  # Svizzera section (IT apex prefix, nationwide aggregator) → origin-svizzera-it
+  # (one shard repo per locale; see locale-router.js SECTION_ORIGIN.svizzera). Same
+  # rationale as the Ticino route above: the en/de/fr svizzera subpaths
+  # (/en/find-jobs-switzerland, /de/jobs-in-schweiz, /fr/trouver-emploi-suisse)
+  # already reach the Worker via the /en|/de|/fr routes above and are re-targeted
+  # to origin-svizzera-<loc> in-code (matchSection), so only the IT prefix needs a
+  # new route here. Wildcard for the same reason as Ticino's: a CF route without a
+  # trailing `*` matches only the exact URL with NO query string (#2611), and this
+  # is a high-traffic section that gets `?utm_*`/`?fbclid=` ad/social/newsletter
+  # hits. Look-alikes match the CF route but matchSection rejects them in-code.
+  { pattern = "frontaliereticino.ch/cerca-lavoro-svizzera*", zone_name = "frontaliereticino.ch" },
+  # Zurigo section (IT apex prefix, Zurich canton) → origin-zurigo-it (one shard
+  # repo per locale; see locale-router.js SECTION_ORIGIN.zurigo). Same rationale as
+  # the Ticino route above: the en/de/fr zurigo subpaths (/en/find-jobs-zurich,
+  # /de/jobs-in-zurich, /fr/trouver-emploi-zurich) already reach the Worker via the
+  # /en|/de|/fr routes above and are re-targeted to origin-zurigo-<loc> in-code
+  # (matchSection), so only the IT prefix needs a new route here. Wildcard for the
+  # same reason as Ticino's: a CF route without a trailing `*` matches only the
+  # exact URL with NO query string (#2611), and this is a high-traffic section that
+  # gets `?utm_*`/`?fbclid=` ad/social/newsletter hits. Look-alikes match the CF
+  # route but matchSection rejects them in-code.
+  { pattern = "frontaliereticino.ch/cerca-lavoro-zurigo*", zone_name = "frontaliereticino.ch" },
   # Job-alert one-click unsubscribe (RFC 8058). Deliberate non-locale exception to
   # the "locale paths only" scoping above: the unsubscribe links + List-Unsubscribe
   # header in job-alert emails MUST live on the sending domain (frontaliereticino.ch)
@@ -103,8 +125,9 @@ routes = [
 # a one-off dashboard/API toggle) so every `wrangler deploy` keeps it on — an API
 # PATCH would be wiped on the next deploy.
 # head_sampling_rate = 1 logs 100% of invocations. The Worker now handles the
-# en/de/fr shard traffic PLUS the Ticino section across all four locales (a chunk
-# of the former IT bulk), so invocation volume is materially higher than before.
+# en/de/fr shard traffic PLUS the ticino/svizzera/zurigo sections across all four
+# locales (a chunk of the former IT bulk), so invocation volume is materially
+# higher than before.
 # 100% sampling is kept deliberately: on Workers Paid the Logs allowance has ample
 # headroom, and full sampling preserves complete visibility into the shard 5xx /
 # stale-if-error path (the exact path involved in the #3178 incident). If Logs

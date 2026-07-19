@@ -164,8 +164,9 @@ const SHARD_REPOS = {
 // en/de/fr page was a false-positive 404-risk (19 real offenders on 06-30 →
 // 3581 false + real by 07-02, almost entirely `find-jobs-ticino` /
 // `jobs-im-tessin` / `trouver-emploi-tessin` URLs). Keep in lockstep with
-// TICINO_SUB in .github/workflows/post-deploy-validate-dist.yml and the `case`
-// in scripts/lib/push-ticino-shard.sh.
+// TICINO_SUB in .github/workflows/post-deploy-validate-dist.yml and the slug
+// lookup (scripts/lib/section-shard-slugs.json) in scripts/lib/push-section-shard.sh
+// (generic successor to push-ticino-shard.sh, which is now removed).
 const TICINO_SHARD_REPOS = {
   it: 'valerielinc-ops/frontaliere-ticino-it',
   en: 'valerielinc-ops/frontaliere-ticino-en',
