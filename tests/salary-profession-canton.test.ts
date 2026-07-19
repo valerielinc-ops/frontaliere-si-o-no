@@ -23,6 +23,11 @@ import {
 } from '../build-plugins/salaryProfessionCantonPages';
 import { _resetProfessionJobsAggregateCache, type FeaturedJob, type ProfessionJobsSnapshot } from '../build-plugins/professionJobsAggregate';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
+import {
+  buildSalaryProfessionLinkItems,
+  buildHubSpokeItems,
+  renderHubSpokeBlock,
+} from '../build-plugins/salaryProfessionCantonLinksPlugin';
 import { parsePath } from '../services/router';
 import medians from '../data/profession-salary-medians.json' with { type: 'json' };
 
@@ -200,6 +205,34 @@ describe('emitSalaryProfessionCantonPages — below-floor bridge + sitemap hygie
       fs.rmSync(tmp, { recursive: true, force: true });
       _resetProfessionJobsAggregateCache();
     }
+  });
+});
+
+describe('salaryProfessionCanton — internal-links de-orphaning + hub→spoke', () => {
+  const emitted = [
+    buildSalaryProfessionCantonPath('it', 'ZH', 'infermiere'),
+    buildSalaryProfessionCantonPath('it', 'ZH', 'ingegnere'),
+    buildSalaryProfessionCantonPath('en', 'GE', 'infermiere'),
+  ];
+
+  it('groups emitted paths per-locale for the sitemap-page block (BFS reachability)', () => {
+    const byLocale = buildSalaryProfessionLinkItems(emitted);
+    expect(byLocale.it.length).toBe(2);
+    expect(byLocale.en.length).toBe(1);
+    expect(byLocale.it.every((i) => i.href.startsWith('/stipendio-'))).toBe(true);
+  });
+
+  it('groups emitted paths per-(locale,canton) for the hub→spoke block (plan §4.2)', () => {
+    const groups = buildHubSpokeItems(emitted);
+    const zh = groups.get('it::ZH');
+    expect(zh).toBeTruthy();
+    expect(zh!.items.length).toBe(2);
+    const block = renderHubSpokeBlock('it', 'Zurigo', zh!.items);
+    expect(block).toContain('data-salary-profession-spokes');
+    expect(block).toContain('Zurigo');
+    expect(block).toContain('/stipendio-infermiere-zurigo/');
+    // Empty canton → no block (never inject a stray heading).
+    expect(renderHubSpokeBlock('it', 'Zurigo', [])).toBe('');
   });
 });
 

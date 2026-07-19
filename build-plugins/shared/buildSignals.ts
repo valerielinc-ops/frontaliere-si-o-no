@@ -73,6 +73,7 @@ const jobsSeoPagesSignal = makeSignal();
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
 const salaryProfessionCantonsSignal = makeValueSignal<readonly string[]>();
+const salaryStatsSignal = makeSignal();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -159,4 +160,17 @@ export const salaryProfessionCantonsFlushed: Promise<readonly string[]> =
   salaryProfessionCantonsSignal.promise;
 export function resolveSalaryProfessionCantonsFlushed(paths: readonly string[]): void {
   salaryProfessionCantonsSignal.resolve(paths);
+}
+
+/**
+ * Resolves when {@link salaryStatsChCantonPages} has flushed every per-canton
+ * salary-stats hub page (`/stipendi-{canton}/` + locale twins). Consumed by
+ * {@link salaryProfessionCantonLinksPlugin}, which patches each canton hub with
+ * a "salary by profession" spoke block (hub→spoke half of the bidirectional
+ * hub-spoke rule, docs/SALARY-INTENT-CANONICAL-PLAN.md §4.2), so the hub pages
+ * are guaranteed on disk before the patch reads them.
+ */
+export const salaryStatsFlushed: Promise<void> = salaryStatsSignal.promise;
+export function resolveSalaryStatsFlushed(): void {
+  salaryStatsSignal.resolve();
 }
