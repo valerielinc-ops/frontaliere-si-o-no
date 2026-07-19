@@ -145,6 +145,7 @@ const deCalculator: Record<string, string> = {
  'results.liveInTicino': 'Leben im Tessin',
  'results.liveInItaly': 'Leben in Italien',
  'results.netMonthlyResidual': 'Netto-Monatsrest',
+ 'results.exchangeVerticalLink': 'Wie viel ist das in Euro? CHF/EUR-Kursverlauf',
  'results.downloadPDF': 'PDF herunterladen',
  'results.share.button': 'Simulation teilen',
  'results.share.copied': 'Link kopiert!',
