@@ -3580,6 +3580,10 @@ Regole:
   'survey.feature.thanks.title': 'Grazie!',
   'survey.feature.thanks.body': 'Il tuo parere ci aiuta a migliorare.',
 
+  'whatsNew.v3630.title': 'Più visibilità per chi assume',
+  'whatsNew.v3630.employerCta.title': 'Accesso rapido per le aziende che assumono',
+  'whatsNew.v3630.employerCta.desc': 'Se la tua azienda assume, ora trovi il collegamento «Pubblicate il vostro annuncio» nel piè di pagina e nelle pagine dedicate alle aziende: annuncio in evidenza, pagina SEO dedicata e segnalazione alla newsletter incluse.',
+
   'whatsNew.v3620.title': 'Pubblicare un annuncio è più semplice',
   'whatsNew.v3620.payFirstFunnel.title': 'Percorso di pubblicazione più lineare',
   'whatsNew.v3620.payFirstFunnel.desc': 'Il percorso per le aziende è ora più lineare: scegli il piano, poi crei il tuo annuncio con calma. Una volta pubblicato, è online di norma entro un\'ora.',

@@ -3490,6 +3490,10 @@ Rules:
   'survey.feature.thanks.title': 'Thank you!',
   'survey.feature.thanks.body': 'Your feedback helps us improve.',
 
+  'whatsNew.v3630.title': 'More visibility for employers',
+  'whatsNew.v3630.employerCta.title': 'Quick access for hiring companies',
+  'whatsNew.v3630.employerCta.desc': 'If your company is hiring, you will now find the "Publish your job ad" link in the footer and on the employer pages: featured listing, dedicated SEO page and newsletter blast included.',
+
   'whatsNew.v3620.title': 'Publishing a job ad is easier now',
   'whatsNew.v3620.payFirstFunnel.title': 'A more streamlined publishing flow',
   'whatsNew.v3620.payFirstFunnel.desc': 'The flow for companies is now more streamlined: choose your plan, then create your ad at your own pace. Once published, it usually goes live within an hour.',

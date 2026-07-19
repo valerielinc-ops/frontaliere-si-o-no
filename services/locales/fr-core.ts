@@ -3493,6 +3493,10 @@ Règles :
   'survey.feature.thanks.title': 'Merci !',
   'survey.feature.thanks.body': 'Votre avis nous aide à nous améliorer.',
 
+  'whatsNew.v3630.title': 'Plus de visibilité pour les employeurs',
+  'whatsNew.v3630.employerCta.title': 'Accès rapide pour les entreprises qui recrutent',
+  'whatsNew.v3630.employerCta.desc': 'Si votre entreprise recrute, vous trouverez désormais le lien « Publiez votre annonce » dans le pied de page et sur les pages employeurs : annonce mise en avant, page SEO dédiée et envoi newsletter inclus.',
+
   'whatsNew.v3620.title': 'Publier une annonce est plus simple',
   'whatsNew.v3620.payFirstFunnel.title': 'Un parcours de publication plus fluide',
   'whatsNew.v3620.payFirstFunnel.desc': 'Le parcours pour les entreprises est désormais plus fluide : choisissez votre formule, puis créez votre annonce à votre rythme. Une fois publiée, elle est généralement en ligne en moins d\'une heure.',

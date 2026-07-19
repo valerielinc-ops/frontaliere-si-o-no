@@ -32,6 +32,19 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
+  {
+    version: '3.63.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3630.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3630.employerCta.title',
+        descKey: 'whatsNew.v3630.employerCta.desc',
+        link: { tab: 'for-employers' },
+      },
+    ],
+  },
  {
  version: '3.62.0',
  date: '2026-07-17',

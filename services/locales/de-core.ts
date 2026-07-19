@@ -3493,6 +3493,10 @@ Regeln:
   'survey.feature.thanks.title': 'Danke!',
   'survey.feature.thanks.body': 'Dein Feedback hilft uns, besser zu werden.',
 
+  'whatsNew.v3630.title': 'Mehr Sichtbarkeit für Arbeitgeber',
+  'whatsNew.v3630.employerCta.title': 'Schnellzugriff für einstellende Unternehmen',
+  'whatsNew.v3630.employerCta.desc': 'Wenn Ihr Unternehmen einstellt, finden Sie jetzt den Link «Veröffentlichen Sie Ihre Stellenanzeige» im Footer und auf den Arbeitgeberseiten: hervorgehobene Anzeige, eigene SEO-Seite und Newsletter-Versand inklusive.',
+
   'whatsNew.v3620.title': 'Eine Anzeige aufgeben ist jetzt einfacher',
   'whatsNew.v3620.payFirstFunnel.title': 'Ein klarerer Ablauf für die Veröffentlichung',
   'whatsNew.v3620.payFirstFunnel.desc': 'Der Ablauf für Unternehmen ist jetzt klarer: Wählen Sie Ihren Tarif und erstellen Sie Ihre Anzeige anschliessend in Ruhe. Nach der Veröffentlichung ist sie in der Regel innerhalb einer Stunde online.',
