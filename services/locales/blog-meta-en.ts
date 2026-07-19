@@ -8620,6 +8620,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'How much does a border dental assistant earn in Ticino?',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'The salary of a border dental assistant in Ticino is influenced by salary tables and double taxation conventions.',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'A realistic scene of Lugano city center with Piazza della Riforma and San Lorenzo church in the foreground.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Traffic in Switzerland: costs reach 117 billion',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'In 2023, traffic in Switzerland cost 117 billion francs. The car dominates with 68% of trips. Here is the data from the Federal Statistical Office.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Car traffic on a Swiss highway in Ticino',
 };
 
 export default blogMetaEn;

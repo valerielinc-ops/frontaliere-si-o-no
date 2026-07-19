@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3301,
+ "numberOfItems": 3304,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8018,7 +8018,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3298, "name": "Lavorare come ostetrica in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3299, "name": "Stipendio ostetrica Ticino: salari e differenze...", "url": `${BASE_URL}/articoli-frontaliere/ostetrica-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3300, "name": "Quanto guadagna un ostetrica frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna` },
-          { "@type": "ListItem", "position": 3301, "name": "Quanto guadagna un assistente dentale frontalie...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino` }
+          { "@type": "ListItem", "position": 3301, "name": "Quanto guadagna un assistente dentale frontalie...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3302, "name": "Quanto guadagna un ostetrica frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-stipendio-ticino` },
+          { "@type": "ListItem", "position": 3303, "name": "Traffico in Svizzera: i costi raggiungono 117 m...", "url": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023` },
+          { "@type": "ListItem", "position": 3304, "name": "La busta paga svizzera: guida alle trattenute e...", "url": `${BASE_URL}/articoli-frontaliere/guida-busta-paga-svizzera-2026` }
  ]
  },
  {

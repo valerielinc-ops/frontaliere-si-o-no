@@ -8621,6 +8621,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.title': 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.excerpt': 'Il salario di un assistente dentale frontaliere in Ticino è influenzato dalle tabelle salariali e dalle convenzioni doppie imposizioni.',
     'blog.article.stipendio-assistente-dentale-frontaliere-ticino.imageAlt': 'Una scena fotorealistica del centro di Lugano con la piazza della Riforma e la chiesa di San Lorenzo in primo piano.',
+    'blog.article.costi-traffico-svizzera-2023.title': 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    'blog.article.costi-traffico-svizzera-2023.excerpt': 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Ecco i dati dell\'Ufficio federale di statistica.',
+    'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Traffico automobilistico su una autostrada svizzera in Ticino',
 };
 
 export default blogMetaIt;
