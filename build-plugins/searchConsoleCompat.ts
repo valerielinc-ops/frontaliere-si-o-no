@@ -28,6 +28,7 @@ import {
 } from './jobEditorialLanding';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { isExchangeSsgPath } from './exchangeRateSsgData';
+import { isFiscalMunicipalityPath } from './fiscalMunicipalityData';
 
 type SupportedLocale = CantonLocale;
 
@@ -560,6 +561,22 @@ export function resolveSearchConsoleCompatTarget(
  // module load (exchangeRateSsgData.ts) — O(1) per call inside the
  // 150k+-path compat loop, same rationale as the self-maps above.
  if (isExchangeSsgPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Per-municipality FISCAL guide pages (fiscalMunicipalityPagesPlugin.ts,
+ // epic #4482): every comune in data/fiscal-municipalities.json is emitted at
+ // its enumerated path on EVERY build — the above-floor comuni as an indexable
+ // page, the below-floor comuni as a noindex,follow bridge — always at the
+ // SAME URL. So a URL matching this family always has a live target today,
+ // even if GSC captured it as 404 before the page existed.
+ // isFiscalMunicipalityPath checks a module-load-precomputed Set, so this
+ // stays O(1) per call inside the 150k+-path compat loop.
+ if (isFiscalMunicipalityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
