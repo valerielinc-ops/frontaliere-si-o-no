@@ -442,6 +442,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-ottico-optometrista-ticino-stipendio-requisiti': { it: 'frontaliere-ottico-optometrista-ticino-stipendio-requisiti', en: 'frontalier-ottico-optometrista-ticino-stipendio-requisiti', de: 'frontaliere-ottico-optometrista-ticino-stipendio-requisiti', fr: 'frontalier-ottico-optometrista-ticino-stipendio-requisiti' },
  'podologo-frontaliere-ticino-stipendio-requisiti': { it: 'podologo-frontaliere-ticino-stipendio-requisiti', en: 'podologist-frontalier-ticino-salary-requirements', de: 'podologe-frontalier-ticino-gehalt-anforderungen', fr: 'podologue-frontalier-ticino-salaire-requis' },
  'podologo-frontaliere-ticino-guida': { it: 'podologo-frontaliere-ticino-guida', en: 'podiatrist-cross-border-worker-ticino-salary', de: 'podologe-grenzganger-tessin-gehalt', fr: 'podologue-frontalier-ticino-salaire' },
+ 'indennita-di-disoccupazione-svizzere-ai-frontalieri': { it: 'indennita-di-disoccupazione-svizzere-ai-frontalieri', en: 'swiss-unemployment-benefits-for-frontaliers', de: 'schweizer-arbeitslosenentschadigung-fur-frontalier', fr: 'indemnites-de-chomage-suisse-pour-frontalier' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
