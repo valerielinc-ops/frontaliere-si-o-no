@@ -1255,6 +1255,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Arbeiten als Podologe im Tessin: Voraussetzungen und Anerkennung',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt eines Grenzgänger-Fusspflegers im Tessin, Voraussetzungen für die Arbeit als Grenzgänger-Fusspfleger im Tessin und Anerkennung des Abschlusses.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologe in einem Arbeitsumfeld in Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologe im Tessin: Gehalt, Voraussetzungen und Ausweis G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Umfassender Leitfaden für Grenzfüßer: Analyse der beruflichen Anforderungen, durchschnittliche Gehälter und aktualisierte Steuervorschriften bis 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Moderne podologische Praxis in der Schweiz mit medizinischer Ausrüstung',
 };
 
 export default blogMetaChDe;

@@ -1255,6 +1255,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Working as a podiatrist in Ticino: requirements and recognition',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Average salary of a border podiatrist in Ticino, requirements to work as a border podiatrist in Ticino and recognition of the qualification.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologist in a work environment in Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podiatrist in Ticino: salary, requirements and permit G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Complete guide for border podiatrists: analysis of professional requirements, average salaries and tax legislation updated to 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Modern podiatry clinic in Switzerland with medical equipment',
 };
 
 export default blogMetaChEn;

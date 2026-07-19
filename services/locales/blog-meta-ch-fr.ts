@@ -1255,6 +1255,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Travailler comme podologue au Tessin : exigences et reconnaissance',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un podologue frontalier au Tessin, conditions pour travailler comme podologue au Tessin en tant que frontalier et reconnaissance du diplôme d\'études.',
     'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologue dans un environnement de travail en Ticino',
+    'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologue au Tessin : salaire, exigences et permis G',
+    'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Guide complet pour les podologues frontaliers : analyse des exigences professionnelles, des salaires moyens et de la législation fiscale mise à jour à 2024.',
+    'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Clinique de podologie moderne en Suisse avec équipement médical',
 };
 
 export default blogMetaChFr;
