@@ -34,7 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
-import { describeSegment, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
+import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
 import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
@@ -1919,6 +1919,8 @@ async function main() {
       metrics: loadDashboardMetrics(),
       locale,
       issueNumber,
+      interest: inferInterest(previewSubscriber),
+      recommendationCampaign: campaignId,
       unsubscribeUrl: `${BASE_URL}/?action=unsubscribe&email=preview@example.com`,
       resubscribeUrl: `${BASE_URL}/?action=resubscribe&email=preview@example.com`,
     });
@@ -2223,6 +2225,12 @@ async function main() {
       // or null → generic greeting. personalizeGreeting title-cases it.
       recipientName: subscriber.firstName,
       issueNumber,
+      // Recommended (revenue) block (#4450): segment relevance + acquisition
+      // tracking so the affiliate/sponsor link is attributed to the email
+      // channel and the originating signup surface.
+      interest: inferInterest(subscriber),
+      acquisitionSource: subscriber.source || subscriber.sourceComponent || subscriber.sourceChannel || null,
+      recommendationCampaign: campaignId,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
       preferencesUrl: makePreferencesUrl(subscriber.email, locale),
