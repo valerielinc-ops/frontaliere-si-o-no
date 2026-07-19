@@ -7,6 +7,8 @@
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
+import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
@@ -729,6 +731,9 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  * @param {object}  [data.article]       — { title, excerpt, url, badge }
  * @param {object}  [data.metrics]       — { unemploymentRate, unemploymentLabel, lamalPremium, lamalLabel }
  * @param {string}  [data.locale]        — 'it' | 'en' | 'de' | 'fr'
+ * @param {string}  [data.interest]      — acquisition segment ('jobs'|'utility'|'articles'|'general') for the recommended block
+ * @param {string}  [data.acquisitionSource] — signup surface, forwarded as `as` tracking on the recommended link
+ * @param {string}  [data.recommendationCampaign] — utm_campaign for the recommended block (defaults to 'recommended')
  * @param {string}  [data.unsubscribeUrl]
  * @param {string}  [data.resubscribeUrl]
  * @param {string}  [data.preheaderText]
@@ -794,6 +799,16 @@ export function buildNewsletter(data) {
     <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'toolsSub')}</div>
   </td></tr>`;
   html += renderTools(locale);
+
+  // 11b. Recommended (revenue) block — config-driven affiliate/sponsor slot
+  // (#4450). Renders only when a partner/sponsor is active (never an empty
+  // box); appended after the tools so it sits at the tail of the content.
+  html += renderRecommendedBlock({
+    locale,
+    interest: data.interest,
+    acquisitionSource: data.acquisitionSource,
+    campaign: data.recommendationCampaign,
+  });
 
   // 12. Closer
   html += renderCloser(locale);

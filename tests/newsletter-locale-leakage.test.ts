@@ -136,6 +136,10 @@ const HREF_EXCEPTIONS: readonly RegExp[] = [
   /^#/,
   // social + brand asset URLs
   /^https?:\/\/(?:www\.)?(?:facebook|linkedin|twitter|x|instagram)\.com/i,
+  // /go/{id}/ affiliate redirect pages are locale-agnostic by design — a single
+  // redirect page per partner (build-plugins/affiliateRedirectPlugin.ts), no
+  // /{locale}/ variant. The recommended-block link (#4450) targets them.
+  /^\/go\/[a-z0-9-]+\/(?:\?|$)/,
 ];
 
 const isException = (path: string): boolean => HREF_EXCEPTIONS.some((rx) => rx.test(path));

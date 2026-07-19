@@ -25,6 +25,7 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
+import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
 import { buildAlertProfile, scoreJobForAlert, partitionByGeoPreference, freshnessBoost } from '../services/jobAlertMatching.mjs';
 import { classifyZeroMatchCause } from './lib/job-alert-zero-match-diagnosis.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
@@ -928,6 +929,12 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
             </td></tr>
           </table>
         </td></tr>
+
+        <!-- Recommended (revenue) block — config-driven affiliate/sponsor slot
+             (#4450/#4449 "every email carries a revenue block"). Job-alert
+             recipients are jobs-interested by definition. Renders only when a
+             partner/sponsor is active (never an empty box). -->
+        ${renderRecommendedBlock({ locale, interest: 'jobs', acquisitionSource: alert.acquisitionSource || alert.source || null, campaign: 'jobalert' })}
 
         <!-- Closer (aligned with newsletter) -->
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
