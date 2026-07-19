@@ -80,6 +80,7 @@ const JSDOM_TS_FILES = [
   'tests/flat-html-redirect.test.ts',
   'tests/fuel-italian-station-redesign.test.ts',
   'tests/fuel-station-redesign.test.ts',
+  'tests/frontaliere-checklist.test.ts',
   'tests/functions/error-response.test.ts',
   'tests/gamification.test.ts',
   'tests/hooks/useNavigationState.test.ts',

@@ -48,6 +48,8 @@ export const ACHIEVEMENTS: Achievement[] = [
  { id: 'forum_first_answer', icon: '💡', category: 'social', requiredCount: 1 },
  { id: 'chatbot_user', icon: '🤖', category: 'explorer', requiredCount: 1 },
  { id: 'dialect_explorer', icon: '🗣️', category: 'explorer', requiredCount: 5 },
+  // Unlocked by completing every step of the "Percorso frontaliere" checklist.
+  { id: 'frontaliere_path', icon: '🧭', category: 'expert', requiredCount: 1 },
 ];
 
 // ─── Gamification State Management ──────────────────────────────────────────

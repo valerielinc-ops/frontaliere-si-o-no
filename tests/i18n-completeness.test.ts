@@ -102,6 +102,7 @@ function extractDynamicTranslationKeys(files: string[]): Set<string> {
     'quiz_completed', 'quiz_perfect', 'survey_participant',
     'salary_quiz', 'social_sharer',
     'forum_first_question', 'forum_first_answer',
+    'frontaliere_path',
   ];
   const categoryIds = ['all', 'explorer', 'calculator', 'expert', 'social'];
 
