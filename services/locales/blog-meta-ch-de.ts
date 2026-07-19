@@ -1222,6 +1222,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mobilita-svizzera-ferrovia-strade.title': 'Mobilität in der Schweiz: Gunst für die Bahn wächst',
     'blog.article.mobilita-svizzera-ferrovia-strade.excerpt': 'Eine Sotomo-Umfrage zeigt die Präferenzen der Schweizer: Deutliche Präferenz für Bahninvestitionen gegenüber dem Ausbau des Strassennetzes.',
     'blog.article.mobilita-svizzera-ferrovia-strade.imageAlt': 'Schweizer Bahnhof mit Zügen und Fahrgästen',
+    'blog.article.coronavirus-frontalieri-svizzera.title': 'Coronavirus: Arbeit in der Schweiz nur mit Bewilligung \'G\'',
+    'blog.article.coronavirus-frontalieri-svizzera.excerpt': 'Regierungsrat Christian Vitta stellte klar, dass Grenzgänger trotz der Schließung der Lombardei in der Schweiz arbeiten dürfen.',
+    'blog.article.coronavirus-frontalieri-svizzera.imageAlt': 'Frontalier Arbeiter, der die Schweiz-Italien-Grenze während der COVID-19-Pandemie überquert',
+    'blog.article.ostetrica-frontaliere-ticino.title': 'Tessiner Hebammengehalt: Löhne und Unterschiede zu Italien',
+    'blog.article.ostetrica-frontaliere-ticino.excerpt': 'Was verdient eine Grenzgeburtshelferin im Tessin? Und wie verändert es sich im Vergleich zu Italien?',
+    'blog.article.ostetrica-frontaliere-ticino.imageAlt': 'Eine Frau in einem weißen Kittel bereitet sich auf eine Geburt vor, mit einem Arzt im Hintergrund.',
 };
 
 export default blogMetaChDe;

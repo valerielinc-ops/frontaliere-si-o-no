@@ -289,15 +289,16 @@ export function renderProfessionCityPage(opts: {
   // listing for this city (also the below-floor bridge target).
   const ctaHref = buildCityHubPath(locale, cityKey);
 
-  const prose = renderCantonSeoProse({
+  const proseOpts = {
     locale: locale as CantonSeoLocale,
     cantonDisplay: locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin',
-    slot: 'city-landing',
+    slot: 'city-landing' as const,
     entityName: cityDisplay,
     countHint: snapshot.liveCount,
     ctaHref,
     ctaLabel: c.cta(cityDisplay),
-  });
+  };
+  const prose = renderCantonSeoProse(proseOpts);
 
   const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cityDisplay)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cityDisplay))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cityDisplay))}</p></header>`;
 
@@ -320,7 +321,7 @@ ${prose}</div>`;
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: buildCantonSeoProseFaqItems({ locale: locale as CantonSeoLocale, cantonDisplay: locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin', slot: 'city-landing' }),
+    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
   };
 
   const hreflangPaths = {

@@ -65,7 +65,7 @@ export const PARTNERS: AffiliatePartner[] = [
  badgeKey: 'affiliate.badge.mostUsed',
  color: 'from-success-strong to-success-strong',
  emoji: '💸',
- contexts: ['exchange', 'banks', 'simulator'],
+ contexts: ['exchange', 'banks', 'simulator', 'ral', 'shopping', 'jobs'],
  priority: 10,
  },
 
@@ -79,7 +79,7 @@ export const PARTNERS: AffiliatePartner[] = [
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-info-strong to-info-strong',
  emoji: '🇮🇹',
- contexts: ['banks', 'exchange', 'simulator'],
+ contexts: ['banks', 'exchange', 'simulator', 'ral', 'jobs'],
  priority: 9,
  },
  {
@@ -94,55 +94,6 @@ export const PARTNERS: AffiliatePartner[] = [
  contexts: ['banks', 'exchange'],
  priority: 8,
  },
- {
- id: 'n26',
- name: 'N26',
- taglineKey: 'affiliate.n26.tagline',
- descriptionKey: 'affiliate.n26.description',
- url: 'https://n26.com/r/',
- color: 'from-info-strong to-info-strong',
- emoji: '💳',
- contexts: ['banks', 'exchange'],
- priority: 7,
- },
- {
- id: 'yuh',
- name: 'Yuh',
- taglineKey: 'affiliate.yuh.tagline',
- descriptionKey: 'affiliate.yuh.description',
- url: 'https://www.yuh.com/',
- color: 'from-accent-strong to-danger-strong',
- emoji: '🇨🇭',
- contexts: ['banks', 'exchange', 'pension'],
- priority: 6,
- },
-
- // ─── Pension / Investing ───
- {
- id: 'traderepublic',
- name: 'Trade Republic',
- taglineKey: 'affiliate.traderepublic.tagline',
- descriptionKey: 'affiliate.traderepublic.description',
- url: 'https://traderepublic.com/referral/',
- color: 'from-surface-inverted to-surface-inverted',
- emoji: '📈',
- contexts: ['pension', 'cost-of-living'],
- priority: 5,
- },
-
- // ─── Transport ───
- {
- id: 'tilo',
- name: 'TILO / FFS',
- taglineKey: 'affiliate.tilo.tagline',
- descriptionKey: 'affiliate.tilo.description',
- url: 'https://www.sbb.ch/it',
- color: 'from-danger-strong to-danger-strong-hover',
- emoji: '🚆',
- contexts: ['transport', 'traffic'],
- priority: 4,
- },
-
  // ─── Mobile ───
  {
  id: 'fastweb',

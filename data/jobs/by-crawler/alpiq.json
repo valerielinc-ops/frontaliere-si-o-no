@@ -1,15 +1,15 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-07-18T11:08:35.743Z",
+  "assembledAt": "2026-07-18T22:50:31.456Z",
   "jobs": [
     {
       "id": "alpiq-c0ef4d9c8b9f",
       "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
       "slugByLocale": {
         "it": "product-manager-trading-and-origination-all-100-alpiq-olten",
+        "en": "product-manager-trading-and-origination-all-100-alpiq-olten",
         "de": "produktmanager-handel-und-herkunft-alle-100-alpiq-olten",
-        "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten",
-        "en": "product-manager-trading-and-origination-all-100-alpiq-olten"
+        "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -17,21 +17,19 @@
       "title": "Product Manager - Trading and Origination (all) 100%",
       "titleByLocale": {
         "it": "Product Manager - Trading e Origination (100%)",
+        "en": "Product Manager - Trading and Origination (all) 100%",
         "de": "Product Manager - Trading und Origination (100%)",
-        "fr": "Product Manager - Trading et Origination (100%)",
-        "en": "Product Manager - Trading and Origination (all) 100%"
+        "fr": "Product Manager - Trading et Origination (100%)"
       },
       "description": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager &ndash; Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
         "it": "Product Manager - Trading e Origine (tutti) 100%\n\nIn Alpiq siamo alla ricerca di un Product Manager – Trading and Origination che entri a far parte del team New Product Implementation. In questo ruolo, gestirai le attività del ciclo di vita del prodotto con una forte attenzione alla progettazione di nuovi prodotti, alla rappresentazione accurata delle trattative e all'implementazione. Garantirai una strutturata...\n\nOlten - 100%\nPermanente",
+        "en": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager – Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured…\n\nOlten - 100%\nPermanent",
         "de": "Produktmanager - Handel und Herstellung (alle) 100% Bei Alpiq suchen wir einen Produktmanager – Handel und Herstellung (alle) zum Team der neuen Produktimplementierung. In dieser Funktion werden Sie die Produktlebenszyklusaktivitäten mit einem starken Fokus auf neues Produktdesign, genaue Darstellung und Umsetzung der Deals leiten. Sie werden eine strukturierte,...",
-        "fr": "Product Manager - Trading and Origination (all) 100% Chez Alpiq, nous recherchons un Product Manager – Trading and Origination pour rejoindre l'équipe de la mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie du produit en mettant fortement l'accent sur la conception du nouveau produit, la représentation précise des offres et la mise en œuvre.",
-        "en": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager – Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured…\n\nOlten - 100%\nPermanent"
+        "fr": "Product Manager - Trading and Origination (all) 100% Chez Alpiq, nous recherchons un Product Manager – Trading and Origination pour rejoindre l'équipe de la mise en œuvre du nouveau produit. Dans ce rôle, vous gérerez les activités du cycle de vie du produit en mettant fortement l'accent sur la conception du nouveau produit, la représentation précise des offres et la mise en œuvre."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -49,7 +47,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-17T11:43:13.714Z",
+      "crawledAt": "2026-07-18T22:50:29.470Z",
+      "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "country": "CH",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -62,8 +61,7 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-17T11:43:13.714Z"
+      }
     },
     {
       "id": "alpiq-3fa36ed9c713",
@@ -110,7 +108,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9598&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-18T11:08:33.322Z",
+      "crawledAt": "2026-07-18T22:50:29.471Z",
       "firstSeenAt": "2026-07-16T23:01:54.449Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -181,7 +179,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9601&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:08:33.321Z",
+      "crawledAt": "2026-07-18T22:50:29.470Z",
       "firstSeenAt": "2026-07-06T12:57:17.444Z",
       "country": "CH",
       "salaryMin": 68000,
@@ -195,7 +193,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "archivist-in-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "archivist-in-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-6f6e2e4039a0",
@@ -242,7 +248,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9606&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-18T11:08:33.322Z",
+      "crawledAt": "2026-07-18T22:50:29.470Z",
       "firstSeenAt": "2026-07-06T12:57:17.445Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -256,7 +262,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-internal-audit-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "head-internal-audit-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-dbe206690861",
@@ -303,7 +317,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9302&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:08:33.321Z",
+      "crawledAt": "2026-07-18T22:50:29.469Z",
       "firstSeenAt": "2026-06-29T21:34:24.960Z",
       "country": "CH",
       "salaryMin": 96000,
@@ -317,7 +331,15 @@
           "maxValue": 146500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-strategische-projektportfolioplanung-all-100-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-70d91ad872b7",
@@ -361,7 +383,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-18T11:08:33.320Z",
+      "crawledAt": "2026-07-18T22:50:29.468Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 61,
       "retranslationAttempts": 3,
@@ -378,7 +400,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-ne-automaticien-ne-alpiq-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-ne-automaticien-ne-alpiq-martigny"
+      ]
     }
   ]
 }
