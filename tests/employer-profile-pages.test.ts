@@ -78,7 +78,12 @@ beforeAll(async () => {
   );
   fs.writeFileSync(
     path.join(root, 'data', 'jobs.json'),
-    JSON.stringify(Array.from({ length: 6 }, (_, i) => job(i + 1))),
+    JSON.stringify([
+      ...Array.from({ length: 6 }, (_, i) => job(i + 1)),
+      // Slugless job: must be skipped by BOTH the card renderer and the
+      // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
+      { ...job(7), slug: '' },
+    ]),
   );
 
   const plugin = employerProfilePagesPlugin(root) as unknown as {
@@ -130,6 +135,13 @@ describe('employerProfilePagesPlugin', () => {
     expect(posting.jobLocation.address.streetAddress).toBeTruthy();
     expect(posting.hiringOrganization.name).toBe('Acme Corp');
     expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+    // Slugless job guard: no ListItem may point at the bare homepage, and
+    // positions stay contiguous 1..N after the skip (reviewer 🔴, PR #4511).
+    const urls = itemList.itemListElement.map((el: { item: { url: string } }) => el.item.url);
+    expect(urls).not.toContain('https://frontaliereticino.ch');
+    expect(urls).not.toContain('https://frontaliereticino.ch/');
+    const positions = itemList.itemListElement.map((el: { position: number }) => el.position);
+    expect(positions).toEqual(Array.from({ length: positions.length }, (_, i) => i + 1));
   });
 
   it('renders the benefit-first publisher CTA (reused shared block)', () => {

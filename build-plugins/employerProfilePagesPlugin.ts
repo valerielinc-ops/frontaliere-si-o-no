@@ -46,6 +46,7 @@ import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './s
 import { buildCurrentWeekPath } from './weeklyEmployersData';
 import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
 import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
+import { MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -484,7 +485,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // adversarial check). Rendering is reused in the emit loop below.
         const rendered = LOCALES.map((locale) => {
           const bodyHtml = renderProfileBody(liveProfile, listed, locale);
-          const indexable = liveActive >= 5 && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          const indexable = liveActive >= MIN_ACTIVE_JOBS && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           return { locale, bodyHtml, indexable };
         });
         const indexableLocales = rendered.filter((r) => r.indexable).map((r) => r.locale);
@@ -501,13 +502,18 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // JobPosting ItemList (supplementary list-page signal; the
           // authoritative per-job JobPosting lives on each linked detail page).
           const itemListElements = listed
-            .map((job, idx) => {
-              const jobUrl = `${BASE_URL}${jobDetailPath(job, locale)}`;
-              const posting = buildListItemJobPosting(job, { locale, url: jobUrl, baseUrl: BASE_URL });
-              if (!posting) return null;
-              return { '@type': 'ListItem', position: idx + 1, item: posting };
+            .map((job) => {
+              // Same guard as the job cards (renderProfileBody): a job whose
+              // slug is missing has no detail page — without this skip, jobUrl
+              // would collapse to the bare BASE_URL and the JobPosting in the
+              // ItemList would point at the homepage (reviewer 🔴, PR #4511).
+              const detail = jobDetailPath(job, locale);
+              if (!detail) return null;
+              const posting = buildListItemJobPosting(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
+              return posting ?? null;
             })
-            .filter(Boolean);
+            .filter((p): p is Record<string, unknown> => p !== null)
+            .map((posting, idx) => ({ '@type': 'ListItem', position: idx + 1, item: posting }));
           const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name)];
           if (itemListElements.length > 0) {
             jsonLdScripts.push(inlineScriptJson({

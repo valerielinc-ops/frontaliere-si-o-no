@@ -34,14 +34,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { MIN_ACTIVE_JOBS, BRIDGE_FLOOR } from '../build-plugins/shared/employerProfileConfig.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_PATH = path.join(ROOT, 'data', 'employer-profiles.json');
 
-/** Min active postings for a full, indexable employer profile page. */
-export const MIN_ACTIVE_JOBS = 5;
-/** Companies with >= this but < MIN_ACTIVE_JOBS get a below-floor bridge. */
-export const BRIDGE_FLOOR = 2;
+// Floors shared with the SSG plugin — ONE definition (employerProfileConfig.mjs).
+export { MIN_ACTIVE_JOBS, BRIDGE_FLOOR };
 /** Runaway guard so a crawler mis-aggregation can't balloon the sitemap. */
 export const MAX_PROFILES = 1000;
 /** Trailing window (days) for the hiring-trend counts. */
