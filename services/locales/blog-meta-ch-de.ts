@@ -1258,6 +1258,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guida.title': 'Podologe im Tessin: Gehalt, Voraussetzungen und Ausweis G',
     'blog.article.podologo-frontaliere-ticino-guida.excerpt': 'Umfassender Leitfaden für Grenzfüßer: Analyse der beruflichen Anforderungen, durchschnittliche Gehälter und aktualisierte Steuervorschriften bis 2024.',
     'blog.article.podologo-frontaliere-ticino-guida.imageAlt': 'Moderne podologische Praxis in der Schweiz mit medizinischer Ausrüstung',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Schweizer Arbeitslosengeld an Grenzgänger: Gegensätzliche Positionen',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Der Ausschuss der Ständigen Vertreter der EU hat eine Maßnahme gebilligt, um das Wohnsitzland durch das Land der letzten Beschäftigung für die Validierung der Leistungen bei Arbeitslosigkeit für Grenzgänger zu ersetzen.',
+    'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Ein Frontalier zahlt Beiträge in der Schweiz und erhält Arbeitslosenentschädigung vom Land der Wohnsitz.',
 };
 
 export default blogMetaChDe;
