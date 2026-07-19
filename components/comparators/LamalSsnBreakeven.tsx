@@ -23,13 +23,11 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { generateLamalSsnPdfReport, pdfBlobToBase64 } from '@/services/pdfReport';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 
 /** SSN voluntary-registration contribution bounds (share of net income, L. 213/2023). */
 const SSN_RATE_MIN = 0.03;
 const SSN_RATE_MAX = 0.06;
-
-const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
-const SEND_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorReport`;
 
 type BreakevenAgeGroup = '0-18' | '19-25' | '26+';
 type Verdict = 'lamal' | 'ssn' | 'depends';
@@ -112,7 +110,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  verdict: result.verdict,
  }, trimmed);
  const pdfBase64 = await pdfBlobToBase64(pdfBlob);
- const resp = await fetch(SEND_REPORT_URL, {
+ const resp = await fetch(SEND_CALCULATOR_REPORT_URL, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({

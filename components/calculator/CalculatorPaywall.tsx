@@ -38,8 +38,7 @@ export const JOB_EMAIL_KEY = 'ft_job_email';
 export { NEWSLETTER_SUBSCRIBED_KEY };
 export const PAYWALL_DISMISS_DAYS = 30;
 
-const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
-const SEND_CALCULATOR_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorReport`;
+import { SEND_CALCULATOR_REPORT_URL } from '@/services/functionsBase';
 
 /**
  * Returns true when the paywall dismissal is still active (ISO timestamp <30 days old).

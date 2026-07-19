@@ -11,6 +11,7 @@ import {
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { reportCaughtError } from '@/services/errorReporter';
 import { NEWSLETTER_SUBSCRIBED_KEY as LOCAL_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { FUNCTIONS_BASE } from './functionsBase';
 
 // Canonical key shared via services/newsletterCtaState (#3529 dedup).
 
@@ -767,7 +768,6 @@ export function clearNewsletterPendingLocally(): void {
  }
 }
 
-const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
 
 export async function requestConfirmationEmail(
  email: string,
