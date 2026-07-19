@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-07-19T07:41:05.493Z",
+  "updatedAt": "2026-07-19T14:06:00.505Z",
   "rateDate": "2026-07-19",
-  "currentRate": 1.0823,
+  "currentRate": 1.0822,
   "source": "firestore",
   "windows": {
     "30": {
@@ -10,7 +10,7 @@
       "min": 1.0796,
       "max": 1.0868,
       "avg": 1.0832,
-      "changePct": 0
+      "changePct": -0.01
     },
     "90": {
       "startRate": 1.0863,
@@ -18,7 +18,7 @@
       "min": 1.0796,
       "max": 1.0961,
       "avg": 1.0876,
-      "changePct": -0.37
+      "changePct": -0.38
     },
     "365": {
       "startRate": 1.0707,
@@ -26,7 +26,7 @@
       "min": 1.06,
       "max": 1.1077,
       "avg": 1.0806,
-      "changePct": 1.08
+      "changePct": 1.07
     }
   },
   "sparkline": [
@@ -240,7 +240,7 @@
     },
     {
       "date": "2026-07-19",
-      "rate": 1.0809
+      "rate": 1.081
     }
   ],
   "monthly": [
@@ -290,7 +290,7 @@
     },
     {
       "date": "2026-07-19",
-      "rate": 1.0809
+      "rate": 1.081
     }
   ]
 }
