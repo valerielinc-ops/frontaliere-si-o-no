@@ -8625,6 +8625,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Röntgentechniker im Tessin: Gehalt, Voraussetzungen und Ausweis G',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt der Radiologietechniker im Tessin für Grenzgänger, Voraussetzungen für die Arbeit als Radiologietechniker in der Schweiz, Anerkennung des Bildungsabschlusses und G-Bewilligung',
     'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Ein grenzgänger Röntgentechniker arbeitet in einem Krankenhaus in Lugano',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Ergotherapeutengehalt: Löhne und Unterschiede zu Italien',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'Der Artikel untersucht die Lohnspanne eines Grenzergotherapeuten im Tessin und vergleicht die Unterschiede mit der italienischen Lohnspanne.',
+    'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Ein Ergotherapeut arbeitet am Ticino',
 };
 
 export default blogMetaDe;

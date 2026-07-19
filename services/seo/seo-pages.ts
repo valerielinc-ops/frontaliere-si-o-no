@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3306,
+ "numberOfItems": 3307,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8023,7 +8023,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3303, "name": "Traffico in Svizzera: i costi raggiungono 117 m...", "url": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023` },
           { "@type": "ListItem", "position": 3304, "name": "La busta paga svizzera: guida alle trattenute e...", "url": `${BASE_URL}/articoli-frontaliere/guida-busta-paga-svizzera-2026` },
           { "@type": "ListItem", "position": 3305, "name": "Tecnico di radiologia in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3306, "name": "Quanto guadagna un tecnico di radiologia fronta...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-salario-tecnico-radiologia` }
+          { "@type": "ListItem", "position": 3306, "name": "Quanto guadagna un tecnico di radiologia fronta...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-salario-tecnico-radiologia` },
+          { "@type": "ListItem", "position": 3307, "name": "Stipendio ergoterapista: salari e differenze co...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino` }
  ]
  },
  {
