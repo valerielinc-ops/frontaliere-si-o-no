@@ -16203,6 +16203,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-podologo-frontaliere-ticino-guida': {
+    title: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    description: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, podologo, stipendio, requisiti, permesso',
+    ogTitle: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    ogDescription: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
+    canonicalPath: '/articoli-svizzera/podologo-frontaliere-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Podologo in Ticino: stipendio, requisiti e permesso G",
+      "description": "Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/podologo-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio podologico moderno in Svizzera con attrezzatura medica"
+      },
+      "datePublished": "2026-07-19T09:57:28+00:00",
+      "dateModified": "2026-07-19T09:57:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/podologo-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
