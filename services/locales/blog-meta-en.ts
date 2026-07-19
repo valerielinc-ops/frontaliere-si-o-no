@@ -8653,6 +8653,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Operating room technician in Ticino: salary, requirements and permit G',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'The operating room technician is a highly specialized professional who works in a high-pressure environment. Her primary responsibility is to support anesthesiologists and other members of the care team during surgical procedures.',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'A frontline worker working as an operating room technician in a hospital in Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Border doctors in Ticino: salary, requirements and title recognition',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'The average salaries for border doctors in Ticino, the requirements to work as a border doctor, the recognition of the educational qualification and the G permit.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'A scenic view of Lake Lugano with a sailboat in the foreground',
 };
 
 export default blogMetaEn;

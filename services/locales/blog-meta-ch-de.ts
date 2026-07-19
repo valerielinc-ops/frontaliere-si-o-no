@@ -1261,6 +1261,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Schweizer Arbeitslosengeld an Grenzgänger: Gegensätzliche Positionen',
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Der Ausschuss der Ständigen Vertreter der EU hat eine Maßnahme gebilligt, um das Wohnsitzland durch das Land der letzten Beschäftigung für die Validierung der Leistungen bei Arbeitslosigkeit für Grenzgänger zu ersetzen.',
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Ein Frontalier zahlt Beiträge in der Schweiz und erhält Arbeitslosenentschädigung vom Land der Wohnsitz.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Grenzgänger Assistenten im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Quellenangabe: Italien vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730) für Grenzgänger.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Eine Szene eines grenzüberschreitenden Medizinerhelfers in der Schweiz',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Wie viel verdient ein Grenz-OP-Techniker im Tessin',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Angaben zur Entlohnung eines Grenz-OP-Technikers im Tessin.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografie eines Operationstechnikers in einem Schweizer Spital.',
 };
 
 export default blogMetaChDe;

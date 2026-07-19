@@ -1261,6 +1261,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.title': 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.excerpt': 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida delle indennità di disoccupazione per i frontalieri.',
     'blog.article.indennita-di-disoccupazione-svizzere-ai-frontalieri.imageAlt': 'Un frontaliere sta pagando i contributi in Svizzera e ricevendo l\'indennità dalle casse del paese di residenza.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.title': 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.excerpt': 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri.',
+    'blog.article.frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena di un frontaliere assistente di studio medico in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
+    'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografia di un tecnico di sala operatoria in un ospedale svizzero.',
 };
 
 export default blogMetaChIt;

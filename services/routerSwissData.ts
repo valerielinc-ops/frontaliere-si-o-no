@@ -443,6 +443,8 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'podologo-frontaliere-ticino-stipendio-requisiti': { it: 'podologo-frontaliere-ticino-stipendio-requisiti', en: 'podologist-frontalier-ticino-salary-requirements', de: 'podologe-frontalier-ticino-gehalt-anforderungen', fr: 'podologue-frontalier-ticino-salaire-requis' },
  'podologo-frontaliere-ticino-guida': { it: 'podologo-frontaliere-ticino-guida', en: 'podiatrist-cross-border-worker-ticino-salary', de: 'podologe-grenzganger-tessin-gehalt', fr: 'podologue-frontalier-ticino-salaire' },
  'indennita-di-disoccupazione-svizzere-ai-frontalieri': { it: 'indennita-di-disoccupazione-svizzere-ai-frontalieri', en: 'swiss-unemployment-benefits-for-frontaliers', de: 'schweizer-arbeitslosenentschadigung-fur-frontalier', fr: 'indemnites-de-chomage-suisse-pour-frontalier' },
+ 'frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti': { it: 'frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti', en: 'ticino-cross-border-medical-assistant-salary-requirements', de: 'schweizer-medizinerhelfer-in-ticino-salari-anforderungen', fr: 'assistant-medical-frontalier-en-suisse-salaire-exigences' },
+ 'frontalieri-stipendio-tecnico-sala-operatoria': { it: 'frontalieri-stipendio-tecnico-sala-operatoria', en: 'frontalieri-salary-surgical-technologist', de: 'frontalieri-gesetz-operationstechniker', fr: 'frontalier-salaire-technicien-salle-operatoire' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

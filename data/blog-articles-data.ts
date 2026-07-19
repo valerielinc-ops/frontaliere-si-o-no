@@ -26000,6 +26000,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-medico-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-19T12:11:36.593Z',
+ image: '/images/blog/frontaliere-medico-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

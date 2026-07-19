@@ -8654,6 +8654,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.title': 'Technicien de salle d\'opération au Tessin : salaire, exigences et permis G',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.excerpt': 'Le technicien de salle d\'opération est un professionnel hautement spécialisé qui travaille dans un environnement à haute pression. Sa principale responsabilité est de soutenir les anesthésistes et les autres membres de l\'équipe soignante lors des interventions chirurgicales.',
     'blog.article.tecnicodisalaoperatoriaticinostipendiorientati.imageAlt': 'Un frontalière qui travaille comme technicien de salle d\'opération dans un hôpital de Lugano',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Médecins frontaliers au Tessin : salaire, exigences et reconnaissance du titre',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Les salaires moyens des médecins frontaliers au Tessin, les exigences pour travailler en tant que médecin frontalier, la reconnaissance du diplôme d\'études et le permis G.',
+    'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Une vue pittoresque du lac de Lugano avec un bateau à voile en premier plan',
 };
 
 export default blogMetaFr;

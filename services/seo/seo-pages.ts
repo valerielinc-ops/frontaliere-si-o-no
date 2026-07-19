@@ -4716,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3323,
+ "numberOfItems": 3326,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8040,7 +8040,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3320, "name": "Podologo in Ticino: stipendio, requisiti e perm...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guida` },
           { "@type": "ListItem", "position": 3321, "name": "Quanto guadagna un assistente di studio medico ...", "url": `${BASE_URL}/articoli-frontaliere/assistente-di-studio-medico-frontaliere` },
           { "@type": "ListItem", "position": 3322, "name": "Indennità di disoccupazione svizzere ai frontal...", "url": `${BASE_URL}/articoli-frontaliere/indennita-di-disoccupazione-svizzere-ai-frontalieri` },
-          { "@type": "ListItem", "position": 3323, "name": "Tecnico di sala operatoria in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati` }
+          { "@type": "ListItem", "position": 3323, "name": "Tecnico di sala operatoria in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati` },
+          { "@type": "ListItem", "position": 3324, "name": "Frontalieri assistenti di studio medico in Tici...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3325, "name": "Medici frontalieri in Ticino: stipendio, requis...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3326, "name": "Quanto guadagna un tecnico di sala operatoria f...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-stipendio-tecnico-sala-operatoria` }
  ]
  },
  {

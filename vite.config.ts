@@ -102,6 +102,7 @@ import { faqHubLinksPlugin } from './build-plugins/faqHubLinksPlugin';
 import { frSalaireNetLandingPlugin } from './build-plugins/frSalaireNetLandingPlugin';
 import { holidaysLandingsPlugin } from './build-plugins/holidaysLandingsPlugin';
 import { bfsSalaryLandingsPlugin } from './build-plugins/bfsSalaryLandingsPlugin';
+import { minimumWageLandingsPlugin } from './build-plugins/minimumWageLandingsPlugin';
 import { sectionPagesPlugin } from './build-plugins/sectionPagesPlugin';
 import { precompressHtmlPlugin } from './build-plugins/precompressHtmlPlugin';
 import { localeTableCompletenessPlugin } from './build-plugins/localeTableCompletenessPlugin';
@@ -244,6 +245,11 @@ export default defineConfig(({ mode }) => {
  // education levels × 4 locales = 36 static pages). Dataset-driven
  // (data/seo/bfs-salary-by-age.json). CTA → net-salary calculator.
  bfsSalaryLandingsPlugin(__dirname),
+ // #4479 — Swiss minimum-wage landings: hub + 5 canton pages (GE/BS/JU/NE/TI)
+ // + CCL sector page (7 page types × 4 locales = 28 static pages).
+ // Dataset-driven (data/seo/swiss-minimum-wage.json). Curated set, no floor
+ // loop. End-of-content multiplex on the hub (index) page only.
+ minimumWageLandingsPlugin(__dirname),
  // C3 — Google News compliance section pages: 7 topic areas × 4 locales = 28
  // static HTML aggregator pages listing the latest 20 matching blog
  // articles per section. Static-only (no SPA route, no nav-tab impact).
