@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3670.title': 'Strutture sanitarie che assumono',
+ 'whatsNew.v3670.facilities.title': 'Offerte per ospedale e clinica',
+ 'whatsNew.v3670.facilities.desc': 'Nuove pagine per struttura sanitaria svizzera con le offerte attive, i ruoli sanitari che assumono e lo stipendio mediano reale, collegate al percorso infermieri e OSS.',
  'whatsNew.v3650.title': 'Confronto LAMal vs SSN interattivo',
  'whatsNew.v3650.affiliate.title': 'Strumenti consigliati per la salute',
  'whatsNew.v3650.affiliate.desc': 'Nuove risorse consigliate nel comparatore casse malati e nelle pagine premi, con link partner tracciati in modo uniforme.',

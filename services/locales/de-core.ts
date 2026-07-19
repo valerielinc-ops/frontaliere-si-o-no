@@ -2527,6 +2527,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3670.title': 'Gesundheitseinrichtungen mit offenen Stellen',
+ 'whatsNew.v3670.facilities.title': 'Stellen nach Spital und Klinik',
+ 'whatsNew.v3670.facilities.desc': 'Neue Seiten für jede Schweizer Gesundheitseinrichtung mit ihren offenen Stellen, den gesuchten Gesundheitsberufen und dem realen Medianlohn, verbunden mit dem Pflege- und Betreuungspfad.',
  'whatsNew.v3650.title': 'Interaktiver LAMal-vs-SSN-Vergleich',
  'whatsNew.v3650.affiliate.title': 'Empfohlene Gesundheits-Tools',
  'whatsNew.v3650.affiliate.desc': 'Neue empfohlene Ressourcen im Krankenkassen-Vergleich und auf den Pr\u00e4mienseiten, mit einheitlich getrackten Partnerlinks.',

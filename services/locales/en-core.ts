@@ -2524,6 +2524,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3670.title': 'Healthcare facilities that are hiring',
+ 'whatsNew.v3670.facilities.title': 'Jobs by hospital and clinic',
+ 'whatsNew.v3670.facilities.desc': 'New pages for each Swiss healthcare facility with its live openings, the clinical roles it is hiring and the real median salary, wired to the nursing and care-assistant career path.',
  'whatsNew.v3650.title': 'Interactive LAMal vs SSN comparison',
  'whatsNew.v3650.affiliate.title': 'Recommended health tools',
  'whatsNew.v3650.affiliate.desc': 'New recommended resources in the health-insurance comparator and premium pages, with uniformly tracked partner links.',
