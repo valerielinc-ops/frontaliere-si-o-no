@@ -38,6 +38,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { formatUpdatedSentence } from './shared/humanDate';
 import { WriteCollector } from './batchWrite';
 import {
@@ -445,7 +446,8 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `<main class="fh-main">${body}</main>`;
+  const wordCount = countHtmlBodyWords(body);
+  const bodyHtml = `<main class="fh-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -512,7 +514,6 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   // (already linked on this page) instead of a per-page inline <style> block.
   // The classes keep the rendered HTML under the 200 KB page-weight gate; the
   // shared sheet drops the ~2 KB block from every FAQ hub page.
-  const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({
     locale,

@@ -20,6 +20,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -144,7 +145,7 @@ ${professionCards}
   </ul>
 </section>`;
 
-  const bodyHtml = `<div class="max-w-3xl mx-auto px-4 py-6">
+  const contentHtml = `<div class="max-w-3xl mx-auto px-4 py-6">
 ${breadcrumbHtml}
 <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
 <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
@@ -157,8 +158,7 @@ ${sectionsHtml}
 ${professionsHtml}
 ${faqHtml}
 ${relatedHtml}
-${sourcesHtml}
-</div>`;
+${sourcesHtml}`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -198,7 +198,10 @@ ${sourcesHtml}
     },
   });
 
-  const wordCount = countHtmlBodyWords(bodyHtml);
+  const wordCount = countHtmlBodyWords(contentHtml);
+  const bodyHtml = `${contentHtml}
+${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}
+</div>`;
   const html = buildSeoPageHtml({
     locale,
     title: buildTitleWithBrand(copy.title),

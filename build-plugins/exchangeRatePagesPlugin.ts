@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { renderHreflangTags, renderSitemapHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
