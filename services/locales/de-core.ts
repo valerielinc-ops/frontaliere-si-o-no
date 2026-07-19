@@ -2511,6 +2511,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3630.title': 'Aggiornamenti',
+ 'whatsNew.v3630.exchange-ssg.title': 'Franken-Euro-Kurs: neue eigene Seiten',
+ 'whatsNew.v3630.exchange-ssg.desc': 'Aktueller CHF/EUR-Kurs, 12-Monats-Verlauf und Umrechnung typischer Löhne (1000–10000 CHF), mit Tipps zum richtigen Zeitpunkt und zum Sparen bei den Gebühren.',
  'whatsNew.v3490.title': 'Neuer Bereich Schweiz-Artikel',
  'whatsNew.v3490.svizzeraSection.title': 'Artikel aus der ganzen Schweiz',
  'whatsNew.v3490.svizzeraSection.desc': 'Ein neuer Artikelbereich zu Wirtschaft, Steuern, Arbeit und Leben für alle, die in der Schweiz leben oder arbeiten — nicht nur für Grenzgänger. Im Umschalter "Schweiz" unter Artikel zu finden.',

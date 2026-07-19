@@ -2508,6 +2508,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3630.title': 'Aggiornamenti',
+ 'whatsNew.v3630.exchange-ssg.title': 'CHF/EUR exchange: new dedicated pages',
+ 'whatsNew.v3630.exchange-ssg.desc': "Today's CHF/EUR rate, 12-month history and typical-salary conversions (1000–10000 CHF), with tips on when to exchange and how to save on fees.",
  'whatsNew.v3490.title': 'New Switzerland Articles section',
  'whatsNew.v3490.svizzeraSection.title': 'Articles from all of Switzerland',
  'whatsNew.v3490.svizzeraSection.desc': 'A new article section on economy, taxes, work and living for anyone living or working in Switzerland — not just cross-border workers. Find it under the "Switzerland" toggle inside Articles.',

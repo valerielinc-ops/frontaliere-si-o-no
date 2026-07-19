@@ -2511,6 +2511,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3630.title': 'Aggiornamenti',
+ 'whatsNew.v3630.exchange-ssg.title': 'Change franc-euro : nouvelles pages dédiées',
+ 'whatsNew.v3630.exchange-ssg.desc': 'Taux CHF/EUR du jour, historique 12 mois et conversion des salaires typiques (1000–10000 CHF), avec des conseils sur quand changer et comment économiser sur les frais.',
  'whatsNew.v3490.title': 'Nouvelle section Articles Suisse',
  'whatsNew.v3490.svizzeraSection.title': 'Articles de toute la Suisse',
  'whatsNew.v3490.svizzeraSection.desc': 'Une nouvelle section d\'articles sur l\'économie, la fiscalité, le travail et la vie pour toute personne vivant ou travaillant en Suisse — pas seulement les frontaliers. À trouver sous le bouton "Suisse" dans Articles.',

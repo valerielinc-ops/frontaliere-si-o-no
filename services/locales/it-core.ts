@@ -2598,6 +2598,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3630.title': 'Aggiornamenti',
+ 'whatsNew.v3630.exchange-ssg.title': 'Cambio franco-euro: nuove pagine dedicate',
+ 'whatsNew.v3630.exchange-ssg.desc': 'Tasso CHF/EUR di oggi, storico 12 mesi e conversione degli stipendi tipici (1000–10000 CHF), con consigli su quando cambiare e come risparmiare sulle commissioni.',
  'whatsNew.v3490.title': 'Nuova sezione Articoli Svizzera',
  'whatsNew.v3490.svizzeraSection.title': 'Articoli da tutta la Svizzera',
  'whatsNew.v3490.svizzeraSection.desc': 'Nuova sezione di articoli su economia, fisco, lavoro e vita per chiunque viva o lavori in Svizzera, non solo per i frontalieri. Trovala nel toggle "Svizzera" dentro Articoli.',
