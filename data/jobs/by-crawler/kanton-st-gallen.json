@@ -212,12 +212,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
-        "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee"
+        "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
+        "agente-di-polizia-politico-regione-della-polizia-mobile-bodensee-rheintal-kanton-st-gallen-region-bodensee-rheintal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
-          "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee"
+          "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
+          "agente-di-polizia-politico-regione-della-polizia-mobile-bodensee-rheintal-kanton-st-gallen-region-bodensee-rheintal"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch"
@@ -525,11 +527,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+        "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+        "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+          "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+          "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
@@ -712,10 +716,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -759,18 +763,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
+        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil",
+        "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forstwart-in-m-w-d-kanton-st-gallen-ch"
+          "forstwart-in-m-w-d-kanton-st-gallen-ch",
+          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+          "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
+          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
+          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil",
           "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
@@ -1028,7 +1040,7 @@
       "id": "kanton-st-gallen-ae6ccc5467d5",
       "slug": "dipl-assistente-sanitaria-m-w-d-kanton-st-gallen-oberburen",
       "slugByLocale": {
-        "it": "infermiere-laureato-in-hf-lundi-fi-d-kanton-st-gallen-oberburen",
+        "it": "dipl-assistente-sanitaria-m-w-d-kanton-st-gallen-oberburen",
         "en": "dipl-nurse-hf-m-f-d-kanton-st-gallen-oberburen",
         "de": "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
         "fr": "dipl-infirmiere-hf-m-f-d-kanton-st-gallen-oberburen"
@@ -1074,11 +1086,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
+        "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
+        "infermiere-laureato-in-hf-lundi-fi-d-kanton-st-gallen-oberburen",
+        "dipl-assistente-sanitaria-m-w-d-kanton-st-gallen-oberburen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
+          "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch",
+          "infermiere-laureato-in-hf-lundi-fi-d-kanton-st-gallen-oberburen",
+          "dipl-assistente-sanitaria-m-w-d-kanton-st-gallen-oberburen"
         ],
         "en": [
           "dipl-pflegefachperson-hf-m-w-d-kanton-st-gallen-ch"
@@ -2216,7 +2232,7 @@
         "it": "comandante-della-polizia-cantonale-f-m-d-kanton-st-gallen-st-gallen",
         "en": "commander-commander-cantonal-police-f-m-d-kanton-st-gallen-st-gallen",
         "de": "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
-        "fr": "commandant-commandant-de-la-police-cantonale-f-m-d-kanton-st-gallen-st-gallen"
+        "fr": "kommandantin-kommandant-kantonspolizei-m-w-d-kanton-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -2261,11 +2277,14 @@
       "previousSlugs": [
         "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
         "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-st-gallen",
+        "commandant-commandant-de-la-police-cantonale-f-m-d-kanton-st-gallen-st-gallen",
+        "comandante-della-polizia-cantonale-f-m-d-kanton-st-gallen-st-gallen",
         "kommandantin-kommandant-kantonspolizei-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch"
+          "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
+          "comandante-della-polizia-cantonale-f-m-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch"
@@ -2273,6 +2292,7 @@
         "fr": [
           "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-ch",
           "kommandantin-kommandant-kantonspolizei-w-m-d-kanton-st-gallen-st-gallen",
+          "commandant-commandant-de-la-police-cantonale-f-m-d-kanton-st-gallen-st-gallen",
           "kommandantin-kommandant-kantonspolizei-m-w-d-kanton-st-gallen"
         ]
       },
@@ -2849,7 +2869,7 @@
         "it": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
         "en": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
         "de": "hr-business-partner-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "partenaire-operationnel-rh-m-f-d-kanton-st-gallen-st-gallen"
+        "fr": "hr-business-partner-in-m-w-d-kanton-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -2894,12 +2914,14 @@
       "previousSlugs": [
         "partenaire-d-affaires-rh-m-f-d-kanton-st-gallen-st-gallen",
         "hr-business-partner-in-m-w-d-kanton-st-gallen-st-gallen",
+        "partenaire-operationnel-rh-m-f-d-kanton-st-gallen-st-gallen",
         "hr-business-partner-in-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "partenaire-d-affaires-rh-m-f-d-kanton-st-gallen-st-gallen",
           "hr-business-partner-in-m-w-d-kanton-st-gallen-st-gallen",
+          "partenaire-operationnel-rh-m-f-d-kanton-st-gallen-st-gallen",
           "hr-business-partner-in-m-w-d-kanton-st-gallen"
         ]
       },
@@ -3046,12 +3068,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch",
-        "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch-2"
+        "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch-2",
+        "apprendista-n-zeichnerin-zeichner-cfc-specializzazione-ingegneria-civile-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch",
-          "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch-2"
+          "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch-2",
+          "apprendista-n-zeichnerin-zeichner-cfc-specializzazione-ingegneria-civile-kanton-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:08:40.670Z",
@@ -3534,12 +3558,14 @@
         "agent-d-instruction-tribunal-de-district-wil-m-f-d-kanton-st-gallen-flawil",
         "cancelliere-del-tribunale-distrettuale-wil-m-f-d-kanton-st-gallen-flawil",
         "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-flawil",
-        "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+        "addetto-a-al-tribunale-circondariale-di-wil-m-f-d-kanton-st-gallen-flawil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cancelliere-del-tribunale-distrettuale-wil-m-f-d-kanton-st-gallen-flawil",
-          "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeiter-in-kreisgericht-wil-m-w-d-kanton-st-gallen-ch",
+          "addetto-a-al-tribunale-circondariale-di-wil-m-f-d-kanton-st-gallen-flawil"
         ],
         "en": [
           "case-officer-in-district-court-wil-m-f-d-kanton-st-gallen-flawil",
@@ -3614,11 +3640,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen-ch"
+        "mitarbeiter-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen-ch",
+        "collaboratore-trice-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen-ch"
+          "mitarbeiter-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen-ch",
+          "collaboratore-trice-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen"
         ],
         "en": [
           "mitarbeiter-mitarbeiterin-gesundheitsdienst-m-w-d-kanton-st-gallen-ch"
@@ -4637,11 +4665,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrperson-fur-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-efz-kanton-st-gallen"
+        "lehrperson-fur-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-efz-kanton-st-gallen",
+        "lehrperson-per-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-cfc-kanton-st-gallen-lichtensteig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-fur-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-efz-kanton-st-gallen"
+          "lehrperson-fur-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-efz-kanton-st-gallen",
+          "lehrperson-per-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-cfc-kanton-st-gallen-lichtensteig"
         ],
         "en": [
           "lehrperson-fur-den-berufskundeunterricht-fachfrau-fachmann-gesundheit-efz-kanton-st-gallen"
@@ -4948,11 +4978,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
+        "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
+          "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
+          "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-wil"
         ],
         "en": [
           "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
@@ -5025,11 +5057,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
+        "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
+        "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-walzenhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
+          "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
+          "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-walzenhausen"
         ],
         "en": [
           "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"

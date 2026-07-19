@@ -58,6 +58,7 @@
       "previousSlugs": [
         "operator-messlabor-cay-com-huber-suhner-herisau",
         "operator-messlabor-cay-com-huber-suhner-ag-herisau",
+        "laboratorio-di-misura-operatore-cay-com-huber-suhner-ag-herisau",
         "operatore-laser-e-assemblaggio-cay-com-huber-suhner-ag-herisau",
         "operator-laser-montage-cay-com-huber-suhner-herisau",
         "operator-laser-montage-cay-com-huber-suhner-ag-herisau"
@@ -66,6 +67,7 @@
         "it": [
           "operator-messlabor-cay-com-huber-suhner-herisau",
           "operator-messlabor-cay-com-huber-suhner-ag-herisau",
+          "laboratorio-di-misura-operatore-cay-com-huber-suhner-ag-herisau",
           "operatore-laser-e-assemblaggio-cay-com-huber-suhner-ag-herisau",
           "operator-laser-montage-cay-com-huber-suhner-herisau",
           "operator-laser-montage-cay-com-huber-suhner-ag-herisau"
@@ -214,6 +216,7 @@
         "rf-development-ingegnere-huber-suhner-ag-herisau",
         "rf-development-engineer-huber-suhner-herisau",
         "rf-development-ingenieur-huber-suhner-ag-herisau",
+        "tecnico-di-produzione-cavi-rf-huber-suhner-ag-herisau",
         "supporto-tecnico-del-prodotto-assemblaggio-di-cavi-rf-huber-suhner-ag-herisau",
         "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
         "technischer-produktsupport-rf-kabelbaugruppe-huber-suhner-ag-herisau",
@@ -225,6 +228,7 @@
           "rf-development-ingegnere-huber-suhner-ag-herisau",
           "rf-development-engineer-huber-suhner-herisau",
           "rf-development-ingenieur-huber-suhner-ag-herisau",
+          "tecnico-di-produzione-cavi-rf-huber-suhner-ag-herisau",
           "supporto-tecnico-del-prodotto-assemblaggio-di-cavi-rf-huber-suhner-ag-herisau",
           "technical-product-support-rf-cable-assembly-huber-suhner-herisau",
           "technischer-produktsupport-rf-kabelbaugruppe-huber-suhner-ag-herisau",
@@ -265,7 +269,7 @@
         "it": "controllore-aziendale-huber-suhner-ag-pfaffikon",
         "en": "corporate-controllers-huber-suhner-ag-pfaffikon",
         "de": "corporate-controller-huber-suhner-pfaffikon",
-        "fr": "controleurs-d-entreprise-huber-suhner-ag-pfaffikon"
+        "fr": "corporate-controller-huber-suhner-ag-pfaffikon"
       },
       "company": "Huber+Suhner AG",
       "companyKey": "huber-suhner",
@@ -314,11 +318,14 @@
       "previousSlugs": [
         "corporate-controller-huber-suhner-pfaffikon",
         "controles-d-entreprise-huber-suhner-ag-pfaffikon",
+        "controleurs-d-entreprise-huber-suhner-ag-pfaffikon",
+        "controllore-aziendale-huber-suhner-ag-pfaffikon",
         "corporate-controller-huber-suhner-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corporate-controller-huber-suhner-pfaffikon"
+          "corporate-controller-huber-suhner-pfaffikon",
+          "controllore-aziendale-huber-suhner-ag-pfaffikon"
         ],
         "en": [
           "corporate-controller-huber-suhner-pfaffikon"
@@ -326,6 +333,7 @@
         "fr": [
           "corporate-controller-huber-suhner-pfaffikon",
           "controles-d-entreprise-huber-suhner-ag-pfaffikon",
+          "controleurs-d-entreprise-huber-suhner-ag-pfaffikon",
           "corporate-controller-huber-suhner-ag-pfaffikon"
         ]
       },
@@ -614,11 +622,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "senior-project-manager-industrial-engineering-huber-suhner-herisau"
+        "senior-project-manager-industrial-engineering-huber-suhner-herisau",
+        "senior-project-manager-ingegneria-industriale-huber-suhner-ag-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-project-manager-industrial-engineering-huber-suhner-herisau"
+          "senior-project-manager-industrial-engineering-huber-suhner-herisau",
+          "senior-project-manager-ingegneria-industriale-huber-suhner-ag-herisau"
         ],
         "fr": [
           "senior-project-manager-industrial-engineering-huber-suhner-herisau"
@@ -844,11 +854,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "shopfloor-controller-rf-cay-com-huber-suhner-herisau"
+        "shopfloor-controller-rf-cay-com-huber-suhner-herisau",
+        "controllore-del-pavimento-rf-cay-com-huber-suhner-ag-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "shopfloor-controller-rf-cay-com-huber-suhner-herisau"
+          "shopfloor-controller-rf-cay-com-huber-suhner-herisau",
+          "controllore-del-pavimento-rf-cay-com-huber-suhner-ag-herisau"
         ],
         "fr": [
           "shopfloor-controller-rf-cay-com-huber-suhner-herisau"
