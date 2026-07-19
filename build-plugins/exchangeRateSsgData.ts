@@ -1,82 +1,37 @@
 /**
- * Shared data module for the CHF/EUR exchange SSG vertical (epic #4452).
+ * Build-time data module for the CHF/EUR exchange SSG vertical (epic #4452).
  *
- * Single source of truth for:
- *   - URL structure (hub + per-amount long-tail pages, 4 locales, trailing slash)
- *   - the curated amount set (typical frontaliere gross salaries, NOT a
- *     cartesian product — issue #4454)
+ * URL structure / amount set / path builders live in the BROWSER-SAFE shared
+ * module services/exchangeSsgPaths.ts (one definition, consumed by both the
+ * SPA cross-links and this build path — AGENTS.md Non-Negotiable #6). This
+ * module adds the node-only parts:
  *   - the committed snapshot loader (data/exchange-rate-snapshot.json,
  *     refreshed daily by .github/workflows/update-exchange-history.yml via
  *     scripts/snapshot-exchange-history.mjs — build never hits Firestore)
  *   - the precompiled path Set used by searchConsoleCompat.ts's self-map
  *     (module-load Set → O(1) per URL inside the 150k+-path compat loop).
- *
- * Kept standalone (no plugin imports) so searchConsoleCompat.ts and the
- * salary-hub cross-linking can import it without pulling the emit logic.
  */
 
 import fs from 'node:fs';
 import np from 'node:path';
+import {
+  EXCHANGE_LOCALES,
+  EXCHANGE_AMOUNTS,
+  buildExchangeHubPath,
+  buildExchangeAmountPath,
+} from '../services/exchangeSsgPaths';
 
-export type ExchangeLocale = 'it' | 'en' | 'de' | 'fr';
-
-export const EXCHANGE_LOCALES: readonly ExchangeLocale[] = ['it', 'en', 'de', 'fr'];
-
-export const EXCHANGE_LOCALE_PREFIX: Record<ExchangeLocale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
-
-/**
- * Top-level section slug per locale. NOTE: the IT slug intentionally matches
- * the SPA comparator sub-tab wording ("cambio-franco-euro") but lives at the
- * ROOT (`/cambio-franco-euro/`), distinct from the SPA route
- * `/compara-servizi/cambio-franco-euro/` — issue #4453 mandates the root URL.
- */
-export const EXCHANGE_SECTION_SLUG: Record<ExchangeLocale, string> = {
-  it: 'cambio-franco-euro',
-  en: 'chf-eur-exchange',
-  de: 'franken-euro-kurs',
-  fr: 'change-franc-euro',
-};
-
-/**
- * Curated amount set (CHF) — typical frontaliere gross monthly salaries plus
- * a few round query-magnet values ("4000 franchi in euro"). ~20 values by
- * design (issue #4454: "set curato ~15-25 importi, non prodotto cartesiano").
- * Every amount page is emitted UNCONDITIONALLY (static copy, no data floor),
- * so no below-floor bridge is needed for this family.
- */
-export const EXCHANGE_AMOUNTS: readonly number[] = [
-  1000, 1500, 2000, 2500, 3000, 3200, 3500, 3800, 4000, 4200,
-  4500, 4800, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 10000,
-];
-
-/** Per-locale amount slug, e.g. IT `4000-franchi-in-euro`. */
-export function exchangeAmountSlug(locale: ExchangeLocale, amount: number): string {
-  switch (locale) {
-    case 'it':
-      return `${amount}-franchi-in-euro`;
-    case 'en':
-      return `${amount}-chf-to-eur`;
-    case 'de':
-      return `${amount}-franken-in-euro`;
-    case 'fr':
-      return `${amount}-francs-en-euros`;
-  }
-}
-
-/** Hub path with trailing slash, e.g. `/cambio-franco-euro/`. */
-export function buildExchangeHubPath(locale: ExchangeLocale): string {
-  return `${EXCHANGE_LOCALE_PREFIX[locale]}/${EXCHANGE_SECTION_SLUG[locale]}/`;
-}
-
-/** Amount-page path with trailing slash, e.g. `/cambio-franco-euro/4000-franchi-in-euro/`. */
-export function buildExchangeAmountPath(locale: ExchangeLocale, amount: number): string {
-  return `${buildExchangeHubPath(locale)}${exchangeAmountSlug(locale, amount)}/`;
-}
+export {
+  EXCHANGE_LOCALES,
+  EXCHANGE_AMOUNTS,
+  EXCHANGE_LOCALE_PREFIX,
+  EXCHANGE_SECTION_SLUG,
+  exchangeAmountSlug,
+  buildExchangeHubPath,
+  buildExchangeAmountPath,
+  buildNearestExchangeAmountPath,
+  type ExchangeLocale,
+} from '../services/exchangeSsgPaths';
 
 // ── Snapshot loader ──────────────────────────────────────────────────────────
 

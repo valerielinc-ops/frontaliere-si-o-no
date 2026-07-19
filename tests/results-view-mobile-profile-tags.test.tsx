@@ -49,6 +49,9 @@ vi.mock('@/services/i18n', () => ({
     },
   }),
   getCantonI18nParams: () => ({} as Record<string, string>),
+  // ResultsView's exchange-vertical cross-link (epic #4452) resolves the
+  // localized hub/amount path at render time.
+  getLocale: () => 'it',
 }));
 
 vi.mock('@/services/NavigationContext', () => ({
