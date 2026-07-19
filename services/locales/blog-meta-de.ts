@@ -8631,6 +8631,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.title': 'Svizzera: solo 7% del capitale va a imprese con CEO donna',
     'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.excerpt': 'Laut einer neuen Studie des Anlegerverbandes SECA gingen nur 7% des aufgenommenen Risikokapitals an Unternehmen mit weiblichen CEOs.',
     'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.imageAlt': 'Panoramablick auf den Luganersee',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'Wie viel verdient ein Grenzergotherapeut im Tessin?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Gehalt eines Grenzergotherapeuten im Tessin: Wie wird es berechnet und was beeinflusst das Gehalt?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Frontalier Ergotherapeut mit Arbeitserlaubnis und Aufenthaltstitel in der Hand, mit dem Hintergrund von Lago Lugano',
 };
 
 export default blogMetaDe;
