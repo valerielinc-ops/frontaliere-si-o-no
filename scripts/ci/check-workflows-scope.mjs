@@ -9,10 +9,11 @@
  * `workflows` scope). The prose rule ("detect early, terminate") was not load-bearing.
  *
  * This script makes the detection EXECUTABLE and deterministic for issues that
- * EXPLICITLY cite .github/workflows/** paths in their body (code blocks, backtick refs,
- * Suggested action sections). For such issues it short-circuits BEFORE Claude runs,
- * posting the blocked comment + FIX_OUTCOME marker and emitting `workflows_blocked=true`
- * so the Claude job is skipped via its `if:` condition → zero Max OAuth quota spent.
+ * EXPLICITLY cite .github/workflows/** paths anywhere in their body — code blocks,
+ * backtick refs, or plain markdown prose/bullets (e.g. a "File di partenza" list item,
+ * see issue #4518). For such issues it short-circuits BEFORE Claude runs, posting the
+ * blocked comment + FIX_OUTCOME marker and emitting `workflows_blocked=true` so the
+ * Claude job is skipped via its `if:` condition → zero Max OAuth quota spent.
  *
  * COMPLEMENT: The .githooks/pre-commit hook handles the harder case where the fix target
  * is discovered DURING diagnosis (agent implements, commits, hook fires at commit time
@@ -145,48 +146,32 @@ function setOutput(blocked) {
   }
 }
 
+// Matches `.github/workflows/<name>.yml` (or `.yaml`) ANYWHERE in the body text —
+// backticks, fenced code blocks, or bare markdown prose/bullets. The extension
+// anchor (`\.ya?ml\b`) makes this precise even outside backticks/fences: no bare
+// `.yml` name matches without the literal `.github/workflows/` prefix, and no
+// generic prose ("the traffic-scheduler workflow") matches without the literal
+// path substring. Mirrors the equivalent, already-proven full-text scan in
+// followup-drainer.mjs's `detectWorkflowScoped` (WORKFLOW_PATH_RE) — see issue
+// #4518 module docstring below for why the previous backtick/fence-only version
+// under-detected.
+const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
+
 /**
  * Extract explicit .github/workflows/** path references from an issue body.
  *
- * Searches two high-precision locations:
- *   1. Backtick refs: `...path...` where the path starts with .github/workflows/
- *   2. Code blocks: fenced ``` or ~~~ blocks containing .github/workflows/ paths
- *
- * Intentionally DOES NOT search plain prose: "the traffic-scheduler workflow" or
- * "the crawlers' group workflows" must not trigger a false block.
+ * Scans the ENTIRE body text, not just backtick refs or fenced code blocks (issue
+ * #4518: the original version only matched those two shapes and missed the common
+ * "File di partenza" bullet-list shape — `- .github/workflows/foo.yml (cron gia
+ * attivo)`, plain markdown, no backticks/fence — sampled live on issue #4453,
+ * which slipped through Mode 1 and cost a full Claude turn-1 self-termination
+ * instead of a zero-Claude short-circuit).
  *
  * Returns an array of unique matched paths (empty if none found).
  */
 export function extractWorkflowPaths(body) {
-  const found = new Set();
   const text = body || '';
-
-  // Pattern 1: backtick refs — `.github/workflows/foo.yml`
-  // Matches anything inside backticks that starts with .github/workflows/
-  for (const m of text.matchAll(/`(\.github\/workflows\/[^`\s]+)`/g)) {
-    found.add(m[1]);
-  }
-
-  // Pattern 2: code block content — lines starting with (optional whitespace +) the path
-  // Handles both ``` and ~~~ fences; path can appear as a filename, a key in YAML, etc.
-  const codeBlockPattern = /(?:```|~~~)[^\n]*\n([\s\S]*?)(?:```|~~~)/g;
-  for (const block of text.matchAll(codeBlockPattern)) {
-    const content = block[1];
-    for (const line of content.split('\n')) {
-      const trimmed = line.trim();
-      // Match lines that start with the workflow path (possibly followed by : for YAML keys)
-      if (/^\.github\/workflows\/\S+/.test(trimmed)) {
-        // Extract just the path portion (stop at whitespace, :, or end of line)
-        const match = trimmed.match(/^(\.github\/workflows\/[^\s:,'"]+)/);
-        if (match) found.add(match[1]);
-      }
-      // Also match GitHub Actions file: annotations like "# file: .github/workflows/foo.yml"
-      const fileAnnotation = trimmed.match(/file:\s*(\.github\/workflows\/\S+)/);
-      if (fileAnnotation) found.add(fileAnnotation[1]);
-    }
-  }
-
-  return [...found];
+  return [...new Set(text.match(WORKFLOW_PATH_RE) || [])];
 }
 
 /**
