@@ -1237,6 +1237,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.title': 'Combien gagne un technicien en radiologie frontalière au Tessin ?',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.excerpt': 'La rémunération d\'un technicien en radiologie frontalière au Tessin : facteurs affectant la rémunération et différences par rapport à l\'Italie',
     'blog.article.frontaliere-ticino-salario-tecnico-radiologia.imageAlt': 'Radiologues en milieu hospitalier',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.title': 'Ergothérapie au Tessin : salaire et exigences',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.excerpt': 'Savoir ce que la loi exige pour un frontalier qui veut travailler comme ergothérapeute au Tessin, et quelles sont les conditions requises pour obtenir le permis G.',
+    'blog.article.frontaliere-ergoterapista-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano, avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;
