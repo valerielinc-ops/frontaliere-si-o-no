@@ -24,7 +24,7 @@
  * Trailing slash mandatory (repo rule).
  */
 
-import { esc } from './htmlEscape';
+import { escHtml as esc } from './htmlEscape';
 import { SMALL_HEADING_STYLE, BODY_STYLE, CARD_BODY_CLASS } from './seoContentTokens';
 
 export type EmployerCtaLocale = 'it' | 'en' | 'de' | 'fr';
