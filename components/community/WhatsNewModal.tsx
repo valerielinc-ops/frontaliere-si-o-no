@@ -76,6 +76,37 @@ export const RELEASES: Release[] = [
     ],
   },
   {
+    version: '3.71.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3710.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.salaryAlert.title',
+        descKey: 'whatsNew.v3710.salaryAlert.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.municipalTax.title',
+        descKey: 'whatsNew.v3710.municipalTax.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.cantonCompare.title',
+        descKey: 'whatsNew.v3710.cantonCompare.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.consulting.title',
+        descKey: 'whatsNew.v3710.consulting.desc',
+        link: { tab: 'consulting' },
+      },
+    ],
+  },
+  {
     version: '3.70.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3700.title',

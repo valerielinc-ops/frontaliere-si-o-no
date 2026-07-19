@@ -16086,6 +16086,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw': {
+    title: 'Di più centrali nucleari mettono a rischio migliaia posti lavoro, ZHAW',
+    description: 'Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio',
+    keywords: 'frontalieri, ticino, svizzera, italia, centrali, nucleari, mettono, rischio',
+    ogTitle: 'Centrali nucleari: rischio per migliaia di posti lavoro',
+    ogDescription: 'Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio',
+    canonicalPath: '/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più centrali nucleari mettono a rischio migliaia posti lavoro, ZHAW",
+      "description": "Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una città svizzera con un impianto nucleare"
+      },
+      "datePublished": "2026-07-19T08:44:26+00:00",
+      "dateModified": "2026-07-19T08:44:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ottico-optometrista-ticino-stipendio-requisiti': {
+    title: 'Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo',
+    description: 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, ottico, stipendio, requisiti',
+    ogTitle: 'Lavorare come ottico optometrista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo",
+      "description": "Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ottico-optometrista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa di ricevere il permesso di lavoro presso un ottico optometrista a Lugano."
+      },
+      "datePublished": "2026-07-19T09:09:34+00:00",
+      "dateModified": "2026-07-19T09:09:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

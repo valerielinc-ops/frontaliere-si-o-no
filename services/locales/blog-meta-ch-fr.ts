@@ -1246,6 +1246,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-frontaliere-dietista-ticino.title': 'Combien gagne un frontalier diététicien au Tessin ?',
     'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'Le salaire d\'un frontalier diététicien au Tessin peut varier en fonction de la tranche d\'âge et du poste de travail.',
     'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontalier diététicien en Suisse italienne',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.title': 'Plus de centrales nucléaires mettent en péril des milliers d\'emplois, ZHAW',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.excerpt': 'Une étude récente de la Haute école des sciences appliquées de Zurich (ZHAW) indique que la construction de nouvelles centrales nucléaires mettrait en péril des milliers d\'emplois dans les secteurs du bâtiment et des énergies renouvelables.',
+    'blog.article.centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.imageAlt': 'Une ville suisse avec une centrale nucléaire',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Travailler comme opticien en Suisse: salaire et reconnaissance',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Les opticiens frontaliers au Tessin : salaire moyen, exigences, reconnaissance du diplôme et permis G.',
+    'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier attendant de recevoir un permis de travail auprès d\'un optométriste à Lugano.',
 };
 
 export default blogMetaChFr;

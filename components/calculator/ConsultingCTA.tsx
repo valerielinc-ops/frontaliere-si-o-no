@@ -23,11 +23,48 @@ import { resilientImport } from '@/services/resilientImport';
 import { Analytics } from '@/services/analytics';
 import { useNavigationOptional } from '@/services/NavigationContext';
 
-const FLAG_KEY = 'ENABLE_CALCULATOR_CONSULTING_CTA';
-const VIEW_SESSION_KEY = 'consulting_cta_viewed';
-const CTA_ID = 'calculator_consulting_cta';
-const TARGET_URL =
- '/consulenza?utm_source=calculator_result&utm_medium=inline_cta&utm_campaign=post_simulation';
+/**
+ * Placement variants (issue #4487): the same discreet consulting card is used
+ * both post-simulation on the calculator AND at the end of fiscal blog articles.
+ * Each placement carries its own RC flag, copy namespace, UTM attribution and
+ * per-session view-dedup key so their view→booking funnels stay distinct.
+ */
+type Placement = 'calculator' | 'fisco-article';
+
+interface PlacementConfig {
+  flagKey: string;
+  viewSessionKey: string;
+  ctaId: string;
+  copyPrefix: string;
+  section: string;
+  utmSource: string;
+  utmCampaign: string;
+}
+
+const PLACEMENTS: Record<Placement, PlacementConfig> = {
+  calculator: {
+    flagKey: 'ENABLE_CALCULATOR_CONSULTING_CTA',
+    viewSessionKey: 'consulting_cta_viewed',
+    ctaId: 'calculator_consulting_cta',
+    copyPrefix: 'calculator.consultingCta',
+    section: 'calculator_results',
+    utmSource: 'calculator_result',
+    utmCampaign: 'post_simulation',
+  },
+  'fisco-article': {
+    flagKey: 'ENABLE_ARTICLE_CONSULTING_CTA',
+    viewSessionKey: 'consulting_cta_article_viewed',
+    ctaId: 'article_consulting_cta',
+    copyPrefix: 'consultingCta.article',
+    section: 'fisco_article',
+    utmSource: 'fisco_article',
+    utmCampaign: 'fisco_article',
+  },
+};
+
+function buildTargetUrl(cfg: PlacementConfig): string {
+  return `/consulenza?utm_source=${cfg.utmSource}&utm_medium=inline_cta&utm_campaign=${cfg.utmCampaign}`;
+}
 
 interface Props {
  /**
@@ -35,6 +72,8 @@ interface Props {
   * read. Production code never passes this — it relies on the RC gate.
   */
  enabledOverride?: boolean;
+ /** Where the card renders — selects copy, RC flag and UTM attribution. */
+ placement?: Placement;
 }
 
 function parseBooleanFlag(value: string | null | undefined): boolean {
@@ -42,9 +81,11 @@ function parseBooleanFlag(value: string | null | undefined): boolean {
  return value.trim().toLowerCase() !== 'false';
 }
 
-export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
+export const ConsultingCTA: React.FC<Props> = ({ enabledOverride, placement = 'calculator' }) => {
  const { t } = useTranslation();
  const nav = useNavigationOptional();
+ const cfg = PLACEMENTS[placement];
+ const TARGET_URL = buildTargetUrl(cfg);
  const [enabled, setEnabled] = useState<boolean | null>(
  typeof enabledOverride === 'boolean' ? enabledOverride : null,
  );
@@ -57,7 +98,7 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  (async () => {
  try {
  const { getConfigValue } = await resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function');
- const raw = await getConfigValue(FLAG_KEY);
+ const raw = await getConfigValue(cfg.flagKey);
  if (cancelled) return;
  setEnabled(parseBooleanFlag(raw));
  } catch {
@@ -68,7 +109,7 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  return () => {
  cancelled = true;
  };
- }, [enabledOverride]);
+ }, [enabledOverride, cfg.flagKey]);
 
  // IntersectionObserver — fire funnel view event once per session.
  useEffect(() => {
@@ -80,7 +121,7 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  // Session-dedup: only emit the view event once per tab session.
  let alreadyViewed = false;
  try {
- alreadyViewed = sessionStorage.getItem(VIEW_SESSION_KEY) === '1';
+ alreadyViewed = sessionStorage.getItem(cfg.viewSessionKey) === '1';
  } catch {
  /* storage unavailable — still allow firing once via local flag */
  }
@@ -92,9 +133,9 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  for (const entry of entries) {
  if (!entry.isIntersecting || fired) continue;
  fired = true;
- Analytics.trackFunnelStep('consulting_cta_view', { funnel: 'consulting' });
+ Analytics.trackFunnelStep('consulting_cta_view', { funnel: 'consulting', placement });
  try {
- sessionStorage.setItem(VIEW_SESSION_KEY, '1');
+ sessionStorage.setItem(cfg.viewSessionKey, '1');
  } catch {
  /* storage unavailable */
  }
@@ -105,18 +146,18 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  );
  observer.observe(el);
  return () => observer.disconnect();
- }, [enabled]);
+ }, [enabled, cfg.viewSessionKey, placement]);
 
  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
  event.preventDefault();
- Analytics.trackCtaClick(CTA_ID, {
+ Analytics.trackCtaClick(cfg.ctaId, {
  targetUrl: TARGET_URL,
  component: 'ConsultingCTA',
- section: 'calculator_results',
- label: t('calculator.consultingCta.button'),
- utm_source: 'calculator_result',
+ section: cfg.section,
+ label: t(`${cfg.copyPrefix}.button`),
+ utm_source: cfg.utmSource,
  utm_medium: 'inline_cta',
- utm_campaign: 'post_simulation',
+ utm_campaign: cfg.utmCampaign,
  });
  if (nav) {
  nav.navigateTo('consulting' as never);
@@ -128,9 +169,9 @@ export const ConsultingCTA: React.FC<Props> = ({ enabledOverride }) => {
  if (enabled === false) return null;
  if (enabled === null) return null; // Hidden until flag resolves
 
- const headline = t('calculator.consultingCta.headline');
- const body = t('calculator.consultingCta.body');
- const buttonLabel = t('calculator.consultingCta.button');
+ const headline = t(`${cfg.copyPrefix}.headline`);
+ const body = t(`${cfg.copyPrefix}.body`);
+ const buttonLabel = t(`${cfg.copyPrefix}.button`);
 
  return (
  <div

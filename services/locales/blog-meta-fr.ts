@@ -8639,6 +8639,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Travailler comme diététiste au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Découvrez les exigences et les procédures pour travailler comme diététiste au Tessin en tant que frontalière',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'Vue de Lugano, Tessin',
+    'blog.article.frontaliere-ticino-ottico-optometrista.title': 'Combien gagne un opticien frontalier au Tessin ?',
+    'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'Une analyse des salaires d\'un opticien frontalier au Tessin, basée sur le nouvel accord frontalier de 2024.',
+    'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'Un opticien dans un cabinet d\'optométrie à Lugano',
 };
 
 export default blogMetaFr;

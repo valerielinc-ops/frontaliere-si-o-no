@@ -8639,6 +8639,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Lavorare come dietista in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'Vista di Lugano, Ticino',
+    'blog.article.frontaliere-ticino-ottico-optometrista.title': 'Quanto guadagna un ottico optometrista frontaliere in Ticino?',
+    'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'Un\'analisi dei salari di un ottico optometrista frontaliere in Ticino, basata sul Nuovo Accordo Frontalieri del 2024.',
+    'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'Un ottico optometrista in un ambulatorio in Lugano',
 };
 
 export default blogMetaIt;

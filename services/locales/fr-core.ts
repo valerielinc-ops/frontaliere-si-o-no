@@ -2529,6 +2529,22 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ // Consulting CTA at end of fiscal articles (#4487)
+ 'consultingCta.article.headline': 'Des questions sur ta situation fiscale ?',
+ 'consultingCta.article.body': '30 minutes avec un expert en fiscalité frontalière pour clarifier ton cas précis — €49, places limitées.',
+ 'consultingCta.article.button': 'Réserver une consultation',
+
+ // v3.71.0 — calculateur boosté
+ 'whatsNew.v3710.title': 'Calculateur boosté : alertes, impôt communal, comparaison cantons',
+ 'whatsNew.v3710.salaryAlert.title': 'Alerte salaire depuis le calculateur',
+ 'whatsNew.v3710.salaryAlert.desc': 'Après une simulation, active en un tap une alerte e-mail pour les offres au net égal ou supérieur au tien.',
+ 'whatsNew.v3710.municipalTax.title': 'Impôt communal dans le net',
+ 'whatsNew.v3710.municipalTax.desc': 'Pour les résidents au Tessin, le net tient désormais compte du multiplicateur communal de la commune choisie.',
+ 'whatsNew.v3710.cantonCompare.title': 'Le même emploi dans d\'autres cantons',
+ 'whatsNew.v3710.cantonCompare.desc': 'Découvre le net estimé pour le même poste à Zurich, Genève, Zoug et d\'autres cantons, avec des liens vers les offres.',
+ 'whatsNew.v3710.consulting.title': 'Conseil personnalisé dans le funnel',
+ 'whatsNew.v3710.consulting.desc': 'Le conseil fiscal sur mesure est désormais accessible depuis le calculateur et en bas des articles fiscaux.',
+
  'whatsNew.v3720.title': 'Jours fériés et salaire par âge',
  'whatsNew.v3720.holidays.title': 'Calendrier des jours fériés : Tessin / Suisse vs Italie',
  'whatsNew.v3720.holidays.desc': 'De nouvelles pages listant les jours fériés officiels du Tessin et de l’Italie pour cette année et la suivante, les jours qui NE coïncident PAS (quand le Tessin ferme et que l’Italie travaille, et inversement) et les ponts pour planifier vos congés.',
