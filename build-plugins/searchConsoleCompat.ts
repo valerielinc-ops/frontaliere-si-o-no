@@ -3,6 +3,7 @@ import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import searchClusterMapFile from '../data/search-cluster-301-map.json';
+import employerProfilesFile from '../data/employer-profiles.json';
 import {
  FUEL_SECTION_SLUG,
  FUEL_TODAY_SLUG,
@@ -95,6 +96,36 @@ const SELF_MAPPABLE_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string
 const AGGREGATE_SECTIONS: ReadonlySet<string> = new Set(
  (['it', 'en', 'de', 'fr'] as SupportedLocale[]).map((l) => resolveCantonSection(l, AGGREGATE_KEY)),
 );
+
+// Evergreen employer-profile pages (build-plugins/employerProfilePagesPlugin.ts,
+// epic #4462): a company ABOVE the floor gets a full page at /aziende/<slug>/,
+// a company in the bridge band gets a noindex,follow bridge at the SAME URL —
+// both bands are EMITTED, so both must self-map. Slugs are data-driven (not an
+// enumerable shape like isProfessionCantonPath), so unlike the canton/sector
+// families we gate the self-map on membership in this Set, precomputed ONCE at
+// module load from data/employer-profiles.json — keeps the per-URL check O(1)
+// for tests/search-console-compat.test.ts (150k+ paths). A /aziende/<slug>/ URL
+// whose slug is NOT emitted falls through to the section fallbacks (correct:
+// it genuinely has no live target).
+const EMPLOYER_PROFILE_SLUGS: ReadonlySet<string> = (() => {
+ const s = new Set<string>();
+ const ds = employerProfilesFile as {
+   profiles?: Array<{ slug?: string }>;
+   belowFloor?: Array<{ slug?: string }>;
+ };
+ for (const p of ds.profiles || []) if (p.slug) s.add(p.slug);
+ for (const b of ds.belowFloor || []) if (b.slug) s.add(b.slug);
+ return s;
+})();
+
+// /aziende/<slug>/ (+ /en|/de|/fr) — single literal segment for every locale
+// (mirrors the plugin's path builder). normalizePath() strips the trailing
+// slash before this runs, so the pattern is slash-optional.
+const EMPLOYER_PROFILE_PATH_RX = /^\/(?:(?:en|de|fr)\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/;
+function isEmployerProfilePath(path: string): boolean {
+ const m = EMPLOYER_PROFILE_PATH_RX.exec(path);
+ return !!m && EMPLOYER_PROFILE_SLUGS.has(m[1]);
+}
 
 // Legacy TI sections — the listing fallback used for `search` and `company`
 // compat targets (canton-independent). Per-canton job-detail paths instead
@@ -469,6 +500,18 @@ export function resolveSearchConsoleCompatTarget(
  // module-load-precomputed Map (PATH_INDEX), so this stays O(1) per call —
  // no per-call Set/Map construction inside the 150k+-path compat loop.
  if (isProfessionCityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Evergreen employer-profile pages (/aziende/<slug>/): every slug in
+ // data/employer-profiles.json — above-floor page OR below-floor bridge — is
+ // emitted at this exact path, so a GSC 404 snapshot for a now-live URL
+ // resolves to itself. Unknown slugs fall through (no live page).
+ if (isEmployerProfilePath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',
