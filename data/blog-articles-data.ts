@@ -25955,6 +25955,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-ticino-ottico-optometrista',
+ category: 'fiscale',
+ date: '2026-07-19T08:58:04.727Z',
+ image: '/images/blog/frontaliere-ticino-ottico-optometrista.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

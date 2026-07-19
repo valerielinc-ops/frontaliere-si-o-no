@@ -8637,6 +8637,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Dietista in Ticino: Stipendio, Requisiti e Permessi',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Entdecken Sie die Anforderungen und Verfahren für die Arbeit als Ernährungsberater im Tessin als Grenzgänger',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'Blick auf Lugano, Tessin',
+    'blog.article.frontaliere-ticino-ottico-optometrista.title': 'Wie viel verdient ein Grenzoptiker im Tessin?',
+    'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'Eine Lohnanalyse eines Grenzoptikers im Tessin auf der Grundlage der Neuen Grenzgängervereinbarung von 2024.',
+    'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'Ein Optiker in einem Optometristen-Office in Lugano',
 };
 
 export default blogMetaDe;

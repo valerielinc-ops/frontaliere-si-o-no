@@ -8638,6 +8638,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.title': 'Working as a dietitian in Ticino: salary, requirements and G leave',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.excerpt': 'Discover the requirements and procedures to work as a dietitian in Ticino as a border worker',
     'blog.article.frontaliere-dietista-ticino-stipendio-requisiti.imageAlt': 'View of Lugano, Ticino',
+    'blog.article.frontaliere-ticino-ottico-optometrista.title': 'How much does a border optometrist in Ticino earn?',
+    'blog.article.frontaliere-ticino-ottico-optometrista.excerpt': 'An analysis of the salaries of a border optometrist optician in Ticino, based on the New Border Agreement of 2024.',
+    'blog.article.frontaliere-ticino-ottico-optometrista.imageAlt': 'An optician in an optometrist\'s office in Lugano',
 };
 
 export default blogMetaEn;

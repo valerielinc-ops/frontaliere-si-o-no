@@ -4632,6 +4632,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salario-frontaliere-dietista-ticino': { name: 'Salario frontaliere dietista Ticino', path: '/articoli-svizzera/salario-frontaliere-dietista-ticino/', parent: 'blog' },
     'blog-frontaliere-dietista-ticino-stipendio-requisiti': { name: 'Lavorare come dietista in Ticino da', path: '/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw': { name: 'Centrali nucleari', path: '/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/', parent: 'blog' },
+    'blog-frontaliere-ticino-ottico-optometrista': { name: 'Ticino', path: '/articoli-frontaliere/frontaliere-ticino-ottico-optometrista', parent: 'blog' },
  };
 
  const info = sectionNames[section];
