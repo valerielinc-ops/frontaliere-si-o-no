@@ -107,6 +107,7 @@ const ContractsGuide = lazyRetry(() => import('@/components/guide/ContractsGuide
 const Sindacati = lazyRetry(() => import('@/components/pages/Sindacati'));
 const TfrCalculator = lazyRetry(() => import('@/components/calculator/TfrCalculator'));
 const PermitQuiz = lazyRetry(() => import('@/components/guide/PermitQuiz'));
+const FrontaliereWizard = lazyRetry(() => import('@/components/guide/FrontaliereWizard'));
 const TredicesimalCalculator = lazyRetry(() => import('@/components/calculator/TredicesimalCalculator'));
 const WeeklyDigest = lazyRetry(() => import('@/components/community/WeeklyDigest'));
 const ToolOfTheWeek = lazyRetry(() => import('@/components/community/ToolOfTheWeek'));
@@ -2664,6 +2665,10 @@ const App: React.FC = () => {
  ) : activeTab === 'permit-quiz' ? (
  <div className="max-w-7xl mx-auto">
  <PermitQuiz />
+ </div>
+ ) : activeTab === 'frontaliere-wizard' ? (
+ <div className="max-w-7xl mx-auto">
+ <FrontaliereWizard />
  </div>
  ) : activeTab === 'tredicesima' ? (
  <div className="max-w-7xl mx-auto">

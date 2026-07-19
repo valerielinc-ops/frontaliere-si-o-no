@@ -189,7 +189,7 @@ const SALARY_HUB_ARTICLE_PATHS = new Set([
 
 // ── Route types ──────────────────────────────────────────────
 
-export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe';
+export type ActiveTab = 'calculator' | 'confronti' | 'fisco' | 'guida' | 'vita' | 'stats' | 'feedback' | 'privacy' | 'terms' | 'data-deletion' | 'api-status' | 'gamification' | 'forum' | 'contact' | 'partners' | 'consulting' | 'press-kit' | 'job-board' | 'profile' | 'morning' | 'blog' | 'admin' | 'glossario' | 'faq' | 'sitemap' | 'dialetto' | 'contracts' | 'tfr-calculator' | 'permit-quiz' | 'frontaliere-wizard' | 'tredicesima' | 'weekly-digest' | 'tool-of-week' | 'email-confirmed' | 'newsletter-preferences' | 'sindacati' | 'chi-siamo' | 'correzioni' | 'metodologia' | 'tassazione-hub' | 'autore' | 'publish' | 'publisher-dashboard' | 'for-employers' | 'employer-insights' | 'journalist-dashboard' | 'subscribe';
 
 export type CalcolatoreSubTab = 'calculator' | 'whatif' | 'payslip' | 'ral' | 'bonus' | 'parental-leave' | 'residency' | 'salary-quiz';
 export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shopping' | 'cost-of-living' | 'jobs' | 'renovation';
@@ -823,6 +823,8 @@ interface SlugTable {
  tfrCalculator: string;
  // Quiz Permesso B o G standalone page
  permitQuiz: string;
+ // "Sei pronto a diventare frontaliere?" readiness wizard standalone page
+ frontaliereWizard: string;
  // Tredicesima / Quattordicesima calculator standalone page
  tredicesima: string;
  // Weekly digest + Tool of the week
@@ -1241,6 +1243,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  tassazioneHub: 'guida-tassazione-frontalieri-2026',
  tfrCalculator: 'tfr-liquidazione-frontaliere',
  permitQuiz: 'quiz-permesso-b-o-g',
+ frontaliereWizard: 'sei-pronto-a-diventare-frontaliere',
  tredicesima: 'calcolo-tredicesima-frontaliere',
  weeklyDigest: 'digest-settimanale',
  toolOfWeek: 'strumento-della-settimana',
@@ -1345,6 +1348,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contracts: 'swiss-employment-contracts',
  tfrCalculator: 'tfr-severance-pay-calculator',
  permitQuiz: 'permit-b-or-g-quiz',
+ frontaliereWizard: 'ready-to-become-a-cross-border-worker',
  tredicesima: 'thirteenth-salary-calculator',
  weeklyDigest: 'weekly-digest',
  toolOfWeek: 'tool-of-the-week',
@@ -1452,6 +1456,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contracts: 'schweizer-arbeitsvertraege',
  tfrCalculator: 'tfr-abfindung-grenzgaenger-rechner',
  permitQuiz: 'quiz-bewilligung-b-oder-g',
+ frontaliereWizard: 'bereit-grenzgaenger-zu-werden',
  tredicesima: 'dreizehnter-monatslohn-rechner',
  weeklyDigest: 'woechentlicher-bericht',
  toolOfWeek: 'werkzeug-der-woche',
@@ -1559,6 +1564,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  contracts: 'contrats-travail-suisses',
  tfrCalculator: 'tfr-indemnite-licenciement-frontalier',
  permitQuiz: 'quiz-permis-b-ou-g',
+ frontaliereWizard: 'pret-a-devenir-frontalier',
  tredicesima: 'calculateur-treizieme-salaire',
  weeklyDigest: 'digest-hebdomadaire',
  toolOfWeek: 'outil-de-la-semaine',
@@ -2256,6 +2262,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.contracts]: { tab: 'contracts' },
  [table.tfrCalculator]: { tab: 'tfr-calculator' },
  [table.permitQuiz]: { tab: 'permit-quiz' },
+ [table.frontaliereWizard]: { tab: 'frontaliere-wizard' },
  [table.tredicesima]: { tab: 'tredicesima' },
  [table.weeklyDigest]: { tab: 'weekly-digest' },
  [table.toolOfWeek]: { tab: 'tool-of-week' },
@@ -3842,6 +3849,8 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  return finish(`${prefix}/${table.tfrCalculator}${hashSuffix}`);
  case 'permit-quiz':
  return finish(`${prefix}/${table.permitQuiz}${hashSuffix}`);
+ case 'frontaliere-wizard':
+ return finish(`${prefix}/${table.frontaliereWizard}${hashSuffix}`);
  case 'tredicesima':
  return finish(`${prefix}/${table.tredicesima}${hashSuffix}`);
  case 'weekly-digest':
@@ -3943,6 +3952,8 @@ export function getSeoSection(route: AppRoute): string {
  return 'tfr-calculator';
  case 'permit-quiz':
  return 'permit-quiz';
+ case 'frontaliere-wizard':
+ return 'frontaliere-wizard';
  case 'tredicesima':
  return 'tredicesima';
  case 'weekly-digest':
