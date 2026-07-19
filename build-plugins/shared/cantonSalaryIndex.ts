@@ -17,6 +17,7 @@
  */
 
 import { CANTON_DISPLAY } from './cantonDisplay';
+import { SALARY_STATS_FACTOR_CODE } from '../salaryStatsData';
 
 export type Grossregion =
   | 'lemanique'
@@ -69,6 +70,21 @@ export const CANTON_TO_GROSSREGION: Record<string, Grossregion> = {
   GE: 'lemanique',
   JU: 'mittelland',
 };
+
+/**
+ * Canton-wide annual gross median CHF from the BFS grossregion index. Accepts a
+ * URL-group key (BASILEA, APPENZELLO) or a BFS code; a URL-group key is mapped to
+ * its representative BFS code (BASILEA -> BS) via SALARY_STATS_FACTOR_CODE first.
+ * Unknown -> national median. Single source for the profession-canton
+ * (professionCantonLandings.ts) and profession-city (professionCityLandings.ts)
+ * landing families — was copy-pasted in both before #4488 (AGENTS.md #6).
+ */
+export function cantonAnnualMedianChf(cantonKey: string): number {
+  const code = SALARY_STATS_FACTOR_CODE[cantonKey] ?? cantonKey;
+  const region = CANTON_TO_GROSSREGION[code];
+  const monthly = region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
+  return monthly * 12;
+}
 
 export const BORDER_CANTONS: ReadonlySet<string> = new Set([
   'GE', 'TI', 'VD', 'VS', 'BS', 'BL', 'NE', 'JU', 'AG', 'SH', 'TG', 'SG', 'GR',

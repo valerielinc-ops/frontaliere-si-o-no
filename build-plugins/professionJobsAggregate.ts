@@ -34,7 +34,8 @@ import {
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
-import { TI_LEGACY_CITY_HUB_KEYS, jobMatchesCity, type CityHubKey } from './cityJobsHub';
+import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
+import { PROFESSION_CITY_DEFS } from './professionCityData';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -52,6 +53,7 @@ interface JobRecord {
   category?: string;
   sector?: string;
   addressLocality?: string;
+  location?: string;
   canton?: string;
   salaryMin?: number | null;
   salaryMax?: number | null;
@@ -475,18 +477,45 @@ export function aggregateProfessionJobsByCanton(
   return out;
 }
 
-// ── Per-TI-city aggregation (profession × city landings, issue #4301) ──────
+// ── Per-city aggregation (profession × city landings, issues #4301 + #4488) ──
 
 let _citySnapshotCache: Record<CityHubKey, Record<ProfessionId, ProfessionJobsSnapshot>> | null = null;
 let _cityCacheRootDir: string | null = null;
 
+/** ASCII-fold + lowercase — makes "Zürich"/"Genève" match "zurich"/"geneve". */
+function asciiLower(s: string): string {
+  return String(s)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+}
+
 /**
- * Per-(TI city, profession) snapshot — the same PROFESSION_IDS set
- * aggregateProfessionJobs uses (canton-only ids from #3657 are non-TI
- * professions, out of scope for a TI-city page), filtered to jobs matching
- * BOTH canton=TI (resolveJobCanton) AND the given city
- * (cityJobsHub.jobMatchesCity — same location-substring match the city hub
- * page itself uses, so a city's live count here agrees with its hub).
+ * Non-TI city location match. Unlike cityJobsHub.jobMatchesCity (raw lowercase
+ * substring — safe for the ASCII TI city names) this ASCII-folds BOTH sides so
+ * a job in "Zürich" / "Genève" matches the folded slug "zurich" / "geneve".
+ * Callers pre-filter by canton so short needles ("bern") can't cross-match a
+ * same-named town in another canton (e.g. Bernex in GE).
+ */
+function jobMatchesChCity(job: JobRecord, display: string): boolean {
+  const needle = asciiLower(display);
+  if (!needle) return false;
+  const candidates = [job.addressLocality, job.location]
+    .map((v) => (typeof v === 'string' ? asciiLower(v) : ''))
+    .filter(Boolean);
+  return candidates.some((c) => c.includes(needle));
+}
+
+/**
+ * Per-(city, profession) snapshot for the profession × city landings — the
+ * same PROFESSION_IDS set aggregateProfessionJobs uses (canton-only ids from
+ * #3657 are out of scope for a city page). Iterates PROFESSION_CITY_DEFS:
+ * each city's jobs are those matching BOTH its canton (resolveJobCanton, which
+ * collapses half-cantons to the URL group so Basel jobs resolve to 'BASILEA')
+ * AND the city itself. The 5 legacy TI hubs keep the exact TI predicate
+ * (resolveJobCanton === 'TI' + cityJobsHub.jobMatchesCity) so their snapshots
+ * stay byte-identical to issue #4301; the 6 major CH cities (#4488) use the
+ * ASCII-folding city match above.
  *
  * Returns `Record<CityHubKey, Record<ProfessionId, snapshot>>`. Cached per rootDir.
  */
@@ -497,16 +526,20 @@ export function aggregateProfessionJobsByCity(
   if (_citySnapshotCache && _cityCacheRootDir === rootDir) return _citySnapshotCache;
 
   const allJobs = loadJobs(rootDir);
-  const tiJobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
 
   const out = {} as Record<CityHubKey, Record<ProfessionId, ProfessionJobsSnapshot>>;
-  for (const cityKey of TI_LEGACY_CITY_HUB_KEYS) {
-    const cityJobs = tiJobs.filter((job) => jobMatchesCity(job, cityKey));
+  for (const def of PROFESSION_CITY_DEFS) {
+    const cantonJobs = allJobs.filter(
+      (job) => resolveJobCanton(job as { canton?: string; location?: string }) === def.cantonUrlKey,
+    );
+    const cityJobs = def.isTi
+      ? cantonJobs.filter((job) => jobMatchesCity(job, def.key))
+      : cantonJobs.filter((job) => jobMatchesChCity(job, def.display));
     const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
     for (const id of PROFESSION_IDS) {
       perProfession[id] = buildSnapshotForProfession(cityJobs, PROFESSION_MATCHERS[id], now);
     }
-    out[cityKey] = perProfession;
+    out[def.key] = perProfession;
   }
 
   _citySnapshotCache = out;

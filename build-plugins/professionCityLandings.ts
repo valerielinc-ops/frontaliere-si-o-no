@@ -1,18 +1,22 @@
 /**
- * professionCityLandings.ts — profession x TI-city landing pages (issue #4301).
+ * professionCityLandings.ts — profession x city landing pages
+ * (issue #4301 TI cities, issue #4488 major CH cities).
  *
  * Emits `/lavoro-{city}-{role}/` (+ /en/jobs-, /de/arbeit-, /fr/travail-) for
- * each (TI city, profession) pair with at least MIN_JOBS real active jobs in
- * the corpus. Mined evidence for the gap: data/search-location-gaps.json
+ * each (city, profession) pair with at least MIN_JOBS real active jobs in
+ * the corpus, across the 5 legacy TI hubs plus the 6 major non-TI cities
+ * (Zürich, Basel, Bern, Luzern, Genève, Lausanne — PROFESSION_CITY_DEFS).
+ * Mined evidence for the TI gap: data/search-location-gaps.json
  * (scripts/mine-search-location-gaps.mjs) — real on-site search terms like
- * "ingegnere lugano" / "autista bellinzona" that neither the canton-wide
- * profession page (`/lavoro-ticino-{role}/`) nor the city hub itself
- * (`/cerca-lavoro-ticino/{city}/`) names explicitly.
+ * "ingegnere lugano" / "autista bellinzona"; the extra-TI demand
+ * (e.g. "ergoterapista zurigo") is visible in
+ * data/profession-keyword-opportunities.json.
  *
  * Modeled directly on professionCantonLandings.ts: same MIN_JOBS floor gate,
  * same all-or-nothing 4-locale word-count guard, same below-floor bridge
- * pattern — except the bridge target here is the city hub
- * (cityJobsHub.buildCityHubPath), which jobsSeoPagesPlugin.ts emits
+ * pattern — except the bridge target here is the always-live city hub
+ * (cityHubTarget → TI legacy `/cerca-lavoro-ticino/{city}/` or canton-aware
+ * `/cerca-lavoro-{canton}/{city}/`), which jobsSeoPagesPlugin.ts emits
  * unconditionally per (canton, city, locale) regardless of that city's own
  * job count (falls back to canton-wide jobs as filler when empty), making it
  * a safe always-live redirect target — the same role salaryStatsBridge.ts's
@@ -28,17 +32,20 @@ import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { cleanSitemapFiles } from './shared/distNamespaceCleanup';
-import { CITY_HUB_DISPLAY_NAME, buildCityHubPath, type CityHubKey } from './cityJobsHub';
+import {
+  CITY_HUB_DISPLAY_NAME,
+  CITY_HUB_LOCALE_PREFIX,
+  buildCityHubPath,
+  type CityHubKey,
+} from './cityJobsHub';
+import { getCantonDisplayName } from './shared/cantonDisplay';
+import { resolveCantonSection } from './shared/cantonSection';
 import {
   renderCantonSeoProse,
   buildCantonSeoProseFaqItems,
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
-import {
-  GROSSREGION_MEDIAN_MONTHLY,
-  NATIONAL_MEDIAN_MONTHLY,
-  CANTON_TO_GROSSREGION,
-} from './shared/cantonSalaryIndex';
+import { cantonAnnualMedianChf } from './shared/cantonSalaryIndex';
 import {
   aggregateProfessionJobsByCity,
   type ProfessionJobsSnapshot,
@@ -51,8 +58,12 @@ import {
   type ProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
-import { SALARY_STATS_FACTOR_CODE } from './salaryStatsData';
-import { buildProfessionCityPath, PROFESSION_CITY_KEYS } from './professionCityData';
+import {
+  buildProfessionCityPath,
+  PROFESSION_CITY_KEYS,
+  getProfessionCityDef,
+  type ProfessionCityDef,
+} from './professionCityData';
 import {
   H2_STYLE,
   BREADCRUMB_CLASS,
@@ -169,12 +180,40 @@ function fmtChf(n: number, locale: ProfessionLocale): string {
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
-/** TI-wide annual median CHF — every profession-city page is TI, so this is a constant fallback. */
-function ticinoAnnualMedian(): number {
-  const code = SALARY_STATS_FACTOR_CODE.TI ?? 'TI';
-  const region = CANTON_TO_GROSSREGION[code];
-  const monthly = region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
-  return monthly * 12;
+/**
+ * Resolve the canton context for a city key. Unknown keys degrade to a
+ * TI-shaped def so `renderProfessionCityPage` / `renderBelowFloorBridge` keep
+ * their legacy behaviour when called outside the enumerated set.
+ */
+function resolveCityDef(cityKey: CityHubKey): ProfessionCityDef {
+  return (
+    getProfessionCityDef(cityKey) ?? {
+      key: cityKey,
+      display: CITY_HUB_DISPLAY_NAME[cityKey] ?? cityKey,
+      cantonUrlKey: 'TI',
+      cantonBfs: 'TI',
+      isTi: true,
+    }
+  );
+}
+
+/**
+ * Always-live city hub path — the below-floor bridge + CTA target. TI keeps the
+ * frozen legacy slug (`/cerca-lavoro-ticino/{city}/`); every non-TI city maps to
+ * the canton-aware hub (`/cerca-lavoro-{canton}/{city}/`) jobsSeoPagesPlugin.ts
+ * emits unconditionally for every (canton, city, locale).
+ */
+function cityHubTarget(locale: ProfessionLocale, def: ProfessionCityDef): string {
+  if (def.isTi) return buildCityHubPath(locale, def.key);
+  return `${CITY_HUB_LOCALE_PREFIX[locale]}/${resolveCantonSection(locale, def.cantonUrlKey)}/${def.key}/`.replace(
+    /\/+/g,
+    '/',
+  );
+}
+
+/** Canton section root (`/cerca-lavoro-{canton}/`) — the non-TI breadcrumb crumb target. */
+function cantonSectionRoot(locale: ProfessionLocale, def: ProfessionCityDef): string {
+  return `${CITY_HUB_LOCALE_PREFIX[locale]}/${resolveCantonSection(locale, def.cantonUrlKey)}/`.replace(/\/+/g, '/');
 }
 
 interface BridgeCopy {
@@ -210,24 +249,26 @@ const BRIDGE_COPY: Record<ProfessionLocale, BridgeCopy> = {
  * Below-floor bridge: a (city, profession) pair that doesn't meet MIN_JOBS
  * this build gets a noindex,follow canonical bridge instead of a hard 404 —
  * same rationale as professionCantonLandings.ts's renderBelowFloorBridge.
- * The bridge targets the city hub (buildCityHubPath), emitted unconditionally
- * for every (canton, city, locale) by jobsSeoPagesPlugin.ts regardless of job
+ * The bridge targets the always-live city hub (cityHubTarget → TI legacy or
+ * canton-aware `/cerca-lavoro-{canton}/{city}/`), emitted unconditionally for
+ * every (canton, city, locale) by jobsSeoPagesPlugin.ts regardless of job
  * counts, so it's always a safe redirect target.
  */
 function renderBelowFloorBridge(locale: ProfessionLocale, cityKey: CityHubKey, id: ProfessionId): string {
-  const cityDisplay = CITY_HUB_DISPLAY_NAME[cityKey] ?? cityKey;
+  const def = resolveCityDef(cityKey);
+  const cityDisplay = def.display;
   const role = professionLabel(locale, id);
   const copy = BRIDGE_COPY[locale];
-  const targetPath = buildCityHubPath(locale, cityKey);
+  const targetPath = cityHubTarget(locale, def);
   const targetUrl = `${BASE_URL}${targetPath}`;
   // Every hreflang alternate points at the city hub's OWN localized URL
   // (not the below-floor page's URL) — that hub is the only guaranteed-live
   // target across all 4 locales, same invariant as salaryStatsBridge.ts.
   const hreflangEntries: Array<{ hreflang: string; href: string }> = PROFESSION_LOCALES.map((loc) => ({
     hreflang: loc,
-    href: `${BASE_URL}${buildCityHubPath(loc, cityKey)}`,
+    href: `${BASE_URL}${cityHubTarget(loc, def)}`,
   }));
-  hreflangEntries.push({ hreflang: 'x-default', href: `${BASE_URL}${buildCityHubPath('it', cityKey)}` });
+  hreflangEntries.push({ hreflang: 'x-default', href: `${BASE_URL}${cityHubTarget('it', def)}` });
   const html = buildCanonicalBridgePage({
     canonicalUrl: targetUrl,
     pathLabel: targetPath,
@@ -254,20 +295,27 @@ export function renderProfessionCityPage(opts: {
 }): { html: string; words: number } {
   const { locale, cityKey, id, snapshot, distDir } = opts;
   const c = COPY[locale];
-  const cityDisplay = CITY_HUB_DISPLAY_NAME[cityKey] ?? cityKey;
+  const def = resolveCityDef(cityKey);
+  const cityDisplay = def.display;
   const role = professionLabel(locale, id);
   const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
   const homeHref = locale === 'it' ? '/' : `${PROFESSION_LOCALE_PREFIX[locale]}/`;
 
-  // Real corpus median for this city+profession; fall back to the TI-wide
+  // Second breadcrumb crumb = the canton. TI keeps the frozen 'Ticino'/'Tessin'
+  // label linked to home (issue #4301 byte-freeze); a non-TI city links to its
+  // live canton section root (`/cerca-lavoro-{canton}/`).
+  const cantonCrumbLabel = def.isTi ? c.breadcrumbTicino : getCantonDisplayName(def.cantonUrlKey, locale);
+  const cantonCrumbHref = def.isTi ? homeHref : cantonSectionRoot(locale, def);
+
+  // Real corpus median for this city+profession; fall back to the canton-wide
   // BFS annual median when the matched jobs carry no salary data.
-  const median = snapshot.medianSalaryChf && snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : ticinoAnnualMedian();
+  const median = snapshot.medianSalaryChf && snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedianChf(def.cantonBfs);
   const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
   <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
   <span aria-hidden="true">›</span>
-  <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbTicino)}</a>
+  <a href="${cantonCrumbHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(cantonCrumbLabel)}</a>
   <span aria-hidden="true">›</span>
   <span aria-current="page">${esc(role)} · ${esc(cityDisplay)}</span>
 </nav>`;
@@ -287,11 +335,11 @@ export function renderProfessionCityPage(opts: {
 
   // CTA + prose link to the city hub itself — the always-live, broader
   // listing for this city (also the below-floor bridge target).
-  const ctaHref = buildCityHubPath(locale, cityKey);
+  const ctaHref = cityHubTarget(locale, def);
 
   const proseOpts = {
     locale: locale as CantonSeoLocale,
-    cantonDisplay: locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin',
+    cantonDisplay: def.isTi ? (locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin') : getCantonDisplayName(def.cantonUrlKey, locale),
     slot: 'city-landing' as const,
     entityName: cityDisplay,
     countHint: snapshot.liveCount,
@@ -314,7 +362,7 @@ ${prose}</div>`;
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: `${BASE_URL}${homeHref}` },
-      { '@type': 'ListItem', position: 2, name: c.breadcrumbTicino, item: `${BASE_URL}${homeHref}` },
+      { '@type': 'ListItem', position: 2, name: cantonCrumbLabel, item: `${BASE_URL}${cantonCrumbHref}` },
       { '@type': 'ListItem', position: 3, name: c.h1(role, cityDisplay), item: `${BASE_URL}${canonicalPath}` },
     ],
   };
