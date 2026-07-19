@@ -67,6 +67,7 @@ import { jobMarketSnapshotPlugin } from './build-plugins/jobMarketSnapshotPlugin
 import { salaryStatsChCantonPages } from './build-plugins/salaryStatsChCantonPages';
 import { professionCantonLandings } from './build-plugins/professionCantonLandings';
 import { salaryProfessionCantonPages } from './build-plugins/salaryProfessionCantonPages';
+import { salaryBadgeEmbedPlugin } from './build-plugins/salaryBadgeEmbedPlugin';
 import { professionCityLandings } from './build-plugins/professionCityLandings';
 import { healthPremiumsLandingPlugin } from './build-plugins/healthPremiumsLandingPlugin';
 import { exchangeRatePagesPlugin } from './build-plugins/exchangeRatePagesPlugin';
@@ -186,6 +187,9 @@ export default defineConfig(({ mode }) => {
  // (+ locale variants) for the 8 professions with a real median preset, non-TI
  // cantons, gated on the same MIN_JOBS floor as professionCantonLandings.
  salaryProfessionCantonPages(__dirname),
+ // Embeddable "stipendio medio {professione}" badge snapshot (epic #4472):
+ // dist/embed/salary-badge-data.json from data/profession-salary-medians.json.
+ salaryBadgeEmbedPlugin(__dirname),
  professionCityLandings(__dirname),
  healthPremiumsLandingPlugin(__dirname),
  // CHF/EUR exchange vertical (epic #4452): hub + amount long-tail pages

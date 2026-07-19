@@ -2543,6 +2543,9 @@ Regeln:
  'whatsNew.v3710.consulting.title': 'Persönliche Beratung im Funnel',
  'whatsNew.v3710.consulting.desc': 'Massgeschneiderte Steuerberatung ist jetzt direkt aus dem Rechner und am Ende von Steuerartikeln erreichbar.',
 
+ 'whatsNew.v3730.title': 'Widgets für Ihre Website',
+ 'whatsNew.v3730.embedWidgets.title': 'Gehalts-Badge und Grenzwartezeiten-Widgets für Ihre Website',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blogs, Foren und Fachseiten können unsere Widgets jetzt kostenlos einbinden: Mediangehalt nach Beruf, Live-Grenzwartezeiten und der CHF/EUR-Kurs. Copy-paste-Code bereit auf frontaliereticino.ch/embed/.',
  'whatsNew.v3670.title': 'Gesundheitseinrichtungen mit offenen Stellen',
  'whatsNew.v3670.facilities.title': 'Stellen nach Spital und Klinik',
  'whatsNew.v3670.facilities.desc': 'Neue Seiten für jede Schweizer Gesundheitseinrichtung mit ihren offenen Stellen, den gesuchten Gesundheitsberufen und dem realen Medianlohn, verbunden mit dem Pflege- und Betreuungspfad.',

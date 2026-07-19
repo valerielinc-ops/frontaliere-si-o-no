@@ -2540,6 +2540,9 @@ Rules:
  'whatsNew.v3710.consulting.title': 'Personalized consulting in the funnel',
  'whatsNew.v3710.consulting.desc': 'Tailored tax consulting is now reachable from the calculator and at the end of fiscal articles.',
 
+ 'whatsNew.v3730.title': 'Widgets to add to your site',
+ 'whatsNew.v3730.embedWidgets.title': 'Salary badge and border-wait widgets for your site',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blogs, forums and industry sites can now embed our widgets for free: median salary by profession, live border-crossing waits and the CHF/EUR rate. Copy-paste code ready at frontaliereticino.ch/embed/.',
  'whatsNew.v3670.title': 'Healthcare facilities that are hiring',
  'whatsNew.v3670.facilities.title': 'Jobs by hospital and clinic',
  'whatsNew.v3670.facilities.desc': 'New pages for each Swiss healthcare facility with its live openings, the clinical roles it is hiring and the real median salary, wired to the nursing and care-assistant career path.',

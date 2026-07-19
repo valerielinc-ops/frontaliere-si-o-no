@@ -2630,6 +2630,9 @@ Regole:
  'whatsNew.v3710.consulting.title': 'Consulenza personalizzata nel funnel',
  'whatsNew.v3710.consulting.desc': 'La consulenza fiscale su misura è ora raggiungibile dal calcolatore e in fondo agli articoli fiscali.',
 
+ 'whatsNew.v3730.title': 'Widget da aggiungere al tuo sito',
+ 'whatsNew.v3730.embedWidgets.title': 'Badge stipendi e attese dogane per il tuo sito',
+ 'whatsNew.v3730.embedWidgets.desc': 'Blog, forum e siti di settore possono ora incorporare gratis i nostri widget: stipendio medio per professione, attese live alle dogane e cambio CHF/EUR. Codice copia-incolla pronto su frontaliereticino.ch/embed/.',
  'whatsNew.v3670.title': 'Strutture sanitarie che assumono',
  'whatsNew.v3670.facilities.title': 'Offerte per ospedale e clinica',
  'whatsNew.v3670.facilities.desc': 'Nuove pagine per struttura sanitaria svizzera con le offerte attive, i ruoli sanitari che assumono e lo stipendio mediano reale, collegate al percorso infermieri e OSS.',

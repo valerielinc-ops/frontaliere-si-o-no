@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Stipendio medio per professione · Frontaliere Ticino widget</title>
+<!--
+  Frontaliere Ticino — embeddable salary badge (clone of the
+  currency-widget.html / border-wait-widget.html pattern, see those files).
+
+  Purpose
+  -------
+  External sites (blog di settore, siti di formazione, forum professionali) can
+  <iframe> this file to show the median gross salary for a given profession in
+  Ticino, with a visible editorial follow link back to the matching
+  frontaliereticino.ch profession landing (rel="noopener", NOT nofollow — the
+  backlink is the point).
+
+  Which profession
+  ----------------
+  Pass the profession via the `professione` query-string parameter on the
+  iframe `src`, e.g. `?professione=infermiere`. Accepted values are the `id`s
+  in /embed/salary-badge-data.json (ingegnere, infermiere, farmacista,
+  ostetrica, educatore, cuoco, psicologo, assistente-sociale); the label
+  (e.g. `?professione=Infermiere`) is also matched. When the parameter is
+  missing or the profession has no published median, the widget degrades
+  cleanly to a generic "stipendi in Ticino" badge linking to the salary hub.
+
+  Data source
+  -----------
+  Reads /embed/salary-badge-data.json at load time. That file is a static
+  snapshot of data/profession-salary-medians.json, regenerated at every site
+  build by build-plugins/salaryBadgeEmbedPlugin.ts. The fallback markup below
+  keeps the widget working even when the fetch fails (e.g. before the first
+  deploy, or if the file is temporarily unreachable). No runtime API keys, no
+  auth, no third-party script.
+
+  Embed snippet (copy-paste for external sites — change `professione`):
+  --------------------------------------------------------------------
+    <iframe
+      src="https://frontaliereticino.ch/embed/salary-badge.html?professione=infermiere"
+      title="Stipendio medio infermiere in Ticino · Frontaliere Ticino"
+      width="100%"
+      height="220"
+      loading="lazy"
+      style="border:0;max-width:480px"
+    ></iframe>
+-->
+<style>
+  :root{color-scheme:light dark}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#ffffff;color:#0f172a;padding:0;line-height:1.45}
+  @media (prefers-color-scheme:dark){body{background:#0f172a;color:#e2e8f0}}
+  .card{max-width:480px;margin:0;padding:18px 20px;border:1px solid rgba(148,163,184,.35);border-radius:12px;background:rgba(248,250,252,.55)}
+  @media (prefers-color-scheme:dark){.card{background:rgba(30,41,59,.4);border-color:rgba(148,163,184,.25)}}
+  .brand{display:flex;align-items:center;gap:8px;font-size:12px;color:#64748b;margin:0 0 8px}
+  .brand b{color:#0f172a}
+  @media (prefers-color-scheme:dark){.brand b{color:#e2e8f0}}
+  .label{font-size:14px;font-weight:600;color:#0f172a;margin:0 0 4px}
+  @media (prefers-color-scheme:dark){.label{color:#e2e8f0}}
+  .value{display:flex;align-items:baseline;gap:8px;margin:2px 0 8px}
+  .value .big{font-size:32px;font-weight:800;letter-spacing:-.02em;color:#4f46e5}
+  @media (prefers-color-scheme:dark){.value .big{color:#a5b4fc}}
+  .value .unit{font-size:13px;color:#64748b}
+  .sub{font-size:12px;color:#475569;margin:0 0 12px}
+  @media (prefers-color-scheme:dark){.sub{color:#94a3b8}}
+  .cta{display:inline-block;margin-top:2px;padding:9px 14px;border-radius:10px;background:#4f46e5;color:#fff;text-decoration:none;font-size:13px;font-weight:700}
+  .cta:hover{background:#4338ca}
+  .src{font-size:11px;color:#94a3b8;margin:10px 0 0}
+  .src a{color:inherit;text-decoration:underline}
+</style>
+</head>
+<body>
+<main class="card" aria-labelledby="badgeLabel">
+  <p class="brand"><b>Frontaliere Ticino</b> · <span>stipendio medio</span></p>
+  <p class="label" id="badgeLabel">Stipendi medi frontalieri in Ticino</p>
+  <div class="value">
+    <span class="big" id="value">CHF 75 250</span>
+    <span class="unit">lordi / anno</span>
+  </div>
+  <p class="sub" id="asOf">stima indicativa sui dati reali delle offerte</p>
+  <a class="cta"
+     id="cta"
+     href="https://frontaliereticino.ch/stipendi-ticino/?utm_source=embed&amp;utm_medium=widget&amp;utm_campaign=salary-badge"
+     target="_top"
+     rel="noopener">
+    Vedi gli stipendi in Ticino &rsaquo;
+  </a>
+  <p class="src">
+    Fonte:
+    <a id="src"
+       href="https://frontaliereticino.ch/stipendi-ticino/?utm_source=embed&amp;utm_medium=widget&amp;utm_campaign=salary-badge"
+       target="_top"
+       rel="noopener">frontaliereticino.ch</a>
+  </p>
+</main>
+<script>
+  // Render the requested profession's median; fall back silently to the
+  // generic baked-in markup if the file is missing, the site is offline, or
+  // the profession is unknown.
+  (function () {
+    var UTM = 'utm_source=embed&utm_medium=widget&utm_campaign=salary-badge';
+    function param(name) {
+      try {
+        var m = new RegExp('[?&]' + name + '=([^&#]*)').exec(location.search);
+        return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '';
+      } catch (e) { return ''; }
+    }
+    function norm(s) {
+      return String(s || '')
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[\s_]+/g, '-')
+        .replace(/[^a-z0-9-]/g, '')
+        .trim();
+    }
+    function fmtChf(n) {
+      return 'CHF ' + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    function withUtm(url) {
+      return url + (url.indexOf('?') === -1 ? '?' : '&') + UTM;
+    }
+    function setText(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+    function setHref(id, url) { var el = document.getElementById(id); if (el) el.href = url; }
+
+    var requested = norm(param('professione') || param('p'));
+
+    fetch('/embed/salary-badge-data.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        var asOf = data.updatedAt ? 'stima aggiornata al ' + data.updatedAt : null;
+        var match = null;
+        if (requested && Array.isArray(data.professions)) {
+          for (var i = 0; i < data.professions.length; i++) {
+            var p = data.professions[i];
+            if (norm(p.id) === requested || norm(p.label) === requested) { match = p; break; }
+          }
+        }
+        if (match) {
+          setText('badgeLabel', 'Stipendio medio ' + match.label + ' in Ticino');
+          setText('value', fmtChf(match.medianChf));
+          if (asOf) setText('asOf', asOf);
+          var landing = withUtm(match.landingUrl);
+          setHref('cta', landing);
+          setHref('src', landing);
+          setText('cta', 'Vedi stipendi ' + match.label + ' ›');
+          try { document.title = 'Stipendio medio ' + match.label + ' in Ticino · Frontaliere Ticino'; } catch (e) {}
+        } else {
+          // Generic fallback: no/unknown profession → salary hub.
+          if (asOf) setText('asOf', asOf);
+          if (data.canonicalUrl) {
+            setHref('cta', withUtm(data.canonicalUrl));
+            setHref('src', withUtm(data.canonicalUrl));
+          }
+        }
+      })
+      .catch(function () {});
+  })();
+</script>
+</body>
+</html>

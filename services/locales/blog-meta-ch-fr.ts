@@ -1243,6 +1243,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergothérapie au Tessin : salaire et différences avec l\'Italie',
     'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Impôt à la source sur le revenu du travail : retenu UNIQUEMENT en Suisse pour les frontaliers.',
     'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'Un travailleur frontalier en ergothérapie travaillant dans un hôpital de Lugano.',
+    'blog.article.salario-frontaliere-dietista-ticino.title': 'Combien gagne un frontalier diététicien au Tessin ?',
+    'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'Le salaire d\'un frontalier diététicien au Tessin peut varier en fonction de la tranche d\'âge et du poste de travail.',
+    'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontalier diététicien en Suisse italienne',
 };
 
 export default blogMetaChFr;
