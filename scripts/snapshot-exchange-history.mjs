@@ -35,16 +35,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { FRANKFURTER_ENDPOINTS } from './lib/frankfurter-endpoints.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 const OUT_PATH = path.join(REPO_ROOT, 'data', 'exchange-rate-snapshot.json');
 
-const FRANKFURTER_ENDPOINTS = [
-  'https://api.frankfurter.dev',
-  'https://api.frankfurter.app',
-];
 
 // Sanity band for a CHF→EUR rate (1 CHF ≈ 0.9–1.2 EUR historically). Used to
 // reject a corrupt point before it lands in the committed snapshot.

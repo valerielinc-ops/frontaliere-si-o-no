@@ -13,6 +13,7 @@
 
 import admin from 'firebase-admin';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
+import { FRANKFURTER_ENDPOINTS } from './lib/frankfurter-endpoints.mjs';
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
@@ -28,10 +29,6 @@ const PERIODS = [
   { id: '5y', months: 60 },
 ];
 
-const FRANKFURTER_ENDPOINTS = [
-  'https://api.frankfurter.dev',
-  'https://api.frankfurter.app',
-];
 
 function getDateRange(months) {
   const end = new Date();
