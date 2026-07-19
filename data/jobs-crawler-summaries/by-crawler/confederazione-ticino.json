@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione CH",
-  "generatedAt": "2026-07-18T22:03:34.435Z",
+  "generatedAt": "2026-07-19T10:46:16.230Z",
   "total": 303,
   "newCount": 3,
   "updatedCount": 275,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 25,
-  "durationMs": 5746,
-  "avgDurationMs": 5746,
+  "durationMs": 5304,
+  "avgDurationMs": 5304,
   "durationHistory": [
-    5746
+    5304
   ],
   "newJobs": [
     {
@@ -1156,44 +1156,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Sachbearbeiter/-in Qualitätsmanagement und Rechtsanwendung",
-      "slug": "sachbearbeiter-in-qualitatsmanagement-e-rechtsanwendung-confederazione-svizzera-bern",
-      "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-qualitaetsmanagement-und-rechtsanwendung/27c6fe0d-e46a-440a-bbdb-d3c9a4756034",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19392",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "it",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-18",
-      "validThrough": "2026-07-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "confederazione-ticino-3ca12430b663",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-18T22:34:09.310Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Gerichtsschreiber/-in Abt. IV mit Hauptsprache Deutsch",
