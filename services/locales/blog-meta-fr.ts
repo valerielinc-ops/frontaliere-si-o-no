@@ -8648,6 +8648,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Combien gagne un podiatre frontalier au Tessin ?',
     'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Le revenu d\'un podiatre frontalier au Tessin est influencé par plusieurs facteurs, dont la franchise, la retenue et la double imposition.',
     'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologue travaillant en Suisse, dans le canton du Tessin, photographié avec une caméra DSLR dans une scène réaliste.',
+    'blog.article.assistente-di-studio-medico-frontaliere.title': 'Combien gagne un assistant de cabinet médical frontalier au Tessin ?',
+    'blog.article.assistente-di-studio-medico-frontaliere.excerpt': 'La rémunération d\'un assistant de cabinet médical frontalier au Tessin dépend de l\'expérience et du rôle.',
+    'blog.article.assistente-di-studio-medico-frontaliere.imageAlt': 'Un assistant de recherche médicale travaille dans un hôpital à Lugano',
 };
 
 export default blogMetaFr;
