@@ -44,6 +44,7 @@ import {
   loadLedger,
   appendLedger,
   CANTON_NAME_BY_CODE,
+  EMPLOYMENT_TYPE_LABEL,
 } from './lib/social-post-utils.mjs';
 
 // Re-export the channel-agnostic helpers so existing importers (e.g. the FB
@@ -76,13 +77,9 @@ const VOLUME_MINUTES = {
   144: [5, 15, 25, 35, 45, 55],
 };
 
-// employmentType → user-facing label
-const EMPLOYMENT_TYPE_LABEL = {
-  FULL_TIME: 'Tempo pieno',
-  PART_TIME: 'Part-time',
-  CONTRACTOR: 'Contratto',
-  TEMPORARY: 'Temporaneo',
-};
+// employmentType → user-facing label now lives in ./lib/social-post-utils.mjs
+// (EMPLOYMENT_TYPE_LABEL) and is imported above — was duplicated verbatim in the
+// Reddit/Telegram templates too (project rule §6: extract, don't copy-paste).
 
 // Canton ISO 2-letter code → full name (used for the fallback hashtag
 // when a job has no `sector` field). Italian/local form preferred so

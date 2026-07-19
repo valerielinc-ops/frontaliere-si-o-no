@@ -19,16 +19,9 @@ import {
   stripLeadingSectionLabel,
   truncateBody,
   buildJobUrl,
+  EMPLOYMENT_TYPE_LABEL,
 } from './social-post-utils.mjs';
 import { REDDIT_TITLE_MAX } from './reddit-client.mjs';
-
-// employmentType → Italian user-facing label. Mirrors the FB scheduler.
-const EMPLOYMENT_TYPE_LABEL = {
-  FULL_TIME: 'Tempo pieno',
-  PART_TIME: 'Part-time',
-  CONTRACTOR: 'Contratto',
-  TEMPORARY: 'Temporaneo',
-};
 
 // ── Number / salary formatting (consistent with schedule-fb-jobs-daily) ──
 

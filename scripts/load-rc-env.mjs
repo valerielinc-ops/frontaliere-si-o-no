@@ -119,6 +119,16 @@ const RC_TO_ENV = {
   LINKEDIN_SIGNIN_ACCESS_TOKEN:   ['LINKEDIN_SIGNIN_ACCESS_TOKEN'],
   LINKEDIN_SIGNIN_REFRESH_TOKEN:  ['LINKEDIN_SIGNIN_REFRESH_TOKEN'],
 
+  // Telegram broadcast channel (Bot API — free). TOKEN + CHANNEL_ID are consumed
+  // by scripts/post-to-telegram.mjs; the public channel URL doubles as a client-
+  // visible VITE var so the footer / community link renders once configured.
+  // All three are ABSENT in RC until the owner creates the bot + channel, so
+  // they're simply skipped (no-op) — the poster fail-soft-skips and the site
+  // link stays hidden until the URL is set.
+  TELEGRAM_BOT_TOKEN:             ['TELEGRAM_BOT_TOKEN'],
+  TELEGRAM_CHANNEL_ID:            ['TELEGRAM_CHANNEL_ID'],
+  TELEGRAM_CHANNEL_URL:           ['TELEGRAM_CHANNEL_URL', 'VITE_TELEGRAM_CHANNEL_URL'],
+
   // Reddit auto-posting (jobs + articles to communities)
   REDDIT_CLIENT_ID:               ['REDDIT_CLIENT_ID'],
   REDDIT_USERNAME:                ['REDDIT_USERNAME'],

@@ -30,7 +30,7 @@
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadEventsDataset, upcomingEvents, slugifyComune, isoDay, weekendWindow, weekendEvents, eventsBasePathForCanton, resolveCantonUrlKey, UNRESOLVED_CANTON_KEY, UNRESOLVED_CANTON_LABEL } from './lib/events-utils.mjs';
-import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE } from './lib/social-post-utils.mjs';
+import { loadLedger, appendLedger, stripDiacritics, truncateBody, SITE_URL, isLandingPageLive, CANTON_NAME_BY_CODE, MONTHS_IT } from './lib/social-post-utils.mjs';
 import { loadPlaceIds, lookupPlaceId, rescrapeOgAndVerify } from './schedule-fb-jobs-daily.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -46,7 +46,8 @@ const CATEGORY_EMOJI = {
   musei: '🏛️', conferenze: '🎤', sport: '⚽', appuntamenti: '📌', sociale: '🤝',
 };
 
-const MONTHS_IT = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+// MONTHS_IT now lives in ./lib/social-post-utils.mjs (imported above) — was
+// duplicated here and in the Telegram border digest (project rule §6).
 
 /** "sab 4 luglio" style Italian date from an ISO YYYY-MM-DD (no Date tz drift). */
 function humanDateIt(iso) {

@@ -21,6 +21,7 @@ import {
  Plus, User, Clock, ChevronDown, LogIn, AlertCircle,
  MessageCircle, TrendingUp, Loader2, CheckCircle2,
 } from 'lucide-react';
+import { TELEGRAM_CHANNEL_URL, isTelegramChannelConfigured } from '@/services/telegramChannel';
 
 // ─── Category Config ─────────────────────────────────────────
 
@@ -407,6 +408,26 @@ const CommunityForum: React.FC = () => {
  </div>
  <p className="text-success text-sm">{t('forum.subtitle')}</p>
  </div>
+
+ {/* Telegram broadcast channel — job-of-the-day + weekly dogane ranking.
+   * Rendered only once the channel is configured (VITE_TELEGRAM_CHANNEL_URL);
+   * never a dead link. */}
+ {isTelegramChannelConfigured() && (
+ <a
+ href={TELEGRAM_CHANNEL_URL}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="flex items-center gap-3 rounded-2xl border border-accent-border bg-accent-subtle p-4 no-underline hover:border-accent transition-colors"
+ >
+ <div className="p-2 bg-accent-subtle rounded-xl shrink-0">
+ <Send className="w-5 h-5 text-accent" aria-hidden="true" />
+ </div>
+ <div className="min-w-0">
+ <p className="text-sm font-bold text-link">{t('forum.telegram.title')}</p>
+ <p className="text-xs text-subtle">{t('forum.telegram.desc')}</p>
+ </div>
+ </a>
+ )}
 
  {/* Controls */}
  <div className="flex flex-col sm:flex-row gap-3">

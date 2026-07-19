@@ -1,0 +1,114 @@
+name: Telegram Channel Broadcast
+
+# Free Bot API broadcast to the Telegram channel:
+#   • daily  06:30 UTC (08:30 CEST) → "jobs of the day" digest
+#   • weekly Mon 07:00 UTC (09:00 CEST) → best/worst dogane ranking (week ended)
+#
+# Fail-soft by design: with no TELEGRAM_BOT_TOKEN / TELEGRAM_CHANNEL_ID in
+# Remote Config the poster logs a clean skip and exits 0 — the whole pipeline
+# is in place; activation is a one-time owner config (create bot + channel,
+# store the token in RC). CI stays GREEN with no token.
+#
+# workflow_dispatch defaults to dry_run=true (preview only) for safe manual
+# testing. Scheduled runs send for real (subject to the token being present).
+
+on:
+  schedule:
+    - cron: '30 6 * * *'   # daily jobs digest
+    - cron: '0 7 * * 1'    # weekly dogane ranking (Monday)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'What to broadcast'
+        required: false
+        default: 'jobs'
+        type: choice
+        options: ['jobs', 'border']
+      dry_run:
+        description: 'Preview only (no Telegram API call)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: telegram-channel-broadcast
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # commit data/telegram-posted-jobs.json (jobs mode)
+  issues: write
+
+jobs:
+  broadcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      # Weekly cron ⇒ border; daily cron / manual ⇒ input or 'jobs'.
+      MODE: ${{ github.event.inputs.mode || (github.event.schedule == '0 7 * * 1' && 'border' || 'jobs') }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Resolve real-send flag
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "TELEGRAM_SEND=" >> "$GITHUB_ENV"
+          else
+            echo "TELEGRAM_SEND=1" >> "$GITHUB_ENV"
+          fi
+
+      - name: Assemble jobs dataset
+        if: env.MODE == 'jobs'
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Broadcast jobs digest
+        if: env.MODE == 'jobs'
+        run: node scripts/post-to-telegram.mjs jobs
+
+      - name: Broadcast dogane ranking
+        if: env.MODE == 'border'
+        run: npx tsx scripts/post-to-telegram.mjs border
+
+      - name: Commit posted-jobs ledger
+        if: success() && env.MODE == 'jobs' && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/telegram-posted-jobs.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no ledger changes"; exit 0
+          fi
+          git commit -m "chore(telegram): track posted jobs [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh || echo "ledger push skipped (non-fatal)"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -13,6 +13,7 @@ const enSeoLinks: Record<string, string> = {
 
   // Employer acquisition CTA (footer, issue #4446) — benefit-first copy.
   'seoLinks.footer.employerCta': 'Hiring? Publish your job ad',
+  'seoLinks.footer.telegram': 'Telegram channel',
 
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Companies hiring this week',

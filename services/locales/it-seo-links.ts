@@ -19,6 +19,7 @@ const translations: Record<string, string> = {
 
   // Employer acquisition CTA (footer, issue #4446) — benefit-first copy.
   'seoLinks.footer.employerCta': 'Assumete? Pubblicate il vostro annuncio',
+  'seoLinks.footer.telegram': 'Canale Telegram',
 
   // Footer weekly-employers teaser (closes 4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Aziende che assumono questa settimana',

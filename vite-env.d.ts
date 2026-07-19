@@ -16,6 +16,10 @@ interface ImportMetaEnv {
  readonly VITE_FIREBASE_MESSAGING_SENDER_ID?: string;
  readonly VITE_FIREBASE_APP_ID?: string;
  readonly VITE_FIREBASE_MEASUREMENT_ID?: string;
+
+ // Public Telegram broadcast channel URL (e.g. https://t.me/frontaliereticino).
+ // Empty until the owner creates the channel — consumers gate on it.
+ readonly VITE_TELEGRAM_CHANNEL_URL?: string;
 }
 
 interface ImportMeta {

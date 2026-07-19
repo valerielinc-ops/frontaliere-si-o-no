@@ -55,6 +55,25 @@ export const CANTON_NAME_BY_CODE = {
   BASILEA: 'Basilea', APPENZELLO: 'Appenzello',
 };
 
+// ── Shared display constants ────────────────────────────────
+// Single source for constants that would otherwise be copy-pasted across the
+// per-channel posters (project rule §6: a constant duplicated literally in ≥2
+// files MUST live in ONE shared module so drift is impossible by-construction).
+
+/** job.employmentType → Italian user-facing label. */
+export const EMPLOYMENT_TYPE_LABEL = {
+  FULL_TIME: 'Tempo pieno',
+  PART_TIME: 'Part-time',
+  CONTRACTOR: 'Contratto',
+  TEMPORARY: 'Temporaneo',
+};
+
+/** Italian month names, 0-indexed (January = index 0). */
+export const MONTHS_IT = [
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+  'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+];
+
 // ── Sanitization helpers ────────────────────────────────────
 
 export function stripHtml(s) {
@@ -145,6 +164,37 @@ export function truncateBody(text, maxLen) {
   // appending '…' to a full maxLen window would yield maxLen+1 and be
   // rejected at submit time.
   return window.slice(0, maxLen - 1).trim() + '…';
+}
+
+// ── Salary formatting (shared) ──────────────────────────────
+// Extracted here so every social channel formats job pay identically. The
+// Swiss apostrophe thousands separator + currency/range logic previously lived
+// only inside the per-channel Reddit/FB templates; the Telegram digest reuses
+// these instead of copy-pasting the same regex a third time (project rule: a
+// helper/regex duplicated literally in ≥2 files MUST live in ONE shared module).
+
+/** Round to an integer with the Swiss apostrophe thousands separator: 90000 → "90'000". */
+export function formatSwissThousands(n) {
+  const num = Number(n);
+  if (!Number.isFinite(num)) return String(n);
+  return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+}
+
+/**
+ * Build a human salary label from a job's structured pay, e.g.
+ * "CHF 90'000–110'000" or "CHF 90'000". Returns '' when no pay is present.
+ * Reads `baseSalary.value.{min,max}Value` first, then flat `salaryMin/Max`.
+ */
+export function formatJobSalaryLabel(job) {
+  const min = job?.baseSalary?.value?.minValue ?? job?.salaryMin;
+  const max = job?.baseSalary?.value?.maxValue ?? job?.salaryMax;
+  const currency = job?.baseSalary?.currency || 'CHF';
+  if (!min && !max) return '';
+  if (min && max && min !== max) {
+    return `${currency} ${formatSwissThousands(min)}–${formatSwissThousands(max)}`;
+  }
+  const v = min || max;
+  return `${currency} ${formatSwissThousands(v)}`;
 }
 
 // ── Job selection ───────────────────────────────────────────
