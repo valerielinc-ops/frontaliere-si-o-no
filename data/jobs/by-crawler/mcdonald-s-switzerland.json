@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-07-19T10:58:48.945Z",
+  "assembledAt": "2026-07-19T10:11:12.237Z",
   "jobs": [
     {
       "title": "Guest Experience Leader",
@@ -5827,7 +5827,7 @@
       "sector": "Ristorazione / Fast Food",
       "source": "McDonald's Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:58:41.645Z",
+      "crawledAt": "2026-07-18T22:42:12.784Z",
       "titleByLocale": {
         "it": "Host/Hostes",
         "en": "Host/Hostess",
@@ -5849,18 +5849,29 @@
       "id": "mcdonald-s-switzerland-a09130205202",
       "previousSlugs": [
         "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1",
-        "host-hostes-mcdonald-s-switzerland-heimberg"
+        "host-hostes-mcdonald-s-switzerland-allschwil",
+        "host-hostess-mcdonald-s-switzerland-allschwil",
+        "host-hostess-mcdonalds-switzerland-allschwil-p8-319051-1",
+        "hebergement-mcdonald-s-switzerland-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1",
-          "host-hostes-mcdonald-s-switzerland-heimberg"
+          "host-hostes-mcdonald-s-switzerland-allschwil",
+          "host-hostess-mcdonald-s-switzerland-allschwil",
+          "host-hostess-mcdonalds-switzerland-allschwil-p8-319051-1",
+          "hebergement-mcdonald-s-switzerland-allschwil"
         ],
         "en": [
-          "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1"
+          "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1",
+          "host-hostess-mcdonald-s-switzerland-allschwil"
         ],
         "fr": [
-          "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1"
+          "host-hostess-mcdonalds-switzerland-heimberg-p8-318304-1",
+          "hebergement-mcdonald-s-switzerland-allschwil"
+        ],
+        "de": [
+          "host-hostess-mcdonalds-switzerland-allschwil-p8-319051-1"
         ]
       },
       "firstSeenAt": "2026-07-10T10:26:47.345Z",
