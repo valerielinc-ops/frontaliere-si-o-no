@@ -8645,6 +8645,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ottico-optometrista-ticino-guida.title': 'Ottico optometrista in Ticino: stipendio e requisiti',
     'blog.article.ottico-optometrista-ticino-guida.excerpt': 'Guida completa per l\'ottico optometrista frontaliere: requisiti professionali, stipendi medi in Ticino, Permesso G e normativa fiscale aggiornata.',
     'blog.article.ottico-optometrista-ticino-guida.imageAlt': 'Studio di un ottico optometrista in Ticino con attrezzature moderne',
+    'blog.article.podologo-frontaliere-ticino-guadagna.title': 'Quanto guadagna un podologo frontaliere in Ticino?',
+    'blog.article.podologo-frontaliere-ticino-guadagna.excerpt': 'Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione.',
+    'blog.article.podologo-frontaliere-ticino-guadagna.imageAlt': 'Un podologo frontaliere in Ticino, immagine fotorealistica DSLR ambientata in Canton Ticino.',
 };
 
 export default blogMetaIt;
