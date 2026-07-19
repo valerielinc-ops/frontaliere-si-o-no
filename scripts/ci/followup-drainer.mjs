@@ -213,6 +213,63 @@ export function detectExplicitNetworkAudit(title, body) {
   return /network-enabled\s+audit|audit\s+curl/i.test(s);
 }
 
+// --- EPIC-TRACKER PRE-FLIGHT (escalation #4517) -----------------------------
+// `fix-outcome:revenue-tracker-manual` ricorre 10×/14gg (dal 2026-07-18): un
+// batch di issue `[EPIC] ...` auto-filate da un audit esplorativo 3-agent
+// delega l'intero scope implementativo a una sezione `## Sub-issues` che
+// elenca sub-issue GIÀ aperte e GIÀ instradate nella propria coda
+// `agent:fix-queued`/`agent:fix` indipendente. L'epic in sé non ha un
+// target-file proprio da editare: ogni promozione a `agent:fix` fa fare a
+// Claude la STESSA diagnosi (leggere le sub-issue, verificare che siano già in
+// coda, controllare overlap-file) per arrivare sempre alla stessa conclusione
+// — "nessuna azione di codice qui, tracker di coordinamento" — bruciando un
+// run Claude completo per OGNI epic distinta (verificato live: #4459 #4462
+// #4465 #4468 #4478, tutte filate lo stesso giorno con identico esito). La
+// regola prosa (ISSUES.md categoria `tracker`: "piano umano multi-step") non
+// preveniva la ricorrenza — questo detector la rende IMPOSSIBILE BY
+// CONSTRUCTION: park pre-promozione, zero token Claude.
+//
+// CONSERVATIVO (bias a PROMUOVERE — un falso park ritarderebbe un fix
+// legittimo): serve la combinazione ESATTA titolo `[EPIC] ...` + sezione
+// `## Sub-issues` con ALMENO un riferimento `#N`. Un `[EPIC]` senza quella
+// sezione (o con la sezione vuota) promuove normale — potrebbe comunque avere
+// uno scope implementabile direttamente.
+const SUB_ISSUES_HEADING_RE = /^##\s+Sub-issues\b/im;
+
+/** Testo della sezione `## Sub-issues` (fino alla prossima `##` o a fine body), o '' se assente. */
+function subIssuesSection(body) {
+  const b = String(body || '');
+  const headingMatch = SUB_ISSUES_HEADING_RE.exec(b);
+  if (!headingMatch) return '';
+  const afterHeading = b.slice(headingMatch.index + headingMatch[0].length);
+  const nextHeadingIdx = afterHeading.search(/^##\s+/m);
+  return nextHeadingIdx === -1 ? afterHeading : afterHeading.slice(0, nextHeadingIdx);
+}
+
+/**
+ * Vero se l'issue è un epic di coordinamento che delega l'intero scope a
+ * sub-issue già tracciate indipendentemente (titolo `[EPIC] ...` + sezione
+ * `## Sub-issues` con ≥1 riferimento `#N`), quindi senza fix diretto da
+ * promuovere. Pura → testabile.
+ * @param {string} title
+ * @param {string} body
+ */
+export function detectEpicTracker(title, body) {
+  if (!/^\[EPIC\]/i.test(String(title || '').trim())) return false;
+  return /#\d+/.test(subIssuesSection(body));
+}
+
+/**
+ * Numeri delle sub-issue elencate nella sezione `## Sub-issues` del body
+ * (usati solo per il commento di park — informativo). Pura → testabile.
+ * @param {string} body
+ * @returns {number[]}
+ */
+export function extractSubIssueNumbers(body) {
+  const section = subIssuesSection(body);
+  return [...new Set([...section.matchAll(/#(\d+)/g)].map((m) => Number(m[1])))];
+}
+
 // --- OVERLAP-FILE PRE-FLIGHT (escalation #3810) ----------------------------------
 // fix-outcome:overlap-skip ricorre 8×/14gg: il fixer Claude rileva l'overlap solo
 // DOPO aver bruciato ~1M token. Questo check zero-Claude rimuove il burn alla fonte:
@@ -741,6 +798,21 @@ function main() {
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
       edit(cand.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: epic-tracker (escalation #4517) — `[EPIC] ...` che delega tutto lo
+    // scope a `## Sub-issues` già in coda propria. Promuoverla brucia un run
+    // Claude intero per riarrivare sempre alla stessa conclusione zero-fix.
+    if (detectEpicTracker(cand.title, body)) {
+      const subIssues = extractSubIssueNumbers(body);
+      const subList = subIssues.length ? subIssues.map((n) => `#${n}`).join(', ') : 'nessuna elencata';
+      console.log(`PARK #${cand.number} (epic-tracker: sub-issues ${subList}) → no promozione, scope delegato`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #4517)**: questa issue è un \`[EPIC]\` di coordinamento — il body delega l'intero scope implementativo alla sezione \`## Sub-issues\` (${subList}), già tracciate indipendentemente nella propria coda \`agent:fix-queued\`/\`agent:fix\`. Promuoverla brucerebbe un run Claude completo per arrivare sempre alla stessa conclusione (nessun target-file proprio da fixare qui). **Non promuovo**: l'epic si chiude quando tutte le sub-issue sono mergiate (o manualmente, come tracker). Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: revenue-tracker-manual -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (epic-tracker)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
       continue; // prova il prossimo in coda
     }
 
