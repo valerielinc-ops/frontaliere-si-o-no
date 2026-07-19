@@ -438,6 +438,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-ergoterapista-ticino-stipendio-requisiti': { it: 'frontaliere-ergoterapista-ticino-stipendio-requisiti', en: 'frontaliere-ergoterapista-ticino-salary-requirements', de: 'frontaliere-ergotherapeutin-ticino-gehalt-anforderungen', fr: 'frontaliere-ergotherapeute-ticino-salaire-exigences' },
  'frontalieri-ticino-ergoterapista': { it: 'frontalieri-ticino-ergoterapista', en: 'frontalier-ticino-ergoterapist', de: 'frontalier-ticino-ergotherapeut', fr: 'frontalier-ticino-ergotherapeute' },
  'salario-frontaliere-dietista-ticino': { it: 'salario-frontaliere-dietista-ticino', en: 'frontalier-dietitian-salary-ticino', de: 'frontalier-ernahrungswissenschaftler-gehalt-ticino', fr: 'frontalier-dieteticien-salaire-suisse-italienne' },
+ 'centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw': { it: 'centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw', en: 'nuclear-plants-threaten-thousands-of-jobs-zhaw', de: 'kernkraftwerke-bedrohen-tausende-arbeitsplaetze-zhaw', fr: 'centrales-nucleaires-mettent-en-risque-des-milliards-demplois-zhaw' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

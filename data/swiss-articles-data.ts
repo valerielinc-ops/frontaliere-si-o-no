@@ -3734,6 +3734,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw',
+    category: 'fiscale',
+    date: '2026-07-19T08:44:26.454Z',
+    image: '/images/blog/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
