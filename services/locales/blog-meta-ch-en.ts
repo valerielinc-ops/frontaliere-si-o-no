@@ -1243,6 +1243,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergotherapy in Ticino: salary and differences with Italy',
     'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Tax at source on income from work: ONLY withheld in Switzerland for border workers.',
     'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'A frontier nurse working in a Lugano hospital.',
+    'blog.article.salario-frontaliere-dietista-ticino.title': 'How much does a border dieter earn in Ticino?',
+    'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'The salary of a frontier dietitian in Ticino may vary according to age group and job position.',
+    'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontalier dietitian in Ticino',
 };
 
 export default blogMetaChEn;

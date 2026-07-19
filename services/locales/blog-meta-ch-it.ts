@@ -1243,6 +1243,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergoterapia in Ticino: stipendio e differenze con l\'Italia',
     'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri.',
     'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'Un ergoterapista frontaliere lavora in un ospedale di Lugano.',
+    'blog.article.salario-frontaliere-dietista-ticino.title': 'Quanto guadagna un frontaliere dietista in Ticino?',
+    'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'Il salario di un frontaliere dietista in Ticino può variare in base alla fascia di età e alla posizione lavorativa.',
+    'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontaliere dietista in Ticino',
 };
 
 export default blogMetaChIt;

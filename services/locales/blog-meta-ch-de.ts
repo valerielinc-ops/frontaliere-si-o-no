@@ -1243,6 +1243,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-ergoterapista.title': 'Ergotherapie im Tessin: Gehalt und Unterschiede zu Italien',
     'blog.article.frontalieri-ticino-ergoterapista.excerpt': 'Quellensteuer auf Arbeitseinkommen: NUR in der Schweiz für Grenzgänger einbehalten.',
     'blog.article.frontalieri-ticino-ergoterapista.imageAlt': 'Ein Grenzarbeiter als Ergotherapeut in einem Luganer Krankenhaus.',
+    'blog.article.salario-frontaliere-dietista-ticino.title': 'Wie viel verdient ein Grenzgänger-Diätetiker im Tessin?',
+    'blog.article.salario-frontaliere-dietista-ticino.excerpt': 'Das Gehalt eines diätetischen Grenzgängers im Tessin kann je nach Altersgruppe und Arbeitsstellung variieren.',
+    'blog.article.salario-frontaliere-dietista-ticino.imageAlt': 'Frontalier Ernährungswissenschaftler in Ticino',
 };
 
 export default blogMetaChDe;
