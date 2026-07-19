@@ -72,6 +72,7 @@ const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
+const salaryProfessionCantonsSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -142,4 +143,20 @@ export const professionCantonsFlushed: Promise<readonly string[]> =
   professionCantonsSignal.promise;
 export function resolveProfessionCantonsFlushed(paths: readonly string[]): void {
   professionCantonsSignal.resolve(paths);
+}
+
+/**
+ * Resolves with the list of canonical paths {@link salaryProfessionCantonPages}
+ * actually wrote this build (median-preset + job-floor gated subset of the
+ * enumerated salary-intent routes). Consumed by
+ * {@link salaryProfessionCantonLinksPlugin}, which injects a "salary by
+ * profession and canton" link block into the per-locale HTML sitemap pages so
+ * BFS-from-`/` reaches every emitted page (closing the
+ * `sitemap-salary-profession-cantons.xml` orphan tier flagged by
+ * `audit:max-bfs-depth`), mirroring the professionCantonsFlushed contract.
+ */
+export const salaryProfessionCantonsFlushed: Promise<readonly string[]> =
+  salaryProfessionCantonsSignal.promise;
+export function resolveSalaryProfessionCantonsFlushed(paths: readonly string[]): void {
+  salaryProfessionCantonsSignal.resolve(paths);
 }
