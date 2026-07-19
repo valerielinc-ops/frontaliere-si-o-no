@@ -68,7 +68,8 @@ const CURRENT_STUB: BorderWaitCurrent = {
 
 const CROSSING_WITH_WEBCAM = {
   name: 'Chiasso-Brogeda',
-  italianSide: 'Como',
+  country: 'IT',
+  foreignSide: 'Como',
   canton: 'TI',
   province: 'CO',
   lat: 45.8409,
@@ -94,7 +95,8 @@ const CROSSING_WITH_WEBCAM = {
 
 const CROSSING_WITHOUT_WEBCAM = {
   name: 'Drezzo-Pedrinate',
-  italianSide: 'Drezzo',
+  country: 'IT',
+  foreignSide: 'Drezzo',
   canton: 'TI',
   province: 'CO',
   lat: 45.8206,

@@ -1632,7 +1632,7 @@ function renderLeafPage(inp: LeafInputs): string {
           '@type': 'PostalAddress',
           addressCountry: 'CH',
           addressRegion: reg.canton,
-          addressLocality: reg.italianSide,
+          addressLocality: reg.foreignSide,
         },
         geo: {
           '@type': 'GeoCoordinates',

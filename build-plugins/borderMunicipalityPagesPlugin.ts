@@ -573,10 +573,15 @@ function renderScenarioBody(params: {
   const irpef = formatDecimal(municipality.irpefAddizionale, locale);
   const rent = formatInt(municipality.avgRentMonthly, locale);
   const carCost = formatInt(commute.costMonthly, locale);
+  // Crossings without traffic-history data yet (e.g. future non-Ticino
+  // borders) fall back to 'n.d.' rather than interpolating "undefined"
+  // into the generated prose.
+  const avgMorning = crossing.avgWaitMorning ?? 'n.d.';
+  const avgEvening = crossing.avgWaitEvening ?? 'n.d.';
 
   if (locale === 'en') {
     return {
-      commute: `From ${municipality.name}, the nearest crossing in the model is ${crossing.name}, about ${crossingKm} km as the crow flies from the municipal centre. With the current snapshot the crossing weighs around ${liveWait}; on ordinary days the declared historical wait is ${crossing.avgWaitMorning} in the morning and ${crossing.avgWaitEvening} in the evening.`,
+      commute: `From ${municipality.name}, the nearest crossing in the model is ${crossing.name}, about ${crossingKm} km as the crow flies from the municipal centre. With the current snapshot the crossing weighs around ${liveWait}; on ordinary days the declared historical wait is ${avgMorning} in the morning and ${avgEvening} in the evening.`,
       jobs: `For a job in Ticino, a prudent estimate is around ${mendrisio} minutes to Mendrisio, ${lugano} minutes to Lugano and ${locarno} minutes to Locarno, including the approach to the crossing and the wait. These are orientation estimates: incidents, school traffic and weather can change the result a lot.`,
       money: `The real game is adding net salary, housing and time. Here you have a local surcharge of ${irpef}%, indicative rent of EUR ${rent} and an estimated monthly car cost from EUR ${carCost}. Before moving, compare at least three municipalities in the same corridor.`,
     };
@@ -584,7 +589,7 @@ function renderScenarioBody(params: {
 
   if (locale === 'de') {
     return {
-      commute: `Von ${municipality.name} ist ${crossing.name} der nächste Übergang im Modell, etwa ${crossingKm} km Luftlinie vom Gemeindezentrum entfernt. Mit der aktuellen Momentaufnahme zählt der Übergang rund ${liveWait}; an normalen Tagen liegt der historische Richtwert bei ${crossing.avgWaitMorning} am Morgen und ${crossing.avgWaitEvening} am Abend.`,
+      commute: `Von ${municipality.name} ist ${crossing.name} der nächste Übergang im Modell, etwa ${crossingKm} km Luftlinie vom Gemeindezentrum entfernt. Mit der aktuellen Momentaufnahme zählt der Übergang rund ${liveWait}; an normalen Tagen liegt der historische Richtwert bei ${avgMorning} am Morgen und ${avgEvening} am Abend.`,
       jobs: `Für eine Stelle im Tessin ist eine vorsichtige Schätzung etwa ${mendrisio} Minuten nach Mendrisio, ${lugano} Minuten nach Lugano und ${locarno} Minuten nach Locarno, inklusive Anfahrt zur Grenze und Wartezeit. Es sind Orientierungswerte: Unfälle, Schulverkehr und Wetter ändern das Ergebnis stark.`,
       money: `Entscheidend ist die Summe aus Nettolohn, Wohnen und Zeit. Hier stehen kommunaler Zuschlag ${irpef}%, indikative Miete EUR ${rent} und geschätzte monatliche Autokosten ab EUR ${carCost}. Vergleiche vor einem Umzug mindestens drei Gemeinden desselben Korridors.`,
     };
@@ -592,14 +597,14 @@ function renderScenarioBody(params: {
 
   if (locale === 'fr') {
     return {
-      commute: `Depuis ${municipality.name}, le passage le plus proche dans le modèle est ${crossing.name}, à environ ${crossingKm} km à vol d'oiseau du centre communal. Avec l'instantané actuel, le passage pèse environ ${liveWait}; les jours ordinaires, l'attente historique déclarée est ${crossing.avgWaitMorning} le matin et ${crossing.avgWaitEvening} le soir.`,
+      commute: `Depuis ${municipality.name}, le passage le plus proche dans le modèle est ${crossing.name}, à environ ${crossingKm} km à vol d'oiseau du centre communal. Avec l'instantané actuel, le passage pèse environ ${liveWait}; les jours ordinaires, l'attente historique déclarée est ${avgMorning} le matin et ${avgEvening} le soir.`,
       jobs: `Pour un emploi au Tessin, une estimation prudente est d'environ ${mendrisio} minutes vers Mendrisio, ${lugano} minutes vers Lugano et ${locarno} minutes vers Locarno, avec l'approche de la douane et l'attente. Ce sont des repères: accidents, écoles et météo peuvent beaucoup changer le résultat.`,
       money: `Le vrai jeu consiste à additionner net, logement et temps. Ici vous avez une surtaxe communale de ${irpef}%, un loyer indicatif de EUR ${rent} et un coût voiture mensuel estimé dès EUR ${carCost}. Avant de changer de résidence, comparez au moins trois communes du même corridor.`,
     };
   }
 
   return {
-    commute: `Da ${municipality.name} la dogana più vicina nel modello è ${crossing.name}, a circa ${crossingKm} km in linea d'aria dal centro comunale. Con lo snapshot attuale il passaggio pesa circa ${liveWait}; nei giorni ordinari il dato storico dichiarato è ${crossing.avgWaitMorning} al mattino e ${crossing.avgWaitEvening} alla sera.`,
+    commute: `Da ${municipality.name} la dogana più vicina nel modello è ${crossing.name}, a circa ${crossingKm} km in linea d'aria dal centro comunale. Con lo snapshot attuale il passaggio pesa circa ${liveWait}; nei giorni ordinari il dato storico dichiarato è ${avgMorning} al mattino e ${avgEvening} alla sera.`,
     jobs: `Per un lavoro in Ticino, una stima prudente è circa ${mendrisio} minuti verso Mendrisio, ${lugano} minuti verso Lugano e ${locarno} minuti verso Locarno, includendo avvicinamento alla dogana e attesa. Sono stime orientative: incidenti, scuole e meteo cambiano molto il risultato.`,
     money: `Il gioco vero è sommare netto, casa e tempo. Qui hai addizionale comunale ${irpef}%, affitto indicativo EUR ${rent} e costo auto mensile stimato da EUR ${carCost}. Prima di cambiare residenza, confronta almeno tre comuni dello stesso corridoio.`,
   };
@@ -670,9 +675,14 @@ function buildHydrationData(params: {
       summaryTemplate: copy.simulatorSummary('{crossing}', '{destination}', '{minutes}', '{wait}'),
     },
     routes: routes.slice(0, 2).map(({ crossing, slug, distanceKm }) => {
-      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, crossing.avgWaitMorning);
-      const morningMinutes = waitMinutesFromLabel(crossing.avgWaitMorning, nowMinutes);
-      const eveningMinutes = waitMinutesFromLabel(crossing.avgWaitEvening, morningMinutes);
+      // Crossings without traffic-history data yet fall back to 'n.d.'
+      // (matches waitLabel()'s convention) rather than crashing on
+      // `undefined.matchAll(...)` inside waitMinutesFromLabel().
+      const morningLabel = crossing.avgWaitMorning ?? 'n.d.';
+      const eveningLabel = crossing.avgWaitEvening ?? 'n.d.';
+      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, morningLabel);
+      const morningMinutes = waitMinutesFromLabel(morningLabel, nowMinutes);
+      const eveningMinutes = waitMinutesFromLabel(eveningLabel, morningMinutes);
       const approachMinutes = Math.round(distanceKm * 1.7);
       const destinationBase = destinationBaseMinutes(crossing);
       const carCost = (baseMinutes: number) =>
@@ -683,8 +693,8 @@ function buildHydrationData(params: {
         href: `/traffico-dogane/${slug}/oggi/`,
         waits: {
           now: { minutes: nowMinutes, label: waitLabel(waitSnapshot, slug) },
-          morning: { minutes: morningMinutes, label: crossing.avgWaitMorning },
-          evening: { minutes: eveningMinutes, label: crossing.avgWaitEvening },
+          morning: { minutes: morningMinutes, label: morningLabel },
+          evening: { minutes: eveningMinutes, label: eveningLabel },
         },
         destinations: {
           mendrisio: {

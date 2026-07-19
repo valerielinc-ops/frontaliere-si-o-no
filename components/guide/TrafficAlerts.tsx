@@ -150,7 +150,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  const allCrossingsWithTraffic = useMemo(() => {
  return borderCrossings
- .filter(c => c.trafficLevel !== 'closed')
+ .filter(c => c.trafficLevel !== undefined && c.trafficLevel !== 'closed')
  .map(c => {
  const traffic = trafficData.find(t => t.crossingName === c.name);
  return {
