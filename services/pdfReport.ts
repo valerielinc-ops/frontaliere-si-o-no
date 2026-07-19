@@ -178,3 +178,134 @@ export async function generateCalculatorPdfReport(
 
   return doc.output('blob');
 }
+
+// ─── Shared helpers ────────────────────────────────────────────────────────
+
+/**
+ * Convert a PDF Blob to the raw base64 string expected by the
+ * sendCalculatorReport Cloud Function (strips the data-URL prefix).
+ */
+export function pdfBlobToBase64(blob: Blob): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      if (typeof result !== 'string') {
+        reject(new Error('invalid_reader_result'));
+        return;
+      }
+      const comma = result.indexOf(',');
+      resolve(comma >= 0 ? result.slice(comma + 1) : result);
+    };
+    reader.onerror = () => reject(reader.error || new Error('file_reader_error'));
+    reader.readAsDataURL(blob);
+  });
+}
+
+// ─── LAMal vs SSN breakeven report (health comparator mini-tool) ───────────
+
+export interface LamalSsnSnapshot {
+  incomeCHF: number;
+  age: number;
+  franchiseCHF: number;
+  /** Cheapest real LAMal premium (standard model) from data/health-premiums.json. */
+  lamalMonthlyCHF: number;
+  lamalAnnualCHF: number;
+  cheapestInsurer: string;
+  /** SSN voluntary-registration contribution range (3–6% of net income, L. 213/2023). */
+  ssnMinCHF: number;
+  ssnMaxCHF: number;
+  /** Regional SSN rate (%) at which LAMal and SSN cost the same. */
+  breakevenPct: number;
+  verdict: 'lamal' | 'ssn' | 'depends';
+  generatedAt?: Date;
+}
+
+const LAMAL_SSN_DISCLAIMER =
+  'Report generato automaticamente a scopo informativo. Stime basate sui premi UFSP/BAG (modello standard, senza infortuni) e sul contributo SSN 3-6% (L. 213/2023). Non costituisce consulenza. La scelta LAMal/SSN e irrevocabile: valuta con un consulente autorizzato.';
+
+/**
+ * Generate a Blob containing the LAMal-vs-SSN breakeven PDF report.
+ * Same visual language as the calculator report; jsPDF lazy-imported.
+ */
+export async function generateLamalSsnPdfReport(
+  snapshot: LamalSsnSnapshot,
+  email: string,
+): Promise<Blob> {
+  const { jsPDF } = await import('jspdf');
+  const autoTableMod = await import('jspdf-autotable');
+  const autoTable = autoTableMod.default;
+
+  const doc = new jsPDF();
+  const generatedAt = snapshot.generatedAt ?? new Date();
+
+  // Header band
+  doc.setFillColor(30, 41, 59);
+  doc.rect(0, 0, 210, 32, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(18);
+  doc.setFont('helvetica', 'bold');
+  doc.text(BRAND_NAME, 14, 14);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(203, 213, 225);
+  doc.text(BRAND_URL, 14, 21);
+  doc.text(`Generato: ${generatedAt.toLocaleDateString('it-IT')}`, 14, 27);
+
+  // Title
+  doc.setTextColor(15, 23, 42);
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Il tuo confronto LAMal vs SSN', 14, 46);
+
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(71, 85, 105);
+  doc.text(`Inviato a: ${email}`, 14, 52);
+
+  const verdictLabel =
+    snapshot.verdict === 'lamal'
+      ? 'Conviene la LAMal svizzera'
+      : snapshot.verdict === 'ssn'
+        ? 'Conviene il SSN italiano'
+        : `Dipende dall'aliquota regionale (break-even: ${formatPercent(snapshot.breakevenPct)})`;
+
+  const body = [
+    ['Reddito annuo netto', formatCHF(snapshot.incomeCHF)],
+    ['Eta', String(Math.round(snapshot.age))],
+    ['Franchigia LAMal', formatCHF(snapshot.franchiseCHF)],
+    [`Premio LAMal piu economico (${snapshot.cheapestInsurer})`, `${formatCHF(snapshot.lamalMonthlyCHF)}/mese`],
+    ['Costo LAMal annuo stimato', formatCHF(snapshot.lamalAnnualCHF)],
+    ['Contributo SSN stimato (3%)', formatCHF(snapshot.ssnMinCHF)],
+    ['Contributo SSN stimato (6%)', formatCHF(snapshot.ssnMaxCHF)],
+    ['Aliquota di break-even', formatPercent(snapshot.breakevenPct)],
+    ['Verdetto', verdictLabel],
+  ];
+
+  autoTable(doc, {
+    startY: 60,
+    head: [['Indicatore', 'Valore']],
+    body,
+    theme: 'grid',
+    headStyles: {
+      fillColor: [37, 99, 235],
+      fontSize: 11,
+      fontStyle: 'bold',
+    },
+    columnStyles: {
+      0: { cellWidth: 110, fontStyle: 'bold', textColor: [30, 41, 59] },
+      1: { halign: 'right', textColor: [30, 64, 175] },
+    },
+    styles: {
+      fontSize: 10,
+      cellPadding: 5,
+    },
+  });
+
+  // Footer disclaimer
+  doc.setFontSize(9);
+  doc.setTextColor(100, 116, 139);
+  doc.text(LAMAL_SSN_DISCLAIMER, 14, 276, { maxWidth: 180 });
+
+  return doc.output('blob');
+}

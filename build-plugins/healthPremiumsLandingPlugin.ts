@@ -66,17 +66,20 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
+  CARD_BODY_CLASS,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
+  SMALL_HEADING_STYLE,
   STAT_TILE_ACCENT,
   STAT_TILE_SUCCESS,
   STAT_TILE_WARNING,
   clampSiteSuffix,
   renderDiscoverMore,
 } from './shared/seoContentTokens';
+import { PARTNERS, buildGoPath } from '../services/affiliateService';
 
 // ── Feature-specific "Scopri di più" CTAs ─────────────────────
 // Three contextually relevant links per locale for the F2 health-premiums feature.
@@ -136,6 +139,76 @@ const HEALTH_PREMIUMS_DISCOVER_MORE_CTAS: Record<
     { title: "Temps d'attente aux douanes",           href: BORDER_WAIT_HUB_PATH.fr },
   ],
 };
+
+// ── Health partner block (config-driven affiliate surface, #4439) ─────────
+//
+// Renders the enabled `health`-context partners from the shared registry
+// (services/affiliateService.ts) on every premiums landing page, below the
+// data area. Zero enabled partners → empty string (surface identical to a
+// build without the block — never an empty box). Clicks route through the
+// static /go/{partner}/ redirect pages (uniform edge tracking, #4443);
+// paid programs carry rel="sponsored", institutional links do not.
+
+const HEALTH_PARTNER_BLOCK_COPY: Record<
+  HealthPremiumLocale,
+  { heading: string; disclosure: string; taglines: Record<string, string> }
+> = {
+  it: {
+    heading: 'Strumenti consigliati',
+    disclosure: 'Alcuni link possono generare una commissione che ci aiuta a mantenere il servizio gratuito.',
+    taglines: {
+      priminfo: 'Il comparatore ufficiale della Confederazione: verifica ogni premio LAMal alla fonte UFSP.',
+      comparis: 'Confronta i premi e cambia cassa malati online in pochi minuti.',
+    },
+  },
+  en: {
+    heading: 'Recommended tools',
+    disclosure: 'Some links may earn us a commission that helps keep this service free.',
+    taglines: {
+      priminfo: 'The official federal comparator: verify every LAMal premium at the FOPH source.',
+      comparis: 'Compare premiums and switch health insurer online in minutes.',
+    },
+  },
+  de: {
+    heading: 'Empfohlene Tools',
+    disclosure: 'Einige Links können eine Kommission generieren, die diesen Service kostenlos hält.',
+    taglines: {
+      priminfo: 'Der offizielle Vergleichsdienst des Bundes: prüfe jede LAMal-Prämie direkt an der BAG-Quelle.',
+      comparis: 'Prämien vergleichen und die Krankenkasse online in wenigen Minuten wechseln.',
+    },
+  },
+  fr: {
+    heading: 'Outils recommandés',
+    disclosure: 'Certains liens peuvent générer une commission qui aide à maintenir ce service gratuit.',
+    taglines: {
+      priminfo: 'Le comparateur officiel de la Confédération : vérifiez chaque prime LAMal à la source OFSP.',
+      comparis: 'Comparez les primes et changez de caisse maladie en ligne en quelques minutes.',
+    },
+  },
+};
+
+export function renderHealthPartnerBlock(locale: HealthPremiumLocale): string {
+  const copy = HEALTH_PARTNER_BLOCK_COPY[locale];
+  const partners = PARTNERS
+    .filter((p) => p.enabled && p.contexts.includes('health') && copy.taglines[p.id])
+    .sort((a, b) => b.priority - a.priority)
+    .slice(0, 2);
+  if (partners.length === 0) return '';
+  const cards = partners
+    .map((p) => {
+      const rel = p.sponsored ? 'noopener sponsored' : 'noopener';
+      return `<li class="s-6FVpHG"><a href="${esc(buildGoPath(p))}" rel="${rel}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${p.emoji} ${esc(p.name)} →</a><br><span style="font-size:14px">${esc(copy.taglines[p.id])}</span></li>`;
+    })
+    .join('');
+  const disclosure = partners.some((p) => p.sponsored)
+    ? `<p style="font-size:12px;margin:10px 0 0">${esc(copy.disclosure)}</p>`
+    : '';
+  return `<section class="${CARD_BODY_CLASS}" style="margin:32px 0 0;padding:20px 24px" aria-label="${esc(copy.heading)}">
+  <p style="${SMALL_HEADING_STYLE}">${esc(copy.heading)}</p>
+  <ul class="s-h04l3F">${cards}</ul>
+  ${disclosure}
+</section>`;
+}
 
 // ── Types (dataset shape) ──────────────────────────────────────
 
@@ -2370,6 +2443,7 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>
   ${renderHealthPremiumFrontalierContext({ locale, canton: cantonLabel, age: ageLabel, ageId: age, year, median: medFmt, min: minFmt, max: maxFmt })}
   ${faqHtml}
+  ${renderHealthPartnerBlock(locale)}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton, age })}
   <section class="s-sC82IX" aria-label="advertisement">
@@ -2679,6 +2753,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     bullets: copy.cantonFrontalierGuide.bullets,
   })}
   ${faqHtml}
+  ${renderHealthPartnerBlock(locale)}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: canton })}
   <section class="s-sC82IX" aria-label="advertisement">
@@ -2945,6 +3020,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     bullets: copy.rootFrontalierGuide.bullets,
   })}
   ${faqHtml}
+  ${renderHealthPartnerBlock(locale)}
   ${renderDiscoverMore(locale, HEALTH_PREMIUMS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'health_premiums', { cantonSlug: 'ticino' })}
   <section class="s-sC82IX" aria-label="advertisement">

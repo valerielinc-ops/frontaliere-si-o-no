@@ -10,7 +10,7 @@
  */
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { PARTNERS, buildAffiliateUrl } from '../services/affiliateService';
+import { PARTNERS, buildAffiliateUrl, partnerRelAttr } from '../services/affiliateService';
 import { ANALYTICS_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
 import { WriteCollector } from './batchWrite';
 
@@ -36,7 +36,7 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  <p class="s-16ZGVZ">${partner.emoji}</p>
  <h1 class="s-0Ns7AE">Stai per visitare ${esc(partner.name)}</h1>
  <p class="s-a4vtCV">Verrai reindirizzato automaticamente. Se non succede, clicca il link qui sotto.</p>
- <p><a class="s-uJ0x5V" href="${esc(targetUrl)}" rel="noopener sponsored">Vai a ${esc(partner.name)} &rarr;</a></p>
+ <p><a class="s-uJ0x5V" href="${esc(targetUrl)}" rel="${partnerRelAttr(partner)}">Vai a ${esc(partner.name)} &rarr;</a></p>
  </main>
  </body>
 </html>`;
@@ -50,7 +50,10 @@ export function affiliateRedirectPlugin(rootDir: string): Plugin {
  const distDir = path.resolve(rootDir, 'dist');
  const writer = new WriteCollector({ distDir, pluginName: 'affiliateRedirectPlugin' });
 
- for (const partner of PARTNERS) {
+ // Disabled partners are dormant config (no surface links them) → no
+ // redirect page. Flipping `enabled` re-emits /go/{id}/ on the next
+ // build, before any surface can link it.
+ for (const partner of PARTNERS.filter((p) => p.enabled)) {
  const html = buildRedirectPage(partner);
  const filePath = path.join(distDir, 'go', partner.id, 'index.html');
  writer.add(filePath, html);

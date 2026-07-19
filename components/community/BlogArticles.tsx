@@ -23,7 +23,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
+import { PARTNERS, buildGoPath, partnerRelAttr, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -1630,7 +1630,7 @@ function BlogArticles({
  const seen = new Set<string>();
  const result: AffiliatePartner[] = [];
  for (const ctx of contexts) {
- for (const p of PARTNERS.filter(p => p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
+ for (const p of PARTNERS.filter(p => p.enabled && p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
  if (!seen.has(p.id) && result.length < max) { seen.add(p.id); result.push(p); }
  }
  }
@@ -1890,9 +1890,9 @@ function BlogArticles({
  };
  return (
  <a
- href={buildAffiliateUrl(partner, `blog_${article.category}`)}
+ href={buildGoPath(partner)}
  target="_blank"
- rel="noopener noreferrer sponsored"
+ rel={partnerRelAttr(partner)}
  onClick={handleAffClick}
  className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-edge hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
  >

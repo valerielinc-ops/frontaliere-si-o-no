@@ -9,7 +9,7 @@
 import React, { useMemo } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getAllPartners, buildAffiliateUrl, type AffiliatePartner } from '@/services/affiliateService';
+import { getAllPartners, buildGoPath, partnerRelAttr, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 const CATEGORIES = [
@@ -29,9 +29,9 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
 
  return (
  <a
- href={buildAffiliateUrl(partner, 'partner-page')}
+ href={buildGoPath(partner)}
  target="_blank"
- rel="noopener noreferrer sponsored"
+ rel={partnerRelAttr(partner)}
  onClick={handleClick}
  className="group relative flex flex-col p-5 bg-surface rounded-2xl border border-edge hover:border-edge hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
  >

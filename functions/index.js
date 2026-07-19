@@ -573,6 +573,9 @@ export const sendCalculatorReport = onRequest(
  const resultSummary = req.body?.resultSummary || null;
  const locale = String(req.body?.locale || 'it').trim();
  const sourcePath = String(req.body?.sourcePath || '/').trim();
+ // Allowlisted downstream (handleSendCalculatorReport): unknown values
+ // fall back to 'calculator_paywall'.
+ const source = String(req.body?.source || '').trim();
  try {
  const result = await handleSendCalculatorReport({
  email,
@@ -580,6 +583,7 @@ export const sendCalculatorReport = onRequest(
  resultSummary,
  locale,
  sourcePath,
+ source,
  });
  res.status(result.status).type('json').json(result.body);
  } catch (error) {
