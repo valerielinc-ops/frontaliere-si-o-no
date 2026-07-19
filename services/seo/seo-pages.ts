@@ -2361,6 +2361,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ]
  },
 
+ // Deliberately Ticino-only, unlike the canton/country-agnostic data/borderCrossings.ts
+ // pipeline (#4541/#4543): this is a single hand-authored editorial page (dates, holiday
+ // names, legal basis all hardcoded for Canton Ticino), not a generated per-canton dataset.
+ // Generalizing it would mean authoring a full holiday calendar + legal-basis research for
+ // every canton, a separate content project, not a mechanical refactor of this schema block.
  holidays: {
  title: 'Festività Ticino 2026: Calendario e Ponti Ufficiali',
  description: 'Festività Ticino 2026: calendario ufficiale dei 15 giorni festivi, ponti utili, lavoro festivo e confronto Italia-Svizzera per frontalieri.',
