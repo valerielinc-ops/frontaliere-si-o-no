@@ -905,8 +905,8 @@ function renderPage(params: {
           <p class="mt-1 text-sm">${esc(copy.currentWait)}: <strong>${esc(liveWait)}</strong></p>
         </div>
         <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
-          <div><dt class="font-medium text-subtle">${esc(copy.morning)}</dt><dd class="text-heading">${esc(crossing.avgWaitMorning)}</dd></div>
-          <div><dt class="font-medium text-subtle">${esc(copy.evening)}</dt><dd class="text-heading">${esc(crossing.avgWaitEvening)}</dd></div>
+          <div><dt class="font-medium text-subtle">${esc(copy.morning)}</dt><dd class="text-heading">${esc(crossing.avgWaitMorning ?? 'n.d.')}</dd></div>
+          <div><dt class="font-medium text-subtle">${esc(copy.evening)}</dt><dd class="text-heading">${esc(crossing.avgWaitEvening ?? 'n.d.')}</dd></div>
           <div><dt class="font-medium text-subtle">${esc(copy.hours)}</dt><dd class="text-heading">${esc(crossing.hours)}</dd></div>
           <div><dt class="font-medium text-subtle">${esc(copy.customs)}</dt><dd class="text-heading">${crossing.customsPresent ? esc(copy.yes) : esc(copy.no)}</dd></div>
         </dl>
