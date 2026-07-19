@@ -2543,6 +2543,9 @@ Règles :
  'whatsNew.v3710.consulting.title': 'Conseil personnalisé dans le funnel',
  'whatsNew.v3710.consulting.desc': 'Le conseil fiscal sur mesure est désormais accessible depuis le calculateur et en bas des articles fiscaux.',
 
+ 'whatsNew.v3670.title': 'Établissements de santé qui recrutent',
+ 'whatsNew.v3670.facilities.title': 'Emplois par hôpital et clinique',
+ 'whatsNew.v3670.facilities.desc': 'De nouvelles pages pour chaque établissement de santé suisse avec ses postes ouverts, les métiers de la santé recherchés et le salaire médian réel, reliées au parcours infirmiers et assistants en soins.',
  'whatsNew.v3700.title': 'Pages entreprise : salaires et postes ouverts',
  'whatsNew.v3700.employerProfiles.title': 'Profils des entreprises qui recrutent',
  'whatsNew.v3700.employerProfiles.desc': 'De nouvelles pages dédiées pour des centaines d’employeurs : postes ouverts, salaire médian, sites et tendance des recrutements, en un coup d’œil.',

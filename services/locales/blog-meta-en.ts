@@ -8629,6 +8629,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Ergotherapist salary: salaries and differences with Italy',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'The article examines the salary bracket of a border ergotherapist in Ticino, comparing the differences with the Italian salary bracket.',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'A cross-border ergotherapist works in the Canton Ticino',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.title': 'Only 7% of Swiss startup capital goes to female-led companies',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.excerpt': 'According to a new study by the investor association SECA, only 7% of the risk capital raised went to companies with female CEOs.',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.imageAlt': 'Panoramic view of Lake Lugano',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'How much does a border ergotherapist earn in Ticino?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Salary of a border ergotherapist in Ticino: how is it calculated and what influences the salary?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Frontalier ergotherapist with work permit and residence permit in hand, with the background of Lake Lugano',
 };
 
 export default blogMetaEn;

@@ -2540,6 +2540,9 @@ Rules:
  'whatsNew.v3710.consulting.title': 'Personalized consulting in the funnel',
  'whatsNew.v3710.consulting.desc': 'Tailored tax consulting is now reachable from the calculator and at the end of fiscal articles.',
 
+ 'whatsNew.v3670.title': 'Healthcare facilities that are hiring',
+ 'whatsNew.v3670.facilities.title': 'Jobs by hospital and clinic',
+ 'whatsNew.v3670.facilities.desc': 'New pages for each Swiss healthcare facility with its live openings, the clinical roles it is hiring and the real median salary, wired to the nursing and care-assistant career path.',
  'whatsNew.v3700.title': 'Company pages: salaries and open roles',
  'whatsNew.v3700.employerProfiles.title': 'Profiles of the companies that are hiring',
  'whatsNew.v3700.employerProfiles.desc': 'New dedicated pages for hundreds of employers: open positions, median salary, locations and hiring trend, all at a glance.',

@@ -14,6 +14,7 @@ import {
 import { isProfessionCantonPath } from './professionCantonData';
 import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
+import { isHealthFacilityPath } from './healthFacilitiesData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPages';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
@@ -517,6 +518,22 @@ export function resolveSearchConsoleCompatTarget(
  // module-load-precomputed Map (PATH_INDEX), so this stays O(1) per call —
  // no per-call Set/Map construction inside the 150k+-path compat loop.
  if (isProfessionCityPath(path)) {
+ return {
+ canonicalPath: ensureTrailingSlash(path),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ // Health-facilities hub (healthFacilitiesPlugin.ts, epic #4455): every
+ // committed facility (build-plugins/healthFacilitiesData.ts) emits, on
+ // EVERY build, either a full indexable page (live jobs ≥ floor) or a
+ // noindex,follow below-floor bridge — always at the SAME canonical path.
+ // So a URL matching an enumerated facility path always has a live target
+ // today, even if GSC captured it as 404 from before the page existed.
+ // isHealthFacilityPath checks a module-load-precomputed Set (PATH_INDEX),
+ // so this stays O(1) per call inside the 150k+-path compat loop.
+ if (isHealthFacilityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

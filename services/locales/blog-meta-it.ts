@@ -8630,6 +8630,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.title': 'Stipendio ergoterapista: salari e differenze con l\'Italia',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.excerpt': 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
     'blog.article.quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.imageAlt': 'Un ergoterapista frontaliere lavora nel Canton Ticino',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.title': 'Di più startup svizzere, solo 7% del capitale va a imprese con CEO donna',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.excerpt': 'Secondo un nuovo studio dell\'associazione di investitori SECA, solo il 7% del capitale a rischio raccolto è andato a imprese con CEO donna.',
+    'blog.article.di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.imageAlt': 'Vista panoramica del Lago di Lugano',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.title': 'Quanto guadagna un ergoterapista frontaliere in Ticino?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.excerpt': 'Stipendio di un ergoterapista frontaliere in Ticino: come si calcola e cosa influenza la retribuzione?',
+    'blog.article.frontalieri-ergoterapista-stipendio-ticino.imageAlt': 'Ergoterapista frontaliere con cartellino del lavoro e visto di soggiorno in mano, con lo sfondo del lago Lugano',
 };
 
 export default blogMetaIt;
