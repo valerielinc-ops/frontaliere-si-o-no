@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-07-19T11:24:44.088Z",
+  "assembledAt": "2026-07-19T23:01:41.788Z",
   "jobs": [
     {
       "id": "company-ujl61l",
@@ -25,7 +25,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Customer Quality Electronics Specialista",
@@ -72,6 +72,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -98,7 +99,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Sales Specialista – Business Line Excitation (80-100%)",
@@ -143,6 +144,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -169,7 +171,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T11:28:52.195Z",
       "titleByLocale": {
         "it": "Analista M&A",
@@ -218,6 +220,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -244,7 +247,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Sales Manager – Progetti Strategici Globali, Mining",
@@ -324,7 +327,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "End Sales Manager – Progetti Strategici Globali, Mining",
@@ -377,6 +380,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -403,7 +407,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-17T22:24:17.785Z",
       "titleByLocale": {
         "it": "Direttore vendite - Produttori di pannelli (80-100%)",
@@ -479,7 +483,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-15T11:28:32.129Z",
       "slugByLocale": {
         "it": "stage-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen",
@@ -535,6 +539,7 @@
           "internship-strategischer-einkauf-80-100-abb-svizzera-sede-ticino-schaffhausen-gzgcmy"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -561,7 +566,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Technical Service Specialista - Gearless Mill Drive (80-100%)",
@@ -607,14 +612,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 107000,
-      "salaryMax": 187500
+      "salaryMax": 187500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8nzt91",
       "slug": "electrification-business-area-ricerca-manager-abb-svizzera-sede-ticino-baden-daettwil-aargau-8nzt91",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Electrification Business Area Research Manager",
-      "location": "Baden-Daettwil, Aargau",
+      "location": "Ticino",
       "canton": "AG",
       "category": "engineering",
       "contract": "full-time",
@@ -632,7 +638,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T11:08:48.231Z",
       "titleByLocale": {
         "it": "Electrification Business Area Ricerca Manager",
@@ -657,11 +663,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "electrification-business-area-research-manager-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+          "electrification-business-area-research-manager-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "electrification-business-area-research-manager-abb-svizzera-sede-ticino"
         ]
       },
       "previousSlugs": [
-        "electrification-business-area-research-manager-abb-svizzera-sede-ticino-baden-daettwil-aargau"
+        "electrification-business-area-research-manager-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "electrification-business-area-research-manager-abb-svizzera-sede-ticino"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -677,6 +685,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -703,7 +712,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Specialista in test e laboratorio R&S (f/m/d) 80-100%",
@@ -748,6 +757,7 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -774,7 +784,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "slugByLocale": {
         "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
@@ -831,7 +841,7 @@
       "slug": "is-division-manager-elsb-abb-svizzera-sede-ticino-zurich-8ne7fs",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "IS Division Manager ELSB",
-      "location": "Zurich",
+      "location": "Ticino",
       "canton": "ZH",
       "category": "tech",
       "contract": "full-time",
@@ -849,7 +859,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "IS Division Manager ELSB",
@@ -894,6 +904,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -920,7 +931,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-14T22:17:51.360Z",
       "titleByLocale": {
         "it": "Responsabile di Progetto R&D (f/m/d) 80-100%",
@@ -973,85 +984,6 @@
       "salaryMax": 156500
     },
     {
-      "id": "company-khvgxc",
-      "slug": "power-system-ingegnere-abb-svizzera-sede-ticino-ticino",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Power System Engineer",
-      "location": "Ticino",
-      "canton": "AG",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Technical Consulting Manager II<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities </b></p><p>We are seeking a Power System Engineer to join our team supporting customers in the design and implementation of advanced direct current (DC) architectures for data centers and industrial applications. This role focuses on DC distribution equipment, power electronics, and protection systems. You will work closely with customers and collaborate with R&D teams responsible for developing power electronics solutions and DC equipment to co-develop innovative, reliable, and efficient power solutions.</p><p></p><p>The work model for the role is hybrid.</p><p>Location: Global - Germany, Italy, Switzerland and/or USA<br /><br />You will be mainly accountable for</p><ul><li>Design DC power distribution systems incorporating DC distribution equipment such as switchgear, circuit breakers, busbars, energy storage and other power electronics devices.</li><li>Co-develop solutions with customers to ensure alignment with market needs.</li><li>Perform electrical system simulations and validate architectures through practical evaluation.</li><li>Conduct system studies (load flow, short-circuit, protection coordination) using simulation tools.</li><li>Develop and evaluate protection schemes (short-circuit analysis, coordination, etc.).</li><li>Collaborate with R&D teams responsible for developing power electronics solutions and DC equipment</li><li>Frequently review and understand relevant standards, including those still under development, to ensure compliance and future readiness.</li></ul><div></div><p><b>\n• Qualifications for the role </b></p><ul><li><span>5+ years in power system design, preferably DC systems</span></li><li><span>Strong knowledge of DC protection principles and emerging standards (IEC, IEEE)</span></li><li><span>Electrical system design/engineering expertise in DC distribution</span></li><li><span>Master’s in Electrical Engineering or related field</span></li><li><span>Electrical system simulation expertise (MATLAB/Simulink, PSCAD, ETAP)</span></li><li><span>Good knowledge of power electronics, including topologies, basics of semiconductor switching and converter protection</span></li><li><span>Ability to lead technical discussions with customers and internal teams to align on requirements and solutions.</span></li><li><span>Ability to design and evaluate DC protection schemes (short-circuit analysis, coordination)</span></li><li><span>Strong understanding of industry standards, relevant organizations and ability to track evolving regulations.</span></li></ul><p></p><p><b>More about us </b></p><p>Electrification provides leading electrical distribution and management technologies, solutions and services to electrify the world in a safe, smart and sustainable way. The portfolio includes medium- and low-voltage electrical components, switchgear, digital devices, enclosures, and circuit breakers, among<br />others. With our products, solutions and services, we collaborate with customers to improve power delivery and security, enhance energy management, efficiency and operational reliability, as we seek to achieve a low carbon society. go.abb/electrification <span> </span><span> </span></p><p></p><p></p><p><i>This opportunity is open to candidates in multiple countries, with the final work location determined based on the selected candidate. As compensation may vary by location, we are committed to being transparent throughout the hiring process and will share details of the salary range, variable compensation and benefits package with candidates who progress to the first interview stage for a location in the European Union, covered by the EU Pay Transparency Directive.</i></p><p><i>The final offer will be tailored based on your role location, experience, skills and qualifications, internal market positioning and alignment with ABB internal standards. </i></p><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00039998EXTERNALENGLOBAL/Power-System-Engineer",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ratingen, North Rhine-Westphalia, Germany",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
-      "firstSeenAt": "2026-07-13T22:20:35.632Z",
-      "titleByLocale": {
-        "it": "Power System Ingegnere",
-        "en": "Power System Engineer",
-        "de": "Power System Ingenieur",
-        "fr": "Power System Ingénieur"
-      },
-      "descriptionByLocale": {
-        "it": "<p>At <b>ABB </b>, aiutiamo le industrie a funzionare più snella e più pulita, e ogni persona qui lo fa accadere. Sarete autorizzati a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire ciò che dirige il mondo. Questa posizione riporta a: </b> </p>Technical Consulting Manager II <p style=\"text-align:inherit!important\"> </p> < < <p> Indirizzo=\"text-align:inherit!important\"> </p> <p> Questo ruolo si concentra su apparecchiature di distribuzione DC, elettronica di potenza e sistemi di protezione. Si lavorerà a stretto contatto con i clienti e collaborerà con i team R&D responsabili dello sviluppo di soluzioni elettroniche di potenza e apparecchiature DC per co-sviluppare soluzioni di potenza innovative, affidabili ed efficienti. Sarete principalmente responsabili per l'assunzione/p> Sistemi di distribuzione dell'energia DC che incorporano apparecchiature di distribuzione DC come switchgear, interruttori, busbar, storage energetico e altri dispositivi elettronici di potenza. Collabora con i team R&D responsabili dello sviluppo di soluzioni elettroniche di potenza e apparecchiature DC Spesso riesaminare e comprendere gli standard pertinenti, compresi quelli ancora in fase di sviluppo, per garantire la conformità e la disponibilità futura.\n• Qualificazioni per il ruolo </b> </p> <ul> < < < > < > > 5+ anni nella progettazione del sistema di potenza, preferibilmente sistemi DC Forte conoscenza dei principi di protezione DC e degli standard emergenti (IEC, IEEE) Competenza di simulazione del sistema elettrico (MATLAB/Simulink, PSCAD, ETAP) Buona conoscenza dell'elettronica di potenza, comprese le topologie, le basi del commutatore di semiconduttore e la protezione del convertitore Capacità di condurre discussioni tecniche con i clienti e i team interni per allineare i requisiti e le soluzioni. Il portafoglio comprende componenti elettrici a media e bassa tensione, interruttori, dispositivi digitali, custodie e interruttori di circuiti, tra l'Hubbr />others. Con i nostri prodotti, soluzioni e servizi, collaboriamo con i clienti per migliorare la fornitura di energia e la sicurezza, migliorare la gestione dell'energia, l'efficienza e l'affidabilità operativa, come cerchiamo di raggiungere una società a basso contenuto di carbonio. > < > > > > > > > > > > > > > > > > > > > > > > > > Questa opportunità è aperta ai candidati in più paesi, con la posizione di lavoro finale determinata in base al candidato selezionato. Poiché il compenso può variare in base alla posizione, ci impegniamo ad essere trasparenti durante il processo di assunzione e condividere i dettagli della gamma salariale, il pacchetto di compensazione e benefici variabili con i candidati che procedono alla prima fase di intervista per una posizione nell'Unione europea, coperta dalla direttiva UE sulla trasparenza dei pagamenti. L'offerta finale sarà adattata in base alla vostra posizione di ruolo, esperienza, competenze e qualifiche, posizionamento del mercato interno e allineamento con gli standard interni ABB. </i> > > > ι > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Costruire un futuro più pulito e intelligente prende tutti i tipi di menti: i curiosi, i coraggiosi e i creativi. Questo è il motivo per cui accogliamo le persone da tutti gli sfondi e le esperienze.",
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Technical Consulting Manager II<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities </b></p><p>We are seeking a Power System Engineer to join our team supporting customers in the design and implementation of advanced direct current (DC) architectures for data centers and industrial applications. This role focuses on DC distribution equipment, power electronics, and protection systems. You will work closely with customers and collaborate with R&D teams responsible for developing power electronics solutions and DC equipment to co-develop innovative, reliable, and efficient power solutions.</p><p></p><p>The work model for the role is hybrid.</p><p>Location: Global - Germany, Italy, Switzerland and/or USA<br /><br />You will be mainly accountable for</p><ul><li>Design DC power distribution systems incorporating DC distribution equipment such as switchgear, circuit breakers, busbars, energy storage and other power electronics devices.</li><li>Co-develop solutions with customers to ensure alignment with market needs.</li><li>Perform electrical system simulations and validate architectures through practical evaluation.</li><li>Conduct system studies (load flow, short-circuit, protection coordination) using simulation tools.</li><li>Develop and evaluate protection schemes (short-circuit analysis, coordination, etc.).</li><li>Collaborate with R&D teams responsible for developing power electronics solutions and DC equipment</li><li>Frequently review and understand relevant standards, including those still under development, to ensure compliance and future readiness.</li></ul><div></div><p><b>\n• Qualifications for the role </b></p><ul><li><span>5+ years in power system design, preferably DC systems</span></li><li><span>Strong knowledge of DC protection principles and emerging standards (IEC, IEEE)</span></li><li><span>Electrical system design/engineering expertise in DC distribution</span></li><li><span>Master’s in Electrical Engineering or related field</span></li><li><span>Electrical system simulation expertise (MATLAB/Simulink, PSCAD, ETAP)</span></li><li><span>Good knowledge of power electronics, including topologies, basics of semiconductor switching and converter protection</span></li><li><span>Ability to lead technical discussions with customers and internal teams to align on requirements and solutions.</span></li><li><span>Ability to design and evaluate DC protection schemes (short-circuit analysis, coordination)</span></li><li><span>Strong understanding of industry standards, relevant organizations and ability to track evolving regulations.</span></li></ul><p></p><p><b>More about us </b></p><p>Electrification provides leading electrical distribution and management technologies, solutions and services to electrify the world in a safe, smart and sustainable way. The portfolio includes medium- and low-voltage electrical components, switchgear, digital devices, enclosures, and circuit breakers, among<br />others. With our products, solutions and services, we collaborate with customers to improve power delivery and security, enhance energy management, efficiency and operational reliability, as we seek to achieve a low carbon society. go.abb/electrification <span> </span><span> </span></p><p></p><p></p><p><i>This opportunity is open to candidates in multiple countries, with the final work location determined based on the selected candidate. As compensation may vary by location, we are committed to being transparent throughout the hiring process and will share details of the salary range, variable compensation and benefits package with candidates who progress to the first interview stage for a location in the European Union, covered by the EU Pay Transparency Directive.</i></p><p><i>The final offer will be tailored based on your role location, experience, skills and qualifications, internal market positioning and alignment with ABB internal standards. </i></p><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "de": "<p>Bei <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Begleiten Sie uns und helfen Sie mit, was die Welt regiert.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b> Diese Position berichtet an:</b></p>Technical Consulting Manager II<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"> </p><p><p><b>Ihre Rolle und Verantwortlichkeiten </b></p><p><p><p>>Wir suchen einen Power System Engineer, der unsere Kunden bei der Gestaltung und Implementierung von fortschrittlichen Gleichstromarchitekturen für Rechenzentren und industrielle Anwendungen unterstützt. Diese Rolle konzentriert sich auf DC-Verteilungsgeräte, Leistungselektronik und Schutzsysteme. Sie arbeiten eng mit Kunden zusammen und arbeiten mit F&E-Teams zusammen, die für die Entwicklung von Leistungselektroniklösungen und Gleichstromgeräten verantwortlich sind, um innovative, zuverlässige und effiziente Energielösungen zu entwickeln.</p><p></p><p><p>Das Arbeitsmodell für die Rolle ist hybrid.</p><p><p>Standort: Global - Deutschland, Italien, Schweiz und/oder USA<br /><br /> Sie werden hauptsächlich verantwortlich sein für</p><ul><li> DC-Stromverteilungssysteme entwerfen, die Gleichstromverteilungsgeräte wie Schaltanlagen, Leistungsschalter, Stromschienen, Energiespeicher und andere Leistungselektronikgeräte enthalten.</li><li>Co-Entwicklungslösungen mit Kunden, um die Ausrichtung auf die Marktanforderungen sicherzustellen.</li><li>Durchführen von Simulationen elektrischer Systeme und Validierung von Architekturen durch praktische Auswertung.</li><li>Leitungsstudien (Lastfluss, Kurzschluss, Schutzkoordination) mit Simulationswerkzeugen.</li><li>Schutzschemata entwickeln und bewerten (Kurzschlussanalyse, Koordination usw.).</li><li> Zusammenarbeit mit F&E-Teams, die für die Entwicklung von Leistungselektroniklösungen und DC-Geräten verantwortlich sind</li><li> Überprüfen und verstehen Sie häufig relevante Standards, einschließlich derer, die sich noch in der Entwicklung befinden, um die Einhaltung und zukünftige Bereitschaft zu gewährleisten.</li></ul><div></div><p><b>\n• Qualifikationen für die Rolle </b></p><ul><li><span>5+ Jahre im Stromsystemdesign, vorzugsweise DC-Systeme</span></li><li><span> Starke Kenntnisse der DC-Schutzprinzipien und neu entstehenden Standards (IEC, IEEE)</span></li><li><span>Elektronisches Systemdesign/Engineering-Know-how in der DC-Verteilung</span></li><li><span>Master in Elektrotechnik oder verwandten Bereichen</span></li><li><span> Kompetenz in der Simulation elektrischer Systeme (MATLAB/Simulink, PSCAD, ETAP)</span></li><li><span> Gute Kenntnisse der Leistungselektronik, einschließlich Topologien, Grundlagen der Halbleiterschaltung und des Wandlerschutzes</span></li><li><span> Fähigkeit, technische Gespräche mit Kunden und internen Teams zu führen, um sich auf Anforderungen und Lösungen auszurichten.</span></li><li><span>Fähigkeit, DC-Schutzsysteme zu entwerfen und zu bewerten (Kurzschlussanalyse, Koordination)</span></li><li><span>Starkes Verständnis von Industriestandards, relevanten Organisationen und Fähigkeit, sich entwickelnde Vorschriften zu verfolgen.</span></li></ul><p></p><p><b>Mehr über uns </b></p><p><p><b>Elektrifizierung bietet führende Technologien für die elektrische Verteilung und Verwaltung, Lösungen und Dienstleistungen, um die Welt auf sichere, intelligente und nachhaltige Weise zu elektrifizieren. Das Portfolio umfasst elektrische Mittel- und Niederspannungskomponenten, Schaltanlagen, digitale Geräte, Gehäuse und Leistungsschalter, unter anderem<br />andere. Mit unseren Produkten, Lösungen und Dienstleistungen arbeiten wir mit Kunden zusammen, um die Energieversorgung und -sicherheit zu verbessern, das Energiemanagement, die Effizienz und die Betriebszuverlässigkeit zu verbessern, während wir eine kohlenstoffarme Gesellschaft anstreben. go.abb/electrification <span> </span> </span> </span></p></p></p></p></p></p><p></p><p><p><p><p><p><p><p><i> Diese Möglichkeit steht Kandidaten in mehreren Ländern offen, wobei der endgültige Arbeitsstandort auf der Grundlage des ausgewählten Kandidaten festgelegt wird. Da die Vergütung je nach Standort variieren kann, verpflichten wir uns, während des gesamten Einstellungsprozesses transparent zu sein, und teilen Details der Gehaltsspanne, des variablen Vergütungs- und Leistungspakets mit Kandidaten, die in die erste Interviewphase für einen Standort in der Europäischen Union gelangen, der von der EU-Richtlinie über die Entgelttransparenz abgedeckt wird. Das endgültige Angebot wird auf der Grundlage Ihres Standorts, Ihrer Erfahrung, Ihrer Fähigkeiten und Qualifikationen, Ihrer Positionierung auf dem Binnenmarkt und Ihrer Ausrichtung auf die internen Standards von ABB zugeschnitten. </i></p><div></div><p style=\"text-align:inherit !wichtig\"></p><p style=\"text-align:left !wichtig\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
-        "fr": "<p>À <b>ABB</b>, nous aidons les industries à fonctionner de façon plus rationnelle et plus propre. Vous aurez le pouvoir de diriger, de soutenir pour grandir, et fier de l'impact que nous créons ensemble. Rejoignez-nous et aidez à exécuter ce qui dirige le monde.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left important\"><b> Ce poste relève de :</b></p> Technical Consulting Manager II<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><b>Votre rôle et vos responsabilités </b></p><p>Nous cherchons un ingénieur du système d'alimentation pour rejoindre notre équipe qui soutient les clients dans la conception et la mise en oeuvre d'architectures avancées à courant direct (DC) pour les centres de données et les applications industrielles. Ce rôle est axé sur l'équipement de distribution de courant continu, l'électronique de puissance et les systèmes de protection. Vous travaillerez en étroite collaboration avec les clients et collaborerez avec les équipes de R-D responsables du développement de solutions électroniques de puissance et d'équipement DC pour co-développer des solutions de puissance innovantes, fiables et efficaces.</p><p></p>Le modèle de travail pour le rôle est hybride.</p><p>Lieu: Global - Allemagne, Italie, Suisse et/ou États-Unis<br /><br /> Vous serez principalement responsable de </p><ul><li> Concevoir des systèmes de distribution d'électricité à courant continu comprenant du matériel de distribution à courant continu, comme des appareils de commutation, des disjoncteurs, des barres d'autobus, des dispositifs de stockage de l'énergie et d'autres appareils électroniques.</li>Concevoir des solutions avec les clients afin d'assurer l'alignement sur les besoins du marché.</li>Performer des simulations de systèmes électriques et valider les architectures au moyen d'une évaluation pratique.</li><li>Conduire des études de systèmes (flux de charge, court-circuit, coordination de la protection) à l'aide d'outils de simulation.</li><li>Développer et évaluer des systèmes de protection (analyse de court-circuit, coordination, etc.).</li><li> Collaborer avec les équipes de R-D responsables du développement des solutions d'électronique de puissance et de l'équipement DC</li><li> Examiner et comprendre fréquemment les normes pertinentes, y compris celles qui sont encore en cours d'élaboration, afin d'assurer la conformité et la préparation future.</li></ul><div></div><p><b>\n• Qualifications pour le rôle </b></p><ul><li><span>5+ ans dans la conception du système d'alimentation, de préférence les systèmes à courant continu</span></li><li><span> Forte connaissance des principes de protection de DC et des nouvelles normes (IEC, IEEE)</span></li><li><span>Expertise en conception et en ingénierie de systèmes électriques dans la distribution de DC</span></li><li><span>Maîtrise en génie électrique ou dans un domaine connexe</span></li><li><span><span></span> Expertise en simulation de systèmes électriques (MATLAB/Simulink, CFPAD, ETAP)</span></li><li><span> Bonne connaissance de l'électronique de puissance, y compris les topologies, les bases du changement de semi-conducteur et la protection des convertisseurs</span></li><li><span> Capacité de diriger les discussions techniques avec les clients et les équipes internes afin de s'aligner sur les exigences et les solutions.</span></li><li><span>Capacité de concevoir et d'évaluer des systèmes de protection contre les accidents du travail (analyse en court-circuit, coordination)</span></li><li><span>Mieux comprendre les normes de l'industrie, les organisations pertinentes et la capacité de suivre l'évolution de la réglementation.</span></li></ul><p><p><p><b>Plus sur nous </b></p><p>L'électrification offre des technologies, des solutions et des services de distribution et de gestion d'électricité de premier plan pour électrifier le monde de façon sûre, intelligente et durable. La gamme comprend des composants électriques de moyenne et basse tension, des appareils de commutation, des appareils numériques, des boîtiers et des disjoncteurs, entre autres. Avec nos produits, solutions et services, nous collaborons avec nos clients pour améliorer la fourniture d'électricité et la sécurité, améliorer la gestion de l'énergie, l'efficacité et la fiabilité opérationnelle, alors que nous cherchons à atteindre une société à faible teneur en carbone. go.abb/electrification <span> </span><span> </span></p><p></p><p></p><p><p><i> Cette possibilité est ouverte aux candidats de plusieurs pays, le lieu de travail final étant déterminé en fonction du candidat sélectionné. Étant donné que la rémunération peut varier selon le lieu, nous nous engageons à être transparents tout au long du processus d'embauche et partagerons les détails de l'échelle salariale, de la rémunération variable et des avantages sociaux avec les candidats qui passent à la première étape de l'entrevue pour un lieu dans l'Union européenne, visé par la Directive sur la transparence de la rémunération de l'UE.</i></p><p><i> L'offre finale sera adaptée en fonction de votre emplacement, expérience, compétences et qualifications, positionnement du marché intérieur et alignement sur les normes internes ABB. </i></p><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left=important\"> Construire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous les horizons et de toutes les expériences.</p><p style=\"text-align:left!important\"> </p><p>Prêt à faire un impact? </p><p></p><p>Appliquer aujourd'hui ou visiter <a cible=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
-      },
-      "slugByLocale": {
-        "it": "power-system-ingegnere-abb-svizzera-sede-ticino-ticino",
-        "en": "power-system-engineer-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc",
-        "de": "power-system-ingenieur-abb-svizzera-sede-ticino-ticino",
-        "fr": "power-system-ingenieur-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc"
-      },
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "en",
-      "previousSlugsByLocale": {
-        "it": [
-          "power-system-engineer-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany",
-          "power-system-engineer-abb-svizzera-sede-ticino",
-          "power-system-ingegnere-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc"
-        ],
-        "de": [
-          "power-system-ingenieur-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc"
-        ]
-      },
-      "previousSlugs": [
-        "power-system-engineer-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany",
-        "power-system-engineer-abb-svizzera-sede-ticino",
-        "power-system-ingegnere-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc",
-        "power-system-ingenieur-abb-svizzera-sede-ticino-ratingen-north-rhine-westphalia-germany-khvgxc"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Ratingen, North Rhine-Westphalia, Germany",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 64500,
-      "salaryMax": 110000
-    },
-    {
       "id": "company-w9bnpj",
       "slug": "gruppo-social-media-manager-abb-svizzera-sede-ticino-zurich",
       "company": "ABB Svizzera (sede Ticino)",
@@ -1074,7 +1006,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Gruppo Social Media Manager",
@@ -1127,6 +1059,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -1153,7 +1086,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T23:23:02.570Z",
       "titleByLocale": {
         "it": "Global Mobile e-Power Systems Manager – Trazione di movimento",
@@ -1229,7 +1162,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "slugByLocale": {
         "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
@@ -1295,7 +1228,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T12:36:33.860Z",
       "titleByLocale": {
         "it": "Leader del capitolo dell'ingegneria delle applicazioni",
@@ -1378,7 +1311,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "R&D (Senior)Testing & Lab Ingegnere",
@@ -1423,6 +1356,7 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -1451,7 +1385,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "en": "Service Coordinator - Fixed Term 3 months (f/m/d) 80% - 100%",
@@ -1505,6 +1439,7 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000
     },
@@ -1531,7 +1466,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "it": "Maintenance Specialista",
@@ -1617,7 +1552,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-10T10:26:11.298Z",
       "titleByLocale": {
         "en": "Business & Market Intelligence Analyst",
@@ -1672,6 +1607,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -1698,7 +1634,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Global Sales Manager Business Line Mining & Materiali",
@@ -1748,6 +1684,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000
     },
@@ -1774,12 +1711,12 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Allenatore tecnico - Elettronica di potenza",
         "en": "(80 - 100%) Technical Trainer - Power Electronics",
-        "de": "(80 - 100%) Technischer Trainer - Power Electronics",
+        "de": "(80 - 100%) Technical Trainer - Power Electronics",
         "fr": "(80 - 100%) Technical Trainer - Power Electronics"
       },
       "descriptionByLocale": {
@@ -1823,6 +1760,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000
     },
@@ -1849,7 +1787,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Production Shift Supervisore (80–100%)",
@@ -1895,6 +1833,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8200",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000
     },
@@ -1921,7 +1860,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Responsabile vendite DACH (f/m/d) Consumer Industries",
@@ -2014,7 +1953,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Technician (Midlands / Regione di Berna) (80-100%)",
@@ -2062,6 +2001,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000
     },
@@ -2090,7 +2030,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "en": "FPGA Software Engineer R&D – Power Electronics/Traction Applications",
@@ -2170,7 +2110,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Technical Service Specialista",
@@ -2216,6 +2156,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5000",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2242,10 +2183,10 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
-        "it": "Medico applicato (80%-100%)",
+        "it": "Applied Physicist (80%-100%)",
         "en": "Applied Physicist (80%-100%)",
         "de": "Angewandter Physiker (80%-100%)",
         "fr": "Médecin appliqué (80%-100%)"
@@ -2325,7 +2266,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "en": "Project Engineer (80%-100%)",
@@ -2378,80 +2319,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500
-    },
-    {
-      "id": "company-ev3ftz",
-      "slug": "senior-ricerca-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ev3ftz",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "(Senior) Research Scientist in Software Systems Engineering (80-100%)",
-      "location": "Baden-Daettwil, Aargau",
-      "canton": "AG",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Research Department Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><div><p><b>Your role and responsibilities</b><br /><br /><span>As a research scientist in Software Systems Engineering, you will be working on the future architecture and design of ABB’s software-based products, with a special focus on the digitalization of industrial systems. We are looking for a team member with a proven research track record and the eagerness to transfer and apply world class academic research into an industrial environment. You will work within the highly motivated, international team of scientists at ABB Research.\n• We offer an open and innovative international work environment with many diverse opportunities to grow your career.</span><br /><br />The work model for the role is: <span>#LI-hybrid</span><br /><br /><br />You will be mainly accountable for:</p><ul><li>Contribute to and/or lead research projects that turn state-of-the-art research results into effective software solutions for ABB. </li><li>Create prototypes of innovative concepts with real business impact</li><li>Evaluate new technologies and assess their impact on ABB products and roadmaps.</li><li>Disseminate your results in scientific publications, patent applications, and technical reports.</li><li>Build a network in the company and actively disseminate your knowledge and expertise.</li></ul></div><p><br /><b>\n• Qualifications for the role</b></p><div><ul><li><p>PhD in computer science, computer engineering, electrical engineering or in a related field</p></li><li>Experience in software engineering and system design</li><li>Theoretical and practical knowledge in one or multiple of the following topics: software engineering, distributed systems, computer networking, embedded systems, machine learning, cyber security</li><li>Hands-on experience in programming languages (e.g., C/C++, Python, Rust)</li><li>Proven publication track record at top scientific conferences and journals</li><li>Excellent communication skills and team player attitude</li><li>Solid experience of getting ideas from concepts to prototypes</li></ul></div><div><br /><br /><b>Benefits</b><br /><br />We also offer our employees the following benefits:<ul><li>Flexible Work Practices</li><li>Employee Share Acquisition Plan</li><li>Canteen</li></ul><p></p></div><p><b>More about us</b></p><p><br /><span>At the ABB Research Center located in Baden-Dättwil in the proximity of Zurich, we work on cutting-edge technologies that shape the future of our products. The Industrial Software Systems research team explores topics like machine learning, cybersecurity, computer networking, distributed systems, and real-time systems. Our solutions are used to support the development of next-generation digital products and services of ABB.</span></p><div><p>We look forward to receiving your application (documents submitted in English are appreciated). If you want to discover more about ABB, take another look at our website <a href=\"http://www.abb.com\" target=\"_blank\">www.abb.com</a>.</p><p></p><p><b>What's in it for you:</b></p><p>We empower you to take initiative, explore new possibilities, and lead with confidence. You’ll grow through meaningful work, continuous learning, and support that’s tailored to your goals. Every idea you share and every action you take contributes to something bigger.</p><p></p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-06-22",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00015262EXTERNALENGLOBAL/XMLNAME--Senior--Research-Scientist-in-Software-Systems-Engineering--80-100--_JR00015262-1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Baden-Daettwil, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
-      "firstSeenAt": "2026-07-06T22:24:49.189Z",
-      "titleByLocale": {
-        "it": "(Senior) Ricerca Scientist in Software Systems Engineering (80-100%)",
-        "en": "(Senior) Research Scientist in Software Systems Engineering (80-100%)",
-        "de": "(Senior) Forschung Scientist in Software Systems Engineering (80-100%)",
-        "fr": "(Senior) Recherche Scientist in Software Systems Engineering (80-100%)"
-      },
-      "descriptionByLocale": {
-        "it": "<p>At <b>ABB </b>, aiutiamo le industrie a funzionare più snella e più pulita—e ogni persona qui lo fa accadere. Sarete autorizzati a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire il mondo. Come scienziato di ricerca in Software Systems Engineering, lavorerai sulla futura architettura e progettazione dei prodotti software-based ABB, con un focus speciale sulla digitalizzazione dei sistemi industriali. Stiamo cercando un membro del team con un comprovato record di ricerca e la voglia di trasferire e applicare la ricerca accademica di livello mondiale in un ambiente industriale. Potrai lavorare all'interno del team altamente motivato e internazionale di scienziati presso ABB Research.\n• Offriamo un ambiente di lavoro internazionale aperto e innovativo con molte diverse opportunità per crescere la tua carriera. Il modello di lavoro per il ruolo è: <span>#LI-hybrid </span> Sarete principalmente responsabili per: </p> <ul> <uli> Contribuire a e/o condurre progetti di ricerca che trasformano risultati di ricerca all'avanguardia in soluzioni software efficaci per ABB. </li> <li>Creare prototipi di concetti innovativi con un impatto reale sul business Diffusione dei risultati in pubblicazioni scientifiche, domande di brevetti e relazioni tecniche. Costruire una rete in azienda e diffondere attivamente le tue conoscenze e competenze.\n• Qualifiche per il ruolo Conoscenza teorica e pratica in uno o più dei seguenti argomenti: ingegneria del software, sistemi distribuiti, rete di computer, sistemi incorporati, machine learning, sicurezza informatica Esperienza pratica nei linguaggi di programmazione (ad esempio, C/C++, Python, Rust) Presso l'ABB Research Center situato a Baden-Dättwil in prossimità di Zurigo, lavoriamo su tecnologie all'avanguardia che modellano il futuro dei nostri prodotti. Il team di ricerca di Sistemi di software industriale esplora argomenti come l'apprendimento automatico, la sicurezza informatica, la rete di computer, sistemi distribuiti e sistemi in tempo reale. Le nostre soluzioni sono utilizzate per supportare lo sviluppo di prodotti e servizi digitali di prossima generazione di ABB. Non vediamo l'ora di ricevere la tua domanda (i documenti presentati in inglese sono apprezzati). Se volete saperne di più su ABB, date un'altra occhiata al nostro sito web <a href=\"http://www.abb.com\" target=\" blank\">www.abb.com Vi diamo il potere di prendere l'iniziativa, esplorare nuove possibilità e condurre con fiducia. Crescerai attraverso un lavoro significativo, un apprendimento continuo e un supporto che è su misura per i tuoi obiettivi. Ogni idea che si condivide e ogni azione che si prende contribuisce a qualcosa di più grande. Costruire un futuro più pulito e intelligente prende tutti i tipi di menti: i curiosi, i coraggiosi e i creativi. Questo è il motivo per cui accogliamo le persone da tutti i background e le esperienze.",
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Research Department Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><div><p><b>Your role and responsibilities</b><br /><br /><span>As a research scientist in Software Systems Engineering, you will be working on the future architecture and design of ABB’s software-based products, with a special focus on the digitalization of industrial systems. We are looking for a team member with a proven research track record and the eagerness to transfer and apply world class academic research into an industrial environment. You will work within the highly motivated, international team of scientists at ABB Research.\n• We offer an open and innovative international work environment with many diverse opportunities to grow your career.</span><br /><br />The work model for the role is: <span>#LI-hybrid</span><br /><br /><br />You will be mainly accountable for:</p><ul><li>Contribute to and/or lead research projects that turn state-of-the-art research results into effective software solutions for ABB. </li><li>Create prototypes of innovative concepts with real business impact</li><li>Evaluate new technologies and assess their impact on ABB products and roadmaps.</li><li>Disseminate your results in scientific publications, patent applications, and technical reports.</li><li>Build a network in the company and actively disseminate your knowledge and expertise.</li></ul></div><p><br /><b>\n• Qualifications for the role</b></p><div><ul><li><p>PhD in computer science, computer engineering, electrical engineering or in a related field</p></li><li>Experience in software engineering and system design</li><li>Theoretical and practical knowledge in one or multiple of the following topics: software engineering, distributed systems, computer networking, embedded systems, machine learning, cyber security</li><li>Hands-on experience in programming languages (e.g., C/C++, Python, Rust)</li><li>Proven publication track record at top scientific conferences and journals</li><li>Excellent communication skills and team player attitude</li><li>Solid experience of getting ideas from concepts to prototypes</li></ul></div><div><br /><br /><b>Benefits</b><br /><br />We also offer our employees the following benefits:<ul><li>Flexible Work Practices</li><li>Employee Share Acquisition Plan</li><li>Canteen</li></ul><p></p></div><p><b>More about us</b></p><p><br /><span>At the ABB Research Center located in Baden-Dättwil in the proximity of Zurich, we work on cutting-edge technologies that shape the future of our products. The Industrial Software Systems research team explores topics like machine learning, cybersecurity, computer networking, distributed systems, and real-time systems. Our solutions are used to support the development of next-generation digital products and services of ABB.</span></p><div><p>We look forward to receiving your application (documents submitted in English are appreciated). If you want to discover more about ABB, take another look at our website <a href=\"http://www.abb.com\" target=\"_blank\">www.abb.com</a>.</p><p></p><p><b>What's in it for you:</b></p><p>We empower you to take initiative, explore new possibilities, and lead with confidence. You’ll grow through meaningful work, continuous learning, and support that’s tailored to your goals. Every idea you share and every action you take contributes to something bigger.</p><p></p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "de": "<p>At <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Begleiten Sie uns und helfen Sie dabei, das zu steuern, was die Welt regiert.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><p><p><p><p><p><p><p><div><p><b>Your role and verantwortung</b><br /><br /><span> Als wissenschaftlicher Mitarbeiter im Bereich Software Systems Engineering beschäftigen Sie sich mit der zukünftigen Architektur und dem Design der softwarebasierten Produkte von ABB, mit besonderem Fokus auf der Digitalisierung industrieller Systeme. Wir suchen ein Teammitglied mit einer nachgewiesenen Forschungsbilanz und dem Eifer, erstklassige akademische Forschung in ein industrielles Umfeld zu übertragen und anzuwenden. Sie arbeiten im hochmotivierten, internationalen Team von Wissenschaftlern bei ABB Research.\n• Wir bieten ein offenes und innovatives internationales Arbeitsumfeld mit vielen verschiedenen Möglichkeiten, Ihre Karriere zu entwickeln.</span><br /><br /> Das Arbeitsmodell für die Rolle ist: <span>#LI-hybrid</span><br /><br /><br /><br /> Sie sind hauptsächlich verantwortlich für:</p><ul><li>Beitragen und/oder leiten Sie Forschungsprojekte, die modernste Forschungsergebnisse in effektive Softwarelösungen für ABB verwandeln. </li><li>Prototypen innovativer Konzepte mit realer Geschäftswirkung erstellen</li><li>Neue Technologien bewerten und deren Auswirkungen auf ABB Produkte und Roadmaps bewerten.</li><li> Verbreiten Sie Ihre Ergebnisse in wissenschaftlichen Publikationen, Patentanmeldungen und technischen Berichten.</li><li> Bauen Sie ein Netzwerk im Unternehmen auf und verbreiten Sie aktiv Ihr Wissen und Ihre Expertise.</li></ul></div><p><br /><b>\n• Qualifikationen für die Rolle</b></p><div><ul><li><p>PhD in Informatik, Computertechnik, Elektrotechnik oder in einem verwandten Bereich</p></li><li>Erfahrung in Software Engineering und Systemdesign</li><li> Theoretische und praktische Kenntnisse in einem oder mehreren der folgenden Themen: Software Engineering, verteilte Systeme, Computernetzwerke, eingebettete Systeme, maschinelles Lernen, Cybersicherheit</li><li> Praktische Erfahrung in Programmiersprachen (z. B. C/C++, Python, Rust)</li><li>Nachgewiesene Veröffentlichungsbilanz auf führenden wissenschaftlichen Konferenzen und Fachzeitschriften</li><li>Exzellente Kommunikationsfähigkeiten und Teamplayer-Haltung</li></ul></div><div><br /><br /><b><br /><br /><b><br /><li><li><li><li><li></ul><p></p></div><b>Mehr über uns</b></p><br /><span> Am ABB Research Center in Baden-Dättwil in der Nähe von Zürich arbeiten wir an Spitzentechnologien, die die Zukunft unserer Produkte prägen. Das Forschungsteam für industrielle Softwaresysteme untersucht Themen wie maschinelles Lernen, Cybersicherheit, Computernetzwerke, verteilte Systeme und Echtzeitsysteme. Unsere Lösungen unterstützen die Entwicklung digitaler Produkte und Dienstleistungen der nächsten Generation von ABB.</span></p><div><p> Wir freuen uns auf Ihre Bewerbung (auf Englisch eingereichte Dokumente werden geschätzt). Wenn Sie mehr über ABB erfahren möchten, werfen Sie einen weiteren Blick auf unsere Website <a href=\"http://www.abb.com\" target=\" blank\">www.abb.com</a>.</p></p></p><p><b>What's in it for you:</b></p><p> Wir befähigen Sie, Initiative zu ergreifen, neue Möglichkeiten zu erkunden und mit Zuversicht zu führen. Sie werden durch sinnvolle Arbeit, kontinuierliches Lernen und Unterstützung wachsen, die auf Ihre Ziele zugeschnitten ist. Jede Idee, die Sie teilen und jede Aktion, die Sie ausführen, trägt zu etwas Größerem bei.</p><p></p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
-        "fr": "<p>À <b>ABB</b>, nous aidons les industries à fonctionner plus minces et plus propres. Vous aurez le pouvoir de diriger, de soutenir la croissance et d'être fiers de l'impact que nous créons ensemble. Rejoignez-nous et aidez-nous à exécuter ce qui dirige le monde.</p><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\"><b>Ce poste relève de:</b></p>Gestionnaire du département de recherche<p style=\"text-align:inherit!important\"></p><p style=\"text-align:inherit!important\"></p><div><p><b>Votre rôle et vos responsabilités</b><br /><span> En tant que chercheur en génie des systèmes logiciels, vous travaillerez sur l'architecture et la conception futures des produits logiciels ABB, avec un accent particulier sur la numérisation des systèmes industriels. Nous sommes à la recherche d'un membre de l'équipe qui possède une expérience de recherche éprouvée et qui est désireux de transférer et d'appliquer la recherche universitaire de classe mondiale dans un environnement industriel. Vous travaillerez au sein de l'équipe internationale hautement motivée de scientifiques d'ABB Research.\n• Nous offrons un environnement de travail international ouvert et innovateur avec de nombreuses possibilités d'accroître votre carrière.</span><br /> Le modèle de travail pour le rôle est : <span>#LI-hybrid</span><br /><br /><br /> Vous serez principalement responsable :</p><ul><li>Contribuer à des projets de recherche ou les diriger qui transforment les résultats de recherche de pointe en solutions logicielles efficaces pour l'ABB. </li><li>Créer des prototypes de concepts novateurs ayant un réel impact sur les entreprises</li><li>Évaluer les nouvelles technologies et évaluer leur impact sur les produits et les feuilles de route de l'ABB.</li><li> Diffuser vos résultats dans des publications scientifiques, des demandes de brevet et des rapports techniques.</li><li> Créer un réseau dans l'entreprise et diffuser activement vos connaissances et votre expertise.</li></ul></div><p><br /><b>\n• Qualifications pour le rôle</b></p><div><ul><li><p>PhD en informatique, en génie informatique, en génie électrique ou dans un domaine connexe</p></li><li>Expérience en génie logiciel et en conception de systèmes</li><li> Connaissances théoriques et pratiques sur un ou plusieurs des sujets suivants : génie logiciel, systèmes distribués, réseau informatique, systèmes intégrés, apprentissage automatique, cybersécurité</li><li> Expérience pratique dans les langages de programmation (p. ex., C/C++, Python, Rust)</li><li>Procès de publication dans les meilleures conférences et revues scientifiques</li><li>Excellentes compétences en communication et attitude de joueur d'équipe</li><li>Expérience solide d'obtenir des idées de concepts à des prototypes</li></ul></div><br /><br /><b>Benefits</b><br /><br />Nous offrons également à nos employés les avantages suivants:<ul><li>Pratiques de travail flexibles</li><li>Plan d'acquisition de partage des employés</li><li>Cante</li></p></p><p><b>Plus au sujet de nous</b></p><p><br /><span><p> Au centre de recherche ABB situé à Baden-Dättwil à proximité de Zurich, nous travaillons sur des technologies de pointe qui façonnent l'avenir de nos produits. L'équipe de recherche sur les systèmes de logiciels industriels explore des sujets comme l'apprentissage automatique, la cybersécurité, le réseautage informatique, les systèmes distribués et les systèmes en temps réel. Nos solutions sont utilisées pour soutenir le développement de produits et services numériques de nouvelle génération d'ABB.</span></p><div><p> Nous sommes impatients de recevoir votre demande (les documents présentés en anglais sont appréciés). Si vous voulez en savoir plus sur ABB, consultez notre site Web <a href=\"http://www.abb.com\" cible=\" blank\">www.abb.com</a>.</p><p></p><p><b>Ce qu'il y a dedans pour vous:</b></p><p> Nous vous donnons les moyens de prendre des initiatives, d'explorer de nouvelles possibilités et de diriger avec confiance. Vous grandirez grâce à un travail significatif, l'apprentissage continu et le soutien qui est adapté à vos objectifs. Chaque idée que vous partagez et chaque action que vous prenez contribue à quelque chose de plus grand.</p></p></div><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left important\"> Construire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous les horizons et de toutes les expériences.</p><p style=\"text-align:left!important\"> </p><p>Prêt à faire un impact? </p><p></p><p>Appliquer aujourd'hui ou visiter <a cible=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
-      },
-      "slugByLocale": {
-        "it": "senior-ricerca-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ev3ftz",
-        "en": "senior-research-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ev3ftz",
-        "de": "senior-forschung-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ev3ftz",
-        "fr": "senior-recherche-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ev3ftz"
-      },
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "en",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-research-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "senior-research-scientist-in-software-systems-engineering-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 99500,
-          "maxValue": 169500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Baden-Daettwil, Aargau",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "5400",
-      "salaryMin": 99500,
-      "salaryMax": 169500
     },
     {
       "id": "company-twaosl",
@@ -2476,7 +2346,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Einrichter:in Spritzguss / Estrusione (80-100%)",
@@ -2524,6 +2394,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "8610",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -2550,7 +2421,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(80 - 100%) Senior Technical Support Ingegnere",
@@ -2622,7 +2493,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Ingegnere, French Fluency Required (80–100%)",
@@ -2695,7 +2566,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -2768,7 +2639,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -2848,7 +2719,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Sales Specialista OEM (Talent Pool) | 80–100%",
@@ -2894,6 +2765,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "5400",
+      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -2920,7 +2792,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-07-19T11:24:42.494Z",
+      "crawledAt": "2026-07-19T23:01:37.496Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "slugByLocale": {
         "it": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
@@ -2974,6 +2846,7 @@
         "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino",
         "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       ],
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000
     }
