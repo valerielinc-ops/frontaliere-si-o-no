@@ -1267,6 +1267,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografia di un tecnico di sala operatoria in un ospedale svizzero.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Frontaliere veterinario in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Guida pratica per veterinari frontalieri: riconoscimento titoli, inquadramento salariale, imposte e adempimenti previdenziali in Svizzera.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Studio veterinario in Svizzera',
 };
 
 export default blogMetaChIt;

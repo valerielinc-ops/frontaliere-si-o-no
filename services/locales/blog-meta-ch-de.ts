@@ -1267,6 +1267,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.title': 'Wie viel verdient ein Grenz-OP-Techniker im Tessin',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.excerpt': 'Angaben zur Entlohnung eines Grenz-OP-Technikers im Tessin.',
     'blog.article.frontalieri-stipendio-tecnico-sala-operatoria.imageAlt': 'Fotografie eines Operationstechnikers in einem Schweizer Spital.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Tierärztlicher Grenzgänger im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Praktischer Leitfaden für Grenztierärzte: Anerkennung von Titeln, Lohneinstufung, Steuern und Vorsorgepflichten in der Schweiz.',
+    'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Tierarztpraxis in der Schweiz',
 };
 
 export default blogMetaChDe;

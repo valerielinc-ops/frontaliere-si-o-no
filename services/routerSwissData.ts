@@ -445,6 +445,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'indennita-di-disoccupazione-svizzere-ai-frontalieri': { it: 'indennita-di-disoccupazione-svizzere-ai-frontalieri', en: 'swiss-unemployment-benefits-for-frontaliers', de: 'schweizer-arbeitslosenentschadigung-fur-frontalier', fr: 'indemnites-de-chomage-suisse-pour-frontalier' },
  'frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti': { it: 'frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti', en: 'ticino-cross-border-medical-assistant-salary-requirements', de: 'schweizer-medizinerhelfer-in-ticino-salari-anforderungen', fr: 'assistant-medical-frontalier-en-suisse-salaire-exigences' },
  'frontalieri-stipendio-tecnico-sala-operatoria': { it: 'frontalieri-stipendio-tecnico-sala-operatoria', en: 'frontalieri-salary-surgical-technologist', de: 'frontalieri-gesetz-operationstechniker', fr: 'frontalier-salaire-technicien-salle-operatoire' },
+ 'frontaliere-veterinario-ticino-requisiti': { it: 'frontaliere-veterinario-ticino-requisiti', en: 'cross-border-veterinarian-ticino-requirements', de: 'grenzgaenger-tierarzt-tessin-voraussetzungen', fr: 'frontalier-veterinaire-ticino-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
