@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.80.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3800.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3800.minimumWage.title',
+        descKey: 'whatsNew.v3800.minimumWage.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
     version: '3.77.0',
     date: '2026-07-19',
     titleKey: 'whatsNew.v3770.title',

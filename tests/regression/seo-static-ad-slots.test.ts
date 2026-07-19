@@ -275,6 +275,17 @@ describe('SEO SSG-family end-of-content multiplex — rollout 2 (#4528)', () => 
     });
   }
 
+  // #4479 — Swiss minimum-wage landings: the shared renderPage emits the
+  // end-of-content multiplex ONLY on the hub (index) page (gated on
+  // index,follow). One call site in the source → count 1.
+  it('build-plugins/minimumWageLandingsPlugin.ts calls endOfContentMultiplexHtml 1× and imports it from \'./lib/adSlotHtml\'', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'build-plugins/minimumWageLandingsPlugin.ts'), 'utf8');
+    const calls = src.match(/endOfContentMultiplexHtml\(\s*\{/g) ?? [];
+    expect(calls).toHaveLength(1);
+    expect(src, 'minimumWageLandingsPlugin.ts must import endOfContentMultiplexHtml from \'./lib/adSlotHtml\'')
+      .toMatch(/import\s*\{[^}]*\bendOfContentMultiplexHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+  });
+
   // The two rollout-2 families that also emit a noindex below-floor bridge must
   // keep that bridge free of any manual multiplex (same MFA invariant as the
   // #4485 bridges above).

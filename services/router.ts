@@ -76,6 +76,11 @@ import {
   parseSalaryLandingPath,
 } from '../build-plugins/bfsSalaryLandingsData';
 import {
+  MINWAGE_LANDING_ROUTES,
+  isMinWageLandingPath,
+  parseMinWageLandingPath,
+} from '../build-plugins/minimumWageLandingsData';
+import {
   COMPARISONS_HUB_ROUTES,
   isComparisonsHubPath,
   parseComparisonsHubPath,
@@ -2825,6 +2830,24 @@ export function parsePath(pathname: string): ParseResult {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    if (SALARY_LANDING_ROUTES.includes(normalized) || isSalaryLandingPath(pathname)) {
      const parsed = parseSalaryLandingPath(pathname);
+     if (parsed) {
+       return {
+         route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true },
+         locale: parsed.locale as Locale,
+       };
+     }
+   }
+ }
+
+ // #4479 — Swiss minimum-wage landings (/salario-minimo/ hub + per-canton
+ // /salario-minimo/{ticino,ginevra,…}/ + /salario-minimo/contratti-collettivi/
+ // + locale variants). 7 page types × 4 locales = 28 URLs. Static HTML emitted
+ // outside `#root`; staticOverlay keeps the per-page content visible so the SPA
+ // doesn't replace it with a generic fallback.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   if (MINWAGE_LANDING_ROUTES.includes(normalized) || isMinWageLandingPath(pathname)) {
+     const parsed = parseMinWageLandingPath(pathname);
      if (parsed) {
        return {
          route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true },
