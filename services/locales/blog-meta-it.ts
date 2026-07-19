@@ -8657,6 +8657,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Medici frontalieri in Ticino: stipendio, requisiti e riconoscimento titolo',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Una scena fotorealistica del Lago di Lugano con una barca a vela in primo piano',
+    'blog.article.medico-frontaliere-stipendio-ticino.title': 'Quanto guadagna un medico frontaliere in Ticino?',
+    'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Fatti chiave: un medico frontaliere in Ticino può beneficiare di un reddito più alto rispetto all\'Italia, grazie al Nuovo Accordo Frontalieri.',
+    'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'Un medico frontaliere in Ticino siede a un tavolo da lavoro con uno stetoscopio in mano, sorridendo al paziente.',
 };
 
 export default blogMetaIt;

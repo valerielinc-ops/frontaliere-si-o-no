@@ -8657,6 +8657,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.title': 'Médecins frontaliers au Tessin : salaire, exigences et reconnaissance du titre',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.excerpt': 'Les salaires moyens des médecins frontaliers au Tessin, les exigences pour travailler en tant que médecin frontalier, la reconnaissance du diplôme d\'études et le permis G.',
     'blog.article.frontaliere-medico-ticino-stipendio-requisiti.imageAlt': 'Une vue pittoresque du lac de Lugano avec un bateau à voile en premier plan',
+    'blog.article.medico-frontaliere-stipendio-ticino.title': 'Combien gagne un médecin frontalier au Tessin ?',
+    'blog.article.medico-frontaliere-stipendio-ticino.excerpt': 'Faits clés : un médecin frontalier au Tessin peut bénéficier d\'un revenu plus élevé qu\'en Italie, grâce au nouvel accord frontalier.',
+    'blog.article.medico-frontaliere-stipendio-ticino.imageAlt': 'Un médecin frontalier dans le Tessin si assied à un bureau avec un stéthoscope dans la main et sourit au patient.',
 };
 
 export default blogMetaFr;
