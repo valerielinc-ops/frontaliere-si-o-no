@@ -658,6 +658,66 @@ function bindGlobalInteractionTracking() {
  document.addEventListener('submit', onSubmit, true);
 }
 
+// ─── Employer acquisition funnel (issue #4448) ──────────────────
+// Static SSG pages emit anchors with `data-employer-cta="<surface>"` (see
+// build-plugins/shared/employerCtaBlock.ts); the SPA footer CTA carries the
+// same attribute. One document-level hook covers both worlds (the static
+// content and the hydrated SPA share the document): a click fires
+// `employer_cta_click`, the first 50%-viewport entry fires `employer_cta_view`
+// once per surface per pageload. Properties are surface + locale only — no PII.
+function employerCtaLocale(): string {
+ const m = window.location.pathname.match(/^\/(en|de|fr)(\/|$)/);
+ return m ? m[1] : 'it';
+}
+
+function bindEmployerCtaFunnelTracking(): void {
+ const observed = new WeakSet<Element>();
+ const viewedSurfaces = new Set<string>();
+
+ const io = typeof IntersectionObserver !== 'undefined'
+ ? new IntersectionObserver((entries) => {
+ for (const entry of entries) {
+ if (!entry.isIntersecting) continue;
+ io?.unobserve(entry.target);
+ const surface = entry.target.getAttribute('data-employer-cta') || 'unknown';
+ if (viewedSurfaces.has(surface)) continue;
+ viewedSurfaces.add(surface);
+ log('employer_cta_view', { surface, locale: employerCtaLocale() });
+ }
+ }, { threshold: 0.5 })
+ : null;
+
+ const scan = () => {
+ document.querySelectorAll('[data-employer-cta]').forEach((el) => {
+ if (observed.has(el)) return;
+ observed.add(el);
+ io?.observe(el);
+ });
+ };
+ scan();
+
+ // The SPA mounts/unmounts the footer CTA on route changes; debounce the
+ // re-scan so the childList observer stays cheap on render-heavy pages.
+ if (typeof MutationObserver !== 'undefined' && document.body) {
+ let scanScheduled = false;
+ new MutationObserver(() => {
+ if (scanScheduled) return;
+ scanScheduled = true;
+ window.setTimeout(() => { scanScheduled = false; scan(); }, 500);
+ }).observe(document.body, { childList: true, subtree: true });
+ }
+
+ document.addEventListener('click', (event) => {
+ const target = event.target as HTMLElement | null;
+ const el = target?.closest?.('[data-employer-cta]');
+ if (!el) return;
+ log('employer_cta_click', {
+ surface: el.getAttribute('data-employer-cta') || 'unknown',
+ locale: employerCtaLocale(),
+ });
+ }, true);
+}
+
 // Dead-click detection: clicks on elements that look interactive but aren't.
 // Throttled to max 3 per page to avoid noise.
 let _deadClickCount = 0;
@@ -727,6 +787,7 @@ export const Analytics = {
  log('traffic_attribution', attribution);
  }
  bindGlobalInteractionTracking();
+ bindEmployerCtaFunnelTracking();
 
  // Scroll depth tracking — uses module-level _maxScrollDepth
  // which is reset on each trackPageView() call for correct per-page tracking
@@ -1577,7 +1638,7 @@ export const Analytics = {
  /**
  * Assicurazione sanitaria
  */
- trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare', provider?: string) => {
+ trackHealthInsurance: (action: 'view_provider' | 'filter' | 'compare' | 'lamal_ssn_pdf_request', provider?: string) => {
  log('health_insurance', { action, provider_name: provider });
  },
 
@@ -1905,7 +1966,7 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters';
+ surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge';
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same

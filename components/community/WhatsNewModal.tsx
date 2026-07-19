@@ -33,18 +33,68 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
-    version: '3.63.0',
+    version: '3.66.0',
     date: '2026-07-19',
-    titleKey: 'whatsNew.v3630.title',
+    titleKey: 'whatsNew.v3660.title',
     items: [
       {
         type: 'feature',
-        titleKey: 'whatsNew.v3630.exchange-ssg.title',
-        descKey: 'whatsNew.v3630.exchange-ssg.desc',
+        titleKey: 'whatsNew.v3660.exchange-ssg.title',
+        descKey: 'whatsNew.v3660.exchange-ssg.desc',
 
       },
     ],
   },
+  {
+    version: '3.65.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3650.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3650.comparators.title',
+        descKey: 'whatsNew.v3650.comparators.desc',
+        link: { tab: 'confronti', subTab: 'health' },
+      },
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3650.affiliate.title',
+        descKey: 'whatsNew.v3650.affiliate.desc',
+      },
+    ],
+  },
+  {
+    version: '3.64.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3640.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3640.employerCta.title',
+        descKey: 'whatsNew.v3640.employerCta.desc',
+        link: { tab: 'for-employers' },
+      },
+    ],
+  },
+ {
+ version: '3.63.0',
+ date: '2026-07-19',
+ titleKey: 'whatsNew.v3630.title',
+ items: [
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3630.savedJobs.title',
+ descKey: 'whatsNew.v3630.savedJobs.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3630.savedNudge.title',
+ descKey: 'whatsNew.v3630.savedNudge.desc',
+ link: { tab: 'job-board' },
+ },
+ ],
+ },
  {
  version: '3.62.0',
  date: '2026-07-17',

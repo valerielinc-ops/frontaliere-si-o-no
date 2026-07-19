@@ -112,7 +112,7 @@ const LOCALE_INTL: Record<ExchangeLocale, string> = {
 const BANK_SPREAD_PCT = 2.8;
 const BANK_FLAT_CHF = 5;
 // Best low-cost partner all-in cost (Wise-band, see services/exchangePartners.ts).
-const LOW_COST_PCT = EXCHANGE_REFERRAL_PARTNERS[0].typicalCostPct;
+const LOW_COST_PCT = Math.min(...EXCHANGE_REFERRAL_PARTNERS.map(p => p.typicalCostPct));
 
 // Indicative net-salary band for a cross-border worker (source-tax + social
 // contributions vary by canton / marital status / children — the page always
