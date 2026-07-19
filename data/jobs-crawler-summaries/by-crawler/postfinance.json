@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-07-18T22:04:21.507Z",
+  "generatedAt": "2026-07-19T11:04:01.830Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8391,
-  "avgDurationMs": 8391,
+  "durationMs": 8108,
+  "avgDurationMs": 8108,
   "durationHistory": [
-    8391
+    8108
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,91 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
-      "title": "Stellendetails",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "stellendetails-postfinance",
-      "sourceLang": "it",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-06-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "id": "postfinance-fa3df90b1ead",
-      "firstSeenAt": "2026-06-16T14:08:25.964Z",
-      "crawledAt": "",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
-      "title": "Stellendetails",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-      "sourceLang": "it",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-06-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "id": "postfinance-1ee349fcd573",
-      "firstSeenAt": "2026-06-16T14:08:25.964Z",
-      "crawledAt": "",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
