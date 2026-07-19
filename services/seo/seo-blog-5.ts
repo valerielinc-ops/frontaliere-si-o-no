@@ -50772,6 +50772,630 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-farmacista-frontaliero-ticino': {
+    title: 'Quanto guadagna un farmacista frontaliere in Ticino?',
+    description: 'Il Nuovo Accordo Frontalieri prevede una franchigia di €10\'000 per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, farmacista, nuovo',
+    ogTitle: 'Quanto guadagna un farmacista frontaliere in Ticino?',
+    ogDescription: 'Il Nuovo Accordo Frontalieri prevede una franchigia di €10\'000 per i nuovi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/farmacista-frontaliero-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un farmacista frontaliere in Ticino?",
+      "description": "Il Nuovo Accordo Frontalieri prevede una franchigia di €10'000 per i nuovi frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/farmacista-frontaliero-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un farmacista frontaliere lavora in un ospedale a Lugano"
+      },
+      "datePublished": "2026-07-18T22:53:36+00:00",
+      "dateModified": "2026-07-18T22:53:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/farmacista-frontaliero-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ostetrica-ticino-stipendio-requisiti': {
+    title: 'Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo',
+    description: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, ostetrica, stipendio, requisiti',
+    ogTitle: 'Lavorare come ostetrica in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60\'000 all\'anno, ma deve rispettare alcuni requisiti e ottenere',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come ostetrica in Ticino: stipendio, requisiti e riconoscimento titolo",
+      "description": "La frontaliere che lavora come ostetrica in Ticino ha diritto a un stipendio medio di circa CHF 60'000 all'anno, ma deve rispettare alcuni requisiti e ottenere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ostetrica-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una frontaliere che lavora come ostetrica in un ospedale di Lugano."
+      },
+      "datePublished": "2026-07-18T23:16:03+00:00",
+      "dateModified": "2026-07-18T23:16:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ostetrica-frontaliere-ticino-quanto-guadagna': {
+    title: 'Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione',
+    description: 'I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all\'Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, ostetrica, fatti',
+    ogTitle: 'Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione',
+    ogDescription: 'I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all\'Italia',
+    canonicalPath: '/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un ostetrica frontaliere in Ticino? I fatti sulla retribuzione",
+      "description": "I dati sulla retribuzione degli ostetriche frontaliere in Ticino: come si calcola il reddito e quali sono le differenze rispetto all'Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ostetrica-frontaliere-ticino-quanto-guadagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna con un bambino in braccio, in un ambiente ospedaliero"
+      },
+      "datePublished": "2026-07-18T23:37:44+00:00",
+      "dateModified": "2026-07-18T23:37:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendio-assistente-dentale-frontaliere-ticino': {
+    title: 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    description: 'Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, assistente, dentale',
+    ogTitle: 'Quanto guadagna un assistente dentale frontaliere in Ticino?',
+    ogDescription: 'Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni.',
+    canonicalPath: '/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un assistente dentale frontaliere in Ticino?",
+      "description": "Il salario di un assistente dentale frontaliere in Ticino è soggetto alle tabelle salariali e alle convenzioni doppie imposizioni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-assistente-dentale-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica del centro di Lugano con la piazza della Riforma e la chiesa di San Lorenzo in primo piano."
+      },
+      "datePublished": "2026-07-19T05:54:11+00:00",
+      "dateModified": "2026-07-19T05:54:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-traffico-svizzera-2023': {
+    title: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    description: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, costi, raggiungono, miliardi',
+    ogTitle: 'Traffico in Svizzera: i costi raggiungono 117 miliardi',
+    ogDescription: 'Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L\'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.',
+    canonicalPath: '/articoli-frontaliere/costi-traffico-svizzera-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico in Svizzera: i costi raggiungono 117 miliardi",
+      "description": "Nel 2023 il traffico in Svizzera è costato 117 miliardi di franchi. L'auto domina con il 68% degli spostamenti. Analisi e dati per lavoratori frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costi-traffico-svizzera-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico automobilistico su una autostrada svizzera in Ticino"
+      },
+      "datePublished": "2026-07-19T06:19:14+00:00",
+      "dateModified": "2026-07-19T06:19:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-tecnico-radiologia-ticino-stipendio-requisiti': {
+    title: 'Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G',
+    description: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, tecnico, radiologia, stipendio, requisiti',
+    ogTitle: 'Lavorare come tecnico di radiologia in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tecnico di radiologia in Ticino: stipendio, requisiti e permesso G",
+      "description": "Stipendio medio dei tecnici di radiologia in Ticino per i frontalieri, requisiti per lavorare come tecnico di radiologia in Svizzera, riconoscimento del titolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tecnico di radiologia frontaliere lavora in un ospedale di Lugano"
+      },
+      "datePublished": "2026-07-19T06:40:36+00:00",
+      "dateModified": "2026-07-19T06:40:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quanto-guadagna-un-ergoterapista-frontaliere-in-ticino': {
+    title: 'Stipendio ergoterapista: salari e differenze con l\'Italia',
+    description: 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, ergoterapista, salari, differenze',
+    ogTitle: 'Stipendio reale di un ergoterapista frontaliere in Ticino',
+    ogDescription: 'L\'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana.',
+    canonicalPath: '/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio ergoterapista: salari e differenze con l'Italia",
+      "description": "L'articolo esamina la fascia salariale di un ergoterapista frontaliere in Ticino, confrontando le differenze con la fascia salariale italiana. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ergoterapista frontaliere lavora nel Canton Ticino"
+      },
+      "datePublished": "2026-07-19T07:04:22+00:00",
+      "dateModified": "2026-07-19T07:04:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna': {
+    title: 'Di più startup svizzere, solo 7% del capitale va a imprese con CEO donna',
+    description: 'Secondo un nuovo studio dell\'associazione di investitori SECA, solo il 7% del capitale a rischio raccolto è andato a imprese con CEO donna. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, startup, svizzere, solo, capitale',
+    ogTitle: 'Di più startup svizzere, solo 7% del capitale va a imprese con CEO donna',
+    ogDescription: 'Secondo un nuovo studio dell\'associazione di investitori SECA, solo il 7% del capitale a rischio raccolto è andato a imprese con CEO donna.',
+    canonicalPath: '/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più startup svizzere, solo 7% del capitale va a imprese con CEO donna",
+      "description": "Secondo un nuovo studio dell'associazione di investitori SECA, solo il 7% del capitale a rischio raccolto è andato a imprese con CEO donna. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano"
+      },
+      "datePublished": "2026-07-19T07:35:36+00:00",
+      "dateModified": "2026-07-19T07:35:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-ergoterapista-stipendio-ticino': {
+    title: 'Quanto guadagna un ergoterapista frontaliere in Ticino?',
+    description: 'Stipendio di un ergoterapista frontaliere in Ticino: come si calcola e cosa influenza la retribuzione?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, ergoterapista, stipendio',
+    ogTitle: 'Quanto guadagna un ergoterapista frontaliere in Ticino?',
+    ogDescription: 'Stipendio di un ergoterapista frontaliere in Ticino: come si calcola e cosa influenza la retribuzione?',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un ergoterapista frontaliere in Ticino?",
+      "description": "Stipendio di un ergoterapista frontaliere in Ticino: come si calcola e cosa influenza la retribuzione?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ergoterapista-stipendio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ergoterapista frontaliere con cartellino del lavoro e visto di soggiorno in mano, con lo sfondo del lago Lugano"
+      },
+      "datePublished": "2026-07-19T08:00:36+00:00",
+      "dateModified": "2026-07-19T08:00:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-dietista-ticino-stipendio-requisiti': {
+    title: 'Lavorare come dietista in Ticino: stipendio, requisiti e permesso G',
+    description: 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, dietista, stipendio, requisiti',
+    ogTitle: 'Lavorare come dietista in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G',
+    ogDescription: 'Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere',
+    canonicalPath: '/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come dietista in Ticino: stipendio, requisiti e permesso G",
+      "description": "Scopri i requisiti e le procedure per lavorare come dietista in Ticino come frontaliere. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-dietista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano, Ticino"
+      },
+      "datePublished": "2026-07-19T08:31:00+00:00",
+      "dateModified": "2026-07-19T08:31:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-ottico-optometrista': {
+    title: 'Quanto guadagna un ottico optometrista frontaliere in Ticino?',
+    description: 'Un\'analisi dei salari di un ottico optometrista frontaliere in Ticino, basata sul Nuovo Accordo Frontalieri del 2024. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, ottico, optometrista',
+    ogTitle: 'Quanto guadagna un ottico optometrista frontaliere in Ticino?',
+    ogDescription: 'Un\'analisi dei salari di un ottico optometrista frontaliere in Ticino, basata sul Nuovo Accordo Frontalieri del 2024.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-ottico-optometrista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un ottico optometrista frontaliere in Ticino?",
+      "description": "Un'analisi dei salari di un ottico optometrista frontaliere in Ticino, basata sul Nuovo Accordo Frontalieri del 2024. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-ottico-optometrista.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ottico optometrista in un ambulatorio in Lugano"
+      },
+      "datePublished": "2026-07-19T08:58:04+00:00",
+      "dateModified": "2026-07-19T08:58:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-ottico-optometrista/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ottico-optometrista-ticino-guida': {
+    title: 'Ottico optometrista in Ticino: stipendio e requisiti',
+    description: 'Vuoi lavorare come ottico optometrista in Ticino? Scopri stipendi, requisiti per il Permesso G, imposte alla fonte e novità del nuovo accordo fiscale 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ottico, optometrista, stipendio, requisiti',
+    ogTitle: 'Ottico Optometrista in Ticino: Stipendio e Requisiti',
+    ogDescription: 'Guida pratica per l\'ottico optometrista frontaliere: stipendi, Permesso G, tassazione e obblighi LAMal in Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/ottico-optometrista-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ottico optometrista in Ticino: stipendio e requisiti",
+      "description": "Vuoi lavorare come ottico optometrista in Ticino? Scopri stipendi, requisiti per il Permesso G, imposte alla fonte e novità del nuovo accordo fiscale 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ottico-optometrista-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio di un ottico optometrista in Ticino con attrezzature moderne"
+      },
+      "datePublished": "2026-07-19T09:21:33+00:00",
+      "dateModified": "2026-07-19T09:21:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ottico-optometrista-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-podologo-frontaliere-ticino-guadagna': {
+    title: 'Quanto guadagna un podologo frontaliere in Ticino?',
+    description: 'Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, podologo, reddito',
+    ogTitle: 'Quanto guadagna un podologo frontaliere in Ticino?',
+    ogDescription: 'Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione.',
+    canonicalPath: '/articoli-frontaliere/podologo-frontaliere-ticino-guadagna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un podologo frontaliere in Ticino?",
+      "description": "Il reddito di un podologo frontaliere in Ticino è influenzato da diversi fattori, tra cui la franchigia, la trattenuta e la doppia imposizione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/podologo-frontaliere-ticino-guadagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un podologo frontaliere in Ticino, immagine fotorealistica DSLR ambientata in Canton Ticino."
+      },
+      "datePublished": "2026-07-19T09:48:10+00:00",
+      "dateModified": "2026-07-19T09:48:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guadagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistente-di-studio-medico-frontaliere': {
+    title: 'Quanto guadagna un assistente di studio medico frontaliere in Ticino?',
+    description: 'La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall\'esperienza e dal ruolo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, assistente, studio',
+    ogTitle: 'Quanto guadagna un assistente di studio medico frontaliere in Ticino?',
+    ogDescription: 'La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall\'esperienza e dal ruolo.',
+    canonicalPath: '/articoli-frontaliere/assistente-di-studio-medico-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un assistente di studio medico frontaliere in Ticino?",
+      "description": "La retribuzione di un assistente di studio medico frontaliere in Ticino dipende dall'esperienza e dal ruolo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assistente-di-studio-medico-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un assistente di studio medico frontaliere lavora in un ospedale a Lugano"
+      },
+      "datePublished": "2026-07-19T10:11:15+00:00",
+      "dateModified": "2026-07-19T10:11:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assistente-di-studio-medico-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tecnicodisalaoperatoriaticinostipendiorientati': {
+    title: 'Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G',
+    description: 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di',
+    keywords: 'frontalieri, ticino, svizzera, italia, tecnico, sala, operatoria, stipendio',
+    ogTitle: 'Lavorare come tecnico di sala operatoria in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    ogDescription: 'Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di',
+    canonicalPath: '/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tecnico di sala operatoria in Ticino: stipendio, requisiti e permesso G",
+      "description": "Il tecnico di sala operatoria è un professionista altamente specializzato che lavora in un ambiente di alta pressione. La sua principale responsabilità è di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tecnicodisalaoperatoriaticinostipendiorientati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora come tecnico di sala operatoria in un ospedale di Lugano"
+      },
+      "datePublished": "2026-07-19T10:35:27+00:00",
+      "dateModified": "2026-07-19T10:35:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-medico-ticino-stipendio-requisiti': {
+    title: 'Medici frontalieri in Ticino: stipendio, requisiti e riconoscimento titolo',
+    description: 'Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, medici, stipendio, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come medico frontaliere in Ticino: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medici frontalieri in Ticino: stipendio, requisiti e riconoscimento titolo",
+      "description": "Gli stipendi medi per i medici frontaliere in Ticino, i requisiti per lavorare come medico frontaliere, il riconoscimento del titolo di studio e il permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-medico-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica del Lago di Lugano con una barca a vela in primo piano"
+      },
+      "datePublished": "2026-07-19T12:11:36+00:00",
+      "dateModified": "2026-07-19T12:11:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

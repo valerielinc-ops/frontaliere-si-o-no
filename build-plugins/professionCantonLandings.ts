@@ -16,6 +16,7 @@ import np from 'node:path';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { renderSalaryStatsBridge } from './shared/salaryStatsBridge';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { buildDayStampIso } from './shared/buildDayStamp';
@@ -26,11 +27,7 @@ import {
   buildCantonSeoProseFaqItems,
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
-import {
-  GROSSREGION_MEDIAN_MONTHLY,
-  NATIONAL_MEDIAN_MONTHLY,
-  CANTON_TO_GROSSREGION,
-} from './shared/cantonSalaryIndex';
+import { cantonAnnualMedianChf } from './shared/cantonSalaryIndex';
 import {
   aggregateProfessionJobsByCanton,
   type ProfessionJobsSnapshot,
@@ -45,10 +42,10 @@ import {
 } from './professionLandingsData';
 import {
   SALARY_STATS_CANTON_SLUGS,
-  SALARY_STATS_FACTOR_CODE,
   buildSalaryStatsPath,
 } from './salaryStatsData';
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
+import { isSalaryEligibleProfessionId, buildSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
 import {
   H2_STYLE,
@@ -88,6 +85,8 @@ interface Copy {
   metaTitle: (role: string, canton: string) => string;
   metaDesc: (count: number, role: string, canton: string) => string;
   perYear: string;
+  /** Cross-link to the salary-intent page (#4461), when the pair is eligible. */
+  salaryLink: (role: string, canton: string) => string;
 }
 
 const COPY: Record<ProfessionLocale, Copy> = {
@@ -106,6 +105,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaTitle: (r, c) => `Lavoro ${r} Canton ${c} — offerte e stipendio`,
     metaDesc: (n, r, c) => `${n} offerte per ${r} nel Canton ${c}: datori reali, stipendio mediano e candidatura diretta. Aggiornato ogni 12 ore.`,
     perYear: '/anno',
+    salaryLink: (r, c) => `Stipendio ${r} nel Canton ${c}: lordo, netto e confronto`,
   },
   en: {
     eyebrow: 'Jobs by profession',
@@ -122,6 +122,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaTitle: (r, c) => `${r} jobs Canton ${c} — openings and salary`,
     metaDesc: (n, r, c) => `${n} ${r} openings in Canton ${c}: real employers, median salary and direct apply. Updated every 12 hours.`,
     perYear: '/yr',
+    salaryLink: (r, c) => `${r} salary in Canton ${c}: gross, net and comparison`,
   },
   de: {
     eyebrow: 'Stellen nach Beruf',
@@ -138,6 +139,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaTitle: (r, c) => `${r} Stellen Kanton ${c} — Angebote und Lohn`,
     metaDesc: (n, r, c) => `${n} ${r}-Stellen im Kanton ${c}: echte Arbeitgeber, Medianlohn und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
     perYear: '/Jahr',
+    salaryLink: (r, c) => `${r}-Lohn im Kanton ${c}: brutto, netto und Vergleich`,
   },
   fr: {
     eyebrow: 'Emplois par profession',
@@ -154,6 +156,7 @@ const COPY: Record<ProfessionLocale, Copy> = {
     metaTitle: (r, c) => `Emploi ${r} canton ${c} — offres et salaire`,
     metaDesc: (n, r, c) => `${n} offres ${r} dans le canton ${c} : employeurs réels, salaire médian et candidature directe. Mis à jour toutes les 12 heures.`,
     perYear: '/an',
+    salaryLink: (r, c) => `Salaire ${r} dans le canton ${c} : brut, net et comparaison`,
   },
 };
 
@@ -164,13 +167,6 @@ function esc(s: unknown): string {
 function fmtChf(n: number, locale: ProfessionLocale): string {
   const sep = locale === 'en' ? ',' : locale === 'fr' ? ' ' : "'";
   return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
-}
-
-function cantonAnnualMedian(cantonKey: string): number {
-  const code = SALARY_STATS_FACTOR_CODE[cantonKey] ?? cantonKey;
-  const region = CANTON_TO_GROSSREGION[code];
-  const monthly = region ? GROSSREGION_MEDIAN_MONTHLY[region] : NATIONAL_MEDIAN_MONTHLY;
-  return monthly * 12;
 }
 
 interface BridgeCopy {
@@ -240,7 +236,7 @@ export function renderProfessionCantonPage(opts: {
 
   // Real corpus median for this canton+profession; fall back to the canton's
   // BFS annual median when the matched jobs carry no salary data.
-  const median = snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedian(cantonKey);
+  const median = snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedianChf(cantonKey);
   const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
@@ -287,6 +283,16 @@ export function renderProfessionCantonPage(opts: {
 
   const header = `<header class="sx-hero"><p class="sx-kick text-sm font-semibold text-accent"><span class="lh-emoji" aria-hidden="true">💼</span>${esc(c.eyebrow)} · ${esc(cantonName)}</p><h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${esc(c.h1(role, cantonName))}</h1><p class="text-base text-body mt-2 max-w-prose">${esc(c.lede(snapshot.liveCount, role, cantonName))}</p></header>`;
 
+  // Cross-link to the salary-intent page (#4461) for the pairs it emits — the
+  // job-intent → salary-intent direction of the bidirectional hub-spoke rule
+  // (docs/SALARY-INTENT-CANONICAL-PLAN.md §4.2). Only the 8 preset-backed
+  // professions get a salary page; the pair is at/above the shared MIN_JOBS
+  // floor here (this renderer only runs above floor), so the salary page always
+  // has a live URL (full page or noindex bridge) — never a dead link.
+  const salaryLink = isSalaryEligibleProfessionId(id) && snapshot.liveCount >= MIN_JOBS
+    ? `<p class="my-3"><a href="${esc(buildSalaryProfessionCantonPath(locale, cantonKey, id))}" class="text-accent font-semibold underline">${esc(c.salaryLink(role, cantonName))} →</a></p>`
+    : '';
+
   // `cl-fun` wrapper enables the shared micro-interaction layer (tile rise +
   // hover pop, CTA glow, emoji wave), all gated behind prefers-reduced-motion.
   const main = `<div class="cl-fun">${breadcrumb}
@@ -294,7 +300,8 @@ ${header}
 ${tiles}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
-${prose}</div>`;
+${salaryLink}
+${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
 
   const breadcrumbLd = {
     '@context': 'https://schema.org',

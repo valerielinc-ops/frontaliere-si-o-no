@@ -21,7 +21,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { infeedAdListItemHtml, infeedAdGridBlockHtml } from '../../build-plugins/lib/adSlotHtml';
+import { infeedAdListItemHtml, infeedAdGridBlockHtml, endOfContentMultiplexHtml } from '../../build-plugins/lib/adSlotHtml';
 import { AD_SLOTS } from '../../services/adsenseSlots';
 
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -159,6 +159,147 @@ describe('SEO static-page ad slots — regression guard', () => {
     for (const html of [infeedAdListItemHtml(), infeedAdGridBlockHtml()]) {
       expect(html).toContain('class="adsbygoogle"');
       expect(html).toContain(`data-ad-slot="${expectedSlot}"`);
+    }
+  });
+});
+
+// Issue #4485: end-of-content multiplex on the static SSG "family" landings
+// that previously ran Auto Ads only. Guards two invariants:
+//  1. The account-safety GATE — the slot is emitted ONLY on index,follow
+//     pages. A manual ad on a thin/noindex bridge page is an MFA signal that
+//     risks account-level action, so `endOfContentMultiplexHtml({indexable:false})`
+//     MUST return ''. This is a real behavioral test on the helper (no build
+//     pipeline needed), the by-construction guarantee every family relies on.
+//  2. Revenue regression — each family plugin keeps its `endOfContentMultiplexHtml`
+//     call(s), mirroring the SPECS/FILE_SPECS guard for the older families. A
+//     refactor that silently drops the call would re-open the same €0/30d gap.
+describe('SEO SSG-family end-of-content multiplex (#4485)', () => {
+  it('SSG_END_MULTIPLEX is an autorelaxed (multiplex) unit with a CLS-reserving min-height', () => {
+    const cfg = AD_SLOTS.SSG_END_MULTIPLEX;
+    expect(cfg.format).toBe('autorelaxed');
+    expect(cfg.placeholderMinHeight).toBeGreaterThanOrEqual(300);
+  });
+
+  it('emits nothing on non-indexable (thin/noindex) pages — MFA-safety gate', () => {
+    expect(endOfContentMultiplexHtml({ indexable: false })).toBe('');
+  });
+
+  it('emits the SSG_END_MULTIPLEX <ins> with reserved min-height on indexable pages', () => {
+    const html = endOfContentMultiplexHtml({ indexable: true });
+    expect(html).toContain('class="adsbygoogle"');
+    expect(html).toContain(`data-ad-slot="${AD_SLOTS.SSG_END_MULTIPLEX.slot}"`);
+    expect(html).toContain('data-ad-format="autorelaxed"');
+    expect(html).toContain(`min-height:${AD_SLOTS.SSG_END_MULTIPLEX.placeholderMinHeight}px`);
+    expect(html).toContain('aria-label="advertisement"');
+  });
+
+  // Per-family call-count guard. The 6 families named in #4485 plus the sibling
+  // families that shared the same "Auto Ads only" gap (AGENTS.md rule #6 —
+  // fix the whole class in one PR): exchange-rate, employer-profile and the
+  // two profession×canton plugins. Counts match the number of index,follow
+  // render templates per plugin.
+  const FAMILY_SPECS: Array<{ file: string; count: number }> = [
+    { file: 'build-plugins/eventsSeoPagesPlugin.ts', count: 6 },
+    { file: 'build-plugins/careerLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/costOfLivingLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/comparisonsHubPlugin.ts', count: 1 },
+    { file: 'build-plugins/faqHubPlugin.ts', count: 1 },
+    { file: 'build-plugins/frontalierePillarPlugin.ts', count: 1 },
+    { file: 'build-plugins/exchangeRatePagesPlugin.ts', count: 2 },
+    { file: 'build-plugins/employerProfilePagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/salaryProfessionCantonPages.ts', count: 1 },
+    { file: 'build-plugins/professionCantonLandings.ts', count: 1 },
+    { file: 'build-plugins/healthFacilitiesPlugin.ts', count: 1 },
+  ];
+
+  for (const spec of FAMILY_SPECS) {
+    it(`${spec.file} calls endOfContentMultiplexHtml ${spec.count}× and imports it from './lib/adSlotHtml'`, () => {
+      const src = fs.readFileSync(path.join(ROOT, spec.file), 'utf8');
+      const calls = src.match(/endOfContentMultiplexHtml\(\s*\{/g) ?? [];
+      expect(calls).toHaveLength(spec.count);
+      expect(src, `${spec.file} must import endOfContentMultiplexHtml from './lib/adSlotHtml'`)
+        .toMatch(/import\s*\{[^}]*\bendOfContentMultiplexHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+    });
+  }
+
+  // The below-floor / thin bridge emitters must NEVER hardcode an indexable
+  // multiplex: they render noindex pages, so the only permissible call form is
+  // one gated on a variable (`{ indexable }`), never `{ indexable: true }`
+  // inside those functions. Guard that no bridge function contains the slot.
+  it('below-floor bridge emitters carry no end-of-content multiplex', () => {
+    const bridges: Array<{ file: string; fn: string }> = [
+      { file: 'build-plugins/salaryProfessionCantonPages.ts', fn: 'renderBelowFloorBridge' },
+      { file: 'build-plugins/professionCantonLandings.ts', fn: 'renderBelowFloorBridge' },
+      { file: 'build-plugins/employerProfilePagesPlugin.ts', fn: 'emitEmployerBelowFloorBridge' },
+    ];
+    for (const { file, fn } of bridges) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      const body = extractFunctionBody(src, fn);
+      expect(body, `Could not locate ${fn} in ${file}`).not.toBe('');
+      expect(body, `${fn} (noindex bridge) must not emit a manual multiplex`)
+        .not.toContain('endOfContentMultiplexHtml');
+    }
+  });
+});
+
+// Issue #4528: rollout part 2 — the SAME end-of-content multiplex helper
+// extended to the ~10 pre-existing content families that PR #4521 (issue #4485)
+// audited as still Auto-Ads-only. Same MFA-safety gate (shared helper, already
+// covered above), same per-family call-count + import guard, same below-floor
+// bridge exclusion. A refactor that silently drops any of these calls re-opens
+// the display-vs-multiplex RPM gap on that family.
+describe('SEO SSG-family end-of-content multiplex — rollout 2 (#4528)', () => {
+  // Counts match the number of index,follow render templates per plugin.
+  // relatedSearchClustersPlugin has two (cluster page + paginated hub page);
+  // every other family has a single render path.
+  const FAMILY_SPECS_2: Array<{ file: string; count: number }> = [
+    { file: 'build-plugins/nursingLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/professionLandingsPlugin.ts', count: 1 },
+    { file: 'build-plugins/professionCityLandings.ts', count: 1 },
+    { file: 'build-plugins/sectionPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/salaryStatsChCantonPages.ts', count: 1 },
+    { file: 'build-plugins/annualReportPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderMunicipalityPagesPlugin.ts', count: 1 },
+    { file: 'build-plugins/frSalaireNetLandingPlugin.ts', count: 1 },
+    { file: 'build-plugins/borderWaitMapPlugin.ts', count: 1 },
+    { file: 'build-plugins/relatedSearchClustersPlugin.ts', count: 2 },
+  ];
+
+  for (const spec of FAMILY_SPECS_2) {
+    it(`${spec.file} calls endOfContentMultiplexHtml ${spec.count}× and imports it from './lib/adSlotHtml'`, () => {
+      const src = fs.readFileSync(path.join(ROOT, spec.file), 'utf8');
+      const calls = src.match(/endOfContentMultiplexHtml\(\s*\{/g) ?? [];
+      expect(calls).toHaveLength(spec.count);
+      expect(src, `${spec.file} must import endOfContentMultiplexHtml from './lib/adSlotHtml'`)
+        .toMatch(/import\s*\{[^}]*\bendOfContentMultiplexHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+    });
+  }
+
+  // #4479 — Swiss minimum-wage landings: the shared renderPage emits the
+  // end-of-content multiplex ONLY on the hub (index) page (gated on
+  // index,follow). One call site in the source → count 1.
+  it('build-plugins/minimumWageLandingsPlugin.ts calls endOfContentMultiplexHtml 1× and imports it from \'./lib/adSlotHtml\'', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'build-plugins/minimumWageLandingsPlugin.ts'), 'utf8');
+    const calls = src.match(/endOfContentMultiplexHtml\(\s*\{/g) ?? [];
+    expect(calls).toHaveLength(1);
+    expect(src, 'minimumWageLandingsPlugin.ts must import endOfContentMultiplexHtml from \'./lib/adSlotHtml\'')
+      .toMatch(/import\s*\{[^}]*\bendOfContentMultiplexHtml\b[^}]*\}\s*from\s*['"]\.\/lib\/adSlotHtml['"]/);
+  });
+
+  // The two rollout-2 families that also emit a noindex below-floor bridge must
+  // keep that bridge free of any manual multiplex (same MFA invariant as the
+  // #4485 bridges above).
+  it('rollout-2 below-floor bridge emitters carry no end-of-content multiplex', () => {
+    const bridges: Array<{ file: string; fn: string }> = [
+      { file: 'build-plugins/professionCityLandings.ts', fn: 'renderBelowFloorBridge' },
+      { file: 'build-plugins/relatedSearchClustersPlugin.ts', fn: 'renderClusterBelowFloorBridge' },
+    ];
+    for (const { file, fn } of bridges) {
+      const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      const body = extractFunctionBody(src, fn);
+      expect(body, `Could not locate ${fn} in ${file}`).not.toBe('');
+      expect(body, `${fn} (noindex bridge) must not emit a manual multiplex`)
+        .not.toContain('endOfContentMultiplexHtml');
     }
   });
 });

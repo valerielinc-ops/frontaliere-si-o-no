@@ -329,6 +329,53 @@ export function calculateProportionalTaxCredit(
  return paidSourceTaxEUR * ratio;
 }
 
+// ─── Ticino municipal tax multiplier (issue #4470) ───────────────────────────
+/**
+ * Extra annual CH tax (CHF) a Ticino RESIDENT (permit B/C) pays in a given
+ * municipality relative to the cantonal-average multiplier already baked into
+ * the source-tax tariff used by `calculateSimulation`.
+ *
+ * Ticino levies: imposta_totale = imposta_cantonale_base × (1 + moltiplicatore
+ * comunale / 100). The withholding tariff embeds the cantonal-AVERAGE municipal
+ * multiplier (`baselineMultiplierPct`), so `baseTicinoTaxAnnualCHF` already
+ * corresponds to that baseline. Only the municipal share scales with the chosen
+ * comune, hence:
+ *
+ *   base_cantonal          = baseTax / (1 + baseline/100)
+ *   tax(comune)            = base_cantonal × (1 + m/100)
+ *   delta                  = tax(comune) − baseTax
+ *                          = baseTax × (m − baseline) / (100 + baseline)
+ *
+ * A comune with a HIGHER multiplier than the baseline returns a positive delta
+ * (more tax → lower net); a lower one returns a negative delta (more net).
+ * Pure and side-effect-free — unit-tested in tests/ticino-municipal-tax.test.ts.
+ */
+export function ticinoMunicipalTaxDeltaCHF(
+  baseTicinoTaxAnnualCHF: number,
+  multiplierPct: number,
+  baselineMultiplierPct: number,
+): number {
+  if (!Number.isFinite(baseTicinoTaxAnnualCHF) || baseTicinoTaxAnnualCHF <= 0) return 0;
+  if (!Number.isFinite(multiplierPct) || !Number.isFinite(baselineMultiplierPct)) return 0;
+  const denom = 100 + baselineMultiplierPct;
+  if (denom <= 0) return 0;
+  return baseTicinoTaxAnnualCHF * (multiplierPct - baselineMultiplierPct) / denom;
+}
+
+/**
+ * Adjusted total CH tax (CHF/year) for a Ticino resident once the selected
+ * municipality's multiplier is applied. Never returns below 0.
+ */
+export function applyTicinoMunicipalMultiplier(
+  baseTicinoTaxAnnualCHF: number,
+  multiplierPct: number,
+  baselineMultiplierPct: number,
+): number {
+  const adjusted = baseTicinoTaxAnnualCHF
+    + ticinoMunicipalTaxDeltaCHF(baseTicinoTaxAnnualCHF, multiplierPct, baselineMultiplierPct);
+  return Math.max(0, adjusted);
+}
+
 // ─── Lightweight per-municipality IRPEF impact calculator ────────────────────
 export interface MunicipalityTaxResult {
  italianTaxableBaseEUR: number;

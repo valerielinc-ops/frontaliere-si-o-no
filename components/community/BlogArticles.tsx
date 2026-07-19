@@ -23,7 +23,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
+import { PARTNERS, buildGoPath, partnerRelAttr, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -34,6 +34,7 @@ import { generateInitialsLogo } from '@/services/logoService';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
+const ConsultingCTA = lazyRetry(() => import('@/components/calculator/ConsultingCTA').then(m => ({ default: m.ConsultingCTA })));
 const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
 const InlineBorderWaitRanking = lazyRetry(() => import('@/components/blog/InlineBorderWaitRanking'));
 
@@ -1630,7 +1631,7 @@ function BlogArticles({
  const seen = new Set<string>();
  const result: AffiliatePartner[] = [];
  for (const ctx of contexts) {
- for (const p of PARTNERS.filter(p => p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
+ for (const p of PARTNERS.filter(p => p.enabled && p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
  if (!seen.has(p.id) && result.length < max) { seen.add(p.id); result.push(p); }
  }
  }
@@ -1890,9 +1891,9 @@ function BlogArticles({
  };
  return (
  <a
- href={buildAffiliateUrl(partner, `blog_${article.category}`)}
+ href={buildGoPath(partner)}
  target="_blank"
- rel="noopener noreferrer sponsored"
+ rel={partnerRelAttr(partner)}
  onClick={handleAffClick}
  className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-edge hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
  >
@@ -2407,7 +2408,14 @@ function BlogArticles({
  articleFeedback[article.id] === 'not-useful'
  ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface-raised text-subtle hover:bg-danger-subtle'
- }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T (A2: dynamic byline → /autori/{slug}/) */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> {effectiveAuthorSlug && effectiveAuthorName ? ( <a href={`/autori/${effectiveAuthorSlug}/`} rel="author" className="font-bold text-heading hover:text-link hover:underline"> {effectiveAuthorName} </a> ) : ( <p className="font-bold text-heading">{t('blog.byline')}</p> )} <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath(buildArticleRoute(prevArticle.id))} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+ }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T (A2: dynamic byline → /autori/{slug}/) */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> {effectiveAuthorSlug && effectiveAuthorName ? ( <a href={`/autori/${effectiveAuthorSlug}/`} rel="author" className="font-bold text-heading hover:text-link hover:underline"> {effectiveAuthorName} </a> ) : ( <p className="font-bold text-heading">{t('blog.byline')}</p> )} <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Consulting CTA at end of fiscal articles (issue #4487) — discreet, benefit-first */}
+ {article.category === 'fiscale' && (
+ <Suspense fallback={null}>
+ <ConsultingCTA placement="fisco-article" />
+ </Suspense>
+ )}
+
+ {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath(buildArticleRoute(prevArticle.id))} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
  </div>
  </a>
  ) : <div />}

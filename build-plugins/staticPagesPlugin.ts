@@ -810,6 +810,9 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/cerca-lavoro-ticino/', label: 'Cerca lavoro Ticino' },
   { href: '/domande-frequenti-frontalieri/', label: 'FAQ frontalieri' },
   { href: '/glossario-frontaliere/', label: 'Glossario frontaliere' },
+  { href: '/giorni-festivi-ticino/', label: 'Giorni festivi Ticino e ponti' },
+  { href: '/stipendio-medio-svizzera-30-anni/', label: 'Stipendio medio in Svizzera per età' },
+  { href: '/salario-minimo/', label: 'Salario minimo in Svizzera: cantoni e CCL' },
  ],
  en: [
   { href: '/en/guide-cross-border-taxation-2026/', label: 'Cross-border taxation guide 2026' },
@@ -820,6 +823,9 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
   { href: '/en/find-jobs-ticino/', label: 'Find jobs in Ticino' },
   { href: '/en/frequently-asked-questions/', label: 'Cross-border FAQ' },
+  { href: '/en/public-holidays-ticino/', label: 'Ticino public holidays and bridge days' },
+  { href: '/en/average-salary-switzerland-age-30/', label: 'Average Swiss salary by age' },
+  { href: '/en/minimum-wage/', label: 'Minimum wage in Switzerland: cantons and CCL' },
  ],
  de: [
   { href: '/de/leitfaden-grenzgaenger-besteuerung-2026/', label: 'Leitfaden Grenzgänger-Besteuerung 2026' },
@@ -830,6 +836,9 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Lohnsimulator' },
   { href: '/de/jobs-im-tessin/', label: 'Jobs im Tessin' },
   { href: '/de/haeufig-gestellte-fragen/', label: 'Grenzgänger-FAQ' },
+  { href: '/de/feiertage-tessin/', label: 'Feiertage Tessin und Brückentage' },
+  { href: '/de/durchschnittslohn-schweiz-30-jahre/', label: 'Durchschnittslohn Schweiz nach Alter' },
+  { href: '/de/mindestlohn/', label: 'Mindestlohn in der Schweiz: Kantone und GAV' },
  ],
  fr: [
   { href: '/fr/guide-imposition-frontaliers-2026/', label: 'Guide imposition frontaliers 2026' },
@@ -840,6 +849,9 @@ const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: stri
   { href: '/fr/calculer-salaire/', label: 'Simulateur de salaire frontalier' },
   { href: '/fr/trouver-emploi-tessin/', label: 'Trouver un emploi au Tessin' },
   { href: '/fr/questions-frequentes/', label: 'FAQ frontaliers' },
+  { href: '/fr/jours-feries-tessin/', label: 'Jours fériés Tessin et ponts' },
+  { href: '/fr/salaire-moyen-suisse-30-ans/', label: 'Salaire moyen en Suisse par âge' },
+  { href: '/fr/salaire-minimum/', label: 'Salaire minimum en Suisse : cantons et CCT' },
  ],
 };
 

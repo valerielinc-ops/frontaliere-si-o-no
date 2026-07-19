@@ -32,6 +32,219 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
+  {
+    version: '3.80.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3800.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3800.minimumWage.title',
+        descKey: 'whatsNew.v3800.minimumWage.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
+    version: '3.77.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3770.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3770.checklist.title',
+        descKey: 'whatsNew.v3770.checklist.desc',
+        link: { tab: 'gamification' },
+      },
+    ],
+  },
+  {
+    version: '3.76.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3760.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3760.telegram.title',
+        descKey: 'whatsNew.v3760.telegram.desc',
+      },
+    ],
+  },
+  {
+    version: '3.75.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3750.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3750.professionCities.title',
+        descKey: 'whatsNew.v3750.professionCities.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
+    version: '3.73.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3730.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3730.embedWidgets.title',
+        descKey: 'whatsNew.v3730.embedWidgets.desc',
+      },
+    ],
+  },
+  {
+    version: '3.72.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3720.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3720.holidays.title',
+        descKey: 'whatsNew.v3720.holidays.desc',
+        link: { tab: 'guida' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3720.salaryByAge.title',
+        descKey: 'whatsNew.v3720.salaryByAge.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
+    version: '3.71.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3710.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.salaryAlert.title',
+        descKey: 'whatsNew.v3710.salaryAlert.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.municipalTax.title',
+        descKey: 'whatsNew.v3710.municipalTax.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.cantonCompare.title',
+        descKey: 'whatsNew.v3710.cantonCompare.desc',
+        link: { tab: 'calculator' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3710.consulting.title',
+        descKey: 'whatsNew.v3710.consulting.desc',
+        link: { tab: 'consulting' },
+      },
+    ],
+  },
+  {
+    version: '3.70.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3700.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3700.employerProfiles.title',
+        descKey: 'whatsNew.v3700.employerProfiles.desc',
+        link: { tab: 'job-board' },
+      },
+    ],
+  },
+  {
+    version: '3.68.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3680.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3680.salaryLandings.title',
+        descKey: 'whatsNew.v3680.salaryLandings.desc',
+        link: { tab: 'stats', subTab: 'salary-compare' },
+      },
+    ],
+  },
+  {
+    version: '3.67.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3670.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3670.facilities.title',
+        descKey: 'whatsNew.v3670.facilities.desc',
+      },
+    ],
+  },
+  {
+    version: '3.66.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3660.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3660.exchange-ssg.title',
+        descKey: 'whatsNew.v3660.exchange-ssg.desc',
+      },
+    ],
+  },
+  {
+    version: '3.65.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3650.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3650.comparators.title',
+        descKey: 'whatsNew.v3650.comparators.desc',
+        link: { tab: 'confronti', subTab: 'health' },
+      },
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3650.affiliate.title',
+        descKey: 'whatsNew.v3650.affiliate.desc',
+      },
+    ],
+  },
+  {
+    version: '3.64.0',
+    date: '2026-07-19',
+    titleKey: 'whatsNew.v3640.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3640.employerCta.title',
+        descKey: 'whatsNew.v3640.employerCta.desc',
+        link: { tab: 'for-employers' },
+      },
+    ],
+  },
+ {
+ version: '3.63.0',
+ date: '2026-07-19',
+ titleKey: 'whatsNew.v3630.title',
+ items: [
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3630.savedJobs.title',
+ descKey: 'whatsNew.v3630.savedJobs.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3630.savedNudge.title',
+ descKey: 'whatsNew.v3630.savedNudge.desc',
+ link: { tab: 'job-board' },
+ },
+ ],
+ },
  {
  version: '3.62.0',
  date: '2026-07-17',

@@ -1,0 +1,613 @@
+/**
+ * employerProfilePagesPlugin — evergreen employer-profile page per company at
+ * `/aziende/<slug>/` (+ `/en|/de|/fr` locale variants). Epic #4462 / sub #4464.
+ *
+ * WHY: navigational + transactional intent ("lavorare in <azienda>", "<azienda>
+ * stipendio", "<azienda> posizioni aperte") has no landing surface today —
+ * weeklyEmployers pages are weekly/volatile. These pages are the evergreen home
+ * for a company's active jobs, salary median, work locations and hiring trend,
+ * and the natural surface for the publisher-acquisition CTA (epic #4445).
+ *
+ * Source of truth: data/employer-profiles.json (scripts/build-employer-profiles.mjs)
+ * — corpus-derived FACTS only, no editorial judgement, no PII (brand-safety).
+ * The live active-job listings + JobPosting structured data come from the
+ * assembled corpus data/jobs.json (via loadJobsJson), grouped by the SAME
+ * canonicalCompanyProfileSlug the dataset uses (build-plugins/shared/
+ * companyProfileSlug.mjs — one definition, no slug drift).
+ *
+ * Contract (repo SSG rules): apply:'build', enforce:'post', emit in
+ * closeBundle(), pass distDir. Every page via buildSeoPageHtml (SPA shell +
+ * lite-shell hydration). JSON-LD JobPosting via the shared buildJobPostingSchema
+ * (guarantees AGENTS #3 mandatory fields). Sitemap written as
+ * dist/sitemap-employer-profiles.xml (sitemapAliasPlugin auto-discovers it).
+ *
+ * Floor: companies with >= MIN_ACTIVE_JOBS active postings get a full,
+ * indexable page. Companies in the bridge band get a noindex,follow bridge at
+ * the SAME URL (emitEmployerBelowFloorBridge) instead of a silent 404 — and
+ * build-plugins/searchConsoleCompat.ts self-maps every emitted slug (both
+ * bands) so a stale GSC 404 for a live /aziende/ URL stops being dropped.
+ *
+ * Namespace: distinct from publisherAdPagesPlugin (`/lavoro/<slug>/`) — no
+ * collision. Gate: SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exits local builds.
+ */
+import fs from 'node:fs';
+import np from 'node:path';
+import type { Plugin } from 'vite';
+import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { buildSeoPageHtml } from './shared/seoPageShell';
+import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
+import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
+import { inlineScriptJson } from './shared/inlineJsonScript';
+import { escHtml as esc } from './shared/htmlEscape';
+import { WriteCollector } from './batchWrite';
+import { loadJobsJson } from './shared/loadJobsJson';
+import { resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
+import { buildCurrentWeekPath } from './weeklyEmployersData';
+import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSectorLanding';
+import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
+import { MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
+
+const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+type Locale = (typeof LOCALES)[number];
+
+const OG_LOCALE: Record<Locale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
+
+/** IT is unprefixed (site convention); a single literal `/aziende/` segment for
+ * every locale (same approach as publisher's `/lavoro/`) keeps the router match,
+ * the hreflang set and the compat self-map trivial. */
+const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${locale}`);
+const profilePath = (locale: Locale, slug: string): string => `${localePrefix(locale)}/aziende/${slug}/`;
+
+/** Max active jobs listed (cards + structured data) per page — keeps HTML +
+ * JSON-LD within the page-weight budget; the full list lives on the hubs. */
+const MAX_JOBS_LISTED = 24;
+
+interface EmployerProfile {
+  slug: string;
+  name: string;
+  companyKey?: string | null;
+  sector?: string | null;
+  activeJobs: number;
+  cantons: Array<{ name: string; count: number }>;
+  cities: Array<{ name: string; count: number }>;
+  salaryMedianChf?: number | null;
+  salarySamples?: number;
+  trend?: { added: number; removed: number; net: number; windowDays: number } | null;
+}
+
+interface BelowFloorRecord {
+  slug: string;
+  name: string;
+  activeJobs: number;
+  sector?: string | null;
+  canton?: string | null;
+}
+
+interface EmployerDataset {
+  profiles?: EmployerProfile[];
+  belowFloor?: BelowFloorRecord[];
+}
+
+// ── Localized copy (factual; no per-company editorial judgement) ────────────
+
+const HOME_LABEL: Record<Locale, string> = { it: 'Home', en: 'Home', de: 'Startseite', fr: 'Accueil' };
+const HUB_LABEL: Record<Locale, string> = { it: 'Aziende', en: 'Companies', de: 'Unternehmen', fr: 'Entreprises' };
+
+const H1_PREFIX: Record<Locale, string> = {
+  it: 'Lavorare in', en: 'Working at', de: 'Arbeiten bei', fr: 'Travailler chez',
+};
+const OPEN_ROLES_LABEL: Record<Locale, string> = {
+  it: 'Posizioni aperte', en: 'Open positions', de: 'Offene Stellen', fr: 'Postes ouverts',
+};
+const MEDIAN_SALARY_LABEL: Record<Locale, string> = {
+  it: 'Stipendio mediano', en: 'Median salary', de: 'Median­gehalt', fr: 'Salaire médian',
+};
+const LOCATIONS_LABEL: Record<Locale, string> = {
+  it: 'Sedi', en: 'Locations', de: 'Standorte', fr: 'Sites',
+};
+const SECTOR_LABEL: Record<Locale, string> = {
+  it: 'Settore', en: 'Sector', de: 'Branche', fr: 'Secteur',
+};
+const NEW_ROLES_LABEL: Record<Locale, string> = {
+  it: 'Nuove offerte', en: 'New postings', de: 'Neue Stellen', fr: 'Nouvelles annonces',
+};
+const JOBS_HEADING: Record<Locale, string> = {
+  it: 'Offerte di lavoro attive', en: 'Active job openings', de: 'Aktive Stellenangebote', fr: 'Offres d’emploi actives',
+};
+const EXPLORE_HEADING: Record<Locale, string> = {
+  it: 'Esplora', en: 'Explore', de: 'Entdecken', fr: 'Explorer',
+};
+const WEEKLY_LINK_LABEL: Record<Locale, string> = {
+  it: 'Aziende che assumono questa settimana',
+  en: 'Employers hiring this week',
+  de: 'Arbeitgeber, die diese Woche einstellen',
+  fr: 'Employeurs qui recrutent cette semaine',
+};
+const ALL_JOBS_IN: Record<Locale, string> = {
+  it: 'Tutte le offerte in', en: 'All jobs in', de: 'Alle Stellen in', fr: 'Toutes les offres à',
+};
+const SECTOR_JOBS_LABEL: Record<Locale, string> = {
+  it: 'Offerte del settore', en: 'Jobs in sector', de: 'Stellen der Branche', fr: 'Offres du secteur',
+};
+const JOB_BOARD_LABEL: Record<Locale, string> = {
+  it: 'Bacheca offerte Ticino', en: 'Ticino job board', de: 'Stellenbörse Tessin', fr: 'Offres d’emploi Tessin',
+};
+const TITLE_SUFFIX: Record<Locale, string> = {
+  it: 'posizioni aperte e stipendi',
+  en: 'open positions and salaries',
+  de: 'offene Stellen und Gehälter',
+  fr: 'postes ouverts et salaires',
+};
+
+/** Format a CHF annual amount with Swiss grouping (e.g. "CHF 86’250"). */
+function fmtChf(v: number): string {
+  return `CHF ${Math.round(v).toLocaleString('de-CH')}`;
+}
+
+/** Canton-display: keep the 2-letter code (factual, locale-neutral). */
+function locationsSummary(profile: EmployerProfile): string {
+  const cityNames = profile.cities.slice(0, 3).map((c) => c.name);
+  if (cityNames.length > 0) return cityNames.join(', ');
+  return profile.cantons.slice(0, 3).map((c) => c.name).join(', ');
+}
+
+/** Sector string → sector-hub key when it maps to a real hub, else null. */
+function sectorHubKeyFor(sector: string | null | undefined): SectorHubKey | null {
+  if (!sector) return null;
+  const slug = canonicalCompanyProfileSlug(sector);
+  return (SECTOR_HUB_KEYS as readonly string[]).includes(slug) ? (slug as SectorHubKey) : null;
+}
+
+/** First parsable epoch ms across candidate date fields; -Infinity when none. */
+function firstDateMs(...candidates: Array<string | undefined | null>): number {
+  for (const c of candidates) {
+    if (!c) continue;
+    const t = Date.parse(String(c));
+    if (Number.isFinite(t)) return t;
+  }
+  return -Infinity;
+}
+
+interface CorpusJob {
+  slug?: string;
+  slugByLocale?: Partial<Record<string, string>>;
+  company?: string;
+  companyKey?: string;
+  title?: string;
+  titleByLocale?: Partial<Record<string, string>>;
+  location?: string;
+  addressLocality?: string;
+  canton?: string;
+  contract?: string;
+  employmentType?: string;
+  postedDate?: string;
+  datePosted?: string;
+  crawledAt?: string;
+  firstSeenAt?: string;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  salarySource?: 'reported' | 'existing' | 'estimated';
+  companyDomain?: string;
+  url?: string;
+  [k: string]: unknown;
+}
+
+function localizedJobSlug(job: CorpusJob, locale: Locale): string {
+  const byLocale = job.slugByLocale?.[locale];
+  if (byLocale && typeof byLocale === 'string' && byLocale.length > 0) return byLocale;
+  return String(job.slug || '');
+}
+
+/** On-site canonical job detail path (canton-aware section), locale-prefixed. */
+function jobDetailPath(job: CorpusJob, locale: Locale): string {
+  const slug = localizedJobSlug(job, locale);
+  if (!slug) return '';
+  const section = resolveCantonSection(locale, resolveJobCanton(job));
+  return `${localePrefix(locale)}/${section}/${slug}/`.replace(/\/+/g, '/');
+}
+
+/** Per-locale sentence builders for the intro prose — one map, shared assembly
+ * (no 4× duplicated filter/join). Templated FACTS only; the job cards + these
+ * sentences keep every locale's page well above MIN_INDEXABLE_WORDS. */
+interface ProseTemplate {
+  readonly intro: (name: string, n: number, where: string) => string;
+  readonly salary: (sal: string) => string;
+  readonly trend: (added: number, win: number) => string;
+  readonly outro: string;
+}
+const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
+  it: {
+    intro: (name, n, where) => `${name} ha attualmente ${n} posizioni aperte pubblicate su Frontaliere Ticino${where ? `, distribuite tra ${where}` : ''}.`,
+    salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
+    trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
+    outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
+  },
+  en: {
+    intro: (name, n, where) => `${name} currently has ${n} open positions published on Frontaliere Ticino${where ? `, across ${where}` : ''}.`,
+    salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
+    trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
+    outro: 'Browse the active roles below and apply directly on the employer’s own site.',
+  },
+  de: {
+    intro: (name, n, where) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino${where ? `, verteilt auf ${where}` : ''}.`,
+    salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
+    trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
+    outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
+  },
+  fr: {
+    intro: (name, n, where) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino${where ? `, répartis à ${where}` : ''}.`,
+    salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
+    trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
+    outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
+  },
+};
+
+/** Localized intro prose — templated FACTS only (word count keeps page >50). */
+function introProse(profile: EmployerProfile, locale: Locale): string {
+  const t = PROSE_TEMPLATES[locale];
+  const where = locationsSummary(profile);
+  const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
+  const added = profile.trend?.added ?? null;
+  const win = profile.trend?.windowDays ?? 30;
+  return [
+    t.intro(profile.name, profile.activeJobs, where),
+    sal ? t.salary(sal) : '',
+    added ? t.trend(added, win) : '',
+    t.outro,
+  ].filter(Boolean).join(' ');
+}
+
+function statTile(label: string, value: string): string {
+  return `<div class="rounded-xl border border-edge bg-surface-alt px-3.5 py-2.5"><div class="text-xs text-muted">${esc(label)}</div><div class="text-sm font-semibold text-strong">${value}</div></div>`;
+}
+
+function breadcrumbHtml(locale: Locale, name: string): string {
+  return `<nav aria-label="breadcrumb" class="text-[13px] text-muted mb-4">
+<a href="${localePrefix(locale) || '/'}" class="text-inherit">${esc(HOME_LABEL[locale])}</a> ·
+<span>${esc(HUB_LABEL[locale])}</span> ·
+<span>${esc(name)}</span>
+</nav>`;
+}
+
+/** Explore cross-links (weekly employers, canton board, sector hub, job board). */
+function exploreLinksHtml(profile: EmployerProfile, locale: Locale): string {
+  const primaryCanton = profile.cantons[0]?.name || 'TI';
+  const cantonSection = resolveCantonSection(locale, primaryCanton);
+  const cantonPath = `${localePrefix(locale)}/${cantonSection}/`.replace(/\/+/g, '/');
+  const sectorKey = sectorHubKeyFor(profile.sector);
+  const links: Array<{ href: string; label: string }> = [
+    { href: buildCurrentWeekPath(locale, 'ticino'), label: WEEKLY_LINK_LABEL[locale] },
+    { href: cantonPath, label: `${ALL_JOBS_IN[locale]} ${primaryCanton}` },
+  ];
+  if (sectorKey) {
+    links.push({ href: buildSectorHubPath(locale, sectorKey), label: `${SECTOR_JOBS_LABEL[locale]}: ${profile.sector}` });
+  }
+  links.push({ href: `${legacyTiSectionRoot(locale)}/`.replace(/\/+/g, '/'), label: JOB_BOARD_LABEL[locale] });
+  const items = links
+    .map((l) => `<li><a href="${esc(l.href)}" class="text-sm font-semibold text-link">${esc(l.label)} →</a></li>`)
+    .join('\n');
+  return `<section class="mt-8" aria-label="${esc(EXPLORE_HEADING[locale])}">
+<h2 class="text-base font-bold text-strong mb-3">${esc(EXPLORE_HEADING[locale])}</h2>
+<ul class="space-y-2 list-none p-0 m-0">
+${items}
+</ul>
+</section>`;
+}
+
+function renderProfileBody(
+  profile: EmployerProfile,
+  jobs: CorpusJob[],
+  locale: Locale,
+): string {
+  const name = profile.name;
+  const tiles = [
+    statTile(OPEN_ROLES_LABEL[locale], String(profile.activeJobs)),
+    profile.salaryMedianChf ? statTile(MEDIAN_SALARY_LABEL[locale], fmtChf(profile.salaryMedianChf)) : '',
+    statTile(LOCATIONS_LABEL[locale], esc(locationsSummary(profile)) || String(profile.cantons.length)),
+    profile.sector ? statTile(SECTOR_LABEL[locale], esc(profile.sector)) : '',
+    profile.trend?.added ? statTile(`${NEW_ROLES_LABEL[locale]} (${profile.trend.windowDays}g)`, `+${profile.trend.added}`) : '',
+  ].filter(Boolean).join('');
+
+  const cards = jobs
+    .map((job) => {
+      const href = jobDetailPath(job, locale);
+      if (!href) return '';
+      const cardJob: JobCardJob = {
+        title: job.title,
+        titleByLocale: job.titleByLocale,
+        company: job.company,
+        companyKey: job.companyKey,
+        location: job.location,
+        addressLocality: job.addressLocality,
+        canton: job.canton,
+        contract: job.contract,
+        postedDate: job.postedDate,
+        datePosted: job.datePosted,
+        salaryMin: job.salaryMin ?? null,
+        salaryMax: job.salaryMax ?? null,
+        salarySource: job.salarySource,
+        companyDomain: job.companyDomain,
+        url: job.url,
+      };
+      return renderJobCardHtml(cardJob, { href, locale });
+    })
+    .filter(Boolean)
+    .join('\n');
+
+  return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
+${breadcrumbHtml(locale, name)}
+<header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
+<h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(H1_PREFIX[locale])} ${esc(name)}</h1>
+<p class="text-[15px] text-muted m-0">${esc(introProse(profile, locale).split('. ')[0])}.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
+</header>
+<section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, locale))}</p></section>
+<section class="mb-2">
+<h2 class="text-lg font-bold text-strong mb-3">${esc(JOBS_HEADING[locale])} (${profile.activeJobs})</h2>
+${JOB_CARD_ICON_SYMBOLS}
+<div class="grid gap-3">
+${cards}
+</div>
+</section>
+${exploreLinksHtml(profile, locale)}
+${renderEmployerCtaBlock(locale, 'employer_profile')}
+</main>`;
+}
+
+/**
+ * Below-floor bridge — noindex,follow thin shell at the SAME /aziende/<slug>/
+ * URL for a company that fell below the indexable floor. Prevents a silent 404
+ * (AGENTS.md § Static SEO Pages) and channels crawl equity (follow) to the live
+ * canton / weekly-employers hubs. Paired with the searchConsoleCompat self-map.
+ */
+function emitEmployerBelowFloorBridge(rec: BelowFloorRecord, locale: Locale): string {
+  const canton = rec.canton || 'TI';
+  const cantonSection = resolveCantonSection(locale, canton);
+  const cantonPath = `${localePrefix(locale)}/${cantonSection}/`.replace(/\/+/g, '/');
+  const weekly = buildCurrentWeekPath(locale, 'ticino');
+  const jobBoard = `${legacyTiSectionRoot(locale)}/`.replace(/\/+/g, '/');
+  const lede: Record<Locale, string> = {
+    it: `${rec.name} ha attualmente ${rec.activeJobs} posizioni aperte. Esplora tutte le offerte in ${canton} e gli employer che assumono questa settimana.`,
+    en: `${rec.name} currently has ${rec.activeJobs} open positions. Explore all jobs in ${canton} and the employers hiring this week.`,
+    de: `${rec.name} hat aktuell ${rec.activeJobs} offene Stellen. Entdecken Sie alle Stellen in ${canton} und die Arbeitgeber, die diese Woche einstellen.`,
+    fr: `${rec.name} compte actuellement ${rec.activeJobs} postes ouverts. Explorez toutes les offres à ${canton} et les employeurs qui recrutent cette semaine.`,
+  };
+  return `<main class="seo-static-content max-w-[760px] mx-auto px-5 pt-8 pb-14 text-body">
+${breadcrumbHtml(locale, rec.name)}
+<h1 class="text-2xl font-bold text-strong mb-3">${esc(rec.name)}</h1>
+<p class="text-body mb-5">${esc(lede[locale])}</p>
+<ul class="space-y-2 list-none p-0 m-0">
+<li><a href="${esc(cantonPath)}" class="text-sm font-semibold text-link">${esc(ALL_JOBS_IN[locale])} ${esc(canton)} →</a></li>
+<li><a href="${esc(weekly)}" class="text-sm font-semibold text-link">${esc(WEEKLY_LINK_LABEL[locale])} →</a></li>
+<li><a href="${esc(jobBoard)}" class="text-sm font-semibold text-link">${esc(JOB_BOARD_LABEL[locale])} →</a></li>
+</ul>
+</main>`;
+}
+
+/** hreflang `<link>` set for a slug. `locales` restricts the alternates to the
+ * subset that is actually indexable so an index page never points an alternate
+ * at a noindex sibling (reviewer adversarial check, PR #4511). x-default → IT
+ * only when IT itself is in the set. */
+function hreflangFor(slug: string, locales: readonly Locale[] = LOCALES): string {
+  const lines = locales.map(
+    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${profilePath(alt, slug)}">`,
+  );
+  if (locales.includes('it')) {
+    lines.push(`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${profilePath('it', slug)}">`);
+  }
+  return lines.join('\n');
+}
+
+function breadcrumbLd(locale: Locale, slug: string, name: string): string {
+  return inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: `${BASE_URL}${localePrefix(locale)}/` },
+      { '@type': 'ListItem', position: 2, name: `${H1_PREFIX[locale]} ${name}`, item: `${BASE_URL}${profilePath(locale, slug)}` },
+    ],
+  });
+}
+
+export function employerProfilePagesPlugin(rootDir: string): Plugin {
+  return {
+    name: 'employer-profile-pages',
+    apply: 'build',
+    enforce: 'post',
+    async closeBundle() {
+      if (process.env.SKIP_EMPLOYER_PROFILE_PAGES === '1') {
+        console.log('\x1b[33m[employer-profile-pages]\x1b[0m Skipped (SKIP_EMPLOYER_PROFILE_PAGES=1)');
+        return;
+      }
+      const distDir = np.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
+
+      const dsPath = np.resolve(rootDir, 'data/employer-profiles.json');
+      if (!fs.existsSync(dsPath)) {
+        console.log('\x1b[33m[employer-profile-pages]\x1b[0m no employer-profiles.json — nothing to emit.');
+        return;
+      }
+      let dataset: EmployerDataset;
+      try {
+        dataset = JSON.parse(fs.readFileSync(dsPath, 'utf-8')) as EmployerDataset;
+      } catch (err) {
+        console.warn('\x1b[33m[employer-profile-pages]\x1b[0m dataset parse failed:', err);
+        return;
+      }
+      const profiles = dataset.profiles || [];
+      const belowFloor = dataset.belowFloor || [];
+      if (profiles.length === 0 && belowFloor.length === 0) {
+        console.log('\x1b[33m[employer-profile-pages]\x1b[0m empty dataset — nothing to emit.');
+        return;
+      }
+
+      // Group active jobs by the SAME canonical slug the dataset uses.
+      const jobs = loadJobsJson<CorpusJob>(rootDir);
+      const bySlug = new Map<string, CorpusJob[]>();
+      for (const job of jobs) {
+        const company = String(job.company || '').trim();
+        if (!company) continue;
+        const slug = canonicalCompanyProfileSlug(company, job.companyKey);
+        if (!slug) continue;
+        const arr = bySlug.get(slug);
+        if (arr) arr.push(job);
+        else bySlug.set(slug, [job]);
+      }
+
+      const dateStamp = new Date().toISOString().slice(0, 10);
+      const collector = new WriteCollector({ distDir, pluginName: 'employerProfilePagesPlugin' });
+      const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
+      let profilePages = 0;
+      let bridgePages = 0;
+      let thinDowngraded = 0;
+
+      for (const profile of profiles) {
+        const slug = profile.slug;
+        if (!slug) continue;
+        const group = (bySlug.get(slug) || [])
+          .slice()
+          .sort((a, b) =>
+            firstDateMs(b.postedDate, b.datePosted, b.crawledAt, b.firstSeenAt) -
+            firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
+          );
+        const listed = group.slice(0, MAX_JOBS_LISTED);
+        // Display the LIVE active count (corpus at build time) rather than the
+        // committed snapshot, and gate indexability on it — so a dataset that
+        // has drifted below the floor since it was generated auto-downgrades to
+        // noindex instead of shipping a thin/empty indexable page.
+        const liveActive = group.length;
+        const liveProfile: EmployerProfile = { ...profile, activeJobs: liveActive };
+
+        // Pre-pass: render each locale's body once and decide indexability, so
+        // the hreflang/alternate set lists ONLY indexable locales — an index
+        // page never points an alternate at a noindex sibling (reviewer
+        // adversarial check). Rendering is reused in the emit loop below.
+        const rendered = LOCALES.map((locale) => {
+          const bodyHtml = renderProfileBody(liveProfile, listed, locale);
+          const indexable = liveActive >= MIN_ACTIVE_JOBS && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          return { locale, bodyHtml, indexable };
+        });
+        const indexableLocales = rendered.filter((r) => r.indexable).map((r) => r.locale);
+        const hreflangHtml = hreflangFor(slug, indexableLocales);
+        const alternates = [
+          ...indexableLocales.map((alt) => `${alt}|${BASE_URL}${profilePath(alt, slug)}`),
+          ...(indexableLocales.includes('it') ? [`x-default|${BASE_URL}${profilePath('it', slug)}`] : []),
+        ];
+
+        for (const { locale, bodyHtml, indexable } of rendered) {
+          const urlPath = profilePath(locale, slug);
+          const canonicalUrl = `${BASE_URL}${urlPath}`;
+
+          // JobPosting ItemList (supplementary list-page signal; the
+          // authoritative per-job JobPosting lives on each linked detail page).
+          const itemListElements = listed
+            .map((job) => {
+              // Same guard as the job cards (renderProfileBody): a job whose
+              // slug is missing has no detail page — without this skip, jobUrl
+              // would collapse to the bare BASE_URL and the JobPosting in the
+              // ItemList would point at the homepage (reviewer 🔴, PR #4511).
+              const detail = jobDetailPath(job, locale);
+              if (!detail) return null;
+              const posting = buildListItemJobPosting(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
+              return posting ?? null;
+            })
+            .filter((p): p is Record<string, unknown> => p !== null)
+            .map((posting, idx) => ({ '@type': 'ListItem', position: idx + 1, item: posting }));
+          const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name)];
+          if (itemListElements.length > 0) {
+            jsonLdScripts.push(inlineScriptJson({
+              '@context': 'https://schema.org',
+              '@type': 'ItemList',
+              name: `${H1_PREFIX[locale]} ${profile.name}`,
+              numberOfItems: itemListElements.length,
+              itemListElement: itemListElements,
+            }));
+          }
+
+          if (!indexable) thinDowngraded++;
+
+          // End-of-content multiplex — gated on `indexable`, so below-floor /
+          // thin profiles (noindex) never carry a manual slot (MFA-safety).
+          const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
+
+          const html = buildSeoPageHtml({
+            locale,
+            title: `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
+            description: introProse(liveProfile, locale).slice(0, 160),
+            canonicalUrl,
+            robots: indexable ? 'index,follow' : 'noindex,follow',
+            ogType: 'website',
+            ogLocale: OG_LOCALE[locale],
+            hreflangHtml,
+            jsonLdScripts,
+            bodyHtml: bodyWithAd,
+            distDir,
+            skipMainWrap: true,
+          });
+
+          collector.add(np.join(distDir, urlPath, 'index.html'), html);
+          collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
+          profilePages++;
+
+          if (locale === 'it' && indexable) {
+            sitemapEntries.push({ canonical: urlPath, alternates });
+          }
+        }
+      }
+
+      for (const rec of belowFloor) {
+        const slug = rec.slug;
+        if (!slug) continue;
+        const hreflangHtml = hreflangFor(slug);
+        for (const locale of LOCALES) {
+          const urlPath = profilePath(locale, slug);
+          const canonicalUrl = `${BASE_URL}${urlPath}`;
+          const bodyHtml = emitEmployerBelowFloorBridge(rec, locale);
+          const html = buildSeoPageHtml({
+            locale,
+            title: `${H1_PREFIX[locale]} ${rec.name}`,
+            description: `${rec.name} — ${rec.activeJobs} ${OPEN_ROLES_LABEL[locale].toLowerCase()}.`,
+            canonicalUrl,
+            robots: 'noindex,follow',
+            ogType: 'website',
+            ogLocale: OG_LOCALE[locale],
+            hreflangHtml,
+            jsonLdScripts: [breadcrumbLd(locale, slug, rec.name)],
+            bodyHtml,
+            distDir,
+            skipMainWrap: true,
+          });
+          collector.add(np.join(distDir, urlPath, 'index.html'), html);
+          collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
+          bridgePages++;
+        }
+      }
+
+      if (sitemapEntries.length > 0) {
+        try {
+          const urls = sitemapEntries
+            .map(({ canonical, alternates }) => {
+              const alts = alternates
+                .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.split('|')[0]}" href="${a.split('|').slice(1).join('|')}" />`)
+                .join('\n');
+              return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+            })
+            .join('\n');
+          const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
+          fs.writeFileSync(np.join(distDir, 'sitemap-employer-profiles.xml'), xml, 'utf-8');
+        } catch (err) {
+          console.warn('\x1b[33m[employer-profile-pages]\x1b[0m sitemap write failed:', err);
+        }
+      }
+
+      const written = await collector.flush();
+      console.log(
+        `\x1b[36m[employer-profile-pages]\x1b[0m ${profiles.length} profiles + ${belowFloor.length} below-floor → ` +
+        `${profilePages} profile pages (${thinDowngraded} noindex-thin) + ${bridgePages} bridge pages ` +
+        `— flushed ${written} files.`,
+      );
+    },
+  };
+}

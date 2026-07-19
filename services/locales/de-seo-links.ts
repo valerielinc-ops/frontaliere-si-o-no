@@ -11,6 +11,10 @@ const deSeoLinks: Record<string, string> = {
   'seoLinks.footer.gasolineToday': 'Benzinpreis heute',
   'seoLinks.footer.healthPremiumsByCommune': 'Krankenkassenprämien pro Gemeinde',
 
+  // Employer acquisition CTA (footer, issue #4446) — benefit-first copy.
+  'seoLinks.footer.employerCta': 'Sie stellen ein? Veröffentlichen Sie Ihre Stellenanzeige',
+  'seoLinks.footer.telegram': 'Telegram-Kanal',
+
   // Footer weekly-employers teaser (closes ~4.5k orphan sitemap entries)
   'seoLinks.footer.weeklyEmployersTeaser.title': 'Arbeitgeber, die diese Woche einstellen',
 

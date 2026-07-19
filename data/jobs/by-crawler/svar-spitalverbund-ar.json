@@ -1,6 +1,6 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-07-18T10:26:22.943Z",
+  "assembledAt": "2026-07-19T10:42:43.529Z",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-9125a13a92c1",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034276",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:19.785Z",
+      "crawledAt": "2026-07-19T10:42:40.814Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034268",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:19.056Z",
+      "crawledAt": "2026-07-19T10:42:40.201Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://live.solique.ch/svar/job/details/4034092",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:18.288Z",
+      "crawledAt": "2026-07-19T10:42:39.484Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       "url": "https://live.solique.ch/svar/job/details/4033946",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:17.559Z",
+      "crawledAt": "2026-07-19T10:42:38.807Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -351,7 +351,7 @@
       "url": "https://live.solique.ch/svar/job/details/4033748",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:16.818Z",
+      "crawledAt": "2026-07-19T10:42:38.146Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://live.solique.ch/svar/job/details/4036694",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:16.051Z",
+      "crawledAt": "2026-07-19T10:42:37.280Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       "url": "https://live.solique.ch/svar/job/details/4038067",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:15.349Z",
+      "crawledAt": "2026-07-19T10:42:36.624Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -597,7 +597,7 @@
       "url": "https://live.solique.ch/svar/job/details/4038871",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:14.659Z",
+      "crawledAt": "2026-07-19T10:42:35.863Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -653,9 +653,9 @@
       "id": "svar-spitalverbund-ar-f0147bfa5b80",
       "slug": "nds-anesthesia-care-training-centre-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "de": "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
         "it": "nds-anesthesia-care-training-centre-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "en": "nds-anesthesia-care-training-centre-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
         "fr": "centre-de-formation-sur-l-anesthesie-des-snd-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
@@ -663,24 +663,25 @@
       "companyDomain": "svar.ch",
       "title": "Weiterbildungsstelle NDS Anästhesiepflege (m/w/d)",
       "titleByLocale": {
-        "de": "Weiterbildungsstelle NDS Anästhesiepflege (m/w/d)",
         "it": "NDS Anesthesia Care Training Centre (m/f/d)",
         "en": "NDS Anesthesia Care Training Centre (m/f/d)",
+        "de": "Weiterbildungsstelle NDS Anästhesiepflege (m/w/d)",
         "fr": "Centre de formation sur l ' anesthésie des SND (m/f/d)"
       },
       "description": "Ihre Aufgaben\n• Sach- und fachkompetente Vorbereitung und Durchführung aller Massnahmen in Absprache und unter Verantwortung eines Anästhesisten zur Führung einer sicheren und korrekten Anästhesie\n• Mithilfe bei der OP Patientenlagerung\n• Durchführung und Einhaltung aller Hygienemassnahmen\n• Durchführung aller Massnahmen um einen reibungslosen Anästhesiebetrieb im Tages – und Notfallprogramm sicherzustellen – inklusive Logistik und Materialaufbereitung\n• Kompetente Durchführung von lebensrettenden Sofortmassnahmen\n• Korrekter, verständlicher Übergaberapport an die nachbetreuenden Fachpersonen\n• Eigenverantwortlich sich das benötige Fachwissen aneignen\n• Weiterleiten und Einholen aller relevanten Informationen zur Sicherstellung eines reibungslosen OP Betriebs\n• Mitverantwortlich für betriebswirtschaftliches Denken und Handeln (inklusive Personal – und Materialplanung)\n• Förderung der konstruktiven Kommunikation im und ausserhalb des OP-Bereichs\n• Korrekte, vollständige und leserliche Dokumentation aller Tätigkeiten entsprechend den internen und rechtlichen Vorgaben und zur Sicherstellung eines effizienten Betriebes.\n• Aktiver Einsatz für ein gutes Arbeitsklima durch Förderung des gegenseitigen Verständnisses und der Wertschätzung und durch bei Bedarf durch Unterstützung\n\nIhr Profil\n• Erfolgreiche Grundausbildung als Dipl. Pflegefachfrau HF/FH, als Dipl. Pflegefachmann HF/FH oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger\n• Für die Weiterbildung sind Berufserfahrung von 6 Monaten zwingende Grundvoraussetzung\n• Sie sind eine aufgestellte und teamorientierte Persönlichkeit mit hoher Flexibilität und Belastbarkeit\n• Interesse am Themenfeld Anästhesie und Lust, sich in diesem Feld weiterzubilden\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
       "descriptionByLocale": {
-        "de": "Ihre Aufgaben\n• Sach- und fachkompetente Vorbereitung und Durchführung aller Massnahmen in Absprache und unter Verantwortung eines Anästhesisten zur Führung einer sicheren und korrekten Anästhesie\n• Mithilfe bei der OP Patientenlagerung\n• Durchführung und Einhaltung aller Hygienemassnahmen\n• Durchführung aller Massnahmen um einen reibungslosen Anästhesiebetrieb im Tages – und Notfallprogramm sicherzustellen – inklusive Logistik und Materialaufbereitung\n• Kompetente Durchführung von lebensrettenden Sofortmassnahmen\n• Korrekter, verständlicher Übergaberapport an die nachbetreuenden Fachpersonen\n• Eigenverantwortlich sich das benötige Fachwissen aneignen\n• Weiterleiten und Einholen aller relevanten Informationen zur Sicherstellung eines reibungslosen OP Betriebs\n• Mitverantwortlich für betriebswirtschaftliches Denken und Handeln (inklusive Personal – und Materialplanung)\n• Förderung der konstruktiven Kommunikation im und ausserhalb des OP-Bereichs\n• Korrekte, vollständige und leserliche Dokumentation aller Tätigkeiten entsprechend den internen und rechtlichen Vorgaben und zur Sicherstellung eines effizienten Betriebes.\n• Aktiver Einsatz für ein gutes Arbeitsklima durch Förderung des gegenseitigen Verständnisses und der Wertschätzung und durch bei Bedarf durch Unterstützung\n\nIhr Profil\n• Erfolgreiche Grundausbildung als Dipl. Pflegefachfrau HF/FH, als Dipl. Pflegefachmann HF/FH oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger\n• Für die Weiterbildung sind Berufserfahrung von 6 Monaten zwingende Grundvoraussetzung\n• Sie sind eine aufgestellte und teamorientierte Persönlichkeit mit hoher Flexibilität und Belastbarkeit\n• Interesse am Themenfeld Anästhesie und Lust, sich in diesem Feld weiterzubilden\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
         "it": "I loro compiti\n• Competente e competente preparazione e attuazione di tutte le misure in consultazione e sotto la responsabilità di un anestesista di condurre un'anestesia sicura e corretta\n• Assistenza nella chirurgia di stoccaggio dei pazienti\n• Attuazione e conformità a tutte le misure igieniche\n• Attuazione di tutte le misure per garantire l'operazione di anestesia liscia durante il giorno – e programma di emergenza – tra cui logistica e lavorazione dei materiali\n• Attuazione completa delle misure di salvataggio immediate\n• Rapporto di trasferimento corretto e comprensibile agli specialisti del follow-up\n• Acquisizione autonoma della necessaria competenza\n• Inoltrare e ottenere tutte le informazioni pertinenti per garantire un funzionamento regolare\n• Co-responsabile del pensiero e dell'azione aziendale (compresa la pianificazione del personale e dei materiali)\n• Promuovere la comunicazione costruttiva dentro e fuori la sala operatoria\n• Documentazione corretta, completa e leggibile di tutte le attività in conformità con i requisiti interni e legali e per garantire un funzionamento efficiente.\n• Impegno attivo ad un buon ambiente di lavoro promuovendo la comprensione e l'apprezzamento reciproci e fornendo sostegno laddove necessario\n\nIl tuo profilo\n• Formazione di base di successo come Dipl. Specialista in allattamento HF/FH, come Dipl. Specialista infermieristico HF/FH o come salute e infermiera, come salute e infermiera\n• Esperienza professionale di 6 mesi è obbligatorio requisito di base per l'ulteriore istruzione\n• Sei una personalità consolidata e orientata al team con elevata flessibilità e resilienza\n• Interessato nel campo dell'anestesia e desiderio di formare ulteriormente in questo campo\n\nInoltre, si beneficia di\n\nIngresso: 1 gennaio 2027",
         "en": "Their tasks\n• Competent and competent preparation and implementation of all measures in consultation and under the responsibility of an anesthesiologist to conduct a safe and correct anesthesia\n• Assistance in patient storage surgery\n• Implementation and compliance with all hygiene measures\n• Implementation of all measures to ensure smooth anesthesia operation during the day – and emergency program – including logistics and material processing\n• Competent implementation of immediate life-saving measures\n• Correct, comprehensible transfer report to the follow-up specialists\n• Self-responsible acquisition of the necessary expertise\n• Forwarding and obtaining all relevant information to ensure smooth operation\n• Co-responsible for business thinking and action (including personnel and material planning)\n• Promoting constructive communication in and outside the operating room\n• Correct, complete and legible documentation of all activities in accordance with internal and legal requirements and to ensure efficient operation.\n• Active commitment to a good working environment by promoting mutual understanding and appreciation and by providing support where necessary\n\nYour profile\n• Successful basic training as a Dipl. Nursing specialist HF/FH, as Dipl. Nursing specialist HF/FH or as a health and nurse, as a health and nurse\n• Professional experience of 6 months is mandatory basic requirement for further education\n• You are an established and team-oriented personality with high flexibility and resilience\n• Interested in the field of anesthesia and desire to further train in this field\n\nIn addition, you benefit from\n\nEntrance: January 1, 2027",
+        "de": "Ihre Aufgaben\n• Sach- und fachkompetente Vorbereitung und Durchführung aller Massnahmen in Absprache und unter Verantwortung eines Anästhesisten zur Führung einer sicheren und korrekten Anästhesie\n• Mithilfe bei der OP Patientenlagerung\n• Durchführung und Einhaltung aller Hygienemassnahmen\n• Durchführung aller Massnahmen um einen reibungslosen Anästhesiebetrieb im Tages – und Notfallprogramm sicherzustellen – inklusive Logistik und Materialaufbereitung\n• Kompetente Durchführung von lebensrettenden Sofortmassnahmen\n• Korrekter, verständlicher Übergaberapport an die nachbetreuenden Fachpersonen\n• Eigenverantwortlich sich das benötige Fachwissen aneignen\n• Weiterleiten und Einholen aller relevanten Informationen zur Sicherstellung eines reibungslosen OP Betriebs\n• Mitverantwortlich für betriebswirtschaftliches Denken und Handeln (inklusive Personal – und Materialplanung)\n• Förderung der konstruktiven Kommunikation im und ausserhalb des OP-Bereichs\n• Korrekte, vollständige und leserliche Dokumentation aller Tätigkeiten entsprechend den internen und rechtlichen Vorgaben und zur Sicherstellung eines effizienten Betriebes.\n• Aktiver Einsatz für ein gutes Arbeitsklima durch Förderung des gegenseitigen Verständnisses und der Wertschätzung und durch bei Bedarf durch Unterstützung\n\nIhr Profil\n• Erfolgreiche Grundausbildung als Dipl. Pflegefachfrau HF/FH, als Dipl. Pflegefachmann HF/FH oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger\n• Für die Weiterbildung sind Berufserfahrung von 6 Monaten zwingende Grundvoraussetzung\n• Sie sind eine aufgestellte und teamorientierte Persönlichkeit mit hoher Flexibilität und Belastbarkeit\n• Interesse am Themenfeld Anästhesie und Lust, sich in diesem Feld weiterzubilden\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2027",
         "fr": "Leurs tâches\n• Préparation et mise en œuvre compétentes et compétentes de toutes les mesures en consultation et sous la responsabilité d'un anesthésiste pour effectuer une anesthésie sûre et correcte\n• Assistance en chirurgie de stockage des patients\n• Mise en œuvre et respect de toutes les mesures d'hygiène\n• Mise en œuvre de toutes les mesures pour assurer une anesthésie en douceur pendant la journée – et programme d'urgence – y compris la logistique et le traitement des matériaux\n• Mise en œuvre efficace de mesures immédiates de sauvetage\n• Rapport de transfert correct et compréhensible aux spécialistes du suivi\n• Auto-responsable acquisition de l'expertise nécessaire\n• Transmission et obtention de toutes les informations pertinentes pour assurer le bon fonctionnement\n• Co-responsable de la réflexion et de l'action des entreprises (y compris la planification du personnel et du matériel)\n• Promouvoir une communication constructive à l'intérieur et à l'extérieur de la salle d'opération\n• Une documentation correcte, complète et lisible de toutes les activités conformément aux exigences internes et légales et pour assurer un fonctionnement efficace.\n• Engagement actif en faveur d'un bon environnement de travail en favorisant la compréhension et l'appréciation mutuelles et en apportant un soutien, le cas échéant\n\nVotre profil\n• Une formation de base réussie comme dipl. Spécialiste des soins infirmiers HF/FH, comme Dipl. Spécialiste des soins infirmiers HF/FH ou en tant qu'infirmière et infirmière, en tant que infirmière et infirmière\n• Une expérience professionnelle de 6 mois est une exigence de base obligatoire pour poursuivre des études\n• Vous êtes une personnalité établie et orientée équipe avec une grande flexibilité et résilience\n• Intéressant dans le domaine de l'anesthésie et le désir de poursuivre la formation dans ce domaine\n\nEn outre, vous bénéficiez\n\nEntrée : 1er janvier 2027"
       },
+      "needsRetranslation": false,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4040204",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-17T21:54:42.008Z",
+      "crawledAt": "2026-07-19T10:42:35.181Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -696,10 +697,40 @@
       "postedDate": "2026-07-17",
       "applyUrl": "https://live.solique.ch/svar/job/details/4040204",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4040204",
+      "previousSlugs": [
+        "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
+        "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
+        "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "nds-anesthesia-care-training-centre-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
+          "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
+          "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "nds-anesthesia-care-training-centre-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "de": [
+          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
+          "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-07-17T21:54:42.008Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -711,36 +742,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-17T21:54:42.008Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
-          "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-          "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "fr": [
-          "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
-          "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "de": [
-          "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "previousSlugs": [
-        "weiterbildungsstelle-nds-anasthesiepflege-m-w-d-svar-spitalverbund-ar-herisau",
-        "infermiera-in-addestramento-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "nurse-in-training-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-        "infirmiere-en-formation-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "pflegefachfrau-mann-hf-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ]
+      }
     },
     {
       "id": "svar-spitalverbund-ar-fc0ad0881193",
@@ -774,7 +776,7 @@
       "url": "https://live.solique.ch/svar/job/details/4040146",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:13.099Z",
+      "crawledAt": "2026-07-19T10:42:34.388Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -820,169 +822,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "svar-spitalverbund-ar-876f84fa3eab",
-      "slug": "dipl-pflegefachperson-hf-fh-per-bettenstation-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-per-bettenstation-chirurgie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-nurse-hf-fh-for-bed-station-surgery-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar",
-        "fr": "dipl-infirmiere-hf-fh-pour-chirurgie-au-lit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF/FH für Bettenstation Chirurgie (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF/FH per Bettenstation Chirurgie (m/w/d)",
-        "en": "Dipl. Nurse HF/FH for bed station surgery (m/f/d)",
-        "de": "Dipl. Pflegefachperson HF/FH für Bettenstation Chirurgie (m/w/d)",
-        "fr": "Dipl. Infirmière HF/FH pour chirurgie au lit (m/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Chirurgie\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDeshalb wollen wir Sie\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n• Weiteren attraktiven Benefits\n\nEintritt: 01. Juni 2026",
-      "descriptionByLocale": {
-        "it": "Attività interessanti\n• Cura e cura dei pazienti interdisciplinari con particolare attenzione alla chirurgia\n• Partecipazione a visite mediche\n• Documentazione di manutenzione elettronica\n• Contributo a una cooperazione apprezzativa, rispettosa, interdisciplinare e interprofessionale\n• Partecipazione attiva a progetti, gruppi di lavoro e processi di cambiamento\n• Essi partecipano al sostegno pratico degli studenti nelle varie fasi di formazione\n\nEcco perché vogliamo\n• Hai una laurea di successo come Dipl. Infermiera, come dipl. Infermieristica professionale a livello HF o FH o sono salute e infermieri, salute e infermieri\n• Molto buona conoscenza del tedesco in parola e la scrittura è obbligatoria per questo lavoro\n• L'esperienza nel campo acuto è auspicabile ma non un prerequisito\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n• Ulteriori vantaggi\n\nIngresso: 01. giugno 2026",
-        "en": "Attractive tasks\n• Care and care for interdisciplinary patients with a focus on surgery\n• Participation in medical visits\n• Electronic maintenance documentation\n• Contribution to an appreciative, respectful, interdisciplinary and interprofessional cooperation\n• Active participation in projects, working groups and change processes\n• They participate in the practical support of learners in the various training stages\n\nThat is why we want to\n• You have a successful degree as a Dipl. Nurse, as a dipl. Nursing professional at level HF or FH or are health and nurses, health and nurses\n• Very good knowledge of German in word and writing is mandatory for this job\n• Experience in the acute field is desirable but not a prerequisite\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n• Further attractive benefits\n\nAdmission: 01. June 2026",
-        "de": "Attraktive Aufgaben\n• Pflegen und betreuen der interdisziplinären Patienten mit Fokus auf Chirurgie\n• Teilnahme an ärztlichen Visiten\n• Elektronische Pflegedokumentation\n• Beitrag zu einer wertschätzenden, respektvollen, interdisziplinären und interprofessionellen Zusammenarbeit\n• Aktive Mitarbeit in Projekten, Arbeitsgruppen und Veränderungsprozessen\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nDeshalb wollen wir Sie\n• Sie haben einen erfolgreichen Abschluss als Dipl. Pflegefachfrau, als Dipl. Pflegefachmann auf Stufe HF oder FH oder sind Gesundheits- und Krankenpflegerin, Gesundheits- und Krankenpfleger\n• Sehr gute Deutschkenntnisse in Wort und Schrift ist für diese Stelle zwingend\n• Erfahrung im Akutbereich ist wünschenswert aber nicht Voraussetzung\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n• Weiteren attraktiven Benefits\n\nEintritt: 01. Juni 2026",
-        "fr": "Tâches attrayantes\n• Soins et soins aux patients interdisciplinaires axés sur la chirurgie\n• Participation aux visites médicales\n• Documentation électronique de maintenance\n• Contribution à une coopération reconnaissante, respectueuse, interdisciplinaire et interprofessionnelle\n• Participation active aux projets, aux groupes de travail et aux processus de changement\n• Ils participent au soutien pratique des apprenants aux différentes étapes de la formation\n\nC'est pourquoi nous voulons\n• Vous avez un diplôme réussi en tant que Dipl. Infirmière. Professionnels des soins infirmiers de niveau HF ou FH ou sont en santé et infirmiers, en santé et infirmiers\n• Très bonne connaissance de l'allemand en paroles et en écriture est obligatoire pour ce travail\n• L'expérience dans le domaine aigu est souhaitable mais pas une condition préalable\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de façon sûre et constructive\n\nEn outre, vous bénéficiez\n• Autres avantages intéressants\n\nEntrée : 01 juin 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4034096",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T10:54:08.070Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4034096",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4034096",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar",
-        "akutstation-dipl-pflegefachperson-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "psichiatria-generale-dipl-cura-professionale-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "general-psychiatry-dipl-care-professional-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "allgemeinpsychiatrie-dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "psychiatrie-generale-dipl-professionnel-de-soins-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-fur-bettenstation-chirurgie-m-w-d-svar-spitalverbund-ar"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T10:45:05.897Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "svar-spitalverbund-ar-8fc11b3e01b7",
-      "slug": "dipl-fachperson-per-medizinisch-technische-radiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-fachperson-per-medizinisch-technische-radiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-specialist-in-medical-technical-radiology-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "specialiste-en-radiologie-medicale-et-technique-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Fachperson für Medizinisch-Technische Radiologie (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Fachperson per Medizinisch-Technische Radiologie (m/w/d)",
-        "en": "Dipl. Specialist in Medical-Technical Radiology (m/f/d)",
-        "de": "Dipl. Fachperson für Medizinisch-Technische Radiologie (m/w/d)",
-        "fr": "Dipl. Fachperson für Medizinisch-Technische Radiologie (m/w/d)"
-      },
-      "description": "Attraktive Aufgaben\n• Selbständige Organisation und fachkompetente Durchführung sämtlicher von den Ärzten verordneten radiologischen Untersuchungen in enger interdisziplinärer Zusammenarbeit\n• Durchführung des gesamten Untersuchungsspektrums am CT, konventionellen Röntgen, Durchleuchtung, MR, Angiographie und digitalen Mammographie\n• Sicherstellung des Bereitschaftsdienstes gemäss den betrieblichen Vorgaben\n• Mithilfe bei der Einarbeitung neuer Mitarbeitenden und Mitbetreuung der MPA-Lehrlinge\n\nDeshalb wollen wir Sie\n• Abgeschlossene Ausbildung/Studium zur Diplomierten Radiologiefachfrau oder zum Diplomierten Radiologiefachmann (MTRA) oder über eine ähnliche Ausbildung\n• Fundierte Kenntnisse in der Schnittbildtechnik wäre wünschenswert\n• Hohe Selbständigkeit und Sozialkompetenz gepaart mit einem guten technischen Verständnis\n• Sichere Deutschkenntnisse in Wort und Schrift\n• Mitarbeit in Wochenend- und Nachtdiensten\n• Offene und patientenorientierte Grundhaltung mit humorvollem Umgang\n\nZusätzlich profitieren Sie von\n• Weiteren attraktiven Benefits\n\nEintritt: 01. Juni 2026",
-      "descriptionByLocale": {
-        "it": "Attività interessanti\n• Organizzazione indipendente e esecuzione competente di tutti gli esami radiologici prescritti dai medici in stretta cooperazione interdisciplinare\n• Performazione dell'intero spettro di esame a CT, raggi X convenzionali, fluoroscopia, MR, angiografia e mammografia digitale\n• Garantire il servizio on-call in conformità ai requisiti operativi\n• Assistenza nell'induzione di nuovi dipendenti e sostegno di apprendisti MPA\n\nEcco perché vogliamo\n• Formazione completa/studio come specialista di radiologia qualificata (MTRA) o un'educazione simile\n• La conoscenza del suono della tecnologia di immagine sezionale sarebbe auspicabile\n• Alto grado di indipendenza e competenza sociale combinato con una buona comprensione tecnica\n• Conoscenza sicura del tedesco in parola e scrittura\n• Cooperazione nel fine settimana e nei servizi notturni\n• Atteggiamento aperto e orientato al paziente con manipolazione umoristica\n\nInoltre, si beneficia di\n• Ulteriori vantaggi\n\nIngresso: 01. giugno 2026",
-        "en": "Attractive tasks\n• Independent organisation and competent implementation of all radiological examinations prescribed by doctors in close interdisciplinary cooperation\n• Performation of the entire examination spectrum at CT, conventional X-ray, fluoroscopy, MR, angiography and digital mammography\n• Ensuring on-call service in accordance with operational requirements\n• Assistance in the induction of new employees and support of MPA apprentices\n\nThat is why we want to\n• Completed education/study as a qualified radiology specialist (MTRA) or a similar education\n• Sound knowledge of sectional image technology would be desirable\n• High degree of independence and social competence combined with a good technical understanding\n• Safe knowledge of German in word and writing\n• Cooperation in weekend and night services\n• Open and patient-oriented attitude with humorous handling\n\nIn addition, you benefit from\n• Further attractive benefits\n\nAdmission: 01. June 2026",
-        "de": "Attraktive Aufgaben\n• Selbständige Organisation und fachkompetente Durchführung sämtlicher von den Ärzten verordneten radiologischen Untersuchungen in enger interdisziplinärer Zusammenarbeit\n• Durchführung des gesamten Untersuchungsspektrums am CT, konventionellen Röntgen, Durchleuchtung, MR, Angiographie und digitalen Mammographie\n• Sicherstellung des Bereitschaftsdienstes gemäss den betrieblichen Vorgaben\n• Mithilfe bei der Einarbeitung neuer Mitarbeitenden und Mitbetreuung der MPA-Lehrlinge\n\nDeshalb wollen wir Sie\n• Abgeschlossene Ausbildung/Studium zur Diplomierten Radiologiefachfrau oder zum Diplomierten Radiologiefachmann (MTRA) oder über eine ähnliche Ausbildung\n• Fundierte Kenntnisse in der Schnittbildtechnik wäre wünschenswert\n• Hohe Selbständigkeit und Sozialkompetenz gepaart mit einem guten technischen Verständnis\n• Sichere Deutschkenntnisse in Wort und Schrift\n• Mitarbeit in Wochenend- und Nachtdiensten\n• Offene und patientenorientierte Grundhaltung mit humorvollem Umgang\n\nZusätzlich profitieren Sie von\n• Weiteren attraktiven Benefits\n\nEintritt: 01. Juni 2026",
-        "fr": "Tâches attrayantes\n• Organisation indépendante et mise en œuvre compétente de tous les examens radiologiques prescrits par les médecins en étroite coopération interdisciplinaire\n• Réalisation de l'ensemble du spectre d'examen au CT, aux rayons X conventionnels, à la fluoroscopie, au MR, à l'angiographie et à la mammographie numérique\n• Assurer le service sur appel conformément aux exigences opérationnelles\n• Aide à l'embauche de nouveaux employés et soutien aux apprentis de la MPA\n\nC'est pourquoi nous voulons\n• Études complétées en tant que spécialiste de radiologie qualifié (MTRA) ou enseignement similaire\n• Une bonne connaissance de la technologie d'image sectionnelle serait souhaitable\n• Haute indépendance et compétence sociale associées à une bonne compréhension technique\n• Connaissance de l'allemand en paroles et en écriture\n• Coopération dans les services de week-end et de nuit\n• Une attitude ouverte et axée sur le patient avec une manipulation humoristique\n\nEn outre, vous bénéficiez\n• Autres avantages intéressants\n\nEntrée : 01 juin 2026"
-      },
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4034260",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T10:54:07.401Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4034260",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4034260",
-      "previousSlugs": [
-        "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "en": [
-          "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "dipl-fachperson-fur-medizinisch-technische-radiologie-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T10:45:04.622Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
     }
   ]
 }

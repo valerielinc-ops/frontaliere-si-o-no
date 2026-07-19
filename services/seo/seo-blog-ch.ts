@@ -15774,6 +15774,591 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coronavirus-frontalieri-svizzera': {
+    title: 'Coronavirus: lavoro in Svizzera solo con permesso \'G\'',
+    description: 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, coronavirus, lavoro, solo, permesso',
+    ogTitle: 'Coronavirus: Frontalieri, il consigliere Vitta: "In Svizzera solo per lavoro e col permesso \'G\'".',
+    ogDescription: 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.',
+    canonicalPath: '/articoli-svizzera/coronavirus-frontalieri-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coronavirus: lavoro in Svizzera solo con permesso 'G'",
+      "description": "Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontaliere potranno andare al lavoro in Svizzera nonostante la chiusura della Lombardia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/coronavirus-frontalieri-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratore frontaliere che attraversa il confine Svizzera-Italia durante la pandemia di COVID-19"
+      },
+      "datePublished": "2026-07-18T23:03:47+00:00",
+      "dateModified": "2026-07-18T23:03:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/coronavirus-frontalieri-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ostetrica-frontaliere-ticino': {
+    title: 'Stipendio ostetrica Ticino: salari e differenze con l\'Italia',
+    description: 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, ostetrica, salari, differenze',
+    ogTitle: 'Stipendio reale di un\'ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia',
+    ogDescription: 'Cosa guadagna un\'ostetrica frontaliere in Ticino? E come cambia rispetto all\'Italia?',
+    canonicalPath: '/articoli-svizzera/ostetrica-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio ostetrica Ticino: salari e differenze con l'Italia",
+      "description": "Cosa guadagna un'ostetrica frontaliere in Ticino? E come cambia rispetto all'Italia?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ostetrica-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una donna in abito bianco si prepara per un parto, con un medico in secondo piano."
+      },
+      "datePublished": "2026-07-18T23:27:32+00:00",
+      "dateModified": "2026-07-18T23:27:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ostetrica-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ostetrica-stipendio-ticino': {
+    title: 'Quanto guadagna un ostetrica frontaliere in Ticino?',
+    description: 'Stipendio reale di un ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, ostetrica, stipendio',
+    ogTitle: 'Quanto guadagna un ostetrica frontaliere in Ticino?',
+    ogDescription: 'Stipendio reale di un ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un ostetrica frontaliere in Ticino?",
+      "description": "Stipendio reale di un ostetrica frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ostetrica-stipendio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ostetrica frontaliere nel Ticino"
+      },
+      "datePublished": "2026-07-19T06:09:49+00:00",
+      "dateModified": "2026-07-19T06:09:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ostetrica-stipendio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-busta-paga-svizzera-2026': {
+    title: 'La busta paga svizzera: guida alle trattenute e il resto netto',
+    description: 'Scopri come leggere una busta paga svizzera e cosa significa ogni trattenuta. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, alle, trattenute',
+    ogTitle: 'Guida alla busta paga svizzera 2026',
+    ogDescription: 'Scopri come leggere una busta paga svizzera e cosa significa ogni trattenuta',
+    canonicalPath: '/articoli-svizzera/guida-busta-paga-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La busta paga svizzera: guida alle trattenute e il resto netto",
+      "description": "Scopri come leggere una busta paga svizzera e cosa significa ogni trattenuta. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-busta-paga-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida alla busta paga svizzera 2026"
+      },
+      "datePublished": "2026-07-19T06:29:33+00:00",
+      "dateModified": "2026-07-19T06:29:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-busta-paga-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-salario-tecnico-radiologia': {
+    title: 'Quanto guadagna un tecnico di radiologia frontaliere in Ticino?',
+    description: 'La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all\'Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, tecnico, radiologia',
+    ogTitle: 'Quanto guadagna un tecnico di radiologia frontaliere in Ticino?',
+    ogDescription: 'La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all\'Italia',
+    canonicalPath: '/articoli-svizzera/frontaliere-ticino-salario-tecnico-radiologia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un tecnico di radiologia frontaliere in Ticino?",
+      "description": "La retribuzione di un tecnico di radiologia frontaliere in Ticino: fattori che incidono sulla retribuzione e differenze rispetto all'Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-salario-tecnico-radiologia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tecnici di radiologia al lavoro in ospedale"
+      },
+      "datePublished": "2026-07-19T06:50:07+00:00",
+      "dateModified": "2026-07-19T06:50:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ticino-salario-tecnico-radiologia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ergoterapista-ticino-stipendio-requisiti': {
+    title: 'Ergoterapia in Ticino: stipendio e requisiti | Frontaliere Ticino',
+    description: 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ergoterapia, stipendio, requisiti, sapere',
+    ogTitle: 'Frontaliere ergoterapista Ticino stipendio requisiti',
+    ogDescription: 'Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ergoterapia in Ticino: stipendio e requisiti",
+      "description": "Sapere cosa richiede la legge per un frontaliere che vuole lavorare come ergoterapista in Ticino, e quali sono i requisiti necessari per ottenere il permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ergoterapista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di Lugano, con il lago e le montagne in sfondo"
+      },
+      "datePublished": "2026-07-19T07:17:12+00:00",
+      "dateModified": "2026-07-19T07:17:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ergoterapista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-ticino-ergoterapista': {
+    title: 'Ergoterapia in Ticino: stipendio e differenze con l\'Italia',
+    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    keywords: 'frontalieri, ticino, svizzera, italia, ergoterapia, stipendio, differenze, imposta',
+    ogTitle: 'Stipendio reale di un ergoterapista frontaliere in Ticino',
+    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    canonicalPath: '/articoli-svizzera/frontalieri-ticino-ergoterapista/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ergoterapia in Ticino: stipendio e differenze con l'Italia",
+      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-ergoterapista.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un ergoterapista frontaliere lavora in un ospedale di Lugano."
+      },
+      "datePublished": "2026-07-19T07:46:32+00:00",
+      "dateModified": "2026-07-19T07:46:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-ticino-ergoterapista/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-frontaliere-dietista-ticino': {
+    title: 'Quanto guadagna un frontaliere dietista in Ticino?',
+    description: 'Il salario di un frontaliere dietista in Ticino può variare in base alla fascia di età e alla posizione lavorativa. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, dietista, salario',
+    ogTitle: 'Quanto guadagna un frontaliere dietista in Ticino?',
+    ogDescription: 'Il salario di un frontaliere dietista in Ticino può variare in base alla fascia di età e alla posizione lavorativa.',
+    canonicalPath: '/articoli-svizzera/salario-frontaliere-dietista-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un frontaliere dietista in Ticino?",
+      "description": "Il salario di un frontaliere dietista in Ticino può variare in base alla fascia di età e alla posizione lavorativa. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-frontaliere-dietista-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere dietista in Ticino"
+      },
+      "datePublished": "2026-07-19T08:14:05+00:00",
+      "dateModified": "2026-07-19T08:14:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-frontaliere-dietista-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw': {
+    title: 'Di più centrali nucleari mettono a rischio migliaia posti lavoro, ZHAW',
+    description: 'Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio',
+    keywords: 'frontalieri, ticino, svizzera, italia, centrali, nucleari, mettono, rischio',
+    ogTitle: 'Centrali nucleari: rischio per migliaia di posti lavoro',
+    ogDescription: 'Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio',
+    canonicalPath: '/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più centrali nucleari mettono a rischio migliaia posti lavoro, ZHAW",
+      "description": "Un recente studio della Scuola universitaria di scienze applicate di Zurigo (ZHAW) indica che la costruzione di nuove centrali nucleari metterebbe a rischio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una città svizzera con un impianto nucleare"
+      },
+      "datePublished": "2026-07-19T08:44:26+00:00",
+      "dateModified": "2026-07-19T08:44:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ottico-optometrista-ticino-stipendio-requisiti': {
+    title: 'Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo',
+    description: 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, ottico, stipendio, requisiti',
+    ogTitle: 'Lavorare come ottico optometrista in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G.',
+    ogDescription: 'Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    canonicalPath: '/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come ottico in Ticino: stipendio, requisiti e riconoscimento titolo",
+      "description": "Gli ottici optometristi frontaliere in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ottico-optometrista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in attesa di ricevere il permesso di lavoro presso un ottico optometrista a Lugano."
+      },
+      "datePublished": "2026-07-19T09:09:34+00:00",
+      "dateModified": "2026-07-19T09:09:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-podologo-frontaliere-ticino-stipendio-requisiti': {
+    title: 'Lavorare come podologo in Ticino: requisiti e riconoscimento',
+    description: 'Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, podologo, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come podologo in Ticino da frontaliere: stipendio medio, requisiti e riconoscimento del titolo di studio',
+    ogDescription: 'Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.',
+    canonicalPath: '/articoli-svizzera/podologo-frontaliere-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come podologo in Ticino: requisiti e riconoscimento",
+      "description": "Stipendio medio di un podologo frontaliere in Ticino, requisiti per lavorare come podologo in Ticino da frontaliere e riconoscimento del titolo di studio.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/podologo-frontaliere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Podologo in un ambiente di lavoro in Ticino"
+      },
+      "datePublished": "2026-07-19T09:32:48+00:00",
+      "dateModified": "2026-07-19T09:32:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/podologo-frontaliere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-podologo-frontaliere-ticino-guida': {
+    title: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    description: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, podologo, stipendio, requisiti, permesso',
+    ogTitle: 'Podologo in Ticino: stipendio, requisiti e permesso G',
+    ogDescription: 'Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024.',
+    canonicalPath: '/articoli-svizzera/podologo-frontaliere-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Podologo in Ticino: stipendio, requisiti e permesso G",
+      "description": "Guida completa per podologi frontalieri: analisi dei requisiti professionali, stipendi medi e normativa fiscale aggiornata al 2024. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/podologo-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio podologico moderno in Svizzera con attrezzatura medica"
+      },
+      "datePublished": "2026-07-19T09:57:28+00:00",
+      "dateModified": "2026-07-19T09:57:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/podologo-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-di-disoccupazione-svizzere-ai-frontalieri': {
+    title: 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    description: 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, disoccupazione, svizzere, posizioni',
+    ogTitle: 'Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte',
+    ogDescription: 'Il Comitato dei rappresentanti permanenti dell\'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida',
+    canonicalPath: '/articoli-svizzera/indennita-di-disoccupazione-svizzere-ai-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità di disoccupazione svizzere ai frontalieri: posizioni contrapposte",
+      "description": "Il Comitato dei rappresentanti permanenti dell'UE ha approvato una misura per sostituire il paese di residenza con il paese di ultimo impiego per la convalida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-di-disoccupazione-svizzere-ai-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere sta pagando i contributi in Svizzera e ricevendo l'indennità dalle casse del paese di residenza."
+      },
+      "datePublished": "2026-07-19T10:23:00+00:00",
+      "dateModified": "2026-07-19T10:23:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-di-disoccupazione-svizzere-ai-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti': {
+    title: 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    description: 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenti, studio, medico, stipendio',
+    ogTitle: 'Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti',
+    ogDescription: 'Impostazione della fonte: l\'Italia evita la doppia imposizione con il credito d\'imposta (quadro CE del 730) per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri assistenti di studio medico in Ticino: stipendio e requisiti",
+      "description": "Impostazione della fonte: l'Italia evita la doppia imposizione con il credito d'imposta (quadro CE del 730) per i frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena di un frontaliere assistente di studio medico in Ticino"
+      },
+      "datePublished": "2026-07-19T11:53:39+00:00",
+      "dateModified": "2026-07-19T11:53:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-stipendio-tecnico-sala-operatoria': {
+    title: 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    description: 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, tecnico, sala',
+    ogTitle: 'Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino',
+    ogDescription: 'Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino.',
+    canonicalPath: '/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un tecnico di sala operatoria frontaliere in Ticino",
+      "description": "Dati sulla retribuzione di un tecnico di sala operatoria frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-stipendio-tecnico-sala-operatoria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un tecnico di sala operatoria in un ospedale svizzero."
+      },
+      "datePublished": "2026-07-19T12:24:27+00:00",
+      "dateModified": "2026-07-19T12:24:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontalieri-stipendio-tecnico-sala-operatoria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

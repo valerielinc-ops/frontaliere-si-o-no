@@ -94,6 +94,7 @@ import {
   renderDiscoverMore,
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
+import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { capSearchStatsLandingTitle } from './jobsSeoPagesPlugin';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
@@ -2639,6 +2640,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
 ${faqHtml}
   </section>
   ${renderLocaleSwitcherBlock(locale, (alt) => topHubPath(alt))}
+  ${renderEmployerCtaBlock(locale, 'weekly_employers_hub')}
   <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('JOBLIST_END_MULTIPLEX')}
   </section>
@@ -3223,6 +3225,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       <p class="s-OCic8j">${esc(copy.faqApplyA)}</p>
     </details>
   </section>
+  ${renderEmployerCtaBlock(locale, 'weekly_employers_city')}
   ${renderDiscoverMore(locale, WEEKLY_EMPLOYERS_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'weekly_employers', { city, weeklyCity: city })}
   <section class="s-sC82IX" aria-label="advertisement">
@@ -3792,6 +3795,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       <p class="s-OCic8j">${esc(copy.companyCityFaqEquivalenceA(employer))}</p>
     </details>
   </section>
+  ${renderEmployerCtaBlock(locale, 'weekly_employers_company_city')}
   ${generateRelatedLinksBlock(locale, 'weekly_employer_company_city', {
     city,
     weeklyCity: city,

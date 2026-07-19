@@ -12,6 +12,8 @@
  * see the TODO below. Keep the signature stable: the page depends on it.
  */
 
+import { FUNCTIONS_BASE } from './functionsBase';
+
 /** A single live ad row for the employer. `lost` = interested visitors who did NOT apply. */
 export interface EmployerAd {
   slug: string;
@@ -64,7 +66,6 @@ export type FetchInsightsResult =
 // HMAC-gated read API. Token scheme lives server-side
 // (functions/src/employerInsights.js) + scripts/lib/employer-insights-token.mjs;
 // the client only forwards the `t` token it received in the cold-email link.
-const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
 
 /**
  * Fetch a company's insights by key + access token via the employerInsights

@@ -6,6 +6,7 @@
 // this file at build time. Keep the same format as other seo-*.ts entries.
 
 import type { SEOMetadata } from '../seoService';
+import { EXCHANGE_RATE_EUR } from './exchangeRateMeta';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -1173,7 +1174,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "currency": "CHF",
  "currentExchangeRate": {
  "@type": "UnitPriceSpecification",
- "price": "0.94",
+ "price": EXCHANGE_RATE_EUR,
  "priceCurrency": "EUR",
  "referenceQuantity": {
  "@type": "QuantitativeValue",
@@ -4715,7 +4716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3295,
+ "numberOfItems": 3326,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8011,7 +8012,38 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3292, "name": "Quanto guadagna un fisioterapista frontaliere i...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-fisioterapista` },
           { "@type": "ListItem", "position": 3293, "name": "Logopedista in Ticino: stipendio, requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-logopedista-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3294, "name": "Mobilità in Svizzera: cresce il favore per la f...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-svizzera-ferrovia-strade` },
-          { "@type": "ListItem", "position": 3295, "name": "Quanto guadagna un logopedista frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino` }
+          { "@type": "ListItem", "position": 3295, "name": "Quanto guadagna un logopedista frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-logopedista-frontaliero-ticino` },
+          { "@type": "ListItem", "position": 3296, "name": "Quanto guadagna un farmacista frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/farmacista-frontaliero-ticino` },
+          { "@type": "ListItem", "position": 3297, "name": "Coronavirus: lavoro in Svizzera solo con permes...", "url": `${BASE_URL}/articoli-frontaliere/coronavirus-frontalieri-svizzera` },
+          { "@type": "ListItem", "position": 3298, "name": "Lavorare come ostetrica in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3299, "name": "Stipendio ostetrica Ticino: salari e differenze...", "url": `${BASE_URL}/articoli-frontaliere/ostetrica-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3300, "name": "Quanto guadagna un ostetrica frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/ostetrica-frontaliere-ticino-quanto-guadagna` },
+          { "@type": "ListItem", "position": 3301, "name": "Quanto guadagna un assistente dentale frontalie...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-assistente-dentale-frontaliere-ticino` },
+          { "@type": "ListItem", "position": 3302, "name": "Quanto guadagna un ostetrica frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ostetrica-stipendio-ticino` },
+          { "@type": "ListItem", "position": 3303, "name": "Traffico in Svizzera: i costi raggiungono 117 m...", "url": `${BASE_URL}/articoli-frontaliere/costi-traffico-svizzera-2023` },
+          { "@type": "ListItem", "position": 3304, "name": "La busta paga svizzera: guida alle trattenute e...", "url": `${BASE_URL}/articoli-frontaliere/guida-busta-paga-svizzera-2026` },
+          { "@type": "ListItem", "position": 3305, "name": "Tecnico di radiologia in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-tecnico-radiologia-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3306, "name": "Quanto guadagna un tecnico di radiologia fronta...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-salario-tecnico-radiologia` },
+          { "@type": "ListItem", "position": 3307, "name": "Stipendio ergoterapista: salari e differenze co...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-ergoterapista-frontaliere-in-ticino` },
+          { "@type": "ListItem", "position": 3308, "name": "Ergoterapia in Ticino: stipendio e requisiti", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ergoterapista-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3309, "name": "Di più startup svizzere, solo 7% del capitale v...", "url": `${BASE_URL}/articoli-frontaliere/di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna` },
+          { "@type": "ListItem", "position": 3310, "name": "Ergoterapia in Ticino: stipendio e differenze c...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-ergoterapista` },
+          { "@type": "ListItem", "position": 3311, "name": "Quanto guadagna un ergoterapista frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ergoterapista-stipendio-ticino` },
+          { "@type": "ListItem", "position": 3312, "name": "Quanto guadagna un frontaliere dietista in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/salario-frontaliere-dietista-ticino` },
+          { "@type": "ListItem", "position": 3313, "name": "Lavorare come dietista in Ticino: stipendio, re...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-dietista-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3314, "name": "Di più centrali nucleari mettono a rischio migl...", "url": `${BASE_URL}/articoli-frontaliere/centrali-nucleari-mettono-a-rischio-migliaia-posti-lavoro-zhaw` },
+          { "@type": "ListItem", "position": 3315, "name": "Quanto guadagna un ottico optometrista frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-ottico-optometrista` },
+          { "@type": "ListItem", "position": 3316, "name": "Lavorare come ottico in Ticino: stipendio, requ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ottico-optometrista-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3317, "name": "Ottico optometrista in Ticino: stipendio e requ...", "url": `${BASE_URL}/articoli-frontaliere/ottico-optometrista-ticino-guida` },
+          { "@type": "ListItem", "position": 3318, "name": "Lavorare come podologo in Ticino: requisiti e r...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3319, "name": "Quanto guadagna un podologo frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guadagna` },
+          { "@type": "ListItem", "position": 3320, "name": "Podologo in Ticino: stipendio, requisiti e perm...", "url": `${BASE_URL}/articoli-frontaliere/podologo-frontaliere-ticino-guida` },
+          { "@type": "ListItem", "position": 3321, "name": "Quanto guadagna un assistente di studio medico ...", "url": `${BASE_URL}/articoli-frontaliere/assistente-di-studio-medico-frontaliere` },
+          { "@type": "ListItem", "position": 3322, "name": "Indennità di disoccupazione svizzere ai frontal...", "url": `${BASE_URL}/articoli-frontaliere/indennita-di-disoccupazione-svizzere-ai-frontalieri` },
+          { "@type": "ListItem", "position": 3323, "name": "Tecnico di sala operatoria in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/tecnicodisalaoperatoriaticinostipendiorientati` },
+          { "@type": "ListItem", "position": 3324, "name": "Frontalieri assistenti di studio medico in Tici...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-assistenti-di-studio-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3325, "name": "Medici frontalieri in Ticino: stipendio, requis...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-medico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3326, "name": "Quanto guadagna un tecnico di sala operatoria f...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-stipendio-tecnico-sala-operatoria` }
  ]
  },
  {

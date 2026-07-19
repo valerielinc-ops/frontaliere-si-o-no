@@ -1,15 +1,15 @@
 {
   "crawlerKey": "canton-ticino-osc",
-  "assembledAt": "2026-07-18T11:13:26.948Z",
+  "assembledAt": "2026-07-19T11:36:57.481Z",
   "jobs": [
     {
       "id": "canton-ticino-osc-4225-88e3240f5907",
       "slug": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213hp7",
       "slugByLocale": {
         "it": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213hp7",
-        "en": "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-6ef5c8",
+        "en": "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization",
         "de": "generalwettbewerb-2026-krankenschwestern-mit-spezialgebiet-psychische-gesundheit-und-krankenschwestern-bei-der-6ef5c8",
-        "fr": "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique-6ef5c8"
+        "fr": "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
       "companyKey": "canton-ticino-osc",
@@ -34,7 +34,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4225",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:24.120Z",
+      "crawledAt": "2026-07-19T11:36:54.565Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -53,8 +53,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l",
-        "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization",
         "generalwettbewerb-2026-krankenschwestern-mit-spezialgebiet-psychische-gesundheit-und-krankenschwestern-bei-der",
+        "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-6ef5c8",
+        "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique-6ef5c8",
+        "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization",
         "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique"
       ],
       "previousSlugsByLocale": {
@@ -62,12 +64,14 @@
           "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l"
         ],
         "en": [
+          "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-6ef5c8",
           "general-competition-2026-nurses-with-specialty-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization"
         ],
         "de": [
           "generalwettbewerb-2026-krankenschwestern-mit-spezialgebiet-psychische-gesundheit-und-krankenschwestern-bei-der"
         ],
         "fr": [
+          "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique-6ef5c8",
           "concours-general-2026-infirmieres-specialisees-sante-mentale-et-infirmieres-de-l-organisation-sociopsychiatrique"
         ]
       },
@@ -117,7 +121,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4222",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:23.305Z",
+      "crawledAt": "2026-07-19T11:36:53.744Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -204,7 +208,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4221",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:22.720Z",
+      "crawledAt": "2026-07-19T11:36:53.161Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -264,7 +268,7 @@
         "it": "docente-di-cultura-iii-a-tempo-parziale-30-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-clinica-psichiatra-cantonale-cpc-unita-di-213hpc",
         "en": "teacher-of-culture-iii-in-part-time-30-at-the-cantonal-sociopsychiatric-organization-osc-cantonal-psychiatric-clinic-cpc",
         "de": "lehrer-der-kultur-iii-in-teilzeit-30-an-der-kantonalen-soziopsychiatrischen-organisation-osc-der-kantonalen",
-        "fr": "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique"
+        "fr": "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique-eafa8b"
       },
       "company": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
       "companyKey": "canton-ticino-osc",
@@ -289,7 +293,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4220",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:22.127Z",
+      "crawledAt": "2026-07-19T11:36:52.575Z",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -311,7 +315,8 @@
         "docente-di-cultura-iii-a-tempo-parziale-30-presso-l-organizzazione-sociopsichiatrica",
         "part-time-professor-of-culture-iii-30-at-the-cantonal-sociopsychiatric-organization-osc-cantonal-psychiatrist-clinic-cpc",
         "lehrer-der-kultur-iii-in-teilzeit-30-an-der-kantonalen-soziopsychiatrischen-organisation-osc-der-kantonalen-53aacc",
-        "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique-53aacc"
+        "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique-53aacc",
+        "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -325,7 +330,8 @@
           "lehrer-der-kultur-iii-in-teilzeit-30-an-der-kantonalen-soziopsychiatrischen-organisation-osc-der-kantonalen-53aacc"
         ],
         "fr": [
-          "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique-53aacc"
+          "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique-53aacc",
+          "professeur-de-culture-iii-a-temps-partiel-30-a-l-organisation-sociopsychiatrique-cantonale-osc-a-la-clinique"
         ]
       },
       "firstSeenAt": "2026-07-01T11:19:37.209Z",
@@ -374,7 +380,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4216",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:21.514Z",
+      "crawledAt": "2026-07-19T11:36:51.979Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -462,7 +468,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4197",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:20.927Z",
+      "crawledAt": "2026-07-19T11:36:51.393Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -542,7 +548,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4198",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:20.343Z",
+      "crawledAt": "2026-07-19T11:36:50.806Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -624,7 +630,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4195",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:19.759Z",
+      "crawledAt": "2026-07-19T11:36:50.218Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -704,7 +710,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:19.173Z",
+      "crawledAt": "2026-07-19T11:36:49.629Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -844,7 +850,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:18.590Z",
+      "crawledAt": "2026-07-19T11:36:49.039Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -974,7 +980,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-18T11:13:17.987Z",
+      "crawledAt": "2026-07-19T11:36:48.430Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",

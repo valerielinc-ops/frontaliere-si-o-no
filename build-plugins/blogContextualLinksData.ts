@@ -157,6 +157,25 @@ const RULES_IT: readonly BlogContextualLinkRule[] = [
     targetUrl: '/eventi/',
     priority: 7,
   },
+  // Exchange vertical (epic #4452) — CHF/EUR hub
+  {
+    id: 'it.exchange.cambio-franco-euro',
+    keywordPattern: /\bcambio\s+(?:del\s+)?franco(?:\s+svizzero)?(?:\s*[-\u2013/]\s*|\s+)euro\b/i,
+    targetUrl: '/cambio-franco-euro/',
+    priority: 12,
+  },
+  {
+    id: 'it.exchange.franchi-in-euro',
+    keywordPattern: /\bfranchi(?:\s+svizzeri)?\s+in\s+euro\b/i,
+    targetUrl: '/cambio-franco-euro/',
+    priority: 10,
+  },
+  {
+    id: 'it.exchange.tasso-di-cambio',
+    keywordPattern: /\btasso\s+di\s+cambio\s+(?:chf|franco)\b/i,
+    targetUrl: '/cambio-franco-euro/',
+    priority: 9,
+  },
 ];
 
 /**
@@ -252,6 +271,19 @@ const RULES_EN: readonly BlogContextualLinkRule[] = [
     targetUrl: '/en/events/',
     priority: 7,
   },
+  // Exchange vertical (epic #4452) — CHF/EUR hub
+  {
+    id: 'en.exchange.chf-eur',
+    keywordPattern: /\b(?:chf[\s/\u2013-]?eur|swiss\s+franc\s+to\s+euro)\s+(?:exchange\s+)?rate\b/i,
+    targetUrl: '/en/chf-eur-exchange/',
+    priority: 12,
+  },
+  {
+    id: 'en.exchange.francs-to-euro',
+    keywordPattern: /\bfrancs?\s+(?:in|to|into)\s+euros?\b/i,
+    targetUrl: '/en/chf-eur-exchange/',
+    priority: 10,
+  },
 ];
 
 /**
@@ -335,6 +367,19 @@ const RULES_DE: readonly BlogContextualLinkRule[] = [
     targetUrl: '/de/veranstaltungen/',
     priority: 7,
   },
+  // Exchange vertical (epic #4452) — CHF/EUR hub
+  {
+    id: 'de.exchange.franken-euro-kurs',
+    keywordPattern: /\b(?:franken[\s/\u2013-]?euro[\s-]?kurs|wechselkurs\s+(?:chf|franken))\b/i,
+    targetUrl: '/de/franken-euro-kurs/',
+    priority: 12,
+  },
+  {
+    id: 'de.exchange.franken-in-euro',
+    keywordPattern: /\bfranken\s+in\s+euro\b/i,
+    targetUrl: '/de/franken-euro-kurs/',
+    priority: 10,
+  },
 ];
 
 /**
@@ -417,6 +462,19 @@ const RULES_FR: readonly BlogContextualLinkRule[] = [
     keywordPattern: /\bquoi\s+faire\s+ce\s+week-?end\s+(?:au\s+)?tessin\b/i,
     targetUrl: '/fr/evenements/',
     priority: 7,
+  },
+  // Exchange vertical (epic #4452) — CHF/EUR hub
+  {
+    id: 'fr.exchange.change-franc-euro',
+    keywordPattern: /\b(?:taux\s+de\s+change\s+(?:chf|franc)|change\s+franc[\s/\u2013-]?euro)\b/i,
+    targetUrl: '/fr/change-franc-euro/',
+    priority: 12,
+  },
+  {
+    id: 'fr.exchange.francs-en-euros',
+    keywordPattern: /\bfrancs?\s+(?:suisses?\s+)?en\s+euros?\b/i,
+    targetUrl: '/fr/change-franc-euro/',
+    priority: 10,
   },
 ];
 

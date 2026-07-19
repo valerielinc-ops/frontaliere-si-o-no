@@ -1,6 +1,6 @@
 {
   "crawlerKey": "psgn",
-  "assembledAt": "2026-07-18T10:26:24.202Z",
+  "assembledAt": "2026-07-19T10:42:45.561Z",
   "jobs": [
     {
       "id": "psgn-62d19735c615",
@@ -34,7 +34,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/781a6078-5a66-4dde-82aa-818c5faa17f8",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:21.157Z",
+      "crawledAt": "2026-07-19T10:42:42.225Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -51,11 +51,12 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/781a6078-5a66-4dde-82aa-818c5faa17f8",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+        "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
@@ -64,15 +65,13 @@
         "en": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
-        "dipl-servizio-notturno-dell-infermiera-hf-fh-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-13T21:58:24.342Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -119,7 +118,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/praktikantin-praktikant-unternehmensentwicklung/d542a7d2-27e6-4ea6-84e9-d4ed79140737",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:20.388Z",
+      "crawledAt": "2026-07-19T10:42:41.514Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -136,12 +135,21 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/praktikantin-praktikant-unternehmensentwicklung/d542a7d2-27e6-4ea6-84e9-d4ed79140737",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg-2",
+        "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg",
+        "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg",
+        "stage-internship-sviluppo-aziendale-psychiatrie-st-gallen-wil-sg",
+        "internship-internship-business-development-psychiatrie-st-gallen-wil-sg",
+        "stages-stages-developpement-des-entreprises-psychiatrie-st-gallen-wil-sg",
+        "tirocinio-commerciale-psychiatrie-st-gallen-wil-sg",
+        "commercial-internship-psychiatrie-st-gallen-wil-sg",
+        "kaufmannisches-praktikum-psgn-wil-sg",
+        "stage-commercial-psychiatrie-st-gallen-wil-sg",
+        "kaufmannisches-praktikum-psgn-wil-sg-3",
+        "stage-internship-sviluppo-aziendale-psychiatrie-st-gallen-wil-sg-424f85"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "kaufmannisches-praktikum-psgn-wil-sg",
-          "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg",
-          "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg"
-        ],
         "it": [
           "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg-2",
           "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg",
@@ -161,26 +169,16 @@
           "internship-internship-business-development-psychiatrie-st-gallen-wil-sg",
           "commercial-internship-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "kaufmannisches-praktikum-psgn-wil-sg",
+          "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg",
           "stages-stages-developpement-des-entreprises-psychiatrie-st-gallen-wil-sg",
           "stage-commercial-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg-2",
-        "praktikantin-praktikant-unternehmensentwicklung-psgn-wil-sg",
-        "praktikantin-praktikant-unternehmensentwicklung-psychiatrie-st-gallen-wil-sg",
-        "stage-internship-sviluppo-aziendale-psychiatrie-st-gallen-wil-sg",
-        "internship-internship-business-development-psychiatrie-st-gallen-wil-sg",
-        "stages-stages-developpement-des-entreprises-psychiatrie-st-gallen-wil-sg",
-        "tirocinio-commerciale-psychiatrie-st-gallen-wil-sg",
-        "commercial-internship-psychiatrie-st-gallen-wil-sg",
-        "kaufmannisches-praktikum-psgn-wil-sg",
-        "stage-commercial-psychiatrie-st-gallen-wil-sg",
-        "kaufmannisches-praktikum-psgn-wil-sg-3",
-        "stage-internship-sviluppo-aziendale-psychiatrie-st-gallen-wil-sg-424f85"
-      ],
       "firstSeenAt": "2026-07-13T12:13:21.360Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -227,7 +225,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung/1c4b658d-f486-4337-a76d-a71d6073a070",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:19.547Z",
+      "crawledAt": "2026-07-19T10:42:40.741Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -244,11 +242,12 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung/1c4b658d-f486-4337-a76d-a71d6073a070",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psgn-wil-sg",
+        "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg",
+        "dipl-pfegefachperson-hf-fh-come-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg",
-          "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psgn-wil-sg"
-        ],
         "it": [
           "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psgn-wil-sg",
           "dipl-pfegefachperson-hf-fh-come-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
@@ -256,15 +255,13 @@
         "en": [
           "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psgn-wil-sg",
-        "dipl-pfegefachperson-hf-fh-als-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg",
-        "dipl-pfegefachperson-hf-fh-come-stellvertretende-wohngruppenleitung-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-13T21:58:22.769Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -311,7 +308,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-sekretariat/573c1ddb-3dba-4cd3-b544-d424fe9831f0",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:18.759Z",
+      "crawledAt": "2026-07-19T10:42:39.871Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -328,11 +325,12 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-sekretariat/573c1ddb-3dba-4cd3-b544-d424fe9831f0",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-sekretariat-psgn-wil-sg",
+        "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiterin-collaboratore-trice-sekretariat-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg",
-          "mitarbeiterin-mitarbeiter-sekretariat-psgn-wil-sg"
-        ],
         "it": [
           "mitarbeiterin-mitarbeiter-sekretariat-psgn-wil-sg",
           "mitarbeiterin-collaboratore-trice-sekretariat-psychiatrie-st-gallen-wil-sg"
@@ -340,15 +338,13 @@
         "en": [
           "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-sekretariat-psgn-wil-sg",
-        "mitarbeiterin-mitarbeiter-sekretariat-psychiatrie-st-gallen-wil-sg",
-        "mitarbeiterin-collaboratore-trice-sekretariat-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-14T10:54:13.768Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -395,7 +391,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/da032287-f5b0-486e-be27-dbe58a8f7405",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:17.926Z",
+      "crawledAt": "2026-07-19T10:42:39.001Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -412,12 +408,17 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/da032287-f5b0-486e-be27-dbe58a8f7405",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
+        "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
+        "specialist-psychologist-specialist-psychologist-psychiatrie-st-gallen-wil-sg",
+        "fachpsychologin-fachpsychologe-psgn-wil-sg",
+        "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-wil-sg",
+        "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg",
+        "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachpsychologin-fachpsychologe-psgn-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
-        ],
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
@@ -432,21 +433,15 @@
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
           "specialist-psychologist-specialist-psychologist-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "fachpsychologin-fachpsychologe-psgn-wil-sg",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
           "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
-        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-        "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-wil-sg",
-        "specialist-psychologist-specialist-psychologist-psychiatrie-st-gallen-wil-sg",
-        "fachpsychologin-fachpsychologe-psgn-wil-sg",
-        "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-wil-sg",
-        "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-wil-sg",
-        "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-14T10:54:12.352Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -493,7 +488,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-m-b-f/2a851a02-4519-4ddc-846f-0875aefc559f",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:17.161Z",
+      "crawledAt": "2026-07-19T10:42:38.162Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -510,12 +505,20 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-m-b-f/2a851a02-4519-4ddc-846f-0875aefc559f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+        "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
+        "oberarztin-oberarzt-psgn-wil-sg",
+        "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg",
+        "medecin-senior-psychiatrie-st-gallen-wil-sg",
+        "medico-specialista-psychiatrie-st-gallen-wil-sg",
+        "senior-physician-psychiatrie-st-gallen-wil-sg",
+        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
+        "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
+        "oberarztin-oberarzt-m-b-f-psychiatrie-st-gallen-wil-sg",
+        "medico-senior-m-b-f-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-psgn-wil-sg",
-          "oberarztin-oberarzt-m-b-f-psychiatrie-st-gallen-wil-sg",
-          "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
-        ],
         "it": [
           "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
           "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
@@ -532,24 +535,15 @@
           "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
           "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
         ],
+        "de": [
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "oberarztin-oberarzt-m-b-f-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg",
           "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
-        "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
-        "oberarztin-oberarzt-psgn-wil-sg",
-        "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg",
-        "medecin-senior-psychiatrie-st-gallen-wil-sg",
-        "medico-specialista-psychiatrie-st-gallen-wil-sg",
-        "senior-physician-psychiatrie-st-gallen-wil-sg",
-        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
-        "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
-        "oberarztin-oberarzt-m-b-f-psychiatrie-st-gallen-wil-sg",
-        "medico-senior-m-b-f-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-15T10:58:05.297Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -596,7 +590,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/2c0609b9-a751-43dc-adf9-f97fb00f3282",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:16.385Z",
+      "crawledAt": "2026-07-19T10:42:37.295Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -613,11 +607,12 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/2c0609b9-a751-43dc-adf9-f97fb00f3282",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "assistente-medico-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
-        ],
         "it": [
           "assistenzarztin-assistenzarzt-psgn-wil-sg",
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
@@ -626,15 +621,13 @@
         "en": [
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "assistente-medico-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-15T10:58:04.433Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -681,7 +674,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/27eb1eb0-43b5-4bc3-a475-ad394e3268ab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:15.612Z",
+      "crawledAt": "2026-07-19T10:42:36.326Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -698,11 +691,13 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/27eb1eb0-43b5-4bc3-a475-ad394e3268ab",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psgn-wil-sg-2",
+        "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
+        "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
-        ],
         "it": [
           "assistenzarztin-assistenzarzt-psgn-wil-sg-2",
           "assistenzarztin-assistenzarzt-psgn-wil-sg",
@@ -712,16 +707,13 @@
         "en": [
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg-2",
-        "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
-        "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-16T11:07:21.220Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -768,7 +760,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement/3bd33b6f-5b1e-4e40-a68b-ea9d544a6489",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:14.795Z",
+      "crawledAt": "2026-07-19T10:42:35.487Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -785,11 +777,12 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement/3bd33b6f-5b1e-4e40-a68b-ea9d544a6489",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psgn-wil-sg",
+        "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg",
+        "amministrazione-aziendale-contabilita-finanziaria-stage-in-gestione-dei-pazienti-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg",
-          "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psgn-wil-sg"
-        ],
         "it": [
           "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psgn-wil-sg",
           "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg",
@@ -798,15 +791,13 @@
         "en": [
           "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg"
         ],
+        "de": [
+          "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg"
+        ],
         "fr": [
           "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psgn-wil-sg",
-        "betriebswirtschaftliches-accounting-finanzen-praktikum-im-patientenmanagement-psychiatrie-st-gallen-wil-sg",
-        "amministrazione-aziendale-contabilita-finanziaria-stage-in-gestione-dei-pazienti-psychiatrie-st-gallen-wil-sg"
-      ],
       "firstSeenAt": "2026-07-16T11:07:20.425Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -823,37 +814,37 @@
     },
     {
       "id": "psgn-6d7e1b4bdc80",
-      "slug": "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg",
+      "slug": "direzione-aggiunto-per-le-pulizie-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
+        "it": "direzione-aggiunto-per-le-pulizie-psychiatrie-st-gallen-wil-sg",
+        "en": "deputy-directorate-for-cleaning-psychiatrie-st-gallen-wil-sg",
         "de": "stellvertretung-leitung-reinigung-psgn-wil-sg",
-        "it": "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg",
-        "en": "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg",
-        "fr": "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg"
+        "fr": "direction-adjointe-du-nettoyage-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Stellvertretung Leitung Reinigung",
       "titleByLocale": {
+        "it": "Direzione aggiunto per le pulizie",
+        "en": "Deputy Directorate for Cleaning",
         "de": "Stellvertretung Leitung Reinigung",
-        "it": "Stellvertretung Leitung Reinigung",
-        "en": "Stellvertretung Leitung Reinigung",
-        "fr": "Stellvertretung Leitung Reinigung"
+        "fr": "Direction adjointe du nettoyage"
       },
       "description": "Deine Aufgaben\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein. Dein Profil\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein.\n\nAnforderungen:\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren.",
       "descriptionByLocale": {
+        "it": "I tuoi compiti\n• Si prende il controllo del vice della linea di pulizia durante la loro assenza.\n• Circa 20 dipendenti di Reinigung Wil sono guidati direttamente da voi.\n• Durante l'esecuzione dei controlli di pulizia in tutto il team, la pulizia prende il sopravvento You are the lead e discutere i controlli effettuati con i dipendenti.\n• Durante la pianificazione e la conduzione di riunioni di team e sessioni di formazione, supporta attivamente la gestione delle pulizie.\n• Nel mezzo di esso invece di farlo semplicemente - imballaggio in 1-2 giorni alla settimana Si partecipa in modo operativo ed esemplificare la qualità di servizio al vostro team.\n• Quando si pianifica la pulizia con lo strumento di pianificazione Soobr, si porta la vostra esperienza pratica dagli agenti con voi.\n• Durante le vacanze della gestione lavanderia prende il sopravvento Lei la responsabilità del giorno.\n• Il vostro know-how tecnico scorre direttamente nel lavoro di progetto attivo nel team di gestione dell'ospitalità. Il tuo profilo\n• Hai diversi anni di esperienza professionale nell'industria domestica o nell'industria alberghiera, preferibilmente nel settore sanitario, così come almeno un certificato federale svizzero nell'industria domestica / industria alberghiera\n• L'esame professionale nel campo dell'ospitalità / pulizia è vantaggioso, altrimenti la volontà di completare è fornito.\n• Alto orientamento al servizio, senso di responsabilità, flessibilità, indipendenza, talento organizzativo e pensiero in rete ti distinguono.\n• Si lavora orientata al servizio e portare la disponibilità per il fine settimana e i servizi di vacanza, così come incarichi di lavoro giorno per giorno o mezza giornata.\n• Capite come motivare il team, rafforzare la coesione e stabilire una cultura della cooperazione e del reciproco sostegno. Con circa 1.400 dipendenti, forniamo trattamenti psichiatrici accessibili, personali ed efficaci e cure per gli adulti nei cantoni di St.Gallen e Appenzell Ausserrhoden così come nel Principato del Liechtenstein nelle nostre nove sedi aziendali. Siamo sulla strada digitalmente e siamo impegnati alla sostenibilità, quindi non vediamo l'ora della vostra applicazione online tramite la nostra homepage. Non appena la vostra domanda è stata ricevuta da noi online, riceverete una conferma della ricevuta via e-mail. Siamo lieti di conoscervi sulla base del vostro dossier e verificare se le vostre qualifiche, le vostre abilità e voi come persona si adattano alla posizione pubblicizzata e la psichiatria St.Gallen. Allora ti contatteremo. Durante un'intervista personale ci conosceremo e imparerete di più sulla psichiatria St.Gallen, la posizione pubblicizzata e le sfide. Nel secondo round vorremmo ottenere un'immagine ancora migliore di voi e scoprire insieme a voi se ci adattiamo insieme. Hai anche l'opportunità di conoscere la tua squadra futura. Riceverete una conferma telefonica da noi se decidiamo per voi dopo la seconda intervista e vi chiediamo se siete ancora convinti di noi. Se siamo d'accordo, prepareremo il tuo contratto. Nei giorni seguenti ti invieremo il contratto per posta in doppio. Il contratto ti fornisce anche informazioni rilevanti sul tuo lavoro. Tra l'accettazione del lavoro e il primo giorno lavorativo, l'utente come nuovo dipendente può già accedere a informazioni interne rilevanti. Così si può ottenere un quadro differenziato della società e già prepararsi per il lavoro. Il primo giorno ci si può aspettare un onboarding nel vostro nuovo team e con altri colleghi. È impostato sul nuovo posto di lavoro e ottenere una panoramica delle vostre prossime attività. Si ottiene anche il vostro piano di introduzione individuale, che vi aiuta a trovare il vostro senso intorno rapidamente.\n\nCompiti:\n• Si prende il controllo del vice della linea di pulizia durante la loro assenza.\n• Circa 20 dipendenti di Reinigung Wil sono guidati direttamente da voi.\n• Durante l'esecuzione dei controlli di pulizia in tutto il team, la pulizia prende il sopravvento You are the lead e discutere i controlli effettuati con i dipendenti.\n• Durante la pianificazione e la conduzione di riunioni di team e sessioni di formazione, supporta attivamente la gestione delle pulizie.\n• Nel mezzo di esso invece di farlo semplicemente - imballaggio in 1-2 giorni alla settimana Si partecipa in modo operativo ed esemplificare la qualità di servizio al vostro team.\n• Quando si pianifica la pulizia con lo strumento di pianificazione Soobr, si porta la vostra esperienza pratica dagli agenti con voi.\n• Durante le vacanze della gestione lavanderia prende il sopravvento Lei la responsabilità del giorno.\n• Il vostro know-how tecnico scorre direttamente nel lavoro di progetto attivo nel team di gestione dell'ospitalità.\n\nRequisiti\n• Hai diversi anni di esperienza professionale nell'industria domestica o nell'industria alberghiera, preferibilmente nel settore sanitario, così come almeno un certificato federale svizzero nell'industria domestica / industria alberghiera\n• L'esame professionale nel campo dell'ospitalità / pulizia è vantaggioso, altrimenti la volontà di completare è fornito.\n• Alto orientamento al servizio, senso di responsabilità, flessibilità, indipendenza, talento organizzativo e pensiero in rete ti distinguono.\n• Si lavora orientata al servizio e portare la disponibilità per il fine settimana e i servizi di vacanza, così come incarichi di lavoro giorno per giorno o mezza giornata.\n• Capite come motivare il team, rafforzare la coesione e stabilire una cultura della cooperazione e del reciproco sostegno.",
+        "en": "Your tasks\n• You take over the deputy of the cleaning line during their absence.\n• Approximately 20 employees of Reinigung Wil are led directly by you.\n• When carrying out cleaning checks throughout the team, cleaning takes over You are the lead and discuss the controls carried out with the employees.\n• When planning and conducting team meetings and training sessions, you actively support cleaning management.\n• In the middle of it instead of just doing it - packing on 1-2 days a week You participate operationally and exemplify service quality to your team.\n• When planning cleaning with the Soobr planning tool, you bring your practical experience from the operatives with you.\n• During the holidays of the management laundry takes over You the day responsibility.\n• Your technical know-how flows directly into the active project work in the hospitality management team. Your profile\n• You have several years of professional experience in the house industry or hotel industry, preferably in the health sector, as well as at least one Swiss Federal certificate in the house industry / hotel industry\n• The professional examination in the field of hospitality/housekeeping is advantageous, otherwise the willingness to complete it is provided.\n• High service orientation, sense of responsibility, flexibility, independence, organizational talent and networked thinking distinguish you.\n• You work service-oriented and bring the readiness for weekend and holiday services as well as work assignments day by day or half-day.\n• You understand how to motivate the team, strengthen cohesion and establish a culture of cooperation and mutual support. With around 1,400 employees, we provide accessible, personal and effective psychiatric treatments and care for adults in the cantons of St.Gallen and Appenzell Ausserrhoden as well as in the Principality of Liechtenstein at our nine company locations. We are on the road digitally and are committed to sustainability, so we look forward to your online application via our homepage. As soon as your application has been received by us online, you will receive a confirmation of receipt by e-mail. We are happy to get to know you based on your dossier and check whether your qualifications, skills and you as a person fit the advertised position and the psychiatry St.Gallen. Then we will contact you. During a personal interview we get to know each other and you will learn more about the psychiatry St.Gallen, the advertised position and the challenges. In the second round we would like to get an even better picture of you and find out together with you whether we fit together. You also get the opportunity to get to know your future team. You will receive a telephone confirmation from us if we decide for you after the second interview and ask you if you are still convinced of us. If we agree, we will draw up your contract. In the following days we will send you the contract by post in double. The contract also provides you with relevant information about your employment. Between the acceptance of the job and the first working day, you as a new employee can already access relevant internal information. So you can get a differentiated picture of the company and already prepare for the job. On the first day you can expect an onboarding in your new team and with other colleagues. You set up at the new workplace and get an overview of your next tasks. You also get your individual introduction plan, which helps you to find your way around quickly.\n\nTasks:\n• You take over the deputy of the cleaning line during their absence.\n• Approximately 20 employees of Reinigung Wil are led directly by you.\n• When carrying out cleaning checks throughout the team, cleaning takes over You are the lead and discuss the controls carried out with the employees.\n• When planning and conducting team meetings and training sessions, you actively support cleaning management.\n• In the middle of it instead of just doing it - packing on 1-2 days a week You participate operationally and exemplify service quality to your team.\n• When planning cleaning with the Soobr planning tool, you bring your practical experience from the operatives with you.\n• During the holidays of the management laundry takes over You the day responsibility.\n• Your technical know-how flows directly into the active project work in the hospitality management team.\n\nRequirements\n• You have several years of professional experience in the house industry or hotel industry, preferably in the health sector, as well as at least one Swiss Federal certificate in the house industry / hotel industry\n• The professional examination in the field of hospitality/housekeeping is advantageous, otherwise the willingness to complete it is provided.\n• High service orientation, sense of responsibility, flexibility, independence, organizational talent and networked thinking distinguish you.\n• You work service-oriented and bring the readiness for weekend and holiday services as well as work assignments day by day or half-day.\n• You understand how to motivate the team, strengthen cohesion and establish a culture of cooperation and mutual support.",
         "de": "Deine Aufgaben\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein. Dein Profil\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein.\n\nAnforderungen:\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren.",
-        "it": "Deine Aufgaben\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein. Dein Profil\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein.\n\nAnforderungen:\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren.",
-        "en": "Deine Aufgaben\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein. Dein Profil\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein.\n\nAnforderungen:\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren.",
-        "fr": "Deine Aufgaben\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein. Dein Profil\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren. Deine Vorteile Über uns Mit rund 1'400 Mitarbeitenden stellen wir an unseren neun Unternehmensstandorten gut zugängliche, persönliche und wirkungsvolle psychiatrische Behandlungen und die Betreuung von erwachsenen Menschen in den Kantonen St.Gallen und Appenzell Ausserrhoden sowie im Fürstentum Liechtenstein sicher. Online bewerben Wir sind digital unterwegs und setzen uns für Nachhaltigkeit ein, daher freuen wir uns auf deine Online-Bewerbung über unsere Homepage. Bestätigung per E-Mail Sobald deine Bewerbung online bei uns eingegangen ist, bekommst du eine Empfangsbestätigung per E-Mail zugestellt. Wir freuen uns, dich anhand deines Dossiers kennenzulernen und prüfen, ob deine Qualifikationen, Fähigkeiten und du als Person zur ausgeschriebenen Stelle und zur Psychiatrie St.Gallen passen. Danach melden wir uns bei dir. Vorstellungsgespräch mit HR und Fachbereich Bei einem persönlichen Gespräch lernen wir uns kennen und du erfährst mehr über die Psychiatrie St.Gallen, die ausgeschriebene Stelle und die Herausforderungen. Einladung zum zweiten Gespräch In der zweiten Runde möchten wir uns gerne ein noch besseres Bild von Ihnen machen und gemeinsam mit Ihnen herausfinden, ob wir zusammenpassen. Zudem erhalten Sie die Möglichkeit, Ihr künftiges Team kennenzulernen. Mündliche Zusage Sie erhalten von uns eine telefonische Zusage, wenn wir uns nach dem zweiten Gespräch für Sie entscheiden und fragen bei Ihnen nach, ob auch Sie weiterhin von uns überzeugt sind. Wenn wir uns einig sind, erstellen wir Ihren Vertrag. Der Vetrag In den darauffolgenden Tagen senden wir Ihnen per Post den Vertrag im Doppel zu. Mit dem Vertrag erhalten Sie auch relevante Informationen zu Ihrer Anstellung. Preboarding Zwischen der Annahme der Stelle und dem ersten Arbeitstag können Sie als neue Mitarbeiterin oder neuer Mitarbeiter bereits auf relevante interne Informationen zugreifen. So können Sie sich ein differenziertes Bild des Unternehmens machen und sich bereits auf den Job vorbereiten. Erster Arbeitstag Am ersten Tag erwartet Sie ein Onboarding in Ihrem neuen Team und mit weiteren Kolleginnen und Kollegen. Sie richten sich am neuen Arbeitsplatz ein und schaffen sich einen Überblick über Ihre nächsten Aufgaben. Zudem erhalten Sie Ihren individuellen Einführungsplan, der Ihnen dabei hilft, sich schnell zurechtzufinden.\n\nAufgaben:\n• Du übernimmst die Stellvertretung der Leitung Reinigung während deren Abwesenheit.\n• Ca.20 Mitarbeitende der Reinigung Wil werden direkt von Dir geführt.\n• Bei der Durchführung der Reinigungskontrollen im gesamten Team der Reinigung übernimmst Du den Lead und besprichst die durchgeführten Kontrollen mit den Mitarbeitenden.\n• Bei der Planung und Durchführung von Teamsitzungen und Schulungen unterstützt Du die Leitung Reinigung aktiv.\n• Mittendrin statt nur dabei - an 1-2 Tagen pro Woche packst Du operativ mit an und lebst Deinem Team Dienstleistungsqualität vor.\n• Bei der Reinigungsplanung mit dem Planungstool Soobr bringst Du Deine praktischen Erfahrungen aus dem Operativen mit ein.\n• Währen den Ferien der Leitung Wäscherei übernimmst Du die Tagesverantwortung.\n• Dein fachliches Know-how fliesst direkt in die aktive Projektarbeit im Team des Hospitality Management ein.\n\nAnforderungen:\n• Du verfügst über mehrjährige Berufserfahrung in der Hauswirtschaft oder Hotellerie, vorzugsweise im Gesundheitswesen, sowie mindestens ein Eidgenössisches Fachzeugnis in der Hauswirtschaft/Hotellerie\n• Die Berufsprüfung im Bereich Hotellerie/Hauswirtschaft ist von Vorteil, ansonsten wird die Bereitschaft, diese zu absolvieren, vorausgesetzt.\n• Hohe Dienstleistungsorientierung, Verantwortungsbewusstsein, Flexibilität, Selbstständigkeit, Organisationstalent und vernetztes Denken zeichnen Dich aus.\n• Du arbeitest dienstleistungsorientiert und bringst die Bereitschaft für Wochenend- und Feiertagsdienste sowie Arbeitseinsätze tage- oder halbtageweise mit.\n• Du verstehst es, das Team zu motivieren, den Zusammenhalt zu stärken und eine Kultur der Zusammenarbeit und gegenseitigen Unterstützung zu etablieren."
+        "fr": "Vos tâches\n• Vous prenez la relève de la ligne de nettoyage pendant leur absence.\n• Environ 20 employés de Reinigung Wil sont dirigés directement par vous.\n• Lors des vérifications de nettoyage dans toute l'équipe, le nettoyage prend le relais Vous êtes le responsable et discutez des contrôles effectués avec les employés.\n• Lorsque vous planifiez et dirigez des réunions d'équipe et des séances de formation, vous soutenez activement la gestion du nettoyage.\n• Au milieu de cela au lieu de le faire simplement - l'emballage sur 1-2 jours par semaine Vous participez opérationnellement et d'illustrer la qualité du service à votre équipe.\n• Lors de la planification du nettoyage avec l'outil de planification Soobr, vous apportez votre expérience pratique des opérateurs avec vous.\n• Pendant les jours fériés de la direction, la lessive prend le contrôle de Vous.\n• Votre savoir-faire technique s'inscrit directement dans le travail actif du projet dans l'équipe de gestion de l'accueil. Votre profil\n• Vous avez plusieurs années d'expérience professionnelle dans l'industrie de la maison ou de l'hôtellerie, de préférence dans le secteur de la santé, ainsi qu'au moins un certificat fédéral suisse dans l'industrie de la maison / l'hôtellerie\n• L'examen professionnel dans le domaine de l'accueil/ménagement est avantageux, sinon la volonté de le compléter est fournie.\n• Une orientation de service élevée, le sens des responsabilités, la flexibilité, l'indépendance, le talent organisationnel et la pensée en réseau vous distinguent.\n• Vous travaillez en service et apportez la préparation pour les services de week-end et de vacances ainsi que des affectations de travail jour après jour ou demi-journée.\n• Vous comprenez comment motiver l'équipe, renforcer la cohésion et établir une culture de coopération et de soutien mutuel. Avec environ 1 400 employés, nous fournissons des traitements psychiatriques accessibles, personnels et efficaces pour les adultes dans les cantons de Saint-Gall et Appenzell Ausserrhoden ainsi que dans la Principauté de Liechtenstein dans nos neuf sites d'entreprise. Nous sommes sur la route numériquement et nous nous engageons pour la durabilité, donc nous attendons avec impatience votre application en ligne via notre page d'accueil. Dès que votre demande a été reçue par nous en ligne, vous recevrez une confirmation de réception par courriel. Nous sommes heureux de vous connaître sur la base de votre dossier et de vérifier si vos qualifications, compétences et vous en tant que personne correspondent au poste annoncé et à la psychiatrie St.Gallen. Alors nous vous contacterons. Lors d'une entrevue personnelle, nous apprenons à nous connaître et vous en apprendrez plus sur la psychiatrie St.Gallen, le poste annoncé et les défis. Au deuxième tour, nous aimerions avoir une meilleure image de vous et découvrir avec vous si nous nous marions. Vous avez également l'occasion de connaître votre future équipe. Vous recevrez une confirmation téléphonique de notre part si nous décidons pour vous après la deuxième entrevue et vous demandons si vous êtes toujours convaincu de nous. Si nous sommes d'accord, nous établirons votre contrat. Dans les jours suivants, nous vous enverrons le contrat par la poste en double. Le contrat vous fournit également des informations pertinentes sur votre emploi. Entre l'acceptation de l'emploi et le premier jour ouvrable, vous en tant que nouvel employé pouvez déjà accéder aux informations internes pertinentes. Ainsi, vous pouvez obtenir une image différenciée de l'entreprise et déjà préparer pour le travail. Le premier jour, vous pouvez vous attendre à être embarqué dans votre nouvelle équipe et avec d'autres collègues. Vous vous installez sur le nouveau lieu de travail et obtenez un aperçu de vos prochaines tâches. Vous obtenez également votre plan d'introduction individuel, ce qui vous aide à trouver votre chemin rapidement.\n\nTâches :\n• Vous prenez la relève de la ligne de nettoyage pendant leur absence.\n• Environ 20 employés de Reinigung Wil sont dirigés directement par vous.\n• Lors des vérifications de nettoyage dans toute l'équipe, le nettoyage prend le relais Vous êtes le responsable et discutez des contrôles effectués avec les employés.\n• Lorsque vous planifiez et dirigez des réunions d'équipe et des séances de formation, vous soutenez activement la gestion du nettoyage.\n• Au milieu de cela au lieu de le faire simplement - l'emballage sur 1-2 jours par semaine Vous participez opérationnellement et d'illustrer la qualité du service à votre équipe.\n• Lors de la planification du nettoyage avec l'outil de planification Soobr, vous apportez votre expérience pratique des opérateurs avec vous.\n• Pendant les jours fériés de la direction, la lessive prend le contrôle de Vous.\n• Votre savoir-faire technique s'inscrit directement dans le travail actif du projet dans l'équipe de gestion de l'accueil.\n\nExigences\n• Vous avez plusieurs années d'expérience professionnelle dans l'industrie de la maison ou de l'hôtellerie, de préférence dans le secteur de la santé, ainsi qu'au moins un certificat fédéral suisse dans l'industrie de la maison / l'hôtellerie\n• L'examen professionnel dans le domaine de l'accueil/ménagement est avantageux, sinon la volonté de le compléter est fournie.\n• Une orientation de service élevée, le sens des responsabilités, la flexibilité, l'indépendance, le talent organisationnel et la pensée en réseau vous distinguent.\n• Vous travaillez en service et apportez la préparation pour les services de week-end et de vacances ainsi que des affectations de travail jour après jour ou demi-journée.\n• Vous comprenez comment motiver l'équipe, renforcer la cohésion et établir une culture de coopération et de soutien mutuel."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/stellvertretung-leitung-reinigung/149fa20d-2ce7-482f-abbf-62d4c0567f9b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T10:26:14.008Z",
+      "crawledAt": "2026-07-19T10:42:34.631Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -869,17 +860,63 @@
       "postedDate": "2026-07-18",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/stellvertretung-leitung-reinigung/149fa20d-2ce7-482f-abbf-62d4c0567f9b",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stellvertretung-leitung-reinigung-psgn-wil-sg",
+        "collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiter-in-reinigung-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiter-in-reinigung-psgn-wil-sg",
+        "mitarbeiterin-collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg",
+        "employee-cleaning-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiterin-mitarbeiter-reinigung-psychiatrie-st-gallen-wil-sg",
+        "nettoyage-des-employes-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiterin-mitarbeiter-reinigung-psgn-wil-sg",
+        "pulizia-dei-dipendenti-psychiatrie-st-gallen-wil-sg",
+        "addetto-a-alle-pulizie-contratto-a-tempo-determinato-psychiatrie-st-gallen-wil-sg",
+        "cleaning-staff-temporary-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiterin-mitarbeiter-reinigung-befristet-psychiatrie-st-gallen-wil-sg",
+        "personnel-de-nettoyage-contrat-temporaire-psychiatrie-st-gallen-wil-sg",
+        "mitarbeiterin-mitarbeiter-reinigung-befristet-psgn-wil-sg",
+        "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg",
+        "direzione-aggiunto-per-le-pulizie-psychiatrie-st-gallen-wil-sg"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-leitung-reinigung-psgn-wil-sg"
+          "stellvertretung-leitung-reinigung-psgn-wil-sg",
+          "collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiter-in-reinigung-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiter-in-reinigung-psgn-wil-sg",
+          "mitarbeiterin-collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg",
+          "employee-cleaning-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-psychiatrie-st-gallen-wil-sg",
+          "nettoyage-des-employes-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-psgn-wil-sg",
+          "pulizia-dei-dipendenti-psychiatrie-st-gallen-wil-sg",
+          "addetto-a-alle-pulizie-contratto-a-tempo-determinato-psychiatrie-st-gallen-wil-sg",
+          "cleaning-staff-temporary-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-befristet-psychiatrie-st-gallen-wil-sg",
+          "personnel-de-nettoyage-contrat-temporaire-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-befristet-psgn-wil-sg",
+          "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg",
+          "direzione-aggiunto-per-le-pulizie-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg"
+        ],
+        "de": [
+          "mitarbeiter-in-reinigung-psgn-wil-sg",
+          "mitarbeiterin-collaboratore-trice-reinigung-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-psgn-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-befristet-psychiatrie-st-gallen-wil-sg",
+          "mitarbeiterin-mitarbeiter-reinigung-befristet-psgn-wil-sg"
+        ],
+        "fr": [
+          "mitarbeiter-in-reinigung-psychiatrie-st-gallen-wil-sg",
+          "stellvertretung-leitung-reinigung-psychiatrie-st-gallen-wil-sg"
         ]
       },
-      "previousSlugs": [
-        "stellvertretung-leitung-reinigung-psgn-wil-sg"
-      ],
+      "firstSeenAt": "2026-07-18T10:26:14.008Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -891,8 +928,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-18T10:26:14.008Z"
+      }
     },
     {
       "id": "psgn-e6c8a35e3709",
@@ -984,7 +1020,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

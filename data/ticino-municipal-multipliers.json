@@ -1,0 +1,32 @@
+{
+  "_comment": "Moltiplicatore comunale d'imposta dei comuni ticinesi. Il moltiplicatore comunale è la percentuale con cui il Comune moltiplica l'imposta cantonale base per determinare l'imposta comunale. Usato dal calcolatore per stimare come il netto di un RESIDENTE (permesso B/C) in Ticino varia in base al comune di domicilio. NON influisce sul netto del frontaliere (tassato alla fonte / in Italia).",
+  "_methodology": "imposta_totale(comune) = imposta_cantonale_base * (1 + moltiplicatore_comunale/100). La tariffa d'imposta alla fonte usata dal motore netto (services/calculationService.ts) incorpora già il moltiplicatore comunale medio cantonale (sourceTaxBaselineMultiplierPct): l'aggiustamento riscala solo la quota comunale rispetto a quel baseline. Valori indicativi del moltiplicatore comunale in vigore; verificare sempre presso il proprio Comune.",
+  "_sources": [
+    "Repubblica e Cantone Ticino — Divisione delle contribuzioni, Moltiplicatori comunali d'imposta",
+    "https://www4.ti.ch/dfe/dc/ufficio-esazione-e-condoni/moltiplicatori-comunali"
+  ],
+  "referenceYear": 2024,
+  "sourceTaxBaselineMultiplierPct": 78,
+  "municipalities": [
+    { "name": "Lugano", "multiplierPct": 80 },
+    { "name": "Bellinzona", "multiplierPct": 93 },
+    { "name": "Locarno", "multiplierPct": 95 },
+    { "name": "Mendrisio", "multiplierPct": 100 },
+    { "name": "Chiasso", "multiplierPct": 100 },
+    { "name": "Massagno", "multiplierPct": 80 },
+    { "name": "Paradiso", "multiplierPct": 65 },
+    { "name": "Ascona", "multiplierPct": 78 },
+    { "name": "Minusio", "multiplierPct": 80 },
+    { "name": "Losone", "multiplierPct": 85 },
+    { "name": "Biasca", "multiplierPct": 100 },
+    { "name": "Airolo", "multiplierPct": 100 },
+    { "name": "Muralto", "multiplierPct": 75 },
+    { "name": "Agno", "multiplierPct": 85 },
+    { "name": "Capriasca", "multiplierPct": 95 },
+    { "name": "Stabio", "multiplierPct": 75 },
+    { "name": "Balerna", "multiplierPct": 100 },
+    { "name": "Collina d'Oro", "multiplierPct": 68 },
+    { "name": "Caslano", "multiplierPct": 90 },
+    { "name": "Gambarogno", "multiplierPct": 95 }
+  ]
+}

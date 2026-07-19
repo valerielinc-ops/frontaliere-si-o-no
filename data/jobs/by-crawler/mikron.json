@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-07-18T10:53:49.981Z",
+  "assembledAt": "2026-07-19T11:20:18.973Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/giovane-ingegnere-meccanico-madrelingua-francese",
@@ -121,6 +121,11 @@
           "unitText": "YEAR"
         }
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-engineer-m-f-d-mikron"
+        ]
+      },
       "previousSlugs": [
         "quality-engineer-m-f-d-mikron"
       ],
@@ -167,6 +172,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:40:19.781Z",
       "addressLocality": "Agno",
       "addressCountry": "CH",
@@ -184,7 +190,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "retranslationAttempts": 1
     },
     {
@@ -230,11 +235,13 @@
         "location": "Boudry"
       },
       "previousSlugs": [
-        "formazione-di-apprendisti-mikron-group-boudry"
+        "formazione-di-apprendisti-mikron-group-boudry",
+        "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "formazione-di-apprendisti-mikron-group-boudry"
+          "formazione-di-apprendisti-mikron-group-boudry",
+          "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron"
         ]
       },
       "firstSeenAt": "2026-06-29T22:57:28.302Z",

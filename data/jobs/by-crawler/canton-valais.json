@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-18T11:00:44.146Z",
+  "assembledAt": "2026-07-19T11:28:30.297Z",
   "jobs": [
     {
       "id": "canton-valais-ccea40004fb4",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:41.704Z",
+      "crawledAt": "2026-07-19T11:28:27.772Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111282&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:40.695Z",
+      "crawledAt": "2026-07-19T11:28:26.764Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,6 +142,11 @@
         "administrative-staff-or-administrative-staff-20-canton-du-valais-sion",
         "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion",
         "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+        "un-collaboratore-scientifico-70-canton-du-valais-sion",
+        "a-scientific-collaborator-70-canton-du-valais-sion",
+        "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
+        "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+        "research-associate-70-canton-du-valais-sion",
         "un-collaboratore-amministrativo-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
@@ -159,24 +164,32 @@
           "administrative-staff-or-administrative-staff-20-canton-du-valais-sion",
           "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion",
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+          "un-collaboratore-scientifico-70-canton-du-valais-sion",
+          "a-scientific-collaborator-70-canton-du-valais-sion",
+          "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
+          "research-associate-70-canton-du-valais-sion",
           "un-collaboratore-amministrativo-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
           "a-specialist-collaborator-or-a-specialist-collaborator-70-80-canton-du-valais-sion",
           "an-administrative-collaborator-70-canton-du-valais-sion",
-          "administrative-staff-or-administrative-staff-20-canton-du-valais-sion"
+          "administrative-staff-or-administrative-staff-20-canton-du-valais-sion",
+          "a-scientific-collaborator-70-canton-du-valais-sion"
         ],
         "de": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
           "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-70-80-canton-du-valais-sion",
           "ein-administrativer-mitarbeiter-70-canton-du-valais-sion",
-          "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion"
+          "verwaltungspersonal-oder-verwaltungspersonal-20-canton-du-valais-sion",
+          "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion"
         ],
         "fr": [
           "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-70-80-canton-valais-ch",
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-70-canton-valais-ch",
-          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch"
+          "un-collaborateur-administratif-ou-une-collaboratrice-administrative-20-canton-valais-ch",
+          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.997Z",
@@ -225,7 +238,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101474&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:39.999Z",
+      "crawledAt": "2026-07-19T11:28:26.087Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -311,7 +324,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102451&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-18T11:00:39.293Z",
+      "crawledAt": "2026-07-19T11:28:25.396Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -389,7 +402,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102355&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:38.599Z",
+      "crawledAt": "2026-07-19T11:28:24.701Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -467,7 +480,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:37.875Z",
+      "crawledAt": "2026-07-19T11:28:24.000Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -545,7 +558,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111908&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:37.191Z",
+      "crawledAt": "2026-07-19T11:28:23.347Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -626,7 +639,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:36.496Z",
+      "crawledAt": "2026-07-19T11:28:22.667Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -704,7 +717,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:35.784Z",
+      "crawledAt": "2026-07-19T11:28:21.959Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -782,7 +795,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:35.060Z",
+      "crawledAt": "2026-07-19T11:28:21.229Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -860,7 +873,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:34.319Z",
+      "crawledAt": "2026-07-19T11:28:20.495Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -938,7 +951,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T11:00:33.583Z",
+      "crawledAt": "2026-07-19T11:28:19.773Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -984,626 +997,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "canton-valais-890b4e965e72",
-      "slug": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
-      "slugByLocale": {
-        "it": "un-ingegnere-dell-alta-vallese-80-100-canton-du-valais-brigue",
-        "en": "an-engineer-from-upper-valais-80-100-canton-du-valais-brigue",
-        "de": "ingenieur-aus-oberwallis-80-100-canton-du-valais-brigue",
-        "fr": "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)",
-      "titleByLocale": {
-        "it": "Un ingegnere dell'Alta Vallese (80-100%)",
-        "en": "An engineer from Upper Valais (80-100%)",
-        "de": "Ingenieur aus Oberwallis (80-100%)",
-        "fr": "Un ingénieur ou une ingénieure Haut-Valais (80-100%)"
-      },
-      "description": "Un ingénieur ou une ingénieure Haut-Valais (80-100%) auprès de la section Rhône et Léman du Service des dangers naturels (SDANA), à Brigue Le Service des dangers naturels (SDANA), avec ses compétences techniques et scientifiques, est responsable des dangers naturels dans tout le Valais. Notre mission dans la section Rhône et Léman : assurer la sécurité, la revitalisation et la durabilité du Rhône Nos domaines d’activités\n\n• Planification et mise en œuvre : Planification et réalisation des différentes mesures\n• de la 3e correction du Rhône (protection contre les crues, revitalisation, accessibilité)\n• et de l'entretien du Rhône\n• Analyse et Prévision : Utilisation des dernières technologies en météorologie,\n• hydrométéorologie, SIG, plans d’alarme/d’intervention, entretien des cours d’eau,\n• gestion des ouvrages de protection et réalisation de projets d’aménagement\n• hydrauliques\n• Mesures urgentes : Assistance technique en cas de crues et réalisation de mesures\n• de remise en état en cas de dommages\n• Coopération et échange : échanges réguliers avec les autorités fédérales,\n• cantonales et communales, les bureaux d’ingénieurs, les entreprises de construction\n• et les entreprises spécialisées dans les systèmes de mesure, d'alerte et d'alarme\n\nVos tâches:\n• Vous assurez la réalisation des mesures de la 3 e correction du Rhône sur le secteur du Haut-Valais de la section Rhône et Léman Vous gérez les aspects techniques, administratifs et financiers des mesures pour tous les domaines de la gestion intégrée des risques Vous conduisez les travaux des bureaux d'études et des entreprises de construction mandatés et garantissez le respect des conditions imposées par les spécialistes du SDANA et les autorités cantonales et fédérales Vous soutenez le service dans les questions stratégiques actuelles telles que la gestion du changement climatique\n\nVotre profil:\n• Ingénieur EPF/HES en génie civil ou environnemental ou formation jugée équivalente\n• Expérience dans la conception et la réalisation de projets d'infrastructure interdisciplinaires Expérience professionnelle en aménagement de cours d’eau\n• Facilité de contact, entregent, diplomatie et expérience dans la gestion des situations de conflit et de négociation Esprit d’initiative et sens des responsabilités Capacité à travailler de manière autonome Langue maternelle allemande avec connaissances du français ou langue maternelle française avec d'excellentes connaissances de l'allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, Section Rhône et Léman, M. Bruno Falay (027 606 35 28 / bruno.falay@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 105285 Dienststelle für Personalmanagemen",
-      "descriptionByLocale": {
-        "it": "Un ingegnere o ingegnere di Haut-Valais (80-100%) presso la sezione Rhône e Léman del Dipartimento degli Hazard naturali (SDANA), in Brigue Il Dipartimento degli Hazard naturali (SDANA), con la sua competenza tecnica e scientifica, è responsabile dei pericoli naturali in tutto il Vallese. La nostra missione nella sezione Rhône e Ginevra: garantire la sicurezza, la rivitalizzazione e la sostenibilità del Rhône\n\n• Pianificazione e attuazione: Pianificazione e attuazione di varie misure\n• la 3a correzione del Rodano (protezione alluvione, rivitalizzazione, accessibilità)\n• e manutenzione del Rodano\n• Analisi e Previsione: Utilizzo delle ultime tecnologie in meteorologia,\n• idrometeorologia, GIS, piani di allarme/intervento, manutenzione del flusso,\n• gestione delle strutture protettive e realizzazione di progetti di sviluppo\n• Idraulica\n• Azione urgente: assistenza tecnica nelle situazioni di alluvione e attuazione delle misure\n• recupero danni\n• Cooperazione e scambio: scambi regolari con le autorità federali,\n• cantonale e comunale, uffici di ingegneria, imprese edili\n• e aziende specializzate in sistemi di misura, allarme e allarme\n\nI vostri compiti:\n• Assicurate l'attuazione delle misure della terza correzione del Rodano sul settore Haut-Valais della sezione Rhône e Léman Tu gestisci gli aspetti tecnici, amministrativi e finanziari delle misure per tutti i settori della gestione integrata dei rischi L'utente svolge il lavoro degli uffici di ingegneria e delle società edili preposte e garantisce il rispetto delle condizioni imposte dagli specialisti della SDANA e dalle autorità cantonali e federali Supporti il servizio in questioni politiche attuali come la gestione dei cambiamenti climatici\n\nIl tuo profilo:\n• Ingegnere EPF/HES in ingegneria civile o ambientale o formazione equivalente\n• Esperienza nella progettazione e realizzazione di progetti infrastrutturali interdisciplinari Esperienza professionale nello sviluppo delle vie navigabili\n• Facilità di contatto, comprensione, diplomazia ed esperienza nella gestione dei conflitti e delle situazioni di negoziazione Iniziativa e senso di responsabilità Capacità di lavorare indipendentemente la lingua madre tedesca con la lingua madre francese o francese con un'ottima conoscenza della lingua tedesca\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nInformazioni sulla posizione: Dipartimento dei pericoli naturali, Sezione Rhone e Ginevra, Bruno Falay (027 606 35 28 / bruno.falay@admin.vs.ch) Postulazione on-line richiesta: www.vs.ch/jobs o offerte di invio: Servizio Risorse Umane, Luogo St-Théodule 15, 1951 Sion Termine ultimo per l'applicazione: 17 luglio 2026 / Numero di riferimento: 105285 Dienstelle für Personalmanagemen",
-        "en": "An engineer or engineer from Haut-Valais (80-100%) at the Rhône and Léman section of the Department of Natural Hazards (SDANA), in Brigue The Department of Natural Hazards (SDANA), with its technical and scientific expertise, is responsible for natural hazards throughout the Valais. Our mission in the Rhône and Geneva section: ensuring the security, revitalization and sustainability of the Rhône Our areas of activity\n\n• Planning and implementation: Planning and implementation of various measures\n• the 3rd Rhone correction ( flood protection, revitalization, accessibility)\n• and maintenance of the Rhône\n• Analysis and Forecasting: Using the latest technologies in meteorology,\n• hydrometeorology, GIS, alarm/intervention plans, stream maintenance,\n• management of protective structures and implementation of development projects\n• Hydraulics\n• Urgent action: Technical assistance in flood situations and implementation of measures\n• damage recovery\n• Cooperation and exchange: regular exchanges with federal authorities,\n• cantonal and communal, engineering offices, construction companies\n• and companies specialised in measuring, warning and alarm systems\n\nYour tasks:\n• You ensure the implementation of the measures of the 3rd Rhone correction on the Haut-Valais sector of the Rhône and Léman section You manage the technical, administrative and financial aspects of the measures for all areas of integrated risk management You conduct the work of the engineering offices and the construction companies mandated and guarantee compliance with the conditions imposed by the specialists of the SDANA and the cantonal and federal authorities You support the service in current policy issues such as climate change management\n\nYour profile:\n• EPF/HES engineer in civil or environmental engineering or equivalent training\n• Experience in designing and implementing interdisciplinary infrastructure projects Professional experience in waterway development\n• Ease of contact, understanding, diplomacy and experience in managing conflict and negotiation situations Initiative and sense of responsibility Ability to work independently German mother tongue with French or French mother tongue with excellent knowledge of German\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPosition Information: Department of Natural Hazards, Section Rhone and Geneva, Mr Bruno Falay (027 606 35 28 / bruno.falay@admin.vs.ch) Requested online postulation: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: 17 July 2026 / Reference Number : 105285 Dienstelle für Personalmanagemen",
-        "de": "Ein Ingenieur oder Ingenieur aus Haut-Valais (80-100%) der Abteilung Rhône und Léman der Abteilung für Naturgefahren (SDANA) in Brigue Die Abteilung für Naturgefahren (SDANA) ist mit ihrer technischen und wissenschaftlichen Expertise für Naturgefahren im Wallis verantwortlich. Unsere Mission in der Rhône und Genf: Gewährleistung der Sicherheit, Revitalisierung und Nachhaltigkeit der Rhône Unsere Tätigkeitsbereiche\n\n• Planung und Umsetzung: Planung und Umsetzung verschiedener Maßnahmen\n• die 3. Rhone-Korrektur (Hochwasserschutz, Revitalisierung, Zugänglichkeit)\n• und Wartung der Rhône\n• Analyse und Vorhersage: Verwendung der neuesten Technologien in der Meteorologie,\n• Hydrometeorologie, GIS, Alarm-/Interventionspläne, Wasserstromwartung,\n• Management von Schutzstrukturen und Durchführung von Entwicklungsprojekten\n• Hydraulik\n• Dringendes Handeln: Technische Hilfe in Hochwassersituationen und Durchführung von Maßnahmen\n• Schadenersatz\n• Kooperation und Austausch: regelmäßiger Austausch mit Bundesbehörden,\n• Kantonale und Gemeinde, Ingenieurbüros, Bauunternehmen\n• und auf Mess-, Warn- und Alarmsysteme spezialisierte Unternehmen\n\nIhre Aufgaben:\n• Sie sorgen für die Umsetzung der Maßnahmen der 3. Rhône-Korrektur im Bereich Haut-Valais des Abschnitts Rhône und Léman Sie verwalten die technischen, administrativen und finanziellen Aspekte der Maßnahmen für alle Bereiche des integrierten Risikomanagements Sie führen die Arbeit der beauftragten Ingenieurbüros und Bauunternehmen durch und garantieren die Einhaltung der von den Spezialisten der SDANA und den kantonalen und bundesstaatlichen Behörden festgelegten Bedingungen Sie unterstützen den Service bei aktuellen politischen Themen wie dem Klimawandelmanagement\n\nIhr Profil:\n• EPF/HES-Ingenieur in Bau- oder Umwelttechnik oder gleichwertiger Ausbildung\n• Erfahrung in der Konzeption und Umsetzung interdisziplinärer Infrastrukturprojekte Berufserfahrung in der Wasserstraßenentwicklung\n• Einfache Kontaktaufnahme, Verständnis, Diplomatie und Erfahrung im Umgang mit Konflikt- und Verhandlungssituationen Initiative und Verantwortungsbewusstsein Fähigkeit, selbstständig Deutsch Muttersprache mit Französisch oder Französisch Muttersprache mit exzellenten Deutschkenntnissen zu arbeiten\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Abteilung für Naturgefahren, Sektion Rhone und Genf, Herr Bruno Falay (027 606 35 28 / bruno.falay@admin.vs.ch) Angeforderte Online-Postulation: www.vs.ch/jobs oder Versandangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 17. Juli 2026 / Referenznummer: 105285 Dienstelle für Personalmanagemen",
-        "fr": "Un ingénieur ou une ingénieure Haut-Valais (80-100%) auprès de la section Rhône et Léman du Service des dangers naturels (SDANA), à Brigue Le Service des dangers naturels (SDANA), avec ses compétences techniques et scientifiques, est responsable des dangers naturels dans tout le Valais. Notre mission dans la section Rhône et Léman : assurer la sécurité, la revitalisation et la durabilité du Rhône Nos domaines d’activités\n\n• Planification et mise en œuvre : Planification et réalisation des différentes mesures\n• de la 3e correction du Rhône (protection contre les crues, revitalisation, accessibilité)\n• et de l'entretien du Rhône\n• Analyse et Prévision : Utilisation des dernières technologies en météorologie,\n• hydrométéorologie, SIG, plans d’alarme/d’intervention, entretien des cours d’eau,\n• gestion des ouvrages de protection et réalisation de projets d’aménagement\n• hydrauliques\n• Mesures urgentes : Assistance technique en cas de crues et réalisation de mesures\n• de remise en état en cas de dommages\n• Coopération et échange : échanges réguliers avec les autorités fédérales,\n• cantonales et communales, les bureaux d’ingénieurs, les entreprises de construction\n• et les entreprises spécialisées dans les systèmes de mesure, d'alerte et d'alarme\n\nVos tâches:\n• Vous assurez la réalisation des mesures de la 3 e correction du Rhône sur le secteur du Haut-Valais de la section Rhône et Léman Vous gérez les aspects techniques, administratifs et financiers des mesures pour tous les domaines de la gestion intégrée des risques Vous conduisez les travaux des bureaux d'études et des entreprises de construction mandatés et garantissez le respect des conditions imposées par les spécialistes du SDANA et les autorités cantonales et fédérales Vous soutenez le service dans les questions stratégiques actuelles telles que la gestion du changement climatique\n\nVotre profil:\n• Ingénieur EPF/HES en génie civil ou environnemental ou formation jugée équivalente\n• Expérience dans la conception et la réalisation de projets d'infrastructure interdisciplinaires Expérience professionnelle en aménagement de cours d’eau\n• Facilité de contact, entregent, diplomatie et expérience dans la gestion des situations de conflit et de négociation Esprit d’initiative et sens des responsabilités Capacité à travailler de manière autonome Langue maternelle allemande avec connaissances du français ou langue maternelle française avec d'excellentes connaissances de l'allemand\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service des dangers naturels, Section Rhône et Léman, M. Bruno Falay (027 606 35 28 / bruno.falay@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 105285 Dienststelle für Personalmanagemen"
-      },
-      "location": "Brigue",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:09:26.915Z",
-      "addressLocality": "Brigue",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=105285&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ],
-        "de": [
-          "un-ingenieur-ou-une-ingenieure-haut-valais-80-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.928Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-2fe1812167d6",
-      "slug": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
-      "slugByLocale": {
-        "it": "un-collaboratore-scientifico-qualita-dell-acqua-e-strategia-microinquinante-80-per-un-periodo-fisso-di-2-anni-canton-du",
-        "en": "a-scientific-collaborator-water-quality-and-micropollutant-strategy-80-for-a-fixed-period-of-2-years-canton-du-valais",
-        "de": "ein-wissenschaftlicher-mitarbeiter-wasserqualitat-und-mikroschadstoffstrategie-80-fur-einen-festen-zeitraum-von-2-jahren",
-        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)",
-      "titleByLocale": {
-        "it": "Un collaboratore scientifico – qualità dell'acqua e strategia microinquinante (80% – per un periodo fisso di 2 anni)",
-        "en": "A scientific collaborator – water quality and micropollutant strategy (80% – for a fixed period of 2 years)",
-        "de": "Ein wissenschaftlicher Mitarbeiter - Wasserqualität und Mikroschadstoffstrategie (80% - für einen festen Zeitraum von 2 Jahren)",
-        "fr": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans)"
-      },
-      "description": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans) auprès du Service de l’environnement, section Protection des eaux, à Sion\n\nVos tâches:\n• Vous développez et mettez en œuvre la stratégie cantonale relative aux micropolluants dans les eaux Vous coordonnez le suivi des micropolluants dans les eaux et assurez l’analyse des résultats de monitoring Vous planifiez et conduisez des campagnes de mesures ciblées Vous assurez le suivi des activités industrielles susceptibles d’émettre des micropolluants Vous réalisez l’expertise des substances préoccupantes ou émergentes Vous coordonnez les analyses avec les laboratoires spécialisés et les centres d’écotoxicologie Vous proposez et suivez des mesures visant à réduire les émissions de micropolluants à la source Vous participez aux travaux scientifiques de différents groupes stratégiques au niveau cantonal et national ainsi qu’au service de piquet\n\nVotre profil:\n• Master EPF / universitaire en sciences de l’environnement, chimie ou formation équivalente Grande expérience dans le domaine de la protection des eaux, de la chimie environnementale ou de la surveillance de la qualité des eaux Bonnes capacités rédactionnelles et de synthèse Sens de l’organisation et des responsabilités Méthode de travail efficace et structurée Flexibilité et facilité de communication Rigueur et pragmatisme Résistance au stress Esprit d’équipe Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’environnement, M. Vivian Gremaud, chef de section protection des eaux (027 606 31 32 / vivian.gremaud@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 114556",
-      "descriptionByLocale": {
-        "it": "Collaboratore scientifico – qualità dell’acqua e strategia microinquinante (80% – per un periodo fisso di 2 anni) con il Servizio Ambientale, Sezione Protezione dell’acqua, a Sion\n\nI vostri compiti:\n• Sviluppi e implementa la strategia cantonale sui microinquinanti in acqua Coordinate il monitoraggio dei microinquinanti in acqua e assicurate l'analisi dei risultati di monitoraggio Pianifichi e conduci campagne d'azione mirate Monitorare le attività industriali in grado di emettere microinquinanti Si fanno le competenze di sostanze di preoccupazione o emergenti Si coordinano le analisi con laboratori specializzati e centri di ecotossicità Proponete e seguite le misure per ridurre le emissioni di microinquinanti alla fonte Partecipate al lavoro scientifico di diversi gruppi strategici a livello cantonale e nazionale e al servizio picket\n\nIl tuo profilo:\n• Laurea magistrale in scienze ambientali, chimica o educazione equivalente Grande esperienza nel campo della protezione dell'acqua, della chimica ambientale o del monitoraggio della qualità dell'acqua Buone competenze editoriali e di sintesi Significato di organizzazione e responsabilità Metodo efficace e strutturato di lavoro Flessibilità e facilità di comunicazione Rigour e pragmatismo Resistenza di stress Spirito di squadra Lingua madre francese o tedesca, con molto buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio:\nImmediatamente o da concordare\n\nInformazioni:\nInformazioni di Posizione: Servizio Ambientale, Sig. Vivian Gremaud, Capo della Sezione Protezione Acqua (027 606 31 32 / vivian.gremaud@admin.vs.ch) Richiesta online richiesta: www.vs.ch/jobs o inviando offerte: Servizio Risorse Umane, Place St-Théodule 15, 1951 Sion Deadline per l'applicazione: 17 luglio 2026 / Numero di riferimento: 114556",
-        "en": "A scientific collaborator – water quality and micropollutant strategy (80% – for a fixed period of 2 years) with the Environmental Service, Section Water Protection, in Sion\n\nYour tasks:\n• You develop and implement the cantonal strategy on micropollutants in water You coordinate the monitoring of micropollutants in water and ensure the analysis of monitoring results You plan and conduct targeted action campaigns You monitor industrial activities likely to emit micropollutants You make the expertise of substances of concern or emerging You coordinate the analyses with specialized laboratories and ecotoxicology centres You propose and follow measures to reduce emissions of micropollutants at source You participate in the scientific work of different strategic groups at cantonal and national level and in the picket service\n\nYour profile:\n• Master's degree in environmental sciences, chemistry or equivalent education Great experience in the field of water protection, environmental chemistry or water quality monitoring Good editorial and synthesis skills Meaning of organization and responsibility Effective and structured method of work Flexibility and ease of communication Rigour and pragmatism Stress resistance Spirit of team French or German mother tongue, with very good knowledge of the second official language\n\nEntry into office:\nImmediately or to be agreed\n\nInformation:\nPosition Information: Environmental Service, Mr. Vivian Gremaud, Head of Water Protection Section (027 606 31 32 / vivian.gremaud@admin.vs.ch) Desired online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Théodule 15, 1951 Sion Deadline for application: 17 July 2026 / Reference Number: 114556",
-        "de": "Ein wissenschaftlicher Mitarbeiter - Wasserqualität und Mikroschadstoffstrategie (80% - für einen festen Zeitraum von 2 Jahren) mit dem Environmental Service, Section Water Protection, in Sion\n\nIhre Aufgaben:\n• Sie entwickeln und implementieren die kantonale Strategie zu Mikroschadstoffen im Wasser Sie koordinieren die Überwachung von Mikroschadstoffen im Wasser und sorgen für die Analyse der Überwachungsergebnisse Sie planen und führen gezielte Aktionskampagnen durch Sie überwachen industrielle Aktivitäten, die Mikroschadstoffe emittieren können Sie machen das Fachwissen über bedenkliche oder aufkommende Stoffe Sie koordinieren die Analysen mit spezialisierten Labors und Ökotoxikologiezentren Sie schlagen und befolgen Maßnahmen zur Verringerung der Emissionen von Mikroschadstoffen an der Quelle vor Sie beteiligen sich an der wissenschaftlichen Arbeit verschiedener strategischer Gruppen auf kantonaler und nationaler Ebene und am Streikpostendienst\n\nIhr Profil:\n• Master-Abschluss in Umweltwissenschaften, Chemie oder gleichwertige Ausbildung Große Erfahrung im Bereich Wasserschutz, Umweltchemie oder Wasserqualitätsüberwachung Gute redaktionelle und Synthesefähigkeiten Bedeutung von Organisation und Verantwortung Effektive und strukturierte Arbeitsweise Flexibilität und einfache Kommunikation Strenge und Pragmatismus Stressresistenz Team Französisch oder Deutsch Muttersprache, mit sehr guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt:\nSofort oder zu vereinbaren\n\nInformationen:\nPositionsinformation: Umweltdienst, Herr Vivian Gremaud, Abteilungsleiter Wasserschutz (027 606 31 32 / vivian.gremaud@admin.vs.ch) Gewünschte Online-Bewerbung: www.vs.ch/jobs oder Versandangebote: Personaldienst, Place St-Théodule 15, 1951 Sion Bewerbungsfrist: 17. Juli 2026 / Referenznummer: 114556",
-        "fr": "Un collaborateur ou une collaboratrice scientifique – qualité des eaux et stratégie micropolluants (80%– pour une durée déterminée de 2 ans) auprès du Service de l’environnement, section Protection des eaux, à Sion\n\nVos tâches:\n• Vous développez et mettez en œuvre la stratégie cantonale relative aux micropolluants dans les eaux Vous coordonnez le suivi des micropolluants dans les eaux et assurez l’analyse des résultats de monitoring Vous planifiez et conduisez des campagnes de mesures ciblées Vous assurez le suivi des activités industrielles susceptibles d’émettre des micropolluants Vous réalisez l’expertise des substances préoccupantes ou émergentes Vous coordonnez les analyses avec les laboratoires spécialisés et les centres d’écotoxicologie Vous proposez et suivez des mesures visant à réduire les émissions de micropolluants à la source Vous participez aux travaux scientifiques de différents groupes stratégiques au niveau cantonal et national ainsi qu’au service de piquet\n\nVotre profil:\n• Master EPF / universitaire en sciences de l’environnement, chimie ou formation équivalente Grande expérience dans le domaine de la protection des eaux, de la chimie environnementale ou de la surveillance de la qualité des eaux Bonnes capacités rédactionnelles et de synthèse Sens de l’organisation et des responsabilités Méthode de travail efficace et structurée Flexibilité et facilité de communication Rigueur et pragmatisme Résistance au stress Esprit d’équipe Langue maternelle française ou allemande, avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de l’environnement, M. Vivian Gremaud, chef de section protection des eaux (027 606 31 32 / vivian.gremaud@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 114556"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:09:26.264Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Qualità",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114556&publication=2626",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ],
-        "en": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ],
-        "de": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-qualite-des-eaux-et-strategie"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:23.605Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-f86ae3ca0732",
-      "slug": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "un-impiegato-tecnico-specializzato-o-un-impiegato-tecnico-specializzato-100-canton-du-valais-sion",
-        "en": "a-specialist-technical-electrician-employee-or-a-specialist-technical-electrician-employee-100-canton-du-valais-sion",
-        "de": "ein-technischer-elektriker-oder-ein-technischer-elektriker-100-canton-du-valais-sion",
-        "fr": "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)",
-      "titleByLocale": {
-        "it": "Collaboratore tecnico specializzato elettricista",
-        "en": "Electrical Technician Specialist",
-        "de": "Elektriker / Automatisierungstechniker (m/w/d) 100%",
-        "fr": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%)"
-      },
-      "description": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%) auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion\n\nVos tâches:\n• Garantir l’exploitation, la maintenance et l'entretien des installations techniques du secteur Effectuer des mesures périodiques et des contrôles de fonctionnement des installations et des équipements de sécurité Assister la direction des travaux dans les opérations d'entretien et de rénovation des installations électromécaniques Assurer un service de dépannage et de piquet à l'échelle cantonale\n\nVotre profil:\n• Installateur électricien / automaticien avec certificat fédéral de capacité (CFC), ou formation équivalente Expérience pratique en installations basse tension ainsi qu'en automatisation industrielle et en transmission de données Solide expérience dans le dépannage Remplir les conditions pour l'obtention d'une autorisation d'électricien d'exploitation (conformément à l’OIBT, art. 13) Bonnes connaissances en informatique Aptitude à travailler en environnement naturel et en hauteur Capacité à travailler de manière autonome et avec un sens des responsabilités Permis de conduire catégorie B Bonne condition physique Disponible pour des services de piquet et des horaires de travail irréguliers Votre langue maternelle est le français avec des connaissances de base en allemand\n\nEntrée en fonction:\n1\n\n• er\n• août 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 14 / david.bovard@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sio Délai de postulation : 17 juillet 2026 / Numéro de référence : 114560",
-      "descriptionByLocale": {
-        "it": "Designazione\n\nCollaboratore tecnico specializzato o collaboratore tecnico-elettrico specializzato (100%) con il Servizio Mobilità, sezione logistica delle strade cantonali (Log-RC) a Sion\n\nMissioni\n\n- Assicurare il funzionamento, la manutenzione e la manutenzione degli impianti tecnici del settore\n- Effettuare misurazioni periodiche e controlli operativi degli impianti e delle attrezzature di sicurezza\n- Assistere alla gestione del lavoro nella manutenzione e ristrutturazione di impianti elettromeccanici\n- Fornire assistenza e servizio picket su scala cantonale\n\nProfilo ricercato\n\n- installatore elettrico/automatico con certificato federale di capacità (FCC), o formazione equivalente\n- Esperienza pratica negli impianti a bassa tensione, automazione industriale e trasmissione dati\n- Forte esperienza nella risoluzione dei problemi\n- Completamento delle condizioni per l'ottenimento di una licenza elettrica operativa (secondo ITTO, art. 13)\n- Buone competenze informatiche\n- Capacità di lavorare in ambiente naturale e altezza\n- Capacità di lavorare in modo indipendente e con un senso di responsabilità\n- Patente di guida categoria B\n- Buone condizioni fisiche\n- Disponibile per servizi di picket e ore di lavoro irregolari\n- La tua lingua madre è francese con conoscenza di base in tedesco\n\nEntrata in ufficio\n\n- 1 agosto 2026 o da concordare\n\nInformazioni\n\n- Posizione Informazioni: Servizio di Mobilità (027 607 11 14 / david.bovard@admin.vs.ch)\n- Per applicare online: www.vs.ch/jobs o inviare offerte: Servizio risorse umane, Luogo St-Théodule 15, 1951 Sion\n- Termine ultimo per l'applicazione: 17 luglio 2026\n- Numero di riferimento: 114560",
-        "en": "Description\n\nA technical assistant specialized in electrical engineering or a technical assistant specialized in electrical engineering (1010) with the Mobility Service, logistics section d, maintenance of cantonal roads (Log-RC) in Sion\n\nMission\n\n- Guaranteeing the operation, maintenance and maintenance of the technical installations of the sector - Carrying out periodic measurements and controls of the operation of the security installations and equipment - Training the management of the works in the operations of maintenance and renovation of the electromechanical installations - Providing a service of troubleshooting and picket at the cantonal level\n\nProfile sought\n\n- Electrician/Abatian, with Federal Certificate of Capacity (FCC), or equivalent training - Practical experience in low voltage installations as well as industrial automation and data transmission - Solid experience in troubleshooting - Completing the conditions for obtaining an operating electrician authorization (in accordance with IO BT, art.\n\n13) - Good computer skills - Ability to work in the natural environment and height - Ability to work independently and with a sense of responsibility - Driving licence category B - Good physical condition - Available for picket services and irregular working hours - Your mother tongue is French with basic knowledge in German\n\nEntry into office\n\n- 1 August 2026 or to be agreed\n\nInformation\n\n- Job information: Mobility Service (027 607 11 14 / david.bovard@admin.vs.ch) - Requested online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion - Deadline for application: 17 July 2026 - Reference Number: 114560",
-        "de": "Beschreibung\n\nEin spezialisierter technischer Elektriker oder ein spezialisierter technischer Elektriker (100%) mit dem Mobilitätsservice, Logistikbereich der kantonalen Straßen (Log-RC) in Sion\n\nDienstreisen\n\n- Gewährleistung des Betriebs, der Wartung und der Wartung der technischen Anlagen des Sektors\n- Durchführung periodischer Messungen und Betriebskontrollen von Sicherheitseinrichtungen und -einrichtungen\n- Unterstützung des Arbeitsmanagements bei der Wartung und Renovierung elektromechanischer Anlagen\n- Bereitstellung von Hilfe und Streikposten auf kantonaler Ebene\n\nProfil gesucht\n\nElektrischer / automatischer Installateur mit Federal Certificate of Capacity (FCC) oder gleichwertiger Ausbildung\n- Praktische Erfahrung in Niederspannungsanlagen, Industrieautomation und Datenübertragung\n- Starke Erfahrung in der Fehlersuche\n- Abschluss der Bedingungen für den Erwerb einer Betriebsgenehmigung für Elektriker (gemäß ITTO, Art. 13)\n- Gute Computerkenntnisse\n- Fähigkeit, in natürlicher Umgebung und Höhe zu arbeiten\n- Fähigkeit, unabhängig und mit Verantwortungsbewusstsein zu arbeiten\nFührerschein der Kategorie B\n- Gute körperliche Verfassung\n- Verfügbar für Streikposten und unregelmäßige Arbeitszeiten\n- Ihre Muttersprache ist Französisch mit Grundkenntnissen in Deutsch\n\nAmtsantritt\n\n1. August 2026 oder zu vereinbaren\n\nInformation\n\n- Positionsinformation: Mobilitätsdienst (027 607 11 14 / david.bovard@admin.vs.ch)\n- Um sich online zu bewerben: www.vs.ch/jobs oder Angebote senden: Human Resources Service, Place St-Théodule 15, 1951 Zion\n- Bewerbungsfrist: 17. Juli 2026\n- Referenznummer: 114560",
-        "fr": "Un collaborateur technique spécialisé électricien ou une collaboratrice technique spécialisée électricienne (100%) auprès du Service de la mobilité, section logistique d’entretien des routes cantonales (Log-RC) à Sion\n\nVos tâches:\n• Garantir l’exploitation, la maintenance et l'entretien des installations techniques du secteur Effectuer des mesures périodiques et des contrôles de fonctionnement des installations et des équipements de sécurité Assister la direction des travaux dans les opérations d'entretien et de rénovation des installations électromécaniques Assurer un service de dépannage et de piquet à l'échelle cantonale\n\nVotre profil:\n• Installateur électricien / automaticien avec certificat fédéral de capacité (CFC), ou formation équivalente Expérience pratique en installations basse tension ainsi qu'en automatisation industrielle et en transmission de données Solide expérience dans le dépannage Remplir les conditions pour l'obtention d'une autorisation d'électricien d'exploitation (conformément à l’OIBT, art. 13) Bonnes connaissances en informatique Aptitude à travailler en environnement naturel et en hauteur Capacité à travailler de manière autonome et avec un sens des responsabilités Permis de conduire catégorie B Bonne condition physique Disponible pour des services de piquet et des horaires de travail irréguliers Votre langue maternelle est le français avec des connaissances de base en allemand\n\nEntrée en fonction:\n1\n\n• er\n• août 2026 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 14 / david.bovard@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sio Délai de postulation : 17 juillet 2026 / Numéro de référence : 114560"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:09:25.676Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114560&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ],
-        "en": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ],
-        "de": [
-          "un-collaborateur-technique-specialise-electricien-ou-une-collaboratrice-technique"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.100Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-194285306e11",
-      "slug": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
-      "slugByLocale": {
-        "it": "un-collaboratore-tecnico-ispettore-della-polizia-di-costruzione-o-un-collaboratore-tecnico-ispettore-della-polizia-di",
-        "en": "a-technical-collaborator-construction-police-inspector-or-a-technical-collaborator-construction-police-inspector-100-2",
-        "de": "ein-technischer-mitarbeiter-baupolizeiinspektor-oder-ein-technischer-mitarbeiter-baupolizeiinspektor-100-2-jahre-feste",
-        "fr": "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)",
-      "titleByLocale": {
-        "it": "Collaboratore tecnico / Ispettore della polizia delle costruzioni",
-        "en": "Technical Associate / Building Police Inspector",
-        "de": "Technischer Mitarbeiter / Baupolizeiinspektor",
-        "fr": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans)"
-      },
-      "description": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans) auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion\n\nVos tâches:\n• Vous assurez la gestion (étude, publication, présentation, élaboration des décisions, etc.) des dossiers de constructions (hors zone à bâtir) soumis à la Commission cantonale des constructions (CCC) Vous assurez la gestion (étude, transmission aux services cantonaux compétents, coordination des résultats, etc.) des dossiers de construction (en zone à bâtir) reçus au Secrétariat cantonal des constructions Vous assurez les tâches de la police des constructions hors zone à bâtir (contrôles, élaboration de rapports, présentation à la CCC, élaboration des décisions)\n\nVotre profil:\n• Architecte (EPF/HES), Directeur des travaux du bâtiment avec diplôme fédéral, CFC de dessinateur orientation architecture ou formation jugée équivalente\n• Expérience ou intérêt pour l’architecture et le chantier Maîtrise des outils informatiques MSOffice (connaissances SAP serait un atout) Compétence à s’imposer, sens des responsabilités et de la négociation Aptitude à travailler de manière indépendante ainsi qu’en équipe Capacité de prise de décisions et d’initiatives\n• Aisance dans les contacts (administrations, privés) Permis de conduire catégorie B\n• Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress\n• Langue maternelle française, très bonne connaissance de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Secrétariat de la commission cantonale des constructions et police des constructions (027 606 37 76 ou murielle.bolli@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 114484",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nUn collaboratore tecnico/ispettore della polizia edile oppure un collaboratore tecnico/ispettore della polizia edile (100% – tempo determinato 2 anni) presso il Servizio amministrativo e giuridico del Dipartimento della mobilità, del territorio e dell'ambiente – Segreteria della commissione cantonale dell'edilizia e della polizia edile, a Sion\n\nI tuoi compiti\n\n- Garantisci la gestione (studio, pubblicazione, presentazione, elaborazione delle decisioni, ecc.) dei dossier edilizi (fuori zona edificabile) presentati alla Commissione cantonale dell'edilizia (CCC)\n- Garantire la gestione (studio, trasmissione ai servizi cantonali competenti, coordinamento dei risultati, ecc.) dei dossier di costruzione (in zone edificabili) pervenuti alla Segreteria cantonale dell'edilizia\n- Svolgi i compiti della polizia edilizia al di fuori della zona edificabile (controlli, preparazione di rapporti, presentazione al CCC, preparazione di decisioni)\n\nIl tuo profilo\n\n- Architetto (EPF/HES), Direttore dei lavori edili con diploma federale, CFC in disegnatore architettonico o formazione ritenuta equivalente\n- Esperienza o interesse per l'architettura e i cantieri\n- Padronanza degli strumenti informatici di MSOffice (la conoscenza di SAP costituirà titolo preferenziale)\n- Capacità di farsi valere, senso di responsabilità e negoziazione\n- Capacità di lavorare sia in modo indipendente che in gruppo\n- Capacità di prendere decisioni e prendere iniziative\n- Facilità di contatto (amministrazione, privato)\n- Patente di guida di categoria B\n- Flessibilità e capacità di adattarsi rapidamente al cambiamento\n- Forte resistenza allo stress\n- Francese madrelingua, ottima conoscenza della seconda lingua ufficiale\n\nIngresso in carica\n\nSubito o da concordare\n\nInformazioni\n\n- Informazioni sulla posizione: Segreteria della Commissione cantonale delle costruzioni e Polizia delle costruzioni (027 606 37 76 o murielle.bolli@admin.vs.ch)\n- Candidatura online desiderata: www.vs.ch/jobs o invio di offerte: Dipartimento delle Risorse Umane, Place St-Théodule 15, 1951 Sion\n- Scadenza per le domande: 17 luglio 2026 / Numero di riferimento: 114484",
-        "en": "Description\n\nA technical assistant/inspector of the construction police or a technical collaborator/Wallrice of the construction police (100% – fixed duration of 2 years) with the Administrative and Legal Department of the Department of Mobility, Territory and Environment – section Secretariat of the cantonal commission for constructions and police of constructions, in Sion\n\nYour tasks\n\n- You manage (study, publication, presentation, drawing up decisions, etc.) the construction files (outside the building area) submitted to the Cantonal Commission for Construction (CCC) - You manage (study, transmission to the competent cantonal services, coordination of results, etc.) the construction files (in the building area) received at the Cantonal Secretariat for Construction - You ensure the tasks of the police of the constructions outside the building area (controls, preparation of reports, presentation to the CCC, preparation of decisions)\n\nYour profile\n\n- Architect (EPF/HES), Director of Building Works with Federal Diploma, SWC of draftsman orientation architecture or training deemed equivalent - Experience or interest in architecture and construction - Mastery of MSOffice IT tools ( SAP knowledge would be an asset) - Competence to impose, sense of responsibility and negotiation - Ability to work independently and, in team - Ability to make decisions and initiatives - Ability to communicate (governments, private) - Driver's licence category B - Flexibility and capacity\n\nd, rapid adaptation to change - Strong stress resistance - French mother tongue, very good knowledge of the second official language\n\nEntry into office\n\nImmediately or to be agreed\n\nInformation\n\n- Information on the post: Secretariat of the cantonal commission of constructions and police of constructions (027 606 37 76 or murielle.bolli@admin.vs.ch) - Requested online application: www.vs.ch/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion - Deadline for application: 17 July 2026 / Reference Number: 114484",
-        "de": "Beschreibung\n\nEin technischer Mitarbeiter / Baupolizeiinspektor oder ein technischer Mitarbeiter / Baupolizeiinspektor (100 % – befristete Amtszeit von 2 Jahren) beim Verwaltungs- und Rechtsdienst des Departements für Mobilität, Territorium und Umwelt – Sektion Sekretariat der kantonalen Baukommission und Baupolizei in Sitten\n\nIhre Aufgaben\n\n- Sie sorgen für die Verwaltung (Studie, Publikation, Präsentation, Entscheiderarbeitung usw.) der Bauakten (ausserhalb der Bauzone), die der kantonalen Baukommission (BKK) vorgelegt werden.\n- Sie sorgen für die Verwaltung (Studie, Übermittlung an die zuständigen kantonalen Dienste, Koordination der Ergebnisse usw.) der beim kantonalen Bausekretariat eingegangenen Bauakten (in Bauzonen).\n- Sie nehmen die Aufgaben der Baupolizei außerhalb der Bauzone wahr (Kontrollen, Erstellung von Berichten, Vorlage beim CCC, Vorbereitung von Entscheidungen)\n\nIhr Profil\n\n- Architekt (EPF/HES), Bauleiter mit eidgenössischem Diplom, CFC als Bauzeichner oder gleichwertige Ausbildung\n- Erfahrung oder Interesse an Architektur und Baustellen\n- Beherrschung der IT-Tools MSOffice (SAP-Kenntnisse wären von Vorteil)\n- Durchsetzungsfähigkeit, Verantwortungsbewusstsein und Verhandlungsgeschick\n- Fähigkeit sowohl selbstständig als auch im Team zu arbeiten\n- Fähigkeit, Entscheidungen zu treffen und Initiativen zu ergreifen\n- Einfache Kontaktaufnahme (administrativ, privat)\n- Führerschein der Kategorie B\n- Flexibilität und Fähigkeit, sich schnell an Veränderungen anzupassen\n- Starke Stressresistenz\n- Französische Muttersprache, sehr gute Kenntnisse der zweiten Amtssprache\n\nAmtsantritt\n\nSofort oder nach Vereinbarung\n\nInformationen\n\n- Informationen zur Stelle: Sekretariat der kantonalen Baukommission und Baupolizei (027 606 37 76 oder murielle.bolli@admin.vs.ch)\n- Online-Bewerbung erwünscht: www.vs.ch/jobs oder Einsendung von Angeboten: Personalabteilung, Place St-Théodule 15, 1951 Sion\n- Bewerbungsschluss: 17. Juli 2026 / Referenznummer: 114484",
-        "fr": "Un collaborateur technique / inspecteur de la police des constructions ou une collaboratrice technique / inspectrice de la police des constructions (100% – durée déterminée de 2 ans) auprès du Service administratif et juridique du Département de la mobilité, du territoire et de l’environnement – section Secrétariat de la commission cantonale des constructions et police des constructions, à Sion\n\nVos tâches:\n• Vous assurez la gestion (étude, publication, présentation, élaboration des décisions, etc.) des dossiers de constructions (hors zone à bâtir) soumis à la Commission cantonale des constructions (CCC) Vous assurez la gestion (étude, transmission aux services cantonaux compétents, coordination des résultats, etc.) des dossiers de construction (en zone à bâtir) reçus au Secrétariat cantonal des constructions Vous assurez les tâches de la police des constructions hors zone à bâtir (contrôles, élaboration de rapports, présentation à la CCC, élaboration des décisions)\n\nVotre profil:\n• Architecte (EPF/HES), Directeur des travaux du bâtiment avec diplôme fédéral, CFC de dessinateur orientation architecture ou formation jugée équivalente\n• Expérience ou intérêt pour l’architecture et le chantier Maîtrise des outils informatiques MSOffice (connaissances SAP serait un atout) Compétence à s’imposer, sens des responsabilités et de la négociation Aptitude à travailler de manière indépendante ainsi qu’en équipe Capacité de prise de décisions et d’initiatives\n• Aisance dans les contacts (administrations, privés) Permis de conduire catégorie B\n• Flexibilité et capacité d’adaptation rapide au changement Forte résistance au stress\n• Langue maternelle française, très bonne connaissance de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Secrétariat de la commission cantonale des constructions et police des constructions (027 606 37 76 ou murielle.bolli@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 114484"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:09:25.054Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114484&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ],
-        "en": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ],
-        "de": [
-          "un-collaborateur-technique-inspecteur-de-la-police-des-constructions-ou-une-collaboratrice"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:22.401Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-8d9e3d294253",
-      "slug": "tecnico-sostanziale-80-100-canton-du-valais-brig",
-      "slugByLocale": {
-        "it": "tecnico-sostanziale-80-100-canton-du-valais-brig",
-        "en": "technical-substantial-80-100-canton-du-valais-brig",
-        "de": "technische-r-sachbearbeiter-in-80-100-canton-valais-ch",
-        "fr": "technique-important-80-100-canton-du-valais-brig"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Technische/r Sachbearbeiter/in (80-100%)",
-      "titleByLocale": {
-        "it": "Tecnico/sostanziale (80-100%)",
-        "en": "Technical/substantial (80-100%)",
-        "de": "Technische/r Sachbearbeiter/in (80-100%)",
-        "fr": "Technique/important (80-100%)"
-      },
-      "description": "Technische/r Sachbearbeiter/in 80-100% bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk) Die Dienststelle für Grundbuchwesen ist für den Zustand der Rechte bezüglich der Grundstücke verantwortlich (z. B. Eigentum, Dienstbarkeiten oder Grundpfandrechte). Sie besteht aus 6 Grundbuchämtern, welche über das ganze Wallis verteilt sind. Teams sind für die Einführung und Informatisierung des Eidgenössischen Grundbuchs zu einem vollständig informatisierten Grundbuch zuständig.\n\nIhre Aufgaben:\n• Sie wirken bei den Projekten zur Einführung und Informatisierung des eidgenössischen Grundbuchs mit (Erfassung, Bereinigung und Nachführung Rechte und Pflichten, Eingabe und Bearbeitung der Grundstücke) Sie arbeiten bei der Harmonisierung und Modernisierung der kantonalen Prozesse mit Sie nehmen an der Ausbildung und am Support der Benutzer teil Sie wirken bei der laufenden Erfassung der Daten in die Datenbanken mit\n\nIhr Profil:\n• Sie verfügen über einen Fähigkeitsausweis in einem kaufmännischen oder technischen Beruf oder haben eine gleichwertige Ausbildung Sie haben gute Kenntnisse und Erfahrung im Grundbuch- oder im Immobilienbereich Sie verfügen über gute EDV- Kenntnisse (CAPITASTRA und SAP von Vorteil) Sie verfügen über Analyse- und Synthesefähigkeiten Sie sind teamorientiert Sie führen Ihre Aufgaben präzise aus\n• Sie handeln kunden-, prozess- sowie zielorientiert Sie sind flexibel, belastbar und bereit, engagiert an der Realisierung unserer Projekte mitzuwirken Sie sind deutscher Muttersprache und besitzen gute Kenntnisse der zweiten Amtssprache\n\nStellenantritt:\nSofort oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Grundbuchwesen, Samuel Bregy (027/ 607 80 84 / samuel.bregy@admin.vs.ch ) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 17. Juli 2026 / Referenznummer: 109432",
-      "descriptionByLocale": {
-        "it": "80-100% presso il dipartimento per il registro di base, l'introduzione e l'informatizzazione Oberwallis (Brig e Leuk) Il Dipartimento del Registro del Land è responsabile per lo stato dei diritti relativi alla terra (ad esempio proprietà, facilitazioni o lenti). Si compone di 6 inchini di base, che sono distribuiti in tutto il Vallese. I team sono responsabili dell'introduzione e dell'informatizzazione del Registro federale della terra in un registro di terra completamente computerizzato.\n\nI loro compiti:\n• Partecipano ai progetti per l'introduzione e l'informatizzazione del Registro federale della terra (registrazione, pulizia e monitoraggio dei diritti e degli obblighi, entrata e trattamento dei terreni) Lavorate nell'armonizzazione e nella modernizzazione dei processi cantonali, partecipando alla formazione e al sostegno degli utenti Partecipano alla registrazione continua dei dati nei database\n\nIl tuo profilo:\n• Hai un certificato di competenza in una professione commerciale o tecnica o hai un'istruzione equivalente Hai una buona conoscenza ed esperienza nel settore del registro fondiario o immobiliare Hai buone conoscenze informatiche (CAPITASTRA e SAP sono vantaggiose) Hai competenze di analisi e sintesi Siete orientati al team Essi svolgono i loro compiti con precisione\n• Agisci clienti, processi e obiettivi Sono flessibili, resilienti e disposti a partecipare alla realizzazione dei nostri progetti. Sei una lingua madre tedesca e hai una buona conoscenza della seconda lingua ufficiale\n\nApertura del lavoro:\nImmediatamente o con accordo\n\nInformazioni:\nInformazioni sulla posizione: Servizio per il Registro di terra, Samuel Bregy (027/607 80 84 / samuel.bregy@admin.vs.ch ) Richiesta online: www.vs.ch/jobs o invia la tua richiesta a: Servizio per la gestione del personale, Luogo St-Théodule 15, 1951 Periodo di applicazione: 17. luglio 2026 / Numero di riferimento: 109432",
-        "en": "80-100% at the department for basic registry, introduction and computerization Oberwallis (Brig and Leuk) The Land Registry Department is responsible for the state of the rights regarding the land (e.g. property, easements or liens). It consists of 6 basic bowers, which are distributed throughout Valais. Teams are responsible for the introduction and computerization of the Swiss Federal Land Register into a fully computerized land register.\n\nTheir tasks:\n• They participate in the projects for the introduction and computerization of the Swiss Federal Land Registry (recording, cleaning up and tracking rights and obligations, entry and processing of land) You work in the harmonization and modernization of cantonal processes with you take part in the training and support of users They participate in the ongoing recording of the data in the databases\n\nYour profile:\n• You have a certificate of competence in a commercial or technical profession or have an equivalent education You have good knowledge and experience in the land register or real estate sector You have good computer knowledge (CAPITASTRA and SAP are advantageous) You have analysis and synthesis skills You are team-oriented They carry out their tasks precisely\n• You act customer-, process- and goal-oriented They are flexible, resilient and willing to participate in the realization of our projects. You are a German mother tongue and have a good knowledge of the second official language\n\nJob opening:\nImmediately or by agreement\n\nInformation:\nInformation about the position: Service for Land Registry, Samuel Bregy (027/607 80 84 / samuel.bregy@admin.vs.ch ) Online application requested: www.vs.ch/jobs or send your application to: Service for Personnel Management, Place St-Théodule 15, 1951 Sion Application deadline: 17. July 2026 / Reference number: 109432",
-        "de": "Technische/r Sachbearbeiter/in 80-100% bei der Dienststelle für Grundbuchwesen, Einführung und Informatisierung Oberwallis (Brig und Leuk) Die Dienststelle für Grundbuchwesen ist für den Zustand der Rechte bezüglich der Grundstücke verantwortlich (z. B. Eigentum, Dienstbarkeiten oder Grundpfandrechte). Sie besteht aus 6 Grundbuchämtern, welche über das ganze Wallis verteilt sind. Teams sind für die Einführung und Informatisierung des Eidgenössischen Grundbuchs zu einem vollständig informatisierten Grundbuch zuständig.\n\nIhre Aufgaben:\n• Sie wirken bei den Projekten zur Einführung und Informatisierung des eidgenössischen Grundbuchs mit (Erfassung, Bereinigung und Nachführung Rechte und Pflichten, Eingabe und Bearbeitung der Grundstücke) Sie arbeiten bei der Harmonisierung und Modernisierung der kantonalen Prozesse mit Sie nehmen an der Ausbildung und am Support der Benutzer teil Sie wirken bei der laufenden Erfassung der Daten in die Datenbanken mit\n\nIhr Profil:\n• Sie verfügen über einen Fähigkeitsausweis in einem kaufmännischen oder technischen Beruf oder haben eine gleichwertige Ausbildung Sie haben gute Kenntnisse und Erfahrung im Grundbuch- oder im Immobilienbereich Sie verfügen über gute EDV- Kenntnisse (CAPITASTRA und SAP von Vorteil) Sie verfügen über Analyse- und Synthesefähigkeiten Sie sind teamorientiert Sie führen Ihre Aufgaben präzise aus\n• Sie handeln kunden-, prozess- sowie zielorientiert Sie sind flexibel, belastbar und bereit, engagiert an der Realisierung unserer Projekte mitzuwirken Sie sind deutscher Muttersprache und besitzen gute Kenntnisse der zweiten Amtssprache\n\nStellenantritt:\nSofort oder nach Vereinbarung\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Grundbuchwesen, Samuel Bregy (027/ 607 80 84 / samuel.bregy@admin.vs.ch ) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sion Eingabefrist: 17. Juli 2026 / Referenznummer: 109432",
-        "fr": "80-100% au département de l'enregistrement de base, introduction et informatisation Oberwallis (Brig et Leuk) Le département de l'enregistrement foncier est responsable de l'état des droits relatifs à la terre (p. ex. biens, servitudes ou privilèges). Il se compose de 6 barques de base, réparties dans tout le Valais. Les équipes sont chargées de l ' introduction et de l ' informatisation du Registre foncier fédéral suisse dans un registre foncier entièrement informatisé.\n\nLeurs tâches:\n• Ils participent aux projets d'introduction et d'informatisation du Registre fédéral des terres (enregistrement, nettoyage et suivi des droits et obligations, entrée et traitement des terres) Vous travaillez dans l'harmonisation et la modernisation des processus cantonaux avec vous participez à la formation et au soutien des utilisateurs Ils participent à l'enregistrement continu des données dans les bases de données\n\nVotre profil:\n• Vous avez un certificat de compétence dans une profession commerciale ou technique ou une formation équivalente Vous avez une bonne connaissance et une bonne expérience dans le domaine du registre foncier ou de l'immobilier Vous avez une bonne connaissance informatique (CAPITASTRA et SAP sont avantageux) Vous avez des compétences en analyse et synthèse Vous êtes orientés vers l'équipe Ils accomplissent leurs tâches avec précision\n• Vous agissez en fonction du client, du processus et des objectifs Ils sont flexibles, résilients et disposés à participer à la réalisation de nos projets. Vous êtes une langue maternelle allemande et avez une bonne connaissance de la deuxième langue officielle\n\nCréation d'emplois:\nImmédiatement ou par accord\n\nRenseignements:\nInformations sur le poste: Service d'enregistrement foncier, Samuel Bregy (027/607 80 84 / samuel.bregy@admin.vs.ch ) Demande en ligne demandée: www.vs.ch/jobs ou envoyer votre demande à: Service de gestion du personnel, Place St-Théodule 15, 1951 Sion Date limite de demande: 17. Juillet 2026 / Numéro de référence: 109432"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:09:24.422Z",
-      "addressLocality": "Brig",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109432&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ],
-        "en": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ],
-        "fr": [
-          "technische-r-sachbearbeiter-in-80-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.799Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-3b1751b9c6ba",
-      "slug": "un-collaboratore-scientifico-70-canton-du-valais-sion",
-      "slugByLocale": {
-        "it": "un-collaboratore-scientifico-70-canton-du-valais-sion",
-        "en": "research-associate-70-canton-du-valais-sion",
-        "de": "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
-        "fr": "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Un collaborateur ou une collaboratrice scientifique (70%)",
-      "titleByLocale": {
-        "it": "Collaboratore o collaboratrice scientifica (70%)",
-        "en": "Research Associate (70%)",
-        "de": "Wissenschaftliche/r Mitarbeiter/in (70%)",
-        "fr": "Un collaborateur ou une collaboratrice scientifique (70%)"
-      },
-      "description": "Un collaborateur ou une collaboratrice scientifique (70%) auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez et suivez les projets de recherche en lien avec les domaines d’activités de l’Office Vous assistez le chef d’office et de service sur les projets de réforme dans l’aide sociale Vous participez à la rédaction/modification de directives, règlements ou lois en rapport avec les tâches de l’Office Vous collaborez à l’activité de l’Office en lien avec les mesures d’insertion socio-professionnelle Vous participez à l’élaboration d’une politique de développement durable au sein du Service / de l’Office Vous soutenez le chef d’office dans les tâches de l’OCPS Vous suivez et développez les thématiques liées au désendettement, aux questions sociales pour les populations LGBTIQ ou dans le domaine de la prostitution, ainsi qu’à l’obtention indue des prestations d’aide sociale\n\nVotre profil:\n• Titulaire d’une formation universitaire dans le domaine social ou formation jugée équivalente Expérience dans le domaine social et les milieux institutionnels Sens des responsabilités, de la communication et de l’organisation Résistance face au stress\n• Bonne connaissance du réseau socio-professionnel valaisan Capacité à animer des groupes de travail Flexibilité et disponibilité Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Roland Favre (027 606 48 77) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 100795",
-      "descriptionByLocale": {
-        "it": "Designazione\n\nCollaboratore scientifico (70%) con il Servizio di Azione Sociale all'interno dell'Ufficio Coordinamento per i Benefici Sociali (OCPS) di Sion\nPostazione online: www.vs.ch/jobs\nIl Servizio di Azione Sociale è composto dall'Ufficio di Coordinamento dei Prestazioni Sociali, dall'Ufficio di Coordinamento Disabilità e dall'Ufficio Asili.\n\nI tuoi compiti\n- Partecipa e segui progetti di ricerca relativi alle aree di attività dell'Agenzia\n- Lei assiste il capo ufficio e il servizio sui progetti di riforma nell'assistenza sociale\n- Lei è coinvolto nella redazione/approvazione di direttive, regolamenti o leggi relative al lavoro dell'Ufficio\n- Lei collabora alle attività dell'Ufficio in relazione alle misure di integrazione socioprofessionale\n- Sei coinvolto nello sviluppo di una politica di sviluppo sostenibile all'interno dell'Ufficio/Servizio\n- Lei sostiene il Capo di Stato Maggiore nel lavoro dell'OCPS\n- Seguite e sviluppate i temi relativi al sollievo dal debito, alle questioni sociali per le popolazioni LGBTIQ o nell'area della prostituzione, nonché ai benefici dell'assistenza sociale non garantiti\n\nIl tuo profilo\n- titolare di un'istruzione universitaria nel settore sociale o formazione equivalente\n- Esperienza in campo sociale e istituzionale\n- Un senso di responsabilità, comunicazione e organizzazione\n- Resistenza allo stress\n- Buona conoscenza della rete socioprofessionale Vallese\n- Capacità di condurre gruppi di lavoro\n- Flessibilità e disponibilità\n- Lingua madre francese con buona conoscenza della seconda lingua ufficiale\n\nEntrata in ufficio\n- 1 ottobre 2026\n\nInformazioni\n- Informazioni sulla posizione: Servizio di Azione Sociale, Sig. Roland Favre (027 606 48 77)\n- Postulazione online desiderata: www.vs.ch/en/jobs o offerte di invio: Servizio Risorse Umane, Luogo St-Théodule 15, 1951 Sion\n- Termine ultimo per l'applicazione: 17 luglio 2026\n- Numero di riferimento: 100795",
-        "en": "Description\n\nA scientific collaborator (710) with the Social Action Service, within the Office for the Coordination of Social Benefits (OCPS) in Sion Postulation online: www.vs.ch/jobs The Social Action Service brings together the Social Services Coordination Office, the Disability Coordination Office and the Asylum Office.\n\nYour duties - You participate in and follow research projects related to the fields of,Office activities - You assist the Head of Office and Service on reform projects in social assistance - You participate in the drafting/amendment of directives, regulations or laws related to the tasks of the Office - You collaborate in the activity of the Office in connection with measures of social and professional integration - You participate in the development of a sustainable development policy within the Service / Office - You support the Head of Office in the tasks of the Office - You participate in the development of a sustainable development policy within the Office / Office - You support the Head of Office in the tasks of the Office - You participate in the development of a sustainable development policy in the Office / Office\n\nYou follow and develop the themes related to debt relief, social issues for LGBTIQ populations or in the field of prostitution, and, in the field of social assistance, to the receipt of benefits in the field of social assistance.\n\nYour profile - Holder of a university education in the social field or equivalent training - Experience in the social and institutional fields - Meaning of responsibility, communication and organization - Resistance to stress - Good knowledge of the Valais social and professional network - Ability to animate working groups - Flexibility and availability - French mother tongue with good knowledge of the second official language\n\nEntry into office - 1 October 2026\n\nInformation - Information on the position: Social Action Service, Mr Roland Fastre (027 606 48 77) - Posting requested online: www.vs.ch/en/jobs or sending offers: Human Resources Service, Place St-Theodoule 15, 1951 Sion - Deadline for application: 17 July 2026 - Reference Number: 100795",
-        "de": "Beschreibung\n\nEin wissenschaftlicher Mitarbeiter (70%) mit dem Social Action Service im Koordinationsbüro für Sozialleistungen (OCPS) in Sion\nPostulation online: www.vs.ch/jobs\nDer Soziale Aktionsdienst besteht aus dem Koordinierungsbüro für Sozialleistungen, dem Koordinierungsbüro für Behinderte und dem Asylamt.\n\nIhre Aufgaben\n- Sie beteiligen sich an und verfolgen Forschungsprojekte im Zusammenhang mit den Tätigkeitsbereichen der Agentur\n- Sie unterstützen den Büro- und Dienstleiter bei Reformprojekten in der Sozialhilfe\n- Sie sind an der Ausarbeitung/Änderung von Richtlinien, Verordnungen oder Gesetzen im Zusammenhang mit der Arbeit des Amtes beteiligt\n- Sie arbeiten an den Aktivitäten des Amtes im Zusammenhang mit sozio-professionellen Integrationsmaßnahmen mit\n- Sie sind an der Entwicklung einer nachhaltigen Entwicklungspolitik innerhalb des Office/Service beteiligt\n- Sie unterstützen den Stabschef bei der Arbeit des OCPS\n- Sie verfolgen und entwickeln die Themen Schuldenerlass, soziale Fragen für LGBTIQ-Bevölkerungen oder im Bereich Prostitution sowie ungerechtfertigte Sozialhilfeleistungen\n\nDein Profil\n- Inhaber einer Hochschulausbildung im sozialen Bereich oder einer gleichwertigen Ausbildung\n- Erfahrung in sozialen und institutionellen Bereichen\n- Verantwortungsbewusstsein, Kommunikation und Organisation\n- Widerstandsfähigkeit gegen Stress\n- Gute Kenntnisse des Walliser sozio-professionellen Netzwerks\n- Fähigkeit, Arbeitsgruppen zu leiten\n- Flexibilität und Verfügbarkeit\n- Französische Muttersprache mit guten Kenntnissen der zweiten Amtssprache\n\nAmtsantritt\n1. Oktober 2026\n\nInformation\n- Information über die Stelle: Social Action Service, Herr Roland Favre (027 606 48 77)\n- Gesuchte Online-Postulation: www.vs.ch/de/jobs oder Senden von Angeboten: Personaldienst, Place St-Théodule 15, 1951 Zion\n- Bewerbungsfrist: 17. Juli 2026\n- Referenznummer: 100795",
-        "fr": "Un collaborateur ou une collaboratrice scientifique (70%) auprès du Service de l’action sociale, au sein de l’Office de coordination des prestations sociales (OCPS) à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez et suivez les projets de recherche en lien avec les domaines d’activités de l’Office Vous assistez le chef d’office et de service sur les projets de réforme dans l’aide sociale Vous participez à la rédaction/modification de directives, règlements ou lois en rapport avec les tâches de l’Office Vous collaborez à l’activité de l’Office en lien avec les mesures d’insertion socio-professionnelle Vous participez à l’élaboration d’une politique de développement durable au sein du Service / de l’Office Vous soutenez le chef d’office dans les tâches de l’OCPS Vous suivez et développez les thématiques liées au désendettement, aux questions sociales pour les populations LGBTIQ ou dans le domaine de la prostitution, ainsi qu’à l’obtention indue des prestations d’aide sociale\n\nVotre profil:\n• Titulaire d’une formation universitaire dans le domaine social ou formation jugée équivalente Expérience dans le domaine social et les milieux institutionnels Sens des responsabilités, de la communication et de l’organisation Résistance face au stress\n• Bonne connaissance du réseau socio-professionnel valaisan Capacité à animer des groupes de travail Flexibilité et disponibilité Langue maternelle française avec de bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• octobre 2026\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Roland Favre (027 606 48 77) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 17 juillet 2026 / Numéro de référence : 100795"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-07-17T11:09:23.844Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100795&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-        "a-scientific-collaborator-70-canton-du-valais-sion",
-        "research-associate-70-canton-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-        ],
-        "en": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-          "a-scientific-collaborator-70-canton-du-valais-sion",
-          "research-associate-70-canton-du-valais-sion"
-        ],
-        "de": [
-          "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.498Z",
-      "salaryMin": 42400,
-      "salaryMax": 64000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 42400,
-          "maxValue": 64000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-0a380ca0bc8a",
-      "slug": "lavoratore-in-chauffeur-in-100-canton-du-valais-brig",
-      "slugByLocale": {
-        "it": "lavoratore-in-chauffeur-in-100-canton-du-valais-brig",
-        "en": "worker-in-chauffeur-in-100-canton-du-valais-brig",
-        "de": "arbeiter-in-chauffeur-in-100-canton-valais-ch",
-        "fr": "travailleur-in-chauffeur-in-100-canton-du-valais-brig"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Arbeiter/in-Chauffeur/in (100%)",
-      "titleByLocale": {
-        "it": "Lavoratore/in-chauffeur/in (100%)",
-        "en": "Worker/in-chauffeur/in (100%)",
-        "de": "Arbeiter/in-Chauffeur/in (100%)",
-        "fr": "Travailleur/in-chauffeur/in (100%)"
-      },
-      "description": "Arbeiter/in-Chauffeur/in (100%) bei der Dienststelle Gebietseinheit III, in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie führen diverse Unterhaltsarbeiten bei der Nationalstrasse aus (Tiefbauarbeiten, landwirtschaftliche Arbeiten, Schneeräumung, usw.) Sie arbeiten und fahren mit schweren Motorfahrzeugen und Baumaschinen Sie führen die vorschriftsgemässen Baustellen-Signalisation aus und sorgen für das Einhalten der Sicherheitsanforderungen auf den Nationalstrassen\n\nIhr Profil:\n• Sie verfügen über einen Fähigkeitsausweis im Bereich des Strassen- und Tiefbaus oder eine gleichwertige Ausbildung Praktische Erfahrung im Strassenbau erwünscht Führerausweis Lastwagen mit Anhänger zwingend erforderlich, CZV-Kurse à jour Gute körperliche Verfassung, belastbar und teamfähig Flexibilität (unregelmässige Arbeitszeiten mit Bereitschafts- und Pikettdienst) Interesse für Arbeit im Freien Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Eintrittsdatum: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 32) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 17. Juli 2026 / Referenznummer: 114094",
-      "descriptionByLocale": {
-        "it": "Lavoratori/in-chauffeur/in (100%) presso l'unità di reparto III, a Brig L'unità di reparto III (DGE III) è una delle undici unità in Svizzera responsabili del mantenimento delle strade nazionali. Circa 110 dipendenti in Vallese assicurano un funzionamento sicuro e regolare della rete stradale nazionale ogni giorno – e intorno all'orologio. Questo si estende per 186 chilometri, dal collegamento autostradale A9 a Bex-Nord a Gondo.\n\nI loro compiti:\n• Essi svolgono vari lavori di manutenzione sulla strada nazionale (costruzione, lavoro agricolo, clearance della neve, ecc.) Lavorare e guidare con veicoli pesanti e macchinari per la costruzione Essi effettuano la corretta segnalazione del cantiere e garantiscono il rispetto dei requisiti di sicurezza sulle strade nazionali\n\nIl tuo profilo:\n• Hai un certificato di abilità nel campo dell'ingegneria stradale e civile o una formazione equivalente Esperienza pratica nella costruzione stradale camion di patente desiderato con rimorchi obbligatori, corsi CZV à jour Buone condizioni fisiche, resiliente e flessibilità di squadra-capable (orario di lavoro irregolare con servizio on-call e pikett) Interessi per il lavoro all'aperto La lingua materna è tedesca con conoscenza di base della residenza francese Apertura del lavoro in un perimetro di +/- 20 km dal luogo di lavoro – condizioni speciali Data di entrata: 1 agosto 2026 o impiego permanente per accordo, ma soggetto al finanziamento federale\n\nInformazioni:\nInformazioni sulla posizione: Service Territorial Unit III (027 606 97 32) Richiesta online: www.vs.ch/jobs o invia la tua richiesta a: Servizio per la gestione del personale, Place St-Théodule 15, 1951 Termine per la presentazione delle dogane: 17. luglio 2026 / Numero di riferimento: 114094",
-        "en": "Workers/in-chauffeur/in (100%) at the department area unit III, in Brig The department area unit III (DGE III) is one of eleven units in Switzerland responsible for the maintenance of the national roads. Around 110 employees in Valais ensure safe and smooth operation of the national road network every day – and around the clock. This stretches for 186 kilometres, from the A9 motorway connection at Bex-Nord to Gondo.\n\nTheir tasks:\n• They carry out various maintenance work on the national road (underground construction, agricultural work, snow clearance, etc.) You work and drive with heavy motor vehicles and construction machinery They carry out the correct construction site signalling and ensure compliance with safety requirements on national roads\n\nYour profile:\n• You have a certificate of ability in the field of road and civil engineering or an equivalent training Practical experience in road construction desired driver's license trucks with trailers mandatory, CZV courses à jour Good physical condition, resilient and team-capable flexibility (irregular working hours with on-call and pikett service) Interest for outdoor work Your mother tongue is German with basic knowledge of French residence Job opening in a perimeter of +/- 20 km from the place of work – special conditions Entry date: 1 August 2026 or permanent employment by agreement, but subject to federal financing\n\nInformation:\nInformation about the position: Service Territorial Unit III (027 606 97 32) Online application requested: www.vs.ch/jobs or send your application to: Service for Personnel Management, Place St-Théodule 15, 1951 Customs submission deadline: 17. July 2026 / Reference number: 114094",
-        "de": "Arbeiter/in-Chauffeur/in (100%) bei der Dienststelle Gebietseinheit III, in Brig Die Dienststelle Gebietseinheit III (DGE III) ist eine von elf Einheiten in der Schweiz, die für den Unterhalt der Nationalstrassen zuständig sind. Rund 110 Mitarbeitende sorgen im Wallis tagtäglich – und rund um die Uhr – für einen sicheren und reibungslosen Betrieb des Nationalstrassennetzes. Dieses erstreckt sich über 186 Kilometer, vom Autobahnanschluss A9 bei Bex-Nord bis nach Gondo.\n\nIhre Aufgaben:\n• Sie führen diverse Unterhaltsarbeiten bei der Nationalstrasse aus (Tiefbauarbeiten, landwirtschaftliche Arbeiten, Schneeräumung, usw.) Sie arbeiten und fahren mit schweren Motorfahrzeugen und Baumaschinen Sie führen die vorschriftsgemässen Baustellen-Signalisation aus und sorgen für das Einhalten der Sicherheitsanforderungen auf den Nationalstrassen\n\nIhr Profil:\n• Sie verfügen über einen Fähigkeitsausweis im Bereich des Strassen- und Tiefbaus oder eine gleichwertige Ausbildung Praktische Erfahrung im Strassenbau erwünscht Führerausweis Lastwagen mit Anhänger zwingend erforderlich, CZV-Kurse à jour Gute körperliche Verfassung, belastbar und teamfähig Flexibilität (unregelmässige Arbeitszeiten mit Bereitschafts- und Pikettdienst) Interesse für Arbeit im Freien Ihre Muttersprache ist Deutsch mit Grundkenntnissen in Französisch Wohnort In einem Perimeter von +/- 20 km des Arbeitsortes entfernt Stellenantritt – besondere Bedingungen Eintrittsdatum: 1. August 2026 oder nach Vereinbarung Festanstellung, aber unter Vorbehalt der Finanzierung durch den Bund\n\nInformationen:\nAuskunft zur Stelle: Dienststelle Gebietseinheit III (027 606 97 32) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 17. Juli 2026 / Referenznummer: 114094",
-        "fr": "Travailleurs/in-chauffeur/in (100%) à l'unité départementale III, à Brigue L'unité départementale III (DGE III) est l'une des onze unités en Suisse chargées de l'entretien des routes nationales. Chaque jour, environ 110 employés du Valais assurent la sécurité et le bon fonctionnement du réseau routier national – et 24 heures sur 24. Cela s'étend sur 186 kilomètres, de la liaison A9 entre Bex-Nord et Gondo.\n\nLeurs tâches:\n• Ils effectuent divers travaux d'entretien sur la route nationale (construction souterraine, travaux agricoles, déneigement, etc.) Vous travaillez et conduisez avec des véhicules lourds et des machines de construction Ils effectuent la signalisation correcte du chantier et veillent au respect des exigences de sécurité sur les routes nationales\n\nVotre profil:\n• Vous avez un certificat d'aptitude dans le domaine du génie routier et civil ou une formation équivalente Expérience pratique dans la construction routière souhaitée camions de permis de conduire avec remorques obligatoires, cours CZV à jour Bonne condition physique, résilience et capacité d'équipe (heures de travail irrégulières avec service sur appel et pikett) Intérêt pour le travail en plein air Votre langue maternelle est l'allemand avec une connaissance de base de la résidence française Ouverture d'un emploi dans un périmètre de +/- 20 km du lieu de travail – conditions spéciales Date d'entrée : 1er août 2026 ou emploi permanent par convention, mais sous réserve de financement fédéral\n\nRenseignements:\nRenseignements sur le poste : Service Territorial Unit III (027 606 97 32) Demande en ligne demandée : www.vs.ch/jobs ou envoyer votre demande à : Service de gestion du personnel, Place St-Théodule 15, 1951 Délai de présentation des douanes : 17 juillet 2026 / Numéro de référence : 114094"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:09:23.242Z",
-      "addressLocality": "Brig",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114094&publication=2627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "arbeiter-in-chauffeur-in-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
-        ],
-        "en": [
-          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
-        ],
-        "fr": [
-          "arbeiter-in-chauffeur-in-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-08T22:07:21.196Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "canton-valais-4e38d00e6e9c",
-      "slug": "segretario-100-canton-du-valais-brig",
-      "slugByLocale": {
-        "it": "segretario-100-canton-du-valais-brig",
-        "en": "secretary-100-canton-du-valais-brig",
-        "de": "sekretar-in-100-canton-valais-ch",
-        "fr": "secretaire-100-canton-du-valais-brig"
-      },
-      "company": "Canton du Valais",
-      "companyKey": "canton-valais",
-      "companyDomain": "vs.ch",
-      "title": "Sekretär/in (100%)",
-      "titleByLocale": {
-        "it": "Segretario (100%)",
-        "en": "Secretary (100%)",
-        "de": "Sekretär/in (100%)",
-        "fr": "Secrétaire (100 %)"
-      },
-      "description": "Sekretär/in (100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind für den Empfang zuständig (Telefon und Schalter) und erteilen den betreffenden Personen die ersten Auskünfte Sie organisieren Termine, Einladungen und Informationsanlässe Sie führen die Anmeldung und Administration der Dossiers der Stellensuchenden im Informatiksystem aus Sie beantworten Fragen von Stellensuchenden, Arbeitgebern und Partnern der Arbeitslosenversicherung\n• Sie helfen bei der Verwaltung der eingehenden und ausgehenden Post des RAV mit\n• Sie führen administrative Aufgaben für den RAV-Leiter und die Personalberater aus\n\nIhr Profil:\n• Sie verfügen über ein EFZ Kaufmann/-frau oder eine gleichwertige Ausbildung\n• Sie haben Berufserfahrung in einem Sekretariat oder an einer Rezeption der öffentlichen Verwaltung Sie sind freundlich, flexibel und kontaktfreudig Sie können selbstständig aber auch im Team arbeiten Sie arbeiten organisiert, sorgfältig und präzise Sie sind dynamisch und können mit Stress umgehen Sie kommen mit den gängigen IT-Tools und im Idealfall mit dem AVAM zurecht Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Sonderbedingungen Nach Vereinbarung Die Dauer der Anstellung hängt gemäss gesetzlichen Anforderungen von der Entwicklung der Anzahl Stellensuchenden ab.\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 73 28 / sylvie.constantin@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 17. Juli 2026 / Referenznummer: 111585",
-      "descriptionByLocale": {
-        "it": "Sottosegretario (100%) presso l'Ufficio per l'Industria, il Commercio e il Lavoro del Centro per l'Oberwallis a Brig\n\nI loro compiti:\n• Sei responsabile per la ricezione (telefono e contatore) e fornire alle persone interessate le prime informazioni Organizzate appuntamenti, inviti ed eventi informativi Effettuare la registrazione e l'amministrazione dei dossier dei cercatori di lavoro nel sistema IT Risponde alle domande dei cercatori di lavoro, dei datori di lavoro e dei partner assicurativi per la disoccupazione\n• Aiutano a gestire la posta in entrata e in uscita della RAV\n• Eseguono compiti amministrativi per il direttore RAV e i consulenti del personale\n\nIl tuo profilo:\n• Hai un commerciante di EFZ o un'istruzione equivalente\n• Hai esperienza professionale in un segretariato o in un ricevimento della pubblica amministrazione Sei amichevole, flessibile e socievole Si può lavorare in modo indipendente ma anche in un team Si lavora organizzato, attento e preciso Si è dinamici e in grado di affrontare lo stress È possibile far fronte agli strumenti IT comuni e idealmente con la lingua madre AVAM tedesco con la conoscenza nella seconda lingua ufficiale, competenze italiane di vantaggio Entrata di lavoro – Condizioni speciali Per accordo La durata dell'occupazione dipende dallo sviluppo del numero di cercatori di lavoro secondo requisiti legali.\n\nInformazioni:\nInformazioni sulla posizione: Ufficio per l'industria, il commercio e il lavoro (027 606 73 28 / sylvie.constantin@admin.vs.ch) Richiesta online: www.vs.ch/jobs o invia la tua domanda a: Servizio di gestione del personale, Luogo St-Théodule 15, 1951 Termine per la presentazione delle dogane: 17. luglio 2026 / Numero di riferimento: 111585",
-        "en": "Secretary (100%) at the Office for Industry, Trade and Labour for the Oberwallis Regional Employment Centre in Brig\n\nTheir tasks:\n• You are responsible for the reception (telephone and counter) and provide the persons concerned with the first information You organize appointments, invitations and information events You carry out the registration and administration of job seekers’ dossiers in the IT system You answer questions from job seekers, employers and unemployment insurance partners\n• They help manage the incoming and outgoing mail of the RAV\n• They perform administrative tasks for the RAV manager and the personnel consultants\n\nYour profile:\n• You have an EFZ merchant or equivalent education\n• You have professional experience in a secretariat or at a reception of public administration You are friendly, flexible and sociable You can work independently but also in a team You work organized, careful and precise You are dynamic and can deal with stress You can cope with the common IT tools and ideally with the AVAM native language German with knowledge in the second official language, Italian skills of advantage Job entry – Special conditions By agreement The duration of employment depends on the development of the number of job seekers according to legal requirements.\n\nInformation:\nInformation about the position: Office for Industry, Trade and Labour (027 606 73 28 / sylvie.constantin@admin.vs.ch) Online application requested: www.vs.ch/jobs or send your application to: Personnel Management Service, Place St-Théodule 15, 1951 Customs submission deadline: 17. July 2026 / Reference number: 111585",
-        "de": "Sekretär/in (100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind für den Empfang zuständig (Telefon und Schalter) und erteilen den betreffenden Personen die ersten Auskünfte Sie organisieren Termine, Einladungen und Informationsanlässe Sie führen die Anmeldung und Administration der Dossiers der Stellensuchenden im Informatiksystem aus Sie beantworten Fragen von Stellensuchenden, Arbeitgebern und Partnern der Arbeitslosenversicherung\n• Sie helfen bei der Verwaltung der eingehenden und ausgehenden Post des RAV mit\n• Sie führen administrative Aufgaben für den RAV-Leiter und die Personalberater aus\n\nIhr Profil:\n• Sie verfügen über ein EFZ Kaufmann/-frau oder eine gleichwertige Ausbildung\n• Sie haben Berufserfahrung in einem Sekretariat oder an einer Rezeption der öffentlichen Verwaltung Sie sind freundlich, flexibel und kontaktfreudig Sie können selbstständig aber auch im Team arbeiten Sie arbeiten organisiert, sorgfältig und präzise Sie sind dynamisch und können mit Stress umgehen Sie kommen mit den gängigen IT-Tools und im Idealfall mit dem AVAM zurecht Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Sonderbedingungen Nach Vereinbarung Die Dauer der Anstellung hängt gemäss gesetzlichen Anforderungen von der Entwicklung der Anzahl Stellensuchenden ab.\n\nInformationen:\nAuskunft zur Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 73 28 / sylvie.constantin@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 17. Juli 2026 / Referenznummer: 111585",
-        "fr": "Secrétaire (100%) à l'Office de l'industrie, du commerce et du travail du Centre régional pour l'emploi d'Oberwallis à Brig\n\nLeurs tâches :\n• Vous êtes responsable de la réception (téléphone et comptoir) et fournissez aux personnes concernées les premières informations Vous organisez des rendez-vous, des invitations et des événements d'information Vous effectuez l'enregistrement et l'administration des dossiers des demandeurs d'emploi dans le système informatique Vous répondez aux questions des demandeurs d'emploi, des employeurs et des partenaires de l'assurance chômage\n• Ils aident à gérer le courrier entrant et sortant du RAV\n• Ils exécutent des tâches administratives pour le gestionnaire du RAV et les consultants en personnel\n\nVotre profil:\n• Vous avez une formation de marchand EFZ ou équivalent\n• Vous avez une expérience professionnelle dans un secrétariat ou à la réception de l'administration publique Vous êtes sympathique, flexible et sociable Vous pouvez travailler indépendamment mais aussi en équipe Vous travaillez organisé, soigné et précis Vous êtes dynamique et pouvez gérer le stress Vous pouvez faire face aux outils informatiques communs et idéalement avec la langue maternelle AVAM allemand avec la connaissance dans la deuxième langue officielle, compétences italiennes d'avantage Entrée dans l'emploi – Conditions spéciales La durée de l'emploi dépend de l'évolution du nombre de demandeurs d'emploi selon les exigences légales.\n\nRenseignements:\nInformations sur le poste: Bureau de l'industrie, du commerce et du travail (027 606 73 28 / sylvie.constantin@admin.vs.ch) Demande en ligne : www.vs.ch/jobs ou envoyer votre demande à : Service de gestion du personnel, Place St-Théodule 15, 1951 Délai de dépôt en douane : 17. juillet 2026 / Numéro de référence : 111585"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111585&publication=2628",
-      "source": "Canton du Valais Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-17T11:09:21.716Z",
-      "addressLocality": "Brig",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Administration publique / Service public",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111585&publication=2628",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sekretar-in-100-canton-valais-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sekretar-in-100-canton-valais-ch"
-        ],
-        "en": [
-          "sekretar-in-100-canton-valais-ch"
-        ],
-        "fr": [
-          "sekretar-in-100-canton-valais-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-10T12:09:17.298Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

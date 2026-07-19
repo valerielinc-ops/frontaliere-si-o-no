@@ -2539,6 +2539,41 @@ function readHistory(rootDir: string): BorderWaitHistoryDay[] {
   return days;
 }
 
+/** Shape written to `dist/embed/border-wait-widget-data.json` for the embeddable widget. */
+export interface BorderWaitWidgetSnapshot {
+  updatedAt: string | null;
+  canonicalUrl: string;
+  crossings: Array<{
+    slug: BorderCrossingSlug;
+    name: string;
+    waitMinutes: number | null;
+    status: 'green' | 'yellow' | 'red';
+  }>;
+}
+
+/**
+ * Trim `current` (same dataset the leaf pages read) down to the top-5
+ * crossings for the public/embed/border-wait-widget.html iframe. Kept as a
+ * pure function so tests can exercise it without touching the filesystem.
+ */
+export function buildEmbedWidgetSnapshot(current: BorderWaitCurrent): BorderWaitWidgetSnapshot {
+  return {
+    updatedAt: current.updatedAt,
+    canonicalUrl: `${BASE_URL}${buildRootHubPath('it')}`,
+    crossings: TOP_5_CROSSINGS.map((slug) => {
+      const reading = current.perCrossing[slug];
+      const liveWait = reading?.totalCrossingMinutes ?? reading?.waitTimeMinutes ?? null;
+      const colorLabel = statusColor(liveWait).label;
+      return {
+        slug,
+        name: BORDER_CROSSING_DISPLAY[slug],
+        waitMinutes: liveWait === null ? null : Math.round(liveWait),
+        status: colorLabel === 'ok' ? 'green' : colorLabel === 'warn' ? 'yellow' : 'red',
+      };
+    }),
+  };
+}
+
 // ── Pure generator ────────────────────────────────────────────
 
 /**
@@ -2806,6 +2841,24 @@ ${urlEntries}
         } catch (err) {
           console.warn(`[border-wait-pages] failed to write ${BORDER_WAIT_HYDRATION_ASSET_PATH}`, err);
         }
+      }
+
+      // ── Embed widget snapshot (public/embed/border-wait-widget.html) ──
+      // Same `current` dataset as the leaf pages above; refreshed by the
+      // existing traffic-scheduler cron (data/border-wait-current.json) and
+      // picked up whenever the next deploy build runs — mirrors the
+      // border-wait-current.json → deploy relationship already documented
+      // in .github/workflows/traffic-scheduler.yml.
+      try {
+        const embedDir = np.join(distDir, 'embed');
+        fs.mkdirSync(embedDir, { recursive: true });
+        fs.writeFileSync(
+          np.join(embedDir, 'border-wait-widget-data.json'),
+          JSON.stringify(buildEmbedWidgetSnapshot(current), null, 2),
+          'utf-8',
+        );
+      } catch (err) {
+        console.warn('[border-wait-pages] failed to write embed widget snapshot', err);
       }
 
       const result: PluginResult = {

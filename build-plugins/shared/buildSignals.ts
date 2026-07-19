@@ -72,6 +72,19 @@ const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
 const sectorPagesSignal = makeSignal();
 const professionCantonsSignal = makeValueSignal<readonly string[]>();
+const salaryProfessionCantonsSignal = makeValueSignal<readonly string[]>();
+const salaryStatsSignal = makeSignal();
+
+/** A health facility emitted as a full (above-floor) indexable page. */
+export interface EmittedFacility {
+  readonly slug: string;
+  readonly canton: string;
+  readonly name: string;
+  readonly liveCount: number;
+}
+
+const nursingLandingsSignal = makeSignal();
+const healthFacilitiesSignal = makeValueSignal<readonly EmittedFacility[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -142,4 +155,57 @@ export const professionCantonsFlushed: Promise<readonly string[]> =
   professionCantonsSignal.promise;
 export function resolveProfessionCantonsFlushed(paths: readonly string[]): void {
   professionCantonsSignal.resolve(paths);
+}
+
+/**
+ * Resolves once {@link nursingLandingsPlugin} has flushed its landing pages.
+ * Consumed by {@link healthFacilitiesLinksPlugin} so it can safely read +
+ * patch the nursing landing HTML on disk before injecting the "facilities
+ * hiring near you" cross-link block (mirrors the staticPagesFlushed →
+ * professionLandingsLinksPlugin barrier contract).
+ */
+export const nursingLandingsFlushed: Promise<void> = nursingLandingsSignal.promise;
+export function resolveNursingLandingsFlushed(): void {
+  nursingLandingsSignal.resolve();
+}
+
+/**
+ * Resolves with the list of above-floor health facilities that
+ * {@link healthFacilitiesPlugin} emitted this build (a data-dependent subset
+ * of the committed registry). Consumed by {@link healthFacilitiesLinksPlugin},
+ * which links the nursing landings to them — never to a below-floor facility.
+ */
+export const healthFacilitiesFlushed: Promise<readonly EmittedFacility[]> =
+  healthFacilitiesSignal.promise;
+export function resolveHealthFacilitiesFlushed(facilities: readonly EmittedFacility[]): void {
+  healthFacilitiesSignal.resolve(facilities);
+}
+
+/**
+ * Resolves with the list of canonical paths {@link salaryProfessionCantonPages}
+ * actually wrote this build (median-preset + job-floor gated subset of the
+ * enumerated salary-intent routes). Consumed by
+ * {@link salaryProfessionCantonLinksPlugin}, which injects a "salary by
+ * profession and canton" link block into the per-locale HTML sitemap pages so
+ * BFS-from-`/` reaches every emitted page (closing the
+ * `sitemap-salary-profession-cantons.xml` orphan tier flagged by
+ * `audit:max-bfs-depth`), mirroring the professionCantonsFlushed contract.
+ */
+export const salaryProfessionCantonsFlushed: Promise<readonly string[]> =
+  salaryProfessionCantonsSignal.promise;
+export function resolveSalaryProfessionCantonsFlushed(paths: readonly string[]): void {
+  salaryProfessionCantonsSignal.resolve(paths);
+}
+
+/**
+ * Resolves when {@link salaryStatsChCantonPages} has flushed every per-canton
+ * salary-stats hub page (`/stipendi-{canton}/` + locale twins). Consumed by
+ * {@link salaryProfessionCantonLinksPlugin}, which patches each canton hub with
+ * a "salary by profession" spoke block (hub→spoke half of the bidirectional
+ * hub-spoke rule, docs/SALARY-INTENT-CANONICAL-PLAN.md §4.2), so the hub pages
+ * are guaranteed on disk before the patch reads them.
+ */
+export const salaryStatsFlushed: Promise<void> = salaryStatsSignal.promise;
+export function resolveSalaryStatsFlushed(): void {
+  salaryStatsSignal.resolve();
 }

@@ -1,15 +1,15 @@
 {
   "crawlerKey": "rfsm-fribourg",
-  "assembledAt": "2026-07-18T10:35:38.148Z",
+  "assembledAt": "2026-07-19T11:04:32.865Z",
   "jobs": [
     {
       "id": "rfsm-fribourg-2cd516738f90",
-      "slug": "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+      "slug": "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-etat-de-fribourg-villars-sur-glane",
       "slugByLocale": {
-        "it": "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
-        "en": "intern-psychologist-rfsm-villars-sur-glane-outpatient-consultation-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
-        "de": "praktikant-psychologe-rfsm-villars-sur-glane-ambulante-beratung-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
-        "fr": "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg"
+        "it": "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-etat-de-fribourg-villars-sur-glane",
+        "en": "intern-psychologist-rfsm-villars-sur-glane-outpatient-consultation-etat-de-fribourg-villars-sur-glane",
+        "de": "praktikant-psychologe-rfsm-villars-sur-glane-ambulante-beratung-etat-de-fribourg-villars-sur-glane",
+        "fr": "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-etat-de-fribourg-ch"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
       "companyKey": "rfsm-fribourg",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-stagiaire%2C-RFSM-Villars-sur-Gl%C3%A2ne-Consultation-ambulatoire-Sari/1366846157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:34.982Z",
+      "crawledAt": "2026-07-19T11:04:29.587Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -53,17 +53,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg",
-        "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
+        "intern-psychologist-rfsm-villars-sur-glane-outpatient-consultation-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+        "praktikant-psychologe-rfsm-villars-sur-glane-ambulante-beratung-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
+        "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+        "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg",
-          "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
+          "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+          "interno-psicologo-rfsm-villars-sur-glane-consultazione-ambulatoria-etat-de-fribourg-villars-sur-glane"
         ],
         "en": [
-          "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg"
+          "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg",
+          "intern-psychologist-rfsm-villars-sur-glane-outpatient-consultation-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
         ],
         "de": [
+          "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg",
+          "praktikant-psychologe-rfsm-villars-sur-glane-ambulante-beratung-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane"
+        ],
+        "fr": [
           "psychologue-stagiaire-rfsm-villars-sur-glane-consultation-ambulatoire-rfsm-fribourg"
         ]
       },
@@ -113,7 +122,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Villars-sur-Gl%C3%A2ne-Unit%C3%A9-Saturn-Sari/1365431057/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:34.194Z",
+      "crawledAt": "2026-07-19T11:04:28.798Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -197,7 +206,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Chef-fe-de-clinique%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350362157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:33.379Z",
+      "crawledAt": "2026-07-19T11:04:27.996Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -257,11 +266,11 @@
     },
     {
       "id": "rfsm-fribourg-55f3285f2c04",
-      "slug": "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois",
+      "slug": "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-etat-de-fribourg-villars-sur",
       "slugByLocale": {
-        "it": "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois",
-        "en": "psychologist-rec-niv-fed-psychotherapist-in-training-rfsm-vsg-psychotherapy-institute-rfsm-reseau-fribourgeois-sante",
-        "de": "psychologe-rec-niv-fed-psychotherapeut-in-ausbildung-rfsm-vsg-psychotherapie-institut-rfsm-reseau-fribourgeois-sante",
+        "it": "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-etat-de-fribourg-villars-sur",
+        "en": "psychologist-rec-niv-fed-psychotherapist-in-training-rfsm-vsg-psychotherapy-institute-etat-de-fribourg-villars-sur-glane",
+        "de": "psychologe-rec-niv-fed-psychotherapeut-in-ausbildung-rfsm-vsg-psychotherapie-institut-etat-de-fribourg-villars-sur-glane",
         "fr": "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie"
       },
       "company": "RFSM - Réseau fribourgeois santé mentale",
@@ -287,7 +296,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-rec_-niv_-f%C3%A9d_%2C-Psychoth%C3%A9rapeute-en-formation%2C-RFSM-VsG-Institut-psychoth%C3%A9rapie-Sari/1366851157/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:32.568Z",
+      "crawledAt": "2026-07-19T11:04:27.183Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -306,18 +315,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie",
-        "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois"
+        "psychologist-rec-niv-fed-psychotherapist-in-training-rfsm-vsg-psychotherapy-institute-rfsm-reseau-fribourgeois-sante",
+        "psychologe-rec-niv-fed-psychotherapeut-in-ausbildung-rfsm-vsg-psychotherapie-institut-rfsm-reseau-fribourgeois-sante",
+        "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois",
+        "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-etat-de-fribourg-villars-sur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie",
-          "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois"
+          "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-rfsm-reseau-fribourgeois",
+          "psicologo-re-niv-alimentato-psicoterapeuta-in-formazione-rfsm-vsg-istituto-di-psicoterapia-etat-de-fribourg-villars-sur"
         ],
         "en": [
-          "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie"
+          "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie",
+          "psychologist-rec-niv-fed-psychotherapist-in-training-rfsm-vsg-psychotherapy-institute-rfsm-reseau-fribourgeois-sante"
         ],
         "de": [
-          "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie"
+          "psychologue-rec-niv-fed-psychotherapeute-en-formation-rfsm-vsg-institut-psychotherapie",
+          "psychologe-rec-niv-fed-psychotherapeut-in-ausbildung-rfsm-vsg-psychotherapie-institut-rfsm-reseau-fribourgeois-sante"
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:32.837Z",
@@ -366,7 +381,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-adulte-Gruy/1350361857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:31.760Z",
+      "crawledAt": "2026-07-19T11:04:26.394Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -455,7 +470,7 @@
       "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Psychologue-psychoth%C3%A9rapeute-etou-en-formation%2C-RFSM-Villars-sur-Gl%C3%A2ne-Sari/1362614857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:30.957Z",
+      "crawledAt": "2026-07-19T11:04:25.584Z",
       "addressLocality": "Villars-sur-Glâne",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -543,7 +558,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Infirmier-%C3%A8re%2C-RFSM-Marsens-et-Villars-sur-Gl%C3%A2ne-pour-les-candidatures-spontan%C3%A9es-Gruy/1349950757/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:30.154Z",
+      "crawledAt": "2026-07-19T11:04:24.775Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -628,7 +643,7 @@
       "url": "https://jobs.fr.ch/job/Marsens%2C-CH-M%C3%A9decin-assistant-e%2C-RFSM-Secteur-psychiatrie-et-psychoth%C3%A9rapie-de-l&apos;enfantadolescent-Gruy/1366115857/",
       "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-18T10:35:29.352Z",
+      "crawledAt": "2026-07-19T11:04:23.971Z",
       "addressLocality": "Marsens",
       "addressRegion": "FR",
       "addressCountry": "CH",
