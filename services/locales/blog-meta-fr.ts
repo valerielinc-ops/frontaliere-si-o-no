@@ -8624,6 +8624,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costi-traffico-svizzera-2023.title': 'Trafic en Suisse : les coûts atteignent 117 milliards',
     'blog.article.costi-traffico-svizzera-2023.excerpt': 'En 2023, le trafic en Suisse a coûté 117 milliards de francs. La voiture domine avec 68 % des déplacements. Voici les données de l\'Office fédéral de la statistique.',
     'blog.article.costi-traffico-svizzera-2023.imageAlt': 'Trafic automobile sur une autoroute suisse au Tessin',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.title': 'Technicien en radiologie au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des techniciens en radiologie au Tessin pour les frontaliers, conditions pour travailler en tant que technicien en radiologie en Suisse, reconnaissance du diplôme et permis G',
+    'blog.article.frontaliere-tecnico-radiologia-ticino-stipendio-requisiti.imageAlt': 'Un technicien de radiologie frontalier travaille dans un hôpital de Lugano',
 };
 
 export default blogMetaFr;
