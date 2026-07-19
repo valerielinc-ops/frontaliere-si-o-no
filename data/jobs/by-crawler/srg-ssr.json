@@ -253,7 +253,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-trice-interne-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-trice-interne-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-d93a11884c66",
@@ -472,7 +480,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-operator-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "service-operator-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-2a49e73ed1d6",
@@ -1028,6 +1044,9 @@
         ],
         "de": [
           "auditeur-trice-interne-srg-ssr-bern-2"
+        ],
+        "fr": [
+          "auditeur-trice-interne-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:56.421Z",
