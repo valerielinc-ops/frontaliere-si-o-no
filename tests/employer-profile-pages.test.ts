@@ -4,6 +4,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { employerProfilePagesPlugin } from '../build-plugins/employerProfilePagesPlugin';
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
+import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import committedDataset from '../data/employer-profiles.json';
 
 /**
  * Full-pipeline test for the /aziende/<slug>/ employer-profile plugin (#4462).
@@ -148,10 +150,25 @@ describe('employerProfilePagesPlugin', () => {
     expect(xml).not.toContain('/aziende/small-co/'); // bridge is noindex → excluded
   });
 
+  it('folds declared brand aliases into the canonical slug (no SERP cannibalization)', () => {
+    // migros-ticino / gruppo-migros → migros (brandCanonicalMap), so the
+    // evergreen surface never emits a second indexable page competing with the
+    // jobsSeoPagesPlugin `azienda-migros` canonical hub (reviewer 🔴, PR #4511).
+    expect(canonicalCompanyProfileSlug('Migros Ticino', 'migros-ticino')).toBe('migros');
+    expect(canonicalCompanyProfileSlug('Gruppo Migros')).toBe('migros');
+    expect(canonicalCompanyProfileSlug('Guess Ticino', 'guess-ticino')).toBe('guess-europe-sagl');
+    // Unmanaged company → passes through unchanged.
+    expect(canonicalCompanyProfileSlug('Acme Corp', 'acme')).toBe('acme-corp');
+    // Lidl special-case still wins.
+    expect(canonicalCompanyProfileSlug('Lidl Schweiz', 'lidl-schweiz')).toBe('lidl');
+  });
+
   it('search-console compat self-maps every emitted /aziende/ slug', () => {
-    // committed dataset slugs (data/employer-profiles.json) resolve to self
-    const known = resolveSearchConsoleCompatTarget('/aziende/coop-genossenschaft/');
-    expect(known).toEqual({ canonicalPath: '/aziende/coop-genossenschaft/', kind: 'legacy', locale: 'it' });
+    // Use a real slug from the committed dataset (drift-robust: no hardcoded
+    // company that a refresh could drop below floor).
+    const slug = (committedDataset as { profiles: Array<{ slug: string }> }).profiles[0].slug;
+    const known = resolveSearchConsoleCompatTarget(`/aziende/${slug}/`);
+    expect(known).toEqual({ canonicalPath: `/aziende/${slug}/`, kind: 'legacy', locale: 'it' });
     // an unknown company slug must NOT be claimed live
     const unknown = resolveSearchConsoleCompatTarget('/aziende/definitely-not-a-real-company-xyz/');
     expect(unknown?.canonicalPath).not.toBe('/aziende/definitely-not-a-real-company-xyz/');

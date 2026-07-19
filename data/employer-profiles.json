@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Factual per-company profiles for the evergreen /aziende/<slug>/ employer pages (build-plugins/employerProfilePagesPlugin.ts). Corpus-derived facts only — no editorial judgement, no PII. Regenerate: node scripts/build-employer-profiles.mjs.",
     "schemaVersion": 1,
-    "generatedAt": "2026-07-19T04:30:43.101Z",
+    "generatedAt": "2026-07-19T05:32:38.096Z",
     "floor": 5,
     "bridgeFloor": 2,
     "trendWindowDays": 28,
@@ -72,9 +72,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 964,
       "trend": {
-        "added": 1757,
+        "added": 1788,
         "removed": 0,
-        "net": 1757,
+        "net": 1788,
         "windowDays": 28
       }
     },
@@ -166,9 +166,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 429,
       "trend": {
-        "added": 527,
+        "added": 523,
         "removed": 0,
-        "net": 527,
+        "net": 523,
         "windowDays": 28
       }
     },
@@ -233,9 +233,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 388,
       "trend": {
-        "added": 123,
+        "added": 126,
         "removed": 0,
-        "net": 123,
+        "net": 126,
         "windowDays": 28
       }
     },
@@ -367,9 +367,9 @@
       "salaryMedianChf": 55500,
       "salarySamples": 352,
       "trend": {
-        "added": 809,
+        "added": 850,
         "removed": 0,
-        "net": 809,
+        "net": 850,
         "windowDays": 28
       }
     },
@@ -429,9 +429,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 299,
       "trend": {
-        "added": 304,
+        "added": 308,
         "removed": 0,
-        "net": 304,
+        "net": 308,
         "windowDays": 28
       }
     },
@@ -496,9 +496,9 @@
       "salaryMedianChf": 64750,
       "salarySamples": 296,
       "trend": {
-        "added": 148,
+        "added": 149,
         "removed": 0,
-        "net": 148,
+        "net": 149,
         "windowDays": 28
       }
     },
@@ -630,9 +630,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 260,
       "trend": {
-        "added": 305,
+        "added": 314,
         "removed": 0,
-        "net": 305,
+        "net": 314,
         "windowDays": 28
       }
     },
@@ -697,9 +697,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 216,
       "trend": {
-        "added": 443,
+        "added": 444,
         "removed": 0,
-        "net": 443,
+        "net": 444,
         "windowDays": 28
       }
     },
@@ -736,9 +736,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 208,
       "trend": {
-        "added": 1483,
+        "added": 1349,
         "removed": 0,
-        "net": 1483,
+        "net": 1349,
         "windowDays": 28
       }
     },
@@ -779,9 +779,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 203,
       "trend": {
-        "added": 94,
+        "added": 93,
         "removed": 0,
-        "net": 94,
+        "net": 93,
         "windowDays": 28
       }
     },
@@ -846,9 +846,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 199,
       "trend": {
-        "added": 161,
+        "added": 166,
         "removed": 0,
-        "net": 161,
+        "net": 166,
         "windowDays": 28
       }
     },
@@ -889,9 +889,9 @@
       "salaryMedianChf": 84500,
       "salarySamples": 186,
       "trend": {
-        "added": 400,
+        "added": 413,
         "removed": 0,
-        "net": 400,
+        "net": 413,
         "windowDays": 28
       }
     },
@@ -999,9 +999,9 @@
       "salaryMedianChf": 117750,
       "salarySamples": 179,
       "trend": {
-        "added": 301,
+        "added": 275,
         "removed": 0,
-        "net": 301,
+        "net": 275,
         "windowDays": 28
       }
     },
@@ -1062,9 +1062,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 171,
       "trend": {
-        "added": 85,
+        "added": 87,
         "removed": 0,
-        "net": 85,
+        "net": 87,
         "windowDays": 28
       }
     },
@@ -1129,9 +1129,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 167,
       "trend": {
-        "added": 166,
+        "added": 175,
         "removed": 0,
-        "net": 166,
+        "net": 175,
         "windowDays": 28
       }
     },
@@ -1164,9 +1164,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 163,
       "trend": {
-        "added": 52,
+        "added": 53,
         "removed": 0,
-        "net": 52,
+        "net": 53,
         "windowDays": 28
       }
     },
@@ -1365,9 +1365,9 @@
       "salaryMedianChf": 98750,
       "salarySamples": 130,
       "trend": {
-        "added": 134,
+        "added": 136,
         "removed": 0,
-        "net": 134,
+        "net": 136,
         "windowDays": 28
       }
     },
@@ -1631,9 +1631,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 111,
       "trend": {
-        "added": 159,
+        "added": 157,
         "removed": 0,
-        "net": 159,
+        "net": 157,
         "windowDays": 28
       }
     },
@@ -1851,9 +1851,9 @@
       "salaryMedianChf": 84000,
       "salarySamples": 108,
       "trend": {
-        "added": 175,
+        "added": 172,
         "removed": 0,
-        "net": 175,
+        "net": 172,
         "windowDays": 28
       }
     },
@@ -1878,9 +1878,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 106,
       "trend": {
-        "added": 80,
+        "added": 81,
         "removed": 0,
-        "net": 80,
+        "net": 81,
         "windowDays": 28
       }
     },
@@ -1945,9 +1945,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 105,
       "trend": {
-        "added": 25,
+        "added": 24,
         "removed": 0,
-        "net": 25,
+        "net": 24,
         "windowDays": 28
       }
     },
@@ -2227,9 +2227,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 96,
       "trend": {
-        "added": 58,
+        "added": 60,
         "removed": 0,
-        "net": 58,
+        "net": 60,
         "windowDays": 28
       }
     },
@@ -2556,9 +2556,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 83,
       "trend": {
-        "added": 36,
+        "added": 35,
         "removed": 0,
-        "net": 36,
+        "net": 35,
         "windowDays": 28
       }
     },
@@ -2772,9 +2772,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 79,
       "trend": {
-        "added": 43,
+        "added": 44,
         "removed": 0,
-        "net": 43,
+        "net": 44,
         "windowDays": 28
       }
     },
@@ -3150,9 +3150,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 71,
       "trend": {
-        "added": 24,
+        "added": 27,
         "removed": 0,
-        "net": 24,
+        "net": 27,
         "windowDays": 28
       }
     },
@@ -3217,9 +3217,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 69,
       "trend": {
-        "added": 37,
+        "added": 38,
         "removed": 0,
-        "net": 37,
+        "net": 38,
         "windowDays": 28
       }
     },
@@ -3276,9 +3276,9 @@
       "salaryMedianChf": 104500,
       "salarySamples": 67,
       "trend": {
-        "added": 180,
+        "added": 182,
         "removed": 0,
-        "net": 180,
+        "net": 182,
         "windowDays": 28
       }
     },
@@ -3342,9 +3342,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 66,
       "trend": {
-        "added": 53,
+        "added": 57,
         "removed": 0,
-        "net": 53,
+        "net": 57,
         "windowDays": 28
       }
     },
@@ -3557,9 +3557,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 62,
       "trend": {
-        "added": 95,
+        "added": 96,
         "removed": 0,
-        "net": 95,
+        "net": 96,
         "windowDays": 28
       }
     },
@@ -3675,9 +3675,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 61,
       "trend": {
-        "added": 142,
+        "added": 138,
         "removed": 0,
-        "net": 142,
+        "net": 138,
         "windowDays": 28
       }
     },
@@ -3864,9 +3864,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 57,
       "trend": {
-        "added": 34,
+        "added": 33,
         "removed": 0,
-        "net": 34,
+        "net": 33,
         "windowDays": 28
       }
     },
@@ -4044,9 +4044,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 55,
       "trend": {
-        "added": 168,
+        "added": 189,
         "removed": 0,
-        "net": 168,
+        "net": 189,
         "windowDays": 28
       }
     },
@@ -4235,9 +4235,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 53,
       "trend": {
-        "added": 55,
+        "added": 58,
         "removed": 0,
-        "net": 55,
+        "net": 58,
         "windowDays": 28
       }
     },
@@ -4356,9 +4356,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 52,
       "trend": {
-        "added": 15,
+        "added": 18,
         "removed": 0,
-        "net": 15,
+        "net": 18,
         "windowDays": 28
       }
     },
@@ -4423,9 +4423,9 @@
       "salaryMedianChf": 52650,
       "salarySamples": 51,
       "trend": {
-        "added": 42,
+        "added": 43,
         "removed": 0,
-        "net": 42,
+        "net": 43,
         "windowDays": 28
       }
     },
@@ -4588,9 +4588,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 49,
       "trend": {
-        "added": 35,
+        "added": 36,
         "removed": 0,
-        "net": 35,
+        "net": 36,
         "windowDays": 28
       }
     },
@@ -5321,9 +5321,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 44,
       "trend": {
-        "added": 80,
+        "added": 86,
         "removed": 0,
-        "net": 80,
+        "net": 86,
         "windowDays": 28
       }
     },
@@ -5772,9 +5772,9 @@
       "salaryMedianChf": 46800,
       "salarySamples": 39,
       "trend": {
-        "added": 64,
+        "added": 65,
         "removed": 0,
-        "net": 64,
+        "net": 65,
         "windowDays": 28
       }
     },
@@ -5839,9 +5839,9 @@
       "salaryMedianChf": 46300,
       "salarySamples": 39,
       "trend": {
-        "added": 32,
+        "added": 35,
         "removed": 0,
-        "net": 32,
+        "net": 35,
         "windowDays": 28
       }
     },
@@ -6070,9 +6070,9 @@
       "salaryMedianChf": 97250,
       "salarySamples": 37,
       "trend": {
-        "added": 24,
+        "added": 25,
         "removed": 0,
-        "net": 24,
+        "net": 25,
         "windowDays": 28
       }
     },
@@ -6223,9 +6223,9 @@
       "salaryMedianChf": 83625,
       "salarySamples": 36,
       "trend": {
-        "added": 17,
+        "added": 18,
         "removed": 0,
-        "net": 17,
+        "net": 18,
         "windowDays": 28
       }
     },
@@ -6419,9 +6419,9 @@
       "salaryMedianChf": 107500,
       "salarySamples": 35,
       "trend": {
-        "added": 108,
+        "added": 115,
         "removed": 0,
-        "net": 108,
+        "net": 115,
         "windowDays": 28
       }
     },
@@ -6603,9 +6603,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 35,
       "trend": {
-        "added": 59,
+        "added": 62,
         "removed": 0,
-        "net": 59,
+        "net": 62,
         "windowDays": 28
       }
     },
@@ -6732,7 +6732,7 @@
       }
     },
     {
-      "slug": "migros-ticino",
+      "slug": "migros",
       "name": "Migros Ticino",
       "companyKey": "migros-ticino",
       "sector": null,
@@ -6878,9 +6878,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 34,
       "trend": {
-        "added": 53,
+        "added": 54,
         "removed": 0,
-        "net": 53,
+        "net": 54,
         "windowDays": 28
       }
     },
@@ -7759,9 +7759,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 28,
       "trend": {
-        "added": 12,
+        "added": 13,
         "removed": 0,
-        "net": 12,
+        "net": 13,
         "windowDays": 28
       }
     },
@@ -8009,9 +8009,9 @@
       "salaryMedianChf": 86250,
       "salarySamples": 27,
       "trend": {
-        "added": 27,
+        "added": 29,
         "removed": 0,
-        "net": 27,
+        "net": 29,
         "windowDays": 28
       }
     },
@@ -8376,9 +8376,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 25,
       "trend": {
-        "added": 18,
+        "added": 19,
         "removed": 0,
-        "net": 18,
+        "net": 19,
         "windowDays": 28
       }
     },
@@ -9232,9 +9232,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 22,
       "trend": {
-        "added": 13,
+        "added": 14,
         "removed": 0,
-        "net": 13,
+        "net": 14,
         "windowDays": 28
       }
     },
@@ -9756,9 +9756,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 21,
       "trend": {
-        "added": 43,
+        "added": 44,
         "removed": 0,
-        "net": 43,
+        "net": 44,
         "windowDays": 28
       }
     },
@@ -10674,9 +10674,9 @@
       "salaryMedianChf": 44975,
       "salarySamples": 18,
       "trend": {
-        "added": 13,
+        "added": 14,
         "removed": 0,
-        "net": 13,
+        "net": 14,
         "windowDays": 28
       }
     },
@@ -10717,9 +10717,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 18,
       "trend": {
-        "added": 32,
+        "added": 33,
         "removed": 0,
-        "net": 32,
+        "net": 33,
         "windowDays": 28
       }
     },
@@ -10959,9 +10959,9 @@
       "salaryMedianChf": 105250,
       "salarySamples": 17,
       "trend": {
-        "added": 21,
+        "added": 22,
         "removed": 0,
-        "net": 21,
+        "net": 22,
         "windowDays": 28
       }
     },
@@ -11170,9 +11170,9 @@
       "salaryMedianChf": 91500,
       "salarySamples": 16,
       "trend": {
-        "added": 20,
+        "added": 21,
         "removed": 0,
-        "net": 20,
+        "net": 21,
         "windowDays": 28
       }
     },
@@ -11197,9 +11197,9 @@
       "salaryMedianChf": 72250,
       "salarySamples": 16,
       "trend": {
-        "added": 27,
+        "added": 25,
         "removed": 0,
-        "net": 27,
+        "net": 25,
         "windowDays": 28
       }
     },
@@ -11530,9 +11530,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 15,
       "trend": {
-        "added": 10,
+        "added": 11,
         "removed": 0,
-        "net": 10,
+        "net": 11,
         "windowDays": 28
       }
     },
@@ -11748,9 +11748,9 @@
       "salaryMedianChf": 155750,
       "salarySamples": 15,
       "trend": {
-        "added": 13,
+        "added": 14,
         "removed": 0,
-        "net": 13,
+        "net": 14,
         "windowDays": 28
       }
     },
@@ -11897,9 +11897,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 15,
       "trend": {
-        "added": 7,
+        "added": 8,
         "removed": 0,
-        "net": 7,
+        "net": 8,
         "windowDays": 28
       }
     },
@@ -12318,12 +12318,7 @@
       ],
       "salaryMedianChf": 87750,
       "salarySamples": 14,
-      "trend": {
-        "added": 14,
-        "removed": 0,
-        "net": 14,
-        "windowDays": 28
-      }
+      "trend": null
     },
     {
       "slug": "arxada",
@@ -12439,9 +12434,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 13,
       "trend": {
-        "added": 23,
+        "added": 24,
         "removed": 0,
-        "net": 23,
+        "net": 24,
         "windowDays": 28
       }
     },
@@ -13162,9 +13157,9 @@
       "salaryMedianChf": 82125,
       "salarySamples": 12,
       "trend": {
-        "added": 12,
+        "added": 11,
         "removed": 0,
-        "net": 12,
+        "net": 11,
         "windowDays": 28
       }
     },
@@ -13240,9 +13235,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 12,
       "trend": {
-        "added": 20,
+        "added": 22,
         "removed": 0,
-        "net": 20,
+        "net": 22,
         "windowDays": 28
       }
     },
@@ -13560,9 +13555,9 @@
       "salaryMedianChf": 96750,
       "salarySamples": 11,
       "trend": {
-        "added": 59,
+        "added": 75,
         "removed": 0,
-        "net": 59,
+        "net": 75,
         "windowDays": 28
       }
     },
@@ -14069,9 +14064,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 10,
       "trend": {
-        "added": 9,
+        "added": 10,
         "removed": 0,
-        "net": 9,
+        "net": 10,
         "windowDays": 28
       }
     },
@@ -14104,9 +14099,9 @@
       "salaryMedianChf": 82125,
       "salarySamples": 10,
       "trend": {
-        "added": 15,
+        "added": 16,
         "removed": 0,
-        "net": 15,
+        "net": 16,
         "windowDays": 28
       }
     },
@@ -14131,9 +14126,9 @@
       "salaryMedianChf": 78000,
       "salarySamples": 10,
       "trend": {
-        "added": 4,
+        "added": 5,
         "removed": 0,
-        "net": 4,
+        "net": 5,
         "windowDays": 28
       }
     },
@@ -14345,9 +14340,9 @@
       "salaryMedianChf": 78375,
       "salarySamples": 10,
       "trend": {
-        "added": 21,
+        "added": 22,
         "removed": 0,
-        "net": 21,
+        "net": 22,
         "windowDays": 28
       }
     },
@@ -16065,9 +16060,9 @@
       "salaryMedianChf": 140000,
       "salarySamples": 8,
       "trend": {
-        "added": 14,
+        "added": 15,
         "removed": 0,
-        "net": 14,
+        "net": 15,
         "windowDays": 28
       }
     },
@@ -16221,9 +16216,9 @@
       "salaryMedianChf": 63000,
       "salarySamples": 8,
       "trend": {
-        "added": 23,
+        "added": 24,
         "removed": 0,
-        "net": 23,
+        "net": 24,
         "windowDays": 28
       }
     },
@@ -16295,9 +16290,9 @@
       "salaryMedianChf": 86625,
       "salarySamples": 8,
       "trend": {
-        "added": 4,
+        "added": 3,
         "removed": 0,
-        "net": 4,
+        "net": 3,
         "windowDays": 28
       }
     },
@@ -16376,9 +16371,9 @@
       "salaryMedianChf": 92500,
       "salarySamples": 8,
       "trend": {
-        "added": 138,
+        "added": 143,
         "removed": 0,
-        "net": 138,
+        "net": 143,
         "windowDays": 28
       }
     },
@@ -16411,9 +16406,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 8,
       "trend": {
-        "added": 136,
+        "added": 128,
         "removed": 0,
-        "net": 136,
+        "net": 128,
         "windowDays": 28
       }
     },
@@ -16442,9 +16437,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 8,
       "trend": {
-        "added": 115,
+        "added": 107,
         "removed": 0,
-        "net": 115,
+        "net": 107,
         "windowDays": 28
       }
     },
@@ -17052,9 +17047,9 @@
       "salaryMedianChf": 87750,
       "salarySamples": 7,
       "trend": {
-        "added": 1,
+        "added": 2,
         "removed": 0,
-        "net": 1,
+        "net": 2,
         "windowDays": 28
       }
     },
@@ -17241,7 +17236,12 @@
       ],
       "salaryMedianChf": 75750,
       "salarySamples": 7,
-      "trend": null
+      "trend": {
+        "added": 1,
+        "removed": 0,
+        "net": 1,
+        "windowDays": 28
+      }
     },
     {
       "slug": "imwinkelried-luftung-und-klima-ag",
@@ -17495,9 +17495,9 @@
       "salaryMedianChf": 127500,
       "salarySamples": 7,
       "trend": {
-        "added": 78,
+        "added": 84,
         "removed": 0,
-        "net": 78,
+        "net": 84,
         "windowDays": 28
       }
     },
@@ -17999,9 +17999,9 @@
       "salaryMedianChf": 76000,
       "salarySamples": 6,
       "trend": {
-        "added": 4,
+        "added": 5,
         "removed": 0,
-        "net": 4,
+        "net": 5,
         "windowDays": 28
       }
     },
@@ -18208,9 +18208,9 @@
       "salaryMedianChf": 116375,
       "salarySamples": 6,
       "trend": {
-        "added": 12,
+        "added": 13,
         "removed": 0,
-        "net": 12,
+        "net": 13,
         "windowDays": 28
       }
     },

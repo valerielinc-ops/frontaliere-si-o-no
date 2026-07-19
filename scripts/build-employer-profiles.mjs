@@ -54,6 +54,10 @@ const MAX_CANTONS = 6;
 
 const SCHEMA_VERSION = 1;
 
+/** Slugs that would collide with the locale-prefix grammar of the route/compat
+ * regex (`/^\/(?:(?:en|de|fr)\/)?aziende\/.../`) — never emit a page for them. */
+const RESERVED_SLUGS = new Set(['it', 'en', 'de', 'fr']);
+
 function loadJobs() {
   const p = ['data/jobs.json', 'public/data/jobs.json']
     .map((x) => path.join(ROOT, x))
@@ -195,6 +199,10 @@ function build() {
     if (!company) continue;
     const slug = canonicalCompanyProfileSlug(company, j.companyKey);
     if (!slug) continue;
+    // Never let a company slug that normalises to a bare locale code (en/de/fr/
+    // it) enter the set: `/aziende/en/` would be parsed by the router /
+    // searchConsoleCompat regex as the EN-prefixed root of a slug-less path.
+    if (RESERVED_SLUGS.has(slug)) continue;
     if (!groups.has(slug)) groups.set(slug, []);
     groups.get(slug).push(j);
   }

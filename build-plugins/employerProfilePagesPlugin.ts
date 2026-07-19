@@ -206,43 +206,54 @@ function jobDetailPath(job: CorpusJob, locale: Locale): string {
   return `${localePrefix(locale)}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
+/** Per-locale sentence builders for the intro prose — one map, shared assembly
+ * (no 4× duplicated filter/join). Templated FACTS only; the job cards + these
+ * sentences keep every locale's page well above MIN_INDEXABLE_WORDS. */
+interface ProseTemplate {
+  readonly intro: (name: string, n: number, where: string) => string;
+  readonly salary: (sal: string) => string;
+  readonly trend: (added: number, win: number) => string;
+  readonly outro: string;
+}
+const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
+  it: {
+    intro: (name, n, where) => `${name} ha attualmente ${n} posizioni aperte pubblicate su Frontaliere Ticino${where ? `, distribuite tra ${where}` : ''}.`,
+    salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
+    trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
+    outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
+  },
+  en: {
+    intro: (name, n, where) => `${name} currently has ${n} open positions published on Frontaliere Ticino${where ? `, across ${where}` : ''}.`,
+    salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
+    trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
+    outro: 'Browse the active roles below and apply directly on the employer’s own site.',
+  },
+  de: {
+    intro: (name, n, where) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino${where ? `, verteilt auf ${where}` : ''}.`,
+    salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
+    trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
+    outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
+  },
+  fr: {
+    intro: (name, n, where) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino${where ? `, répartis à ${where}` : ''}.`,
+    salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
+    trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
+    outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
+  },
+};
+
 /** Localized intro prose — templated FACTS only (word count keeps page >50). */
 function introProse(profile: EmployerProfile, locale: Locale): string {
-  const n = profile.activeJobs;
+  const t = PROSE_TEMPLATES[locale];
   const where = locationsSummary(profile);
   const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
   const added = profile.trend?.added ?? null;
   const win = profile.trend?.windowDays ?? 30;
-  const name = profile.name;
-  if (locale === 'en') {
-    return [
-      `${name} currently has ${n} open positions published on Frontaliere Ticino${where ? `, across ${where}` : ''}.`,
-      sal ? `The estimated median salary for these roles is ${sal} gross per year.` : '',
-      added ? `In the last ${win} days, ${added} new postings were published.` : '',
-      'Browse the active roles below and apply directly on the employer’s own site.',
-    ].filter(Boolean).join(' ');
-  }
-  if (locale === 'de') {
-    return [
-      `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino${where ? `, verteilt auf ${where}` : ''}.`,
-      sal ? `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.` : '',
-      added ? `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.` : '',
-      'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
-    ].filter(Boolean).join(' ');
-  }
-  if (locale === 'fr') {
-    return [
-      `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino${where ? `, répartis à ${where}` : ''}.`,
-      sal ? `Le salaire médian estimé pour ces postes est de ${sal} brut par an.` : '',
-      added ? `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.` : '',
-      'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
-    ].filter(Boolean).join(' ');
-  }
   return [
-    `${name} ha attualmente ${n} posizioni aperte pubblicate su Frontaliere Ticino${where ? `, distribuite tra ${where}` : ''}.`,
-    sal ? `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.` : '',
-    added ? `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.` : '',
-    'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
+    t.intro(profile.name, profile.activeJobs, where),
+    sal ? t.salary(sal) : '',
+    added ? t.trend(added, win) : '',
+    t.outro,
   ].filter(Boolean).join(' ');
 }
 
@@ -373,11 +384,18 @@ ${breadcrumbHtml(locale, rec.name)}
 </main>`;
 }
 
-function hreflangFor(slug: string): string {
-  return [
-    ...LOCALES.map((alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${profilePath(alt, slug)}">`),
-    `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${profilePath('it', slug)}">`,
-  ].join('\n');
+/** hreflang `<link>` set for a slug. `locales` restricts the alternates to the
+ * subset that is actually indexable so an index page never points an alternate
+ * at a noindex sibling (reviewer adversarial check, PR #4511). x-default → IT
+ * only when IT itself is in the set. */
+function hreflangFor(slug: string, locales: readonly Locale[] = LOCALES): string {
+  const lines = locales.map(
+    (alt) => `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${profilePath(alt, slug)}">`,
+  );
+  if (locales.includes('it')) {
+    lines.push(`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${profilePath('it', slug)}">`);
+  }
+  return lines.join('\n');
 }
 
 function breadcrumbLd(locale: Locale, slug: string, name: string): string {
@@ -459,17 +477,26 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         // noindex instead of shipping a thin/empty indexable page.
         const liveActive = group.length;
         const liveProfile: EmployerProfile = { ...profile, activeJobs: liveActive };
-        const hreflangHtml = hreflangFor(slug);
+
+        // Pre-pass: render each locale's body once and decide indexability, so
+        // the hreflang/alternate set lists ONLY indexable locales — an index
+        // page never points an alternate at a noindex sibling (reviewer
+        // adversarial check). Rendering is reused in the emit loop below.
+        const rendered = LOCALES.map((locale) => {
+          const bodyHtml = renderProfileBody(liveProfile, listed, locale);
+          const indexable = liveActive >= 5 && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          return { locale, bodyHtml, indexable };
+        });
+        const indexableLocales = rendered.filter((r) => r.indexable).map((r) => r.locale);
+        const hreflangHtml = hreflangFor(slug, indexableLocales);
         const alternates = [
-          ...LOCALES.map((alt) => `${alt}|${BASE_URL}${profilePath(alt, slug)}`),
-          `x-default|${BASE_URL}${profilePath('it', slug)}`,
+          ...indexableLocales.map((alt) => `${alt}|${BASE_URL}${profilePath(alt, slug)}`),
+          ...(indexableLocales.includes('it') ? [`x-default|${BASE_URL}${profilePath('it', slug)}`] : []),
         ];
 
-        for (const locale of LOCALES) {
+        for (const { locale, bodyHtml, indexable } of rendered) {
           const urlPath = profilePath(locale, slug);
           const canonicalUrl = `${BASE_URL}${urlPath}`;
-          const bodyHtml = renderProfileBody(liveProfile, listed, locale);
-          const wordCount = countHtmlBodyWords(bodyHtml);
 
           // JobPosting ItemList (supplementary list-page signal; the
           // authoritative per-job JobPosting lives on each linked detail page).
@@ -492,7 +519,6 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             }));
           }
 
-          const indexable = wordCount >= MIN_INDEXABLE_WORDS && liveActive >= 5;
           if (!indexable) thinDowngraded++;
 
           const html = buildSeoPageHtml({
