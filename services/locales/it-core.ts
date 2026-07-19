@@ -1254,6 +1254,8 @@ const translations: Record<string, string> = {
  // Forum
  'forum.title': 'Community Frontalieri',
  'forum.subtitle': 'Fai domande, condividi esperienze e aiuta altri frontalieri. La tua esperienza è preziosa!',
+ 'forum.telegram.title': 'Unisciti al canale Telegram',
+ 'forum.telegram.desc': 'Le offerte di lavoro del giorno e la classifica settimanale delle attese alle dogane, direttamente su Telegram.',
  'forum.allCategories': 'Tutte le categorie',
  'forum.recent': 'Recenti',
  'forum.popular': 'Popolari',
@@ -2638,6 +2640,9 @@ Regole:
  'whatsNew.v3770.title': 'La checklist del frontaliere',
  'whatsNew.v3770.checklist.title': 'Il tuo percorso da frontaliere, con XP',
  'whatsNew.v3770.checklist.desc': 'Una checklist che salva i progressi: permesso G, contratto, conto CHF, LAMal, dogana e prima busta paga. Ogni passo apre la guida giusta e ti fa guadagnare XP, senza registrarti.',
+ 'whatsNew.v3760.title': 'Canale Telegram frontalieri',
+ 'whatsNew.v3760.telegram.title': 'Offerte del giorno e classifica dogane su Telegram',
+ 'whatsNew.v3760.telegram.desc': 'Abbiamo aperto un canale Telegram: ogni giorno le nuove offerte di lavoro in Ticino e, ogni settimana, la classifica delle dogane per tempo di attesa. Trovi il link nel piè di pagina e nella pagina della community.',
  'whatsNew.v3730.title': 'Widget da aggiungere al tuo sito',
  'whatsNew.v3730.embedWidgets.title': 'Badge stipendi e attese dogane per il tuo sito',
  'whatsNew.v3730.embedWidgets.desc': 'Blog, forum e siti di settore possono ora incorporare gratis i nostri widget: stipendio medio per professione, attese live alle dogane e cambio CHF/EUR. Codice copia-incolla pronto su frontaliereticino.ch/embed/.',

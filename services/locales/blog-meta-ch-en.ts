@@ -1252,6 +1252,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.title': 'Working as an optician in Ticino: salary, requirements and title recognition',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.excerpt': 'Optical border optometrists in Ticino: average salary, requirements, recognition of qualification and G permit.',
     'blog.article.frontaliere-ottico-optometrista-ticino-stipendio-requisiti.imageAlt': 'A frontier worker waiting to receive a work permit at an optometrist\'s office in Lugano.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.title': 'Working as a podiatrist in Ticino: requirements and recognition',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.excerpt': 'Average salary of a border podiatrist in Ticino, requirements to work as a border podiatrist in Ticino and recognition of the qualification.',
+    'blog.article.podologo-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Podologist in a work environment in Ticino',
 };
 
 export default blogMetaChEn;

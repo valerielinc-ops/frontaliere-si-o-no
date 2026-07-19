@@ -4635,6 +4635,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ticino-ottico-optometrista': { name: 'Ticino', path: '/articoli-frontaliere/frontaliere-ticino-ottico-optometrista', parent: 'blog' },
     'blog-frontaliere-ottico-optometrista-ticino-stipendio-requisiti': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontaliere-ottico-optometrista-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-ottico-optometrista-ticino-guida': { name: 'Lavoro Ottico Ticino', path: '/articoli-frontaliere/ottico-optometrista-ticino-guida', parent: 'blog' },
+    'blog-podologo-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come podologo in Ticino da', path: '/articoli-svizzera/podologo-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-podologo-frontaliere-ticino-guadagna': { name: 'Podologo frontaliere in Ticino', path: '/articoli-frontaliere/podologo-frontaliere-ticino-guadagna', parent: 'blog' },
  };
 
  const info = sectionNames[section];
