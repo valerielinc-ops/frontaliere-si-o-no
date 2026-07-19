@@ -2524,6 +2524,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3660.title': 'CHF/EUR exchange at a glance',
+ 'whatsNew.v3660.exchange-ssg.title': 'CHF/EUR exchange: new dedicated pages',
+ 'whatsNew.v3660.exchange-ssg.desc': "Today's CHF/EUR rate, 12-month history and typical-salary conversions (1000–10000 CHF), with tips on when to exchange and how to save on fees.",
  'whatsNew.v3650.title': 'Interactive LAMal vs SSN comparison',
  'whatsNew.v3650.affiliate.title': 'Recommended health tools',
  'whatsNew.v3650.affiliate.desc': 'New recommended resources in the health-insurance comparator and premium pages, with uniformly tracked partner links.',

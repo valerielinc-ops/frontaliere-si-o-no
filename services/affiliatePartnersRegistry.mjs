@@ -14,7 +14,19 @@
  * redirect path — lives here once. Email presentation copy is separate
  * (services/newsletter/recommendedBlock.mjs) and is email-specific, not a
  * duplicate of this registry.
+ *
+ * Referral URLs are NOT re-typed here — they come from the single source
+ * services/exchangePartners.mjs (AGENTS.md #6: a referral code rotates once,
+ * everywhere), same as the SPA comparator + static SSG pages.
  */
+
+import {
+  WISE_REFERRAL_URL,
+  FINECO_REFERRAL_URL,
+  CREDIT_AGRICOLE_IT_REFERRAL_URL,
+  REVOLUT_REFERRAL_URL,
+  CAMBIAVALUTE_REFERRAL_URL,
+} from './exchangePartners.mjs';
 
 export const PARTNERS_REGISTRY = [
  // ─── Currency Exchange ───
@@ -23,7 +35,7 @@ export const PARTNERS_REGISTRY = [
  name: 'Wise',
  taglineKey: 'affiliate.wise.tagline',
  descriptionKey: 'affiliate.wise.description',
- url: 'https://wise.com/invite/ihpn/luigis147',
+ url: WISE_REFERRAL_URL,
  badgeKey: 'affiliate.badge.mostUsed',
  color: 'from-success-strong to-success-strong',
  emoji: '💸',
@@ -39,7 +51,7 @@ export const PARTNERS_REGISTRY = [
  name: 'Fineco Bank',
  taglineKey: 'affiliate.fineco.tagline',
  descriptionKey: 'affiliate.fineco.description',
- url: 'https://fineco.mobi/passaparola',
+ url: FINECO_REFERRAL_URL,
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-info-strong to-info-strong',
  emoji: '🇮🇹',
@@ -53,7 +65,7 @@ export const PARTNERS_REGISTRY = [
  name: 'Crédit Agricole',
  taglineKey: 'affiliate.creditagricole.tagline',
  descriptionKey: 'affiliate.creditagricole.description',
- url: 'https://www.credit-agricole.it/invito?mgm=LUIGSAGG112A',
+ url: CREDIT_AGRICOLE_IT_REFERRAL_URL,
  badgeKey: 'affiliate.badge.recommended',
  color: 'from-success-strong to-info-strong-hover',
  emoji: '🏦',
@@ -67,7 +79,7 @@ export const PARTNERS_REGISTRY = [
  name: 'Revolut',
  taglineKey: 'affiliate.revolut.tagline',
  descriptionKey: 'affiliate.revolut.description',
- url: 'https://revolut.com/referral/?referral-code=luigi4mdv!FEB1-26-AR-H1&geo-redirect',
+ url: REVOLUT_REFERRAL_URL,
  color: 'from-accent-strong to-accent-strong-hover',
  emoji: '💱',
  contexts: ['exchange', 'banks'],
@@ -80,7 +92,7 @@ export const PARTNERS_REGISTRY = [
  name: 'CambiaValute.ch',
  taglineKey: 'affiliate.cambiavalute.tagline',
  descriptionKey: 'affiliate.cambiavalute.description',
- url: 'https://dashboard.cambiavalute.ch/r/28693',
+ url: CAMBIAVALUTE_REFERRAL_URL,
  color: 'from-info-strong to-accent-strong',
  emoji: '🇨🇭',
  contexts: ['exchange'],

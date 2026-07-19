@@ -2614,6 +2614,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3660.title': 'Cambio franco-euro sotto controllo',
+ 'whatsNew.v3660.exchange-ssg.title': 'Cambio franco-euro: nuove pagine dedicate',
+ 'whatsNew.v3660.exchange-ssg.desc': 'Tasso CHF/EUR di oggi, storico 12 mesi e conversione degli stipendi tipici (1000–10000 CHF), con consigli su quando cambiare e come risparmiare sulle commissioni.',
  'whatsNew.v3650.title': 'Confronto LAMal vs SSN interattivo',
  'whatsNew.v3650.affiliate.title': 'Strumenti consigliati per la salute',
  'whatsNew.v3650.affiliate.desc': 'Nuove risorse consigliate nel comparatore casse malati e nelle pagine premi, con link partner tracciati in modo uniforme.',
