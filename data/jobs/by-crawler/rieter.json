@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-07-19T10:42:36.491Z",
+  "assembledAt": "2026-07-19T21:53:38.407Z",
   "jobs": [
     {
       "id": "rieter-5cbc6f09de36",
@@ -17,7 +17,7 @@
       "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
       "titleByLocale": {
         "it": "Sachbearbeiter/in Export e Sales Administration (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
+        "en": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "fr": "Administration des exportations et des ventes (80 % - 100 %)"
       },
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T10:42:33.053Z",
+      "crawledAt": "2026-07-19T21:53:35.482Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:14.154Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -108,7 +109,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T10:42:32.304Z",
+      "crawledAt": "2026-07-19T21:53:34.792Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -214,7 +215,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
