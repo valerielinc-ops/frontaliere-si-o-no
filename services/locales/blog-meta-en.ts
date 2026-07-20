@@ -8674,6 +8674,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontier workers, work and G permit: Councillor Vitta',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'State Councillor Christian Vitta has made it clear that frontier workers will be able to go to work in Switzerland, but must be provided with a G permit.',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalieri in transit through a border crossing between Italy and Switzerland.',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polimeccanico in Ticino: salary, requirements and recognition',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'The G Permit allows border workers to work in Switzerland. Border polymechanics in Ticino can work in construction companies',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'A Swiss-Italian border worker plumber in Ticino',
 };
 
 export default blogMetaEn;

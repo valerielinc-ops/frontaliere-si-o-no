@@ -8673,6 +8673,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Grenzgänger, Arbeit und Bewilligung G: Stadtrat Vitta',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Regierungsrat Christian Vitta hat klargestellt, dass Grenzgänger zwar in die Schweiz zur Arbeit gehen dürfen, aber über eine G-Bewilligung verfügen müssen.',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalier in Durchgang durch eine Grenzübergang zwischen Italien und der Schweiz.',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polymechaniker im Tessin: Gehalt, Anforderungen und Anerkennung',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Die Bewilligung G ermöglicht es Grenzgängern, in der Schweiz zu arbeiten. Grenzgänger Polymechaniker im Tessin dürfen in Baufirmen arbeiten',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Ein polymeccanico frontaliero in Ticino',
 };
 
 export default blogMetaDe;

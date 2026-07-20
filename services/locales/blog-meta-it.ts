@@ -8675,6 +8675,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontalieri, lavoro e permesso G: il consigliere Vitta',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontalieri potranno andare al lavoro in Svizzera, ma devono essere muniti del permesso G.',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalieri in transito attraverso un valico di frontiera tra Italia e Svizzera.',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polimeccanico in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Il Permesso G consente ai frontalieri di lavorare in Svizzera. I polimeccanici frontalieri in Ticino possono lavorare in aziende di costruzione',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Un polimeccanico frontaliero in Ticino',
 };
 
 export default blogMetaIt;
