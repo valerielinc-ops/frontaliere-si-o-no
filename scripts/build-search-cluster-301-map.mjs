@@ -60,6 +60,8 @@ import {
   SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '../services/searchQueryBoilerplate.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -413,6 +415,41 @@ async function main() {
     `search-cluster-301-map: ${total} entries (it=${byLocale.it} en=${byLocale.en} de=${byLocale.de} fr=${byLocale.fr}) → ` +
     `${specific} specific clusters (${((100 * specific) / total).toFixed(1)}%), ${cityPage} per-city pages, ` +
     `${cityBoard} city-canton boards, ${urlBoard} national boards.`,
+  );
+
+  // Feed every resolved legacy URL into the seo-404-compat accumulator (issue
+  // #4590 audit finding: 9922/9922 map entries were never accumulator-fed
+  // since this script's creation, #2917 — legacyRedirectsPlugin.ts only emits
+  // a real bridge/redirect page for paths present in readCompatPaths(), and
+  // this map alone was never wired into that store). Computing a target for
+  // `oldUrl` above IS the proof it's a dead legacy URL — no need to wait on
+  // discover-404s-via-cloudflare.mjs (can't see these: they answer HTTP 200,
+  // a soft-404 SPA fallback, never a real 4xx in the CF log it scans) or
+  // discover-404s-via-inspection.mjs (never queues this URL family as an
+  // inspection candidate at all).
+  const compat = readCompatPaths(ROOT);
+  const compatSet = new Set(compat.paths);
+  const prevCompatCount = compatSet.size;
+  for (const oldUrl of Object.keys(map)) compatSet.add(oldUrl);
+  const addedCompatCount = compatSet.size - prevCompatCount;
+  if (addedCompatCount > 0) {
+    const updatedCompat = {
+      ...compat,
+      paths: [...compatSet].sort(),
+      source: (compat.source || 'gsc-export').includes('search-cluster-301-map')
+        ? compat.source
+        : `${compat.source || 'gsc-export'}+search-cluster-301-map`,
+      lastUpdated: new Date().toISOString().slice(0, 10),
+    };
+    assertCompatFloor(prevCompatCount, updatedCompat.paths.length, {
+      floor: COMPAT_PATHS_SANITY_FLOOR,
+      label: 'seo-404-compat (from build-search-cluster-301-map.mjs)',
+    });
+    writeCompatPaths(updatedCompat, ROOT);
+  }
+  console.log(
+    `search-cluster-301-map: seo-404-compat accumulator +${addedCompatCount} new path` +
+    `${addedCompatCount === 1 ? '' : 's'} (${compatSet.size} total).`,
   );
 }
 
