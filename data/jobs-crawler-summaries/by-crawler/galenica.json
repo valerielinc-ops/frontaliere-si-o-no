@@ -1,55 +1,45 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-07-19T22:42:18.899Z",
-  "total": 369,
+  "generatedAt": "2026-07-20T12:09:28.108Z",
+  "total": 368,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 106874,
-  "avgDurationMs": 106874,
+  "unchangedCount": 0,
+  "durationMs": 100967,
+  "avgDurationMs": 100967,
   "durationHistory": [
-    106874
+    100967
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistante en pharmacie  (f/h/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Sun Store Apotheke (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3115048.4024134",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692483",
+      "location": "Rolle",
+      "canton": "VD",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistante en pharmacie  (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "descriptionIt": "Assistente di farmacia AFC presso Sun Store Apotheke (Gruppo Galenica), con sede a Rolle, Avenue de la Gare 17, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692483-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rolle-vd-sun-store-apotheke?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
-      "sourceLang": "en",
-      "slug": "assistante-en-pharmacie-m-w-d-galenica-ag-galenica-bern",
-      "id": "galenica-c3a69e501533",
+      "sourceLang": "it",
+      "slug": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-rolle",
+      "id": "galenica-3bd01dfbd965",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 9
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
