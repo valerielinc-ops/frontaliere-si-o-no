@@ -8726,6 +8726,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Travailler comme plombier au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Impôts, double imposition, permis G, reconnaissance du titre d\'études et salaire moyen pour un plombier frontalier au Tessin',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Photo d\'un plombier frontalier italien',
+    'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Combien gagne un plombier frontalier au Tessin',
+    'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'Cotisations AVS, LPP et impôt à la source : cadre de rémunération pour le plombier frontalier au Tessin.',
+    'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Plombier frontalier au travail dans le canton du Tessin',
 };
 
 export default blogMetaFr;

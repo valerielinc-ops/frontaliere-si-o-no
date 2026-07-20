@@ -8725,6 +8725,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Working as a plumber in Ticino: salary, requirements and permit G',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Taxes, double taxation, G permit, recognition of qualification and average salary for a border plumber in Ticino',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Photo of a Swiss-Italian cross-border plumber',
+    'blog.article.idraulico-ticino-frontiera-guadagno.title': 'How much does a border plumber earn in Ticino',
+    'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'AVS, LPP and source tax contributions: remuneration framework for border plumbers in Ticino.',
+    'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Cross-border plumber working in Canton Ticino',
 };
 
 export default blogMetaEn;
