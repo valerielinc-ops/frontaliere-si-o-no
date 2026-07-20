@@ -459,6 +459,15 @@ export function isKnownSwissCity(cityName = '') {
 export function isCantonOnlyLabel(text = '') {
   const token = normalizeToken(text);
   if (!token) return false;
+  // A canton's `names` alias list (used for keyword-relevance matching, see
+  // hasStrongCantonSignal) folds in representative CITY names for cantons
+  // whose own name is rarely written out (e.g. BL: "Allschwil", "Reinach",
+  // "Muttenz"...) to strengthen fuzzy canton detection in free text.
+  // Reusing that same list for _cantonOnlyTokens would wrongly classify a
+  // real, precise municipality match as a bare canton-only label — a real
+  // city carries FULL location precision, the opposite of what this
+  // function is meant to detect. A known city always wins.
+  if (isKnownSwissCity(text)) return false;
   return _cantonOnlyTokens.has(token);
 }
 

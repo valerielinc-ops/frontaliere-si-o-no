@@ -20,7 +20,7 @@
  * other target/inference-universe drift) can't silently regress it.
  */
 import { describe, expect, it } from 'vitest';
-import { acceptInferredCantonForFill } from '../scripts/assemble-jobs-dataset.mjs';
+import { acceptInferredCantonForFill, isWeakCantonOnlyLabelOverride } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — plain .mjs lib, no type declarations
 import { TARGET_CANTONS } from '../scripts/lib/target-swiss-locations.mjs';
 
@@ -48,5 +48,38 @@ describe('acceptInferredCantonForFill (#2772 item 3)', () => {
     expect(acceptInferredCantonForFill(null)).toBeNull();
     expect(acceptInferredCantonForFill('')).toBeNull();
     expect(acceptInferredCantonForFill(undefined)).toBeNull();
+  });
+});
+
+/**
+ * issue #4570 — a canton-only label ("Ticino", "TI") location string must
+ * not be trusted to OVERRIDE an already-assigned, different canton. ETA
+ * SA/Swatch Group jobs were correctly tagged canton=SO by the crawler, but
+ * their location field was forged/corrupted to the literal string "Ticino"
+ * — inferAnyCanton("Ticino") confidently matches the canton NAME, so the
+ * fill/override step in assemble-jobs-dataset.mjs clobbered the correct SO
+ * with TI, then the pin ledger froze it there forever.
+ */
+describe('isWeakCantonOnlyLabelOverride (#4570)', () => {
+  it('blocks override when location is a bare canton name and a different canton is already set', () => {
+    expect(isWeakCantonOnlyLabelOverride('SO', 'Ticino')).toBe(true);
+    expect(isWeakCantonOnlyLabelOverride('SO', 'TI')).toBe(true);
+  });
+
+  it('allows fill when the existing canton is empty (UBS-roles case, #2772 item 2)', () => {
+    expect(isWeakCantonOnlyLabelOverride('', 'Ticino')).toBe(false);
+    expect(isWeakCantonOnlyLabelOverride(null as unknown as string, 'Ticino')).toBe(false);
+  });
+
+  it('allows override when location names a real city, not just the canton', () => {
+    // A real municipality carries full location precision — it can still
+    // correct a wrong HQ-default canton, exactly as before this guard.
+    expect(isWeakCantonOnlyLabelOverride('ZH', 'Lugano')).toBe(false);
+    expect(isWeakCantonOnlyLabelOverride('TI', 'Allschwil')).toBe(false);
+  });
+
+  it('does not block when location text is empty or not a canton label at all', () => {
+    expect(isWeakCantonOnlyLabelOverride('SO', '')).toBe(false);
+    expect(isWeakCantonOnlyLabelOverride('SO', 'some garbage company name')).toBe(false);
   });
 });

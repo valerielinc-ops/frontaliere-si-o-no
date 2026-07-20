@@ -68,6 +68,18 @@ describe('Swiss municipality whitelist (BFS)', () => {
       expect(isCantonOnlyLabel('Lengnau')).toBe(false);
       expect(isCantonOnlyLabel('Bellinzona')).toBe(false);
     });
+
+    it('does NOT match a real city even when it also appears in a canton\'s alias list (#4570)', () => {
+      // SWISS_CANTONS[BL].names includes "allschwil"/"muttenz" as keyword
+      // aliases (to strengthen fuzzy canton-name detection in free text),
+      // but a real, precise municipality match must never be downgraded to
+      // a canton-only label — that would make a genuine city signal look
+      // as weak as a bare canton name and break any caller that trusts
+      // isCantonOnlyLabel to gate "needs more evidence" logic.
+      expect(isCantonOnlyLabel('Allschwil')).toBe(false);
+      expect(isCantonOnlyLabel('Muttenz')).toBe(false);
+      expect(isCantonOnlyLabel('Herisau')).toBe(false);
+    });
   });
 
   describe('findSwissCityInText', () => {
