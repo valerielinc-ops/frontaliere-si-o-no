@@ -1297,6 +1297,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Border welder in Ticino: practical guide and requirements',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Learn about the requirements to work as a welder in Switzerland, the updated tax rules, and how tax at source works for frontier workers.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professional metal workshop in Switzerland',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Petrol and diesel: pump prices continue to rise',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Gasoline and diesel prices have risen again in Switzerland, according to data from the Swiss Touring Club.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Image of a gas station with a line of cars waiting to refuel.',
 };
 
 export default blogMetaChEn;

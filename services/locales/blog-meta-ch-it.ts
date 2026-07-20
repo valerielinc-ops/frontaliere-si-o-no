@@ -1297,6 +1297,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Saldatore frontaliere in Ticino: guida pratica e requisiti',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Scopri i requisiti per lavorare come saldatore in Svizzera, le regole fiscali aggiornate e il funzionamento dell\'imposta alla fonte per i lavoratori frontalieri.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Officina metalmeccanica professionale in Svizzera',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzina e diesel: i prezzi alla pompa continuano a salire',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera, secondo i dati del Touring Club Svizzero.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Immagine di una stazione di servizio con una fila di auto che attendono di fare rifornimento di carburante.',
 };
 
 export default blogMetaChIt;
