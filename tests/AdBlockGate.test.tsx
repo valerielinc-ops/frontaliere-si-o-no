@@ -65,6 +65,11 @@ const detectAdBlockMock = vi.mocked(detectAdBlock);
 const trackUIInteractionMock = vi.mocked(Analytics.trackUIInteraction);
 const registerSuperPropertyMock = vi.mocked(registerSuperProperty);
 
+// JSDOM marks `window.location` read-only; replace it with a writable stub
+// so we can spy on .reload(), same pattern as ChunkLoadErrorBoundary.test.tsx.
+const originalLocation = window.location;
+let reloadSpy: ReturnType<typeof vi.fn>;
+
 describe('AdBlockGate', () => {
   beforeEach(() => {
     isLikelyBotMock.mockReturnValue(false);
@@ -73,11 +78,22 @@ describe('AdBlockGate', () => {
     mockActiveTab = 'calculator';
     navigateToMock.mockClear();
     localStorage.clear();
+    reloadSpy = vi.fn();
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...originalLocation, reload: reloadSpy },
+      writable: true,
+    });
   });
 
   afterEach(() => {
     vi.clearAllMocks();
     localStorage.clear();
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: originalLocation,
+      writable: true,
+    });
   });
 
   it('never resolves a bucket or runs detection for bots', async () => {
@@ -134,6 +150,23 @@ describe('AdBlockGate', () => {
 
     await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
     expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'modal', 'outcome', 'disabled');
+  });
+
+  it('offers a reload button when recheck still finds a blocker, and reload triggers window.location.reload()', async () => {
+    detectAdBlockMock.mockResolvedValue(true);
+    render(<AdBlockGate />);
+    await screen.findByRole('dialog');
+
+    expect(screen.queryByRole('button', { name: /ricarica/i })).toBeNull();
+
+    fireEvent.click(screen.getByRole('button', { name: /ricontrolla/i }));
+    await screen.findByRole('button', { name: /ricarica/i });
+
+    // Gate stays open — a still-blocked recheck is not an outcome by itself.
+    expect(screen.getByRole('dialog')).toBeTruthy();
+
+    fireEvent.click(screen.getByRole('button', { name: /ricarica/i }));
+    expect(reloadSpy).toHaveBeenCalledTimes(1);
   });
 
   it('closes the gate, logs subscribe_clicked, and navigates to the subscribe page on CTA click', async () => {
