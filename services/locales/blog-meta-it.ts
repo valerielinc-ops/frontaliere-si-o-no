@@ -8738,6 +8738,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Frontaliere giardiniere Ticino: stipendio medio e requisiti',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Il nuovo accordo fiscale del 2020 stabilisce i requisiti per lavorare come giardiniere in Ticino',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere giardiniere lavora in un giardino di Mendrisio, Ticino',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Quanto guadagna un piastrellista frontaliere in Ticino?',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'I piastrellisti frontaliere in Ticino possono guadagnare tra i CHF 50.000 e i CHF 80.000 all\'anno, ma le differenze di retribuzione possono variare a seconda della esperienza e della posizione lavorativa.',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Una scena di lavoro di un piastrellista frontaliere in Ticino',
 };
 
 export default blogMetaIt;

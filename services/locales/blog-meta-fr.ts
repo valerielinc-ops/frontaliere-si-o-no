@@ -8738,6 +8738,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Frontalier jardinier Tessin : salaire moyen et exigences',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord fiscal de 2020 établit les exigences pour travailler en tant que jardinier au Tessin',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Un jardinier frontalier travaille dans un jardin à Mendrisio, Ticino',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Combien gagne un carreleur frontalier au Tessin ?',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Les carreleurs frontaliers au Tessin peuvent gagner entre CHF 50 000 et CHF 80 000 par an, mais les différences de rémunération peuvent varier en fonction de l\'expérience et du poste de travail.',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Une scène de travail d\'un plâtrier frontalier en Tessin',
 };
 
 export default blogMetaFr;

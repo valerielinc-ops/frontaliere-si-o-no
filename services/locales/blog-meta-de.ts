@@ -8736,6 +8736,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Grenzgänger Gärtner Tessin: Durchschnittsgehalt und Anforderungen',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Das neue Steuerabkommen von 2020 legt die Voraussetzungen fest, um als Gärtner im Tessin zu arbeiten',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier-Gärtner arbeitet in einem Garten in Mendrisio, Ticino',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein Grenzfliesenleger im Tessin?',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Grenzfliesenleger im Tessin können zwischen CHF 50 \'000 und CHF 80\' 000 pro Jahr verdienen, aber die Lohnunterschiede können je nach Berufserfahrung und Position variieren.',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Eine Szene von einem Fliesenleger, der in Ticino arbeitet',
 };
 
 export default blogMetaDe;
