@@ -4682,6 +4682,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-e-diesel-prezzi-saliti': { name: 'Benzina e diesel: i prezzi alla pompa', path: '/articoli-svizzera/benzina-e-diesel-prezzi-saliti/', parent: 'blog' },
     'blog-quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino': { name: 'Operatore CNC in Ticino', path: '/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino', parent: 'blog' },
     'blog-frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': { name: 'Frontaliere disegnatore tecnico Ticino', path: '/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontalieri-ticino-stipendio-tecnico-automazione': { name: 'Stipendio tecnico automazione frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
