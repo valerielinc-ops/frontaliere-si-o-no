@@ -3,7 +3,7 @@
 # Survives concurrent pushes from other workflows that also write to main.
 #
 # Usage:
-#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 25] \
+#   bash scripts/lib/git-push-with-retry.sh [--branch main] [--max-attempts 40] \
 #     [--regenerate-cmd "..."] [--in-place-resolver-cmd "..."] [--stash-dirty]
 #
 # Examples:
@@ -79,7 +79,15 @@ if [ -f ".git/index.lock" ]; then
 fi
 
 BRANCH="main"
-MAX_ATTEMPTS=25
+# 25 (raised from 15 by #4190) is no longer enough: main's write volume has
+# grown since — the "Topic candidates mining" run that motivated this bump
+# measured a steady ~13s median gap between consecutive main commits over a
+# 20+min window (orchestrate-crawlers dispatch overlapping the run), losing
+# all 25 attempts (issue #4557). Raised to 40 so the retry loop's widening
+# jitter (0..attempt, up to 0..40s here) has more chances to land outside the
+# convoy's cadence, while still fitting comfortably inside the smallest
+# caller timeout that isn't already attempt-count-bound (10min).
+MAX_ATTEMPTS=40
 REGENERATE_CMD=""
 IN_PLACE_RESOLVER_CMD=""
 STASH_DIRTY=""
