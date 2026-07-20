@@ -8683,6 +8683,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Working as a mechanic in Ticino: salary and requirements',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'The requirements for working as a mechanic in Switzerland are set by federal law. The G permit is required to work in Switzerland without having to pay Italian taxes.',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'A view of Lugano with the lake and mountains',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Border mechatronic Ticino salary requirements',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'The G permit is required for mechatronics in Ticino. It is not specified which requirement is necessary for mechatronics in Ticino.',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'A mechanic in Ticino with a background of Monte Bre.',
 };
 
 export default blogMetaEn;
