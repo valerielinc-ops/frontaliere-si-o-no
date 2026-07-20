@@ -52176,6 +52176,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consulente-clientela-frontaliere-ticino': {
+    title: 'Quanto guadagna un consulente alla clientela frontaliere in Ticino?',
+    description: 'Imposte, franchigie e aliquote: cosa cambia per i consulenti che lavorano con clienti frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, consulente, alla',
+    ogTitle: 'Quanto guadagna un consulente alla clientela frontaliere in Ticino?',
+    ogDescription: 'Imposte, franchigie e aliquote: cosa cambia per i consulenti che lavorano con clienti frontaliere in Ticino',
+    canonicalPath: '/articoli-frontaliere/consulente-clientela-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un consulente alla clientela frontaliere in Ticino?",
+      "description": "Imposte, franchigie e aliquote: cosa cambia per i consulenti che lavorano con clienti frontaliere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consulente-clientela-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un consulente che lavora con clienti frontaliere in Ticino"
+      },
+      "datePublished": "2026-07-20T16:35:15+00:00",
+      "dateModified": "2026-07-20T16:35:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consulente-clientela-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
