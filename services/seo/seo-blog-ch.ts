@@ -16593,6 +16593,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendio-meccanico-frontaliere-ticino': {
+    title: 'Quanto guadagna un meccanico frontaliere in Ticino',
+    description: 'Analisi della fascia salariale per meccanici frontalieri in Ticino: trattenute fiscali, contributi AVS/LPP e impatto del nuovo Accordo Frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, meccanico, analisi',
+    ogTitle: 'Quanto guadagna un meccanico frontaliere in Ticino',
+    ogDescription: 'Analisi della fascia salariale per meccanici frontalieri in Ticino: trattenute fiscali, contributi AVS/LPP e impatto del nuovo Accordo Frontalieri.',
+    canonicalPath: '/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un meccanico frontaliere in Ticino",
+      "description": "Analisi della fascia salariale per meccanici frontalieri in Ticino: trattenute fiscali, contributi AVS/LPP e impatto del nuovo Accordo Frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-meccanico-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Officina meccanica moderna in Ticino, Svizzera"
+      },
+      "datePublished": "2026-07-20T07:36:01+00:00",
+      "dateModified": "2026-07-20T07:36:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

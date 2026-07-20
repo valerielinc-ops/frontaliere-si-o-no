@@ -1285,6 +1285,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'Quanto guadagna un polimeccanico frontaliere in Ticino',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Stipendio reale di un polimeccanico frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'Un polimeccanico frontaliere al lavoro in Ticino, immagine fotorealistica DSLR.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'Quanto guadagna un meccanico frontaliere in Ticino',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analisi della fascia salariale per meccanici frontalieri in Ticino: trattenute fiscali, contributi AVS/LPP e impatto del nuovo Accordo Frontalieri.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Officina meccanica moderna in Ticino, Svizzera',
 };
 
 export default blogMetaChIt;

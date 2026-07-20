@@ -1285,6 +1285,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'How much does a border polymechanist earn in Ticino',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Actual salary of a border polymech in Ticino: salary band, differences compared to Italy, factors that affect remuneration.',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'A Swiss-Italian mechanic at work in Ticino, photorealistic DSLR image.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'How much does a border mechanic earn in Ticino',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analysis of the salary band for border mechanics in Ticino: tax deductions, AVS/LPP contributions and impact of the new Border Agreement.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Modern mechanical workshop in Ticino, Switzerland',
 };
 
 export default blogMetaChEn;

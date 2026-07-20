@@ -3851,6 +3851,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stipendio-meccanico-frontaliere-ticino',
+    category: 'pratico',
+    date: '2026-07-20T07:36:01.787Z',
+    image: '/images/blog/stipendio-meccanico-frontaliere-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

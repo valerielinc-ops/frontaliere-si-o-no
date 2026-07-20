@@ -451,6 +451,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontalieriprogettista-elettricoin-ticino': { it: 'frontalieriprogettista-elettricoin-ticino', en: 'frontalierielectricalengineerin-ticino', de: 'frontalier-elektroingenieur-in-tessin', fr: 'frontalier-ingenieur-electrique-au-tessin' },
  'frontalieri-ticino-tendenze-occupazionali': { it: 'frontalieri-ticino-tendenze-occupazionali', en: 'ticino-cross-border-employment-trends', de: 'grenzgaenger-tessin-beschaeftigungstrends', fr: 'frontaliers-tessin-tendances-emploi' },
  'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { it: 'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino', en: 'how-much-does-a-swiss-italian-mechanic-earn-in-ticino', de: 'wie-viel-verdient-ein-schweizer-mechaniker-in-ticino', fr: 'combien-gagne-un-mecanicien-suisses-en-tessin' },
+ 'stipendio-meccanico-frontaliere-ticino': { it: 'stipendio-meccanico-frontaliere-ticino', en: 'mechanic-salary-cross-border-ticino', de: 'gehalt-mechaniker-grenzganger-tessin', fr: 'salaire-mecanicien-frontalier-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
