@@ -13,7 +13,7 @@
  * excludes canton-only labels — see `scripts/lib/canton-quorum-gate.mjs`.
  */
 import { describe, expect, it } from 'vitest';
-import { runBfsStrict, applyCantonQuorumGate } from '../scripts/lib/canton-quorum-gate.mjs';
+import { runBfsStrict, applyCantonQuorumGate, run2of3Quorum } from '../scripts/lib/canton-quorum-gate.mjs';
 
 describe('runBfsStrict (#4570 sibling)', () => {
   it('does not classify a bare canton name label as high confidence', () => {
@@ -23,6 +23,31 @@ describe('runBfsStrict (#4570 sibling)', () => {
 
   it('still classifies a real municipality as high confidence', () => {
     expect(runBfsStrict({ addressLocality: 'Lugano' })).toEqual({ canton: 'TI', confidence: 'high' });
+  });
+});
+
+describe('run2of3Quorum (#4570 sibling, round 2 — quorum on bare canton-name repetition)', () => {
+  it('does not reach high confidence when 2/3 fields only repeat the bare canton name, no real city anywhere', () => {
+    // title + addressLocality both just say "Ticino" — no city-level evidence
+    // in any of the 3 fields. Same weak signal runBfsStrict already rejects,
+    // doubled across fields instead of appearing once.
+    expect(
+      run2of3Quorum({
+        title: 'Stelle in Ticino',
+        body: 'Wir suchen eine motivierte Person.',
+        addressLocality: 'Ticino',
+      })
+    ).toEqual({ canton: '', confidence: 'low' });
+  });
+
+  it('still reaches high confidence when 2/3 fields agree AND a real city corroborates the canton', () => {
+    expect(
+      run2of3Quorum({
+        title: 'Stelle in Ticino',
+        body: 'Arbeitsort: Lugano.',
+        addressLocality: 'Ticino',
+      })
+    ).toEqual({ canton: 'TI', confidence: 'high' });
   });
 });
 

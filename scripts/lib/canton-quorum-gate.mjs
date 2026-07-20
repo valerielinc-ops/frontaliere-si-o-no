@@ -16,7 +16,9 @@
  *   2. Reject if Liechtenstein detected (postal 9485-9498 or FL city name).
  *   3. BFS-strict: addressLocality is a known Swiss CITY (not a bare canton
  *      name/code label) → high.
- *   4. 2-of-3 quorum: title + body + addressLocality agree on canton → high.
+ *   4. 2-of-3 quorum: title + body + addressLocality agree on canton, AND a
+ *      real Swiss city (not just the canton's own name) is named in at least
+ *      one field → high.
  *   5. Keep-as-is: low confidence, return existing canton tag (may be empty).
  *
  * The gate NEVER throws — every code path returns a structured result.
@@ -26,6 +28,7 @@ import {
   isKnownSwissCity,
   inferAnyCanton,
   isLiechtensteinPostalCode,
+  rescueSwissCityFromText,
 } from './target-swiss-locations.mjs';
 
 // ─── Constants ─────────────────────────────────────────────────────────────
@@ -131,18 +134,25 @@ export function runBfsStrict({ addressLocality } = {}) {
 
 /**
  * Fallback path: run inferAnyCanton on title, body, and addressLocality.
- * If 2 or more of the 3 signals agree on the same canton → high confidence.
- * Otherwise → low confidence (no agreed canton).
+ * If 2 or more of the 3 signals agree on the same canton AND at least one of
+ * the 3 raw fields actually names a Swiss CITY that resolves to that canton
+ * → high confidence. Otherwise → low confidence (no agreed, city-corroborated
+ * canton).
+ *
+ * The city-corroboration requirement closes the same #4570 bug class as
+ * `runBfsStrict` above: `inferAnyCanton`'s "Pass 1" curated signal matches a
+ * BARE canton name/code (e.g. "Ticino") with the same weight as a real city
+ * match, so 2 of 3 fields merely repeating the canton's own name (common
+ * boilerplate, no city anywhere) used to be enough to reach `high` with zero
+ * city-level precision — same forged/weak canton-only signal the quorum is
+ * meant to defend against, just doubled across fields instead of singular.
  *
  * @param {{ title?: string, body?: string, addressLocality?: string }} input
  * @returns {{ canton: string, confidence: 'high' | 'low' }}
  */
 export function run2of3Quorum({ title, body, addressLocality } = {}) {
-  const signals = [
-    safeInferCanton(normalizeText(title)),
-    safeInferCanton(normalizeText(body)),
-    safeInferCanton(normalizeText(addressLocality)),
-  ].filter(Boolean);
+  const fields = [normalizeText(title), normalizeText(body), normalizeText(addressLocality)];
+  const signals = fields.map(safeInferCanton).filter(Boolean);
 
   if (signals.length < 2) return { canton: '', confidence: 'low' };
 
@@ -151,7 +161,12 @@ export function run2of3Quorum({ title, body, addressLocality } = {}) {
     counts.set(code, (counts.get(code) || 0) + 1);
   }
   for (const [code, count] of counts) {
-    if (count >= 2) return { canton: code, confidence: 'high' };
+    if (count < 2) continue;
+    const cityCorroborated = fields.some((text) => {
+      const city = rescueSwissCityFromText(text);
+      return Boolean(city) && safeInferCanton(city) === code;
+    });
+    if (cityCorroborated) return { canton: code, confidence: 'high' };
   }
   return { canton: '', confidence: 'low' };
 }
