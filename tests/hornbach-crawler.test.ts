@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   HORNBACH_KEY,
   HORNBACH_COMPANY_NAME,
@@ -13,6 +13,7 @@ import {
   resolveHornbachPostedDate,
   resolveHornbachEmploymentType,
   parseHornbachOffer,
+  fetchOfferDocumentsWithKeyRetry,
 } from '../scripts/lib/hornbach-job-parser.mjs';
 
 describe('Hornbach crawler parser', () => {
@@ -430,6 +431,67 @@ describe('Hornbach crawler parser', () => {
         expect(validJob[field as keyof typeof validJob]).toBeTruthy();
       }
       expect(validJob.company).toBe('Hornbach');
+    });
+  });
+
+  // ── fetchOfferDocumentsWithKeyRetry (#4556: recurring vendor 401 —
+  //    api.my-job-shop.com occasionally rejects a scoped Typesense key that
+  //    was just issued moments earlier; #3688/#3940/#4319 all self-healed
+  //    only on the NEXT scheduled cron run, filing a low-priority issue each
+  //    time. A single in-run retry with a freshly re-fetched key covers the
+  //    same self-heal without the issue-per-week churn) ──
+  describe('fetchOfferDocumentsWithKeyRetry', () => {
+    const orig = global.fetch;
+    const origRetries = process.env.JOBS_CRAWLER_RETRIES;
+
+    afterEach(() => {
+      global.fetch = orig;
+      if (origRetries === undefined) delete process.env.JOBS_CRAWLER_RETRIES;
+      else process.env.JOBS_CRAWLER_RETRIES = origRetries;
+    });
+
+    it('retries once with a freshly re-fetched key after an HTTP 401 from multi_search', async () => {
+      let searchCalls = 0;
+      global.fetch = vi.fn(async (url: unknown) => {
+        const href = String(url);
+        if (href.includes('multi_search')) {
+          searchCalls += 1;
+          if (searchCalls === 1) return { ok: false, status: 401, text: async () => '' };
+          return {
+            ok: true,
+            status: 200,
+            text: async () => JSON.stringify({ results: [{ hits: [{ document: { title: 'Verkäufer:in' } }] }] }),
+          };
+        }
+        return { ok: true, status: 200, text: async () => JSON.stringify({ key: 'fresh-key' }) };
+      }) as unknown as typeof fetch;
+
+      const docs = await fetchOfferDocumentsWithKeyRetry('stale-key');
+      expect(docs).toEqual([{ title: 'Verkäufer:in' }]);
+      expect(searchCalls).toBe(2);
+    });
+
+    it('propagates the error when the retry also gets a 401 (no infinite loop)', async () => {
+      process.env.JOBS_CRAWLER_RETRIES = '0';
+      global.fetch = vi.fn(async (url: unknown) => {
+        const href = String(url);
+        if (href.includes('multi_search')) return { ok: false, status: 401, text: async () => '' };
+        return { ok: true, status: 200, text: async () => JSON.stringify({ key: 'still-bad-key' }) };
+      }) as unknown as typeof fetch;
+
+      await expect(fetchOfferDocumentsWithKeyRetry('stale-key')).rejects.toThrow(/401/);
+    });
+
+    it('does not retry a non-401 error (e.g. HTTP 500)', async () => {
+      process.env.JOBS_CRAWLER_RETRIES = '0';
+      let calls = 0;
+      global.fetch = vi.fn(async () => {
+        calls += 1;
+        return { ok: false, status: 500, text: async () => '' };
+      }) as unknown as typeof fetch;
+
+      await expect(fetchOfferDocumentsWithKeyRetry('any-key')).rejects.toThrow(/500/);
+      expect(calls).toBe(1); // one multi_search attempt only — never re-fetches the key for a 500
     });
   });
 });

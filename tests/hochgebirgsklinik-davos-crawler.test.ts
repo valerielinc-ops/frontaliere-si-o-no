@@ -1,11 +1,19 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   HOCHGEBIRGSKLINIK_DAVOS_KEY,
   HOCHGEBIRGSKLINIK_DAVOS_COMPANY_NAME,
   isHochgebirgsklinikDavosJob,
   isTrustedDomain,
+  fetchJobListingsWithKeyRetry,
 } from '../scripts/lib/hochgebirgsklinik-davos-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const JOB_SHOP_ID = '9c3b04cb-7265-5acb-a208-199c8a9d547a';
+
+function nuxtDataHtml(key: string): string {
+  const nuxtArr = [{}, {}, {}, { [`typesenseApiKey-${JOB_SHOP_ID}`]: 4 }, key];
+  return `<html><body><script id="__NUXT_DATA__" type="application/json">${JSON.stringify(nuxtArr)}</script></body></html>`;
+}
 
 describe('Hochgebirgsklinik Davos crawler parser', () => {
   // ── Constants ──
@@ -179,6 +187,61 @@ describe('Hochgebirgsklinik Davos crawler parser', () => {
 
     it('uses correct sector for healthcare', () => {
       expect(validJob.sector).toBe('Sanità / Assistenza');
+    });
+  });
+
+  // ── fetchJobListingsWithKeyRetry (#4556: same vendor as Hornbach —
+  //    api.my-job-shop.com occasionally rejects a scoped Typesense key that
+  //    was just extracted from the career page moments earlier. A single
+  //    in-run retry with a freshly re-scraped key covers the same self-heal
+  //    seen in the Hornbach crawler's #3688/#3940/#4319 pattern) ──
+  describe('fetchJobListingsWithKeyRetry', () => {
+    const orig = global.fetch;
+
+    afterEach(() => {
+      global.fetch = orig;
+    });
+
+    it('retries once with a freshly re-scraped key after an HTTP 401 from multi_search', async () => {
+      let searchCalls = 0;
+      global.fetch = vi.fn(async (url: unknown) => {
+        const href = String(url);
+        if (href.includes('multi_search')) {
+          searchCalls += 1;
+          if (searchCalls === 1) return { ok: false, status: 401, text: async () => '' };
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({ results: [{ found: 1, hits: [{ document: { title: 'Pflegefachperson' } }] }] }),
+          };
+        }
+        return { ok: true, status: 200, text: async () => nuxtDataHtml('fresh-key-1234567890123456789012') };
+      }) as unknown as typeof fetch;
+
+      const docs = await fetchJobListingsWithKeyRetry('stale-key');
+      expect(docs).toEqual([{ title: 'Pflegefachperson' }]);
+      expect(searchCalls).toBe(2);
+    });
+
+    it('propagates the error when the retry also gets a 401 (no infinite loop)', async () => {
+      global.fetch = vi.fn(async (url: unknown) => {
+        const href = String(url);
+        if (href.includes('multi_search')) return { ok: false, status: 401, text: async () => '' };
+        return { ok: true, status: 200, text: async () => nuxtDataHtml('still-bad-key-123456789012345') };
+      }) as unknown as typeof fetch;
+
+      await expect(fetchJobListingsWithKeyRetry('stale-key')).rejects.toThrow(/401/);
+    });
+
+    it('does not retry a non-401 error (e.g. HTTP 500)', async () => {
+      let calls = 0;
+      global.fetch = vi.fn(async () => {
+        calls += 1;
+        return { ok: false, status: 500, text: async () => '' };
+      }) as unknown as typeof fetch;
+
+      await expect(fetchJobListingsWithKeyRetry('any-key')).rejects.toThrow(/500/);
+      expect(calls).toBe(1); // one multi_search attempt only — never re-scrapes the key for a 500
     });
   });
 });
