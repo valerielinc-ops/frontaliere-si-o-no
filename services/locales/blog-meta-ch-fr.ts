@@ -1297,6 +1297,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Soudeuse frontalière au Tessin : guide pratique et exigences',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Découvrez les conditions requises pour travailler comme soudeur en Suisse, les règles fiscales mises à jour et le fonctionnement de l\'impôt à la source pour les travailleurs frontaliers.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Atelier de métallurgie professionnel en Suisse',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Essence et diesel : les prix à la pompe continuent d\'augmenter',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Les prix de l\'essence et du diesel ont de nouveau augmenté en Suisse, selon les données du Touring Club Suisse.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Image d\'une station-service avec une file d\'attente de voitures qui se ravitaillent.',
 };
 
 export default blogMetaChFr;
