@@ -4744,6 +4744,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-assistente-sociale-ticino-stipendio-requisiti': { name: 'Frontaliere assistente sociale in Ticino', path: '/articoli-svizzera/frontaliere-assistente-sociale-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-leggi-frontalieri-2026': { name: 'Leggi Frontaliere', path: '/articoli-frontaliere/leggi-frontalieri-2026', parent: 'blog' },
     'blog-frontaliere-receptionist-ticino-stipendio-requisiti': { name: 'Lavorare come receptionist in Ticino da', path: '/articoli-svizzera/frontaliere-receptionist-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-idraulico-ticino-stipendio-requisiti': { name: 'Lavorare come idraulico in Ticino da', path: '/articoli-frontaliere/frontaliere-idraulico-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

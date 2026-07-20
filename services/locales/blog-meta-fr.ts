@@ -8723,6 +8723,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.leggi-frontalieri-2026.title': 'Nouvelles lois pour les frontaliers Ticino',
     'blog.article.leggi-frontalieri-2026.excerpt': 'Les réglementations 2026 concernant les frontaliers dans la région du Tessin sont entrées en vigueur. Découvrez les détails, les obligations et les avantages.',
     'blog.article.leggi-frontalieri-2026.imageAlt': 'Promenade du soir le long du lac de Lugan avec vue panoramique',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Travailler comme plombier au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Impôts, double imposition, permis G, reconnaissance du titre d\'études et salaire moyen pour un plombier frontalier au Tessin',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Photo d\'un plombier frontalier italien',
 };
 
 export default blogMetaFr;

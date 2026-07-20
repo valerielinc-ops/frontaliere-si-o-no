@@ -8723,6 +8723,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.leggi-frontalieri-2026.title': 'Nuove leggi per frontaliere nel Ticino: tutto ciò che devi sapere',
     'blog.article.leggi-frontalieri-2026.excerpt': 'Le regolamentazioni 2026 riguardanti i frontaliere nell\'area del Ticino sono entrate in vigore. Scopri dettagli, obblighi e benefici.',
     'blog.article.leggi-frontalieri-2026.imageAlt': 'Passeggiata serale lungo il lago di Lugano con vista panoramica',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Lavorare come idraulico in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Imposte, doppia imposizione, permesso G, riconoscimento del titolo di studio e stipendio medio per un idraulico frontaliere in Ticino',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Foto di un idraulico frontaliere in Ticino',
 };
 
 export default blogMetaIt;
