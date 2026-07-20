@@ -8702,6 +8702,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.title': 'Combien gagne un technicien en automatisation frontalière au Tessin ?',
     'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.excerpt': 'Impôt à la source et différences de salaires par rapport à l\'Italie.',
     'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.imageAlt': 'Un technicien de l\'automatisation travaille dans une ville de frontière entre la Suisse et l\'Italie.',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.title': 'Technicien en automatisation au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.excerpt': 'Le permis G pour les techniciens en automatisation frontalière au Tessin : exigences, salaire moyen, reconnaissance du diplôme et procédures pour son obtention.',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.imageAlt': 'Un technicien de l\'automatisation qui travaille dans une usine en Suisse italienne',
 };
 
 export default blogMetaFr;
