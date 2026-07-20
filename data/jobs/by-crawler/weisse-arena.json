@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-07-19T21:54:30.923Z",
+  "assembledAt": "2026-07-20T11:54:38.637Z",
   "jobs": [
     {
       "id": "weisse-arena-5c5b05a18eeb",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.900Z",
+      "crawledAt": "2026-07-20T11:54:34.668Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.900Z",
+      "crawledAt": "2026-07-20T11:54:34.668Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.899Z",
+      "crawledAt": "2026-07-20T11:54:34.666Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -241,6 +241,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -286,7 +287,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.893Z",
+      "crawledAt": "2026-07-20T11:54:34.659Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -365,7 +366,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.893Z",
+      "crawledAt": "2026-07-20T11:54:34.659Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -422,7 +423,7 @@
       "slugByLocale": {
         "it": "portatore-notturno-weisse-arena-gruppe-laax",
         "en": "night-porter-in-weisse-arena-gruppe-laax",
-        "de": "nachtportier-in-weisse-arena-gruppe-laax",
+        "de": "nachtportier-in-weisse-arena-ch",
         "fr": "porteur-nocturne-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -447,7 +448,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4524&jobTitle=Nachtportier%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.892Z",
+      "crawledAt": "2026-07-20T11:54:34.658Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -469,8 +470,8 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "de": [
-          "nachtportier-in-weisse-arena-ch",
-          "nachtportier-in-weisse-arena-gruppe-laax"
+          "nachtportier-in-weisse-arena-gruppe-laax",
+          "nachtportier-in-weisse-arena-ch"
         ],
         "it": [
           "nachtportier-in-weisse-arena-ch",
@@ -534,7 +535,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4527&jobTitle=K%C3%BCchenchef%3Ain+rocksresorts",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.891Z",
+      "crawledAt": "2026-07-20T11:54:34.657Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -616,7 +617,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4530&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T21:54:26.887Z",
+      "crawledAt": "2026-07-20T11:54:34.655Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
