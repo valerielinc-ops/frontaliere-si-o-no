@@ -8728,6 +8728,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.idraulico-ticino-frontiera-guadagno.title': 'How much does a border plumber earn in Ticino',
     'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'AVS, LPP and source tax contributions: remuneration framework for border plumbers in Ticino.',
     'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Cross-border plumber working in Canton Ticino',
+    'blog.article.falegname-guadagno-frontaliere-ticino.title': 'How much does a border carpenter earn in Ticino?',
+    'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'The salaries of border workers in Ticino may vary depending on the sector and the level of experience',
+    'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'A Swiss-Italian border worker guides a carpenter while working in Switzerland',
 };
 
 export default blogMetaEn;

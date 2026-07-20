@@ -4749,6 +4749,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieredicente-stipendio-requisiti-ticino': { name: 'Lavoro', path: '/articoli-svizzera/frontalieredicente-stipendio-requisiti-ticino/', parent: 'blog' },
     'blog-idraulico-ticino-frontiera-guadagno': { name: 'Idraulico frontaliere', path: '/articoli-frontaliere/idraulico-ticino-frontiera-guadagno', parent: 'blog' },
     'blog-frontaliere-falegname-ticino-stipendio-requisiti': { name: 'Frontaliere falegname in Ticino', path: '/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-falegname-guadagno-frontaliere-ticino': { name: 'Stipendi dei frontalieri in Ticino', path: '/articoli-frontaliere/falegname-guadagno-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
