@@ -414,6 +414,27 @@ export async function fetchHornbachOfferDocuments(apiKey, perPage = 250) {
 }
 
 /**
+ * Run the offer search, refreshing the scoped Typesense API key once on an
+ * HTTP 401 before giving up — the vendor's short-lived key is occasionally
+ * already stale/rejected by the time `multi_search` is called, even though
+ * it was just issued (#4556, recurring: #3688/#3940/#4319). Mirrors the
+ * retry-once-on-401 idiom in `microsoft-job-parser.mjs`'s `pcsGetJson`.
+ *
+ * @param {string} apiKey
+ * @returns {Promise<Array<Record<string, unknown>>>}
+ */
+export async function fetchOfferDocumentsWithKeyRetry(apiKey) {
+  try {
+    return await fetchHornbachOfferDocuments(apiKey);
+  } catch (err) {
+    if (err?.status !== 401) throw err;
+    console.warn('⚠️ Hornbach Typesense search got HTTP 401 (stale scoped key) — refreshing key and retrying once');
+    const freshKey = await fetchHornbachSearchApiKey();
+    return fetchHornbachOfferDocuments(freshKey);
+  }
+}
+
+/**
  * Fetch all Hornbach jobs (Switzerland only — the scoped API key's
  * `backoffice_vanity:=ch` filter already restricts to the CH tenant, and
  * `isSwissCountryArray` re-checks the `country` facet defensively).
@@ -436,7 +457,7 @@ export async function fetchAllHornbachJobs() {
 
   let documents;
   try {
-    documents = await fetchHornbachOfferDocuments(apiKey);
+    documents = await fetchOfferDocumentsWithKeyRetry(apiKey);
   } catch (err) {
     console.warn(`⚠️ Hornbach Typesense search failed: ${err?.message || err}`);
     throw err;
