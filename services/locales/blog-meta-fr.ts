@@ -8678,6 +8678,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polymécanicien au Tessin : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Le permis G permet aux frontaliers de travailler en Suisse. Les polymécaniciens frontaliers du Tessin peuvent travailler dans des entreprises de construction',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Un plombier frontalier en Suisse',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Enquête Constellation : documents officiels disparus',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'Les pans de 2015 sur les travaux du bar Le Constellation de Crans-Montana ont disparu. Le point sur l\'enquête et les implications documentaires.',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Bureau avec dossiers de documents',
 };
 
 export default blogMetaFr;

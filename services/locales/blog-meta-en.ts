@@ -8677,6 +8677,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polimeccanico in Ticino: salary, requirements and recognition',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'The G Permit allows border workers to work in Switzerland. Border polymechanics in Ticino can work in construction companies',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'A Swiss-Italian border worker plumber in Ticino',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Constellation Inquiry: Missing Official Documents',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'The 2015 folders on the works at the Le Constellation bar in Crans-Montana are gone. The point about the investigation and the documentary implications.',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Office with document folders',
 };
 
 export default blogMetaEn;
