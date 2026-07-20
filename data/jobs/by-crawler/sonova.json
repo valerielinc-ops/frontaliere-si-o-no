@@ -461,13 +461,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
-        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa",
-        "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
+        "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch",
-          "direttore-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
+          "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-ch"
         ],
         "fr": [
           "director-anatomic-and-acoustic-design-ric-bte-m-f-d-sonova-staefa"
@@ -910,10 +908,10 @@
     },
     {
       "id": "sonova-a1c64bfeb6a5",
-      "slug": "mechanical-testing-lab-technician-sonova-ch",
+      "slug": "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "mechanical-testing-lab-technician-sonova-ch",
-        "it": "mechanical-testing-lab-technician-sonova-ch",
+        "it": "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
         "de": "mechanical-testing-lab-technician-sonova-ch",
         "fr": "mechanical-testing-lab-technician-sonova-ch"
       },
@@ -971,9 +969,9 @@
       "firstSeenAt": "2026-07-20T11:50:50.870Z",
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
           "mechanical-testing-lab-techniker-sonova-staefa",
-          "mechanical-testing-lab-technicien-sonova-staefa"
+          "mechanical-testing-lab-technicien-sonova-staefa",
+          "mechanical-testing-lab-technician-sonova-ch"
         ],
         "de": [
           "mechanical-testing-lab-techniker-sonova-staefa"
@@ -983,9 +981,9 @@
         ]
       },
       "previousSlugs": [
-        "tecnico-del-laboratorio-di-prova-meccanica-sonova-staefa-switzerland",
         "mechanical-testing-lab-techniker-sonova-staefa",
-        "mechanical-testing-lab-technicien-sonova-staefa"
+        "mechanical-testing-lab-technicien-sonova-staefa",
+        "mechanical-testing-lab-technician-sonova-ch"
       ]
     },
     {
@@ -1178,13 +1176,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-customer-service-specialist-m-w-d-sonova-ch",
-        "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland"
+        "international-customer-service-specialist-m-w-d-sonova-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-customer-service-specialist-m-w-d-sonova-ch",
-          "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland"
+          "international-customer-service-specialist-m-w-d-sonova-ch"
         ],
         "fr": [
           "international-customer-service-specialist-m-w-d-sonova-ch"
@@ -1266,11 +1262,11 @@
     },
     {
       "id": "sonova-db1bfc4f1daf",
-      "slug": "audiological-engineer-m-f-d-sonova-ch",
+      "slug": "audiological-ingegnere-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "audiological-engineer-m-f-d-sonova-ch",
-        "it": "audiological-engineer-m-f-d-sonova-ch",
-        "de": "audiological-engineer-m-f-d-sonova-ch",
+        "it": "audiological-ingegnere-m-f-d-sonova-staefa-switzerland",
+        "de": "audiological-ingenieur-m-f-d-sonova-staefa-switzerland",
         "fr": "audiological-engineer-m-f-d-sonova-ch"
       },
       "company": "Sonova",
@@ -1324,7 +1320,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T11:50:50.815Z"
+      "firstSeenAt": "2026-07-20T11:50:50.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "audiological-engineer-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "audiological-engineer-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "audiological-engineer-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-befc5732f81c",
