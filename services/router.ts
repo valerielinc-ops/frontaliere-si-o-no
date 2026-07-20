@@ -286,7 +286,8 @@ export type SeoLandingId =
  | 'net-comparison-2025-2026-within20km'
  | 'net-comparison-g-vs-b-within20km'
  | 'net-comparison-2025-2026-over20km'
- | 'net-comparison-g-vs-b-over20km';
+ | 'net-comparison-g-vs-b-over20km'
+ | 'seasonal-vs-annual-naspi';
 
 export const ALL_SEO_LANDING_IDS: SeoLandingId[] = [
  'salary-40000',
@@ -314,6 +315,7 @@ export const ALL_SEO_LANDING_IDS: SeoLandingId[] = [
  'net-comparison-g-vs-b-within20km',
  'net-comparison-2025-2026-over20km',
  'net-comparison-g-vs-b-over20km',
+ 'seasonal-vs-annual-naspi',
 ];
 
 const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
@@ -343,6 +345,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-within20km': 'confronto-permesso-g-vs-b-entro-20km',
  'net-comparison-2025-2026-over20km': 'confronto-netto-2025-2026-oltre-20km',
  'net-comparison-g-vs-b-over20km': 'confronto-permesso-g-vs-b-oltre-20km',
+ 'seasonal-vs-annual-naspi': 'lavoro-stagionale-vs-annuale-naspi-frontalieri',
  },
  en: {
  'salary-40000': 'net-salary-40000-chf',
@@ -370,6 +373,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-within20km': 'permit-g-vs-b-comparison-within-20km',
  'net-comparison-2025-2026-over20km': 'net-comparison-2025-2026-over-20km',
  'net-comparison-g-vs-b-over20km': 'permit-g-vs-b-comparison-over-20km',
+ 'seasonal-vs-annual-naspi': 'seasonal-vs-annual-work-naspi-cross-border-workers',
  },
  de: {
  'salary-40000': 'nettogehalt-40000-chf',
@@ -397,6 +401,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-within20km': 'vergleich-bewilligung-g-vs-b-bis-20km',
  'net-comparison-2025-2026-over20km': 'nettovergleich-2025-2026-ueber-20km',
  'net-comparison-g-vs-b-over20km': 'vergleich-bewilligung-g-vs-b-ueber-20km',
+ 'seasonal-vs-annual-naspi': 'saisonarbeit-vs-ganzjahresarbeit-naspi-grenzgaenger',
  },
  fr: {
  'salary-40000': 'salaire-net-40000-chf',
@@ -424,6 +429,7 @@ const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
  'net-comparison-g-vs-b-within20km': 'comparaison-permis-g-vs-b-moins-20km',
  'net-comparison-2025-2026-over20km': 'comparaison-net-2025-2026-plus-20km',
  'net-comparison-g-vs-b-over20km': 'comparaison-permis-g-vs-b-plus-20km',
+ 'seasonal-vs-annual-naspi': 'travail-saisonnier-vs-annuel-naspi-frontaliers',
  },
 };
 

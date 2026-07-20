@@ -64,6 +64,45 @@ const SALARY_LANDING_FAQ_SCHEMA = {
  ],
 };
 
+const SEASONAL_NASPI_FAQ_SCHEMA = {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: [
+ {
+ '@type': 'Question',
+ name: 'Conviene lavorare 12 mesi o passare a un regime stagionale con NASpI?',
+ acceptedAnswer: {
+ '@type': 'Answer',
+ text: 'Dipende dal netto complessivo: la NASpI copre solo una percentuale della retribuzione media (75% fino a una soglia, 25% oltre) e il confronto va fatto sul netto annuo totale, non sul singolo mese. Il simulatore calcola i due scenari sullo stesso reddito complessivo IRPEF.',
+ },
+ },
+ {
+ '@type': 'Question',
+ name: 'Se ho già percepito la NASpI negli ultimi 4 anni, quanti mesi mi restano?',
+ acceptedAnswer: {
+ '@type': 'Answer',
+ text: 'La durata della NASpI dipende dalle settimane contribuite nel quadriennio di riferimento, al netto di quelle già indennizzate da una NASpI precedente nello stesso periodo: i mesi già percepiti riducono la spettanza residua per un nuovo evento di disoccupazione.',
+ },
+ },
+ {
+ '@type': 'Question',
+ name: 'Un versamento a un fondo pensione riduce le tasse anche per un frontaliere?',
+ acceptedAnswer: {
+ '@type': 'Answer',
+ text: 'Sì: i versamenti volontari a forme pensionistiche complementari sono deducibili dall\'IRPEF fino a un massimale annuo, ma restano un\'uscita di cassa reale — il risparmio fiscale è sempre inferiore all\'importo versato.',
+ },
+ },
+ {
+ '@type': 'Question',
+ name: 'Questa simulazione sostituisce la consulenza di un commercialista?',
+ acceptedAnswer: {
+ '@type': 'Answer',
+ text: 'No: è una stima informativa basata su parametri e aliquote 2026. Per la dichiarazione dei redditi e casi con NASpI, fondo pensione o storico contributivo complesso verifica sempre con un commercialista o CAF.',
+ },
+ },
+ ],
+};
+
 const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  'landing-salary-40000': {
  title: 'Stipendio netto frontaliere 40.000 CHF | Simulazione 2026',
@@ -448,6 +487,19 @@ const LANDING_SEO_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Confronto Permit G vs B oltre 20 km', url: `${BASE_URL}/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km/`, description: 'Confronto netto Permit G vs B per frontalieri oltre 20 km.' },
  SALARY_LANDING_FAQ_SCHEMA,
+ ],
+ },
+
+ 'landing-seasonal-vs-annual-naspi': {
+ title: 'Lavoro Stagionale vs Annuale con NASpI | Simulatore Frontalieri 2026',
+ description: 'Confronta il netto annuo di un nuovo frontaliere tra 12 mesi di lavoro continuativo e un regime stagionale con NASpI, con o senza versamento a fondo pensione.',
+ keywords: 'simulatore netto stagionale frontaliere, naspi frontaliere ticino, lavoro stagionale vs annuale, naspi nuovo frontaliere, fondo pensione frontaliere deducibilità',
+ ogTitle: 'Netto stagionale vs annuale con NASpI',
+ ogDescription: 'Simulazione a 4 scenari per un nuovo frontaliere: lavoro continuativo, stagionale con NASpI, con e senza fondo pensione.',
+ canonicalPath: '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri/',
+ structuredData: [
+ { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Lavoro stagionale vs annuale con NASpI per frontalieri', url: `${BASE_URL}/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri/`, description: 'Simulatore che confronta il netto annuo tra lavoro continuativo e stagionale con NASpI per un nuovo frontaliere.' },
+ SEASONAL_NASPI_FAQ_SCHEMA,
  ],
  },
 

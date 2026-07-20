@@ -266,7 +266,7 @@ const deStats: Record<string, string> = {
  'glossary.terms.ac.example': 'Gekündigter Grenzgänger: italienische NASpI (nicht CH-Arbeitslosengeld), aber ALV-Beiträge in CH gezahlt.',
  'glossary.terms.naspi.title': 'NASpI',
  'glossary.terms.naspi.desc': 'Neue Sozialversicherung für Beschäftigung. Italienisches Arbeitslosengeld für gekündigte Grenzgänger.',
- 'glossary.terms.naspi.example': 'Grenzgänger nach 2 Jahren gekündigt: NASpI für ~12 Monate, 75% des Gehalts bis €1.352/Monat.',
+ 'glossary.terms.naspi.example': 'Grenzgänger nach 2 Jahren gekündigt: NASpI für ~12 Monate, 75% des Gehalts bis €1.457/Monat.',
  'glossary.terms.assegniFamiliari.title': 'Familienzulagen (CH)',
  'glossary.terms.assegniFamiliari.desc': 'Im Tessin: CHF 200/Monat pro Kind (bis 16), CHF 250/Monat pro Kind in Ausbildung (16-25).',
  'glossary.terms.assegniFamiliari.example': '2 Kinder (8 und 18): CHF 200 + CHF 250 = CHF 450/Monat Tessiner Familienzulagen.',

@@ -266,7 +266,7 @@ const frStats: Record<string, string> = {
  'glossary.terms.ac.example': 'Frontalier licencié : NASpI italienne (pas chômage CH), mais cotisations AC versées en CH.',
  'glossary.terms.naspi.title': 'NASpI',
  'glossary.terms.naspi.desc': 'Nouvelle Assurance Sociale pour l\'Emploi. Allocation chômage italienne pour les frontaliers licenciés.',
- 'glossary.terms.naspi.example': 'Frontalier licencié après 2 ans : NASpI pendant ~12 mois, 75% du salaire jusqu\'à €1 352/mois.',
+ 'glossary.terms.naspi.example': 'Frontalier licencié après 2 ans : NASpI pendant ~12 mois, 75% du salaire jusqu\'à €1 457/mois.',
  'glossary.terms.assegniFamiliari.title': 'Allocations familiales (CH)',
  'glossary.terms.assegniFamiliari.desc': 'Au Tessin : CHF 200/mois par enfant (jusqu\'à 16 ans), CHF 250/mois par enfant en formation (16-25 ans).',
  'glossary.terms.assegniFamiliari.example': '2 enfants (8 et 18 ans) : CHF 200 + CHF 250 = CHF 450/mois d\'allocations familiales tessinoises.',
