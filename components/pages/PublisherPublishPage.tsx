@@ -52,6 +52,8 @@ import {
 } from '@/services/publisherPricing';
 import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 import { listCantonOptions } from '@/services/cantonList';
+import Autocomplete from '@/components/shared/Autocomplete';
+import { getCantonCities, isKnownCityInCanton } from '@/build-plugins/shared/cantonCities';
 import type {
  ApplyMode,
  PublisherLegalForm,
@@ -910,6 +912,9 @@ const PublisherPublishPage: React.FC = () => {
  if (!title.trim()) found.push(t('publisher.error.title'));
  if (countWords(stripPublisherMarkdown(description)) < DESCRIPTION_MIN_WORDS) found.push(t('publisher.error.description'));
  if (distinctLocations.length < 1) found.push(t('publisher.error.locations'));
+ if (locations.some(loc => loc.label.trim() && !isKnownCityInCanton(loc.label, loc.canton))) {
+ found.push(t('publisher.error.locationCity'));
+ }
  if (applyMode === 'external_url' && !isValidUrl(applyUrl)) {
  found.push(t('publisher.error.applyUrl'));
  }
@@ -1963,14 +1968,18 @@ const PublisherPublishPage: React.FC = () => {
  <label htmlFor={`pub-location-${index}`} className={labelClass}>
  {t('publisher.locations.label')} {index + 1} *
  </label>
- <input
+ <Autocomplete
  id={`pub-location-${index}`}
- type="text"
  value={loc.label}
- onChange={e => updateLocation(index, { label: e.target.value })}
+ onChange={v => updateLocation(index, { label: v })}
+ suggestions={getCantonCities(loc.canton)}
  className={inputClass}
  placeholder={t('publisher.locations.placeholder')}
+ autoComplete="off"
  />
+ {loc.label.trim() && !isKnownCityInCanton(loc.label, loc.canton) && (
+ <p className="mt-1 text-xs text-danger">{t('publisher.error.locationCity')}</p>
+ )}
  </div>
  {!isEdit && locations.length > 1 && (
  <button

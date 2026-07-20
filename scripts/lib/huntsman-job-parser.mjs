@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -291,11 +291,15 @@ export async function fetchAllHuntsmanJobs() {
       continue;
     }
 
-    const city = resolveSwissCity(detail, listing);
-    if (!city) {
-      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
-      continue;
-    }
+    // listSwissJobs() already scoped this listing to Switzerland; a
+    // free-text location that failed to parse doesn't mean it's foreign —
+    // give it the same second-chance anchor as assemble-jobs-dataset.mjs's
+    // canton rescue: a real Swiss city named in the description, falling
+    // back to Huntsman's documented main Swiss site (Monthey) rather than
+    // dropping a listing the API itself already confirmed is Swiss.
+    const city = resolveSwissCity(detail, listing)
+      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
+      || 'Monthey';
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);

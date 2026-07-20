@@ -3641,6 +3641,7 @@ Regeln:
  'publisher.error': 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
  'publisher.error.description': 'Die Beschreibung muss mindestens 50 Wörter enthalten.',
  'publisher.error.locations': 'Fügen Sie mindestens einen Arbeitsort hinzu.',
+ 'publisher.error.locationCity': 'Wählen Sie eine Stadt aus den Vorschlägen für den gewählten Kanton.',
  'publisher.error.title': 'Geben Sie die Stellenbezeichnung ein.',
  'publisher.error.companyName': 'Geben Sie den Firmennamen ein.',
  'publisher.error.applyUrl': 'Geben Sie eine gültige Bewerbungs-URL ein.',

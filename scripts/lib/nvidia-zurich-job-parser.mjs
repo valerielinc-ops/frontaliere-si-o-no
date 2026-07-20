@@ -42,6 +42,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { rescueSwissCityFromText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -205,7 +206,13 @@ export async function fetchAllNvidiaZurichJobs() {
     const primaryLocation = String(info.location || '');
     const additionalLocations = Array.isArray(info.additionalLocations) ? info.additionalLocations : [];
     const isSwissRole = /switzerland/i.test(primaryLocation) || additionalLocations.some((l) => /switzerland/i.test(String(l)));
-    if (!isSwissRole) {
+    // Rescue: the search facet already scoped this listing to Switzerland
+    // (locationHierarchy1), so a literal-text miss on the detail payload
+    // doesn't necessarily mean a foreign role — give it the same
+    // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue:
+    // a real Swiss city named in the job description.
+    const hasRescueCity = !isSwissRole && Boolean(rescueSwissCityFromText(stripHtml(String(info.jobDescription || ''))));
+    if (!isSwissRole && !hasRescueCity) {
       // Facet match without a confirmed Switzerland location on detail —
       // skip rather than mislabel a foreign-only role as Zurich.
       console.log(`  ⏭️  Skipped (no confirmed CH location on detail): ${title}`);

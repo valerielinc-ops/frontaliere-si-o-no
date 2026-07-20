@@ -49,7 +49,7 @@ import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -621,6 +621,37 @@ export function shouldBlockShrink(priorCount, newCount) {
 export function acceptInferredCantonForFill(rawInferred) {
   if (!rawInferred) return null;
   return TARGET_CANTONS.includes(rawInferred) ? rawInferred : null;
+}
+
+const SWISS_PC_RE = /^\d{4}$/;
+
+/** BFS valid Swiss postal-code range. */
+export function isSwissPostalCode(pc) {
+  const s = String(pc || '').trim();
+  if (!SWISS_PC_RE.test(s)) return false;
+  const n = +s;
+  return n >= 1000 && n <= 9658;
+}
+
+/**
+ * Rescue guard for a job whose primary locality (`addressLocality`/
+ * `location`) is neither a known Swiss city nor a canton-only label —
+ * likely garbage text (e.g. a company name leaking through a free-text
+ * intake field instead of a real location). Trusts the job's own
+ * structured `canton` field (not user free text — set/defaulted upstream,
+ * e.g. publisher intake) the same way a canton-only label gets a second
+ * chance: a Swiss postal code on record, or a real Swiss city named in
+ * the description/haystack text. Exported for unit testing.
+ *
+ * @param {string} canton
+ * @param {string|number|null|undefined} postalCode
+ * @param {string} haystack - job description text (all locales) + street.
+ * @returns {boolean}
+ */
+export function acceptBadLocalityViaCanton(canton, postalCode, haystack) {
+  if (!isTargetCanton(canton)) return false;
+  if (isSwissPostalCode(postalCode)) return true;
+  return Boolean(rescueSwissCityFromText(haystack));
 }
 
 /**
@@ -1480,16 +1511,9 @@ async function assembleJobs() {
   //      municipality (BFS dataset, 2,110 entries + aliases). A canton-only
   //      label ("Ticino", "TI") needs a Swiss anchor: Swiss postal code on
   //      the record OR a known Swiss city of ≥4 chars in description.
-  const SWISS_PC_RE = /^\d{4}$/;
   // Match: 5-digit ZIP within ~30 chars of an unambiguous foreign-country
   // word. Avoids false positives on lone numbers in tax/salary text.
   const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
-  const isSwissPostalCode = (pc) => {
-    const s = String(pc || '').trim();
-    if (!SWISS_PC_RE.test(s)) return false;
-    const n = +s;
-    return n >= 1000 && n <= 9658; // BFS valid Swiss postal-code range
-  };
   let droppedBadSwissCity = 0;
   let droppedCantonOnlyNoCity = 0;
   let droppedForeignAddress = 0;
@@ -1522,8 +1546,15 @@ async function assembleJobs() {
       return false;
     }
 
-    // Neither a known Swiss city nor a canton — likely a non-Swiss locality
-    // that escaped the explicit-foreign blacklist (e.g. small Italian town).
+    // (4) primaryLoc is neither a known city nor a canton-only label —
+    // likely garbage (e.g. a company name leaking through a free-text
+    // intake field instead of a real location). Give the structured
+    // `canton` field the same second chance as a canton-only label.
+    if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack)) return true;
+
+    // Neither a known Swiss city, canton-only label, nor an anchored
+    // canton — likely a non-Swiss locality that escaped the explicit-
+    // foreign blacklist (e.g. small Italian town).
     droppedBadSwissCity++;
     return false;
   });

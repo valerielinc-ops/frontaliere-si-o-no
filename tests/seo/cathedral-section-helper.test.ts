@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { resolveCantonSection, resolveJobCanton } from '../../build-plugins/shared/cantonSection';
-import { getCantonCities, getCityCanton, normalizeCitySlug } from '../../build-plugins/shared/cantonCities';
+import { getCantonCities, getCityCanton, normalizeCitySlug, isKnownCityInCanton } from '../../build-plugins/shared/cantonCities';
 
 describe('resolveCantonSection — TI legacy invariance', () => {
   it.each(['it','en','de','fr'] as const)('TI returns frozen legacy slug for %s', (locale) => {
@@ -75,6 +75,19 @@ describe('cantonCities', () => {
     expect(normalizeCitySlug('St. Gallen')).toBe('st-gallen');
     expect(normalizeCitySlug('La Chaux-de-Fonds')).toBe('la-chaux-de-fonds');
     expect(normalizeCitySlug('Sankt Margrethen')).toBe('sankt-margrethen');
+  });
+
+  it('isKnownCityInCanton accepts a real municipality of the given canton, diacritic/case-insensitive', () => {
+    expect(isKnownCityInCanton('Lugano', 'TI')).toBe(true);
+    expect(isKnownCityInCanton('lugano', 'TI')).toBe(true);
+    expect(isKnownCityInCanton('Zürich', 'ZH')).toBe(true);
+    expect(isKnownCityInCanton('Zurich', 'ZH')).toBe(true);
+  });
+
+  it('isKnownCityInCanton rejects a company name or a city from the wrong canton', () => {
+    expect(isKnownCityInCanton('Fisiocare Sagl', 'TI')).toBe(false);
+    expect(isKnownCityInCanton('Zurich', 'TI')).toBe(false);
+    expect(isKnownCityInCanton('', 'TI')).toBe(false);
   });
 });
 

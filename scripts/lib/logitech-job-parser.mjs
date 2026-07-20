@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -259,9 +259,7 @@ export async function fetchAllLogitechJobs() {
     if (!title || title.length < 3) continue;
 
     const rawLocation = listing.location || '';
-    const location = parseWorkdayLocation(rawLocation);
-    if (!location) continue;
-    const canton = inferSwissTargetCanton(location) || 'VD';
+    let location = parseWorkdayLocation(rawLocation);
     const publicUrl = listing.url || CAREER_URL;
 
     // Always prefer the real description from the Workday detail endpoint
@@ -272,6 +270,16 @@ export async function fetchAllLogitechJobs() {
     if (listing.externalPath) {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
+
+    if (!location) {
+      // isSwissLocation() already confirmed this listing is Swiss before it
+      // was kept; a location string that failed to parse doesn't mean it's
+      // foreign — try a real Swiss city in the detail description before
+      // skipping, same second-chance anchor as assemble-jobs-dataset.mjs's
+      // canton rescue, falling back to Logitech's Lausanne HQ.
+      location = rescueSwissCityFromText(detailDescription) || 'Lausanne';
+    }
+    const canton = inferSwissTargetCanton(location) || 'VD';
 
     // TEMPORARY fallback: only used when the Workday detail endpoint refuses
     // the request (anti-bot or 4xx). Long-term we expect the detail fetch to
