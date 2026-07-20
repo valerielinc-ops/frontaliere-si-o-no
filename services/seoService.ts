@@ -4742,6 +4742,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-fiduciario-ticino-stipendio-requisiti': { name: 'Frontaliere fiduciario in Ticino', path: '/articoli-svizzera/frontaliere-fiduciario-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-consulente-clientela-frontaliere-ticino': { name: 'Quanto guadagna un consulente alla', path: '/articoli-frontaliere/consulente-clientela-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-assistente-sociale-ticino-stipendio-requisiti': { name: 'Frontaliere assistente sociale in Ticino', path: '/articoli-svizzera/frontaliere-assistente-sociale-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-leggi-frontalieri-2026': { name: 'Leggi Frontaliere', path: '/articoli-frontaliere/leggi-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

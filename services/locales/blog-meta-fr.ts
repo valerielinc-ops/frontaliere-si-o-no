@@ -8720,6 +8720,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.consulente-clientela-frontaliere-ticino.title': 'Combien gagne un conseiller à la clientèle frontalière au Tessin ?',
     'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Taxes, franchises et taux : ce qui change pour les consultants travaillant avec des clients frontaliers au Tessin',
     'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Un consultant travaillant avec des clients frontaliers dans le Tessin',
+    'blog.article.leggi-frontalieri-2026.title': 'Nouvelles lois pour les frontaliers Ticino',
+    'blog.article.leggi-frontalieri-2026.excerpt': 'Les réglementations 2026 concernant les frontaliers dans la région du Tessin sont entrées en vigueur. Découvrez les détails, les obligations et les avantages.',
+    'blog.article.leggi-frontalieri-2026.imageAlt': 'Promenade du soir le long du lac de Lugan avec vue panoramique',
 };
 
 export default blogMetaFr;

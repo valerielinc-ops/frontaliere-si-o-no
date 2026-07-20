@@ -52215,6 +52215,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-leggi-frontalieri-2026': {
+    title: 'Nuove leggi per frontaliere nel Ticino: tutto ciò che devi sapere',
+    description: 'Scopri le nuove leggi per i lavoratori frontaliere nel Canton Ticino. Dettagli, obblighi e benefici della regolamentazione del 1° gennaio 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuove, leggi, tutto, devi',
+    ogTitle: 'Nuove Leggi Frontaliere Ticino 2026',
+    ogDescription: 'Scopri tutto sulla regolamentazione per i lavoratori frontaliere nel Canton Ticino. Dettagli, obblighi e benefici.',
+    canonicalPath: '/articoli-frontaliere/leggi-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuove leggi per frontaliere nel Ticino: tutto ciò che devi sapere",
+      "description": "Scopri le nuove leggi per i lavoratori frontaliere nel Canton Ticino. Dettagli, obblighi e benefici della regolamentazione del 1° gennaio 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/leggi-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Passeggiata serale lungo il lago di Lugano con vista panoramica"
+      },
+      "datePublished": "2026-07-20T17:46:13+00:00",
+      "dateModified": "2026-07-20T17:46:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/leggi-frontalieri-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
