@@ -8688,6 +8688,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzschweisser im Tessin?',
     'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Mit dem neuen Steuerabkommen von 2024 wurden die Grenzgängersteuern im Tessin geändert.',
     'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Ein Frontalier Schweißer in Ticino überprüft einen schweren Fahrzeug',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Grenzgänger Schweißer: Gehalt, Anforderungen und Bildungsabschluss',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Durchschnittslohn der Grenzschweisser im Tessin: noch nicht festgelegt. Voraussetzungen, um als Grenzgänger als Schweißer im Tessin zu arbeiten: Abitur. Anerkennung des Bildungsabschlusses für Grenzgänger: noch nicht spezifiziert.',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier Schweißer in Aktion in Bellinzona',
 };
 
 export default blogMetaDe;

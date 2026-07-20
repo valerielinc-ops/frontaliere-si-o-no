@@ -8690,6 +8690,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Combien gagne un soudeur frontalier au Tessin ?',
     'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Le nouvel accord fiscal de 2024 a modifié les impôts des frontaliers au Tessin.',
     'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Un soldat frontalier en Suisse inspecte un véhicule lourd',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Frontière soudeur : salaire, exigences et diplôme',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des soudeurs frontaliers au Tessin : non encore précisé. Exigences pour travailler comme soudeur au Tessin en tant que frontalier : diplôme de maturité. Reconnaissance du diplôme pour les frontaliers : non encore précisé.',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier saldatore en action à Bellinzona',
 };
 
 export default blogMetaFr;

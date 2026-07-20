@@ -8689,6 +8689,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'How much does a border welder earn in Ticino?',
     'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'The new tax agreement of 2024 changed the taxes of border workers in Ticino.',
     'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'A front-line solder in Ticino inspects a heavy vehicle',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Welder frontier: salary, requirements and qualification',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Average salary of border welders in Ticino: not yet specified. Requirements to work as a welder in Ticino as a border worker: high school diploma. Recognition of the qualification for border workers: not yet specified.',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier welder at work in Bellinzona',
 };
 
 export default blogMetaEn;
