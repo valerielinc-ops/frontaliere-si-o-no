@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-01T12:40:17.930Z",
-    "label": "after",
-    "total": 17956,
-    "needsRetranslation": 2182,
-    "suppressed": 406,
-    "incomplete": 861,
-    "complete": 17095,
-    "missingByLocale": {
-      "it": 416,
-      "en": 270,
-      "de": 409,
-      "fr": 146
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 695
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 56
-      },
-      {
-        "company": "Manor AG",
-        "pending": 23
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 20
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Baden (KSB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-01T15:07:48.463Z",
-    "label": "before",
-    "total": 18077,
-    "needsRetranslation": 5247,
-    "suppressed": 406,
-    "incomplete": 862,
-    "complete": 17215,
-    "missingByLocale": {
-      "it": 417,
-      "en": 275,
-      "de": 404,
-      "fr": 149
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 693
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 56
-      },
-      {
-        "company": "Manor AG",
-        "pending": 22
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 20
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 19
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-01T15:12:26.595Z",
     "label": "after",
     "total": 18077,
@@ -11364,6 +11250,120 @@
       {
         "company": "Swiss Medical Network",
         "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-20T06:05:39.346Z",
+    "label": "before",
+    "total": 24591,
+    "needsRetranslation": 7871,
+    "suppressed": 35,
+    "incomplete": 79,
+    "complete": 24512,
+    "missingByLocale": {
+      "it": 57,
+      "en": 34,
+      "de": 38,
+      "fr": 39
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 14
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Mikron Group",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Kantonsspital Aarau (KSA)",
+        "pending": 2
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 2
+      },
+      {
+        "company": "Spital Schwyz",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-20T06:18:12.199Z",
+    "label": "after",
+    "total": 24591,
+    "needsRetranslation": 1451,
+    "suppressed": 35,
+    "incomplete": 79,
+    "complete": 24512,
+    "missingByLocale": {
+      "it": 57,
+      "en": 34,
+      "de": 38,
+      "fr": 39
+    },
+    "topPending": [
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 21
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 14
       },
       {
         "company": "CSD ENGINEERS",
