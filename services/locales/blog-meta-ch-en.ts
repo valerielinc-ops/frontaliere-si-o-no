@@ -1273,6 +1273,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Border care assistant in Ticino: requirements and recognition',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'The requirements and average salary for border care assistants in Ticino have been published.',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano with a border worker who works as a caregiver',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crisis for the German car giant: 110 jobs at risk',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'The Flawil factory, which specialises in the manufacture of precision metal components, will close by the end of 2027.',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'The German auto giant is in crisis. A Swiss factory closes and 110 employees lose their jobs.',
 };
 
 export default blogMetaChEn;

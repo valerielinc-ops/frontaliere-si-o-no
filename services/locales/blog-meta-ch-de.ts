@@ -1273,6 +1273,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Grenzgänger Pflegehelfer im Tessin: Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Die Anforderungen und das Durchschnittsgehalt für Grenzpflegehelferinnen und Grenzpflegehelfer im Tessin wurden publiziert.',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von Lugano mit einem Grenzgänger, der als Pflegebedürftiger arbeitet',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Krise für den deutschen Autokonzern: 110 Arbeitsplätze in Gefahr',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'Das Werk in Flawil, das auf die Herstellung von Präzisionsteilen aus Metall spezialisiert ist, wird bis Ende 2027 stillgelegt.',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Der deutsche Auto-Konzern ist in der Krise. Eine Schweizer Fabrik schließt und 110 Mitarbeiter verlieren ihren Job.',
 };
 
 export default blogMetaChDe;

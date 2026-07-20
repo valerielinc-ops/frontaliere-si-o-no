@@ -16437,6 +16437,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-shock-svizzera-azienda-chiude-110-licenziati': {
+    title: 'Crisi per il colosso tedesco dell\'auto: 110 posti di lavoro a rischio',
+    description: 'La fabbrica di Flawil chiuderà entro la fine del 2027 e 110 posti di lavoro saranno eliminati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, colosso, tedesco, dell',
+    ogTitle: 'Il colosso tedesco dell\'auto è in crisi, shock anche in Svizzera',
+    ogDescription: 'La fabbrica di Flawil chiuderà entro la fine del 2027 e 110 posti di lavoro saranno eliminati.',
+    canonicalPath: '/articoli-svizzera/shock-svizzera-azienda-chiude-110-licenziati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi per il colosso tedesco dell'auto: 110 posti di lavoro a rischio",
+      "description": "La fabbrica di Flawil chiuderà entro la fine del 2027 e 110 posti di lavoro saranno eliminati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/shock-svizzera-azienda-chiude-110-licenziati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Colosso tedesco dell'auto è in crisi. Una fabbrica in Svizzera chiude e 110 addetti perdono il lavoro."
+      },
+      "datePublished": "2026-07-20T05:45:59+00:00",
+      "dateModified": "2026-07-20T05:45:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/shock-svizzera-azienda-chiude-110-licenziati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

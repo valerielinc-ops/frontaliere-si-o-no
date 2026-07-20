@@ -1273,6 +1273,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Frontaliere assistente di cura in Ticino: requisiti e riconoscimento',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Sono stati pubblicati i requisiti e il stipendio medio per gli assistenti di cura frontalieri in Ticino.',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano con un frontaliere che lavora come assistente di cura',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crisi per il colosso tedesco dell\'auto: 110 posti di lavoro a rischio',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'La fabbrica di Flawil, specializzata nella realizzazione di componenti metallici di precisione, chiuderà entro la fine del 2027.',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Il Colosso tedesco dell\'auto è in crisi. Una fabbrica in Svizzera chiude e 110 addetti perdono il lavoro.',
 };
 
 export default blogMetaChIt;

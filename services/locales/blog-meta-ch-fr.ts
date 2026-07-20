@@ -1273,6 +1273,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Frontalier assistant de soins au Tessin : exigences et reconnaissance',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Les exigences et le salaire moyen des assistants de soins frontaliers au Tessin ont été publiés.',
     'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano avec un frontalier qui travaille comme assistante de soins',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crise pour le géant allemand de l\'automobile : 110 emplois menacés',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'L\'usine de Flawil, spécialisée dans la fabrication de composants métalliques de précision, fermera ses portes d\'ici fin 2027.',
+    'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Le géant allemand de l\'auto est en crise. Une usine suisse ferme et 110 employés perdent leur emploi.',
 };
 
 export default blogMetaChFr;
