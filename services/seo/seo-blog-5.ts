@@ -52410,6 +52410,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-giardiniere-ticino-stipendio-requisiti': {
+    title: 'Frontaliere giardiniere Ticino: stipendio medio e requisiti',
+    description: 'Il nuovo accordo fiscale del 2020 stabilisce i requisiti per lavorare come giardiniere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giardiniere, stipendio, medio, requisiti',
+    ogTitle: 'Frontaliere giardiniere Ticino: stipendio medio e requisiti',
+    ogDescription: 'Il nuovo accordo fiscale del 2020 stabilisce i requisiti per lavorare come giardiniere in Ticino',
+    canonicalPath: '/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere giardiniere Ticino: stipendio medio e requisiti",
+      "description": "Il nuovo accordo fiscale del 2020 stabilisce i requisiti per lavorare come giardiniere in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-giardiniere-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere giardiniere lavora in un giardino di Mendrisio, Ticino"
+      },
+      "datePublished": "2026-07-20T21:32:46+00:00",
+      "dateModified": "2026-07-20T21:32:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

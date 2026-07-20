@@ -8735,6 +8735,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Travailler comme peintre au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Voici ce que vous devez savoir pour travailler comme peintre au Tessin en tant que frontalier, y compris le salaire moyen, les exigences, la reconnaissance éventuelle du diplôme et le permis G.',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Un peintre travaillant dans la ville de Lugano, avec la vue du lac de Lugano en arrière-plan.',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Frontalier jardinier Tessin : salaire moyen et exigences',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord fiscal de 2020 établit les exigences pour travailler en tant que jardinier au Tessin',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Un jardinier frontalier travaille dans un jardin à Mendrisio, Ticino',
 };
 
 export default blogMetaFr;

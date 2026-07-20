@@ -8734,6 +8734,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Working as a painter in Ticino: salary, requirements and permission G',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Here is what you need to know to work as a painter in Ticino as a border worker, including the average salary, the requirements, the possible recognition of the qualification and the G permit.',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'A painter working in the city of Lugano, with the view of Lake Lugano in the background.',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Border gardeners Ticino: average salary and requirements',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'The new tax agreement of 2020 establishes the requirements to work as a gardener in Ticino',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'A gardener working in a garden in Mendrisio, Ticino',
 };
 
 export default blogMetaEn;

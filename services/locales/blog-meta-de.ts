@@ -8733,6 +8733,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Arbeiten als Maler im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Hier ist, was Sie wissen müssen, um als Grenzgänger als Maler im Tessin zu arbeiten, einschließlich des Durchschnittsgehalts, der Anforderungen, der möglichen Anerkennung des Abschlusses und der G-Bewilligung.',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Ein Maler, der in der Stadt Lugano arbeitet, mit dem Blick auf den Luganersee im Hintergrund.',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Grenzgänger Gärtner Tessin: Durchschnittsgehalt und Anforderungen',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Das neue Steuerabkommen von 2020 legt die Voraussetzungen fest, um als Gärtner im Tessin zu arbeiten',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier-Gärtner arbeitet in einem Garten in Mendrisio, Ticino',
 };
 
 export default blogMetaDe;
