@@ -431,6 +431,60 @@ export function parseEscalationKey(title) {
   const m = /^escalation\(harvester\):\s*(.+?)\s+ricorre nonostante regola\s*$/.exec(String(title || ''));
   return m ? m[1].trim() : null;
 }
+// ---- POST-FIX RE-ESCALATION GUARD (DETERMINISTIC, escalation #4578) --------
+// `fix-outcome:revenue-tracker-manual` re-fired the day AFTER its own structural
+// fix shipped: #4517 (this exact bucket) was closed by merging PR #4535, which
+// added a zero-Claude pre-flight (`detectEpicTracker` in followup-drainer.mjs)
+// that now prevents FUTURE burn. But the very next harvester run still counted
+// 11 occurrences in the trailing 14-day window — all of them from BEFORE the fix
+// merged (the 2026-07-18 `[EPIC]` batch) — so `recurringDespiteRule` fired again
+// and `createGithubIssue` minted a brand-new duplicate (#4578) instead of finding
+// #4517, because that dedup only searches OPEN issues by title and #4517 was
+// already closed. The bucket wasn't still broken; the window just hadn't aged
+// out yet. Root cause is generic (applies to ANY fix-outcome bucket, not just
+// this one): count only examples NEWER than the bucket's last shipped fix.
+//
+// CONSERVATIVE (bias to escalate — a missed re-fire wastes a review cycle, a
+// false suppression hides a real regression): only excludes examples when a
+// PRIOR escalation for the SAME bucket key was actually closed (a shipped fix
+// happened) AND the example predates that closure. A bucket with no prior
+// closed escalation (first time above threshold) is unaffected — full count.
+
+/**
+ * Epoch ms of the most recent CLOSED escalation issue whose title parses to
+ * `fullKey` (`<source>/<key>`, matching `escalationTitle`'s format), or null if
+ * none. Pure → testable.
+ * @param {string} fullKey
+ * @param {Array<{title?: string, closedAt?: string}>} closedIssues
+ */
+export function lastEscalationClosedAt(fullKey, closedIssues) {
+  let latest = null;
+  for (const iss of closedIssues || []) {
+    if (parseEscalationKey(iss?.title) !== fullKey) continue;
+    const t = Date.parse(iss?.closedAt);
+    if (!Number.isNaN(t) && (latest === null || t > latest)) latest = t;
+  }
+  return latest;
+}
+
+/**
+ * Examples occurring strictly AFTER `cutoffMs` (the bucket's last shipped fix).
+ * `cutoffMs === null` means no prior fix ever shipped for this bucket → return
+ * examples unchanged (first-ever escalation must still fire on full history).
+ * An example lacking a parseable `at` timestamp is dropped once a cutoff exists
+ * (conservative: can't prove it's post-fix, so don't let it count toward
+ * re-firing an already-fixed bucket). Pure → testable.
+ * @param {Array<{at?: string}>} examples
+ * @param {number|null} cutoffMs
+ */
+export function examplesSinceFix(examples, cutoffMs) {
+  if (cutoffMs === null || cutoffMs === undefined) return examples || [];
+  return (examples || []).filter((e) => {
+    const t = Date.parse(e?.at);
+    return !Number.isNaN(t) && t > cutoffMs;
+  });
+}
+
 function escalationBody(c) {
   const examples = (c.examples || [])
     .map((e) => '#' + (e.pr || e.issue))
@@ -553,13 +607,21 @@ async function main() {
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
       outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
-      (outcomeExamples[k] ||= []).push({ issue: number });
+      (outcomeExamples[k] ||= []).push({ issue: number, at: c.createdAt });
     }
   }
 
   // ---- Dedup vs existing doc-contracts ----
   let corpus = '';
   for (const f of DOC_FILES) { try { corpus += '\n' + fs.readFileSync(f, 'utf-8').toLowerCase(); } catch { /* ignore */ } }
+
+  // ---- Post-fix re-escalation guard (escalation #4578, see lastEscalationClosedAt) ----
+  // Only fix-outcome examples carry a per-example `at` timestamp (the FIX_OUTCOME
+  // comment's createdAt), so only that source can be filtered against a bucket's
+  // last shipped fix. Fetched once, reused per bucket key inside consider().
+  const closedEscalations = ghJson(['issue', 'list', '--state', 'closed',
+    '--search', 'ricorre nonostante regola in:title',
+    '--json', 'number,title,closedAt', '--limit', '100']) || [];
 
   // ---- Assemble clusters above threshold + novel ----
   const clusters = [];
@@ -571,11 +633,20 @@ async function main() {
     for (const [key, count] of Object.entries(counts)) {
       if (count < THRESHOLD) continue;
       const documented = alreadyDocumented(key, corpus);
-      // Documented + still recurring hard = the rule exists but isn't working.
-      const recurringDespiteRule = driver && documented && count >= THRESHOLD * EFFICACY_FACTOR;
+      const allExamples = examples[key] || [];
+      // A bucket whose last escalation was already closed via a shipped fix
+      // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
+      // trailing window — only count what happened AFTER that fix landed.
+      const cutoff = source === 'fix-outcome'
+        ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
+        : null;
+      const liveExamples = source === 'fix-outcome' ? examplesSinceFix(allExamples, cutoff) : allExamples;
+      const effectiveCount = source === 'fix-outcome' ? liveExamples.length : count;
+      // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
+      const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
       clusters.push({ source, key, count, driver, novel: driver && !documented,
         recurringDespiteRule, alreadyDocumented: documented,
-        examples: (examples[key] || []).slice(0, 5) });
+        examples: (liveExamples.length ? liveExamples : allExamples).slice(0, 5) });
     }
   }
   consider('reviewer-finding', findingCounts, findingExamples, { driver: true });
