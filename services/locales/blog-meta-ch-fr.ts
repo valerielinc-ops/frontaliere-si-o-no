@@ -1345,6 +1345,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-guadagno.title': 'Combien gagne un peintre frontalier au Tessin ?',
     'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'Le peintre frontalier au Tessin gagne entre CHF 40\'000 et CHF 60\'000 par an.',
     'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Peintre frontalier au travail',
+    'blog.article.giardiniere-frontaliere-ticino-salario.title': 'Combien gagne un jardinier frontalier au Tessin ?',
+    'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'Le salaire d\'un jardinier frontalier au Tessin est soumis aux mêmes règles fiscales que la Suisse',
+    'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'Une vue panoramique du lac de Lugano, avec un jardinier en premier plan, travaillant dans un jardin devant une maison en Suisse',
 };
 
 export default blogMetaChFr;

@@ -4754,6 +4754,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-pittore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino: pittore, stipendio', path: '/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-pittore-ticino-guadagno': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontaliere-pittore-ticino-guadagno/', parent: 'blog' },
     'blog-frontaliere-giardiniere-ticino-stipendio-requisiti': { name: 'Frontaliere giardiniere Ticino', path: '/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-giardiniere-frontaliere-ticino-salario': { name: 'Quanto guadagna un giardiniere frontaliere', path: '/articoli-svizzera/giardiniere-frontaliere-ticino-salario/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

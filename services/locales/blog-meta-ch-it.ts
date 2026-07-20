@@ -1345,6 +1345,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-guadagno.title': 'Quanto guadagna un pittore frontaliere in Ticino?',
     'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno.',
     'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Pittore frontaliere al lavoro',
+    'blog.article.giardiniere-frontaliere-ticino-salario.title': 'Quanto guadagna un giardiniere frontaliere in Ticino?',
+    'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'Il salario di un giardiniere frontaliere in Ticino è soggetto alle stesse regole fiscali della Svizzera',
+    'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'Una panoramica del Lago di Lugano, con un giardiniere in primo piano, lavorando in un giardino davanti a una casa in Svizzera',
 };
 
 export default blogMetaChIt;

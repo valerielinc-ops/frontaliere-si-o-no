@@ -1345,6 +1345,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-guadagno.title': 'How much does a border painter earn in Ticino?',
     'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'The border painter in Ticino earns between CHF 40,000 and CHF60,000 per year.',
     'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Frontalier painter at work',
+    'blog.article.giardiniere-frontaliere-ticino-salario.title': 'How much does a border gardener earn in Ticino?',
+    'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'The salary of a border gardener in Ticino is subject to the same tax rules as Switzerland',
+    'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'A panoramic view of Lake Lugano, with a gardener in the foreground, working in a garden in front of a house in Switzerland',
 };
 
 export default blogMetaChEn;

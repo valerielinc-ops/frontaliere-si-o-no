@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3379,
+ "numberOfItems": 3380,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8147,7 +8147,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3376, "name": "Carpentiere in Ticino: stipendio e requisiti pe...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-carpentiere-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3377, "name": "Lavorare come pittore in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3378, "name": "Quanto guadagna un pittore frontaliere in Ticino?", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pittore-ticino-guadagno` },
-          { "@type": "ListItem", "position": 3379, "name": "Frontaliere giardiniere Ticino: stipendio medio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3379, "name": "Frontaliere giardiniere Ticino: stipendio medio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3380, "name": "Quanto guadagna un giardiniere frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/giardiniere-frontaliere-ticino-salario` }
  ]
  },
  {
