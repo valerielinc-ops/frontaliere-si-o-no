@@ -8727,6 +8727,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Wie viel verdient ein Grenzklempner im Tessin',
     'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'AHV-, BVG- und Quellensteuerbeiträge: Vergütungsrahmen für Grenzklempner im Tessin.',
     'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Grenzgänger Klempner arbeitet im Kanton Tessin',
+    'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Wie viel verdient ein Grenzgänger im Tessin?',
+    'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Die Gehälter der Grenzgänger im Tessin können je nach Branche und Erfahrungsstand variieren',
+    'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Ein Schweizer Italienischer Grenzgänger leitet einen Zimmermann während er in der Schweiz arbeitet',
 };
 
 export default blogMetaDe;

@@ -8729,6 +8729,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Quanto guadagna un idraulico frontaliere in Ticino',
     'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'Contributi AVS, LPP e imposta alla fonte: quadro retributivo per l\'idraulico frontaliere in Ticino.',
     'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Idraulico frontaliere al lavoro in Canton Ticino',
+    'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Quanto guadagna un falegname frontaliere in Ticino?',
+    'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Gli stipendi dei frontalieri in Ticino possono variare a seconda del settore e del livello di esperienza',
+    'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Un frontaliere ticinese guida un falegname mentre lavora in Svizzera',
 };
 
 export default blogMetaIt;

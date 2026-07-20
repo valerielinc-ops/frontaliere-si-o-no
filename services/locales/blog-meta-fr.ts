@@ -8729,6 +8729,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Combien gagne un plombier frontalier au Tessin',
     'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'Cotisations AVS, LPP et impôt à la source : cadre de rémunération pour le plombier frontalier au Tessin.',
     'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Plombier frontalier au travail dans le canton du Tessin',
+    'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Combien gagne un menuisier frontalier au Tessin ?',
+    'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Les salaires des frontaliers au Tessin peuvent varier en fonction du secteur et du niveau d\'expérience',
+    'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Un frontalier ticinois guide un charpentier tandis qu\'il travaille en Suisse',
 };
 
 export default blogMetaFr;
