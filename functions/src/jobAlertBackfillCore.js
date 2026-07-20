@@ -23,10 +23,15 @@
  * (open/click tracking) a no-op.
  *
  * Signal tiers, cheapest-first:
- *  1. `job_category`/`job_location` — job-specific context (job_gate unlock,
- *     JobBoard social sign-in with a job in progress). `buildAlertProfile`
- *     (services/jobAlertMatching.mjs) turns these into soft keyword/sector
- *     tokens automatically.
+ *  1. `job_category`/`job_location`/`sector_interest` — explicit job-search
+ *     intent, whether captured with job-page context (job_gate unlock,
+ *     JobBoard social sign-in with a job in progress) or from a standalone
+ *     sector pick with no job in progress (e.g. a newsletter-signup sector
+ *     selector). `sector_interest` alone used to fall through to
+ *     'no-signal' and skip alert creation entirely — same strength of
+ *     intent as `job_category`, so it belongs in tier 1, not a weaker
+ *     fallback. `buildAlertProfile` (services/jobAlertMatching.mjs) turns
+ *     all three into soft keyword/sector tokens automatically.
  *  2. `location_interest`/`geo_city` — generic location signal with no job
  *     context (IP-geolocated city, a location preference picked elsewhere).
  *     Live count against prod newsletter_subscribers (2026-07-03) found this
@@ -88,7 +93,8 @@ export function normalizeEmail(raw) {
 export function getSignalTier(data) {
   const category = String(data?.job_category || '').trim();
   const location = String(data?.job_location || '').trim();
-  if (category || location) return 'signal';
+  const sector = String(data?.sector_interest || '').trim();
+  if (category || location || sector) return 'signal';
   const locationInterest = String(data?.location_interest || '').trim();
   const geoCity = String(data?.geo_city || '').trim();
   if (locationInterest || geoCity) return 'location-fallback';

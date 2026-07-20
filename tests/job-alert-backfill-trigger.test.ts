@@ -72,6 +72,13 @@ describe('getSignalTier', () => {
     expect(getSignalTier({ geo_city: 'Lugano' })).toBe('location-fallback');
     expect(getSignalTier({ job_category: 'tech', geo_city: 'Lugano' })).toBe('signal');
   });
+
+  it('treats sector_interest alone as tier 1 signal, not location-fallback', () => {
+    // A subscriber who picks a sector from a standalone selector (no job page,
+    // no job_category) carries the same explicit intent as job_category and
+    // must not fall through to no-signal.
+    expect(getSignalTier({ sector_interest: 'health' })).toBe('signal');
+  });
 });
 
 describe('handleNewsletterSubscriberCreated — meta sentinel', () => {
