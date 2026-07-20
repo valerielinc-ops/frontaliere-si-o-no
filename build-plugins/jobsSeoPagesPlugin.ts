@@ -19,6 +19,7 @@ import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from './shared/jobPostingFaq';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
@@ -3088,6 +3089,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ // Deterministic per-job FAQ (salary, contract type, work-permit/border-zone,
+ // how-to-apply) — high-volume active jobs (~19k) rule out AI generation, so
+ // this is a pure template over the already-resolved canonicalSchema fields.
+ // `perJob_cantonCode`/`dc` are reused as-is (not recomputed) to stay
+ // consistent with the canton code/display name already rendered elsewhere
+ // on this same page (hero-sub, breadcrumb).
+ const faqCantonCode = perJob_cantonCode.toUpperCase();
+ const faqOpts: BuildJobPostingFaqOptions = {
+ locale,
+ jobUrl: job.url || canonicalUrl,
+ cantonDisplay: dc,
+ isTicino: faqCantonCode === 'TI',
+ isRemote,
+ };
+ const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
  // Merge editorial-only fields that sit outside the 9-mandatory core.
  // The canonical block is authoritative for every required field — only
  // optional enrichment data is layered on.
@@ -3113,6 +3129,29 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
  ],
  });
+ // Single FAQPage block for this page (audit-faqpage-validity gate rejects
+ // >1 FAQPage per document) — the visible HTML counterpart (`jobFaqHtml`)
+ // is rendered inside <article class="proposal"> below for content parity.
+ const jobFaqLd = inlineScriptJson({
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: jobFaqPairs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+ });
+ // Distinct heading from the older canton-generic FAQ block further down
+ // this same page (faqSectionHtml, ~line 3440 — 2 Q&A shared verbatim by
+ // every job in the same canton) so the two "FAQ" sections read as
+ // different content instead of a duplicated heading.
+ const jobFaqHeadingByLocale: Record<CantonLocale, string> = {
+ it: 'Domande frequenti su questo annuncio',
+ en: 'Questions about this listing',
+ de: 'Fragen zu dieser Stellenanzeige',
+ fr: 'Questions sur cette offre',
+ };
+ const jobFaqHtml = `<section class="section"><h4>${esc(jobFaqHeadingByLocale[locale])}</h4>${jobFaqPairs.map((f) => `<details class="s-TdgkK3"><summary class="s-HBR0NM">${esc(f.q)}</summary><p class="s-bOIp6r">${esc(f.a)}</p></details>`).join('')}</section>`;
  recordPhase('jsonld', __tPh_jsonld);
 
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -3153,6 +3192,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>
+ <script type="application/ld+json">${jobFaqLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
  <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>
  ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
@@ -3185,6 +3225,7 @@ ${staticAnalyticsHtml}
  ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
  </div>
  <a href="${referralUrl(job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
+ ${jobFaqHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  ${(() => {
