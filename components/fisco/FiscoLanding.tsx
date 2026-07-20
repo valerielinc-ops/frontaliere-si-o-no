@@ -51,7 +51,7 @@ interface CrossSectionCta {
 }
 
 const CROSS_SECTION_CTAS: CrossSectionCta[] = [
- { tab: 'calculator', subTab: 'salary', icon: Calculator, labelKey: 'fisco.landing.cta.calculator' },
+ { tab: 'calculator', subTab: 'calculator', icon: Calculator, labelKey: 'fisco.landing.cta.calculator' },
  { tab: 'guida', subTab: 'permit-compare', icon: BookOpen, labelKey: 'fisco.landing.cta.guide' },
  { tab: 'confronti', subTab: 'cost-of-living', icon: Scale, labelKey: 'fisco.landing.cta.comparators' },
 ];
