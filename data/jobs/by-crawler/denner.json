@@ -3329,10 +3329,10 @@
       "id": "denner-548703246391",
       "slug": "venditore-denner-bern-bumpliz",
       "slugByLocale": {
-        "it": "venditore-denner-bern-bumpliz",
-        "en": "seller-denner-bern-bumpliz",
+        "it": "venditore-denner-ag-bern-bumpliz",
+        "en": "seller-denner-ag-bern-bumpliz",
         "de": "verkaufer-in-denner-bern-bumpliz",
-        "fr": "vendeur-denner-bern-bumpliz"
+        "fr": "vendeur-denner-ag-bern-bumpliz"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -3390,17 +3390,21 @@
       "crawledAt": "2026-07-18T22:08:56.338Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-bern-bumpliz"
+        "verkaufer-in-denner-bern-bumpliz",
+        "seller-denner-bern-bumpliz",
+        "vendeur-denner-bern-bumpliz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-bern-bumpliz"
+          "verkaufer-in-denner-bern-bumpliz",
+          "seller-denner-bern-bumpliz"
         ],
         "fr": [
-          "verkaufer-in-denner-bern-bumpliz"
+          "verkaufer-in-denner-bern-bumpliz",
+          "vendeur-denner-bern-bumpliz"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:04.006Z",
@@ -3417,8 +3421,7 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "denner-22b98e65e7f0",
@@ -3514,10 +3517,10 @@
       "id": "denner-0295f64c475a",
       "slug": "stv-branch-manager-in-denner-abtwil-sg",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-abtwil-sg",
-        "en": "stv-branch-manager-in-denner-abtwil-sg",
+        "it": "stv-branch-manager-in-denner-ag-abtwil-sg",
+        "en": "stv-branch-manager-in-denner-ag-abtwil-sg",
         "de": "stv-filialleiter-in-denner-abtwil-sg",
-        "fr": "directeur-de-succursale-stv-denner-abtwil-sg"
+        "fr": "directeur-de-succursale-stv-denner-ag-abtwil-sg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -3576,7 +3579,8 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-abtwil-sg",
-        "stv-filialleiter-in-denner-2"
+        "stv-filialleiter-in-denner-2",
+        "directeur-de-succursale-stv-denner-abtwil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3587,7 +3591,8 @@
           "stv-filialleiter-in-denner-abtwil-sg"
         ],
         "fr": [
-          "stv-filialleiter-in-denner-abtwil-sg"
+          "stv-filialleiter-in-denner-abtwil-sg",
+          "directeur-de-succursale-stv-denner-abtwil-sg"
         ]
       },
       "firstSeenAt": "2026-07-13T22:15:03.525Z",
@@ -3604,8 +3609,7 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "denner-aa10423a01d8",
