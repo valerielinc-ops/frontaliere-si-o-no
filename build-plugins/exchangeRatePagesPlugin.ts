@@ -62,28 +62,31 @@ import {
   type ExchangeSnapshot,
 } from './exchangeRateSsgData';
 import { EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
-// ── Cross-feature paths (canonical SLUG_TABLES values from services/router.ts) ─
+// ── Cross-feature paths (derived from shared SLUG_TABLES, #4315) ─
 
 const CALCULATOR_PATH: Record<ExchangeLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
+  it: `/${SLUG_TABLES.it.calcolatore}/`,
+  en: `/en/${SLUG_TABLES.en.calcolatore}/`,
+  de: `/de/${SLUG_TABLES.de.calcolatore}/`,
+  fr: `/fr/${SLUG_TABLES.fr.calcolatore}/`,
 };
 
 const SPA_COMPARATOR_PATH: Record<ExchangeLocale, string> = {
-  it: '/compara-servizi/cambio-franco-euro/',
-  en: '/en/service-comparison/chf-eur-exchange-rate/',
-  de: '/de/service-vergleich/chf-eur-wechselkurs/',
-  fr: '/fr/comparaison-services/taux-change-chf-eur/',
+  it: `/${SLUG_TABLES.it.confronti}/${SLUG_TABLES.it.exchange}/`,
+  en: `/en/${SLUG_TABLES.en.confronti}/${SLUG_TABLES.en.exchange}/`,
+  de: `/de/${SLUG_TABLES.de.confronti}/${SLUG_TABLES.de.exchange}/`,
+  fr: `/fr/${SLUG_TABLES.fr.confronti}/${SLUG_TABLES.fr.exchange}/`,
 };
 
+// 'scenari'/'scenarios'/'szenarien' suffix is local to this exchange
+// vertical (no SLUG_TABLES entry); only the calcolatore prefix is shared.
 const SCENARIO_INDEX_PATH: Record<ExchangeLocale, string> = {
-  it: '/calcola-stipendio/scenari/',
-  en: '/en/calculate-salary/scenarios/',
-  de: '/de/gehalt-berechnen/szenarien/',
-  fr: '/fr/calculer-salaire/scenarios/',
+  it: `${CALCULATOR_PATH.it}scenari/`,
+  en: `${CALCULATOR_PATH.en}scenarios/`,
+  de: `${CALCULATOR_PATH.de}szenarien/`,
+  fr: `${CALCULATOR_PATH.fr}scenarios/`,
 };
 
 const HOME_PATH: Record<ExchangeLocale, string> = {

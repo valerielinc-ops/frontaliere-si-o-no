@@ -16,18 +16,19 @@
  * needed at CLI runtime — same approach the extracted functions already used.
  */
 import fs from 'node:fs';
+import { SLUG_TABLES } from '../../services/routeSlugs.data.ts';
 
 /** Build the locale URL prefix — empty for IT (canonical), `/{lang}` otherwise. */
 export function localePathPrefix(locale) {
   return locale === 'it' ? '' : `/${locale}`;
 }
 
-/** Blog section URL path per locale (matches router.ts SLUG_TABLES) */
+/** Blog section URL path per locale — derived from shared SLUG_TABLES (#4315) */
 export const BLOG_SECTION_PATH = {
-  it: 'articoli-frontaliere',
-  en: 'cross-border-articles',
-  de: 'grenzgaenger-artikel',
-  fr: 'articles-frontalier',
+  it: SLUG_TABLES.it.blog,
+  en: SLUG_TABLES.en.blog,
+  de: SLUG_TABLES.de.blog,
+  fr: SLUG_TABLES.fr.blog,
 };
 
 // Capture group for a single-quoted string literal that allows escaped chars

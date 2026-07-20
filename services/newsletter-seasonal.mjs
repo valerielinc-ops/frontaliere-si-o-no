@@ -23,47 +23,46 @@
  */
 
 import { localePathPrefix } from '../scripts/lib/articleContent.mjs';
+import { SLUG_TABLES } from './routeSlugs.data.ts';
 
-// Mirrors services/router.ts SLUG_TABLES — top-level route slugs per locale.
-// Kept as a small local table (rather than importing the full router, which
-// pulls in the whole TSX route-parsing graph) since only these 7 stable
+// Derived subset of the shared SLUG_TABLES (#4315) — only these 7 stable
 // slugs are needed here.
 const SLUGS = {
   it: {
-    fisco: 'tasse-e-pensione',
-    taxReturnItalia: 'dichiarazione-redditi-italia',
-    calcolatore: 'calcola-stipendio',
-    tfrCalculator: 'tfr-liquidazione-frontaliere',
-    permitQuiz: 'quiz-permesso-b-o-g',
-    pillar3: 'simula-terzo-pilastro',
-    tredicesima: 'calcolo-tredicesima-frontaliere',
+    fisco: SLUG_TABLES.it.fisco,
+    taxReturnItalia: SLUG_TABLES.it.taxReturnItalia,
+    calcolatore: SLUG_TABLES.it.calcolatore,
+    tfrCalculator: SLUG_TABLES.it.tfrCalculator,
+    permitQuiz: SLUG_TABLES.it.permitQuiz,
+    pillar3: SLUG_TABLES.it.pillar3,
+    tredicesima: SLUG_TABLES.it.tredicesima,
   },
   en: {
-    fisco: 'taxes-and-pension',
-    taxReturnItalia: 'tax-return-italy',
-    calcolatore: 'calculate-salary',
-    tfrCalculator: 'tfr-severance-pay-calculator',
-    permitQuiz: 'permit-b-or-g-quiz',
-    pillar3: 'simulate-third-pillar',
-    tredicesima: 'thirteenth-salary-calculator',
+    fisco: SLUG_TABLES.en.fisco,
+    taxReturnItalia: SLUG_TABLES.en.taxReturnItalia,
+    calcolatore: SLUG_TABLES.en.calcolatore,
+    tfrCalculator: SLUG_TABLES.en.tfrCalculator,
+    permitQuiz: SLUG_TABLES.en.permitQuiz,
+    pillar3: SLUG_TABLES.en.pillar3,
+    tredicesima: SLUG_TABLES.en.tredicesima,
   },
   de: {
-    fisco: 'steuern-und-vorsorge',
-    taxReturnItalia: 'steuererklaerung-italien',
-    calcolatore: 'gehalt-berechnen',
-    tfrCalculator: 'tfr-abfindung-grenzgaenger-rechner',
-    permitQuiz: 'quiz-bewilligung-b-oder-g',
-    pillar3: 'dritte-saeule-simulieren',
-    tredicesima: 'dreizehnter-monatslohn-rechner',
+    fisco: SLUG_TABLES.de.fisco,
+    taxReturnItalia: SLUG_TABLES.de.taxReturnItalia,
+    calcolatore: SLUG_TABLES.de.calcolatore,
+    tfrCalculator: SLUG_TABLES.de.tfrCalculator,
+    permitQuiz: SLUG_TABLES.de.permitQuiz,
+    pillar3: SLUG_TABLES.de.pillar3,
+    tredicesima: SLUG_TABLES.de.tredicesima,
   },
   fr: {
-    fisco: 'impots-et-retraite',
-    taxReturnItalia: 'declaration-revenus-italie',
-    calcolatore: 'calculer-salaire',
-    tfrCalculator: 'tfr-indemnite-licenciement-frontalier',
-    permitQuiz: 'quiz-permis-b-ou-g',
-    pillar3: 'simuler-troisieme-pilier',
-    tredicesima: 'calculateur-treizieme-salaire',
+    fisco: SLUG_TABLES.fr.fisco,
+    taxReturnItalia: SLUG_TABLES.fr.taxReturnItalia,
+    calcolatore: SLUG_TABLES.fr.calcolatore,
+    tfrCalculator: SLUG_TABLES.fr.tfrCalculator,
+    permitQuiz: SLUG_TABLES.fr.permitQuiz,
+    pillar3: SLUG_TABLES.fr.pillar3,
+    tredicesima: SLUG_TABLES.fr.tredicesima,
   },
 };
 

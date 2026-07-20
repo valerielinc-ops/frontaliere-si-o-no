@@ -13,6 +13,7 @@
 
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { ARTICLE_SECTIONS } from '../services/articleSections';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 export type HubLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -79,30 +80,35 @@ export interface HubSlugs {
   articlesAll: string;      // e.g. /articoli-frontaliere/tutti/
 }
 
+// jobsAll/sectorsAll stay TI-hardcoded here (pre-existing, unrelated to
+// #4315): `hubSlugFor('TI', locale, ...)` above is the real superseding
+// fix for those two (canton-aware, from the separate cantonResolvers.mjs
+// source of truth) — out of scope for the SLUG_TABLES centralization this
+// file's articlesAll is part of. companiesAll has no SLUG_TABLES equivalent.
 export const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
   it: {
     jobsAll: '/cerca-lavoro-ticino/tutti/',
     sectorsAll: '/cerca-lavoro-ticino/settori/',
     companiesAll: '/aziende-che-assumono/tutte/',
-    articlesAll: '/articoli-frontaliere/tutti/',
+    articlesAll: `/${SLUG_TABLES.it.blog}/${HUB_SLUG_BY_LOCALE.it.tutti}/`,
   },
   en: {
     jobsAll: '/en/find-jobs-ticino/all/',
     sectorsAll: '/en/find-jobs-ticino/sectors/',
     companiesAll: '/en/companies-hiring/all/',
-    articlesAll: '/en/cross-border-articles/all/',
+    articlesAll: `/en/${SLUG_TABLES.en.blog}/${HUB_SLUG_BY_LOCALE.en.tutti}/`,
   },
   de: {
     jobsAll: '/de/jobs-im-tessin/alle/',
     sectorsAll: '/de/jobs-im-tessin/branchen/',
     companiesAll: '/de/firmen-die-einstellen/alle/',
-    articlesAll: '/de/grenzgaenger-artikel/alle/',
+    articlesAll: `/de/${SLUG_TABLES.de.blog}/${HUB_SLUG_BY_LOCALE.de.tutti}/`,
   },
   fr: {
     jobsAll: '/fr/trouver-emploi-tessin/tous/',
     sectorsAll: '/fr/trouver-emploi-tessin/secteurs/',
     companiesAll: '/fr/entreprises-qui-recrutent/toutes/',
-    articlesAll: '/fr/articles-frontalier/tous/',
+    articlesAll: `/fr/${SLUG_TABLES.fr.blog}/${HUB_SLUG_BY_LOCALE.fr.tutti}/`,
   },
 };
 

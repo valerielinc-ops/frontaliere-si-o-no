@@ -38,6 +38,7 @@
  */
 
 import fs from 'node:fs';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -201,11 +202,16 @@ const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, st
     label: { it: 'Articoli frontalieri', en: 'Cross-border articles', de: 'Grenzgänger-Artikel', fr: 'Articles frontaliers' },
   },
   {
-    // Per-locale job-board slug — MUST match services/router.ts SLUG_TABLES[locale].jobBoard
-    // (cerca-lavoro-ticino / find-jobs-ticino / jobs-im-tessin / trouver-emploi-tessin).
-    // Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/) 404s — router.ts
-    // only matches the CURRENT locale's own jobBoard slug (see parseRoute() ~line 3191).
-    href: { it: '/cerca-lavoro-ticino/', en: '/en/find-jobs-ticino/', de: '/de/jobs-im-tessin/', fr: '/fr/trouver-emploi-tessin/' },
+    // Per-locale job-board slug — derived from shared SLUG_TABLES[locale].jobBoard
+    // (#4315). Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/)
+    // 404s — router.ts only matches the CURRENT locale's own jobBoard slug (see
+    // parseRoute() ~line 3191).
+    href: {
+      it: `/${SLUG_TABLES.it.jobBoard}/`,
+      en: `/en/${SLUG_TABLES.en.jobBoard}/`,
+      de: `/de/${SLUG_TABLES.de.jobBoard}/`,
+      fr: `/fr/${SLUG_TABLES.fr.jobBoard}/`,
+    },
     label: { it: 'Lavoro in Ticino', en: 'Jobs in Ticino', de: 'Stellen im Tessin', fr: 'Emplois au Tessin' },
   },
   {
