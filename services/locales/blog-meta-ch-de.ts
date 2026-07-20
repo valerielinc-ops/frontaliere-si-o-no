@@ -1327,6 +1327,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Grenzgänger Sozialarbeiter im Tessin: Gehalt und Voraussetzungen',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Durchschnittslohn und Voraussetzungen, um als Grenzgänger Sozialarbeiter im Tessin zu arbeiten.',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger als Gesundheitsassistent in einem Schweizer Krankenhaus, mit einem modernen und technologischen Umfeld.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Als Empfangsdame im Tessin arbeiten: Gehalt und Voraussetzungen',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, entdecke die Anforderungen und das Durchschnittsgehalt, um als Empfangsdame im Tessin zu arbeiten.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'eine Rezeptionistin in einem Hotel in Lugano',
 };
 
 export default blogMetaChDe;

@@ -1327,6 +1327,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Border social worker in Ticino: salary and requirements',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Average salary and requirements to work as a border worker social worker in Ticino.',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'A Swiss border health worker in a hospital, with a modern and technological environment.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Working as a receptionist in Ticino: salary and requirements',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontiersmen, find out the requirements and average salary to work as a receptionist in Ticino.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'a receptionist in a hotel in Lugano',
 };
 
 export default blogMetaChEn;

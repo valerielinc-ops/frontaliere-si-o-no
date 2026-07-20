@@ -1327,6 +1327,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Frontaliere assistente sociale in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Stipendio medio e requisiti per lavorare come frontaliere assistente sociale in Ticino.',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere assistente sociale in un ospedale in Svizzera, con un ambiente moderno e tecnologico.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Lavorare come receptionist in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'una receptionist frontaliera in un hotel a Lugano',
 };
 
 export default blogMetaChIt;

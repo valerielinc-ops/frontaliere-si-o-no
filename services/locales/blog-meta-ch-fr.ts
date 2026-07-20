@@ -1327,6 +1327,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Travailleur social frontalier au Tessin : salaire et exigences',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Salaire moyen et exigences pour travailler comme travailleur social frontalier au Tessin.',
     'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier en soins de santé dans un hôpital suisse, avec un environnement moderne et technologique.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Travailler comme réceptionniste au Tessin : salaire et exigences',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontaliers, découvrez les exigences et le salaire moyen pour travailler comme réceptionniste au Tessin.',
+    'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'une réceptionniste dans un hôtel à Lugano',
 };
 
 export default blogMetaChFr;
