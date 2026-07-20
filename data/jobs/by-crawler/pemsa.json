@@ -109,7 +109,7 @@
       "slugByLocale": {
         "it": "assistenza-tecnica-lavori-di-elettricita-fai-da-te-pemsa-geneve",
         "en": "technical-assistance-diy-electricity-works-pemsa-geneve",
-        "de": "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve",
+        "de": "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve",
         "fr": "assistance-technique-travaux-electriques-de-bricolage-pemsa-geneve"
       },
       "id": "pemsa-97e208215d86",
@@ -129,11 +129,11 @@
       "firstSeenAt": "2026-07-17T22:03:15.572Z",
       "previousSlugsByLocale": {
         "de": [
-          "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve"
+          "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve"
         ]
       },
       "previousSlugs": [
-        "technischer-support-eigenbau-elektrizitatsarbeiten-pemsa-geneve"
+        "technische-hilfe-diy-elektrizitatswerke-pemsa-geneve"
       ]
     },
     {
@@ -4983,7 +4983,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-sigirino",
         "en": "hydraulic-plants-heating-pemsa-sigirino",
         "de": "hydraulische-anlagen-heizung-pemsa-sigirino",
-        "fr": "installations-hydrauliques-chauffage-pemsa-sigirino"
+        "fr": "idraulico-impianti-riscaldamento-pemsa-sigirino"
       },
       "id": "pemsa-d2e141039089",
       "salaryMin": 49500,
@@ -5000,6 +5000,14 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:10:40.030Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "installations-hydrauliques-chauffage-pemsa-sigirino"
+        ]
+      },
+      "previousSlugs": [
+        "installations-hydrauliques-chauffage-pemsa-sigirino"
+      ],
       "needsRetranslation": true
     },
     {
@@ -6614,7 +6622,7 @@
       "slugByLocale": {
         "it": "carpentiere-m-f-pemsa-fontaines-ne",
         "en": "chapter-m-f-pemsa-fontaines-ne",
-        "de": "kapitel-m-f-pemsa-fontaines-ne",
+        "de": "carpentiere-m-f-pemsa-fontaines-ne",
         "fr": "chapitre-m-f-pemsa-fontaines-ne"
       },
       "id": "pemsa-aeba843c15e0",
@@ -6632,6 +6640,14 @@
         }
       },
       "firstSeenAt": "2026-07-08T11:21:11.012Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "kapitel-m-f-pemsa-fontaines-ne"
+        ]
+      },
+      "previousSlugs": [
+        "kapitel-m-f-pemsa-fontaines-ne"
+      ],
       "needsRetranslation": true
     },
     {
@@ -7051,7 +7067,7 @@
         "it": "si-cercano-operai-edili-m-f-d-pemsa-basel",
         "en": "they-are-looking-for-building-workers-m-f-d-pemsa-basel",
         "de": "sie-suchen-bauarbeiter-m-w-d-pemsa-basel",
-        "fr": "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel"
+        "fr": "recherche-de-travailleurs-qualifies-m-w-d-pemsa-basel"
       },
       "id": "pemsa-47a5ebabf953",
       "salaryMin": 62000,
@@ -7073,12 +7089,12 @@
           "si-cercano-operai-edili-m-w-d-pemsa-basel"
         ],
         "fr": [
-          "recherche-de-travailleurs-qualifies-m-w-d-pemsa-basel"
+          "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel"
         ]
       },
       "previousSlugs": [
-        "si-cercano-operai-edili-m-w-d-pemsa-basel",
-        "recherche-de-travailleurs-qualifies-m-w-d-pemsa-basel"
+        "ils-cherchent-des-ouvriers-du-batiment-m-f-d-pemsa-basel",
+        "si-cercano-operai-edili-m-w-d-pemsa-basel"
       ],
       "needsRetranslation": true
     },
@@ -7363,9 +7379,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-m1-pemsa-geneve",
-        "en": "knife-m1-pemsa-geneve",
-        "de": "messer-m1-pemsa-geneve",
-        "fr": "couteau-m1-pemsa-geneve"
+        "en": "machine-operator-m1-pemsa-geneve",
+        "de": "maschinist-m1-pemsa-geneve",
+        "fr": "operateur-de-machine-m1-pemsa-geneve"
       },
       "id": "pemsa-efdca14aef66",
       "salaryMin": 60500,
@@ -7384,16 +7400,22 @@
       "firstSeenAt": "2026-07-07T22:23:01.756Z",
       "previousSlugsByLocale": {
         "en": [
+          "knife-m1-pemsa-geneve",
           "machine-operator-m1-pemsa-geneve"
         ],
         "de": [
+          "messer-m1-pemsa-geneve",
           "maschinist-m1-pemsa-geneve"
         ],
         "fr": [
+          "couteau-m1-pemsa-geneve",
           "operateur-de-machine-m1-pemsa-geneve"
         ]
       },
       "previousSlugs": [
+        "knife-m1-pemsa-geneve",
+        "messer-m1-pemsa-geneve",
+        "couteau-m1-pemsa-geneve",
         "machine-operator-m1-pemsa-geneve",
         "maschinist-m1-pemsa-geneve",
         "operateur-de-machine-m1-pemsa-geneve"
@@ -9758,8 +9780,8 @@
       },
       "slugByLocale": {
         "it": "caposquadra-edile-pemsa-fribourg",
-        "en": "head-of-construction-pemsa-fribourg",
-        "de": "bauleiter-pemsa-fribourg",
+        "en": "edile-team-lead-pemsa-fribourg",
+        "de": "edile-team-lead-pemsa-fribourg",
         "fr": "chef-de-la-construction-pemsa-fribourg"
       },
       "id": "pemsa-4506017399e4",
@@ -9780,14 +9802,15 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
-          "edile-team-lead-pemsa-fribourg"
+          "head-of-construction-pemsa-fribourg"
         ],
         "de": [
-          "edile-team-lead-pemsa-fribourg"
+          "bauleiter-pemsa-fribourg"
         ]
       },
       "previousSlugs": [
-        "edile-team-lead-pemsa-fribourg"
+        "head-of-construction-pemsa-fribourg",
+        "bauleiter-pemsa-fribourg"
       ],
       "needsRetranslation": true
     },
@@ -10406,9 +10429,11 @@
       "firstSeenAt": "2026-07-03T22:39:11.228Z",
       "previousSlugsByLocale": {
         "en": [
+          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "tiler-efz-eba-m-f-d-pemsa-basel"
         ],
         "fr": [
+          "stuccatore-efz-eba-m-f-d-pemsa-basel",
           "plaquiste-efz-eba-h-f-d-pemsa-basel"
         ],
         "it": [
@@ -11488,7 +11513,7 @@
       "slugByLocale": {
         "it": "responsabile-commerciale-ortofrutta-m-f-d-pemsa-saxon",
         "en": "commercial-manager-fruit-and-vegetables-m-f-d-pemsa-saxon",
-        "de": "vertriebsleiter-obst-und-gemuse-m-w-d-pemsa-saxon",
+        "de": "vertriebsmanager-obstfrucht-pemsa-saxon",
         "fr": "responsable-commercial-fruits-et-legumes-m-f-d-pemsa-saxon"
       },
       "id": "pemsa-082591270467",
@@ -11511,10 +11536,12 @@
         "manager-commerciale-ortofrutta-m-f-d-pemsa-saxon",
         "responsable-commerciale-ortofrutta-m-f-d-pemsa-saxon",
         "verantwortlicher-commerciale-ortofrutta-m-f-d-pemsa-saxon",
+        "vertriebsleiter-obst-und-gemuse-m-w-d-pemsa-saxon",
         "vertriebsmanager-obstfrucht-pemsa-saxon"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "vertriebsleiter-obst-und-gemuse-m-w-d-pemsa-saxon",
           "vertriebsmanager-obstfrucht-pemsa-saxon"
         ]
       },
@@ -13393,7 +13420,7 @@
       "slugByLocale": {
         "it": "idraulico-impianti-antincendio-sprinkler-pemsa-lugano",
         "en": "plumbing-fire-sprinkler-systems-pemsa-lugano",
-        "de": "hydraulische-berieselungsanlagen-pemsa-lugano",
+        "de": "feuerloschsystem-installateur-pemsa-lugano",
         "fr": "systemes-d-arrosage-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-91c10c4e8343",
@@ -13416,12 +13443,12 @@
       "previousSlugsByLocale": {
         "de": [
           "feuerloschanlagen-installateur-pemsa-lugano",
-          "feuerloschsystem-installateur-pemsa-lugano"
+          "hydraulische-berieselungsanlagen-pemsa-lugano"
         ]
       },
       "previousSlugs": [
         "feuerloschanlagen-installateur-pemsa-lugano",
-        "feuerloschsystem-installateur-pemsa-lugano"
+        "hydraulische-berieselungsanlagen-pemsa-lugano"
       ],
       "needsRetranslation": true
     },
@@ -13655,8 +13682,8 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
-        "en": "hydraulic-plants-heating-pemsa-lugano",
-        "de": "hydraulische-anlagen-heizung-pemsa-lugano",
+        "en": "temporary-work-with-permanent-security-pemsa-lugano",
+        "de": "temporare-arbeit-mit-dauerhafter-sicherheit-pemsa-lugano",
         "fr": "installations-hydrauliques-chauffage-pemsa-lugano"
       },
       "id": "pemsa-f7abbafa335a",
@@ -13686,18 +13713,18 @@
         "sanitar-heizsysteme-pemsa-lugano",
         "heizungsinstallateur-pemsa-lugano",
         "temporar-permanent-job-heizungsanlagen-techniker-pemsa-lugano",
-        "temporary-work-with-permanent-security-pemsa-lugano",
-        "temporare-arbeit-mit-dauerhafter-sicherheit-pemsa-lugano"
+        "hydraulic-plants-heating-pemsa-lugano",
+        "hydraulische-anlagen-heizung-pemsa-lugano"
       ],
       "previousSlugsByLocale": {
         "de": [
           "sanitar-heizsysteme-pemsa-lugano",
           "heizungsinstallateur-pemsa-lugano",
           "temporar-permanent-job-heizungsanlagen-techniker-pemsa-lugano",
-          "temporare-arbeit-mit-dauerhafter-sicherheit-pemsa-lugano"
+          "hydraulische-anlagen-heizung-pemsa-lugano"
         ],
         "en": [
-          "temporary-work-with-permanent-security-pemsa-lugano"
+          "hydraulic-plants-heating-pemsa-lugano"
         ]
       },
       "needsRetranslation": true
