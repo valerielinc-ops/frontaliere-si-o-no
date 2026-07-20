@@ -46,7 +46,10 @@
  *   MAILJET_SECRET_KEY       — Mailjet API secret
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
- *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
+ *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier).
+ *                                Dynamically paced against real billing-cycle
+ *                                usage (computeMailtrapDynamicDailyLimit), same
+ *                                shape as resend/maileroo — see PROVIDERS[mailtrap].
  *   MAILEROO_API_KEY         — Maileroo sending key (100000/mo paid plan since
  *                                2026-07-20, owner request). Primary bulk workhorse
  *                                of the cascade now — dynamically capped to pace
@@ -94,6 +97,11 @@ const PROVIDERS = [
     // delivery time must not be farther than 72h0m0s from now". Not a guess.
     scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
+  // Like resend/maileroo, effective daily cap is read from
+  // `_dynamicDailyLimits.mailtrap` — computeMailtrapDynamicDailyLimit() paces
+  // against the REAL billing-cycle boundaries Mailtrap's own API returns
+  // (no anchor-day guessing needed here, unlike Resend/Maileroo). `dailyLimit:
+  // 150` below is only the pre-sync/unverifiable-usage fallback.
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   // maileroo: paid plan bumped 3000/mo → 100000/mo 2026-07-20 (owner activated
   // it explicitly to become the primary channel for newsletter + job-alert
@@ -176,9 +184,10 @@ const _realSentCounts = {};
 let _counterDate = '';
 let _quotasSynced = false;
 // Per-run override of a provider's static dailyLimit, keyed by provider id.
-// resend and maileroo use this (see computeResendDynamicDailyLimit /
-// computeMailerooDynamicDailyLimit) — every other provider's static
-// PROVIDERS[].dailyLimit stays the pre-sync/no-key fallback.
+// resend, maileroo, and mailtrap use this (see computeResendDynamicDailyLimit /
+// computeMailerooDynamicDailyLimit / computeMailtrapDynamicDailyLimit) —
+// every other provider's static PROVIDERS[].dailyLimit stays the
+// pre-sync/no-key fallback.
 const _dynamicDailyLimits = {};
 
 function getTodayUTC() {
@@ -262,17 +271,23 @@ async function fetchMailjetDailyUsage() {
   } catch { return 0; }
 }
 
+// Shared account-id lookup for both fetchMailtrapDailyUsage and
+// fetchMailtrapCycleUsage below (Mailtrap's API is account-scoped, not
+// domain-scoped like the other providers).
+async function fetchMailtrapAccountId(token) {
+  const accRes = await fetch('https://mailtrap.io/api/accounts', {
+    headers: { 'Api-Token': token },
+  });
+  if (!accRes.ok) return null;
+  const accounts = await accRes.json();
+  return accounts[0]?.id ?? null;
+}
+
 export async function fetchMailtrapDailyUsage() {
   const token = process.env.MAILTRAP_API_TOKEN;
   if (!token) return 0;
   try {
-    // Get account ID first
-    const accRes = await fetch('https://mailtrap.io/api/accounts', {
-      headers: { 'Api-Token': token },
-    });
-    if (!accRes.ok) return 0;
-    const accounts = await accRes.json();
-    const accountId = accounts[0]?.id;
+    const accountId = await fetchMailtrapAccountId(token);
     if (!accountId) return 0;
 
     // Fetch today's stats
@@ -286,13 +301,86 @@ export async function fetchMailtrapDailyUsage() {
     // The daily quota (150/day) is consumed at SEND time, but delivery_count
     // tracks confirmed *deliveries*, which arrive asynchronously and lag the
     // sends heavily (observed: delivery_count=1 after 31 real sends). Gating on
-    // it under-counts → over-send → 403 burst. sent_count reflects accepted
-    // sends in real time; take the larger of it and the resolved
-    // delivered+bounced total so a lagging/missing field can never under-count.
+    // it under-counts → over-send → 403 burst. sent_count was meant to reflect
+    // accepted sends in real time as a Math.max() safety net — VERIFIED LIVE
+    // 2026-07-20 that this account's /stats response never actually contains a
+    // sent_count key at all (30 days checked, always absent), so `sent` below
+    // is always 0 and this safety net was silently defeated: delivery_count
+    // stayed at 0 every day this week despite the account having 1220 real
+    // sends this billing cycle (confirmed via /billing/usage, see
+    // fetchMailtrapCycleUsage). This function's daily figure is therefore
+    // still just a best-effort, likely-zero signal — the REAL safety net is
+    // now computeMailtrapDynamicDailyLimit's billing-cycle pacer below, same
+    // fix shape as Resend/Maileroo.
     const sent = Number(stats.sent_count) || 0;
     const resolved = (Number(stats.delivery_count) || 0) + (Number(stats.bounce_count) || 0);
     return Math.max(sent, resolved);
   } catch { return 0; }
+}
+
+// Mailtrap's /billing/usage endpoint (undocumented in the original
+// integration, discovered 2026-07-20 while auditing all providers' real-usage
+// calculations) exposes the ACTUAL account-wide sent count for the current
+// billing cycle, plus the cycle's exact start/end — unlike Resend/Maileroo,
+// no anchor-day guessing needed, the API gives the real boundaries directly.
+// GET https://mailtrap.io/api/accounts/{id}/billing/usage →
+//   { billing: { cycle_start, cycle_end },
+//     sending: { usage: { sent_messages_count: { current, limit } } }, ... }
+// (also carries `testing` and `marketing` plan usage, not used here — this
+// cascade only ever sends via the `sending` plan/API).
+export async function fetchMailtrapCycleUsage() {
+  const token = process.env.MAILTRAP_API_TOKEN;
+  if (!token) return { count: 0, verified: false };
+  try {
+    const accountId = await fetchMailtrapAccountId(token);
+    if (!accountId) return { count: 0, verified: false };
+    const res = await fetch(`https://mailtrap.io/api/accounts/${accountId}/billing/usage`, {
+      headers: { 'Api-Token': token },
+    });
+    if (!res.ok) return { count: 0, verified: false };
+    const data = await res.json().catch(() => null);
+    const usage = data?.sending?.usage?.sent_messages_count;
+    const cycleStartRaw = data?.billing?.cycle_start;
+    const cycleEndRaw = data?.billing?.cycle_end;
+    if (!usage || typeof usage.current !== 'number' || !cycleStartRaw || !cycleEndRaw) {
+      return { count: 0, verified: false };
+    }
+    const cycleStart = new Date(cycleStartRaw);
+    const cycleEnd = new Date(cycleEndRaw);
+    if (Number.isNaN(cycleStart.getTime()) || Number.isNaN(cycleEnd.getTime())) {
+      return { count: 0, verified: false };
+    }
+    return { count: usage.current, apiLimit: usage.limit, cycleStart, cycleEnd, verified: true };
+  } catch { return { count: 0, verified: false }; }
+}
+
+// Pre-2026-07-20 self-imposed floor (the existing static dailyLimit). Used
+// only when cycle usage is unverifiable — never Infinity, since an
+// unverifiable usage lookup must fail safe, not open.
+const MAILTRAP_CYCLE_FALLBACK_DAILY = 150;
+
+/**
+ * Dynamic per-day Mailtrap send budget, same shape as
+ * computeResendDynamicDailyLimit / computeMailerooDynamicDailyLimit:
+ * (4000 − cycle-to-date usage) ÷ days left in Mailtrap's own billing cycle
+ * (read directly from the API, not guessed). Falls back to the conservative
+ * MAILTRAP_CYCLE_FALLBACK_DAILY floor when usage can't be verified.
+ */
+async function computeMailtrapDynamicDailyLimit(nowMs = Date.now()) {
+  const provider = PROVIDERS.find(p => p.id === 'mailtrap');
+  const { count, apiLimit, cycleStart, cycleEnd, verified } = await fetchMailtrapCycleUsage();
+  if (!verified) {
+    console.warn(`⚠️  [mailtrap] billing-cycle usage unverifiable — falling back to conservative ${MAILTRAP_CYCLE_FALLBACK_DAILY}/day floor`);
+    return MAILTRAP_CYCLE_FALLBACK_DAILY;
+  }
+  if (apiLimit && apiLimit !== provider.monthlyLimit) {
+    console.warn(`⚠️  [mailtrap] live plan limit (${apiLimit}) differs from configured monthlyLimit (${provider.monthlyLimit}) — update PROVIDERS`);
+  }
+  const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
+  const remainingBudget = Math.max(0, provider.monthlyLimit - count);
+  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
+  console.log(`   [mailtrap] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
+  return dynamicLimit;
 }
 
 // Resend's REST API has no date-range filter, no total-count field, and no
@@ -617,7 +705,7 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit, mailtrapDynamicLimit] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
     fetchMailtrapDailyUsage(),
@@ -626,6 +714,7 @@ async function syncQuotasFromAPIs() {
     fetchCloudflareDailyUsage(),
     computeResendDynamicDailyLimit(),
     computeMailerooDynamicDailyLimit(),
+    computeMailtrapDynamicDailyLimit(),
   ]);
 
   _counterDate = getTodayUTC();
@@ -637,6 +726,7 @@ async function syncQuotasFromAPIs() {
   _counters.cloudflare = cloudflare;
   _dynamicDailyLimits.resend = resendDynamicLimit;
   _dynamicDailyLimits.maileroo = mailerooDynamicLimit;
+  _dynamicDailyLimits.mailtrap = mailtrapDynamicLimit;
   _quotasSynced = true;
 
   const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id).dailyLimit;
@@ -1438,4 +1528,4 @@ export async function getAvailableCascadeQuota() {
     .reduce((sum, p) => sum + remainingQuota(p.id), 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit, computeMailerooDynamicDailyLimit };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit, computeMailerooDynamicDailyLimit, computeMailtrapDynamicDailyLimit };
