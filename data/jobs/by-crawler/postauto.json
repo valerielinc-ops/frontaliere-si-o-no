@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-07-19T22:34:09.022Z",
+  "assembledAt": "2026-07-20T12:52:29.892Z",
   "jobs": [
     {
       "id": "postauto-318dbdb3c660",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74193-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:06.658Z",
+      "crawledAt": "2026-07-20T12:52:27.591Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -59,13 +59,15 @@
         "ticket-controller-in-and-customer-advice-postauto-ag-chur",
         "controleur-de-billetterie-in-et-conseil-client-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-und-kundenberatung-post"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
           "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-und-kundenberatung-post"
         ],
         "en": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:34.678Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -121,7 +124,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:05.620Z",
+      "crawledAt": "2026-07-20T12:52:26.323Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -157,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:33:33.292Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -175,7 +179,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-chur",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -201,7 +205,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74217-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:04.603Z",
+      "crawledAt": "2026-07-20T12:52:25.086Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -226,15 +230,19 @@
         "postauto-fahrer-in-postauto-chur",
         "pilote-postbus-in-postauto-ag-chur",
         "autista-postbus-postauto-ag-chur",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-chur",
         "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-chur",
-          "autista-postbus-postauto-ag-chur"
+          "autista-postbus-postauto-ag-chur",
+          "postbus-driver-in-postauto-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-chur"
         ],
         "fr": [
@@ -287,7 +295,7 @@
       "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74191-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:03.459Z",
+      "crawledAt": "2026-07-20T12:52:23.814Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -310,14 +318,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-post"
         ],
         "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
         ]
       },
       "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf"
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
+        "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
+        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf"
       ],
       "firstSeenAt": "2026-07-14T22:07:15.144Z",
       "salaryMin": 94500,
@@ -364,7 +376,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73577-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:02.451Z",
+      "crawledAt": "2026-07-20T12:52:22.595Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -389,12 +401,14 @@
         "postauto-fahrer-in-postauto-sarnen",
         "postbus-driver-in-postauto-ag-sarnen",
         "pilote-postbus-in-postauto-ag-sarnen",
-        "autista-postbus-postauto-ag-sarnen"
+        "autista-postbus-postauto-ag-sarnen",
+        "autista-postbus-postauto-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-sarnen",
-          "autista-postbus-postauto-ag-sarnen"
+          "autista-postbus-postauto-ag-sarnen",
+          "autista-postbus-postauto-sarnen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-sarnen",
@@ -424,7 +438,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-stans",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -450,7 +464,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73719-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:01.396Z",
+      "crawledAt": "2026-07-20T12:52:21.312Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -473,13 +487,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-stans",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-stans",
         "postbus-driver-in-postauto-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-stans"
+          "postauto-fahrer-in-postauto-stans",
+          "postbus-driver-in-postauto-stans"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-stans"
         ]
       },
@@ -528,7 +546,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:34:00.071Z",
+      "crawledAt": "2026-07-20T12:52:19.866Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -553,12 +571,14 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
         "security-specialist-in-public-transport-postauto-ag-wallisellen",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
@@ -614,7 +634,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:59.014Z",
+      "crawledAt": "2026-07-20T12:52:18.583Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -637,11 +657,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+          "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
@@ -656,7 +678,9 @@
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur"
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "firstSeenAt": "2026-07-04T11:33:25.279Z",
       "salaryMin": 73500,
@@ -703,7 +727,7 @@
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73694-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:57.865Z",
+      "crawledAt": "2026-07-20T12:52:17.328Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -728,12 +752,14 @@
         "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
         "lateral-entrant-in-as-postbus-driver-in-postauto-ag-stans",
         "entree-laterale-in-comme-pilote-postbus-in-postauto-ag-stans",
-        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+        "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
-          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans"
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ag-stans",
+          "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-stans"
         ],
         "en": [
           "quereinsteiger-in-als-postauto-fahrer-in-postauto-stans",
@@ -789,7 +815,7 @@
       "url": "https://job.post.ch/default/job/Sachbearbeiterin-Disposition-Leitstelle-Mitte/74218-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:56.688Z",
+      "crawledAt": "2026-07-20T12:52:16.103Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -814,12 +840,14 @@
         "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
         "personnel-in-disposition-control-center-center-postauto-ag-spiez",
         "personnel-dans-le-centre-de-controle-de-disposition-postauto-ag-spiez",
-        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+        "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
+          "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez"
         ],
         "en": [
           "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
@@ -875,7 +903,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74278-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:55.655Z",
+      "crawledAt": "2026-07-20T12:52:14.888Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -897,11 +925,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-chur"
+        "postauto-fahrer-in-postauto-chur",
+        "postbus-driver-in-postauto-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-chur"
+          "postauto-fahrer-in-postauto-chur",
+          "postbus-driver-in-postauto-ag-chur"
         ],
         "en": [
           "postauto-fahrer-in-postauto-chur"
@@ -955,7 +985,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74268-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:54.617Z",
+      "crawledAt": "2026-07-20T12:52:12.341Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -991,6 +1021,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:15:00.874Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1009,7 +1040,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-trimmis",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -1035,7 +1066,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74276-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:53.546Z",
+      "crawledAt": "2026-07-20T12:52:11.103Z",
       "addressLocality": "Trimmis",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1059,15 +1090,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-trimmis",
         "pilote-postbus-in-postauto-ag-trimmis",
-        "postbus-driver-in-postauto-ag-trimmis"
+        "postbus-driver-in-postauto-ag-trimmis",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-trimmis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-trimmis",
-          "postbus-driver-in-postauto-ag-trimmis"
+          "postbus-driver-in-postauto-ag-trimmis",
+          "postbus-driver-in-postauto-trimmis"
         ],
         "en": [
           "postauto-fahrer-in-postauto-trimmis",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-trimmis"
         ],
         "fr": [
@@ -1120,7 +1155,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74275-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:52.502Z",
+      "crawledAt": "2026-07-20T12:52:09.714Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1142,11 +1177,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-lenzerheide-lai"
+        "postauto-fahrer-in-postauto-lenzerheide-lai",
+        "postbus-driver-in-postauto-ag-lenzerheide-lai"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-lenzerheide-lai"
+          "postauto-fahrer-in-postauto-lenzerheide-lai",
+          "postbus-driver-in-postauto-ag-lenzerheide-lai"
         ],
         "en": [
           "postauto-fahrer-in-postauto-lenzerheide-lai"
@@ -1174,7 +1211,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-schiers",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -1200,7 +1237,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74280-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:51.359Z",
+      "crawledAt": "2026-07-20T12:52:08.474Z",
       "addressLocality": "Schiers",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1224,15 +1261,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-schiers",
         "pilote-postbus-in-postauto-ag-schiers",
-        "postbus-driver-in-postauto-ag-schiers"
+        "postbus-driver-in-postauto-ag-schiers",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-schiers",
-          "postbus-driver-in-postauto-ag-schiers"
+          "postbus-driver-in-postauto-ag-schiers",
+          "postbus-driver-in-postauto-schiers"
         ],
         "en": [
           "postauto-fahrer-in-postauto-schiers",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-schiers"
         ],
         "fr": [
@@ -1285,7 +1326,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74291-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:50.169Z",
+      "crawledAt": "2026-07-20T12:52:07.172Z",
       "addressLocality": "Laax GR",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1307,11 +1348,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr",
+        "postbus-driver-in-postauto-ag-laax-gr"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-laax-gr"
+          "postauto-fahrer-in-postauto-laax-gr",
+          "postbus-driver-in-postauto-ag-laax-gr"
         ],
         "en": [
           "postauto-fahrer-in-postauto-laax-gr"
@@ -1339,7 +1382,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-in-postauto-ag-endingen",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -1365,7 +1408,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74294-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:48.860Z",
+      "crawledAt": "2026-07-20T12:52:05.756Z",
       "addressLocality": "Endingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1389,15 +1432,19 @@
       "previousSlugs": [
         "postauto-fahrer-in-postauto-endingen",
         "pilote-postbus-in-postauto-ag-endingen",
-        "postbus-driver-in-postauto-ag-endingen"
+        "postbus-driver-in-postauto-ag-endingen",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-endingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-endingen",
-          "postbus-driver-in-postauto-ag-endingen"
+          "postbus-driver-in-postauto-ag-endingen",
+          "postbus-driver-in-postauto-endingen"
         ],
         "en": [
           "postauto-fahrer-in-postauto-endingen",
+          "postauto-fahrer-in-post",
           "postbus-driver-in-postauto-ag-endingen"
         ],
         "fr": [
@@ -1450,7 +1497,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:47.816Z",
+      "crawledAt": "2026-07-20T12:52:04.445Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1472,11 +1519,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-ilanz"
+          "postauto-fahrer-in-postauto-ilanz",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postauto-fahrer-in-postauto-ilanz"
@@ -1504,7 +1553,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postauto-fahrer-in-post",
+        "en": "postbus-driver-postauto-ag-wilderswil",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -1530,7 +1579,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74075-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:33:46.128Z",
+      "crawledAt": "2026-07-20T12:52:03.207Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1553,13 +1602,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postauto-fahrer-in-postauto-wilderswil",
+        "postauto-fahrer-in-post",
+        "postbus-driver-in-postauto-wilderswil",
         "postbus-driver-postauto-ag-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-postauto-wilderswil"
+          "postauto-fahrer-in-postauto-wilderswil",
+          "postbus-driver-in-postauto-wilderswil"
         ],
         "en": [
+          "postauto-fahrer-in-post",
           "postbus-driver-postauto-ag-wilderswil"
         ]
       },
@@ -1576,6 +1629,144 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "postauto-a1cb89cd3100",
+      "slug": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+      "slugByLocale": {
+        "de": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+        "it": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+        "en": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
+        "fr": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Sales Manager:in Geschäftskunden Arc jurassien",
+      "titleByLocale": {
+        "de": "Sales Manager:in Geschäftskunden Arc jurassien",
+        "it": "Sales Manager:in Geschäftskunden Arc jurassien",
+        "en": "Sales Manager:in Geschäftskunden Arc jurassien",
+        "fr": "Sales Manager:in Geschäftskunden Arc jurassien"
+      },
+      "description": "Du liebst es, Türen zu öffnen, Kunden zu begeistern und innovative Mobilitätslösungen auf den Weg zu bringen? Als Sales Manager:in New-Business in der Region Arc jurassien bist du die treibende Kraft hinter unserem Wachstum – mit Fokus auf Akquise, Beratung und massgeschneiderte Offerten im B2B-Bereich. Mit dir gewinnen wir neue Kunden für smarte Mobilitätslösungen und treiben das Wachstum von Post Company Cars AG entscheidend voran!\n\nDas kannst du bewirken\n\n- In der Region Arc jurassien verantwortest du die Akquisition von Neukunden sowie die Implementierung der outgesourcten Geschäftsprozesse in das Ökosystem von Post Company Cars.\n\n- Mit deinem Einsatz gestaltest du das Wachstum von Post Company Cars AG aktiv mit und bringst frische Impulse ins Business.\n\n- Du besuchst regelmässig potenzielle Kund:innen, analysierst die Kundenbedürfnisse und erstellst massgeschneiderte Offerten in Sachen Firmenmobilität.\n\n- Nach erfolgreicher Implementierung übergibst du die Kundschaft zur weiteren Betreuung und Weiterentwicklung an dein Team in der Region.\n\n- Mit deinem Blick fürs Detail und deiner strukturierten Arbeitsweise erstellst du zuverlässige Reports, die als Entscheidungsgrundlage dienen.\n\n- Für Offert-Erstellung, das Vertragswesen, die Bearbeitung von Ausschreibungen und für die Implementierung von Neukunden stehst du in enger Zusammenarbeit mit den Kundenprojektleitern.\n\n- Du bringst dich in Projektgruppen ein und unterstützt Marketingaktivitäten an Events und Messen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Ausbildung im kaufmännischen oder technischen Bereich und hast dich im Bereich Marketing, Verkauf oder Betriebswirtschaft weitergebildet.\n\n- Du bringst fundierte Erfahrung in der Kundenakquise mit – idealerweise aus dem Dienstleistungsumfeld wie Flottenmanagement oder Leasing, dem Finanzdienstleistungsbereich rund ums Fahrzeug oder dem B2B-Verkauf von Firmenfahrzeugen.\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Du bist eine kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Französisch und verfügst über gute mündliche Kenntnisse in Deutsch.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
+      "descriptionByLocale": {
+        "de": "Du liebst es, Türen zu öffnen, Kunden zu begeistern und innovative Mobilitätslösungen auf den Weg zu bringen? Als Sales Manager:in New-Business in der Region Arc jurassien bist du die treibende Kraft hinter unserem Wachstum – mit Fokus auf Akquise, Beratung und massgeschneiderte Offerten im B2B-Bereich. Mit dir gewinnen wir neue Kunden für smarte Mobilitätslösungen und treiben das Wachstum von Post Company Cars AG entscheidend voran!\n\nDas kannst du bewirken\n\n- In der Region Arc jurassien verantwortest du die Akquisition von Neukunden sowie die Implementierung der outgesourcten Geschäftsprozesse in das Ökosystem von Post Company Cars.\n\n- Mit deinem Einsatz gestaltest du das Wachstum von Post Company Cars AG aktiv mit und bringst frische Impulse ins Business.\n\n- Du besuchst regelmässig potenzielle Kund:innen, analysierst die Kundenbedürfnisse und erstellst massgeschneiderte Offerten in Sachen Firmenmobilität.\n\n- Nach erfolgreicher Implementierung übergibst du die Kundschaft zur weiteren Betreuung und Weiterentwicklung an dein Team in der Region.\n\n- Mit deinem Blick fürs Detail und deiner strukturierten Arbeitsweise erstellst du zuverlässige Reports, die als Entscheidungsgrundlage dienen.\n\n- Für Offert-Erstellung, das Vertragswesen, die Bearbeitung von Ausschreibungen und für die Implementierung von Neukunden stehst du in enger Zusammenarbeit mit den Kundenprojektleitern.\n\n- Du bringst dich in Projektgruppen ein und unterstützt Marketingaktivitäten an Events und Messen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Ausbildung im kaufmännischen oder technischen Bereich und hast dich im Bereich Marketing, Verkauf oder Betriebswirtschaft weitergebildet.\n\n- Du bringst fundierte Erfahrung in der Kundenakquise mit – idealerweise aus dem Dienstleistungsumfeld wie Flottenmanagement oder Leasing, dem Finanzdienstleistungsbereich rund ums Fahrzeug oder dem B2B-Verkauf von Firmenfahrzeugen.\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Du bist eine kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Französisch und verfügst über gute mündliche Kenntnisse in Deutsch.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
+        "it": "Du liebst es, Türen zu öffnen, Kunden zu begeistern und innovative Mobilitätslösungen auf den Weg zu bringen? Als Sales Manager:in New-Business in der Region Arc jurassien bist du die treibende Kraft hinter unserem Wachstum – mit Fokus auf Akquise, Beratung und massgeschneiderte Offerten im B2B-Bereich. Mit dir gewinnen wir neue Kunden für smarte Mobilitätslösungen und treiben das Wachstum von Post Company Cars AG entscheidend voran!\n\nDas kannst du bewirken\n\n- In der Region Arc jurassien verantwortest du die Akquisition von Neukunden sowie die Implementierung der outgesourcten Geschäftsprozesse in das Ökosystem von Post Company Cars.\n\n- Mit deinem Einsatz gestaltest du das Wachstum von Post Company Cars AG aktiv mit und bringst frische Impulse ins Business.\n\n- Du besuchst regelmässig potenzielle Kund:innen, analysierst die Kundenbedürfnisse und erstellst massgeschneiderte Offerten in Sachen Firmenmobilität.\n\n- Nach erfolgreicher Implementierung übergibst du die Kundschaft zur weiteren Betreuung und Weiterentwicklung an dein Team in der Region.\n\n- Mit deinem Blick fürs Detail und deiner strukturierten Arbeitsweise erstellst du zuverlässige Reports, die als Entscheidungsgrundlage dienen.\n\n- Für Offert-Erstellung, das Vertragswesen, die Bearbeitung von Ausschreibungen und für die Implementierung von Neukunden stehst du in enger Zusammenarbeit mit den Kundenprojektleitern.\n\n- Du bringst dich in Projektgruppen ein und unterstützt Marketingaktivitäten an Events und Messen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Ausbildung im kaufmännischen oder technischen Bereich und hast dich im Bereich Marketing, Verkauf oder Betriebswirtschaft weitergebildet.\n\n- Du bringst fundierte Erfahrung in der Kundenakquise mit – idealerweise aus dem Dienstleistungsumfeld wie Flottenmanagement oder Leasing, dem Finanzdienstleistungsbereich rund ums Fahrzeug oder dem B2B-Verkauf von Firmenfahrzeugen.\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Du bist eine kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Französisch und verfügst über gute mündliche Kenntnisse in Deutsch.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
+        "en": "Du liebst es, Türen zu öffnen, Kunden zu begeistern und innovative Mobilitätslösungen auf den Weg zu bringen? Als Sales Manager:in New-Business in der Region Arc jurassien bist du die treibende Kraft hinter unserem Wachstum – mit Fokus auf Akquise, Beratung und massgeschneiderte Offerten im B2B-Bereich. Mit dir gewinnen wir neue Kunden für smarte Mobilitätslösungen und treiben das Wachstum von Post Company Cars AG entscheidend voran!\n\nDas kannst du bewirken\n\n- In der Region Arc jurassien verantwortest du die Akquisition von Neukunden sowie die Implementierung der outgesourcten Geschäftsprozesse in das Ökosystem von Post Company Cars.\n\n- Mit deinem Einsatz gestaltest du das Wachstum von Post Company Cars AG aktiv mit und bringst frische Impulse ins Business.\n\n- Du besuchst regelmässig potenzielle Kund:innen, analysierst die Kundenbedürfnisse und erstellst massgeschneiderte Offerten in Sachen Firmenmobilität.\n\n- Nach erfolgreicher Implementierung übergibst du die Kundschaft zur weiteren Betreuung und Weiterentwicklung an dein Team in der Region.\n\n- Mit deinem Blick fürs Detail und deiner strukturierten Arbeitsweise erstellst du zuverlässige Reports, die als Entscheidungsgrundlage dienen.\n\n- Für Offert-Erstellung, das Vertragswesen, die Bearbeitung von Ausschreibungen und für die Implementierung von Neukunden stehst du in enger Zusammenarbeit mit den Kundenprojektleitern.\n\n- Du bringst dich in Projektgruppen ein und unterstützt Marketingaktivitäten an Events und Messen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Ausbildung im kaufmännischen oder technischen Bereich und hast dich im Bereich Marketing, Verkauf oder Betriebswirtschaft weitergebildet.\n\n- Du bringst fundierte Erfahrung in der Kundenakquise mit – idealerweise aus dem Dienstleistungsumfeld wie Flottenmanagement oder Leasing, dem Finanzdienstleistungsbereich rund ums Fahrzeug oder dem B2B-Verkauf von Firmenfahrzeugen.\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Du bist eine kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Französisch und verfügst über gute mündliche Kenntnisse in Deutsch.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars",
+        "fr": "Du liebst es, Türen zu öffnen, Kunden zu begeistern und innovative Mobilitätslösungen auf den Weg zu bringen? Als Sales Manager:in New-Business in der Region Arc jurassien bist du die treibende Kraft hinter unserem Wachstum – mit Fokus auf Akquise, Beratung und massgeschneiderte Offerten im B2B-Bereich. Mit dir gewinnen wir neue Kunden für smarte Mobilitätslösungen und treiben das Wachstum von Post Company Cars AG entscheidend voran!\n\nDas kannst du bewirken\n\n- In der Region Arc jurassien verantwortest du die Akquisition von Neukunden sowie die Implementierung der outgesourcten Geschäftsprozesse in das Ökosystem von Post Company Cars.\n\n- Mit deinem Einsatz gestaltest du das Wachstum von Post Company Cars AG aktiv mit und bringst frische Impulse ins Business.\n\n- Du besuchst regelmässig potenzielle Kund:innen, analysierst die Kundenbedürfnisse und erstellst massgeschneiderte Offerten in Sachen Firmenmobilität.\n\n- Nach erfolgreicher Implementierung übergibst du die Kundschaft zur weiteren Betreuung und Weiterentwicklung an dein Team in der Region.\n\n- Mit deinem Blick fürs Detail und deiner strukturierten Arbeitsweise erstellst du zuverlässige Reports, die als Entscheidungsgrundlage dienen.\n\n- Für Offert-Erstellung, das Vertragswesen, die Bearbeitung von Ausschreibungen und für die Implementierung von Neukunden stehst du in enger Zusammenarbeit mit den Kundenprojektleitern.\n\n- Du bringst dich in Projektgruppen ein und unterstützt Marketingaktivitäten an Events und Messen.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Ausbildung im kaufmännischen oder technischen Bereich und hast dich im Bereich Marketing, Verkauf oder Betriebswirtschaft weitergebildet.\n\n- Du bringst fundierte Erfahrung in der Kundenakquise mit – idealerweise aus dem Dienstleistungsumfeld wie Flottenmanagement oder Leasing, dem Finanzdienstleistungsbereich rund ums Fahrzeug oder dem B2B-Verkauf von Firmenfahrzeugen.\n\n- Ein hohes Mass an Abschlussorientierung sowie ausgeprägtes Verhandlungs- und Verkaufsgeschick gehören zu deinen Stärken.\n\n- Du bist eine kooperative und kompetente Verkaufs-Persönlichkeit mit einem Flair für betriebswirtschaftliche Zusammenhänge und einem grossen persönlichen Netzwerk.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Französisch und verfügst über gute mündliche Kenntnisse in Deutsch.\n\nWeitere Informationen zu Post Company Cars AG erhältst du hier;  www.post.ch/companycars"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://job.post.ch/default/job/Sales-Managerin-Gesch%C3%A4ftskunden-Arc-jurassien/74314-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-20T12:52:01.931Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza clienti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-11",
+      "pensum": "80-100%",
+      "applyUrl": "https://job.post.ch/default/job/Sales-Managerin-Gesch%C3%A4ftskunden-Arc-jurassien/74314-de_DE",
+      "jobReqId": "74314",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-20T12:52:01.931Z"
+    },
+    {
+      "id": "postauto-d2685274910e",
+      "slug": "safety-driver-amigo-postauto-altstatten-sg",
+      "slugByLocale": {
+        "de": "safety-driver-amigo-postauto-altstatten-sg",
+        "it": "safety-driver-amigo-postauto-altstatten-sg",
+        "en": "safety-driver-amigo-postauto-altstatten-sg",
+        "fr": "safety-driver-amigo-postauto-altstatten-sg"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Safety Driver AmiGo",
+      "titleByLocale": {
+        "de": "Safety Driver AmiGo",
+        "it": "Safety Driver AmiGo",
+        "en": "Safety Driver AmiGo",
+        "fr": "Safety Driver AmiGo"
+      },
+      "description": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDie Stelle ist befristet bis zum 28.02.2027.",
+      "descriptionByLocale": {
+        "de": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDie Stelle ist befristet bis zum 28.02.2027.",
+        "it": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDie Stelle ist befristet bis zum 28.02.2027.",
+        "en": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDie Stelle ist befristet bis zum 28.02.2027.",
+        "fr": "Du möchtest Teil eines europaweit einzigartigen Innovationsprojekts sein und Mobilitätsgeschichte mitschreiben sowie aktiv an der Zukunft des autonomen Fahrens mitwirken? Bei AmiGo begleitest du modernste Fahrzeugtechnologie im realen Testbetrieb und übernimmst dabei eine zentrale Sicherheitsrolle. Mit dir wird autonomes Fahren sicher, erlebbar und bereit für die Mobilität von morgen.\n\nDas kannst du bewirken\n\n- In dieser befristeten Anstellung begleitest du unsere autonom fahrenden 4-Rad-Fahrzeuge im Testbetrieb und überwachst jederzeit alle sicherheitsrelevanten Abläufe im Fahrzeug.\n\n- Potenziell auftretende Gefahren erkennst du frühzeitig und greifst bei Bedarf präventiv oder aktiv in die Fahrzeugsteuerung ein.\n\n- Du führst laufend Sicherheitsbeurteilungen durch und übernimmst im Notfall sofort die Kontrolle über das Fahrzeug.\n\n- Sämtliche Incidents, Auffälligkeiten und Beobachtungen dokumentierst du zeitnah und elektronisch zur kontinuierlichen Optimierung des Gesamtsystems.\n\n- Du stellst jederzeit die Sicherheit der Passagiere, anderen Verkehrsteilnehmenden sowie von Fussgängern und Tieren sicher.\n\n- Unseren mitfahrenden Kundinnen und Kunden stehst du als kompetente und professionelle Ansprechperson direkt im Fahrzeug zur Verfügung.\n\nDas bringst du mit\n\n- Du verfügst über eine abgeschlossene Berufslehre, ein abgeschlossenes Studium oder mehrjährige relevante Berufserfahrung.\n\n- Seit mindestens drei Jahren besitzt du einen gültigen Führerausweis der Kategorie B oder höher und bringst mindestens drei Jahre Fahrpraxis in der Schweiz mit. Vorzugsweise verfügst du zusätzlich über die Bewilligung zum berufsmässigen Personentransport (Ausbildung BPT 121), oder bist bereit, diese zu absolvieren.\n\n- Du besitzt ein ausgeprägtes Sicherheitsbewusstsein und hast einen einwandfreien Leumund vorzuweisen.\n\n- Du bist flexibel für Einsätze am Morgen, Nachmittag, Abend sowie an Wochenenden.\n\n- Es bereitet dir Freude, in einem innovativen, lernfreudigen und hochmotivierten Umfeld Pionierarbeit zu leisten.\n\n- Du verfügst über eine schnelle Auffassungsgabe, hohe Reaktionsfähigkeit sowie analytisch-technische Kompetenzen und überzeugst gleichzeitig durch Kundenorientierung, Verantwortungsbewusstsein, Teamfähigkeit und ein professionelles Auftreten.\n\n- Du kommunizierst mündlich und schriftlich sehr gut auf Deutsch und bringst gute Englischkenntnisse mit.\n\nDie Stelle ist befristet bis zum 28.02.2027."
+      },
+      "location": "Altstätten SG",
+      "canton": "AR",
+      "url": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-20T12:51:59.916Z",
+      "addressLocality": "Altstätten SG",
+      "addressRegion": "AR",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Autisti / Conducenti",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-11",
+      "pensum": "50-100%",
+      "applyUrl": "https://job.post.ch/default/job/Safety-Driver-AmiGo/74292-de_DE",
+      "jobReqId": "74292",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-20T12:51:59.916Z"
     }
   ]
 }
