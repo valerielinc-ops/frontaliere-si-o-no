@@ -8692,6 +8692,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Welder frontier: salary, requirements and qualification',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Average salary of border welders in Ticino: not yet specified. Requirements to work as a welder in Ticino as a border worker: high school diploma. Recognition of the qualification for border workers: not yet specified.',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier welder at work in Bellinzona',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC operator in Ticino: salary, requirements and permit G',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Average salary for a CNC operator in Ticino: not yet specified. Requirements to work as a CNC operator in Ticino: not yet specified. Recognition of qualification: not yet specified.',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photograph of a CNC operator in a work environment in Ticino',
 };
 
 export default blogMetaEn;

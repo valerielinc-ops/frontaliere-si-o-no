@@ -8693,6 +8693,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Frontière soudeur : salaire, exigences et diplôme',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des soudeurs frontaliers au Tessin : non encore précisé. Exigences pour travailler comme soudeur au Tessin en tant que frontalier : diplôme de maturité. Reconnaissance du diplôme pour les frontaliers : non encore précisé.',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier saldatore en action à Bellinzona',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'Opérateur CNC au Tessin : salaire, exigences et permis G',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un opérateur CNC au Tessin : non encore précisé. Exigences pour travailler en tant qu\'opérateur CNC au Tessin : non encore spécifié. Reconnaissance du titre d\'études : non encore spécifié.',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un opérateur CNC dans un environnement de travail en Suisse',
 };
 
 export default blogMetaFr;
