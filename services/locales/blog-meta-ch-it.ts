@@ -1312,6 +1312,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Segretaria frontaliere in Ticino: stipendio, requisiti e permesso',
     'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'La frontiera ticinese: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
     'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'Una segretaria frontaliera lavora in un ufficio a Lugano',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Lavorare come risorse umane in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontaliere che lavorano in Ticino?',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Immagine di Lugano con persone diverse età che lavorano o studiano insieme.',
 };
 
 export default blogMetaChIt;
