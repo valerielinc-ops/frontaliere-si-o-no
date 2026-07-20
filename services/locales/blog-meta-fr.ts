@@ -8717,6 +8717,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Travailler comme fiduciaire au Tessin : exigences et reconnaissance',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Voici ce que vous savez faire en tant que frontalier au Tessin pour travailler en tant que fiduciaire : le nouvel accord, les exigences et la reconnaissance du diplôme',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Un frontalier qui travaille comme fiduciaire en Suisse',
+    'blog.article.consulente-clientela-frontaliere-ticino.title': 'Combien gagne un conseiller à la clientèle frontalière au Tessin ?',
+    'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Taxes, franchises et taux : ce qui change pour les consultants travaillant avec des clients frontaliers au Tessin',
+    'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Un consultant travaillant avec des clients frontaliers dans le Tessin',
 };
 
 export default blogMetaFr;

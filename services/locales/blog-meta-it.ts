@@ -8717,6 +8717,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Lavorare come fiduciario in Ticino: requisiti e riconoscimento',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Ecco cosa sai fare come frontaliere in Ticino per lavorare come fiduciario: il nuovo accordo, i requisiti e il riconoscimento del titolo di studio',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Un frontaliere che lavora come fiduciario in Ticino',
+    'blog.article.consulente-clientela-frontaliere-ticino.title': 'Quanto guadagna un consulente alla clientela frontaliere in Ticino?',
+    'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Imposte, franchigie e aliquote: cosa cambia per i consulenti che lavorano con clienti frontaliere in Ticino',
+    'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Un consulente che lavora con clienti frontaliere in Ticino',
 };
 
 export default blogMetaIt;

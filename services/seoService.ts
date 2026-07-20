@@ -4740,6 +4740,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-consulente-clientela-ticino-stipendio-requisiti': { name: 'Lavorare come consulente alla clientela in', path: '/articoli-svizzera/frontaliere-consulente-clientela-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-lavoro-fiduciario-ticino-frontalieri': { name: 'Lavorare come fiduciario in Ticino da', path: '/articoli-frontaliere/lavoro-fiduciario-ticino-frontalieri', parent: 'blog' },
     'blog-frontaliere-fiduciario-ticino-stipendio-requisiti': { name: 'Frontaliere fiduciario in Ticino', path: '/articoli-svizzera/frontaliere-fiduciario-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-consulente-clientela-frontaliere-ticino': { name: 'Quanto guadagna un consulente alla', path: '/articoli-frontaliere/consulente-clientela-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

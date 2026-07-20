@@ -8716,6 +8716,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Working as a trustee in Ticino: requirements and recognition',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Here\'s what you can do as a border worker in Ticino to work as a trustee: the new agreement, the requirements and the recognition of the qualification',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'A fiduciary working in Ticino as a cross-border worker',
+    'blog.article.consulente-clientela-frontaliere-ticino.title': 'How much does a border customer consultant earn in Ticino?',
+    'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Taxes, deductibles and rates: what changes for consultants working with cross-border clients in Ticino',
+    'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'A consultant working with cross-border clients in Ticino',
 };
 
 export default blogMetaEn;
