@@ -21,8 +21,8 @@
  * -----
  * - Labels are baked in per locale (it/en/de/fr). We don't hit the i18n
  *   runtime because this module runs at build time in a pure-Node context.
- * - Anchor hrefs are constructed from a hub/sub-tab slug table (a subset of
- *   `SLUG_TABLES` from services/router.ts, kept in-sync by hand). Using
+ * - Anchor hrefs are constructed from a hub/sub-tab slug table derived from
+ *   the shared `SLUG_TABLES` (services/routeSlugs.data.ts, #4315). Using
  *   build-time `<a href="...">` is intentional — the SPA will perform a full
  *   navigation when users click them, which is fine because the target is
  *   another hub (may itself be a programmatic landing).
@@ -30,6 +30,7 @@
  */
 
 import { esc } from '../htmlTemplate';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -56,7 +57,7 @@ export interface RenderHubChromeOpts {
   readonly innerHtml: string;
 }
 
-// ── Slug tables (mirror of services/router.ts SLUG_TABLES subset) ──
+// ── Slug tables (derived view of the shared SLUG_TABLES, see hubSlugsFor) ──
 
 interface HubSlugs {
   readonly calcolatore: string;
@@ -104,171 +105,59 @@ interface HubSlugs {
   readonly calcSalaryQuiz: string;
 }
 
+/** Derives this module's renamed/subset view from the shared SLUG_TABLES (#4315). */
+function hubSlugsFor(locale: HubLocale): HubSlugs {
+  const t = SLUG_TABLES[locale];
+  return {
+    calcolatore: t.calcolatore,
+    confronti: t.confronti,
+    fisco: t.fisco,
+    guida: t.guida,
+    vita: t.vita,
+    stats: t.stats,
+    jobBoard: t.jobBoard, // cathedral-allow: TI hub-chrome registry key
+    exchange: t.exchange,
+    banks: t.banks,
+    health: t.health,
+    mobile: t.mobile,
+    shopping: t.shopping,
+    costOfLiving: t.costOfLiving,
+    jobs: t.jobs,
+    renovation: t.renovation,
+    firstDay: t.firstDay,
+    permits: t.permits,
+    border: t.border,
+    unemployment: t.unemployment,
+    carTransfer: t.carTransfer,
+    carCost: t.carCost,
+    permitCompare: t.permitCompare,
+    borderMap: t.borderMap,
+    livability: t.livability,
+    jobsObservatory: t.jobsObservatory,
+    salaryCompare: t.salaryCompare,
+    trafficHistory: t.trafficHistory,
+    unemploymentStats: t.unemploymentStats,
+    mortgageComparison: t.mortgageComparison,
+    fuelPrices: t.fuelPrices,
+    healthPremiums: t.healthPremiums,
+    // calculatorBase has no SLUG_TABLES equivalent — it's the calculator hub's
+    // own landing (no sub-slug), always empty.
+    calculatorBase: '',
+    calcWhatif: t.whatif,
+    calcPayslip: t.payslip,
+    calcRal: t.ral,
+    calcBonus: t.bonus,
+    calcParentalLeave: t.parentalLeave,
+    calcResidency: t.residency,
+    calcSalaryQuiz: t.salaryQuiz,
+  };
+}
+
 const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
-  it: {
-    calcolatore: 'calcola-stipendio',
-    confronti: 'compara-servizi',
-    fisco: 'tasse-e-pensione',
-    guida: 'guida-frontaliere',
-    vita: 'vivere-in-ticino',
-    stats: 'statistiche',
-    jobBoard: 'cerca-lavoro-ticino', // cathedral-allow: TI hub-chrome registry key
-    exchange: 'cambio-franco-euro',
-    banks: 'confronta-banche',
-    health: 'confronta-casse-malati',
-    mobile: 'confronta-operatori-mobili',
-    shopping: 'confronta-prezzi-spesa',
-    costOfLiving: 'costo-della-vita',
-    jobs: 'confronta-offerte-lavoro',
-    renovation: 'calcola-bonus-ristrutturazione',
-    firstDay: 'primo-giorno-lavoro',
-    permits: 'permessi-di-lavoro',
-    border: 'tempi-attesa-dogana',
-    unemployment: 'disoccupazione-transfrontaliera',
-    carTransfer: 'trasferire-auto-svizzera',
-    carCost: 'costo-auto-pendolare',
-    permitCompare: 'confronta-permesso-g-vs-b',
-    borderMap: 'mappa-confine',
-    livability: 'migliori-comuni-frontiera',
-    jobsObservatory: 'osservatorio-stipendi-lavori-ticino',
-    salaryCompare: 'confronta-stipendi',
-    trafficHistory: 'storico-traffico-dogane',
-    unemploymentStats: 'disoccupazione-svizzera',
-    mortgageComparison: 'confronto-mutui',
-    fuelPrices: 'prezzi-benzina-confine',
-    healthPremiums: 'premi-malattia-comuni',
-    calculatorBase: '',
-    calcWhatif: 'cosa-cambia-se',
-    calcPayslip: 'simula-busta-paga',
-    calcRal: 'confronta-retribuzione-ral',
-    calcBonus: 'stima-bonus-frontaliere',
-    calcParentalLeave: 'verifica-congedo-parentale',
-    calcResidency: 'simula-cambio-residenza',
-    calcSalaryQuiz: 'quanto-guadagneresti-in-svizzera',
-  },
-  en: {
-    calcolatore: 'calculate-salary',
-    confronti: 'service-comparison',
-    fisco: 'taxes-and-pension',
-    guida: 'cross-border-guide',
-    vita: 'living-in-ticino',
-    stats: 'statistics',
-    jobBoard: 'find-jobs-ticino', // cathedral-allow: TI hub-chrome registry key
-    exchange: 'chf-eur-exchange-rate',
-    banks: 'compare-banks',
-    health: 'compare-health-insurance',
-    mobile: 'compare-mobile-plans',
-    shopping: 'compare-grocery-prices',
-    costOfLiving: 'cost-of-living',
-    jobs: 'compare-job-offers',
-    renovation: 'calculate-renovation-bonus',
-    firstDay: 'first-day-at-work',
-    permits: 'work-permits-guide',
-    border: 'border-waiting-times',
-    unemployment: 'unemployment-benefits',
-    carTransfer: 'transfer-car-to-switzerland',
-    carCost: 'commuting-car-costs',
-    permitCompare: 'compare-permit-g-vs-b',
-    borderMap: 'border-map',
-    livability: 'best-border-towns',
-    jobsObservatory: 'ticino-jobs-salary-observatory',
-    salaryCompare: 'compare-salaries',
-    trafficHistory: 'border-traffic-history',
-    unemploymentStats: 'unemployment-switzerland',
-    mortgageComparison: 'mortgage-comparison',
-    fuelPrices: 'border-fuel-prices',
-    healthPremiums: 'health-insurance-premiums-by-commune',
-    calculatorBase: '',
-    calcWhatif: 'what-if-scenarios',
-    calcPayslip: 'estimate-payslip',
-    calcRal: 'compare-gross-salary',
-    calcBonus: 'simulate-bonus',
-    calcParentalLeave: 'estimate-parental-leave',
-    calcResidency: 'simulate-residency-change',
-    calcSalaryQuiz: 'how-much-would-you-earn-in-switzerland',
-  },
-  de: {
-    calcolatore: 'gehalt-berechnen',
-    confronti: 'service-vergleich',
-    fisco: 'steuern-und-vorsorge',
-    guida: 'grenzgaenger-ratgeber',
-    vita: 'leben-im-tessin',
-    stats: 'statistiken',
-    jobBoard: 'jobs-im-tessin', // cathedral-allow: TI hub-chrome registry key
-    exchange: 'chf-eur-wechselkurs',
-    banks: 'banken-vergleichen',
-    health: 'krankenkassen-vergleichen',
-    mobile: 'mobilfunk-vergleichen',
-    shopping: 'einkaufspreise-vergleichen',
-    costOfLiving: 'lebenshaltungskosten',
-    jobs: 'stellenangebote-vergleichen',
-    renovation: 'renovierungs-bonus-berechnen',
-    firstDay: 'erster-arbeitstag',
-    permits: 'arbeitsbewilligungen',
-    border: 'wartezeiten-grenze',
-    unemployment: 'arbeitslosengeld',
-    carTransfer: 'auto-in-schweiz-ummelden',
-    carCost: 'pendler-autokosten',
-    permitCompare: 'bewilligung-g-vs-b',
-    borderMap: 'grenzkarte',
-    livability: 'beste-grenzgemeinden',
-    jobsObservatory: 'stellen-und-lohn-observatorium-tessin',
-    salaryCompare: 'gehaelter-vergleichen',
-    trafficHistory: 'grenzverkehr-verlauf',
-    unemploymentStats: 'arbeitslosigkeit-schweiz',
-    mortgageComparison: 'hypotheken-vergleich',
-    fuelPrices: 'spritpreise-grenze',
-    healthPremiums: 'krankenkassentraemien-nach-gemeinde',
-    calculatorBase: '',
-    calcWhatif: 'was-waere-wenn',
-    calcPayslip: 'lohnabrechnung-simulieren',
-    calcRal: 'bruttogehalt-vergleichen',
-    calcBonus: 'bonus-simulieren',
-    calcParentalLeave: 'elternzeit-simulieren',
-    calcResidency: 'wohnsitzwechsel-simulieren',
-    calcSalaryQuiz: 'verdienst-in-der-schweiz',
-  },
-  fr: {
-    calcolatore: 'calculer-salaire',
-    confronti: 'comparaison-services',
-    fisco: 'impots-et-retraite',
-    guida: 'guide-frontalier',
-    vita: 'vivre-au-tessin',
-    stats: 'statistiques',
-    jobBoard: 'trouver-emploi-tessin', // cathedral-allow: TI hub-chrome registry key
-    exchange: 'taux-change-chf-eur',
-    banks: 'comparer-banques',
-    health: 'comparer-caisses-maladie',
-    mobile: 'comparer-forfaits-mobiles',
-    shopping: 'comparer-prix-courses',
-    costOfLiving: 'cout-de-la-vie',
-    jobs: 'comparer-offres-emploi',
-    renovation: 'calculer-bonus-renovation',
-    firstDay: 'premier-jour-travail',
-    permits: 'permis-de-travail',
-    border: 'temps-attente-douane',
-    unemployment: 'allocations-chomage',
-    carTransfer: 'transferer-voiture-suisse',
-    carCost: 'cout-voiture-pendulaire',
-    permitCompare: 'comparer-permis-g-vs-b',
-    borderMap: 'carte-frontiere',
-    livability: 'meilleures-communes-frontiere',
-    jobsObservatory: 'observatoire-emplois-salaires-tessin',
-    salaryCompare: 'comparer-salaires',
-    trafficHistory: 'historique-trafic-frontiere',
-    unemploymentStats: 'chomage-suisse',
-    mortgageComparison: 'comparaison-hypotheques',
-    fuelPrices: 'prix-essence-frontiere',
-    healthPremiums: 'primes-assurance-maladie-communes',
-    calculatorBase: '',
-    calcWhatif: 'scenarios-hypothetiques',
-    calcPayslip: 'simuler-fiche-de-paie',
-    calcRal: 'comparer-salaire-brut',
-    calcBonus: 'estimer-bonus',
-    calcParentalLeave: 'simuler-conge-parental',
-    calcResidency: 'simuler-changement-residence',
-    calcSalaryQuiz: 'combien-gagneriez-vous-en-suisse',
-  },
+  it: hubSlugsFor('it'),
+  en: hubSlugsFor('en'),
+  de: hubSlugsFor('de'),
+  fr: hubSlugsFor('fr'),
 };
 
 // ── Labels (baked-in per locale) ───────────────────────────────

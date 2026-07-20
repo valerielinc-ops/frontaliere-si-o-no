@@ -53,6 +53,7 @@ import { normalizeEmailAddress } from './lib/parseEmailField.mjs';
 import { subscriberFromFirestoreRow } from './lib/subscriberFromFirestoreRow.mjs';
 import { JOB_BOARD_SECTION_RX, JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // localePathPrefix aliased to the `localePrefix` name this script has always
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
@@ -879,12 +880,12 @@ function buildPublishedAtLookup() {
 // the dormant-tier win-back runner, scripts/newsletter-winback-campaign.mjs,
 // so the slug/meta-file parsing logic can't drift between the two senders).
 
-/** Newsletter preferences slug per locale (matches router.ts SLUG_TABLES) */
+/** Newsletter preferences slug per locale — derived from shared SLUG_TABLES (#4315) */
 const PREFERENCES_SLUG = {
-  it: 'preferenze-newsletter',
-  en: 'newsletter-preferences',
-  de: 'newsletter-einstellungen',
-  fr: 'preferences-newsletter',
+  it: SLUG_TABLES.it.newsletterPreferences,
+  en: SLUG_TABLES.en.newsletterPreferences,
+  de: SLUG_TABLES.de.newsletterPreferences,
+  fr: SLUG_TABLES.fr.newsletterPreferences,
 };
 
 const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';

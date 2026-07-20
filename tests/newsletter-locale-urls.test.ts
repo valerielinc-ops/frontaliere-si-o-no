@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const SCRIPT = fs.readFileSync(
   path.resolve(__dirname, '../scripts/send-newsletter.mjs'),
@@ -19,10 +20,13 @@ describe('newsletter URL helpers — locale-correct', () => {
   });
 
   it('all 4 locale slugs for newsletter preferences are present', () => {
-    expect(SCRIPT).toContain('preferenze-newsletter');
-    expect(SCRIPT).toContain('newsletter-preferences');
-    expect(SCRIPT).toContain('newsletter-einstellungen');
-    expect(SCRIPT).toContain('preferences-newsletter');
+    // Values now live in the shared SLUG_TABLES (#4315); the script derives
+    // PREFERENCES_SLUG from it instead of hand-copying the literals.
+    expect(SCRIPT).toContain('SLUG_TABLES.it.newsletterPreferences');
+    expect(SLUG_TABLES.it.newsletterPreferences).toBe('preferenze-newsletter');
+    expect(SLUG_TABLES.en.newsletterPreferences).toBe('newsletter-preferences');
+    expect(SLUG_TABLES.de.newsletterPreferences).toBe('newsletter-einstellungen');
+    expect(SLUG_TABLES.fr.newsletterPreferences).toBe('preferences-newsletter');
   });
 
   it('featuredTool is built per-locale (uses getFeaturedTools or equivalent)', () => {

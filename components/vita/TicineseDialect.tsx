@@ -18,6 +18,7 @@ import {
  Plus,
 } from 'lucide-react';
 import { DIALECT_ENTRIES, type DialectCategory, type DialectEntry, getDialectPhraseOfDay } from '@/services/dialectService';
+import { SLUG_TABLES } from '@/services/routeSlugs.data';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -215,7 +216,7 @@ const TicineseDialect: React.FC = () => {
  };
 
  useEffect(() => {
- Analytics.trackPageView('/dialetto-ticinese/', 'Dialetto Ticinese');
+ Analytics.trackPageView(`/${SLUG_TABLES.it.dialetto}/`, 'Dialetto Ticinese');
  Analytics.trackUIInteraction('dialect', 'page', 'dialect_page', 'view');
  }, []);
 
@@ -268,7 +269,7 @@ const TicineseDialect: React.FC = () => {
  const handleShare = async (entry: DialectEntry) => {
  const phrase = termField(entry, 'phrase');
  const italian = termField(entry, 'italian');
- const text = `🇨🇭 ${tt('dialect.title', 'Dialetto Ticinese')}:"${phrase}" — ${italian}\n\nhttps://frontaliereticino.ch/dialetto-ticinese`;
+ const text = `🇨🇭 ${tt('dialect.title', 'Dialetto Ticinese')}:"${phrase}" — ${italian}\n\nhttps://frontaliereticino.ch/${SLUG_TABLES.it.dialetto}`;
  try {
  if (navigator.share) {
  await navigator.share({ title: tt('dialect.title', 'Dialetto Ticinese'), text });

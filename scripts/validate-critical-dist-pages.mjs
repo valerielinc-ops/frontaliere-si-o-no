@@ -5,6 +5,7 @@
  */
 import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const root = process.cwd();
 const distDir = path.join(root, 'dist');
@@ -38,12 +39,12 @@ const allRequiredPages = [
   'en/index.html',
   'de/index.html',
   'fr/index.html',
-  'calcola-stipendio/index.html',
-  'cerca-lavoro-ticino/index.html',
-  'glossario-frontaliere/index.html',
-  'guida-frontaliere/index.html',
-  'mappa-del-sito/index.html',
-  'privacy/index.html',
+  `${SLUG_TABLES.it.calcolatore}/index.html`,
+  `${SLUG_TABLES.it.jobBoard}/index.html`,
+  `${SLUG_TABLES.it.glossario}/index.html`,
+  `${SLUG_TABLES.it.guida}/index.html`,
+  `${SLUG_TABLES.it.sitemap}/index.html`,
+  `${SLUG_TABLES.it.privacy}/index.html`,
   'sitemap.xml',
   // Data asset fetched at runtime by jobBoardStatsService → /data/jobs-stats.json.
   // A cache-HIT assemble path can skip copying the public twin (see #1148/#1153);

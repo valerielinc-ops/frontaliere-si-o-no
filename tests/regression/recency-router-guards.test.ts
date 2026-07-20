@@ -12,6 +12,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { parsePath } from '@/services/router';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 import {
   EDITORIAL_CANTONS,
   EDITORIAL_PRIMARY_CANTONS,
@@ -23,13 +24,13 @@ import {
   isJobRecencyLandingSlug,
 } from '../../build-plugins/jobRecencyLanding';
 
-// ── Job-board section slug for each locale ─────────────────────────
-// Must mirror SLUG_TABLES in services/router.ts
+// ── Job-board section slug for each locale — derived from shared
+// SLUG_TABLES (#4315) instead of hand-copying it ────────────────────
 const JOB_BOARD_SECTION: Record<string, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: SLUG_TABLES.it.jobBoard,
+  en: SLUG_TABLES.en.jobBoard,
+  de: SLUG_TABLES.de.jobBoard,
+  fr: SLUG_TABLES.fr.jobBoard,
 };
 
 const LOCALE_PREFIX: Record<string, string> = {
