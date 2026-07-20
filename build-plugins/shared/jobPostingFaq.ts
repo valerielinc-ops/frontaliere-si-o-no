@@ -36,7 +36,15 @@ export interface BuildJobPostingFaqOptions {
   readonly isRemote?: boolean;
 }
 
-const EMPLOYMENT_TYPE_LABEL: Record<FaqLocale, Record<EmploymentType, string>> = {
+// Distinct from `EMPLOYMENT_TYPE_LABEL` in scripts/lib/social-post-utils.mjs
+// (that one is Italian-only, capitalised, 4 values, for short social-post
+// captions — a different rendering context, not the same constant): this map
+// is multi-locale, lowercase/in-sentence, and covers all 8 schema.org
+// EmploymentType values for a discursive FAQ answer. Kept separate rather
+// than merged per AGENTS.md #6 — the two outputs genuinely diverge (e.g. IT
+// CONTRACTOR is "Contratto" there vs "mandato/freelance" here), so unifying
+// would either break existing social captions or blunt this FAQ's wording.
+const EMPLOYMENT_TYPE_FAQ_LABEL: Record<FaqLocale, Record<EmploymentType, string>> = {
   it: {
     FULL_TIME: 'tempo pieno',
     PART_TIME: 'part-time',
@@ -132,7 +140,7 @@ function buildSalaryFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOption
 
 function buildContractFaq(schema: JobPostingSchema, opts: BuildJobPostingFaqOptions): JobFaqPair {
   const { locale } = opts;
-  const contractLabel = EMPLOYMENT_TYPE_LABEL[locale][schema.employmentType];
+  const contractLabel = EMPLOYMENT_TYPE_FAQ_LABEL[locale][schema.employmentType];
   const company = schema.hiringOrganization.name;
   if (locale === 'en') {
     return {
