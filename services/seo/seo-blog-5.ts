@@ -51942,6 +51942,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-stipendio-tecnico-automazione': {
+    title: 'Quanto guadagna un tecnico automazione frontaliere in Ticino?',
+    description: 'La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all\'Italia è di circa il 20%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, tecnico, automazione',
+    ogTitle: 'Quanto guadagna un tecnico automazione frontaliere in Ticino?',
+    ogDescription: 'La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all\'Italia è di circa il 20%.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un tecnico automazione frontaliere in Ticino?",
+      "description": "La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all'Italia è di circa il 20%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-stipendio-tecnico-automazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tecnico automazione lavora in una città di frontiera tra Svizzera e Italia."
+      },
+      "datePublished": "2026-07-20T10:18:49+00:00",
+      "dateModified": "2026-07-20T10:18:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

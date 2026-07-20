@@ -4700,6 +4700,21 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieriprogettista-elettricoin-ticino': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontalieriprogettista-elettricoin-ticino/', parent: 'blog' },
     'blog-frontaliere-polimeccanico-ticino-stipendio-requisiti': { name: 'Lavorare come polimeccanico in Ticino da', path: '/articoli-frontaliere/frontaliere-polimeccanico-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontalieri-ticino-tendenze-occupazionali': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-tendenze-occupazionali/', parent: 'blog' },
+    'blog-documenti-scomparsi-inchiesta-constellation': { name: 'Inchiesta Constellation', path: '/articoli-frontaliere/documenti-scomparsi-inchiesta-constellation', parent: 'blog' },
+    'blog-quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { name: 'Stipendio polimeccanico frontaliere Ticino', path: '/articoli-svizzera/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino/', parent: 'blog' },
+    'blog-frontaliere-meccanico-ticino-stipendio-requisiti': { name: 'Requisiti per lavorare come meccanico in', path: '/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-stipendio-meccanico-frontaliere-ticino': { name: 'Quanto guadagna un meccanico frontaliere', path: '/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/', parent: 'blog' },
+    'blog-frontaliere-meccatronico-ticino-stipendio-requisiti': { name: 'Frontaliere meccatronico Ticino', path: '/articoli-frontaliere/frontaliere-meccatronico-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontalieri-salario-meccatronico': { name: 'Salario frontaliere Ticino', path: '/articoli-svizzera/frontalieri-salario-meccatronico/', parent: 'blog' },
+    'blog-stipendio-saldatore-frontaliere-ticino': { name: 'Stipendio saldatore frontaliere Ticino', path: '/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino', parent: 'blog' },
+    'blog-saldatore-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come saldatore in Ticino da', path: '/articoli-svizzera/saldatore-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-saldatore-ticino-stipendio-requisiti': { name: 'Frontaliere saldatore in Ticino', path: '/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-saldatore-frontaliere-ticino-guida': { name: 'Frontalieri Svizzera', path: '/articoli-svizzera/saldatore-frontaliere-ticino-guida/', parent: 'blog' },
+    'blog-operatore-cnc-frontaliero-ticino-stipendio-requisiti': { name: 'Opportunità di lavoro in Ticino', path: '/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-benzina-e-diesel-prezzi-saliti': { name: 'Benzina e diesel: i prezzi alla pompa', path: '/articoli-svizzera/benzina-e-diesel-prezzi-saliti/', parent: 'blog' },
+    'blog-quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino': { name: 'Operatore CNC in Ticino', path: '/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino', parent: 'blog' },
+    'blog-frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': { name: 'Frontaliere disegnatore tecnico Ticino', path: '/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontalieri-ticino-stipendio-tecnico-automazione': { name: 'Stipendio tecnico automazione frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];
