@@ -4659,6 +4659,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-medico-frontaliere-stipendio-ticino': { name: 'Ticino, Svizzera', path: '/articoli-frontaliere/medico-frontaliere-stipendio-ticino', parent: 'blog' },
     'blog-frontaliere-veterinario-ticino-requisiti': { name: 'Frontaliere veterinario', path: '/articoli-svizzera/frontaliere-veterinario-ticino-requisiti/', parent: 'blog' },
     'blog-stipendio-veterinario-frontaliere-ticino': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/stipendio-veterinario-frontaliere-ticino', parent: 'blog' },
+    'blog-frontaliere-informatico-ticino-stipendio-requisiti': { name: 'Frontaliere informatico in Ticino', path: '/articoli-frontaliere/frontaliere-informatico-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
