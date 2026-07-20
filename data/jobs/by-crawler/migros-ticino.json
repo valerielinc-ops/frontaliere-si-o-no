@@ -4747,8 +4747,6 @@
         "it": [
           "1er-ere-cuisinier-iere-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
           "1er-ere-cuisinier-iere-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5fa50q",
-          "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
-          "administrative-and-technical-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
           "verwaltungs-und-technischer-leiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
           "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
           "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
@@ -4762,7 +4760,11 @@
           "technischer-koordinator-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-i2nrt2",
           "coordinateur-trice-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-i2nrt2",
           "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
-          "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
+          "commercial-project-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
+          "kaufmannischer-projektleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
+          "chef-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
+          "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+          "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
         ],
         "en": [
           "1er-ere-cuisinier-iere-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5fa50q",
@@ -4785,8 +4787,6 @@
       "previousSlugs": [
         "1er-ere-cuisinier-iere-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "1er-ere-cuisinier-iere-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5fa50q",
-        "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
-        "administrative-and-technical-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "verwaltungs-und-technischer-leiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-u8icqx",
         "gestionnaire-administratif-et-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
@@ -4800,10 +4800,12 @@
         "technischer-koordinator-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-i2nrt2",
         "coordinateur-trice-technique-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-i2nrt2",
         "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
-        "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "commercial-project-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
         "kaufmannischer-projektleiter-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
-        "chef-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq"
+        "chef-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-5i5nhq",
+        "chef-fe-de-projet-commercial-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+        "responsabile-amministrativo-e-tecnico-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+        "administrative-and-technical-manager-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -26096,33 +26098,18 @@
           "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
           "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
           "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
-          "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland",
-          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve",
-          "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve",
-          "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve",
-          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1",
-          "cuisinier-f-m-d-societe-cooperative-migros-geneve-geneve",
-          "chef-f-h-d-societe-cooperative-migros-geneve-geneve",
-          "koch-f-h-d-societe-cooperative-migros-geneve-geneve",
-          "cuisinier-m-w-d-societe-cooperative-migros-geneve-2t8v9n",
-          "cuisinier-m-w-d-societe-cooperative-migros-geneve",
-          "fornello-f-h-d-societe-cooperative-migros-geneve-geneve",
-          "cooker-f-h-d-societe-cooperative-migros-geneve-geneve",
-          "kocher-f-h-d-societe-cooperative-migros-geneve-geneve"
+          "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
         ],
         "en": [
           "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-15-y12bp5",
-          "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
-          "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve"
+          "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland"
         ],
         "de": [
           "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-15-y12bp5",
-          "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
-          "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve"
+          "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland"
         ],
         "fr": [
-          "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
-          "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1"
+          "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d"
         ]
       },
       "previousSlugs": [
@@ -26131,19 +26118,7 @@
         "specialist-seller-f-h-d-societe-cooperative-migros-geneve-gland",
         "fachhandler-f-h-d-societe-cooperative-migros-geneve-gland",
         "vendeur-specialise-m-w-d-societe-cooperative-migros-geneve-gland-jdub5d",
-        "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland",
-        "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve",
-        "store-manager-m-f-d-societe-cooperative-migros-geneve-geneve",
-        "filialleiter-m-w-d-societe-cooperative-migros-geneve-geneve",
-        "gerant-de-magasin-m-w-d-societe-cooperative-migros-geneve-ym9gj1",
-        "cuisinier-f-m-d-societe-cooperative-migros-geneve-geneve",
-        "chef-f-h-d-societe-cooperative-migros-geneve-geneve",
-        "koch-f-h-d-societe-cooperative-migros-geneve-geneve",
-        "cuisinier-m-w-d-societe-cooperative-migros-geneve-2t8v9n",
-        "cuisinier-m-w-d-societe-cooperative-migros-geneve",
-        "fornello-f-h-d-societe-cooperative-migros-geneve-geneve",
-        "cooker-f-h-d-societe-cooperative-migros-geneve-geneve",
-        "kocher-f-h-d-societe-cooperative-migros-geneve-geneve"
+        "fachverkaufer-m-w-d-societe-cooperative-migros-geneve-gland"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

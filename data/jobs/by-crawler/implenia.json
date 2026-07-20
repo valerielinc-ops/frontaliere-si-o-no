@@ -858,7 +858,7 @@
       "url": "https://jobs.implenia.com/job/Bewirtschafter-CREM-%28mwd%29%2C-OpfikonBern%2C-50/13278-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T13:00:02.450Z",
+      "crawledAt": "2026-07-19T11:48:49.212Z",
       "addressLocality": "Thurgauerstrasse 101A",
       "postalCode": "",
       "streetAddress": "",
@@ -878,18 +878,28 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
-        "operatore-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a"
+        "operatore-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
+        "operatore-crem-m-f-d-opfikon-50-implenia-thurgauerstrasse-101a",
+        "operator-crem-m-f-d-opfikon-50-implenia-thurgauerstrasse-101a",
+        "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch",
+        "opfikon-50-implenia-thurgauerstrasse-101a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
-          "operatore-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a"
+          "operatore-crem-m-f-d-opfikon-berne-50-implenia-thurgauerstrasse-101a",
+          "operatore-crem-m-f-d-opfikon-50-implenia-thurgauerstrasse-101a"
         ],
         "en": [
-          "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch"
+          "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
+          "operator-crem-m-f-d-opfikon-50-implenia-thurgauerstrasse-101a"
         ],
         "fr": [
-          "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch"
+          "bewirtschafter-crem-m-w-d-opfikon-bern-50-implenia-ch",
+          "opfikon-50-implenia-thurgauerstrasse-101a"
+        ],
+        "de": [
+          "bewirtschafter-crem-m-w-d-opfikon-50-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-06-30T22:40:03.098Z",
@@ -904,7 +914,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-5582db5b90c1",
@@ -1116,14 +1127,16 @@
         "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
         "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
         "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
-        "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon"
+        "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+        "direttore-dei-lavori-gu-tu-zurigo-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch",
           "bauleiter-gu-tu-zurich-m-w-d-implenia-glattpark-opfikon",
           "responsabile-costruzione-gu-tu-zurich-f-m-d-implenia-glattpark-opfikon",
-          "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon"
+          "responsabile-costruzioni-imprenditore-generale-tu-zurich-f-m-d-implenia-glattpark-opfikon",
+          "direttore-dei-lavori-gu-tu-zurigo-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-gu-tu-zurich-w-m-d-implenia-ch"
@@ -1202,7 +1215,9 @@
         "datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
         "project-assistance-datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
         "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-        "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon"
+        "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon",
+        "pulizia-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon",
+        "reduction-de-la-pollution-p-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1212,7 +1227,8 @@
           "datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
           "project-assistance-datacenter-80-100-w-m-d-implenia-glattpark-opfikon",
           "projektassistenz-datacenter-80-100-w-m-d-implenia-ch",
-          "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon"
+          "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon",
+          "pulizia-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
@@ -1220,7 +1236,8 @@
         ],
         "fr": [
           "polier-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
-          "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon"
+          "centre-de-donnees-d-aide-au-projet-80-100-p-m-j-implenia-glattpark-opfikon",
+          "reduction-de-la-pollution-p-m-d-implenia-glattpark-opfikon"
         ],
         "de": [
           "projektassistenz-datacenter-80-100-w-m-d-implenia-ch"
@@ -1271,7 +1288,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Schadstoffsanierung-%28wmd%29/12750-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T13:00:00.321Z",
+      "crawledAt": "2026-07-19T22:41:01.376Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1293,14 +1310,16 @@
         "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
         "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
         "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
-        "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669"
+        "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669",
+        "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-ch",
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon",
           "rimediazione-dell-inquinamento-dell-impresa-w-m-d-implenia-glattpark-opfikon",
-          "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669"
+          "bonifica-degli-inquinanti-foreman-f-m-d-implenia-glattpark-opfikon-13d669",
+          "capocantiere-bonifica-inquinanti-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "baufuhrer-schadstoffsanierung-w-m-d-implenia-glattpark-opfikon"
@@ -2491,13 +2510,15 @@
       "previousSlugs": [
         "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
         "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-        "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon"
+        "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+        "responsabile-della-pianificazione-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch",
           "responsabile-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon",
-          "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon"
+          "responsabile-della-pianificazione-progetto-di-conversione-jelmoli-f-m-d-implenia-glattpark-opfikon",
+          "responsabile-della-pianificazione-del-progetto-di-ristrutturazione-jelmoli-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "planungsleiter-umbauprojekt-jelmoli-w-m-d-implenia-ch"
@@ -5066,7 +5087,13 @@
         "conversione-del-direttore-di-costruzione-f-m-d-implenia-glattpark-opfikon",
         "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
         "direttore-dei-lavori-di-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
-        "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon"
+        "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon",
+        "pianificatore-dei-costi-di-costruzione-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
+        "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
+        "conversion-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon",
+        "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon",
+        "baukostenplaner-umbau-w-m-d-implenia-ch",
+        "transformation-du-planificateur-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5074,14 +5101,23 @@
           "bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
           "conversione-del-direttore-di-costruzione-f-m-d-implenia-glattpark-opfikon",
           "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon",
-          "direttore-dei-lavori-di-ristrutturazione-f-m-d-implenia-glattpark-opfikon"
+          "direttore-dei-lavori-di-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
+          "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon",
+          "pianificatore-dei-costi-di-costruzione-ristrutturazione-f-m-d-implenia-glattpark-opfikon",
+          "baukostenplaner-umbau-w-m-d-implenia-glattpark-opfikon",
+          "conversion-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
-          "bauleiter-umbau-w-m-d-implenia-ch"
+          "bauleiter-umbau-w-m-d-implenia-ch",
+          "construction-cost-planner-conversion-f-m-d-implenia-glattpark-opfikon"
         ],
         "fr": [
           "bauleiter-umbau-w-m-d-implenia-ch",
-          "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon"
+          "transformation-du-chef-de-chantier-f-m-d-implenia-glattpark-opfikon",
+          "transformation-du-planificateur-des-couts-de-construction-f-m-d-implenia-glattpark-opfikon"
+        ],
+        "de": [
+          "baukostenplaner-umbau-w-m-d-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.606Z",
@@ -5529,7 +5565,9 @@
         "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-ch",
         "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
         "project-manager-per-i-costruttori-m-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
-        "project-manager-rappresentanza-clienti-l-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon"
+        "project-manager-rappresentanza-clienti-l-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
+        "project-manager-client-representation-m-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon",
+        "chef-de-projet-representation-client-mois-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5539,10 +5577,12 @@
           "project-manager-rappresentanza-clienti-l-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon"
         ],
         "en": [
-          "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-ch"
+          "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-ch",
+          "project-manager-client-representation-m-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon"
         ],
         "fr": [
-          "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-ch"
+          "projektleiter-bauherrenvertretung-m-w-d-opfikon-80-100-implenia-ch",
+          "chef-de-projet-representation-client-mois-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a-8152-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-01T12:15:17.702Z",
@@ -5557,8 +5597,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-52d1040b633f",
