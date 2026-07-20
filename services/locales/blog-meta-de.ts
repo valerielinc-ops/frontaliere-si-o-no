@@ -8724,6 +8724,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Arbeiten als Klempner im Tessin: Gehalt, Voraussetzungen und Freigabe G',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Steuern, Doppelbesteuerung, G-Bewilligung, Anerkennung des Bildungsabschlusses und Durchschnittslohn für einen Grenzklempner im Tessin',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Foto eines italienischen Grenzgängers als Heizungsfachmann',
+    'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Wie viel verdient ein Grenzklempner im Tessin',
+    'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'AHV-, BVG- und Quellensteuerbeiträge: Vergütungsrahmen für Grenzklempner im Tessin.',
+    'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Grenzgänger Klempner arbeitet im Kanton Tessin',
 };
 
 export default blogMetaDe;

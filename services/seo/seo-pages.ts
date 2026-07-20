@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3372,
+ "numberOfItems": 3373,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8140,7 +8140,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3369, "name": "Lavorare come receptionist in Ticino: stipendio...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-receptionist-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3370, "name": "Lavorare come idraulico in Ticino: stipendio, r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-idraulico-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3371, "name": "Docenti frontalieri in Ticino: requisiti e rico...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-docente-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3372, "name": "Docenti frontalieri in Ticino: stipendio e requ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieredicente-stipendio-requisiti-ticino` }
+          { "@type": "ListItem", "position": 3372, "name": "Docenti frontalieri in Ticino: stipendio e requ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieredicente-stipendio-requisiti-ticino` },
+          { "@type": "ListItem", "position": 3373, "name": "Quanto guadagna un idraulico frontaliere in Ticino", "url": `${BASE_URL}/articoli-frontaliere/idraulico-ticino-frontiera-guadagno` }
  ]
  },
  {

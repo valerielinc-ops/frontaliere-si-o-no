@@ -26216,6 +26216,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'idraulico-ticino-frontiera-guadagno',
+ category: 'pratico',
+ date: '2026-07-20T20:08:00.403Z',
+ image: '/images/blog/idraulico-ticino-frontiera-guadagno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

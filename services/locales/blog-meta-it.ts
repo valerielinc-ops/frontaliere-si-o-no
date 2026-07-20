@@ -8726,6 +8726,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Lavorare come idraulico in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Imposte, doppia imposizione, permesso G, riconoscimento del titolo di studio e stipendio medio per un idraulico frontaliere in Ticino',
     'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Foto di un idraulico frontaliere in Ticino',
+    'blog.article.idraulico-ticino-frontiera-guadagno.title': 'Quanto guadagna un idraulico frontaliere in Ticino',
+    'blog.article.idraulico-ticino-frontiera-guadagno.excerpt': 'Contributi AVS, LPP e imposta alla fonte: quadro retributivo per l\'idraulico frontaliere in Ticino.',
+    'blog.article.idraulico-ticino-frontiera-guadagno.imageAlt': 'Idraulico frontaliere al lavoro in Canton Ticino',
 };
 
 export default blogMetaIt;
