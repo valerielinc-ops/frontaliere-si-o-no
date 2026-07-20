@@ -4666,6 +4666,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-shock-svizzera-azienda-chiude-110-licenziati': { name: 'Il colosso tedesco dell\'auto è in crisi', path: '/articoli-svizzera/shock-svizzera-azienda-chiude-110-licenziati/', parent: 'blog' },
     'blog-coronavirus-frontalieri-ticino-svizzera': { name: 'Frontalieri in Svizzera', path: '/articoli-frontaliere/coronavirus-frontalieri-ticino-svizzera', parent: 'blog' },
     'blog-frontalieriprogettista-elettricoin-ticino': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontalieriprogettista-elettricoin-ticino/', parent: 'blog' },
+    'blog-frontaliere-polimeccanico-ticino-stipendio-requisiti': { name: 'Lavorare come polimeccanico in Ticino da', path: '/articoli-frontaliere/frontaliere-polimeccanico-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

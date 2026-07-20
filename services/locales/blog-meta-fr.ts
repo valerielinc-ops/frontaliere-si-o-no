@@ -8675,6 +8675,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontaliers, travail et permis G : le conseiller Vitta',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Le conseiller d\'Etat Christian Vitta a précisé que les travailleurs frontaliers pourront se rendre au travail en Suisse, mais qu\'ils devront être munis du permis G.',
     'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontaliers en transit par un passage frontalier entre l\'Italie et la Suisse.',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polymécanicien au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Le permis G permet aux frontaliers de travailler en Suisse. Les polymécaniciens frontaliers du Tessin peuvent travailler dans des entreprises de construction',
+    'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Un plombier frontalier en Suisse',
 };
 
 export default blogMetaFr;
