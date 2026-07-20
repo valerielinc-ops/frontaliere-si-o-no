@@ -1324,6 +1324,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Treuhänderischer Grenzgänger: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Treuhänderische Grenzgänger im Tessin müssen eine durchschnittliche Gehaltsanforderung haben, aber es gibt keinen Hinweis auf eine bestimmte Gehaltsanforderung.',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von Lugano mit einem Grenzfiduziarius am Werk',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Grenzgänger Sozialarbeiter im Tessin: Gehalt und Voraussetzungen',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Durchschnittslohn und Voraussetzungen, um als Grenzgänger Sozialarbeiter im Tessin zu arbeiten.',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger als Gesundheitsassistent in einem Schweizer Krankenhaus, mit einem modernen und technologischen Umfeld.',
 };
 
 export default blogMetaChDe;

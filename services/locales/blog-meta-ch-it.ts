@@ -1324,6 +1324,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Frontaliere fiduciario: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'I frontalieri fiduciari in Ticino devono avere un requisito di stipendio medio, ma non esiste alcun riferimento a un requisito di stipendio specifico.',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano con un frontaliere fiduciario al lavoro',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Frontaliere assistente sociale in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Stipendio medio e requisiti per lavorare come frontaliere assistente sociale in Ticino.',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere assistente sociale in un ospedale in Svizzera, con un ambiente moderno e tecnologico.',
 };
 
 export default blogMetaChIt;
