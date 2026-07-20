@@ -18,24 +18,26 @@
  * (in-flow, fixed copy, no async swap) and reuses the `.s-cbody` / `.s-cta`
  * classes whose geometry is already reserved by the shared critical CSS.
  *
- * One source of truth for the localized `/per-le-aziende/` target: mirrors
- * SLUG_TABLES[locale].forEmployers in services/router.ts (build plugins cannot
- * import the SPA router — services/router.ts pulls browser-only modules).
- * Trailing slash mandatory (repo rule).
+ * One source of truth for the localized `/per-le-aziende/` target: derived
+ * from the shared SLUG_TABLES[locale].forEmployers (#4315). Trailing slash
+ * mandatory (repo rule).
  */
 
 import { escHtml as esc } from './htmlEscape';
 import { SMALL_HEADING_STYLE, BODY_STYLE, CARD_BODY_CLASS } from './seoContentTokens';
+import { SLUG_TABLES } from '../../services/routeSlugs.data';
 
 export type EmployerCtaLocale = 'it' | 'en' | 'de' | 'fr';
 
 /** Localized for-employers landing path — trailing slash by construction. */
-export const FOR_EMPLOYERS_PATH: Record<EmployerCtaLocale, string> = {
-  it: '/per-le-aziende/',
-  en: '/en/for-employers/',
-  de: '/de/fuer-unternehmen/',
-  fr: '/fr/pour-les-entreprises/',
-};
+export const FOR_EMPLOYERS_PATH: Record<EmployerCtaLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].forEmployers}/`;
+    return acc;
+  },
+  {} as Record<EmployerCtaLocale, string>,
+);
 
 interface EmployerCtaCopy {
   readonly title: string;

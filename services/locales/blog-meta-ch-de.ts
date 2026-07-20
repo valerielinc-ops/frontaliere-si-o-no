@@ -1303,6 +1303,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Technischer Zeichner im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Die Gehälter der Technischen Zeichner im Tessin für Grenzgänger, die Voraussetzungen für die Arbeit als Technischer Zeichner im Tessin als Grenzgänger und wie man den Abschluss erkennt und die Genehmigung G erhält.',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Ein technischer Designer in einem Büro in Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein technischer Grenzzeichner im Tessin?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'Die Löhne der technischen Grenzzeichner im Tessin werden durch Faktoren wie Erfahrung und Branche beeinflusst.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Eine Panoramablick auf die Stadt Lugano, mit einem schweizerischen Grenzgänger-technischen Zeichner, der in seinem Studio arbeitet.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'In Genf haben Grenzgänger das Recht, im öffentlichen Sektor zu arbeiten',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'Die Genfer Kantonsregierung lehnte die mcg-Initiative ab, die den Ausschluss von öffentlichen Stellen forderte',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Schweizerische öffentliche Beschäftigung, Recht frontaliers zur Arbeit',
 };
 
 export default blogMetaChDe;

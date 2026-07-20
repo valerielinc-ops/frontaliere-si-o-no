@@ -1303,6 +1303,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere il titolo di studio e ottenere il permesso G.',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Un disegnatore tecnico in un ufficio a Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Una vista panoramica della città di Lugano, con un disegnatore tecnico frontaliere che lavora nel suo studio.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'Il Governo cantonale ginevrino ha respinto l\'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Scene di lavoro pubblico in Svizzera, frontalieri e diritto al lavoro',
 };
 
 export default blogMetaChIt;

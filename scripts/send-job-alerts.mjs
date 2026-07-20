@@ -43,6 +43,7 @@ import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { resolveEffectiveJobAlertTier, JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -109,12 +110,12 @@ if (TARGET_EMAIL_RAW) {
 // slash is canonical (site convention) and dodges a no-slash→slash 301 on POST.
 const UNSUB_URL = `${BASE_URL}/disiscrivi-alert/`;
 
-// Locale-aware newsletter preferences slugs (must match router.ts slug tables)
+// Locale-aware newsletter preferences slugs — derived from shared SLUG_TABLES (#4315)
 const PREFERENCES_SLUGS = {
-  it: 'preferenze-newsletter',
-  en: 'newsletter-preferences',
-  de: 'newsletter-einstellungen',
-  fr: 'preferences-newsletter',
+  it: SLUG_TABLES.it.newsletterPreferences,
+  en: SLUG_TABLES.en.newsletterPreferences,
+  de: SLUG_TABLES.de.newsletterPreferences,
+  fr: SLUG_TABLES.fr.newsletterPreferences,
 };
 
 // IT is canonical (no prefix); other locales get /{locale}/ prefix.

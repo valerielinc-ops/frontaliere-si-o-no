@@ -16827,6 +16827,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disegnatore-tecnico-frontaliere-ticino-guadagno': {
+    title: 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    description: 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, disegnatore, tecnico',
+    ogTitle: 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    ogDescription: 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza.',
+    canonicalPath: '/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un disegnatore tecnico frontaliere in Ticino?",
+      "description": "I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l'esperienza e il settore di appartenenza. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disegnatore-tecnico-frontaliere-ticino-guadagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista panoramica della città di Lugano, con un disegnatore tecnico frontaliere che lavora nel suo studio."
+      },
+      "datePublished": "2026-07-20T10:31:18+00:00",
+      "dateModified": "2026-07-20T10:31:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ginevra-frontalieri-diritto-lavoro-pubblico': {
+    title: 'Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico',
+    description: 'Il Governo cantonale ginevrino ha respinto l\'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, hanno, diritto, lavorare',
+    ogTitle: 'Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico',
+    ogDescription: 'Il Governo cantonale ginevrino ha respinto l\'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici',
+    canonicalPath: '/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico",
+      "description": "Il Governo cantonale ginevrino ha respinto l'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ginevra-frontalieri-diritto-lavoro-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scene di lavoro pubblico in Svizzera, frontalieri e diritto al lavoro"
+      },
+      "datePublished": "2026-07-20T10:51:54+00:00",
+      "dateModified": "2026-07-20T10:51:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
