@@ -8735,6 +8735,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Lavorare come pittore in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi il stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di studio e il permesso G.',
     'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Un pittore che lavora nella città di Lugano, con la vista del lago di Lugano sullo sfondo.',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Frontaliere giardiniere Ticino: stipendio medio e requisiti',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'Il nuovo accordo fiscale del 2020 stabilisce i requisiti per lavorare come giardiniere in Ticino',
+    'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere giardiniere lavora in un giardino di Mendrisio, Ticino',
 };
 
 export default blogMetaIt;
