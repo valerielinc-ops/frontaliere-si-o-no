@@ -1,18 +1,50 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-07-20T11:55:43.253Z",
-  "total": 128,
+  "generatedAt": "2026-07-20T22:28:02.607Z",
+  "total": 127,
   "newCount": 1,
   "updatedCount": 81,
   "removedCount": 1,
   "unchangedCount": 10,
-  "durationMs": 2893,
-  "avgDurationMs": 2893,
+  "durationMs": 3169,
+  "avgDurationMs": 3169,
   "durationHistory": [
-    2893
+    3169
   ],
   "newJobs": [
+    {
+      "title": "Assistant Comptable (70% - 100%)",
+      "slug": "assistant-comptable-70-100-pwc-lausanne",
+      "url": "https://jobs.pwc.ch/job-vacancies/assistant-comptable/22f2c1ed-4659-41ec-b8c1-f3d6a0338bf1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Lausanne/Assistant-Comptable--70----100--_745969WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-07-20",
+      "validThrough": "2036-07-16",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Associate / Senior Associate - Beratung Gesundheitswesen",
       "slug": "associate-senior-associate-beratung-gesundheitswesen-pwc-bern",
@@ -35,16 +67,19 @@
       "validThrough": "2036-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-41c531f14a50",
+      "salaryMin": 105000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-07-20T11:55:43.230Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Aktuar/-in - Intern/Trainee- Actuarial Services (6 Monate)",
       "slug": "aktuar-in-intern-trainee-actuarial-services-6-monate-pwc-zurich",
@@ -857,41 +892,6 @@
       }
     },
     {
-      "title": "Associate - Karriereeinstieg Steuerberatung 80 - 100%",
-      "slug": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/c6d91f26-9041-4651-99cb-39bed7d02747",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zug/Karriereeinstieg-in-die-Steuerberatung-Zentralschweiz_618080WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-09",
-      "validThrough": "2036-06-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-7f6ee3851b03",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-06-10T12:50:57.954Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "title": "Mandatsleiter:in Treuhand 60 - 100%",
       "slug": "mandatsleiter-in-treuhand-60-100-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/mandatsleiter-in-treuhand/0e471828-c441-4217-bbfd-629933fc1aaf",
@@ -1098,39 +1098,38 @@
   ],
   "removedJobs": [
     {
-      "title": "Director CIO Advisory Middle Markets",
-      "slug": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/director-cio-advisory-middle-markets/2fa51616-249a-4b1e-8b72-9d8ac282c775",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Director-CIO-Advisory-Middle-Markets_715784WD/apply",
+      "title": "Associate - Karriereeinstieg Steuerberatung 80 - 100%",
+      "slug": "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/c6d91f26-9041-4651-99cb-39bed7d02747",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zug/Karriereeinstieg-in-die-Steuerberatung-Zentralschweiz_618080WD-1/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "location": "Zug",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
       "addressCountry": "CH",
-      "canton": "ZH",
+      "canton": "ZG",
       "country": "CH",
-      "category": "consulting",
+      "category": "tax",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-06",
-      "validThrough": "2036-05-02",
+      "sourceLang": "de",
+      "postedDate": "2026-06-09",
+      "validThrough": "2036-06-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-753e516c3a34",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
+      "id": "pwc-7f6ee3851b03",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-06T22:31:19.674Z",
-      "_qualityScore": 90,
+      "firstSeenAt": "2026-06-10T12:50:57.954Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ],
