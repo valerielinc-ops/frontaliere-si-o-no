@@ -206,12 +206,11 @@ const CROSSLINKS: Array<{ href: Record<Locale, string>; label: Record<Locale, st
     // (#4315). Naively locale-prefixing the IT slug (e.g. /en/cerca-lavoro-ticino/)
     // 404s — router.ts only matches the CURRENT locale's own jobBoard slug (see
     // parseRoute() ~line 3191).
-    href: {
-      it: `/${SLUG_TABLES.it.jobBoard}/`,
-      en: `/en/${SLUG_TABLES.en.jobBoard}/`,
-      de: `/de/${SLUG_TABLES.de.jobBoard}/`,
-      fr: `/fr/${SLUG_TABLES.fr.jobBoard}/`,
-    },
+    href: (['it', 'en', 'de', 'fr'] as const).reduce((acc, locale) => {
+      const prefix = locale === 'it' ? '' : `/${locale}`;
+      acc[locale] = `${prefix}/${SLUG_TABLES[locale].jobBoard}/`;
+      return acc;
+    }, {} as Record<Locale, string>),
     label: { it: 'Lavoro in Ticino', en: 'Jobs in Ticino', de: 'Stellen im Tessin', fr: 'Emplois au Tessin' },
   },
   {

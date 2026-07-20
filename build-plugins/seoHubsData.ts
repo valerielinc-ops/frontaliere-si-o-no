@@ -85,30 +85,35 @@ export interface HubSlugs {
 // fix for those two (canton-aware, from the separate cantonResolvers.mjs
 // source of truth) — out of scope for the SLUG_TABLES centralization this
 // file's articlesAll is part of. companiesAll has no SLUG_TABLES equivalent.
+function articlesAllFor(locale: HubLocale): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${SLUG_TABLES[locale].blog}/${HUB_SLUG_BY_LOCALE[locale].tutti}/`;
+}
+
 export const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
   it: {
     jobsAll: '/cerca-lavoro-ticino/tutti/',
     sectorsAll: '/cerca-lavoro-ticino/settori/',
     companiesAll: '/aziende-che-assumono/tutte/',
-    articlesAll: `/${SLUG_TABLES.it.blog}/${HUB_SLUG_BY_LOCALE.it.tutti}/`,
+    articlesAll: articlesAllFor('it'),
   },
   en: {
     jobsAll: '/en/find-jobs-ticino/all/',
     sectorsAll: '/en/find-jobs-ticino/sectors/',
     companiesAll: '/en/companies-hiring/all/',
-    articlesAll: `/en/${SLUG_TABLES.en.blog}/${HUB_SLUG_BY_LOCALE.en.tutti}/`,
+    articlesAll: articlesAllFor('en'),
   },
   de: {
     jobsAll: '/de/jobs-im-tessin/alle/',
     sectorsAll: '/de/jobs-im-tessin/branchen/',
     companiesAll: '/de/firmen-die-einstellen/alle/',
-    articlesAll: `/de/${SLUG_TABLES.de.blog}/${HUB_SLUG_BY_LOCALE.de.tutti}/`,
+    articlesAll: articlesAllFor('de'),
   },
   fr: {
     jobsAll: '/fr/trouver-emploi-tessin/tous/',
     sectorsAll: '/fr/trouver-emploi-tessin/secteurs/',
     companiesAll: '/fr/entreprises-qui-recrutent/toutes/',
-    articlesAll: `/fr/${SLUG_TABLES.fr.blog}/${HUB_SLUG_BY_LOCALE.fr.tutti}/`,
+    articlesAll: articlesAllFor('fr'),
   },
 };
 

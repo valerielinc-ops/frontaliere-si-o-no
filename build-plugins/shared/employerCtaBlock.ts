@@ -30,12 +30,14 @@ import { SLUG_TABLES } from '../../services/routeSlugs.data';
 export type EmployerCtaLocale = 'it' | 'en' | 'de' | 'fr';
 
 /** Localized for-employers landing path — trailing slash by construction. */
-export const FOR_EMPLOYERS_PATH: Record<EmployerCtaLocale, string> = {
-  it: `/${SLUG_TABLES.it.forEmployers}/`,
-  en: `/en/${SLUG_TABLES.en.forEmployers}/`,
-  de: `/de/${SLUG_TABLES.de.forEmployers}/`,
-  fr: `/fr/${SLUG_TABLES.fr.forEmployers}/`,
-};
+export const FOR_EMPLOYERS_PATH: Record<EmployerCtaLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].forEmployers}/`;
+    return acc;
+  },
+  {} as Record<EmployerCtaLocale, string>,
+);
 
 interface EmployerCtaCopy {
   readonly title: string;

@@ -66,19 +66,23 @@ import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 // ── Cross-feature paths (derived from shared SLUG_TABLES, #4315) ─
 
-const CALCULATOR_PATH: Record<ExchangeLocale, string> = {
-  it: `/${SLUG_TABLES.it.calcolatore}/`,
-  en: `/en/${SLUG_TABLES.en.calcolatore}/`,
-  de: `/de/${SLUG_TABLES.de.calcolatore}/`,
-  fr: `/fr/${SLUG_TABLES.fr.calcolatore}/`,
-};
+const CALCULATOR_PATH: Record<ExchangeLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].calcolatore}/`;
+    return acc;
+  },
+  {} as Record<ExchangeLocale, string>,
+);
 
-const SPA_COMPARATOR_PATH: Record<ExchangeLocale, string> = {
-  it: `/${SLUG_TABLES.it.confronti}/${SLUG_TABLES.it.exchange}/`,
-  en: `/en/${SLUG_TABLES.en.confronti}/${SLUG_TABLES.en.exchange}/`,
-  de: `/de/${SLUG_TABLES.de.confronti}/${SLUG_TABLES.de.exchange}/`,
-  fr: `/fr/${SLUG_TABLES.fr.confronti}/${SLUG_TABLES.fr.exchange}/`,
-};
+const SPA_COMPARATOR_PATH: Record<ExchangeLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].confronti}/${SLUG_TABLES[locale].exchange}/`;
+    return acc;
+  },
+  {} as Record<ExchangeLocale, string>,
+);
 
 // 'scenari'/'scenarios'/'szenarien' suffix is local to this exchange
 // vertical (no SLUG_TABLES entry); only the calcolatore prefix is shared.
