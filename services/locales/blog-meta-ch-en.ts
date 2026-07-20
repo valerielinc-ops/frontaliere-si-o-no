@@ -1288,6 +1288,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'How much does a border mechanic earn in Ticino',
     'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analysis of the salary band for border mechanics in Ticino: tax deductions, AVS/LPP contributions and impact of the new Border Agreement.',
     'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Modern mechanical workshop in Ticino, Switzerland',
+    'blog.article.frontalieri-salario-meccatronico.title': 'How much does a border mechatronic earn in Ticino?',
+    'blog.article.frontalieri-salario-meccatronico.excerpt': 'The salary of a border mechatronic in Ticino is influenced by factors such as nationality, residence and work experience.',
+    'blog.article.frontalieri-salario-meccatronico.imageAlt': 'A mechanic working in an office at Lugano.',
 };
 
 export default blogMetaChEn;

@@ -4673,6 +4673,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-meccanico-ticino-stipendio-requisiti': { name: 'Requisiti per lavorare come meccanico in', path: '/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-stipendio-meccanico-frontaliere-ticino': { name: 'Quanto guadagna un meccanico frontaliere', path: '/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/', parent: 'blog' },
     'blog-frontaliere-meccatronico-ticino-stipendio-requisiti': { name: 'Frontaliere meccatronico Ticino', path: '/articoli-frontaliere/frontaliere-meccatronico-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontalieri-salario-meccatronico': { name: 'Salario frontaliere Ticino', path: '/articoli-svizzera/frontalieri-salario-meccatronico/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
