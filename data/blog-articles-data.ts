@@ -26135,6 +26135,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-stipendio-tecnico-automazione',
+ category: 'pratico',
+ date: '2026-07-20T10:18:49.166Z',
+ image: '/images/blog/frontalieri-ticino-stipendio-tecnico-automazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

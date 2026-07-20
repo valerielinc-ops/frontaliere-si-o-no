@@ -8699,6 +8699,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'Quanto guadagna un operatore CNC frontaliere in Ticino?',
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'Gli stipendi degli operatori CNC frontaliere in Ticino sono influenzati da vari fattori, come la fascia salariale, le differenze rispetto all\'Italia e i fattori che incidono sulla retribuzione.',
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'Un operatore CNC frontaliere lavora in un\'azienda del Canton Ticino, con una vista sulla città di Lugano.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.title': 'Quanto guadagna un tecnico automazione frontaliere in Ticino?',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.excerpt': 'Imposta alla fonte e differenze salariali rispetto all\'Italia.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.imageAlt': 'Un tecnico automazione lavora in una città di frontiera tra Svizzera e Italia.',
 };
 
 export default blogMetaIt;

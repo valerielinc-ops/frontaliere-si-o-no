@@ -8699,6 +8699,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'Combien gagne un opérateur CNC frontalier au Tessin ?',
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'Les salaires des opérateurs CNC frontaliers au Tessin sont influencés par divers facteurs, tels que la fourchette des salaires, les différences par rapport à l\'Italie et les facteurs qui affectent la rémunération.',
     'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'Un opérateur CNC travaille dans une entreprise du Canton Ticino, avec une vue sur la ville de Lugano.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.title': 'Combien gagne un technicien en automatisation frontalière au Tessin ?',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.excerpt': 'Impôt à la source et différences de salaires par rapport à l\'Italie.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.imageAlt': 'Un technicien de l\'automatisation travaille dans une ville de frontière entre la Suisse et l\'Italie.',
 };
 
 export default blogMetaFr;
