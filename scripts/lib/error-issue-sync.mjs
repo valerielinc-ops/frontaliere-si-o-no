@@ -62,23 +62,22 @@ export const ISSUE_DENY_PATTERNS = [
   // its trailing query window. Same anchored shape as the benign pattern.
   /^(?:Error: )?Script error\.?$/i,
   // Bare-URL <script>/<link> load failure during the CDN propagation window
-  // (#4151 CSS-only fix, generalized to JS by #4592). The inline SW-recovery
-  // script (index.html SELF_HEAL_SCRIPT_CONTENT) catches error events on ANY
-  // /assets/*.js|.css <script>/<link> element regardless of chunk name — the
-  // eagerly modulepreloaded ones (App/i18n/it-core/it-calculator/vendor-react,
-  // vite.config.ts chunkFileNames rationale) hit this far more often since
-  // they load on nearly every page — stores _swErrorInfo in sessionStorage,
-  // busts the HTTP cache, and reloads. Kept in GA4/PostHog dashboards for
-  // observability (analytics.ts trackAppError('sw_cache_stale', ...)) but not
-  // actionable as a backlog ticket: the reload is the fix and the CDN window
-  // closes in seconds. Confirmed self-healing for BOTH extensions and for
-  // non-critical lazy chunks too (data/error-triage-baseline.json ranks 1/2/5:
-  // seo-static.css, index.css AND NewsletterPopup.js all logged
-  // "already-self-healing" during #4304 triage). Anchored to the bare-URL
+  // (#4151 CSS-only fix, generalized to JS by #4592). The inline bootstrap
+  // recovery snippet catches error events on ANY /assets/*.js|.css tag
+  // regardless of chunk name — the handful of chunks preloaded on nearly
+  // every page hit this far more often, since a normal deploy's short
+  // post-deploy skew window then shows up at higher absolute volume — stores
+  // the failing resource in sessionStorage, busts the HTTP cache, and
+  // reloads. Kept in the dashboards for observability but not actionable as
+  // a backlog ticket: the reload is the fix and the CDN window closes in
+  // seconds. Confirmed self-healing for BOTH extensions and for non-critical
+  // lazily-loaded chunks too (data/error-triage-baseline.json ranks 1/2/5
+  // logged this exact "already-self-healing" verdict for two CSS chunks and
+  // one lazy JS chunk alike during #4304 triage). Anchored to the bare-URL
   // shape so it does NOT match the *different* message shape produced by a
   // dynamic import() rejection ("Stale chunk: Failed to fetch dynamically
-  // imported module: …", set from the unhandledrejection handler) — that
-  // shape stays issue-able to surface persistent CDN outages.
+  // imported module: …") — that shape stays issue-able to surface
+  // persistent CDN outages.
   /^Stale chunk: https?:\/\/\S+\.(?:js|css)(?:\?\S*)?$/i,
   // User-cancelled navigation / fetch abort (#4147 class): "AbortError: The
   // user aborted a request." (WebKit), "AbortError: The operation was aborted."
