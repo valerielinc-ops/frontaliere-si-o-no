@@ -1348,6 +1348,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giardiniere-frontaliere-ticino-salario.title': 'How much does a border gardener earn in Ticino?',
     'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'The salary of a border gardener in Ticino is subject to the same tax rules as Switzerland',
     'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'A panoramic view of Lake Lugano, with a gardener in the foreground, working in a garden in front of a house in Switzerland',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Tinsmith in Ticino: salary, requirements and title',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Here are the requirements and average salary for tin border workers in Ticino',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Panorama view of Lugano with Lake Lugano',
 };
 
 export default blogMetaChEn;

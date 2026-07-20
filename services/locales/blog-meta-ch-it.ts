@@ -1348,6 +1348,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giardiniere-frontaliere-ticino-salario.title': 'Quanto guadagna un giardiniere frontaliere in Ticino?',
     'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'Il salario di un giardiniere frontaliere in Ticino è soggetto alle stesse regole fiscali della Svizzera',
     'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'Una panoramica del Lago di Lugano, con un giardiniere in primo piano, lavorando in un giardino davanti a una casa in Svizzera',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Lattoniere in Ticino: stipendio, requisiti e titolo',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Vista panoramica di Lugano con il Lago di Lugano',
 };
 
 export default blogMetaChIt;
