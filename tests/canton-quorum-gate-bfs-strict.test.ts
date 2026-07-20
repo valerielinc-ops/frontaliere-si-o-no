@@ -49,6 +49,20 @@ describe('run2of3Quorum (#4570 sibling, round 2 — quorum on bare canton-name r
       })
     ).toEqual({ canton: 'TI', confidence: 'high' });
   });
+
+  it('does not corroborate from a field that did not vote for the winning canton (#4617 item 2)', () => {
+    // title + addressLocality both vote TI via the bare canton name (no real
+    // city in either) -- the body votes ZH (Zürich named first) but happens
+    // to mention Lugano in unrelated boilerplate. A real city named in a
+    // non-voting field must not corroborate a vote it didn't cast.
+    expect(
+      run2of3Quorum({
+        title: 'Filiale Ticino',
+        body: 'Filiali in tutta la Svizzera: Zürich, Lugano, Ginevra.',
+        addressLocality: 'Ticino',
+      })
+    ).toEqual({ canton: '', confidence: 'low' });
+  });
 });
 
 describe('applyCantonQuorumGate (#4570 sibling)', () => {

@@ -135,9 +135,9 @@ export function runBfsStrict({ addressLocality } = {}) {
 /**
  * Fallback path: run inferAnyCanton on title, body, and addressLocality.
  * If 2 or more of the 3 signals agree on the same canton AND at least one of
- * the 3 raw fields actually names a Swiss CITY that resolves to that canton
- * → high confidence. Otherwise → low confidence (no agreed, city-corroborated
- * canton).
+ * the fields that actually VOTED for that canton names a Swiss CITY that
+ * resolves to it → high confidence. Otherwise → low confidence (no agreed,
+ * city-corroborated canton).
  *
  * The city-corroboration requirement closes the same #4570 bug class as
  * `runBfsStrict` above: `inferAnyCanton`'s "Pass 1" curated signal matches a
@@ -147,12 +147,19 @@ export function runBfsStrict({ addressLocality } = {}) {
  * city-level precision — same forged/weak canton-only signal the quorum is
  * meant to defend against, just doubled across fields instead of singular.
  *
+ * Corroboration is scoped to the fields that VOTED for the winning canton
+ * (#4617 follow-up item 2): a job whose title/addressLocality forge a canton
+ * but whose body happens to name an unrelated real city in boilerplate (e.g.
+ * a branch-office list or footer) resolving to that SAME canton must not
+ * corroborate a vote the body itself didn't cast.
+ *
  * @param {{ title?: string, body?: string, addressLocality?: string }} input
  * @returns {{ canton: string, confidence: 'high' | 'low' }}
  */
 export function run2of3Quorum({ title, body, addressLocality } = {}) {
   const fields = [normalizeText(title), normalizeText(body), normalizeText(addressLocality)];
-  const signals = fields.map(safeInferCanton).filter(Boolean);
+  const fieldVotes = fields.map(safeInferCanton);
+  const signals = fieldVotes.filter(Boolean);
 
   if (signals.length < 2) return { canton: '', confidence: 'low' };
 
@@ -162,7 +169,8 @@ export function run2of3Quorum({ title, body, addressLocality } = {}) {
   }
   for (const [code, count] of counts) {
     if (count < 2) continue;
-    const cityCorroborated = fields.some((text) => {
+    const votingFields = fields.filter((_, i) => fieldVotes[i] === code);
+    const cityCorroborated = votingFields.some((text) => {
       const city = rescueSwissCityFromText(text);
       return Boolean(city) && safeInferCanton(city) === code;
     });
