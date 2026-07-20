@@ -1339,6 +1339,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Tischler-Frontendier im Tessin: Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und Bedingungen für die Arbeit als Tischler im Tessin als Grenzgänger, inklusive Steuersätze und Aufenthaltsbewilligung.',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'Ein Tischler in der Region Lugano, mit einem Hintergrund der Stadt Lugano und dem Luganersee.',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Zimmermann im Tessin: Gehalt und Voraussetzungen für Grenzgänger',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Hier finden Sie die Anforderungen und nützlichen Informationen, um als Grenzgänger als Zimmermann im Tessin zu arbeiten',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines Zimmermanns in der Schweiz mit Hintergrund von Bergen',
 };
 
 export default blogMetaChDe;

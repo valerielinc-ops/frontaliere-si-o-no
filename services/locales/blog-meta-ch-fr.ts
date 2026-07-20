@@ -1339,6 +1339,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Frontalier charpentier au Tessin : exigences et reconnaissance',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Découvrez les exigences et les conditions pour travailler comme charpentier au Tessin en tant que frontalier, y compris les taux d\'imposition et le permis de séjour.',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'Un menuisier en action dans la région de Lugano, avec un décor de la ville de Lugano et du lac de Lugano.',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Charpentier au Tessin : salaire et exigences pour frontalier',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Voici les exigences et les informations utiles pour travailler comme charpentier au Tessin en tant que frontalier',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un charpentier en Suisse avec un fond de montagnes',
 };
 
 export default blogMetaChFr;
