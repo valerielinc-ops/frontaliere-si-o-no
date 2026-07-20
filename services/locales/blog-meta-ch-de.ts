@@ -1336,6 +1336,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Grenzgängige Dozenten im Tessin: Gehalt und Anforderungen',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Quellensteuerung auf Erwerbseinkommen: Einbehaltung NUR in der Schweiz für Grenzgänger',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Bild einer Schulklassen in Tessin',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Tischler-Frontendier im Tessin: Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und Bedingungen für die Arbeit als Tischler im Tessin als Grenzgänger, inklusive Steuersätze und Aufenthaltsbewilligung.',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'Ein Tischler in der Region Lugano, mit einem Hintergrund der Stadt Lugano und dem Luganersee.',
 };
 
 export default blogMetaChDe;

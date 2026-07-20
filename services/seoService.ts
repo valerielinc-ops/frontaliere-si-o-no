@@ -4748,6 +4748,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-docente-ticino-stipendio-requisiti': { name: 'Lavorare come docente in Ticino da', path: '/articoli-svizzera/frontaliere-docente-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontalieredicente-stipendio-requisiti-ticino': { name: 'Lavoro', path: '/articoli-svizzera/frontalieredicente-stipendio-requisiti-ticino/', parent: 'blog' },
     'blog-idraulico-ticino-frontiera-guadagno': { name: 'Idraulico frontaliere', path: '/articoli-frontaliere/idraulico-ticino-frontiera-guadagno', parent: 'blog' },
+    'blog-frontaliere-falegname-ticino-stipendio-requisiti': { name: 'Frontaliere falegname in Ticino', path: '/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -17256,6 +17256,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-falegname-ticino-stipendio-requisiti': {
+    title: 'Frontaliere falegname in Ticino: requisiti e riconoscimento',
+    description: 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, falegname, requisiti, riconoscimento, scopri',
+    ogTitle: 'Frontaliere falegname in Ticino: stipendio medio, requisiti, riconoscimento del titolo di studio e permesso G.',
+    ogDescription: 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
+    canonicalPath: '/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere falegname in Ticino: requisiti e riconoscimento",
+      "description": "Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-falegname-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un falegname in azione nella regione del Lugano, con sfondo della città di Lugano e del lago di Lugano."
+      },
+      "datePublished": "2026-07-20T20:20:13+00:00",
+      "dateModified": "2026-07-20T20:20:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
