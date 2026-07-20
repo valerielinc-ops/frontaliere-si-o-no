@@ -1315,6 +1315,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Travailler comme ressources humaines au Tessin : salaire, exigences et permis G',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'Nouvel accord frontalier : qu\'est-ce qui change pour les frontaliers qui travaillent au Tessin ?',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Image de Lugano avec des personnes de différents âges qui travaillent ou étudient ensemble.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'Combien gagne un frontalier en ressources humaines au Tessin ?',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'La Suisse est un pays avec un système fiscal complexe et de nombreuses règles pour les frontaliers.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'Une scène d\'un bureau d\'une entreprise en Suisse avec des employés de différents pays, y compris les frontaliers, qui travaillent à leurs ordinateurs.',
 };
 
 export default blogMetaChFr;

@@ -1315,6 +1315,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Lavorare come risorse umane in Ticino: stipendio, requisiti e permesso G',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'Nuovo Accordo Frontalieri: cosa cambia per i frontaliere che lavorano in Ticino?',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Immagine di Lugano con persone diverse età che lavorano o studiano insieme.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'Quanto guadagna un risorse umane frontaliere in Ticino?',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'La Svizzera è un paese con un sistema fiscale complesso e con tante regole per i frontalieri.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'Una scena di un ufficio di un\'azienda in Svizzera con dipendenti di diversi paesi, tra cui frontalieri, che lavorano al loro computer.',
 };
 
 export default blogMetaChIt;
