@@ -1,6 +1,6 @@
 {
   "crawlerKey": "interdiscount",
-  "assembledAt": "2026-07-20T12:13:15.219Z",
+  "assembledAt": "2026-07-20T11:25:53.804Z",
   "jobs": [
     {
       "id": "interdiscount-a21c188e-4fa",
@@ -1858,7 +1858,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/4e19c724-43cd-4d3d-9231-bdd21ec73a11",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:13:03.512Z",
+      "crawledAt": "2026-07-19T21:54:52.813Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1894,20 +1894,34 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-interdiscount-meilen",
-          "verkaufsberater-in-interdiscount-meilen-zurich-sbz4qc"
+          "verkaufsberater-in-interdiscount-schwyz-54fl0v",
+          "verkaufsberater-in-interdiscount-schwyz-qfi5y2"
         ],
         "it": [
           "verkaufsberater-in-interdiscount-meilen",
           "consulente-commerciale-in-interdiscount-meilen-947f5d",
-          "consulente-commerciale-in-interdiscount-meilen-62d8cd"
+          "consulente-commerciale-in-interdiscount-schwyz",
+          "sales-consultant-in-interdiscount-schwyz",
+          "verkaufsberater-in-interdiscount-schwyz-54fl0v",
+          "consultant-en-ventes-interdiscount-schwyz",
+          "verkaufsberater-in-interdiscount-schwyz",
+          "consulente-commerciale-in-interdiscount-schwyz-22db0b",
+          "sales-consultant-in-interdiscount-schwyz-22db0b",
+          "verkaufsberater-in-interdiscount-schwyz-qfi5y2",
+          "consultant-en-ventes-interdiscount-schwyz-22db0b",
+          "verkaufsberater-in-interdiscount-schwyz-2"
         ],
         "en": [
           "verkaufsberater-in-interdiscount-meilen",
-          "sales-consultant-in-interdiscount-meilen-947f5d"
+          "sales-consultant-in-interdiscount-meilen-947f5d",
+          "sales-consultant-in-interdiscount-schwyz",
+          "sales-consultant-in-interdiscount-schwyz-22db0b"
         ],
         "fr": [
           "verkaufsberater-in-interdiscount-meilen",
-          "consultant-en-ventes-interdiscount-meilen-947f5d"
+          "consultant-en-ventes-interdiscount-meilen-947f5d",
+          "consultant-en-ventes-interdiscount-schwyz",
+          "consultant-en-ventes-interdiscount-schwyz-22db0b"
         ]
       },
       "previousSlugs": [
@@ -1915,11 +1929,18 @@
         "sales-consultant-in-interdiscount-meilen-947f5d",
         "consultant-en-ventes-interdiscount-meilen-947f5d",
         "consulente-commerciale-in-interdiscount-meilen-947f5d",
-        "verkaufsberater-in-interdiscount-meilen-zurich-sbz4qc",
-        "consulente-commerciale-in-interdiscount-meilen-62d8cd"
+        "consulente-commerciale-in-interdiscount-schwyz",
+        "sales-consultant-in-interdiscount-schwyz",
+        "verkaufsberater-in-interdiscount-schwyz-54fl0v",
+        "consultant-en-ventes-interdiscount-schwyz",
+        "verkaufsberater-in-interdiscount-schwyz",
+        "consulente-commerciale-in-interdiscount-schwyz-22db0b",
+        "sales-consultant-in-interdiscount-schwyz-22db0b",
+        "verkaufsberater-in-interdiscount-schwyz-qfi5y2",
+        "consultant-en-ventes-interdiscount-schwyz-22db0b",
+        "verkaufsberater-in-interdiscount-schwyz-2"
       ],
       "firstSeenAt": "2026-07-16T22:29:58.113Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

@@ -2460,16 +2460,16 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-07-20T12:48:06.048Z",
+      "crawledAt": "2026-07-19T22:29:16.395Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
+        "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-electrics-power-swiss-armed-forces-vtg-bern",
         "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
         "fr": "specialiste-de-l-infrastructure-en-electricite-energie-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
+        "it": "Specialista delle infrastrutture / in Elettrici / Potenza",
         "en": "Infrastructure specialist / in Electrics / Power",
         "de": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
         "fr": "Spécialiste de l'infrastructure / en électricité / énergie"
@@ -2503,19 +2503,25 @@
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-          "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ],
         "en": [
           "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+          "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ],
         "de": [
-          "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
+          "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ],
         "fr": [
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern",
           "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+          "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland",
+          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland"
         ]
       },
       "previousSlugs": [
@@ -2525,11 +2531,13 @@
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
         "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern"
+        "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
+        "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
+        "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
+        "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
       ],
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-ta786n",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-07-20T11:59:55.001Z",
+  "assembledAt": "2026-07-20T11:11:29.632Z",
   "jobs": [
     {
       "id": "corner-banca-7a70bd719a1e",
@@ -585,9 +585,8 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-60-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T11:59:50.580Z",
+      "crawledAt": "2026-07-19T23:02:10.056Z",
       "firstSeenAt": "2026-07-08T22:13:15.984Z",
-      "needsRetranslation": true,
       "salaryMin": 49800,
       "salaryMax": 76500,
       "baseSalary": {
@@ -602,7 +601,32 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-consulente-100-team-zurich-corner-banca-wallisellen",
+          "customer-consulente-60-team-zurich-corner-banca-wallisellen",
+          "customer-consulente-40-corner-banca-wallisellen",
+          "customer-advisor-40-corner-banca-wallisellen",
+          "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
+          "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+        ],
+        "en": [
+          "customer-advisor-40-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
+          "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "customer-consulente-100-team-zurich-corner-banca-wallisellen",
+        "customer-consulente-60-team-zurich-corner-banca-wallisellen",
+        "customer-consulente-40-corner-banca-wallisellen",
+        "customer-advisor-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
+        "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-365d1802d2a9",

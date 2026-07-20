@@ -7542,7 +7542,7 @@
       "url": "https://jobs.emmi.com/offene-stellen/anlagenfuehrer-in-kaeseverpackung/e93449ac-84a4-4f09-b7d2-85eef4252dd0",
       "source": "Emmi Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:59:32.929Z",
+      "crawledAt": "2026-07-19T22:38:06.342Z",
       "addressLocality": "Kirchberg",
       "postalCode": "3422",
       "addressRegion": "Bern",
@@ -7574,22 +7574,29 @@
       },
       "previousSlugs": [
         "anlagenfuhrer-in-kaseverpackung-emmi-ch",
-        "operatore-in-confezione-di-formaggio-emmi-kirchberg-bern"
+        "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
+        "system-operator-in-cheese-production-emmi-kirchberg-bern",
+        "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern",
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-in-kaseverpackung-emmi-ch",
-          "operatore-in-confezione-di-formaggio-emmi-kirchberg-bern"
+          "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
+          "system-operator-in-cheese-production-emmi-kirchberg-bern",
+          "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern",
+          "anlagenfuhrer-in-kaseproduktion-emmi-ch"
         ],
         "en": [
-          "anlagenfuhrer-in-kaseverpackung-emmi-ch"
+          "anlagenfuhrer-in-kaseverpackung-emmi-ch",
+          "system-operator-in-cheese-production-emmi-kirchberg-bern"
         ],
         "fr": [
-          "anlagenfuhrer-in-kaseverpackung-emmi-ch"
+          "anlagenfuhrer-in-kaseverpackung-emmi-ch",
+          "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern"
         ]
       },
       "firstSeenAt": "2026-07-14T12:08:54.404Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {

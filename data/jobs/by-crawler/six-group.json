@@ -1,6 +1,6 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-07-20T12:05:29.310Z",
+  "assembledAt": "2026-07-20T11:53:31.970Z",
   "jobs": [
     {
       "id": "six-group-03c437722a82",
@@ -160,7 +160,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-System-Engineer/1407846633/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T12:05:18.277Z",
+      "crawledAt": "2026-07-19T22:13:56.849Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,18 +179,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-engineer-six-group-zurich",
-        "system-ingegnere-six-group-zurich"
+        "data-ingegnere-six-group-zurich",
+        "data-engineer-six-group-zurich",
+        "data-ingenieur-six-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-six-group-zurich",
-          "system-ingegnere-six-group-zurich"
+          "data-ingegnere-six-group-zurich",
+          "data-engineer-six-group-zurich",
+          "data-ingenieur-six-group-zurich"
         ],
         "de": [
           "system-engineer-six-group-zurich"
         ],
         "fr": [
-          "system-engineer-six-group-zurich"
+          "system-engineer-six-group-zurich",
+          "data-ingenieur-six-group-zurich"
+        ],
+        "en": [
+          "data-engineer-six-group-zurich"
         ]
       },
       "firstSeenAt": "2026-06-24T12:21:11.295Z",

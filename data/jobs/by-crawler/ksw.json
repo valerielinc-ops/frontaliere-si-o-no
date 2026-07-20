@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-07-20T11:51:31.428Z",
+  "assembledAt": "2026-07-20T11:35:48.703Z",
   "jobs": [
     {
       "id": "ksw-dbfe0616409b",
@@ -3470,7 +3470,7 @@
       "id": "ksw-0c70271dcbf6",
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
         "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
@@ -3480,7 +3480,7 @@
       "companyDomain": "ksw.ch",
       "title": "Radiologiefachfrau / Radiologiefachmann HF",
       "titleByLocale": {
-        "it": "Radiologiefachfrau / Radiologiefachmann HF",
+        "it": "Specialista di radiologia / Specialista di radiologia HF",
         "en": "Radiology specialist / Radiology specialist HF",
         "de": "Radiologiefachfrau / Radiologiefachmann HF",
         "fr": "Spécialiste en radiologie / Spécialiste en radiologie HF"
@@ -3497,7 +3497,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:51:20.189Z",
+      "crawledAt": "2026-07-19T21:52:18.768Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3517,18 +3517,32 @@
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
-        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+        "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
+        "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
+        "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+        "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-          "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
-          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
+          "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
+          "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
+          "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+          "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "de": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ],
+        "fr": [
+          "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

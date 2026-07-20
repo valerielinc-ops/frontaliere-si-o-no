@@ -482,7 +482,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gm-demichef-de-partie/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:08:18.288Z",
+      "crawledAt": "2026-07-19T23:02:40.632Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -518,7 +518,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:00:53.637Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -530,7 +529,25 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "demichef-pasticceria-giardino-group-champfer",
+          "demichef-pastry-giardino-group-champfer",
+          "patisserie-giardino-group-champfer"
+        ],
+        "en": [
+          "demichef-pastry-giardino-group-champfer"
+        ],
+        "fr": [
+          "patisserie-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "demichef-pasticceria-giardino-group-champfer",
+        "demichef-pastry-giardino-group-champfer",
+        "patisserie-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-f99cad5a4ded",
