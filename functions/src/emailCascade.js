@@ -51,10 +51,13 @@
  *                                2026-07-20, owner request). Primary bulk workhorse
  *                                of the cascade now — dynamically capped to pace
  *                                the 100k/mo budget, see PROVIDERS[maileroo] below.
- *                                Same key is tried against the Account API
- *                                (statistics.read scope) for real usage; falls
- *                                back to a conservative static pace if that scope
- *                                isn't granted on this key.
+ *   MAILEROO_ACCOUNT_API_KEY — Maileroo Account API key (dashboard "Applications"
+ *                                section — a DIFFERENT credential from the sending
+ *                                key above). Powers real month-to-date usage via
+ *                                statistics/summary for the dynamic pace; optional
+ *                                — falls back to a conservative static pace when
+ *                                unset (verified live 2026-07-20: the sending key
+ *                                itself gets 401 against this endpoint).
  *   RESEND_API_KEY           — Resend API key (50000/mo paid plan since 2026-07-06).
  *                                Last in cascade order since 2026-07-16 — now the
  *                                overflow valve once maileroo's much larger budget
@@ -429,11 +432,21 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
 // enforcement: Maileroo's own API rejection (caught by isRateLimitedError
 // in sendSingle) is still the real backstop if this proxy under-counts.
 export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
-  const apiKey = process.env.MAILEROO_API_KEY;
+  // Verified live 2026-07-20: this Account API endpoint rejects the X-Api-Key
+  // header the send endpoint uses (401 "Please provide a valid API key in the
+  // Authorization header") — it wants `Authorization: Bearer <key>` instead.
+  // Also verified our sending key (MAILEROO_API_KEY, a per-domain Sending Key)
+  // is NOT valid here even with the correct header shape (401 "invalid or
+  // revoked") — the Account API needs its own key, generated under
+  // Maileroo's "Applications" dashboard section, not provisioned yet.
+  // MAILEROO_ACCOUNT_API_KEY is tried first when set; MAILEROO_API_KEY is
+  // tried as a fallback in case a future account/key setup grants it the
+  // statistics.read scope directly. Either way a 401 degrades safely below.
+  const apiKey = process.env.MAILEROO_ACCOUNT_API_KEY || process.env.MAILEROO_API_KEY;
   if (!apiKey) return { count: 0, verified: false };
   try {
     const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
-      headers: { 'X-Api-Key': apiKey },
+      headers: { Authorization: `Bearer ${apiKey}` },
     });
     if (!res.ok) return { count: 0, verified: false };
     const data = await res.json().catch(() => null);
