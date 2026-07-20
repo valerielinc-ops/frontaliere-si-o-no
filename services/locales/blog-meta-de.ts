@@ -8721,6 +8721,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.leggi-frontalieri-2026.title': 'Neue Grenzgängergesetze im Tessin: Alles, was Sie wissen müssen',
     'blog.article.leggi-frontalieri-2026.excerpt': 'Die Regelungen 2026 für Grenzgänger im Tessiner Raum sind in Kraft getreten. Entdecken Sie Details, Verpflichtungen und Vorteile.',
     'blog.article.leggi-frontalieri-2026.imageAlt': 'Abendspaziergang am Ufer des Luggauer Sees mit Panoramablick',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Arbeiten als Klempner im Tessin: Gehalt, Voraussetzungen und Freigabe G',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Steuern, Doppelbesteuerung, G-Bewilligung, Anerkennung des Bildungsabschlusses und Durchschnittslohn für einen Grenzklempner im Tessin',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Foto eines italienischen Grenzgängers als Heizungsfachmann',
 };
 
 export default blogMetaDe;

@@ -8722,6 +8722,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.leggi-frontalieri-2026.title': 'New border laws in Ticino: everything you need to know',
     'blog.article.leggi-frontalieri-2026.excerpt': 'Regulations 2026 concerning border crossings in the Ticino area have entered into force. Discover details, obligations and benefits.',
     'blog.article.leggi-frontalieri-2026.imageAlt': 'Evening stroll around Lake Lugano with scenic view',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.title': 'Working as a plumber in Ticino: salary, requirements and permit G',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.excerpt': 'Taxes, double taxation, G permit, recognition of qualification and average salary for a border plumber in Ticino',
+    'blog.article.frontaliere-idraulico-ticino-stipendio-requisiti.imageAlt': 'Photo of a Swiss-Italian cross-border plumber',
 };
 
 export default blogMetaEn;
