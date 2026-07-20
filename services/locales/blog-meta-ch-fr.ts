@@ -1276,6 +1276,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crise pour le géant allemand de l\'automobile : 110 emplois menacés',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'L\'usine de Flawil, spécialisée dans la fabrication de composants métalliques de précision, fermera ses portes d\'ici fin 2027.',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Le géant allemand de l\'auto est en crise. Une usine suisse ferme et 110 employés perdent leur emploi.',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'Combien gagne un concepteur électrique frontalier au Tessin',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'Les faits sur la rémunération d\'un concepteur électrique frontalier au Tessin',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'Un frontalier travaillant en tant qu\'ingénieur électrique dans le Tessin',
 };
 
 export default blogMetaChFr;

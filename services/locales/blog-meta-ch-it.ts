@@ -1276,6 +1276,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crisi per il colosso tedesco dell\'auto: 110 posti di lavoro a rischio',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'La fabbrica di Flawil, specializzata nella realizzazione di componenti metallici di precisione, chiuderà entro la fine del 2027.',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Il Colosso tedesco dell\'auto è in crisi. Una fabbrica in Svizzera chiude e 110 addetti perdono il lavoro.',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'Quanto guadagna un progettista elettrico frontaliere in Ticino',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'I fatti sulla retribuzione di un progettista elettrico frontaliere in Ticino',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'Un frontaliere che lavora come progettista elettrico in Ticino',
 };
 
 export default blogMetaChIt;

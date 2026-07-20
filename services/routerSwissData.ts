@@ -448,6 +448,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-veterinario-ticino-requisiti': { it: 'frontaliere-veterinario-ticino-requisiti', en: 'cross-border-veterinarian-ticino-requirements', de: 'grenzgaenger-tierarzt-tessin-voraussetzungen', fr: 'frontalier-veterinaire-ticino-exigences' },
  'frontaliere-assistente-di-cura-ticino-stipendio-requisiti': { it: 'frontaliere-assistente-di-cura-ticino-stipendio-requisiti', en: 'border-worker-caregiver-ticino-salary-requirements', de: 'grenzganger-pflegebedurftiger-ticino-lohne-anforderungen', fr: 'frontalier-assistante-de-soins-ticino-salaire-requis' },
  'shock-svizzera-azienda-chiude-110-licenziati': { it: 'shock-svizzera-azienda-chiude-110-licenziati', en: 'shock-switzerland-factory-closes-110-employees-lose-jobs', de: 'shock-schweiz-fabrik-schliesst-110-mitarbeiter-verlieren-jobs', fr: 'shock-suisse-usine-ferme-110-employes-perdent-emploi' },
+ 'frontalieriprogettista-elettricoin-ticino': { it: 'frontalieriprogettista-elettricoin-ticino', en: 'frontalierielectricalengineerin-ticino', de: 'frontalier-elektroingenieur-in-tessin', fr: 'frontalier-ingenieur-electrique-au-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

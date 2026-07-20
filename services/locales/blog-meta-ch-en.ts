@@ -1276,6 +1276,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Crisis for the German car giant: 110 jobs at risk',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'The Flawil factory, which specialises in the manufacture of precision metal components, will close by the end of 2027.',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'The German auto giant is in crisis. A Swiss factory closes and 110 employees lose their jobs.',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'How much does a border electrical designer earn in Ticino',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'The facts about the remuneration of a border electrical designer in Ticino',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'A frontaliere working as an electrical engineer in Ticino',
 };
 
 export default blogMetaChEn;

@@ -1276,6 +1276,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.title': 'Krise für den deutschen Autokonzern: 110 Arbeitsplätze in Gefahr',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.excerpt': 'Das Werk in Flawil, das auf die Herstellung von Präzisionsteilen aus Metall spezialisiert ist, wird bis Ende 2027 stillgelegt.',
     'blog.article.shock-svizzera-azienda-chiude-110-licenziati.imageAlt': 'Der deutsche Auto-Konzern ist in der Krise. Eine Schweizer Fabrik schließt und 110 Mitarbeiter verlieren ihren Job.',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'Wie viel verdient ein Grenzelektroplaner im Tessin',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'Fakten zur Vergütung eines Grenzelektroplaners im Tessin',
+    'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'Ein Frontalier, der als Elektroingenieur in Ticino arbeitet',
 };
 
 export default blogMetaChDe;
