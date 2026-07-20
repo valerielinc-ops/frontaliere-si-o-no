@@ -4756,6 +4756,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-giardiniere-ticino-stipendio-requisiti': { name: 'Frontaliere giardiniere Ticino', path: '/articoli-frontaliere/frontaliere-giardiniere-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-giardiniere-frontaliere-ticino-salario': { name: 'Quanto guadagna un giardiniere frontaliere', path: '/articoli-svizzera/giardiniere-frontaliere-ticino-salario/', parent: 'blog' },
     'blog-frontaliere-lattoniere-ticino-stipendio-requisiti': { name: 'Lavorare come lattoniere in Ticino da', path: '/articoli-svizzera/frontaliere-lattoniere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-piastrellista-frontaliere-ticino-guadagno': { name: 'Guadagno dei piastrellisti frontaliere in', path: '/articoli-frontaliere/piastrellista-frontaliere-ticino-guadagno', parent: 'blog' },
  };
 
  const info = sectionNames[section];

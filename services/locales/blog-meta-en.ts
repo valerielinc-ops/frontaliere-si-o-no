@@ -8737,6 +8737,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.title': 'Border gardeners Ticino: average salary and requirements',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.excerpt': 'The new tax agreement of 2020 establishes the requirements to work as a gardener in Ticino',
     'blog.article.frontaliere-giardiniere-ticino-stipendio-requisiti.imageAlt': 'A gardener working in a garden in Mendrisio, Ticino',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'How much does a border tile maker earn in Ticino?',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Border tile workers in Ticino can earn between CHF 50,000 and CHF 80,000 per year, but pay differences can vary depending on experience and job position.',
+    'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'A scene of a tile layer working in Ticino',
 };
 
 export default blogMetaEn;
