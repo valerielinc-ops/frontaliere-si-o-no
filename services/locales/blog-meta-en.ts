@@ -8719,6 +8719,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.consulente-clientela-frontaliere-ticino.title': 'How much does a border customer consultant earn in Ticino?',
     'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Taxes, deductibles and rates: what changes for consultants working with cross-border clients in Ticino',
     'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'A consultant working with cross-border clients in Ticino',
+    'blog.article.leggi-frontalieri-2026.title': 'New border laws in Ticino: everything you need to know',
+    'blog.article.leggi-frontalieri-2026.excerpt': 'Regulations 2026 concerning border crossings in the Ticino area have entered into force. Discover details, obligations and benefits.',
+    'blog.article.leggi-frontalieri-2026.imageAlt': 'Evening stroll around Lake Lugano with scenic view',
 };
 
 export default blogMetaEn;

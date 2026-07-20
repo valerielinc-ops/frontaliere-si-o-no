@@ -8718,6 +8718,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.consulente-clientela-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkundenberater im Tessin?',
     'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Steuern, Selbstbehalte und Sätze: Was ändert sich für Berater, die mit Grenzkunden im Tessin arbeiten?',
     'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Ein Berater, der mit grenzüberschreitenden Kunden in Tessin arbeitet',
+    'blog.article.leggi-frontalieri-2026.title': 'Neue Grenzgängergesetze im Tessin: Alles, was Sie wissen müssen',
+    'blog.article.leggi-frontalieri-2026.excerpt': 'Die Regelungen 2026 für Grenzgänger im Tessiner Raum sind in Kraft getreten. Entdecken Sie Details, Verpflichtungen und Vorteile.',
+    'blog.article.leggi-frontalieri-2026.imageAlt': 'Abendspaziergang am Ufer des Luggauer Sees mit Panoramablick',
 };
 
 export default blogMetaDe;

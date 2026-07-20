@@ -8720,6 +8720,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.consulente-clientela-frontaliere-ticino.title': 'Quanto guadagna un consulente alla clientela frontaliere in Ticino?',
     'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Imposte, franchigie e aliquote: cosa cambia per i consulenti che lavorano con clienti frontaliere in Ticino',
     'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Un consulente che lavora con clienti frontaliere in Ticino',
+    'blog.article.leggi-frontalieri-2026.title': 'Nuove leggi per frontaliere nel Ticino: tutto ciò che devi sapere',
+    'blog.article.leggi-frontalieri-2026.excerpt': 'Le regolamentazioni 2026 riguardanti i frontaliere nell\'area del Ticino sono entrate in vigore. Scopri dettagli, obblighi e benefici.',
+    'blog.article.leggi-frontalieri-2026.imageAlt': 'Passeggiata serale lungo il lago di Lugano con vista panoramica',
 };
 
 export default blogMetaIt;
