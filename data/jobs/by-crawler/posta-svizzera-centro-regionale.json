@@ -24,12 +24,12 @@
         "en": "Delivery: in evening packages",
         "fr": "Livraison: en colis du soir"
       },
-      "slug": "zusteller-in-abend-pakete-post",
+      "slug": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
       "slugByLocale": {
-        "it": "zusteller-in-abend-pakete-post",
-        "en": "zusteller-in-abend-pakete-post",
+        "it": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
+        "en": "delivery-in-evening-packages-die-schweizerische-post-gwatt-thun",
         "de": "zusteller-in-abend-pakete-post",
-        "fr": "zusteller-in-abend-pakete-post"
+        "fr": "livraison-en-colis-du-soir-die-schweizerische-post-gwatt-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,21 @@
       "addressLocality": "Gwatt (Thun)",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-20T11:59:06.660Z"
+      "firstSeenAt": "2026-07-20T11:59:06.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-abend-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-abend-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-abend-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-abend-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Hauswartin-Bern-%28Hauptsitz%29/73646-de_DE",
@@ -167,12 +181,12 @@
         "en": "Sales Manager: in business customers Arc jurassien",
         "fr": "Directeur des ventes: dans les clients d'affaires Arc jurassien"
       },
-      "slug": "sales-manager-in-geschaftskunden-arc-jurassien-post",
+      "slug": "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-basel",
       "slugByLocale": {
-        "it": "sales-manager-in-geschaftskunden-arc-jurassien-post",
+        "it": "responsabile-vendite-nei-clienti-aziendali-arc-jurassien-postauto-basel",
         "en": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
         "de": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel",
-        "fr": "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+        "fr": "directeur-des-ventes-dans-les-clients-d-affaires-arc-jurassien-postauto-basel"
       },
       "sourceLang": "de",
       "department": "",
@@ -206,7 +220,19 @@
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-20T11:59:06.660Z"
+      "firstSeenAt": "2026-07-20T11:59:06.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-in-geschaftskunden-arc-jurassien-post"
+        ],
+        "fr": [
+          "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-in-geschaftskunden-arc-jurassien-post",
+        "sales-manager-in-geschaftskunden-arc-jurassien-postauto-basel"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Standortleiterin-Contact-Center/74091-de_DE",
@@ -230,12 +256,12 @@
         "en": "Location Manager: in Contact Center",
         "fr": "Gestionnaire de localisation: dans le centre de contact"
       },
-      "slug": "standortleiter-in-contact-center-post",
+      "slug": "location-manager-in-contact-center-die-schweizerische-post-fribourg",
       "slugByLocale": {
-        "it": "standortleiter-in-contact-center-post",
+        "it": "location-manager-in-contact-center-die-schweizerische-post-fribourg",
         "en": "standortleiter-in-contact-center-post",
         "de": "standortleiter-in-contact-center-post",
-        "fr": "standortleiter-in-contact-center-post"
+        "fr": "gestionnaire-de-localisation-dans-le-centre-de-contact-die-schweizerische-post-fribourg"
       },
       "sourceLang": "de",
       "department": "",
@@ -269,7 +295,18 @@
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-20T11:59:06.660Z"
+      "firstSeenAt": "2026-07-20T11:59:06.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "standortleiter-in-contact-center-post"
+        ],
+        "fr": [
+          "standortleiter-in-contact-center-post"
+        ]
+      },
+      "previousSlugs": [
+        "standortleiter-in-contact-center-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Legal-Counsel/74185-de_DE",
@@ -829,7 +866,7 @@
       "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-wilderswil",
-        "en": "postbus-driver-postauto-wilderswil",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
         "fr": "pilote-postbus-in-postauto-wilderswil"
       },
@@ -876,7 +913,6 @@
           "postauto-fahrer-in-post"
         ],
         "en": [
-          "postauto-fahrer-in-post",
           "postbus-driver-postauto-wilderswil"
         ]
       },
@@ -1636,7 +1672,7 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
         "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
@@ -1678,9 +1714,6 @@
           "hauswart-in-post"
         ],
         "fr": [
-          "hauswart-in-post"
-        ],
-        "en": [
           "hauswart-in-post"
         ]
       },
@@ -1865,7 +1898,7 @@
         "it": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
         "en": "delivery-in-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-pakete-die-schweizerische-post-hinwil",
-        "fr": "livreur-de-colis-die-schweizerische-post-buchs-ag"
+        "fr": "livraison-en-paquets-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -1914,7 +1947,6 @@
         ],
         "fr": [
           "zusteller-in-pakete-post",
-          "livraison-en-paquets-die-schweizerische-post-buchs-ag",
           "livreur-de-colis-die-schweizerische-post-buchs-ag"
         ]
       },
@@ -1922,7 +1954,6 @@
         "zusteller-in-pakete-post-2",
         "zusteller-in-pakete-post",
         "zusteller-in-pakete-die-schweizerische-post-buchs-ag",
-        "livraison-en-paquets-die-schweizerische-post-buchs-ag",
         "livreur-de-colis-die-schweizerische-post-buchs-ag"
       ]
     },
@@ -2028,7 +2059,7 @@
       "slug": "postbus-driver-in-postauto-endingen",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-endingen",
-        "en": "postbus-driver-in-postauto-endingen",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-endingen",
         "fr": "pilote-postbus-in-postauto-endingen"
       },
@@ -2070,9 +2101,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -2338,7 +2366,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-langnau-im-emmental",
-        "en": "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-langnau-im-emmental"
       },
@@ -2364,7 +2392,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post",
-          "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
           "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
         ],
         "fr": [
@@ -2374,7 +2401,6 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-langnau-im-emmental",
         "mail-and-package-courier-die-schweizerische-post-langnau-im-emmental"
       ],
       "id": "posta-svizzera-centro-regionale-b70af024254b",
@@ -2717,7 +2743,7 @@
       "slug": "postbus-driver-in-postauto-schiers",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-schiers",
-        "en": "postbus-driver-in-postauto-schiers",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-schiers",
         "fr": "pilote-postbus-in-postauto-schiers"
       },
@@ -2759,9 +2785,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -2871,7 +2894,7 @@
       "slug": "postbus-driver-in-postauto-trimmis",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-trimmis",
-        "en": "postbus-driver-in-postauto-trimmis",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-trimmis",
         "fr": "pilote-postbus-in-postauto-trimmis"
       },
@@ -2913,9 +2936,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4527,7 +4547,7 @@
       "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-stans",
-        "en": "postbus-driver-in-postauto-stans",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
         "fr": "pilote-postbus-in-postauto-stans"
       },
@@ -4548,9 +4568,6 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -4906,7 +4923,7 @@
       "slug": "postbus-driver-in-postauto-chur",
       "slugByLocale": {
         "it": "postbus-driver-in-postauto-chur",
-        "en": "postbus-driver-in-postauto-chur",
+        "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-chur",
         "fr": "pilote-postbus-in-postauto-chur"
       },
@@ -4949,9 +4966,6 @@
           "postauto-fahrer-in-post"
         ],
         "fr": [
-          "postauto-fahrer-in-post"
-        ],
-        "en": [
           "postauto-fahrer-in-post"
         ]
       },
@@ -5854,11 +5868,11 @@
         "en": "CarPostal Driver",
         "de": "CarPostal Fahrer"
       },
-      "slug": "conductrice-conducteur-carpostal-post",
+      "slug": "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-post",
-        "en": "conductrice-conducteur-carpostal-post",
-        "de": "conductrice-conducteur-carpostal-post",
+        "it": "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
+        "en": "carpostal-driver-carpostal-yverdon-les-bains",
+        "de": "carpostal-fahrer-carpostal-yverdon-les-bains",
         "fr": "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
       },
       "sourceLang": "fr",
@@ -5893,7 +5907,21 @@
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-07-20T11:59:06.660Z"
+      "firstSeenAt": "2026-07-20T11:59:06.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal/74309-fr_FR",
@@ -6075,7 +6103,7 @@
       "slugByLocale": {
         "it": "assistente-per-la-gestione-della-proprieta-la-poste-suisse-renens-vd",
         "en": "assistant-property-management-assistant-la-poste-suisse-renens-vd",
-        "de": "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd",
+        "de": "assistante-assistant-gerance-immobiliere-post",
         "fr": "assistante-assistant-gerance-immobiliere-la-poste-suisse-renens-vd"
       },
       "sourceLang": "fr",
@@ -6119,7 +6147,6 @@
           "assistante-assistant-gerance-immobiliere-post"
         ],
         "de": [
-          "assistante-assistant-gerance-immobiliere-post",
           "assistenz-der-immobilienverwaltung-la-poste-suisse-renens-vd"
         ]
       },

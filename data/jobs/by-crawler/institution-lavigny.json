@@ -527,13 +527,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugs": [
-        "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
-        "assistente-socio-educativo-educatore-specializzato-institution-de-lavigny-lavigny"
+        "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60",
-          "assistente-socio-educativo-educatore-specializzato-institution-de-lavigny-lavigny"
+          "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
         ],
         "en": [
           "assistant-e-socio-educatif-ve-ou-educateur-trice-specialise-e-cdd-de-12-mois-a-60"
@@ -796,12 +794,12 @@
     },
     {
       "id": "institution-lavigny-c01e0b3b284d",
-      "slug": "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny",
+      "slug": "infermiera-all-80-cdi-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny",
-        "it": "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny",
-        "en": "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny",
-        "de": "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny"
+        "it": "infermiera-all-80-cdi-institution-de-lavigny-lavigny",
+        "en": "nurse-at-80-cdi-institution-de-lavigny-lavigny",
+        "de": "krankenschwester-bei-80-cdi-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -867,13 +865,16 @@
           "infermiere-i-a-80-100-cdi-institution-de-lavigny-lavigny",
           "registered-nurse-80-100-cdi-institution-de-lavigny-lavigny",
           "gesundheits-und-krankenpfleger-in-80-100-cdi-institution-de-lavigny-lavigny",
-          "infirmier-ere-s-a-80-100-cdi-80-a-100-institution-lavigny-lavigny"
+          "infirmier-ere-s-a-80-100-cdi-80-a-100-institution-lavigny-lavigny",
+          "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny"
         ],
         "en": [
-          "nurse-at-80-100-cdi-institution-de-lavigny-lavigny"
+          "nurse-at-80-100-cdi-institution-de-lavigny-lavigny",
+          "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny"
         ],
         "de": [
-          "krankenschwester-bei-80-100-cdi-institution-de-lavigny-lavigny"
+          "krankenschwester-bei-80-100-cdi-institution-de-lavigny-lavigny",
+          "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny"
         ],
         "fr": [
           "infirmier-ere-s-a-80-100-cdi-institution-lavigny-lavigny"
@@ -887,7 +888,8 @@
         "infermiere-i-a-80-100-cdi-institution-de-lavigny-lavigny",
         "registered-nurse-80-100-cdi-institution-de-lavigny-lavigny",
         "gesundheits-und-krankenpfleger-in-80-100-cdi-institution-de-lavigny-lavigny",
-        "infirmier-ere-s-a-80-100-cdi-80-a-100-institution-lavigny-lavigny"
+        "infirmier-ere-s-a-80-100-cdi-80-a-100-institution-lavigny-lavigny",
+        "infirmier-ere-s-a-80-cdi-institution-lavigny-lavigny"
       ]
     }
   ]
