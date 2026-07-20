@@ -8695,6 +8695,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC operator in Ticino: salary, requirements and permit G',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Average salary for a CNC operator in Ticino: not yet specified. Requirements to work as a CNC operator in Ticino: not yet specified. Recognition of qualification: not yet specified.',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photograph of a CNC operator in a work environment in Ticino',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'How much does a border CNC operator earn in Ticino?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'The salaries of border CNC operators in Ticino are influenced by various factors, such as the salary band, differences compared to Italy and factors affecting pay.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'An operator CNC works in a company in the Canton Ticino, with a view of the city of Lugano.',
 };
 
 export default blogMetaEn;

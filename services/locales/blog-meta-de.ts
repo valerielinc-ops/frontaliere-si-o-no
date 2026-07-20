@@ -8694,6 +8694,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC-Bediener im Tessin: Gehalt, Anforderungen und G-Genehmigung',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt für einen CNC-Bediener im Tessin: noch nicht festgelegt. Voraussetzungen für die Arbeit als CNC-Bediener im Tessin: noch nicht festgelegt. Anerkennung des Bildungsabschlusses: noch nicht angegeben.',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines CNC-Betriebs in Ticino',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'Wie viel verdient ein Grenzgänger-CNC-Bediener im Tessin?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'Die Gehälter der grenznahen CNC-Betreiber im Tessin werden von verschiedenen Faktoren beeinflusst, wie der Gehaltsspanne, den Unterschieden zu Italien und den Faktoren, die sich auf die Bezahlung auswirken.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'Ein CNC-Betrieb arbeitet in einer Firma im Kanton Ticino, mit einer Aussicht auf die Stadt Lugano.',
 };
 
 export default blogMetaDe;

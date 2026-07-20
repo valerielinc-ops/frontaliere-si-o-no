@@ -1297,6 +1297,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Grenzschweisser im Tessin: Praxisleitfaden und Anforderungen',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Erfahren Sie mehr über die Voraussetzungen für die Arbeit als Schweißer in der Schweiz, die aktuellen Steuervorschriften und die Funktionsweise der Quellensteuer für Grenzgänger.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professionelle Metallwerkstatt in der Schweiz',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzin und Diesel: Die Preise an der Pumpe steigen weiter',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Die Benzin- und Dieselpreise sind in der Schweiz nach Angaben des Touring Club Schweiz wieder gestiegen.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Bild einer Tankstelle mit einer Schlange von Autos, die aufgetankt werden.',
 };
 
 export default blogMetaChDe;

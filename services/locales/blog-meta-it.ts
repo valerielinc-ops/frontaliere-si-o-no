@@ -8696,6 +8696,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'Operatore CNC in Ticino: stipendio, requisiti e permesso G',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato. Riconoscimento titolo di studio: non ancora specificato.',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un operatore CNC in un ambiente di lavoro in Ticino',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'Quanto guadagna un operatore CNC frontaliere in Ticino?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'Gli stipendi degli operatori CNC frontaliere in Ticino sono influenzati da vari fattori, come la fascia salariale, le differenze rispetto all\'Italia e i fattori che incidono sulla retribuzione.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'Un operatore CNC frontaliere lavora in un\'azienda del Canton Ticino, con una vista sulla città di Lugano.',
 };
 
 export default blogMetaIt;
