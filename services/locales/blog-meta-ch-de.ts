@@ -1285,6 +1285,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'Wie viel verdient ein Grenzpolymechaniker im Tessin',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Reales Gehalt eines Grenzgänger-Polymechanikers im Tessin: Lohnband, Unterschiede zu Italien, Faktoren, die sich auf das Gehalt auswirken.',
     'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'Ein Schweizer-Mechaniker arbeitet in Ticino, fotorealistische DSLR-Bild.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'Wie viel verdient ein Grenzmechaniker im Tessin',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analyse der Lohnspanne für Grenzmechaniker im Tessin: Steuerabzüge, AHV/BVG-BEITRÄGE und Auswirkungen der neuen Frontalieri-Vereinbarung.',
+    'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Moderne mechanische Werkstatt im Tessin, Schweiz',
 };
 
 export default blogMetaChDe;

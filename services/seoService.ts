@@ -4671,6 +4671,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documenti-scomparsi-inchiesta-constellation': { name: 'Inchiesta Constellation', path: '/articoli-frontaliere/documenti-scomparsi-inchiesta-constellation', parent: 'blog' },
     'blog-quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { name: 'Stipendio polimeccanico frontaliere Ticino', path: '/articoli-svizzera/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino/', parent: 'blog' },
     'blog-frontaliere-meccanico-ticino-stipendio-requisiti': { name: 'Requisiti per lavorare come meccanico in', path: '/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-stipendio-meccanico-frontaliere-ticino': { name: 'Quanto guadagna un meccanico frontaliere', path: '/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
