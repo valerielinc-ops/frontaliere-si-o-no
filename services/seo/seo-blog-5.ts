@@ -52098,6 +52098,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stipendio-fiduciario-frontaliere-ticino': {
+    title: 'Quanto guadagna un fiduciario frontaliere in Ticino?',
+    description: 'La retribuzione di un fiduciario frontaliere in Ticino dipende da vari fattori, tra cui la sua esperienza e la tipologia di lavoro. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, fiduciario, impresa',
+    ogTitle: 'Quanto guadagna un fiduciario frontaliere in Ticino?',
+    ogDescription: 'La retribuzione di un fiduciario frontaliere in Ticino dipende da vari fattori, tra cui la sua esperienza e la tipologia di lavoro.',
+    canonicalPath: '/articoli-frontaliere/stipendio-fiduciario-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un fiduciario frontaliere in Ticino?",
+      "description": "La retribuzione di un fiduciario frontaliere in Ticino dipende da vari fattori, tra cui la sua esperienza e la tipologia di lavoro. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-fiduciario-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica della città di Lugano"
+      },
+      "datePublished": "2026-07-20T15:30:08+00:00",
+      "dateModified": "2026-07-20T15:30:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-fiduciario-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

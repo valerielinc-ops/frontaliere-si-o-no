@@ -8710,6 +8710,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'How much does a border secretary earn in Ticino?',
     'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'The salary band of a border secretary in Ticino, the differences compared to Italy and the factors that affect remuneration.',
     'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'A secretary working on her computer in an office with a view of Lake Lugano.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'How much does a border trustee earn in Ticino?',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'The business of a border trustee in Ticino is influenced by several factors, including his experience and the type of work.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama of Lugano',
 };
 
 export default blogMetaEn;
