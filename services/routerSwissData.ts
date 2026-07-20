@@ -454,6 +454,10 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'stipendio-meccanico-frontaliere-ticino': { it: 'stipendio-meccanico-frontaliere-ticino', en: 'mechanic-salary-cross-border-ticino', de: 'gehalt-mechaniker-grenzganger-tessin', fr: 'salaire-mecanicien-frontalier-tessin' },
  'frontalieri-salario-meccatronico': { it: 'frontalieri-salario-meccatronico', en: 'frontalieri-salary-mechanic', de: 'frontalier-lohn-mechatroniker', fr: 'frontaliers-salaire-mecanicien' },
  'saldatore-frontaliere-ticino-stipendio-requisiti': { it: 'saldatore-frontaliere-ticino-stipendio-requisiti', en: 'welder-frontalier-ticino-salary-requirements', de: 'schwei-er-frontalier-tessin-honorar-anforderungen', fr: 'soudurier-frontalier-tessin-salaire-exigences' },
+ 'saldatore-frontaliere-ticino-guida': { it: 'saldatore-frontaliere-ticino-guida', en: 'welder-cross-border-ticino-guide', de: 'schweisser-grenzgaenger-tessin-leitfaden', fr: 'soudeur-frontalier-ticino-guide' },
+ 'benzina-e-diesel-prezzi-saliti': { it: 'benzina-e-diesel-prezzi-saliti', en: 'gasoline-and-diesel-prices-rise', de: 'benzin-und-diesel-preise-steigen', fr: 'prix-de-la-gazole-et-du-diesel-ont-againi' },
+ 'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': { it: 'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti', en: 'frontalier-technical-designer-ticino-salary-requirements', de: 'frontalier-technischer-designer-ticino-salar-anforderungen', fr: 'frontalier-designer-technique-ticino-salaire-exigences' },
+ 'disegnatore-tecnico-frontaliere-ticino-guadagno': { it: 'disegnatore-tecnico-frontaliere-ticino-guadagno', en: 'swiss-frontier-technical-drafter-salary-ticino', de: 'schweizerischer-grenzganger-technischer-zeichner-gesamt-ticino', fr: 'dessinateur-technique-frontaliere-salaire-ticino' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

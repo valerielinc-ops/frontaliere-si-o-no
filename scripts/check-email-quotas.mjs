@@ -37,6 +37,7 @@ import {
   fetchCloudflareDeliveryStats,
   fetchResendCycleUsage,
   fetchMailerooCycleUsage,
+  fetchMailtrapCycleUsage,
 } from './lib/email-cascade.mjs';
 
 // 15% slack over the expected pace before alerting — daily sends are lumpy
@@ -217,6 +218,30 @@ async function main(opts) {
       const remaining = Math.max(0, monthlyCap - count);
       console.log(`   Delivered+bounced month-to-date: ${count} / ${monthlyCap}  (≈${remaining} remaining this month)`);
       console.log('   Note: delivered+bounced is a lower-bound proxy (no raw "sent" counter exposed) — may under-count sends still in flight.');
+    }
+  }
+
+  // Mailtrap: surface real billing-cycle usage via /billing/usage (discovered
+  // 2026-07-20 auditing all providers — the /stats endpoint's sent_count field
+  // this cascade used to rely on never actually appears in this account's
+  // responses, silently defeating its own under-count safety net; see
+  // computeMailtrapDynamicDailyLimit in functions/src/emailCascade.js).
+  if (isProviderConfigured('mailtrap')) {
+    const monthlyCap = PROVIDERS.find(p => p.id === 'mailtrap')?.monthlyLimit ?? 4000;
+    const { count, apiLimit, cycleStart, cycleEnd, verified } = await fetchMailtrapCycleUsage();
+    console.log('\n📨 Mailtrap (billing/usage):');
+    if (!verified) {
+      console.log('   ⚠️  Usage endpoint unreachable/unauthorized — sending is unaffected, daily guard falls back to a conservative static pace.');
+    } else {
+      // Display against the live apiLimit when available, not the possibly-
+      // stale static config (review finding, PR #4583 — same fix as
+      // computeMailtrapDynamicDailyLimit in emailCascade.js).
+      const cap = apiLimit || monthlyCap;
+      const remaining = Math.max(0, cap - count);
+      console.log(`   Sent this cycle (${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}): ${count} / ${cap}  (≈${remaining} remaining)`);
+      if (apiLimit && apiLimit !== monthlyCap) {
+        console.log(`   ⚠️  Live plan limit (${apiLimit}) differs from configured monthlyLimit (${monthlyCap}) — update PROVIDERS in emailCascade.js.`);
+      }
     }
   }
 

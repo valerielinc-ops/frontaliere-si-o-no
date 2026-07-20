@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3346,
+ "numberOfItems": 3354,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8114,7 +8114,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3343, "name": "Frontaliere meccatronico Ticino stipendio requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-meccatronico-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3344, "name": "Quanto guadagna un meccatronico frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-salario-meccatronico` },
           { "@type": "ListItem", "position": 3345, "name": "Quanto guadagna un saldatore frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3346, "name": "Saldatori in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/saldatore-frontaliere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3346, "name": "Saldatori in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/saldatore-frontaliere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3347, "name": "Frontaliere saldatore: stipendio, requisiti e t...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3348, "name": "Saldatore frontaliere in Ticino: guida pratica ...", "url": `${BASE_URL}/articoli-frontaliere/saldatore-frontaliere-ticino-guida` },
+          { "@type": "ListItem", "position": 3349, "name": "Operatore CNC in Ticino: stipendio, requisiti e...", "url": `${BASE_URL}/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3350, "name": "Benzina e diesel: i prezzi alla pompa continuan...", "url": `${BASE_URL}/articoli-frontaliere/benzina-e-diesel-prezzi-saliti` },
+          { "@type": "ListItem", "position": 3351, "name": "Quanto guadagna un operatore CNC frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino` },
+          { "@type": "ListItem", "position": 3352, "name": "Disegnatore tecnico in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3353, "name": "Quanto guadagna un tecnico automazione frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione` },
+          { "@type": "ListItem", "position": 3354, "name": "Quanto guadagna un disegnatore tecnico frontali...", "url": `${BASE_URL}/articoli-frontaliere/disegnatore-tecnico-frontaliere-ticino-guadagno` }
  ]
  },
  {

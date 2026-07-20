@@ -3878,6 +3878,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'saldatore-frontaliere-ticino-guida',
+    category: 'pratico',
+    date: '2026-07-20T08:52:12.984Z',
+    image: '/images/blog/saldatore-frontaliere-ticino-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'benzina-e-diesel-prezzi-saliti',
+    category: 'novita',
+    date: '2026-07-20T09:24:23.161Z',
+    image: '/images/blog/benzina-e-diesel-prezzi-saliti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-20T09:55:30.096Z',
+    image: '/images/blog/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'disegnatore-tecnico-frontaliere-ticino-guadagno',
+    category: 'pratico',
+    date: '2026-07-20T10:31:18.685Z',
+    image: '/images/blog/disegnatore-tecnico-frontaliere-ticino-guadagno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

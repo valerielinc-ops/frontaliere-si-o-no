@@ -51825,6 +51825,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-saldatore-ticino-stipendio-requisiti': {
+    title: 'Frontaliere saldatore: stipendio, requisiti e titolo di studio',
+    description: 'Informazioni sulla normativa per i saldatori frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, saldatore, stipendio, requisiti, titolo',
+    ogTitle: 'Frontaliere saldatore in Ticino: stipendio medio, requisiti e riconoscimento titolo di studio',
+    ogDescription: 'Informazioni sulla normativa per i saldatori frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere saldatore: stipendio, requisiti e titolo di studio",
+      "description": "Informazioni sulla normativa per i saldatori frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-saldatore-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere saldatore in azione a Bellinzona"
+      },
+      "datePublished": "2026-07-20T08:38:14+00:00",
+      "dateModified": "2026-07-20T08:38:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-operatore-cnc-frontaliero-ticino-stipendio-requisiti': {
+    title: 'Operatore CNC in Ticino: stipendio, requisiti e permesso G',
+    description: 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato',
+    keywords: 'frontalieri, ticino, svizzera, italia, operatore, stipendio, requisiti, permesso',
+    ogTitle: 'Lavorare come operatore CNC in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento titolo di studio e permesso G',
+    ogDescription: 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato',
+    canonicalPath: '/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operatore CNC in Ticino: stipendio, requisiti e permesso G",
+      "description": "Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/operatore-cnc-frontaliero-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un operatore CNC in un ambiente di lavoro in Ticino"
+      },
+      "datePublished": "2026-07-20T09:11:21+00:00",
+      "dateModified": "2026-07-20T09:11:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino': {
+    title: 'Quanto guadagna un operatore CNC frontaliere in Ticino?',
+    description: 'Gli stipendi degli operatori CNC frontaliere in Ticino sono influenzati da vari fattori, come la fascia salariale, le differenze rispetto all\'Italia e i fattori',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, operatore, stipendi',
+    ogTitle: 'Quanto guadagna un operatore CNC frontaliere in Ticino?',
+    ogDescription: 'Gli stipendi degli operatori CNC frontaliere in Ticino sono influenzati da vari fattori, come la fascia salariale, le differenze rispetto all\'Italia e i fattori',
+    canonicalPath: '/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un operatore CNC frontaliere in Ticino?",
+      "description": "Gli stipendi degli operatori CNC frontaliere in Ticino sono influenzati da vari fattori, come la fascia salariale, le differenze rispetto all'Italia e i fattori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un operatore CNC frontaliere lavora in un'azienda del Canton Ticino, con una vista sulla città di Lugano."
+      },
+      "datePublished": "2026-07-20T09:35:59+00:00",
+      "dateModified": "2026-07-20T09:35:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-ticino-stipendio-tecnico-automazione': {
+    title: 'Quanto guadagna un tecnico automazione frontaliere in Ticino?',
+    description: 'La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all\'Italia è di circa il 20%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, tecnico, automazione',
+    ogTitle: 'Quanto guadagna un tecnico automazione frontaliere in Ticino?',
+    ogDescription: 'La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all\'Italia è di circa il 20%.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un tecnico automazione frontaliere in Ticino?",
+      "description": "La nuova legge sul lavoro frontaliere introduce una fascia salariale per i tecnici automazione. La differenza rispetto all'Italia è di circa il 20%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-stipendio-tecnico-automazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tecnico automazione lavora in una città di frontiera tra Svizzera e Italia."
+      },
+      "datePublished": "2026-07-20T10:18:49+00:00",
+      "dateModified": "2026-07-20T10:18:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

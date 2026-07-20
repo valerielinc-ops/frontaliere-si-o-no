@@ -1294,6 +1294,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Soudeurs au Tessin : salaire, exigences et reconnaissance',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les soudeurs frontaliers au Tessin. Dans cet article, nous découvrons les exigences, le salaire moyen et les exemptions possibles.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Image d\'un soudurier en train de travailler dans une usine du Tessin',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Soudeuse frontalière au Tessin : guide pratique et exigences',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Découvrez les conditions requises pour travailler comme soudeur en Suisse, les règles fiscales mises à jour et le fonctionnement de l\'impôt à la source pour les travailleurs frontaliers.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Atelier de métallurgie professionnel en Suisse',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Essence et diesel : les prix à la pompe continuent d\'augmenter',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Les prix de l\'essence et du diesel ont de nouveau augmenté en Suisse, selon les données du Touring Club Suisse.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Image d\'une station-service avec une file d\'attente de voitures qui se ravitaillent.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Dessinateur technique au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Les salaires des dessinateurs techniques au Tessin pour les frontaliers, les exigences pour travailler comme dessinateur technique au Tessin en tant que frontalier et comment reconnaître le diplôme et obtenir le permis G.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Un designer technique dans un bureau à Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Combien gagne un dessinateur technique frontalier au Tessin ?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'Les salaires des dessinateurs techniques frontaliers au Tessin sont influencés par des facteurs tels que l\'expérience et le secteur d\'appartenance.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Une vue panoramique de la ville de Lugano, avec un dessinateur technique frontalière travaillant dans son atelier.',
 };
 
 export default blogMetaChFr;

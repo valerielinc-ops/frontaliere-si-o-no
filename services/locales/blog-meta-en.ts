@@ -8689,6 +8689,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'How much does a border welder earn in Ticino?',
     'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'The new tax agreement of 2024 changed the taxes of border workers in Ticino.',
     'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'A front-line solder in Ticino inspects a heavy vehicle',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Welder frontier: salary, requirements and qualification',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Average salary of border welders in Ticino: not yet specified. Requirements to work as a welder in Ticino as a border worker: high school diploma. Recognition of the qualification for border workers: not yet specified.',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier welder at work in Bellinzona',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC operator in Ticino: salary, requirements and permit G',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Average salary for a CNC operator in Ticino: not yet specified. Requirements to work as a CNC operator in Ticino: not yet specified. Recognition of qualification: not yet specified.',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photograph of a CNC operator in a work environment in Ticino',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'How much does a border CNC operator earn in Ticino?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'The salaries of border CNC operators in Ticino are influenced by various factors, such as the salary band, differences compared to Italy and factors affecting pay.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'An operator CNC works in a company in the Canton Ticino, with a view of the city of Lugano.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.title': 'How much does a border automation technician earn in Ticino?',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.excerpt': 'Tax at source and wage differences compared to Italy.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.imageAlt': 'A technician in automation works in a border town between Switzerland and Italy.',
 };
 
 export default blogMetaEn;

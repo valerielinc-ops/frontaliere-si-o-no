@@ -1294,6 +1294,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Saldatori in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le possibili esenzioni.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Immagine di un saldatore in azione in una fabbrica del Ticino',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Saldatore frontaliere in Ticino: guida pratica e requisiti',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Scopri i requisiti per lavorare come saldatore in Svizzera, le regole fiscali aggiornate e il funzionamento dell\'imposta alla fonte per i lavoratori frontalieri.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Officina metalmeccanica professionale in Svizzera',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzina e diesel: i prezzi alla pompa continuano a salire',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera, secondo i dati del Touring Club Svizzero.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Immagine di una stazione di servizio con una fila di auto che attendono di fare rifornimento di carburante.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere il titolo di studio e ottenere il permesso G.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Un disegnatore tecnico in un ufficio a Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Una vista panoramica della città di Lugano, con un disegnatore tecnico frontaliere che lavora nel suo studio.',
 };
 
 export default blogMetaChIt;

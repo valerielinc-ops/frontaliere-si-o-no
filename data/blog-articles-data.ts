@@ -26108,6 +26108,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-saldatore-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-20T08:38:14.014Z',
+ image: '/images/blog/frontaliere-saldatore-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'operatore-cnc-frontaliero-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-20T09:11:21.640Z',
+ image: '/images/blog/operatore-cnc-frontaliero-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino',
+ category: 'pratico',
+ date: '2026-07-20T09:35:59.180Z',
+ image: '/images/blog/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontalieri-ticino-stipendio-tecnico-automazione',
+ category: 'pratico',
+ date: '2026-07-20T10:18:49.166Z',
+ image: '/images/blog/frontalieri-ticino-stipendio-tecnico-automazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
