@@ -2,8 +2,11 @@
   "bizzarone-novazzano": {
     "morning": "1-2 min"
   },
+  "campione-d-italia-bissone": {
+    "morning": "0-4 min"
+  },
   "chiasso-brogeda": {
-    "morning": "2-14 min",
+    "morning": "2-11 min",
     "evening": "0-8 min"
   },
   "chiasso-centro": {
@@ -15,7 +18,7 @@
     "evening": "1-10 min"
   },
   "gaggiolo": {
-    "morning": "1-7 min",
+    "morning": "1-8 min",
     "evening": "0-8 min"
   },
   "ponte-tresa": {
@@ -30,15 +33,41 @@
     "evening": "0-8 min"
   },
   "bardonnex": {
+    "morning": "7 min",
     "evening": "0-10 min"
   },
   "gottmadingen-thayngen-autostrada-a81-a4": {
     "evening": "2-3 min"
   },
+  "grenzach-wyhlen-riehen": {
+    "morning": "2 min"
+  },
+  "konstanz-kreuzlingen": {
+    "morning": "2 min"
+  },
+  "moillesulaz": {
+    "morning": "3 min"
+  },
   "passo-dello-spluga": {
     "evening": "0-6 min"
   },
+  "perly": {
+    "morning": "3 min"
+  },
+  "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
+    "morning": "2 min"
+  },
+  "riehen-lorrach-stetten": {
+    "morning": "2 min"
+  },
+  "st-margrethen-hochst": {
+    "morning": "2 min"
+  },
   "thonex-vallard": {
+    "morning": "5 min",
     "evening": "1-2 min"
+  },
+  "waldshut-tiengen-koblenz-ag": {
+    "morning": "2 min"
   }
 }
