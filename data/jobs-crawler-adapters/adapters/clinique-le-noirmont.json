@@ -11,6 +11,8 @@
   "seedUrls": [
     "https://www.cliniquelenoirmont.ch/File/515/M%C3%A9decin%20chef%20r%C3%A9adaptation%20cardiovasculaire_2023.pdf",
     "https://www.cliniquelenoirmont.ch/File/405/Annonce%20M%C3%A9decin%20adjoint%20en%20cardiologie_chef%20de%20clinique_2022_FR.pdf",
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1031",
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1030",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1029",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1022",
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/1020",
@@ -19,7 +21,7 @@
     "https://www.cliniquelenoirmont.ch/FileDownload/Download/985"
   ],
   "notes": "Dedicated Clinique Le Noirmont crawler parses the Offres-demploi page and extracts descriptions from /File and /FileDownload PDF endpoints.",
-  "updatedAt": "2026-07-20T12:32:54.344Z",
+  "updatedAt": "2026-07-20T22:23:20.282Z",
   "seedMetaByUrl": {
     "https://www.cliniquelenoirmont.ch/File/515/M%C3%A9decin%20chef%20r%C3%A9adaptation%20cardiovasculaire_2023.pdf": {
       "location": "Le Noirmont",
@@ -28,6 +30,18 @@
       "postedDate": "2026-07-20"
     },
     "https://www.cliniquelenoirmont.ch/File/405/Annonce%20M%C3%A9decin%20adjoint%20en%20cardiologie_chef%20de%20clinique_2022_FR.pdf": {
+      "location": "Le Noirmont",
+      "canton": "JU",
+      "company": "Clinique Le Noirmont",
+      "postedDate": "2026-07-20"
+    },
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1031": {
+      "location": "Le Noirmont",
+      "canton": "JU",
+      "company": "Clinique Le Noirmont",
+      "postedDate": "2026-07-20"
+    },
+    "https://www.cliniquelenoirmont.ch/FileDownload/Download/1030": {
       "location": "Le Noirmont",
       "canton": "JU",
       "company": "Clinique Le Noirmont",
