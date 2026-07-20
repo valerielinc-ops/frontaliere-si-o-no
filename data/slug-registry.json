@@ -20,7 +20,12 @@
     "canonicalSlug": "hr-business-partner-confederazione-genf",
     "canton": "GE",
     "createdAt": "2026-06-11",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "hr-business-partner-confederazione-genf",
+      "en": "hr-business-partner-confederazione-genf",
+      "de": "hr-geschaftspartner-confederazione-svizzera-genf",
+      "fr": "hr-business-partner-confederazione-genf"
+    }
   },
   "id|admin.ch|016bb42f-9c10-4ec2-ba5f-a8fac41fa9c1": {
     "canonicalSlug": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen",
@@ -137,7 +142,10 @@
     "canton": "BE",
     "createdAt": "2026-06-16",
     "slugByLocale": {
-      "de": "portfoliomanager-in-it-confederazione-bern"
+      "de": "portfoliomanager-in-it-confederazione-bern",
+      "it": "portfoliomanager-in-it-confederazione-svizzera-bern",
+      "en": "it-portfolio-manager-confederazione-svizzera-bern",
+      "fr": "responsable-de-portefeuille-it-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|05c29a58-176a-40b4-8b78-4e4366107ec5": {
@@ -234,7 +242,8 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "architecte-principal-in-sgc-1196-confederazione-svizzera-zollikofen",
-      "it": "architetto-capo-sgc-1196-confederazione-svizzera-zollikofen"
+      "it": "architetto-capo-sgc-1196-confederazione-svizzera-zollikofen",
+      "de": "lead-architekt-in-sgc-1196-confederazione-zollikofen"
     }
   },
   "id|admin.ch|0a219927-63fd-4ea1-a7d2-b2a640ed34c9": {
@@ -249,7 +258,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "observabilite-du-proprietaire-du-produit-1239-confederazione-svizzera-zollikofen",
-      "it": "osservabilita-1239-confederazione-svizzera-zollikofen"
+      "it": "osservabilita-1239-confederazione-svizzera-zollikofen",
+      "en": "product-owner-observability-1239-confederazione-zollikofen",
+      "de": "beobachtbarkeit-des-produktbesitzers-1239-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|0a64c54f-fbb2-4e1a-b567-68cf2b0c9742": {
@@ -277,7 +288,10 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "de": "inspektor-in-confederazione-svizzera-bern"
+      "de": "inspektor-in-confederazione-svizzera-bern",
+      "it": "ispettore-ispettore-confederazione-svizzera-bern",
+      "en": "inspector-inspector-confederazione-svizzera-bern",
+      "fr": "inspecteur-inspecteur-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|0abd4a71-f281-4833-a461-fd3254b3de8d": {
@@ -292,7 +306,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "en": "pki-securit-officer-confederazione-svizzera-bern",
-      "fr": "agent-de-securite-de-l-icp-confederazione-svizzera-bern"
+      "fr": "agent-de-securite-de-l-icp-confederazione-svizzera-bern",
+      "it": "pki-security-officer-operator-confederazione-bern",
+      "de": "pki-sicherheitsbeauftragter-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|0be5e917-eb10-4e49-8d10-080df9f49dee": {
@@ -920,7 +936,8 @@
     "createdAt": "2026-06-24",
     "slugByLocale": {
       "fr": "supporteur-principal-des-tic-confederazione-svizzera-bern",
-      "it": "supporto-ict-senior-confederazione-svizzera-bern"
+      "it": "supporto-ict-senior-confederazione-svizzera-bern",
+      "de": "senior-ict-supporter-in-confederazione-bern"
     }
   },
   "id|admin.ch|277000fb-34fa-41b8-b4d8-68d2258e252e": {
@@ -1061,7 +1078,8 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "fr": "ingenieur-ingenieur-principal-des-tic-1250-1251-confederazione-svizzera-zollikofen"
+      "fr": "ingenieur-ingenieur-principal-des-tic-1250-1251-confederazione-svizzera-zollikofen",
+      "de": "ict-test-ingenieur-in-senior-1250-1251-confederazione-zollikofen"
     }
   },
   "id|admin.ch|2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa": {
@@ -1778,7 +1796,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "specialiste-des-systemes-plates-formes-de-stockage-confederazione-svizzera-zollikofen",
-      "it": "piattaforme-di-storage-special-in-sistema-confederazione-svizzera-zollikofen"
+      "it": "piattaforme-di-storage-special-in-sistema-confederazione-svizzera-zollikofen",
+      "en": "system-spezialist-in-storage-plattformen-confederazione-zollikofen",
+      "de": "system-spezialist-in-lagerplattformen-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|51b30dfc-570f-48ba-868a-a0d382b82eab": {
@@ -2014,7 +2034,8 @@
     "canton": "BE",
     "createdAt": "2026-06-12",
     "slugByLocale": {
-      "fr": "ingenieur-informatique-1229-1230-1232-confederazione-svizzera-zollikofen"
+      "fr": "ingenieur-informatique-1229-1230-1232-confederazione-svizzera-zollikofen",
+      "de": "ict-system-ingenieur-in-1229-1230-1232-confederazione-zollikofen"
     }
   },
   "id|admin.ch|5a91fa5b-b2ce-4bb0-9bc7-ee26f0be1461": {
@@ -2045,7 +2066,8 @@
     "createdAt": "2026-07-02",
     "slugByLocale": {
       "en": "pool-court-clerk-with-main-language-french-confederazione-svizzera-st-gallen",
-      "fr": "pool-greffier-avec-langue-principale-francais-confederazione-svizzera-st-gallen"
+      "fr": "pool-greffier-avec-langue-principale-francais-confederazione-svizzera-st-gallen",
+      "de": "pool-gerichtsschreiber-in-mit-hauptsprache-franzosisch-confederazione-st-gallen"
     }
   },
   "id|admin.ch|5bcb6f6b-6b59-47db-a39b-6874d502cf29": {
@@ -2474,7 +2496,9 @@
     "createdAt": "2026-06-12",
     "slugByLocale": {
       "fr": "chef-du-chapitre-1206-1265-confederazione-svizzera-zollikofen",
-      "it": "capo-del-capitolo-1206-1265-confederazione-svizzera-zollikofen"
+      "it": "capo-del-capitolo-1206-1265-confederazione-svizzera-zollikofen",
+      "en": "head-of-chapter-1206-1265-confederazione-zollikofen",
+      "de": "leiter-chapter-1206-1265-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|70e23617-2cfd-449e-a6b9-38c1a92fee61": {
@@ -2701,7 +2725,8 @@
     "createdAt": "2026-06-30",
     "slugByLocale": {
       "fr": "ingenieur-ingenieur-principal-du-systeme-informatique-1257-1258-confederazione-svizzera-zollikofen",
-      "it": "ingegnere-a-di-sistema-ict-senior-1257-1258-confederazione-svizzera-zollikofen"
+      "it": "ingegnere-a-di-sistema-ict-senior-1257-1258-confederazione-svizzera-zollikofen",
+      "de": "ict-system-ingenieur-in-senior-1257-1258-confederazione-zollikofen"
     }
   },
   "id|admin.ch|788b3ad7-4c38-4648-bce1-d1f7099355c1": {
@@ -2793,7 +2818,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "analyste-des-affaires-iam-expert-principal-confederazione-svizzera-bern",
-      "it": "business-analista-iam-senior-expert-confederazione-svizzera-bern"
+      "it": "business-analista-iam-senior-expert-confederazione-svizzera-bern",
+      "en": "business-analyst-iam-senior-expert-confederazione-bern",
+      "de": "business-analyst-iam-senior-experte-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|7adc77bc-a45b-4daf-b0db-cb459eb37618": {
@@ -2845,7 +2872,8 @@
     "createdAt": "2026-06-22",
     "slugByLocale": {
       "en": "court-clerk-in-abt-iii-with-main-language-german-confederazione-svizzera-st-gallen",
-      "fr": "greffier-in-abt-iii-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
+      "fr": "greffier-in-abt-iii-avec-langue-principale-allemand-confederazione-svizzera-st-gallen",
+      "de": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
     }
   },
   "id|admin.ch|7e8f2980-6964-4068-9057-847ac35f084c": {
@@ -3420,7 +3448,8 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "fr": "responsable-de-la-securite-confederazione-svizzera-bern",
-      "it": "responsabile-della-sicurezza-confederazione-svizzera-bern"
+      "it": "responsabile-della-sicurezza-confederazione-svizzera-bern",
+      "de": "safety-officer-confederazione-bern"
     }
   },
   "id|admin.ch|98610bfe-ecc3-4dd2-9bbf-6feb0a9a83bd": {
@@ -3639,7 +3668,8 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "en": "university-intern-in-investment-planning-stab-ost-confederazione-svizzera-ittigen",
-      "it": "hochschulpraktikant-in-investimentiplanung-stab-ost-confederazione-svizzera-ittigen"
+      "it": "hochschulpraktikant-in-investimentiplanung-stab-ost-confederazione-svizzera-ittigen",
+      "de": "hochschulpraktikant-in-investitionsplanung-stab-ost-confederazione-ittigen"
     }
   },
   "id|admin.ch|a0083a5a-ee54-4828-9cd0-d1fb7a584994": {
@@ -3659,7 +3689,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "ingenieur-systeme-tic-base-sap-confederazione-svizzera-bern",
-      "it": "ict-system-ingegnere-sap-basis-confederazione-svizzera-bern"
+      "it": "ict-system-ingegnere-sap-basis-confederazione-svizzera-bern",
+      "en": "ict-system-engineer-sap-basis-confederazione-bern",
+      "de": "ict-system-ingenieur-sap-basis-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|a04f77ec-8aab-4e7d-8671-af2289dcfcbb": {
@@ -4066,7 +4098,10 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "fr": "public-cloud-architect-public-hyperscaleur-neutre-982-983-confederazione-svizzera-zollikofen"
+      "fr": "public-cloud-architect-public-hyperscaleur-neutre-982-983-confederazione-svizzera-zollikofen",
+      "it": "public-cloud-architekt-in-public-hyperscaler-neutral-982-983-confederazione-zollikofen",
+      "en": "public-cloud-architekt-in-public-hyperscaler-neutral-982-983-confederazione-zollikofen",
+      "de": "public-cloud-architecture-in-offentlich-hyperscaler-neutral-982-983-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|b4443bb6-9fee-4739-a0f4-9489b11e1fe8": {
@@ -4165,7 +4200,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "en": "senior-ict-architect-in-software-architecture-confederazione-svizzera-zollikofen",
-      "fr": "architecte-principal-des-tic-architecture-logicielle-confederazione-svizzera-zollikofen"
+      "fr": "architecte-principal-des-tic-architecture-logicielle-confederazione-svizzera-zollikofen",
+      "it": "senior-ict-architekt-in-softwarearchitektur-confederazione-zollikofen",
+      "de": "leitender-ict-architekt-in-softwarearchitektur-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|b882dd5a-6904-4946-acd9-5d3298e05d70": {
@@ -4180,7 +4217,8 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "en": "university-intern-in-hr-development-confederazione-svizzera-bern",
-      "fr": "stage-universitaire-en-developpement-des-ressources-humaines-confederazione-svizzera-bern"
+      "fr": "stage-universitaire-en-developpement-des-ressources-humaines-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-hr-development-confederazione-bern"
     }
   },
   "id|admin.ch|b93ad13c-f6de-4d15-b82d-4f3db3e89d8f": {
@@ -4429,7 +4467,9 @@
     "canonicalSlug": "hr-business-partner-in-confederazione-bern",
     "canton": "BE",
     "createdAt": "2026-06-30",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "de": "hr-business-partner-in-confederazione-bern"
+    }
   },
   "id|admin.ch|c3fd85d8-a97a-42ea-9d9f-5c0ad1d97ef1": {
     "canonicalSlug": "hochschulpraktikant-in-sektion-osteuropa-service-ukraine-confederazione-zollikofen",
@@ -4634,7 +4674,10 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "de": "revisor-in-confederazione-svizzera-bern"
+      "de": "revisor-in-confederazione-svizzera-bern",
+      "it": "auditore-in-confederazione-svizzera-bern",
+      "en": "auditor-in-confederazione-svizzera-bern",
+      "fr": "commissaire-aux-comptes-confederazione-svizzera-bern"
     }
   },
   "id|admin.ch|cc4afdc0-8e9d-45fd-8435-ca052cbb050e": {
@@ -4738,7 +4781,9 @@
     "createdAt": "2026-06-11",
     "slugByLocale": {
       "fr": "gestionnaire-de-comptes-senior-1225-confederazione-svizzera-zollikofen",
-      "it": "responsabile-account-senior-1225-confederazione-svizzera-zollikofen"
+      "it": "responsabile-account-senior-1225-confederazione-svizzera-zollikofen",
+      "en": "account-manager-senior-1225-confederazione-zollikofen",
+      "de": "kundenbetreuer-senior-1225-confederazione-svizzera-zollikofen"
     }
   },
   "id|admin.ch|d06b69d8-fe44-42aa-825c-680187fa1827": {
@@ -5128,7 +5173,8 @@
     "canton": "BE",
     "createdAt": "2026-06-11",
     "slugByLocale": {
-      "fr": "ingenieur-en-informatique-1144-1145-1146-confederazione-svizzera-zollikofen"
+      "fr": "ingenieur-en-informatique-1144-1145-1146-confederazione-svizzera-zollikofen",
+      "de": "ict-system-ingenieur-in-1144-1145-1146-confederazione-zollikofen"
     }
   },
   "id|admin.ch|e3e753fd-10ff-4fcb-aece-53061f6aa52b": {
@@ -5329,7 +5375,8 @@
     "createdAt": "2026-07-02",
     "slugByLocale": {
       "en": "court-clerk-in-abt-v-with-main-language-german-confederazione-svizzera-st-gallen",
-      "fr": "greffier-in-abt-v-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
+      "fr": "greffier-in-abt-v-avec-langue-principale-allemand-confederazione-svizzera-st-gallen",
+      "de": "gerichtsschreiber-in-abt-v-mit-hauptsprache-deutsch-confederazione-st-gallen"
     }
   },
   "id|admin.ch|ef5a6792-25d0-4d15-ad9e-cb1a91b5a129": {
@@ -5550,7 +5597,8 @@
     "createdAt": "2026-06-24",
     "slugByLocale": {
       "en": "business-informatics-specialist-with-sap-expertise-confederazione-svizzera-bern",
-      "fr": "specialiste-de-l-informatique-d-affaires-avec-expertise-sap-confederazione-svizzera-bern"
+      "fr": "specialiste-de-l-informatique-d-affaires-avec-expertise-sap-confederazione-svizzera-bern",
+      "de": "wirtschaftsinformatiker-in-mit-sap-expertise-confederazione-bern"
     }
   },
   "id|admin.ch|f673f1d5-7a3f-4a89-a68b-26d5df99e61d": {
@@ -85010,7 +85058,8 @@
     "slugByLocale": {
       "it": "dipl-assistenza-intensiva-esperto-nds-hf-a-kantonsspital-baselland-ksbl-liestal",
       "de": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal",
-      "fr": "dipl-expert-en-soins-intensifs-nds-hf-a-kantonsspital-baselland-ksbl-liestal"
+      "fr": "dipl-expert-en-soins-intensifs-nds-hf-a-kantonsspital-baselland-ksbl-liestal",
+      "en": "dipl-expertin-experte-intensivpflege-nds-hf-a-kantonsspital-baselland-ksbl-liestal"
     }
   },
   "id|ksbl.ch|e3775d7b-48c2-4219-80cd-39453df115f0": {
@@ -156465,7 +156514,9 @@
     "createdAt": "2026-05-21",
     "slugByLocale": {
       "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-      "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden"
+      "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+      "en": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+      "fr": "manager-per-cookie-einwilligungen-schindler-oberentfelden"
     }
   },
   "id|schindler.com|1252421501": {
@@ -272996,7 +273047,8 @@
   "id|admin.ch|8616a8cc-78aa-4393-bd00-5df5b0b25668": {
     "canonicalSlug": "ict-change-manager-in-senior-confederazione-bern",
     "slugByLocale": {
-      "fr": "gestionnaire-du-changement-tic-aine-confederazione-svizzera-bern"
+      "fr": "gestionnaire-du-changement-tic-aine-confederazione-svizzera-bern",
+      "de": "ict-change-manager-in-senior-confederazione-bern"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -273014,7 +273066,10 @@
   "id|admin.ch|0355b90b-4e58-4879-a050-9983ef9e2fc0": {
     "canonicalSlug": "okonom-in-confederazione-bern",
     "slugByLocale": {
-      "de": "okonom-in-confederazione-svizzera-bern"
+      "de": "okonom-in-confederazione-svizzera-bern",
+      "it": "economista-in-confederazione-svizzera-bern",
+      "en": "economist-in-confederazione-svizzera-bern",
+      "fr": "economiste-in-confederazione-svizzera-bern"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -273078,7 +273133,8 @@
     "canonicalSlug": "ict-netzwerkspezialist-in-724-27-1155-confederazione-bern",
     "slugByLocale": {
       "en": "ict-network-specialist-724-27-1155-confederazione-svizzera-bern",
-      "fr": "specialiste-des-reseaux-tic-724-27-1155-confederazione-svizzera-bern"
+      "fr": "specialiste-des-reseaux-tic-724-27-1155-confederazione-svizzera-bern",
+      "de": "ict-netzwerkspezialist-in-724-27-1155-confederazione-bern"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -273087,7 +273143,9 @@
     "canonicalSlug": "ict-security-officer-728-30-1162-confederazione-svizzera-bern",
     "slugByLocale": {
       "de": "ict-sicherheits-officer-728-30-1162-confederazione-bern",
-      "fr": "specialiste-de-la-securite-des-tic-728-30-1162-confederazione-svizzera-bern"
+      "fr": "specialiste-de-la-securite-des-tic-728-30-1162-confederazione-svizzera-bern",
+      "it": "ict-security-officer-728-30-1162-confederazione-svizzera-bern",
+      "en": "ict-security-officer-728-30-1162-confederazione-svizzera-bern"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -273107,7 +273165,9 @@
     "canonicalSlug": "ict-project-manager-in-digitalization-environment-confederazione-svizzera-ittigen",
     "slugByLocale": {
       "de": "ikt-projektleiter-in-digitalisierung-umwelt-confederazione-ittigen",
-      "fr": "gestionnaire-de-projet-tic-en-digitalisation-environnement-confederazione-svizzera-ittigen"
+      "fr": "gestionnaire-de-projet-tic-en-digitalisation-environnement-confederazione-svizzera-ittigen",
+      "it": "ict-project-manager-in-digitalization-environment-confederazione-svizzera-ittigen",
+      "en": "ict-project-manager-in-digitalization-environment-confederazione-svizzera-ittigen"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -273171,7 +273231,9 @@
     "canonicalSlug": "senior-project-assistant-1254-confederazione-svizzera-zollikofen",
     "slugByLocale": {
       "de": "projektassistent-in-senior-1254-confederazione-zollikofen",
-      "fr": "assistant-principal-de-projet-1254-confederazione-svizzera-zollikofen"
+      "fr": "assistant-principal-de-projet-1254-confederazione-svizzera-zollikofen",
+      "it": "senior-project-assistant-1254-confederazione-svizzera-zollikofen",
+      "en": "senior-project-assistant-1254-confederazione-svizzera-zollikofen"
     },
     "createdAt": "2026-07-06",
     "canton": "BE"
@@ -282972,7 +283034,8 @@
     "canonicalSlug": "application-manager-confederazione-sion",
     "slugByLocale": {
       "it": "gestione-delle-applicazioni-confederazione-svizzera-sion",
-      "fr": "gestionnaire-d-applications-confederazione-svizzera-sion"
+      "fr": "gestionnaire-d-applications-confederazione-svizzera-sion",
+      "de": "application-manager-confederazione-sion"
     },
     "createdAt": "2026-07-08",
     "canton": "VS"
@@ -282980,7 +283043,8 @@
   "id|admin.ch|3e19c77f-46cc-4939-9b12-0a4f1fc03b3c": {
     "canonicalSlug": "assistent-in-hr-administration-confederazione-bern",
     "slugByLocale": {
-      "en": "assistant-in-hr-administration-confederazione-svizzera-bern"
+      "en": "assistant-in-hr-administration-confederazione-svizzera-bern",
+      "de": "assistent-in-hr-administration-confederazione-bern"
     },
     "createdAt": "2026-07-08",
     "canton": "BE"
@@ -283084,7 +283148,8 @@
   "id|admin.ch|0d439e98-bea9-47ac-90e3-941cb46d8e08": {
     "canonicalSlug": "product-manager-in-iii-confederazione-bern",
     "slugByLocale": {
-      "fr": "gestionnaire-de-produits-en-iii-confederazione-svizzera-bern"
+      "fr": "gestionnaire-de-produits-en-iii-confederazione-svizzera-bern",
+      "de": "product-manager-in-iii-confederazione-bern"
     },
     "createdAt": "2026-07-08",
     "canton": "BE"
@@ -284613,14 +284678,21 @@
   },
   "id|admin.ch|a28806e5-bc63-43f4-87ba-5ac75788f586": {
     "canonicalSlug": "hochschulpraktikant-in-confederazione-svizzera-bern",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "professionista-dell-universita-in-confederazione-svizzera-bern-3fd9f7",
+      "en": "university-practitioner-in-confederazione-svizzera-bern-3fd9f7",
+      "fr": "pratique-universitaire-in-confederazione-svizzera-bern-3fd9f7"
+    },
     "createdAt": "2026-07-09",
     "canton": "BE"
   },
   "id|admin.ch|06162567-d0f5-4b8f-8a22-f6343a33b379": {
     "canonicalSlug": "meteorologe-w-m-confederazione-genf",
     "slugByLocale": {
-      "de": "meteorologe-w-m-confederazione-svizzera-genf"
+      "de": "meteorologe-w-m-confederazione-svizzera-genf",
+      "it": "meteorologo-w-m-confederazione-svizzera-genf",
+      "en": "meteorologist-w-m-confederazione-svizzera-genf",
+      "fr": "meteorologue-m-m-confederazione-svizzera-genf"
     },
     "createdAt": "2026-07-09",
     "canton": "GE"
@@ -284641,15 +284713,20 @@
     "slugByLocale": {
       "de": "logistiker-in-schmalganglager-confederazione-hinwil",
       "it": "impiegato-a-in-logistica-schmalganglager-confederazione-svizzera-hinwil",
-      "en": "logistiker-in-schmalganglager-confederazione-hinwil",
-      "fr": "logistiker-in-schmalganglager-confederazione-hinwil"
+      "en": "logistician-in-narrow-aisle-warehouse-confederazione-svizzera-hinwil",
+      "fr": "logisticien-dans-un-entrepot-a-allee-etroite-confederazione-svizzera-hinwil"
     },
     "createdAt": "2026-07-09",
     "canton": "ZH"
   },
   "id|admin.ch|150c2b0d-92e3-4bd9-b84a-4d78372e0f0c": {
     "canonicalSlug": "praktikant-in-auftragssteuerung-confederazione-thun",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "trainee-in-gestione-ordini-confederazione-svizzera-thun",
+      "en": "trainee-in-order-management-confederazione-svizzera-thun",
+      "de": "praktikant-in-auftragssteuerung-confederazione-thun",
+      "fr": "stagiaire-gestion-des-commandes-confederazione-svizzera-thun"
+    },
     "createdAt": "2026-07-09",
     "canton": "BE"
   },
@@ -325887,7 +325964,8 @@
     "canonicalSlug": "spa-receptionist-m-w-d-kulm-hotel-st-moritz-st-moritz-692",
     "slugByLocale": {
       "en": "spa-receptionist-m-w-d-kulm-hotel-st-moritz-st-moritz-692",
-      "fr": "receptionniste-du-spa-m-p-p-kulm-hotel-st-moritz-st-moritz"
+      "fr": "receptionniste-du-spa-m-p-p-kulm-hotel-st-moritz-st-moritz",
+      "de": "spa-rezeptionist-m-w-d-kulm-hotel-st-moritz-st-moritz"
     },
     "createdAt": "2026-07-14",
     "canton": "GR"
@@ -350471,5 +350549,943 @@
     },
     "createdAt": "2026-07-19",
     "canton": "ZH"
+  },
+  "id|admin.ch|dbe47126-2e16-4580-84e0-a42ef20cbec7": {
+    "canonicalSlug": "hochschulpraktikant-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "hochschulpraktikant-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|cbf50570-1507-4b17-a1ab-9495518db0fd": {
+    "canonicalSlug": "jurist-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "jurist-in-confederazione-bern",
+      "it": "jurist-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|217a0629-e162-4c56-b29b-7f47934e1b07": {
+    "canonicalSlug": "responsabile-administration-e-kanzlei-confederazione-svizzera-emmen",
+    "slugByLocale": {
+      "de": "leiter-in-administration-und-kanzlei-confederazione-emmen",
+      "it": "responsabile-administration-e-kanzlei-confederazione-svizzera-emmen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "LU"
+  },
+  "id|admin.ch|4b265877-c852-4a62-bac2-615ceb98cb37": {
+    "canonicalSlug": "projektkaufrau-mann-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "projektkaufrau-mann-confederazione-bern",
+      "it": "projektkaufrau-mann-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|f0464105-4827-4011-b128-55f871b8949b": {
+    "canonicalSlug": "projektmanager-in-kompetenzzentrum-sprachen-confederazione-ittigen",
+    "slugByLocale": {
+      "de": "projektmanager-in-kompetenzzentrum-sprachen-confederazione-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|80b3d962-e67c-4841-b25c-fc9a4686cfab": {
+    "canonicalSlug": "wirtschaftsinformatiker-in-junior-confederazione-bern",
+    "slugByLocale": {
+      "de": "wirtschaftsinformatiker-in-junior-confederazione-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|552a981b-2bbf-4645-9868-db50bfad48db": {
+    "canonicalSlug": "meccatronica-automobilistica-tecnici-veicoli-a-ruote-pesanti-confederazione-svizzera-thun",
+    "slugByLocale": {
+      "it": "meccatronica-automobilistica-tecnici-veicoli-a-ruote-pesanti-confederazione-svizzera-thun",
+      "en": "automotive-mechatronics-technicians-heavy-wheeled-vehicles-confederazione-svizzera-thun",
+      "de": "automobilmechatroniker-in-schwere-radfahrzeuge-confederazione-thun",
+      "fr": "techniciens-mecatroniques-automobiles-vehicules-a-roues-lourds-confederazione-svizzera-thun"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|44525611-57fa-483a-a685-c82a0ca16748": {
+    "canonicalSlug": "universita-tirocinante-in-cyber-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "universita-tirocinante-in-cyber-confederazione-svizzera-bern",
+      "en": "university-intern-in-cyber-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-cyber-confederazione-bern",
+      "fr": "stagiaire-universitaire-in-cyber-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|e3f11250-62c3-4de8-a4df-9d7ddd940e82": {
+    "canonicalSlug": "hochschulpraktikant-in-militarstrategische-e-operative-schulung-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "hochschulpraktikant-in-militarstrategische-e-operative-schulung-confederazione-svizzera-bern",
+      "en": "university-intern-in-military-strategic-and-operational-training-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-militarstrategische-und-operative-schulung-confederazione-bern",
+      "fr": "stage-universitaire-en-formation-militaire-strategique-et-operationnelle-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|dd37d634-41a6-475f-aea9-30e579e1b380": {
+    "canonicalSlug": "stage-universitario-in-sezione-ong-svizzere-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "stage-universitario-in-sezione-ong-svizzere-confederazione-svizzera-zollikofen",
+      "en": "university-intern-in-section-of-swiss-ngos-confederazione-svizzera-zollikofen",
+      "de": "hochschulpraktikant-in-sektion-schweizer-nichtregierungsorganisationen-confederazione-zollikofen",
+      "fr": "hochschulpraktikant-in-sektion-schweizer-nichtregierungsorganisationen-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|c9123b2f-99f5-4119-9d7f-66ba09a994a2": {
+    "canonicalSlug": "supporto-ict-in-iii-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "supporto-ict-in-iii-confederazione-svizzera-zollikofen",
+      "de": "ict-supporter-in-iii-confederazione-zollikofen",
+      "fr": "soutien-aux-tic-en-iii-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|32e6a2f5-ae7b-485b-9381-13bcdcd87e4b": {
+    "canonicalSlug": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "lehrgang-come-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-svizzera-bern",
+      "en": "course-as-ict-systems-specialist-junior-at-the-ict-warrior-academy-started-in-march-2027-confederazione-svizzera-bern",
+      "de": "lehrgang-als-ict-systemspezialist-in-junior-an-der-ict-warrior-academy-start-im-marz-2027-confederazione-bern",
+      "fr": "cours-en-tant-que-specialiste-des-systemes-tic-junior-a-l-academie-de-guerre-des-tic-commence-en-mars-2027"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|aefac924-6579-45f6-9e06-a3854b50b823": {
+    "canonicalSlug": "specialista-di-database-senior-in-microsoft-sql-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "specialista-di-database-senior-in-microsoft-sql-confederazione-svizzera-zollikofen",
+      "en": "senior-database-specialist-in-microsoft-sql-confederazione-svizzera-zollikofen",
+      "de": "senior-datenbank-spezialist-in-microsoft-sql-confederazione-zollikofen",
+      "fr": "specialiste-de-base-de-donnees-senior-dans-microsoft-sql-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|e8ee8abc-2386-4d3b-9c04-863551c9163c": {
+    "canonicalSlug": "identita-e-servizi-di-accesso-1154-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "identita-e-servizi-di-accesso-1154-confederazione-svizzera-zollikofen",
+      "de": "business-owner-identity-and-access-services-1154-confederazione-zollikofen",
+      "fr": "services-d-identite-et-d-acces-aux-proprietaires-d-entreprise-1154-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|c41d0894-783e-4bf9-bae2-babe2d6eb425": {
+    "canonicalSlug": "servizi-di-integrazione-e-affidabilita-1204-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "servizi-di-integrazione-e-affidabilita-1204-confederazione-svizzera-zollikofen",
+      "de": "business-owner-integration-and-reliability-services-1204-confederazione-zollikofen",
+      "fr": "services-d-integration-et-de-fiabilite-des-proprietaires-d-entreprise-1204-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3e6ea103-1bb1-41b7-b360-5ab99c16ea25": {
+    "canonicalSlug": "specialista-in-digitalizzazione-platform-expert-expert-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "specialista-in-digitalizzazione-platform-expert-expert-confederazione-svizzera-ittigen",
+      "en": "specialist-in-digitalization-platform-expert-expert-confederazione-svizzera-ittigen",
+      "de": "fachspezialist-in-digitalisierung-plattform-experte-expertin-confederazione-ittigen",
+      "fr": "specialiste-en-numerisation-expert-expert-de-la-plateforme-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|b464bc6c-485a-4983-804c-679e9611a65a": {
+    "canonicalSlug": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-franzosisch-confederazione-st-gallen",
+    "slugByLocale": {
+      "en": "court-clerk-in-abt-iii-with-main-language-french-confederazione-svizzera-st-gallen",
+      "de": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-franzosisch-confederazione-st-gallen",
+      "fr": "greffier-in-abt-iii-avec-langue-principale-francais-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SG"
+  },
+  "id|admin.ch|62ea49bf-beac-4ce6-acad-432a9ecb976b": {
+    "canonicalSlug": "gerichtsschreiber-in-abt-iv-mit-hauptsprache-deutsch-confederazione-st-gallen",
+    "slugByLocale": {
+      "en": "court-clerk-in-abt-iv-with-main-language-german-confederazione-svizzera-st-gallen",
+      "de": "gerichtsschreiber-in-abt-iv-mit-hauptsprache-deutsch-confederazione-st-gallen",
+      "fr": "greffier-in-abt-iv-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SG"
+  },
+  "id|admin.ch|8d34515c-0f71-4df9-92f0-14325330e48a": {
+    "canonicalSlug": "avvocato-extradizione-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "avvocato-extradizione-confederazione-svizzera-bern",
+      "en": "lawyer-extradition-confederazione-svizzera-bern",
+      "de": "jurist-in-auslieferung-confederazione-bern",
+      "fr": "avocat-extradition-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|90a0c146-4a6c-4dfb-b681-6e3f364f76aa": {
+    "canonicalSlug": "sachbearbeiter-in-datenmanagement-zuwanderung-e-integration-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-datenmanagement-zuwanderung-e-integration-confederazione-svizzera-bern",
+      "en": "personnel-in-data-management-immigration-and-integration-confederazione-svizzera-bern",
+      "de": "sachbearbeiter-in-datenmanagement-zuwanderung-und-integration-confederazione-bern",
+      "fr": "personnel-gestion-des-donnees-immigration-et-integration-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|51484264-4b96-43f8-91f6-458947f92beb": {
+    "canonicalSlug": "dipendenti-in-assegni-familiari-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "dipendenti-in-assegni-familiari-confederazione-svizzera-bern",
+      "en": "person-employed-in-family-allowances-confederazione-svizzera-bern",
+      "de": "sachbearbeiter-in-familienzulagen-confederazione-bern",
+      "fr": "personnes-occupees-allocations-familiales-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|dc5466f1-1fbe-4835-b660-e96feb984871": {
+    "canonicalSlug": "spezialist-in-finanzen-e-administration-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "spezialist-in-finanzen-e-administration-confederazione-svizzera-bern",
+      "en": "specialist-in-finance-and-administration-confederazione-svizzera-bern",
+      "de": "spezialist-in-finanzen-und-administration-confederazione-bern",
+      "fr": "specialiste-en-finances-et-administration-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|6aa668eb-66f0-4fc1-bfb2-9c8ed846f3fa": {
+    "canonicalSlug": "procuratore-federale-cybercrime-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "procuratore-federale-cybercrime-confederazione-svizzera-bern",
+      "en": "federal-prosecutor-cybercrime-confederazione-svizzera-bern",
+      "de": "staatsanwaltin-staatsanwalt-des-bundes-cyberkriminalitat-confederazione-bern",
+      "fr": "procureur-federal-cybercrime-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3a33676a-156f-4078-8268-950ff213dbee": {
+    "canonicalSlug": "esame-esterno-iva-ge-vd-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "esame-esterno-iva-ge-vd-confederazione-svizzera-bern",
+      "en": "tax-auditor-external-examination-vat-ge-vd-confederazione-svizzera-bern",
+      "de": "steuerprufer-in-externe-prufung-mwst-ge-vd-confederazione-bern",
+      "fr": "auditeur-fiscal-examen-externe-de-la-tva-ge-vd-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|fec46df1-c45f-4add-8b96-de951cd91fe5": {
+    "canonicalSlug": "specialista-fiscale-nella-raccolta-iva-team-4-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-fiscale-nella-raccolta-iva-team-4-confederazione-svizzera-bern",
+      "en": "tax-specialist-in-vat-collection-team-4-confederazione-svizzera-bern",
+      "de": "steuerspezialist-in-erhebung-mwst-team-4-confederazione-bern",
+      "fr": "specialiste-de-la-tva-equipe-4-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3a277ce5-5a2b-47a2-9f3b-98b29f4c5fb7": {
+    "canonicalSlug": "specialista-di-sistema-in-applicazioni-individuali-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "specialista-di-sistema-in-applicazioni-individuali-confederazione-svizzera-zollikofen",
+      "en": "system-specialist-in-individual-applications-confederazione-svizzera-zollikofen",
+      "de": "system-spezialist-in-individuelle-anwendungen-confederazione-zollikofen",
+      "fr": "specialiste-du-systeme-dans-les-applications-individuelles-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|52340ae5-4101-47de-b83a-753c346fa215": {
+    "canonicalSlug": "bereichsleiter-in-planung-e-kundenbeziehungen-confederazione-svizzera-zurich",
+    "slugByLocale": {
+      "it": "bereichsleiter-in-planung-e-kundenbeziehungen-confederazione-svizzera-zurich",
+      "en": "area-manager-in-planning-and-customer-relations-confederazione-svizzera-zurich",
+      "de": "bereichsleiter-in-planung-und-kundenbeziehungen-confederazione-zurich",
+      "fr": "gestionnaire-de-secteur-en-planification-et-relations-client-confederazione-svizzera-zurich"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|7fb25dc0-7bb0-4367-9f6b-c4d84fb30b91": {
+    "canonicalSlug": "fachspezialist-in-bildung-e-fuhrungsentwicklung-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "fachspezialist-in-bildung-e-fuhrungsentwicklung-confederazione-svizzera-zollikofen",
+      "en": "specialist-in-education-and-leadership-development-confederazione-svizzera-zollikofen",
+      "de": "fachspezialist-in-bildung-und-fuhrungsentwicklung-confederazione-zollikofen",
+      "fr": "specialiste-en-education-et-perfectionnement-du-leadership-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3ca79b0b-b1b0-48a7-be1b-f72602775e6d": {
+    "canonicalSlug": "specialista-in-business-process-manager-r-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-in-business-process-manager-r-confederazione-svizzera-bern",
+      "en": "specialist-in-business-process-manager-r-confederazione-svizzera-bern",
+      "de": "fachspezialist-in-geschaftsprozessverantwortliche-r-confederazione-bern",
+      "fr": "specialiste-in-gestionnaire-de-processus-operationnels-r-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|2c47d494-ce51-4ad0-a559-bf4a7df92af6": {
+    "canonicalSlug": "hochschulpraktikant-in-risorse-umane-kommando-operationen-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "hochschulpraktikant-in-risorse-umane-kommando-operationen-confederazione-svizzera-bern",
+      "en": "hochschulpraktikant-in-human-resources-kommando-operationen-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-personalwesen-kommando-operationen-confederazione-svizzera-bern",
+      "fr": "hochschulpraktikant-in-ressources-humaines-kommando-operationen-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|a5c39ef3-b50e-4eeb-a3b4-818998e017ad": {
+    "canonicalSlug": "stage-universitario-informazione-e-documentazione-confederazione-svizzera-zurich",
+    "slugByLocale": {
+      "it": "stage-universitario-informazione-e-documentazione-confederazione-svizzera-zurich",
+      "en": "university-internship-information-documentation-confederazione-svizzera-zurich",
+      "de": "hochschulpraktikum-information-dokumentation-confederazione-zurich",
+      "fr": "stage-universitaire-informations-et-documentation-confederazione-svizzera-zurich"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|dc89f870-d740-41c2-824f-47c2781ef283": {
+    "canonicalSlug": "responsabile-fachbereich-fahrzeugvorschriften-jurist-in-o-automobilingenieur-in-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "responsabile-fachbereich-fahrzeugvorschriften-jurist-in-o-automobilingenieur-in-confederazione-svizzera-ittigen",
+      "en": "head-of-department-vehicle-regulations-lawyer-or-automotive-engineer-confederazione-svizzera-ittigen",
+      "de": "leiter-in-fachbereich-fahrzeugvorschriften-jurist-in-oder-automobilingenieur-in-confederazione-ittigen",
+      "fr": "chef-du-departement-reglementation-des-vehicules-avocat-ou-ingenieur-automobile-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|cc1b01f1-ff37-47e8-a073-022cb5d47e05": {
+    "canonicalSlug": "collaboratore-trice-in-kanzlei-con-hauptsprache-franzosisch-confederazione-svizzera-st-gallen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-kanzlei-con-hauptsprache-franzosisch-confederazione-svizzera-st-gallen",
+      "en": "employee-in-law-firm-with-main-language-french-confederazione-svizzera-st-gallen",
+      "de": "mitarbeiter-in-kanzlei-mit-hauptsprache-franzosisch-confederazione-st-gallen",
+      "fr": "employe-en-cabinet-avec-langue-principale-francais-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SG"
+  },
+  "id|admin.ch|1e368b46-6bac-4c4c-9824-33050de24621": {
+    "canonicalSlug": "collaboratore-trice-in-kontrolle-confederazione-svizzera-thayngen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-kontrolle-confederazione-svizzera-thayngen",
+      "en": "employee-control-confederazione-svizzera-thayngen",
+      "de": "mitarbeiter-in-kontrolle-confederazione-thayngen",
+      "fr": "employe-controle-confederazione-svizzera-thayngen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SH"
+  },
+  "id|admin.ch|b3815e7a-2d4a-4817-95c0-334dc6137b83": {
+    "canonicalSlug": "funzionamento-ufficiale-in-comando-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "funzionamento-ufficiale-in-comando-confederazione-svizzera-bern",
+      "en": "operation-officer-in-command-confederazione-svizzera-bern",
+      "de": "operationsoffizier-in-fuhrungsdienst-confederazione-bern",
+      "fr": "officier-de-l-operation-commande-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|049f6f26-29f2-4029-8598-dee20ff85f04": {
+    "canonicalSlug": "project-manager-in-professional-1300-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "project-manager-in-professional-1300-confederazione-svizzera-zollikofen",
+      "en": "project-manager-in-professional-1300-confederazione-svizzera-zollikofen",
+      "de": "projektleiter-in-professional-1300-confederazione-zollikofen",
+      "fr": "gestionnaire-de-projet-professionnel-1300-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|c6745dad-c427-4717-a4f0-698b99286206": {
+    "canonicalSlug": "referent-in-bundesrats-e-parlamentsgeschafte-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "referent-in-bundesrats-e-parlamentsgeschafte-confederazione-svizzera-bern",
+      "en": "member-of-the-federal-council-and-parliament-confederazione-svizzera-bern",
+      "de": "referent-in-bundesrats-und-parlamentsgeschafte-confederazione-bern",
+      "fr": "membre-du-conseil-federal-et-du-parlement-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|5525ad4e-d755-4487-9932-e6fcfd00a0e8": {
+    "canonicalSlug": "senior-prozessmanager-in-change-management-e-change-manager-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "senior-prozessmanager-in-change-management-e-change-manager-confederazione-svizzera-bern",
+      "de": "senior-prozessmanager-in-change-management-und-change-manager-confederazione-bern",
+      "fr": "gestionnaire-principal-de-processus-dans-gestion-du-changement-et-gestionnaire-du-changement-confederazione-svizzera"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|d8f7b9e8-0136-43cb-84ce-712ccd0e31ca": {
+    "canonicalSlug": "revisore-fiscale-audit-esterno-iva-fr-ju-ne-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "revisore-fiscale-audit-esterno-iva-fr-ju-ne-confederazione-svizzera-bern",
+      "en": "tax-auditor-external-audit-vat-fr-ju-ne-confederazione-svizzera-bern",
+      "de": "steuerprufer-in-externe-prufung-mwst-fr-ju-ne-confederazione-bern",
+      "fr": "auditeur-fiscal-audit-externe-tva-fr-ju-ne-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|b1906596-cb59-4fa3-8fe5-e6a411a97fa7": {
+    "canonicalSlug": "specialista-fiscale-in-survey-mwst-team-1-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-fiscale-in-survey-mwst-team-1-confederazione-svizzera-bern",
+      "en": "tax-specialist-in-survey-mwst-team-1-confederazione-svizzera-bern",
+      "de": "steuerspezialist-in-erhebung-mwst-team-1-confederazione-bern",
+      "fr": "specialiste-fiscal-in-enquete-mwst-equipe-1-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|f01dd231-fd98-4db3-bc97-14c939052a56": {
+    "canonicalSlug": "meccatronica-automobilistica-ingegneri-in-veicoli-commerciali-confederazione-svizzera-dubendorf",
+    "slugByLocale": {
+      "it": "meccatronica-automobilistica-ingegneri-in-veicoli-commerciali-confederazione-svizzera-dubendorf",
+      "en": "automotive-mechatronics-engineers-in-commercial-vehicles-confederazione-svizzera-dubendorf",
+      "de": "automobil-mechatroniker-in-nutzfahrzeuge-confederazione-dubendorf",
+      "fr": "ingenieurs-mecatroniques-automobiles-dans-les-vehicules-utilitaires-confederazione-svizzera-dubendorf"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|136a42c6-c492-4405-ac14-c60f94da344a": {
+    "canonicalSlug": "specialista-specialist-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-specialist-confederazione-svizzera-bern",
+      "en": "specialist-specialist-confederazione-svizzera-bern",
+      "de": "fachspezialist-in-confederazione-svizzera-bern",
+      "fr": "specialiste-specialiste-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|31f941f6-bc14-4a00-a762-6efca0c1f85f": {
+    "canonicalSlug": "gruppo-di-ricerca-leader-in-estensione-delle-verdure-confederazione-svizzera-8046-zurich",
+    "slugByLocale": {
+      "it": "gruppo-di-ricerca-leader-in-estensione-delle-verdure-confederazione-svizzera-8046-zurich",
+      "en": "research-group-leader-in-extension-vegetables-confederazione-svizzera-8046-zurich",
+      "de": "forschungsgruppenleiter-in-extension-gemusebau-confederazione-zurich",
+      "fr": "chef-du-groupe-de-recherche-dans-extension-legumes-confederazione-svizzera-8046-zurich"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|9345f2da-eb8d-4451-84de-0e494bc964f3": {
+    "canonicalSlug": "stage-universitario-nel-servizio-giuridico-del-bundeskanzlei-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "stage-universitario-nel-servizio-giuridico-del-bundeskanzlei-confederazione-svizzera-bern",
+      "en": "university-intern-in-the-legal-service-of-the-bundeskanzlei-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-im-rechtsdienst-der-bundeskanzlei-confederazione-bern",
+      "fr": "stagiaire-universitaire-au-service-juridique-de-la-bundeskanzlei-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|8dc1b1ec-0680-4c2f-85d9-1c7d5be455e4": {
+    "canonicalSlug": "procedure-penali-amministrative-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "procedure-penali-amministrative-confederazione-svizzera-ittigen",
+      "en": "university-intern-in-administrative-criminal-proceedings-confederazione-svizzera-ittigen",
+      "de": "hochschulpraktikant-in-verwaltungsstrafverfahren-confederazione-ittigen",
+      "fr": "stage-universitaire-en-procedure-penale-administrative-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|1bc6736e-d1ab-48e7-ae48-cf57c7592c35": {
+    "canonicalSlug": "legale-universita-tirocinante-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "legale-universita-tirocinante-in-confederazione-svizzera-bern",
+      "en": "legal-university-intern-in-confederazione-svizzera-bern",
+      "de": "juristische-r-hochschulpraktikant-in-confederazione-bern",
+      "fr": "stagiaire-juridique-universitaire-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|76a64ea5-2603-4b64-8eae-f62841a74e29": {
+    "canonicalSlug": "responsabile-ehealth-suisse-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "responsabile-ehealth-suisse-confederazione-svizzera-bern",
+      "en": "head-of-ehealth-suisse-confederazione-svizzera-bern",
+      "de": "leiter-in-ehealth-suisse-confederazione-bern",
+      "fr": "responsable-de-ehealth-suisse-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3bce18f7-d157-46e5-af92-9f4975c44ae9": {
+    "canonicalSlug": "collaboratore-trice-in-zentrale-kanzlei-scancenter-confederazione-svizzera-st-gallen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-in-zentrale-kanzlei-scancenter-confederazione-svizzera-st-gallen",
+      "en": "employee-in-central-law-firm-scancenter-confederazione-svizzera-st-gallen",
+      "de": "mitarbeiter-in-zentrale-kanzlei-scancenter-confederazione-st-gallen",
+      "fr": "employe-dans-le-cabinet-d-avocats-central-scancenter-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SG"
+  },
+  "id|admin.ch|8e763f11-4d30-44ec-bf41-e23b23442207": {
+    "canonicalSlug": "oberfeldarztin-arzt-e-responsabile-sanitat-schweizer-armee-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "oberfeldarztin-arzt-e-responsabile-sanitat-schweizer-armee-confederazione-svizzera-ittigen",
+      "en": "senior-medical-officer-and-head-of-the-swiss-army-medical-service-confederazione-svizzera-ittigen",
+      "de": "oberfeldarztin-arzt-und-leiter-in-sanitat-schweizer-armee-confederazione-ittigen",
+      "fr": "medecin-chef-et-chef-du-service-medical-de-l-armee-suisse-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|e9a5342e-5060-4112-9d23-9cac989155cc": {
+    "canonicalSlug": "specialista-di-polizia-in-piu-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-di-polizia-in-piu-confederazione-svizzera-bern",
+      "en": "police-specialist-in-piu-confederazione-svizzera-bern",
+      "de": "polizeiliche-r-fachspezialist-in-piu-confederazione-bern",
+      "fr": "specialiste-de-la-police-en-piu-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|36a5c6e1-0e5f-4873-b576-b24957190fe9": {
+    "canonicalSlug": "specialista-transfer-pricing-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-transfer-pricing-confederazione-svizzera-bern",
+      "en": "specialist-transfer-pricing-confederazione-svizzera-bern",
+      "de": "spezialist-in-verrechnungspreise-confederazione-bern",
+      "fr": "prix-de-specialisation-de-transfert-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|4792d7a9-3e3c-4a8e-9fba-127990be3126": {
+    "canonicalSlug": "specialista-fiscale-diritto-iva-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "specialista-fiscale-diritto-iva-confederazione-svizzera-bern",
+      "en": "steuerspezialist-in-recht-mwst-confederazione-svizzera-bern",
+      "de": "steuerspezialist-in-recht-mwst-confederazione-bern",
+      "fr": "specialiste-de-la-fiscalite-droit-tva-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|5c2ce3a4-fbab-4ba6-b5df-9301982a9962": {
+    "canonicalSlug": "specialista-in-informatica-aziendale-in-sap-fi-1287-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "specialista-in-informatica-aziendale-in-sap-fi-1287-confederazione-svizzera-zollikofen",
+      "en": "business-informatics-specialist-in-sap-fi-1287-confederazione-svizzera-zollikofen",
+      "de": "wirtschaftsinformatiker-in-sap-fi-1287-confederazione-zollikofen",
+      "fr": "specialiste-de-l-informatique-d-affaires-dans-sap-fi-1287-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|f83bf7e3-fd74-4619-a3f9-91a217328a6d": {
+    "canonicalSlug": "applikations-entwickler-in-mit-fokus-sre-site-reliability-engineering-confederazione-zollikofen",
+    "slugByLocale": {
+      "en": "applikations-entwickler-in-mit-fokus-sre-site-reliability-engineering-confederazione-svizzera-zollikofen",
+      "de": "applikations-entwickler-in-mit-fokus-sre-site-reliability-engineering-confederazione-zollikofen",
+      "fr": "developpeur-d-applications-avec-l-accent-sur-sre-site-fiabilite-engineering-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|b1ebabca-15d7-41a4-89da-1f1f6ce2af1a": {
+    "canonicalSlug": "chef-in-o-co-leitung-schneiderei-verarbeitung-armeetextilien-confederazione-svizzera-thun",
+    "slugByLocale": {
+      "it": "chef-in-o-co-leitung-schneiderei-verarbeitung-armeetextilien-confederazione-svizzera-thun",
+      "en": "head-of-tailoring-and-finishing-of-army-textiles-confederazione-svizzera-thun",
+      "de": "chef-in-oder-co-leitung-schneiderei-verarbeitung-armeetextilien-confederazione-svizzera-thun",
+      "fr": "chef-de-la-confection-et-de-la-finition-des-textiles-de-l-armee-confederazione-svizzera-thun"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|1b75e370-a675-4e61-9484-9023dd6793c6": {
+    "canonicalSlug": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen",
+    "slugByLocale": {
+      "en": "court-clerk-in-abt-i-with-main-language-french-confederazione-svizzera-st-gallen",
+      "de": "gerichtsschreiber-in-abt-i-mit-hauptsprache-franzosisch-confederazione-st-gallen",
+      "fr": "greffier-en-abt-i-avec-langue-principale-francais-confederazione-svizzera-st-gallen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "SG"
+  },
+  "id|admin.ch|42b0675f-eb95-4964-a3e0-ff4bf66903c4": {
+    "canonicalSlug": "responsabile-fachstelle-medizinische-abc-abwehr-cbrn-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "responsabile-fachstelle-medizinische-abc-abwehr-cbrn-confederazione-svizzera-ittigen",
+      "en": "head-of-medical-abc-defense-cbrn-confederazione-svizzera-ittigen",
+      "de": "leiter-in-fachstelle-medizinische-abc-abwehr-cbrn-confederazione-ittigen",
+      "fr": "chef-de-la-defense-abc-medicale-cbrn-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|b0f4c6fa-ddc5-4263-8823-5ed2a7ca37da": {
+    "canonicalSlug": "network-architect-senior-1274-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "network-architect-senior-1274-confederazione-svizzera-zollikofen",
+      "en": "network-architect-senior-1274-confederazione-svizzera-zollikofen",
+      "de": "netzwerk-architekt-in-senior-1274-confederazione-zollikofen",
+      "fr": "architecte-reseau-aine-1274-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|01ccd94b-2513-41ea-acf3-b51a1761bc4f": {
+    "canonicalSlug": "business-informatics-professional-1253-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "business-informatics-professional-1253-confederazione-svizzera-bern",
+      "de": "wirtschaftsinformatiker-in-professional-1253-confederazione-bern",
+      "fr": "professionnel-de-l-informatique-d-affaires-1253-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|08aba447-bae0-4e55-84d2-b6e983a4dc69": {
+    "canonicalSlug": "assistente-automobilistico-in-confederazione-svizzera-burgdorf",
+    "slugByLocale": {
+      "it": "assistente-automobilistico-in-confederazione-svizzera-burgdorf",
+      "en": "automotive-assistant-in-confederazione-svizzera-burgdorf",
+      "de": "automobil-assistent-in-confederazione-burgdorf",
+      "fr": "assistant-automobile-in-confederazione-svizzera-burgdorf"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|24817e6d-23d5-443e-b899-84e3c87dc8ea": {
+    "canonicalSlug": "dipl-pflegefachfrau-mann-confederazione-svizzera-bure",
+    "slugByLocale": {
+      "it": "dipl-pflegefachfrau-mann-confederazione-svizzera-bure",
+      "en": "dipl-nursing-professional-confederazione-svizzera-bure",
+      "de": "dipl-pflegefachfrau-mann-confederazione-bure",
+      "fr": "dipl-professionnels-des-soins-infirmiers-confederazione-svizzera-bure"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "JU"
+  },
+  "id|admin.ch|6ee188af-ac5c-427c-97af-2e837ab1ab37": {
+    "canonicalSlug": "rete-ferroviaria-di-finanziamento-confederazione-svizzera-ittigen",
+    "slugByLocale": {
+      "it": "rete-ferroviaria-di-finanziamento-confederazione-svizzera-ittigen",
+      "en": "university-intern-in-financing-rail-network-confederazione-svizzera-ittigen",
+      "de": "hochschulpraktikant-in-finanzierung-schienennetz-confederazione-ittigen",
+      "fr": "stage-universitaire-financement-du-reseau-ferroviaire-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|b775dc85-676a-430a-ad3a-cd4b9f0aae4f": {
+    "canonicalSlug": "hochschulpraktikant-in-risorse-umane-confederazione-svizzera-bern-28e084",
+    "slugByLocale": {
+      "it": "hochschulpraktikant-in-risorse-umane-confederazione-svizzera-bern-28e084",
+      "en": "university-intern-in-hr-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-hr-confederazione-svizzera-bern",
+      "fr": "hochschulpraktikant-in-ressources-humaines-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|989f411e-c283-49f8-a5fe-438857080c1a": {
+    "canonicalSlug": "ict-system-engineer-in-ict-system-specialist-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "ict-system-engineer-in-ict-system-specialist-in-confederazione-svizzera-bern",
+      "en": "ict-system-engineer-in-ict-system-specialist-in-confederazione-svizzera-bern",
+      "de": "ict-system-ingenieur-in-ict-system-spezialist-in-confederazione-bern",
+      "fr": "ingenieur-in-specialiste-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|7b1c7284-9190-4a80-804e-3295a65341cc": {
+    "canonicalSlug": "inkassospezialist-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "inkassospezialist-in-confederazione-svizzera-bern",
+      "en": "debt-collection-specialist-confederazione-svizzera-bern",
+      "de": "inkassospezialist-in-confederazione-bern",
+      "fr": "specialiste-du-recouvrement-des-creances-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|4c326fe9-6bdc-4d09-bccc-72f5e92c0bb9": {
+    "canonicalSlug": "stv-responsabile-dienst-erschliessung-e-nutzung-sla-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "stv-responsabile-dienst-erschliessung-e-nutzung-sla-confederazione-svizzera-bern",
+      "en": "stv-manager-in-service-development-and-use-sla-confederazione-svizzera-bern",
+      "de": "stv-leiter-in-dienst-erschliessung-und-nutzung-sla-confederazione-bern",
+      "fr": "stv-gestionnaire-en-developpement-de-service-et-utiliser-sla-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|ad204ea0-2806-4a92-98db-b6417eb39dc6": {
+    "canonicalSlug": "system-manager-in-project-manager-in-c4i-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "system-manager-in-project-manager-in-c4i-confederazione-svizzera-bern",
+      "en": "system-manager-in-project-manager-in-c4i-confederazione-svizzera-bern",
+      "de": "systemmanager-in-projektleiter-in-c4i-confederazione-bern",
+      "fr": "gestionnaire-de-systeme-dans-gestionnaire-de-projet-dans-c4i-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|3e61cd45-dc24-4854-b6c8-20aeed29a993": {
+    "canonicalSlug": "admin-manipolatore-fk-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "admin-manipolatore-fk-confederazione-svizzera-bern",
+      "en": "admin-case-handler-fk-confederazione-svizzera-bern",
+      "de": "admin-sachbearbeiter-in-fk-confederazione-bern",
+      "fr": "admin-gestionnaire-de-cas-fk-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|fb8c49b7-ea60-4bcc-b7b8-19484754580b": {
+    "canonicalSlug": "hochschulpraktikant-in-risorse-umane-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "hochschulpraktikant-in-risorse-umane-confederazione-svizzera-bern",
+      "en": "university-intern-in-human-resources-confederazione-svizzera-bern",
+      "de": "hochschulpraktikant-in-personalwesen-confederazione-svizzera-bern",
+      "fr": "hochschulpraktikant-in-human-resources-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|e2b13f3b-3f2d-439d-a348-4e85e07c1086": {
+    "canonicalSlug": "hpc-plattformmanager-in-e-softwareentwickler-in-confederazione-svizzera-zurich-flughafen",
+    "slugByLocale": {
+      "it": "hpc-plattformmanager-in-e-softwareentwickler-in-confederazione-svizzera-zurich-flughafen",
+      "en": "hpc-platform-manager-and-software-developer-confederazione-svizzera-zurich-flughafen",
+      "de": "hpc-plattformmanager-in-und-softwareentwickler-in-confederazione-zurich-flughafen",
+      "fr": "hpc-platform-manager-et-developpeur-de-logiciels-confederazione-svizzera-zurich-flughafen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|8dceeed8-b033-4514-a5a3-8307328af7ec": {
+    "canonicalSlug": "ufficiale-dell-analisi-penale-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "ufficiale-dell-analisi-penale-confederazione-svizzera-bern",
+      "en": "criminal-analysis-officer-confederazione-svizzera-bern",
+      "de": "kriminalanalyse-offizier-in-confederazione-bern",
+      "fr": "specialiste-des-analyses-criminelles-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|40089418-9f7d-4e5c-b234-2cb8e4b4166a": {
+    "canonicalSlug": "responsabile-des-italienischen-sprachdienstes-im-generalsekretariat-des-edi-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "responsabile-des-italienischen-sprachdienstes-im-generalsekretariat-des-edi-confederazione-svizzera-bern",
+      "en": "head-of-the-italian-language-service-in-the-general-secretariat-of-the-edi-confederazione-svizzera-bern",
+      "de": "leiter-in-des-italienischen-sprachdienstes-im-generalsekretariat-des-edi-confederazione-bern",
+      "fr": "chef-du-service-linguistique-italien-au-secretariat-general-de-l-edi-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|78f7a650-8e4c-41c5-9225-89ee9ae9fd42": {
+    "canonicalSlug": "spezialist-in-personal-e-organisationsentwicklung-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "spezialist-in-personal-e-organisationsentwicklung-confederazione-svizzera-bern",
+      "en": "spezialist-in-personal-und-organisationsentwicklung-confederazione-svizzera-bern",
+      "de": "spezialist-in-personal-und-organisationsentwicklung-confederazione-bern",
+      "fr": "specialiste-du-personnel-et-du-perfectionnement-organisationnel-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|bd5b3817-ed67-4401-b855-3dfffa0812b0": {
+    "canonicalSlug": "specialista-in-project-management-confederazione-svizzera-winterthur",
+    "slugByLocale": {
+      "it": "specialista-in-project-management-confederazione-svizzera-winterthur",
+      "en": "specialist-in-project-management-confederazione-svizzera-winterthur",
+      "de": "spezialist-in-projektmanagement-confederazione-winterthur",
+      "fr": "spezialist-in-projektmanagement-confederazione-svizzera-winterthur"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|d79897cb-34f1-4686-ad42-a3b68712a1be": {
+    "canonicalSlug": "wissenschaftliche-r-collaboratore-trice-in-risikogrundlagen-e-forschungskoordination-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "wissenschaftliche-r-collaboratore-trice-in-risikogrundlagen-e-forschungskoordination-confederazione-svizzera-bern",
+      "en": "scientific-staff-at-risk-bases-and-research-coordination-confederazione-svizzera-bern",
+      "de": "wissenschaftliche-r-mitarbeiter-in-risikogrundlagen-und-forschungskoordination-confederazione-bern",
+      "fr": "personnel-scientifique-a-risque-et-coordination-de-la-recherche-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|fcc133e8-9d11-4505-96aa-6c17dce52132": {
+    "canonicalSlug": "investigatori-federali-nel-crimine-economico-confederazione-svizzera-zurich",
+    "slugByLocale": {
+      "it": "investigatori-federali-nel-crimine-economico-confederazione-svizzera-zurich",
+      "en": "federal-investigators-in-economic-crime-confederazione-svizzera-zurich",
+      "de": "bundesermittler-in-wirtschaftskriminalitat-confederazione-zurich",
+      "fr": "enqueteurs-federaux-en-matiere-de-criminalite-economique-confederazione-svizzera-zurich"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|admin.ch|9e25fce9-bae3-41f6-a0fd-89e4602a26c2": {
+    "canonicalSlug": "business-ingegnere-professional-1314-confederazione-svizzera-zollikofen",
+    "slugByLocale": {
+      "it": "business-ingegnere-professional-1314-confederazione-svizzera-zollikofen",
+      "en": "business-engineer-professional-1314-confederazione-zollikofen",
+      "de": "business-ingenieur-professional-1314-confederazione-svizzera-zollikofen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|4b10cc92-91d3-462b-b9f5-7a106b6eea40": {
+    "canonicalSlug": "ict-architekt-in-iii-senior-ict-systems-architect-confederazione-bern",
+    "slugByLocale": {
+      "de": "ict-architekt-in-iii-senior-ict-systems-architect-confederazione-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|77c80e3a-dcc5-41fd-9ddf-1b60d9db48d0": {
+    "canonicalSlug": "gestione-della-sicurezza-delle-informazioni-in-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "gestione-della-sicurezza-delle-informazioni-in-confederazione-svizzera-bern",
+      "de": "information-security-manager-in-confederazione-bern",
+      "fr": "gestionnaire-de-la-securite-de-l-information-in-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|292e3563-ec3d-411a-b436-5c22befaa76b": {
+    "canonicalSlug": "polizeiliche-r-sachbearbeiter-in-einsatz-e-alarmzentrale-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "polizeiliche-r-sachbearbeiter-in-einsatz-e-alarmzentrale-confederazione-svizzera-bern",
+      "en": "police-officers-in-operation-and-alarm-centre-confederazione-svizzera-bern",
+      "de": "polizeiliche-r-sachbearbeiter-in-einsatz-und-alarmzentrale-confederazione-bern",
+      "fr": "agents-de-police-centre-d-alarme-et-d-operation-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|84e3ef64-9e01-4aa6-96ca-cd2bacccdbb7": {
+    "canonicalSlug": "sachbearbeiter-in-finanz-e-rechnungswesen-kontierungsstelle-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-finanz-e-rechnungswesen-kontierungsstelle-confederazione-svizzera-bern",
+      "en": "personnel-in-finance-and-accounting-contracting-office-confederazione-svizzera-bern",
+      "de": "sachbearbeiter-in-finanz-und-rechnungswesen-kontierungsstelle-confederazione-bern",
+      "fr": "personnel-en-finances-et-comptabilite-bureau-de-negociation-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|62338f08-7218-42ee-b0ce-12fa9ee91b2f": {
+    "canonicalSlug": "sachbearbeiter-in-im-ressort-sonderunterstellungsfragen-e-verbindungsstelle-familienfragen-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "sachbearbeiter-in-im-ressort-sonderunterstellungsfragen-e-verbindungsstelle-familienfragen-confederazione-svizzera-bern",
+      "en": "personnel-in-the-department-of-special-reports-and-liaison-office-for-family-affairs-confederazione-svizzera-bern",
+      "de": "sachbearbeiter-in-im-ressort-sonderunterstellungsfragen-und-verbindungsstelle-familienfragen-confederazione-bern",
+      "fr": "personnel-du-departement-des-rapports-speciaux-et-du-bureau-de-liaison-pour-les-affaires-familiales-confederazione"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|d80e1b88-8ae1-4e21-946c-dc8cd6bf4b7d": {
+    "canonicalSlug": "stv-delegierte-r-bund-e-kantone-per-den-sicherheitsverbund-schweiz-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "it": "stv-delegierte-r-bund-e-kantone-per-den-sicherheitsverbund-schweiz-confederazione-svizzera-bern",
+      "en": "delegates-r-confederation-and-cantons-for-the-swiss-security-association-confederazione-svizzera-bern",
+      "de": "stv-delegierte-r-bund-und-kantone-fur-den-sicherheitsverbund-schweiz-confederazione-bern",
+      "fr": "delegues-r-confederation-et-cantons-de-l-association-suisse-de-securite-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|admin.ch|a1c2f444-85a6-4a54-8912-c6e40d57de4b": {
+    "canonicalSlug": "istruzione-superiore-tirocinante-istruzione-superiore-tirocinante-procedimento-penale-amministrativo-contro-le-imprese",
+    "slugByLocale": {
+      "it": "istruzione-superiore-tirocinante-istruzione-superiore-tirocinante-procedimento-penale-amministrativo-contro-le-imprese",
+      "en": "higher-education-trainee-higher-education-trainee-administrative-criminal-proceedings-against-public-transport",
+      "de": "hochschulpraktikantin-hochschulpraktikant-verwaltungsstrafverfahren-gegen-transportunternehmen-des-ov-confederazione-ittigen",
+      "fr": "stagiaires-de-l-enseignement-superieur-stagiaires-de-l-enseignement-superieur-confederazione-svizzera-ittigen"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|migros.ch|6a96d250-1139-4450-99f4-732aa883245a": {
+    "canonicalSlug": "verkaufer-in-denner-ag-visp",
+    "slugByLocale": {
+      "de": "verkaufer-in-denner-ag-visp"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "VS"
+  },
+  "id|migros.ch|6a5263b8-8dfb-4bce-8633-e87e03ddec99": {
+    "canonicalSlug": "marketing-assistent-m-w-d-migrol-ag-adliswil-wpa8d8",
+    "slugByLocale": {
+      "de": "marketing-assistent-m-w-d-migrol-ag-adliswil-wpa8d8"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "ZH"
+  },
+  "id|migros.ch|b0ecfeae-39fc-4649-89e5-f28ea90763db": {
+    "canonicalSlug": "vendeur-vendeuse-denner-sa-delemont",
+    "slugByLocale": {
+      "it": "vendeur-vendeuse-denner-sa-delemont",
+      "fr": "vendeur-vendeuse-denner-sa-delemont-62keja"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "JU"
+  },
+  "id|galenica.com|3115351": {
+    "canonicalSlug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+    "slugByLocale": {
+      "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
+  },
+  "id|galenica.com|12692342": {
+    "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-bern",
+    "slugByLocale": {
+      "it": "galenica-amavita-assistente-di-farmacia-afc-bern",
+      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern",
+      "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-bern"
+    },
+    "createdAt": "2026-07-20",
+    "canton": "BE"
   }
 }
