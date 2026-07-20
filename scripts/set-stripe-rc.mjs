@@ -50,6 +50,18 @@ const PROVIDER_KEYS = [
     description: 'CHF 2.99/month recurring Price for the reader ad-free subscription',
   },
   {
+    rcParam: 'STRIPE_PRICE_CONSULTING_BASE',
+    envVar: 'STRIPE_PRICE_CONSULTING_BASE',
+    shapeHint: /^price_[A-Za-z0-9]+$/,
+    description: 'CHF 49 one-time Price for the /consulenza/ base (30min) session',
+  },
+  {
+    rcParam: 'STRIPE_PRICE_CONSULTING_PREMIUM',
+    envVar: 'STRIPE_PRICE_CONSULTING_PREMIUM',
+    shapeHint: /^price_[A-Za-z0-9]+$/,
+    description: 'CHF 99 one-time Price for the /consulenza/ premium (60min) session',
+  },
+  {
     rcParam: 'STRIPE_WEBHOOK_SECRET',
     envVar: 'STRIPE_WEBHOOK_SECRET',
     shapeHint: /^whsec_[A-Za-z0-9]+$/,

@@ -1063,6 +1063,15 @@ export async function handleStripeWebhook(req) {
     return { status: 200, body: { received: true } };
   }
 
+  // One-time consulting-session payments (dead-Calendly replacement) — same
+  // dispatch shape as the reader block above, told apart by
+  // metadata.product === 'consulting'.
+  const { handleConsultingWebhookEvent } = await import('./consultingCore.js');
+  if (await handleConsultingWebhookEvent(event, { db, ts })) {
+    await eventRef.set({ type: event.type, processedAt: ts });
+    return { status: 200, body: { received: true } };
+  }
+
   // Sub-statuses that mean the ad must come down.
   const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);
 
