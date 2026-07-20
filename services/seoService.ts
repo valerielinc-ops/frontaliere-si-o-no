@@ -4685,6 +4685,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-stipendio-tecnico-automazione': { name: 'Stipendio tecnico automazione frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione', parent: 'blog' },
     'blog-disegnatore-tecnico-frontaliere-ticino-guadagno': { name: 'Quanto guadagna un disegnatore tecnico', path: '/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/', parent: 'blog' },
     'blog-frontalieri-tecnico-automazione-ticino-stipendio-requisiti': { name: 'Frontalieri tecnico automazione Ticino', path: '/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-ginevra-frontalieri-diritto-lavoro-pubblico': { name: 'Ginevra, i frontalieri', path: '/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
