@@ -898,7 +898,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="text-xs font-semibold text-warning">
  Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+ <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
  <div className="space-y-2">
  <div ref={googleReminderButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-lg" />
  {!reminderGoogleButtonReady && (

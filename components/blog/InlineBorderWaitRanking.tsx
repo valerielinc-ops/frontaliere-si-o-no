@@ -319,7 +319,7 @@ export default function InlineBorderWaitRanking() {
       {(topImproved || topWorsened) && (
         <div className="p-4 sm:p-5 border-b border-edge">
           <h4 className="text-sm font-bold text-strong mb-2">{labels.moversH}</h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className={`grid grid-cols-1 gap-2 ${topImproved && topWorsened ? 'sm:grid-cols-2' : ''}`}>
             {topImproved && (
               <div className="flex items-center gap-2 rounded-lg border border-success-border bg-success-subtle px-3 py-2 text-sm">
                 <TrendingDown size={16} className="text-success shrink-0" aria-hidden="true" />

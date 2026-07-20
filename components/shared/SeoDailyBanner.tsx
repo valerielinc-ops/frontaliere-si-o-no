@@ -84,13 +84,18 @@ export default function SeoDailyBanner({
     return null;
   }
 
+  // Column count tracks visible cards, not the full roster — otherwise a
+  // killed card leaves the survivors squeezed into an under-filled
+  // grid-cols-3 track (AGENTS.md #6, same bug as PartnerRecommendations).
+  const gridColsClass = visibleCards.length >= 3 ? 'sm:grid-cols-3' : visibleCards.length === 2 ? 'sm:grid-cols-2' : '';
+
   return (
     <nav
       aria-label={t('seoLinks.banner.ariaLabel')}
       className={`w-full ${className ?? ''}`.trim()}
       data-testid="seo-daily-banner"
     >
-      <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 list-none p-0 m-0">
+      <ul className={`grid grid-cols-1 gap-3 list-none p-0 m-0 ${gridColsClass}`}>
         {visibleCards.map((card) => (
           <li key={card.href} className="flex">
             <a

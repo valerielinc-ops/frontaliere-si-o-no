@@ -944,7 +944,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <span className="text-xs text-muted">{locale === 'it' ? 'oppure' : locale === 'de' ? 'oder' : locale === 'fr' ? 'ou' : 'or'}</span>
  <div className="flex-1 h-px bg-surface-raised" />
  </div>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+ <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''}`}>
  <div>
  <div ref={googleButtonRef} className="flex min-h-[40px] w-full items-center justify-center overflow-hidden rounded-lg" />
  {!googleButtonReady && (
