@@ -81,6 +81,7 @@ import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
 import { fiscalMunicipalityPagesPlugin } from './build-plugins/fiscalMunicipalityPagesPlugin';
+import { fiscalMunicipalityLinksPlugin } from './build-plugins/fiscalMunicipalityLinksPlugin';
 import { eventsSeoPagesPlugin } from './build-plugins/eventsSeoPagesPlugin';
 import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { healthFacilitiesPlugin } from './build-plugins/healthFacilitiesPlugin';
@@ -375,6 +376,15 @@ export default defineConfig(({ mode }) => {
  // signals from professionCantonLandings (emitted paths) + staticPagesPlugin
  // (sitemap-page HTML). Idempotent via `data-profession-cantons-links`.
  professionCantonLandingsLinksPlugin(__dirname),
+ // Fiscal-municipality guide orphan fix — inject a link to the fiscal hub
+ // (FISCAL_HUB_PATH, which already links every above-floor comune below it)
+ // into each locale's HTML sitemap page (main-nav reachable) so the whole
+ // sitemap-comuni-fiscale.xml shard (33/33 URLs) reaches BFS depth ≤ 3
+ // instead of shipping fully unreachable (audit:max-bfs-depth hard-fail).
+ // Awaits explicit signals from fiscalMunicipalityPagesPlugin (hub paths) +
+ // staticPagesPlugin (sitemap-page HTML). Idempotent via
+ // `data-fiscal-municipalities-links`.
+ fiscalMunicipalityLinksPlugin(__dirname),
  // Employer-profile pages orphan fix — inject an "Aziende in Svizzera" block
  // into each locale's HTML sitemap page (main-nav reachable) so the ~468
  // /aziende/{slug}/ pages reach BFS depth ≤ 3 instead of shipping fully

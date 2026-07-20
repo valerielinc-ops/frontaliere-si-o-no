@@ -27,6 +27,7 @@ import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { insertBounded } from './lib/boundedTopN.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
+import { classifyProfessionLandingFeature } from './lib/professionLandingsSections.mjs';
 import { evaluateMixAdjustedTotalRegression } from './lib/mixAdjustedRateGate.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
@@ -77,6 +78,8 @@ export function classifyFeature(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   const employerFeature = classifyEmployerLandingFeature(p);
   if (employerFeature === 'career-landings') return 'career-landings';
+  const professionLandingFeature = classifyProfessionLandingFeature(p);
+  if (professionLandingFeature) return professionLandingFeature;
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   if (employerFeature) return employerFeature;
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera

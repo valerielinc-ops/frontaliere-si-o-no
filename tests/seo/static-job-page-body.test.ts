@@ -26,9 +26,12 @@ import { jobDescriptionTextToHtml } from '../../build-plugins/shared/jobDescript
 // Mirror of `splitIntoParagraphs` from jobsSeoPagesPlugin.ts (line ~1286).
 // Kept inline here so the test stays self-contained and explicitly pins
 // the contract: blank-line split with a 40-char floor and a sentence-split
-// fallback for prose without paragraph breaks.
+// fallback for prose without paragraph breaks. `{3,}` matches the source's
+// threshold (was `{6,}` in both until audit:no-literal-markdown regression
+// #4593 — stale vs. the `{3,}` every other stripper in the codebase uses;
+// mirror kept in sync per this file's own header note).
 function splitIntoParagraphs(s: string): string[] {
-  const normalized = String(s || '').replace(/[_=~]{6,}/g, '\n\n');
+  const normalized = String(s || '').replace(/[_=~]{3,}/g, '\n\n');
   const viaBreaks = normalized
     .replace(/\r/g, '\n')
     .split(/\n{2,}/)

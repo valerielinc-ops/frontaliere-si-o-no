@@ -47,6 +47,7 @@ import {
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
 import { isSalaryEligibleProfessionId, buildSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   H2_STYLE,
   BREADCRUMB_CLASS,
@@ -325,9 +326,17 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
     fr: buildProfessionCantonPath('fr', cantonKey, id),
   } as HreflangPaths;
 
+  // Budget-aware cascade — same fix/rationale as professionCityLandings.ts's
+  // renderProfessionCityPage: `metaTitle` (with "Canton "/"Kanton " +
+  // "— offerte e stipendio" suffix) is the longest of any profession-landing
+  // template in the codebase; a longer role keyword + longer canton name
+  // (e.g. DE "Graubünden") can clear TITLE_MAX_CHARS (66) with no fallback
+  // before this fix (audit:title-length regression #4593).
+  const titleCandidates = [c.metaTitle(role, cantonName), BRIDGE_COPY[locale].title(role, cantonName)];
+
   const html = buildSeoPageHtml({
     locale,
-    title: c.metaTitle(role, cantonName),
+    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
     description: c.metaDesc(snapshot.liveCount, role, cantonName),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),

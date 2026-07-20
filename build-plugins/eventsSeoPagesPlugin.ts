@@ -1241,6 +1241,41 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
 }
 
 /**
+ * Light aggregate-list variant of {@link eventLd} — same field VALUES (built
+ * via the full builder, so the description/date/locality edge cases never
+ * drift into a second copy), but strips the heaviest OPTIONAL-per-
+ * `validate-structured-data-completeness.mjs` weight before embedding into a
+ * canton/digest-hub `ItemList`: full `ImageObject` (with the GSC
+ * licensable-image quintet) collapses to its bare `url` string — the
+ * completeness gate's `hasImage` check accepts a plain string, only `image`
+ * itself is mandatory, not the license metadata — `geo`/`streetAddress`/
+ * `postalCode` drop off `location.address` (only `addressLocality` is
+ * required), and `offers`/`sameAs` are omitted entirely (both optional,
+ * `offers` is only validated *when present*). The authoritative FULL
+ * `eventLd()` still ships on every event's own detail page (`isPast` guard,
+ * line ~2579) — only the supplementary aggregate-list copy is lightened.
+ * Cuts ~1-1.3 KB/event; at the 100-event hub/digest cap that's the
+ * difference between a large canton (e.g. Bern, whose nationwide-source
+ * events already carry more real fields than Ticino's thin tio-agenda MVP
+ * feed) clearing or blowing the 260 KB page-weight budget
+ * (audit:page-weight regression #4593 — verified: BE's 12 oversized pages
+ * were all canton-hub/digest, never a per-event detail page).
+ */
+function lightEventLd(event: SiteEvent, locale: Locale): Record<string, unknown> {
+  const full = eventLd(event, locale);
+  const { offers: _offers, sameAs: _sameAs, image: fullImage, location, ...rest } = full as Record<string, unknown> & {
+    location: { '@type': string; name: string; address: Record<string, unknown>; geo?: unknown };
+  };
+  const { streetAddress: _street, postalCode: _postal, ...addressRest } = location.address;
+  const imageUrl = typeof fullImage === 'string' ? fullImage : (fullImage as { url?: string } | undefined)?.url;
+  return {
+    ...rest,
+    location: { ...location, address: addressRest, geo: undefined },
+    image: imageUrl,
+  };
+}
+
+/**
  * Event flyer image → schema.org ImageObject with the GSC licensable-image
  * quintet (services/seo/imageObjectLd.ts — acquireLicensePage, copyrightNotice,
  * license, creator, creditText), or `null` when there is no image to show.
@@ -1556,7 +1591,7 @@ export function renderHubPage(params: {
     itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: eventLd(event, locale),
+      item: lightEventLd(event, locale),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -1694,7 +1729,7 @@ export function renderEventsIndexPage(params: {
     itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: eventLd(event, locale),
+      item: lightEventLd(event, locale),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -1809,7 +1844,7 @@ export function renderComunePage(params: {
     itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: eventLd(event, locale),
+      item: lightEventLd(event, locale),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -2065,7 +2100,7 @@ export function renderOtherEventsPage(params: {
     itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: eventLd(event, locale),
+      item: lightEventLd(event, locale),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -2822,7 +2857,7 @@ export function renderDigestPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: dc.title,
-    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: eventLd(event, locale) })),
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: lightEventLd(event, locale) })),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',

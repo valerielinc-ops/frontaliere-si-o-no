@@ -32,16 +32,9 @@ import type { Plugin } from 'vite';
 import { publisherAdsFlushed, staticPagesFlushed, type EmittedPublisherAd } from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { SITE_MAP_PAGE_DIR as SITEMAP_PAGE_DIR } from './shared/siteMapPageDir';
 
 const MARKER = 'data-publisher-ads-links';
-
-/** HTML sitemap page (relative dir under dist) per locale — main-nav reachable. */
-const SITEMAP_PAGE_DIR: Record<EmittedPublisherAd['locale'], string> = {
-  it: 'mappa-del-sito',
-  en: 'en/site-map',
-  de: 'de/seitenplan',
-  fr: 'fr/plan-du-site',
-};
 
 const BLOCK_COPY: Record<EmittedPublisherAd['locale'], { heading: string; intro: string }> = {
   it: { heading: 'Offerte sponsorizzate', intro: 'Posizioni pubblicate direttamente dai datori di lavoro.' },

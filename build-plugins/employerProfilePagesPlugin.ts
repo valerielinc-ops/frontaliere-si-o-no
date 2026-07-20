@@ -36,8 +36,8 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
+import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { escHtml as esc } from './shared/htmlEscape';
@@ -49,6 +49,7 @@ import { buildSectorHubPath, SECTOR_HUB_KEYS, type SectorHubKey } from './jobSec
 import { canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { MIN_ACTIVE_JOBS } from './shared/employerProfileConfig.mjs';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -62,8 +63,16 @@ const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${loc
 const profilePath = (locale: Locale, slug: string): string => `${localePrefix(locale)}/aziende/${slug}/`;
 
 /** Max active jobs listed (cards + structured data) per page — keeps HTML +
- * JSON-LD within the page-weight budget; the full list lives on the hubs. */
-const MAX_JOBS_LISTED = 24;
+ * JSON-LD within the page-weight budget; the full list lives on the hubs.
+ * Was 24 (audit:text-html-ratio regression #4593: at 24 cards + a full
+ * JobPosting ItemList per card, markup outweighs visible text ~25:1 even
+ * with a fully expanded intro — verified against real data/employer-
+ * profiles.json profiles, no card count got a typical profile over the 10%
+ * floor without gutting the list to 1-2 items). 8 matches the sibling
+ * per-company job cap already used by weeklyEmployersPlugin.ts
+ * (`limitJobs = 10`) — a curated top-N preview, "see all" lives in
+ * exploreLinksHtml's canton/weekly links, same UX pattern as those pages. */
+const MAX_JOBS_LISTED = 8;
 
 interface EmployerProfile {
   slug: string;
@@ -213,47 +222,96 @@ function jobDetailPath(job: CorpusJob, locale: Locale): string {
  * (no 4× duplicated filter/join). Templated FACTS only; the job cards + these
  * sentences keep every locale's page well above MIN_INDEXABLE_WORDS. */
 interface ProseTemplate {
-  readonly intro: (name: string, n: number, where: string) => string;
+  readonly intro: (name: string, n: number, cantonCount: number) => string;
+  readonly cantonsSingle: (canton: string, count: number) => string;
+  readonly cantonsMulti: (first: string, firstCount: number, rest: string) => string;
+  readonly citiesSingle: (city: string) => string;
+  readonly citiesMulti: (first: string, firstCount: number, rest: string) => string;
   readonly salary: (sal: string) => string;
   readonly trend: (added: number, win: number) => string;
   readonly outro: string;
 }
 const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
   it: {
-    intro: (name, n, where) => `${name} ha attualmente ${n} posizioni aperte pubblicate su Frontaliere Ticino${where ? `, distribuite tra ${where}` : ''}.`,
+    intro: (name, n, cantonCount) => `${name} ha attualmente ${n} posizioni aperte pubblicate su Frontaliere Ticino, distribuite in ${cantonCount} canton${cantonCount === 1 ? 'e' : 'i'} svizzer${cantonCount === 1 ? 'o' : 'i'}.`,
+    cantonsSingle: (canton, count) => `Tutte le posizioni sono concentrate nel canton ${canton} (${count} offerte).`,
+    cantonsMulti: (first, firstCount, rest) => `Il canton ${first} conta il maggior numero di offerte (${firstCount}), seguito da ${rest}.`,
+    citiesSingle: (city) => `La sede principale con offerte attive è ${city}.`,
+    citiesMulti: (first, firstCount, rest) => `A livello di città, le sedi con più posizioni aperte sono ${first} (${firstCount} offerte), seguita da ${rest}.`,
     salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
     trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
     outro: 'Consulta qui sotto le posizioni attive e candidati direttamente sul sito del datore di lavoro.',
   },
   en: {
-    intro: (name, n, where) => `${name} currently has ${n} open positions published on Frontaliere Ticino${where ? `, across ${where}` : ''}.`,
+    intro: (name, n, cantonCount) => `${name} currently has ${n} open positions published on Frontaliere Ticino, across ${cantonCount} Swiss canton${cantonCount === 1 ? '' : 's'}.`,
+    cantonsSingle: (canton, count) => `All positions are concentrated in canton ${canton} (${count} openings).`,
+    cantonsMulti: (first, firstCount, rest) => `Canton ${first} has the most openings (${firstCount}), followed by ${rest}.`,
+    citiesSingle: (city) => `The main location with open positions is ${city}.`,
+    citiesMulti: (first, firstCount, rest) => `By city, the locations with the most open positions are ${first} (${firstCount} openings), followed by ${rest}.`,
     salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
     trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
     outro: 'Browse the active roles below and apply directly on the employer’s own site.',
   },
   de: {
-    intro: (name, n, where) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino${where ? `, verteilt auf ${where}` : ''}.`,
+    intro: (name, n, cantonCount) => `${name} hat aktuell ${n} offene Stellen auf Frontaliere Ticino, verteilt auf ${cantonCount} Schweizer Kanton${cantonCount === 1 ? '' : 'e'}.`,
+    cantonsSingle: (canton, count) => `Alle Stellen konzentrieren sich auf den Kanton ${canton} (${count} Stellen).`,
+    cantonsMulti: (first, firstCount, rest) => `Der Kanton ${first} hat die meisten Stellen (${firstCount}), gefolgt von ${rest}.`,
+    citiesSingle: (city) => `Der wichtigste Standort mit offenen Stellen ist ${city}.`,
+    citiesMulti: (first, firstCount, rest) => `Nach Stadt betrachtet haben ${first} (${firstCount} Stellen) die meisten offenen Stellen, gefolgt von ${rest}.`,
     salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
     trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
     outro: 'Sehen Sie sich unten die aktiven Stellen an und bewerben Sie sich direkt auf der Website des Arbeitgebers.',
   },
   fr: {
-    intro: (name, n, where) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino${where ? `, répartis à ${where}` : ''}.`,
+    intro: (name, n, cantonCount) => `${name} compte actuellement ${n} postes ouverts publiés sur Frontaliere Ticino, répartis dans ${cantonCount} canton${cantonCount === 1 ? '' : 's'} suisse${cantonCount === 1 ? '' : 's'}.`,
+    cantonsSingle: (canton, count) => `Tous les postes sont concentrés dans le canton de ${canton} (${count} offres).`,
+    cantonsMulti: (first, firstCount, rest) => `Le canton de ${first} compte le plus grand nombre d’offres (${firstCount}), suivi de ${rest}.`,
+    citiesSingle: (city) => `Le site principal avec des postes ouverts est ${city}.`,
+    citiesMulti: (first, firstCount, rest) => `Par ville, les sites avec le plus de postes ouverts sont ${first} (${firstCount} offres), suivi de ${rest}.`,
     salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
     trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
     outro: 'Parcourez les postes actifs ci-dessous et postulez directement sur le site de l’employeur.',
   },
 };
 
-/** Localized intro prose — templated FACTS only (word count keeps page >50). */
+/** Full canton breakdown sentence (all cantons, not just top-3) — real,
+ * varying-length content proportional to the company's actual footprint. */
+function cantonsProse(profile: EmployerProfile, locale: Locale): string {
+  const t = PROSE_TEMPLATES[locale];
+  const c = profile.cantons;
+  if (c.length === 0) return '';
+  if (c.length === 1) return t.cantonsSingle(c[0].name, c[0].count);
+  const rest = c.slice(1).map((x) => `${x.name} (${x.count})`).join(', ');
+  return t.cantonsMulti(c[0].name, c[0].count, rest);
+}
+
+/** Full city breakdown sentence (all cities, not just top-3). */
+function citiesProse(profile: EmployerProfile, locale: Locale): string {
+  const t = PROSE_TEMPLATES[locale];
+  const c = profile.cities;
+  if (c.length === 0) return '';
+  if (c.length === 1) return t.citiesSingle(c[0].name);
+  const rest = c.slice(1).map((x) => `${x.name} (${x.count})`).join(', ');
+  return t.citiesMulti(c[0].name, c[0].count, rest);
+}
+
+/** Localized intro prose — templated FACTS only, now with the FULL
+ * canton/city breakdown (was top-3 `locationsSummary`, still used for the
+ * compact stat tile). Real per-company detail, not filler — length scales
+ * with the company's actual canton/city footprint (data/employer-
+ * profiles.json caps both arrays at 6, so this never runs away). Part of
+ * the audit:text-html-ratio fix (#4593): still doesn't clear the 10% floor
+ * for every profile at MAX_JOBS_LISTED cards (verified — see MAX_JOBS_LISTED
+ * comment), but meaningfully narrows the gap with genuine content, not padding. */
 function introProse(profile: EmployerProfile, locale: Locale): string {
   const t = PROSE_TEMPLATES[locale];
-  const where = locationsSummary(profile);
   const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
   const added = profile.trend?.added ?? null;
   const win = profile.trend?.windowDays ?? 30;
   return [
-    t.intro(profile.name, profile.activeJobs, where),
+    t.intro(profile.name, profile.activeJobs, profile.cantons.length),
+    cantonsProse(profile, locale),
+    citiesProse(profile, locale),
     sal ? t.salary(sal) : '',
     added ? t.trend(added, win) : '',
     t.outro,
@@ -510,7 +568,18 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const canonicalUrl = `${BASE_URL}${urlPath}`;
 
           // JobPosting ItemList (supplementary list-page signal; the
-          // authoritative per-job JobPosting lives on each linked detail page).
+          // authoritative per-job JobPosting also lives on each linked detail
+          // page). Kept as full buildListItemJobPosting output — an earlier
+          // draft of this fix lightened it to plain name+url to help
+          // audit:text-html-ratio, but tests/employer-profile-pages.test.ts
+          // ("embeds COMPLETE JobPosting structured data (Non-Negotiable #3)")
+          // asserts every mandatory JobPosting field on THIS page's ItemList
+          // items too — that test is the project's actual encoded contract
+          // for this page, overriding the "list pages don't need full
+          // JobPosting" Google-policy argument. Reverted; the ratio fix here
+          // is MAX_JOBS_LISTED (24→8) + the expanded real prose only (see
+          // that constant's comment) — text-html-ratio still needs an honest
+          // baseline for this bucket regardless (see PR body).
           const itemListElements = listed
             .map((job) => {
               // Same guard as the job cards (renderProfileBody): a job whose
@@ -541,9 +610,21 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // thin profiles (noindex) never carry a manual slot (MFA-safety).
           const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable })}`;
 
+          // Budget-aware cascade (composePlaceTitle) — was a single fixed
+          // `<prefix> <name>: <suffix>` template with no fallback; a longer
+          // legal company name overflowed TITLE_MAX_CHARS (66) with no
+          // recovery (audit:title-length regression #4593, 393 offenders —
+          // every profile whose name alone left <21-25 chars of budget).
+          // Longest-first candidates, name never truncated (composePlaceTitle
+          // policy) — same "shrink the boilerplate, never the place/name"
+          // pattern as job titles (composeSerpJobTitle) and comune titles.
+          const titleCandidates = [
+            `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
+            `${H1_PREFIX[locale]} ${profile.name}`,
+          ];
           const html = buildSeoPageHtml({
             locale,
-            title: `${H1_PREFIX[locale]} ${profile.name}: ${TITLE_SUFFIX[locale]}`,
+            title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
             description: introProse(liveProfile, locale).slice(0, 160),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',

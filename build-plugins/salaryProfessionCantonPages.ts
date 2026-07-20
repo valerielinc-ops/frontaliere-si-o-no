@@ -28,6 +28,7 @@ import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -572,9 +573,18 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
     fr: buildSalaryProfessionCantonPath('fr', cantonKey, id),
   } as HreflangPaths;
 
+  // Budget-aware cascade — sibling of the fix in professionCityLandings.ts /
+  // professionCantonLandings.ts / employerProfilePagesPlugin.ts /
+  // fiscalMunicipalityPagesPlugin.ts (audit:title-length regression #4593,
+  // missed in the original PR pass — surfaced by PR review). `metaTitle`
+  // carries the longest suffix of any profession-landing template
+  // ("— lordo {g} e netto" / "— gross {g} and net" etc); falls back to the
+  // shorter BRIDGE_COPY title (no gross-salary clause) when it would overflow.
+  const titleCandidates = [c.metaTitle(role, cantonName, grossYearStr), BRIDGE_COPY[locale].title(role, cantonName)];
+
   const html = buildSeoPageHtml({
     locale,
-    title: c.metaTitle(role, cantonName, grossYearStr),
+    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
     description: c.metaDesc(role, cantonName, grossYearStr, netMonthStr),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),
