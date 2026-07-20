@@ -123,13 +123,33 @@ if (Object.keys(nonEmptyInputs).length > 0) {
 process.stdout.write(JSON.stringify(payload));
 NODE
 )"
-HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-  -X POST \
-  "https://api.github.com/repos/${REPO}/actions/workflows/deploy.yml/dispatches" \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer ${TOKEN}" \
-  -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-  -d "$PAYLOAD")
+# Retry on transient errors (5xx / connection failure) — GitHub's API dispatch
+# endpoint occasionally 502s under load. Auth/permission errors (4xx) are not
+# transient and fail immediately without wasting the retry budget.
+MAX_DISPATCH_ATTEMPTS="${DEPLOY_DISPATCH_ATTEMPTS:-3}"
+attempt=1
+while true; do
+  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+    -X POST \
+    "https://api.github.com/repos/${REPO}/actions/workflows/deploy.yml/dispatches" \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
+    -d "$PAYLOAD" || echo "000")
+
+  if [ "$HTTP_CODE" = "204" ]; then
+    break
+  fi
+  if [[ ! "$HTTP_CODE" =~ ^5[0-9][0-9]$ ]] && [ "$HTTP_CODE" != "000" ]; then
+    break
+  fi
+  if [ "$attempt" -ge "$MAX_DISPATCH_ATTEMPTS" ]; then
+    break
+  fi
+  echo "⚠️ Deploy trigger returned HTTP $HTTP_CODE (attempt ${attempt}/${MAX_DISPATCH_ATTEMPTS}) — retrying..."
+  sleep $((attempt * 2))
+  attempt=$((attempt + 1))
+done
 
 if [ "$HTTP_CODE" = "204" ]; then
   echo "✅ Deploy workflow triggered successfully"
