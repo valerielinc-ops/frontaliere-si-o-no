@@ -8741,6 +8741,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Combien gagne un carreleur frontalier au Tessin ?',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Les carreleurs frontaliers au Tessin peuvent gagner entre CHF 50 000 et CHF 80 000 par an, mais les différences de rémunération peuvent varier en fonction de l\'expérience et du poste de travail.',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Une scène de travail d\'un plâtrier frontalier en Tessin',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Épandeurs au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Salaire moyen des épandeurs frontaliers au Tessin : CHF 60\'000, conditions pour travailler comme épandeur au Tessin, reconnaissance éventuelle du diplôme',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero à Lugano',
 };
 
 export default blogMetaFr;

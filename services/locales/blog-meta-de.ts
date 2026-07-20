@@ -8739,6 +8739,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein Grenzfliesenleger im Tessin?',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Grenzfliesenleger im Tessin können zwischen CHF 50 \'000 und CHF 80\' 000 pro Jahr verdienen, aber die Lohnunterschiede können je nach Berufserfahrung und Position variieren.',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Eine Szene von einem Fliesenleger, der in Ticino arbeitet',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gipser im Tessin: Gehalt, Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt der Grenzgipser im Tessin: CHF 60\'000, Voraussetzungen für die Arbeit als Gipser im Tessin, allfällige Anerkennung des Bildungsabschlusses',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero in Lugano',
 };
 
 export default blogMetaDe;
