@@ -26072,6 +26072,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'documenti-scomparsi-inchiesta-constellation',
+ category: 'novita',
+ date: '2026-07-20T07:00:38.231Z',
+ image: '/images/blog/documenti-scomparsi-inchiesta-constellation.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8678,6 +8678,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polimeccanico in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Il Permesso G consente ai frontalieri di lavorare in Svizzera. I polimeccanici frontalieri in Ticino possono lavorare in aziende di costruzione',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Un polimeccanico frontaliero in Ticino',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Inchiesta Constellation: documenti ufficiali scomparsi',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'Spariti i faldoni del 2015 sui lavori al bar Le Constellation di Crans-Montana. Il punto sull\'indagine e le implicazioni documentali.',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Ufficio con faldoni di documenti',
 };
 
 export default blogMetaIt;

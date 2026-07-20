@@ -8676,6 +8676,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.title': 'Polymechaniker im Tessin: Gehalt, Anforderungen und Anerkennung',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.excerpt': 'Die Bewilligung G ermöglicht es Grenzgängern, in der Schweiz zu arbeiten. Grenzgänger Polymechaniker im Tessin dürfen in Baufirmen arbeiten',
     'blog.article.frontaliere-polimeccanico-ticino-stipendio-requisiti.imageAlt': 'Ein polymeccanico frontaliero in Ticino',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Constellation-Untersuchung: Offizielle Dokumente verschwunden',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'Die Schürzen von 2015 bei den Arbeiten an der Bar Le Constellation in Crans-Montana sind verschwunden. Der Punkt über die Untersuchung und die dokumentarischen Implikationen.',
+    'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Büro mit Aktenordnern',
 };
 
 export default blogMetaDe;
