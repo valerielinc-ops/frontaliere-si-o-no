@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-07-02T05:48:47.354Z",
-    "label": "after",
-    "total": 18422,
-    "needsRetranslation": 2380,
-    "suppressed": 406,
-    "incomplete": 1012,
-    "complete": 17410,
-    "missingByLocale": {
-      "it": 553,
-      "en": 315,
-      "de": 489,
-      "fr": 167
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 836
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 56
-      },
-      {
-        "company": "Manor AG",
-        "pending": 22
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 20
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-07-02T06:45:08.832Z",
-    "label": "before",
-    "total": 18422,
-    "needsRetranslation": 3193,
-    "suppressed": 406,
-    "incomplete": 1005,
-    "complete": 17417,
-    "missingByLocale": {
-      "it": 565,
-      "en": 391,
-      "de": 401,
-      "fr": 204
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 829
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 56
-      },
-      {
-        "company": "Manor AG",
-        "pending": 22
-      },
-      {
-        "company": "Sunrise Communications AG",
-        "pending": 21
-      },
-      {
-        "company": "Julius Baer",
-        "pending": 20
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 14
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Mikron Group",
-        "pending": 4
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-07-02T07:34:37.797Z",
     "label": "after",
     "total": 18422,
@@ -11510,6 +11396,120 @@
       {
         "company": "Spital Schwyz",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-20T19:24:46.591Z",
+    "label": "before",
+    "total": 24727,
+    "needsRetranslation": 8860,
+    "suppressed": 34,
+    "incomplete": 279,
+    "complete": 24448,
+    "missingByLocale": {
+      "it": 216,
+      "en": 156,
+      "de": 97,
+      "fr": 181
+    },
+    "topPending": [
+      {
+        "company": "Richemont",
+        "pending": 29
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 25
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 17
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "Rutishauser-DiVino SA",
+        "pending": 11
+      },
+      {
+        "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+        "pending": 9
+      },
+      {
+        "company": "Spitex Gantrisch",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-20T19:33:31.123Z",
+    "label": "after",
+    "total": 24727,
+    "needsRetranslation": 1594,
+    "suppressed": 34,
+    "incomplete": 279,
+    "complete": 24448,
+    "missingByLocale": {
+      "it": 216,
+      "en": 156,
+      "de": 97,
+      "fr": 181
+    },
+    "topPending": [
+      {
+        "company": "Richemont",
+        "pending": 29
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Zurich Insurance (sede Ticino)",
+        "pending": 25
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 17
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 13
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 12
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 11
+      },
+      {
+        "company": "Rutishauser-DiVino SA",
+        "pending": 11
+      },
+      {
+        "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+        "pending": 9
+      },
+      {
+        "company": "Spitex Gantrisch",
+        "pending": 6
       }
     ]
   }
