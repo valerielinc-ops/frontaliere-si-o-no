@@ -1351,6 +1351,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Spengler im Tessin: Gehalt, Voraussetzungen und Titel',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Hier sind die Anforderungen und der Durchschnittslohn für Grenzgänger im Tessin',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Wie viel verdient ein Grenzspengler im Tessin?',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'Die Entlohnung eines Grenzspenders im Tessin wird durch verschiedene Faktoren beeinflusst, darunter seine Erfahrung, die Art der Arbeit und die Region, in der er arbeitet.',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Ein Dachdecker arbeitet am Kantons Ticino',
 };
 
 export default blogMetaChDe;

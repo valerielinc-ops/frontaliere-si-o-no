@@ -1351,6 +1351,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Tinsmith in Ticino: salary, requirements and title',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Here are the requirements and average salary for tin border workers in Ticino',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Panorama view of Lugano with Lake Lugano',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'How much does a border tinsmith earn in Ticino?',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'The remuneration of a border tinsmith in Ticino is influenced by several factors, including his experience, the type of work and the area in which he works.',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'A front-line roofer at work in the Canton of Ticino',
 };
 
 export default blogMetaChEn;
