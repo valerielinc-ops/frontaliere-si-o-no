@@ -8681,6 +8681,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Enquête Constellation : documents officiels disparus',
     'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'Les pans de 2015 sur les travaux du bar Le Constellation de Crans-Montana ont disparu. Le point sur l\'enquête et les implications documentaires.',
     'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Bureau avec dossiers de documents',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Travailler comme mécanicien au Tessin : salaire et exigences',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme mécanicien en Suisse sont fixées par la loi fédérale. Le permis G est nécessaire pour travailler en Suisse sans avoir à payer les impôts italiens.',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

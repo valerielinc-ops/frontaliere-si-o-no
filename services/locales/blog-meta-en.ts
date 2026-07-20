@@ -8680,6 +8680,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Constellation Inquiry: Missing Official Documents',
     'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'The 2015 folders on the works at the Le Constellation bar in Crans-Montana are gone. The point about the investigation and the documentary implications.',
     'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Office with document folders',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Working as a mechanic in Ticino: salary and requirements',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'The requirements for working as a mechanic in Switzerland are set by federal law. The G permit is required to work in Switzerland without having to pay Italian taxes.',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'A view of Lugano with the lake and mountains',
 };
 
 export default blogMetaEn;

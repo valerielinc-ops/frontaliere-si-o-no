@@ -8681,6 +8681,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.documenti-scomparsi-inchiesta-constellation.title': 'Inchiesta Constellation: documenti ufficiali scomparsi',
     'blog.article.documenti-scomparsi-inchiesta-constellation.excerpt': 'Spariti i faldoni del 2015 sui lavori al bar Le Constellation di Crans-Montana. Il punto sull\'indagine e le implicazioni documentali.',
     'blog.article.documenti-scomparsi-inchiesta-constellation.imageAlt': 'Ufficio con faldoni di documenti',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Lavorare come meccanico in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come meccanico in Svizzera sono stabiliti dalla legge federale. Il permesso G è necessario per lavorare in Svizzera senza dover pagare le imposte italiane.',
+    'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'Una vista della città di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;
