@@ -8711,6 +8711,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'Combien gagne une secrétaire frontalière au Tessin ?',
     'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'La fourchette salariale d\'une secrétaire frontalière au Tessin, les différences par rapport à l\'Italie et les facteurs qui influent sur la rémunération.',
     'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'Une secrétaire travaille à son ordinateur dans un bureau avec une vue sur le lac de Lugano.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Combien gagne un fiduciaire frontalier au Tessin ?',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'L\'entreprise d\'un fiduciaire frontalier au Tessin est influencée par plusieurs facteurs, notamment son expérience et son type de travail.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama de Lugano',
 };
 
 export default blogMetaFr;

@@ -8709,6 +8709,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'Wie viel verdient eine Grenzschreiberin im Tessin?',
     'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'Die Gehaltsspanne eines grenzüberschreitenden Sekretärs in Tessin, die Unterschiede im Vergleich zu Italien und die Faktoren, die die Vergütung beeinflussen.',
     'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'Eine Sekretärin arbeitet an ihrem Computer in einem Büro mit Blick auf den Luganersee.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Wie viel verdient ein Grenztreuhänder im Tessin?',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'Das Unternehmen eines Grenztreuhänders im Tessin wird von mehreren Faktoren beeinflusst, darunter seine Erfahrung und die Art der Arbeit.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama von Lugano',
 };
 
 export default blogMetaDe;

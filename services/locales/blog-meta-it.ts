@@ -8711,6 +8711,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'Quanto guadagna un segretaria frontaliere in Ticino?',
     'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'La fascia salariale di una segretaria frontaliere in Ticino, le differenze rispetto all\'Italia e i fattori che incidono sulla retribuzione.',
     'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'Una segretaria frontaliere lavora al suo computer in un ufficio con vista sul Lago di Lugano.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Quanto guadagna un fiduciario frontaliere in Ticino?',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'L\'impresa di un fiduciario frontaliere in Ticino è influenzata da diverse fattori, tra cui la sua esperienza e la tipologia di lavoro.',
+    'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panoramica della città di Lugano',
 };
 
 export default blogMetaIt;
