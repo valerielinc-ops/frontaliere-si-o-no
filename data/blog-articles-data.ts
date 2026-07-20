@@ -26099,6 +26099,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stipendio-saldatore-frontaliere-ticino',
+ category: 'pratico',
+ date: '2026-07-20T08:14:59.782Z',
+ image: '/images/blog/stipendio-saldatore-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8687,6 +8687,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Frontière mécatronique Tessin salaire exigences',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'Le permis G est nécessaire pour les mécatroniciens au Tessin. Il n\'est pas spécifié quelle exigence est nécessaire pour les mécatroniciens au Tessin.',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'Un mécanicien en Suisse avec un arrière-plan de Monte Bre.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Combien gagne un soudeur frontalier au Tessin ?',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Le nouvel accord fiscal de 2024 a modifié les impôts des frontaliers au Tessin.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Un soldat frontalier en Suisse inspecte un véhicule lourd',
 };
 
 export default blogMetaFr;

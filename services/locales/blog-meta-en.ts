@@ -8686,6 +8686,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Border mechatronic Ticino salary requirements',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'The G permit is required for mechatronics in Ticino. It is not specified which requirement is necessary for mechatronics in Ticino.',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'A mechanic in Ticino with a background of Monte Bre.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'How much does a border welder earn in Ticino?',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'The new tax agreement of 2024 changed the taxes of border workers in Ticino.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'A front-line solder in Ticino inspects a heavy vehicle',
 };
 
 export default blogMetaEn;
