@@ -1321,6 +1321,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Consultant to customers in Ticino: requirements and permit G',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Border workers working in Ticino as consultants to customers must comply with the requirements for the G permit and may have access to a recognition of the qualification',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'A view of Lugano on the lake with a busy street',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Fiduciary border: salary, requirements and recognition',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Trustees in Ticino must have an average salary requirement, but there is no reference to a specific salary requirement.',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano with a frontier fiduciary at work',
 };
 
 export default blogMetaChEn;

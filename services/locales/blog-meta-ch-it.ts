@@ -1321,6 +1321,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Consulente alla clientela in Ticino: requisiti e permesso G',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano in Ticino come consulenti alla clientela devono rispettare i requisiti per il permesso G e potrebbero avere accesso a un riconoscimento del titolo di studio',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Una vista di Lugano sul lago con una strada trafficata',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Frontaliere fiduciario: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'I frontalieri fiduciari in Ticino devono avere un requisito di stipendio medio, ma non esiste alcun riferimento a un requisito di stipendio specifico.',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano con un frontaliere fiduciario al lavoro',
 };
 
 export default blogMetaChIt;

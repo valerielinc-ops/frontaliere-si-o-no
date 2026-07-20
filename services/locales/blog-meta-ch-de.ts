@@ -1321,6 +1321,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Kundenberaterin im Tessin: Anforderungen und G-Genehmigung',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die im Tessin als Kundenberater tätig sind, müssen die Voraussetzungen für die Bewilligung G erfüllen und könnten Zugang zu einer Anerkennung des Bildungsabschlusses haben',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Eine Aussicht auf Lugano am See mit einer belebten Straße',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Treuhänderischer Grenzgänger: Gehalt, Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Treuhänderische Grenzgänger im Tessin müssen eine durchschnittliche Gehaltsanforderung haben, aber es gibt keinen Hinweis auf eine bestimmte Gehaltsanforderung.',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von Lugano mit einem Grenzfiduziarius am Werk',
 };
 
 export default blogMetaChDe;

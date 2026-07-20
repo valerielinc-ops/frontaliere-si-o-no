@@ -1321,6 +1321,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Conseiller à la clientèle au Tessin : exigences et permis G',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent au Tessin en tant que conseillers à la clientèle doivent respecter les exigences du permis G et peuvent avoir accès à une reconnaissance du diplôme',
     'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano sur le lac avec une rue animée',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Frontière fiduciaire : salaire, exigences et reconnaissance',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Les frontaliers fiduciaires au Tessin doivent avoir une exigence de salaire moyen, mais il n\'y a aucune référence à une exigence de salaire spécifique.',
+    'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano avec un fiduciaire frontalier au travail',
 };
 
 export default blogMetaChFr;
