@@ -8731,6 +8731,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.falegname-guadagno-frontaliere-ticino.title': 'How much does a border carpenter earn in Ticino?',
     'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'The salaries of border workers in Ticino may vary depending on the sector and the level of experience',
     'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'A Swiss-Italian border worker guides a carpenter while working in Switzerland',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Working as a painter in Ticino: salary, requirements and permission G',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Here is what you need to know to work as a painter in Ticino as a border worker, including the average salary, the requirements, the possible recognition of the qualification and the G permit.',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'A painter working in the city of Lugano, with the view of Lake Lugano in the background.',
 };
 
 export default blogMetaEn;

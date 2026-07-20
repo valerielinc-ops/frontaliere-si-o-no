@@ -4751,6 +4751,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-falegname-ticino-stipendio-requisiti': { name: 'Frontaliere falegname in Ticino', path: '/articoli-svizzera/frontaliere-falegname-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-falegname-guadagno-frontaliere-ticino': { name: 'Stipendi dei frontalieri in Ticino', path: '/articoli-frontaliere/falegname-guadagno-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-carpentiere-ticino-stipendio-requisiti': { name: 'Lavorare come carpentiere in Ticino da', path: '/articoli-svizzera/frontaliere-carpentiere-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-pittore-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino: pittore, stipendio', path: '/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

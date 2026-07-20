@@ -26234,6 +26234,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-pittore-ticino-stipendio-requisiti',
+ category: 'pratico',
+ date: '2026-07-20T21:04:23.802Z',
+ image: '/images/blog/frontaliere-pittore-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
