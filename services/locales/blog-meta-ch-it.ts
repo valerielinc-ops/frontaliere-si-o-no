@@ -1291,6 +1291,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-salario-meccatronico.title': 'Quanto guadagna un meccatronico frontaliere in Ticino?',
     'blog.article.frontalieri-salario-meccatronico.excerpt': 'Il salario di un meccatronico frontaliere in Ticino è influenzato da fattori come la nazionalità, la residenza e la esperienza lavorativa.',
     'blog.article.frontalieri-salario-meccatronico.imageAlt': 'Un meccatronico frontaliero lavora in un\'officina a Lugano.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Saldatori in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le possibili esenzioni.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Immagine di un saldatore in azione in una fabbrica del Ticino',
 };
 
 export default blogMetaChIt;

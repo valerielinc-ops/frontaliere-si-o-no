@@ -453,6 +453,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { it: 'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino', en: 'how-much-does-a-swiss-italian-mechanic-earn-in-ticino', de: 'wie-viel-verdient-ein-schweizer-mechaniker-in-ticino', fr: 'combien-gagne-un-mecanicien-suisses-en-tessin' },
  'stipendio-meccanico-frontaliere-ticino': { it: 'stipendio-meccanico-frontaliere-ticino', en: 'mechanic-salary-cross-border-ticino', de: 'gehalt-mechaniker-grenzganger-tessin', fr: 'salaire-mecanicien-frontalier-tessin' },
  'frontalieri-salario-meccatronico': { it: 'frontalieri-salario-meccatronico', en: 'frontalieri-salary-mechanic', de: 'frontalier-lohn-mechatroniker', fr: 'frontaliers-salaire-mecanicien' },
+ 'saldatore-frontaliere-ticino-stipendio-requisiti': { it: 'saldatore-frontaliere-ticino-stipendio-requisiti', en: 'welder-frontalier-ticino-salary-requirements', de: 'schwei-er-frontalier-tessin-honorar-anforderungen', fr: 'soudurier-frontalier-tessin-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

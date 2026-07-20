@@ -1291,6 +1291,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-salario-meccatronico.title': 'How much does a border mechatronic earn in Ticino?',
     'blog.article.frontalieri-salario-meccatronico.excerpt': 'The salary of a border mechatronic in Ticino is influenced by factors such as nationality, residence and work experience.',
     'blog.article.frontalieri-salario-meccatronico.imageAlt': 'A mechanic working in an office at Lugano.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Welders in Ticino: salary, requirements and recognition',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement provides new rules for border welders in Ticino. In this article, we learn about the requirements, average salary, and possible exemptions.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Image of a welder at work in a Ticino factory',
 };
 
 export default blogMetaChEn;
