@@ -26036,6 +26036,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino',
+ category: 'fiscale',
+ date: '2026-07-20T01:49:53.693Z',
+ image: '/images/blog/frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
