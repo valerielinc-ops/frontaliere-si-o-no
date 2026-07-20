@@ -445,8 +445,10 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('Cannot read properties of null')).toBe(false);
     // Contextualized "Script error." variants (not the bare opaque message) stay issue-able.
     expect(isIssueDenied('[boot] Script error. while loading map widget')).toBe(false);
-    // JS stale-chunk reports via _swErrorInfo path (message contains the rejection reason,
-    // not a .css URL) remain issue-able to surface persistent CDN JS outages.
+    // The dynamic-import() rejection shape of a stale-chunk report (message carries the
+    // rejection reason, not a bare URL — see the "sw_cache_stale bare-URL JS events" test
+    // below for the bare-URL shape, which IS denied) remains issue-able: it can surface a
+    // persistent CDN/chunk-load outage, not just a propagation-window blip.
     expect(isIssueDenied('Stale chunk: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
     // And the denied class, for contrast:
     expect(isIssueDenied("The requested module './vendor-firebase-core.js' does not provide an export named 'createWebChannelTransport'")).toBe(true);
@@ -476,8 +478,22 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     // the metric visible but must not flood the backlog with auto-fix issues.
     expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/index.css')).toBe(true);
     expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/seo-static.css')).toBe(true);
-    // Only CSS — JS variants remain issue-able.
-    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
+  });
+
+  it('denies sw_cache_stale bare-URL JS events too (#4592) — same self-heal, not CSS-specific', () => {
+    // it-core.js is modulepreloaded on nearly every IT page (preloadLocalePlugin.ts)
+    // so it hits the post-deploy CDN propagation window at far higher volume than a
+    // lazy chunk, inflating the site-wide error-rate alarm for an already-self-healed
+    // event (data/error-triage-baseline.json already logged this exact "sw_cache_stale"
+    // cluster, and NewsletterPopup.js's bare-URL variant, as "already-self-healing").
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/it-core.js')).toBe(true);
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/it-calculator.js')).toBe(true);
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(true);
+    expect(isIssueDenied('Stale chunk: https://cdn.frontaliereticino.ch/assets/NewsletterPopup.js')).toBe(true);
+    // But the DIFFERENT message shape from a dynamic import() rejection (unhandledrejection
+    // handler, not the bare <script>/<link> error handler) still stays issue-able — it can
+    // surface a persistent CDN/chunk-load outage, not just a propagation-window blip.
+    expect(isIssueDenied('Stale chunk: Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/App.js')).toBe(false);
   });
 });
 
