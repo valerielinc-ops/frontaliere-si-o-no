@@ -26126,6 +26126,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino',
+ category: 'pratico',
+ date: '2026-07-20T09:35:59.180Z',
+ image: '/images/blog/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
