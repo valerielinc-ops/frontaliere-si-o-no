@@ -8,3 +8,6 @@ export const FUNCTIONS_BASE = 'https://europe-west6-frontaliere-ticino.cloudfunc
 
 /** PDF report delivery endpoint (calculator paywall + LAMal/SSN breakeven tool). */
 export const SEND_CALCULATOR_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorReport`;
+
+/** Stripe Checkout Session creation for /consulenza/ one-time session payments. */
+export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultingCheckout`;

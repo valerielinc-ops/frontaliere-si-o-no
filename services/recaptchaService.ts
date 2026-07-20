@@ -31,7 +31,8 @@ export type RecaptchaAction =
   | 'PAGE_LOAD'
   | 'CONTACT_FORM'
   | 'PUBLISH_JOB'
-  | 'PUBLISHER_APPLY';
+  | 'PUBLISHER_APPLY'
+  | 'CONSULTING_DETAILS';
 
 const VERIFY_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/verifyRecaptcha';
 

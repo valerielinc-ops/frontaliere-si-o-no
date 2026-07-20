@@ -32,6 +32,7 @@ import { handleRedazioneAdmin } from './src/redazioneAdminCore.js';
 import { getAdminDb } from './src/newsletterResendWebhookCore.js';
 import { handleCreatePublisherCheckout, handleAttachPublisherJob, handleStripeWebhook, handleCreateBillingPortal, handleArchivePublisherAd, handleRestorePublisherAd } from './src/stripePublisherCore.js';
 import { handleCreateReaderCheckout, handleCreateReaderBillingPortal } from './src/stripeReaderCore.js';
+import { handleCreateConsultingCheckout, handleConsultingDetailsSubmitted } from './src/consultingCore.js';
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
@@ -1102,6 +1103,53 @@ export const createReaderBillingPortal = onRequest(
     } catch (error) {
       console.error('[createReaderBillingPortal]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// One-time consulting-session payment (replaces the dead Calendly booking
+// links on /consulenza/). Public/anonymous — no verifyCaller, unlike the
+// reader/publisher checkouts above, since visitors are anonymous SEO-funnel
+// searchers who shouldn't need a Firebase account to pay for a session.
+export const createConsultingCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: true,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateConsultingCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[createConsultingCheckout]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Fires when the client's intake-form update lands on consulting_orders
+// (detailsSubmitted false → true, gated by firestore.rules) — emails both
+// the customer and the internal inbox via the shared cascade. onDocumentWritten
+// (not onDocumentUpdated, which isn't imported elsewhere in this bundle) to
+// match this file's existing before/after-diff convention (see
+// backfillJobAlertOnNewsletterSignup below).
+export const notifyConsultingDetailsSubmitted = onDocumentWritten(
+  { region: 'europe-west6', memory: '256MiB', document: 'consulting_orders/{orderId}' },
+  async (event) => {
+    const after = event.data?.after;
+    if (!after?.exists) return; // ignore deletes
+    const afterData = after.data();
+    const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
+    try {
+      const result = await handleConsultingDetailsSubmitted(beforeData, afterData);
+      if (!result.ok) console.error('[notifyConsultingDetailsSubmitted]', result.error);
+    } catch (error) {
+      console.error(
+        '[notifyConsultingDetailsSubmitted]',
+        error instanceof Error ? error.message : String(error),
+      );
     }
   },
 );
