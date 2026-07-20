@@ -8394,6 +8394,25 @@ function isQualityRejectError(e) {
   );
 }
 
+/**
+ * A DUPLICATO rejection (checkForDuplicates / checkSemanticNearDuplicate)
+ * that escaped every in-loop retry. The pool-based paths (proven headlines,
+ * evergreen keywords) already catch+retry these internally up to
+ * MAX_DUPLICATE_RETRIES; this only fires for the direct-URL invocation
+ * (`node create-article.mjs <url>`), which the self-trigger chain uses to
+ * re-dispatch a single specific evergreen candidate (`next_url`) with no
+ * retry loop of its own. The candidate was correctly rejected as a
+ * near/exact duplicate — that's "no acceptable article this run", the same
+ * clean-deferral class as isQualityRejectError/isQuotaExhaustedError, NOT an
+ * infrastructure failure. Exit 0 so the self-trigger back-off retries later
+ * instead of marking the run failed and raising a false-positive "Workflow
+ * Failure: Generate Blog Article" Bug issue (run 29739570817 → #4606).
+ */
+function isDuplicateError(e) {
+  if (!e) return false;
+  return /DUPLICATO/i.test(String(e.message || ''));
+}
+
 async function main() {
   // Positional <url> = first non-flag argv (so `--section=` can precede it).
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -10131,6 +10150,15 @@ if (invokedDirectly) {
   if (isQualityRejectError(e)) {
     finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (content quality rejected, slop not published): ${e.message}`] });
     console.error(`\n⚠️  Differito: nessun articolo conforme prodotto in questa run (rigetto qualità — slop non pubblicato). Riprovo al prossimo run. ${e.message}`);
+    process.exit(0);
+  }
+  // Duplicate rejection that bubbled all the way up from the direct-URL
+  // invocation path (self-trigger chain re-dispatching a single evergreen
+  // candidate) — see isDuplicateError above.
+  if (isDuplicateError(e)) {
+    captureDuplicateReasons(e.message);
+    finalizeRunReport('deferred', { notes: [...RUN_REPORT.notes, `Deferred (duplicate detected, not published): ${e.message}`] });
+    console.error(`\n⚠️  Differito: duplicato rilevato, articolo non pubblicato in questa run. Riprovo al prossimo run. ${e.message}`);
     process.exit(0);
   }
   finalizeRunReport('error', { notes: [...RUN_REPORT.notes, `Error: ${e.message}`] });
