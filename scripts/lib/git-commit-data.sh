@@ -414,6 +414,12 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+// CommonJS twin of scripts/lib/stable-stringify.mjs (same recursive
+// key-sort algorithm) — this heredoc runs via `node -` on stdin, which can't
+// `import` that ESM module, so the logic is necessarily re-expressed here.
+// Deliberately diverges on undefined ('__undefined__' sentinel, needed so
+// this file's map-key fingerprinting distinguishes undefined from null);
+// keep both in sync if the shared shape comparison changes.
 function stableStringify(value) {
   if (value === undefined) return '__undefined__';
   if (value === null) return 'null';
