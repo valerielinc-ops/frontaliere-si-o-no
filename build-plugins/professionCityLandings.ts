@@ -65,6 +65,7 @@ import {
   getProfessionCityDef,
   type ProfessionCityDef,
 } from './professionCityData';
+import { isProfessionCantonPath } from './professionCantonData';
 import {
   H2_STYLE,
   BREADCRUMB_CLASS,
@@ -74,6 +75,7 @@ import {
   pickStatTileTone,
 } from './shared/seoContentTokens';
 import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
 const MIN_JOBS = 3;
@@ -381,9 +383,19 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
     fr: buildProfessionCityPath('fr', cityKey, id),
   } as HreflangPaths;
 
+  // Budget-aware cascade — `metaTitle` (with the "— offerte e stipendio"
+  // suffix) fits most role×city combos but a longer role keyword (esp. DE
+  // compounds like "Radiologietechniker") + a longer city name can clear
+  // TITLE_MAX_CHARS (66). Falls back to the shorter `title` template
+  // (already defined for the below-floor bridge, no suffix) instead of
+  // truncating — same "shrink the boilerplate, never the role/place" policy
+  // as employerProfilePagesPlugin.ts / composeSerpJobTitle (audit:title-length
+  // regression #4593, this family never had a fallback before).
+  const titleCandidates = [c.metaTitle(role, cityDisplay), BRIDGE_COPY[locale].title(role, cityDisplay)];
+
   const html = buildSeoPageHtml({
     locale,
-    title: c.metaTitle(role, cityDisplay),
+    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
     description: c.metaDesc(snapshot.liveCount, role, cityDisplay),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -460,10 +472,38 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
     // previously-live page for that city would 404 with no recovery path.
     const perProfession = byCity[cityKey];
     for (const id of PROFESSION_IDS) {
+      // Collision guard (audit:sitemap-canonicals regression #4593): for a
+      // handful of (locale, city) pairs the city slug byte-matches the
+      // canton slug at that SAME locale (e.g. EN/DE "basel" city == "basel"
+      // canton; FR "geneve" city == "geneve" canton — CITY_HUB_SLUG has no
+      // non-TI entries so the city slug is locale-invariant, while the
+      // canton slug varies by locale, so only some locales collide). When
+      // that happens, `buildProfessionCityPath` and `buildProfessionCantonPath`
+      // produce the IDENTICAL URL — professionCantonLandings (registered
+      // FIRST in vite.config.ts) already owns that path with a real,
+      // self-canonical page; this family must never write to it (was
+      // silently overwriting the canton page's HTML with a below-floor
+      // bridge whose canonical pointed elsewhere, while the CANTON sitemap
+      // still listed the URL as self-canonical — the sitemap/HTML mismatch
+      // `audit:sitemap-canonicals` flags). Checked per-locale via the
+      // canton family's own exported path index — no hand-maintained slug
+      // collision table to drift out of sync.
+      const reservedLocales = new Set(
+        PROFESSION_LOCALES.filter((locale) => isProfessionCantonPath(buildProfessionCityPath(locale, cityKey, id))),
+      );
+      if (reservedLocales.size === PROFESSION_LOCALES.length) {
+        // Every locale for this (city, profession) pair collides — the
+        // canton family owns the URL in all 4 locales, nothing left for
+        // this family to emit (not even a bridge — there's no city-only
+        // slot to redirect from).
+        continue;
+      }
+      const emittableLocales = PROFESSION_LOCALES.filter((locale) => !reservedLocales.has(locale));
+
       const snapshot = perProfession?.[id];
       if (!snapshot || snapshot.liveCount < MIN_JOBS) {
         result.pagesSkippedForJobs++;
-        for (const locale of PROFESSION_LOCALES) {
+        for (const locale of emittableLocales) {
           const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
           const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
           collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cityKey, id));
@@ -474,7 +514,11 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
       // Render all 4 locales first, emit ALL-OR-NOTHING (same rationale as
       // professionCantonLandings.ts): a single locale dropping below the
       // words gate while the others ship would dangle hreflang at a missing
-      // target.
+      // target. hreflang itself still references all 4 buildProfessionCityPath
+      // URLs unconditionally (including any reserved one) — that URL is real
+      // and live, just served by the canton family instead of this one, so
+      // it's a valid cross-locale alternate exactly like a below-floor
+      // bridge's hub target.
       const rendered = PROFESSION_LOCALES.map((locale) => ({
         locale,
         ...renderProfessionCityPage({ locale, cityKey, id, snapshot, distDir: opts.distDir }),
@@ -485,7 +529,7 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
         // above (sibling bug class, see professionCantonLandings.ts): a bare
         // `continue` here leaves this pair's slot empty for a locale-
         // partitioned CI build to fill with a different verdict per locale.
-        for (const locale of PROFESSION_LOCALES) {
+        for (const locale of emittableLocales) {
           const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
           const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
           collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cityKey, id));
@@ -494,6 +538,7 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
         continue;
       }
       for (const r of rendered) {
+        if (reservedLocales.has(r.locale)) continue;
         const canonicalPath = buildProfessionCityPath(r.locale, cityKey, id);
         const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
         collector.add(np.join(outDir, 'index.html'), r.html);

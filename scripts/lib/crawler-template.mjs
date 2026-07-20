@@ -365,7 +365,7 @@ export function cleanCrawlerArtifacts(text) {
   // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
   s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
 
-  // 1b. Convert mid-line separator runs (6+ `_`/`=`/`~`) to paragraph breaks.
+  // 1b. Convert mid-line separator runs (3+ `_`/`=`/`~`) to paragraph breaks.
   // AI-translation flattening occasionally collapses paragraph boundaries
   // around visual dividers, producing patterns like
   // `Ref.: HFR-M-251801 _______________________________________ Le Département…`
@@ -373,8 +373,14 @@ export function cleanCrawlerArtifacts(text) {
   // step 3 only TRAILING runs — neither catches mid-line. Splitting here
   // restores the original paragraph structure so the rest of the pipeline
   // (and audit:no-literal-markdown, CLAUDE.md rule #1, 0-tolerance) stays
-  // clean even when the runtime parser is bypassed.
-  s = s.replace(/[_=~]{6,}/g, '\n\n');
+  // clean even when the runtime parser is bypassed. Was `{6,}` — stale vs.
+  // the `{3,}` threshold `scripts/audit-no-literal-markdown.mjs`
+  // (SEPARATOR_RUN_RE) and every other stripper in this codebase
+  // (jobDescription/parser.ts, jobDescription/toHtml.ts,
+  // jobsSeoPagesPlugin.ts) actually use, so a 3-5 char mid-line run leaked
+  // through unconverted (audit regression #4593, sibling-pattern fix per
+  // CLAUDE.md non-negotiable #6).
+  s = s.replace(/[_=~]{3,}/g, '\n\n');
 
   // 2. Strip standalone separator-only lines ("______", "===", "----")
   s = s
