@@ -8691,6 +8691,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Grenzgänger Schweißer: Gehalt, Anforderungen und Bildungsabschluss',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Durchschnittslohn der Grenzschweisser im Tessin: noch nicht festgelegt. Voraussetzungen, um als Grenzgänger als Schweißer im Tessin zu arbeiten: Abitur. Anerkennung des Bildungsabschlusses für Grenzgänger: noch nicht spezifiziert.',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontalier Schweißer in Aktion in Bellinzona',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC-Bediener im Tessin: Gehalt, Anforderungen und G-Genehmigung',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Durchschnittsgehalt für einen CNC-Bediener im Tessin: noch nicht festgelegt. Voraussetzungen für die Arbeit als CNC-Bediener im Tessin: noch nicht festgelegt. Anerkennung des Bildungsabschlusses: noch nicht angegeben.',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines CNC-Betriebs in Ticino',
 };
 
 export default blogMetaDe;

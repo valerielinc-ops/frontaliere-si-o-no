@@ -51864,6 +51864,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-operatore-cnc-frontaliero-ticino-stipendio-requisiti': {
+    title: 'Operatore CNC in Ticino: stipendio, requisiti e permesso G',
+    description: 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato',
+    keywords: 'frontalieri, ticino, svizzera, italia, operatore, stipendio, requisiti, permesso',
+    ogTitle: 'Lavorare come operatore CNC in Ticino da frontaliere: stipendio medio, requisiti, riconoscimento titolo di studio e permesso G',
+    ogDescription: 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato',
+    canonicalPath: '/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operatore CNC in Ticino: stipendio, requisiti e permesso G",
+      "description": "Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/operatore-cnc-frontaliero-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un operatore CNC in un ambiente di lavoro in Ticino"
+      },
+      "datePublished": "2026-07-20T09:11:21+00:00",
+      "dateModified": "2026-07-20T09:11:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operatore-cnc-frontaliero-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
