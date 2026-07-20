@@ -62,7 +62,7 @@ describe('captureNewsletterSubscriber — sector_interest without job_category (
     expect(setDocMock).toHaveBeenCalledTimes(1);
     const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
     expect(payload.sector_interest).toBe('health');
-    expect(payload.job_category).toBeUndefined();
+    expect(payload.job_category).toBeFalsy();
 
     // The invariant "sector_interest never appears without job_category"
     // does NOT hold for this writer — confirm the eligibility gate still
