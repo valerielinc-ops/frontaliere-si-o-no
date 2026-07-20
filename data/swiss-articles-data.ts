@@ -3950,6 +3950,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-consulente-clientela-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-20T15:47:28.989Z',
+    image: '/images/blog/frontaliere-consulente-clientela-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

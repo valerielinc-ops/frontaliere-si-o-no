@@ -1318,6 +1318,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'Wie viel verdient ein Grenzgänger im Tessin?',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'Die Schweiz ist ein Land mit einem komplexen Steuersystem und vielen Regeln für Grenzgänger.',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'Eine Szene eines Unternehmens in der Schweiz mit Mitarbeitern aus verschiedenen Ländern, darunter Grenzgängern, die an ihren Computern arbeiten.',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Kundenberaterin im Tessin: Anforderungen und G-Genehmigung',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die im Tessin als Kundenberater tätig sind, müssen die Voraussetzungen für die Bewilligung G erfüllen und könnten Zugang zu einer Anerkennung des Bildungsabschlusses haben',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Eine Aussicht auf Lugano am See mit einer belebten Straße',
 };
 
 export default blogMetaChDe;

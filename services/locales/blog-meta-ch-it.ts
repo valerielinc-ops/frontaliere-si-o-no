@@ -1318,6 +1318,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'Quanto guadagna un risorse umane frontaliere in Ticino?',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'La Svizzera è un paese con un sistema fiscale complesso e con tante regole per i frontalieri.',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'Una scena di un ufficio di un\'azienda in Svizzera con dipendenti di diversi paesi, tra cui frontalieri, che lavorano al loro computer.',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Consulente alla clientela in Ticino: requisiti e permesso G',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'I frontalieri che lavorano in Ticino come consulenti alla clientela devono rispettare i requisiti per il permesso G e potrebbero avere accesso a un riconoscimento del titolo di studio',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Una vista di Lugano sul lago con una strada trafficata',
 };
 
 export default blogMetaChIt;

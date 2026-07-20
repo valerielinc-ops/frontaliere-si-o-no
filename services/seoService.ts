@@ -4737,6 +4737,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-risorse-umane-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontaliere-risorse-umane-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-quanto-guadagna-un-risorse-umane-frontaliere-in-ticino': { name: 'Quanto guadagna un risorse umane', path: '/articoli-svizzera/quanto-guadagna-un-risorse-umane-frontaliere-in-ticino/', parent: 'blog' },
     'blog-stipendio-fiduciario-frontaliere-ticino': { name: 'Quanto guadagna un fiduciario frontaliere', path: '/articoli-frontaliere/stipendio-fiduciario-frontaliere-ticino', parent: 'blog' },
+    'blog-frontaliere-consulente-clientela-ticino-stipendio-requisiti': { name: 'Lavorare come consulente alla clientela in', path: '/articoli-svizzera/frontaliere-consulente-clientela-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
