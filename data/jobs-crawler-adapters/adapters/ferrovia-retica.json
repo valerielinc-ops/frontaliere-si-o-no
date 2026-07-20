@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/planer-in-auftragsleiter-in-anhangefahrzeuge-80-100_2026-2236/",
     "https://www.rhb.ch/it/job/leiter-in-bundner-guterbahn-80-100_2026-2235/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2234/",
     "https://www.rhb.ch/it/job/gesamtverantwortliche-r-kundeninformation-60-100_2026-2233/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/kurzfristplaner-in-50-100_2026-2232/",
     "https://www.rhb.ch/it/job/executive-assistant-and-fuhrungsunterstutzung-des-direktors-50-100_2026-2231/",
     "https://www.rhb.ch/it/job/transportmanager-in-50-100_2026-2228/",
-    "https://www.rhb.ch/it/job/teamleiter-in-elektrowerkstatt-80-100_2026-2229/",
-    "https://www.rhb.ch/it/job/leiter-in-trassen-und-netzressourcenplanung-50-100_2026-2139/"
+    "https://www.rhb.ch/it/job/teamleiter-in-elektrowerkstatt-80-100_2026-2229/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/planer-in-auftragsleiter-in-anhangefahrzeuge-80-100_2026-2236/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/leiter-in-bundner-guterbahn-80-100_2026-2235/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/teamleiter-in-elektrowerkstatt-80-100_2026-2229/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/leiter-in-trassen-und-netzressourcenplanung-50-100_2026-2139/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-07-20T12:06:40.912Z"
+  "updatedAt": "2026-07-20T23:24:29.373Z"
 }
