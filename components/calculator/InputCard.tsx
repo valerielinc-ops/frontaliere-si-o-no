@@ -7,7 +7,7 @@ import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSE
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
-import { resilientImport } from '@/services/resilientImport';
+import { resilientImport, isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
 import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -306,6 +306,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  } catch (e) {
  console.error('Failed rate fetch', e);
  reportCaughtError(e, 'inputCard.fetchExchangeRate');
+ // Cross-chunk version skew (stable filenames + re-lettered minified exports
+ // after a deploy) throws a TypeError like "s is not a function" at call
+ // time. This try/catch swallows it locally, so it never reaches
+ // ErrorBoundary's own isVersionSkewError → recoverFromStaleChunk self-heal
+ // (mirrors that same recovery here — see ErrorBoundary.tsx).
+ if (isVersionSkewError(e)) {
+ void recoverFromStaleChunk(`inputCard_exchange_rate:${(e as Error)?.message?.slice(0, 80) || ''}`);
+ }
  } finally {
  setLoadingRate(false);
  }
