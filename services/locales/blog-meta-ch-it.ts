@@ -1300,6 +1300,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzina e diesel: i prezzi alla pompa continuano a salire',
     'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera, secondo i dati del Touring Club Svizzero.',
     'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Immagine di una stazione di servizio con una fila di auto che attendono di fare rifornimento di carburante.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere il titolo di studio e ottenere il permesso G.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Un disegnatore tecnico in un ufficio a Lugano',
 };
 
 export default blogMetaChIt;

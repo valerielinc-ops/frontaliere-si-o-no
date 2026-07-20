@@ -3896,6 +3896,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-20T09:55:30.096Z',
+    image: '/images/blog/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
