@@ -14,7 +14,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -285,7 +285,7 @@ export async function fetchAllFielmannJobs() {
     // before skipping, try a real Swiss city named in the description —
     // same second-chance anchor as assemble-jobs-dataset.mjs's canton
     // rescue (no single-site default here, since Fielmann is nationwide).
-    const city = locInfo.city || canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || '')));
+    const city = locInfo.city || rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
     if (!city) {
       console.log('  ⏭️  Skipped — unresolved location');
       continue;

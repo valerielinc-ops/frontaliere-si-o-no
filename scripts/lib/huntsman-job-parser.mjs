@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -298,7 +298,7 @@ export async function fetchAllHuntsmanJobs() {
     // back to Huntsman's documented main Swiss site (Monthey) rather than
     // dropping a listing the API itself already confirmed is Swiss.
     const city = resolveSwissCity(detail, listing)
-      || canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || '')))
+      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
       || 'Monthey';
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';

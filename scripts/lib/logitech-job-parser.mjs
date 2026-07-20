@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -277,7 +277,7 @@ export async function fetchAllLogitechJobs() {
       // foreign — try a real Swiss city in the detail description before
       // skipping, same second-chance anchor as assemble-jobs-dataset.mjs's
       // canton rescue, falling back to Logitech's Lausanne HQ.
-      location = canonicalSwissCityName(findSwissCityInText(detailDescription)) || 'Lausanne';
+      location = rescueSwissCityFromText(detailDescription) || 'Lausanne';
     }
     const canton = inferSwissTargetCanton(location) || 'VD';
 

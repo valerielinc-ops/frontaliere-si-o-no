@@ -18,7 +18,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -301,7 +301,7 @@ export async function fetchAllArxadaJobs() {
     // listing the API itself already confirmed is Swiss.
     const locationRaw = info.location || listing.locationsText || '';
     const city = parseWorkdayLocation(locationRaw)
-      || canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || '')))
+      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
       || 'Visp';
 
     const canton = inferCanton(city);

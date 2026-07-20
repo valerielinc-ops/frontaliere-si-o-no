@@ -61,7 +61,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -384,7 +384,7 @@ export async function fetchAllSwisslogJobs() {
       // named in the description before skipping; no fabricated HQ
       // default here (positively-found city only, per the anti-
       // fabrication guard documented on resolveCanton() above).
-      const rescueCity = canonicalSwissCityName(findSwissCityInText(descriptionCore));
+      const rescueCity = rescueSwissCityFromText(descriptionCore);
       const rescueCanton = rescueCity ? inferSwissTargetCanton(rescueCity) : null;
       if (!rescueCanton) {
         console.warn(` ⚠️ Swisslog: skipping unresolvable location "${realCityText}" (${title})`);

@@ -10,7 +10,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -295,7 +295,7 @@ export async function fetchAllLonzaJobs() {
  // rather than dropping a listing the facet already confirmed is Swiss.
  let resolvedLocation = resolveWorkdayLocation(info, listing);
  if (!resolvedLocation) {
-  const rescueCity = canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || ''))) || 'Visp';
+  const rescueCity = rescueSwissCityFromText(stripHtml(info.jobDescription || '')) || 'Visp';
   resolvedLocation = { city: rescueCity, canton: inferCanton(rescueCity) || 'VS' };
  }
  const { city, canton } = resolvedLocation;

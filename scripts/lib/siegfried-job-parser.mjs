@@ -21,7 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -297,7 +297,7 @@ export async function fetchAllSiegfriedJobs() {
     // Siegfried's main Swiss site (Evionnaz) rather than dropping a
     // listing the facet already confirmed is Swiss.
     if (!city) {
-      city = canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || ''))) || 'Evionnaz';
+      city = rescueSwissCityFromText(stripHtml(info.jobDescription || '')) || 'Evionnaz';
     }
 
     // Skip foreign locations that slipped through Workday's country filter

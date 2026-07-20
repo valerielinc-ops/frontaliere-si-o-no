@@ -25,7 +25,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -317,7 +317,7 @@ export async function fetchAllConstelliumJobs() {
     // back to Constellium's documented main Swiss site (Sierre) rather
     // than dropping a listing the API itself already confirmed is Swiss.
     const city = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '')
-      || canonicalSwissCityName(findSwissCityInText(stripHtml(detail.descriptionHtml || '')))
+      || rescueSwissCityFromText(stripHtml(detail.descriptionHtml || ''))
       || 'Sierre';
 
     const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);

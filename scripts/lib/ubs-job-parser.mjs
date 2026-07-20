@@ -31,7 +31,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -544,7 +544,7 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   // resolveSwissLocation(), not a lack-of-signal case.
   const regionExplicitlyForeign = Boolean(region) && !isSwissRegion(region);
   const resolvedLocation = resolveSwissLocation(cityStr, region) || (regionExplicitlyForeign ? null : (() => {
-    const rescueCity = canonicalSwissCityName(findSwissCityInText(descriptionText)) || 'Zürich';
+    const rescueCity = rescueSwissCityFromText(descriptionText) || 'Zürich';
     return { city: rescueCity, canton: inferAnyCanton(rescueCity) || 'ZH' };
   })());
   if (!resolvedLocation) return null;

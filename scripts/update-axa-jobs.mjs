@@ -55,7 +55,7 @@ import {
   BASE_URL,
 } from './lib/axa-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
-import { inferAnyCanton, findSwissCityInText, canonicalSwissCityName } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -264,7 +264,7 @@ async function enrichWithDetails(listings) {
       // foreign. Try a real Swiss city named in the description before
       // dropping — still never defaulted to TI, only a positively-found
       // city counts.
-      const rescueCity = canonicalSwissCityName(findSwissCityInText(job.description || ''));
+      const rescueCity = rescueSwissCityFromText(job.description || '');
       canton = rescueCity ? inferAnyCanton(rescueCity) : '';
     }
     if (canton) {

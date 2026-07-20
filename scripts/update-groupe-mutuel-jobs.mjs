@@ -49,7 +49,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -514,7 +514,7 @@ function parseCsodJob(rawJob) {
   // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
   // the description, falling back to Groupe Mutuel's HQ (Martigny) rather
   // than dropping the listing outright.
-  city = canonicalSwissCityName(findSwissCityInText(descriptionText)) || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
+  city = rescueSwissCityFromText(descriptionText) || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
  }
 
   const canton = inferCanton(city);
