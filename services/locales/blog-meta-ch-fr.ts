@@ -1300,6 +1300,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Essence et diesel : les prix à la pompe continuent d\'augmenter',
     'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Les prix de l\'essence et du diesel ont de nouveau augmenté en Suisse, selon les données du Touring Club Suisse.',
     'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Image d\'une station-service avec une file d\'attente de voitures qui se ravitaillent.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Dessinateur technique au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Les salaires des dessinateurs techniques au Tessin pour les frontaliers, les exigences pour travailler comme dessinateur technique au Tessin en tant que frontalier et comment reconnaître le diplôme et obtenir le permis G.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Un designer technique dans un bureau à Lugano',
 };
 
 export default blogMetaChFr;

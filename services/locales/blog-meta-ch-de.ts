@@ -1300,6 +1300,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzin und Diesel: Die Preise an der Pumpe steigen weiter',
     'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Die Benzin- und Dieselpreise sind in der Schweiz nach Angaben des Touring Club Schweiz wieder gestiegen.',
     'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Bild einer Tankstelle mit einer Schlange von Autos, die aufgetankt werden.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Technischer Zeichner im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Die Gehälter der Technischen Zeichner im Tessin für Grenzgänger, die Voraussetzungen für die Arbeit als Technischer Zeichner im Tessin als Grenzgänger und wie man den Abschluss erkennt und die Genehmigung G erhält.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Ein technischer Designer in einem Büro in Lugano',
 };
 
 export default blogMetaChDe;
