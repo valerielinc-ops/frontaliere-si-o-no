@@ -749,6 +749,7 @@ const translations: Record<string, string> = {
  'jobBoard.requirements': 'Requisiti',
  'jobBoard.descriptionHeading': 'Descrizione posizione',
  'jobBoard.requirementsHeading': 'Competenze richieste',
+ 'jobBoard.faq.title': 'Domande frequenti su questo annuncio',
  'jobBoard.apply': 'Candidati',
   'jobBoard.claimCta': 'Sei l\'azienda? Rendi sponsorizzato questo annuncio',
  'jobBoard.backToList': 'Torna a tutti gli annunci',

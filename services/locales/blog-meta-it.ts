@@ -8708,6 +8708,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-contabile-frontaliere-ticino.title': 'Quanto guadagna un contabile frontaliere in Ticino?',
     'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Qual è il loro stipendio reale?',
     'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'un frontaliere lavora in un\'azienda di Lugano',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'Quanto guadagna un segretaria frontaliere in Ticino?',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'La fascia salariale di una segretaria frontaliere in Ticino, le differenze rispetto all\'Italia e i fattori che incidono sulla retribuzione.',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'Una segretaria frontaliere lavora al suo computer in un ufficio con vista sul Lago di Lugano.',
 };
 
 export default blogMetaIt;
