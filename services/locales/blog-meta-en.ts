@@ -8707,6 +8707,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-contabile-frontaliere-ticino.title': 'How much does a border accountant earn in Ticino?',
     'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'The new Frontier Agreement introduced new tax rules for Ticino border workers. What is their actual salary?',
     'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'a frontier worker works in a company in Lugano',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'How much does a border secretary earn in Ticino?',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'The salary band of a border secretary in Ticino, the differences compared to Italy and the factors that affect remuneration.',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'A secretary working on her computer in an office with a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

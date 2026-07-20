@@ -4733,6 +4733,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ginevra-frontalieri-diritto-lavoro-pubblico': { name: 'Ginevra, i frontalieri', path: '/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/', parent: 'blog' },
     'blog-stipendio-contabile-frontaliere-ticino': { name: 'frontaliere ticino', path: '/articoli-frontaliere/stipendio-contabile-frontaliere-ticino', parent: 'blog' },
     'blog-frontaliere-segretaria-ticino-stipendio-requisiti': { name: 'La frontiera ticinese', path: '/articoli-svizzera/frontaliere-segretaria-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-stipendio-segretaria-frontaliera-ticino': { name: 'Stipendio di una segretaria frontaliere in', path: '/articoli-frontaliere/stipendio-segretaria-frontaliera-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
