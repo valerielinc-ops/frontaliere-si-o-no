@@ -33,6 +33,7 @@ describe('route-slugs anti-drift guard (#4315)', () => {
     ['scripts/validate-critical-dist-pages.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "'calcola-stipendio/index.html'"],
     ['build-plugins/seoHubsData.ts', /from '\.\.\/services\/routeSlugs\.data'/, "articlesAll: '/articoli-frontaliere/tutti/'"],
     ['scripts/send-job-alerts.mjs', /from '\.\.\/services\/routeSlugs\.data\.ts'/, "it: 'preferenze-newsletter'"],
+    ['tests/regression/recency-router-guards.test.ts', /from '\.\.\/\.\.\/services\/routeSlugs\.data'/, "it: 'cerca-lavoro-ticino'"],
   ])('%s derives from shared SLUG_TABLES instead of hand-copying literals', (file, importPattern, oldLiteral) => {
     const src = read(file as string);
     expect(src).toMatch(importPattern as RegExp);

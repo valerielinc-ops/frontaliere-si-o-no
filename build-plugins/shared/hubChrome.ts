@@ -21,8 +21,8 @@
  * -----
  * - Labels are baked in per locale (it/en/de/fr). We don't hit the i18n
  *   runtime because this module runs at build time in a pure-Node context.
- * - Anchor hrefs are constructed from a hub/sub-tab slug table (a subset of
- *   `SLUG_TABLES` from services/router.ts, kept in-sync by hand). Using
+ * - Anchor hrefs are constructed from a hub/sub-tab slug table derived from
+ *   the shared `SLUG_TABLES` (services/routeSlugs.data.ts, #4315). Using
  *   build-time `<a href="...">` is intentional — the SPA will perform a full
  *   navigation when users click them, which is fine because the target is
  *   another hub (may itself be a programmatic landing).
@@ -57,7 +57,7 @@ export interface RenderHubChromeOpts {
   readonly innerHtml: string;
 }
 
-// ── Slug tables (mirror of services/router.ts SLUG_TABLES subset) ──
+// ── Slug tables (derived view of the shared SLUG_TABLES, see hubSlugsFor) ──
 
 interface HubSlugs {
   readonly calcolatore: string;
