@@ -1342,6 +1342,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Zimmermann im Tessin: Gehalt und Voraussetzungen für Grenzgänger',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Hier finden Sie die Anforderungen und nützlichen Informationen, um als Grenzgänger als Zimmermann im Tessin zu arbeiten',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Fotografie eines Zimmermanns in der Schweiz mit Hintergrund von Bergen',
+    'blog.article.frontaliere-pittore-ticino-guadagno.title': 'Wie viel verdient ein Grenzmaler im Tessin?',
+    'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'Der Grenzmaler im Tessin verdient zwischen CHF 40\'000 und CHF 60\'000 pro Jahr.',
+    'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Frontalier Maler an der Arbeit',
 };
 
 export default blogMetaChDe;

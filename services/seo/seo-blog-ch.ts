@@ -17334,6 +17334,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pittore-ticino-guadagno': {
+    title: 'Quanto guadagna un pittore frontaliere in Ticino?',
+    description: 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, pittore, anno',
+    ogTitle: 'Quanto guadagna un pittore frontaliere in Ticino?',
+    ogDescription: 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno.',
+    canonicalPath: '/articoli-svizzera/frontaliere-pittore-ticino-guadagno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un pittore frontaliere in Ticino?",
+      "description": "Il pittore frontaliere in Ticino guadagna tra i CHF 40'000 e i CHF 60'000 all'anno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pittore-ticino-guadagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pittore frontaliere al lavoro"
+      },
+      "datePublished": "2026-07-20T21:17:00+00:00",
+      "dateModified": "2026-07-20T21:17:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-pittore-ticino-guadagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

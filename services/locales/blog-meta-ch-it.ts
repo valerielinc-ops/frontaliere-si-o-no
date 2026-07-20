@@ -1342,6 +1342,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Carpentiere in Ticino: stipendio e requisiti per frontaliere',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Ecco i requisiti e le informazioni utili per lavorare come carpentiere in Ticino da frontaliere',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un carpentiere in Ticino con sfondo di montagna',
+    'blog.article.frontaliere-pittore-ticino-guadagno.title': 'Quanto guadagna un pittore frontaliere in Ticino?',
+    'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'Il pittore frontaliere in Ticino guadagna tra i CHF 40\'000 e i CHF 60\'000 all\'anno.',
+    'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Pittore frontaliere al lavoro',
 };
 
 export default blogMetaChIt;
