@@ -3833,6 +3833,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-ticino-tendenze-occupazionali',
+    category: 'pratico',
+    date: '2026-07-20T06:51:08.037Z',
+    image: '/images/blog/frontalieri-ticino-tendenze-occupazionali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
