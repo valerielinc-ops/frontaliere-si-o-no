@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3353,
+ "numberOfItems": 3354,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8121,7 +8121,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3350, "name": "Benzina e diesel: i prezzi alla pompa continuan...", "url": `${BASE_URL}/articoli-frontaliere/benzina-e-diesel-prezzi-saliti` },
           { "@type": "ListItem", "position": 3351, "name": "Quanto guadagna un operatore CNC frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino` },
           { "@type": "ListItem", "position": 3352, "name": "Disegnatore tecnico in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3353, "name": "Quanto guadagna un tecnico automazione frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione` }
+          { "@type": "ListItem", "position": 3353, "name": "Quanto guadagna un tecnico automazione frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione` },
+          { "@type": "ListItem", "position": 3354, "name": "Quanto guadagna un disegnatore tecnico frontali...", "url": `${BASE_URL}/articoli-frontaliere/disegnatore-tecnico-frontaliere-ticino-guadagno` }
  ]
  },
  {

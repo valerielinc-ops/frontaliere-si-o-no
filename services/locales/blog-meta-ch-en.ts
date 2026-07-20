@@ -1303,6 +1303,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Technical designer in Ticino: salary, requirements and permit G',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'The salaries of technical designers in Ticino for border workers, the requirements to work as a technical designer in Ticino as a border worker and how to recognize the educational qualification and obtain the G permit.',
     'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'A technical designer in an office in Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'How much does a technical border designer earn in Ticino?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'The salaries of technical border designers in Ticino are influenced by factors such as experience and the sector to which they belong.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'A panoramic view of the city of Lugano, with a Swiss frontier technical drafter working in his studio.',
 };
 
 export default blogMetaChEn;

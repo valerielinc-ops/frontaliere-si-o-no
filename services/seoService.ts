@@ -4683,6 +4683,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino': { name: 'Operatore CNC in Ticino', path: '/articoli-frontaliere/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino', parent: 'blog' },
     'blog-frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': { name: 'Frontaliere disegnatore tecnico Ticino', path: '/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontalieri-ticino-stipendio-tecnico-automazione': { name: 'Stipendio tecnico automazione frontalieri', path: '/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione', parent: 'blog' },
+    'blog-disegnatore-tecnico-frontaliere-ticino-guadagno': { name: 'Quanto guadagna un disegnatore tecnico', path: '/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
