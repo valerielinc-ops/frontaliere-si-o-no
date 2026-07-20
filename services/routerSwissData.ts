@@ -462,6 +462,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-segretaria-ticino-stipendio-requisiti': { it: 'frontaliere-segretaria-ticino-stipendio-requisiti', en: 'frontalier-secretary-ticino-salary-requirements', de: 'frontalier-sekretarin-ticino-gehalt-anforderungen', fr: 'frontalier-secretaire-ticino-salaire-exigences' },
  'frontaliere-risorse-umane-ticino-stipendio-requisiti': { it: 'frontaliere-risorse-umane-ticino-stipendio-requisiti', en: 'frontaliere-risorse-umane-ticino-stipendio-requisiti', de: 'frontaliere-risorse-umane-ticino-stipendio-requisiti', fr: 'frontaliere-risorse-umane-ticino-stipendio-requisiti' },
  'quanto-guadagna-un-risorse-umane-frontaliere-in-ticino': { it: 'quanto-guadagna-un-risorse-umane-frontaliere-in-ticino', en: 'how-much-does-a-cross-border-worker-in-ticino-earn', de: 'wie-viel-verdient-ein-grenzganger-in-ticino', fr: 'combien-gagne-un-frontalier-en-ticino' },
+ 'frontaliere-consulente-clientela-ticino-stipendio-requisiti': { it: 'frontaliere-consulente-clientela-ticino-stipendio-requisiti', en: 'frontaliere-consulente-clientela-ticino-salary-requirements', de: 'frontaliere-consulente-clientela-ticino-gehalt-anforderungen', fr: 'frontaliere-consulente-clientela-ticino-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

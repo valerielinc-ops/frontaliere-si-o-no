@@ -1318,6 +1318,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'Combien gagne un frontalier en ressources humaines au Tessin ?',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'La Suisse est un pays avec un système fiscal complexe et de nombreuses règles pour les frontaliers.',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'Une scène d\'un bureau d\'une entreprise en Suisse avec des employés de différents pays, y compris les frontaliers, qui travaillent à leurs ordinateurs.',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Conseiller à la clientèle au Tessin : exigences et permis G',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent au Tessin en tant que conseillers à la clientèle doivent respecter les exigences du permis G et peuvent avoir accès à une reconnaissance du diplôme',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano sur le lac avec une rue animée',
 };
 
 export default blogMetaChFr;

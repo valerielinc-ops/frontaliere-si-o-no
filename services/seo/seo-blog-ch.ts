@@ -17022,6 +17022,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-consulente-clientela-ticino-stipendio-requisiti': {
+    title: 'Consulente alla clientela in Ticino: requisiti e permesso G',
+    description: 'I frontalieri che lavorano in Ticino come consulenti alla clientela devono rispettare i requisiti per il permesso G e potrebbero avere accesso a un',
+    keywords: 'frontalieri, ticino, svizzera, italia, consulente, alla, clientela, requisiti',
+    ogTitle: 'Lavorare come consulente alla clientela in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'I frontalieri che lavorano in Ticino come consulenti alla clientela devono rispettare i requisiti per il permesso G e potrebbero avere accesso a un',
+    canonicalPath: '/articoli-svizzera/frontaliere-consulente-clientela-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consulente alla clientela in Ticino: requisiti e permesso G",
+      "description": "I frontalieri che lavorano in Ticino come consulenti alla clientela devono rispettare i requisiti per il permesso G e potrebbero avere accesso a un",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-consulente-clientela-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Lugano sul lago con una strada trafficata"
+      },
+      "datePublished": "2026-07-20T15:47:29+00:00",
+      "dateModified": "2026-07-20T15:47:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-consulente-clientela-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

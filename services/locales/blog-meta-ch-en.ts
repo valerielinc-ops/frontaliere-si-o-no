@@ -1318,6 +1318,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'How much do border human resources earn in Ticino?',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'Switzerland is a country with a complex tax system and many rules for border workers.',
     'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'A scene of an office of a company in Switzerland with employees of different countries, including cross-border workers, who are working at their computers.',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.title': 'Consultant to customers in Ticino: requirements and permit G',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.excerpt': 'Border workers working in Ticino as consultants to customers must comply with the requirements for the G permit and may have access to a recognition of the qualification',
+    'blog.article.frontaliere-consulente-clientela-ticino-stipendio-requisiti.imageAlt': 'A view of Lugano on the lake with a busy street',
 };
 
 export default blogMetaChEn;
