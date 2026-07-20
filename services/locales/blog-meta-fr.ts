@@ -8708,6 +8708,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-contabile-frontaliere-ticino.title': 'Combien gagne un comptable frontalier au Tessin ?',
     'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'Le nouvel accord frontalier a introduit de nouvelles règles fiscales pour les frontaliers tessinois. Quel est leur salaire réel ?',
     'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'un travailleur frontalier travaille dans une entreprise à Lugano',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.title': 'Combien gagne une secrétaire frontalière au Tessin ?',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.excerpt': 'La fourchette salariale d\'une secrétaire frontalière au Tessin, les différences par rapport à l\'Italie et les facteurs qui influent sur la rémunération.',
+    'blog.article.stipendio-segretaria-frontaliera-ticino.imageAlt': 'Une secrétaire travaille à son ordinateur dans un bureau avec une vue sur le lac de Lugano.',
 };
 
 export default blogMetaFr;
