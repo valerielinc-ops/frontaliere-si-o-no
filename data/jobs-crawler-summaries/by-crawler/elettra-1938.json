@@ -1,16 +1,16 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-07-20T13:18:38.734Z",
+  "generatedAt": "2026-07-20T22:17:45.993Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5329,
-  "avgDurationMs": 5329,
+  "durationMs": 4333,
+  "avgDurationMs": 4333,
   "durationHistory": [
-    5329
+    4333
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-717575/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-20T13:18:35.859Z",
+      "crawledAt": "2026-07-20T22:17:43.859Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-715887/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-07-20T13:18:36.162Z",
+      "crawledAt": "2026-07-20T22:17:44.161Z",
       "addressLocality": "Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "firstSeenAt": "2026-07-08T22:06:24.959Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
