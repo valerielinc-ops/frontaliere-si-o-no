@@ -31,7 +31,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
 import { assertJsonListShapeMultiKey } from './assert-json-list-shape.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -532,10 +532,23 @@ function buildJobFromTaleo(taleoJob, siteId = SITE_IDS[0]) {
   if (!title || title.length < 3) return null;
   if (!reqId) return null;
 
-  const resolvedLocation = resolveSwissLocation(cityStr, region);
+  const descriptionText = normalizeDescriptionSpace(stripHtml(descriptionHtml));
+  // This Taleo tenant (siteid 5012) IS UBS Switzerland — a job whose city/
+  // region text didn't resolve isn't necessarily foreign. Give it the same
+  // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue: a
+  // real Swiss city named in the description, falling back to UBS's Swiss
+  // HQ (Zürich) rather than dropping a listing this tenant already
+  // confirms is Swiss.
+  // Never rescue a region that explicitly doesn't look Swiss (e.g. "United
+  // States - New York") — that's the legit regionLooksForeign guard inside
+  // resolveSwissLocation(), not a lack-of-signal case.
+  const regionExplicitlyForeign = Boolean(region) && !isSwissRegion(region);
+  const resolvedLocation = resolveSwissLocation(cityStr, region) || (regionExplicitlyForeign ? null : (() => {
+    const rescueCity = canonicalSwissCityName(findSwissCityInText(descriptionText)) || 'Zürich';
+    return { city: rescueCity, canton: inferAnyCanton(rescueCity) || 'ZH' };
+  })());
   if (!resolvedLocation) return null;
   const { city, canton } = resolvedLocation;
-  const descriptionText = normalizeDescriptionSpace(stripHtml(descriptionHtml));
   const publicUrl = buildJobUrl(reqId, siteId);
 
   // Detect source language: use Taleo's language code, fallback to content detection

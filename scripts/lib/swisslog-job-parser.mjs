@@ -61,7 +61,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -373,15 +373,26 @@ export async function fetchAllSwisslogJobs() {
       postalCode: listing.rawAddress?.postalCode || '',
       address: listing.rawAddress?.streetAddress || '',
     });
-    const location = normalizeSpace(listing.locationLabel || city || HQ.city);
+    let location = normalizeSpace(listing.locationLabel || city || HQ.city);
     const realCityText = normalizeSpace(listing.cityRaw || listing.locationLabel || '');
-    const canton = resolveCanton(city, region, realCityText);
-    if (canton === null) {
-      console.warn(` ⚠️ Swisslog: skipping unresolvable location "${realCityText}" (${title})`);
-      continue;
-    }
-
+    let canton = resolveCanton(city, region, realCityText);
     const descriptionCore = stripHtml(listing.descriptionHtml || '');
+    if (canton === null) {
+      // The batch-level Swiss facet (see swissItems above) already scoped
+      // this listing to Switzerland — a scraped city that doesn't resolve
+      // to any canton isn't necessarily foreign. Try a real Swiss city
+      // named in the description before skipping; no fabricated HQ
+      // default here (positively-found city only, per the anti-
+      // fabrication guard documented on resolveCanton() above).
+      const rescueCity = canonicalSwissCityName(findSwissCityInText(descriptionCore));
+      const rescueCanton = rescueCity ? inferSwissTargetCanton(rescueCity) : null;
+      if (!rescueCanton) {
+        console.warn(` ⚠️ Swisslog: skipping unresolvable location "${realCityText}" (${title})`);
+        continue;
+      }
+      canton = rescueCanton;
+      location = rescueCity;
+    }
     const descriptionParts = [descriptionCore, listing.boilerplate].filter(Boolean);
     const descriptionRaw = descriptionParts.join('\n\n')
       || `${title} presso ${SWISSLOG_COMPANY_NAME} a ${location}.`;

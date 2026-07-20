@@ -14,7 +14,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -281,7 +281,11 @@ export async function fetchAllFielmannJobs() {
     );
     // No fabricated Sion: Fielmann runs optician stores nationwide, so skip
     // rows with no resolvable city instead of stamping a fake Valais address.
-    const city = locInfo.city;
+    // But the Workday facet already scoped this listing to Switzerland, so
+    // before skipping, try a real Swiss city named in the description —
+    // same second-chance anchor as assemble-jobs-dataset.mjs's canton
+    // rescue (no single-site default here, since Fielmann is nationwide).
+    const city = locInfo.city || canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || '')));
     if (!city) {
       console.log('  ⏭️  Skipped — unresolved location');
       continue;

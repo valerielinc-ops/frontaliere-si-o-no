@@ -55,6 +55,7 @@ import {
   BASE_URL,
 } from './lib/axa-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { inferAnyCanton, findSwissCityInText, canonicalSwissCityName } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -255,7 +256,17 @@ async function enrichWithDetails(listings) {
   // TI. Unresolved / foreign locations are dropped.
   const relevant = [];
   for (const job of enriched) {
-    const canton = inferAxaCanton(job.listingCity, job.location, job.address);
+    let canton = inferAxaCanton(job.listingCity, job.location, job.address);
+    if (!canton) {
+      // jobs.axa.ch is AXA Switzerland's own dedicated national portal — a
+      // job scraped from it is Swiss by construction, so an unresolved
+      // canton here means the city text didn't parse, not that the job is
+      // foreign. Try a real Swiss city named in the description before
+      // dropping — still never defaulted to TI, only a positively-found
+      // city counts.
+      const rescueCity = canonicalSwissCityName(findSwissCityInText(job.description || ''));
+      canton = rescueCity ? inferAnyCanton(rescueCity) : '';
+    }
     if (canton) {
       relevant.push({ ...job, canton });
     }
