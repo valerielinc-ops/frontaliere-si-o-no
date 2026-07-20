@@ -1137,6 +1137,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  { id: 'landing-net-comparison-g-vs-b-within20km', title: 'Confronto netto G vs B — entro 20 km', description: 'Permesso G vs B: quale conviene entro 20 km?', keywords: ['permesso', 'confronto', 'entro', '20km'] },
  { id: 'landing-net-comparison-2025-2026-over20km', title: 'Confronto netto 2025 vs 2026 — oltre 20 km', description: 'Come cambia il netto da vecchio a nuovo accordo oltre 20 km', keywords: ['confronto', '2025', '2026', 'oltre', '20km'] },
  { id: 'landing-net-comparison-g-vs-b-over20km', title: 'Confronto netto G vs B — oltre 20 km', description: 'Permesso G vs B: quale conviene oltre 20 km?', keywords: ['permesso', 'confronto', 'oltre', '20km'] },
+ { id: 'landing-seasonal-vs-annual-naspi', title: 'Lavoro stagionale vs annuale con NASpI', description: 'Simulatore netto: 12 mesi continuativi vs stagionale con NASpI e fondo pensione', keywords: ['stagionale', 'naspi', 'fondo pensione', 'nuovo frontaliere'] },
  ];
  for (const lp of LANDING_PAGES) {
  entries.push({

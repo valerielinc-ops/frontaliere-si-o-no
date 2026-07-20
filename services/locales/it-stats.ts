@@ -275,7 +275,7 @@ const translations: Record<string, string> = {
  'glossary.terms.ac.example': 'Frontaliere licenziato: indennità NASpI italiana (non disoccupazione CH), ma contributi AC versati in CH.',
  'glossary.terms.naspi.title': 'NASpI',
  'glossary.terms.naspi.desc': 'Nuova Assicurazione Sociale per l\'Impiego. Indennità di disoccupazione italiana per i frontalieri licenziati.',
- 'glossary.terms.naspi.example': 'Frontaliere licenziato dopo 2 anni: NASpI per ~12 mesi, 75% dello stipendio fino a €1.352/mese.',
+ 'glossary.terms.naspi.example': 'Frontaliere licenziato dopo 2 anni: NASpI per ~12 mesi, 75% dello stipendio fino a €1.457/mese.',
  'glossary.terms.assegniFamiliari.title': 'Assegni familiari (CH)',
  'glossary.terms.assegniFamiliari.desc': 'In Ticino: CHF 200/mese per figlio (fino a 16 anni), CHF 250/mese per figlio in formazione (16-25 anni).',
  'glossary.terms.assegniFamiliari.example': '2 figli (8 e 18 anni): CHF 200 + CHF 250 = CHF 450/mese di assegni familiari ticinesi.',

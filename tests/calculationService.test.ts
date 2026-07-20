@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateSimulation, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { calculateSimulation, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit, calculateNaspi, calculateSeasonalScenario, PENSION_FUND_DEDUCTION_CAP_EUR, type SeasonalScenarioInput } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs } from '@/types';
 
@@ -313,5 +313,196 @@ describe('calculateProportionalTaxCredit (Art. 165 c.10 TUIR)', () => {
     // Edge case: if taxable > gross somehow, ratio is capped at 1
     const credit = calculateProportionalTaxCredit(5000, 90000, 80000);
     expect(credit).toBe(5000);
+  });
+});
+
+describe('calculateNaspi', () => {
+  it('applies the 75% rate below the €1,456.72 threshold (Circolare INPS 4/2026)', () => {
+    const result = calculateNaspi(1000, 24, 35, 1.0);
+    expect(result.monthlyInitial).toBeCloseTo(1000 * 0.75, 2);
+  });
+
+  it('blends 75%/25% rates across the threshold', () => {
+    const result = calculateNaspi(2000, 24, 35, 1.0);
+    expect(result.monthlyInitial).toBeCloseTo(1456.72 * 0.75 + (2000 - 1456.72) * 0.25, 1);
+  });
+
+  it('caps the monthly amount at €1,584.70', () => {
+    const result = calculateNaspi(5000, 24, 35, 1.0);
+    expect(result.monthlyInitial).toBe(1584.70);
+  });
+
+  it('is not eligible at all below the 18-week minimum contribution requirement (Legge di Bilancio 2026)', () => {
+    // 4 months worked ≈ 17 weeks contributed — below the 18-week floor
+    const result = calculateNaspi(3000, 4, 35, 1.0);
+    expect(result.eligible).toBe(false);
+    expect(result.duration).toBe(0);
+    expect(result.rows).toHaveLength(0);
+  });
+
+  it('is eligible once net contributed weeks reach the 18-week minimum', () => {
+    const result = calculateNaspi(3000, 24, 35, 1.0);
+    expect(result.eligible).toBe(true);
+  });
+
+  it('derives duration from half the contributed weeks, capped at 24 months', () => {
+    // 24 months worked → ~104 weeks contributed → 52 usable → 13-month duration
+    const result = calculateNaspi(3000, 24, 35, 1.0);
+    expect(result.duration).toBe(13);
+  });
+
+  it('defaults to zero prior indemnity (backward-compatible with the pre-extraction behavior)', () => {
+    const withDefault = calculateNaspi(3000, 24, 35, 1.0);
+    const withExplicitZero = calculateNaspi(3000, 24, 35, 1.0, 0);
+    expect(withDefault).toEqual(withExplicitZero);
+  });
+
+  it('reduces the residual duration when NASpI months were already indemnified in the quadriennio', () => {
+    const full = calculateNaspi(3000, 24, 35, 1.0, 0);
+    const afterPriorUse = calculateNaspi(3000, 24, 35, 1.0, 5);
+    expect(afterPriorUse.duration).toBeLessThan(full.duration);
+    expect(afterPriorUse.duration).toBe(10);
+  });
+
+  it('never goes below zero residual duration when prior use exceeds contributed weeks', () => {
+    const result = calculateNaspi(3000, 6, 35, 1.0, 24);
+    expect(result.duration).toBe(0);
+    expect(result.rows).toHaveLength(0);
+    expect(result.totalGross).toBe(0);
+  });
+
+  it('starts the decalage at month 6 under age 55', () => {
+    const result = calculateNaspi(3000, 24, 35, 1.0);
+    const month7 = result.rows.find((r) => r.month === 7);
+    expect(month7?.decalagePercent).toBe(3);
+  });
+
+  it('delays the decalage to month 8 from age 55', () => {
+    const result = calculateNaspi(3000, 24, 60, 1.0);
+    const month7 = result.rows.find((r) => r.month === 7);
+    expect(month7?.decalagePercent).toBe(0);
+  });
+});
+
+describe('calculateSeasonalScenario', () => {
+  const base: SeasonalScenarioInput = {
+    grossMonthlyCHF: 4300,
+    monthsWorked: 12,
+    monthsOnNaspi: 0,
+    contributedMonthsLast4Years: 48,
+    monthsAlreadyIndemnifiedInQuadriennio: 0,
+    age: 25,
+    maritalStatus: 'SINGLE',
+    spouseWorks: false,
+    children: 0,
+    distanceZone: 'WITHIN_20KM',
+    addizionaleComunalePercent: 0.55,
+    exchangeRate: 1.06,
+  };
+
+  it('reduces to calculateSimulation for a full 12-month year with no NASpI (boundary equivalence)', () => {
+    // NOTE: `calculateSimulation` applies a flat 2% addizionale (DEFAULT_TECH_PARAMS.itAddizionaleRate)
+    // as a regional+comunale approximation, while this tool uses the precise progressive Lombardia
+    // bracket + comune-specific rate (same approach as `calculateMunicipalityTaxImpact`). So the
+    // taxable base, IRPEF gross, work deduction and Swiss credit — all driven by the exact same
+    // shared functions — must match exactly; only the addizionale-dependent final tax legitimately differs.
+    const seasonal = calculateSeasonalScenario(base);
+    const annual = calculateSimulation(makeInputs({
+      annualIncomeCHF: base.grossMonthlyCHF * 12,
+      frontierWorkerType: 'NEW',
+      distanceZone: base.distanceZone,
+      customExchangeRate: base.exchangeRate,
+      monthsBasis: 12,
+      age: base.age,
+      maritalStatus: base.maritalStatus,
+      spouseWorks: base.spouseWorks,
+      children: base.children,
+    }));
+    const irpefDetails = annual.itResident.details.irpefDetails!;
+
+    expect(seasonal.naspiTotalGrossEUR).toBe(0);
+    expect(seasonal.combinedTaxableBaseEUR).toBeCloseTo(irpefDetails.taxableBaseEUR, 2);
+    expect(seasonal.irpefGrossEUR).toBeCloseTo(irpefDetails.grossTaxEUR, 2);
+    expect(seasonal.workDeductionEUR).toBeCloseTo(irpefDetails.workDeductionEUR, 2);
+    expect(seasonal.swissTaxCreditEUR).toBeCloseTo(irpefDetails.creditSwissTaxEUR, 2);
+
+    // The only legitimate divergence: addizionale methodology (see note above).
+    const addizionaliDiff = (seasonal.addizionaleRegionaleEUR + seasonal.addizionaleComunaleEUR) - irpefDetails.addizionaliEUR;
+    expect(seasonal.finalItalianTaxEUR - irpefDetails.finalNetTaxEUR).toBeCloseTo(addizionaliDiff, 2);
+  });
+
+  it('caps NASpI months paid at the eligible duration and reports a shortfall', () => {
+    const nearExhausted = calculateSeasonalScenario({
+      ...base,
+      monthsWorked: 8,
+      monthsOnNaspi: 4,
+      monthsAlreadyIndemnifiedInQuadriennio: 43, // near-exhausted quadriennio, but still above the 18-week minimum
+    });
+    expect(nearExhausted.naspiEligibleMonths).toBe(3);
+    expect(nearExhausted.naspiMonthsPaid).toBe(3);
+    expect(nearExhausted.naspiShortfallMonths).toBe(1);
+  });
+
+  it('has zero NASpI entitlement below the 18-week minimum requirement', () => {
+    const belowMinimum = calculateSeasonalScenario({
+      ...base,
+      monthsWorked: 8,
+      monthsOnNaspi: 4,
+      monthsAlreadyIndemnifiedInQuadriennio: 44, // leaves under 18 net weeks — no entitlement at all
+    });
+    expect(belowMinimum.naspiEligibleMonths).toBe(0);
+    expect(belowMinimum.naspiMonthsPaid).toBe(0);
+    expect(belowMinimum.naspiShortfallMonths).toBe(4);
+    expect(belowMinimum.naspiTotalGrossEUR).toBe(0);
+  });
+
+  it('pays the full requested NASpI months when eligibility is ample', () => {
+    const ample = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 4 });
+    expect(ample.naspiEligibleMonths).toBe(24);
+    expect(ample.naspiMonthsPaid).toBe(4);
+    expect(ample.naspiShortfallMonths).toBe(0);
+    expect(ample.naspiTotalGrossEUR).toBeGreaterThan(0);
+    expect(ample.combinedTaxableBaseEUR).toBeCloseTo(ample.frontaliereTaxableBaseEUR + ample.naspiTotalGrossEUR, 6);
+  });
+
+  it('applies the pension deduction up to the statutory cap, but the full contribution as cash out', () => {
+    const withinCap = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 4, pensionContributionEUR: 5000 });
+    expect(withinCap.pensionDeductionEUR).toBe(5000);
+    expect(withinCap.pensionContributionCashOutEUR).toBe(5000);
+
+    const aboveCap = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 4, pensionContributionEUR: 10000 });
+    expect(aboveCap.pensionDeductionEUR).toBe(PENSION_FUND_DEDUCTION_CAP_EUR);
+    expect(aboveCap.pensionContributionCashOutEUR).toBe(10000);
+  });
+
+  it('a voluntary pension contribution lowers net annual cash by more than its tax saving', () => {
+    const without = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 4 });
+    const withPension = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 4, pensionContributionEUR: 5000 });
+    const taxSaved = without.finalItalianTaxEUR - withPension.finalItalianTaxEUR;
+    expect(taxSaved).toBeGreaterThan(0);
+    expect(without.netAnnualEUR - withPension.netAnnualEUR).toBeCloseTo(5000 - taxSaved, 2);
+  });
+
+  it('scales the Swiss withholding bracket off the annualized salary, not the part-year total', () => {
+    // A worker on CHF 4300/month sits in a specific withholding bracket regardless of
+    // whether they work 12 or 8 months this year — only the taxed AMOUNT should scale.
+    const twelveMonths = calculateSeasonalScenario({ ...base, monthsWorked: 12, monthsOnNaspi: 0 });
+    const eightMonths = calculateSeasonalScenario({ ...base, monthsWorked: 8, monthsOnNaspi: 0 });
+    const impliedRate12 = twelveMonths.swissSourceTaxCHF / twelveMonths.grossWorkedCHF;
+    const impliedRate8 = eightMonths.swissSourceTaxCHF / eightMonths.grossWorkedCHF;
+    expect(impliedRate8).toBeCloseTo(impliedRate12, 6);
+  });
+
+  it('applies the 80% WITHIN_20KM chTaxShare to the displayed Swiss source tax, not just the IT credit basis', () => {
+    // Regression for a reviewer-caught bug: swissSourceTaxCHF (net CH salary + the
+    // "Imposta alla fonte svizzera" UI card) was computed at the FULL 100% rate while
+    // only paidSourceTaxEUR (the IT tax-credit basis) applied chTaxShare — overstating
+    // the displayed Swiss withholding by 25% (100/80) for new frontalieri within 20km.
+    const within20km = calculateSeasonalScenario({ ...base, distanceZone: 'WITHIN_20KM' });
+    const over20km = calculateSeasonalScenario({ ...base, distanceZone: 'OVER_20KM' });
+    expect(within20km.swissSourceTaxCHF / over20km.swissSourceTaxCHF).toBeCloseTo(0.8, 6);
+    // Concrete figures from the reviewer's default scenario (Sumirago, CHF 4300/month, 12 months).
+    expect(within20km.swissSourceTaxCHF).toBeCloseTo(2642, 0);
+    expect(within20km.netSwissSalaryCHF).toBeGreaterThan(over20km.netSwissSalaryCHF);
   });
 });
