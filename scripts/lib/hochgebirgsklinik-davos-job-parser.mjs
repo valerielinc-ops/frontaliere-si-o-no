@@ -292,7 +292,11 @@ async function fetchJobListings(apiKey) {
       }),
     });
 
-    if (!res.ok) throw new Error(`HTTP ${res.status} from Typesense API`);
+    if (!res.ok) {
+      const err = new Error(`HTTP ${res.status} from Typesense API`);
+      err.status = res.status;
+      throw err;
+    }
 
     const data = await res.json();
     const results = data?.results?.[0];
@@ -304,6 +308,27 @@ async function fetchJobListings(apiKey) {
     return hits.map((h) => h.document);
   } finally {
     clearTimeout(timer);
+  }
+}
+
+/**
+ * Run the offer search, refreshing the scoped Typesense API key once on an
+ * HTTP 401 before giving up — same vendor (`api.my-job-shop.com`) and same
+ * failure class as Hornbach's crawler (#4556, recurring: #3688/#3940/#4319).
+ * Mirrors the retry-once-on-401 idiom in `microsoft-job-parser.mjs`'s
+ * `pcsGetJson` and `hornbach-job-parser.mjs`'s `fetchOfferDocumentsWithKeyRetry`.
+ *
+ * @param {string} apiKey
+ * @returns {Promise<Array<Record<string, unknown>>>}
+ */
+export async function fetchJobListingsWithKeyRetry(apiKey) {
+  try {
+    return await fetchJobListings(apiKey);
+  } catch (err) {
+    if (err?.status !== 401) throw err;
+    console.warn('⚠️ Hochgebirgsklinik Davos Typesense search got HTTP 401 (stale scoped key) — refreshing key and retrying once');
+    const freshKey = await fetchTypesenseApiKey();
+    return fetchJobListings(freshKey);
   }
 }
 
@@ -389,7 +414,7 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
   const apiKey = await fetchTypesenseApiKey();
 
   // Step 2: Query all jobs
-  const documents = await fetchJobListings(apiKey);
+  const documents = await fetchJobListingsWithKeyRetry(apiKey);
   if (!documents || documents.length === 0) {
     console.warn('⚠️ No job documents returned from Typesense.');
     return [];
