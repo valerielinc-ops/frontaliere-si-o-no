@@ -3914,6 +3914,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ginevra-frontalieri-diritto-lavoro-pubblico',
+    category: 'novita',
+    date: '2026-07-20T10:51:54.203Z',
+    image: '/images/blog/ginevra-frontalieri-diritto-lavoro-pubblico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'frontaliere-segretaria-ticino-stipendio-requisiti',
+    category: 'pratico',
+    date: '2026-07-20T11:29:45.554Z',
+    image: '/images/blog/frontaliere-segretaria-ticino-stipendio-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

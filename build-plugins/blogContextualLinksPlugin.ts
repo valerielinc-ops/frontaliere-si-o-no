@@ -34,34 +34,34 @@ import {
   type BlogContextualLinkRule,
   type BlogLinkLocale,
 } from './blogContextualLinksData.ts';
+import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 
 // ── Locale → dist blog-index directory mapping ────────────────────
 
 /**
- * Blog index slug per locale (matches `SLUG_TABLES[<locale>].blog` in
- * `services/router.ts`). If these change upstream, they must be updated here
- * too — the plugin also does a runtime parse of router.ts as a second source
- * of truth, but falls back to these hardcoded values.
+ * Blog index slug per locale — derived from the shared SLUG_TABLES (#4315),
+ * replacing a runtime regex-parse of router.ts source that was the previous
+ * "second source of truth" for these values.
  */
 const DEFAULT_BLOG_INDEX_SLUG: Record<BlogLinkLocale, string> = {
-  it: 'articoli-frontaliere',
-  en: 'cross-border-articles',
-  de: 'grenzgaenger-artikel',
-  fr: 'articles-frontalier',
+  it: SLUG_TABLES.it.blog,
+  en: SLUG_TABLES.en.blog,
+  de: SLUG_TABLES.de.blog,
+  fr: SLUG_TABLES.fr.blog,
 };
 
 /**
  * Switzerland-wide ("svizzera") article hub slug per locale — the national
- * mirror of {@link DEFAULT_BLOG_INDEX_SLUG}. These hub dirs are also walked by
+ * mirror of {@link DEFAULT_BLOG_INDEX_SLUG}, from the shared SLUG_TABLES'
+ * `blogCh` key. These hub dirs are also walked by
  * {@link listBlogArticleHtmlFiles} so svizzera articles receive the same
- * contextual-link injection. Static (no router parse) because the svizzera hub
- * slugs are fixed in `services/articleSections.ts`.
+ * contextual-link injection.
  */
 const SVIZZERA_BLOG_INDEX_SLUG: Record<BlogLinkLocale, string> = {
-  it: 'articoli-svizzera',
-  en: 'swiss-articles',
-  de: 'schweiz-artikel',
-  fr: 'articles-suisse',
+  it: SLUG_TABLES.it.blogCh,
+  en: SLUG_TABLES.en.blogCh,
+  de: SLUG_TABLES.de.blogCh,
+  fr: SLUG_TABLES.fr.blogCh,
 };
 
 /**
@@ -401,19 +401,10 @@ export function injectContextualLinks(
 
 // ── Filesystem walkers ────────────────────────────────────────────
 
-export function readBlogIndexSlugs(rootDir: string): Record<BlogLinkLocale, string> {
-  const out: Record<BlogLinkLocale, string> = { ...DEFAULT_BLOG_INDEX_SLUG };
-  try {
-    const src = fs.readFileSync(path.resolve(rootDir, 'services/router.ts'), 'utf-8');
-    const stBlock = src.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
-    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
-      const lm = stBlock.match(new RegExp(`  ${loc}: \\{([\\s\\S]*?)\\n  \\}`, 'm'));
-      if (!lm) continue;
-      const bm = lm[1].match(/\bblog:\s*'([^']+)'/);
-      if (bm) out[loc] = bm[1];
-    }
-  } catch { /* fall back to defaults */ }
-  return out;
+// `rootDir` param kept for call-site compat — values now come straight from
+// DEFAULT_BLOG_INDEX_SLUG (shared SLUG_TABLES), no more router.ts source parse.
+export function readBlogIndexSlugs(_rootDir: string): Record<BlogLinkLocale, string> {
+  return { ...DEFAULT_BLOG_INDEX_SLUG };
 }
 
 export interface BlogArticleHtmlFile {

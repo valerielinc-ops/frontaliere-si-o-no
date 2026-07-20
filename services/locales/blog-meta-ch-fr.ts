@@ -1306,6 +1306,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Combien gagne un dessinateur technique frontalier au Tessin ?',
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'Les salaires des dessinateurs techniques frontaliers au Tessin sont influencés par des facteurs tels que l\'expérience et le secteur d\'appartenance.',
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Une vue panoramique de la ville de Lugano, avec un dessinateur technique frontalière travaillant dans son atelier.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Genève, les frontaliers ont le droit de travailler dans le secteur public',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'Le gouvernement cantonal genevois a rejeté l\'initiative MCG qui demandait de les exclure des emplois publics',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Emploi public suisse, droit des frontaliers au travail',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Secrétaire frontalière au Tessin : salaire, exigences et permis',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'La frontière tessinoise : salaire moyen, exigences, reconnaissance éventuelle du diplôme, permis G',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'Une secrétaire frontalière travaille dans un bureau à Lugano',
 };
 
 export default blogMetaChFr;

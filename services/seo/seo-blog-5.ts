@@ -51981,6 +51981,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-tecnico-automazione-ticino-stipendio-requisiti': {
+    title: 'Tecnico automazione in Ticino: stipendio, requisiti e riconoscimento',
+    description: 'Informazioni sulla procedura per ottenere il permesso G per i tecnici automazione frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tecnico, automazione, stipendio, requisiti',
+    ogTitle: 'Frontalieri tecnico automazione Ticino stipendio requisiti',
+    ogDescription: 'Informazioni sulla procedura per ottenere il permesso G per i tecnici automazione frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tecnico automazione in Ticino: stipendio, requisiti e riconoscimento",
+      "description": "Informazioni sulla procedura per ottenere il permesso G per i tecnici automazione frontalieri in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-tecnico-automazione-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un tecnico automazione che lavora in una fabbrica in Ticino"
+      },
+      "datePublished": "2026-07-20T10:42:27+00:00",
+      "dateModified": "2026-07-20T10:42:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendio-contabile-frontaliere-ticino': {
+    title: 'Quanto guadagna un contabile frontaliere in Ticino?',
+    description: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, contabile, nuovo',
+    ogTitle: 'Quanto guadagna un contabile frontaliere in Ticino?',
+    ogDescription: 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi.',
+    canonicalPath: '/articoli-frontaliere/stipendio-contabile-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un contabile frontaliere in Ticino?",
+      "description": "Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendio-contabile-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "un frontaliere lavora in un'azienda di Lugano"
+      },
+      "datePublished": "2026-07-20T11:07:05+00:00",
+      "dateModified": "2026-07-20T11:07:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendio-contabile-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

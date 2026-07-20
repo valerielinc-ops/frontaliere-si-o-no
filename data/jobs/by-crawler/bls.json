@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-07-19T22:23:08.071Z",
+  "assembledAt": "2026-07-20T12:20:40.994Z",
   "jobs": [
     {
       "id": "bls-5c03d3b84468",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:05.867Z",
+      "crawledAt": "2026-07-20T12:20:37.752Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -129,7 +130,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:05.052Z",
+      "crawledAt": "2026-07-20T12:20:36.967Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -179,6 +180,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -224,7 +226,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:04.360Z",
+      "crawledAt": "2026-07-20T12:20:36.270Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,6 +284,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -327,7 +330,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:03.560Z",
+      "crawledAt": "2026-07-20T12:20:35.329Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -403,7 +407,7 @@
       "title": "Senior SAP Applikations-Manager:in BW",
       "titleByLocale": {
         "it": "Senior SAP Application Manager: in BW",
-        "en": "Senior SAP Application Manager: in BW",
+        "en": "Senior SAP Applikations-Manager:in BW",
         "de": "Senior SAP Applikations-Manager:in BW",
         "fr": "Gestionnaire principal des applications SAP : en BW"
       },
@@ -419,7 +423,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-applikations-manager-in-bw/ae3debbe-b632-4a7a-be55-cb3ee8ce5dd4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:02.857Z",
+      "crawledAt": "2026-07-20T12:20:34.639Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -461,6 +465,7 @@
         ]
       },
       "firstSeenAt": "2026-06-25T21:56:35.717Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -506,7 +511,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/sachbearbeiter-in-avor-fahrzeuge/b5914380-f9b2-4ed1-a2e6-8b2e582bf103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:02.055Z",
+      "crawledAt": "2026-07-20T12:20:33.716Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,6 +559,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T12:34:16.156Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -599,7 +605,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-beschriftung-und-grafik/b2005728-e8ef-4493-9545-57ddfb0dcb8a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:01.203Z",
+      "crawledAt": "2026-07-20T12:20:32.923Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -647,6 +653,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:16.079Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -692,7 +699,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/flottenmanager-in/543ebd37-5d31-43f4-9610-f564e7a54c75",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:23:00.494Z",
+      "crawledAt": "2026-07-20T12:20:32.231Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -752,6 +759,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T11:16:23.691Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -797,7 +805,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/junior-betriebsplaner-in-bus/a564855b-b74c-48e0-994f-4865aa551b52",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:22:59.583Z",
+      "crawledAt": "2026-07-20T12:20:31.449Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -844,6 +852,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:39.014Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -889,7 +898,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kaeltesystemtechniker-in-lueftung-und-klima/2a7b3bed-4367-4ac7-b091-f2a5cbb4e352",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:22:58.769Z",
+      "crawledAt": "2026-07-20T12:20:30.633Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -946,6 +955,7 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:47:54.009Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -961,95 +971,170 @@
       "addressRegion": "BE"
     },
     {
-      "id": "bls-530186efc0c5",
-      "slug": "marketing-manager-nell-esperienza-bls-ag-bern",
+      "id": "bls-15bf19ec1942",
+      "slug": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
       "slugByLocale": {
-        "it": "marketing-manager-nell-esperienza-bls-ag-bern",
-        "en": "marketing-manager-in-experience-bls-ch",
-        "de": "marketing-manager-in-experience-bls-ch",
-        "fr": "directeur-marketing-en-experience-bls-ag-bern"
+        "de": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "it": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "en": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch",
+        "fr": "teamleiter-in-tunneltechnik-lotschberg-basistunnel-lbt-bls-ch"
       },
       "company": "BLS AG",
       "companyKey": "bls",
       "companyDomain": "bls.ch",
-      "title": "Marketing Manager:in Experience",
+      "title": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
       "titleByLocale": {
-        "it": "Marketing Manager: nell'esperienza",
-        "en": "Marketing Manager:in Experience",
-        "de": "Marketing Manager:in Experience",
-        "fr": "Directeur marketing:en expérience"
+        "de": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
+        "it": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
+        "en": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)",
+        "fr": "Teamleiter:in Tunneltechnik Lötschberg-Basistunnel (LBT)"
       },
-      "description": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
+      "description": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
-        "it": "Amiamo i laghi, la natura e le esperienze indimenticabili - e siamo alla ricerca di persone che vogliono plasmare attivamente esattamente questo. BLS Schifffahrt offre un ambiente unico per questo: Qui si sviluppano offerte che ispirano, sorprendono e rimangono nella memoria. Se porti dinamismo, creatività e pensiero imprenditoriale, sei al posto giusto con noi. Ti aspetta:\n• Design room per un ulteriore sviluppo di offerte di esperienza a bordo\n• Responsabilità per l'attuazione operativa e lo sviluppo di un'area di offerta\n• Gestione e cooperazione nella ricerca di progetti di marketing\n• Concezione e lancio di offerte aggiuntive ad alto livello\n• Analisi degli sviluppi del mercato, del cliente e della tendenza\n• Costruire e mantenere una forte rete interna ed esterna Questo è ciò che portate con voi:\n• Iniziativa, autoresponsabile ed efficace personalità\n• Sentirsi per tendenze, mercati e gruppi target\n• Forza e esperienza concettuale nella gestione del progetto\n• Formazione e esperienza professionale nel marketing, nel turismo o negli eventi\n• Molto buone competenze in tedesco e inglese, altre lingue sono vantaggiose I vostri vantaggi – si può aspettare a:\n• Prendi un GA 2. Abbonamento di classe o di mezza quota, nonché interessanti vantaggi di guida per la famiglia e biglietti gratuiti internazionali.\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time.\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n• Contribuiamo il 60% dei contributi del fondo pensione.\n• Regali generosi di anzianità da cinque anni di servizio.\n• Un luogo di lavoro onirico vi aspetta nel cuore dell'Oberland Bernese. Informazioni sulla spedizione BLS Navi bianche. Acqua blu. Aria fresca. Le montagne dell'Oberland Bernese. Ciò che quasi suona come cliché non è altro che il fascino della spedizione. Per circa 120 dipendenti sul lago Brienzer e Thunersee, questo fa parte della realtà quotidiana.",
-        "en": "We love lakes, nature and unforgettable experiences - and we are looking for people who want to actively shape exactly that. BLS Schifffahrt offers a unique environment for this: Here you develop offers that inspire, surprise and stay in the memory. If you bring dynamism, creativity and entrepreneurial thinking, you are at the right place with us. This is waiting for you:\n• Design room for further development of experience offers on board\n• Responsibility for the operational implementation and further development of an offer area\n• Management and cooperation in overarching marketing projects\n• Conception and launch of high-yield additional offers\n• Analysis of market, customer and trend developments\n• Building and maintaining a strong internal and external network This is what you bring with you:\n• Initiative, self-responsible and effective personality\n• Feel for trends, markets and target groups\n• Conceptual strength and experience in project management\n• Training and professional experience in marketing, tourism or events\n• Very good German & English skills, other languages are advantageous Your advantages – you can look forward to:\n• Get a GA 2. Class or a half-tax subscription as well as attractive driving benefits for the family and free international free tickets.\n• Share your working time freely. We promote part-time work.\n• It is possible to buy an additional five to ten holiday days per year.\n• We contribute 60 percent of the pension fund contributions.\n• Generous gifts of seniority from five years of service.\n• A dreamlike place of work awaits you in the heart of the Bernese Oberland. About BLS shipping White ships. Blue water. Fresh air. The mountains of the Bernese Oberland. What almost sounds like cliché is nothing more than the fascination of shipping. For around 120 employees on and on Lake Brienzer and Thunersee, this is part of daily reality.",
-        "de": "Wir lieben Seen, Natur und unvergessliche Erlebnisse - und wir suchen Menschen, die genau das aktiv mitgestalten wollen.\nDie BLS Schifffahrt bietet dafür ein einzigartiges Umfeld: Hier entwickelst du Angebote, die begeistern, überrasch­­en und nachhaltig in Erinnerung bleiben. Wenn du Dynamik, Kreativität und unternehmerisches Denken mitbringst, bist du bei uns genau richtig.\n\nDas wartet auf dich:\n\n• Gestaltungsspielraum zur Weiterentwicklung von Erlebnisangeboten an Bord\n\n• Verantwortung für die operative Umsetzung und Weiterentwicklung eines Angebotsbereiches\n\n• Leitung und Mitarbeit in übergreifenden Marketingprojekten\n\n• Konzeption und Lancierung ertragsstarker Zusatzangebote\n\n• Analyse von Markt-, Kunden- und Trendentwicklungen\n\n• Aufbau und Pflege eines starken internen und externen Netzwerks\n\nDas bringst du mit:\n\n• Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit\n\n• Gespür für Trends, Märkte und Zielgruppen\n\n• Konzeptionsstärke sowie Erfahrung im Projektmanagement\n\n• Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich\n\n• Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-        "fr": "Nous aimons les lacs, la nature et les expériences inoubliables - et nous cherchons des gens qui veulent activement façonner exactement cela. BLS Schifffahrt offre un environnement unique pour cela: Ici vous développez des offres qui inspirent, surprennent et restent dans la mémoire. Si vous apportez dynamisme, créativité et esprit d'entreprise, vous êtes au bon endroit avec nous. Ceci vous attend :\n• Salle de design pour le développement ultérieur des offres d'expérience à bord\n• Responsabilité de la mise en œuvre opérationnelle et du développement d'une zone d'offre\n• Gestion et coopération dans les projets de commercialisation globaux\n• Conception et lancement d'offres supplémentaires à haut rendement\n• Analyse des évolutions du marché, des clients et des tendances\n• Construire et maintenir un réseau interne et externe solide Voici ce que vous apportez avec vous :\n• Initiative, personnalité responsable et efficace\n• Les tendances, les marchés et les groupes cibles\n• Force conceptuelle et expérience en gestion de projet\n• Formation et expérience professionnelle en marketing, tourisme ou événements\n• Très bonnes compétences en allemand et anglais, d'autres langues sont avantageuses Vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2. Un abonnement en classe ou demi-taxe ainsi que des avantages de conduite attrayants pour la famille et des billets gratuits internationaux gratuits.\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel.\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n• Nous cotisons 60 pour cent des cotisations du fonds de pension.\n• Dons généreux d'ancienneté de cinq ans de service.\n• Un lieu de travail onirique vous attend au cœur de l'Oberland bernois. A propos de l'expédition BLS Des vaisseaux blancs. Eau bleue. L'air frais. Les montagnes de l'Oberland bernois. Ce qui ressemble presque au cliché n'est rien de plus que la fascination de la navigation. Pour environ 120 employés sur et sur le lac Brienzer et Thunersee, cela fait partie de la réalité quotidienne."
+        "de": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Herr Berner ist mit seiner Familie im Nu auf der Moosalp, und Frau Walliser erreicht ihren Arbeitsplatz in Bern in gut einer Stunde. Wie viele andere profitieren sie täglich vom Lötschberg-Basistunnel und damit indirekt von deiner Arbeit. Gemeinsam mit deinem Team sorgst du mit modernen Technologien und einer professionellen Instandhaltung dafür, dass sich der Tunnel jederzeit in einem erstklassigen Zustand befindet. So erreichen unsere Kundinnen und Kunden ihr Ziel sicher, zuverlässig und pünktlich.\n\nDas wartet auf dich:\n\n• Personelle sowie fachliche Führung und Entwicklung von rund 9 Mitarbeitenden\n\n• Sicherstellung der Betriebsbereitschaft technischer Anlagen\n\n• Budget- und Kostenkontrolle im Verantwortungsbereich\n\n• Zusammenarbeit mit internen und externen Anspruchsgruppen\n\n• Koordination von Störungen und technischen Einsätzen\n\n• Mitarbeit in Teilprojekten\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik\n\n• Mehrjährige Berufserfahrung in der Gebäudetechnik\n\n• Fundierte Kenntnisse von technischen Anlagen und Systemen\n\n• Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung\n\n• Gute IT-Kentnisse\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
       },
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/marketing-manager-in-experience/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
+      "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-tunneltechnik-loetschberg-basistunnel-lbt/87090c34-c9fd-4541-a605-c35c2780277d",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-13T22:26:24.628Z",
+      "crawledAt": "2026-07-20T12:20:28.123Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3001",
       "streetAddress": "Freiburgstrasse 130",
-      "category": "Marketing",
+      "category": "Altro",
       "contract": "part-time",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Trasporti / Ferrovia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-29",
-      "validThrough": "2026-07-28",
-      "pensum": "50-70%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/b3f3e48e-c03e-41f9-be66-ff6d42d597b2",
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-18",
+      "pensum": "80-100%",
+      "salary": "113925",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/87090c34-c9fd-4541-a605-c35c2780277d",
       "requirements": [
-        "Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit",
-        "Gespür für Trends, Märkte und Zielgruppen",
-        "Konzeptionsstärke sowie Erfahrung im Projektmanagement",
-        "Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich",
-        "Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil"
+        "Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik",
+        "Mehrjährige Berufserfahrung in der Gebäudetechnik",
+        "Fundierte Kenntnisse von technischen Anlagen und Systemen",
+        "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
+        "Gute IT-Kentnisse"
       ],
       "requirementsByLocale": {
         "de": [
-          "Initiative, eigenverantwortliche und umsetzungsstarke Persönlichkeit",
-          "Gespür für Trends, Märkte und Zielgruppen",
-          "Konzeptionsstärke sowie Erfahrung im Projektmanagement",
-          "Ausbildung und Berufserfahrung in Marketing, Tourismus oder Eventbereich",
-          "Sehr gute Deutsch- & Englischkenntnisse, weitere Sprachen von Vorteil"
+          "Abgeschlossene Ausbildung als Elektroinstallateur:in EFZ oder eine vergleichbare technische Grundausbildung, vorzugsweise im Bereich Gebäudetechnik",
+          "Mehrjährige Berufserfahrung in der Gebäudetechnik",
+          "Fundierte Kenntnisse von technischen Anlagen und Systemen",
+          "Erfahrung im Projektmanagement, idealerweise ergänzt durch Führungserfahrung",
+          "Gute IT-Kentnisse"
         ]
       },
-      "previousSlugs": [
-        "marketing-manager-in-experience-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-manager-in-experience-bls-ch"
-        ],
-        "fr": [
-          "marketing-manager-in-experience-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-29T12:34:06.426Z",
-      "salaryMin": 106500,
-      "salaryMax": 188500,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 106500,
-          "maxValue": 188500,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "BE",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-07-20T12:20:28.123Z"
+    },
+    {
+      "id": "bls-6818c194f1ed",
+      "slug": "junior-produktemanager-in-autoverlad-bls-ch",
+      "slugByLocale": {
+        "de": "junior-produktemanager-in-autoverlad-bls-ch",
+        "it": "junior-produktemanager-in-autoverlad-bls-ch",
+        "en": "junior-produktemanager-in-autoverlad-bls-ch",
+        "fr": "junior-produktemanager-in-autoverlad-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Junior Produktemanager:in Autoverlad",
+      "titleByLocale": {
+        "de": "Junior Produktemanager:in Autoverlad",
+        "it": "Junior Produktemanager:in Autoverlad",
+        "en": "Junior Produktemanager:in Autoverlad",
+        "fr": "Junior Produktemanager:in Autoverlad"
+      },
+      "description": "Du hilfst mit, dass Reisende mit ihrem Auto störungsfrei durch die Alpen gelangen – von Kandersteg bis Iselle. Mit deinem Engagement sorgst du dafür, dass die Züge des Autoverlads pünktlich rollen, Prozesse reibungslos funktionieren und Kund:innen verlässlich planen können. So trägst du aktiv dazu bei, Mobilität nachhaltig, sicher und komfortabel zu gestalten – und leistest jeden Tag einen spürbaren Beitrag für starke Verbindungen und entspanntes Reisen!\n\nDas wartet auf dich:\n\n• Unterstützung bei der Angebotsplanung und Weiterentwicklung für die Teilprodukte Autoverlad Lötschberg und Simplon, insbesondere Entwicklung von Autoverladefahrpläne und Bestellung von Trassen\n\n• Verantwortung für die internen und externen Rechnungskund:innen und das Produkt LKW Pass\n\n• Durchführung von Stich- und Qualitätskontrollen im Verkaufsprozess (z. B. Tarifanwendung, Prozesskonformität) und Unterstützung bei der Definition und Umsetzung von Verbesserungsmassnahmen\n\n• Mitverantwortung der technischen Verfügbarkeit der Anlagen und Anzeigen (Trouble-Shooting)\n\n• Mitarbeit bei externen Schadenfällen an den Vertriebsanlagen\n\n• Sicherstellung der Baustellenkommunikation sowie Betreuung und Weiterentwicklung von Werbeplattformen am Autoverlad\n\n• Leitung und Umsetzung von kleineren Projekten und Linienvorhaben und Mitarbeit in bereichsübergreifenden Projekten\n\nDas bringst du mit:\n\n• Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld\n\n• Idealerweise Erfahrung im Projektmanagement\n\n• Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis\n\n• Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise\n\n• Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung\n\n• Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld\n\n• Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Du hilfst mit, dass Reisende mit ihrem Auto störungsfrei durch die Alpen gelangen – von Kandersteg bis Iselle. Mit deinem Engagement sorgst du dafür, dass die Züge des Autoverlads pünktlich rollen, Prozesse reibungslos funktionieren und Kund:innen verlässlich planen können. So trägst du aktiv dazu bei, Mobilität nachhaltig, sicher und komfortabel zu gestalten – und leistest jeden Tag einen spürbaren Beitrag für starke Verbindungen und entspanntes Reisen!\n\nDas wartet auf dich:\n\n• Unterstützung bei der Angebotsplanung und Weiterentwicklung für die Teilprodukte Autoverlad Lötschberg und Simplon, insbesondere Entwicklung von Autoverladefahrpläne und Bestellung von Trassen\n\n• Verantwortung für die internen und externen Rechnungskund:innen und das Produkt LKW Pass\n\n• Durchführung von Stich- und Qualitätskontrollen im Verkaufsprozess (z. B. Tarifanwendung, Prozesskonformität) und Unterstützung bei der Definition und Umsetzung von Verbesserungsmassnahmen\n\n• Mitverantwortung der technischen Verfügbarkeit der Anlagen und Anzeigen (Trouble-Shooting)\n\n• Mitarbeit bei externen Schadenfällen an den Vertriebsanlagen\n\n• Sicherstellung der Baustellenkommunikation sowie Betreuung und Weiterentwicklung von Werbeplattformen am Autoverlad\n\n• Leitung und Umsetzung von kleineren Projekten und Linienvorhaben und Mitarbeit in bereichsübergreifenden Projekten\n\nDas bringst du mit:\n\n• Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld\n\n• Idealerweise Erfahrung im Projektmanagement\n\n• Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis\n\n• Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise\n\n• Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung\n\n• Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld\n\n• Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Du hilfst mit, dass Reisende mit ihrem Auto störungsfrei durch die Alpen gelangen – von Kandersteg bis Iselle. Mit deinem Engagement sorgst du dafür, dass die Züge des Autoverlads pünktlich rollen, Prozesse reibungslos funktionieren und Kund:innen verlässlich planen können. So trägst du aktiv dazu bei, Mobilität nachhaltig, sicher und komfortabel zu gestalten – und leistest jeden Tag einen spürbaren Beitrag für starke Verbindungen und entspanntes Reisen!\n\nDas wartet auf dich:\n\n• Unterstützung bei der Angebotsplanung und Weiterentwicklung für die Teilprodukte Autoverlad Lötschberg und Simplon, insbesondere Entwicklung von Autoverladefahrpläne und Bestellung von Trassen\n\n• Verantwortung für die internen und externen Rechnungskund:innen und das Produkt LKW Pass\n\n• Durchführung von Stich- und Qualitätskontrollen im Verkaufsprozess (z. B. Tarifanwendung, Prozesskonformität) und Unterstützung bei der Definition und Umsetzung von Verbesserungsmassnahmen\n\n• Mitverantwortung der technischen Verfügbarkeit der Anlagen und Anzeigen (Trouble-Shooting)\n\n• Mitarbeit bei externen Schadenfällen an den Vertriebsanlagen\n\n• Sicherstellung der Baustellenkommunikation sowie Betreuung und Weiterentwicklung von Werbeplattformen am Autoverlad\n\n• Leitung und Umsetzung von kleineren Projekten und Linienvorhaben und Mitarbeit in bereichsübergreifenden Projekten\n\nDas bringst du mit:\n\n• Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld\n\n• Idealerweise Erfahrung im Projektmanagement\n\n• Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis\n\n• Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise\n\n• Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung\n\n• Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld\n\n• Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Du hilfst mit, dass Reisende mit ihrem Auto störungsfrei durch die Alpen gelangen – von Kandersteg bis Iselle. Mit deinem Engagement sorgst du dafür, dass die Züge des Autoverlads pünktlich rollen, Prozesse reibungslos funktionieren und Kund:innen verlässlich planen können. So trägst du aktiv dazu bei, Mobilität nachhaltig, sicher und komfortabel zu gestalten – und leistest jeden Tag einen spürbaren Beitrag für starke Verbindungen und entspanntes Reisen!\n\nDas wartet auf dich:\n\n• Unterstützung bei der Angebotsplanung und Weiterentwicklung für die Teilprodukte Autoverlad Lötschberg und Simplon, insbesondere Entwicklung von Autoverladefahrpläne und Bestellung von Trassen\n\n• Verantwortung für die internen und externen Rechnungskund:innen und das Produkt LKW Pass\n\n• Durchführung von Stich- und Qualitätskontrollen im Verkaufsprozess (z. B. Tarifanwendung, Prozesskonformität) und Unterstützung bei der Definition und Umsetzung von Verbesserungsmassnahmen\n\n• Mitverantwortung der technischen Verfügbarkeit der Anlagen und Anzeigen (Trouble-Shooting)\n\n• Mitarbeit bei externen Schadenfällen an den Vertriebsanlagen\n\n• Sicherstellung der Baustellenkommunikation sowie Betreuung und Weiterentwicklung von Werbeplattformen am Autoverlad\n\n• Leitung und Umsetzung von kleineren Projekten und Linienvorhaben und Mitarbeit in bereichsübergreifenden Projekten\n\nDas bringst du mit:\n\n• Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld\n\n• Idealerweise Erfahrung im Projektmanagement\n\n• Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis\n\n• Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise\n\n• Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung\n\n• Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld\n\n• Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Du hilfst mit, dass Reisende mit ihrem Auto störungsfrei durch die Alpen gelangen – von Kandersteg bis Iselle. Mit deinem Engagement sorgst du dafür, dass die Züge des Autoverlads pünktlich rollen, Prozesse reibungslos funktionieren und Kund:innen verlässlich planen können. So trägst du aktiv dazu bei, Mobilität nachhaltig, sicher und komfortabel zu gestalten – und leistest jeden Tag einen spürbaren Beitrag für starke Verbindungen und entspanntes Reisen!\n\nDas wartet auf dich:\n\n• Unterstützung bei der Angebotsplanung und Weiterentwicklung für die Teilprodukte Autoverlad Lötschberg und Simplon, insbesondere Entwicklung von Autoverladefahrpläne und Bestellung von Trassen\n\n• Verantwortung für die internen und externen Rechnungskund:innen und das Produkt LKW Pass\n\n• Durchführung von Stich- und Qualitätskontrollen im Verkaufsprozess (z. B. Tarifanwendung, Prozesskonformität) und Unterstützung bei der Definition und Umsetzung von Verbesserungsmassnahmen\n\n• Mitverantwortung der technischen Verfügbarkeit der Anlagen und Anzeigen (Trouble-Shooting)\n\n• Mitarbeit bei externen Schadenfällen an den Vertriebsanlagen\n\n• Sicherstellung der Baustellenkommunikation sowie Betreuung und Weiterentwicklung von Werbeplattformen am Autoverlad\n\n• Leitung und Umsetzung von kleineren Projekten und Linienvorhaben und Mitarbeit in bereichsübergreifenden Projekten\n\nDas bringst du mit:\n\n• Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld\n\n• Idealerweise Erfahrung im Projektmanagement\n\n• Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis\n\n• Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise\n\n• Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung\n\n• Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld\n\n• Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/junior-produktemanager-in-autoverlad/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-20T12:20:22.725Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "validThrough": "2026-08-18",
+      "pensum": "50%",
+      "salary": "101898",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/05b45652-0fb7-46c8-ae2b-861a6f8737b2",
+      "requirements": [
+        "Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld",
+        "Idealerweise Erfahrung im Projektmanagement",
+        "Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis",
+        "Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise",
+        "Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung",
+        "Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld",
+        "Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Kaufmännische oder betriebswirtschaftliche Ausbildung (HF/FH von Vorteil) und Erfahrung im Produktmanagement, im öV, im Tourismus oder im Mobilitätsumfeld",
+          "Idealerweise Erfahrung im Projektmanagement",
+          "Freude an einer Kombination aus konzeptioneller, projektbezogener und operativer Tätigkeit und dem direkten Einfluss auf die Angebotsqualität und das Kundenerlebnis",
+          "Vernetztes und bereichsübergreifendes Denken sowie eine selbstständige, zuverlässige Arbeitsweise",
+          "Kommunikationsstärke und sicheres Auftreten, gepaart mit einer hohen Dienstleistungs- und Kundenorientierung",
+          "Belastbarkeit und Flexibilität in einem manchmal turbulenten Umfeld",
+          "Verhandlungssicheres Deutsch, Englisch und/oder Italienisch von Vorteil"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-07-20T12:20:22.725Z"
     }
   ]
 }

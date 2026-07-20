@@ -1306,6 +1306,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'How much does a technical border designer earn in Ticino?',
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'The salaries of technical border designers in Ticino are influenced by factors such as experience and the sector to which they belong.',
     'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'A panoramic view of the city of Lugano, with a Swiss frontier technical drafter working in his studio.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Geneva, border workers have the right to work in the public sector',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'The cantonal government of Geneva rejected the GCM initiative THAT asked to exclude them from public employment',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Swiss public employment, frontaliers\' right to work',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Border secretary in Ticino: salary, requirements and leave',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'The Ticino border: average salary, requirements, possible recognition of the qualification, G permit',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'A frontalier secretary works in an office in Lugano',
 };
 
 export default blogMetaChEn;
