@@ -1,16 +1,16 @@
 {
   "key": "omega",
   "label": "OMEGA SA",
-  "generatedAt": "2026-07-19T22:35:48.396Z",
+  "generatedAt": "2026-07-20T13:21:17.760Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 344409,
-  "avgDurationMs": 344409,
+  "unchangedCount": 1,
+  "durationMs": 325999,
+  "avgDurationMs": 325999,
   "durationHistory": [
-    344409
+    325999
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.swatchgroup.com/en/job/32560",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T22:34:20.573Z",
+      "crawledAt": "2026-07-20T13:20:09.363Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://www.swatchgroup.com/en/job/32500",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T22:34:41.837Z",
+      "crawledAt": "2026-07-20T13:20:31.087Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32497",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T22:35:03.129Z",
+      "crawledAt": "2026-07-20T13:20:53.215Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32494",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T22:35:24.520Z",
+      "crawledAt": "2026-07-20T13:21:14.863Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -161,7 +161,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "omega-32490",
       "slug": "spare-parts-stock-employee-h-f-omega-biel-bienne",
@@ -191,15 +194,16 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-268290&langCode=fr_FR&source=swatchgroup.com",
       "firstSeenAt": "2026-07-10T13:32:08.546Z",
-      "_qualityScore": 95,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
