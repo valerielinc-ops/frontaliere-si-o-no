@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3355,
+ "numberOfItems": 3356,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8123,7 +8123,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3352, "name": "Disegnatore tecnico in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3353, "name": "Quanto guadagna un tecnico automazione frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-stipendio-tecnico-automazione` },
           { "@type": "ListItem", "position": 3354, "name": "Quanto guadagna un disegnatore tecnico frontali...", "url": `${BASE_URL}/articoli-frontaliere/disegnatore-tecnico-frontaliere-ticino-guadagno` },
-          { "@type": "ListItem", "position": 3355, "name": "Tecnico automazione in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3355, "name": "Tecnico automazione in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3356, "name": "Ginevra, i frontalieri hanno il diritto di lavo...", "url": `${BASE_URL}/articoli-frontaliere/ginevra-frontalieri-diritto-lavoro-pubblico` }
  ]
  },
  {
