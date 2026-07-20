@@ -1282,6 +1282,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-tendenze-occupazionali.title': 'Frontières au Tessin : analyse de la baisse et de l\'impact local',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.excerpt': 'Analyse des flux de frontaliers au Tessin : malgré une baisse globale, dans certaines communes suisses, la dépendance à la main-d\' œuvre frontalière reste élevée.',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.imageAlt': 'Vue du bord du lac de Lugano par une journée ensoleillée.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'Combien gagne un polymécanicien frontalier au Tessin',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Salaire réel d\'un polymécanicien frontalier au Tessin : fourchette salariale, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'Un mécanicien suisse travaillant en Tessin, image photoréaliste DSLR.',
 };
 
 export default blogMetaChFr;

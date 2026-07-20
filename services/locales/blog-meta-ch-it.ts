@@ -1282,6 +1282,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-tendenze-occupazionali.title': 'Frontalieri in Ticino: analisi del calo e impatto locale',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.excerpt': 'Analisi dei flussi di frontalieri in Ticino: nonostante una flessione complessiva, in alcuni comuni svizzeri la dipendenza dalla manodopera di confine resta elevata.',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.imageAlt': 'Veduta del lungolago di Lugano in una giornata di sole.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'Quanto guadagna un polimeccanico frontaliere in Ticino',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Stipendio reale di un polimeccanico frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'Un polimeccanico frontaliere al lavoro in Ticino, immagine fotorealistica DSLR.',
 };
 
 export default blogMetaChIt;

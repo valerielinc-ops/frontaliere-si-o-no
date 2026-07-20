@@ -16554,6 +16554,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': {
+    title: 'Quanto guadagna un polimeccanico frontaliere in Ticino',
+    description: 'Stipendio reale di un polimeccanico frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, polimeccanico, stipendio',
+    ogTitle: 'Quanto guadagna un polimeccanico frontaliere in Ticino',
+    ogDescription: 'Stipendio reale di un polimeccanico frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
+    canonicalPath: '/articoli-svizzera/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un polimeccanico frontaliere in Ticino",
+      "description": "Stipendio reale di un polimeccanico frontaliere in Ticino: fascia salariale, differenze rispetto all'Italia, fattori che incidono sulla retribuzione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un polimeccanico frontaliere al lavoro in Ticino, immagine fotorealistica DSLR."
+      },
+      "datePublished": "2026-07-20T07:14:03+00:00",
+      "dateModified": "2026-07-20T07:14:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

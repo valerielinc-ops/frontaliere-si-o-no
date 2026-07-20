@@ -1282,6 +1282,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-tendenze-occupazionali.title': 'Border workers in Ticino: analysis of the decline and local impact',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.excerpt': 'Analysis of border flows in Ticino: despite an overall decline, in some Swiss municipalities the dependence on border labour remains high.',
     'blog.article.frontalieri-ticino-tendenze-occupazionali.imageAlt': 'View of the Lugano lakefront on a sunny day.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.title': 'How much does a border polymechanist earn in Ticino',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.excerpt': 'Actual salary of a border polymech in Ticino: salary band, differences compared to Italy, factors that affect remuneration.',
+    'blog.article.quanto-guadagna-un-polimeccanico-frontaliere-in-ticino.imageAlt': 'A Swiss-Italian mechanic at work in Ticino, photorealistic DSLR image.',
 };
 
 export default blogMetaChEn;

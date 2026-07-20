@@ -450,6 +450,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'shock-svizzera-azienda-chiude-110-licenziati': { it: 'shock-svizzera-azienda-chiude-110-licenziati', en: 'shock-switzerland-factory-closes-110-employees-lose-jobs', de: 'shock-schweiz-fabrik-schliesst-110-mitarbeiter-verlieren-jobs', fr: 'shock-suisse-usine-ferme-110-employes-perdent-emploi' },
  'frontalieriprogettista-elettricoin-ticino': { it: 'frontalieriprogettista-elettricoin-ticino', en: 'frontalierielectricalengineerin-ticino', de: 'frontalier-elektroingenieur-in-tessin', fr: 'frontalier-ingenieur-electrique-au-tessin' },
  'frontalieri-ticino-tendenze-occupazionali': { it: 'frontalieri-ticino-tendenze-occupazionali', en: 'ticino-cross-border-employment-trends', de: 'grenzgaenger-tessin-beschaeftigungstrends', fr: 'frontaliers-tessin-tendances-emploi' },
+ 'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { it: 'quanto-guadagna-un-polimeccanico-frontaliere-in-ticino', en: 'how-much-does-a-swiss-italian-mechanic-earn-in-ticino', de: 'wie-viel-verdient-ein-schweizer-mechaniker-in-ticino', fr: 'combien-gagne-un-mecanicien-suisses-en-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
