@@ -1,69 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-07-20T12:00:46.755Z",
+  "assembledAt": "2026-07-20T22:24:56.304Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-31f27e1b98de",
-      "slug": "fellow-m-w-100-kispi-zurich-zurich",
-      "slugByLocale": {
-        "it": "fellow-m-w-100-kispi-zurich-zurich",
-        "en": "fellow-m-w-100-kispi-zurich-zurich",
-        "de": "fellow-m-w-100-kispi-zurich-zurich",
-        "fr": "fellow-m-w-100-kispi-zurich-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Fellow (m/w) 100%",
-      "titleByLocale": {
-        "it": "Fellow (m/f) 100%",
-        "en": "Fellow (m/f) 100%",
-        "de": "Fellow (m/w) 100%",
-        "fr": "Fellow (m/f) 100%"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n\n• Art: Vollzeit\n• Befristung: befristet",
-      "descriptionByLocale": {
-        "it": "Ospedale pediatrico Zurigo Eleonorenstiftung | online dal: 29.06.2026 Neuroradiologia pediatrica I tuoi compiti\n• In questo ruolo, troverete esami di risonanza neuroradiologica in bambini e adolescenti sotto supervisione specialistica.\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 29.06.2026 Pediatric Neuroradiology Your tasks\n• In this role, you will find neuroradiological MRI examinations in children and adolescents under specialist supervision.\n• Type: Full-time\n• Temporary term: temporary",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n\n• Art: Vollzeit\n• Befristung: befristet",
-        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 29.06.2026 Neuroradiologie pédiatrique Vos tâches\n• Dans ce rôle, vous trouverez des examens IRM neuroradiologiques chez les enfants et les adolescents sous surveillance spécialisée.\n• Type: Temps plein\n• Durée temporaire : temporaire"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:43.907Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-29",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-29T13:37:41.165Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-22cc5e50164b",
       "slug": "paziente-dipendente-di-ricezione-p-m-50-80-universitats-kinderspital-zurich-kispi-zurich",
@@ -96,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:42.828Z",
+      "crawledAt": "2026-07-20T22:24:53.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -181,7 +119,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3706/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:41.760Z",
+      "crawledAt": "2026-07-20T22:24:52.787Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,7 +208,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3707/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:40.681Z",
+      "crawledAt": "2026-07-20T22:24:51.955Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -328,7 +266,7 @@
       "title": "Bioinformatician (m/f) 80-100%",
       "titleByLocale": {
         "it": "Bioinformaticista (m/f) 80-100 %",
-        "en": "Bioinformatician (m/f) 80-100 %",
+        "en": "Bioinformatician (m/f) 80-100%",
         "de": "Bioinformatician (m/f) 80-100%",
         "fr": "Bioinformaticien (m/f) 80-100 %"
       },
@@ -339,12 +277,13 @@
         "de": "Ihr Browser kann leider keine eingebetteten Frames anzeigen\n\nhttp://www.kispi.uzh.ch Aktionen Ich bin interessiert und möchte mich bewerben Zurück Zurück nach oben Ihr Browser kann leider keine eingebetteten Frames anzeigen\n\n• Art: Teilzeit",
         "fr": "Malheureusement, votre navigateur ne peut pas afficher les images intégrées\n\nhttp://www.kispi.uzh.ch Actions qui m'intéressent et qui voudraient appliquer Back Back up Votre navigateur ne peut malheureusement pas afficher les cadres intégrés\n\n• Type: Temps partiel"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3708/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:39.590Z",
+      "crawledAt": "2026-07-20T22:24:51.116Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -420,7 +359,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:38.664Z",
+      "crawledAt": "2026-07-20T22:24:50.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -503,7 +442,7 @@
       "title": "Pflegeexpertin APN (m/w) 20%",
       "titleByLocale": {
         "it": "Esperto di cura APN (m/f) 20 %",
-        "en": "Care expert APN (m/f) 20 %",
+        "en": "Pflegeexpertin APN (m/w) 20%",
         "de": "Pflegeexpertin APN (m/w) 20%",
         "fr": "Expert en soins (m/f) 20 %"
       },
@@ -514,12 +453,13 @@
         "de": "Ihr Browser kann leider keine eingebetteten Frames anzeigen\n\nbefristet für 1 Jahr in der ambulanten Nachsorge für Patienten und Patientinnen sowie ihre Familien nach einem Intensivaufenthalt mit Sepsis und in Kombination mit einer weiteren klinischen Tätigkeit Deine Aufgaben\n• Du bist eigenverantwortlich zuständig für das Assessment von Patienten und Patientinnen und ihren Familien nach einem Intensivaufenthalt mit Sepsis, triagierst und klärst interprofessionell die Nachsorge.\n• Du berätst einmalig Betroffene und ihre Familien im Symptommanagement von PICS-p/f.\n• Du arbeitest eng mit dem interprofessionellen Behandlungsteam zusammen. Dein Profil\n• Diplom Pflege HF oder FH\n• Mehrjährige Erfahrung in der Pflege von Kindern auf der Intensivstation (NDS IPS)\n• Vertiefte Fachexpertise zum Thema PICS oder die Bereitschaft sich diese anzueignen\n• Abgeschlossener Master of Science FH in Nursing (APN) oder laufendes/zukünftiges äquivalentes Studium Andrea Elsmann Senior HR Business Partner Keine Details erfasst http://www.kispi.uzh.ch Aktionen Ich bin interessiert und möchte mich bewerben Zurück Zurück nach oben Ihr Browser kann leider keine eingebetteten Frames anzeigen\n\n• Art: Teilzeit\n• Befristung: befristet",
         "fr": "Malheureusement, votre navigateur ne peut pas afficher les cadres intégrés\n\ntemporaire pendant 1 an dans les soins de suivi ambulatoires pour les patients et leur famille après un séjour intensif avec septicémie et en association avec une autre activité clinique\n• Vous êtes responsable de l'évaluation des patients et de leur famille après un séjour intensif avec septicémie, triage et clarification des soins de suivi interprofessionnels.\n• Vous fournissez des conseils ponctuels aux personnes touchées et à leur famille dans la gestion des symptômes de PICS-p/f.\n• Vous travaillez en étroite collaboration avec l'équipe de traitement interprofessionnel. Votre profil\n• Soins diplômants HF ou FH\n• Plusieurs années d'expérience dans la prise en charge des enfants dans l'unité de soins intensifs (PDN IPS)\n• Expertise approfondie en matière de PICS ou volonté de les acquérir\n• Maîtrise en sciences FH en sciences infirmières (APN) ou études équivalentes en cours/futures Andrea Elsmann Senior HR Business Partner Pas de détails saisis http://www.kispi.uzh.ch Actions Je suis intéressé et j'aimerais appliquer Retour en haut Votre navigateur ne peut malheureusement pas afficher les cadres intégrés\n\n• Type: temps partiel\n• Terme temporaire : temporaire"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3712/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:37.763Z",
+      "crawledAt": "2026-07-20T22:24:49.568Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -621,7 +561,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3705/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:36.829Z",
+      "crawledAt": "2026-07-20T22:24:48.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -696,12 +636,13 @@
         "de": "Biomedizinische Analytikerin (m/w) 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Analyste biomédical (m/f) 80-100% à Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: Temps plein\n• Durée temporaire : temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3710/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:35.908Z",
+      "crawledAt": "2026-07-20T22:24:47.948Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -787,12 +728,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 20.07.2026 diverse Fachbereiche Deine Aufgaben\n• Du unterstützt die Abteilungsleitenden von 2 Fachbereichen und die Kaderärzteschaft in administrativen und organisatorischen Aufgaben (Agendamanagement inkl. Vor- und Nachbearbeitung der Sitzungen, Protokollführung, Organisation Events etc.).",
         "fr": "L'Hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 14.07.2026 Facultés Gastroentérologie et Gynécologie Vos tâches\n• Vous aidez les responsables départementaux de 2 domaines spécialisés et les médecins cadres dans les tâches administratives et organisationnelles (gestion de l'Agenda incluant pré- et post-traitement des séances, gestion des protocoles, organisation des événements, etc.)."
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3711/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:00:34.831Z",
+      "crawledAt": "2026-07-20T22:24:47.100Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -840,6 +782,135 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-db932a405122",
+      "slug": "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+        "it": "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+        "en": "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+        "fr": "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Praktikantin Sporttherapie (w/m) 100%",
+      "titleByLocale": {
+        "de": "Praktikantin Sporttherapie (w/m) 100%",
+        "en": "Praktikantin Sporttherapie (w/m) 100%",
+        "it": "Praktikantin Sporttherapie (w/m) 100%",
+        "fr": "Praktikantin Sporttherapie (w/m) 100%"
+      },
+      "description": "Praktikantin Sporttherapie (w/m) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Praktikantin Sporttherapie (w/m) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Praktikantin Sporttherapie (w/m) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Praktikantin Sporttherapie (w/m) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Praktikantin Sporttherapie (w/m) 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-20T22:24:46.244Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Formazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-20T22:24:46.244Z"
+    },
+    {
+      "id": "kispi-zurich-31f27e1b98de",
+      "slug": "fellow-m-w-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "it": "fellow-m-w-100-kispi-zurich-zurich",
+        "en": "fellow-m-w-100-kispi-zurich-zurich",
+        "de": "fellow-m-w-100-kispi-zurich-zurich",
+        "fr": "fellow-m-w-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Fellow (m/w) 100%",
+      "titleByLocale": {
+        "it": "Fellow (m/w) 100%",
+        "en": "Fellow (m/f) 100%",
+        "de": "Fellow (m/w) 100%",
+        "fr": "Fellow (m/f) 100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n\n• Art: Vollzeit\n• Befristung: befristet",
+      "descriptionByLocale": {
+        "it": "Ospedale pediatrico Zurigo Eleonorenstiftung | online dal: 29.06.2026 Neuroradiologia pediatrica I tuoi compiti\n• In questo ruolo, troverete esami di risonanza neuroradiologica in bambini e adolescenti sotto supervisione specialistica.\n• Tipo: Tempo pieno\n• Termine temporaneo: temporaneo",
+        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 29.06.2026 Pediatric Neuroradiology Your tasks\n• In this role, you will find neuroradiological MRI examinations in children and adolescents under specialist supervision.\n• Type: Full-time\n• Temporary term: temporary",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.06.2026 Pädiatrische Neuroradiologie Deine Aufgaben\n• In dieser Rolle befundest du neuroradiologische MRT-Untersuchungen bei Kindern und Jugendlichen unter fachärztlicher Supervision.\n\n• Art: Vollzeit\n• Befristung: befristet",
+        "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 29.06.2026 Neuroradiologie pédiatrique Vos tâches\n• Dans ce rôle, vous trouverez des examens IRM neuroradiologiques chez les enfants et les adolescents sous surveillance spécialisée.\n• Type: Temps plein\n• Durée temporaire : temporaire"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-07-20T12:00:43.907Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-29",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-29T13:37:41.165Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
