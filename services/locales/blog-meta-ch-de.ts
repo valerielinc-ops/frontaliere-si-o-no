@@ -1333,6 +1333,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Grenzgängige Dozenten im Tessin: Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen, um als Grenzgänger als Dozent im Tessin zu arbeiten und die Voraussetzungen für die Anerkennung des Abschlusses.',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'Eine Fotografie einer Szene in Lugano, mit dem See und den Bergen im Hintergrund. Ein Lehrer, der aus dem Ausland stammt, sitzt auf einer Bank, mit einem Buch in der Hand und einem ruhigen Ausdruck auf seinem Gesicht.',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Grenzgängige Dozenten im Tessin: Gehalt und Anforderungen',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Quellensteuerung auf Erwerbseinkommen: Einbehaltung NUR in der Schweiz für Grenzgänger',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Bild einer Schulklassen in Tessin',
 };
 
 export default blogMetaChDe;

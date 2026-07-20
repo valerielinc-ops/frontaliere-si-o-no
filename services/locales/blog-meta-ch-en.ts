@@ -1333,6 +1333,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Border teachers in Ticino: requirements and recognition',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'The requirements to work as a teacher in Ticino as a border worker and the conditions for the recognition of the qualification.',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'A scenic view of Lugano, with the lake and mountains in the background. A frontalier teacher is sitting on a bench, with a book open in his hand and a serene expression on his face.',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Border teachers in Ticino: salary and requirements',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Setting the source on income from work: withheld ONLY in Switzerland for border workers',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Image of a classroom in Ticino',
 };
 
 export default blogMetaChEn;
