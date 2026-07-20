@@ -2292,9 +2292,7 @@
           "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern",
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
           "consultant-en-ventes-pour-electromenager-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
@@ -2311,9 +2309,7 @@
         "de": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-luzern-jb4wob",
@@ -2343,14 +2339,10 @@
         "sales-consultant-for-electrical-household-and-multimedia-fust-swiss-household-services-ag-frauenfeld",
         "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
-        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-oberburen-sankt-gallen-n31lw0",
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-wallisellen-zurich-p0wx27",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-4opay7",
-        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
-        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
         "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-oberburen",
         "consultant-en-ventes-pour-l-electricite-la-maison-et-le-multimedia-fust-swiss-household-services-ag-wallisellen",
         "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
@@ -2680,18 +2672,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn"
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
         ],
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn",
-        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
+        "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-grenchen-solothurn-daijlz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2856,7 +2853,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau",
-          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
+          "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
@@ -2865,6 +2863,9 @@
         "fr": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
           "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-oftringen-aargau"
+        ],
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
         ]
       },
       "previousSlugs": [
@@ -2872,7 +2873,8 @@
         "sales-consultant-in-electrical-household-multimedia-80-100-fust-oftringen-aargau",
         "consultant-en-ventes-en-electromenager-multimedia-80-100-fust-oftringen-aargau",
         "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau",
-        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen"
+        "consultant-commercial-pour-l-electricite-le-menage-et-le-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
+        "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -15479,7 +15481,6 @@
           "verkaufer-in-food-getranke-coop-genossenschaft-zurich",
           "verkaufer-in-food-getranke-coop-genossenschaft-horgen",
           "verkaufer-in-food-getranke-coop-genossenschaft-altendorf",
-          "verkaufer-in-food-coop-genossenschaft-zurich-966hau",
           "verkaufer-in-food-coop-erlenbach-zurich",
           "food-salesperson-coop-genossenschaft-zurich-d2791a",
           "food-salesperson-coop-genossenschaft-zurich-s49g2s",
@@ -15516,7 +15517,6 @@
         "sales-assistant-food-beverages-coop-genossenschaft-zurich-zacmhg",
         "vendeur-euse-food-boissons-coop-genossenschaft-zurich",
         "vendeur-euse-food-boissons-coop-genossenschaft-zurich-zacmhg",
-        "verkaufer-in-food-coop-genossenschaft-zurich-966hau",
         "verkaufer-in-food-coop-erlenbach-zurich",
         "food-salesperson-coop-genossenschaft-zurich-d2791a",
         "food-salesperson-coop-genossenschaft-zurich-s49g2s",
@@ -17977,11 +17977,16 @@
         ],
         "fr": [
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg"
+        ],
+        "de": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg",
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+        "cashier-service-coop-genossenschaft-zurich-t19yhg",
+        "caissier-ere-services-coop-genossenschaft-zurich-t19yhg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21341,7 +21346,6 @@
           "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf",
           "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf",
           "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-vw2o0o",
           "consulente-vendite-christ-uhren-schmuck-ag-arbon",
           "sales-consultant-christ-uhren-schmuck-ag-dielsdorf",
           "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-a09af4",
@@ -21394,13 +21398,11 @@
         "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf",
         "consultant-en-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
         "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
-        "conseiller-de-vente-christ-uhren-schmuck-ag-winterthur-vw2o0o",
         "verkaufsberater-in-christ-orologi-gioielli-dielsdorf-zurich",
         "verkaufsberater-in-christ-orologi-gioielli-dielsdorf-zurich-k1wrua",
         "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf",
         "conseiller-ere-de-vente-christ-uhren-schmuck-ag-dielsdorf",
         "verkaufsberater-in-christ-uhren-schmuck-ag-dielsdorf-k1wrua",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-winterthur-zurich-vw2o0o",
         "consulente-vendite-christ-uhren-schmuck-ag-arbon",
         "sales-consultant-christ-uhren-schmuck-ag-dielsdorf"
       ],
@@ -22103,9 +22105,7 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-zurich-7a1kyx",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-02b9ee"
         ],
-        "de": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg"
-        ]
+        "de": []
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-zurich-7a1kyx",
@@ -22129,10 +22129,7 @@
         "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
         "venditore-in-cassa-servizi-coop-genossenschaft-zurich-02b9ee",
         "seller-in-cash-registers-services-coop-genossenschaft-zurich-02b9ee",
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-02b9ee",
-        "cashier-service-coop-genossenschaft-zurich-t19yhg",
-        "caissier-ere-services-coop-genossenschaft-zurich-t19yhg",
         "verkaufer-in-kassen-services-coop-genossenschaft-willisau",
         "verkaufer-in-kassen-services-coop-genossenschaft-kleinandelfingen",
         "verkaufer-in-kassen-services-coop-genossenschaft-birsfelden",

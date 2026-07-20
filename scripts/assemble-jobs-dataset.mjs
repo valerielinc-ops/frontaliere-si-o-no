@@ -2050,18 +2050,33 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
  * old slugs into previousSlugs on the matching active job, and updates
  * the per-crawler slices on disk.
  *
+ * Matched on title+company+location, NOT title+company alone: high-volume
+ * retail/multi-site employers (Coop, Migros, ...) post the SAME generic
+ * title (e.g. "Verkäufer:in Food") at dozens-to-hundreds of distinct store
+ * locations under one company name. A title+company-only key collapses all
+ * of those DIFFERENT real postings onto whichever active job happens to be
+ * "first" in iteration order, so an expired job from Store A gets treated as
+ * a "ghost" of an unrelated still-active posting at Store B and its slugs get
+ * merged onto the wrong job's previousSlugs — cross-job contamination (issue
+ * #4602: 669 misattributed slugs across 24 slices, concentrated in
+ * coop-ticino.json at 441/24 where "Verkäufer:in Food"||"Coop Genossenschaft"
+ * alone matched 198 postings across 128 distinct locations). Location doesn't
+ * change on a same-posting retranslation, so adding it as a third key segment
+ * keeps the intended match (title+company unchanged, slug changed) while
+ * rejecting the false-positive collisions across different store locations.
+ *
  * Returns { cleanedExpired, ghostCount, mergedSlugs }.
  */
-function reconcileGhostExpired(activeJobs, expiredJobs) {
+export function reconcileGhostExpired(activeJobs, expiredJobs) {
   if (!activeJobs?.length || !expiredJobs?.length) {
     return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
   }
 
-  // Build active lookup: title+company → first matching job
-  const activeByTC = Object.create(null);
+  // Build active lookup: title+company+location → first matching job
+  const activeByTCL = Object.create(null);
   for (const j of activeJobs) {
-    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}`;
-    if (!activeByTC[key]) activeByTC[key] = j;
+    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}||${(j.location || '').toLowerCase().trim()}`;
+    if (!activeByTCL[key]) activeByTCL[key] = j;
   }
 
   // Build set of all active slugs (current + previous)
@@ -2082,8 +2097,8 @@ function reconcileGhostExpired(activeJobs, expiredJobs) {
   for (const ej of expiredJobs) {
     const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
     const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
-    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}`;
-    const match = activeByTC[key];
+    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}||${(ej.location || '').toLowerCase().trim()}`;
+    const match = activeByTCL[key];
 
     // Ghost: slug overlap + title match, or exact same IT slug
     const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
