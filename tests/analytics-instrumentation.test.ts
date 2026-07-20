@@ -95,6 +95,38 @@ describe('analytics.ts — app_error payload', () => {
   });
 });
 
+describe('analytics.ts — app_error message truncation vs GA4 100-char cap (#4589)', () => {
+  it('uses the bracket-stripped classifiableMessage (not the raw decoded message) for both error_message params', () => {
+    // Anchored on `const classifiableMessage` (trackAppError's own declaration) rather than a bare
+    // `log('exception', ...)` match — services/analytics.ts's legacy `trackError` wrapper also calls
+    // `log('exception', { description, fatal });` earlier in the file with no error_message param at all.
+    const trackAppErrorBody = analyticsSrc.match(/const classifiableMessage[\s\S]*?log\('app_error',[\s\S]*?\}\);/);
+    expect(trackAppErrorBody).not.toBeNull();
+    expect(trackAppErrorBody![0]).toMatch(/error_message:\s*truncate\(classifiableMessage,\s*100\)/);
+    expect(trackAppErrorBody![0]).toMatch(/error_message:\s*truncate\(classifiableMessage,\s*200\)/);
+  });
+
+  it('strips a leading `[Component:X] ` diagnostic prefix before computing classifiableMessage', () => {
+    expect(analyticsSrc).toMatch(
+      /const classifiableMessage = decodedMessage\.replace\(\/\^\\\[\[\^\\\]\]\*\\\]\\s\*\/, ''\);/,
+    );
+  });
+
+  it('the strip-then-truncate keeps an ISSUE_DENY_PATTERNS substring within GA4\'s ~100-char param cap for a realistic ErrorBoundary version-skew message (regression: #4589 filed a spurious backlog issue because it did not)', () => {
+    // Mirrors ErrorBoundary.tsx's `[ErrorBoundary:${crashedComponent}] version_skew ${error.name}: ${msg}` shape
+    // and services/analytics.ts's `classifiableMessage` regex — kept as a literal here (not re-imported) because
+    // trackAppError is an internal arrow function with Firebase side effects, same testing convention as the
+    // source-regex assertions above in this file.
+    const raw =
+      "[ErrorBoundary:Lazy] version_skew SyntaxError: The requested module './router.js' does not provide an export named 'isJobSlugMapReady'";
+    const classifiable = raw.replace(/^\[[^\]]*\]\s*/, '');
+    expect(classifiable.slice(0, 100)).toMatch(/does not provide an export named/);
+    // Sanity check that this is a real regression guard: the UN-stripped message truncates BEFORE the
+    // deny-list-relevant substring, which is exactly how #4589 slipped past scripts/lib/error-issue-sync.mjs.
+    expect(raw.slice(0, 100)).not.toMatch(/does not provide an export named/);
+  });
+});
+
 describe('analytics.ts — ui_interaction payload', () => {
   it('emits `cta_id:` in the ui_interaction log payload', () => {
     const block = analyticsSrc.match(/trackUIInteraction:[\s\S]*?log\('ui_interaction',[\s\S]*?\}\);/);
