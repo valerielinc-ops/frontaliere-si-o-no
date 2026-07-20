@@ -7,9 +7,9 @@
       "slug": "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
         "it": "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "internship-psychiatrische-dienste-graubunden-cazis-chur",
+        "en": "intern-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "stages-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T13:16:53.599Z",
+      "crawledAt": "2026-07-19T22:31:00.135Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -57,29 +57,24 @@
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-pdgr-ch",
-          "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+          "praktikant-in-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
           "praktikant-in-pdgr-ch",
-          "tirocinante-psychiatrische-dienste-graubunden-cazis-chur"
+          "praktikant-in-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "intern-psychiatrische-dienste-graubunden-cazis-chur",
           "internship-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "stagiaire-psychiatrische-dienste-graubunden-cazis-chur",
           "stages-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "praktikant-in-pdgr-ch",
-        "intern-psychiatrische-dienste-graubunden-cazis-chur",
-        "stagiaire-psychiatrische-dienste-graubunden-cazis-chur",
-        "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "tirocinante-psychiatrische-dienste-graubunden-cazis-chur",
         "internship-psychiatrische-dienste-graubunden-cazis-chur",
-        "stages-psychiatrische-dienste-graubunden-cazis-chur"
+        "stages-psychiatrische-dienste-graubunden-cazis-chur",
+        "praktikant-in-psychiatrische-dienste-graubunden-chur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
@@ -2033,7 +2028,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T13:16:26.603Z",
+      "crawledAt": "2026-07-19T22:30:33.472Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2058,23 +2053,25 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "senior-physician-psychiatrische-dienste-graubunden-ilanz",
+          "medecin-chef-psychiatrische-dienste-graubunden-ilanz"
         ],
         "de": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "en": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "senior-physician-psychiatrische-dienste-graubunden-ilanz"
         ],
         "fr": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "medecin-chef-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "senior-physician-psychiatrische-dienste-graubunden-ilanz",
+        "medecin-chef-psychiatrische-dienste-graubunden-ilanz"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,

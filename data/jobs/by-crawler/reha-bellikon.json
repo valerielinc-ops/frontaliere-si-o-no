@@ -1,6 +1,6 @@
 {
   "crawlerKey": "reha-bellikon",
-  "assembledAt": "2026-07-20T11:59:53.331Z",
+  "assembledAt": "2026-07-20T11:49:36.896Z",
   "jobs": [
     {
       "id": "reha-bellikon-2c8e28aaabc9",
@@ -586,7 +586,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Fachfrau-Fachmann-berufliche-Eingliederung-Standort-Bellikon/f019fce7-ed00-42ba-b2cf-da98ad54c7f8",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:59:44.423Z",
+      "crawledAt": "2026-07-19T22:16:47.869Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -610,18 +610,31 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
-        "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon"
+        "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon",
+        "professionale-professionale-creative-integration-location-chur-rehaklinik-bellikon-bellikon",
+        "professional-professional-vocational-integration-location-chur-rehaklinik-bellikon-bellikon",
+        "fachfrau-fachmann-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
+        "integration-professionnelle-professionnelle-lieu-chur-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
-          "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon"
+          "professional-professional-professional-professional-integration-location-bellikon-rehaklinik-bellikon-bellikon",
+          "professionale-professionale-creative-integration-location-chur-rehaklinik-bellikon-bellikon",
+          "professional-professional-vocational-integration-location-chur-rehaklinik-bellikon-bellikon",
+          "fachfrau-fachmann-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon",
+          "integration-professionnelle-professionnelle-lieu-chur-rehaklinik-bellikon-bellikon"
         ],
         "en": [
-          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
+          "professional-professional-vocational-integration-location-chur-rehaklinik-bellikon-bellikon"
         ],
         "fr": [
-          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon"
+          "fachfrau-fachmann-berufliche-eingliederung-standort-bellikon-reha-bellikon-bellikon",
+          "integration-professionnelle-professionnelle-lieu-chur-rehaklinik-bellikon-bellikon"
+        ],
+        "de": [
+          "fachfrau-fachmann-berufliche-eingliederung-standort-chur-reha-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-06-29T14:08:39.256Z",

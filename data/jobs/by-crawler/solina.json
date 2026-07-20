@@ -34,7 +34,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:46.521Z",
+      "crawledAt": "2026-07-19T10:42:48.101Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,19 +54,33 @@
       "previousSlugs": [
         "praktikant-in-solina-standortubergreifend",
         "praktikant-in-stiftung-solina-standortubergreifend",
-        "interno-in-stiftung-solina-standortubergreifend"
+        "prakticante-prakticante-stiftung-solina-spiez",
+        "intern-intern-stiftung-solina-spiez",
+        "praktikantin-praktikant-solina-standortubergreifend",
+        "stagiaire-stagiaire-stiftung-solina-spiez",
+        "praktikantin-praktikant-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-solina-standortubergreifend",
           "praktikant-in-stiftung-solina-standortubergreifend",
-          "interno-in-stiftung-solina-standortubergreifend"
+          "prakticante-prakticante-stiftung-solina-spiez",
+          "intern-intern-stiftung-solina-spiez",
+          "praktikantin-praktikant-solina-standortubergreifend",
+          "stagiaire-stagiaire-stiftung-solina-spiez",
+          "praktikantin-praktikant-solina-spiez"
         ],
         "en": [
-          "praktikant-in-stiftung-solina-standortubergreifend"
+          "praktikant-in-stiftung-solina-standortubergreifend",
+          "intern-intern-stiftung-solina-spiez"
         ],
         "fr": [
-          "praktikant-in-stiftung-solina-standortubergreifend"
+          "praktikant-in-stiftung-solina-standortubergreifend",
+          "stagiaire-stagiaire-stiftung-solina-spiez"
+        ],
+        "de": [
+          "praktikantin-praktikant-solina-standortubergreifend",
+          "praktikantin-praktikant-solina-spiez"
         ]
       },
       "firstSeenAt": "2026-07-09T12:13:42.897Z",
@@ -1202,7 +1216,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:41.128Z",
+      "crawledAt": "2026-07-19T10:42:42.737Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1221,18 +1235,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+        "salute-notturna-professionale-stiftung-solina-steffisburg-ziegelei",
+        "night-health-professional-stiftung-solina-steffisburg-ziegelei",
+        "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
+        "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-          "salute-professionale-stiftung-solina-steffisburg-ziegelei"
+          "salute-notturna-professionale-stiftung-solina-steffisburg-ziegelei",
+          "night-health-professional-stiftung-solina-steffisburg-ziegelei",
+          "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei",
+          "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+          "night-health-professional-stiftung-solina-steffisburg-ziegelei"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+          "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei"
+        ],
+        "de": [
+          "fachperson-gesundheit-im-nachtdienst-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:25.601Z",
@@ -1330,9 +1355,9 @@
     },
     {
       "id": "solina-e6e1ee078b91",
-      "slug": "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl",
+      "slug": "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl",
+        "it": "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl",
         "en": "nursing-professional-nursing-professional-stiftung-solina-steffisburg-kirchbuhl",
         "de": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
         "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-stiftung-solina-steffisburg-kirchbuhl"
@@ -1342,7 +1367,7 @@
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann",
+        "it": "Infermieristica professionale / infermieristica",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -1354,13 +1379,12 @@
         "de": "Pflegefachfrau / Pflegefachmann\n\nPensum / Standort: ab 80%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegefachfrau / Pflegefachmann ab 80% Steffisburg Kirchbühl ab sofort oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Eine abgeschlossene Ausbildung auf Tertiärstufe oder eine gleichwertige Anerkennung in der Schweiz\n• Freue daran, deine spezifischen Kompetenzen einzubringen\n• Du bist motiviert, innovativ und kommunikativ\n• Die Autonomie und das Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und bist gerne Teil eines familiären und engagierten Teams\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers\n\nPensum / Emplacement: à partir de 80%, Steffisburg Kirchbühl\n\n## Plus que des soins La qualité de vie commence avec vous\nSpécialiste des soins infirmiers à partir de 80% Steffisburg Kirchbühl désormais ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Études supérieures terminées ou reconnaissance équivalente en Suisse\n• Appréciez vos compétences spécifiques\n• Vous êtes motivé, innovant et communicatif\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe familiale et dévouée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
-      "needsRetranslation": true,
       "location": "Steffisburg Kirchbühl",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-8xji37oj",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:40.357Z",
+      "crawledAt": "2026-07-19T10:42:41.970Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1380,21 +1404,44 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
         "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl",
-        "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl",
-        "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl"
+        "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl",
+        "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl-nxbmii",
+        "nursing-professional-nursing-professional-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+        "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+        "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
+        "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+        "carriera-carriera-stiftung-solina-steffisburg-kirchbuhl",
+        "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl",
+        "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
+        "aide-soins-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
           "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl",
-          "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl",
-          "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl"
+          "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl",
+          "pflegefachfrau-pflegefachmann-stiftung-solina-steffisburg-kirchbuhl-nxbmii",
+          "nursing-professional-nursing-professional-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+          "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
+          "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+          "carriera-carriera-stiftung-solina-steffisburg-kirchbuhl",
+          "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl",
+          "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
+          "aide-soins-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
-          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
+          "nursing-professional-nursing-professional-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+          "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "fr": [
-          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl"
+          "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
+          "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-stiftung-solina-steffisburg-kirchbuhl-ef060e",
+          "aide-soins-stiftung-solina-steffisburg-kirchbuhl"
+        ],
+        "de": [
+          "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:23.697Z",
@@ -1708,7 +1755,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-4osa0vhq",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:38.814Z",
+      "crawledAt": "2026-07-19T10:42:40.439Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1727,18 +1774,40 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelfer-in-solina-steffisburg-ziegelei",
-        "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei"
+        "esperto-di-cura-in-stiftung-solina-steffisburg-ziegelei",
+        "care-expert-in-stiftung-solina-steffisburg-ziegelei",
+        "pflegeexpert-in-solina-steffisburg-ziegelei",
+        "expert-en-soins-en-stiftung-solina-steffisburg-ziegelei",
+        "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
+        "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei",
+        "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
+        "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-in-solina-steffisburg-ziegelei",
-          "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei"
+          "esperto-di-cura-in-stiftung-solina-steffisburg-ziegelei",
+          "care-expert-in-stiftung-solina-steffisburg-ziegelei",
+          "pflegeexpert-in-solina-steffisburg-ziegelei",
+          "expert-en-soins-en-stiftung-solina-steffisburg-ziegelei",
+          "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
+          "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei",
+          "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
+          "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
-          "pflegehelfer-in-solina-steffisburg-ziegelei"
+          "pflegehelfer-in-solina-steffisburg-ziegelei",
+          "care-expert-in-stiftung-solina-steffisburg-ziegelei",
+          "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei"
         ],
         "fr": [
-          "pflegehelfer-in-solina-steffisburg-ziegelei"
+          "pflegehelfer-in-solina-steffisburg-ziegelei",
+          "expert-en-soins-en-stiftung-solina-steffisburg-ziegelei",
+          "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
+        ],
+        "de": [
+          "pflegeexpert-in-solina-steffisburg-ziegelei",
+          "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:22.173Z",
@@ -1949,7 +2018,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:37.643Z",
+      "crawledAt": "2026-07-19T10:42:39.285Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1968,18 +2037,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-        "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
+        "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
+        "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl",
+        "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
+        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-          "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
+          "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
+          "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl",
+          "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
-          "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl"
+          "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
+          "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "fr": [
-          "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl"
+          "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
+        ],
+        "de": [
+          "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:20.261Z",
@@ -2107,7 +2187,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:54:36.871Z",
+      "crawledAt": "2026-07-19T10:42:38.510Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2126,18 +2206,29 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
-        "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
+        "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
+        "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
+        "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
+        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
-          "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
+          "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
+          "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
+          "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
-          "stv-wohnbereichsleitung-solina-steffisburg-ziegelei"
+          "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
+          "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei"
         ],
         "fr": [
-          "stv-wohnbereichsleitung-solina-steffisburg-ziegelei"
+          "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
+        ],
+        "de": [
+          "wohnbereichsleitung-kader-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-07-16T11:23:26.468Z",

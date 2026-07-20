@@ -9286,7 +9286,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346337&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:03:58.751Z",
+      "crawledAt": "2026-07-19T22:05:56.142Z",
       "addressLocality": "Ostschweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -9323,7 +9323,25 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alla-reception-con-compiti-di-servizio-a-san-gallo-30-ubs-ostschweiz",
+          "receptionist-with-service-tasks-in-st-gallen-30-ubs-ostschweiz",
+          "receptionniste-avec-taches-de-service-a-saint-gall-30-ubs-ostschweiz"
+        ],
+        "en": [
+          "receptionist-with-service-tasks-in-st-gallen-30-ubs-ostschweiz"
+        ],
+        "fr": [
+          "receptionniste-avec-taches-de-service-a-saint-gall-30-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-a-alla-reception-con-compiti-di-servizio-a-san-gallo-30-ubs-ostschweiz",
+        "receptionist-with-service-tasks-in-st-gallen-30-ubs-ostschweiz",
+        "receptionniste-avec-taches-de-service-a-saint-gall-30-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-28e4d7bafe32",

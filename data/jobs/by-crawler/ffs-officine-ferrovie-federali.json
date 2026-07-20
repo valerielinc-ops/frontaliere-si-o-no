@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-07-20T12:46:07.150Z",
+  "assembledAt": "2026-07-20T11:17:57.866Z",
   "jobs": [
     {
       "id": "sbb-e82126c3dfad",
@@ -1528,13 +1528,17 @@
       "postedDate": "2026-07-14",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lokfuehrer-in-bauzuege-kat-b100/05b65a4c-2f73-41e2-84ce-85f024ab46b2",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:41:38.211Z",
+      "crawledAt": "2026-07-19T22:20:04.527Z",
       "previousSlugs": [
         "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-lenzburg",
         "conducente-di-locomotiva-in-convogli-di-categoria-b100-ffs-officine-ferrovie-federali-olten",
         "engineer-cat-b100-ffs-officine-ferrovie-federali-olten",
         "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-olten",
-        "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten"
+        "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten",
+        "conducente-di-locomotiva-in-convogli-di-categoria-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+        "engineer-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+        "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+        "conducteurs-de-train-construction-trains-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1542,16 +1546,23 @@
           "conducente-di-locomotiva-in-convogli-di-categoria-b100-ffs-officine-ferrovie-federali-olten",
           "engineer-cat-b100-ffs-officine-ferrovie-federali-olten",
           "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-olten",
-          "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten"
+          "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten",
+          "conducente-di-locomotiva-in-convogli-di-categoria-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+          "engineer-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+          "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich",
+          "conducteurs-de-train-construction-trains-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich"
         ],
         "en": [
-          "engineer-cat-b100-ffs-officine-ferrovie-federali-olten"
+          "engineer-cat-b100-ffs-officine-ferrovie-federali-olten",
+          "engineer-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich"
         ],
         "de": [
-          "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-olten"
+          "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-olten",
+          "lokfuhrer-in-bauzuge-kat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich"
         ],
         "fr": [
-          "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten"
+          "conducteur-de-train-dans-les-trains-de-construction-cat-b100-ffs-officine-ferrovie-federali-olten",
+          "conducteurs-de-train-construction-trains-cat-b100-ffs-officine-ferrovie-federali-winterthur-und-zurich"
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:56.494Z",
@@ -1889,11 +1900,18 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-07-19T22:19:53.811Z",
       "previousSlugs": [
-        "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "montatore-di-catenarie-fabbro-meccanico-elettricista-di-rete-elettricista-ffs-officine-ferrovie-federali-deutschschweiz",
+        "catenary-fitter-locksmith-mechanic-network-electrician-electrician-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-deutschschweiz"
+          "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-deutschschweiz",
+          "montatore-di-catenarie-fabbro-meccanico-elettricista-di-rete-elettricista-ffs-officine-ferrovie-federali-deutschschweiz",
+          "catenary-fitter-locksmith-mechanic-network-electrician-electrician-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "en": [
+          "catenary-fitter-locksmith-mechanic-network-electrician-electrician-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:58.742Z",
@@ -1911,8 +1929,7 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "crawlerMissStreak": 1
+      "country": "CH"
     },
     {
       "id": "sbb-7ef97f9a4b99",
@@ -1961,11 +1978,18 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-07-19T22:19:58.225Z",
       "previousSlugs": [
-        "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "tecnico-per-sistemi-di-sicurezza-esterno-meccanico-di-produzione-polimeccanico-fabbro-ffs-officine-ferrovie-federali-deutschschweiz",
+        "technician-for-security-systems-outside-production-mechanic-polymechanic-locksmith-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-deutschschweiz"
+          "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-deutschschweiz",
+          "tecnico-per-sistemi-di-sicurezza-esterno-meccanico-di-produzione-polimeccanico-fabbro-ffs-officine-ferrovie-federali-deutschschweiz",
+          "technician-for-security-systems-outside-production-mechanic-polymechanic-locksmith-ffs-officine-ferrovie-federali-deutschschweiz"
+        ],
+        "en": [
+          "technician-for-security-systems-outside-production-mechanic-polymechanic-locksmith-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
       "firstSeenAt": "2026-07-15T11:10:59.343Z",
@@ -1983,8 +2007,7 @@
       },
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "country": "CH",
-      "crawlerMissStreak": 1
+      "country": "CH"
     },
     {
       "id": "sbb-9ff819dc580d",
@@ -2525,13 +2548,32 @@
       "postedDate": "2026-07-13",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/anforderungsmanager-in-betrieb/4ae0d237-2b1a-4232-9388-518bd187ddbe",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:41:38.575Z",
+      "crawledAt": "2026-07-19T22:20:15.841Z",
       "previousSlugs": [
-        "anforderungsmanager-in-betrieb-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "anforderungsmanager-in-betrieb-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "responsabile-di-progetto-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "project-manager-in-road-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anforderungsmanager-in-betrieb-ffs-officine-ferrovie-federali-zurich-altstetten"
+          "anforderungsmanager-in-betrieb-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "responsabile-di-progetto-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "project-manager-in-road-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "en": [
+          "project-manager-roadway-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "de": [
+          "projektleiter-in-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "fr": [
+          "chef-de-projet-roadway-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-07-14T11:04:29.406Z",
@@ -4883,13 +4925,18 @@
       "postedDate": "2026-07-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-fahrleitung/35b2e79d-e182-4c62-9830-3facd8b22c3e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:42:17.458Z",
+      "crawledAt": "2026-07-19T22:21:39.744Z",
       "previousSlugs": [
-        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
+        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
+        "installateur-specialise-en-catenaire-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
+          "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
+          "installateur-specialise-en-catenaire-ffs-officine-ferrovie-federali-arth-goldau"
+        ],
+        "fr": [
+          "installateur-specialise-en-catenaire-ffs-officine-ferrovie-federali-arth-goldau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:04:02.580Z",
@@ -4985,15 +5032,20 @@
       "postedDate": "2026-07-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/d29af285-71b2-47f8-af39-d56f6e74aa28",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:42:18.893Z",
+      "crawledAt": "2026-07-19T22:21:37.289Z",
       "previousSlugs": [
         "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
-        "montatore-in-linea-di-contatto-b100-e-macchinista-in-ffs-officine-ferrovie-federali-arth-goldau"
+        "montatore-in-linea-di-contatto-b100-e-macchinista-in-ffs-officine-ferrovie-federali-arth-goldau",
+        "installateur-en-catenaire-b100-et-pilote-in-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau",
-          "montatore-in-linea-di-contatto-b100-e-macchinista-in-ffs-officine-ferrovie-federali-arth-goldau"
+          "montatore-in-linea-di-contatto-b100-e-macchinista-in-ffs-officine-ferrovie-federali-arth-goldau",
+          "installateur-en-catenaire-b100-et-pilote-in-ffs-officine-ferrovie-federali-arth-goldau"
+        ],
+        "fr": [
+          "installateur-en-catenaire-b100-et-pilote-in-ffs-officine-ferrovie-federali-arth-goldau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:04:15.043Z",
@@ -8946,13 +8998,30 @@
       "postedDate": "2026-06-14",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:43:36.786Z",
+      "crawledAt": "2026-07-19T22:23:16.003Z",
       "previousSlugs": [
-        "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
+        "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+        "controllo-del-traffico-ferroviario-a-ingresso-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+        "lateral-entry-train-traffic-controller-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+        "quereinstieg-zugverkehrsleiter-in-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+        "controleur-de-trafic-ferroviaire-a-entree-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
+          "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+          "controllo-del-traffico-ferroviario-a-ingresso-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+          "lateral-entry-train-traffic-controller-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+          "quereinstieg-zugverkehrsleiter-in-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal",
+          "controleur-de-trafic-ferroviaire-a-entree-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
+        ],
+        "en": [
+          "lateral-entry-train-traffic-controller-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
+        ],
+        "de": [
+          "quereinstieg-zugverkehrsleiter-in-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
+        ],
+        "fr": [
+          "controleur-de-trafic-ferroviaire-a-entree-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
         ]
       },
       "firstSeenAt": "2026-06-14T23:07:31.007Z",
@@ -10926,13 +10995,30 @@
       "postedDate": "2026-04-14",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/02a24c36-7d33-4c07-87c6-2e0f5c241bd5",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-07-20T12:44:17.068Z",
+      "crawledAt": "2026-07-19T22:24:01.142Z",
       "previousSlugs": [
-        "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
+        "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz",
+        "caposquadra-o-caposquadra-di-costruzione-di-binari-ffs-officine-ferrovie-federali-lenzburg",
+        "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg",
+        "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
+        "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz"
+          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-deutschschweiz",
+          "caposquadra-o-caposquadra-di-costruzione-di-binari-ffs-officine-ferrovie-federali-lenzburg",
+          "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg",
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg",
+          "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "en": [
+          "track-construction-foreman-or-foreman-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "de": [
+          "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-lenzburg"
+        ],
+        "fr": [
+          "contremaitre-ou-contremaitre-de-la-construction-de-voies-ffs-officine-ferrovie-federali-lenzburg"
         ]
       },
       "firstSeenAt": "2026-06-10T23:31:32.112Z",

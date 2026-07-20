@@ -1497,7 +1497,7 @@
       "slug": "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "it": "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland",
-        "en": "system-engineer-messaging-ubp-ch",
+        "en": "system-engineer-messaging-union-bancaire-privee-geneva-switzerland",
         "de": "system-ingenieur-messaging-union-bancaire-privee-geneva-switzerland",
         "fr": "system-ingenieur-messaging-union-bancaire-privee-geneva-switzerland"
       },
@@ -1523,7 +1523,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1010",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T11:55:56.895Z",
+      "crawledAt": "2026-07-19T21:56:19.568Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1540,27 +1540,27 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1010",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "system-engineer-messaging-ubp-ch",
+        "system-ingenieur-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-union-bancaire-privee-geneva-switzerland"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "system-engineer-messaging-union-bancaire-privee-geneva-switzerland",
-          "system-engineer-messaging-ubp-ch"
-        ],
         "it": [
           "system-engineer-messaging-ubp-ch",
-          "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
+          "system-ingenieur-union-bancaire-privee-geneva-switzerland",
+          "system-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-messaging-ubp-ch"
         ],
         "fr": [
           "system-engineer-messaging-ubp-ch"
+        ],
+        "en": [
+          "system-engineer-messaging-ubp-ch"
         ]
       },
-      "previousSlugs": [
-        "system-engineer-messaging-ubp-ch",
-        "system-engineer-messaging-union-bancaire-privee-geneva-switzerland",
-        "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T14:38:07.956Z",
       "salaryMin": 60500,
