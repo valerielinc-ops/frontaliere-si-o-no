@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3335,
+ "numberOfItems": 3336,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8103,7 +8103,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3332, "name": "Quanto guadagna un informatico frontaliere in T...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino` },
           { "@type": "ListItem", "position": 3333, "name": "Stipendio di un progettista elettrico: Ticino v...", "url": `${BASE_URL}/articoli-frontaliere/progettista-elettrico-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3334, "name": "Crisi per il colosso tedesco dell'auto: 110 pos...", "url": `${BASE_URL}/articoli-frontaliere/shock-svizzera-azienda-chiude-110-licenziati` },
-          { "@type": "ListItem", "position": 3335, "name": "Frontalieri, lavoro e permesso G: il consiglier...", "url": `${BASE_URL}/articoli-frontaliere/coronavirus-frontalieri-ticino-svizzera` }
+          { "@type": "ListItem", "position": 3335, "name": "Frontalieri, lavoro e permesso G: il consiglier...", "url": `${BASE_URL}/articoli-frontaliere/coronavirus-frontalieri-ticino-svizzera` },
+          { "@type": "ListItem", "position": 3336, "name": "Quanto guadagna un progettista elettrico fronta...", "url": `${BASE_URL}/articoli-frontaliere/frontalieriprogettista-elettricoin-ticino` }
  ]
  },
  {
