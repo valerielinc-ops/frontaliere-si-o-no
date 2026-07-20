@@ -132,35 +132,35 @@ const CROSS_PROMO: Record<SeoContext, FeatureLink[]> = {
  { i18nKey: 'seoContent.vita.feature1', tab: 'confronti', subTab: 'cost-of-living' }, // Costo vita
  ],
  confronti: [
- { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'salary' }, // Stipendio netto
+ { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'calculator' }, // Stipendio netto
  { i18nKey: 'seoContent.fisco.feature3', tab: 'fisco', subTab: 'tax-credit' }, // Credito d'imposta
  { i18nKey: 'seoContent.fisco.feature1', tab: 'fisco', subTab: 'tax-return' }, // Dichiarazione redditi
  { i18nKey: 'seoContent.guida.feature2', tab: 'guida', subTab: 'first-day' }, // Primo giorno
- { i18nKey: 'seoContent.stats.feature1', tab: 'stats', subTab: 'traffic' }, // Traffico valichi
+ { i18nKey: 'seoContent.stats.feature1', tab: 'stats', subTab: 'traffic-history' }, // Traffico valichi
  ],
  fisco: [
- { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'salary' }, // Stipendio netto
+ { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'calculator' }, // Stipendio netto
  { i18nKey: 'seoContent.confronti.feature1', tab: 'confronti', subTab: 'health' }, // LAMal
  { i18nKey: 'seoContent.confronti.feature2', tab: 'confronti', subTab: 'exchange' }, // Cambio CHF-EUR
  { i18nKey: 'seoContent.guida.feature1', tab: 'guida', subTab: 'permit-compare' }, // Confronto permessi
  { i18nKey: 'seoContent.vita.feature1', tab: 'confronti', subTab: 'cost-of-living' }, // Costo vita
  ],
  guida: [
- { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'salary' }, // Stipendio netto
+ { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'calculator' }, // Stipendio netto
  { i18nKey: 'seoContent.calculator.feature3', tab: 'fisco', subTab: 'pension' }, // Pianificatore pensione
  { i18nKey: 'seoContent.confronti.feature1', tab: 'confronti', subTab: 'health' }, // LAMal
  { i18nKey: 'seoContent.fisco.feature2', tab: 'fisco', subTab: 'calendar' }, // Calendario fiscale
  { i18nKey: 'seoContent.vita.feature4', tab: 'vita', subTab: 'companies' }, // Comunità frontaliera
  ],
  vita: [
- { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'salary' }, // Stipendio netto
+ { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'calculator' }, // Stipendio netto
  { i18nKey: 'seoContent.confronti.feature2', tab: 'confronti', subTab: 'exchange' }, // Cambio CHF-EUR
  { i18nKey: 'seoContent.fisco.feature1', tab: 'fisco', subTab: 'tax-return' }, // Dichiarazione redditi
  { i18nKey: 'seoContent.guida.feature2', tab: 'guida', subTab: 'first-day' }, // Primo giorno
  { i18nKey: 'seoContent.stats.feature2', tab: 'stats', subTab: 'overview' }, // Stipendi medi
  ],
  stats: [
- { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'salary' }, // Stipendio netto
+ { i18nKey: 'seoContent.calculator.feature1', tab: 'calculator', subTab: 'calculator' }, // Stipendio netto
  { i18nKey: 'seoContent.confronti.feature1', tab: 'confronti', subTab: 'health' }, // LAMal
  { i18nKey: 'seoContent.confronti.feature2', tab: 'confronti', subTab: 'exchange' }, // Cambio CHF-EUR
  { i18nKey: 'seoContent.fisco.feature1', tab: 'fisco', subTab: 'tax-return' }, // Dichiarazione redditi

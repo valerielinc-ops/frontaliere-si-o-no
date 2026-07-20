@@ -8695,6 +8695,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'CNC operator in Ticino: salary, requirements and permit G',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Average salary for a CNC operator in Ticino: not yet specified. Requirements to work as a CNC operator in Ticino: not yet specified. Recognition of qualification: not yet specified.',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photograph of a CNC operator in a work environment in Ticino',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'How much does a border CNC operator earn in Ticino?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'The salaries of border CNC operators in Ticino are influenced by various factors, such as the salary band, differences compared to Italy and factors affecting pay.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'An operator CNC works in a company in the Canton Ticino, with a view of the city of Lugano.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.title': 'How much does a border automation technician earn in Ticino?',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.excerpt': 'Tax at source and wage differences compared to Italy.',
+    'blog.article.frontalieri-ticino-stipendio-tecnico-automazione.imageAlt': 'A technician in automation works in a border town between Switzerland and Italy.',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.title': 'Automation technician in Ticino: salary, requirements and recognition',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.excerpt': 'The G permit for border automation technicians in Ticino: requirements, average salary, recognition of the qualification and procedures for obtaining it.',
+    'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.imageAlt': 'A technician working in a factory in Ticino',
+    'blog.article.stipendio-contabile-frontaliere-ticino.title': 'How much does a border accountant earn in Ticino?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'The new Frontier Agreement introduced new tax rules for Ticino border workers. What is their actual salary?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'a frontier worker works in a company in Lugano',
 };
 
 export default blogMetaEn;

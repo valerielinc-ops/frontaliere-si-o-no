@@ -26126,6 +26126,42 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino',
+ category: 'pratico',
+ date: '2026-07-20T09:35:59.180Z',
+ image: '/images/blog/quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontalieri-ticino-stipendio-tecnico-automazione',
+ category: 'pratico',
+ date: '2026-07-20T10:18:49.166Z',
+ image: '/images/blog/frontalieri-ticino-stipendio-tecnico-automazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'frontalieri-tecnico-automazione-ticino-stipendio-requisiti',
+ category: 'novita',
+ date: '2026-07-20T10:42:27.131Z',
+ image: '/images/blog/frontalieri-tecnico-automazione-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'stipendio-contabile-frontaliere-ticino',
+ category: 'fiscale',
+ date: '2026-07-20T11:07:05.666Z',
+ image: '/images/blog/stipendio-contabile-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

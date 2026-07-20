@@ -1297,6 +1297,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Border welder in Ticino: practical guide and requirements',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Learn about the requirements to work as a welder in Switzerland, the updated tax rules, and how tax at source works for frontier workers.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professional metal workshop in Switzerland',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Petrol and diesel: pump prices continue to rise',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Gasoline and diesel prices have risen again in Switzerland, according to data from the Swiss Touring Club.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Image of a gas station with a line of cars waiting to refuel.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Technical designer in Ticino: salary, requirements and permit G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'The salaries of technical designers in Ticino for border workers, the requirements to work as a technical designer in Ticino as a border worker and how to recognize the educational qualification and obtain the G permit.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'A technical designer in an office in Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'How much does a technical border designer earn in Ticino?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'The salaries of technical border designers in Ticino are influenced by factors such as experience and the sector to which they belong.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'A panoramic view of the city of Lugano, with a Swiss frontier technical drafter working in his studio.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Geneva, border workers have the right to work in the public sector',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'The cantonal government of Geneva rejected the GCM initiative THAT asked to exclude them from public employment',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Swiss public employment, frontaliers\' right to work',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Border secretary in Ticino: salary, requirements and leave',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'The Ticino border: average salary, requirements, possible recognition of the qualification, G permit',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'A frontalier secretary works in an office in Lugano',
 };
 
 export default blogMetaChEn;

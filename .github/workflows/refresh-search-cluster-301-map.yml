@@ -21,8 +21,12 @@ name: Refresh search-cluster 301 map
 # script's own input) has already landed on main before this workflow's
 # checkout.
 #
-# Neither script needs GSC/GA4/PostHog credentials or load-rc-env.mjs — both
-# only hit the public live site's own sitemaps over plain fetch().
+# Neither build/prune script needs GSC/GA4/PostHog credentials — both only
+# hit the public live site's own sitemaps over plain fetch(). load-rc-env.mjs
+# + the App-token mint below are only for the deploy-dispatch step: a
+# GITHUB_TOKEN push doesn't trigger other workflows (GitHub anti-loop rule),
+# so redeploying after data/seo-404-compat changes needs a PAT/App token
+# (same pattern as discover-404s.yml / sync-gsc-orphans.yml).
 
 on:
   schedule:
@@ -54,6 +58,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity for the deploy dispatch below = GitHub App installation
+      # token; falls back to env.GITHUB_PAT (#2861 item 1) — same pattern as
+      # discover-404s.yml / sync-gsc-orphans.yml.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Regenerate search-cluster-301-map.json
         run: node scripts/build-search-cluster-301-map.mjs
 
@@ -74,18 +92,38 @@ jobs:
         run: npx vitest run tests/search-console-compat.test.ts
 
       - name: Commit if changed
+        id: commit
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/search-cluster-301-map.json
+          # data/seo-404-compat is now also written by build-search-cluster-301-map.mjs
+          # (issue #4590): every map entry IS a verified-dead legacy URL, so it
+          # belongs in the accumulator legacyRedirectsPlugin actually reads to
+          # emit a real bridge/redirect page — without this the map alone never
+          # produced a single live redirect. Sharded + merge-driven
+          # (.gitattributes merge=compat-shard), safe alongside concurrent
+          # writers (discover-404s.yml, sync-gsc-orphans.yml).
+          git add data/search-cluster-301-map.json data/seo-404-compat
           if git diff --cached --quiet; then
-            echo "No change to search-cluster-301-map.json"
+            echo "No change to search-cluster-301-map.json or seo-404-compat"
+            echo "compat_changed=false" >> "$GITHUB_OUTPUT"
             exit 0
+          fi
+          if git diff --cached --quiet -- data/seo-404-compat; then
+            echo "compat_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "compat_changed=true" >> "$GITHUB_OUTPUT"
           fi
           git commit -m "chore(seo): refresh search-cluster 301 map (regen + prune stale targets)"
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json"
+            --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json data/seo-404-compat"
+
+      - name: Trigger deploy if compat store changed
+        if: steps.commit.outputs.compat_changed == 'true'
+        env:
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+        run: bash scripts/lib/trigger-deploy.sh
 
       - name: Report failure to GitHub Issues
         if: failure()

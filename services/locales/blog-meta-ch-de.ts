@@ -1297,6 +1297,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-guida.title': 'Grenzschweisser im Tessin: Praxisleitfaden und Anforderungen',
     'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Erfahren Sie mehr über die Voraussetzungen für die Arbeit als Schweißer in der Schweiz, die aktuellen Steuervorschriften und die Funktionsweise der Quellensteuer für Grenzgänger.',
     'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professionelle Metallwerkstatt in der Schweiz',
+    'blog.article.benzina-e-diesel-prezzi-saliti.title': 'Benzin und Diesel: Die Preise an der Pumpe steigen weiter',
+    'blog.article.benzina-e-diesel-prezzi-saliti.excerpt': 'Die Benzin- und Dieselpreise sind in der Schweiz nach Angaben des Touring Club Schweiz wieder gestiegen.',
+    'blog.article.benzina-e-diesel-prezzi-saliti.imageAlt': 'Bild einer Tankstelle mit einer Schlange von Autos, die aufgetankt werden.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.title': 'Technischer Zeichner im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.excerpt': 'Die Gehälter der Technischen Zeichner im Tessin für Grenzgänger, die Voraussetzungen für die Arbeit als Technischer Zeichner im Tessin als Grenzgänger und wie man den Abschluss erkennt und die Genehmigung G erhält.',
+    'blog.article.frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.imageAlt': 'Ein technischer Designer in einem Büro in Lugano',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.title': 'Wie viel verdient ein technischer Grenzzeichner im Tessin?',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.excerpt': 'Die Löhne der technischen Grenzzeichner im Tessin werden durch Faktoren wie Erfahrung und Branche beeinflusst.',
+    'blog.article.disegnatore-tecnico-frontaliere-ticino-guadagno.imageAlt': 'Eine Panoramablick auf die Stadt Lugano, mit einem schweizerischen Grenzgänger-technischen Zeichner, der in seinem Studio arbeitet.',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'In Genf haben Grenzgänger das Recht, im öffentlichen Sektor zu arbeiten',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'Die Genfer Kantonsregierung lehnte die mcg-Initiative ab, die den Ausschluss von öffentlichen Stellen forderte',
+    'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Schweizerische öffentliche Beschäftigung, Recht frontaliers zur Arbeit',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Grenzschreiberin im Tessin: Gehalt, Voraussetzungen und Erlaubnis',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'Die Tessiner Grenze: Durchschnittsgehalt, Voraussetzungen, eventuelle Anerkennung des Bildungsabschlusses, Ausweis G',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'Eine Frontalier Sekretärin arbeitet in einem Büro in Lugano',
 };
 
 export default blogMetaChDe;
