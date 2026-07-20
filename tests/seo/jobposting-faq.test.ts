@@ -116,3 +116,27 @@ describe('buildJobPostingFaqPairs', () => {
     expect(pairs[3].a).toContain(TICINO_JOB.url);
   });
 });
+
+describe('resolveJobCanton (shared resolver consumed by all 3 FAQ call sites)', () => {
+  // Regression guard for PR #4595's review finding: services/seoService.ts
+  // and build-plugins/jobsSeoPagesPlugin.ts each computed the FAQ's isTicino
+  // flag with their OWN ad-hoc canton fallback (defaulting straight to 'TI'
+  // whenever `canton`/`addressRegion` were unset, never checking `location`),
+  // while components/community/JobBoard.tsx already used this resolver
+  // correctly — for jobs with only a `location` naming a real non-Ticino
+  // city (e.g. Valais hospital listings), that meant the FAQ's structured
+  // data and visible accordion could disagree on the canton and serve the
+  // wrong border-permit legal guidance. All 3 call sites were fixed to use
+  // this same resolver; this test locks down its behavior for the exact
+  // case the review flagged.
+  it('resolves a Valais city via location, not a bare canton-missing TI default', async () => {
+    const { resolveJobCanton } = await import('../../build-plugins/shared/cantonSection');
+    expect(resolveJobCanton({ location: 'Sion' })).toBe('VS');
+    expect(resolveJobCanton({ location: 'Sion' })).not.toBe('TI');
+  });
+
+  it('still defaults to TI only when canton is truly unresolvable (no canton, no known location)', async () => {
+    const { resolveJobCanton } = await import('../../build-plugins/shared/cantonSection');
+    expect(resolveJobCanton({})).toBe('TI');
+  });
+});

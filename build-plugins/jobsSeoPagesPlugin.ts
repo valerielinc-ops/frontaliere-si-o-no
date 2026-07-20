@@ -3092,15 +3092,24 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Deterministic per-job FAQ (salary, contract type, work-permit/border-zone,
  // how-to-apply) — high-volume active jobs (~19k) rule out AI generation, so
  // this is a pure template over the already-resolved canonicalSchema fields.
- // `perJob_cantonCode`/`dc` are reused as-is (not recomputed) to stay
- // consistent with the canton code/display name already rendered elsewhere
- // on this same page (hero-sub, breadcrumb).
- const faqCantonCode = perJob_cantonCode.toUpperCase();
+ //
+ // The FAQ's G-permit answer MUST use sharedResolveJobCanton (the same
+ // resolver services/seoService.ts and JobBoard.tsx use for their own FAQ
+ // computation, per PR #4595 review) rather than `perJob_cantonCode`
+ // (= `job.canton || DEFAULT_CANTON`, which ignores `location`/city and is
+ // kept as-is for THIS page's own URL/breadcrumb/section — changing that
+ // would touch routing, out of scope here). Using a different, less
+ // accurate resolver just for the FAQ text would risk the same
+ // structured-data/visible-content-and-legal-guidance mismatch the review
+ // flagged between the two SPA paths — this keeps all three surfaces
+ // (SSG here, SPA JSON-LD, SPA accordion) agreeing on the same canton for
+ // the same job.
+ const faqResolvedCanton = sharedResolveJobCanton(job).toUpperCase();
  const faqOpts: BuildJobPostingFaqOptions = {
  locale,
  jobUrl: job.url || canonicalUrl,
- cantonDisplay: dc,
- isTicino: faqCantonCode === 'TI',
+ cantonDisplay: getCantonDisplayLabel(faqResolvedCanton, locale),
+ isTicino: faqResolvedCanton === 'TI',
  isRemote,
  };
  const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);

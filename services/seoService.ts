@@ -17,6 +17,7 @@ import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
+import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 
@@ -420,11 +421,23 @@ async function resolveJobSeoBySlug(
  // this job (content-parity rule, CLAUDE.md § Static SEO Pages). isRemote
  // detection mirrors build-plugins/jobsSeoPagesPlugin.ts's regex so both
  // paths agree on the same job.
+ //
+ // Canton for the FAQ's G-permit answer MUST use resolveJobCanton (the same
+ // resolver JobBoard.tsx uses for its visible accordion, via `detailJobCanton
+ // = resolveJobCanton(selectedJob)`) rather than `address.region`.
+ // `resolveJobAddress()` above defaults straight to 'TI' whenever both
+ // `addressRegion` and `canton` are unset, without ever consulting
+ // `location` — for jobs where only `location`/`addressLocality` names a
+ // non-Ticino city (real cases in the dataset, e.g. Valais hospital
+ // listings), that default disagreed with JobBoard.tsx's more careful
+ // city-aware resolution and served the wrong canton's legal border-permit
+ // guidance in the FAQ's structured data (review finding on PR #4595).
+ const faqCanton = resolveJobCanton(job);
  const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
  );
- const isTicino = address.region === 'TI';
- const cantonDisplay = getCantonDisplayName(address.region, locale);
+ const isTicino = faqCanton === 'TI';
+ const cantonDisplay = getCantonDisplayName(faqCanton, locale);
  const faqOpts: BuildJobPostingFaqOptions = {
  locale,
  jobUrl: String(job?.url || canonicalUrl),
