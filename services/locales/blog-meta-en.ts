@@ -8704,6 +8704,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.title': 'Automation technician in Ticino: salary, requirements and recognition',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.excerpt': 'The G permit for border automation technicians in Ticino: requirements, average salary, recognition of the qualification and procedures for obtaining it.',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.imageAlt': 'A technician working in a factory in Ticino',
+    'blog.article.stipendio-contabile-frontaliere-ticino.title': 'How much does a border accountant earn in Ticino?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'The new Frontier Agreement introduced new tax rules for Ticino border workers. What is their actual salary?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'a frontier worker works in a company in Lugano',
 };
 
 export default blogMetaEn;

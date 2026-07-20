@@ -89,6 +89,8 @@
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
  */
 
+import { stableStringify } from './lib/stable-stringify.mjs';
+
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 const WORKER_SCRIPT = 'frontaliere-locale-router';
@@ -447,24 +449,12 @@ async function assertCacheRules(zoneId) {
   console.log('cache rules: applied');
 }
 
-// Recursively sorts object keys so a semantically-identical action_parameters
-// value compares equal regardless of the key order CF happens to re-emit it in
-// (same footgun as the cache-rule action_parameters drift documented above —
-// avoid ever stringify-comparing an API-echoed object with unsorted keys).
-function stableStringify(value) {
-  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
-  if (value && typeof value === 'object') {
-    return `{${Object.keys(value)
-      .sort()
-      .map((k) => `${JSON.stringify(k)}:${stableStringify(value[k])}`)
-      .join(',')}}`;
-  }
-  return JSON.stringify(value);
-}
-
 function fwShape(r) {
   // Canonical comparable form for a firewall rule — only OUR contract fields,
-  // in order (CF re-emits normalized/extra fields we ignore).
+  // in order (CF re-emits normalized/extra fields we ignore). stableStringify
+  // (imported above) avoids ever raw-JSON-comparing an API-echoed
+  // action_parameters object — same footgun as the cache-rule comparison
+  // above (unsorted key re-emission would cause perpetual false drift).
   return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''} ${stableStringify(r.action_parameters || null)}`;
 }
 

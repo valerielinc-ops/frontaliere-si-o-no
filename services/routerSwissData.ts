@@ -459,6 +459,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': { it: 'frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti', en: 'frontalier-technical-designer-ticino-salary-requirements', de: 'frontalier-technischer-designer-ticino-salar-anforderungen', fr: 'frontalier-designer-technique-ticino-salaire-exigences' },
  'disegnatore-tecnico-frontaliere-ticino-guadagno': { it: 'disegnatore-tecnico-frontaliere-ticino-guadagno', en: 'swiss-frontier-technical-drafter-salary-ticino', de: 'schweizerischer-grenzganger-technischer-zeichner-gesamt-ticino', fr: 'dessinateur-technique-frontaliere-salaire-ticino' },
  'ginevra-frontalieri-diritto-lavoro-pubblico': { it: 'ginevra-frontalieri-diritto-lavoro-pubblico', en: 'ginevra-frontalieri-right-to-work-public', de: 'ginevra-frontaliers-recht-arbeit-publik', fr: 'ginevra-frontaliers-droit-travail-public' },
+ 'frontaliere-segretaria-ticino-stipendio-requisiti': { it: 'frontaliere-segretaria-ticino-stipendio-requisiti', en: 'frontalier-secretary-ticino-salary-requirements', de: 'frontalier-sekretarin-ticino-gehalt-anforderungen', fr: 'frontalier-secretaire-ticino-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
