@@ -679,7 +679,7 @@ const enGuide: Record<string, string> = {
  'guide.unemployment.it.title': '🇮🇹 Italy - NASpI (New Social Insurance for Employment)',
  'guide.unemployment.it.whoTitle': 'Who is entitled',
  'guide.unemployment.it.who1': 'Employees who have involuntarily lost their job',
- 'guide.unemployment.it.who2': 'At least 13 weeks of contributions in the last 4 years',
+ 'guide.unemployment.it.who2': 'At least 18 weeks of contributions in the last 4 years',
  'guide.unemployment.it.who3': 'Periods of work in Switzerland are recognised through the PD U1 form',
  'guide.unemployment.it.amountsTitle': 'Amounts',
  'guide.unemployment.it.amount1': '75% of the average monthly salary (up to €1,456.72)',

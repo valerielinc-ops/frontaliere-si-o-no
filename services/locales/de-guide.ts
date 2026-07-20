@@ -679,7 +679,7 @@ const deGuide: Record<string, string> = {
  'guide.unemployment.it.title': '🇮🇹 Italien - NASpI (Neue Sozialversicherung für Beschäftigung)',
  'guide.unemployment.it.whoTitle': 'Wer hat Anspruch',
  'guide.unemployment.it.who1': 'Arbeitnehmer, die unfreiwillig ihren Arbeitsplatz verloren haben',
- 'guide.unemployment.it.who2': 'Mindestens 13 Wochen Beiträge in den letzten 4 Jahren',
+ 'guide.unemployment.it.who2': 'Mindestens 18 Wochen Beiträge in den letzten 4 Jahren',
  'guide.unemployment.it.who3': 'Arbeitszeiten in der Schweiz werden über das Formular PD U1 anerkannt',
  'guide.unemployment.it.amountsTitle': 'Beträge',
  'guide.unemployment.it.amount1': '75% des durchschnittlichen Monatsgehalts (bis €1.456,72)',

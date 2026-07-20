@@ -698,7 +698,7 @@ const translations: Record<string, string> = {
  'guide.unemployment.it.title': '🇮🇹 Italia - NASpI (Nuova Assicurazione Sociale per l\'Impiego)',
  'guide.unemployment.it.whoTitle': 'Chi ha diritto',
  'guide.unemployment.it.who1': 'Lavoratori dipendenti che hanno perso involontariamente il lavoro',
- 'guide.unemployment.it.who2': 'Almeno 13 settimane di contributi negli ultimi 4 anni',
+ 'guide.unemployment.it.who2': 'Almeno 18 settimane di contributi negli ultimi 4 anni',
  'guide.unemployment.it.who3': 'I periodi di lavoro in Svizzera sono riconosciuti tramite il formulario PD U1',
  'guide.unemployment.it.amountsTitle': 'Importi',
  'guide.unemployment.it.amount1': '75% della retribuzione media mensile (fino a €1.456,72)',
