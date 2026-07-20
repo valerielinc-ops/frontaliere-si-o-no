@@ -14,7 +14,8 @@
  *
  *   1. Reject if addressCountry exists and is not "CH".
  *   2. Reject if Liechtenstein detected (postal 9485-9498 or FL city name).
- *   3. BFS-strict: addressLocality is a known Swiss municipality → high.
+ *   3. BFS-strict: addressLocality is a known Swiss CITY (not a bare canton
+ *      name/code label) → high.
  *   4. 2-of-3 quorum: title + body + addressLocality agree on canton → high.
  *   5. Keep-as-is: low confidence, return existing canton tag (may be empty).
  *
@@ -22,7 +23,7 @@
  */
 
 import {
-  isKnownSwissMunicipality,
+  isKnownSwissCity,
   inferAnyCanton,
   isLiechtensteinPostalCode,
 } from './target-swiss-locations.mjs';
@@ -68,12 +69,13 @@ function safeInferCanton(text) {
 }
 
 /**
- * Run isKnownSwissMunicipality defensively.
+ * Run isKnownSwissCity defensively. Strict (city-only) variant — excludes
+ * bare canton name/code labels, see runBfsStrict below.
  */
-function safeIsKnownMunicipality(cityName) {
+function safeIsKnownCity(cityName) {
   if (!cityName) return false;
   try {
-    return Boolean(isKnownSwissMunicipality(cityName));
+    return Boolean(isKnownSwissCity(cityName));
   } catch {
     return false;
   }
@@ -107,13 +109,19 @@ export function isLiechtenstein(text, postalCode) {
  * exact match for a known BFS Swiss municipality. This is the highest-trust
  * signal because the structured field came from the source ATS, not free text.
  *
+ * Uses `isKnownSwissCity` (not the looser `isKnownSwissMunicipality`, which
+ * also matches bare canton name/code aliases like "Ticino"/"TI") — a
+ * canton-only label carries no real city-level precision and must not be
+ * trusted as a "high" BFS-strict signal (issue #4570 class: a forged/weak
+ * canton-only `addressLocality` silently overriding the job's real canton).
+ *
  * @param {{ addressLocality?: string }} input
  * @returns {{ canton: string, confidence: 'high' | 'low' }}
  */
 export function runBfsStrict({ addressLocality } = {}) {
   const locality = normalizeText(addressLocality);
   if (!locality) return { canton: '', confidence: 'low' };
-  if (!safeIsKnownMunicipality(locality)) {
+  if (!safeIsKnownCity(locality)) {
     return { canton: '', confidence: 'low' };
   }
   const canton = safeInferCanton(locality);
