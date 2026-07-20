@@ -70,6 +70,8 @@ const COPY: Record<GateLocale, {
   instructionsBody: string;
   recheck: string;
   rechecking: string;
+  reloadHint: string;
+  reloadCta: string;
   subscribeCta: string;
 }> = {
   it: {
@@ -87,6 +89,8 @@ const COPY: Record<GateLocale, {
     instructionsBody: 'Apri l’icona dell’estensione AdBlock/uBlock nella barra degli strumenti del browser e scegli "Disattiva su questo sito" o "Metti in pausa". Poi premi "Ricontrolla" qui sotto.',
     recheck: 'Ricontrolla AdBlock',
     rechecking: 'Verifica in corso…',
+    reloadHint: 'Ancora rilevato. Se hai già disattivato l’estensione, il browser deve ricaricare la pagina per applicare la modifica.',
+    reloadCta: 'Ricarica pagina',
     subscribeCta: 'Attiva l’abbonamento — CHF 2.99/mese',
   },
   en: {
@@ -104,6 +108,8 @@ const COPY: Record<GateLocale, {
     instructionsBody: 'Open your AdBlock/uBlock extension icon in the browser toolbar and choose "Disable on this site" or "Pause". Then press "Recheck" below.',
     recheck: 'Recheck ad blocker',
     rechecking: 'Checking…',
+    reloadHint: 'Still detected. If you’ve already disabled the extension, the browser needs to reload the page for the change to take effect.',
+    reloadCta: 'Reload page',
     subscribeCta: 'Subscribe — CHF 2.99/mo',
   },
   de: {
@@ -121,6 +127,8 @@ const COPY: Record<GateLocale, {
     instructionsBody: 'Öffnen Sie das Symbol Ihrer AdBlock/uBlock-Erweiterung in der Symbolleiste des Browsers und wählen Sie „Auf dieser Website deaktivieren“ oder „Pausieren“. Klicken Sie danach unten auf „Erneut prüfen“.',
     recheck: 'Werbeblocker erneut prüfen',
     rechecking: 'Wird geprüft…',
+    reloadHint: 'Weiterhin erkannt. Wenn Sie die Erweiterung bereits deaktiviert haben, muss die Seite neu geladen werden, damit die Änderung wirksam wird.',
+    reloadCta: 'Seite neu laden',
     subscribeCta: 'Abonnieren — CHF 2.99/Monat',
   },
   fr: {
@@ -138,6 +146,8 @@ const COPY: Record<GateLocale, {
     instructionsBody: 'Ouvrez l’icône de votre extension AdBlock/uBlock dans la barre d’outils du navigateur et choisissez « Désactiver sur ce site » ou « Mettre en pause ». Puis cliquez sur « Revérifier » ci-dessous.',
     recheck: 'Revérifier le bloqueur',
     rechecking: 'Vérification…',
+    reloadHint: 'Toujours détecté. Si vous avez déjà désactivé l’extension, le navigateur doit recharger la page pour appliquer le changement.',
+    reloadCta: 'Recharger la page',
     subscribeCta: 'S’abonner — CHF 2.99/mois',
   },
 };
@@ -175,6 +185,7 @@ const AdBlockGate: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [rechecking, setRechecking] = useState(false);
+  const [recheckFailed, setRecheckFailed] = useState(false);
   const outcomeLoggedRef = useRef(false);
   const activeTabRef = useRef(nav?.activeTab);
   activeTabRef.current = nav?.activeTab;
@@ -215,6 +226,7 @@ const AdBlockGate: React.FC = () => {
       // Never trap the visitor on the escape-hatch page itself.
       if (activeTabRef.current === 'subscribe') return;
       outcomeLoggedRef.current = false;
+      setRecheckFailed(false);
       setOpen(true);
       try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected'); } catch { /* no-op */ }
     });
@@ -240,6 +252,7 @@ const AdBlockGate: React.FC = () => {
     detectAdBlock().then((blocked) => {
       if (cancelled || !blocked) return;
       outcomeLoggedRef.current = false;
+      setRecheckFailed(false);
       setOpen(true);
       try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected_revisit'); } catch { /* no-op */ }
     });
@@ -276,6 +289,14 @@ const AdBlockGate: React.FC = () => {
     };
   }, [open, logOutcome]);
 
+  // Most ad blockers apply cosmetic CSS hiding rules via a content script
+  // that only runs on page load — pausing/disabling the extension mid-session
+  // does not retroactively strip the already-injected rules, so the bait
+  // element in detectAdBlock() keeps reporting "blocked" until the page is
+  // reloaded (the network-level signal alone updates live, but detectAdBlock
+  // ORs it with the stale cosmetic signal). A second failed check offers an
+  // explicit reload instead of leaving the visitor re-clicking a button that
+  // can never succeed without one.
   const handleRecheck = async () => {
     trackPopupEvent('popup_cta_adblock', 'recheck_cta');
     setRechecking(true);
@@ -284,10 +305,17 @@ const AdBlockGate: React.FC = () => {
       if (!stillBlocked) {
         trackPopupEvent('popup_adblock_disable', 'adblock_disabled_confirmed');
         closeGate('disabled');
+        return;
       }
+      setRecheckFailed(true);
     } finally {
       setRechecking(false);
     }
+  };
+
+  const handleReload = () => {
+    trackPopupEvent('popup_cta_adblock', 'reload_cta');
+    window.location.reload();
   };
 
   const handleSubscribeClick = () => {
@@ -367,6 +395,19 @@ const AdBlockGate: React.FC = () => {
             {rechecking && <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />}
             {rechecking ? copy.rechecking : copy.recheck}
           </button>
+
+          {recheckFailed && (
+            <div className="mt-3">
+              <p className="mb-2 text-xs text-on-accent/75">{copy.reloadHint}</p>
+              <button
+                type="button"
+                onClick={handleReload}
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-xs font-semibold text-on-accent transition hover:bg-white/15"
+              >
+                {copy.reloadCta}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>,
