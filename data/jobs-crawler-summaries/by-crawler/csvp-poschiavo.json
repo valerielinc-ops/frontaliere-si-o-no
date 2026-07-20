@@ -1,16 +1,16 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-07-19T22:42:50.927Z",
+  "generatedAt": "2026-07-20T13:27:00.539Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6137,
-  "avgDurationMs": 6137,
+  "durationMs": 4449,
+  "avgDurationMs": 4449,
   "durationHistory": [
-    6137
+    4449
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/917-ausiliario-servizi-alberghieri",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T22:42:47.543Z",
+      "crawledAt": "2026-07-20T13:26:57.675Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/916-responsabile-del-servizio-tecnico",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-07-19T22:42:49.018Z",
+      "crawledAt": "2026-07-20T13:26:58.628Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
