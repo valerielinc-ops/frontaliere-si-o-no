@@ -694,14 +694,19 @@ export function calculateSeasonalScenario(input: SeasonalScenarioInput): Seasona
 
   const { rate: baseRate, tableCode } = getTicinoTaxRate(annualizedGrossCHF, maritalStatus, children, spouseWorks);
   const effectiveTaxRateCH = adjustRateForChildren(baseRate, tableCode, children);
-  const swissSourceTaxCHF = grossWorkedCHF * effectiveTaxRateCH; // family allowance is source-tax-exempt in CH
+  // New frontalieri within 20km: only 80% of the ordinary source-tax rate is
+  // withheld in CH (Accordo 2024 concurrent-taxation split) — applied once,
+  // upfront, matching calculateSimulation's convention (taxWithheldInCH_CHF,
+  // line 116) so every downstream figure (net CH salary, displayed source
+  // tax, IT tax credit) is consistent with the actual withholding.
+  const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
+  const swissSourceTaxCHF = grossWorkedCHF * effectiveTaxRateCH * chTaxShare; // family allowance is source-tax-exempt in CH
   const netSwissSalaryCHF = grossWorkedCHF + familyAllowanceCHF - swissSocialContributionsCHF - swissSourceTaxCHF;
 
   const grossWorkedEUR = grossWorkedCHF * exchangeRate;
   const allowanceEUR = familyAllowanceCHF * exchangeRate;
   const socialEUR = swissSocialContributionsCHF * exchangeRate;
-  const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
-  const paidSourceTaxEUR = (swissSourceTaxCHF * chTaxShare) * exchangeRate;
+  const paidSourceTaxEUR = swissSourceTaxCHF * exchangeRate;
 
   // ── NASpI for the non-worked months ──
   const naspi = calculateNaspi(grossMonthlyCHF, contributedMonthsLast4Years, age, exchangeRate, monthsAlreadyIndemnifiedInQuadriennio);

@@ -492,4 +492,17 @@ describe('calculateSeasonalScenario', () => {
     const impliedRate8 = eightMonths.swissSourceTaxCHF / eightMonths.grossWorkedCHF;
     expect(impliedRate8).toBeCloseTo(impliedRate12, 6);
   });
+
+  it('applies the 80% WITHIN_20KM chTaxShare to the displayed Swiss source tax, not just the IT credit basis', () => {
+    // Regression for a reviewer-caught bug: swissSourceTaxCHF (net CH salary + the
+    // "Imposta alla fonte svizzera" UI card) was computed at the FULL 100% rate while
+    // only paidSourceTaxEUR (the IT tax-credit basis) applied chTaxShare — overstating
+    // the displayed Swiss withholding by 25% (100/80) for new frontalieri within 20km.
+    const within20km = calculateSeasonalScenario({ ...base, distanceZone: 'WITHIN_20KM' });
+    const over20km = calculateSeasonalScenario({ ...base, distanceZone: 'OVER_20KM' });
+    expect(within20km.swissSourceTaxCHF / over20km.swissSourceTaxCHF).toBeCloseTo(0.8, 6);
+    // Concrete figures from the reviewer's default scenario (Sumirago, CHF 4300/month, 12 months).
+    expect(within20km.swissSourceTaxCHF).toBeCloseTo(2642, 0);
+    expect(within20km.netSwissSalaryCHF).toBeGreaterThan(over20km.netSwissSalaryCHF);
+  });
 });
