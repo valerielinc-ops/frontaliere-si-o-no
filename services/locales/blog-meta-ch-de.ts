@@ -1270,6 +1270,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Tierärztlicher Grenzgänger im Tessin: Gehalt und Voraussetzungen',
     'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Praktischer Leitfaden für Grenztierärzte: Anerkennung von Titeln, Lohneinstufung, Steuern und Vorsorgepflichten in der Schweiz.',
     'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Tierarztpraxis in der Schweiz',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Grenzgänger Pflegehelfer im Tessin: Voraussetzungen und Anerkennung',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Die Anforderungen und das Durchschnittsgehalt für Grenzpflegehelferinnen und Grenzpflegehelfer im Tessin wurden publiziert.',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Eine Szene von Lugano mit einem Grenzgänger, der als Pflegebedürftiger arbeitet',
 };
 
 export default blogMetaChDe;
