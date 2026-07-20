@@ -23,6 +23,16 @@
  *    hypothetical single-word "assistente" alias.
  */
 
+// Double-validation knobs (demand AND supply confirmed) — single source of
+// truth for both profession-keyword-opportunities.mjs (ranking) and
+// generate-keyword-pages-config.mjs (profession-gap feed gate). Keeping one
+// constant means a gap flagged "doppia validazione ✅" in the weekly report
+// is always eligible to become a page; a second, independently-tuned floor
+// in the feed script previously left true double-validated gaps (onsite
+// 10-24) stuck in the report forever without ever generating a page (#4564).
+export const DOUBLE_VALIDATED_MIN_ONSITE = 10; // on-site searches in window
+export const DOUBLE_VALIDATED_MIN_JOBS = 3; // live matching job ads (mirrors jobsSeoPagesPlugin's ≥3 gate)
+
 /** Lowercase, strip accents, collapse every non-alphanumeric run to a space. */
 export function normalizeText(text) {
   return String(text || '')
