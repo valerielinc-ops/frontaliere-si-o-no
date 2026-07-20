@@ -1,16 +1,16 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-07-19T10:40:52.208Z",
+  "generatedAt": "2026-07-20T11:51:28.394Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4640,
-  "avgDurationMs": 4640,
+  "durationMs": 3747,
+  "avgDurationMs": 3747,
   "durationHistory": [
-    4640
+    3747
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/134aaf50-54ee-4bf9-911e-78038c202212/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:40:48.974Z",
+      "crawledAt": "2026-07-20T11:51:26.025Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e0889e22-11c2-43af-b05b-cadca08bf0af/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:40:48.662Z",
+      "crawledAt": "2026-07-20T11:51:25.727Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-19T10:40:49.391Z",
+      "crawledAt": "2026-07-20T11:51:26.301Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -158,7 +158,7 @@
       "firstSeenAt": "2026-06-19T13:09:21.110Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
