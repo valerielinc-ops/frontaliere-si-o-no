@@ -1270,6 +1270,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Veterinary border in Ticino: salary and requirements',
     'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Practical guide for border veterinarians: recognition of qualifications, salary classification, taxes and social security obligations in Switzerland.',
     'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Veterinary clinic in Switzerland',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Border care assistant in Ticino: requirements and recognition',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'The requirements and average salary for border care assistants in Ticino have been published.',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano with a border worker who works as a caregiver',
 };
 
 export default blogMetaChEn;

@@ -1270,6 +1270,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Frontière vétérinaire au Tessin : salaire et exigences',
     'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Guide pratique pour les vétérinaires frontaliers : reconnaissance des diplômes, encadrement des salaires, impôts et prestations de sécurité sociale en Suisse.',
     'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Cabinet vétérinaire en Suisse',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Frontalier assistant de soins au Tessin : exigences et reconnaissance',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Les exigences et le salaire moyen des assistants de soins frontaliers au Tessin ont été publiés.',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano avec un frontalier qui travaille comme assistante de soins',
 };
 
 export default blogMetaChFr;

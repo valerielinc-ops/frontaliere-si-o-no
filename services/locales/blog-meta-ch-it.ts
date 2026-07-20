@@ -1270,6 +1270,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-veterinario-ticino-requisiti.title': 'Frontaliere veterinario in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-veterinario-ticino-requisiti.excerpt': 'Guida pratica per veterinari frontalieri: riconoscimento titoli, inquadramento salariale, imposte e adempimenti previdenziali in Svizzera.',
     'blog.article.frontaliere-veterinario-ticino-requisiti.imageAlt': 'Studio veterinario in Svizzera',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.title': 'Frontaliere assistente di cura in Ticino: requisiti e riconoscimento',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.excerpt': 'Sono stati pubblicati i requisiti e il stipendio medio per gli assistenti di cura frontalieri in Ticino.',
+    'blog.article.frontaliere-assistente-di-cura-ticino-stipendio-requisiti.imageAlt': 'Una scena di Lugano con un frontaliere che lavora come assistente di cura',
 };
 
 export default blogMetaChIt;
