@@ -2771,8 +2771,8 @@
       "slug": "vendeur-vendeuse-denner",
       "slugByLocale": {
         "it": "vendeur-vendeuse-denner-sa-delemont",
-        "en": "seller-seller-denner-delemont",
-        "de": "verkaufer-verkaufer-denner-delemont",
+        "en": "seller-seller-denner-sa-delemont",
+        "de": "verkaufer-verkaufer-denner-sa-delemont",
         "fr": "vendeur-vendeuse-denner-delemont"
       },
       "company": "Denner",
@@ -2843,16 +2843,28 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-07-19T22:21:30.798Z"
+      "firstSeenAt": "2026-07-19T22:21:30.798Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "seller-seller-denner-delemont"
+        ],
+        "de": [
+          "verkaufer-verkaufer-denner-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "seller-seller-denner-delemont",
+        "verkaufer-verkaufer-denner-delemont"
+      ]
     },
     {
       "id": "denner-c36f0b63adee",
       "slug": "venditore-denner-visp",
       "slugByLocale": {
-        "it": "venditore-denner-visp",
-        "en": "seller-denner-visp",
+        "it": "venditore-denner-ag-visp",
+        "en": "seller-denner-ag-visp",
         "de": "verkaufer-in-denner-visp",
-        "fr": "vendeur-denner-visp"
+        "fr": "vendeur-denner-ag-visp"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2915,16 +2927,20 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-visp"
+          "verkaufer-in-denner-visp",
+          "seller-denner-visp"
         ],
         "fr": [
-          "verkaufer-in-denner-visp"
+          "verkaufer-in-denner-visp",
+          "vendeur-denner-visp"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-3",
         "verkaufer-in-denner",
-        "verkaufer-in-denner-visp"
+        "verkaufer-in-denner-visp",
+        "seller-denner-visp",
+        "vendeur-denner-visp"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
