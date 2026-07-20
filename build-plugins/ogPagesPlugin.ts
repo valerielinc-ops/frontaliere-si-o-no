@@ -24,6 +24,7 @@ import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, re
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
  return {
@@ -408,11 +409,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  };
  // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
 
- /* ── 2. Parse blog slug map + blog index slugs from slug-data ── */
+ /* ── 2. Parse blog slug map from slug-data ── */
  // {slugConst}: Record<ArticleId, { it, en, de, fr }> — flat lookup
  const blogSlugs: Record<string, Record<string, string>> = {};
- // Blog index slug per locale (e.g. 'articoli-frontaliere')
- const blogIndexSlug: Record<string, string> = {};
  try {
  const rSrc = fs.readFileSync(np.resolve(rootDir, SECTION.slugData), 'utf-8');
  // Parse the section's slug-const map ({slugConst})
@@ -422,27 +421,18 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  while ((bm = bsRx.exec(bsBlock)) !== null) {
  blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
  }
- // Parse blog index slug from SLUG_TABLES in router.ts (frontaliere only —
- // the svizzera hub slug is not keyed `blog:` in SLUG_TABLES; it uses the
- // descriptor's indexSlug map directly via the fallbacks below).
- if (SECTION.name === 'frontaliere') {
- try {
- const routerSrc = fs.readFileSync(np.resolve(rootDir, 'services/router.ts'), 'utf-8');
- const stBlock = routerSrc.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
- for (const loc of ['it', 'en', 'de', 'fr']) {
- const lm = stBlock.match(new RegExp(` ${loc}: \\{([\\s\\S]*?)\\n \\}`, 'm'));
- if (!lm) continue;
- const bm2 = lm[1].match(/\bblog:\s*'([^']+)'/);
- if (bm2) blogIndexSlug[loc] = bm2[1];
- }
- } catch { /* hreflang index slug will fall back to descriptor values */ }
- }
- // Descriptor fallbacks if parsing failed / was skipped
- if (!blogIndexSlug.it) blogIndexSlug.it = SECTION.indexSlug.it;
- if (!blogIndexSlug.en) blogIndexSlug.en = SECTION.indexSlug.en;
- if (!blogIndexSlug.de) blogIndexSlug.de = SECTION.indexSlug.de;
- if (!blogIndexSlug.fr) blogIndexSlug.fr = SECTION.indexSlug.fr;
- } catch { /* hreflang will be omitted */ }
+ } catch { /* non-fatal — per-article slug lookup will be empty */ }
+
+ // Blog index slug per locale (e.g. 'articoli-frontaliere') — read directly
+ // from the shared SLUG_TABLES (#4315) instead of regex-parsing router.ts
+ // source. `blog` for the frontaliere section, `blogCh` for svizzera.
+ const indexSlugKey = SECTION.name === 'frontaliere' ? 'blog' : 'blogCh';
+ const blogIndexSlug: Record<string, string> = {
+ it: SLUG_TABLES.it[indexSlugKey],
+ en: SLUG_TABLES.en[indexSlugKey],
+ de: SLUG_TABLES.de[indexSlugKey],
+ fr: SLUG_TABLES.fr[indexSlugKey],
+ };
 
  const unescapeTsString = (value: string): string =>
  value

@@ -1,4 +1,5 @@
 import { identityUrlKey } from './job-url-key.mjs';
+import { stableStringify } from './stable-stringify.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -6,16 +7,6 @@ function normalizeSpace(value = '') {
 
 function safeArray(value) {
   return Array.isArray(value) ? value : [];
-}
-
-function stableStringify(value) {
-  if (value === null || value === undefined) return JSON.stringify(value);
-  if (typeof value !== 'object') return JSON.stringify(value);
-  if (Array.isArray(value)) {
-    return `[${value.map((item) => stableStringify(item)).join(',')}]`;
-  }
-  const keys = Object.keys(value).sort();
-  return `{${keys.map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
 }
 
 // Identity URL normalization now lives in the shared scripts/lib/job-url-key.mjs
