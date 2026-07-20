@@ -1279,6 +1279,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'How much does a border electrical designer earn in Ticino',
     'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'The facts about the remuneration of a border electrical designer in Ticino',
     'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'A frontaliere working as an electrical engineer in Ticino',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.title': 'Border workers in Ticino: analysis of the decline and local impact',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.excerpt': 'Analysis of border flows in Ticino: despite an overall decline, in some Swiss municipalities the dependence on border labour remains high.',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.imageAlt': 'View of the Lugano lakefront on a sunny day.',
 };
 
 export default blogMetaChEn;

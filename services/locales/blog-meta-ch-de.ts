@@ -1279,6 +1279,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieriprogettista-elettricoin-ticino.title': 'Wie viel verdient ein Grenzelektroplaner im Tessin',
     'blog.article.frontalieriprogettista-elettricoin-ticino.excerpt': 'Fakten zur Vergütung eines Grenzelektroplaners im Tessin',
     'blog.article.frontalieriprogettista-elettricoin-ticino.imageAlt': 'Ein Frontalier, der als Elektroingenieur in Ticino arbeitet',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.title': 'Grenzgänger im Tessin: Analyse des Rückgangs und der lokalen Auswirkungen',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.excerpt': 'Analyse der Grenzgängerströme im Tessin: Trotz eines allgemeinen Rückgangs bleibt die Abhängigkeit von Grenzarbeitskräften in einigen Schweizer Gemeinden hoch.',
+    'blog.article.frontalieri-ticino-tendenze-occupazionali.imageAlt': 'Blick auf die Luganer Seepromenade an einem sonnigen Tag.',
 };
 
 export default blogMetaChDe;
