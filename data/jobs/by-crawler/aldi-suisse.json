@@ -97,7 +97,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
-      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "baseSalary": {
@@ -204,7 +203,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:19.769Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 158500,
       "baseSalary": {
@@ -311,7 +309,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T10:51:18.342Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -536,7 +533,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T21:14:10.101Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -734,7 +730,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-20T13:20:48.645Z",
       "firstSeenAt": "2026-07-10T23:18:37.544Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "baseSalary": {
@@ -747,11 +742,7 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH",
-      "previousSlugsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw"
-      ]
+      "country": "CH"
     },
     {
       "id": "aldi-suisse-28f9221c32d7",
@@ -831,18 +822,19 @@
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu",
         "sales-associate-m-w-d-aldi-suisse-winterthur",
         "commercant-m-w-d-aldi-suisse-winterthur",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur",
         "vendeur-se-m-w-d-aldi-suisse-winterthur",
         "membro-vendita-m-w-d-aldi-suisse-winterthur",
-        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd"
+        "addetto-a-alle-vendite-m-w-d-aldi-suisse-aadorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu",
           "sales-associate-m-w-d-aldi-suisse-winterthur",
           "commercant-m-w-d-aldi-suisse-winterthur",
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-5",
@@ -861,7 +853,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T13:29:28.434Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "baseSalary": {
@@ -973,7 +964,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:34.605Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1081,7 +1071,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T08:26:33.101Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "baseSalary": {
@@ -1200,8 +1189,7 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "aldi-suisse-7b03f79ecddb",
@@ -1279,10 +1267,12 @@
       "crawledAt": "2026-07-19T22:31:50.032Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
         "sales-associate-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich-xk73dg",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-zurich",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-17",
         "vendeur-se-m-w-d-aldi-suisse-rorschach",
@@ -1317,8 +1307,7 @@
         }
       },
       "country": "CH",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "aldi-suisse-f88c24cdbdd7",
@@ -1334,10 +1323,10 @@
       "companyDomain": "aldi.ch",
       "title": "Mitarbeiter Verkauf (m/w/d)",
       "titleByLocale": {
-        "it": "Membro Vendita (m/f/d)",
-        "en": "Sales Associate (m/f/d)",
+        "it": "Addetto Vendite (m/f/d)",
+        "en": "Sales Assistant (m/f/d)",
         "de": "Mitarbeiter Verkauf (m/w/d)",
-        "fr": "Vendeur (m/f/d)"
+        "fr": "Assistant(e) de Vente (h/f/d)"
       },
       "description": "Aufgaben\n• Warenbereitstellung\n\n• Kassieren\n\n• Brot backen in der Panetteria\n\n• Unterstützung der Kunden\n\n• Reinigung der Filiale\n\n• Mitarbeit bei anfallenden Arbeiten\nProfil\n• Berufserfahrung im Verkauf oder einem ähnlichen Umfeld\n\n• Idealerweise abgeschlossene Berufsausbildung im Detailhandel oder Lebensmittelbereich\n\n• Kundenorientiertes Verhalten und gepflegtes Auftreten\n\n• Hohe Motivation, Einsatzbereitschaft und Belastbarkeit\n\n• Flexibel einsatzbereit von Montag bis Samstag\n\n• Gute Deutschkenntnisse\nUnser Angebot\n• Abwechslungsreiche Aufgaben\n\n• Kurzweilige Arbeitstage\n\n• Arbeiten in einem überschaubaren und starken Team\n\n• Ein überdurchschnittlich gutes Salär und sehr gute Sozialleistungen\nArbeitsort​8400 Winterthur, Archhöfe/Archplatz 2​\nArbeitsbeginn​ab sofort​\nJetzt direkt auf die Stelle bewerbenHinweis für Personaldienstleister\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nWir lehnen somit jegliche Verantwortung für unaufgefordert eingereichte Bewerbungen und deren AGB’s ab. Vielen Dank für das Verständnis.",
       "descriptionByLocale": {
@@ -1418,6 +1407,9 @@
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
           "commercant-m-w-d-aldi-suisse-winterthur"
+        ],
+        "de": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:37.858Z",
