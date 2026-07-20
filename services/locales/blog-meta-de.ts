@@ -8730,6 +8730,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Wie viel verdient ein Grenzgänger im Tessin?',
     'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Die Gehälter der Grenzgänger im Tessin können je nach Branche und Erfahrungsstand variieren',
     'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Ein Schweizer Italienischer Grenzgänger leitet einen Zimmermann während er in der Schweiz arbeitet',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Arbeiten als Maler im Tessin: Gehalt, Voraussetzungen und Bewilligung G',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Hier ist, was Sie wissen müssen, um als Grenzgänger als Maler im Tessin zu arbeiten, einschließlich des Durchschnittsgehalts, der Anforderungen, der möglichen Anerkennung des Abschlusses und der G-Bewilligung.',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Ein Maler, der in der Stadt Lugano arbeitet, mit dem Blick auf den Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;

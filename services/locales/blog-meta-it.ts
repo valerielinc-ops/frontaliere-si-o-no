@@ -8732,6 +8732,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Quanto guadagna un falegname frontaliere in Ticino?',
     'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Gli stipendi dei frontalieri in Ticino possono variare a seconda del settore e del livello di esperienza',
     'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Un frontaliere ticinese guida un falegname mentre lavora in Svizzera',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Lavorare come pittore in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Ecco cosa devi sapere per lavorare come pittore in Ticino da frontaliere, compresi il stipendio medio, i requisiti, l\'eventuale riconoscimento del titolo di studio e il permesso G.',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Un pittore che lavora nella città di Lugano, con la vista del lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

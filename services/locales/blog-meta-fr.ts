@@ -8732,6 +8732,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.falegname-guadagno-frontaliere-ticino.title': 'Combien gagne un menuisier frontalier au Tessin ?',
     'blog.article.falegname-guadagno-frontaliere-ticino.excerpt': 'Les salaires des frontaliers au Tessin peuvent varier en fonction du secteur et du niveau d\'expérience',
     'blog.article.falegname-guadagno-frontaliere-ticino.imageAlt': 'Un frontalier ticinois guide un charpentier tandis qu\'il travaille en Suisse',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.title': 'Travailler comme peintre au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.excerpt': 'Voici ce que vous devez savoir pour travailler comme peintre au Tessin en tant que frontalier, y compris le salaire moyen, les exigences, la reconnaissance éventuelle du diplôme et le permis G.',
+    'blog.article.frontaliere-pittore-ticino-stipendio-requisiti.imageAlt': 'Un peintre travaillant dans la ville de Lugano, avec la vue du lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

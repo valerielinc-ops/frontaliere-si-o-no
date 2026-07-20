@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3376,
+ "numberOfItems": 3377,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8144,7 +8144,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3373, "name": "Quanto guadagna un idraulico frontaliere in Ticino", "url": `${BASE_URL}/articoli-frontaliere/idraulico-ticino-frontiera-guadagno` },
           { "@type": "ListItem", "position": 3374, "name": "Frontaliere falegname in Ticino: requisiti e ri...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-falegname-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3375, "name": "Quanto guadagna un falegname frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/falegname-guadagno-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3376, "name": "Carpentiere in Ticino: stipendio e requisiti pe...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-carpentiere-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3376, "name": "Carpentiere in Ticino: stipendio e requisiti pe...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-carpentiere-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3377, "name": "Lavorare come pittore in Ticino: stipendio, req...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-pittore-ticino-stipendio-requisiti` }
  ]
  },
  {
