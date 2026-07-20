@@ -3635,6 +3635,7 @@ Rules:
  'publisher.error': 'Something went wrong. Please try again.',
  'publisher.error.description': 'The description must contain at least 50 words.',
  'publisher.error.locations': 'Add at least one work location.',
+ 'publisher.error.locationCity': 'Select a city from the suggestions for the chosen canton.',
  'publisher.error.title': 'Enter the position title.',
  'publisher.error.companyName': 'Enter the company name.',
  'publisher.error.applyUrl': 'Enter a valid application URL.',

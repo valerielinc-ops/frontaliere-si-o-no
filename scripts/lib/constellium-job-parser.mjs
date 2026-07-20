@@ -25,7 +25,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -310,11 +310,15 @@ export async function fetchAllConstelliumJobs() {
       continue;
     }
 
-    const city = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '');
-    if (!city) {
-      console.log(`  ⏭️  Skipped — unresolved Swiss city: ${title}`);
-      continue;
-    }
+    // listSwissJobs() already scoped this listing to Switzerland; a
+    // free-text location that failed to parse doesn't mean it's foreign —
+    // give it the same second-chance anchor as assemble-jobs-dataset.mjs's
+    // canton rescue: a real Swiss city named in the description, falling
+    // back to Constellium's documented main Swiss site (Sierre) rather
+    // than dropping a listing the API itself already confirmed is Swiss.
+    const city = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '')
+      || canonicalSwissCityName(findSwissCityInText(stripHtml(detail.descriptionHtml || '')))
+      || 'Sierre';
 
     const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
     const descriptionText = stripHtml(detail.descriptionHtml || '');

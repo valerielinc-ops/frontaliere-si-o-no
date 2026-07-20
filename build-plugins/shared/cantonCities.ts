@@ -83,6 +83,13 @@ export function getCantonCities(canton: string): string[] {
   return [];
 }
 
+/** True iff `city` is a known BFS municipality/alias of `canton` (diacritic/case-insensitive). */
+export function isKnownCityInCanton(city: string, canton: string): boolean {
+  const target = normalizeForLookup(city);
+  if (!target) return false;
+  return getCantonCities(canton).some((c) => normalizeForLookup(c) === target);
+}
+
 export function getCityCanton(city: string): string | null {
   const norm = normalizeForLookup(city);
   // 1. Try exact disambiguated form first (e.g. 'aesch (zh)' → ZH)

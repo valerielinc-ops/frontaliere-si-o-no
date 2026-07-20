@@ -10,7 +10,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -287,10 +287,16 @@ export async function fetchAllLonzaJobs() {
       continue;
     }
 
- const resolvedLocation = resolveWorkdayLocation(info, listing);
+ // listSwissJobs() already scoped this listing to Switzerland via a
+ // Workday country facet; a free-text location that failed to parse
+ // doesn't mean it's foreign — give it the same second-chance anchor as
+ // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
+ // the description, falling back to Lonza's main Swiss site (Visp)
+ // rather than dropping a listing the facet already confirmed is Swiss.
+ let resolvedLocation = resolveWorkdayLocation(info, listing);
  if (!resolvedLocation) {
-  console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
-  continue;
+  const rescueCity = canonicalSwissCityName(findSwissCityInText(stripHtml(info.jobDescription || ''))) || 'Visp';
+  resolvedLocation = { city: rescueCity, canton: inferCanton(rescueCity) || 'VS' };
  }
  const { city, canton } = resolvedLocation;
 

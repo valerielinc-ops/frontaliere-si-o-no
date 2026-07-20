@@ -3638,6 +3638,7 @@ Règles :
  'publisher.error': 'Une erreur s\'est produite. Veuillez réessayer.',
  'publisher.error.description': 'La description doit contenir au moins 50 mots.',
  'publisher.error.locations': 'Ajoutez au moins un lieu de travail.',
+ 'publisher.error.locationCity': 'Sélectionnez une ville parmi les suggestions pour le canton choisi.',
  'publisher.error.title': 'Saisissez l\'intitulé du poste.',
  'publisher.error.companyName': 'Saisissez le nom de l\'entreprise.',
  'publisher.error.applyUrl': 'Saisissez une URL de candidature valide.',

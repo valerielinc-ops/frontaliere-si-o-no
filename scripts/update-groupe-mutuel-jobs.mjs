@@ -49,7 +49,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, findSwissCityInText, canonicalSwissCityName  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -504,16 +504,20 @@ function parseCsodJob(rawJob) {
   const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
   city = parseCsodLocation(locationRaw);
  }
- if (!city) {
-  console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
-  return null;
- }
-
-  const canton = inferCanton(city);
-
   // New API: externalDescription; old: description/jobDescription
   const descriptionRaw = rawJob.externalDescription || rawJob.description || rawJob.jobDescription || rawJob.shortDescription || '';
   const descriptionText = stripHtml(descriptionRaw);
+ if (!city) {
+  // Groupe Mutuel's career portal is Swiss-only (no country facet to lean
+  // on) — an unresolved city here is a parse failure, not evidence of a
+  // foreign job. Give it the same second-chance anchor as
+  // assemble-jobs-dataset.mjs's canton rescue: a real Swiss city named in
+  // the description, falling back to Groupe Mutuel's HQ (Martigny) rather
+  // than dropping the listing outright.
+  city = canonicalSwissCityName(findSwissCityInText(descriptionText)) || COMPANY_HQ[GROUPE_MUTUEL_KEY].city;
+ }
+
+  const canton = inferCanton(city);
 
   const publicUrl = requisitionId
     ? buildPublicUrl(requisitionId)
