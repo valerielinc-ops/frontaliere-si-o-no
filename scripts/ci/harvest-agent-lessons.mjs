@@ -391,6 +391,45 @@ export function isAvoidableMaxTurns(title, labels, hasDeliveredPr = false) {
   return true; // single-item, still-routable → fixable loop → countable
 }
 
+// ---- `no-root-cause` avoidability classifier (DETERMINISTIC) ----------------
+// A `fix-outcome:no-root-cause` marker is recurring-BURN worth escalating ONLY
+// when the fixer genuinely explored a real code bug and couldn't diagnose it —
+// the prose rule ("se dopo ~15 turni non emerge una root cause chiara... termina
+// con l'outcome no-root-cause") failing to prevent repeat exploration dead-ends.
+// Escalation #4580 fired at 6/14d, but EVERY example (#4540/#4516/#4515/#4484/
+// #4458) is a CORRECT, non-preventable abort forced into this one generic code
+// because the taxonomy had no dedicated code for either class below — the rule
+// was never broken, the taxonomy was too coarse:
+//   1. TRANSIENT / VERIFIED-LIVE NON-BUG (#4540/#4516/#4515): the fixer verified
+//      live (curl, `gh run list`) that the alert is a monitor false-positive — a
+//      self-heal debounced-opener issue by design (#4540), or a deploy-churn edge
+//      503 blip that had already resolved by the time of diagnosis (#4516/#4515).
+//      There is no root cause to find because there is no bug: "try harder to
+//      diagnose" cannot fix a symptom that stopped existing.
+//   2. BLOCKED-ON-DEPENDENCY (#4484/#4458): the fixer found the root cause — an
+//      epic/sub-issue this issue explicitly depends on ("Dipende dalla sub-issue
+//      X") isn't done yet — but building that dependency here would blow the
+//      single-issue scope (AGENTS.md #6) and duplicate the dedicated fixer run
+//      already queued for it. Root cause IS known; the run is blocked, not lost.
+// Neither class is a diagnosis failure, so counting them can never validate a
+// "the rule works now" outcome — no amount of prompt tuning eliminates a
+// transient monitor blip or an unmet epic dependency. A genuine no-root-cause
+// (explored and still can't tell) has neither tell below and stays counted.
+// Detected from the OUTCOME COMMENT BODY (not title/labels, unlike the sibling
+// classifiers above): the distinguishing signal is the fixer's own diagnosis
+// prose, not issue metadata. Pure → unit-tested, same shape as
+// isAvoidableAlreadyFixed / isAvoidableMaxTurns.
+const NO_ROOT_CAUSE_TRANSIENT_RE =
+  /verificat[oa]\s+live,?\s+nessuna root cause di codice|nessun bug di codice|self-heal|debounc\w*|blip\s+(?:edge\s+)?transitori[oa]|rumore\s+(?:edge\/)?deploy-churn|rumore\s+transitori[oa]/i;
+const NO_ROOT_CAUSE_BLOCKED_DEP_RE =
+  /blocco di dipendenza|dipend[ei]\s+esplicitamente\s+dalla\s+sub-?issue|blocked:\s*dipendenza/i;
+export function isAvoidableNoRootCause(commentBody) {
+  const s = String(commentBody || '');
+  if (NO_ROOT_CAUSE_TRANSIENT_RE.test(s)) return false; // (1) verified non-bug
+  if (NO_ROOT_CAUSE_BLOCKED_DEP_RE.test(s)) return false; // (2) blocked on unmet dependency
+  return true; // genuine "couldn't diagnose" → the real signal → countable
+}
+
 // ---- 2. Recurring issue classes (created in window) ----
 export function issueClass(title, labels) {
   const t = title || '';
@@ -603,6 +642,11 @@ async function main() {
       // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
       // dominated by aggregate / parked runs). Single-item still-routable deaths count.
       if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames, hasDeliveredPr)) continue;
+      // `no-root-cause` on a verified-transient monitor blip or an explicit
+      // unmet-epic-dependency block is an EXPECTED correct abort, not a
+      // diagnosis failure the prose rule could ever prevent (#4580: all 5
+      // examples were one of these two, none a genuine stuck-diagnosis).
+      if (code === 'no-root-cause' && !isAvoidableNoRootCause(cb)) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
