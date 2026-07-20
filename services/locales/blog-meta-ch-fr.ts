@@ -1333,6 +1333,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Enseignants frontaliers au Tessin : exigences et reconnaissance',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme enseignant au Tessin en tant que frontalier et les conditions de reconnaissance du diplôme d\'études.',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'Une vue photographique de Lugano, avec le lac et les montagnes en arrière-plan. Un enseignant frontalier est assis sur une banquette, avec un livre ouvert dans sa main et un air calme sur son visage.',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Enseignants frontaliers au Tessin : salaire et exigences',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Réglage de la source sur le revenu du travail : retenue UNIQUEMENT en Suisse pour les frontaliers',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Image d\'une classe scolaire en Suisse italienne',
 };
 
 export default blogMetaChFr;

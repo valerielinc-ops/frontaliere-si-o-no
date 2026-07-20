@@ -1333,6 +1333,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Docenti frontalieri in Ticino: requisiti e riconoscimento',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio.',
     'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'Una scena fotografata a Lugano, con il lago e le montagne sullo sfondo. Un docente frontaliero è seduto su una panchina, con un libro aperto in mano e un\'espressione serena sul viso.',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Docenti frontalieri in Ticino: stipendio e requisiti',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Impostazione della fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri',
+    'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Immagine di un aula scolastica in Ticino',
 };
 
 export default blogMetaChIt;
