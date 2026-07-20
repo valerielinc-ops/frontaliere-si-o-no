@@ -1291,6 +1291,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontalieri-salario-meccatronico.title': 'Combien gagne un mécatronicien frontalier au Tessin ?',
     'blog.article.frontalieri-salario-meccatronico.excerpt': 'Le salaire d\'un mécatronicien frontalier au Tessin est influencé par des facteurs tels que la nationalité, la résidence et l\'expérience professionnelle.',
     'blog.article.frontalieri-salario-meccatronico.imageAlt': 'Un mécanicien travaille dans un bureau à Lugano.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Soudeurs au Tessin : salaire, exigences et reconnaissance',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les soudeurs frontaliers au Tessin. Dans cet article, nous découvrons les exigences, le salaire moyen et les exemptions possibles.',
+    'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Image d\'un soudurier en train de travailler dans une usine du Tessin',
 };
 
 export default blogMetaChFr;
