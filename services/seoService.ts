@@ -4674,6 +4674,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendio-meccanico-frontaliere-ticino': { name: 'Quanto guadagna un meccanico frontaliere', path: '/articoli-svizzera/stipendio-meccanico-frontaliere-ticino/', parent: 'blog' },
     'blog-frontaliere-meccatronico-ticino-stipendio-requisiti': { name: 'Frontaliere meccatronico Ticino', path: '/articoli-frontaliere/frontaliere-meccatronico-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontalieri-salario-meccatronico': { name: 'Salario frontaliere Ticino', path: '/articoli-svizzera/frontalieri-salario-meccatronico/', parent: 'blog' },
+    'blog-stipendio-saldatore-frontaliere-ticino': { name: 'Stipendio saldatore frontaliere Ticino', path: '/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

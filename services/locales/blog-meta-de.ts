@@ -8685,6 +8685,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Mechatronischer Grenzgänger Tessin Lohnvoraussetzungen',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'Die G-Genehmigung ist für Mechatroniker im Tessin erforderlich. Es ist nicht festgelegt, welche Anforderung für Mechatroniker im Tessin erforderlich ist.',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'Ein Mechaniker in Ticino mit Hintergrund Monte Bre.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Wie viel verdient ein Grenzschweisser im Tessin?',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Mit dem neuen Steuerabkommen von 2024 wurden die Grenzgängersteuern im Tessin geändert.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Ein Frontalier Schweißer in Ticino überprüft einen schweren Fahrzeug',
 };
 
 export default blogMetaDe;

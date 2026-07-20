@@ -8687,6 +8687,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Frontaliere meccatronico Ticino stipendio requisiti',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'Il permesso G è necessario per i meccatronici in Ticino. Non è specificato quale requisito sia necessario per i meccatronici in Ticino.',
     'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'Un meccanico in Ticino con sfondo monte bre.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Quanto guadagna un saldatore frontaliere in Ticino?',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Il nuovo accordo fiscale del 2024 ha modificato le imposte dei frontalieri in Ticino.',
+    'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Un saldatore frontaliere in Ticino esegue un controllo di sicurezza su un mezzo pesante',
 };
 
 export default blogMetaIt;
