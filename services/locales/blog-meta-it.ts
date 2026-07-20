@@ -8693,6 +8693,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Frontaliere saldatore: stipendio, requisiti e titolo di studio',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei saldatori frontalieri in Ticino: non ancora specificato. Requisiti per lavorare come saldatore in Ticino da frontaliere: diploma di maturità. Riconoscimento del titolo di studio per i frontalieri: non ancora specificato.',
     'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontaliere saldatore in azione a Bellinzona',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'Operatore CNC in Ticino: stipendio, requisiti e permesso G',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Stipendio medio per un operatore CNC in Ticino: non ancora specificato. Requisiti per lavorare come operatore CNC in Ticino: non ancora specificato. Riconoscimento titolo di studio: non ancora specificato.',
+    'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un operatore CNC in un ambiente di lavoro in Ticino',
 };
 
 export default blogMetaIt;
