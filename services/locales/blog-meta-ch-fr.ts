@@ -1324,6 +1324,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Frontière fiduciaire : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Les frontaliers fiduciaires au Tessin doivent avoir une exigence de salaire moyen, mais il n\'y a aucune référence à une exigence de salaire spécifique.',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'Une scène de Lugano avec un fiduciaire frontalier au travail',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Travailleur social frontalier au Tessin : salaire et exigences',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Salaire moyen et exigences pour travailler comme travailleur social frontalier au Tessin.',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier en soins de santé dans un hôpital suisse, avec un environnement moderne et technologique.',
 };
 
 export default blogMetaChFr;

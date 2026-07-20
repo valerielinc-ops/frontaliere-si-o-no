@@ -1324,6 +1324,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.title': 'Fiduciary border: salary, requirements and recognition',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.excerpt': 'Trustees in Ticino must have an average salary requirement, but there is no reference to a specific salary requirement.',
     'blog.article.frontaliere-fiduciario-ticino-stipendio-requisiti.imageAlt': 'A scene of Lugano with a frontier fiduciary at work',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.title': 'Border social worker in Ticino: salary and requirements',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.excerpt': 'Average salary and requirements to work as a border worker social worker in Ticino.',
+    'blog.article.frontaliere-assistente-sociale-ticino-stipendio-requisiti.imageAlt': 'A Swiss border health worker in a hospital, with a modern and technological environment.',
 };
 
 export default blogMetaChEn;

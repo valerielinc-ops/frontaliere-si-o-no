@@ -464,6 +464,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'quanto-guadagna-un-risorse-umane-frontaliere-in-ticino': { it: 'quanto-guadagna-un-risorse-umane-frontaliere-in-ticino', en: 'how-much-does-a-cross-border-worker-in-ticino-earn', de: 'wie-viel-verdient-ein-grenzganger-in-ticino', fr: 'combien-gagne-un-frontalier-en-ticino' },
  'frontaliere-consulente-clientela-ticino-stipendio-requisiti': { it: 'frontaliere-consulente-clientela-ticino-stipendio-requisiti', en: 'frontaliere-consulente-clientela-ticino-salary-requirements', de: 'frontaliere-consulente-clientela-ticino-gehalt-anforderungen', fr: 'frontaliere-consulente-clientela-ticino-salaire-exigences' },
  'frontaliere-fiduciario-ticino-stipendio-requisiti': { it: 'frontaliere-fiduciario-ticino-stipendio-requisiti', en: 'frontier-fiduciary-ticino-wage-requirements', de: 'grenzfiduziarius-ticino-lohnanforderungen', fr: 'fiduciaire-frontalier-ticino-requisits-salaire' },
+ 'frontaliere-assistente-sociale-ticino-stipendio-requisiti': { it: 'frontaliere-assistente-sociale-ticino-stipendio-requisiti', en: 'swiss-border-health-worker-ticino-salary-requirements', de: 'grenzganger-gesundheitsassistent-tessin-salar-anforderungen', fr: 'travailleur-frontalier-en-soins-de-sante-tessin-salaire-requis' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
