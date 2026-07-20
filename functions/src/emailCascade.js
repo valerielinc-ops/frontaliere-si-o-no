@@ -376,10 +376,14 @@ async function computeMailtrapDynamicDailyLimit(nowMs = Date.now()) {
   if (apiLimit && apiLimit !== provider.monthlyLimit) {
     console.warn(`⚠️  [mailtrap] live plan limit (${apiLimit}) differs from configured monthlyLimit (${provider.monthlyLimit}) — update PROVIDERS`);
   }
+  // Use the live apiLimit when available, not the possibly-stale static
+  // config — a plan downgrade would otherwise pace against a higher number
+  // than the account actually has (review finding, PR #4583).
+  const cap = apiLimit || provider.monthlyLimit;
   const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
-  const remainingBudget = Math.max(0, provider.monthlyLimit - count);
+  const remainingBudget = Math.max(0, cap - count);
   const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
-  console.log(`   [mailtrap] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
+  console.log(`   [mailtrap] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${cap}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
   return dynamicLimit;
 }
 

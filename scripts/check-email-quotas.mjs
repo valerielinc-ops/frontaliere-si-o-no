@@ -233,8 +233,12 @@ async function main(opts) {
     if (!verified) {
       console.log('   ⚠️  Usage endpoint unreachable/unauthorized — sending is unaffected, daily guard falls back to a conservative static pace.');
     } else {
-      const remaining = Math.max(0, monthlyCap - count);
-      console.log(`   Sent this cycle (${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}): ${count} / ${monthlyCap}  (≈${remaining} remaining)`);
+      // Display against the live apiLimit when available, not the possibly-
+      // stale static config (review finding, PR #4583 — same fix as
+      // computeMailtrapDynamicDailyLimit in emailCascade.js).
+      const cap = apiLimit || monthlyCap;
+      const remaining = Math.max(0, cap - count);
+      console.log(`   Sent this cycle (${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}): ${count} / ${cap}  (≈${remaining} remaining)`);
       if (apiLimit && apiLimit !== monthlyCap) {
         console.log(`   ⚠️  Live plan limit (${apiLimit}) differs from configured monthlyLimit (${monthlyCap}) — update PROVIDERS in emailCascade.js.`);
       }
