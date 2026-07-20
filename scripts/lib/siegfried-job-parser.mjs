@@ -21,7 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -289,9 +289,15 @@ export async function fetchAllSiegfriedJobs() {
         }
       }
     }
+    // Last resort: listSwissJobs() already scoped this listing to
+    // Switzerland via a Workday country facet; a free-text location that
+    // failed to parse doesn't mean it's foreign — give it the same
+    // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue:
+    // a real Swiss city named in the description, falling back to
+    // Siegfried's main Swiss site (Evionnaz) rather than dropping a
+    // listing the facet already confirmed is Swiss.
     if (!city) {
-      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
-      continue;
+      city = rescueSwissCityFromText(stripHtml(info.jobDescription || '')) || 'Evionnaz';
     }
 
     // Skip foreign locations that slipped through Workday's country filter

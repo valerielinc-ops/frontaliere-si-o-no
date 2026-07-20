@@ -18,7 +18,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -292,13 +292,17 @@ export async function fetchAllArxadaJobs() {
       continue;
     }
 
-    // Extract city from Workday location text
+    // Extract city from Workday location text. listSwissJobs() already
+    // scoped this listing to Switzerland; a free-text location that
+    // failed to parse doesn't mean it's foreign — give it the same
+    // second-chance anchor as assemble-jobs-dataset.mjs's canton rescue:
+    // a real Swiss city named in the description, falling back to
+    // Arxada's documented main Swiss site (Visp) rather than dropping a
+    // listing the API itself already confirmed is Swiss.
     const locationRaw = info.location || listing.locationsText || '';
-    let city = parseWorkdayLocation(locationRaw);
-    if (!city) {
-      console.log(` ⏭️ Skipped — unresolved Swiss city/canton: ${title}`);
-      continue;
-    }
+    const city = parseWorkdayLocation(locationRaw)
+      || rescueSwissCityFromText(stripHtml(info.jobDescription || ''))
+      || 'Visp';
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';

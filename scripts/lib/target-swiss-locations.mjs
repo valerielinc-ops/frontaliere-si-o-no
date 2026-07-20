@@ -531,6 +531,23 @@ export function findSwissCityInText(text = '') {
   return '';
 }
 
+/**
+ * Guarded combination of findSwissCityInText() + canonicalSwissCityName():
+ * only accepts a match of ≥4 characters. Some Swiss municipality names are
+ * also everyday nouns in the job's own language (e.g. "Zug" = train in
+ * German, "Bulle" = bubble in French), so a description that merely
+ * mentions commute logistics ("gut mit dem Zug erreichbar") must not be
+ * treated as naming the job's real city. Returns '' when there is no match
+ * or the match is too short to trust. Single source of truth for every
+ * description-text rescue call site — never inline the raw
+ * canonicalSwissCityName(findSwissCityInText(...)) expression instead.
+ */
+export function rescueSwissCityFromText(text = '') {
+  const found = findSwissCityInText(text);
+  if (!found || found.length < 4) return '';
+  return canonicalSwissCityName(found);
+}
+
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────
 // Liechtenstein (FL) shares CH-style 4-digit postcodes in the 9485-9498 range.
 // Crawlers must reject these because FL is not part of CH and is out of scope
