@@ -402,11 +402,14 @@
       "crawledAt": "2026-07-18T23:05:02.971Z",
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
         "sales-associate-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "vendeur-se-m-w-d-aldi-suisse-uster",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
-        "commercant-m-w-d-aldi-suisse-meilen"
+        "commercant-m-w-d-aldi-suisse-meilen",
+        "employe-de-vente-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -418,7 +421,8 @@
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "commercant-m-w-d-aldi-suisse-meilen"
+          "commercant-m-w-d-aldi-suisse-meilen",
+          "employe-de-vente-m-w-d-aldi-suisse-meilen"
         ],
         "de": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -634,15 +638,19 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu"
+          "membro-vendita-m-w-d-aldi-suisse-winterthur"
         ],
         "de": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "employe-de-vente-m-w-d-aldi-suisse-winterthur"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "membro-vendita-m-w-d-aldi-suisse-winterthur-nkcazu"
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "employe-de-vente-m-w-d-aldi-suisse-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1395,27 +1403,33 @@
       "sourceLang": "de",
       "crawledAt": "2026-07-18T23:05:04.100Z",
       "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mexgpw",
         "sales-associate-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-meilen",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "sales-associate-m-w-d-aldi-suisse-meilen",
         "vendeur-se-m-w-d-aldi-suisse-meilen",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "commercant-m-w-d-aldi-suisse-winterthur",
-        "membro-vendita-m-w-d-aldi-suisse-winterthur"
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "venditore-m-w-d-aldi-suisse-winterthur",
+        "employe-de-vente-m-w-d-aldi-suisse-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "membro-vendita-m-w-d-aldi-suisse-winterthur"
+          "membro-vendita-m-w-d-aldi-suisse-winterthur",
+          "venditore-m-w-d-aldi-suisse-winterthur"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "commercant-m-w-d-aldi-suisse-winterthur"
+          "commercant-m-w-d-aldi-suisse-winterthur",
+          "employe-de-vente-m-w-d-aldi-suisse-winterthur"
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:37.858Z",
