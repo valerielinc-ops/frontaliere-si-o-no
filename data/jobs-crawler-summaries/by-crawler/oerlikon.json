@@ -1,55 +1,18 @@
 {
   "key": "oerlikon",
   "label": "Oerlikon",
-  "generatedAt": "2026-07-19T23:02:04.543Z",
+  "generatedAt": "2026-07-20T11:58:19.047Z",
   "total": 9,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 12505,
-  "avgDurationMs": 12505,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 9585,
+  "avgDurationMs": 9585,
   "durationHistory": [
-    12505
+    9585
   ],
-  "newJobs": [
-    {
-      "id": "oerlikon-8641f903e355",
-      "slug": "technical-customer-support-iiot-digitalisierung-gn-oerlikon-ch",
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Technical Customer Support - IIoT & Digitalisierung (gn)",
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Technical-Customer-Support-IIoT-&amp;-Digitalisierung-%28gn%29/102841-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:54.576Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9496",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://careers.oerlikon.com/job/Technical-Customer-Support-IIoT-&amp;-Digitalisierung-%28gn%29/102841-en_US",
-      "firstSeenAt": "2026-07-08T22:12:59.089Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "oerlikon-356e3fe4d231",
@@ -63,7 +26,7 @@
       "url": "https://careers.oerlikon.com/job/Export-Verpacker-%28gn%29/103043-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:02:00.669Z",
+      "crawledAt": "2026-07-20T11:58:14.972Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -99,7 +62,7 @@
       "url": "https://careers.oerlikon.com/job/Lehrstelle-als-Konstrukteur-%28gn%29-EFZ/103628-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:59.089Z",
+      "crawledAt": "2026-07-20T11:58:14.241Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -135,7 +98,7 @@
       "url": "https://careers.oerlikon.com/job/Service-Techniker-f%C3%BCr-Produktionsanlagen-%28inhouse%29-%28gn%29/104492-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:59.875Z",
+      "crawledAt": "2026-07-20T11:58:15.693Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -171,7 +134,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104256-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:55.956Z",
+      "crawledAt": "2026-07-20T11:58:11.337Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -207,7 +170,7 @@
       "url": "https://careers.oerlikon.com/job/Software-Engineer-%28gn%29/104224-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:58.320Z",
+      "crawledAt": "2026-07-20T11:58:13.520Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +206,7 @@
       "url": "https://careers.oerlikon.com/job/Customer-Service-Specialist-Riri-Zippers/104205-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-07-19T23:02:01.467Z",
+      "crawledAt": "2026-07-20T11:58:16.441Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -279,7 +242,7 @@
       "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/103981-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:56.735Z",
+      "crawledAt": "2026-07-20T11:58:12.061Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -315,7 +278,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/103867-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T23:01:57.540Z",
+      "crawledAt": "2026-07-20T11:58:12.804Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -340,7 +303,8 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "oerlikon-8641f903e355",
       "slug": "supporto-tecnico-del-cliente-iiot-digitalization-gn-oerlikon-wohlen",
@@ -353,7 +317,7 @@
       "url": "https://careers.oerlikon.com/job/Technical-Customer-Support-IIoT-&-Digitalisierung-%28gn%29/102841-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-19T11:13:15.039Z",
+      "crawledAt": "2026-07-19T23:01:54.576Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -371,6 +335,7 @@
       "firstSeenAt": "2026-07-08T22:12:59.089Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
+      "crawlerMissStreak": 1,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -379,6 +344,5 @@
         "completeness": 22
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }

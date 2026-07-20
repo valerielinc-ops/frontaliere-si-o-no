@@ -623,6 +623,32 @@ export function acceptInferredCantonForFill(rawInferred) {
   return TARGET_CANTONS.includes(rawInferred) ? rawInferred : null;
 }
 
+/**
+ * A canton-only label ("Ticino", "TI") location string names the canton
+ * itself, not a real municipality — it carries no more precision than the
+ * canton field it would be overriding. Good enough to FILL an empty canton
+ * (see the fill-from-inference comment below — UBS roles posted with
+ * location "Ticino" self-heal from canton=""), but not precise enough to
+ * OVERRIDE an already-assigned, DIFFERENT canton the crawler recorded.
+ *
+ * Without this guard, a job whose location field is forged/corrupted to the
+ * literal canton name — while its own `canton` field is correct — gets the
+ * correct value silently clobbered by this low-precision text match, then
+ * frozen there forever by the pin ledger (issue #4570: ETA SA/Swatch Group
+ * jobs correctly tagged canton=SO by the crawler, but with
+ * location="Ticino", were overwritten to canton=TI here). Exported for unit
+ * testing.
+ *
+ * @param {string} existingCanton - job's canton BEFORE this fix step.
+ * @param {string} locationText - job.addressLocality || job.location.
+ * @returns {boolean} true if an inferred-from-location canton must be
+ *   ignored (not applied) because it's only a bare canton-name match against
+ *   a job that already has a different canton on record.
+ */
+export function isWeakCantonOnlyLabelOverride(existingCanton, locationText) {
+  return Boolean(existingCanton) && isCantonOnlyLabel(String(locationText || '').trim());
+}
+
 const SWISS_PC_RE = /^\d{4}$/;
 
 /** BFS valid Swiss postal-code range. */
@@ -1642,7 +1668,10 @@ async function assembleJobs() {
     // (e.g. UBS roles posted with location "Ticino") kept canton="" and was then
     // FROZEN empty by the pin ledger below → permanently mis-placed / orphaned.
     // Filling from inference is always safe (an empty canton is never intended).
-    if (inferred && job.canton !== inferred) {
+    // EXCEPT when the only evidence is a bare canton-name label overriding an
+    // already-different, non-empty canton — see isWeakCantonOnlyLabelOverride
+    // (#4570).
+    if (inferred && job.canton !== inferred && !isWeakCantonOnlyLabelOverride(job.canton, city)) {
       if (job.canton) cantonFixes++;
       else cantonFilled++;
       job.canton = inferred;
