@@ -8696,6 +8696,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.title': 'Opérateur CNC au Tessin : salaire, exigences et permis G',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.excerpt': 'Salaire moyen d\'un opérateur CNC au Tessin : non encore précisé. Exigences pour travailler en tant qu\'opérateur CNC au Tessin : non encore spécifié. Reconnaissance du titre d\'études : non encore spécifié.',
     'blog.article.operatore-cnc-frontaliero-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un opérateur CNC dans un environnement de travail en Suisse',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.title': 'Combien gagne un opérateur CNC frontalier au Tessin ?',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.excerpt': 'Les salaires des opérateurs CNC frontaliers au Tessin sont influencés par divers facteurs, tels que la fourchette des salaires, les différences par rapport à l\'Italie et les facteurs qui affectent la rémunération.',
+    'blog.article.quanto-guadagna-un-operatore-cnc-frontaliere-in-ticino.imageAlt': 'Un opérateur CNC travaille dans une entreprise du Canton Ticino, avec une vue sur la ville de Lugano.',
 };
 
 export default blogMetaFr;
