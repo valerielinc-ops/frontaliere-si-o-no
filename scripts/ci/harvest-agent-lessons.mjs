@@ -391,6 +391,45 @@ export function isAvoidableMaxTurns(title, labels, hasDeliveredPr = false) {
   return true; // single-item, still-routable → fixable loop → countable
 }
 
+// ---- `no-root-cause` avoidability classifier (DETERMINISTIC) ----------------
+// A `fix-outcome:no-root-cause` marker is recurring-BURN worth escalating ONLY
+// when the fixer genuinely explored a real code bug and couldn't diagnose it —
+// the prose rule ("se dopo ~15 turni non emerge una root cause chiara... termina
+// con l'outcome no-root-cause") failing to prevent repeat exploration dead-ends.
+// Escalation #4580 fired at 6/14d, but EVERY example (#4540/#4516/#4515/#4484/
+// #4458) is a CORRECT, non-preventable abort forced into this one generic code
+// because the taxonomy had no dedicated code for either class below — the rule
+// was never broken, the taxonomy was too coarse:
+//   1. TRANSIENT / VERIFIED-LIVE NON-BUG (#4540/#4516/#4515): the fixer verified
+//      live (curl, `gh run list`) that the alert is a monitor false-positive — a
+//      self-heal debounced-opener issue by design (#4540), or a deploy-churn edge
+//      503 blip that had already resolved by the time of diagnosis (#4516/#4515).
+//      There is no root cause to find because there is no bug: "try harder to
+//      diagnose" cannot fix a symptom that stopped existing.
+//   2. BLOCKED-ON-DEPENDENCY (#4484/#4458): the fixer found the root cause — an
+//      epic/sub-issue this issue explicitly depends on ("Dipende dalla sub-issue
+//      X") isn't done yet — but building that dependency here would blow the
+//      single-issue scope (AGENTS.md #6) and duplicate the dedicated fixer run
+//      already queued for it. Root cause IS known; the run is blocked, not lost.
+// Neither class is a diagnosis failure, so counting them can never validate a
+// "the rule works now" outcome — no amount of prompt tuning eliminates a
+// transient monitor blip or an unmet epic dependency. A genuine no-root-cause
+// (explored and still can't tell) has neither tell below and stays counted.
+// Detected from the OUTCOME COMMENT BODY (not title/labels, unlike the sibling
+// classifiers above): the distinguishing signal is the fixer's own diagnosis
+// prose, not issue metadata. Pure → unit-tested, same shape as
+// isAvoidableAlreadyFixed / isAvoidableMaxTurns.
+const NO_ROOT_CAUSE_TRANSIENT_RE =
+  /verificat[oa]\s+live,?\s+nessuna root cause di codice|nessun bug di codice|self-heal|debounc\w*|blip\s+(?:edge\s+)?transitori[oa]|rumore\s+(?:edge\/)?deploy-churn|rumore\s+transitori[oa]/i;
+const NO_ROOT_CAUSE_BLOCKED_DEP_RE =
+  /blocco di dipendenza|dipend[ei]\s+esplicitamente\s+dalla\s+sub-?issue|blocked:\s*dipendenza/i;
+export function isAvoidableNoRootCause(commentBody) {
+  const s = String(commentBody || '');
+  if (NO_ROOT_CAUSE_TRANSIENT_RE.test(s)) return false; // (1) verified non-bug
+  if (NO_ROOT_CAUSE_BLOCKED_DEP_RE.test(s)) return false; // (2) blocked on unmet dependency
+  return true; // genuine "couldn't diagnose" → the real signal → countable
+}
+
 // ---- 2. Recurring issue classes (created in window) ----
 export function issueClass(title, labels) {
   const t = title || '';
@@ -431,6 +470,60 @@ export function parseEscalationKey(title) {
   const m = /^escalation\(harvester\):\s*(.+?)\s+ricorre nonostante regola\s*$/.exec(String(title || ''));
   return m ? m[1].trim() : null;
 }
+// ---- POST-FIX RE-ESCALATION GUARD (DETERMINISTIC, escalation #4578) --------
+// `fix-outcome:revenue-tracker-manual` re-fired the day AFTER its own structural
+// fix shipped: #4517 (this exact bucket) was closed by merging PR #4535, which
+// added a zero-Claude pre-flight (`detectEpicTracker` in followup-drainer.mjs)
+// that now prevents FUTURE burn. But the very next harvester run still counted
+// 11 occurrences in the trailing 14-day window — all of them from BEFORE the fix
+// merged (the 2026-07-18 `[EPIC]` batch) — so `recurringDespiteRule` fired again
+// and `createGithubIssue` minted a brand-new duplicate (#4578) instead of finding
+// #4517, because that dedup only searches OPEN issues by title and #4517 was
+// already closed. The bucket wasn't still broken; the window just hadn't aged
+// out yet. Root cause is generic (applies to ANY fix-outcome bucket, not just
+// this one): count only examples NEWER than the bucket's last shipped fix.
+//
+// CONSERVATIVE (bias to escalate — a missed re-fire wastes a review cycle, a
+// false suppression hides a real regression): only excludes examples when a
+// PRIOR escalation for the SAME bucket key was actually closed (a shipped fix
+// happened) AND the example predates that closure. A bucket with no prior
+// closed escalation (first time above threshold) is unaffected — full count.
+
+/**
+ * Epoch ms of the most recent CLOSED escalation issue whose title parses to
+ * `fullKey` (`<source>/<key>`, matching `escalationTitle`'s format), or null if
+ * none. Pure → testable.
+ * @param {string} fullKey
+ * @param {Array<{title?: string, closedAt?: string}>} closedIssues
+ */
+export function lastEscalationClosedAt(fullKey, closedIssues) {
+  let latest = null;
+  for (const iss of closedIssues || []) {
+    if (parseEscalationKey(iss?.title) !== fullKey) continue;
+    const t = Date.parse(iss?.closedAt);
+    if (!Number.isNaN(t) && (latest === null || t > latest)) latest = t;
+  }
+  return latest;
+}
+
+/**
+ * Examples occurring strictly AFTER `cutoffMs` (the bucket's last shipped fix).
+ * `cutoffMs === null` means no prior fix ever shipped for this bucket → return
+ * examples unchanged (first-ever escalation must still fire on full history).
+ * An example lacking a parseable `at` timestamp is dropped once a cutoff exists
+ * (conservative: can't prove it's post-fix, so don't let it count toward
+ * re-firing an already-fixed bucket). Pure → testable.
+ * @param {Array<{at?: string}>} examples
+ * @param {number|null} cutoffMs
+ */
+export function examplesSinceFix(examples, cutoffMs) {
+  if (cutoffMs === null || cutoffMs === undefined) return examples || [];
+  return (examples || []).filter((e) => {
+    const t = Date.parse(e?.at);
+    return !Number.isNaN(t) && t > cutoffMs;
+  });
+}
+
 function escalationBody(c) {
   const examples = (c.examples || [])
     .map((e) => '#' + (e.pr || e.issue))
@@ -549,17 +642,30 @@ async function main() {
       // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
       // dominated by aggregate / parked runs). Single-item still-routable deaths count.
       if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames, hasDeliveredPr)) continue;
+      // `no-root-cause` on a verified-transient monitor blip or an explicit
+      // unmet-epic-dependency block is an EXPECTED correct abort, not a
+      // diagnosis failure the prose rule could ever prevent (#4580: all 5
+      // examples were one of these two, none a genuine stuck-diagnosis).
+      if (code === 'no-root-cause' && !isAvoidableNoRootCause(cb)) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
       outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
-      (outcomeExamples[k] ||= []).push({ issue: number });
+      (outcomeExamples[k] ||= []).push({ issue: number, at: c.createdAt });
     }
   }
 
   // ---- Dedup vs existing doc-contracts ----
   let corpus = '';
   for (const f of DOC_FILES) { try { corpus += '\n' + fs.readFileSync(f, 'utf-8').toLowerCase(); } catch { /* ignore */ } }
+
+  // ---- Post-fix re-escalation guard (escalation #4578, see lastEscalationClosedAt) ----
+  // Only fix-outcome examples carry a per-example `at` timestamp (the FIX_OUTCOME
+  // comment's createdAt), so only that source can be filtered against a bucket's
+  // last shipped fix. Fetched once, reused per bucket key inside consider().
+  const closedEscalations = ghJson(['issue', 'list', '--state', 'closed',
+    '--search', 'ricorre nonostante regola in:title',
+    '--json', 'number,title,closedAt', '--limit', '100']) || [];
 
   // ---- Assemble clusters above threshold + novel ----
   const clusters = [];
@@ -571,11 +677,20 @@ async function main() {
     for (const [key, count] of Object.entries(counts)) {
       if (count < THRESHOLD) continue;
       const documented = alreadyDocumented(key, corpus);
-      // Documented + still recurring hard = the rule exists but isn't working.
-      const recurringDespiteRule = driver && documented && count >= THRESHOLD * EFFICACY_FACTOR;
+      const allExamples = examples[key] || [];
+      // A bucket whose last escalation was already closed via a shipped fix
+      // shouldn't re-fire on the SAME pre-fix occurrences still sitting in the
+      // trailing window — only count what happened AFTER that fix landed.
+      const cutoff = source === 'fix-outcome'
+        ? lastEscalationClosedAt(`${source}/${key}`, closedEscalations)
+        : null;
+      const liveExamples = source === 'fix-outcome' ? examplesSinceFix(allExamples, cutoff) : allExamples;
+      const effectiveCount = source === 'fix-outcome' ? liveExamples.length : count;
+      // Documented + still recurring hard (post-fix) = the rule exists but isn't working.
+      const recurringDespiteRule = driver && documented && effectiveCount >= THRESHOLD * EFFICACY_FACTOR;
       clusters.push({ source, key, count, driver, novel: driver && !documented,
         recurringDespiteRule, alreadyDocumented: documented,
-        examples: (examples[key] || []).slice(0, 5) });
+        examples: (liveExamples.length ? liveExamples : allExamples).slice(0, 5) });
     }
   }
   consider('reviewer-finding', findingCounts, findingExamples, { driver: true });

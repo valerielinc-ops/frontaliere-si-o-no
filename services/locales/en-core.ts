@@ -709,6 +709,7 @@ const enCore: Record<string, string> = {
  'jobBoard.requirements': 'Requirements',
  'jobBoard.descriptionHeading': 'Job description',
  'jobBoard.requirementsHeading': 'Required skills',
+ 'jobBoard.faq.title': 'Frequently asked questions about this job',
  'jobBoard.apply': 'Apply',
   'jobBoard.claimCta': 'Are you the employer? Sponsor this listing',
  'jobBoard.backToList': 'Back to all listings',

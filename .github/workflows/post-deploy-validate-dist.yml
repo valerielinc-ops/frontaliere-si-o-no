@@ -46,6 +46,21 @@ name: Post-deploy Validate (dist)
 # jobs are consistently getting serialized by runner contention rather than
 # genuinely running concurrently, revert to a single job rather than
 # carrying the split's extra duplicated-prefix maintenance cost for no gain.
+#
+# Second job split (issue #4593): run 29716815865 measured ~2h20m on
+# `validate-dist-postbuild` alone — audit:all (~75min) then, still
+# serialized after it, audit:max-bfs-depth (~28min) then
+# audit:orphan-sitemap-pages. Same lever as above: neither BFS walker
+# shares in-memory state with audit:all (both do their own from-scratch
+# dist/ walk), so `validate-dist-postbuild-bfs` gives them their own runner
+# + its own copy of the common prefix, letting them run CONCURRENTLY with
+# `validate-dist-postbuild`'s audit:all instead of after it — cuts this
+# chain's ~30min off the critical path. The two BFS walkers stay serialized
+# WITH EACH OTHER on their new shared runner (both previously OOM'd at
+# rc=134 sharing a smaller heap cap 4-way in the old light pool — see that
+# job's DIST_MULTI_PID comment). Same revert-risk caveat applies: confirm
+# against the next real run before assuming the win is real vs. runner-
+# contention noise.
 on:
   workflow_call:
     inputs:
@@ -1055,35 +1070,29 @@ jobs:
           # subshell wrapper + timing dump so the workflow summary still
           # has a structured row per logical audit.
           #
-          # audit:max-bfs-depth + audit:orphan-sitemap-pages moved here from
-          # the LIGHT POOL below (see removal comment there) — both are full
-          # dist-tree link-graph BFS walkers, which the light pool's own
-          # criterion explicitly excludes. At real production scale
-          # (~2.8M pages) both crashed at rc=134 "Reached heap limit" right at
-          # the light pool's shared 4096 MB cap, contended 4-way. They run
-          # sequentially (not parallel with each other) in this chain, each
-          # with its own bumped heap ceiling — headroom precedent: `build:ci`
-          # already runs `--max-old-space-size=13312` on this same
-          # `ubuntu-latest` runner (package.json), well above the 4096 MB this
-          # step's light pool assumed was the ceiling.
+          # audit:max-bfs-depth + audit:orphan-sitemap-pages moved OUT to
+          # their own job (`validate-dist-postbuild-bfs`, this file) — both
+          # are full dist-tree link-graph BFS walkers that don't share
+          # in-memory state with audit:all (each does its own from-scratch
+          # dist/ walk), so putting them on a separate runner lets them run
+          # CONCURRENTLY with this job instead of serialized after it
+          # (~30min off the critical path — see that job's header comment).
+          # They were ALSO never safe to fold into the LIGHT POOL below: at
+          # real production scale (~2.8M pages) both crashed at rc=134
+          # "Reached heap limit" sharing the light pool's 4096 MB cap
+          # 4-way — they need their own bumped heap ceiling regardless of
+          # which job they run in.
           (
             set +e
-            for chain_step in \
-              "audit:all|/tmp/g10.log|npm run audit:all" \
-              "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
-              "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
-            ; do
-              IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
-              start=$(date +%s.%N)
-              eval "$step_cmd" > "$step_log" 2>&1
-              rc=$?
-              end=$(date +%s.%N)
-              awk -v n="$step_name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
-                >> /tmp/post-build-timings.txt
-              if [ $rc -ne 0 ]; then
-                echo "$step_name $step_log" >> /tmp/post-build-failures.txt
-              fi
-            done
+            start=$(date +%s.%N)
+            npm run audit:all > /tmp/g10.log 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:all\", $end-$start, $rc}" \
+              >> /tmp/post-build-timings.txt
+            if [ $rc -ne 0 ]; then
+              echo "audit:all /tmp/g10.log" >> /tmp/post-build-failures.txt
+            fi
           ) &
           DIST_MULTI_PID=$!
 
@@ -1091,10 +1100,10 @@ jobs:
           # tree (or walk it cheaply via streaming). Safe to parallelise.
           # audit:orphan-sitemap-pages moved OUT — it's a full dist-tree BFS
           # walker, contradicting this pool's own criterion above. It now
-          # runs in the sequential DIST_MULTI_PID chain (see that comment)
-          # with its own bumped heap ceiling instead of contending 4-way
-          # for this pool's shared 4096 MB cap, which is what caused it to
-          # OOM (rc=134) at real production scale.
+          # runs on its own runner in the validate-dist-postbuild-bfs job
+          # (this file) with its own bumped heap ceiling instead of
+          # contending 4-way for this pool's shared 4096 MB cap, which is
+          # what caused it to OOM (rc=134) at real production scale.
           spawn_capped validate:sitemap-pages        /tmp/spm.log \
             npm run validate:sitemap-pages
           spawn_capped validate:jobs-quality         /tmp/v2.log \
@@ -1125,16 +1134,17 @@ jobs:
           # JSON-LD parse — removes 34 s of standalone wall time from the
           # parallel pool. Removed from spawn pool.
           # audit:max-bfs-depth moved OUT — it's a full dist-tree BFS walker,
-          # contradicting this pool's own criterion above. It now runs in the
-          # sequential DIST_MULTI_PID chain (see that comment) with its own
-          # bumped heap ceiling instead of contending 4-way for this pool's
-          # shared 4096 MB cap, which is what caused it to OOM (rc=134) at
-          # real production scale. `-- --json` (still passed in the chain
-          # entry) makes the gate ALSO emit the baseline-candidate JSON into
-          # g19.log (printed by audit-bfs-depth.mjs MODE_JSON branch BEFORE
-          # the baseline gate's exit, so the gate semantics are unchanged). The
-          # informational dump step below reuses that JSON instead of paying a
-          # second full dist BFS walk (~4min). The gate still ratchets identically.
+          # contradicting this pool's own criterion above. It now runs on its
+          # own runner in the validate-dist-postbuild-bfs job (this file),
+          # serialized with audit:orphan-sitemap-pages there (both previously
+          # OOM'd, rc=134, sharing this pool's 4096 MB cap 4-way at real
+          # production scale). `-- --json` (still passed there) makes the
+          # gate ALSO emit the baseline-candidate JSON into g19.log (printed
+          # by audit-bfs-depth.mjs MODE_JSON branch BEFORE the baseline
+          # gate's exit, so the gate semantics are unchanged) — that job's
+          # own "Dump bfs-depth baseline candidate" step reuses it instead of
+          # paying a second full dist BFS walk (~4min). The gate still
+          # ratchets identically.
           # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
           # audit:salary-landing-template all migrated into `npm run audit:all`
           # above (single Node process, single dist walk). Removed from the
@@ -1190,42 +1200,9 @@ jobs:
           [ $FAIL -eq 0 ] || exit 1
           echo "✅ All post-build validators + audits passed"
 
-      # Print the bfs-depth baseline candidate (current dist counts) so the
-      # ratchet can be tightened without downloading artifacts. The audit
-      # gate above only verifies count <= baseline; it doesn't surface the
-      # actual current count when the gate passes. With the JSON dumped here,
-      # `npm run audit:max-bfs-depth:rebaseline` becomes a copy-paste from
-      # the log into data/bfs-depth-baseline.json — no artifact download,
-      # no re-run of the seed workflow. Informational only — never fails.
-      - name: Dump bfs-depth baseline candidate (informational)
-        # `if: always()` so the baseline JSON is dumped even when another
-        # gate in the pool fails — the dump is informational and never
-        # blocks the workflow. Without `always()` a failure of any other
-        # gate would skip this step and force a manual seed-workflow run
-        # to refresh the baseline. Pairs with continue-on-error so a bad
-        # snapshot itself can't fail the job either.
-        if: always()
-        continue-on-error: true
-        run: |
-          echo "══════════════════════════════════════════════════════════════"
-          echo "bfs-depth baseline candidate (current dist counts)"
-          echo "══════════════════════════════════════════════════════════════"
-          echo "Paste this into data/bfs-depth-baseline.json to ratchet down"
-          echo "the gate after a deliberate improvement. Counts must only"
-          echo "ever DECREASE — this gate is a ratchet."
-          echo "──────────────────────────────────────────────────────────────"
-          # Reuse the JSON the audit:max-bfs-depth gate already emitted into
-          # /tmp/g19.log (it now runs with `-- --json`). The JSON is the
-          # contiguous `{ … }` block printed before any gate stderr — extract it
-          # instead of paying a second full dist BFS walk (~4min saved). The
-          # gate runs --max-depth defaulting to the baseline's maxDepth=4, so the
-          # emitted counts match the old standalone `--max-depth=4` dump exactly.
-          if [ -f /tmp/g19.log ] && grep -q '^{$' /tmp/g19.log; then
-            sed -n '/^{$/,/^}$/p' /tmp/g19.log
-          else
-            echo "(bfs gate JSON not found in /tmp/g19.log — gate may have crashed before emit)"
-          fi
-          echo "══════════════════════════════════════════════════════════════"
+      # bfs-depth baseline-candidate dump moved to validate-dist-postbuild-bfs
+      # (this file) — audit:max-bfs-depth (and its /tmp/g19.log) now runs
+      # there, not in this job.
 
       - name: Build size summary
         run: |
@@ -1266,17 +1243,445 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+  # Split out of validate-dist-postbuild (this file, header comment) —
+  # audit:max-bfs-depth + audit:orphan-sitemap-pages are full dist-tree
+  # link-graph BFS walkers that ran SERIALIZED after audit:all in one
+  # shared job (audit:all ~75min + this chain ~30min ≈ 105min sequential
+  # on run 29716815865). Neither shares in-memory state with audit:all —
+  # each does its own full dist/ walk from scratch — so putting them on
+  # their own runner lets them run CONCURRENTLY with validate-dist-postbuild
+  # instead of after it, cutting this chain's ~30min off the critical path
+  # (same job-level-parallelism lever the file header already used once for
+  # the validate-dist-source / validate-dist-postbuild split — see that
+  # comment for the OOM/heap-cap rationale on why these two stay serialized
+  # WITH EACH OTHER even though they're now parallel with audit:all).
+  validate-dist-postbuild-bfs:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
+    steps:
+      - name: Checkout (build SHA via deploy_ref, else caller default)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.deploy_ref }}
+
+      - name: Free disk space on runner
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules \
+            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
+          sudo docker image prune -af 2>/dev/null || true
+          df -h /
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — registry operations will be skipped."
+          fi
+
+      # Hydrate the runner env with secrets pulled from Firebase Remote Config
+      # so the social-media post steps below see FB_PAGE_ACCESS_TOKEN /
+      # FB_PAGE_ID / LINKEDIN_POST_* etc. as `process.env.*`. Without this
+      # step, post-to-facebook.mjs reads `process.env.FB_PAGE_ACCESS_TOKEN`,
+      # finds nothing, and silently exits with the "⚠️ FB_PAGE_ACCESS_TOKEN
+      # or FB_PAGE_ID not set — skipping Facebook post" log line. The
+      # `Post to Facebook Page` and `Post to LinkedIn Company Page` steps
+      # appear green in the UI but never publish.
+      #
+      # load-rc-env.mjs is best-effort: if Firebase credentials are missing
+      # or RC fetch fails, it warns and exits 0, leaving env vars unset and
+      # downstream posting steps to perform their own "missing token" skip.
+      # That is the same fail-soft contract the deploy.yml pipeline already
+      # relies on (see deploy.yml step "Load secrets from Remote Config").
+      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+        run: node scripts/load-rc-env.mjs
+
+      # Download GitHub Pages artifact + run source validators sequentially.
+      #
+      # Previously the 4 source validators were launched as `run_bg ... &` in
+      # parallel with the artifact download, to save ~30-60s. That race
+      # caused `validate:translation-completeness` and
+      # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
+      # `data/jobs-crawler-summaries.json` from the unpacked artifact) to
+      # fail in <1s with "file not found" — the tar -xf hadn't run yet.
+      # The whole step exited 1 before the post-build pool could start, the
+      # validate job rolled back, and the BFS-depth gate never got tested.
+      # Run 25419353305 (sha e9f03ab9) was the last to confirm this race
+      # under the previous parallel layout.
+      #
+      # Sequential layout: download → tar → run each validator one at a time
+      # and emit a per-gate ✅/❌ row. Adds ~10-15s wall vs parallel but is
+      # deterministic, easier to reason about, and avoids the race entirely.
+      # Artifact download keyed on `deploy_run_id` (the BUILD run that produced
+      # them). When the caller IS that run (deploy_run_id == github.run_id) this
+      # is a same-run read; when the caller is deploy-publish.yml (workflow_run),
+      # the same `run-id` + token fetches them cross-run from the build run.
+      - name: Download GitHub Pages artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: /tmp/github-pages-artifact
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download pre-deploy sitemap snapshot (optional)
+        uses: actions/download-artifact@v7
+        continue-on-error: true   # snapshot is optional — IndexNow diff falls back gracefully
+        with:
+          name: pre-deploy-snapshot-${{ inputs.deploy_run_id }}
+          path: /tmp/pre-deploy-snapshot
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download master jobs.json
+        uses: actions/download-artifact@v7
+        with:
+          name: jobs-master-${{ inputs.deploy_run_id }}
+          path: /tmp/jobs-master
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download previous-slug winners (optional)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/winners
+          if gh run download "${{ inputs.deploy_run_id }}" \
+               --name "winners-${{ inputs.deploy_run_id }}" \
+               --dir /tmp/winners 2>/dev/null; then
+            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+          else
+            echo "[winners] artifact not present (file unchanged this build) — skipping"
+          fi
+
+      - name: Extract dist/ + restore data files from artifact
+        run: |
+          # Pages artifact wraps a single artifact.tar — extract into dist/.
+          rm -rf dist && mkdir -p dist
+          tar -xf /tmp/github-pages-artifact/artifact.tar -C dist
+
+          # Restore master data/jobs.json from the dedicated artifact
+          # (jobsJsonDistCleanupPlugin strips it from dist/ to clear the
+          # 10 GB GH Pages cap — validators still need the master copy
+          # with titleByLocale / descriptionByLocale).
+          mkdir -p data
+          cp -f /tmp/jobs-master/jobs.json data/jobs.json
+          # Expose jobs.json to scripts that expect public/data/jobs.json.
+          mkdir -p public/data
+          cp -f data/jobs.json public/data/jobs.json
+          # validate:crawler-summaries reads data/jobs-crawler-summaries.json
+          # (gitignored, assembled at build). Its dist/data/ copy is offloaded
+          # to the CDN repo AND deleted from dist by offload-generated-images-
+          # cdn.mjs (PR #1288), so it is NOT in the Pages artifact — restore it
+          # from the jobs-master artifact (same channel as jobs.json above).
+          cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
+
+          # Optional artifacts — copy if present.
+          if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
+            cp /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json /tmp/pre-deploy-sitemap-urls.json
+          fi
+          if [ -f /tmp/winners/previous-slug-winners.json ]; then
+            cp /tmp/winners/previous-slug-winners.json data/previous-slug-winners.json
+          fi
+
+      # Same merged locale+section rehydrate as validate-dist-source (see that
+      # job's step for the full rationale). Duplicated rather than factored
+      # out into a composite action so this PR stays a surgical CI-speed
+      # change — each of the two jobs runs on its own fresh runner and needs
+      # its own copy of dist/ rehydrated identically, since the post-build
+      # audits below walk the same logical site as the source validators do.
+      - name: Rehydrate locale then section shards (Ticino/Svizzera/Zurigo) into dist/ (when sharding active)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          LOCALE_SHARDS_LIVE: ${{ vars.LOCALE_SHARDS_LIVE }}
+          TICINO_SHARD_LIVE: ${{ vars.TICINO_SHARD_LIVE }}
+          SVIZZERA_SHARD_LIVE: ${{ vars.SVIZZERA_SHARD_LIVE }}
+          ZURIGO_SHARD_LIVE: ${{ vars.ZURIGO_SHARD_LIVE }}
+        run: |
+          rehydrate_locale() {
+            set -euo pipefail
+            for loc in en de fr; do
+              if [ -d "dist/$loc" ] && [ -f "dist/$loc.html" ]; then
+                echo "$loc present in artifact (dir + homepage, not stripped this build) — skip rehydrate"
+                continue
+              fi
+
+              dl="$RUNNER_TEMP/locale-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "locale-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/locale-dist-$loc.tar" ]; then
+                rm -rf "dist/$loc" "dist/$loc.html"
+                expected_n=$(tar -tf "$dl/locale-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/locale-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$loc" ]; then
+                  actual_n=$(find "dist/$loc" -type f | wc -l)
+                  [ -f "dist/$loc.html" ] && actual_n=$((actual_n + 1))
+                fi
+                if [ -d "dist/$loc" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$loc" "dist/$loc.html"
+                echo "[rehydrate] $loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] $loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-$loc"
+              rm -rf "$tmp"
+              git clone --depth 1 --single-branch --branch main \
+                "https://github.com/valerielinc-ops/frontaliere-$loc.git" "$tmp"
+              [ -d "$tmp/$loc" ] || { echo "::error::shard $loc has no $loc/ subtree"; exit 1; }
+              rm -rf "dist/$loc"
+              cp -r "$tmp/$loc" "dist/$loc"
+              if [ -f "$tmp/$loc.html" ]; then cp "$tmp/$loc.html" "dist/$loc.html"; fi
+              echo "rehydrated $loc: $(find "dist/$loc" -type f | wc -l) files"
+              rm -rf "$tmp"
+            done
+            df -h / | tail -1
+          }
+
+          rehydrate_section() {
+            set -uo pipefail
+            local section="$1"
+            declare -A SECTION_SUB=(
+              [ticino:it]=cerca-lavoro-ticino [ticino:en]=en/find-jobs-ticino [ticino:de]=de/jobs-im-tessin [ticino:fr]=fr/trouver-emploi-tessin
+              [svizzera:it]=cerca-lavoro-svizzera [svizzera:en]=en/find-jobs-switzerland [svizzera:de]=de/jobs-in-schweiz [svizzera:fr]=fr/trouver-emploi-suisse
+              [zurigo:it]=cerca-lavoro-zurigo [zurigo:en]=en/find-jobs-zurich [zurigo:de]=de/jobs-in-zurich [zurigo:fr]=fr/trouver-emploi-zurich
+            )
+            for loc in it en de fr; do
+              sub="${SECTION_SUB[$section:$loc]}"
+              if [ -d "dist/$sub" ]; then
+                echo "$section $loc ($sub) present in artifact — skip rehydrate"
+                continue
+              fi
+
+              dl="$RUNNER_TEMP/$section-dist-$loc"
+              rm -rf "$dl"; mkdir -p "$dl"
+              if gh run download "$DEPLOY_RUN_ID" --name "$section-dist-$loc-$DEPLOY_RUN_ID" --dir "$dl" 2>/dev/null && [ -f "$dl/$section-dist-$loc.tar" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                expected_n=$(tar -tf "$dl/$section-dist-$loc.tar" 2>/dev/null | { grep -vc '/$' || true; })
+                tar -C dist -xf "$dl/$section-dist-$loc.tar" || true
+                rm -rf "$dl"
+                actual_n=0
+                if [ -d "dist/$sub" ]; then
+                  actual_n=$(find "dist/$sub" -type f | wc -l)
+                fi
+                if [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -ge "$expected_n" ]; then
+                  echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
+                  continue
+                fi
+                rm -rf "dist/$sub"
+                echo "[rehydrate] $section-$loc tar extraction incomplete (expected $expected_n files, got $actual_n) — falling back to git clone"
+              else
+                rm -rf "$dl"
+                echo "[rehydrate] $section-$loc artifact absent — falling back to git clone"
+              fi
+
+              tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
+              rm -rf "$tmp"
+              if ! git clone --depth 1 --single-branch --branch main \
+                   "https://github.com/valerielinc-ops/frontaliere-$section-$loc.git" "$tmp" 2>/dev/null; then
+                echo "::warning::$section-$loc shard clone failed — validators may flag $loc $section pages missing"
+                continue
+              fi
+              if [ -d "$tmp/$sub" ]; then
+                mkdir -p "dist/$(dirname "$sub")"
+                rm -rf "dist/$sub"
+                cp -r "$tmp/$sub" "dist/$sub"
+                echo "rehydrated $section $loc from frontaliere-$section-$loc: $(find "dist/$sub" -type f | wc -l) files"
+              else
+                echo "::warning::frontaliere-$section-$loc has no $sub subtree — $loc $section left missing"
+              fi
+              rm -rf "$tmp"
+            done
+            df -h / | tail -1
+          }
+
+          LOCALE_PID=""
+
+          if [ "$LOCALE_SHARDS_LIVE" = "true" ]; then
+            rehydrate_locale &
+            LOCALE_PID=$!
+          fi
+
+          LOCALE_RC=0
+          if [ -n "$LOCALE_PID" ]; then
+            wait "$LOCALE_PID" || LOCALE_RC=$?
+          fi
+
+          # Section shards start only once locale has fully finished (see
+          # validate-dist-source's copy of this step for the full ordering
+          # rationale) — not backgrounded alongside it. Ticino/Svizzera/Zurigo
+          # run concurrently WITH EACH OTHER (each writes a disjoint dist/
+          # subtree, so there's no cross-section race).
+          TICINO_PID=""
+          if [ "$TICINO_SHARD_LIVE" = "true" ]; then
+            rehydrate_section ticino &
+            TICINO_PID=$!
+          fi
+          SVIZZERA_PID=""
+          if [ "$SVIZZERA_SHARD_LIVE" = "true" ]; then
+            rehydrate_section svizzera &
+            SVIZZERA_PID=$!
+          fi
+          ZURIGO_PID=""
+          if [ "$ZURIGO_SHARD_LIVE" = "true" ]; then
+            rehydrate_section zurigo &
+            ZURIGO_PID=$!
+          fi
+          if [ -n "$TICINO_PID" ]; then
+            wait "$TICINO_PID" || true
+          fi
+          if [ -n "$SVIZZERA_PID" ]; then
+            wait "$SVIZZERA_PID" || true
+          fi
+          if [ -n "$ZURIGO_PID" ]; then
+            wait "$ZURIGO_PID" || true
+          fi
+
+          if [ "$LOCALE_RC" -ne 0 ]; then
+            exit "$LOCALE_RC"
+          fi
+
+      - name: Migrate all-known-job-slugs to canton-aware paths
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      # BFS chain — full dist-tree link-graph walkers, kept serialized WITH
+      # EACH OTHER (both crashed rc=134 "Reached heap limit" sharing a
+      # smaller cap 4-way in the old light pool at production scale — see
+      # validate-dist-postbuild's DIST_MULTI_PID comment for that incident
+      # history), but now on their OWN runner so they run CONCURRENTLY with
+      # validate-dist-postbuild's audit:all instead of after it.
+      - name: BFS-depth + orphan-sitemap-pages audits (serial chain)
+        env:
+          AUDIT_STRICT: '1'
+        run: |
+          : > /tmp/post-build-timings.txt
+          : > /tmp/post-build-failures.txt
+          set +e
+          for chain_step in \
+            "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
+            "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
+          ; do
+            IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
+            start=$(date +%s.%N)
+            eval "$step_cmd" > "$step_log" 2>&1
+            rc=$?
+            end=$(date +%s.%N)
+            awk -v n="$step_name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
+              >> /tmp/post-build-timings.txt
+            if [ $rc -ne 0 ]; then
+              echo "$step_name $step_log" >> /tmp/post-build-failures.txt
+            fi
+          done
+
+          echo ""
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo "BFS-chain gates — per-gate results"
+          echo "══════════════════════════════════════════════════════════════════════"
+          PB_PASS=0
+          PB_FAIL=0
+          while IFS= read -r line; do
+            rc=$(printf '%s' "$line" | { grep -oE 'rc=[0-9]+$' || true; } | sed 's/rc=//')
+            if [ "$rc" = "0" ]; then
+              printf "✅ PASS  %s\n" "$line"
+              PB_PASS=$((PB_PASS + 1))
+            else
+              printf "❌ FAIL  %s\n" "$line"
+              PB_FAIL=$((PB_FAIL + 1))
+            fi
+          done < <(sort -k2 -gr /tmp/post-build-timings.txt)
+          echo "──────────────────────────────────────────────────────────────────────"
+          echo "BFS-chain summary: ${PB_PASS} passed, ${PB_FAIL} failed"
+          echo "══════════════════════════════════════════════════════════════════════"
+          echo ""
+
+          FAIL=0
+          if [ -s /tmp/post-build-failures.txt ]; then
+            while read -r name logfile; do
+              echo "::error::$name failed"
+              cat "$logfile"
+              FAIL=1
+            done < /tmp/post-build-failures.txt
+          fi
+
+          [ $FAIL -eq 0 ] || exit 1
+          echo "✅ BFS-depth + orphan-sitemap-pages audits passed"
+
+      # Moved from validate-dist-postbuild — depends on /tmp/g19.log, which
+      # now only exists in THIS job. See that job's copy of this step
+      # (removed) for the full rationale; unchanged otherwise.
+      - name: Dump bfs-depth baseline candidate (informational)
+        if: always()
+        continue-on-error: true
+        run: |
+          echo "══════════════════════════════════════════════════════════════"
+          echo "bfs-depth baseline candidate (current dist counts)"
+          echo "══════════════════════════════════════════════════════════════"
+          echo "Paste this into data/bfs-depth-baseline.json to ratchet down"
+          echo "the gate after a deliberate improvement. Counts must only"
+          echo "ever DECREASE — this gate is a ratchet."
+          echo "──────────────────────────────────────────────────────────────"
+          if [ -f /tmp/g19.log ] && grep -q '^{$' /tmp/g19.log; then
+            sed -n '/^{$/,/^}$/p' /tmp/g19.log
+          else
+            echo "(bfs gate JSON not found in /tmp/g19.log — gate may have crashed before emit)"
+          fi
+          echo "══════════════════════════════════════════════════════════════"
+
+      - name: Upload audit reports + sitemaps on failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-bfs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            dist/audit-reports/**
+            dist/sitemap.xml
+            dist/sitemap-*.xml
+          if-no-files-found: ignore
+          retention-days: 7
+
   validate-dist-report:
-    # Centralizes the GitHub Issues bookkeeping so the two independent jobs
+    # Centralizes the GitHub Issues bookkeeping so the three independent jobs
     # above can't race each other into a wrong state — e.g. postbuild
     # succeeding and resolving the tracking issue while source is still
     # failing (or vice versa). `if: always()` so this still runs (and
-    # correctly reports failure) even if one of the two jobs above failed
+    # correctly reports failure) even if one of the jobs above failed
     # or was itself skipped by an upstream `if:` — only an actual cancel of
-    # BOTH jobs leaves neither branch below matching, mirroring the original
-    # single-job behavior where `if: failure()` / `if: success()` steps
-    # don't fire on a cancelled run either.
-    needs: [validate-dist-source, validate-dist-postbuild]
+    # ALL THREE jobs leaves neither branch below matching, mirroring the
+    # original single-job behavior where `if: failure()` / `if: success()`
+    # steps don't fire on a cancelled run either.
+    needs: [validate-dist-source, validate-dist-postbuild, validate-dist-postbuild-bfs]
     if: always()
     runs-on: ubuntu-latest
     permissions:
@@ -1304,7 +1709,7 @@ jobs:
         run: npm ci
 
       - name: Report failure to GitHub Issues
-        if: needs.validate-dist-source.result == 'failure' || needs.validate-dist-postbuild.result == 'failure'
+        if: needs.validate-dist-source.result == 'failure' || needs.validate-dist-postbuild.result == 'failure' || needs.validate-dist-postbuild-bfs.result == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1326,6 +1731,7 @@ jobs:
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Source job:** ${{ needs.validate-dist-source.result }}
           **Post-build job:** ${{ needs.validate-dist-postbuild.result }}
+          **Post-build BFS job:** ${{ needs.validate-dist-postbuild-bfs.result }}
           **Branch:** ${{ github.ref_name }}
           **SHA:** ${{ github.sha }}" \
             --priority 1 \
@@ -1334,7 +1740,7 @@ jobs:
             --workflow "Post-deploy Validate Dist"
 
       - name: Resolve GitHub Issue on success
-        if: needs.validate-dist-source.result == 'success' && needs.validate-dist-postbuild.result == 'success'
+        if: needs.validate-dist-source.result == 'success' && needs.validate-dist-postbuild.result == 'success' && needs.validate-dist-postbuild-bfs.result == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

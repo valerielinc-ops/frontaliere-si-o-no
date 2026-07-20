@@ -15,6 +15,9 @@ import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glo
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
+import { getCantonDisplayName } from '../build-plugins/shared/cantonDisplay';
+import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription, truncateTitleAtClauseBoundary } from '../build-plugins/shared/titleSuffix';
 import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 
@@ -361,7 +364,7 @@ async function resolveJobSeoBySlug(
  description: string;
  keywords: string;
  logoUrl: string;
- structuredData: Record<string, any>;
+ structuredData: Record<string, any> | Record<string, any>[];
 } | null> {
  const cleanSlug = normalizeSeoText(slug);
  if (!cleanSlug) return null;
@@ -412,6 +415,48 @@ async function resolveJobSeoBySlug(
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ // Job-specific FAQPage (build-plugins/shared/jobPostingFaq.ts) — same
+ // deterministic template the static SSG plugin uses, so the client-hydrated
+ // SPA content matches the prerendered HTML for a client-side navigation to
+ // this job (content-parity rule, CLAUDE.md § Static SEO Pages). isRemote
+ // detection mirrors build-plugins/jobsSeoPagesPlugin.ts's regex so both
+ // paths agree on the same job.
+ //
+ // Canton for the FAQ's G-permit answer MUST use resolveJobCanton (the same
+ // resolver JobBoard.tsx uses for its visible accordion, via `detailJobCanton
+ // = resolveJobCanton(selectedJob)`) rather than `address.region`.
+ // `resolveJobAddress()` above defaults straight to 'TI' whenever both
+ // `addressRegion` and `canton` are unset, without ever consulting
+ // `location` — for jobs where only `location`/`addressLocality` names a
+ // non-Ticino city (real cases in the dataset, e.g. Valais hospital
+ // listings), that default disagreed with JobBoard.tsx's more careful
+ // city-aware resolution and served the wrong canton's legal border-permit
+ // guidance in the FAQ's structured data (review finding on PR #4595).
+ const faqCanton = resolveJobCanton(job);
+ const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
+ `${localizedTitle} ${localizedDescription} ${job?.location || ''}`
+ );
+ const isTicino = faqCanton === 'TI';
+ const cantonDisplay = getCantonDisplayName(faqCanton, locale);
+ const faqOpts: BuildJobPostingFaqOptions = {
+ locale,
+ jobUrl: String(job?.url || canonicalUrl),
+ cantonDisplay,
+ isTicino,
+ isRemote,
+ };
+ const jobFaqPairs = buildJobPostingFaqPairs(canonicalSchema, faqOpts);
+ const faqPageSchema: Record<string, any> | null = jobFaqPairs.length > 0
+ ? {
+ '@context': 'https://schema.org',
+ '@type': 'FAQPage',
+ mainEntity: jobFaqPairs.map((f) => ({
+ '@type': 'Question',
+ name: f.q,
+ acceptedAnswer: { '@type': 'Answer', text: f.a },
+ })),
+ }
+ : null;
  // Multi-location jobs carry a non-geographic blob (e.g. "ganz Schweiz",
  // "toute la Suisse") in `location` — never inject it as the city, or the
  // authoritative job title (→ document.title + og:title) blows the cap and
@@ -422,7 +467,7 @@ async function resolveJobSeoBySlug(
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
- structuredData: canonicalSchema,
+ structuredData: faqPageSchema ? [canonicalSchema, faqPageSchema] : canonicalSchema,
  };
 }
 
@@ -4687,6 +4732,9 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-tecnico-automazione-ticino-stipendio-requisiti': { name: 'Frontalieri tecnico automazione Ticino', path: '/articoli-frontaliere/frontalieri-tecnico-automazione-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-ginevra-frontalieri-diritto-lavoro-pubblico': { name: 'Ginevra, i frontalieri', path: '/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/', parent: 'blog' },
     'blog-stipendio-contabile-frontaliere-ticino': { name: 'frontaliere ticino', path: '/articoli-frontaliere/stipendio-contabile-frontaliere-ticino', parent: 'blog' },
+    'blog-frontaliere-segretaria-ticino-stipendio-requisiti': { name: 'La frontiera ticinese', path: '/articoli-svizzera/frontaliere-segretaria-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-stipendio-segretaria-frontaliera-ticino': { name: 'Stipendio di una segretaria frontaliere in', path: '/articoli-frontaliere/stipendio-segretaria-frontaliera-ticino', parent: 'blog' },
+    'blog-frontaliere-risorse-umane-ticino-stipendio-requisiti': { name: 'Frontaliere Ticino', path: '/articoli-svizzera/frontaliere-risorse-umane-ticino-stipendio-requisiti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
@@ -5006,7 +5054,30 @@ export async function updateMetaTags(section: string): Promise<void> {
  // Update structured data if provided, always include breadcrumbs
  const breadcrumbs = buildBreadcrumbs(sectionKey, route, locale, hasLocalizedTitle ? localizedTitle : undefined);
  if (jobSeo?.structuredData) {
- updateStructuredData([jobSeo.structuredData, breadcrumbs]);
+ // jobSeo.structuredData is the JobPosting schema alone, or [JobPosting, FAQPage]
+ // when resolveJobSeoBySlug built a job-specific FAQ (see jobPostingFaq.ts).
+ const jobStructuredDataItems = Array.isArray(jobSeo.structuredData)
+ ? jobSeo.structuredData
+ : [jobSeo.structuredData];
+ // updateStructuredData() below skips re-injecting an item whose @type is
+ // already present as a STATIC (non-dynamic) script — correct for the
+ // normal case (avoids duplicating the SSG-prerendered FAQPage on first
+ // paint). But a client-side navigation straight from one job-detail page
+ // to another (e.g. a "similar jobs" link) never reloads the document, so
+ // a *different* job's static FAQPage can still be sitting in <head> when
+ // this runs — that stale script would satisfy the skip-check and this
+ // job's FAQ would never get injected. Explicitly drop any existing
+ // FAQPage script first so the fresh one below always wins. Mirrors the
+ // same remove-then-replace pattern JobBoard.tsx already applies to its
+ // own JobPosting JSON-LD for the identical reason.
+ if (jobStructuredDataItems.some((item) => item?.['@type'] === 'FAQPage')) {
+ document.querySelectorAll('script[type="application/ld+json"]').forEach((el) => {
+ try {
+ if (JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage') el.remove();
+ } catch { /* malformed JSON-LD — ignore */ }
+ });
+ }
+ updateStructuredData([...jobStructuredDataItems, breadcrumbs]);
  } else if (metadata.structuredData) {
  const existingData = Array.isArray(metadata.structuredData)
  ? metadata.structuredData

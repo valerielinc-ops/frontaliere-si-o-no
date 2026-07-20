@@ -1309,6 +1309,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Genève, les frontaliers ont le droit de travailler dans le secteur public',
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'Le gouvernement cantonal genevois a rejeté l\'initiative MCG qui demandait de les exclure des emplois publics',
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Emploi public suisse, droit des frontaliers au travail',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Secrétaire frontalière au Tessin : salaire, exigences et permis',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'La frontière tessinoise : salaire moyen, exigences, reconnaissance éventuelle du diplôme, permis G',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'Une secrétaire frontalière travaille dans un bureau à Lugano',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Travailler comme ressources humaines au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'Nouvel accord frontalier : qu\'est-ce qui change pour les frontaliers qui travaillent au Tessin ?',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Image de Lugano avec des personnes de différents âges qui travaillent ou étudient ensemble.',
 };
 
 export default blogMetaChFr;

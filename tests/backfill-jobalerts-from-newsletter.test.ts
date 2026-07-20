@@ -34,6 +34,11 @@ describe('backfill-jobalerts-from-newsletter — shouldSkipSubscriber', () => {
     expect(shouldSkipSubscriber('a@b.ch', { job_location: 'Lugano' })).toBeNull();
   });
 
+  it('is eligible via tier 1 (not location-fallback) when only sector_interest is present, no job context', () => {
+    expect(getSignalTier({ sector_interest: 'health' })).toBe('signal');
+    expect(shouldSkipSubscriber('a@b.ch', { sector_interest: 'health' })).toBeNull();
+  });
+
   it('skips an invalid/missing email', () => {
     expect(shouldSkipSubscriber('', { job_category: 'tech' })).toBe('invalid-email');
     expect(shouldSkipSubscriber('not-an-email', { job_category: 'tech' })).toBe('invalid-email');

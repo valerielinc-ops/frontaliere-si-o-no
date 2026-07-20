@@ -17,6 +17,7 @@ import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { WriteCollector } from './batchWrite';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
@@ -394,9 +395,16 @@ ${prose}${endOfContentMultiplexHtml({ indexable: true })}</div>`;
     fr: buildSalaryStatsPath('fr', SALARY_STATS_CANTON_SLUGS[cantonKey].fr),
   } as HreflangPaths;
 
+  // Budget-aware cascade — same sibling class as salaryProfessionCantonPages.ts
+  // / professionCantonLandings.ts (audit:title-length regression #4593):
+  // `metaTitle` carries the "2026 — mediana e settori (dati BFS)" suffix;
+  // falls back to the shorter `h1` template (no year/source clause) when a
+  // longer canton display name would overflow TITLE_MAX_CHARS.
+  const titleCandidates = [c.metaTitle(cantonName), c.h1(cantonName)];
+
   const html = buildSeoPageHtml({
     locale,
-    title: c.metaTitle(cantonName),
+    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
     description: c.metaDesc(cantonName, monthlyStr),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),

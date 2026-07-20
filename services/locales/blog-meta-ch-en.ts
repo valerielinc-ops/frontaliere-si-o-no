@@ -1309,6 +1309,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.title': 'Geneva, border workers have the right to work in the public sector',
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.excerpt': 'The cantonal government of Geneva rejected the GCM initiative THAT asked to exclude them from public employment',
     'blog.article.ginevra-frontalieri-diritto-lavoro-pubblico.imageAlt': 'Swiss public employment, frontaliers\' right to work',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.title': 'Border secretary in Ticino: salary, requirements and leave',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.excerpt': 'The Ticino border: average salary, requirements, possible recognition of the qualification, G permit',
+    'blog.article.frontaliere-segretaria-ticino-stipendio-requisiti.imageAlt': 'A frontalier secretary works in an office in Lugano',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Working as human resources in Ticino: salary, requirements and leave G',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'New Border Agreement: what changes for border workers working in Ticino?',
+    'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Image of Lugano with people of different ages working or studying together.',
 };
 
 export default blogMetaChEn;
