@@ -45,20 +45,11 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040474EXTERNALENGLOBAL/DACH-Sales-Manager-CI",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040990EXTERNALENGLOBAL/R-D-Project-Manager--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041013EXTERNALENGLOBAL/Application-Engineering-Chapter-Leader",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041077EXTERNALENGLOBAL/Service-Coordinator---Fixed-Term-3-months--f-m-d--80----100-_JR00041077-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-07-19T22:56:56.304Z",
+  "updatedAt": "2026-07-20T12:37:41.109Z",
   "seedMetaByUrl": {
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00040397EXTERNALENGLOBAL/Electrification-Business-Area-Research-Manager": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00040367EXTERNALENGLOBAL/Global-Sales-Manager-Business-Line-Mining---Materials_JR00040367-1": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -107,14 +98,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00038899EXTERNALENGLOBAL/IS-Division-Manager-ELSB": {
-      "location": "Zurich, Zurich, Switzerland",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039379EXTERNALENGLOBAL/End-Sales-Manager---Global-Strategic-Projects--Mining": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
@@ -134,6 +117,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00041416EXTERNALENGLOBAL/Sales-Manager---Panel-Builders--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00038899EXTERNALENGLOBAL/IS-Division-Manager-ELSB": {
+      "location": "Zurich, Zurich, Switzerland",
+      "canton": "ZH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -190,6 +181,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00039855EXTERNALENGLOBAL/Production-Shift-Supervisor--80-100": {
       "location": "Schaffhausen, Schaffhausen, Switzerland",
       "canton": "SH",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00040397EXTERNALENGLOBAL/Electrification-Business-Area-Research-Manager": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -270,14 +269,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00036992EXTERNALENGLOBAL/R-D--Senior-Testing---Lab-Engineer": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041077EXTERNALENGLOBAL/Service-Coordinator---Fixed-Term-3-months--f-m-d--80----100-_JR00041077-1": {
-      "location": "Zuzwil, St. Gallen, Switzerland",
-      "canton": "SG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
