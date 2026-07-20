@@ -8664,6 +8664,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'IT-Frontends im Tessin: Gehalt und Anforderungen',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Informatik-Grenzgänger im Tessin und die Anerkennung des Abschlusses',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger arbeitet als IT-Mitarbeiter in der Schweiz',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'Wie viel verdient ein Grenzinformatiker im Tessin?',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'Der Einsatz eines Grenzinformatikers im Tessin unterliegt unterschiedlichen Steuersätzen.',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'Ein IT-Spezialist arbeitet am Computer mit Blick auf den Luganersee.',
 };
 
 export default blogMetaDe;

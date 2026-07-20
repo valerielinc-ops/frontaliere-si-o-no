@@ -8665,6 +8665,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'IT frontiers in Ticino: salary and requirements',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'The requirements to work as an IT border worker in Ticino and the recognition of the qualification',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'A cross-border IT worker works in Ticino',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'How much does a border computer scientist earn in Ticino?',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'The use of a border computer technician in Ticino is subject to different tax rates.',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'An IT specialist works on his computer with a view of Lake Lugano.',
 };
 
 export default blogMetaEn;

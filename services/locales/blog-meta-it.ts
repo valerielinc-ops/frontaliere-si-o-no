@@ -8666,6 +8666,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'Frontalieri informatici in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come frontaliere informatico in Ticino e il riconoscimento del titolo di studio',
     'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere informatico lavora in Ticino',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'Quanto guadagna un informatico frontaliere in Ticino?',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'L\'impiego di un informatico frontaliere in Ticino è soggetto a diverse aliquote fiscali.',
+    'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'Un informatico frontaliero lavora al suo computer con una vista sul Lago di Lugano.',
 };
 
 export default blogMetaIt;
