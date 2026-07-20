@@ -1330,6 +1330,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Lavorare come receptionist in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontalieri, scopri i requisiti e il stipendio medio per lavorare come receptionist in Ticino.',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'una receptionist frontaliera in un hotel a Lugano',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Docenti frontalieri in Ticino: requisiti e riconoscimento',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio.',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'Una scena fotografata a Lugano, con il lago e le montagne sullo sfondo. Un docente frontaliero è seduto su una panchina, con un libro aperto in mano e un\'espressione serena sul viso.',
 };
 
 export default blogMetaChIt;

@@ -1330,6 +1330,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Working as a receptionist in Ticino: salary and requirements',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontiersmen, find out the requirements and average salary to work as a receptionist in Ticino.',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'a receptionist in a hotel in Lugano',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Border teachers in Ticino: requirements and recognition',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'The requirements to work as a teacher in Ticino as a border worker and the conditions for the recognition of the qualification.',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'A scenic view of Lugano, with the lake and mountains in the background. A frontalier teacher is sitting on a bench, with a book open in his hand and a serene expression on his face.',
 };
 
 export default blogMetaChEn;
