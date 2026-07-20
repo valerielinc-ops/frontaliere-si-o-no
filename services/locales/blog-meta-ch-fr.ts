@@ -1348,6 +1348,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.giardiniere-frontaliere-ticino-salario.title': 'Combien gagne un jardinier frontalier au Tessin ?',
     'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'Le salaire d\'un jardinier frontalier au Tessin est soumis aux mêmes règles fiscales que la Suisse',
     'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'Une vue panoramique du lac de Lugano, avec un jardinier en premier plan, travaillant dans un jardin devant une maison en Suisse',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Laiterie au Tessin : salaire, exigences et titre',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Voici les exigences et le salaire moyen pour les frontaliers en laiton au Tessin',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano',
 };
 
 export default blogMetaChFr;

@@ -1348,6 +1348,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giardiniere-frontaliere-ticino-salario.title': 'Wie viel verdient ein Grenzgärtner im Tessin?',
     'blog.article.giardiniere-frontaliere-ticino-salario.excerpt': 'Das Gehalt eines Grenzgärtners im Tessin unterliegt den gleichen Steuervorschriften wie in der Schweiz',
     'blog.article.giardiniere-frontaliere-ticino-salario.imageAlt': 'Eine Panoramaansicht des Luganer Sees, mit einem Gärtnerei in der Vordergrund, arbeitet in einem Garten vor einer Haus in der Schweiz',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Spengler im Tessin: Gehalt, Voraussetzungen und Titel',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Hier sind die Anforderungen und der Durchschnittslohn für Grenzgänger im Tessin',
+    'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee',
 };
 
 export default blogMetaChDe;
