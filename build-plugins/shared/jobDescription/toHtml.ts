@@ -69,10 +69,28 @@ function computeJobDescriptionTextToHtml(text: string): string {
     // Pre-structured HTML still needs literal-markdown scrub — descriptions
     // mixing `<br>`/`<strong>` with `**bold**` would otherwise leak `**` tokens
     // into the rendered body and trip `audit:no-literal-markdown` (0-tolerance).
-    return text
-      .replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ')
+    //
+    // Was missing two guards `parseInline` (build-plugins/shared/
+    // jobDescription/parser.ts) already has for the exact same "**"/separator
+    // leak, letting a handful of HTML-tagged descriptions through
+    // (audit:no-literal-markdown regression #4593):
+    //   - odd `**` count: the pair-matching regex below only strips MATCHED
+    //     `**text**` pairs — an unbalanced `**` (source truncated the
+    //     closing marker) survives untouched. `parseInline` strips ALL `**`
+    //     when the total count is odd; mirrored here.
+    //   - separator runs: was boundary-restricted (`(^|[\s>])...(?=[\s<]|$)`)
+    //     so a run glued to non-whitespace text (e.g. `Ref.:HFR-M-1____Le`)
+    //     never matched. `inlineTextToHtml` below already strips
+    //     unconditionally; mirrored here for consistency (same
+    //     SEPARATOR_RUN_RE threshold as scripts/audit-no-literal-markdown.mjs).
+    let s = text.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+    const doubleStars = (s.match(/\*\*/g) || []).length;
+    if (doubleStars % 2 !== 0) {
+      s = s.replace(/\*\*/g, '');
+    }
+    return s
       .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>')
-      .replace(/(^|[\s>])[_=~]{3,}(?=[\s<]|$)/g, '$1');
+      .replace(/[_=~]{3,}/g, ' ');
   }
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);

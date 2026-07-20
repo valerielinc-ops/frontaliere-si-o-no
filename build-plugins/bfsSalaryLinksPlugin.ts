@@ -39,16 +39,9 @@ import {
 import { bfsSalaryFlushed, staticPagesFlushed } from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { SITE_MAP_PAGE_DIR as SITEMAP_PAGE_DIR } from './shared/siteMapPageDir';
 
 const MARKER = 'data-bfs-salary-links';
-
-/** HTML sitemap page (relative dir under dist) per locale — main-nav reachable. */
-const SITEMAP_PAGE_DIR: Record<SalaryLocale, string> = {
-  it: 'mappa-del-sito',
-  en: 'en/site-map',
-  de: 'de/seitenplan',
-  fr: 'fr/plan-du-site',
-};
 
 const BLOCK_COPY: Record<SalaryLocale, { heading: string; intro: string }> = {
   it: { heading: 'Stipendio per età e formazione', intro: 'Stipendio medio in Svizzera per fascia d’età e livello di formazione.' },

@@ -32,6 +32,8 @@ import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { calculateSimulation } from '../services/calculationService';
 import { scenarioToInputs, type SalaryHubScenario } from './salaryHubScenarios';
+import { resolveFiscalMunicipalitiesFlushed } from './shared/buildSignals';
+import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   FISCAL_LOCALES,
   FISCAL_ABOVE_FLOOR,
@@ -595,9 +597,19 @@ export function renderAboveFloorPage(params: {
     ],
   });
 
+  // Budget-aware cascade — sibling of the same fix in employerProfilePagesPlugin.ts
+  // / professionCityLandings.ts / professionCantonLandings.ts (audit:title-length
+  // regression #4593): `c.title(n)` has no fallback, so a comune name longer than
+  // today's corridor dataset's longest (19 chars, "Casnate con Bernate", already
+  // 62/66 for IT) would overflow with no recovery. Not currently overflowing
+  // (verified against the live dataset) but the SAME unguarded single-candidate
+  // shape as the pages that DID regress — fixed defensively while already
+  // touching this file, per CLAUDE.md non-negotiable #6. Never truncates the
+  // comune name itself (composePlaceTitle policy) — falls back to the bare name.
+  const titleCandidates = [c.title(n), n];
   const html = buildSeoPageHtml({
     locale,
-    title: c.title(n),
+    title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
     description: c.desc(n, addizPctStr),
     canonicalUrl,
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
@@ -808,10 +820,14 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_FISCAL_MUNICIPALITY_PAGES === '1') {
         console.log('\x1b[36m[fiscal-municipalities]\x1b[0m skipped (SKIP_FISCAL_MUNICIPALITY_PAGES=1)');
+        resolveFiscalMunicipalitiesFlushed([]);
         return;
       }
       const distDir = path.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
+      if (!fs.existsSync(distDir)) {
+        resolveFiscalMunicipalitiesFlushed([]);
+        return;
+      }
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'fiscalMunicipalityPagesPlugin' });
@@ -821,10 +837,12 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
       let thinPages = 0;
 
       // Hub index (one per locale).
+      const hubPaths: string[] = [];
       for (const locale of FISCAL_LOCALES) {
         const { urlPath, html } = renderHubPage({ locale, dateStamp, distDir });
         collector.add(path.join(distDir, urlPath, 'index.html'), html);
         collector.add(path.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
+        hubPaths.push(urlPath);
       }
 
       // Above-floor pages (indexable, with numeric scenario).
@@ -859,6 +877,12 @@ export function fiscalMunicipalityPagesPlugin(rootDir: string): Plugin {
           `${indexablePages} pages (${thinPages} thin) + ${bridgePages} bridges + ${FISCAL_LOCALES.length} hubs — ` +
           `flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
+
+      // Unblocks fiscalMunicipalityLinksPlugin, which injects a hub link
+      // into the per-locale HTML sitemap page — without it the whole
+      // sitemap-comuni-fiscale.xml shard ships BFS-unreachable from `/`
+      // (audit:max-bfs-depth regression #4593).
+      resolveFiscalMunicipalitiesFlushed(hubPaths);
     },
   };
 }
