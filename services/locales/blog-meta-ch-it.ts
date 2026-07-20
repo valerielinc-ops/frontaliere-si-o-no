@@ -1288,6 +1288,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'Quanto guadagna un meccanico frontaliere in Ticino',
     'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analisi della fascia salariale per meccanici frontalieri in Ticino: trattenute fiscali, contributi AVS/LPP e impatto del nuovo Accordo Frontalieri.',
     'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Officina meccanica moderna in Ticino, Svizzera',
+    'blog.article.frontalieri-salario-meccatronico.title': 'Quanto guadagna un meccatronico frontaliere in Ticino?',
+    'blog.article.frontalieri-salario-meccatronico.excerpt': 'Il salario di un meccatronico frontaliere in Ticino è influenzato da fattori come la nazionalità, la residenza e la esperienza lavorativa.',
+    'blog.article.frontalieri-salario-meccatronico.imageAlt': 'Un meccatronico frontaliero lavora in un\'officina a Lugano.',
 };
 
 export default blogMetaChIt;

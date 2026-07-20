@@ -1288,6 +1288,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stipendio-meccanico-frontaliere-ticino.title': 'Combien gagne un mécanicien frontalier au Tessin',
     'blog.article.stipendio-meccanico-frontaliere-ticino.excerpt': 'Analyse de la fourchette salariale pour les mécaniciens frontaliers au Tessin : retenues fiscales, cotisations AVS/LPP et impact du nouvel accord frontalier.',
     'blog.article.stipendio-meccanico-frontaliere-ticino.imageAlt': 'Atelier de mécanique moderne au Tessin, Suisse',
+    'blog.article.frontalieri-salario-meccatronico.title': 'Combien gagne un mécatronicien frontalier au Tessin ?',
+    'blog.article.frontalieri-salario-meccatronico.excerpt': 'Le salaire d\'un mécatronicien frontalier au Tessin est influencé par des facteurs tels que la nationalité, la résidence et l\'expérience professionnelle.',
+    'blog.article.frontalieri-salario-meccatronico.imageAlt': 'Un mécanicien travaille dans un bureau à Lugano.',
 };
 
 export default blogMetaChFr;

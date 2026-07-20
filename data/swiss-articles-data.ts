@@ -3860,6 +3860,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-salario-meccatronico',
+    category: 'pratico',
+    date: '2026-07-20T07:59:19.918Z',
+    image: '/images/blog/frontalieri-salario-meccatronico.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
