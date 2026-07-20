@@ -1351,6 +1351,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Laiterie au Tessin : salaire, exigences et titre',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Voici les exigences et le salaire moyen pour les frontaliers en laiton au Tessin',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Vue panoramique de Lugano avec le lac de Lugano',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Combien gagne un fermier frontalier au Tessin ?',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'La rémunération d\'un fermier frontalier au Tessin est influencée par plusieurs facteurs, notamment son expérience, le type de travail et la zone dans laquelle il travaille.',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Un couvreur frontalier travaille dans le canton du Tessin',
 };
 
 export default blogMetaChFr;

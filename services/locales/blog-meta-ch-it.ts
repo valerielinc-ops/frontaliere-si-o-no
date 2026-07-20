@@ -1351,6 +1351,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.title': 'Lattoniere in Ticino: stipendio, requisiti e titolo',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.excerpt': 'Ecco i requisiti e il stipendio medio per i frontaliere lattonieri in Ticino',
     'blog.article.frontaliere-lattoniere-ticino-stipendio-requisiti.imageAlt': 'Vista panoramica di Lugano con il Lago di Lugano',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.title': 'Quanto guadagna un lattoniere frontaliere in Ticino?',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.excerpt': 'La retribuzione di un lattoniere frontaliere in Ticino è influenzata da diversi fattori, tra cui la sua esperienza, il tipo di lavoro e la zona in cui lavora.',
+    'blog.article.frontalieri-lattoniere-ticino-stipendio.imageAlt': 'Un lattoniere frontaliere lavora nel Canton Ticino',
 };
 
 export default blogMetaChIt;
