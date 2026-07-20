@@ -571,8 +571,24 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
 
   const mergedMap = new Map(remoteData.map);
   for (const key of touched) {
-    if (localData.map.has(key)) mergedMap.set(key, localData.map.get(key));
-    else mergedMap.delete(key);
+    if (!localData.map.has(key)) {
+      // Local deleted this key relative to base — respect the deletion.
+      mergedMap.delete(key);
+      continue;
+    }
+    if (baseData.map.has(key) && !remoteData.map.has(key)) {
+      // Present in base, edited locally, but the OTHER writer already
+      // removed this key from remote since our snapshot (e.g. a crawler's
+      // stable-id dedup collapsing 2 URL-variant records into 1, or a
+      // closed posting pruned as stale). A stale local edit against the
+      // pre-removal snapshot must not resurrect a record the fresher
+      // write already retired — remote's deletion wins (issue #4603: a
+      // long-running translate-pending run held a pre-dedup snapshot of
+      // data/jobs/by-crawler/banca-cler.json and its slug-regen commit
+      // re-added a job the same-day Cler crawl had already merged away).
+      continue;
+    }
+    mergedMap.set(key, localData.map.get(key));
   }
 
   const remoteKeys = new Set(remoteData.order);
