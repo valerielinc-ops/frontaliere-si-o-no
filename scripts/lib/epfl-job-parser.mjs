@@ -128,7 +128,7 @@ function detectCategory(title = '', dept = '') {
 
 function detectExperienceLevel(title = '', dept = '') {
   const t = normalize(`${title} ${dept}`);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(post.?doc|postdoc)/.test(t)) return 'mid';
   if (/\b(phd|doctora|doctorant)/.test(t)) return 'junior';
   if (/\b(junior|jr)/.test(t)) return 'junior';

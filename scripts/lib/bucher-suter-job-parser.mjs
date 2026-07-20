@@ -201,7 +201,7 @@ export function detectEmploymentType(jobTypeLabel = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = String(title || '').toLowerCase();
-  if (/intern|apprentice|trainee|working student|werkstudent/.test(t)) return 'intern';
+  if (/\b(interns?(?=\W|$)|apprentice|trainee|working student|werkstudent)/.test(t)) return 'intern';
   if (/junior|jr\b/.test(t)) return 'junior';
   if (/senior|sr\b|lead|head|director|manager|principal/.test(t)) return 'senior';
   return 'mid';

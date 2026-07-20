@@ -661,7 +661,7 @@ export function normalizeJobContract(raw: unknown, title = '', description = '')
  const percent = Number((rawText.match(/\b(\d{1,3})\s*%/)?.[1] || ''));
  if (Number.isFinite(percent) && percent > 0 && percent < 90) return 'part-time';
 
- if (looksLike(norm, /(thesis|intern|internship|stage|tirocin|apprendist|praktikum)/)) return 'internship';
+ if (looksLike(norm, /\b(thesis|internship|interns?(?=\W|$)|stages?(?=\W|$)|tirocin|apprendist|praktikum)/)) return 'internship';
  if (looksLike(norm, /(part time|tempo parziale|teilzeit|temps partiel)/)) return 'part-time';
  if (looksLike(norm, /(temp|temporary|determinato|fixed term|befristet)/)) return 'temporary';
  if (looksLike(norm, /(contractor|freelance|consul|progetto|projektvertrag|contract)/)) return 'contract';

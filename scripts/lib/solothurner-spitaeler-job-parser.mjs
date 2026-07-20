@@ -131,7 +131,7 @@ function detectCategory(title = '', rubric = '', department = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|intern|apprendist|lehrling|lernend|doktorand|ausbildung|berufsvorbereitungsjahr|bvj|in ausbildung)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|interns?(?=\W|$)|apprendist|lehrling|lernend|doktorand|ausbildung|berufsvorbereitungsjahr|bvj|in ausbildung)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistenzarzt|assistenzärztin|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|berufsbildner)/.test(t)) return 'senior';
   return 'mid';

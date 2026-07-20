@@ -185,7 +185,7 @@ function detectCategoryNormalized(rawCat = '', title = '') {
 
 function detectExperienceLevel(title = '', occupation = '') {
   const t = normalize(title);
-  if (/praktik|stage|intern|lehrling|lernend/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|interns?(?=\W|$)|lehrling|lernend)/.test(t)) return 'intern';
   if (/junior|jr|assistent/.test(t)) return 'junior';
   if (/senior|sr|lead|head|chef|leiter|leitend|stationsleitung|oberarzt|chefarzt|berufsbildner|verantwort/.test(t)) return 'senior';
   return 'mid';

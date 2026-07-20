@@ -1161,7 +1161,7 @@ const JOB_TYPE_DEFS: Record<JobLandingTypeKey, {
  internship: {
  slug: { it: 'stage', en: 'internship', de: 'praktikum', fr: 'stage' },
  label: { it: 'Stage', en: 'Internship', de: 'Praktikum', fr: 'Stage' },
- matcher: (job) => /stage|internship|stagiaire|praktikum|intern\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''} ${job.contract || ''}`)),
+ matcher: (job) => /\b(stages?(?=\W|$)|internship|stagiaire|praktikum|interns?(?=\W|$))/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''} ${job.contract || ''}`)),
  },
  partTime: {
  slug: { it: 'part-time', en: 'part-time', de: 'teilzeit', fr: 'temps-partiel' },

@@ -104,7 +104,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lehrstelle|lernend|praktik|stage|intern|apprenti|studierend|studienplatz|trainee)/.test(t)) return 'intern';
+  if (/\b(lehrstelle|lernend|praktik|stages?(?=\W|$)|interns?(?=\W|$)|apprenti|studierend|studienplatz|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|berufsbildner)/.test(t)) return 'senior';
   return 'mid';

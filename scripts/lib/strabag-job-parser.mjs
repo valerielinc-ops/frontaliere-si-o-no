@@ -196,7 +196,7 @@ export function detectEmploymentType(title = '', workHours = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = String(title || '').toLowerCase();
-  if (/praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|ausbildung|trainee/i.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprendist|lehrling|lernend|apprenti|ausbildung|trainee)/i.test(t)) return 'intern';
   if (/junior|jr\b/i.test(t)) return 'junior';
   if (/senior|sr\b|lead|head|director|dirett|chef|verantwort|responsab|leiter|manager/i.test(t)) return 'senior';
   return 'mid';

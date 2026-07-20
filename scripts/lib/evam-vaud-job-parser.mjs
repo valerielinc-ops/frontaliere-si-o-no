@@ -126,7 +126,7 @@ export function inferCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = title.toLowerCase();
-  if (/(stagiaire|stage|apprenti)/i.test(t)) return 'intern';
+  if (/\b(stagiaire|stages?(?=\W|$)|apprenti)/i.test(t)) return 'intern';
   if (/(chef|responsable|directeur|directrice)/i.test(t)) return 'senior';
   return 'mid';
 }

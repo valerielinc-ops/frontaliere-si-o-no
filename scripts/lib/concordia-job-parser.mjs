@@ -115,7 +115,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalizeSpace(title).toLowerCase();
-  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stage|intern)/.test(t)) return 'intern';
+  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stages?(?=\W|$)|interns?(?=\W|$))/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|leiter|leitend|head|director|chef|verantwort)/.test(t)) return 'senior';
   return 'mid';

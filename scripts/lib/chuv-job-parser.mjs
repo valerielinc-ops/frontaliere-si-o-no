@@ -199,7 +199,7 @@ function detectEmploymentType(activityRate = '', title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stagiair|apprenti|stage|intern|étudiant|etudiant|lehrling)/.test(t)) return 'intern';
+  if (/\b(stagiair|apprenti|stages?(?=\W|$)|interns?(?=\W|$)|étudiant|etudiant|lehrling)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|chef|responsable|directeur|directrice|cadre|head|lead)/.test(t)) return 'senior';
   return 'mid';

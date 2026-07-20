@@ -277,7 +277,7 @@ export function detectHealthcareCategory(text = '', fallback = 'Sanità / Ospeda
 
 export function detectHealthcareExperienceLevel(text = '') {
   const t = normalize(text);
-  if (/praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|tirocin|werkstudent/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprendist|lehrling|lernend|apprenti|tirocin|werkstudent)/.test(t)) return 'intern';
   if (/junior|jr|assistent|assistant/.test(t)) return 'junior';
   if (/senior|sr|lead|head|director|dirett|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|primario|responsable|cadre|responsabile/.test(t)) return 'senior';
   return 'mid';

@@ -174,7 +174,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lernend|lehrling|efz|praktik|stage|stagiair|intern|apprendist|apprenti)/.test(t)) return 'intern';
+  if (/\b(lernend|lehrling|efz|praktik|stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprendist|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(filialleit|abteilungsleit|senior|sr|lead|head|director|dirett|chef|verantwort|responsab|stv\.?\s*filialleit)/.test(t)) return 'senior';
   return 'mid';
