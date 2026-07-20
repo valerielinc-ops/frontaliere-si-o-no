@@ -63,6 +63,22 @@ if [ ! -d "$dist_dir/$sub" ]; then
   exit 0
 fi
 
+# Count the files we are about to remove BEFORE deleting them, then add the
+# tally to a per-locale accumulator marker. push-locale-shard.sh reads it so
+# its >50% shrink guard can reconstruct the BUILT (pre-strip) shard size and
+# NOT mistake this PLANNED section split for a partial-build regression. This
+# strip only runs after BOTH gates above (section shard LIVE + push ok-marker),
+# so the removed content is already verified-live on its own shard — the main
+# shard legitimately shrinks by exactly this many files. Without the tally the
+# main-shard push refuses the (correctly) smaller shard and the locale freezes
+# stale (incident jul20: en/fr main shards stuck when svizzera+zurigo went live
+# — 403338→186096 read as a >50% regression).
+n_stripped="$(find "${dist_dir:?}/$sub" -type f 2>/dev/null | wc -l | tr -d ' ')"
+[[ "$n_stripped" =~ ^[0-9]+$ ]] || n_stripped=0
 # Guarded `${dist_dir:?}` so an unset var can never expand `rm -rf /$sub`.
 rm -rf "${dist_dir:?}/$sub"
-echo "stripped $dist_dir/$sub from dist (now served by the $section-$loc shard via the Worker)"
+acc="${RUNNER_TEMP:-/tmp}/shard-stripped-$loc"
+prev_acc="$(cat "$acc" 2>/dev/null || echo 0)"
+[[ "$prev_acc" =~ ^[0-9]+$ ]] || prev_acc=0
+printf '%s' "$(( prev_acc + n_stripped ))" > "$acc"
+echo "stripped $dist_dir/$sub from dist ($n_stripped files; now served by the $section-$loc shard via the Worker)"

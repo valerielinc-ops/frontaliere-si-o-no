@@ -88,6 +88,17 @@ push_shard() {
   src_n="$(find "$dist_dir/$loc" -type f | wc -l)"
   prev_n="$(curl -fsS "https://raw.githubusercontent.com/valerielinc-ops/frontaliere-$loc/main/.shard-filecount" 2>/dev/null || echo 0)"
   [[ "$prev_n" =~ ^[0-9]+$ ]] || prev_n=0
+  # Files removed from THIS locale's dist subtree by the "Strip section
+  # subtrees" step that ran BEFORE this push — section shards (svizzera /
+  # zurigo / ticino) that are now LIVE in their own repos. strip-section-
+  # subtree.sh gates the strip on the section shard's push ok-marker, so that
+  # content is already verified-live elsewhere; the main shard shrinks by
+  # exactly this many files as a PLANNED split, not a build regression. We add
+  # it back below to reconstruct the BUILT (pre-strip) size for gate (b), so a
+  # section going live no longer trips the >50% shrink guard (incident jul20).
+  # Absent marker (local run / no strip) → 0 → identical to the old behaviour.
+  stripped_n="$(cat "${RUNNER_TEMP}/shard-stripped-$loc" 2>/dev/null || echo 0)"
+  [[ "$stripped_n" =~ ^[0-9]+$ ]] || stripped_n=0
   # EVERYTHING that builds the shard tree AND pushes runs inside one
   # `set -e` subshell with the integrity gates before the push. A failed
   # copy / truncated tree ABORTS before push: a monco tree is never
@@ -174,20 +185,31 @@ push_shard() {
     if [ -f "$dist_dir/$loc.html" ]; then cp "$dist_dir/$loc.html" "$stage/$loc.html"; fi  # homepage at /{loc}
     printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch %s shard</title>' "$loc" > "$stage/index.html"
     n="$(find "$stage/$loc" -type f | wc -l)"
+    # BUILT size = the shard as EMITTED by the build, before the "Strip section
+    # subtrees" step removed already-verified-live section subtrees. Gate (b)
+    # reasons on THIS (not the smaller served $n) so a populate-then-strip
+    # section split — which drops served files but not built files — reads flat
+    # instead of as a >50% regression. stripped_n is 0 on a normal (no-strip)
+    # run, so built_n == n and the behaviour is identical to before.
+    built_n="$(( n + stripped_n ))"
     # (a) copy integrity: the staged subtree must have AT LEAST as many
     #     files as the source — a partial cp (disk-full) lands fewer → abort.
     test -s "$stage/$loc/index.html"
     [ "$n" -ge "$src_n" ]
-    # (b) regression guard: refuse a push that would shrink the shard
-    #     >50% vs its last-published count (suspected upstream build
-    #     regression emitting a partial locale). First seed → prev_n 0 → skip.
-    if [ "$prev_n" -gt 0 ] && [ "$((n * 2))" -lt "$prev_n" ]; then
-      echo "::error::$loc shard would shrink $prev_n -> $n files (>50%) — refusing push (suspected build regression)"
+    # (b) regression guard: refuse a push whose BUILT tree shrank >50% vs its
+    #     last-published high-water (a genuine upstream partial-locale build).
+    #     Compares built_n (served + section-stripped) so a planned section
+    #     split passes while a real partial build is still caught. The recorded
+    #     high-water below is likewise the BUILT size, keeping the comparison
+    #     consistent across the seed → split transition. First seed → prev_n 0
+    #     → skip.
+    if [ "$prev_n" -gt 0 ] && [ "$((built_n * 2))" -lt "$prev_n" ]; then
+      echo "::error::$loc shard would shrink $prev_n -> $built_n built files ($n served + $stripped_n section-stripped) (>50%) — refusing push (suspected build regression)"
       exit 1
     fi
-    printf '%s' "$n" > "$stage/.shard-filecount"   # high-water-mark for the next run's gate (b)
+    printf '%s' "$built_n" > "$stage/.shard-filecount"   # high-water-mark (BUILT size) for the next run's gate (b)
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"  # commits since last flatten (history-cap counter)
-    echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
+    echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files served / $built_n built (src $src_n, section-stripped $stripped_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
     cd "$stage"
     git config user.email "valerielinc@gmail.com"
     git config user.name "Valerie Linc"
