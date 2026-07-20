@@ -8671,6 +8671,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Salary of an electrical designer: Ticino vs Italy',
     'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'Concrete data on the salary of a border electrical designer in Ticino, with comparisons with the Italian situation',
     'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'A front-line electric engineer in Lugano, with the city and lake in the background',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontier workers, work and G permit: Councillor Vitta',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'State Councillor Christian Vitta has made it clear that frontier workers will be able to go to work in Switzerland, but must be provided with a G permit.',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalieri in transit through a border crossing between Italy and Switzerland.',
 };
 
 export default blogMetaEn;

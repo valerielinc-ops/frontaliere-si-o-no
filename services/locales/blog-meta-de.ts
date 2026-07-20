@@ -8670,6 +8670,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Gehalt eines Elektrokonstrukteurs: Tessin vs. Italien',
     'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'Konkrete Angaben zum Gehalt eines Grenzelektroplaners im Tessin im Vergleich zur italienischen Situation',
     'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'Ein front-line-Elektroingenieur in Lugano, mit der Stadt und dem See im Hintergrund',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Grenzgänger, Arbeit und Bewilligung G: Stadtrat Vitta',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Regierungsrat Christian Vitta hat klargestellt, dass Grenzgänger zwar in die Schweiz zur Arbeit gehen dürfen, aber über eine G-Bewilligung verfügen müssen.',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalier in Durchgang durch eine Grenzübergang zwischen Italien und der Schweiz.',
 };
 
 export default blogMetaDe;

@@ -8672,6 +8672,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Salaire d\'un concepteur électrique : Tessin vs Italie',
     'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'Les données concrètes sur le salaire d\'un concepteur électrique frontalier au Tessin, par rapport à la situation italienne',
     'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'Un ingénieur électrique front-line à Lugano, avec la ville et le lac en arrière-plan',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontaliers, travail et permis G : le conseiller Vitta',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Le conseiller d\'Etat Christian Vitta a précisé que les travailleurs frontaliers pourront se rendre au travail en Suisse, mais qu\'ils devront être munis du permis G.',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontaliers en transit par un passage frontalier entre l\'Italie et la Suisse.',
 };
 
 export default blogMetaFr;

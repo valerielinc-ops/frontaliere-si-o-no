@@ -1,0 +1,19 @@
+{
+  "id": "coronavirus-frontalieri-ticino-svizzera",
+  "slug": "coronavirus-frontalieri-ticino-svizzera",
+  "publishedAt": "2026-07-20T05:56:21.865Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.82111328000002,
+    "confidence": 1,
+    "finalScore": 155.82111328000002,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 155.82111328000002,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

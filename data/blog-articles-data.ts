@@ -26054,6 +26054,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'coronavirus-frontalieri-ticino-svizzera',
+ category: 'pratico',
+ date: '2026-07-20T05:56:17.886Z',
+ image: '/images/blog/coronavirus-frontalieri-ticino-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

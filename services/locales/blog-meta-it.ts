@@ -8672,6 +8672,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Stipendio di un progettista elettrico: Ticino vs Italia',
     'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'I dati concreti sullo stipendio di un progettista elettrico frontaliere in Ticino, con confronti con la situazione italiana',
     'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'Un progettista elettrico frontaliere a Lugano, con la città e il lago sullo sfondo',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.title': 'Frontalieri, lavoro e permesso G: il consigliere Vitta',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.excerpt': 'Il consigliere di Stato Christian Vitta ha chiarito che i lavoratori frontalieri potranno andare al lavoro in Svizzera, ma devono essere muniti del permesso G.',
+    'blog.article.coronavirus-frontalieri-ticino-svizzera.imageAlt': 'Frontalieri in transito attraverso un valico di frontiera tra Italia e Svizzera.',
 };
 
 export default blogMetaIt;
