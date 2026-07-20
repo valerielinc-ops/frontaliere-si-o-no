@@ -1294,6 +1294,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Soudeurs au Tessin : salaire, exigences et reconnaissance',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Le nouvel accord frontalier prévoit de nouvelles règles pour les soudeurs frontaliers au Tessin. Dans cet article, nous découvrons les exigences, le salaire moyen et les exemptions possibles.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Image d\'un soudurier en train de travailler dans une usine du Tessin',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Soudeuse frontalière au Tessin : guide pratique et exigences',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Découvrez les conditions requises pour travailler comme soudeur en Suisse, les règles fiscales mises à jour et le fonctionnement de l\'impôt à la source pour les travailleurs frontaliers.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Atelier de métallurgie professionnel en Suisse',
 };
 
 export default blogMetaChFr;

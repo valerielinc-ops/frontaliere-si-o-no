@@ -4677,6 +4677,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendio-saldatore-frontaliere-ticino': { name: 'Stipendio saldatore frontaliere Ticino', path: '/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino', parent: 'blog' },
     'blog-saldatore-frontaliere-ticino-stipendio-requisiti': { name: 'Lavorare come saldatore in Ticino da', path: '/articoli-svizzera/saldatore-frontaliere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-saldatore-ticino-stipendio-requisiti': { name: 'Frontaliere saldatore in Ticino', path: '/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-saldatore-frontaliere-ticino-guida': { name: 'Frontalieri Svizzera', path: '/articoli-svizzera/saldatore-frontaliere-ticino-guida/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

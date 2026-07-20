@@ -454,6 +454,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'stipendio-meccanico-frontaliere-ticino': { it: 'stipendio-meccanico-frontaliere-ticino', en: 'mechanic-salary-cross-border-ticino', de: 'gehalt-mechaniker-grenzganger-tessin', fr: 'salaire-mecanicien-frontalier-tessin' },
  'frontalieri-salario-meccatronico': { it: 'frontalieri-salario-meccatronico', en: 'frontalieri-salary-mechanic', de: 'frontalier-lohn-mechatroniker', fr: 'frontaliers-salaire-mecanicien' },
  'saldatore-frontaliere-ticino-stipendio-requisiti': { it: 'saldatore-frontaliere-ticino-stipendio-requisiti', en: 'welder-frontalier-ticino-salary-requirements', de: 'schwei-er-frontalier-tessin-honorar-anforderungen', fr: 'soudurier-frontalier-tessin-salaire-exigences' },
+ 'saldatore-frontaliere-ticino-guida': { it: 'saldatore-frontaliere-ticino-guida', en: 'welder-cross-border-ticino-guide', de: 'schweisser-grenzgaenger-tessin-leitfaden', fr: 'soudeur-frontalier-ticino-guide' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

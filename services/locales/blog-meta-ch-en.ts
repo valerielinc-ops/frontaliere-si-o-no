@@ -1294,6 +1294,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Welders in Ticino: salary, requirements and recognition',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'The New Frontier Agreement provides new rules for border welders in Ticino. In this article, we learn about the requirements, average salary, and possible exemptions.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Image of a welder at work in a Ticino factory',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Border welder in Ticino: practical guide and requirements',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Learn about the requirements to work as a welder in Switzerland, the updated tax rules, and how tax at source works for frontier workers.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professional metal workshop in Switzerland',
 };
 
 export default blogMetaChEn;
