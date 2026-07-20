@@ -8682,6 +8682,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Arbeiten als Mechaniker im Tessin: Gehalt und Anforderungen',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Mechaniker in der Schweiz sind im Bundesgesetz festgelegt. Die G-Bewilligung ist erforderlich, um in der Schweiz zu arbeiten, ohne italienische Steuern zahlen zu müssen.',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'Ein Blick auf Lugano mit dem See und den Bergen',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Mechatronischer Grenzgänger Tessin Lohnvoraussetzungen',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'Die G-Genehmigung ist für Mechatroniker im Tessin erforderlich. Es ist nicht festgelegt, welche Anforderung für Mechatroniker im Tessin erforderlich ist.',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'Ein Mechaniker in Ticino mit Hintergrund Monte Bre.',
 };
 
 export default blogMetaDe;

@@ -8684,6 +8684,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.title': 'Travailler comme mécanicien au Tessin : salaire et exigences',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme mécanicien en Suisse sont fixées par la loi fédérale. Le permis G est nécessaire pour travailler en Suisse sans avoir à payer les impôts italiens.',
     'blog.article.frontaliere-meccanico-ticino-stipendio-requisiti.imageAlt': 'Une vue de Lugano avec le lac et les montagnes',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.title': 'Frontière mécatronique Tessin salaire exigences',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.excerpt': 'Le permis G est nécessaire pour les mécatroniciens au Tessin. Il n\'est pas spécifié quelle exigence est nécessaire pour les mécatroniciens au Tessin.',
+    'blog.article.frontaliere-meccatronico-ticino-stipendio-requisiti.imageAlt': 'Un mécanicien en Suisse avec un arrière-plan de Monte Bre.',
 };
 
 export default blogMetaFr;
