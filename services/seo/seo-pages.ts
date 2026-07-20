@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3360,
+ "numberOfItems": 3361,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8128,7 +8128,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3357, "name": "Quanto guadagna un contabile frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-contabile-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3358, "name": "Segretaria frontaliere in Ticino: stipendio, re...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-segretaria-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3359, "name": "Quanto guadagna un segretaria frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-segretaria-frontaliera-ticino` },
-          { "@type": "ListItem", "position": 3360, "name": "Lavorare come risorse umane in Ticino: stipendi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-risorse-umane-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3360, "name": "Lavorare come risorse umane in Ticino: stipendi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-risorse-umane-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3361, "name": "Quanto guadagna un risorse umane frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-risorse-umane-frontaliere-in-ticino` }
  ]
  },
  {

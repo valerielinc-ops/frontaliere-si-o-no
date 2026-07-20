@@ -1315,6 +1315,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.title': 'Working as human resources in Ticino: salary, requirements and leave G',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.excerpt': 'New Border Agreement: what changes for border workers working in Ticino?',
     'blog.article.frontaliere-risorse-umane-ticino-stipendio-requisiti.imageAlt': 'Image of Lugano with people of different ages working or studying together.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.title': 'How much do border human resources earn in Ticino?',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.excerpt': 'Switzerland is a country with a complex tax system and many rules for border workers.',
+    'blog.article.quanto-guadagna-un-risorse-umane-frontaliere-in-ticino.imageAlt': 'A scene of an office of a company in Switzerland with employees of different countries, including cross-border workers, who are working at their computers.',
 };
 
 export default blogMetaChEn;
