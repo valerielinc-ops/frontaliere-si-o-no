@@ -3729,6 +3729,7 @@ Regole:
  'publisher.error': 'Si è verificato un errore. Riprova.',
  'publisher.error.description': 'La descrizione deve contenere almeno 50 parole.',
  'publisher.error.locations': 'Aggiungi almeno una sede di lavoro.',
+ 'publisher.error.locationCity': 'Seleziona una città tra i suggerimenti per il cantone scelto.',
  'publisher.error.title': 'Inserisci il titolo della posizione.',
  'publisher.error.companyName': 'Inserisci il nome dell\'azienda.',
  'publisher.error.applyUrl': 'Inserisci un URL di candidatura valido.',
