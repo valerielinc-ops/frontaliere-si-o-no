@@ -70,7 +70,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({ context
  <p className="text-xs font-medium text-muted uppercase tracking-wider mb-2 flex items-center gap-1.5">
  {t('affiliate.sectionTitle')}
  </p>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+ <div className={`grid grid-cols-1 gap-2 ${partners.length > 1 ? 'sm:grid-cols-2' : ''}`}>
  {partners.map(partner => (
  <PartnerCard key={partner.id} partner={partner} context={context} />
  ))}
