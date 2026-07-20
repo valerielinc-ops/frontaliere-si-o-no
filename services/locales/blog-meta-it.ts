@@ -8663,6 +8663,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'Quanto guadagna un veterinario frontaliere in Ticino?',
     'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'Gli stipendi dei veterinari frontaliere in Ticino sono soggetti a diverse imposte e regimi contributivi.',
     'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramica di Lugano, con il Lago di Lugano sullo sfondo.',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'Frontalieri informatici in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'I requisiti per lavorare come frontaliere informatico in Ticino e il riconoscimento del titolo di studio',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'Un frontaliere informatico lavora in Ticino',
 };
 
 export default blogMetaIt;

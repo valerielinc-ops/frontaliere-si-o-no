@@ -8661,6 +8661,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'Wie viel verdient ein Grenztierarzt im Tessin?',
     'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'Die Gehälter von Grenztierärzten im Tessin unterliegen unterschiedlichen Steuern und Beitragsregelungen.',
     'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramabild von Lugano, mit dem Luganersee im Hintergrund.',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'IT-Frontends im Tessin: Gehalt und Anforderungen',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'Die Voraussetzungen für die Arbeit als Informatik-Grenzgänger im Tessin und die Anerkennung des Abschlusses',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'Ein Grenzgänger arbeitet als IT-Mitarbeiter in der Schweiz',
 };
 
 export default blogMetaDe;

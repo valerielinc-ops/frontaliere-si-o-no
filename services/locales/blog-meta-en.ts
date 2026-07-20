@@ -8662,6 +8662,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'How much does a border veterinarian earn in Ticino?',
     'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'The salaries of border veterinarians in Ticino are subject to different taxes and contribution schemes.',
     'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Panoramic view of Lugano, with Lake Lugano in the background.',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'IT frontiers in Ticino: salary and requirements',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'The requirements to work as an IT border worker in Ticino and the recognition of the qualification',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'A cross-border IT worker works in Ticino',
 };
 
 export default blogMetaEn;

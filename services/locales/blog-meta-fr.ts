@@ -8663,6 +8663,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-veterinario-frontaliere-ticino.title': 'Combien gagne un vétérinaire frontalier au Tessin ?',
     'blog.article.stipendio-veterinario-frontaliere-ticino.excerpt': 'Les salaires des vétérinaires frontaliers au Tessin sont soumis à différents impôts et régimes de cotisations.',
     'blog.article.stipendio-veterinario-frontaliere-ticino.imageAlt': 'Vue panoramique de Lugano, avec le lac de Lugano en arrière-plan.',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.title': 'Frontières informatiques au Tessin : salaire et exigences',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler en tant que frontalière informatique au Tessin et la reconnaissance du diplôme',
+    'blog.article.frontaliere-informatico-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier travaille dans le domaine de l\'informatique',
 };
 
 export default blogMetaFr;
