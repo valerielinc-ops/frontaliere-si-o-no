@@ -243,6 +243,34 @@ service cloud.firestore {
       // No client update/delete — Admin SDK only.
     }
 
+    // Consulting-session payments (/consulenza/, replaces the dead Calendly
+    // links). Public/anonymous — no Firebase Auth account required to pay for
+    // a session. Doc id = Stripe Checkout Session id: an unguessable
+    // capability token carried in the success-redirect URL, so a plain `get`
+    // is safe while `list` stays closed (no PII enumeration).
+    match /consulting_orders/{orderId} {
+      allow get: if true;
+      allow list: if false;
+      // Only the Stripe webhook (Admin SDK, bypasses rules) creates a paid order.
+      allow create: if false;
+      // Exactly one client update: submitting the intake form once, only
+      // after real payment landed, with money/identity fields frozen — same
+      // envelope shape as publisher_jobs' contentEditOk above.
+      allow update: if resource.data.status == 'paid'
+        && resource.data.detailsSubmitted != true
+        && request.resource.data.detailsSubmitted == true
+        && request.resource.data.topic is string
+        && request.resource.data.description is string
+        && request.resource.data.preferredDateStart is string
+        && request.resource.data.preferredDateEnd is string
+        && request.resource.data.contactName is string
+        && request.resource.data.status == resource.data.status
+        && request.resource.data.tier == resource.data.tier
+        && request.resource.data.amountTotal == resource.data.amountTotal
+        && request.resource.data.customerEmail == resource.data.customerEmail;
+      allow delete: if false;
+    }
+
     // Per-ad analytics counters (views, apply clicks). Public increment like
     // job_views/article_views; owner reads aggregates in the dashboard.
     match /publisher_job_events/{jobId} {

@@ -22,6 +22,7 @@ const VALID_ACTIONS = new Set([
   'PAGE_LOAD',
   'PUBLISH_JOB',
   'PUBLISHER_APPLY',
+  'CONSULTING_DETAILS',
 ]);
 
 const ACTION_THRESHOLDS = {
@@ -33,6 +34,7 @@ const ACTION_THRESHOLDS = {
   PUBLISH_JOB: 0.5,
   PUBLISHER_APPLY: 0.5,
   PAGE_LOAD: 0.3,
+  CONSULTING_DETAILS: 0.5,
 };
 
 let cachedClient = null;
