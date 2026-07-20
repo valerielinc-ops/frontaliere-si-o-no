@@ -1342,6 +1342,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Charpentier au Tessin : salaire et exigences pour frontalier',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Voici les exigences et les informations utiles pour travailler comme charpentier au Tessin en tant que frontalier',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Photographie d\'un charpentier en Suisse avec un fond de montagnes',
+    'blog.article.frontaliere-pittore-ticino-guadagno.title': 'Combien gagne un peintre frontalier au Tessin ?',
+    'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'Le peintre frontalier au Tessin gagne entre CHF 40\'000 et CHF 60\'000 par an.',
+    'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Peintre frontalier au travail',
 };
 
 export default blogMetaChFr;

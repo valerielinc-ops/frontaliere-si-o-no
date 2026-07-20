@@ -1342,6 +1342,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Carpenter in Ticino: salary and requirements for border workers',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Here are the requirements and useful information to work as a carpenter in Ticino as a border worker',
     'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Photograph of a carpenter in Ticino with a mountain background',
+    'blog.article.frontaliere-pittore-ticino-guadagno.title': 'How much does a border painter earn in Ticino?',
+    'blog.article.frontaliere-pittore-ticino-guadagno.excerpt': 'The border painter in Ticino earns between CHF 40,000 and CHF60,000 per year.',
+    'blog.article.frontaliere-pittore-ticino-guadagno.imageAlt': 'Frontalier painter at work',
 };
 
 export default blogMetaChEn;
