@@ -45,10 +45,13 @@
     "https://jobs.ruag.ch/offene-stellen/ict-architect-c5i/aa4ce14b-c713-4b2b-931b-8c94ef041de2",
     "https://jobs.ruag.ch/offene-stellen/finance-business-partner-c5i/14c66e02-f4e0-4c3c-a49a-11aaa342d276",
     "https://jobs.ruag.ch/offene-stellen/flugzeugmechanikerin-technician-mechanical-f-a-18/5300771a-b68b-431a-a4e1-3d19bbf5d30f",
-    "https://jobs.ruag.ch/offene-stellen/flugzeugmechanikerin-technician-mechanical-f-a-18/99995919-5a40-4025-a0d7-d912997a8388"
+    "https://jobs.ruag.ch/offene-stellen/flugzeugmechanikerin-technician-mechanical-f-a-18/99995919-5a40-4025-a0d7-d912997a8388",
+    "https://jobs.ruag.ch/offene-stellen/system-engineer-zutrittssysteme/661dc2c7-b62f-4eee-a88b-15c8651a2a2e",
+    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926",
+    "https://jobs.ruag.ch/offene-stellen/specialist-customer-service-order-management/2f430d11-1204-4857-968e-123c7f2cbfe7"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-07-19T22:28:28.817Z",
+  "updatedAt": "2026-07-20T12:36:57.503Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/facility-manager-technics-betriebselektrikerin/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -265,6 +268,24 @@
       "canton": "LU",
       "company": "RUAG AG",
       "postedDate": "2026-01-06"
+    },
+    "https://jobs.ruag.ch/offene-stellen/system-engineer-zutrittssysteme/661dc2c7-b62f-4eee-a88b-15c8651a2a2e": {
+      "location": "Emmen",
+      "canton": "LU",
+      "company": "RUAG AG",
+      "postedDate": "2026-04-08"
+    },
+    "https://jobs.ruag.ch/offene-stellen/projektleiterin-pbfm/d86b2c63-e35b-45ae-857f-41b464a08926": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-04-24"
+    },
+    "https://jobs.ruag.ch/offene-stellen/specialist-customer-service-order-management/2f430d11-1204-4857-968e-123c7f2cbfe7": {
+      "location": "Thun",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-07-20"
     }
   }
 }
