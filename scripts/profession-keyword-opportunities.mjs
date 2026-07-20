@@ -37,6 +37,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   PROFESSION_TAXONOMY,
+  DOUBLE_VALIDATED_MIN_ONSITE,
+  DOUBLE_VALIDATED_MIN_JOBS,
   classifySearchTerm,
   matchProfession,
   normalizeText,
@@ -57,8 +59,10 @@ const OUTPUT_PATH = path.join(ROOT, 'data/profession-keyword-opportunities.json'
 // Ranking knobs — documented, deterministic. Double validation (demand AND
 // supply) is what makes a landing convert right away, so it dominates the
 // sort; the score only orders within the same validation bucket.
-const DOUBLE_VALIDATED_MIN_ONSITE = 10; // searches in window
-const DOUBLE_VALIDATED_MIN_JOBS = 3; // live matching job ads (mirrors jobsSeoPagesPlugin's ≥3 gate)
+// DOUBLE_VALIDATED_MIN_ONSITE / DOUBLE_VALIDATED_MIN_JOBS live in
+// lib/profession-taxonomy.mjs (imported above) — shared with
+// generate-keyword-pages-config.mjs so the feed's eligibility gate can never
+// drift stricter than what this report already calls "✅ doppia validazione".
 const JOB_COUNT_SCORE_CAP = 150; // huge generic supply must not drown intent
 const MAX_UNMAPPED_REPORTED = 30;
 

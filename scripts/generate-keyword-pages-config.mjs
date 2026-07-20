@@ -220,7 +220,6 @@ for (const cluster of topClusters) {
 // weekly (URL churn). A carried page is dropped only when a DEDICATED
 // landing (profession/nursing hub) takes over its profession.
 const OPPORTUNITIES_PATH = path.join(ROOT, 'data/profession-keyword-opportunities.json');
-const FEED_MIN_ONSITE = 25; // on-site searches in the window
 const FEED_MAX_NEW_PAGES = 10; // per run
 
 if (fs.existsSync(OPPORTUNITIES_PATH)) {
@@ -254,7 +253,11 @@ if (fs.existsSync(OPPORTUNITIES_PATH)) {
     for (const o of opp.opportunities || []) {
       if (fed >= FEED_MAX_NEW_PAGES) break;
       if (usedProfessions.has(o.id)) continue;
-      if (!o.doubleValidated || o.onsiteCount < FEED_MIN_ONSITE) continue;
+      // Trust doubleValidated as-is (onsite >= DOUBLE_VALIDATED_MIN_ONSITE
+      // already baked in upstream) — a second, stricter local floor here
+      // previously left true double-validated gaps (onsite 10-24) stuck in
+      // the weekly report forever, never promoted to a page (#4564).
+      if (!o.doubleValidated) continue;
       // Literal-match support: jobsSeoPagesPlugin filters with
       // `filterKeywords: [feedFilter]` (single substring) and skips pages
       // with <3 matching jobs — feeding below that produces a page that
