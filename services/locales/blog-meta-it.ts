@@ -8669,6 +8669,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'Quanto guadagna un informatico frontaliere in Ticino?',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'L\'impiego di un informatico frontaliere in Ticino è soggetto a diverse aliquote fiscali.',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'Un informatico frontaliero lavora al suo computer con una vista sul Lago di Lugano.',
+    'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Stipendio di un progettista elettrico: Ticino vs Italia',
+    'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'I dati concreti sullo stipendio di un progettista elettrico frontaliere in Ticino, con confronti con la situazione italiana',
+    'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'Un progettista elettrico frontaliere a Lugano, con la città e il lago sullo sfondo',
 };
 
 export default blogMetaIt;

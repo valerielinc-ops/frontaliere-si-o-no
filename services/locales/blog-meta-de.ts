@@ -8667,6 +8667,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'Wie viel verdient ein Grenzinformatiker im Tessin?',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'Der Einsatz eines Grenzinformatikers im Tessin unterliegt unterschiedlichen Steuersätzen.',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'Ein IT-Spezialist arbeitet am Computer mit Blick auf den Luganersee.',
+    'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Gehalt eines Elektrokonstrukteurs: Tessin vs. Italien',
+    'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'Konkrete Angaben zum Gehalt eines Grenzelektroplaners im Tessin im Vergleich zur italienischen Situation',
+    'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'Ein front-line-Elektroingenieur in Lugano, mit der Stadt und dem See im Hintergrund',
 };
 
 export default blogMetaDe;
