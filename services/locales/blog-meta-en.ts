@@ -8713,6 +8713,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'How much does a border trustee earn in Ticino?',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'The business of a border trustee in Ticino is influenced by several factors, including his experience and the type of work.',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama of Lugano',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Working as a trustee in Ticino: requirements and recognition',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Here\'s what you can do as a border worker in Ticino to work as a trustee: the new agreement, the requirements and the recognition of the qualification',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'A fiduciary working in Ticino as a cross-border worker',
 };
 
 export default blogMetaEn;

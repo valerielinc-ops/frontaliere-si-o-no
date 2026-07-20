@@ -8714,6 +8714,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Quanto guadagna un fiduciario frontaliere in Ticino?',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'L\'impresa di un fiduciario frontaliere in Ticino è influenzata da diverse fattori, tra cui la sua esperienza e la tipologia di lavoro.',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panoramica della città di Lugano',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Lavorare come fiduciario in Ticino: requisiti e riconoscimento',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Ecco cosa sai fare come frontaliere in Ticino per lavorare come fiduciario: il nuovo accordo, i requisiti e il riconoscimento del titolo di studio',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Un frontaliere che lavora come fiduciario in Ticino',
 };
 
 export default blogMetaIt;

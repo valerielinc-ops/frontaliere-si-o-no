@@ -8712,6 +8712,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Wie viel verdient ein Grenztreuhänder im Tessin?',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'Das Unternehmen eines Grenztreuhänders im Tessin wird von mehreren Faktoren beeinflusst, darunter seine Erfahrung und die Art der Arbeit.',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama von Lugano',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Als Treuhänder im Tessin arbeiten: Voraussetzungen und Anerkennung',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Hier ist, was Sie als Grenzgänger im Tessin tun können, um als Treuhänder zu arbeiten: die neue Vereinbarung, die Anforderungen und die Anerkennung des Abschlusses',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Ein Frontalier, der als Treuhänder in der Schweiz arbeitet',
 };
 
 export default blogMetaDe;
