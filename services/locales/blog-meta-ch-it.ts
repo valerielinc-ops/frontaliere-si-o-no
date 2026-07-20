@@ -1336,6 +1336,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Docenti frontalieri in Ticino: stipendio e requisiti',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Impostazione della fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Immagine di un aula scolastica in Ticino',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Frontaliere falegname in Ticino: requisiti e riconoscimento',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'Un falegname in azione nella regione del Lugano, con sfondo della città di Lugano e del lago di Lugano.',
 };
 
 export default blogMetaChIt;

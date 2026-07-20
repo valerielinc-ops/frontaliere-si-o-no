@@ -1336,6 +1336,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.title': 'Border teachers in Ticino: salary and requirements',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.excerpt': 'Setting the source on income from work: withheld ONLY in Switzerland for border workers',
     'blog.article.frontalieredicente-stipendio-requisiti-ticino.imageAlt': 'Image of a classroom in Ticino',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Border carpenter in Ticino: requirements and recognition',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Learn about the requirements and conditions for working as a carpenter in Ticino as a border worker, including tax rates and a residence permit.',
+    'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'A carpenter at work in the Lugano region, with a backdrop of the city of Lugano and Lake Lugano.',
 };
 
 export default blogMetaChEn;
