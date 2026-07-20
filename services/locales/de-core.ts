@@ -712,6 +712,7 @@ const deCore: Record<string, string> = {
  'jobBoard.requirements': 'Anforderungen',
  'jobBoard.descriptionHeading': 'Stellenbeschreibung',
  'jobBoard.requirementsHeading': 'Erforderliche Kompetenzen',
+ 'jobBoard.faq.title': 'Häufig gestellte Fragen zu dieser Stelle',
  'jobBoard.apply': 'Bewerben',
   'jobBoard.claimCta': 'Sind Sie das Unternehmen? Dieses Inserat sponsern',
  'jobBoard.backToList': 'Zurück zu allen Stellen',

@@ -712,6 +712,7 @@ const frCore: Record<string, string> = {
  'jobBoard.requirements': 'Exigences',
  'jobBoard.descriptionHeading': 'Description du poste',
  'jobBoard.requirementsHeading': 'Compétences requises',
+ 'jobBoard.faq.title': 'Questions fréquentes sur cette offre',
  'jobBoard.apply': 'Postuler',
   'jobBoard.claimCta': 'Vous êtes l\'entreprise ? Sponsorisez cette annonce',
  'jobBoard.backToList': 'Retour à toutes les offres',
