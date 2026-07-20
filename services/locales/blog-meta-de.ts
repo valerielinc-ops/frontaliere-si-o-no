@@ -8715,6 +8715,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Als Treuhänder im Tessin arbeiten: Voraussetzungen und Anerkennung',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Hier ist, was Sie als Grenzgänger im Tessin tun können, um als Treuhänder zu arbeiten: die neue Vereinbarung, die Anforderungen und die Anerkennung des Abschlusses',
     'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Ein Frontalier, der als Treuhänder in der Schweiz arbeitet',
+    'blog.article.consulente-clientela-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkundenberater im Tessin?',
+    'blog.article.consulente-clientela-frontaliere-ticino.excerpt': 'Steuern, Selbstbehalte und Sätze: Was ändert sich für Berater, die mit Grenzkunden im Tessin arbeiten?',
+    'blog.article.consulente-clientela-frontaliere-ticino.imageAlt': 'Ein Berater, der mit grenzüberschreitenden Kunden in Tessin arbeitet',
 };
 
 export default blogMetaDe;

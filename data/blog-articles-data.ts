@@ -26189,6 +26189,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'consulente-clientela-frontaliere-ticino',
+ category: 'fiscale',
+ date: '2026-07-20T16:35:15.125Z',
+ image: '/images/blog/consulente-clientela-frontaliere-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
