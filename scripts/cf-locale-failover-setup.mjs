@@ -30,15 +30,32 @@
  *    stale content across deploys.
  *
  * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
- *    `description`; foreign rules on the entrypoint preserved). Currently one:
- *    locale-bot-throttle-noindex-scrapers — blocks non-search scraper bots
- *    (Amazonbot + Bytespider) on the /en|/de|/fr paths ONLY. Kept on value
- *    grounds: these bring no SEO traffic, no clicks, no monetizable traffic.
- *    (It also kept Worker invocations under the old free 100k/day cap — now moot
- *    under Workers Paid — since the WAF runs BEFORE the Worker; that's a bonus,
- *    no longer the reason.) Real search + AI-search crawlers are deliberately
- *    NOT matched, so the visibility channel keeps getting live locale content
- *    (#1867).
+ *    `description`; foreign rules on the entrypoint preserved). Three today:
+ *    a) locale-bot-throttle-noindex-scrapers — blocks non-search/non-AI
+ *       scraper bots (BLOCKED_CRAWLER_UAS) ZONE-WIDE (2026-07-20: widened from
+ *       /en|/de|/fr only — the ticino/svizzera/zurigo IT-prefix sections are
+ *       now also Worker-routed and were an open gap; zone-wide means future
+ *       new sections never reopen it). Kept on value grounds: these bring no
+ *       SEO traffic, no clicks, no monetizable traffic. (It also keeps Worker
+ *       invocations down — the WAF runs BEFORE the Worker — a bonus, not the
+ *       reason.) Real search + AI-search crawlers are deliberately NOT
+ *       matched (#1867).
+ *    b) unidentified-scripted-traffic-challenge — `managed_challenge` (NOT a
+ *       hard block — too uncertain to block outright) for requests with an
+ *       empty User-Agent or the literal UA "node": live traffic analysis
+ *       2026-07-20 found these are ~42% of Worker invocations on the routed
+ *       sections, never a real browser (which always sends a UA) and never a
+ *       named crawler (every welcomed crawler below self-identifies).
+ *    c) the owner's "Allowlist verified SEO + AI crawlers" skip-all-security
+ *       rule — adopted under management 2026-07-20 (was a "foreign" rule) to
+ *       remove Amazonbot/Bytespider from it: that rule exempted them from
+ *       ALL security (rateLimit/WAF/UA-block) outside the block rule's old
+ *       narrow scope, directly contradicting (a)'s policy. VERIFIED_CRAWLER_UAS
+ *       is exactly the intended-welcome list; OWNER_IP is never
+ *       challenged/rate-limited.
+ *    Rules (a) and (b) are PREPENDED ahead of (c) so a bad/ambiguous UA is
+ *    blocked or challenged before the skip can short-circuit it (same
+ *    reasoning as the original comment below).
  *
  * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
@@ -79,54 +96,115 @@ const CACHE_PHASE = 'http_request_cache_settings';
 const FIREWALL_PHASE = 'http_request_firewall_custom';
 const REDIRECT_PHASE = 'http_request_dynamic_redirect';
 
-// Non-visibility crawlers blocked on the locale paths ONLY. These bring no SEO
-// traffic, no clicks, and no monetizable traffic for this audience (owner value
-// policy), so they stay blocked. The block originally also relieved the free
-// Worker 100k invocations/day cap (see locale-router.js header + issue #1867);
-// that cap is now moot (account moved to Workers Paid), but the WAF rule is kept
-// purely on value grounds. The WAF runs BEFORE the Worker, so blocking a request
-// here also means it never invokes the Worker — a free bonus, no longer the
-// reason.
+// Non-visibility crawlers blocked ZONE-WIDE (2026-07-20: widened from the
+// original /en|/de|/fr-only scope — the ticino/svizzera/zurigo IT-prefix
+// sections are now also Worker-routed via their own wrangler.toml routes, and
+// scoping this rule to specific path prefixes meant every new section reopened
+// the gap; host-only scope closes it for good). These bring no SEO traffic, no
+// clicks, and no monetizable traffic for this audience (owner value policy), so
+// they stay blocked. The WAF runs BEFORE the Worker, so blocking a request here
+// also means it never invokes the Worker — a cost bonus, not the reason.
 //
-// Scope = exactly the two crawlers the owner approved carving out of the verified
-// crawler allowlist (the foreign skip rule "Allowlist verified SEO + AI crawlers"
-// that precedes this one): Amazonbot (Amazon/Alexa — ~15k/day, the biggest
-// non-search chunk per #1867) and Bytespider (ByteDance/TikTok). Neither is an
-// organic-search or AI-search visibility channel for an Italian cross-border-jobs
-// audience. Every real visibility crawler (Googlebot, Bingbot, AdSense, GPTBot,
-// ClaudeBot, PerplexityBot, Google-Extended, Applebot, DuckDuckBot, Yandex,
-// cohere, verified SEO tools, …) is deliberately NOT in this list, so it never
-// matches this rule and keeps flowing through the allowlist untouched.
+// Amazonbot + Bytespider were the original two (owner-approved carve-out from
+// the verified-crawler allowlist below). Added 2026-07-20 after live traffic
+// analysis (CF GraphQL httpRequestsAdaptiveGroups, 2026-07-19 sample) surfaced
+// Amzn-SearchBot (a distinct Amazon UA the old "Amazonbot" substring match
+// never covered, ~3.4% of routed-path traffic that day) plus the other
+// no-SEO-value scrapers already named in owner policy
+// ([[project_workers_paid_bot_value_policy_jun15]]) that had no WAF block at
+// all — robots.txt Disallow is best-effort and many ignore it. Every real
+// visibility crawler (Googlebot, Bingbot, AdSense, GPTBot, ClaudeBot,
+// PerplexityBot, Google-Extended, Applebot, DuckDuckBot, Yandex, cohere, …) is
+// deliberately NOT in this list — see VERIFIED_CRAWLER_UAS below.
 //
 // CRITICAL — this rule is PREPENDED (see assertFirewallRules) so it runs BEFORE
-// the allowlist skip rule. Amazonbot/Bytespider are IN that allowlist (explicit
-// UA + cf.client.bot), so an APPENDED rule never fires (the skip short-circuits
-// first — observed: Amazonbot → 404 reached the Worker). Running first blocks
-// them before the skip, WITHOUT editing the owner's allowlist (which still allows
-// them on IT paths, since this rule is locale-scoped). action = block (not
-// managed_challenge: that lets CF-verified bots pass). Fully reversible: remove
-// the rule or prune a UA.
-const LOCALE_BOT_THROTTLE_UAS = [
+// the allowlist skip rule below. action = block (not managed_challenge: that
+// lets CF-verified bots pass). Fully reversible: remove the rule or prune a UA.
+const BLOCKED_CRAWLER_UAS = [
   'Amazonbot',
+  'Amzn-SearchBot',
   'Bytespider',
+  'AhrefsBot',
+  'SemrushBot',
+  'MJ12bot',
+  'DotBot',
+  'BLEXBot',
+  'DataForSeoBot',
+  'SerpstatBot',
 ];
 
-const LOCALE_PATH_MATCH =
-  '(starts_with(http.request.uri.path, "/en/") or ' +
-  'starts_with(http.request.uri.path, "/de/") or ' +
-  'starts_with(http.request.uri.path, "/fr/") or ' +
-  'http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"})';
+// Ambiguous non-self-identifying automated traffic: `managed_challenge`, not a
+// hard block (uncertain enough that an outright block risks a real visitor
+// behind an odd client). Live traffic analysis (2026-07-19 sample, routed
+// sections) found empty User-Agent = 34.2% and literal UA "node" = 7.5% of
+// Worker invocations — never a real browser (always sends a UA) and never a
+// named crawler (every welcomed one below self-identifies). Challenging (JS
+// proof-of-work) filters non-interactive scripted clients while letting any
+// genuine human through.
+const CHALLENGED_UAS = ['', 'node'];
+
+// The crawlers this site deliberately welcomes — organic-search + AI-search
+// visibility channels. Mirrors the owner's original allowlist rule (adopted
+// under management 2026-07-20; was a "foreign" rule with Amazonbot/Bytespider
+// INSIDE it, which exempted them from ALL security outside this rule's old
+// narrow /en|/de|/fr scope — contradicted the block above). Never
+// challenged/rate-limited, on top of the owner's own IP.
+const VERIFIED_CRAWLER_UAS = [
+  'Googlebot',
+  'Bingbot',
+  'Mediapartners-Google',
+  'AdsBot-Google',
+  'DuckDuckBot',
+  'Applebot',
+  'YandexBot',
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'ClaudeBot',
+  'Claude-Web',
+  'Claude-User',
+  'Claude-SearchBot',
+  'anthropic-ai',
+  'PerplexityBot',
+  'Perplexity-User',
+  'Google-Extended',
+  'cohere-ai',
+  'Meta-ExternalAgent',
+  'FacebookBot',
+];
+const OWNER_IP = '178.197.238.144';
 
 const MANAGED_FIREWALL_RULES = [
   {
     description: 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)',
     action: 'block',
     expression:
-      '(http.host eq "frontaliereticino.ch" and ' +
-      LOCALE_PATH_MATCH +
-      ' and (' +
-      LOCALE_BOT_THROTTLE_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
+      '(http.host eq "frontaliereticino.ch" and (' +
+      BLOCKED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
       '))',
+  },
+  {
+    description: 'unidentified-scripted-traffic-challenge (managed by scripts/cf-locale-failover-setup.mjs)',
+    action: 'managed_challenge',
+    expression:
+      '(http.host eq "frontaliereticino.ch" and (' +
+      CHALLENGED_UAS.map((ua) => `http.user_agent eq "${ua}"`).join(' or ') +
+      '))',
+  },
+  {
+    // Description MUST stay byte-identical to the owner's original rule so
+    // this entry is recognized as an update-in-place, not a duplicate.
+    description:
+      'Allowlist verified SEO + AI crawlers — skip ALL security so crawlers are never challenged + our IP (never challenge/rate-limit us)',
+    action: 'skip',
+    expression:
+      `(ip.src eq ${OWNER_IP}) or ((` +
+      VERIFIED_CRAWLER_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(') or (') +
+      ') or (cf.client.bot))',
+    action_parameters: {
+      products: ['bic', 'hot', 'rateLimit', 'securityLevel', 'uaBlock', 'waf', 'zoneLockdown'],
+      ruleset: 'current',
+    },
   },
 ];
 
@@ -369,10 +447,25 @@ async function assertCacheRules(zoneId) {
   console.log('cache rules: applied');
 }
 
+// Recursively sorts object keys so a semantically-identical action_parameters
+// value compares equal regardless of the key order CF happens to re-emit it in
+// (same footgun as the cache-rule action_parameters drift documented above —
+// avoid ever stringify-comparing an API-echoed object with unsorted keys).
+function stableStringify(value) {
+  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort()
+      .map((k) => `${JSON.stringify(k)}:${stableStringify(value[k])}`)
+      .join(',')}}`;
+  }
+  return JSON.stringify(value);
+}
+
 function fwShape(r) {
   // Canonical comparable form for a firewall rule — only OUR contract fields,
   // in order (CF re-emits normalized/extra fields we ignore).
-  return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''}`;
+  return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''} ${stableStringify(r.action_parameters || null)}`;
 }
 
 async function assertFirewallRules(zoneId) {
@@ -389,12 +482,14 @@ async function assertFirewallRules(zoneId) {
     expression: spec.expression,
     action: spec.action,
     enabled: true,
+    ...(spec.action_parameters ? { action_parameters: spec.action_parameters } : {}),
   }));
-  // Foreign rules (e.g. the owner's verified-crawler allowlist + Ghana
-  // mitigation) are preserved verbatim, in their existing order. OUR rules are
-  // PREPENDED: this block rule MUST run before the allowlist skip, else the skip
-  // short-circuits Amazonbot/Bytespider (both allowlisted) and our rule never
-  // fires. Order-sensitive — that's why we compare the full list, not per-rule.
+  // Foreign rules (e.g. the Ghana mitigation) are preserved verbatim, in their
+  // existing order. OUR rules are PREPENDED, in MANAGED_FIREWALL_RULES array
+  // order: block, then challenge, then the (now-managed) verified-crawler
+  // allowlist skip — both the block and challenge rules MUST run before the
+  // skip, else it short-circuits a bad/ambiguous UA before our rule fires.
+  // Order-sensitive — that's why we compare the full list, not per-rule.
   const foreign = stripped.filter((r) => !managedDescriptions.has(r.description));
   const desired = [...desiredManaged, ...foreign];
 
