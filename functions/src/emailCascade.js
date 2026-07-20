@@ -9,7 +9,11 @@
  * edit THIS file; the shim never needs touching again.
  *
  * Cascade order: Mailgun → Mailjet → Mailtrap → Maileroo → Cloudflare → Resend
- * (reordered 2026-07-16 — see PROVIDERS[resend] below for why resend moved last)
+ * (reordered 2026-07-16 — see PROVIDERS[resend] below for why resend moved last).
+ * Maileroo's plan bumped to 100000/mo 2026-07-20 (owner request) — with the
+ * three free tiny-cap providers ahead of it (~650/day combined) it now absorbs
+ * effectively all newsletter + job-alert volume before cloudflare/resend are
+ * ever touched; see PROVIDERS[maileroo] below.
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
@@ -43,11 +47,19 @@
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
- *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
+ *   MAILEROO_API_KEY         — Maileroo sending key (100000/mo paid plan since
+ *                                2026-07-20, owner request). Primary bulk workhorse
+ *                                of the cascade now — dynamically capped to pace
+ *                                the 100k/mo budget, see PROVIDERS[maileroo] below.
+ *                                Same key is tried against the Account API
+ *                                (statistics.read scope) for real usage; falls
+ *                                back to a conservative static pace if that scope
+ *                                isn't granted on this key.
  *   RESEND_API_KEY           — Resend API key (50000/mo paid plan since 2026-07-06).
- *                                Last in cascade order since 2026-07-16 but still
- *                                carries most volume — dynamically capped to pace
- *                                the 50k/mo budget, see PROVIDERS[resend] below.
+ *                                Last in cascade order since 2026-07-16 — now the
+ *                                overflow valve once maileroo's much larger budget
+ *                                is spent, dynamically capped to pace the 50k/mo
+ *                                budget (never exceeded), see PROVIDERS[resend] below.
  *   CF_API_TOKEN             — Cloudflare token used by default for Email Service:
  *                                it already carries Email Sending: Edit + Analytics
  *                                Read (verified live). 3000/mo included on the
@@ -80,14 +92,27 @@ const PROVIDERS = [
     scheduledSend: { param: 'o:deliverytime', maxLookaheadMs: 3 * DAY_MS } },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
-  // maileroo: free tier (100/day). DKIM selector mta._domainkey.frontaliereticino.ch
-  // is published and Maileroo signs DMARC-aligned. Verified 2026-06-30 with a live
-  // test send to Gmail (X-Maileroo-Ref-Id 411800c3...): dkim=pass
+  // maileroo: paid plan bumped 3000/mo → 100000/mo 2026-07-20 (owner activated
+  // it explicitly to become the primary channel for newsletter + job-alert
+  // volume). DKIM selector mta._domainkey.frontaliereticino.ch is published and
+  // Maileroo signs DMARC-aligned. Verified 2026-06-30 with a live test send to
+  // Gmail (X-Maileroo-Ref-Id 411800c3...): dkim=pass
   // header.i=@frontaliereticino.ch s=mta, spf=pass smtp.mailfrom=@frontaliereticino.ch
   // (return-path on our domain, 85.204.106.x authorized via include:_spf.maileroo.com),
   // dmarc=pass at p=reject (dis=NONE), delivered to inbox. Placed before cloudflare so
-  // the purely-free providers are preferred over the paid Workers quota.
-  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000,
+  // the three free tiny-cap providers are exhausted first at zero extra cost,
+  // then maileroo's much larger paid budget absorbs the rest of the day's volume.
+  //
+  // Like resend (see PROVIDERS[resend] below), its effective daily cap is read
+  // from `_dynamicDailyLimits.maileroo` — recomputed on every
+  // syncQuotasFromAPIs() run by computeMailerooDynamicDailyLimit() as
+  // (100000 − calendar-month-to-date usage) ÷ days left in the month. Maileroo
+  // has no documented billing-cycle anchor day (unlike Resend's 6th-of-month),
+  // so the calendar month is used directly. `dailyLimit: 3333` below
+  // (100000/30, same monthlyLimit/30 convention as every other static-limit
+  // provider here) is only the pre-sync/unverifiable-usage fallback — see
+  // MAILEROO_CYCLE_FALLBACK_DAILY.
+  { id: 'maileroo', dailyLimit: 3333, monthlyLimit: 100000,
     // scheduled_at in the JSON body, RFC 3339 (ISO 8601 is valid RFC 3339).
     // Lookahead undocumented by the provider — clamped to 3 days, same
     // conservative floor as Mailgun's default-plan cap.
@@ -126,6 +151,10 @@ const PROVIDERS = [
   // Infinity` below is only the pre-sync fallback value — remainingQuota()
   // never consults it in a real send path, since sendEmailCascade always
   // awaits syncQuotasFromAPIs() first.
+  // 2026-07-20: no longer the bulk workhorse — maileroo's 100000/mo budget
+  // (see PROVIDERS[maileroo] above) now absorbs the volume resend used to
+  // carry. Kept last so its tightly-guarded 50k/mo (never to be exceeded,
+  // owner directive) is spent only as the true last resort.
   { id: 'resend',   dailyLimit: Infinity, monthlyLimit: 50000,
     // scheduled_at in the JSON body, ISO 8601 UTC. 30-day lookahead (verified docs).
     scheduledSend: { param: 'scheduled_at', maxLookaheadMs: 30 * DAY_MS } },
@@ -144,8 +173,9 @@ const _realSentCounts = {};
 let _counterDate = '';
 let _quotasSynced = false;
 // Per-run override of a provider's static dailyLimit, keyed by provider id.
-// Only resend uses this today (see computeResendDynamicDailyLimit) — the
-// static PROVIDERS[].dailyLimit stays the pre-sync/no-key fallback.
+// resend and maileroo use this (see computeResendDynamicDailyLimit /
+// computeMailerooDynamicDailyLimit) — every other provider's static
+// PROVIDERS[].dailyLimit stays the pre-sync/no-key fallback.
 const _dynamicDailyLimits = {};
 
 function getTodayUTC() {
@@ -379,12 +409,80 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
   return dynamicLimit;
 }
 
+// ── Maileroo Account API (statistics) ────────────────────────
+// Docs: https://maileroo.com/docs/api-reference/statistics/summary
+// GET https://api.maileroo.com/v1/statistics/summary — aggregates the
+// CURRENT CALENDAR MONTH only (no date-range params, no billing-cycle anchor
+// day like Resend's). Docs list the required scope as `statistics.read`
+// under a distinct "Account API" section, separate from the sending-key auth
+// used by sendViaMaileroo — unconfirmed whether MAILEROO_API_KEY (a Domain
+// Sending Key) carries that scope. Tried with the same X-Api-Key header as
+// the send endpoint (the only credential this integration has); a 401/403
+// here just means the key lacks the scope and callers fall back to the
+// conservative static floor below — never a hard failure either way.
+//
+// The response has no raw "sent"/"accepted" counter, only terminal
+// delivery-outcome fields (`delivered`, `bounced`, `opens`, `clicks`,
+// `suppressions`) — delivered+bounced is used as the usage proxy (both
+// consume plan quota), which under-counts sends still in flight/queued.
+// Acceptable here because this is a PACING signal, not the hard quota
+// enforcement: Maileroo's own API rejection (caught by isRateLimitedError
+// in sendSingle) is still the real backstop if this proxy under-counts.
+export async function fetchMailerooCycleUsage(nowMs = Date.now()) {
+  const apiKey = process.env.MAILEROO_API_KEY;
+  if (!apiKey) return { count: 0, verified: false };
+  try {
+    const res = await fetch('https://api.maileroo.com/v1/statistics/summary', {
+      headers: { 'X-Api-Key': apiKey },
+    });
+    if (!res.ok) return { count: 0, verified: false };
+    const data = await res.json().catch(() => null);
+    const agg = data?.data?.aggregate;
+    if (!agg || typeof agg !== 'object') return { count: 0, verified: false };
+    const count = (Number(agg.delivered) || 0) + (Number(agg.bounced) || 0);
+    return { count, verified: true };
+  } catch { return { count: 0, verified: false }; }
+}
+
+// Pre-2026-07-20 self-imposed floor (100000/30, months-average). Used only
+// when calendar-month usage is unverifiable (no statistics.read scope on
+// this key / network error) — never Infinity, since an unverifiable usage
+// lookup must fail safe, not open.
+const MAILEROO_CYCLE_FALLBACK_DAILY = 3333;
+
+/**
+ * Dynamic per-day Maileroo send budget that paces the 100k/mo quota, mirroring
+ * computeResendDynamicDailyLimit but against a plain calendar month (Maileroo
+ * documents no billing-cycle anchor day): (100000 − month-to-date usage) ÷
+ * days left in the current UTC month. Falls back to the conservative
+ * MAILEROO_CYCLE_FALLBACK_DAILY floor when usage can't be verified.
+ */
+async function computeMailerooDynamicDailyLimit(nowMs = Date.now()) {
+  const provider = PROVIDERS.find(p => p.id === 'maileroo');
+  const { count, verified } = await fetchMailerooCycleUsage(nowMs);
+  if (!verified) {
+    console.warn(`⚠️  [maileroo] calendar-month usage unverifiable (no statistics.read scope on this key, or API error) — falling back to conservative ${MAILEROO_CYCLE_FALLBACK_DAILY}/day floor`);
+    return MAILEROO_CYCLE_FALLBACK_DAILY;
+  }
+  const now = new Date(nowMs);
+  const monthEnd = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+  const daysRemaining = Math.max(1, Math.ceil((monthEnd.getTime() - nowMs) / DAY_MS));
+  const remainingBudget = Math.max(0, provider.monthlyLimit - count);
+  const dynamicLimit = Math.floor(remainingBudget / daysRemaining);
+  console.log(`   [maileroo] month-to-date: used≈${count}/${provider.monthlyLimit} (delivered+bounced proxy), daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);
+  return dynamicLimit;
+}
+
 async function fetchMailerooDailyUsage() {
-  // Maileroo's v2 API exposes no public usage/statistics endpoint (only
-  // send + scheduled-email management). Daily cap is therefore enforced by the
-  // in-memory counter alone — starting from 0 each run is safe (may overshoot
-  // the daily quota slightly across separate runs on the same day, same as the
-  // fallback behaviour of every other provider on API error).
+  // No true "today only" figure is exposed (statistics/summary aggregates the
+  // whole calendar month) — the in-memory counter alone gates TODAY's sends,
+  // same limitation as before 2026-07-20 (may overshoot slightly across
+  // separate runs on the same day, same as the fallback behaviour of every
+  // other provider on API error). What changed: the daily LIMIT it's gated
+  // against is no longer a flat monthlyLimit/30 guess — see
+  // computeMailerooDynamicDailyLimit / _dynamicDailyLimits.maileroo below,
+  // which prices in real month-to-date consumption when the key's scope
+  // allows it.
   return 0;
 }
 
@@ -506,7 +604,7 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, resend, maileroo, cloudflare, resendDynamicLimit, mailerooDynamicLimit] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
     fetchMailtrapDailyUsage(),
@@ -514,6 +612,7 @@ async function syncQuotasFromAPIs() {
     fetchMailerooDailyUsage(),
     fetchCloudflareDailyUsage(),
     computeResendDynamicDailyLimit(),
+    computeMailerooDynamicDailyLimit(),
   ]);
 
   _counterDate = getTodayUTC();
@@ -524,6 +623,7 @@ async function syncQuotasFromAPIs() {
   _counters.maileroo = maileroo;
   _counters.cloudflare = cloudflare;
   _dynamicDailyLimits.resend = resendDynamicLimit;
+  _dynamicDailyLimits.maileroo = mailerooDynamicLimit;
   _quotasSynced = true;
 
   const limit = id => _dynamicDailyLimits[id] ?? PROVIDERS.find(p => p.id === id).dailyLimit;
@@ -1325,4 +1425,4 @@ export async function getAvailableCascadeQuota() {
     .reduce((sum, p) => sum + remainingQuota(p.id), 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit, computeMailerooDynamicDailyLimit };

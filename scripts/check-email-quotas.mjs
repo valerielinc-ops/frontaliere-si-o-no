@@ -7,7 +7,10 @@
  * limit (the per-provider usage APIs are queried by syncQuotasFromAPIs). For
  * Cloudflare Email Service — whose quota is MONTHLY, not daily — it additionally
  * reports month-to-date consumption against the 3000/mo allowance via the
- * GraphQL Analytics API (emailSendingAdaptiveGroups).
+ * GraphQL Analytics API (emailSendingAdaptiveGroups). Same idea for Maileroo
+ * (100k/mo plan since 2026-07-20) via its Account API statistics endpoint,
+ * best-effort — falls back to "unverified" if the sending key lacks the
+ * statistics.read scope, sending is unaffected either way.
  *
  * It also watches Resend's billing-cycle burn rate (cycle anchored on the 6th
  * of each month, same as the cascade's own dynamic daily cap) and opens a
@@ -33,6 +36,7 @@ import {
   fetchCloudflareUsage,
   fetchCloudflareDeliveryStats,
   fetchResendCycleUsage,
+  fetchMailerooCycleUsage,
 } from './lib/email-cascade.mjs';
 
 // 15% slack over the expected pace before alerting — daily sends are lumpy
@@ -192,6 +196,27 @@ async function main(opts) {
           .join(', ');
         console.log(`   Delivery status today:    ${breakdown}`);
       }
+    }
+  }
+
+  // Maileroo: surface real calendar-month-to-date usage (2026-07-20, 100k/mo
+  // plan) via the Account API statistics endpoint, same best-effort probe
+  // computeMailerooDynamicDailyLimit already does for pacing — this just
+  // prints it. verified:false means the sending key doesn't carry the
+  // statistics.read scope (or the endpoint errored); sending is unaffected
+  // either way, since the daily guard falls back to the conservative static
+  // floor in that case.
+  if (isProviderConfigured('maileroo')) {
+    const monthlyCap = PROVIDERS.find(p => p.id === 'maileroo')?.monthlyLimit ?? 100000;
+    const { count, verified } = await fetchMailerooCycleUsage();
+    console.log('\n📮 Maileroo (Account API statistics):');
+    if (!verified) {
+      console.log('   ⚠️  Usage endpoint unreachable/unauthorized — key needs the statistics.read scope.');
+      console.log('       (Sending is unaffected: the daily guard falls back to a conservative static pace.)');
+    } else {
+      const remaining = Math.max(0, monthlyCap - count);
+      console.log(`   Delivered+bounced month-to-date: ${count} / ${monthlyCap}  (≈${remaining} remaining this month)`);
+      console.log('   Note: delivered+bounced is a lower-bound proxy (no raw "sent" counter exposed) — may under-count sends still in flight.');
     }
   }
 
