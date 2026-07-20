@@ -17178,6 +17178,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-docente-ticino-stipendio-requisiti': {
+    title: 'Docenti frontalieri in Ticino: requisiti e riconoscimento',
+    description: 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, docenti, requisiti, riconoscimento, lavorare',
+    ogTitle: 'Lavorare come docente in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio.',
+    canonicalPath: '/articoli-svizzera/frontaliere-docente-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Docenti frontalieri in Ticino: requisiti e riconoscimento",
+      "description": "I requisiti per lavorare come docente in Ticino da frontaliere e le condizioni per il riconoscimento del titolo di studio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-docente-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotografata a Lugano, con il lago e le montagne sullo sfondo. Un docente frontaliero è seduto su una panchina, con un libro aperto in mano e un'espressione serena sul viso."
+      },
+      "datePublished": "2026-07-20T18:39:09+00:00",
+      "dateModified": "2026-07-20T18:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-docente-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

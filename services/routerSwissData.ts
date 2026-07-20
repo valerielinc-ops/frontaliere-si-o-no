@@ -466,6 +466,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'frontaliere-fiduciario-ticino-stipendio-requisiti': { it: 'frontaliere-fiduciario-ticino-stipendio-requisiti', en: 'frontier-fiduciary-ticino-wage-requirements', de: 'grenzfiduziarius-ticino-lohnanforderungen', fr: 'fiduciaire-frontalier-ticino-requisits-salaire' },
  'frontaliere-assistente-sociale-ticino-stipendio-requisiti': { it: 'frontaliere-assistente-sociale-ticino-stipendio-requisiti', en: 'swiss-border-health-worker-ticino-salary-requirements', de: 'grenzganger-gesundheitsassistent-tessin-salar-anforderungen', fr: 'travailleur-frontalier-en-soins-de-sante-tessin-salaire-requis' },
  'frontaliere-receptionist-ticino-stipendio-requisiti': { it: 'frontaliere-receptionist-ticino-stipendio-requisiti', en: 'frontaliere-receptionist-ticino-salary-requirements', de: 'frontaliere-rezeptionistin-ticino-gehalt-anforderungen', fr: 'frontaliere-receptionniste-ticino-salaire-requis' },
+ 'frontaliere-docente-ticino-stipendio-requisiti': { it: 'frontaliere-docente-ticino-stipendio-requisiti', en: 'frontaliere-teacher-ticino-salary-requirements', de: 'frontaliere-lehrer-ticino-gehalt-anforderungen', fr: 'frontaliere-enseignant-ticino-salaire-exigences' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

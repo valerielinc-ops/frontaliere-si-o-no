@@ -1330,6 +1330,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.title': 'Travailler comme réceptionniste au Tessin : salaire et exigences',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.excerpt': 'Frontaliers, découvrez les exigences et le salaire moyen pour travailler comme réceptionniste au Tessin.',
     'blog.article.frontaliere-receptionist-ticino-stipendio-requisiti.imageAlt': 'une réceptionniste dans un hôtel à Lugano',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.title': 'Enseignants frontaliers au Tessin : exigences et reconnaissance',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.excerpt': 'Les exigences pour travailler comme enseignant au Tessin en tant que frontalier et les conditions de reconnaissance du diplôme d\'études.',
+    'blog.article.frontaliere-docente-ticino-stipendio-requisiti.imageAlt': 'Une vue photographique de Lugano, avec le lac et les montagnes en arrière-plan. Un enseignant frontalier est assis sur une banquette, avec un livre ouvert dans sa main et un air calme sur son visage.',
 };
 
 export default blogMetaChFr;
