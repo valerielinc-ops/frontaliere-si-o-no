@@ -1339,6 +1339,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Border carpenter in Ticino: requirements and recognition',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Learn about the requirements and conditions for working as a carpenter in Ticino as a border worker, including tax rates and a residence permit.',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'A carpenter at work in the Lugano region, with a backdrop of the city of Lugano and Lake Lugano.',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Carpenter in Ticino: salary and requirements for border workers',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Here are the requirements and useful information to work as a carpenter in Ticino as a border worker',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Photograph of a carpenter in Ticino with a mountain background',
 };
 
 export default blogMetaChEn;

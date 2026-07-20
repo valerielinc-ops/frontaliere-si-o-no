@@ -1339,6 +1339,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.title': 'Frontaliere falegname in Ticino: requisiti e riconoscimento',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.excerpt': 'Scopri i requisiti e le condizioni per lavorare come falegname in Ticino come frontaliere, incluse le aliquote fiscali e il permesso di soggiorno.',
     'blog.article.frontaliere-falegname-ticino-stipendio-requisiti.imageAlt': 'Un falegname in azione nella regione del Lugano, con sfondo della città di Lugano e del lago di Lugano.',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.title': 'Carpentiere in Ticino: stipendio e requisiti per frontaliere',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.excerpt': 'Ecco i requisiti e le informazioni utili per lavorare come carpentiere in Ticino da frontaliere',
+    'blog.article.frontaliere-carpentiere-ticino-stipendio-requisiti.imageAlt': 'Fotografia di un carpentiere in Ticino con sfondo di montagna',
 };
 
 export default blogMetaChIt;
