@@ -8690,6 +8690,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendio-saldatore-frontaliere-ticino.title': 'Quanto guadagna un saldatore frontaliere in Ticino?',
     'blog.article.stipendio-saldatore-frontaliere-ticino.excerpt': 'Il nuovo accordo fiscale del 2024 ha modificato le imposte dei frontalieri in Ticino.',
     'blog.article.stipendio-saldatore-frontaliere-ticino.imageAlt': 'Un saldatore frontaliere in Ticino esegue un controllo di sicurezza su un mezzo pesante',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.title': 'Frontaliere saldatore: stipendio, requisiti e titolo di studio',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei saldatori frontalieri in Ticino: non ancora specificato. Requisiti per lavorare come saldatore in Ticino da frontaliere: diploma di maturità. Riconoscimento del titolo di studio per i frontalieri: non ancora specificato.',
+    'blog.article.frontaliere-saldatore-ticino-stipendio-requisiti.imageAlt': 'Frontaliere saldatore in azione a Bellinzona',
 };
 
 export default blogMetaIt;
