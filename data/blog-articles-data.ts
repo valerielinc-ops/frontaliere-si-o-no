@@ -26180,6 +26180,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-fiduciario-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-07-20T15:59:14.469Z',
+ image: '/images/blog/lavoro-fiduciario-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

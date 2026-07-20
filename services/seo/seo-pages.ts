@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3363,
+ "numberOfItems": 3364,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8131,7 +8131,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3360, "name": "Lavorare come risorse umane in Ticino: stipendi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-risorse-umane-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3361, "name": "Quanto guadagna un risorse umane frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-risorse-umane-frontaliere-in-ticino` },
           { "@type": "ListItem", "position": 3362, "name": "Quanto guadagna un fiduciario frontaliere in Ti...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-fiduciario-frontaliere-ticino` },
-          { "@type": "ListItem", "position": 3363, "name": "Consulente alla clientela in Ticino: requisiti ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-consulente-clientela-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3363, "name": "Consulente alla clientela in Ticino: requisiti ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-consulente-clientela-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3364, "name": "Lavorare come fiduciario in Ticino: requisiti e...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-fiduciario-ticino-frontalieri` }
  ]
  },
  {

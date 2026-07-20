@@ -8714,6 +8714,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendio-fiduciario-frontaliere-ticino.title': 'Combien gagne un fiduciaire frontalier au Tessin ?',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.excerpt': 'L\'entreprise d\'un fiduciaire frontalier au Tessin est influencée par plusieurs facteurs, notamment son expérience et son type de travail.',
     'blog.article.stipendio-fiduciario-frontaliere-ticino.imageAlt': 'Panorama de Lugano',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.title': 'Travailler comme fiduciaire au Tessin : exigences et reconnaissance',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.excerpt': 'Voici ce que vous savez faire en tant que frontalier au Tessin pour travailler en tant que fiduciaire : le nouvel accord, les exigences et la reconnaissance du diplôme',
+    'blog.article.lavoro-fiduciario-ticino-frontalieri.imageAlt': 'Un frontalier qui travaille comme fiduciaire en Suisse',
 };
 
 export default blogMetaFr;

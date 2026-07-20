@@ -52137,6 +52137,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-fiduciario-ticino-frontalieri': {
+    title: 'Lavorare come fiduciario in Ticino: requisiti e riconoscimento',
+    description: 'Ecco cosa sai fare come frontaliere in Ticino per lavorare come fiduciario: il nuovo accordo, i requisiti e il riconoscimento del titolo di studio',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, fiduciario, requisiti, riconoscimento',
+    ogTitle: 'Lavorare come fiduciario in Ticino da frontaliere',
+    ogDescription: 'Ecco cosa sai fare come frontaliere in Ticino per lavorare come fiduciario: il nuovo accordo, i requisiti e il riconoscimento del titolo di studio',
+    canonicalPath: '/articoli-frontaliere/lavoro-fiduciario-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come fiduciario in Ticino: requisiti e riconoscimento",
+      "description": "Ecco cosa sai fare come frontaliere in Ticino per lavorare come fiduciario: il nuovo accordo, i requisiti e il riconoscimento del titolo di studio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-fiduciario-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere che lavora come fiduciario in Ticino"
+      },
+      "datePublished": "2026-07-20T15:59:14+00:00",
+      "dateModified": "2026-07-20T15:59:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-fiduciario-ticino-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
