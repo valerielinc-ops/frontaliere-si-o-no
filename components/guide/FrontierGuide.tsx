@@ -2720,8 +2720,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p>{t('guide.unemployment.it.amount1')}</p>
  <p>{t('guide.unemployment.it.amount2')}</p>
  <div className="bg-success-subtle rounded-lg p-3 mt-2">
- <div className="text-lg font-bold text-success">€ 1.550,42</div>
- <div className="text-sm text-muted">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
+ <div className="text-lg font-bold text-success">€ 1.584,70</div>
+ <div className="text-sm text-muted">{t('guide.unemployment.it.maxMonthly')} (2026)</div>
  </div>
  </div>
  </div>

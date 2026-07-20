@@ -24,6 +24,7 @@ const InputCard = lazyRetry(() => import('@/components/calculator/InputCard').th
 const MobileCalcLayout = lazyRetry(() => import('@/components/calculator/MobileCalcLayout'));
 const ResultsView = lazyRetry(() => import('@/components/calculator/ResultsView').then(m => ({ default: m.ResultsView as any })));
 const NewFrontierOver20KmHub = lazyRetry(() => import('@/components/calculator/NewFrontierOver20KmHub'));
+const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
 const PayslipSimulator = lazyRetry(() => import('@/components/calculator/PayslipSimulator'));
 const WhatIfSimulator = lazyRetry(() => import('@/components/calculator/WhatIfSimulator'));
 const RalComparator = lazyRetry(() => import('@/components/calculator/RalComparator'));
@@ -69,6 +70,10 @@ export default function CalcolatoreTabContent() {
  {seoLanding === 'new-frontier-over20km' ? (
  <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
  <NewFrontierOver20KmHub />
+ </Suspense>
+ ) : seoLanding === 'seasonal-vs-annual-naspi' ? (
+ <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
+ <SeasonalNaspiSimulator />
  </Suspense>
  ) : (
  <>

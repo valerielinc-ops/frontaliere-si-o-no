@@ -266,7 +266,7 @@ const enStats: Record<string, string> = {
  'glossary.terms.ac.example': 'Cross-border worker dismissed: Italian NASpI (not CH unemployment), but AC contributions paid in CH.',
  'glossary.terms.naspi.title': 'NASpI',
  'glossary.terms.naspi.desc': 'New Social Insurance for Employment. Italian unemployment benefit for dismissed cross-border workers.',
- 'glossary.terms.naspi.example': 'Cross-border worker dismissed after 2 years: NASpI for ~12 months, 75% of salary up to €1,352/month.',
+ 'glossary.terms.naspi.example': 'Cross-border worker dismissed after 2 years: NASpI for ~12 months, 75% of salary up to €1,457/month.',
  'glossary.terms.assegniFamiliari.title': 'Family allowances (CH)',
  'glossary.terms.assegniFamiliari.desc': 'In Ticino: CHF 200/month per child (up to 16), CHF 250/month per child in training (16-25).',
  'glossary.terms.assegniFamiliari.example': '2 children (8 and 18): CHF 200 + CHF 250 = CHF 450/month in Ticino family allowances.',
