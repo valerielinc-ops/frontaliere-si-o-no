@@ -8741,6 +8741,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'Quanto guadagna un piastrellista frontaliere in Ticino?',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'I piastrellisti frontaliere in Ticino possono guadagnare tra i CHF 50.000 e i CHF 80.000 all\'anno, ma le differenze di retribuzione possono variare a seconda della esperienza e della posizione lavorativa.',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'Una scena di lavoro di un piastrellista frontaliere in Ticino',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gessatori in Ticino: stipendio, requisiti e riconoscimento',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Stipendio medio dei gessatori frontalieri in Ticino: CHF 60\'000, requisiti per lavorare come gessatore in Ticino, eventuale riconoscimento del titolo di studio',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero a Lugano',
 };
 
 export default blogMetaIt;

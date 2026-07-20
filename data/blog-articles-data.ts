@@ -26261,6 +26261,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-gessatore-ticino-stipendio-requisiti',
+ category: 'fiscale',
+ date: '2026-07-20T23:55:46.196Z',
+ image: '/images/blog/frontaliere-gessatore-ticino-stipendio-requisiti.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

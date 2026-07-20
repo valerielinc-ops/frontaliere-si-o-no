@@ -8740,6 +8740,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.piastrellista-frontaliere-ticino-guadagno.title': 'How much does a border tile maker earn in Ticino?',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.excerpt': 'Border tile workers in Ticino can earn between CHF 50,000 and CHF 80,000 per year, but pay differences can vary depending on experience and job position.',
     'blog.article.piastrellista-frontaliere-ticino-guadagno.imageAlt': 'A scene of a tile layer working in Ticino',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.title': 'Gessatori in Ticino: salary, requirements and recognition',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.excerpt': 'Average salary of border plasterers in Ticino: CHF 60,000, requirements to work as a plasterer in Ticino, possible recognition of the qualification',
+    'blog.article.frontaliere-gessatore-ticino-stipendio-requisiti.imageAlt': 'Gessatore frontaliero in Lugano',
 };
 
 export default blogMetaEn;
