@@ -1294,6 +1294,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Schweißer im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Die Neue Frontalieri-Vereinbarung sieht neue Regeln für Grenzschweisser im Tessin vor. In diesem Artikel erfahren Sie mehr über die Anforderungen, das Durchschnittsgehalt und die möglichen Ausnahmen.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Bild eines Schweißers bei der Arbeit in einer Fabrik im Ticino',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Grenzschweisser im Tessin: Praxisleitfaden und Anforderungen',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Erfahren Sie mehr über die Voraussetzungen für die Arbeit als Schweißer in der Schweiz, die aktuellen Steuervorschriften und die Funktionsweise der Quellensteuer für Grenzgänger.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Professionelle Metallwerkstatt in der Schweiz',
 };
 
 export default blogMetaChDe;

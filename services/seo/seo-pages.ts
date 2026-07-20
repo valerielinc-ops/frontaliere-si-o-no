@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3347,
+ "numberOfItems": 3348,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8115,7 +8115,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3344, "name": "Quanto guadagna un meccatronico frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-salario-meccatronico` },
           { "@type": "ListItem", "position": 3345, "name": "Quanto guadagna un saldatore frontaliere in Tic...", "url": `${BASE_URL}/articoli-frontaliere/stipendio-saldatore-frontaliere-ticino` },
           { "@type": "ListItem", "position": 3346, "name": "Saldatori in Ticino: stipendio, requisiti e ric...", "url": `${BASE_URL}/articoli-frontaliere/saldatore-frontaliere-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3347, "name": "Frontaliere saldatore: stipendio, requisiti e t...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti` }
+          { "@type": "ListItem", "position": 3347, "name": "Frontaliere saldatore: stipendio, requisiti e t...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-saldatore-ticino-stipendio-requisiti` },
+          { "@type": "ListItem", "position": 3348, "name": "Saldatore frontaliere in Ticino: guida pratica ...", "url": `${BASE_URL}/articoli-frontaliere/saldatore-frontaliere-ticino-guida` }
  ]
  },
  {

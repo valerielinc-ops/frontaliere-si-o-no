@@ -1294,6 +1294,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.title': 'Saldatori in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.excerpt': 'Il Nuovo Accordo Frontalieri prevede nuove regole per i saldatori frontalieri in Ticino. In questo articolo, scopriamo i requisiti, il stipendio medio e le possibili esenzioni.',
     'blog.article.saldatore-frontaliere-ticino-stipendio-requisiti.imageAlt': 'Immagine di un saldatore in azione in una fabbrica del Ticino',
+    'blog.article.saldatore-frontaliere-ticino-guida.title': 'Saldatore frontaliere in Ticino: guida pratica e requisiti',
+    'blog.article.saldatore-frontaliere-ticino-guida.excerpt': 'Scopri i requisiti per lavorare come saldatore in Svizzera, le regole fiscali aggiornate e il funzionamento dell\'imposta alla fonte per i lavoratori frontalieri.',
+    'blog.article.saldatore-frontaliere-ticino-guida.imageAlt': 'Officina metalmeccanica professionale in Svizzera',
 };
 
 export default blogMetaChIt;
