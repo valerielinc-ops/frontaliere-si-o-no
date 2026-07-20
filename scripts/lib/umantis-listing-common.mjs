@@ -236,7 +236,7 @@ function detectCategory(title = '', department = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|interns?(?=\W|$)|apprendist|lehrling|lernend|apprenti|werkstudent)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti|werkstudent)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|oberärztin|chefarzt)/.test(t)) return 'senior';
   return 'mid';

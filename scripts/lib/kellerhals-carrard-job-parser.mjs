@@ -117,7 +117,7 @@ function detectCategory() {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|volontariat|stagiair|interns?(?=\W|$)|auszubildende|lehrling|lernend|apprenti|trainee)/.test(t)) return 'intern';
+  if (/\b(praktik|volontariat|stagiair|intern(?:ship)?s?(?=\W|$)|auszubildende|lehrling|lernend|apprenti|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|partner)/.test(t)) return 'senior';
   return 'mid';
@@ -131,7 +131,7 @@ function detectEmploymentType(text = '') {
     if (pct >= 90) return 'FULL_TIME';
     if (pct > 0) return 'PART_TIME';
   }
-  if (/\b(praktikum|volontariat|intern|auszubildende|lehrling|lernend)/.test(t)) return 'INTERN';
+  if (/\b(praktikum|volontariat|intern(?:ship)?s?(?=\W|$)|auszubildende|lehrling|lernend)/.test(t)) return 'INTERN';
   if (/\b(part.?time|teilzeit)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|festanstellung)/.test(t)) return 'FULL_TIME';
   return 'OTHER';

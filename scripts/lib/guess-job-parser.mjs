@@ -104,7 +104,7 @@ export function normalizeGuessEmploymentType(value = '') {
   const normalized = normalize(value);
   if (normalized.includes('part')) return 'part-time';
   if (normalized.includes('temporary') || normalized.includes('fixed') || normalized.includes('contract')) return 'temporary';
-  if (normalized.includes('intern')) return 'internship';
+  if (/\bintern(?:ship)?s?(?=\W|$)/.test(normalized)) return 'internship';
   return 'full-time';
 }
 

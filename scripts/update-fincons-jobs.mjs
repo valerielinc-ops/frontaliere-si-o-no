@@ -133,7 +133,7 @@ function inferCategory(detail = {}) {
 function normalizeEmploymentType(raw = '') {
   const text = normalize(raw);
   if (text.includes('part')) return 'part-time';
-  if (text.includes('intern')) return 'internship';
+  if (/\bintern(?:ship)?s?(?=\W|$)/.test(text)) return 'internship';
   return 'full-time';
 }
 

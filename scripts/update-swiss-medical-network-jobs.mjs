@@ -77,7 +77,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/junior|entry|intern|stage|apprenti|assistant/i.test(t)) return 'ENTRY';
+  if (/\b(junior|entry|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|apprenti|assistant)/i.test(t)) return 'ENTRY';
   if (/senior|lead|head|director|chief|capo|primario/i.test(t)) return 'SENIOR';
   return 'MID';
 }

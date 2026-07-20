@@ -190,7 +190,7 @@ export function normalizeContract(contract, locale = 'it') {
   const labels = CONTRACT_LABELS[locale] || CONTRACT_LABELS.it;
   const value = String(contract || '').toLowerCase();
   if (value.includes('part')) return labels.part;
-  if (value.includes('intern')) return labels.intern;
+  if (/\bintern(?:ship)?s?(?=\W|$)/.test(value)) return labels.intern;
   if (value.includes('appr')) return labels.appr;
   if (value.includes('temp')) return labels.temp;
   if (value.includes('full')) return labels.full;

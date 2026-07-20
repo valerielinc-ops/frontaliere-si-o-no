@@ -150,7 +150,7 @@ function detectCategory(title = '') {
 }
 
 function detectExperienceLevel(title = '') {
-  if (/lehr|ausbildung|intern|junior|entry|stage|apprent|stipend/i.test(title)) return 'ENTRY';
+  if (/\b(lehr|ausbildung|intern(?:ship)?s?(?=\W|$)|junior|entry|stages?(?=\W|$)|apprent|stipend)/i.test(title)) return 'ENTRY';
   if (/senior|lead|head|director|manager|chef/i.test(title)) return 'SENIOR';
   return 'MID';
 }

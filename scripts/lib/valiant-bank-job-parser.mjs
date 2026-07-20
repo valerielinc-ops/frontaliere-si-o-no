@@ -124,7 +124,7 @@ function detectCategory(title = '') {
   if (/\b(compliance|risk|risiko|recht|legal)/.test(t)) return 'Compliance & Risk';
   if (/\b(it|informatik|software|entwickl|développeur)/.test(t)) return 'IT';
   if (/\b(hr|personal|human resources)/.test(t)) return 'Risorse Umane';
-  if (/\b(lehrstelle|lernend|praktik|stage|apprenti)/.test(t)) return 'Formazione';
+  if (/\b(lehrstelle|lernend|praktik|stages?(?=\W|$)|apprenti)/.test(t)) return 'Formazione';
   if (/\b(rechnungswesen|buchhaltung|finance|comptab)/.test(t)) return 'Finanza & Contabilità';
   if (/\b(marketing|kommunikation|communication)/.test(t)) return 'Marketing';
   if (/\b(unternehmensnachfolge|firmenkunden)/.test(t)) return 'Firmenkundengeschäft';

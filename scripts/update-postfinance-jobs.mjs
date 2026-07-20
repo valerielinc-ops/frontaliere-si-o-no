@@ -452,7 +452,7 @@ function detectCanton(city = '') {
 function detectEmploymentType(detail) {
   const et = normalize(detail.employmentType || '');
   if (et.includes('part')) return 'PART_TIME';
-  if (et.includes('intern')) return 'INTERN';
+  if (/\bintern(?:ship)?s?(?=\W|$)/.test(et)) return 'INTERN';
   return 'FULL_TIME';
 }
 

@@ -109,7 +109,7 @@ function detectCategory(title = '', department = '', branchName = '') {
 
 function detectExperienceLevel(title = '', contractType = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|interns?(?=\W|$)|apprendist|lehrling|lernend|doktorand|ausbildung)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|doktorand|ausbildung)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt)/.test(t)) return 'senior';
   return 'mid';

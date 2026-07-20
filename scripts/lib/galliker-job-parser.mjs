@@ -111,7 +111,7 @@ function detectEmploymentType(ldEmploymentType, text = '') {
   if (fromLd && /full.?time/i.test(String(fromLd))) return 'FULL_TIME';
   const t = normalize(text);
   if (/\b(teilzeit|part.?time|tempo parziale)/.test(t)) return 'PART_TIME';
-  if (/\b(lernende|lehrling|apprendist|praktik|stage|intern)/.test(t)) return 'INTERN';
+  if (/\b(lernende|lehrling|apprendist|praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$))/.test(t)) return 'INTERN';
   if (/\b(temporaer|befristet|temporary|tempor)/.test(t)) return 'CONTRACTOR';
   return 'FULL_TIME';
 }

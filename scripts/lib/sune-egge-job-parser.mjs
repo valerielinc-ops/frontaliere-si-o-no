@@ -88,13 +88,13 @@ function detectCategory(title = '') {
   if (/\b(koch|k[oö]chin|chef.?de.?partie|cuisine|kitchen|sous.?chef)/.test(t)) return 'Ristorazione';
   if (/\b(sozialarbeit|sozialpaedagog|sozialpädagog|peer|seelsorg)/.test(t)) return 'Sociale';
   if (/\b(verwalt|admin|sekretär|bookkeep|buchhalt|hr|personal)/.test(t)) return 'Amministrazione';
-  if (/\b(lehrling|lernend|apprenti|praktik|intern)/.test(t)) return 'Formazione';
+  if (/\b(lehrling|lernend|apprenti|praktik|intern(?:ship)?s?(?=\W|$))/.test(t)) return 'Formazione';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lehrling|lernend|apprenti|praktik|interns?(?=\W|$)|trainee|aushilfe|vorpraktikant)/.test(t)) return 'intern';
+  if (/\b(lehrling|lernend|apprenti|praktik|intern(?:ship)?s?(?=\W|$)|trainee|aushilfe|vorpraktikant)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|chef|leiter|leitend|head|director|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -110,7 +110,7 @@ function detectEmploymentType(text = '') {
   }
   if (/\b(part.?time|teilzeit)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit)/.test(t)) return 'FULL_TIME';
-  if (/\b(praktik|intern|stage|lehrling|lernend)/.test(t)) return 'INTERN';
+  if (/\b(praktik|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|lehrling|lernend)/.test(t)) return 'INTERN';
   if (/\b(stundenlohn|aushilfe|befristet)/.test(t)) return 'CONTRACTOR';
   return 'OTHER';
 }

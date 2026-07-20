@@ -159,13 +159,13 @@ function detectCategory(title = '') {
   if (/\b(it\b|software|informatik|ai solutions)/.test(t)) return 'IT';
   if (/\b(hr\b|human|personal|recruit)/.test(t)) return 'Risorse Umane';
   if (/\b(marketing|kommunik)/.test(t)) return 'Marketing';
-  if (/\b(praktik|intern|werkstudent|lehrling|lernend|apprenti)/.test(t)) return 'Formazione';
+  if (/\b(praktik|intern(?:ship)?s?(?=\W|$)|werkstudent|lehrling|lernend|apprenti)/.test(t)) return 'Formazione';
   return SECTOR === 'Industria / Manifattura' ? 'Produzione' : 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|interns?(?=\W|$)|werkstudent|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|werkstudent|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)\b/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|leiter|leitend|corporate)/.test(t)) return 'senior';
   return 'mid';

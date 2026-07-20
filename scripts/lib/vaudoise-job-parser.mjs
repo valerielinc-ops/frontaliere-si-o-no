@@ -126,10 +126,10 @@ function detectExperienceLevel(title = '', audience = '') {
   const a = normalize(audience);
   if (/premier emploi|graduate|junior|entry/.test(a)) return 'junior';
   if (/exp[ée]riment|senior/.test(a)) return 'senior';
-  if (/\b(stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprend|lehrling|lernend|apprenti)/.test(a)) return 'intern';
+  if (/\b(stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprend|lehrling|lernend|apprenti)/.test(a)) return 'intern';
 
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';

@@ -339,7 +339,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/junior|jr\.?|entry|intern|stage|stagist|stagiaire|apprenti|graduate|trainee/i.test(t)) return 'ENTRY';
+  if (/\b(junior|jr\.?|entry|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagist|stagiaire|apprenti|graduate|trainee)/i.test(t)) return 'ENTRY';
   if (/senior|sr\.?|lead|head|director|doyen|principal|chief|vp\b|responsable/i.test(t)) return 'SENIOR';
   if (/professeur|professor/i.test(t)) return 'SENIOR';
   if (/post[.-]?doc/i.test(t)) return 'MID';

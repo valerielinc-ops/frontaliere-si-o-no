@@ -274,7 +274,7 @@ function parseApiJob(j = {}) {
 function inferCategory(job = {}) {
   const haystack = `${job.fieldOfActivity || ''} ${job.title || ''} ${job.role || ''} ${job.employmentCategory || ''}`.toLowerCase();
   if (/lernend|apprendist|lehrstell|apprenti|scolari/i.test(haystack)) return 'apprenticeship';
-  if (/praktikan|stagiar|stage|intern|studenti|neodiplomati/i.test(haystack)) return 'internship';
+  if (/\b(praktikan|stagiar|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|studenti|neodiplomati)/i.test(haystack)) return 'internship';
   if (/informatica|software|ict|it\b|digital|cyber/i.test(haystack)) return 'it';
   if (/ingegner|engineer|techni|tecnico/i.test(haystack)) return 'engineering';
   if (/scien|ricerca|research|forschung/i.test(haystack)) return 'science';

@@ -212,7 +212,7 @@ export function detectCategory(title = '') {
   if (/hr|human|recruit/i.test(t)) return 'hr';
   if (/logistic|supply|warehouse/i.test(t)) return 'logistics';
   if (/produc|manufactur|operator/i.test(t)) return 'production';
-  if (/intern|stage|apprendist/i.test(t)) return 'internship';
+  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|apprendist)/i.test(t)) return 'internship';
   return 'general';
 }
 
@@ -220,7 +220,7 @@ export function detectCategory(title = '') {
  * Detect experience level from title.
  */
 export function detectExperienceLevel(title = '') {
-  if (/intern|jr\.?|junior|entry|stage|apprendist/i.test(title)) return 'ENTRY';
+  if (/\b(intern(?:ship)?s?(?=\W|$)|jr\.?|junior|entry|stages?(?=\W|$)|apprendist)/i.test(title)) return 'ENTRY';
   if (/senior|sr\.?|lead|head|director|manager|principal/i.test(title)) return 'SENIOR';
   return 'MID';
 }

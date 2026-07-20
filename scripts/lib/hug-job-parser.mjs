@@ -115,13 +115,13 @@ function detectCategory(title = '') {
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
   if (/\b(legal|giurid|recht|juridique)/.test(t)) return 'Legale';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(stage|stagiair|apprent)/.test(t)) return 'Sanità';
+  if (/\b(stages?(?=\W|$)|stagiair|apprent)/.test(t)) return 'Sanità';
   return 'Sanità';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stages?(?=\W|$)|stagiair|interns?(?=\W|$)|apprenti|apprendist|lehrling|lernend)/.test(t)) return 'intern';
+  if (/\b(stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprenti|apprendist|lehrling|lernend)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|chef|responsab|directeur|directrice|head|lead|leiter)/.test(t)) return 'senior';
   return 'mid';
@@ -131,7 +131,7 @@ function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  if (/\b(stage|intern|stagiair)/.test(t)) return 'INTERN';
+  if (/\b(stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|stagiair)/.test(t)) return 'INTERN';
   if (/\b(cdd|temporary|tempor|befristet|fixed.?term)/.test(t)) return 'CONTRACTOR';
   return 'OTHER';
 }

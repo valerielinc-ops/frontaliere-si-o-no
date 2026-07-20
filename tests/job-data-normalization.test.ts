@@ -39,6 +39,8 @@ describe('jobDataNormalization', () => {
     expect(normalizeJobContract('', '', 'Stage de formation en informatique')).toBe('internship');
     expect(normalizeJobContract('', '', 'Plusieurs stages disponibles cet ete')).toBe('internship');
     expect(normalizeJobContract('', 'Summer Intern, Investment Banking', '')).toBe('internship');
+    expect(normalizeJobContract('Internship', '', '')).toBe('internship');
+    expect(normalizeJobContract('', '', 'Multiple Internships available')).toBe('internship');
   });
 
   it('resolves Medacta website host even when the job URL is hosted on Allibo', () => {
