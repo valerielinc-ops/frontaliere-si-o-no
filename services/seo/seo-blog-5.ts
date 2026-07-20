@@ -51552,6 +51552,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-progettista-elettrico-frontaliere-ticino': {
+    title: 'Stipendio di un progettista elettrico: Ticino vs Italia',
+    description: 'I dati concreti sullo stipendio di un progettista elettrico frontaliere in Ticino, con confronti con la situazione italiana. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, stipendio, progettista, elettrico, dati',
+    ogTitle: 'Stipendio reale di un progettista elettrico frontaliere in Ticino',
+    ogDescription: 'I dati concreti sullo stipendio di un progettista elettrico frontaliere in Ticino, con confronti con la situazione italiana',
+    canonicalPath: '/articoli-frontaliere/progettista-elettrico-frontaliere-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stipendio di un progettista elettrico: Ticino vs Italia",
+      "description": "I dati concreti sullo stipendio di un progettista elettrico frontaliere in Ticino, con confronti con la situazione italiana. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/progettista-elettrico-frontaliere-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un progettista elettrico frontaliere a Lugano, con la città e il lago sullo sfondo"
+      },
+      "datePublished": "2026-07-20T05:33:07+00:00",
+      "dateModified": "2026-07-20T05:33:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/progettista-elettrico-frontaliere-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

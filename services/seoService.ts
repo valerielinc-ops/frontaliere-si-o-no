@@ -4662,6 +4662,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-informatico-ticino-stipendio-requisiti': { name: 'Frontaliere informatico in Ticino', path: '/articoli-frontaliere/frontaliere-informatico-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-frontaliere-assistente-di-cura-ticino-stipendio-requisiti': { name: 'Frontaliere assistente di cura in Ticino', path: '/articoli-svizzera/frontaliere-assistente-di-cura-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino': { name: 'Aliquote fiscali in Ticino', path: '/articoli-frontaliere/frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino', parent: 'blog' },
+    'blog-progettista-elettrico-frontaliere-ticino': { name: 'Stipendio progettista elettrico', path: '/articoli-frontaliere/progettista-elettrico-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

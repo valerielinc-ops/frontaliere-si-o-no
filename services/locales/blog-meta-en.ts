@@ -8668,6 +8668,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.title': 'How much does a border computer scientist earn in Ticino?',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.excerpt': 'The use of a border computer technician in Ticino is subject to different tax rates.',
     'blog.article.frontaliereticino-quanto-guadagna-un-informatico-frontaliere-in-ticino.imageAlt': 'An IT specialist works on his computer with a view of Lake Lugano.',
+    'blog.article.progettista-elettrico-frontaliere-ticino.title': 'Salary of an electrical designer: Ticino vs Italy',
+    'blog.article.progettista-elettrico-frontaliere-ticino.excerpt': 'Concrete data on the salary of a border electrical designer in Ticino, with comparisons with the Italian situation',
+    'blog.article.progettista-elettrico-frontaliere-ticino.imageAlt': 'A front-line electric engineer in Lugano, with the city and lake in the background',
 };
 
 export default blogMetaEn;
