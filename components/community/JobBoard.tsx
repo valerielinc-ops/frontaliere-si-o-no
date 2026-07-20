@@ -9329,7 +9329,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="rounded-2xl border border-edge bg-surface p-4"
  >
  <h3 className="text-sm font-bold text-heading mb-2">{t('seoLinks.jobBoard.title')}</h3>
- <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none p-0 m-0">
+ <ul className={`grid grid-cols-1 gap-2 list-none p-0 m-0 ${[!killSwitches.jobMarket, !killSwitches.weeklyEmployers, !killSwitches.healthPremiums, true].filter(Boolean).length > 1 ? 'sm:grid-cols-2' : ''}`}>
  {!killSwitches.jobMarket && (
  <li>
  <a
