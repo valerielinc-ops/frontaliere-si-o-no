@@ -16710,6 +16710,240 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-saldatore-frontaliere-ticino-guida': {
+    title: 'Saldatore frontaliere in Ticino: guida pratica e requisiti',
+    description: 'Guida pratica per saldatori frontalieri in Ticino: requisiti, imposta alla fonte, previdenza e nuovo accordo fiscale Italia-Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, saldatore, pratica, requisiti, scopri',
+    ogTitle: 'Saldatore frontaliere in Ticino: requisiti e tasse 2024',
+    ogDescription: 'Guida pratica per saldatori frontalieri in Ticino: requisiti, imposta alla fonte, previdenza e nuovo accordo fiscale Italia-Svizzera.',
+    canonicalPath: '/articoli-svizzera/saldatore-frontaliere-ticino-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saldatore frontaliere in Ticino: guida pratica e requisiti",
+      "description": "Guida pratica per saldatori frontalieri in Ticino: requisiti, imposta alla fonte, previdenza e nuovo accordo fiscale Italia-Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/saldatore-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Officina metalmeccanica professionale in Svizzera"
+      },
+      "datePublished": "2026-07-20T08:52:12+00:00",
+      "dateModified": "2026-07-20T08:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/saldatore-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-e-diesel-prezzi-saliti': {
+    title: 'Benzina e diesel: i prezzi alla pompa continuano a salire',
+    description: 'I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, prezzi, alla',
+    ogTitle: 'Benzina e diesel: i prezzi alla pompa continuano a salire',
+    ogDescription: 'I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera.',
+    canonicalPath: '/articoli-svizzera/benzina-e-diesel-prezzi-saliti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel: i prezzi alla pompa continuano a salire",
+      "description": "I prezzi della benzina e del diesel sono saliti nuovamente in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-e-diesel-prezzi-saliti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una stazione di servizio con una fila di auto che attendono di fare rifornimento di carburante."
+      },
+      "datePublished": "2026-07-20T09:24:23+00:00",
+      "dateModified": "2026-07-20T09:24:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-e-diesel-prezzi-saliti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti': {
+    title: 'Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G',
+    description: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
+    keywords: 'frontalieri, ticino, svizzera, italia, disegnatore, tecnico, stipendio, requisiti',
+    ogTitle: 'Frontaliere disegnatore tecnico Ticino stipendio requisiti',
+    ogDescription: 'Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere',
+    canonicalPath: '/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disegnatore tecnico in Ticino: stipendio, requisiti e permesso G",
+      "description": "Gli stipendi dei disegnatori tecnici in Ticino per i frontaliere, i requisiti per lavorare come disegnatore tecnico in Ticino da frontaliere e come riconoscere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un disegnatore tecnico in un ufficio a Lugano"
+      },
+      "datePublished": "2026-07-20T09:55:30+00:00",
+      "dateModified": "2026-07-20T09:55:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-disegnatore-tecnico-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disegnatore-tecnico-frontaliere-ticino-guadagno': {
+    title: 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    description: 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, quanto, guadagna, disegnatore, tecnico',
+    ogTitle: 'Quanto guadagna un disegnatore tecnico frontaliere in Ticino?',
+    ogDescription: 'I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l\'esperienza e il settore di appartenenza.',
+    canonicalPath: '/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quanto guadagna un disegnatore tecnico frontaliere in Ticino?",
+      "description": "I salari dei disegnatori tecnici frontaliere in Ticino sono influenzati da fattori come l'esperienza e il settore di appartenenza. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disegnatore-tecnico-frontaliere-ticino-guadagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista panoramica della città di Lugano, con un disegnatore tecnico frontaliere che lavora nel suo studio."
+      },
+      "datePublished": "2026-07-20T10:31:18+00:00",
+      "dateModified": "2026-07-20T10:31:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disegnatore-tecnico-frontaliere-ticino-guadagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ginevra-frontalieri-diritto-lavoro-pubblico': {
+    title: 'Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico',
+    description: 'Il Governo cantonale ginevrino ha respinto l\'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, hanno, diritto, lavorare',
+    ogTitle: 'Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico',
+    ogDescription: 'Il Governo cantonale ginevrino ha respinto l\'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici',
+    canonicalPath: '/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra, i frontalieri hanno il diritto di lavorare nel settore pubblico",
+      "description": "Il Governo cantonale ginevrino ha respinto l'iniziativa MCG che chiedeva di escluderli dagli impieghi pubblici. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ginevra-frontalieri-diritto-lavoro-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scene di lavoro pubblico in Svizzera, frontalieri e diritto al lavoro"
+      },
+      "datePublished": "2026-07-20T10:51:54+00:00",
+      "dateModified": "2026-07-20T10:51:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-frontalieri-diritto-lavoro-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-segretaria-ticino-stipendio-requisiti': {
+    title: 'Segretaria frontaliere in Ticino: stipendio, requisiti e permesso',
+    description: 'La frontiera ticinese: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, segretaria, stipendio, requisiti, permesso',
+    ogTitle: 'Lavorare come segretaria in Ticino da frontaliere: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    ogDescription: 'La frontiera ticinese: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G',
+    canonicalPath: '/articoli-svizzera/frontaliere-segretaria-ticino-stipendio-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Segretaria frontaliere in Ticino: stipendio, requisiti e permesso",
+      "description": "La frontiera ticinese: stipendio medio, requisiti, eventuale riconoscimento del titolo di studio, permesso G. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-segretaria-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una segretaria frontaliera lavora in un ufficio a Lugano"
+      },
+      "datePublished": "2026-07-20T11:29:45+00:00",
+      "dateModified": "2026-07-20T11:29:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/frontaliere-segretaria-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

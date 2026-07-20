@@ -62,28 +62,35 @@ import {
   type ExchangeSnapshot,
 } from './exchangeRateSsgData';
 import { EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
+import { SLUG_TABLES } from '../services/routeSlugs.data';
 
-// ── Cross-feature paths (canonical SLUG_TABLES values from services/router.ts) ─
+// ── Cross-feature paths (derived from shared SLUG_TABLES, #4315) ─
 
-const CALCULATOR_PATH: Record<ExchangeLocale, string> = {
-  it: '/calcola-stipendio/',
-  en: '/en/calculate-salary/',
-  de: '/de/gehalt-berechnen/',
-  fr: '/fr/calculer-salaire/',
-};
+const CALCULATOR_PATH: Record<ExchangeLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].calcolatore}/`;
+    return acc;
+  },
+  {} as Record<ExchangeLocale, string>,
+);
 
-const SPA_COMPARATOR_PATH: Record<ExchangeLocale, string> = {
-  it: '/compara-servizi/cambio-franco-euro/',
-  en: '/en/service-comparison/chf-eur-exchange-rate/',
-  de: '/de/service-vergleich/chf-eur-wechselkurs/',
-  fr: '/fr/comparaison-services/taux-change-chf-eur/',
-};
+const SPA_COMPARATOR_PATH: Record<ExchangeLocale, string> = (['it', 'en', 'de', 'fr'] as const).reduce(
+  (acc, locale) => {
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    acc[locale] = `${prefix}/${SLUG_TABLES[locale].confronti}/${SLUG_TABLES[locale].exchange}/`;
+    return acc;
+  },
+  {} as Record<ExchangeLocale, string>,
+);
 
+// 'scenari'/'scenarios'/'szenarien' suffix is local to this exchange
+// vertical (no SLUG_TABLES entry); only the calcolatore prefix is shared.
 const SCENARIO_INDEX_PATH: Record<ExchangeLocale, string> = {
-  it: '/calcola-stipendio/scenari/',
-  en: '/en/calculate-salary/scenarios/',
-  de: '/de/gehalt-berechnen/szenarien/',
-  fr: '/fr/calculer-salaire/scenarios/',
+  it: `${CALCULATOR_PATH.it}scenari/`,
+  en: `${CALCULATOR_PATH.en}scenarios/`,
+  de: `${CALCULATOR_PATH.de}szenarien/`,
+  fr: `${CALCULATOR_PATH.fr}scenarios/`,
 };
 
 const HOME_PATH: Record<ExchangeLocale, string> = {
