@@ -1,18 +1,132 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-07-20T12:02:57.115Z",
-  "total": 39,
-  "newCount": 0,
-  "updatedCount": 2,
+  "generatedAt": "2026-07-20T22:01:03.940Z",
+  "total": 38,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 37,
-  "durationMs": 18516,
-  "avgDurationMs": 18516,
+  "unchangedCount": 36,
+  "durationMs": 19204,
+  "avgDurationMs": 19204,
   "durationHistory": [
-    18516
+    19204
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "efg-6384",
+      "slug": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Business Risk Manager - PB COO - BRM (TEMP)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6384",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Languages required: English, German, French and Italian",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
+              "Willing to go the extra mile, efficient and resourceful"
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
+              "<strong>Passionate</strong>: Being committed and striving for excellence",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry",
+              "Excellent data analysis and and Program Languages (Python",
+              "Languages required",
+              "Pro-active and clear communicator with strong organizational skills"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Role",
+                "paragraphs": [
+                  "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Main Responsibilites",
+                "paragraphs": [],
+                "bullets": [
+                  "Execute all BRM controls on Investment Solutions area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+                  "Preparation of the IS RSC and IS BRM control report",
+                  "Ensure that the identified control NOKs and related risk mitigating actions are timely remediated",
+                  "Contribution on preparation of the annual IS risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
+                  "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
+                  "Report on the internal control environment and potentially arising risks or issues.",
+                  "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews",
+                  "Key contact person a IS Area Level for IT, tools, trainings topics and issues"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-20T22:01:00.554Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-07-20",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "efg-5984",
@@ -48,7 +162,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.246Z",
+      "crawledAt": "2026-07-20T22:01:00.555Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-10",
@@ -61,60 +175,6 @@
       "country": "CH",
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6039",
-      "slug": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "EPM OneStream Developer/Business Data Analyst",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-07-20T12:02:54.244Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -271,7 +331,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.271Z",
+      "crawledAt": "2026-07-20T22:01:00.578Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -387,7 +447,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.270Z",
+      "crawledAt": "2026-07-20T22:01:00.577Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-23",
@@ -507,7 +567,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.269Z",
+      "crawledAt": "2026-07-20T22:01:00.576Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-02",
@@ -593,7 +653,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.268Z",
+      "crawledAt": "2026-07-20T22:01:00.575Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -648,7 +708,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.267Z",
+      "crawledAt": "2026-07-20T22:01:00.573Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -703,7 +763,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.266Z",
+      "crawledAt": "2026-07-20T22:01:00.572Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -832,7 +892,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.265Z",
+      "crawledAt": "2026-07-20T22:01:00.571Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -933,7 +993,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.264Z",
+      "crawledAt": "2026-07-20T22:01:00.570Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1051,7 +1111,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.263Z",
+      "crawledAt": "2026-07-20T22:01:00.569Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1106,7 +1166,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.262Z",
+      "crawledAt": "2026-07-20T22:01:00.568Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1230,7 +1290,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.260Z",
+      "crawledAt": "2026-07-20T22:01:00.567Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1285,7 +1345,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.259Z",
+      "crawledAt": "2026-07-20T22:01:00.566Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1340,7 +1400,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.258Z",
+      "crawledAt": "2026-07-20T22:01:00.565Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1395,7 +1455,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.257Z",
+      "crawledAt": "2026-07-20T22:01:00.564Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1506,7 +1566,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.256Z",
+      "crawledAt": "2026-07-20T22:01:00.563Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1634,7 +1694,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.255Z",
+      "crawledAt": "2026-07-20T22:01:00.562Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1690,7 +1750,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.254Z",
+      "crawledAt": "2026-07-20T22:01:00.560Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1837,7 +1897,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.252Z",
+      "crawledAt": "2026-07-20T22:01:00.560Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1957,7 +2017,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T12:02:54.250Z",
+      "crawledAt": "2026-07-20T22:01:00.556Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-08",
@@ -1974,6 +2034,60 @@
         "richness": 25,
         "translation": 25,
         "completeness": 19
+      }
+    },
+    {
+      "id": "efg-6039",
+      "slug": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "EPM OneStream Developer/Business Data Analyst",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-20T22:01:00.550Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.934Z",
+      "country": "CH",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -2865,139 +2979,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-15T21:42:14.752Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6168",
-      "slug": "stage-in-talent-acquisition-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Talent Acquisition Internship",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6168",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.",
-              "We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.",
-              "Key Responsibilities"
-            ],
-            "responsibilities": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.",
-              "Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.",
-              "Maintain accurate candidate records and ensure proper documentation of each recruitment step.",
-              "Prepare standard correspondence and communication to candidates and hiring managers.",
-              "Support coordination of assessments (tests, case studies, reference checks), where applicable.",
-              "Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).",
-              "Help monitor key TA metrics and identify basic trends or bottlenecks in the process.",
-              "Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.",
-              "Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.",
-              "Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.",
-              "Conduct initial phone or video pre‑screenings for selected roles, under supervision.",
-              "Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).",
-              "Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist."
-            ],
-            "requirements": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus, depending on the location.",
-              "Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).",
-              "Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.",
-              "High attention to detail and accuracy in handling data and administrative tasks.",
-              "Strong interest in Talent Acquisition, the banking industry and investment management.",
-              "Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.",
-              "Organised, structured and able to manage multiple tasks and priorities.",
-              "Proactive, curious and willing to take ownership of tasks and suggest improvements.",
-              "Team oriented, collaborative and comfortable working in an international and multicultural environment.",
-              "Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning."
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources",
-              "Previous experience (internship",
-              "Experience in data management",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus",
-              "Act as a point of contact for candidates",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-05-31T21:58:25.580Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
       "needsRetranslation": true,
       "_qualityScore": 97,
