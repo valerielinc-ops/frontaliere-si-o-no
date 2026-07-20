@@ -51708,6 +51708,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-meccanico-ticino-stipendio-requisiti': {
+    title: 'Lavorare come meccanico in Ticino: stipendio e requisiti',
+    description: 'I requisiti per lavorare come meccanico in Svizzera sono stabiliti dalla legge federale. Il permesso G è necessario per lavorare in Svizzera senza dover pagare',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, meccanico, stipendio, requisiti',
+    ogTitle: 'Lavorare come meccanico in Ticino da frontaliere: stipendio medio, requisiti, permesso G',
+    ogDescription: 'I requisiti per lavorare come meccanico in Svizzera sono stabiliti dalla legge federale. Il permesso G è necessario per lavorare in Svizzera senza dover pagare',
+    canonicalPath: '/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare come meccanico in Ticino: stipendio e requisiti",
+      "description": "I requisiti per lavorare come meccanico in Svizzera sono stabiliti dalla legge federale. Il permesso G è necessario per lavorare in Svizzera senza dover pagare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-meccanico-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista della città di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-07-20T07:25:07+00:00",
+      "dateModified": "2026-07-20T07:25:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

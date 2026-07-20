@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3340,
+ "numberOfItems": 3341,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8108,7 +8108,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3337, "name": "Polimeccanico in Ticino: stipendio, requisiti e...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-polimeccanico-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3338, "name": "Frontalieri in Ticino: analisi del calo e impat...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-tendenze-occupazionali` },
           { "@type": "ListItem", "position": 3339, "name": "Inchiesta Constellation: documenti ufficiali sc...", "url": `${BASE_URL}/articoli-frontaliere/documenti-scomparsi-inchiesta-constellation` },
-          { "@type": "ListItem", "position": 3340, "name": "Quanto guadagna un polimeccanico frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino` }
+          { "@type": "ListItem", "position": 3340, "name": "Quanto guadagna un polimeccanico frontaliere in...", "url": `${BASE_URL}/articoli-frontaliere/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino` },
+          { "@type": "ListItem", "position": 3341, "name": "Lavorare come meccanico in Ticino: stipendio e ...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti` }
  ]
  },
  {

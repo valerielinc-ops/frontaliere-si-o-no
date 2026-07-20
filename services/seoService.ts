@@ -4670,6 +4670,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-tendenze-occupazionali': { name: 'Frontalieri in Ticino', path: '/articoli-svizzera/frontalieri-ticino-tendenze-occupazionali/', parent: 'blog' },
     'blog-documenti-scomparsi-inchiesta-constellation': { name: 'Inchiesta Constellation', path: '/articoli-frontaliere/documenti-scomparsi-inchiesta-constellation', parent: 'blog' },
     'blog-quanto-guadagna-un-polimeccanico-frontaliere-in-ticino': { name: 'Stipendio polimeccanico frontaliere Ticino', path: '/articoli-svizzera/quanto-guadagna-un-polimeccanico-frontaliere-in-ticino/', parent: 'blog' },
+    'blog-frontaliere-meccanico-ticino-stipendio-requisiti': { name: 'Requisiti per lavorare come meccanico in', path: '/articoli-frontaliere/frontaliere-meccanico-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
