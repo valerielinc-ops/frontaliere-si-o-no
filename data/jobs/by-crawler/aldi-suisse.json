@@ -411,12 +411,14 @@
         "vendeur-se-m-w-d-aldi-suisse-meilen",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "commercant-m-w-d-aldi-suisse-winterthur",
-        "membro-vendita-m-w-d-aldi-suisse-winterthur"
+        "membro-vendita-m-w-d-aldi-suisse-winterthur",
+        "venditore-m-w-d-aldi-suisse-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "membro-vendita-m-w-d-aldi-suisse-winterthur"
+          "membro-vendita-m-w-d-aldi-suisse-winterthur",
+          "venditore-m-w-d-aldi-suisse-winterthur"
         ],
         "en": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -523,7 +525,8 @@
         "vendeur-se-m-w-d-aldi-suisse-uster",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-mvvtyd",
         "addetto-a-alle-vendite-m-w-d-aldi-suisse-winterthur-b714a0",
-        "commercant-m-w-d-aldi-suisse-meilen"
+        "commercant-m-w-d-aldi-suisse-meilen",
+        "employe-de-vente-m-w-d-aldi-suisse-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -535,7 +538,8 @@
         ],
         "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-          "commercant-m-w-d-aldi-suisse-meilen"
+          "commercant-m-w-d-aldi-suisse-meilen",
+          "employe-de-vente-m-w-d-aldi-suisse-meilen"
         ],
         "de": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
@@ -858,14 +862,16 @@
       "crawledAt": "2026-07-19T11:18:10.172Z",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+          "membro-vendita-m-w-d-aldi-suisse-winterthur"
         ],
         "de": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "membro-vendita-m-w-d-aldi-suisse-winterthur"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

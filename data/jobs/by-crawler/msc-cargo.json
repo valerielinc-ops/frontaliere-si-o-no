@@ -221,7 +221,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-19T23:13:09.832Z"
+      "firstSeenAt": "2026-07-19T23:13:09.832Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
+          "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+        ],
+        "it": [
+          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        ],
+        "de": [
+          "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva",
+        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva",
+        "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
+        "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-a2b1fa8ec63d",
@@ -629,7 +647,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-full-funnel-analyst-msc-geneva",
-        "marketing-full-funnel-analista-msc-group-geneva"
+        "marketing-full-funnel-analista-msc-group-geneva",
+        "marketing-full-funnell-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -638,6 +657,9 @@
         ],
         "fr": [
           "marketing-full-funnel-analyst-msc-geneva"
+        ],
+        "en": [
+          "marketing-full-funnell-analyst-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-07-18T23:01:12.867Z",
@@ -881,11 +903,13 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
+          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+          "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
+        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
+        "strategia-testing-e-responsabile-cro-di-analisi-digitale-msc-group-geneva"
       ],
       "needsRetranslation": true
     },
