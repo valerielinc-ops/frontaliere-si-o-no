@@ -175,4 +175,22 @@ describe('derivePersonalizationPatch', () => {
     // Location filterUsage is all-zero → falls back to nothing (no viewedJobs).
     expect(patch?.location_interest).toBeUndefined();
   });
+
+  it('a non-scalar sector signal from malformed source data still derives a scalar sector_interest (#4615 item 2)', () => {
+    // `alerts[].sectors` and `viewedJobs[].category` are raw Firestore data,
+    // not TS-guarded at read time — a malformed doc could hold a nested array
+    // instead of a string. `topWeighted` runs `String(value || '')` per entry
+    // before aggregating, so even a bad shape here can only ever produce a
+    // scalar label, never propagate the array into sector_interest/job_category.
+    const patch = derivePersonalizationPatch({
+      subscriber: {},
+      personalization: {
+        viewedJobs: [{ category: ['health', 'admin'] as unknown as string }],
+      },
+      alerts: [{ sectors: [['finance', 'tech']] as unknown as string[] }],
+    });
+    expect(typeof patch?.sector_interest).toBe('string');
+    expect(typeof patch?.job_category).toBe('string');
+    expect(Array.isArray(patch?.sector_interest)).toBe(false);
+  });
 });
