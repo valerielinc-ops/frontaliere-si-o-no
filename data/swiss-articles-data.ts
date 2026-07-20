@@ -4031,6 +4031,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'giardiniere-frontaliere-ticino-salario',
+    category: 'pratico',
+    date: '2026-07-20T21:45:19.254Z',
+    image: '/images/blog/giardiniere-frontaliere-ticino-salario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
