@@ -172,10 +172,10 @@
       "id": "migrolino-0576b1008778",
       "slug": "rappresentante-vendite-migrolino-worblaufen-ittigen",
       "slugByLocale": {
-        "it": "rappresentante-vendite-migrolino-worblaufen-ittigen",
-        "en": "sales-staff-migrolino-worblaufen-ittigen-007f71",
+        "it": "personale-di-vendita-migrolino-worblaufen-ittigen",
+        "en": "sales-staff-migrolino-worblaufen-ittigen",
         "de": "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-        "fr": "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
+        "fr": "personnel-de-vente-migrolino-worblaufen-ittigen"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -199,7 +199,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/6a22eee3-8ca3-432a-a73b-99d66e1d1305",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:03:14.018Z",
+      "crawledAt": "2026-07-19T22:04:34.232Z",
       "addressLocality": "Worblaufen-Ittigen",
       "addressRegion": "BE",
       "streetAddress": "Worblaufenstrasse 161",
@@ -218,18 +218,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-        "rappresentante-vendite-migrolino-worblaufen-ittigen"
+        "sales-staff-migrolino-worblaufen-ittigen-007f71",
+        "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
-          "rappresentante-vendite-migrolino-worblaufen-ittigen"
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
         ],
         "en": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
+          "sales-staff-migrolino-worblaufen-ittigen-007f71"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen"
+          "verkaufsmitarbeiter-in-migrolino-worblaufen-ittigen",
+          "personnel-de-vente-migrolino-worblaufen-ittigen-007f71"
         ]
       },
       "needsRetranslation": true,

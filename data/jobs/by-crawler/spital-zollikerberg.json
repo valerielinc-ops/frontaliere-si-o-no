@@ -128,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-        "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg"
+        "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg",
-          "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg"
+          "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
         ],
         "en": [
           "leiterin-leiter-instrumentierpflege-op-medizintechnische-bereiche-spital-zollikerberg"
@@ -206,13 +204,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg"
+        "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg",
-          "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg"
+          "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
         ],
         "fr": [
           "dipl-expertin-dipl-experte-notfallpflege-nds-hf-spital-zollikerberg-zollikerberg"
@@ -310,12 +306,12 @@
     },
     {
       "id": "spital-zollikerberg-707cc07947dc",
-      "slug": "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
+      "slug": "segretario-medico-segretario-medico-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
-        "it": "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
-        "en": "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
-        "fr": "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
+        "it": "segretario-medico-segretario-medico-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
+        "en": "medical-secretary-medical-secretary-frauenklinik-middle-office-spital-zollikerberg-zollikerberg",
+        "fr": "secretaire-medical-secretaire-medical-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -370,16 +366,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-frauenklinik-middle-office-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-36d6909628b6",
-      "slug": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
+      "slug": "formazione-professionale-formazione-professionale-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "it": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "en": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg",
-        "fr": "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        "it": "formazione-professionale-formazione-professionale-spital-zollikerberg-zollikerberg",
+        "en": "vocational-trainer-vocational-trainer-station-surgery-gynecology-spital-zollikerberg-zollikerberg",
+        "fr": "entraineur-professionnel-entraineur-professionnel-station-chirurgie-gynecologie-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -434,7 +444,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-berufsbildner-station-chirurgie-gynakologie-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-fa72e336fe73",
