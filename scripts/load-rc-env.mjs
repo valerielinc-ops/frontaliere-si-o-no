@@ -74,6 +74,12 @@ const RC_TO_ENV = {
   MAILTRAP_API_TOKEN:             ['MAILTRAP_API_TOKEN'],
   MAILEROO_API_KEY:               ['MAILEROO_API_KEY'],
   MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
+  // Separate Account API key (Maileroo dashboard "Applications" section) —
+  // distinct from MAILEROO_API_KEY (a per-domain Sending Key), needed for
+  // account-level endpoints like statistics/summary (see
+  // fetchMailerooCycleUsage in functions/src/emailCascade.js). Not yet
+  // provisioned — optional, falls back safely when unset.
+  MAILEROO_ACCOUNT_API_KEY:       ['MAILEROO_ACCOUNT_API_KEY'],
   // Cloudflare Email Service (newsletter + job alerts). Dedicated token scoped to
   // Email Sending: Edit + Analytics Read; account id reuses CF_ACCOUNT_ID below.
   CLOUDFLARE_EMAIL_API_TOKEN:     ['CLOUDFLARE_EMAIL_API_TOKEN'],
