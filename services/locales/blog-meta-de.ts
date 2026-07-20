@@ -8703,6 +8703,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.title': 'Automatisierungstechniker im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.excerpt': 'Die G-Bewilligung für Grenzsicherungstechniker im Tessin: Anforderungen, Durchschnittsgehalt, Anerkennung des Abschlusses und Verfahren für dessen Erlangung.',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.imageAlt': 'Ein Automationsingenieur, der in einer Fabrik in Ticino arbeitet',
+    'blog.article.stipendio-contabile-frontaliere-ticino.title': 'Wie viel verdient ein Grenzbuchhalter im Tessin?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'Mit dem neuen Frontalieri-Abkommen wurden neue Steuerregeln für Tessiner Grenzgänger eingeführt. Wie hoch ist ihr Reallohn?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'ein Grenzgänger arbeitet in einem Unternehmen in Lugano',
 };
 
 export default blogMetaDe;

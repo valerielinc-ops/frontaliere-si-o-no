@@ -8705,6 +8705,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.title': 'Tecnico automazione in Ticino: stipendio, requisiti e riconoscimento',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.excerpt': 'Il permesso G per i tecnici automazione frontalieri in Ticino: requisiti, stipendio medio, riconoscimento del titolo di studio e procedure per la sua ottenzione.',
     'blog.article.frontalieri-tecnico-automazione-ticino-stipendio-requisiti.imageAlt': 'Un tecnico automazione che lavora in una fabbrica in Ticino',
+    'blog.article.stipendio-contabile-frontaliere-ticino.title': 'Quanto guadagna un contabile frontaliere in Ticino?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.excerpt': 'Il nuovo Accordo Frontalieri ha introdotto nuove regole fiscali per i frontaliere ticinesi. Qual è il loro stipendio reale?',
+    'blog.article.stipendio-contabile-frontaliere-ticino.imageAlt': 'un frontaliere lavora in un\'azienda di Lugano',
 };
 
 export default blogMetaIt;
