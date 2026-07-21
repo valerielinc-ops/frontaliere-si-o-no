@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-07-20T11:53:04.531Z",
+  "assembledAt": "2026-07-21T11:16:08.419Z",
   "jobs": [
     {
       "id": "rieter-5cbc6f09de36",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4031767",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:01.143Z",
+      "crawledAt": "2026-07-21T11:16:04.843Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:31:14.154Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "baseSalary": {
@@ -108,7 +109,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation--4029805",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-20T11:53:00.488Z",
+      "crawledAt": "2026-07-21T11:16:04.233Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
