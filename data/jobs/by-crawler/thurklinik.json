@@ -1,6 +1,6 @@
 {
   "crawlerKey": "thurklinik",
-  "assembledAt": "2026-07-20T11:53:08.887Z",
+  "assembledAt": "2026-07-21T11:16:14.464Z",
   "jobs": [
     {
       "id": "thurklinik-01dd561b4a47",
@@ -34,7 +34,7 @@
       "url": "https://test.thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-SChmerz.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:05.890Z",
+      "crawledAt": "2026-07-21T11:16:11.192Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/05/Lehrstelle-als-Fachfrau-oder-Fachmann-Gesundheit-EFZ_FAGE_2027.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:04.455Z",
+      "crawledAt": "2026-07-21T11:16:09.907Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "title": "Lagerungspflege & Springer 20-80%",
       "titleByLocale": {
         "it": "Stoccaggio & Springer 20-80 %",
-        "en": "Storage Care & Springer 20-80 %",
+        "en": "Lagerungspflege & Springer 20-80%",
         "de": "Lagerungspflege & Springer 20-80%",
         "fr": "Soins de stockage & Springer 20-80 %"
       },
@@ -190,7 +190,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2026/03/Lagerungspflege-Springer-m_w_d-20-80_Thurklinik.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:03.818Z",
+      "crawledAt": "2026-07-21T11:16:09.277Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/02/Stellenbeschreibung-Hausarzt_Praxis.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:03.179Z",
+      "crawledAt": "2026-07-21T11:16:08.613Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/01/Stellenbeschreibung-GYN.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:02.548Z",
+      "crawledAt": "2026-07-21T11:16:07.971Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/10/Dipl.-Fachfrau-oder-Fachmann-Operatioinstechnik-HF-oder-TOA_Thurklinik_UZWIL.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:01.877Z",
+      "crawledAt": "2026-07-21T11:16:07.332Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -504,7 +504,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/11/Dipl.-Anaesthesiepflegerin-oder-Anaesthesiepfleger-60-–-80.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:01.090Z",
+      "crawledAt": "2026-07-21T11:16:06.558Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -581,7 +581,7 @@
       "url": "https://thurklinik.ch/wp-content/uploads/2025/07/Gynaekologie-Urologie-HNO-Orthopaedie-Viszeralchirurgie-und-Handchirurgie.-Anaesthesie-und-Schmerztherapie-.pdf",
       "source": "Thurklinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:53:00.161Z",
+      "crawledAt": "2026-07-21T11:16:05.567Z",
       "addressLocality": "Niederuzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -643,7 +643,7 @@
       "title": "Dipl. Pflegefachperson HF (20–80 %)",
       "titleByLocale": {
         "it": "Dipl. Carriera HF (20–80 %)",
-        "en": "Dipl. Nurse HF (20–80%)",
+        "en": "Dipl. Pflegefachperson HF (20–80 %)",
         "de": "Dipl. Pflegefachperson HF (20–80 %)",
         "fr": "Infirmière diplômée HF (20–80%)"
       },
@@ -706,7 +706,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
