@@ -9033,15 +9033,37 @@ async function main() {
             // out already-used, skip to the next headline instead of fetching
             // an unusable news.google.com wrapper (which would yield no source
             // text → topic-gate abort → wasted attempt).
+            //
+            // `attempt--` before both `continue`s below (2026-07-21): these are
+            // CHEAP skips (no LLM call, no fetch of source content) — the
+            // candidate never reached generateAndValidateArticle. Without the
+            // decrement they silently consumed a MAX_DUPLICATE_RETRIES slot
+            // just like an expensive failed generation, so a run whose first
+            // 8 ranker picks all happened to decode to already-published
+            // Google News wrappers (common: the same underlying story
+            // re-surfaces under many GNews headline variants) burned its
+            // entire retry budget on decode-only skips and fell through to
+            // the Fase 2 evergreen fallback WITHOUT EVER calling
+            // generateAndValidateArticle once — even though `triedUrls`
+            // (updated above at candidate-selection time) still had dozens of
+            // untried, already relevance/dedup-filtered headlines left in
+            // `pool.headlines`. Confirmed live: run 29801301652 logged exactly
+            // 8 consecutive "URL già usata" skips before "Fase 2: Fallback
+            // evergreen", pool=93 headlines still available. The decrement
+            // makes these free (bounded only by wall-clock/availableHeadlines
+            // guards above, same as before), reserving MAX_DUPLICATE_RETRIES
+            // for attempts that actually spend LLM budget.
             if (chosen?._needsGoogleNewsDecode || isGoogleNewsRssUrl(url)) {
               const realUrl = await decodeGoogleNewsUrl(url);
               if (!realUrl) {
-                console.error(`   ⏭️  Google News non decodificabile — provo un'altra headline: "${String(chosen.headline || '').slice(0, 60)}"`);
+                console.error(`   ⏭️  Google News non decodificabile — provo un'altra headline (non conta come tentativo): "${String(chosen.headline || '').slice(0, 60)}"`);
+                attempt--;
                 continue;
               }
               const used = isSourceUrlAlreadyUsed(realUrl);
               if (used.used) {
-                console.error(`   🔗 Google News decodificata ma URL già usata (→ ${used.articleId}) — provo un'altra headline`);
+                console.error(`   🔗 Google News decodificata ma URL già usata (→ ${used.articleId}) — provo un'altra headline (non conta come tentativo)`);
+                attempt--;
                 continue;
               }
               console.error(`   🔓 Google News decodificata → fonte reale: ${realUrl.slice(0, 80)}`);
