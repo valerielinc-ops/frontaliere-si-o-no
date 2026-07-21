@@ -8761,6 +8761,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-salario-macellaio.title': 'How much does a border butcher earn in Ticino',
     'blog.article.frontaliere-ticino-salario-macellaio.excerpt': 'Average salary of a border butcher in Ticino: data and figures from the source',
     'blog.article.frontaliere-ticino-salario-macellaio.imageAlt': 'Butcher in a meat shop in Lugano',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'How much does a border baker earn in Ticino?',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Actual salary of a border baker in Ticino: salary band, differences compared to Italy, factors affecting salary.',
+    'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Baker at work in Ticino',
 };
 
 export default blogMetaEn;

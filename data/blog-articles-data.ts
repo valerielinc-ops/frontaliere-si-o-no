@@ -26324,6 +26324,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-ticino-panettiere-guadagno',
+ category: 'pratico',
+ date: '2026-07-21T03:21:59.846Z',
+ image: '/images/blog/frontaliere-ticino-panettiere-guadagno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

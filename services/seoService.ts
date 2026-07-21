@@ -4772,6 +4772,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stipendio-frontaliere-ticino-2024': { name: 'Stipendio frontaliere Ticino', path: '/articoli-svizzera/stipendio-frontaliere-ticino-2024/', parent: 'blog' },
     'blog-frontaliere-ticino-salario-macellaio': { name: 'Macellaio frontaliere in Ticino', path: '/articoli-frontaliere/frontaliere-ticino-salario-macellaio', parent: 'blog' },
     'blog-frontaliere-macellaio-ticino-stipendio-requisiti': { name: 'Frontaliere macellaio in Ticino', path: '/articoli-svizzera/frontaliere-macellaio-ticino-stipendio-requisiti/', parent: 'blog' },
+    'blog-frontaliere-ticino-panettiere-guadagno': { name: 'Stipendio reale di un panettiere', path: '/articoli-frontaliere/frontaliere-ticino-panettiere-guadagno', parent: 'blog' },
  };
 
  const info = sectionNames[section];
