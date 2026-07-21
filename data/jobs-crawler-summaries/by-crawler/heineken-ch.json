@@ -1,16 +1,16 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-07-20T22:28:56.178Z",
+  "generatedAt": "2026-07-21T11:57:04.097Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 73536,
-  "avgDurationMs": 73536,
+  "durationMs": 73164,
+  "avgDurationMs": 73164,
   "durationHistory": [
-    73536
+    73164
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:53.831Z",
+      "crawledAt": "2026-07-21T11:57:02.342Z",
       "firstSeenAt": "2026-07-09T22:38:49.171Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -78,7 +78,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=160678&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:27:51.034Z",
+      "crawledAt": "2026-07-21T11:55:58.144Z",
       "firstSeenAt": "2026-06-25T22:27:52.893Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:27:58.515Z",
+      "crawledAt": "2026-07-21T11:56:06.200Z",
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -152,7 +152,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:06.110Z",
+      "crawledAt": "2026-07-21T11:56:14.213Z",
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -189,7 +189,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:13.670Z",
+      "crawledAt": "2026-07-21T11:56:21.957Z",
       "firstSeenAt": "2026-05-28T12:46:57.564Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -226,7 +226,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:22.060Z",
+      "crawledAt": "2026-07-21T11:56:30.116Z",
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -263,7 +263,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:30.323Z",
+      "crawledAt": "2026-07-21T11:56:37.931Z",
       "firstSeenAt": "2026-05-13T11:12:35.070Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -300,7 +300,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:37.933Z",
+      "crawledAt": "2026-07-21T11:56:46.184Z",
       "firstSeenAt": "2026-05-13T11:12:50.193Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -337,7 +337,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T22:28:45.776Z",
+      "crawledAt": "2026-07-21T11:56:54.139Z",
       "firstSeenAt": "2026-05-13T11:12:58.806Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -348,48 +348,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "heineken-ch-54597f940cc0",
-      "jobReqId": "159426",
-      "slug": "linea-guida-impianto-di-riempimento-m-f-heineken-switzerland-chur",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Linienführer Abfüellerei (m/w)",
-      "location": "Chur",
-      "canton": "GR",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Chur, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/linienfuhrer-abfuellerei-mw?jobid=159426",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159426&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-19T11:09:18.474Z",
-      "firstSeenAt": "2026-06-12T22:29:24.985Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
