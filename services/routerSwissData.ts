@@ -493,6 +493,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'iperammortamento-transizione-5-0-conferma': { it: 'iperammortamento-transizione-5-0-conferma', en: 'hyper-amortization-transition-5-0-confirmation', de: 'hyper-amortisation-transiton-5-0-bestatigung', fr: 'hyper-amortissement-transition-5-0-confirmation' },
  'dazi-usa-24-luglio': { it: 'dazi-usa-24-luglio', en: 'dazi-usa-24-july', de: 'dazi-usa-24-juli', fr: 'dazi-usa-24-juillet' },
  'esportazioni-svizzera-sfide-kagi': { it: 'esportazioni-svizzera-sfide-kagi', en: 'swiss-exports-challenges-kagi-ceo', de: 'schweizer-exporte-herausforderungen-kaegi-ceo', fr: 'exportations-suisses-defis-pdg-kagi' },
+ 'orologi-svizzeri-export-in-netta-crescita-ma-non-basta': { it: 'orologi-svizzeri-export-in-netta-crescita-ma-non-basta', en: 'swiss-watch-export-in-net-growth-but-not-enough', de: 'schweizer-uhren-export-in-netto-zuwachs-auch-keine-zuviel', fr: 'export-de-montres-suisses-en-nette-croissance-mais-pas-suffisante' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

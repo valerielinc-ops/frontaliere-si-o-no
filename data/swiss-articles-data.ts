@@ -4229,6 +4229,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'orologi-svizzeri-export-in-netta-crescita-ma-non-basta',
+    category: 'fiscale',
+    date: '2026-07-21T09:42:59.561Z',
+    image: '/images/blog/orologi-svizzeri-export-in-netta-crescita-ma-non-basta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
