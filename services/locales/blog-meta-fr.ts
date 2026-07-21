@@ -8796,6 +8796,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-treni-italia-tilo.title': 'Grève des trains en Italie, désagréments pour TILO 23-24 juillet',
     'blog.article.sciopero-treni-italia-tilo.excerpt': 'Une grève nationale du transport ferroviaire en Italie les 23 et 24 juillet 2026. Les liaisons transfrontalières gérées par TILO seront concernées.',
     'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Frontières et télétravail : l\'accord sur la limite de 25 % a été publié',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'L\'accord sur la limite de 25 % pour les frontaliers travaillant en Suisse a été publié',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Tessin',
 };
 
 export default blogMetaFr;

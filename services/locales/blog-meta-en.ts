@@ -8794,6 +8794,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-treni-italia-tilo.title': 'Train strike Italy, inconvenience for TILO 23-24 July',
     'blog.article.sciopero-treni-italia-tilo.excerpt': 'A national rail transport strike in Italy on 23 and 24 July 2026. Cross-border connections operated by TILO will be affected.',
     'blog.article.sciopero-treni-italia-tilo.imageAlt': 'Pendolari in attesa ai valichi di frontiera tra Italia e Svizzera',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Frontier workers and teleworkers: agreement on the 25% limit published',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'The agreement on the 25% limit for border workers working in Switzerland has been published',
+    'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaEn;
