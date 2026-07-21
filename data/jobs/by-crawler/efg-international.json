@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-07-20T22:01:03.932Z",
+  "assembledAt": "2026-07-21T11:19:22.522Z",
   "jobs": [
     {
       "id": "efg-6336",
@@ -196,7 +196,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.578Z",
+      "crawledAt": "2026-07-21T11:19:19.276Z",
       "slugByLocale": {
         "it": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -222,7 +222,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-25T22:13:58.906Z"
+      "firstSeenAt": "2026-06-25T22:13:58.906Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -353,7 +354,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.577Z",
+      "crawledAt": "2026-07-21T11:19:19.275Z",
       "slugByLocale": {
         "it": "senior-compliance-officer-onboarding-recensioni-periodiche-efg-international-ag-geneve",
         "en": "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve",
@@ -387,7 +388,8 @@
       },
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -526,7 +528,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.576Z",
+      "crawledAt": "2026-07-21T11:19:19.274Z",
       "slugByLocale": {
         "it": "cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "cash-reconciliation-specialist-efg-geneve",
@@ -566,7 +568,8 @@
       },
       "previousSlugs": [
         "cash-reconciliation-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -649,7 +652,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.575Z",
+      "crawledAt": "2026-07-21T11:19:19.272Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -692,7 +695,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -743,7 +747,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.573Z",
+      "crawledAt": "2026-07-21T11:19:19.270Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -786,7 +790,8 @@
         "data-ops-engineer-efg-geneve",
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -809,7 +814,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -837,11 +842,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.572Z",
+      "crawledAt": "2026-07-21T11:19:19.269Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -874,14 +879,17 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1007,7 +1015,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.571Z",
+      "crawledAt": "2026-07-21T11:19:19.268Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1052,7 +1060,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1205,7 +1214,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.570Z",
+      "crawledAt": "2026-07-21T11:19:19.267Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1433,7 +1442,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.569Z",
+      "crawledAt": "2026-07-21T11:19:19.266Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1568,7 +1577,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.568Z",
+      "crawledAt": "2026-07-21T11:19:19.265Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1750,7 +1759,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.567Z",
+      "crawledAt": "2026-07-21T11:19:19.264Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1788,7 +1797,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1839,7 +1849,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.566Z",
+      "crawledAt": "2026-07-21T11:19:19.262Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1883,7 +1893,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1934,7 +1945,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.565Z",
+      "crawledAt": "2026-07-21T11:19:19.261Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1977,7 +1988,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6040",
@@ -2028,7 +2040,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.564Z",
+      "crawledAt": "2026-07-21T11:19:19.260Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2071,7 +2083,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2222,7 +2235,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.563Z",
+      "crawledAt": "2026-07-21T11:19:19.259Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2439,7 +2452,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.562Z",
+      "crawledAt": "2026-07-21T11:19:19.257Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2499,7 +2512,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2550,7 +2564,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.560Z",
+      "crawledAt": "2026-07-21T11:19:19.256Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2620,7 +2634,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2754,7 +2768,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.560Z",
+      "crawledAt": "2026-07-21T11:19:19.255Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2792,7 +2806,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6142",
@@ -2926,7 +2941,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.556Z",
+      "crawledAt": "2026-07-21T11:19:19.254Z",
       "slugByLocale": {
         "it": "responsabile-pubblicita-media-e-marketing-strategico-efg-international-ag-zurich",
         "en": "advertising-media-and-strategic-marketing-manager-efg-zurich",
@@ -2962,7 +2977,8 @@
       },
       "previousSlugs": [
         "advertising-media-and-strategic-marketing-manager-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -2985,7 +3001,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -3013,11 +3029,11 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.555Z",
+      "crawledAt": "2026-07-21T11:19:19.251Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3043,17 +3059,22 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6384",
@@ -3188,7 +3209,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.554Z",
+      "crawledAt": "2026-07-21T11:19:19.249Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -3213,7 +3234,179 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-07-20T22:01:00.554Z"
+      "firstSeenAt": "2026-07-20T22:01:00.554Z",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6327",
+      "slug": "receptionist-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Receptionist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Skills and experience\n\n- Successfully completed commercial education;\n\n- Proven experience in hospitality/hôtellerie;\n\n- Service-oriented, flexible, reliable, and a strong team player\n\n- Proven experience in intervention management;\n\n- Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;\n\n- Fluent in German and English is a must. French/Italian would be strongly valued;\n\n- Excellent time management skill, ability to multitask and prioritize request from various sources;\n\n- Accurate and detail oriented;\n\n- Very good knowledge of Microsoft Office package and proficient in the use of IT tools\n\n- Communicative, trustworthy presence, politeness;\n\n- Able to work in a challenging, pressure and dynamic environment.\n\n## Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate:  Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented:  Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "Successfully completed commercial education;",
+        "Proven experience in hospitality/hôtellerie;",
+        "Service-oriented, flexible, reliable, and a strong team player",
+        "Proven experience in intervention management;",
+        "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
+        "Fluent in German and English is a must. French/Italian would be strongly valued;",
+        "Excellent time management skill, ability to multitask and prioritize request from various sources;",
+        "Accurate and detail oriented;",
+        "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
+        "Communicative, trustworthy presence, politeness;",
+        "Able to work in a challenging, pressure and dynamic environment."
+      ],
+      "featured": false,
+      "postedDate": "2026-07-21",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6327",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Receptionist",
+        "it": "Receptionist",
+        "de": "Receptionist",
+        "fr": "Receptionist"
+      },
+      "descriptionByLocale": {
+        "en": "## Skills and experience\n\n- Successfully completed commercial education;\n\n- Proven experience in hospitality/hôtellerie;\n\n- Service-oriented, flexible, reliable, and a strong team player\n\n- Proven experience in intervention management;\n\n- Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;\n\n- Fluent in German and English is a must. French/Italian would be strongly valued;\n\n- Excellent time management skill, ability to multitask and prioritize request from various sources;\n\n- Accurate and detail oriented;\n\n- Very good knowledge of Microsoft Office package and proficient in the use of IT tools\n\n- Communicative, trustworthy presence, politeness;\n\n- Able to work in a challenging, pressure and dynamic environment.\n\n## Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate:  Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented:  Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "## Skills and experience\n\n- Successfully completed commercial education;\n\n- Proven experience in hospitality/hôtellerie;\n\n- Service-oriented, flexible, reliable, and a strong team player\n\n- Proven experience in intervention management;\n\n- Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;\n\n- Fluent in German and English is a must. French/Italian would be strongly valued;\n\n- Excellent time management skill, ability to multitask and prioritize request from various sources;\n\n- Accurate and detail oriented;\n\n- Very good knowledge of Microsoft Office package and proficient in the use of IT tools\n\n- Communicative, trustworthy presence, politeness;\n\n- Able to work in a challenging, pressure and dynamic environment.\n\n## Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate:  Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented:  Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "de": "## Skills and experience\n\n- Successfully completed commercial education;\n\n- Proven experience in hospitality/hôtellerie;\n\n- Service-oriented, flexible, reliable, and a strong team player\n\n- Proven experience in intervention management;\n\n- Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;\n\n- Fluent in German and English is a must. French/Italian would be strongly valued;\n\n- Excellent time management skill, ability to multitask and prioritize request from various sources;\n\n- Accurate and detail oriented;\n\n- Very good knowledge of Microsoft Office package and proficient in the use of IT tools\n\n- Communicative, trustworthy presence, politeness;\n\n- Able to work in a challenging, pressure and dynamic environment.\n\n## Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate:  Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented:  Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "fr": "## Skills and experience\n\n- Successfully completed commercial education;\n\n- Proven experience in hospitality/hôtellerie;\n\n- Service-oriented, flexible, reliable, and a strong team player\n\n- Proven experience in intervention management;\n\n- Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;\n\n- Fluent in German and English is a must. French/Italian would be strongly valued;\n\n- Excellent time management skill, ability to multitask and prioritize request from various sources;\n\n- Accurate and detail oriented;\n\n- Very good knowledge of Microsoft Office package and proficient in the use of IT tools\n\n- Communicative, trustworthy presence, politeness;\n\n- Able to work in a challenging, pressure and dynamic environment.\n\n## Our Values\n\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\nHands-on : Being proactive to rapidly deliver high-quality results\n\nPassionate:  Being committed and striving for excellence\n\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\nPartnership-oriented:  Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Successfully completed commercial education;",
+          "Proven experience in hospitality/hôtellerie;",
+          "Service-oriented, flexible, reliable, and a strong team player",
+          "Proven experience in intervention management;",
+          "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
+          "Fluent in German and English is a must. French/Italian would be strongly valued;",
+          "Excellent time management skill, ability to multitask and prioritize request from various sources;",
+          "Accurate and detail oriented;",
+          "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
+          "Communicative, trustworthy presence, politeness;",
+          "Able to work in a challenging, pressure and dynamic environment."
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player",
+              "Proven experience in intervention management;",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant;",
+              "Fluent in German and English is a must. French/Italian would be strongly valued;",
+              "Excellent time management skill, ability to multitask and prioritize request from various sources;",
+              "Accurate and detail oriented;",
+              "Very good knowledge of Microsoft Office package and proficient in the use of IT tools",
+              "Communicative, trustworthy presence, politeness;",
+              "Able to work in a challenging, pressure and dynamic environment."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Successfully completed commercial education;",
+              "Proven experience in hospitality/hôtellerie;",
+              "Service-oriented, flexible, reliable, and a strong team player"
+            ],
+            "keywords": [
+              "Successfully completed commercial education",
+              "Proven experience in hospitality/hôtellerie",
+              "Service-oriented",
+              "Proven experience in intervention management",
+              "Around 5-7 years of working experience as Receptionist and/or Administrative Assistant"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.The receptionist ensures a seamless, premium experience that echoes the standards of five-star hospitality. The receptionist delivers professional and client focused reception, switchboard services and administrative tasks.",
+                  "<span><strong>JOB DESCRIPTION</strong></span>",
+                  "The receptionist is the first point of contact and ensures a seamless, premium client experience in line with five‑star hospitality standards. They provide professional, client‑focused reception and switchboard services, while efficiently handling a variety of administrative tasks."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Main activities",
+                "paragraphs": [],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "1. Hospitality services",
+                "paragraphs": [
+                  "<br><strong>2. Admin support</strong>"
+                ],
+                "bullets": [
+                  "Follow the Hospitality service protocol (SOP).",
+                  "Serves visitors by greeting, welcoming and directing them appropriately. Taking care of guests anticipating their hospitality needs and making the experience impeccable according to our corporate standard quality.",
+                  "Physically welcome clients and visitors (Escort and seat clients in lounges, offer a drink, and serve).",
+                  "Set up and restore lounges/conference rooms + service.",
+                  "Maintains security and controlling access. Issuing visitor badges. Noticing and reporting suspicious activity.",
+                  "Organise and book meeting rooms.",
+                  "Support internal event and management meeting (e.g. organise, manage, and order breakfasts/lunches for meetings upon request.",
+                  "Handle sensitive information in a confidential manner comply with all internal regulations.",
+                  "Register external visitors and issue badges.",
+                  "Keep statistics (number of clients/visitors).",
+                  "Ensure that the facilities are kept clean and remedy any issues together with service providers. Coordinate with facility management or maintenance for repairs (chairs, lighting, doors, elevator, noise, ventilation, etc.).",
+                  "Prepare \"Welcome Packs,\" and organize induction day"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-07-21T11:19:19.247Z",
+      "slugByLocale": {
+        "it": "receptionist-efg-zurich",
+        "en": "receptionist-efg-international-ag-zurich",
+        "de": "receptionist-efg-zurich",
+        "fr": "receptionist-efg-zurich"
+      },
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-07-21",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 198500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-21T11:19:19.247Z"
     },
     {
       "id": "efg-6039",
@@ -3264,7 +3457,7 @@
           }
         }
       },
-      "crawledAt": "2026-07-20T22:01:00.550Z",
+      "crawledAt": "2026-07-21T11:19:19.243Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3302,7 +3495,8 @@
         "epm-onestream-developer-business-data-analyst-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3428,7 +3622,8 @@
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -3450,7 +3645,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -3535,7 +3730,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -3795,7 +3991,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -3978,7 +4175,8 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4207,7 +4405,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4489,7 +4688,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -4690,7 +4890,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -4900,7 +5101,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4992,7 +5194,8 @@
       "previousSlugs": [
         "back-office-cash-reconciliation-specialist-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -5525,7 +5728,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
