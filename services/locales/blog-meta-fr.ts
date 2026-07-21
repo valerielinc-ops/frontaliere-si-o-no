@@ -8790,6 +8790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Chômage frontaliers, Lorenzo Quadri : « Berne doit dire non »',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'Le Conseiller national critique la réforme de l\'UE sur les frontaliers et demande au gouvernement de rejeter les nouvelles charges sur le chômage.',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontaliers en Suisse italienne qui se préparent à un changement de loi.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Contrôles fiscaux des travailleurs frontaliers : contrôles et défense',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'La nouvelle loi prévoit une augmentation des activités de contrôle pour les travailleurs frontaliers. Découvrez les détails et comment ils peuvent vous affecter.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Image du lac de Lugano avec deux personnes dans un bateau',
 };
 
 export default blogMetaFr;

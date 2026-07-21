@@ -26405,6 +26405,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'accertamenti-fiscali-frontalieri-controlli-e-difesa',
+ category: 'fiscale',
+ date: '2026-07-21T07:55:43.387Z',
+ image: '/images/blog/accertamenti-fiscali-frontalieri-controlli-e-difesa.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

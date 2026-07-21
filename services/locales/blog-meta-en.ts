@@ -8788,6 +8788,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Border unemployment, Lorenzo Quadri: "Bern must say no"',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'The National Councillor criticises the EU reform on border workers and calls on the Government to reject the new burdens on unemployment.',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino che si preparano a un cambio di legge.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Tax inspections of frontier workers: controls and defence',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'The new law provides for an increase in control activities for frontier workers. Learn the ins and outs and how they can affect you.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Image of Lake Lugano with two people in a boat',
 };
 
 export default blogMetaEn;

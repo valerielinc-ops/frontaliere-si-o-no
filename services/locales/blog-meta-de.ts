@@ -8787,6 +8787,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.title': 'Grenzgänger-Arbeitslosigkeit, Lorenzo Quadri: «Bern muss Nein sagen»',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.excerpt': 'Der Nationalrat kritisiert die EU-Grenzgängerreform und fordert die Regierung auf, die neuen Arbeitslosensteuern abzulehnen.',
     'blog.article.disoccupazione-frontalieri-lorenzo-quadri-bernareplica.imageAlt': 'Frontalieri in Ticino, die sich auf einen Änderung der Gesetze vorbereiten.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.title': 'Steuerprüfungen von Grenzgängern: Kontrollen und Verteidigung',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.excerpt': 'Das neue Gesetz sieht eine Verstärkung der Kontrolltätigkeiten für Grenzgänger vor. Entdecke die Details und wie sie dich beeinflussen können.',
+    'blog.article.accertamenti-fiscali-frontalieri-controlli-e-difesa.imageAlt': 'Bild des Luganer Sees mit zwei Personen in einem Boot',
 };
 
 export default blogMetaDe;
