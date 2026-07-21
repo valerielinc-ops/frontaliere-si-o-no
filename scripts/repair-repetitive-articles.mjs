@@ -150,7 +150,11 @@ for (const file of files) {
         const key = `blog.article.${id}.${field}`;
         const oldPattern = new RegExp(`('${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*')(?:[^'\\\\]|\\\\.)*'`, 's');
         const newVal = escapeForTS(dedupedBodies[field]);
-        content = content.replace(oldPattern, `$1${newVal}'`);
+        // Replacer FUNCTION — newVal is real article body text and a literal
+        // "$" + digit inside it (e.g. a dollar amount) would otherwise be
+        // re-expanded as a $1 capture-group backreference by
+        // String.prototype.replace() (docs/AGENTS-HISTORY.md#blog-meta-replace-backref).
+        content = content.replace(oldPattern, (_m, g1) => `${g1}${newVal}'`);
         changed = true;
       }
     }

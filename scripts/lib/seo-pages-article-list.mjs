@@ -125,7 +125,12 @@ export function appendArticleListItem(pagesSrc, { name, url }) {
 
   const newCount = parseInt(lastItemMatch[1], 10) + 1;
   const newListItem = `          { "@type": "ListItem", "position": ${newCount}, "name": "${escapeJsonString(name)}", "url": \`${url}\` }`;
-  const newBlockSrc = blockSrc.replace(LAST_ITEM_RE, `"position": $1$2,\n${newListItem}\n$3`);
+  // Replacer FUNCTION, not a template string — `name` is an AI-generated
+  // article title and a literal "$" + digit in it (e.g. "$14.4 billion")
+  // would otherwise be re-expanded as a $1/$2/$3 capture-group backreference
+  // by String.prototype.replace(). Same bug class as create-article.mjs's
+  // replaceCaptureSafe (docs/AGENTS-HISTORY.md#blog-meta-replace-backref).
+  const newBlockSrc = blockSrc.replace(LAST_ITEM_RE, (_m, g1, g2, g3) => `"position": ${g1}${g2},\n${newListItem}\n${g3}`);
 
   let next = pagesSrc.slice(0, block.blockStart) + newBlockSrc + pagesSrc.slice(block.blockEnd);
   next = next.replace(NUMBER_OF_ITEMS_RE, `$1${newCount}`);

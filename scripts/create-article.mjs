@@ -7647,6 +7647,24 @@ function escapeRegex(s) {
   return String(s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+/**
+ * Safe stand-in for `src.replace(anchorRe, template)` when `template` embeds
+ * AI-generated article content (title/excerpt/body/breadcrumb text). Passing
+ * a template STRING to replace() re-parses it for `$1`/`$2`/`$&` patterns —
+ * if the interpolated content itself contains a literal "$" followed by a
+ * digit (e.g. a dollar-amount excerpt like "revenue of $14.4 billion"), V8
+ * expands that "$1" as a capture-group backreference too, splicing the
+ * anchor's own matched text into the middle of the inserted content.
+ * Root cause of the blog-meta-ch-en.ts corruption that broke every deploy
+ * build on 2026-07-21 (docs/AGENTS-HISTORY.md#blog-meta-replace-backref).
+ * Passing a replacer FUNCTION instead makes the return value literal — no
+ * `$`-pattern re-interpretation — mirroring the fix already applied in
+ * scripts/backfill-ai-search-optimization.mjs.
+ */
+function replaceCaptureSafe(src, anchorRe, buildReplacement) {
+  return src.replace(anchorRe, (...args) => buildReplacement(...args.slice(0, -2)));
+}
+
 /** Find the last article ID from the active section's slug-data file. */
 function getLastArticleId(src) {
   const ids = getSectionExistingIds(src);
@@ -7685,7 +7703,7 @@ function modifyRouterTs(data) {
     if (!openRe.test(blogSrc)) {
       throw new Error(`modifyRouterTs: cannot find empty ${SECTION.slugsConstName} map opener in ${blogDataFile}`);
     }
-    blogSrc = blogSrc.replace(openRe, `$1\n${newSlugEntry}$2`);
+    blogSrc = replaceCaptureSafe(blogSrc, openRe, (_m, g1, g2) => `${g1}\n${newSlugEntry}${g2}`);
   } else {
     // Non-empty — append after the last article entry (matches frontaliere).
     const lastId = existingIds[existingIds.length - 1];
@@ -7693,7 +7711,7 @@ function modifyRouterTs(data) {
     if (!lastEntryRe.test(blogSrc)) {
       throw new Error(`modifyRouterTs: cannot find last ${SECTION.slugsConstName} entry (anchor=${lastId}) in ${blogDataFile}`);
     }
-    blogSrc = blogSrc.replace(lastEntryRe, `$1\n${newSlugEntry}`);
+    blogSrc = replaceCaptureSafe(blogSrc, lastEntryRe, (_m, g1) => `${g1}\n${newSlugEntry}`);
   }
 
   // Regenerate the literal ALL_*_ARTICLE_IDS array ONLY when the file declares
@@ -7902,14 +7920,14 @@ function writeSectionLocale(data, locale) {
   const metaBlock = buildMetaBlock(data, locale);
   const appendRe = /('blog\.article\.[a-z0-9-]+\.[a-zA-Z]+':.*?,)\n+(\};)/;
   if (appendRe.test(metaSrc)) {
-    metaSrc = metaSrc.replace(appendRe, `$1\n${metaBlock}\n$2`);
+    metaSrc = replaceCaptureSafe(metaSrc, appendRe, (_m, g1, g2) => `${g1}\n${metaBlock}\n${g2}`);
   } else {
     // Empty meta object (first article) — insert after the `= {` opener.
     const openRe = /(:\s*Record<string,\s*string>\s*=\s*\{)(\s*\n)/;
     if (!openRe.test(metaSrc)) {
       throw new Error(`Cannot find blog article anchor (or empty-object opener) in ${metaFile}`);
     }
-    metaSrc = metaSrc.replace(openRe, `$1\n${metaBlock}$2`);
+    metaSrc = replaceCaptureSafe(metaSrc, openRe, (_m, g1, g2) => `${g1}\n${metaBlock}${g2}`);
   }
   write(metaFile, metaSrc);
   console.error(`  ✅ ${metaFile}`);
@@ -8031,14 +8049,14 @@ function modifySeoService(data) {
     : escapeRegex(seoConst);    // svizzera single file
   const blogEndRe = new RegExp(`(\\s*\\},)\\s*(\\n};)\\s*(\\nexport default ${seoConstReSrc};)`);
   if (blogEndRe.test(blogSrc)) {
-    blogSrc = blogSrc.replace(blogEndRe, `$1\n${seoEntry}\n$2\n$3`);
+    blogSrc = replaceCaptureSafe(blogSrc, blogEndRe, (_m, g1, g2, g3) => `${g1}\n${seoEntry}\n${g2}\n${g3}`);
   } else {
     // Empty metadata object (first article) — anchor to the `= {` opener.
     const emptyOpenRe = new RegExp(`(const ${escapeRegex(seoConst)}[^=]*=\\s*\\{)(\\s*\\n)(\\};)`);
     if (!emptyOpenRe.test(blogSrc)) {
       throw new Error(`Cannot find end (or empty-object opener) of ${seoConst} in ${blogSeoFile}`);
     }
-    blogSrc = blogSrc.replace(emptyOpenRe, `$1\n${seoEntry}\n$3`);
+    blogSrc = replaceCaptureSafe(blogSrc, emptyOpenRe, (_m, g1, g2, g3) => `${g1}\n${seoEntry}\n${g3}`);
   }
   write(blogSeoFile, blogSrc);
   console.error(`  ✅ ${blogSeoFile}`);
@@ -8053,7 +8071,7 @@ function modifySeoService(data) {
   if (!bcRe.test(svcSrc)) {
     throw new Error(`Cannot find last breadcrumb blog entry in ${svcFile}`);
   }
-  svcSrc = svcSrc.replace(bcRe, `$1\n${breadcrumb}\n$2`);
+  svcSrc = replaceCaptureSafe(svcSrc, bcRe, (_m, g1, g2) => `${g1}\n${breadcrumb}\n${g2}`);
   write(svcFile, svcSrc);
   console.error(`  ✅ ${svcFile}`);
 
