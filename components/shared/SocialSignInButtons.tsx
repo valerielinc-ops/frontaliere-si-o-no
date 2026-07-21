@@ -163,7 +163,7 @@ export default function SocialSignInButtons({
 
   if (layout === 'grid') {
     return (
-      <div className={`grid grid-cols-1 sm:grid-cols-2 gap-2 ${className}`.trim()}>
+      <div className={`grid grid-cols-1 gap-2 ${linkedInAvailable ? 'sm:grid-cols-2' : ''} ${className}`.trim()}>
         {googleColumn}
         {linkedInButton}
       </div>

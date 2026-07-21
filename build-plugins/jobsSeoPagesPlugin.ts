@@ -1495,10 +1495,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const splitIntoParagraphs = (s: string): string[] => {
  // AI-translation flattening collapses paragraph breaks around visual
  // dividers (e.g. HFR `Ref.: HFR-M-251801 ____________ Le Département`).
- // Treat any run of 6+ `_`/`=`/`~` as an explicit paragraph break before
+ // Treat any run of 3+ `_`/`=`/`~` as an explicit paragraph break before
  // splitting so the divider doesn't leak into a paragraph body and trip
- // audit:no-literal-markdown (CLAUDE.md rule #1, 0-tolerance).
- const normalized = String(s || '').replace(/[_=~]{6,}/g, '\n\n');
+ // audit:no-literal-markdown (CLAUDE.md rule #1, 0-tolerance). Was `{6,}` —
+ // stale vs. the `{3,}` threshold `scripts/audit-no-literal-markdown.mjs`
+ // (SEPARATOR_RUN_RE) and every sibling stripper
+ // (jobDescription/parser.ts, jobDescription/toHtml.ts) actually use, so a
+ // 3-5 char run leaked through unconverted (audit regression #4593,
+ // sibling-pattern fix per CLAUDE.md non-negotiable #6).
+ const normalized = String(s || '').replace(/[_=~]{3,}/g, '\n\n');
  const viaBreaks = normalized
  .replace(/\r/g, '\n')
  .split(/\n{2,}/)

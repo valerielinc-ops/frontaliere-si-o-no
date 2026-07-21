@@ -376,6 +376,106 @@ export function applyTicinoMunicipalMultiplier(
   return Math.max(0, adjusted);
 }
 
+// ─── NASpI 2026 (INPS circular) ──────────────────────────────────────────────
+/**
+ * Single source of truth for NASpI constants — previously duplicated only
+ * inside `components/calculator/NaspiCalculator.tsx` (see AGENTS.md #6).
+ *
+ * THRESHOLD/MAX_MONTHLY per Circolare INPS n.4 del 28/1/2026 (rivalutati
+ * annualmente — verificare i valori correnti al momento dell'implementazione).
+ * MIN_WEEKS_REQUIRED innalzato da 13 a 18 settimane dalla Legge di Bilancio
+ * 2026 (requisito minimo di contribuzione nel quadriennio per aver diritto
+ * alla NASpI).
+ */
+export const NASPI_2026 = {
+  THRESHOLD: 1_456.72, // € — soglia retribuzione mensile
+  MAX_MONTHLY: 1_584.70, // € — tetto massimo mensile
+  RATE_BELOW: 0.75, // 75% fino alla soglia
+  RATE_ABOVE: 0.25, // 25% sull'eccedenza
+  DECALAGE_RATE: 0.03, // -3% al mese
+  DECALAGE_START_NORMAL: 6, // dal 6° mese (< 55 anni)
+  DECALAGE_START_SENIOR: 8, // dall'8° mese (≥ 55 anni)
+  MAX_DURATION_MONTHS: 24,
+  WEEKS_PER_MONTH: 4.33,
+  MIN_WEEKS_REQUIRED: 18, // requisito minimo di contribuzione nel quadriennio (Legge di Bilancio 2026)
+};
+
+export interface NaspiMonthRow {
+  month: number;
+  gross: number;
+  cumulative: number;
+  decalagePercent: number;
+}
+
+export interface NaspiResult {
+  monthlyInitial: number;
+  duration: number;
+  rows: NaspiMonthRow[];
+  totalGross: number;
+  /** False when net contributed weeks fall below the 18-week minimum requirement (Legge di Bilancio 2026) — no NASpI entitlement at all, distinct from a short-but-nonzero duration. */
+  eligible: boolean;
+}
+
+/**
+ * Calculate NASpI amount and duration.
+ *
+ * `monthsAlreadyIndemnifiedInQuadriennio` (default 0) accounts for a PRIOR
+ * NASpI already received within the same reference 4-year window: per INPS
+ * circular, the contribution weeks that already generated a previous NASpI
+ * indemnity are excluded when computing the new duration, to prevent the
+ * same contribution period from being counted twice.
+ */
+export function calculateNaspi(
+  grossMonthlyCHF: number,
+  monthsWorked: number,
+  age: number,
+  exchangeRate: number,
+  monthsAlreadyIndemnifiedInQuadriennio: number = 0,
+): NaspiResult {
+  const { THRESHOLD, MAX_MONTHLY, RATE_BELOW, RATE_ABOVE, DECALAGE_RATE, DECALAGE_START_NORMAL, DECALAGE_START_SENIOR, MAX_DURATION_MONTHS, WEEKS_PER_MONTH, MIN_WEEKS_REQUIRED } = NASPI_2026;
+
+  // Convert CHF → EUR
+  const grossMonthlyEUR = grossMonthlyCHF * exchangeRate;
+
+  // Calculate initial monthly amount
+  const belowThreshold = Math.min(grossMonthlyEUR, THRESHOLD);
+  const aboveThreshold = Math.max(0, grossMonthlyEUR - THRESHOLD);
+  let monthlyInitial = belowThreshold * RATE_BELOW + aboveThreshold * RATE_ABOVE;
+  monthlyInitial = Math.min(monthlyInitial, MAX_MONTHLY);
+
+  // Duration: half the weeks contributed in last 4 years (net of weeks already
+  // indemnified by a prior NASpI in the same quadriennio), capped at 24 months.
+  // Below the 18-week minimum requirement there is no entitlement at all.
+  const weeksContributed = Math.round(monthsWorked * WEEKS_PER_MONTH);
+  const weeksAlreadyIndemnified = Math.round(monthsAlreadyIndemnifiedInQuadriennio * WEEKS_PER_MONTH);
+  const netWeeksContributed = Math.max(0, weeksContributed - weeksAlreadyIndemnified);
+  const eligible = netWeeksContributed >= MIN_WEEKS_REQUIRED;
+  const durationWeeks = eligible ? Math.floor(netWeeksContributed / 2) : 0;
+  const duration = eligible ? Math.min(Math.ceil(durationWeeks / WEEKS_PER_MONTH), MAX_DURATION_MONTHS) : 0;
+
+  // Decalage start based on age
+  const decalageStart = age >= 55 ? DECALAGE_START_SENIOR : DECALAGE_START_NORMAL;
+
+  // Build month-by-month table
+  const rows: NaspiMonthRow[] = [];
+  let cumulative = 0;
+  for (let m = 1; m <= duration; m++) {
+    const decalageMonths = m >= decalageStart ? m - decalageStart : 0;
+    const decalagePercent = decalageMonths * DECALAGE_RATE;
+    const gross = Math.max(0, monthlyInitial * (1 - decalagePercent));
+    cumulative += gross;
+    rows.push({ month: m, gross: Math.round(gross * 100) / 100, cumulative: Math.round(cumulative * 100) / 100, decalagePercent: Math.round(decalagePercent * 100) });
+  }
+
+  return {
+    monthlyInitial: Math.round(monthlyInitial * 100) / 100,
+    duration,
+    rows,
+    totalGross: Math.round(cumulative * 100) / 100,
+    eligible,
+  };
+}
+
 // ─── Lightweight per-municipality IRPEF impact calculator ────────────────────
 export interface MunicipalityTaxResult {
  italianTaxableBaseEUR: number;
@@ -485,4 +585,178 @@ export function calculateMunicipalityTaxImpact(
  finalItalianTaxEUR,
  totalTaxEUR,
  };
+}
+
+// ─── Seasonal (part-year work + NASpI) scenario calculator ───────────────────
+/**
+ * Annual deduction cap for voluntary contributions to a "fondo pensione
+ * complementare" (Art. 8 co.4 D.Lgs. 252/2005). Raised from €5'164,57 (fixed
+ * since 2007) to €5'300 from FY2026 by Legge di Bilancio 2026 (L. 199/2025,
+ * comma 201) — confirm against current Agenzia Entrate guidance before relying on it,
+ * since this cap can change again with future budget laws.
+ */
+export const PENSION_FUND_DEDUCTION_CAP_EUR = 5300;
+
+export interface SeasonalScenarioInput {
+  grossMonthlyCHF: number;
+  monthsWorked: number;
+  monthsOnNaspi: number;
+  /** Months contributed in CH in the last 4 years — feeds the NASpI duration/eligibility check. */
+  contributedMonthsLast4Years: number;
+  /** Months of a PRIOR NASpI already received within the same 4-year reference window. */
+  monthsAlreadyIndemnifiedInQuadriennio: number;
+  age: number;
+  maritalStatus: 'SINGLE' | 'MARRIED' | 'DIVORCED' | 'WIDOWED';
+  spouseWorks: boolean;
+  children: number;
+  /** Scoped to the post-2024-Accordo "nuovo frontaliere" concurrent-taxation regime only. */
+  distanceZone: 'WITHIN_20KM' | 'OVER_20KM';
+  /** e.g. 0.55 for a 0.55% addizionale comunale IRPEF. */
+  addizionaleComunalePercent: number;
+  exchangeRate: number;
+  /** Optional voluntary contribution to a fondo pensione (EUR/year), scenario 3 in the seasonal-vs-annual plan. */
+  pensionContributionEUR?: number;
+}
+
+export interface SeasonalScenarioResult {
+  grossWorkedCHF: number;
+  swissSocialContributionsCHF: number;
+  swissSourceTaxCHF: number;
+  netSwissSalaryCHF: number;
+  naspiMonthlyEUR: number;
+  naspiEligibleMonths: number;
+  naspiMonthsPaid: number;
+  naspiShortfallMonths: number;
+  naspiTotalGrossEUR: number;
+  frontaliereTaxableBaseEUR: number;
+  combinedTaxableBaseEUR: number;
+  irpefGrossEUR: number;
+  addizionaleRegionaleEUR: number;
+  addizionaleComunaleEUR: number;
+  workDeductionEUR: number;
+  maritalDeductionEUR: number;
+  childrenDeductionEUR: number;
+  pensionDeductionEUR: number;
+  pensionContributionCashOutEUR: number;
+  swissTaxCreditEUR: number;
+  finalItalianTaxEUR: number;
+  netAnnualEUR: number;
+  netMonthlyEquivalentEUR: number;
+}
+
+/**
+ * Compare a full year of CH frontaliere work against a part-year scenario
+ * where the remaining months are covered by NASpI (Italian unemployment
+ * benefit), with an optional voluntary fondo pensione contribution.
+ *
+ * Scoped to the "nuovo frontaliere" (post-17/7/2023 Accordo) concurrent-taxation
+ * regime only — the "vecchio frontaliere" exclusive-CH-taxation regime has a
+ * structurally different Italian tax treatment (NASpI would still be Italian-
+ * taxable even though the CH salary is not) and is out of scope for this tool.
+ *
+ * Reuses the same pure tax primitives as `calculateSimulation`'s NEW-frontier
+ * branch (franchigia, IRPEF brackets, Lombardia addizionale, proportional
+ * Swiss tax credit) so the two engines never drift apart — the boundary case
+ * `monthsWorked=12, monthsOnNaspi=0` must reduce to the same combined taxable
+ * base and net figure as `calculateSimulation` (see
+ * tests/calculationService.test.ts).
+ *
+ * Swiss source tax uses the ANNUALIZED monthly salary to pick the withholding
+ * bracket (as Swiss "imposta alla fonte" tables always do) but applies that
+ * rate only to the ACTUAL gross earned during the worked months — the two
+ * coincide only when monthsWorked === 12.
+ */
+export function calculateSeasonalScenario(input: SeasonalScenarioInput): SeasonalScenarioResult {
+  const {
+    grossMonthlyCHF, monthsWorked, monthsOnNaspi, contributedMonthsLast4Years,
+    monthsAlreadyIndemnifiedInQuadriennio, age, maritalStatus, spouseWorks, children,
+    distanceZone, addizionaleComunalePercent, exchangeRate,
+    pensionContributionEUR = 0,
+  } = input;
+
+  const { avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus } = DEFAULT_TECH_PARAMS;
+  const lppRate = age < 25 ? 0 : age <= 34 ? lppRate25_34 : age <= 44 ? lppRate35_44 : age <= 54 ? lppRate45_54 : lppRate55_plus;
+
+  // ── Swiss side: actual gross earned in the worked months ──
+  const grossWorkedCHF = grossMonthlyCHF * monthsWorked;
+  const annualizedGrossCHF = grossMonthlyCHF * 12; // for bracket lookups only
+  // Family allowance is paid per month actually employed — prorated here (unlike
+  // calculateSimulation's always-full-year convention) since this function explicitly
+  // models a partial working year.
+  const familyAllowanceCHF = children * SWISS_CHILD_ALLOWANCE_ANNUAL * (monthsWorked / 12);
+
+  const avsAmount = grossWorkedCHF * avsRate;
+  const acAmount = Math.min(grossWorkedCHF, 148200) * acRate;
+  const laaAmount = grossWorkedCHF * laaRate;
+  const ijmAmount = grossWorkedCHF * ijmRate;
+  const lppAmount = grossWorkedCHF * lppRate;
+  const swissSocialContributionsCHF = avsAmount + acAmount + laaAmount + ijmAmount + lppAmount;
+
+  const { rate: baseRate, tableCode } = getTicinoTaxRate(annualizedGrossCHF, maritalStatus, children, spouseWorks);
+  const effectiveTaxRateCH = adjustRateForChildren(baseRate, tableCode, children);
+  // New frontalieri within 20km: only 80% of the ordinary source-tax rate is
+  // withheld in CH (Accordo 2024 concurrent-taxation split) — applied once,
+  // upfront, matching calculateSimulation's convention (taxWithheldInCH_CHF,
+  // line 116) so every downstream figure (net CH salary, displayed source
+  // tax, IT tax credit) is consistent with the actual withholding.
+  const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
+  const swissSourceTaxCHF = grossWorkedCHF * effectiveTaxRateCH * chTaxShare; // family allowance is source-tax-exempt in CH
+  const netSwissSalaryCHF = grossWorkedCHF + familyAllowanceCHF - swissSocialContributionsCHF - swissSourceTaxCHF;
+
+  const grossWorkedEUR = grossWorkedCHF * exchangeRate;
+  const allowanceEUR = familyAllowanceCHF * exchangeRate;
+  const socialEUR = swissSocialContributionsCHF * exchangeRate;
+  const paidSourceTaxEUR = swissSourceTaxCHF * exchangeRate;
+
+  // ── NASpI for the non-worked months ──
+  const naspi = calculateNaspi(grossMonthlyCHF, contributedMonthsLast4Years, age, exchangeRate, monthsAlreadyIndemnifiedInQuadriennio);
+  const naspiEligibleMonths = naspi.duration;
+  const naspiMonthsPaid = Math.min(monthsOnNaspi, naspiEligibleMonths);
+  const naspiShortfallMonths = Math.max(0, monthsOnNaspi - naspiEligibleMonths);
+  const naspiTotalGrossEUR = naspi.rows.slice(0, naspiMonthsPaid).reduce((sum, r) => sum + r.gross, 0);
+
+  // ── Italian side: franchigia applies only to the frontaliere-sourced base (not NASpI) ──
+  const frontaliereTaxableBaseEUR = Math.max(0, grossWorkedEUR + allowanceEUR - socialEUR - FRANCHIGIA_NUOVI_FRONTALIERI);
+  const combinedTaxableBaseEUR = frontaliereTaxableBaseEUR + naspiTotalGrossEUR;
+
+  const irpefGrossEUR = calculateIrpefGross(combinedTaxableBaseEUR);
+  const addizionaleRegionaleEUR = calculateLombardiaRegionale(combinedTaxableBaseEUR);
+  const addizionaleComunaleEUR = combinedTaxableBaseEUR * (addizionaleComunalePercent / 100);
+  const workDeductionEUR = calculateProgressiveWorkDeduction(combinedTaxableBaseEUR);
+  const maritalDeductionEUR = (maritalStatus === 'MARRIED' && !spouseWorks) ? 690 : 0;
+  const childrenDeductionEUR = children * 950;
+  const pensionDeductionEUR = Math.min(Math.max(0, pensionContributionEUR), PENSION_FUND_DEDUCTION_CAP_EUR);
+
+  const itLiabilityGross = Math.max(0, irpefGrossEUR + addizionaleRegionaleEUR + addizionaleComunaleEUR - workDeductionEUR - maritalDeductionEUR - childrenDeductionEUR - pensionDeductionEUR);
+  const swissTaxCreditEUR = calculateProportionalTaxCredit(paidSourceTaxEUR, frontaliereTaxableBaseEUR, grossWorkedEUR + allowanceEUR);
+  const finalItalianTaxEUR = Math.max(0, itLiabilityGross - swissTaxCreditEUR);
+
+  const netAnnualEUR = grossWorkedEUR + allowanceEUR - socialEUR - paidSourceTaxEUR + naspiTotalGrossEUR
+    - finalItalianTaxEUR - Math.max(0, pensionContributionEUR);
+
+  return {
+    grossWorkedCHF,
+    swissSocialContributionsCHF,
+    swissSourceTaxCHF,
+    netSwissSalaryCHF,
+    naspiMonthlyEUR: naspi.monthlyInitial,
+    naspiEligibleMonths,
+    naspiMonthsPaid,
+    naspiShortfallMonths,
+    naspiTotalGrossEUR,
+    frontaliereTaxableBaseEUR,
+    combinedTaxableBaseEUR,
+    irpefGrossEUR,
+    addizionaleRegionaleEUR,
+    addizionaleComunaleEUR,
+    workDeductionEUR,
+    maritalDeductionEUR,
+    childrenDeductionEUR,
+    pensionDeductionEUR,
+    pensionContributionCashOutEUR: Math.max(0, pensionContributionEUR),
+    swissTaxCreditEUR,
+    finalItalianTaxEUR,
+    netAnnualEUR,
+    netMonthlyEquivalentEUR: netAnnualEUR / 12,
+  };
 }

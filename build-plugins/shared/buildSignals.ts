@@ -96,6 +96,7 @@ export interface EmittedEmployerProfile {
 }
 
 const employerProfilesSignal = makeValueSignal<readonly EmittedEmployerProfile[]>();
+const fiscalMunicipalitiesSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -294,4 +295,23 @@ export const employerProfilesFlushed: Promise<readonly EmittedEmployerProfile[]>
   employerProfilesSignal.promise;
 export function resolveEmployerProfilesFlushed(profiles: readonly EmittedEmployerProfile[]): void {
   employerProfilesSignal.resolve(profiles);
+}
+
+/**
+ * Resolves with every indexable `/tasse-frontalieri-comune/{slug}/` page
+ * {@link fiscalMunicipalityPagesPlugin} wrote this build (below-floor
+ * bridges excluded). `fiscalMunicipalityPagesPlugin` never published a
+ * completion signal at all — unlike every sibling SEO-landing family, no
+ * plugin ever linked INTO the 4 locale `FISCAL_HUB_PATH` hub pages (the hub
+ * itself already links every above-floor comune below it), so the whole
+ * `sitemap-comuni-fiscale.xml` shard shipped 33/33 unreachable from `/`
+ * (audit:max-bfs-depth regression #4593). Consumed by
+ * {@link fiscalMunicipalityLinksPlugin}, which injects a hub link into the
+ * per-locale HTML sitemap pages — mirrors the professionCantonsFlushed /
+ * employerProfilesFlushed contract exactly.
+ */
+export const fiscalMunicipalitiesFlushed: Promise<readonly string[]> =
+  fiscalMunicipalitiesSignal.promise;
+export function resolveFiscalMunicipalitiesFlushed(paths: readonly string[]): void {
+  fiscalMunicipalitiesSignal.resolve(paths);
 }

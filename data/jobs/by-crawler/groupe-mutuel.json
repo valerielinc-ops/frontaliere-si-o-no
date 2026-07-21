@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-07-20T12:23:04.526Z",
+  "assembledAt": "2026-07-20T22:10:43.843Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4011?c=groupemutuel&lang=fr-FR",
@@ -731,9 +731,9 @@
           "conseiller-clientele-agence-h-f-80-100-groupe-mutuel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T10:52:25.056Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1346,9 +1346,9 @@
           "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-25T22:26:20.206Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -2870,7 +2870,7 @@
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "addressRegion": "VS",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]

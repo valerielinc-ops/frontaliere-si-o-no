@@ -1010,13 +1010,30 @@ export const Analytics = {
  // Decode React minified errors (e.g., "Minified React error #310" → human-readable)
  const decodedMessage = decodeReactError(info.message || 'unknown');
 
+ // GA4 hard-truncates every custom event parameter VALUE to ~100 chars at
+ // ingestion (platform limit, independent of the `truncate()` length args
+ // below). Callers prefix `message` with a `[Component:Name] ` diagnostic
+ // annotation (ErrorBoundary.tsx, errorReporter.ts) for dashboard
+ // readability — on a long prefix (e.g. "[ErrorBoundary:Lazy] version_skew
+ // SyntaxError: ") that annotation alone can eat ~47 of those 100 chars,
+ // pushing the classification-relevant substring of the raw browser error
+ // text (e.g. "does not provide an export named") past GA4's cutoff. The
+ // truncated value then silently misses
+ // scripts/lib/error-issue-sync.mjs's ISSUE_DENY_PATTERNS — which are
+ // matched against the FULL, untruncated wording — so an already
+ // self-healed version-skew error slips past the deny-list and files a
+ // spurious backlog issue (#4589). Strip the leading bracket annotation
+ // before it's used as error_message so the raw text gets priority within
+ // GA4's window; `description` below keeps the full annotated string.
+ const classifiableMessage = decodedMessage.replace(/^\[[^\]]*\]\s*/, '');
+
  // GA4 recommended exception event — include error_type and error_message
  // so the Data API can query them regardless of which event name is used.
  log('exception', {
  description: truncate(`[${type}] ${decodedMessage}`, 150),
  fatal: info.fatal ?? false,
  error_type: type,
- error_message: truncate(decodedMessage, 100),
+ error_message: truncate(classifiableMessage, 100),
  });
 
  // Increment session error counter for cascade detection
@@ -1025,7 +1042,7 @@ export const Analytics = {
  // Custom event with rich context for Firebase Console dashboards
  log('app_error', {
  error_type: type || 'uncategorized',
- error_message: truncate(decodedMessage, 200),
+ error_message: truncate(classifiableMessage, 200),
  error_stack: truncate(info.stack || '', 500),
  error_source: extractAppFrames(info.stack || ''),
  page_path: truncate(pagePath, 180),

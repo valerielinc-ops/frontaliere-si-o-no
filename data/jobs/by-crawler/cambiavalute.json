@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-07-20T12:16:54.615Z",
+  "assembledAt": "2026-07-20T22:23:39.154Z",
   "jobs": [
     {
       "id": "company-kbhp6",
@@ -32,7 +32,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-20T12:16:54.064Z",
+      "crawledAt": "2026-07-20T22:23:38.493Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
@@ -83,6 +83,26 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-backend-sviluppatore-cambiavalute-ch-lugano",
+          "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+          "senior-backend-developer-cambiavalute-ch-lugano",
+          "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
+          "senior-backend-entwickler-cambiavalute-ch-2025-cambiavalute"
+        ],
+        "en": [
+          "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+          "senior-backend-developer-cambiavalute-ch-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-backend-sviluppatore-cambiavalute-ch-lugano",
+        "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
+        "senior-backend-developer-cambiavalute-ch-lugano",
+        "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
+        "senior-backend-entwickler-cambiavalute-ch-2025-cambiavalute"
+      ],
       "needsRetranslation": true
     },
     {
@@ -110,7 +130,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-20T12:16:54.064Z",
+      "crawledAt": "2026-07-20T22:23:38.493Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -186,7 +206,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-20T12:16:54.064Z",
+      "crawledAt": "2026-07-20T22:23:38.493Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -265,7 +285,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-07-20T12:16:54.064Z",
+      "crawledAt": "2026-07-20T22:23:38.493Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "titleByLocale": {
         "it": "Legal & Compliance Officer",

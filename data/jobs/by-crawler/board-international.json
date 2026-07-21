@@ -1,6 +1,6 @@
 {
   "crawlerKey": "board-international",
-  "assembledAt": "2026-07-20T13:20:32.918Z",
+  "assembledAt": "2026-07-20T22:18:58.439Z",
   "jobs": [
     {
       "title": "Sr. Account Manager",
@@ -251,7 +251,17 @@
       },
       "streetAddress": "",
       "postalCode": "6830",
-      "firstSeenAt": "2026-05-17T09:46:35.164Z"
+      "firstSeenAt": "2026-05-17T09:46:35.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-ingegnere-board-international-chiasso-switzerland",
+          "senior-software-ingenieur-board-international-chiasso-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-ingegnere-board-international-chiasso-switzerland",
+        "senior-software-ingenieur-board-international-chiasso-switzerland"
+      ]
     },
     {
       "title": "Senior Solution Developer - Financial Consolidation & Reporting (FCR)",
@@ -373,6 +383,7 @@
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
       "previousSlugsByLocale": {
         "it": [
+          "software-engineer-board-chiasso-ticino-switzerland",
           "software-engineer-board-international-chiasso-ticino-switzerland"
         ],
         "de": [
@@ -383,6 +394,7 @@
         ]
       },
       "previousSlugs": [
+        "software-engineer-board-chiasso-ticino-switzerland",
         "software-engineer-board-international-chiasso-ticino-switzerland"
       ]
     },
@@ -449,6 +461,7 @@
           "solution-developer-board-international-chiasso-switzerland"
         ],
         "it": [
+          "sviluppatore-soluzione-board-international-chiasso-switzerland",
           "solution-developer-fp-a-board-international-chiasso-switzerland"
         ],
         "de": [
@@ -460,6 +473,7 @@
       },
       "previousSlugs": [
         "solution-developer-board-international-chiasso-switzerland",
+        "sviluppatore-soluzione-board-international-chiasso-switzerland",
         "solution-developer-fp-a-board-international-chiasso-switzerland"
       ]
     },

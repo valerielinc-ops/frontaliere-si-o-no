@@ -40,16 +40,9 @@ import { parseProfessionCityPath, getProfessionCityDef } from './professionCityD
 import { staticPagesFlushed, professionCitiesFlushed } from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { SITE_MAP_PAGE_DIR as SITEMAP_PAGE_DIR } from './shared/siteMapPageDir';
 
 const MARKER = 'data-profession-cities-links';
-
-/** HTML sitemap page (relative dir under dist) per locale — main-nav reachable. */
-const SITEMAP_PAGE_DIR: Record<ProfessionLocale, string> = {
-  it: 'mappa-del-sito',
-  en: 'en/site-map',
-  de: 'de/seitenplan',
-  fr: 'fr/plan-du-site',
-};
 
 const BLOCK_COPY: Record<ProfessionLocale, { heading: string; intro: string }> = {
   it: {

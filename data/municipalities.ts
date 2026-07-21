@@ -275,7 +275,7 @@ export const MUNICIPALITIES: Municipality[] = [
  { name: 'Saronno', province: 'VA', lat: 45.6249, lng: 9.0399, irpefAddizionale: 0.8, distanceKm: 28, avgRentMonthly: 650, population: 39000, fascia: '1A' },
  { name: 'Solbiate Arno', province: 'VA', lat: 45.7191, lng: 8.8143, irpefAddizionale: 0.55, distanceKm: 21, avgRentMonthly: 520, population: 2000, fascia: '1A' },
  { name: 'Solbiate Olona', province: 'VA', lat: 45.6514, lng: 8.8878, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 520, population: 2000, fascia: '1A' },
- { name: 'Sumirago', province: 'VA', lat: 45.7392, lng: 8.781, irpefAddizionale: 0.55, distanceKm: 22, avgRentMonthly: 520, population: 2000, fascia: '1A' },
+ { name: 'Sumirago', province: 'VA', lat: 45.7392, lng: 8.781, irpefAddizionale: 0.8, distanceKm: 22, avgRentMonthly: 520, population: 2000, fascia: '1A' }, // 0.8% confermato delibera MEF n.51/28-11-2024 (anno d'imposta 2025, verificare riconferma 2026)
  { name: 'Ternate', province: 'VA', lat: 45.7823, lng: 8.6903, irpefAddizionale: 0.55, distanceKm: 24, avgRentMonthly: 520, population: 2000, fascia: '1A' },
  { name: 'Tradate', province: 'VA', lat: 45.7115, lng: 8.9043, irpefAddizionale: 0.7, distanceKm: 20, avgRentMonthly: 580, population: 18900, fascia: '1A' },
  { name: 'Travedona-Monate', province: 'VA', lat: 45.8051, lng: 8.6742, irpefAddizionale: 0.55, distanceKm: 23, avgRentMonthly: 520, population: 2000, fascia: '1A' },

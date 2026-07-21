@@ -80,7 +80,7 @@ async function getFirestoreRate(): Promise<CacheEntry | null> {
  try {
  const { getFirestore, doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
- (m) => typeof m.getFirestore === 'function',
+ (m) => typeof m.getFirestore === 'function' && typeof m.doc === 'function' && typeof m.getDoc === 'function',
  );
  const { getApp } = await resilientImport(
  () => import('@/services/firebase'),
@@ -120,7 +120,8 @@ async function saveFirestoreRate(rate: number): Promise<void> {
  try {
  const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await resilientImport(
  () => import('firebase/firestore'),
- (m) => typeof m.getFirestore === 'function',
+ (m) => typeof m.getFirestore === 'function' && typeof m.doc === 'function' && typeof m.getDoc === 'function'
+ && typeof m.setDoc === 'function' && typeof m.serverTimestamp === 'function',
  );
  const { getApp } = await resilientImport(
  () => import('@/services/firebase'),
@@ -379,7 +380,7 @@ async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points:
  try {
  const { getFirestore, doc, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
- (m) => typeof m.getFirestore === 'function',
+ (m) => typeof m.getFirestore === 'function' && typeof m.doc === 'function' && typeof m.getDoc === 'function',
  );
  const { getApp } = await resilientImport(
  () => import('@/services/firebase'),

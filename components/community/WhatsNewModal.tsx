@@ -33,6 +33,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.82.0',
+    date: '2026-07-20',
+    titleKey: 'whatsNew.v3820.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3820.seasonalNaspi.title',
+        descKey: 'whatsNew.v3820.seasonalNaspi.desc',
+        link: { tab: 'calculator', subTab: 'calculator' },
+      },
+    ],
+  },
+  {
     version: '3.81.0',
     date: '2026-07-20',
     titleKey: 'whatsNew.v3810.title',

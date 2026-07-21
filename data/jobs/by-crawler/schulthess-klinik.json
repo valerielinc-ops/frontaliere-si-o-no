@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-07-20T11:51:02.015Z",
+  "assembledAt": "2026-07-20T22:00:47.608Z",
   "jobs": [
     {
       "id": "schulthess-klinik-793339b11e16",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/2454b56f-d938-4c76-8cec-98a913c25330",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:50:57.714Z",
+      "crawledAt": "2026-07-20T22:00:42.182Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/408d33fc-2664-40fa-a077-16db7969afc8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:50:57.710Z",
+      "crawledAt": "2026-07-20T22:00:42.175Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -162,9 +162,9 @@
     },
     {
       "id": "schulthess-klinik-244174689799",
-      "slug": "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "it": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich-1ca49d",
         "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
         "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-1ca49d"
@@ -192,7 +192,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/8f712e35-aecd-403d-b0b9-d48e6d1ddab0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:50:57.706Z",
+      "crawledAt": "2026-07-20T22:00:42.174Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -213,20 +213,28 @@
       "previousSlugs": [
         "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
         "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+        "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-lengghalde-2-zurich",
+        "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
           "med-assistente-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-          "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+          "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+          "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+          "assistente-medico-in-reumatologia-e-riabilitazione-schulthess-klinik-lengghalde-2-zurich",
+          "med-assistente-di-pratica-med-assistente-di-pratica-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
+          "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
           "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
         ],
         "fr": [
+          "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
           "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
@@ -276,7 +284,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/19f33968-498b-44f6-8f1f-60c0b58e15a1",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:50:57.701Z",
+      "crawledAt": "2026-07-20T22:00:42.160Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,18 +304,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
+        "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich",
+        "expert-anesthesia-care-nds-hf-in-training-schulthess-klinik-lengghalde-2-zurich",
+        "soins-anesthesiques-specialises-nds-hf-en-formation-schulthess-klinik-lengghalde-2-zurich",
         "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich-537dbc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
+          "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich",
+          "expert-anesthesia-care-nds-hf-in-training-schulthess-klinik-lengghalde-2-zurich",
+          "soins-anesthesiques-specialises-nds-hf-en-formation-schulthess-klinik-lengghalde-2-zurich",
           "cura-di-anestesia-esperto-nds-hf-in-formazione-schulthess-klinik-lengghalde-2-zurich-537dbc"
         ],
         "en": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
+          "expert-anesthesia-care-nds-hf-in-training-schulthess-klinik-lengghalde-2-zurich"
         ],
         "fr": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2",
+          "soins-anesthesiques-specialises-nds-hf-en-formation-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
       "firstSeenAt": "2026-07-15T10:56:39.724Z",
@@ -356,7 +372,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/f0113e53-104f-439d-9d85-dc38a9f1e01a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T11:50:57.686Z",
+      "crawledAt": "2026-07-20T22:00:42.136Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -375,17 +391,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2"
+        "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2",
+        "segretario-medico-segretario-medico-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
+        "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
+        "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2"
+          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2",
+          "segretario-medico-segretario-medico-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
+          "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-lengghalde-2-zurich",
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich",
+          "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
-          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2"
+          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2",
+          "medical-secretary-medical-secretary-spine-surgery-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "de": [
+          "arztsekretarin-arztsekretar-wirbelsaulenchirurgie-schulthess-klinik-lengghalde-2-zurich"
         ],
         "fr": [
-          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2"
+          "arztsekretarin-arztsekretar-schulter-und-ellbogenchirurgie-schulthess-klinik-lengghalde-2",
+          "secretaire-medical-secretaire-medical-chirurgie-spinale-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
       "firstSeenAt": "2026-07-17T10:53:01.278Z",
@@ -404,9 +433,9 @@
     },
     {
       "id": "schulthess-klinik-44bc6c5a34d1",
-      "slug": "specialista-specialista-contenuto-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "spezialistin-spezialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "specialista-specialista-contenuto-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
+        "it": "spezialistin-spezialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich",
         "en": "specialist-specialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich",
         "de": "spezialistin-spezialist-content-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
         "fr": "specialiste-contenu-specialise-multimedia-schulthess-klinik-lengghalde-2-zurich"
@@ -453,11 +482,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialistin-spezialist-content-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
+        "specialista-specialista-contenuto-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
         "spezialistin-spezialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialistin-spezialist-content-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
+          "specialista-specialista-contenuto-amp-multimedia-schulthess-klinik-lengghalde-2-zurich",
           "spezialistin-spezialist-content-multimedia-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [

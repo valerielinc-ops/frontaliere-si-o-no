@@ -123,14 +123,16 @@ const TaxCreditCalculator: React.FC = () => {
  const socialDeductionsCHF = grossSalaryCHF * totalSocialRate;
  const socialDeductionsEUR = socialDeductionsCHF * exchangeRate;
 
- // Swiss withholding tax (imposta alla fonte) — same tables as main calculator
+ // Swiss withholding tax (imposta alla fonte) — same tables as main calculator.
+ // Within 20km: CH retains 80% of the ordinary source-tax rate; beyond 20km: 100%.
+ // Applied once, upfront (matching calculateSimulation's convention), so the
+ // displayed swissTaxCHF/swissTaxEUR and totalTaxBurden/effectiveRate reflect the
+ // actual CH withholding, not the full un-reduced rate.
  const { rate: baseRate, tableCode } = getTicinoTaxRate(grossSalaryCHF, maritalStatus, children, spouseWorks);
  const effectiveSwissRate = adjustRateForChildren(baseRate, tableCode, children);
- const swissTaxCHF = grossSalaryCHF * effectiveSwissRate;
-
- // Within 20km: CH retains 80% of source tax; beyond 20km: CH retains 100%
  const chTaxShare = withinTwentyKm ? 0.8 : 1.0;
- const paidSourceTaxCHF = swissTaxCHF * chTaxShare;
+ const swissTaxCHF = grossSalaryCHF * effectiveSwissRate * chTaxShare;
+ const paidSourceTaxCHF = swissTaxCHF;
 
  const grossEUR = grossSalaryCHF * exchangeRate;
  const swissTaxEUR = swissTaxCHF * exchangeRate;

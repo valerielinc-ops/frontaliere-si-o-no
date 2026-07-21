@@ -39,6 +39,7 @@ import { EVENTS_SECTION_RX } from './lib/eventsSections.mjs';
 import { FUEL_SECTION_RX } from './lib/fuelSections.mjs';
 import { BLOG_SECTION_RX } from './lib/articleSections.mjs';
 import { classifyEmployerLandingFeature } from './lib/employerLandingSections.mjs';
+import { classifyProfessionLandingFeature } from './lib/professionLandingsSections.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
@@ -70,6 +71,8 @@ export function classifyFeature(relPath) {
   if (FUEL_SECTION_RX.test(p)) return 'fuel-daily';
   const employerFeature = classifyEmployerLandingFeature(p);
   if (employerFeature) return employerFeature;
+  const professionLandingFeature = classifyProfessionLandingFeature(p);
+  if (professionLandingFeature) return professionLandingFeature;
   // Canton-aware job-board sections (TI legacy, every canton, + svizzera
   // aggregator) → shared matcher. Was TI-only, which leaked non-TI canton
   // job pages into spa-locale/spa-other (2026-06-11 post-deploy failure).

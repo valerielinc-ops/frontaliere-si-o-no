@@ -6,69 +6,11 @@ import { useTranslation } from '@/services/i18n';
 import { CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import ChartWrapper from '@/components/shared/ChartWrapper';
 import { lazyRetry } from '@/services/lazyRetry';
+import { calculateNaspi } from '@/services/calculationService';
 
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 
-// ── NASPI 2026 constants (INPS circular) ─────────────────────
-const NASPI_THRESHOLD = 1_352.19; // € — soglia retribuzione mensile
-const NASPI_MAX_MONTHLY = 1_550.27; // € — tetto massimo mensile
-const RATE_BELOW = 0.75; // 75% fino alla soglia
-const RATE_ABOVE = 0.25; // 25% sull'eccedenza
-const DECALAGE_RATE = 0.03; // -3% al mese
-const DECALAGE_START_NORMAL = 6; // dal 6° mese (< 55 anni)
-const DECALAGE_START_SENIOR = 8; // dall'8° mese (≥ 55 anni)
-const MAX_DURATION_MONTHS = 24;
-const WEEKS_PER_MONTH = 4.33;
 const FALLBACK_EXCHANGE_RATE = 0.95;
-
-interface MonthRow {
- month: number;
- gross: number;
- cumulative: number;
- decalagePercent: number;
-}
-
-function calculateNaspi(
- grossMonthlyCHF: number,
- monthsWorked: number,
- age: number,
- exchangeRate: number,
-): { monthlyInitial: number; duration: number; rows: MonthRow[]; totalGross: number } {
- // Convert CHF → EUR
- const grossMonthlyEUR = grossMonthlyCHF * exchangeRate;
-
- // Calculate initial monthly amount
- const belowThreshold = Math.min(grossMonthlyEUR, NASPI_THRESHOLD);
- const aboveThreshold = Math.max(0, grossMonthlyEUR - NASPI_THRESHOLD);
- let monthlyInitial = belowThreshold * RATE_BELOW + aboveThreshold * RATE_ABOVE;
- monthlyInitial = Math.min(monthlyInitial, NASPI_MAX_MONTHLY);
-
- // Duration: half the weeks contributed in last 4 years, capped at 24 months
- const weeksContributed = Math.round(monthsWorked * WEEKS_PER_MONTH);
- const durationWeeks = Math.floor(weeksContributed / 2);
- const duration = Math.min(Math.ceil(durationWeeks / WEEKS_PER_MONTH), MAX_DURATION_MONTHS);
-
- // Decalage start based on age
- const decalageStart = age >= 55 ? DECALAGE_START_SENIOR : DECALAGE_START_NORMAL;
-
- // Build month-by-month table
- const rows: MonthRow[] = [];
- let cumulative = 0;
- for (let m = 1; m <= duration; m++) {
- const decalageMonths = m >= decalageStart ? m - decalageStart : 0;
- const decalagePercent = decalageMonths * DECALAGE_RATE;
- const gross = Math.max(0, monthlyInitial * (1 - decalagePercent));
- cumulative += gross;
- rows.push({ month: m, gross: Math.round(gross * 100) / 100, cumulative: Math.round(cumulative * 100) / 100, decalagePercent: Math.round(decalagePercent * 100) });
- }
-
- return {
- monthlyInitial: Math.round(monthlyInitial * 100) / 100,
- duration,
- rows,
- totalGross: Math.round(cumulative * 100) / 100,
- };
-}
 
 export default function NaspiCalculator() {
  const { t } = useTranslation();

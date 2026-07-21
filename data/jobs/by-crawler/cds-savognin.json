@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cds-savognin",
-  "assembledAt": "2026-07-20T12:36:14.289Z",
+  "assembledAt": "2026-07-20T22:52:45.548Z",
   "jobs": [
     {
       "id": "cds-savognin-256-fad11546e038",
@@ -34,7 +34,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/256.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:36:12.221Z",
+      "crawledAt": "2026-07-20T22:52:43.368Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,17 +52,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+        "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
+        "pflegehilfsperson-srk-60-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
+        "nursing-assistant-src-60-100-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin-savognin",
+        "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
+        "assistante-en-soins-infirmiers-csr-60-100-ou-assistante-en-soins-infirmiers-prete-a-suivre-le-cours-csr-center-da"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
+          "pflegehilfsperson-srk-60-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
+          "nursing-assistant-src-60-100-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin-savognin",
+          "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
+          "assistante-en-soins-infirmiers-csr-60-100-ou-assistante-en-soins-infirmiers-prete-a-suivre-le-cours-csr-center-da"
         ],
         "en": [
-          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
+          "nursing-assistant-src-60-100-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin-savognin"
+        ],
+        "de": [
+          "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
         ],
         "fr": [
-          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk"
+          "pflegehilfsperson-srk-im-nachtdienst-m-w-oder-pflegehilfsperson-mit-bereitschaft-den-srk",
+          "assistante-en-soins-infirmiers-csr-60-100-ou-assistante-en-soins-infirmiers-prete-a-suivre-le-cours-csr-center-da"
         ]
       },
       "firstSeenAt": "2026-07-03T21:37:20.484Z",
@@ -111,7 +124,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/405.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:36:12.217Z",
+      "crawledAt": "2026-07-20T22:52:43.365Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -192,7 +205,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/402.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:36:12.215Z",
+      "crawledAt": "2026-07-20T22:52:43.364Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -275,7 +288,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/270.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:36:12.212Z",
+      "crawledAt": "2026-07-20T22:52:43.362Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -348,7 +361,7 @@
       "url": "https://cds-savognin.ch/DE/aktuelles/259.html",
       "source": "CDS Savognin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-07-20T12:36:12.190Z",
+      "crawledAt": "2026-07-20T22:52:43.346Z",
       "addressLocality": "Savognin",
       "addressRegion": "GR",
       "addressCountry": "CH",
