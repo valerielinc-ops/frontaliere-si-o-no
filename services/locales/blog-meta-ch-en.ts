@@ -1420,6 +1420,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Guide 2026: tax return Switzerland - Canton of St. Gallen',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Cantonal deadlines, allowable deductions and online procedure for the 2026 tax return. Specific data for the canton of St. Gallen and national comparison.',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'St. Gallen Cathedral and Abbey Library, UNESCO World Heritage Site',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Third pillar 3a: tax advantages 2026 in Switzerland',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Find out how private pension 3a works and the tax benefits available in 2026 for those who work in Switzerland and reside in the Canton of Zurich.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Financial advisor office in Zurich with city view',
 };
 
 export default blogMetaChEn;

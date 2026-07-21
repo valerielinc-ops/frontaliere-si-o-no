@@ -1420,6 +1420,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.title': 'Guide 2026 : déclaration d\'impôts Suisse - Canton de Saint-Gall',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.excerpt': 'Délais cantonaux, déductions admises et procédure en ligne pour la déclaration fiscale 2026. Données spécifiques pour le canton de Saint-Gall et comparaison nationale.',
     'blog.article.dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo.imageAlt': 'Cathédrale et bibliothèque abbatiale de Saint-Gall, patrimoine mondial de l\'UNESCO',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Troisième pilier 3a : avantages fiscaux 2026 en Suisse',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Découvrez le fonctionnement de la prévoyance privée 3a et les avantages fiscaux disponibles en 2026 pour les personnes travaillant en Suisse et résidant dans le canton de Zurich.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Bureau d\'un conseiller financier à Zurich avec vue sur la ville',
 };
 
 export default blogMetaChFr;
