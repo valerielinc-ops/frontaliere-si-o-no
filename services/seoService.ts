@@ -4796,6 +4796,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dazi-usa-24-luglio': { name: 'Dazi USA, la tregua è un\'illusione: cosa', path: '/articoli-svizzera/dazi-usa-24-luglio/', parent: 'blog' },
     'blog-frontalieri-telelavoro-pubblicato-limite-25': { name: 'Frontalieri e telelavoro', path: '/articoli-frontaliere/frontalieri-telelavoro-pubblicato-limite-25', parent: 'blog' },
     'blog-esportazioni-svizzera-sfide-kagi': { name: 'Economia', path: '/articoli-svizzera/esportazioni-svizzera-sfide-kagi/', parent: 'blog' },
+    'blog-sospensioni-attivita-varesotto-sicurezza': { name: 'Cronaca Lavoro', path: '/articoli-frontaliere/sospensioni-attivita-varesotto-sicurezza', parent: 'blog' },
  };
 
  const info = sectionNames[section];

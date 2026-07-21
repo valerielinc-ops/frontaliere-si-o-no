@@ -8799,6 +8799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Frontières et télétravail : l\'accord sur la limite de 25 % a été publié',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'L\'accord sur la limite de 25 % pour les frontaliers travaillant en Suisse a été publié',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Tessin',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varesotto : 10 entreprises suspendues pour travail au noir et sécurité',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Grand blitz des carabiniers dans le Varesotto : 12 travailleurs au noir et de graves lacunes en matière de sécurité entraînent la fermeture de 10 activités et des sanctions pour 775 000 euros.',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Inspection de sécurité dans une entreprise de la province de Varese',
 };
 
 export default blogMetaFr;

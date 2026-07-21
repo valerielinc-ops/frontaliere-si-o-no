@@ -8797,6 +8797,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Frontier workers and teleworkers: agreement on the 25% limit published',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'The agreement on the 25% limit for border workers working in Switzerland has been published',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varese: 10 companies suspended for undeclared work and safety',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Carabinieri maxi blitz in Varese: 12 workers in black and serious safety deficiencies lead to the closure of 10 activities and sanctions for 775 thousand euros.',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Safety inspection at a production facility in the Varese province',
 };
 
 export default blogMetaEn;
