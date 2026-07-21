@@ -12,6 +12,7 @@
 
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
+import { detectBodyRepetition, dedupeRepeatedParagraphs } from './lib/article-body-repetition.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const BODY_DIR = 'services/locales/blog-body';
@@ -34,83 +35,15 @@ function escapeForTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
 }
 
+// Thin adapters over the shared detection/cleanup module (2026-07-21): this
+// script used to carry its own copy of both, which had already drifted
+// ahead of scripts/create-article.mjs's copy (this one already had the
+// cross-paragraph sentence-strip that create-article.mjs's was missing —
+// see article-body-repetition.mjs's doc comment for the incident that
+// surfaced the gap). Single source of truth now.
 function detectRepetition(bodies) {
-  const issues = [];
-  const allBodies = ['body1', 'body2', 'body3'].map(k => bodies[k] || '');
-
-  // Check repeated paragraphs
-  for (const [idx, body] of allBodies.entries()) {
-    const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
-    const seen = new Map();
-    let dupeCount = 0;
-    for (const p of paragraphs) {
-      const norm = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
-      seen.set(norm, (seen.get(norm) || 0) + 1);
-      if (seen.get(norm) > 1) dupeCount++;
-    }
-    if (dupeCount >= 3) issues.push(`body${idx + 1}: ${dupeCount} repeated paragraphs`);
-  }
-
-  // Check repeated sentences
-  const allText = allBodies.join('\n\n');
-  const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
-  const sentCounts = new Map();
-  for (const s of sentences) sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
-  const heavy = [...sentCounts.entries()].filter(([, c]) => c >= 4);
-  if (heavy.length > 0) issues.push(`${heavy.length} sentences 4+ times (worst: ${heavy[0][1]}x)`);
-
-  return issues;
-}
-
-function deduplicateBodies(bodies) {
-  // First pass: cross-body sentence frequency
-  const globalSentCounts = new Map();
-  for (const field of ['body1', 'body2', 'body3']) {
-    const text = bodies[field] || '';
-    const sentences = text.split(/(?<=[.!?])\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 30);
-    for (const s of sentences) globalSentCounts.set(s, (globalSentCounts.get(s) || 0) + 1);
-  }
-  
-  const result = {};
-  const globalSeen = new Map(); // track cross-body sentence usage
-  
-  for (const field of ['body1', 'body2', 'body3']) {
-    const text = bodies[field] || '';
-    if (!text) continue;
-    
-    // Step 1: Deduplicate whole paragraphs
-    const paragraphs = text.split(/\n\n+/);
-    const seenParas = new Set();
-    const unique = [];
-    for (const p of paragraphs) {
-      const norm = p.trim().replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
-      if (norm.length < 60 || !seenParas.has(norm)) {
-        seenParas.add(norm);
-        unique.push(p);
-      }
-    }
-    
-    // Step 2: Within each paragraph, remove sentences repeated 3+ times globally
-    const cleaned = unique.map(para => {
-      const sentences = para.split(/(?<=[.!?])\s+/);
-      if (sentences.length < 2) return para;
-      const filtered = sentences.filter(s => {
-        const norm = s.trim().toLowerCase().replace(/\s+/g, ' ');
-        if (norm.length <= 30) return true;
-        const globalCount = globalSentCounts.get(norm) || 1;
-        if (globalCount < 3) return true;
-        // Allow max 1 occurrence of heavily repeated sentences across all bodies
-        const soFar = (globalSeen.get(norm) || 0) + 1;
-        globalSeen.set(norm, soFar);
-        return soFar <= 1;
-      });
-      return filtered.join(' ');
-    }).filter(p => p.trim().length > 10);
-    
-    result[field] = cleaned.join('\n\n');
-  }
-  
-  return result;
+  const { hasRepetition, reason } = detectBodyRepetition(bodies);
+  return hasRepetition ? [reason] : [];
 }
 
 // Main
@@ -141,7 +74,9 @@ for (const file of files) {
     } catch { continue; }
 
     const localeBodies = extractBodies(content, id);
-    const dedupedBodies = deduplicateBodies(localeBodies);
+    // Pass a shallow copy — dedupeRepeatedParagraphs mutates its argument,
+    // and localeBodies is compared against the result below per field.
+    const dedupedBodies = dedupeRepeatedParagraphs({ ...localeBodies });
     let changed = false;
 
     for (const field of ['body1', 'body2', 'body3']) {
