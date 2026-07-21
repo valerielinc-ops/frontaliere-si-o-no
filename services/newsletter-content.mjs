@@ -977,6 +977,33 @@ export function buildBriefingPrompt(ctx) {
 }
 
 /**
+ * Build ONE prompt that asks the AI to generate N independent briefings in a
+ * single call instead of N separate calls — cuts total AI request volume
+ * roughly N-fold on high-cohort-count days. All items MUST share the same
+ * locale: the system prompt (language rules, structure rules) is built once
+ * from the first item and reused verbatim for the whole batch, so mixing
+ * languages in one batch would risk the phrasing bleed that the per-locale
+ * system prompt exists to prevent (see tests/newsletter-locale-leakage.test.ts).
+ *
+ * @param {Array<{ id: string, ctx: object }>} items — same ctx shape as buildBriefingPrompt
+ * @returns {{ system: string, user: string }}
+ */
+export function buildBriefingBatchPrompt(items) {
+  if (!items.length) throw new Error('buildBriefingBatchPrompt: items must be non-empty');
+  const first = buildBriefingPrompt(items[0].ctx);
+  const readerBlocks = items.map((item, idx) => {
+    const { user } = idx === 0 ? first : buildBriefingPrompt(item.ctx);
+    return `===READER ${item.id}===\n${user}`;
+  });
+  const system = [
+    first.system,
+    `BATCH MODE: below are ${items.length} independent readers, each starting with a "===READER <id>===" marker. Apply every rule above separately to EACH reader, using ONLY that reader's own data — never mix jobs, facts, or details between readers.`,
+    `Output EXACTLY ${items.length} blocks, one per reader, in the SAME ORDER as the readers below. Each block starts with "===BRIEFING <id>===" on its own line (the same id as that reader's marker) followed immediately by that reader's briefing HTML. No text outside these blocks.`,
+  ].join(' ');
+  return { system, user: readerBlocks.join('\n\n') };
+}
+
+/**
  * Build a prompt for AI to generate a personalized email subject line.
  *
  * @param {object} ctx

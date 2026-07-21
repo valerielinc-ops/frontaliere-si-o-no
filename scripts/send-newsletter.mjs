@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildBriefingBatchPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
 import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
@@ -69,6 +69,16 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
+// How many cohort briefings to request in a single AI call (same locale only,
+// see buildBriefingBatchPrompt). Keeps total request volume comfortably under
+// the tightest top-of-chain free-tier daily cap (Gemini flash: 1500/day) even
+// on high-subscriber days, so most batches succeed on the first model instead
+// of cascading through the whole chain to the claude-cli/haiku last resort.
+// Kept at 3 (not higher) so the batch's combined maxTokens request stays
+// comfortably under smaller free-tier models' per-request output caps —
+// a bigger batch cuts request volume further but risks silent truncation
+// on the weaker links in the chain.
+const AI_BRIEFING_BATCH_SIZE = 3;
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
@@ -232,6 +242,62 @@ async function generateAIBriefing(ctx) {
   } catch (e) {
     console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
     return null;
+  }
+}
+
+/**
+ * Split a batch AI response on "===BRIEFING <id>===" markers into a
+ * Map<id, rawHtml>. Missing/unmatched ids simply aren't in the returned map \u2014
+ * the caller treats that exactly like a single-item AI failure (null \u2192
+ * template fallback), so a partially-truncated batch degrades gracefully
+ * instead of losing the whole batch.
+ */
+function parseBriefingBatchResponse(raw) {
+  const map = new Map();
+  const text = String(raw || '');
+  // Tolerant of minor formatting drift models are prone to (extra/missing
+  // spaces around the marker, e.g. "== BRIEFING 0 ==" instead of the exact
+  // "===BRIEFING 0===" requested) — a strict marker match would silently
+  // drop an otherwise-good item to the template fallback over whitespace.
+  const marker = /={2,}\s*BRIEFING\s+(\S+?)\s*={2,}/g;
+  const matches = [...text.matchAll(marker)];
+  for (let i = 0; i < matches.length; i++) {
+    const id = matches[i][1];
+    const start = matches[i].index + matches[i][0].length;
+    const end = i + 1 < matches.length ? matches[i + 1].index : text.length;
+    const content = text.slice(start, end).trim();
+    if (content) map.set(id, content);
+  }
+  return map;
+}
+
+/**
+ * Generate up to AI_BRIEFING_BATCH_SIZE cohort briefings in a single AI call.
+ * All items MUST share the same locale (see buildBriefingBatchPrompt). Falls
+ * back to an empty map (\u2192 every item gets the template fallback downstream)
+ * on total failure; individual items that fail the same quality gate as the
+ * single-call path (sanitizeAIBriefingHtml) are dropped the same way too.
+ */
+async function generateAIBriefingsBatch(items) {
+  if (!callLLM || items.length === 0) return new Map();
+  try {
+    const { system, user } = buildBriefingBatchPrompt(items);
+    const result = await callLLM([
+      { role: 'system', content: system },
+      { role: 'user', content: user },
+    ], { temperature: 0.7, maxTokens: 800 * items.length + 200, chain: NEWSLETTER_AI_CHAIN });
+    const parsed = parseBriefingBatchResponse(result);
+    const out = new Map();
+    for (const item of items) {
+      const block = parsed.get(item.id);
+      if (!block) continue;
+      const html = sanitizeAIBriefingHtml(block);
+      if (html) out.set(item.id, html);
+    }
+    return out;
+  } catch (e) {
+    console.warn('\u26a0\ufe0f AI briefing batch failed:', e.message?.slice(0, 200));
+    return new Map();
   }
 }
 
@@ -2087,21 +2153,43 @@ async function main() {
   }
   console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
 
-  // ── Phase 2: Generate 1 AI briefing per cohort (parallel) ──
-  console.log('🧠 Phase 2: AI briefings (1 per cohort, parallel)...');
+  // ── Phase 2: Generate AI briefings, batched per locale (parallel) ──
+  console.log(`🧠 Phase 2: AI briefings (batches of ≤${AI_BRIEFING_BATCH_SIZE} cohorts, same locale, parallel)...`);
   const cohortEntries = [...cohorts.entries()];
-  const briefingResults = noAI
-    ? cohortEntries.map(([key, c]) => [key, getFallbackBriefing(c.locale, exchangeRate)])
-    : await pMap(cohortEntries, async ([key, cohort]) => {
-        const briefing = await generateAIBriefing({
+  let briefingResults;
+  if (noAI) {
+    briefingResults = cohortEntries.map(([key, c]) => [key, getFallbackBriefing(c.locale, exchangeRate)]);
+  } else {
+    // Never mix locales in one batch (see buildBriefingBatchPrompt) — group
+    // by locale first, then chunk each locale's cohorts into fixed-size batches.
+    const byLocale = new Map();
+    for (const entry of cohortEntries) {
+      const loc = entry[1].locale;
+      if (!byLocale.has(loc)) byLocale.set(loc, []);
+      byLocale.get(loc).push(entry);
+    }
+    const batches = [];
+    for (const entries of byLocale.values()) {
+      for (let i = 0; i < entries.length; i += AI_BRIEFING_BATCH_SIZE) {
+        batches.push(entries.slice(i, i + AI_BRIEFING_BATCH_SIZE));
+      }
+    }
+    const batchResults = await pMap(batches, async (batch) => {
+      const items = batch.map(([, cohort], idx) => ({
+        id: String(idx),
+        ctx: {
           subscriber: cohort.subscriber,
           exchangeRate, exchangeInsight,
           matchedJobs: cohort.matchedJobs,
           weeklyFact: getWeeklyFact(cohort.locale),
           featuredTool: getFeaturedToolForLocale(cohort.locale),
-        });
-        return [key, briefing];
-      }, AI_CONCURRENCY);
+        },
+      }));
+      const resultMap = await generateAIBriefingsBatch(items);
+      return batch.map(([key], idx) => [key, resultMap.get(String(idx)) || null]);
+    }, AI_CONCURRENCY);
+    briefingResults = batchResults.flat();
+  }
 
   const briefingMap = new Map();
   for (const [key, briefing] of briefingResults) {
