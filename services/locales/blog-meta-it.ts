@@ -8765,6 +8765,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-panettiere-guadagno.title': 'Quanto guadagna un panettiere frontaliere in Ticino?',
     'blog.article.frontaliere-ticino-panettiere-guadagno.excerpt': 'Stipendio reale di un panettiere frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     'blog.article.frontaliere-ticino-panettiere-guadagno.imageAlt': 'Panettiere al lavoro in Ticino',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Lavorare come pasticcere in Ticino: stipendio e requisiti',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'La Svizzera non è membro dell\'UE, il permesso G è necessario per lavorare in Ticino come pasticcere.',
+    'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Una pasticciere lavora in una cucina ticinese, con un\'ampia finestra che offre una vista sul lago di Lugano.',
 };
 
 export default blogMetaIt;
