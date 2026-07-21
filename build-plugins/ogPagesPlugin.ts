@@ -30,6 +30,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  return {
  name: 'og-pages',
  apply: 'build',
+ enforce: 'post',
  async closeBundle() {
  const fs = await import('node:fs');
  const np = await import('node:path');
