@@ -8805,6 +8805,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salari-ticino-abusi-precarieta.title': 'Tessiner Löhne: Zwischen Missbrauch und Prekarität',
     'blog.article.salari-ticino-abusi-precarieta.excerpt': 'Neues Steuerabkommen 2024, Quellensteuer und Sozialbeiträge: Was sich für Grenzgänger mit Italien ändert',
     'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Grenzgänger warten im Steueramt Bellinzona',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'Nucleare svizzero minaccia posti',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'Eine ZHAW-Studie warnt: Neue Kernkraftwerke gefährden 5\'800-9\'500 Arbeitsplätze im Bauwesen und erneuerbare Energien innerhalb von 5 Jahren',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Baustelle in Bellinzona mit Arbeitern',
 };
 
 export default blogMetaDe;

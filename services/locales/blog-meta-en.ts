@@ -8806,6 +8806,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salari-ticino-abusi-precarieta.title': 'Ticino wages: between abuse and precariousness',
     'blog.article.salari-ticino-abusi-precarieta.excerpt': 'New tax agreement 2024, tax at source and social contributions: what changes for border workers with Italy',
     'blog.article.salari-ticino-abusi-precarieta.imageAlt': 'Cross-border workers queuing at Bellinzona tax office',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'The return of Swiss nuclear power threatens thousands of construction jobs',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'A ZHAW study warns: new nuclear power plants put 5,800-9,500 construction and renewable uses at risk within 5 years',
+    'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Construction site in Bellinzona with workers',
 };
 
 export default blogMetaEn;
