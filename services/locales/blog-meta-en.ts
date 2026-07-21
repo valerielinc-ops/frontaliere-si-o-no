@@ -8770,6 +8770,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parrucchiere-frontaliere-ticino.title': 'How much does a border hairdresser earn in Ticino',
     'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'The salary of a border hairdresser in Ticino may vary depending on his experience and the type of activity he carries out',
     'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'View of Lugano with the lake in the foreground',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.title': 'Border bartender: salary and requirements in Ticino',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.excerpt': 'Average salary of a border bartender in Ticino: not yet specified',
+    'blog.article.frontaliere-barista-ticino-stipendio-requisiti.imageAlt': 'A barista working in Lugano',
 };
 
 export default blogMetaEn;

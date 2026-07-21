@@ -52878,6 +52878,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-barista-ticino-stipendio-requisiti': {
+    title: 'Barista frontaliere: stipendio e requisiti in Ticino',
+    description: 'Stipendio medio di un barista frontaliero in Ticino: non ancora specificato. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, barista, stipendio, requisiti, medio',
+    ogTitle: 'Lavorare come barista in Ticino da frontaliere: stipendio medio, requisiti e riconoscimento del titolo di studio',
+    ogDescription: 'Stipendio medio di un barista frontaliero in Ticino: non ancora specificato',
+    canonicalPath: '/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Barista frontaliere: stipendio e requisiti in Ticino",
+      "description": "Stipendio medio di un barista frontaliero in Ticino: non ancora specificato. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-barista-ticino-stipendio-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un barista frontaliero in un caffè di Lugano"
+      },
+      "datePublished": "2026-07-21T04:43:00+00:00",
+      "dateModified": "2026-07-21T04:43:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-barista-ticino-stipendio-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
