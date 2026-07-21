@@ -4319,6 +4319,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore',
+    category: 'pratico',
+    date: '2026-07-21T17:27:47.838Z',
+    image: '/images/blog/di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

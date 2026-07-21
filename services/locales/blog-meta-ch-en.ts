@@ -1441,6 +1441,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.grigioni-traffico-sviamento-udc.title': 'Graubünden: diversion traffic, UDC criticizes the Government',
     'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'The greyish CDU proposes the Birsfelden model to counteract diversion traffic on the A13. The Government asks for legal clarity before proceeding.',
     'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Traffic on the A13 in Grisons',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.title': 'More Swiss: new CCL for ground staff, week drops to 40 hours',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.excerpt': 'Swiss ground staff approve the new collective bargaining agreement (CCL) which provides for a reduction in weekly working hours from 42 to 40 hours.',
+    'blog.article.di-molto-swiss-nuovo-ccl-per-personale-di-terra-settimana-scende-a-40-ore.imageAlt': 'A photo of a Swiss airport with a ground crew member in the foreground.',
 };
 
 export default blogMetaChEn;
