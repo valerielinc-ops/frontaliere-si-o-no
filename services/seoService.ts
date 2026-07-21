@@ -4767,6 +4767,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-corriere-ticino-stipendio-requisiti': { name: 'Lavorare come corriere in Ticino da', path: '/articoli-frontaliere/frontaliere-corriere-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-gruista-frontaliere-ticino': { name: 'Stipendio gruista frontaliere Ticino', path: '/articoli-svizzera/gruista-frontaliere-ticino/', parent: 'blog' },
     'blog-frontaliere-venditore-ticino-stipendio-requisiti': { name: 'Lavoro frontaliero', path: '/articoli-frontaliere/frontaliere-venditore-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-stipendio-cassiere-frontaliere-ticino': { name: 'Lavoro', path: '/articoli-svizzera/stipendio-cassiere-frontaliere-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

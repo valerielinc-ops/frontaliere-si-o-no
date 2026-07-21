@@ -1366,6 +1366,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.gruista-frontaliere-ticino.title': 'Combien gagne un grutier frontalier au Tessin',
     'blog.article.gruista-frontaliere-ticino.excerpt': 'Salaire réel d\'un grutier frontalier au Tessin : fourchette de salaire, différences par rapport à l\'Italie, facteurs affectant la rémunération.',
     'blog.article.gruista-frontaliere-ticino.imageAlt': 'Un opérateur de grue frontal à Lugano, avec la vue du lac de Lugano en arrière-plan.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Combien gagne un caissier frontalier au Tessin',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Échelle des salaires réels, différences avec l\'Italie et facteurs affectant le salaire net. Guide pratique avec des données vérifiées.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Caissier à Bellinzona avec des produits suisses et des billets CHF',
 };
 
 export default blogMetaChFr;
