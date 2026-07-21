@@ -1408,6 +1408,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-24-luglio.title': 'US Duties, Truce is an Illusion',
     'blog.article.dazi-usa-24-luglio.excerpt': 'New US measures risk further weighing on Swiss exports',
     'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
+    'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi: Exports, the main problem for Swiss companies',
+    'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'The strong franc, high labour costs and US tariffs put the \'made in Switzerland\' at risk. CEO Cédric El-Idrissi\'s analysis.',
+    'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Kägi production facility in Lichtensteig with Swiss flag',
 };
 
 export default blogMetaChEn;

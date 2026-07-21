@@ -18192,6 +18192,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esportazioni-svizzera-sfide-kagi': {
+    title: 'Kägi: Esportazioni, problema principale per aziende svizzere',
+    description: 'Franco forte, dazi USA e costi interni soffocano le PMI esportatrici. L\'analisi del CEO Cédric El-Idrissi sulle sfide del \'made in Switzerland\'. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, kägi, esportazioni, problema, principale',
+    ogTitle: 'Esportazioni svizzere in crisi: il CEO di Kägi lancia l\'allarme',
+    ogDescription: 'Dazi USA al 10%, franco forte e costi interni mettono a rischio il \'made in Switzerland\'. L\'intervista esclusiva a Cédric El-Idrissi.',
+    canonicalPath: '/articoli-svizzera/esportazioni-svizzera-sfide-kagi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Kägi: Esportazioni, problema principale per aziende svizzere",
+      "description": "Franco forte, dazi USA e costi interni soffocano le PMI esportatrici. L'analisi del CEO Cédric El-Idrissi sulle sfide del 'made in Switzerland'. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/esportazioni-svizzera-sfide-kagi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento produttivo Kägi a Lichtensteig con bandiera svizzera"
+      },
+      "datePublished": "2026-07-21T09:14:23+00:00",
+      "dateModified": "2026-07-21T09:14:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/esportazioni-svizzera-sfide-kagi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

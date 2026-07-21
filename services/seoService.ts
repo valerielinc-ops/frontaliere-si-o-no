@@ -4795,6 +4795,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sciopero-treni-italia-tilo': { name: 'Sciopero dei treni in Italia', path: '/articoli-frontaliere/sciopero-treni-italia-tilo', parent: 'blog' },
     'blog-dazi-usa-24-luglio': { name: 'Dazi USA, la tregua è un\'illusione: cosa', path: '/articoli-svizzera/dazi-usa-24-luglio/', parent: 'blog' },
     'blog-frontalieri-telelavoro-pubblicato-limite-25': { name: 'Frontalieri e telelavoro', path: '/articoli-frontaliere/frontalieri-telelavoro-pubblicato-limite-25', parent: 'blog' },
+    'blog-esportazioni-svizzera-sfide-kagi': { name: 'Economia', path: '/articoli-svizzera/esportazioni-svizzera-sfide-kagi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

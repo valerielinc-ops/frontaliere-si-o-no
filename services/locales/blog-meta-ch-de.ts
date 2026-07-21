@@ -1408,6 +1408,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-24-luglio.title': 'US-Zölle, Waffenstillstand ist eine Illusion',
     'blog.article.dazi-usa-24-luglio.excerpt': 'Die neuen US-Maßnahmen drohen die Schweizer Exporte zusätzlich zu belasten',
     'blog.article.dazi-usa-24-luglio.imageAlt': 'Fotografia di un portale doganale di un\'azienda con due impiegati che controllano merci in arrivo',
+    'blog.article.esportazioni-svizzera-sfide-kagi.title': 'Kägi: Export, Hauptproblem für Schweizer Unternehmen',
+    'blog.article.esportazioni-svizzera-sfide-kagi.excerpt': 'Starker Franken, hohe Arbeitskosten und US-Zölle gefährden das «Made in Switzerland». Die Analyse von CEO Cédric El-Idrissi.',
+    'blog.article.esportazioni-svizzera-sfide-kagi.imageAlt': 'Kägi Produktionsstätte in Lichtensteig mit Schweizer Flagge',
 };
 
 export default blogMetaChDe;
