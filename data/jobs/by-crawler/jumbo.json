@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-07-21T11:20:11.972Z",
+  "assembledAt": "2026-07-21T10:21:42.788Z",
   "jobs": [
     {
       "id": "jumbo-f3218595-55b",
@@ -2953,7 +2953,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/lagerist-in/29ac8794-ccac-41d4-99c8-b60ec5511427",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:20:06.365Z",
+      "crawledAt": "2026-07-20T22:03:44.564Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2994,7 +2994,8 @@
         "lagerist-in-jumbo-willisau",
         "lagerist-in-jumbo-willisau-luzern",
         "lagerist-in-jumbo-division-der-coop-genossenschaft-willisau",
-        "magazziniere-jumbo-chur"
+        "lagerist-in-jumbo-chur-graubunden-ut7ptz",
+        "lagerist-in-jumbo-chur-graubunden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3002,7 +3003,8 @@
           "lagerist-in-jumbo-willisau-luzern-hmrj9a",
           "lagerist-in-jumbo-willisau",
           "lagerist-in-jumbo-willisau-luzern",
-          "magazziniere-jumbo-chur"
+          "lagerist-in-jumbo-chur-graubunden-ut7ptz",
+          "lagerist-in-jumbo-chur-graubunden"
         ],
         "en": [
           "lagerist-in-jumbo-chur"
@@ -3017,7 +3019,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T22:39:06.830Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -10161,7 +10162,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaeftsfuehrung/968e5744-9500-40fc-a96d-fc6ee15d7a8c",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T11:20:06.263Z",
+      "crawledAt": "2026-07-20T22:03:44.493Z",
       "addressLocality": "Feuerthalen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -10197,28 +10198,29 @@
         "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
         "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
         "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen",
-        "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen"
+        "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen",
+        "district-manager-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
           "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+          "district-manager-do-it-and-deco-incl-deputy-management-jumbo-division-der-coop-genossenschaft-feuerthalen"
         ],
         "en": [
           "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
           "rayon-conductor-in-do-it-and-deco-incl-deputy-management-jumbo-feuerthalen"
         ],
-        "de": [
-          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen"
-        ],
         "fr": [
           "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen",
           "conducteur-de-rayon-en-do-it-et-deco-incl-gestion-adjointe-jumbo-feuerthalen"
+        ],
+        "de": [
+          "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-feuerthalen"
         ]
       },
       "firstSeenAt": "2026-07-20T11:54:47.611Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {

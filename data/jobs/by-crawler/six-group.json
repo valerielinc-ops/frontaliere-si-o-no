@@ -1,6 +1,6 @@
 {
   "crawlerKey": "six-group",
-  "assembledAt": "2026-07-21T11:20:54.721Z",
+  "assembledAt": "2026-07-21T10:48:49.530Z",
   "jobs": [
     {
       "id": "six-group-03c437722a82",
@@ -3375,7 +3375,7 @@
       "url": "https://jobs.six-group.com/job/Zurich-DevOps-Software-Engineer-%28Gitlab%29/1411694233/",
       "source": "SIX Group Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-07-21T11:20:17.279Z",
+      "crawledAt": "2026-07-20T23:07:07.764Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3404,7 +3404,18 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-six-group-zurich"
+        ],
+        "fr": [
+          "senior-software-engineer-six-group-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-software-engineer-six-group-zurich"
+      ]
     },
     {
       "id": "six-group-ff0a7a901716",
