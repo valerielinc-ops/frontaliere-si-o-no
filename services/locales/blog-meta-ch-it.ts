@@ -1423,6 +1423,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Terzo pilastro 3a: vantaggi fiscali 2026 in Svizzera',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Scopri come funziona la previdenza privata 3a e i benefici fiscali disponibili nel 2026 per chi lavora in Svizzera e risiede nel Canton Zurigo.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Ufficio finanziario a Zurigo con vista sulla città',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Dichiarazione imposte in Svizzera: scadenze e deduzioni',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Scadenze cantonali, deduzioni ammesse, procedura online per la dichiarazione delle imposte in Svizzera: scopri come funziona e cosa devi fare per il Canton Lucerna.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'Una stanza di un ufficio tributario in Svizzera, con funzionari che lavorano alla dichiarazione delle imposte per i residenti del Canton Lucerna.',
 };
 
 export default blogMetaChIt;

@@ -1423,6 +1423,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-vantaggi-2026.title': 'Dritte Säule 3a: Steuervorteile 2026 in der Schweiz',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.excerpt': 'Erfahren Sie, wie die private Vorsorge 3a funktioniert und welche Steuervorteile 2026 für Personen, die in der Schweiz arbeiten und im Kanton Zürich wohnen, zur Verfügung stehen.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026.imageAlt': 'Büro eines Finanzberaters in Zürich mit Stadtblick',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.title': 'Steuererklärung Schweiz: Fälligkeiten und Abzüge',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.excerpt': 'Kantonale Fristen, zulässige Abzüge, Online-Verfahren zur Steuererklärung in der Schweiz: Erfahren Sie, wie es funktioniert und was Sie für den Kanton Luzern tun müssen.',
+    'blog.article.dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.imageAlt': 'Eine Szene aus einem Steuerbüro in der Schweiz, mit Beamten, die Steuererklärungen für die Einwohner des Kantons Luzern vorbereiten.',
 };
 
 export default blogMetaChDe;

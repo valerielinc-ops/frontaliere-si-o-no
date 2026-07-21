@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3430,
+ "numberOfItems": 3431,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8198,7 +8198,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3427, "name": "Guida 2026: dichiarazione imposte Svizzera - Ca...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo` },
           { "@type": "ListItem", "position": 3428, "name": "Il ritorno del nucleare svizzero minaccia migli...", "url": `${BASE_URL}/articoli-frontaliere/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia` },
           { "@type": "ListItem", "position": 3429, "name": "Terzo pilastro 3a: vantaggi fiscali 2026 in Svi...", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-vantaggi-2026` },
-          { "@type": "ListItem", "position": 3430, "name": "Frontalieri: nessuna disoccupazione per la Sviz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-mozione-consiglio-federale` }
+          { "@type": "ListItem", "position": 3430, "name": "Frontalieri: nessuna disoccupazione per la Sviz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliereticino-mozione-consiglio-federale` },
+          { "@type": "ListItem", "position": 3431, "name": "Dichiarazione imposte in Svizzera: scadenze e d...", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna` }
  ]
  },
  {

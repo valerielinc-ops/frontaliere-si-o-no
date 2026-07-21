@@ -18387,6 +18387,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna': {
+    title: 'Dichiarazione imposte in Svizzera: scadenze e deduzioni',
+    description: 'Scadenze cantonali, deduzioni ammesse, procedura online per la dichiarazione delle imposte in Svizzera: scopri come funziona e cosa devi fare per il Canton',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, imposte, scadenze, deduzioni',
+    ogTitle: 'Guida pratica per la dichiarazione delle imposte in Svizzera: scadenze cantonali, deduzioni ammesse, procedura online. FOCUS sul Canton Lucerna con dati specifici e confronto nazionale.',
+    ogDescription: 'Scadenze cantonali, deduzioni ammesse, procedura online per la dichiarazione delle imposte in Svizzera: scopri come funziona e cosa devi fare per il Canton',
+    canonicalPath: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione imposte in Svizzera: scadenze e deduzioni",
+      "description": "Scadenze cantonali, deduzioni ammesse, procedura online per la dichiarazione delle imposte in Svizzera: scopri come funziona e cosa devi fare per il Canton",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stanza di un ufficio tributario in Svizzera, con funzionari che lavorano alla dichiarazione delle imposte per i residenti del Canton Lucerna."
+      },
+      "datePublished": "2026-07-21T12:44:04+00:00",
+      "dateModified": "2026-07-21T12:44:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
