@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-07-21T12:20:53.434Z",
+  "assembledAt": "2026-07-21T23:16:41.230Z",
   "jobs": [
     {
       "id": "canton-valais-ccea40004fb4",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20135?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:50.596Z",
+      "crawledAt": "2026-07-21T23:16:38.793Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -51,11 +51,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-psychologue-specialiste-des-formations-initiales-60-80-canton-valais-ch"
+        "un-ou-une-psychologue-specialiste-des-formations-initiales-60-80-canton-valais-ch",
+        "uno-psicologo-specializzato-nella-formazione-iniziale-60-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-psychologue-specialiste-des-formations-initiales-60-80-canton-valais-ch"
+          "un-ou-une-psychologue-specialiste-des-formations-initiales-60-80-canton-valais-ch",
+          "uno-psicologo-specializzato-nella-formazione-iniziale-60-80-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-psychologue-specialiste-des-formations-initiales-60-80-canton-valais-ch"
@@ -92,7 +94,7 @@
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
       "titleByLocale": {
-        "it": "Un collaboratore amministrativo (80-100%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)",
         "en": "An administrative collaborator (80-100%)",
         "de": "Ein administrativer Mitarbeiter (80-100%)",
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (80-100%)"
@@ -109,7 +111,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111282&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:49.632Z",
+      "crawledAt": "2026-07-21T23:16:37.922Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -144,7 +146,8 @@
         "a-scientific-collaborator-70-canton-du-valais-sion",
         "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
         "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-        "research-associate-70-canton-du-valais-sion"
+        "research-associate-70-canton-du-valais-sion",
+        "un-collaboratore-amministrativo-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -165,7 +168,8 @@
           "a-scientific-collaborator-70-canton-du-valais-sion",
           "ein-wissenschaftlicher-mitarbeiter-70-canton-du-valais-sion",
           "un-collaborateur-ou-une-collaboratrice-scientifique-70-canton-valais-ch",
-          "research-associate-70-canton-du-valais-sion"
+          "research-associate-70-canton-du-valais-sion",
+          "un-collaboratore-amministrativo-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-80-100-canton-valais",
@@ -189,6 +193,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:09:16.997Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -207,8 +212,8 @@
       "slug": "uno-o-uno-avvocato-80-canton-du-valais-sion",
       "slugByLocale": {
         "it": "uno-o-uno-avvocato-80-canton-du-valais-sion",
-        "en": "one-or-one-lawyer-80-canton-du-valais-sion",
-        "de": "ein-oder-ein-anwalt-80-canton-du-valais-sion",
+        "en": "legal-advisor-80-canton-du-valais-sion",
+        "de": "jurist-80-canton-du-valais-sion",
         "fr": "un-ou-une-juriste-80-canton-valais-ch"
       },
       "company": "Canton du Valais",
@@ -233,7 +238,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101474&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:48.958Z",
+      "crawledAt": "2026-07-21T23:16:37.230Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -252,19 +257,25 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "un-ou-une-juriste-80-canton-valais-ch",
+        "one-or-one-lawyer-80-canton-du-valais-sion",
+        "ein-oder-ein-anwalt-80-canton-du-valais-sion",
+        "uno-o-uno-avvocato-80-canton-du-valais-sion",
         "legal-advisor-80-canton-du-valais-sion",
         "jurist-80-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-juriste-80-canton-valais-ch"
+          "un-ou-une-juriste-80-canton-valais-ch",
+          "uno-o-uno-avvocato-80-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-80-canton-valais-ch",
+          "one-or-one-lawyer-80-canton-du-valais-sion",
           "legal-advisor-80-canton-du-valais-sion"
         ],
         "de": [
           "un-ou-une-juriste-80-canton-valais-ch",
+          "ein-oder-ein-anwalt-80-canton-du-valais-sion",
           "jurist-80-canton-du-valais-sion"
         ]
       },
@@ -313,7 +324,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102451&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-07-21T12:20:48.279Z",
+      "crawledAt": "2026-07-21T23:16:36.504Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -331,11 +342,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einsatzdisponent-in-100-canton-valais-ch"
+        "einsatzdisponent-in-100-canton-valais-ch",
+        "pianificatore-di-distribuzione-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzdisponent-in-100-canton-valais-ch"
+          "einsatzdisponent-in-100-canton-valais-ch",
+          "pianificatore-di-distribuzione-100-canton-du-valais-sion"
         ],
         "en": [
           "einsatzdisponent-in-100-canton-valais-ch"
@@ -389,7 +402,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102355&publication=2628",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:47.612Z",
+      "crawledAt": "2026-07-21T23:16:35.800Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -407,11 +420,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-analyste-criminel-operationnel-ou-une-analyste-criminelle-operationnelle-100-canton"
+        "un-analyste-criminel-operationnel-ou-une-analyste-criminelle-operationnelle-100-canton",
+        "analista-criminale-operativo-o-analista-criminale-operativo-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-analyste-criminel-operationnel-ou-une-analyste-criminelle-operationnelle-100-canton"
+          "un-analyste-criminel-operationnel-ou-une-analyste-criminelle-operationnelle-100-canton",
+          "analista-criminale-operativo-o-analista-criminale-operativo-100-canton-du-valais-sion"
         ],
         "en": [
           "un-analyste-criminel-operationnel-ou-une-analyste-criminelle-operationnelle-100-canton"
@@ -465,7 +480,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20183?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:46.925Z",
+      "crawledAt": "2026-07-21T23:16:34.958Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -483,11 +498,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-e-procureur-e-80-100-canton-valais-ch"
+        "un-e-procureur-e-80-100-canton-valais-ch",
+        "un-procuratore-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-e-procureur-e-80-100-canton-valais-ch"
+          "un-e-procureur-e-80-100-canton-valais-ch",
+          "un-procuratore-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-e-procureur-e-80-100-canton-valais-ch"
@@ -512,9 +529,9 @@
     },
     {
       "id": "canton-valais-371587fe9eb2",
-      "slug": "personale-amministrativo-o-amministrativo-40-canton-du-valais-sierre",
+      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-du-valais-sierre",
       "slugByLocale": {
-        "it": "personale-amministrativo-o-amministrativo-40-canton-du-valais-sierre",
+        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-du-valais-sierre",
         "en": "administrative-staff-or-administrative-staff-40-canton-du-valais-sierre",
         "de": "verwaltungspersonal-oder-verwaltungspersonal-40-canton-du-valais-sierre",
         "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch"
@@ -524,7 +541,7 @@
       "companyDomain": "vs.ch",
       "title": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
       "titleByLocale": {
-        "it": "Personale amministrativo o amministrativo (40%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative (40%)",
         "en": "Administrative staff or administrative staff (40%)",
         "de": "Verwaltungspersonal oder Verwaltungspersonal (40 %)",
         "fr": "Un collaborateur administratif ou une collaboratrice administrative (40%)"
@@ -541,7 +558,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=111908&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:46.300Z",
+      "crawledAt": "2026-07-21T23:16:34.295Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -561,12 +578,14 @@
       "previousSlugs": [
         "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
         "personale-amministrativo-o-personale-amministrativo-40-canton-du-valais-sierre",
+        "personale-amministrativo-o-amministrativo-40-canton-du-valais-sierre",
         "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-du-valais-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-valais-ch",
           "personale-amministrativo-o-personale-amministrativo-40-canton-du-valais-sierre",
+          "personale-amministrativo-o-amministrativo-40-canton-du-valais-sierre",
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-40-canton-du-valais-sierre"
         ],
         "en": [
@@ -577,6 +596,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:06:29.268Z",
+      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600,
       "baseSalary": {
@@ -621,7 +641,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113381&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:45.634Z",
+      "crawledAt": "2026-07-21T23:16:33.566Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -639,11 +659,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+        "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "uno-o-uno-specialista-fiscale-sap-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+          "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+          "uno-o-uno-specialista-fiscale-sap-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-specialiste-en-fiscalite-sap-80-100-duree-determinee-de-5-ans-canton-valais-ch"
@@ -697,7 +719,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112048&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:44.950Z",
+      "crawledAt": "2026-07-21T23:16:32.845Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -715,11 +737,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-juriste-30-canton-valais-ch"
+        "un-ou-une-juriste-30-canton-valais-ch",
+        "uno-o-uno-avvocato-30-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-juriste-30-canton-valais-ch"
+          "un-ou-une-juriste-30-canton-valais-ch",
+          "uno-o-uno-avvocato-30-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-30-canton-valais-ch"
@@ -773,7 +797,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107976&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:44.264Z",
+      "crawledAt": "2026-07-21T23:16:32.111Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -791,11 +815,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
+        "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+        "un-responsabile-dell-informazione-documentaria-50-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
+          "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch",
+          "un-responsabile-dell-informazione-documentaria-50-canton-du-valais-sion"
         ],
         "en": [
           "un-agent-ou-une-agente-en-information-documentaire-50-canton-valais-ch"
@@ -849,7 +875,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110385&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:43.538Z",
+      "crawledAt": "2026-07-21T23:16:31.375Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -867,11 +893,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+        "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+        "2-tassatori-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
+          "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch",
+          "2-tassatori-80-100-durata-fissa-di-5-anni-canton-du-valais-sion"
         ],
         "en": [
           "2-taxateurs-ou-taxatrices-80-100-duree-determinee-de-5-ans-canton-valais-ch"
@@ -925,7 +953,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=107177&publication=2629",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-07-21T12:20:42.863Z",
+      "crawledAt": "2026-07-21T23:16:30.625Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -943,11 +971,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
+        "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+        "uno-o-un-avvocato-80-appuntamento-fisso-fino-al-31-dicembre-2026-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
+          "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton",
+          "uno-o-un-avvocato-80-appuntamento-fisso-fino-al-31-dicembre-2026-canton-du-valais-sion"
         ],
         "en": [
           "un-ou-une-juriste-80-engagement-de-duree-determinee-jusqu-au-31-decembre-2026-canton"
