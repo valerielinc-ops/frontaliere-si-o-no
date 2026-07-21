@@ -53229,6 +53229,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sospensioni-attivita-varesotto-sicurezza': {
+    title: 'Varesotto: 10 aziende sospese per lavoro nero e sicurezza',
+    description: 'Maxi blitz dei Carabinieri nel Varesotto: 12 lavoratori in nero e gravi carenze sulla sicurezza portano alla chiusura di 10 attività e sanzioni per 775mila',
+    keywords: 'frontalieri, ticino, svizzera, italia, varesotto, aziende, sospese, lavoro',
+    ogTitle: 'Varesotto: 10 aziende sospese per lavoro nero e sicurezza',
+    ogDescription: 'Maxi blitz dei Carabinieri nel Varesotto: 12 lavoratori in nero e gravi carenze sulla sicurezza portano alla chiusura di 10 attività e sanzioni per 775mila',
+    canonicalPath: '/articoli-frontaliere/sospensioni-attivita-varesotto-sicurezza',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varesotto: 10 aziende sospese per lavoro nero e sicurezza",
+      "description": "Maxi blitz dei Carabinieri nel Varesotto: 12 lavoratori in nero e gravi carenze sulla sicurezza portano alla chiusura di 10 attività e sanzioni per 775mila",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sospensioni-attivita-varesotto-sicurezza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo di sicurezza presso un'attività produttiva nel Varesotto"
+      },
+      "datePublished": "2026-07-21T09:23:52+00:00",
+      "dateModified": "2026-07-21T09:23:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sospensioni-attivita-varesotto-sicurezza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

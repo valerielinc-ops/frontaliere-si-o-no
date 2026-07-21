@@ -8796,6 +8796,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.title': 'Grenzgänger und Telearbeit: Vereinbarung über 25 % -Grenze veröffentlicht',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.excerpt': 'Vereinbarung über die 25 % -Grenze für Grenzgänger, die in der Schweiz arbeiten, veröffentlicht',
     'blog.article.frontalieri-telelavoro-pubblicato-limite-25.imageAlt': 'Bellinzona, Tessin',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.title': 'Varesotto: 10 Unternehmen wegen Schwarzarbeit und Sicherheit suspendiert',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.excerpt': 'Maxi-Blitz der Carabinieri in Varese: 12 Arbeiter in Schwarz und schwerwiegende Sicherheitsmängel führen zur Schließung von 10 Aktivitäten und Sanktionen in Höhe von 775.000 Euro.',
+    'blog.article.sospensioni-attivita-varesotto-sicurezza.imageAlt': 'Sicherheitsinspektion in einem Produktionsbetrieb in der Provinz Varese',
 };
 
 export default blogMetaDe;
