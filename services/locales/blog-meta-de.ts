@@ -8808,6 +8808,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'Nucleare svizzero minaccia posti',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'Eine ZHAW-Studie warnt: Neue Kernkraftwerke gefährden 5\'800-9\'500 Arbeitsplätze im Bauwesen und erneuerbare Energien innerhalb von 5 Jahren',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Baustelle in Bellinzona mit Arbeitern',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Grenzgänger: Keine Arbeitslosigkeit für die Schweiz',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'Die Schweiz darf den Grenzgängern keine Arbeitslosigkeit zahlen. Motion an den Bundesrat.',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'Ein Frontalier in Lugano, mit der Stadt im Hintergrund',
 };
 
 export default blogMetaDe;

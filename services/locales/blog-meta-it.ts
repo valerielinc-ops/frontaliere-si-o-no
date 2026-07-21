@@ -8810,6 +8810,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.title': 'Il ritorno del nucleare svizzero minaccia migliaia di posti nell\'edilizia',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.excerpt': 'Uno studio ZHAW avverte: nuove centrali nucleari mettono a rischio 5\'800-9\'500 impieghi in edilizia e rinnovabili entro 5 anni',
     'blog.article.nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia.imageAlt': 'Cantiere edile a Bellinzona con operai al lavoro',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Frontalieri: nessuna disoccupazione per la Svizzera',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'La Svizzera non deve versare la disoccupazione ai frontalieri. Mozione al Consiglio federale.',
+    'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'Un frontaliere a Lugano, con la città di fronte',
 };
 
 export default blogMetaIt;

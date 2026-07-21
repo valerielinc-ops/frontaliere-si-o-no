@@ -4804,6 +4804,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo': { name: 'Fiscale', path: '/articoli-svizzera/dichiarazione-imposte-svizzera-guida-2026-canton-san-gallo/', parent: 'blog' },
     'blog-nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia': { name: 'Lavoro a rischio', path: '/articoli-frontaliere/nucleare-svizzero-minaccia-lavoro-frontalieri-edilizia', parent: 'blog' },
     'blog-terzo-pilastro-3a-vantaggi-2026': { name: 'Terzo pilastro 3a', path: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026/', parent: 'blog' },
+    'blog-frontaliereticino-mozione-consiglio-federale': { name: 'Frontalieri e disoccupazione', path: '/articoli-frontaliere/frontaliereticino-mozione-consiglio-federale', parent: 'blog' },
  };
 
  const info = sectionNames[section];
