@@ -26531,6 +26531,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge',
+ category: 'novita',
+ date: '2026-07-21T17:13:39.591Z',
+ image: '/images/blog/telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

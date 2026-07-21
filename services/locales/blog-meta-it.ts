@@ -8831,6 +8831,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deduzioni-smac-frontalieri-2025.title': 'Deduzioni SMAC e frontalieri 2025: simulazioni e impatto fiscale',
     'blog.article.deduzioni-smac-frontalieri-2025.excerpt': 'Analisi degli effetti delle deduzioni SMAC per i lavoratori frontalieri nella dichiarazione dei redditi 2025: guida pratica e simulazioni.',
     'blog.article.deduzioni-smac-frontalieri-2025.imageAlt': 'Vista panoramica su Lugano dal Canton Ticino',
+    'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.title': 'Telelavoro per frontalieri: il Governo approva il disegno di legge',
+    'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.excerpt': 'Il Consiglio dei ministri italiano ha approvato il disegno di legge per ratificare il Protocollo di modifica dell\'Accordo con la Svizzera sull\'imposizione dei lavoratori frontalieri.',
+    'blog.article.telelavoro-per-i-frontalieri-il-governo-italiano-approva-il-disegno-di-legge.imageAlt': 'Un frontaliere ticinese lavora da casa, circondato da libri e documenti.',
 };
 
 export default blogMetaIt;
