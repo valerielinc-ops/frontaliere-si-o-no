@@ -1414,6 +1414,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Orologi svizzeri: esportazioni in netta crescita, ma non basta',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Le esportazioni di orologi svizzeri hanno mostrato un aumento del 11,2% nel giugno 2026, ma il bilancio complessivo rimane debole.',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Immagine di orologi svizzeri esposti in una vetrina di Lugano.',
+    'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, dal 2027 CCL migliorato per il personale di terra',
+    'blog.article.swiss-ccl-migliorato-2027.excerpt': 'La compagnia aerea Swiss ha definito un nuovo contratto collettivo di lavoro che consente di ridurre le ore settimanali da 42 a 40 e aumentare i bonus nel fine settimana.',
+    'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Immagine di un aeroporto svizzero',
 };
 
 export default blogMetaChIt;

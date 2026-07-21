@@ -4238,6 +4238,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'swiss-ccl-migliorato-2027',
+    category: 'fiscale',
+    date: '2026-07-21T10:17:27.154Z',
+    image: '/images/blog/swiss-ccl-migliorato-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

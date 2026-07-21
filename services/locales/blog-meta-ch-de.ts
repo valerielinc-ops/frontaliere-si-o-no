@@ -1414,6 +1414,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.title': 'Schweizer Uhren: Exportwachstum stark, aber nicht genug',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.excerpt': 'Die Schweizer Uhrenexporte legten im Juni 2026 um 11,2% zu, die Bilanz bleibt aber insgesamt schwach.',
     'blog.article.orologi-svizzeri-export-in-netta-crescita-ma-non-basta.imageAlt': 'Bild von Schweizer Uhren in einem Lugano-Shop.',
+    'blog.article.swiss-ccl-migliorato-2027.title': 'Swiss, ab 2027 verbesserter GAV für das Bodenpersonal',
+    'blog.article.swiss-ccl-migliorato-2027.excerpt': 'Die Fluggesellschaft Swiss hat einen neuen Gesamtarbeitsvertrag definiert, der es ermöglicht, die Wochenstunden von 42 auf 40 zu reduzieren und die Boni am Wochenende zu erhöhen.',
+    'blog.article.swiss-ccl-migliorato-2027.imageAlt': 'Schweizer Flughafen',
 };
 
 export default blogMetaChDe;

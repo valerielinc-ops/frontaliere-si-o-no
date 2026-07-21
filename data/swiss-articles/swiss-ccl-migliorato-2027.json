@@ -1,0 +1,40 @@
+{
+  "id": "swiss-ccl-migliorato-2027",
+  "slug": "swiss-ccl-migliorato-2027",
+  "publishedAt": "2026-07-21T10:17:52.639Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 16.03247796457805,
+    "confidence": 0.8,
+    "finalScore": 12.825982371662441,
+    "topK": [
+      {
+        "slug": "nuovo-ccnl-edilizia-ticino-2026-2031",
+        "cosine": 0.8569708681028566
+      },
+      {
+        "slug": "rifugiati-ucraini-assistenza-2027",
+        "cosine": 0.8560449030205909
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8518188458910568
+      },
+      {
+        "slug": "salari-minimi-ccl-ticino-2026",
+        "cosine": 0.8505824151490007
+      },
+      {
+        "slug": "nuovo-contratto-edilizia-ticino-2026-2031",
+        "cosine": 0.8497927073230794
+      }
+    ],
+    "score": 6.4129911858312205,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

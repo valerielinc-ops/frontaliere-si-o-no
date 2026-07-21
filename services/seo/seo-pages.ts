@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3424,
+ "numberOfItems": 3425,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8192,7 +8192,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3421, "name": "Kägi: Esportazioni, problema principale per azi...", "url": `${BASE_URL}/articoli-frontaliere/esportazioni-svizzera-sfide-kagi` },
           { "@type": "ListItem", "position": 3422, "name": "Varesotto: 10 aziende sospese per lavoro nero e...", "url": `${BASE_URL}/articoli-frontaliere/sospensioni-attivita-varesotto-sicurezza` },
           { "@type": "ListItem", "position": 3423, "name": "Orologi svizzeri: esportazioni in netta crescit...", "url": `${BASE_URL}/articoli-frontaliere/orologi-svizzeri-export-in-netta-crescita-ma-non-basta` },
-          { "@type": "ListItem", "position": 3424, "name": "Dell'erba segretario commissione salute e sicur...", "url": `${BASE_URL}/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza` }
+          { "@type": "ListItem", "position": 3424, "name": "Dell'erba segretario commissione salute e sicur...", "url": `${BASE_URL}/articoli-frontaliere/romana-dellerba-nominata-segretario-commissione-salute-e-sicurezza` },
+          { "@type": "ListItem", "position": 3425, "name": "Swiss, dal 2027 CCL migliorato per il personale...", "url": `${BASE_URL}/articoli-frontaliere/swiss-ccl-migliorato-2027` }
  ]
  },
  {
