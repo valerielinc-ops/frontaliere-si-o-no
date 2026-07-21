@@ -25857,7 +25857,7 @@
     },
     {
       "id": "company-hfdxdi",
-      "slug": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
+      "slug": "cloud-engineer-devops-zurich-insurance-sede-ticino-lugano",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "DevOps",
       "location": "Lugano",
@@ -25893,10 +25893,10 @@
         "fr": "#ZCC\n\nLe Centre de capacités de Zurich recrute actuellement :\n\nIngénieur Cloud - DevOps\n\nDans la position Cloud Engineer – DevOps, vous superviserez la conception, la mise en œuvre et la maintenance de nos pipelines CI/CD. Vous comprendrez les méthodologies de développement de logiciels et serez en mesure de travailler avec des équipes de développement, de plate-forme, de sécurité et d'infrastructure pour affiner le processus de livraison de l'infrastructure comme code (IaC).\n\nFonctions essentielles :\n\n- Ingénieur, automatisme et orchestre les processus de fourniture et de maintenance des systèmes à l'aide d'outils et de technologies modernes en nuage. Évaluer, concevoir et mettre en œuvre des technologies de soutien en conformité avec les exigences mondiales et locales.\n\n- Exigences de l'auteur et document de conception pour les services et les modèles publics de cloud à déployer dans l'environnement.\n\n- Gérer les éléments de base pour les services, les ressources et les modèles IaC. Élaborer des normes SDLC pour IaC et s'assurer qu'elles sont communiquées et respectées.\n\n- Résolvez les défis complexes de l'architecture, appliquez les normes architecturales et commencez à les utiliser sur de nouveaux projets.\n\n- Concevoir et construire des solutions de cloud public en utilisant des outils d'automatisation, de formation et de déploiement, dont Terraform, PowerShell, Ansible, Bash.\n\n- Diriger par exemple, contribuer aux révisions de code, la documentation et prendre sur les corrections de bug complexes, en particulier sur les problèmes à haut risque.\n\n- Effectuer des tâches d'administration du système, y compris les déploiements, la configuration, la surveillance des systèmes, le dépannage et le support tout en innovant pour automatiser autant que possible.\n\n- Installer, configurer, maintenir et soutenir des applications, des services et des serveurs dans des environnements publics de cloud.\n\n- de déterminer et de résoudre les problèmes signalés par les systèmes de surveillance et soumis par le système de billetterie.\n\n- Ingénieur et maintien des processus et des procédures opérationnels.\n\n- Mettre l'accent sur le perfectionnement professionnel continu afin de maintenir la connaissance et l'application des pratiques exemplaires actuelles de l'industrie et des concepts de sécurité.\n\n- Présenter un état d'esprit novateur en suggérant des améliorations ainsi que des améliorations en génie et en mettant en oeuvre les recommandations connexes.\n\n- Effectuer d'autres tâches telles que définies, planifiées et approuvées par les dirigeants.\n\nExpérience requise :\n\n- Niveau avancé d'anglais, avec un accent sur les compétences conversationnelles\n\n- Bonne compréhension du processus DevOps, des normes, des meilleures pratiques suivies au niveau de l'entreprise avec Jira, Confluence, Azure DevOps\n\n- Expérience démontrée avec les outils de génie logiciel, de script, d'automatisation et de formation (Terraform, PowerShell, Ansible, GitHub)\n\n- Expérience démontrée fourniture, configuration et maintenance de services de calcul en nuage tels que Azure et AWS.\n\n- Expérience démontrée en administrant, en surveillant et en maintenant les systèmes d'exploitation basés sur les serveurs Microsoft et Linux.\n\n- La compréhension opérationnelle des meilleures pratiques et normes en matière de sécurité en matière de calcul en nuage et de gestion des accès.\n\n- Expérience de la gestion/entretien de l'AWS Sagemaker\n\nExigences en matière d'éducation:\n\n- Baccalauréat en informatique, systèmes d'information ou autre domaine connexe avec une expérience de travail pertinente de 5 ans et plus dans le domaine de l'informatique, ou une expérience équivalente dans le domaine de l'informatique.\n\nSi vous êtes intéressé, veuillez postuler directement via ce lien ou envoyer votre CV à nathalia.huerta@mx.zurich.com\n\nPoste disponible uniquement pour les candidats situés à Mexico, État du Mexique ou à Guadalajara. Veuillez postuler seulement si vous résidez dans l'une de ces régions.\n\nQui sommes-nous\n\nÀ Zurich, des millions de personnes et d'entreprises mettent leur confiance dans nos produits et services chaque jour. Nos 53 000 employés dans le monde entier sont la base de notre succès, leur permettant ainsi d'affronter avec confiance un monde de risques. Imaginez si vous pourriez aider les gens à faire cela partout dans le monde. Vous leur donneriez confiance et vous leur donnerez la confiance en protégeant ce qu'ils aiment le plus.\n\nC'est un grand défi, mais vous serez soutenu par une équipe de classe mondiale qui croit en vous aidant à atteindre votre plein potentiel et à tenir nos promesses.\n\nAlors soyez mis en défi, inspirez-vous, aidez-nous à faire la différence.\n\nNous sommes un employeur à égalité de chances. Nous attirons et conservons les personnes les plus qualifiées disponibles, sans égard à la race/ethnicité, religion, sexe, orientation sexuelle, âge, ou handicap.\n\nEnviar, les candidats ont pris la parole »"
       },
       "slugByLocale": {
-        "it": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
+        "it": "cloud-engineer-devops-zurich-insurance-sede-ticino-lugano",
         "en": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
         "de": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi",
-        "fr": "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
+        "fr": "ingenieur-cloud-devops-zurich-insurance-sede-ticino-lugano"
       },
       "requirementsByLocale": {
         "it": [],
@@ -25912,11 +25912,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "devops-zurich-insurance-sede-ticino-lugano"
+          "devops-zurich-insurance-sede-ticino-lugano",
+          "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
+        ],
+        "fr": [
+          "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
         ]
       },
       "previousSlugs": [
-        "devops-zurich-insurance-sede-ticino-lugano"
+        "devops-zurich-insurance-sede-ticino-lugano",
+        "devops-zurich-insurance-sede-ticino-lugano-hfdxdi"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -25940,7 +25945,7 @@
     },
     {
       "id": "company-ss6gbg",
-      "slug": "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
+      "slug": "esecutivo-di-marketing-zurich-insurance-sede-ticino-lugano",
       "company": "Zurich Insurance (sede Ticino)",
       "title": "Marketing Executive",
       "location": "Lugano",
@@ -25976,9 +25981,9 @@
         "fr": "Résumé de l'emploi\n\nFavoriser la croissance et la rentabilité de tous les produits attribués par la sélection des risques, la tarification, la négociation, les ventes, la rétention et le service de qualité.\n\nResponsabilités en matière d'emploi - Principales responsabilités\n\n• Gérer activement les processus de travail quotidiens des territoires désignés pour atteindre des objectifs opérationnels et stratégiques. • Analyser les besoins, développer et recommander des solutions de rechange pour améliorer les processus, le service à la clientèle ou les produits. • Diriger des projets à court terme (3 à 9 mois), à portée définie. • Développer et maintenir des relations rentables avec les clients nouveaux et existants. • Aider les clients à rencontrer les problèmes de prévention des pertes, à présenter des réclamations et à former les produits. • Former le personnel de la clientèle et de la cellule commerciale stratégique sur les produits et services.\n\n• Fournir des conseils techniques qui permettent à un client de résoudre un problème ou d'améliorer son activité. • Développer et maintenir des relations client positives en rencontrant régulièrement ses clients lorsqu'aucune initiative spécifique n'est en cours. • Anticiper les besoins des clients, suivre les tendances afin de recommander des changements. • Résoudre les problèmes techniques au sein de la fonction ou de l'unité.\n\nQualifications d'emploi requises: • Diplôme d'études secondaires ou équivalent et 1 ou plusieurs années d'expérience dans le domaine des ventes\n\nOU • Zurich Apprenti d'assurance certifié comprenant un diplôme associé et aucune expérience préalable requise dans le domaine des ventes\n\nET • Connaissance des principes de vente, des techniques de vente et de la terminologie des ventes • Connaissance des exigences dans le cadre réglementaire de l'industrie de l'assurance • Connaissance de Microsoft Office • Capacité d'être autorisé à vendre des assurances dans les États où cela est nécessaire\n\nPréféré: • 2 ans ou plus d'expérience en vente • Concédant une licence pour vendre une assurance dans les États lorsque cela est nécessaire • Expérience en analyse des états financiers\n\nResponsabilités des entreprises\n\n• Mener des tâches, telles que la préparation de rapports clients et distributeurs, pour soutenir la mise en œuvre de projets selon les normes de temps et de qualité. • Évaluer et évaluer les processus d'affaires afin de déterminer les possibilités d'amélioration. • Étudier et orienter la recherche/analyse autour des possibilités de développement commercial. • Examiner les cas clients assignés, classer par ordre de priorité les cas et interpréter les politiques établies, en appliquant des pouvoirs discrétionnaires dans les limites des pouvoirs afin de résoudre les problèmes des clients.\n\nVous êtes le cœur et l'âme de Zurich!\n\nA Zurich, nous aimons penser en dehors de la boîte et défier le statu quo. Nous adoptons une approche optimiste en nous concentrant sur la région de la région de la capitale et en demandant constamment ce qui peut aller bien?\n\nNous apprécions beaucoup l'expérience et le savoir-faire de nos collaborateurs et offrons une large gamme d'opportunités dans tous les domaines d'activité pour vous encourager à postuler de nouvelles opportunités à Zurich lorsque vous êtes prêt pour votre prochaine étape de carrière.\n\nLaissez, les gens continuent de grandir ensemble!\n\n- Lieu(x): MY - Kuala Lumpur\n\n- Travail à distance:\n\n- Horaire : plein temps\n\n- Nom du recruteur : Taren Kaur\n\n- Date de clôture:"
       },
       "slugByLocale": {
-        "it": "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
+        "it": "esecutivo-di-marketing-zurich-insurance-sede-ticino-lugano",
         "en": "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
-        "de": "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg",
+        "de": "marketing-manager-zurich-insurance-sede-ticino-lugano",
         "fr": "directeur-du-marketing-zurich-insurance-sede-ticino-lugano-22c2de"
       },
       "requirementsByLocale": {
@@ -25995,11 +26000,16 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "marketing-executive-zurich-insurance-sede-ticino-lugano"
+          "marketing-executive-zurich-insurance-sede-ticino-lugano",
+          "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg"
+        ],
+        "de": [
+          "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg"
         ]
       },
       "previousSlugs": [
-        "marketing-executive-zurich-insurance-sede-ticino-lugano"
+        "marketing-executive-zurich-insurance-sede-ticino-lugano",
+        "marketing-executive-zurich-insurance-sede-ticino-lugano-ss6gbg"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,

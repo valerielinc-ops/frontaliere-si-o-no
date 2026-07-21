@@ -17489,11 +17489,11 @@
     },
     {
       "id": "richemont-61058b9b6a39",
-      "slug": "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates",
+      "slug": "apprendista-operatore-orologeria-afp-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "en": "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates",
-        "it": "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates",
-        "de": "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates",
+        "it": "apprendista-operatore-orologeria-afp-vacheron-constantin-plan-les-ouates",
+        "de": "auszubildender-uhrmacher-afp-vacheron-constantin-plan-les-ouates",
         "fr": "apprenti-operateur-en-horlogerie-afp-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
@@ -17549,7 +17549,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T12:05:32.897Z"
+      "firstSeenAt": "2026-07-20T12:05:32.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-operateur-en-horlogerie-afp-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-e296613ecf43",
@@ -17631,12 +17642,12 @@
     },
     {
       "id": "richemont-7b08ec9bdf50",
-      "slug": "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates",
+      "slug": "apprendista-orologiaio-di-produzione-cfc-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "fr": "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates",
-        "it": "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates",
+        "it": "apprendista-orologiaio-di-produzione-cfc-vacheron-constantin-plan-les-ouates",
         "en": "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates",
-        "de": "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates"
+        "de": "lehrling-fur-die-fertigung-von-uhren-cfc-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -17691,7 +17702,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-20T12:05:32.893Z"
+      "firstSeenAt": "2026-07-20T12:05:32.893Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-horloger-de-production-cfc-richemont-plan-les-ouates"
+      ]
     },
     {
       "id": "richemont-b628d24bcb76",
