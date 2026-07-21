@@ -8811,6 +8811,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliereticino-mozione-consiglio-federale.title': 'Grenzgänger: Keine Arbeitslosigkeit für die Schweiz',
     'blog.article.frontaliereticino-mozione-consiglio-federale.excerpt': 'Die Schweiz darf den Grenzgängern keine Arbeitslosigkeit zahlen. Motion an den Bundesrat.',
     'blog.article.frontaliereticino-mozione-consiglio-federale.imageAlt': 'Ein Frontalier in Lugano, mit der Stadt im Hintergrund',
+    'blog.article.telelavoro-frontalieri-nuove-regole.title': 'Telearbeit für Grenzgänger: Neue Smart-Working-Regeln',
+    'blog.article.telelavoro-frontalieri-nuove-regole.excerpt': 'Neue Regeln für Grenzgänger zwischen Italien und der Schweiz: Smart Working bis zu 25% der Arbeitszeit ohne Verlust des Status und der Steuerpflicht in der Schweiz.',
+    'blog.article.telelavoro-frontalieri-nuove-regole.imageAlt': 'Heimbüro mit Blick auf den Luganersee für Grenzgänger-Telearbeit',
 };
 
 export default blogMetaDe;

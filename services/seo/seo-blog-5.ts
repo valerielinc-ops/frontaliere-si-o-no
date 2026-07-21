@@ -53424,6 +53424,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontalieri-nuove-regole': {
+    title: 'Telelavoro per frontalieri: nuove regole smart working',
+    description: 'Nuove norme per frontalieri Italia-Svizzera: smart working fino al 25% dell\'orario senza perdere lo status. Scopri i limiti e le regole fiscali. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, nuove, regole, smart',
+    ogTitle: 'Telelavoro frontalieri: nuove regole smart working',
+    ogDescription: 'Smart working fino al 25% dell\'orario per i frontalieri senza perdere lo status. Ecco cosa cambia con la Legge 217/2025.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-nuove-regole',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro per frontalieri: nuove regole smart working",
+      "description": "Nuove norme per frontalieri Italia-Svizzera: smart working fino al 25% dell'orario senza perdere lo status. Scopri i limiti e le regole fiscali. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-nuove-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio domestico con vista sul Lago di Lugano per telelavoro frontalieri"
+      },
+      "datePublished": "2026-07-21T12:56:49+00:00",
+      "dateModified": "2026-07-21T12:56:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-nuove-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
