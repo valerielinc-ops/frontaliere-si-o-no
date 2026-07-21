@@ -305,7 +305,7 @@ function buildJob(listing, detail) {
   // Contract type from bulletFields / workerSubType
   let contractType = 'permanent';
   const lowerTitle = title.toLowerCase();
-  if (/\bintern(?:ship)?s?(?=\W|$)/.test(lowerTitle) || lowerTitle.includes('praktikum')) {
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(lowerTitle) || lowerTitle.includes('praktikum')) {
     contractType = 'internship';
   } else if (lowerTitle.includes('apprentice') || lowerTitle.includes('lehre') || lowerTitle.includes('schnupperlehre')) {
     contractType = 'apprenticeship';

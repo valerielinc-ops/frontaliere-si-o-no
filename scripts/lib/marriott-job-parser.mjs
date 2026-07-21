@@ -163,7 +163,7 @@ function detectCategory(title = '', jobField = '') {
 
 function detectExperienceLevel(title = '', accountName = '') {
   const t = (title + ' ' + accountName).toLowerCase();
-  if (/\b(stagiaire|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|apprenti|voyage.?program|praktik|trainee)/.test(t)) return 'intern';
+  if (/\b(stagiaire|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|voyage.?program|praktik|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(director|head|chef.?de|manager|supervisor|lead|senior|sr|verantwort|responsab)/.test(t)) return 'senior';
   if (/\b(management)/.test(t) && !/non-management/i.test(t)) return 'senior';

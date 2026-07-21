@@ -122,13 +122,13 @@ function detectCategory(title = '', dept = '') {
   if (/\b(market|kommunik|comunicaz|communica)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
   if (/\b(legal|giurid|recht|juridique)/.test(t)) return 'Legale';
-  if (/\b(apprenti|stagiair|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|praktik)/.test(t)) return 'Stage';
+  if (/\b(apprenti|stagiair|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|praktik)/.test(t)) return 'Stage';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '', dept = '') {
   const t = normalize(`${title} ${dept}`);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(post.?doc|postdoc)/.test(t)) return 'mid';
   if (/\b(phd|doctora|doctorant)/.test(t)) return 'junior';
   if (/\b(junior|jr)/.test(t)) return 'junior';
@@ -140,7 +140,7 @@ function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein|cdi|cdd)/.test(t)) return 'FULL_TIME';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagiair|praktik|apprenti)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|praktik|apprenti)/.test(t)) return 'INTERN';
   return 'OTHER';
 }
 

@@ -183,7 +183,7 @@ function parseContract(summary = '') {
   if (!txt) return '';
   if (txt.includes('tempo pieno') || txt.includes('(100%)')) return 'Full-time';
   if (txt.includes('tempo parziale') || txt.includes('grado di occupazione')) return 'Part-time';
-  if (/\bstages?(?=\W|$)/.test(txt) || txt.includes('tirocin')) return 'Stage';
+  if (/\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(txt) || txt.includes('tirocin')) return 'Stage';
   return '';
 }
 

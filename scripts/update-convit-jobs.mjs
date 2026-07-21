@@ -129,7 +129,7 @@ function inferCategory(title = '') {
   const haystack = normalize(title);
   if (/finanz|financial|pianificaz|budgeting/i.test(haystack)) return 'finance';
   if (/sales|vendita|consulen|consultant/i.test(haystack)) return 'sales';
-  if (/\b(tirocinante|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|junior)/i.test(haystack)) return 'internship';
+  if (/\b(tirocinante|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|junior)/i.test(haystack)) return 'internship';
   if (/marketing|communication/i.test(haystack)) return 'marketing';
   if (/admin|segretari|assistente/i.test(haystack)) return 'admin';
   return 'finance';

@@ -154,7 +154,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti|trainee|graduate)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|trainee|graduate)/.test(t)) return 'intern';
   if (/\b(junior|jr)\b/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|leiter|leitung)/.test(t)) return 'senior';
   return 'mid';
@@ -162,7 +162,7 @@ function detectExperienceLevel(title = '') {
 
 function detectEmploymentType(text = '') {
   const t = normalize(text);
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagiair|praktik)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|praktik)/.test(t)) return 'INTERN';
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(tempor|befristet|fixed.?term|cdd|temporaire)/.test(t)) return 'CONTRACTOR';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';

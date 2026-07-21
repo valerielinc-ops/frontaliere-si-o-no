@@ -146,7 +146,7 @@ function detectExperienceLevel(title = '', entryLevel = '') {
   const t = normalize(title);
   const e = normalize(entryLevel);
   const signal = `${t} ${e}`;
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti|werkstudent|teilzeitstudent)/.test(signal)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|werkstudent|teilzeitstudent)/.test(signal)) return 'intern';
   if (/\b(junior|jr|berufseinsteiger|assistent)/.test(signal)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|leiter|leitend|teamleiter|abteilungsleiter)/.test(signal)) return 'senior';
   return 'mid';

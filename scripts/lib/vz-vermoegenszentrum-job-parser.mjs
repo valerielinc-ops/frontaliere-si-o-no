@@ -134,14 +134,14 @@ function detectCategory(title = '', department = '') {
   if (/\b(recht|compliance|risk|legal|giurid)/.test(t)) return 'Legale';
   if (/\b(hr\b|human resources|personal)/.test(t)) return 'Risorse Umane';
   if (/\b(firmenkund|corporate)/.test(t)) return 'Clienti Corporate';
-  if (/\b(lehre|praktik|stages?(?=\W|$)|apprendist|lernend)/.test(t)) return 'Formazione';
+  if (/\b(lehre|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lernend)/.test(t)) return 'Formazione';
   if (/\b(backoffice|administration|services)/.test(t)) return 'Amministrazione';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|leiter)/.test(t)) return 'senior';
   return 'mid';

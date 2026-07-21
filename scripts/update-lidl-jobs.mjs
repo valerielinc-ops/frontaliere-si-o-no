@@ -212,7 +212,7 @@ function normalizeLidlContract(raw = '') {
   if (value.includes('apprend') || value.includes('lehre') || value.includes('apprent')) return 'Apprendistato';
   if (value.includes('teilzeit') || value.includes('part-time') || value.includes('part time')) return 'Part-time';
   if (value.includes('vollzeit') || value.includes('full-time') || value.includes('full time')) return 'Full-time';
-  if (/\bstages?(?=\W|$)/.test(value) || value.includes('praktikum') || /\bintern(?:ship)?s?(?=\W|$)/.test(value)) return 'Stage';
+  if (/\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(value) || value.includes('praktikum') || /\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(value)) return 'Stage';
   return String(raw || '').trim();
 }
 

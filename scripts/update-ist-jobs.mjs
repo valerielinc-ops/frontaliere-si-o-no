@@ -391,7 +391,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(junior|assistant|aide|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|trainee|apprenti)/i.test(t)) return 'ENTRY';
+  if (/\b(junior|assistant|aide|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|trainee|apprenti)/i.test(t)) return 'ENTRY';
   if (/senior|head|director|principal|lead|chief|coordinator/i.test(t)) return 'SENIOR';
   return 'MID';
 }

@@ -158,7 +158,7 @@ export function inferPwcCategory(title = '', description = '') {
   if (/(human\s*resource|hr\b|talent|recruit|people|personale)/i.test(text)) return 'hr';
   if (/(finance|finanz|contabil|buchhalt|accounting|controller)/i.test(text)) return 'finance';
   if (/(admin|assist|segretari|office|reception)/i.test(text)) return 'admin';
-  if (/\b(apprendist|apprenti|lehrling|praktik|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|trainee)/i.test(text)) return 'apprenticeship';
+  if (/\b(apprendist|apprenti|lehrling|praktik|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|trainee)/i.test(text)) return 'apprenticeship';
 
   return 'consulting';
 }

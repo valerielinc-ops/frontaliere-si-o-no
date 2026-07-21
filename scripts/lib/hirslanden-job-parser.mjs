@@ -99,7 +99,7 @@ export function detectEmploymentType(text = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|lehrling|lernend|apprenti|ausbildung|trainee|studierend)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend|apprenti|ausbildung|trainee|studierend)/.test(t)) return 'intern';
   if (/junior|jr\b/.test(t)) return 'junior';
   if (/senior|sr\b|lead|head|director|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt|manager/.test(t)) return 'senior';
   return 'mid';

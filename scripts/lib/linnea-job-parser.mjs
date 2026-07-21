@@ -101,7 +101,7 @@ export function detectCategory(title = '') {
 }
 
 export function detectExperienceLevel(title = '') {
-  if (/\b(junior|jr\.?|entry|intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagist)/i.test(title)) return 'ENTRY';
+  if (/\b(junior|jr\.?|entry|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist)/i.test(title)) return 'ENTRY';
   if (/senior|sr\.?|lead|head|director|manager|principal/i.test(title)) return 'SENIOR';
   return 'MID';
 }

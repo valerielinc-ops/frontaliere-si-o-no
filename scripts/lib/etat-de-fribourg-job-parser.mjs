@@ -157,7 +157,7 @@ function detectCategory(title = '', dept = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stagiaire|stages?(?=\W|$)|apprenti|apprentissage|praktikant|praktikum|lehrling|lernende|schnupperlehre)/.test(t)) return 'intern';
+  if (/\b(stagiaire|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprentissage|praktikant|praktikum|lehrling|lernende|schnupperlehre)/.test(t)) return 'intern';
   if (/\b(junior|jr\.)/.test(t)) return 'junior';
   if (/\b(senior|sr\.|chef|responsable|directeur|directrice|leiter|leiterin|verantwortlich|chargé.e? de direction)/.test(t)) return 'senior';
   return 'mid';

@@ -86,7 +86,7 @@ function detectCategory(title = '') {
   if (/\b(pflege|pflegefach|fage|spitex|nachtwache)/.test(t)) return 'Sanità / Ospedali';
   if (/\b(sozial|sozialarbeit|sozialpädag|sozialberat|sozialhilfe|sozialp[aä]d|psycho|berater|beratung)/.test(t)) return 'Sociale / Educazione';
   if (/\b(arzt|ärztin|medizin|gesundheit)/.test(t)) return 'Sanità / Ospedali';
-  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|lehrling|lernend|apprenti|youngcaritas)/.test(t)) return 'Formazione';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend|apprenti|youngcaritas)/.test(t)) return 'Formazione';
   if (/\b(admin|sekret|buchhalt|sachbearbeiter|finanz|controll|account)/.test(t)) return 'Amministrazione';
   if (/\b(hr|human|personal|talent|recruit)/.test(t)) return 'Risorse Umane';
   if (/\b(laden|markt|verkauf|kasse|shop)/.test(t)) return 'Vendite';
@@ -100,7 +100,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|lehrling|lernend|apprenti|trainee|youngcaritas)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend|apprenti|trainee|youngcaritas)/.test(t)) return 'intern';
   if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|chef|verantwort|leiter|leitend|teamleit|ladenleit|fachbereich|geschäftsführ)/.test(t)) return 'senior';
   return 'mid';

@@ -322,7 +322,7 @@ function detectCategoryFromRef(ref = '', title = '') {
   if (/cuisine|restauration|h[ôo]tel|gastronom/.test(r)) return 'Ospitalità';
   if (/logistique|achat|transport|magasin/.test(r)) return 'Logistica';
   if (/marketing|communication/.test(r)) return 'Marketing';
-  if (/\b(apprenti|stages?(?=\W|$)|stagiair|formation)/.test(r)) return 'Formazione';
+  if (/\b(apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|formation)/.test(r)) return 'Formazione';
   return 'Sanità / Ospedali'; // default for healthcare employers
 }
 

@@ -112,7 +112,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -275,7 +275,7 @@ function mapEmploymentType(raw = '', title = '') {
   const t = normalize(raw);
   if (/part.?time|teilzeit|temps partiel|tempo parziale/.test(t)) return 'PART_TIME';
   if (/full.?time|vollzeit|temps plein|tempo pieno/.test(t)) return 'FULL_TIME';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|praktik|stages?(?=\W|$)|trainee)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|trainee)/.test(t)) return 'INTERN';
   if (/temporary|befristet|temporär/.test(t)) return 'TEMPORARY';
   // Fall back to the title's workload percent hint (IKEA titles end in e.g.
   // "... 50%" / "... 100%"): <100% → part-time, 100% → full-time.

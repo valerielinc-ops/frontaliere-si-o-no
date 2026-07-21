@@ -92,7 +92,7 @@ function detectCategory(title = '') {
   if (/\b(dentiste|dentista|zahnarzt|orthodontiste|hygi[eè]niste|hygieniste|assistant.?e?\s*dentaire)/.test(t)) return 'Sanità';
   if (/\b(m[ée]decin|doctor|chirurg|infirmi|nurse|aide.?soign|soin)/.test(t)) return 'Sanità';
   if (/\b(secr[eé]taire|reception|admin|comptab|administra)/.test(t)) return 'Amministrazione';
-  if (/\b(apprenti|stages?(?=\W|$)|stagiair|lehrling|lernend)/.test(t)) return 'Sanità';
+  if (/\b(apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|lehrling|lernend)/.test(t)) return 'Sanità';
   if (/\b(it|software|develop|programm|informatique)/.test(t)) return 'IT';
   if (/\b(market|kommunik|comunicaz|communication)/.test(t)) return 'Marketing';
   if (/\b(hr|human|risorse|personal|ressources humaines)/.test(t)) return 'Risorse Umane';
@@ -102,7 +102,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(apprenti|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|lehrling|lernend)/.test(t)) return 'intern';
+  if (/\b(apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|lehrling|lernend)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|chef|responsab|directeur|directrice|head|lead|leiter)/.test(t)) return 'senior';
   return 'mid';
@@ -112,7 +112,7 @@ function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  if (/\b(stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|stagiair|apprenti)/.test(t)) return 'INTERN';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|apprenti)/.test(t)) return 'INTERN';
   if (/\b(cdd|temporary|tempor|befristet|fixed.?term)/.test(t)) return 'CONTRACTOR';
   return 'OTHER';
 }

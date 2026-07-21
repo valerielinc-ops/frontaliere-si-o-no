@@ -180,11 +180,11 @@ function detectCategory(title = '', fieldOfActivity = '') {
 function detectExperienceLevel(careerLevel = '', title = '') {
   const level = normalize(careerLevel);
   if (/entry|graduate|junior|einsteiger/.test(level)) return 'junior';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|apprentice|trainee|lehrling|lernend)/.test(level)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprentice|trainee|lehrling|lernend)/.test(level)) return 'intern';
   if (/senior|lead|head|director|manager|geschäftsführ/.test(level)) return 'senior';
 
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti|trainee)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|leiter|geschäftsführ)/.test(t)) return 'senior';
   return 'mid';

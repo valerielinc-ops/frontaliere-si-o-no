@@ -106,7 +106,7 @@ function inferCategory(detail = {}) {
   const haystack = normalize([detail.title, detail.description].filter(Boolean).join(' '));
   if (/(developer|engineer|platform|data|it|technical|identity)/.test(haystack)) return 'tech';
   if (/(banking|reporting|business analyst|operations analyst|trade processing)/.test(haystack)) return 'finance';
-  if (/\b(apprendista|internship|intern(?:ship)?s?(?=\W|$))/.test(haystack)) return 'internship';
+  if (/\b(apprendista|internship|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(haystack)) return 'internship';
   return 'other';
 }
 

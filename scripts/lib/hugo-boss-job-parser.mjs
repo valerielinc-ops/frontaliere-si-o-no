@@ -180,7 +180,7 @@ export function detectCategory(title = '') {
   const t = title.toLowerCase();
   if (/designer|design|creative|visual|3d|artist/i.test(t)) return 'design';
   if (/developer|software|engineer|it\b|tech|data|automation/i.test(t)) return 'technology';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagist|practic)/i.test(t)) return 'internship';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist|practic)/i.test(t)) return 'internship';
   if (/sales|retail|store|vendita|advisor/i.test(t)) return 'sales';
   if (/account|financ|controller|treasury/i.test(t)) return 'finance';
   if (/hr|human|recruit|people/i.test(t)) return 'hr';
@@ -195,7 +195,7 @@ export function detectCategory(title = '') {
  * Detect experience level from title.
  */
 export function detectExperienceLevel(title = '') {
-  if (/\b(intern(?:ship)?s?(?=\W|$)|jr\.?|junior|entry|stages?(?=\W|$)|stagist|apprenti)/i.test(title)) return 'ENTRY';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|jr\.?|junior|entry|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist|apprenti)/i.test(title)) return 'ENTRY';
   if (/senior|sr\.?|lead|head|director|manager|principal|vp/i.test(title)) return 'SENIOR';
   return 'MID';
 }

@@ -295,7 +295,7 @@ function isZegnaSwissLocation(detail) {
 function detectEmploymentType(contractType = '') {
   const ct = contractType.toLowerCase();
   if (ct.includes('temporary') || ct.includes('fixed term') || ct.includes('seasonal')) return 'TEMPORARY';
-  if (ct.includes('internship') || /\bstages?(?=\W|$)/.test(ct)) return 'INTERN';
+  if (ct.includes('internship') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(ct)) return 'INTERN';
   if (ct.includes('apprentice')) return 'APPRENTICESHIP';
   return 'FULL_TIME';
 }

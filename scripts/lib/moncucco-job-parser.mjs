@@ -197,7 +197,7 @@ function detectCategory(title = '') {
 }
 
 function detectExperienceLevel(title = '') {
-  if (/\b(stages?(?=\W|$)|stagiair|apprendist|junior|tirocinant)/i.test(title)) return 'ENTRY';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|apprendist|junior|tirocinant)/i.test(title)) return 'ENTRY';
   if (/senior|capo|responsabil|dirigent|primario|chef/i.test(title)) return 'SENIOR';
   return 'MID';
 }

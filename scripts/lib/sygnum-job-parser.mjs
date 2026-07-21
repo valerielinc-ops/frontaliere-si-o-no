@@ -201,7 +201,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(intern(?:ship)?s?(?=\W|$)|internship|apprentice|trainee)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|internship|apprentice|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|principal)/.test(t)) return 'senior';
   return 'mid';
@@ -214,12 +214,12 @@ function detectExperienceLevel(title = '') {
  */
 function mapEmploymentType(raw = '', title = '') {
   const r = normalize(raw);
-  if (/\b(intern(?:ship)?s?(?=\W|$))/.test(r)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(r)) return 'INTERN';
   if (/part.?time/.test(r)) return 'PART_TIME';
   if (/(permanent|full.?time)/.test(r)) return 'FULL_TIME';
 
   const t = normalize(title);
-  if (/\b(intern(?:ship)?s?(?=\W|$)|internship|apprentice)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|internship|apprentice)/.test(t)) return 'INTERN';
   if (/\bpart.?time\b/.test(t)) return 'PART_TIME';
   return 'FULL_TIME';
 }

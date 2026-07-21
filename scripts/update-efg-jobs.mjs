@@ -88,7 +88,7 @@ function mapOracleRequisitionType(requisitionType) {
   if (!requisitionType) return 'permanent';
   const type = String(requisitionType).trim().toLowerCase();
   if (type.includes('temporary') || type.includes('fixed term')) return 'temporary';
-  if (type.includes('internship') || /\bstages?(?=\W|$)/.test(type)) return 'internship';
+  if (type.includes('internship') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(type)) return 'internship';
   return 'permanent';
 }
 

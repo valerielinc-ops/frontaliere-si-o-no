@@ -98,7 +98,7 @@ function normalize(value = '') {
  */
 function detectTlLausanneCategory(title = '') {
   const t = normalize(title);
-  if (/\b(stages?(?=\W|$)|stagiaire|apprenti|apprend|formaz|lernend)/.test(t)) return 'Formazione';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|apprenti|apprend|formaz|lernend)/.test(t)) return 'Formazione';
   if (/conducteur|conductrice|chauffeur|wattman|machiniste/.test(t)) return 'Guida / Conduzione';
   if (/mécanicien|mecanicien|électricien|electricien|technicien de maintenance|maintenance/.test(t)) return 'Tecnica';
   if (/ingénieur|ingenieur|engineer/.test(t)) return 'Ingegneria';

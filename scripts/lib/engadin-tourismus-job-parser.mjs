@@ -155,7 +155,7 @@ function detectCategory(title = '') {
   const t = title.toLowerCase();
   if (/multimedia|video|foto|media|content|kommunikation/i.test(t)) return 'marketing';
   if (/kauffrau|kaufmann|commercial|administration/i.test(t)) return 'admin';
-  if (/\b(lehr|ausbildung|apprent|stages?(?=\W|$))/i.test(t)) return 'apprenticeship';
+  if (/\b(lehr|ausbildung|apprent|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/i.test(t)) return 'apprenticeship';
   if (/tourismus|tourism|reise|hotel|gastro/i.test(t)) return 'tourism';
   if (/it\b|developer|software|engineer|data/i.test(t)) return 'technology';
   if (/marketing|sales|vertrieb/i.test(t)) return 'sales';
@@ -163,7 +163,7 @@ function detectCategory(title = '') {
 }
 
 function detectExperienceLevel(title = '') {
-  if (/\b(lehr|ausbildung|intern(?:ship)?s?(?=\W|$)|junior|entry|stages?(?=\W|$)|apprent|praktik)/i.test(title)) return 'ENTRY';
+  if (/\b(lehr|ausbildung|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|junior|entry|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprent|praktik)/i.test(title)) return 'ENTRY';
   if (/senior|lead|head|director|manager|chef/i.test(title)) return 'SENIOR';
   return 'MID';
 }

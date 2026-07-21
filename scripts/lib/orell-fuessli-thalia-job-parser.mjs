@@ -174,7 +174,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(lernend|lehrling|efz|praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|apprenti)/.test(t)) return 'intern';
+  if (/\b(lernend|lehrling|efz|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(filialleit|abteilungsleit|senior|sr|lead|head|director|dirett|chef|verantwort|responsab|stv\.?\s*filialleit)/.test(t)) return 'senior';
   return 'mid';
@@ -188,7 +188,7 @@ export function detectExperienceLevel(title = '') {
  */
 export function detectEmploymentType(title = '') {
   const t = normalize(title);
-  if (/\b(lernend|lehrling|efz|praktik|stages?(?=\W|$)|stagiair|apprendist|apprenti)/.test(t)) return 'INTERN';
+  if (/\b(lernend|lehrling|efz|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|apprendist|apprenti)/.test(t)) return 'INTERN';
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
   const pctMatch = t.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || t.match(/(\d{2,3})\s*%/);
   if (pctMatch) {

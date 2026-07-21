@@ -192,7 +192,7 @@ export function detectEmploymentType(jobTypeLabel = '') {
   const t = String(jobTypeLabel || '').toLowerCase();
   if (/part.?time/.test(t)) return 'PART_TIME';
   if (/full.?time/.test(t)) return 'FULL_TIME';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|apprentice|trainee)/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprentice|trainee)/.test(t)) return 'INTERN';
   if (/contract|temporary/.test(t)) return 'CONTRACTOR';
   return 'FULL_TIME';
 }
@@ -201,7 +201,7 @@ export function detectEmploymentType(jobTypeLabel = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = String(title || '').toLowerCase();
-  if (/\b(intern(?:ship)?s?(?=\W|$)|apprentice|trainee|working student|werkstudent)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprentice|trainee|working student|werkstudent)/.test(t)) return 'intern';
   if (/junior|jr\b/.test(t)) return 'junior';
   if (/senior|sr\b|lead|head|director|manager|principal/.test(t)) return 'senior';
   return 'mid';

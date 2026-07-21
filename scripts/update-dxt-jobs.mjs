@@ -284,7 +284,7 @@ function detectCategory(title = '') {
   if (/analyst|analista/i.test(t)) return 'finance';
   if (/engineer|developer|sviluppat/i.test(t)) return 'technology';
   if (/trader|trading|trader/i.test(t)) return 'trading';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$)|stagist)/i.test(t)) return 'internship';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist)/i.test(t)) return 'internship';
   return 'general';
 }
 

@@ -331,13 +331,13 @@ function detectCategory(title = '', categoryLabel = '') {
   if (/vendita|shop|negozio|commerc/i.test(t)) return 'sales';
   if (/ristoran|cuoc|cucin|servizio/i.test(t)) return 'hospitality';
   if (/pulizia|manutenz/i.test(t)) return 'operations';
-  if (/\b(stages?(?=\W|$)|stagiaire|stagist)/i.test(t)) return 'internship';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|stagist)/i.test(t)) return 'internship';
   return 'general';
 }
 
 function detectExperienceLevel(title = '', categoryLabel = '') {
   const t = normalize(title);
-  if (/\b(apprendist|tirocinio|afc|cfp|stages?(?=\W|$)|stagist|stagiaire|aiuto)/i.test(t) || /tirocinio/i.test(categoryLabel))
+  if (/\b(apprendist|tirocinio|afc|cfp|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagist|stagiaire|aiuto)/i.test(t) || /tirocinio/i.test(categoryLabel))
     return 'ENTRY';
   if (/senior|capo|dirett|manager|head|responsabile/i.test(t)) return 'SENIOR';
   return 'MID';

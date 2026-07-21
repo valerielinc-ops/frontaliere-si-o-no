@@ -33,7 +33,7 @@ export const OTTOS_COMPANY_DOMAIN = 'ottos.ch';
  */
 function ottosCategoryFn(text = '') {
   const t = String(text || '').toLowerCase();
-  if (/\b(lehrling|lernend|apprenti|stages?(?=\W|$)|stagiair|tirocin|praktik|ausbildung|formazione)/.test(t)) return 'Formazione';
+  if (/\b(lehrling|lernend|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|tirocin|praktik|ausbildung|formazione)/.test(t)) return 'Formazione';
   if (/filialleit|geschäftsführ|store\s*manager|abteilungsleit|teamleit|direzione|responsabile.{0,15}filiale|responsable.{0,15}magasin|leiter\b|leitung\b/.test(t)) return 'Management';
   if (/logist|lager|magazz|einkauf|transport|approvvig|distribution|distribuz|warendisposition/.test(t)) return 'Logistica';
   if (/\bhr\b|human resources|personal(?:abteilung|dienst|wesen)?|recruit|risorse umane|ressources humaines/.test(t)) return 'Risorse Umane';

@@ -187,7 +187,7 @@ function detectEmploymentType(activityRate = '', title = '') {
   const t = normalize(title);
   if (r.includes('plein') || /100\s*%/.test(r)) return 'FULL_TIME';
   if (r.includes('partiel')) return 'PART_TIME';
-  if (/\b(stagiair|apprenti|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$))/.test(t)) return 'INTERN';
+  if (/\b(stagiair|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
   // Range like "80% - 100%": treat as full when upper bound >= 90, else part
   const m = r.match(/(\d{1,3})\s*%\s*[-–]\s*(\d{1,3})\s*%/);
   if (m) {
@@ -199,7 +199,7 @@ function detectEmploymentType(activityRate = '', title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stagiair|apprenti|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$)|étudiant|etudiant|lehrling)/.test(t)) return 'intern';
+  if (/\b(stagiair|apprenti|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|étudiant|etudiant|lehrling)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|chef|responsable|directeur|directrice|cadre|head|lead)/.test(t)) return 'senior';
   return 'mid';

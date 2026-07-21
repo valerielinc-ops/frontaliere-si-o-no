@@ -105,7 +105,7 @@ function detectCategory(title = '', department = '') {
 
 function detectExperienceLevel(title = '', experienceLevel = '') {
   const t = normalize(`${title} ${experienceLevel}`);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
   if (/\b(junior|jr|entry)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|manager)/.test(t)) return 'senior';
   return 'mid';
@@ -120,7 +120,7 @@ function mapEmploymentType(apiType = '') {
   if (t.includes('part_time') || t.includes('part-time')) return 'PART_TIME';
   if (t.includes('full_time') || t.includes('fulltime') || t.includes('full-time')) return 'FULL_TIME';
   if (t.includes('freelance') || t.includes('contract') || t.includes('contractor')) return 'CONTRACTOR';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$))/.test(t)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'INTERN';
   if (t.includes('temporary') || t.includes('temp')) return 'TEMPORARY';
   return 'OTHER';
 }
@@ -133,7 +133,7 @@ function mapContract(apiType = '') {
   if (t.includes('freelance')) return 'freelance';
   if (t.includes('part_time') || t.includes('part-time')) return 'part-time';
   if (t.includes('full_time') || t.includes('fulltime') || t.includes('full-time')) return 'full-time';
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$))/.test(t)) return 'internship';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'internship';
   return 'full-time';
 }
 

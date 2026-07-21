@@ -140,7 +140,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(stages?(?=\W|$)|stagiaire|apprenti|apprentissage)/.test(t)) return 'intern';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|apprenti|apprentissage)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|responsable|chef|directeur|directrice|adjoint)/.test(t)) return 'senior';
   return 'mid';

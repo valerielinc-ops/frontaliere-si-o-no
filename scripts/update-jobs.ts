@@ -961,7 +961,7 @@ function categorizeJob(title: string): JobCategory {
 function detectContractType(text: string): ContractType {
   const lower = text.toLowerCase();
   if (lower.includes('part-time') || lower.includes('part time') || lower.includes('tempo parziale')) return 'part-time';
-  if (lower.includes('internship') || /\bstages?(?=\W|$)/.test(lower) || lower.includes('tirocinio')) return 'internship';
+  if (lower.includes('internship') || /\bstages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(lower) || lower.includes('tirocinio')) return 'internship';
   if (lower.includes('contract') || lower.includes('temporaneo') || lower.includes('determinato')) return 'contract';
   return 'full-time';
 }

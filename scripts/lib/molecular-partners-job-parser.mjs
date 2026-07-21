@@ -114,7 +114,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(intern(?:ship)?s?(?=\W|$)|internship|trainee|apprentice|phd student)/.test(t)) return 'intern';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|internship|trainee|apprentice|phd student)/.test(t)) return 'intern';
   if (/\b(junior|jr\.?)/.test(t)) return 'junior';
   if (/\b(senior|sr\.?|lead|head|director|principal|manager|vp|vice president|chief)/.test(t)) return 'senior';
   return 'mid';

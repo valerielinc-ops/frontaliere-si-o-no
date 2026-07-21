@@ -94,10 +94,10 @@ function detectEmploymentType(details = {}) {
   if (duration.includes('parttime') || duration.includes('partial')) return 'PART_TIME';
   if (duration.includes('fulltime') || duration.includes('full')) {
     if (type.includes('temp') || type.includes('cdd') || type.includes('fixed')) return 'CONTRACTOR';
-    if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$))/.test(type)) return 'INTERN';
+    if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(type)) return 'INTERN';
     return 'FULL_TIME';
   }
-  if (/\b(intern(?:ship)?s?(?=\W|$)|stages?(?=\W|$))/.test(type)) return 'INTERN';
+  if (/\b(intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(type)) return 'INTERN';
   if (type.includes('temp') || type.includes('cdd') || type.includes('fixed')) return 'CONTRACTOR';
   return 'OTHER';
 }

@@ -51,7 +51,7 @@ function normalize(value = '') {
 /** Industrial/manufacturing category detector (SICPA is not a healthcare employer). */
 function detectSicpaCategory(title = '') {
   const t = normalize(title);
-  if (/\b(stages?(?=\W|$)|stagiaire|intern(?:ship)?s?(?=\W|$)|apprenti|apprend|tirocin|lehrling|lernend)/.test(t)) return 'Formazione';
+  if (/\b(stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiaire|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprenti|apprend|tirocin|lehrling|lernend)/.test(t)) return 'Formazione';
   if (/qualit|quality/.test(t)) return 'Qualità';
   if (/chimist|chemist|laborat|laboratoire|laboratorio/.test(t)) return 'Ricerca e Sviluppo';
   if (/ingegner|ingénieur|engineer|automat|automaticien/.test(t)) return 'Ingegneria';

@@ -102,7 +102,7 @@ export function resolveCanton(addressRegion = '', addressLocality = '') {
 /** Insurance/national-employer-scoped role category detector. */
 export function detectCategory(title = '') {
   const t = normalizeSpace(title).toLowerCase();
-  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stages?(?=\W|$))/.test(t)) return 'Formazione';
+  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'Formazione';
   if (/\b(it|informatik|software|develop|engineer|architect)/.test(t)) return 'IT';
   if (/\b(agenturleiter|verkauf|vertrieb|sales|kund|client|underwriting)/.test(t)) return 'Commerciale';
   if (/\b(recht|jurist|legal|compliance)/.test(t)) return 'Legale';
@@ -115,7 +115,7 @@ export function detectCategory(title = '') {
 
 export function detectExperienceLevel(title = '') {
   const t = normalizeSpace(title).toLowerCase();
-  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stages?(?=\W|$)|intern(?:ship)?s?(?=\W|$))/.test(t)) return 'intern';
+  if (/\b(lernende|lehrstelle|apprenti|stagiaire|praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ]))/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|leiter|leitend|head|director|chef|verantwort)/.test(t)) return 'senior';
   return 'mid';

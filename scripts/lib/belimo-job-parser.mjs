@@ -155,7 +155,7 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stages?(?=\W|$)|stagiair|intern(?:ship)?s?(?=\W|$)|apprendist|lehrling|lernend|apprenti|working student)/.test(t)) return 'intern';
+  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti|working student)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
   if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
   return 'mid';
@@ -175,7 +175,7 @@ export function detectEmploymentType(title = '') {
   const t = normalize(title);
   // No \b before "aushilfe": German compounds it ("Ferienaushilfe").
   if (/tempor[aä]r|temporary|befristet|temporaneo|aushilfe/.test(t)) return 'TEMPORARY';
-  if (/\b(praktik|intern\b|stages?(?=\W|$)|working student|lernend|lehrling)/.test(t)) return 'INTERN';
+  if (/\b(praktik|intern\b|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|working student|lernend|lehrling)/.test(t)) return 'INTERN';
   return 'FULL_TIME';
 }
 
