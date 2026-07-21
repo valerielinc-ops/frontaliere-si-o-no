@@ -1,19 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-07-21T11:14:21.679Z",
+  "generatedAt": "2026-07-21T22:05:06.238Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 40853,
-  "avgDurationMs": 40853,
+  "unchangedCount": 1,
+  "durationMs": 35164,
+  "avgDurationMs": 35164,
   "durationHistory": [
-    40853
+    35164
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-5f58ce2b513a",
       "slug": "testa-capo-dell-ingegneria-medica-op-spital-zollikerberg-zollikerberg",
@@ -45,7 +47,7 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +56,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
