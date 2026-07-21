@@ -1366,6 +1366,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.gruista-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkranführer im Tessin',
     'blog.article.gruista-frontaliere-ticino.excerpt': 'Reales Gehalt eines Grenzkranführers im Tessin: Lohnspanne, Unterschiede zu Italien, Faktoren, die sich auf die Bezahlung auswirken.',
     'blog.article.gruista-frontaliere-ticino.imageAlt': 'Ein Frontal-Arbeitskran-Operator in Lugano, mit dem Luganoer-See-Hintergrund.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzkassierer im Tessin',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Reales Lohnniveau, Unterschiede zu Italien und Faktoren, die das Nettoentgelt beeinflussen. Praktische Anleitung mit verifizierten Daten.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Kassierer in Bellinzona mit Schweizer Produkten und CHF-Banknoten',
 };
 
 export default blogMetaChDe;

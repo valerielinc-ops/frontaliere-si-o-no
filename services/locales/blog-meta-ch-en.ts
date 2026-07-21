@@ -1366,6 +1366,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.gruista-frontaliere-ticino.title': 'How much does a border crane operator earn in Ticino',
     'blog.article.gruista-frontaliere-ticino.excerpt': 'Actual salary of a border crane operator in Ticino: salary band, differences compared to Italy, factors affecting remuneration.',
     'blog.article.gruista-frontaliere-ticino.imageAlt': 'A frontal worker crane operator in Lugano, with the Lake Lugano view in the background.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'How much does a border cashier earn in Ticino',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Real wage band, differences with Italy and factors affecting net pay. Practical guide with verified data.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Cashier in a Bellinzona store with Swiss products and CHF banknotes',
 };
 
 export default blogMetaChEn;

@@ -4094,6 +4094,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'stipendio-cassiere-frontaliere-ticino',
+    category: 'fiscale',
+    date: '2026-07-21T02:13:06.555Z',
+    image: '/images/blog/stipendio-cassiere-frontaliere-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

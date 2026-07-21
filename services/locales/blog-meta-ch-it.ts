@@ -1366,6 +1366,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.gruista-frontaliere-ticino.title': 'Quanto guadagna un gruista frontaliere in Ticino',
     'blog.article.gruista-frontaliere-ticino.excerpt': 'Stipendio reale di un gruista frontaliere in Ticino: fascia salariale, differenze rispetto all\'Italia, fattori che incidono sulla retribuzione.',
     'blog.article.gruista-frontaliere-ticino.imageAlt': 'Un gruista frontaliere a Lugano, vista del lago di Lugano in secondo piano.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.title': 'Quanto guadagna un cassiere frontaliere in Ticino',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.excerpt': 'Fascia salariale reale, differenze con l\'Italia e fattori che influenzano la retribuzione netta. Guida pratica con dati verificati.',
+    'blog.article.stipendio-cassiere-frontaliere-ticino.imageAlt': 'Cassiere in un negozio di Bellinzona con prodotti svizzeri e banconote CHF',
 };
 
 export default blogMetaChIt;
