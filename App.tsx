@@ -35,6 +35,7 @@ const NewsletterInline = lazyRetry(() => import('@/components/community/Newslett
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
+const SeasonalNaspiSimulator = lazyRetry(() => import('@/components/calculator/SeasonalNaspiSimulator'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 // WhatsNewModal/Bell are non-critical UI; use React.lazy (not lazyRetry) so a
 // post-deploy chunk-hash miss silently degrades via SilentErrorBoundary instead
@@ -55,6 +56,21 @@ function SafeLazy({ boundary, fallback = null, children }: { boundary: string; f
       <Suspense fallback={fallback}>{children}</Suspense>
     </SilentErrorBoundary>
   );
+}
+
+// Hides the #naspi-simulator-fallback static table (see
+// build-plugins/shared/salaryLandingShell.ts) once the real
+// SeasonalNaspiSimulator has portalled onto its empty sibling
+// #naspi-simulator-root — createPortal does NOT clear a container's
+// pre-existing DOM children, so without this the static fallback and the
+// live tool would both stay visible after hydration. useLayoutEffect (not
+// useEffect) avoids a flash of duplicated content before first paint, same
+// rationale as the main.seo-static-content toggle above.
+function NaspiSimulatorPortal({ target }: { target: HTMLElement }) {
+  useLayoutEffect(() => {
+    document.getElementById('naspi-simulator-fallback')?.remove();
+  }, []);
+  return createPortal(<SeasonalNaspiSimulator />, target);
 }
 
 // Lazy-loaded components — still used in secondary tabs / non-extracted sections
@@ -2782,6 +2798,23 @@ const App: React.FC = () => {
  <SafeLazy boundary="rail-ad-static">
  {leftTarget && createPortal(<ArticleRailAdStack side="left" />, leftTarget)}
  {rightTarget && createPortal(<ArticleRailAdStack side="right" />, rightTarget)}
+ </SafeLazy>
+   );
+ })()}
+
+ {/* Live NASpI seasonal simulator — on the one staticOverlay SEO landing that
+   * ships a real interactive tool (/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri/),
+   * portal the actual SeasonalNaspiSimulator onto the #naspi-simulator-root
+   * anchor emitted inside the static comparison table (see
+   * build-plugins/shared/salaryLandingShell.ts → buildSalaryLandingBody).
+   * Same portal mechanism as the rail-ad/footer targets above — replaces the
+   * static (no-JS/crawler) fallback table with the full interactive tool. */}
+ {staticOverlay && seoLanding === 'seasonal-vs-annual-naspi' && (() => {
+   const target = document.getElementById('naspi-simulator-root');
+   if (!target) return null;
+   return (
+ <SafeLazy boundary="naspi-simulator-static">
+ <NaspiSimulatorPortal target={target} />
  </SafeLazy>
    );
  })()}

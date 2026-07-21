@@ -26,8 +26,9 @@ import {
   renderStatGrid,
   type StatTileTone,
 } from './seoContentTokens';
-import { calculateSimulation } from '../../services/calculationService';
-import { DEFAULT_INPUTS } from '../../constants';
+import { calculateSimulation, calculateSeasonalScenario } from '../../services/calculationService';
+import { DEFAULT_INPUTS, DEFAULT_EXCHANGE_RATE } from '../../constants';
+import { MUNICIPALITIES } from '../../data/municipalities';
 import { HEALTH_HREF, JOBS_HREF } from './comparatorHref';
 
 export type SalaryLocale = 'it' | 'en' | 'de' | 'fr';
@@ -154,7 +155,8 @@ type HubKey =
   | 'confronta-retribuzione-ral'
   | 'simula-cambio-residenza'
   | 'stima-bonus-frontaliere'
-  | 'verifica-congedo-parentale';
+  | 'verifica-congedo-parentale'
+  | 'seasonal-vs-annual-naspi';
 
 // Note: EN/DE/FR keys are kept for legacy `nuovi-frontalieri-oltre-20-km`,
 // `simula-busta-paga`, `cosa-cambia-se`, `quiz-stipendio` (now
@@ -285,6 +287,76 @@ function over20Move80kCell(locale: SalaryLocale): string {
   if (!row) throw new Error('over20Move80kCell: OVER20_ROWS missing RAL 80000 (check OVER20_RALS)');
   const magnitude = Math.abs(row.delta).toLocaleString(OVER20_FMT[locale]);
   return `-EUR ${magnitude}`;
+}
+
+// Mirrors the live tool's own defaults (components/calculator/
+// SeasonalNaspiSimulator.tsx: grossMonthlyCHF 4300, Sumirago/fascia 1A,
+// age 25, single, 8 months worked, 48 months contributed, no prior NASpI,
+// EUR 5000 voluntary pension contribution) so this static preview can never
+// drift from what the live simulator (portalled onto #naspi-simulator-root
+// on hydration, see App.tsx) actually computes for the same inputs.
+function buildSeasonalNaspiHubData(): SalaryLandingData {
+  // Same municipality-lookup logic as the live component (which sorts
+  // MUNICIPALITIES and defaults to 'Sumirago') so this static preview always
+  // tracks whatever the component actually defaults to, even if the
+  // municipality dataset changes — no hardcoded duplicate to drift out of sync.
+  const defaultMunicipality = [...MUNICIPALITIES].sort((a, b) => a.name.localeCompare(b.name))
+    .find((m) => m.name === 'Sumirago') ?? MUNICIPALITIES[0];
+  const distanceZone: 'WITHIN_20KM' | 'OVER_20KM' = (defaultMunicipality.fascia === '1' || defaultMunicipality.fascia === '1A')
+    ? 'WITHIN_20KM'
+    : 'OVER_20KM';
+  const base = {
+    grossMonthlyCHF: 4300,
+    contributedMonthsLast4Years: 48,
+    monthsAlreadyIndemnifiedInQuadriennio: 0,
+    age: 25,
+    maritalStatus: 'SINGLE' as const,
+    spouseWorks: false,
+    children: 0,
+    distanceZone,
+    addizionaleComunalePercent: defaultMunicipality.irpefAddizionale,
+    exchangeRate: DEFAULT_EXCHANGE_RATE,
+  };
+  const monthsWorked = 8;
+  const monthsOnNaspi = 4;
+  const pensionContributionEUR = 5000;
+
+  const continuous = calculateSeasonalScenario({ ...base, monthsWorked: 12, monthsOnNaspi: 0 });
+  const seasonalNaspi = calculateSeasonalScenario({ ...base, monthsWorked, monthsOnNaspi });
+  const seasonalNaspiPension = calculateSeasonalScenario({ ...base, monthsWorked, monthsOnNaspi, pensionContributionEUR });
+  const seasonalNoNaspi = calculateSeasonalScenario({ ...base, monthsWorked, monthsOnNaspi: 0 });
+
+  const fmt = (n: number) => `EUR ${Math.round(n).toLocaleString('it-IT')}`;
+  const deltaEUR = continuous.netAnnualEUR - seasonalNaspi.netAnnualEUR;
+
+  return {
+    eyebrow: 'Nuovo frontaliere · Confronto stagionale vs annuale',
+    tagline: `Con NASpI, ${monthsWorked} mesi lavorati portano un netto annuo inferiore di ${fmt(deltaEUR)} rispetto a 12 mesi continuativi.`,
+    tiles: [
+      { label: '12 mesi continuativi (netto/anno)', value: fmt(continuous.netAnnualEUR), tone: 'accent' },
+      { label: `Stagionale (${monthsWorked}m) + NASpI (netto/anno)`, value: fmt(seasonalNaspi.netAnnualEUR), tone: 'warning' },
+      { label: 'NASpI copre', value: '75% fino a soglia, 25% oltre', tone: 'neutral' },
+      { label: 'Differenza annua', value: `-${fmt(deltaEUR)}`, tone: 'danger' },
+    ],
+    advice: `Lavorare tutto l'anno resta quasi sempre più conveniente sul netto: la NASpI copre solo una percentuale della retribuzione media, mai lo stipendio pieno. Un versamento a fondo pensione (qui EUR ${pensionContributionEUR.toLocaleString('it-IT')}/anno) riduce le tasse ma resta un'uscita di cassa reale. Usa il simulatore qui sotto per il tuo caso esatto.`,
+    ctaPrimary: { label: 'Apri il simulatore con i tuoi dati', href: '#naspi-simulator-root' },
+    table: {
+      caption: `Confronto netto annuo · esempio con ${monthsWorked} mesi lavorati (Sumirago, VA)`,
+      headers: ['Scenario', 'Netto annuo', 'Netto mensile equiv.'],
+      rows: [
+        { cells: ['12 mesi continuativi', fmt(continuous.netAnnualEUR), fmt(continuous.netMonthlyEquivalentEUR)] },
+        { cells: [`Stagionale (${monthsWorked}m) + NASpI`, fmt(seasonalNaspi.netAnnualEUR), fmt(seasonalNaspi.netMonthlyEquivalentEUR)], emphasized: true },
+        { cells: ['Stagionale + NASpI + fondo pensione', fmt(seasonalNaspiPension.netAnnualEUR), fmt(seasonalNaspiPension.netMonthlyEquivalentEUR)] },
+        { cells: ['Stagionale senza NASpI', fmt(seasonalNoNaspi.netAnnualEUR), fmt(seasonalNoNaspi.netMonthlyEquivalentEUR)] },
+      ],
+      footnote: 'Stima informativa (aliquote 2026), non consulenza fiscale. Verifica la spettanza NASpI reale con l\'INPS. Imposta i tuoi dati nel simulatore interattivo qui sotto per il calcolo esatto.',
+    },
+    faqs: [
+      { q: 'Conviene lavorare 12 mesi o passare a un regime stagionale con NASpI?', a: 'Quasi sempre il lavoro continuativo produce un netto annuo superiore, perché la NASpI copre solo una percentuale della retribuzione media. Può avere senso per altri motivi (tempo libero, formazione). Usa il simulatore qui sotto per il numero esatto sul tuo caso.' },
+      { q: 'Un versamento a fondo pensione fa aumentare il netto?', a: 'No: riduce le tasse ma resta un\'uscita di cassa reale superiore al risparmio fiscale ottenuto.' },
+      { q: 'Quanti mesi di NASpI mi restano se ne ho già percepita in passato?', a: 'Dipende dalle settimane contribuite nel quadriennio meno quelle già indennizzate: verifica sempre la spettanza reale con l\'INPS prima di pianificare uno scenario stagionale.' },
+    ],
+  };
 }
 
 const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingData>>> = {
@@ -1069,6 +1141,9 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
     },
   },
+  'seasonal-vs-annual-naspi': {
+    it: buildSeasonalNaspiHubData(),
+  },
 };
 
 // ── Salary-tier generator ───────────────────────────────────────────────────
@@ -1390,6 +1465,7 @@ const HUB_PATH_TO_KEY: Record<string, { key: HubKey; locale: SalaryLocale }> = {
   '/calcola-stipendio/simula-cambio-residenza': { key: 'simula-cambio-residenza', locale: 'it' },
   '/calcola-stipendio/stima-bonus-frontaliere': { key: 'stima-bonus-frontaliere', locale: 'it' },
   '/calcola-stipendio/verifica-congedo-parentale': { key: 'verifica-congedo-parentale', locale: 'it' },
+  '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri': { key: 'seasonal-vs-annual-naspi', locale: 'it' },
 };
 
 /**
@@ -2118,10 +2194,24 @@ export function renderSalaryLandingShell(
 
 export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
   const { data, locale } = resolveScenarioData(args.canonicalPath);
+  const stripped = args.canonicalPath.replace(/\/+$/, '');
+  // #naspi-simulator-root (literal string mirrored in App.tsx) is left EMPTY
+  // so React can portal the real interactive SeasonalNaspiSimulator onto it
+  // on hydration — same mechanism as the rail-ad/footer portals in App.tsx.
+  // The computed table is a SIBLING (#naspi-simulator-fallback), not a child
+  // of the anchor: createPortal does not clear a container's pre-existing DOM
+  // children, so putting the fallback inside the anchor would leave both the
+  // static table and the live tool visible after hydration. App.tsx removes
+  // the fallback once the portal mounts. Pre-hydration/no-JS crawlers still
+  // see the real computed table.
+  const dataAreaHtmlOverride = stripped === '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri' && data.table
+    ? `<div id="naspi-simulator-fallback">${renderTable(data.table)}</div><div id="naspi-simulator-root"></div>`
+    : undefined;
   return renderSalaryLandingShell(data, locale, {
     h1Text: args.h1Text,
     editorialHtml: args.editorialHtml,
     navHtml: args.navHtml,
+    dataAreaHtmlOverride,
   });
 }
 

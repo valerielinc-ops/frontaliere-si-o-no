@@ -2184,6 +2184,34 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  ],
  },
 
+ // ───── Calculator: seasonal vs annual work with NASpI ───────
+ '/calcola-stipendio/lavoro-stagionale-vs-annuale-naspi-frontalieri': {
+ it: [
+ 'Per un <strong>nuovo frontaliere</strong> (assunto dal 17 luglio 2023 in poi) che risiede entro 20 km dal confine, lo stipendio svizzero è tassato in via concorrente: la Svizzera trattiene l\'imposta alla fonte sull\'80% del reddito, l\'Italia tassa il reddito complessivo con IRPEF (dopo una franchigia fissa di €10.000) e riconosce un credito d\'imposta proporzionale per quanto già pagato in Svizzera.',
+ 'La <strong>NASpI</strong> è un reddito assimilato a lavoro dipendente: si somma al reddito da frontaliere nella stessa dichiarazione IRPEF, non beneficia della franchigia di €10.000 (che vale solo per il reddito da lavoro estero) ed è quindi tassata insieme al resto sulla stessa base progressiva.',
+ 'La <strong>durata della NASpI</strong> dipende dalle settimane contribuite negli ultimi 4 anni, al netto di quelle già "consumate" da una NASpI precedente nello stesso periodo: se hai già percepito mesi di NASpI di recente, la spettanza residua per un nuovo evento di disoccupazione è inferiore — verificalo sempre con l\'INPS prima di pianificare uno scenario stagionale.',
+ 'Un <strong>versamento volontario a un fondo pensione complementare</strong> riduce l\'imponibile IRPEF fino a un massimale annuo (art. 8 D.Lgs. 252/2005), ma è comunque denaro che esce dalle tue tasche quest\'anno: il risparmio fiscale è sempre inferiore all\'importo versato, la convenienza va vista nel lungo periodo (accumulo previdenziale), non sul netto immediato.',
+ ],
+ en: [
+ 'For a <strong>new cross-border worker</strong> (hired from 17 July 2023 onward) residing within 20 km of the border, the Swiss salary is taxed concurrently: Switzerland withholds source tax on 80% of income, Italy taxes total income via IRPEF (after a flat €10,000 exemption) and grants a proportional tax credit for what was already paid in Switzerland.',
+ '<strong>NASpI</strong> is income assimilated to employment income: it is added to the frontaliere income in the same IRPEF return, does not benefit from the €10,000 exemption (which applies only to foreign employment income), and is therefore taxed together with the rest on the same progressive base.',
+ '<strong>NASpI duration</strong> depends on weeks contributed in the last 4 years, net of weeks already "used" by a prior NASpI in the same period: if you already received NASpI months recently, your residual entitlement for a new unemployment event is lower — always verify with INPS before planning a seasonal scenario.',
+ 'A <strong>voluntary contribution to a supplementary pension fund</strong> reduces the IRPEF taxable base up to an annual cap (Art. 8 Legislative Decree 252/2005), but it is still money leaving your pocket this year: the tax saving is always lower than the amount contributed, and the benefit should be judged over the long term (retirement savings), not on the immediate net.',
+ ],
+ de: [
+ 'Für einen <strong>neuen Grenzgänger</strong> (angestellt ab dem 17. Juli 2023) mit Wohnsitz innerhalb von 20 km von der Grenze wird der Schweizer Lohn konkurrierend besteuert: die Schweiz behält die Quellensteuer auf 80% des Einkommens ein, Italien besteuert das Gesamteinkommen mittels IRPEF (nach einem festen Freibetrag von 10.000 Euro) und gewährt eine proportionale Anrechnung für bereits in der Schweiz bezahlte Steuern.',
+ 'Die <strong>NASpI</strong> ist ein dem Arbeitseinkommen gleichgestelltes Einkommen: sie wird in derselben IRPEF-Erklärung zum Grenzgängereinkommen addiert, profitiert nicht vom Freibetrag von 10.000 Euro (der nur für ausländisches Arbeitseinkommen gilt) und wird daher zusammen mit dem Rest auf derselben progressiven Basis besteuert.',
+ 'Die <strong>Dauer der NASpI</strong> hängt von den in den letzten 4 Jahren beitragspflichtigen Wochen ab, abzüglich jener, die bereits durch eine vorherige NASpI im selben Zeitraum "verbraucht" wurden: wurde kürzlich bereits NASpI bezogen, ist der verbleibende Anspruch für ein neues Arbeitslosigkeitsereignis geringer — prüfe dies immer bei der INPS, bevor du ein Saisonszenario planst.',
+ 'Eine <strong>freiwillige Einzahlung in eine ergänzende Pensionskasse</strong> reduziert die IRPEF-Bemessungsgrundlage bis zu einem Jahreshöchstbetrag (Art. 8 Gesetzesdekret 252/2005), bleibt aber Geld, das dieses Jahr aus deiner Tasche fliesst: die Steuerersparnis ist immer geringer als der eingezahlte Betrag, der Nutzen zeigt sich langfristig (Altersvorsorge), nicht im unmittelbaren Netto.',
+ ],
+ fr: [
+ 'Pour un <strong>nouveau frontalier</strong> (embauché à partir du 17 juillet 2023) résidant à moins de 20 km de la frontière, le salaire suisse est imposé de manière concurrente : la Suisse retient l\'impôt à la source sur 80% du revenu, l\'Italie impose le revenu total via l\'IRPEF (après un abattement fixe de 10 000 euros) et accorde un crédit d\'impôt proportionnel pour ce qui a déjà été payé en Suisse.',
+ 'Le <strong>NASpI</strong> est un revenu assimilé au revenu d\'activité salariée : il s\'ajoute au revenu de frontalier dans la même déclaration IRPEF, ne bénéficie pas de l\'abattement de 10 000 euros (qui ne s\'applique qu\'au revenu de travail étranger) et est donc imposé avec le reste sur la même base progressive.',
+ 'La <strong>durée du NASpI</strong> dépend des semaines cotisées ces 4 dernières années, déduction faite de celles déjà "consommées" par un NASpI précédent dans la même période : si vous avez déjà perçu des mois de NASpI récemment, votre droit résiduel pour un nouvel événement de chômage est plus faible — vérifiez-le toujours auprès de l\'INPS avant de planifier un scénario saisonnier.',
+ 'Un <strong>versement volontaire à un fonds de pension complémentaire</strong> réduit la base imposable IRPEF jusqu\'à un plafond annuel (art. 8 décret législatif 252/2005), mais reste de l\'argent qui sort de votre poche cette année : l\'économie fiscale est toujours inférieure au montant versé, l\'intérêt se juge sur le long terme (épargne retraite), pas sur le net immédiat.',
+ ],
+ },
+
  // ───── Calculator: RAL vs net salary comparison ─────────────
  '/calcola-stipendio/confronta-retribuzione-ral': {
  en: [

@@ -46,6 +46,9 @@ export const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>
  'net-comparison-g-vs-b-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
  'net-comparison-2025-2026-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
  'net-comparison-g-vs-b-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
+ // SeasonalNaspiSimulator owns its own local input state — no generic
+ // calculator preset applies here.
+ 'seasonal-vs-annual-naspi': {},
 };
 
 export interface SimulationState {
