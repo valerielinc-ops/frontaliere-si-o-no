@@ -1438,6 +1438,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': 'Mancano 534 ore: Swisscom perde un appalto',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'Der Bund hat das Angebot von Swisscom für einen Auftrag aufgrund eines Tippfehlers im Angebot ausgeschlossen.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'Sitz von Swisscom in Lugano.',
+    'blog.article.grigioni-traffico-sviamento-udc.title': 'Graubünden: Umleitungsverkehr, SVP kritisiert Regierung',
+    'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'Die Bündner SVP schlägt das Birsfelden-Modell vor, um dem Umleitungsverkehr auf der A13 entgegenzuwirken. Die Regierung verlangt rechtliche Klarheit, bevor sie fortfährt.',
+    'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Verkehr auf der A13 in Graubünden',
 };
 
 export default blogMetaChDe;

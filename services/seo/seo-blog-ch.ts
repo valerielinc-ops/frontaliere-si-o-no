@@ -18582,6 +18582,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grigioni-traffico-sviamento-udc': {
+    title: 'Grigioni: traffico di sviamento, UDC critica il Governo',
+    description: 'L\'UDC grigionese propone il modello di Birsfelden per il traffico di sviamento sulla A13. Il Governo attende chiarezza giuridica. Scopri i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grigioni, traffico, sviamento, critica',
+    ogTitle: 'Grigioni: traffico di sviamento, UDC critica il Governo',
+    ogDescription: 'L\'UDC grigionese propone il modello di Birsfelden per il traffico di sviamento sulla A13. Il Governo attende chiarezza giuridica.',
+    canonicalPath: '/articoli-svizzera/grigioni-traffico-sviamento-udc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grigioni: traffico di sviamento, UDC critica il Governo",
+      "description": "L'UDC grigionese propone il modello di Birsfelden per il traffico di sviamento sulla A13. Il Governo attende chiarezza giuridica. Scopri i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grigioni-traffico-sviamento-udc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico sulla A13 nei Grigioni"
+      },
+      "datePublished": "2026-07-21T16:56:20+00:00",
+      "dateModified": "2026-07-21T16:56:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-traffico-sviamento-udc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

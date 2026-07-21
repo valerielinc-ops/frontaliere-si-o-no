@@ -1438,6 +1438,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': '534 heures d\'expérience manquent : Swisscom perd un marché de la Confédération.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'La Confédération a exclu l\'offre de Swisscom pour un marché dû à une faute de frappe dans l\'offre.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'Siège de Swisscom à Lugano.',
+    'blog.article.grigioni-traffico-sviamento-udc.title': 'Grisons : trafic de détournement, UDC critique le gouvernement',
+    'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'L\'UDC grisonne propose le modèle de Birsfelden pour contrer le trafic de détournement sur l\'A13. Le Gouvernement demande des éclaircissements juridiques avant de procéder.',
+    'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Trafic sur l\'A13 dans les Grisons',
 };
 
 export default blogMetaChFr;

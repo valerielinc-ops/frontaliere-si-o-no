@@ -1,0 +1,40 @@
+{
+  "id": "grigioni-traffico-sviamento-udc",
+  "slug": "grigioni-traffico-sviamento-udc",
+  "publishedAt": "2026-07-21T16:56:24.666Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.587310608454098,
+    "confidence": 0.8,
+    "finalScore": 2.0698484867632785,
+    "topK": [
+      {
+        "slug": "iniziativa-10-milioni-sostenibile",
+        "cosine": 0.8624368694846993
+      },
+      {
+        "slug": "jans-udc-iniziativa-10-milioni",
+        "cosine": 0.8613964111521991
+      },
+      {
+        "slug": "udc-bilaterali-2026-frontalieri",
+        "cosine": 0.8593063486000054
+      },
+      {
+        "slug": "sicurezza-privata-chiasso-nebiopoli",
+        "cosine": 0.8558212805119312
+      },
+      {
+        "slug": "udc-sostenibilita-lavoro-ticino-2026",
+        "cosine": 0.8551998778125728
+      }
+    ],
+    "score": 0.2587310608454098,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

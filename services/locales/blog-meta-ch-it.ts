@@ -1438,6 +1438,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.title': 'Mancano 534 ore di esperienza: Swisscom perde un appalto della Confederazione.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.excerpt': 'La Confederazione ha escluso l\'offerta di Swisscom per un appalto dovuto a un errore di battitura nell\'offerta.',
     'blog.article.mancano-534-ore-di-esperienza-swisscom-perde-un-appalto-della-confederazione.imageAlt': 'La sede di Swisscom a Lugano.',
+    'blog.article.grigioni-traffico-sviamento-udc.title': 'Grigioni: traffico di sviamento, UDC critica il Governo',
+    'blog.article.grigioni-traffico-sviamento-udc.excerpt': 'L\'UDC grigionese propone il modello di Birsfelden per contrastare il traffico di sviamento sulla A13. Il Governo chiede chiarezza giuridica prima di procedere.',
+    'blog.article.grigioni-traffico-sviamento-udc.imageAlt': 'Traffico sulla A13 nei Grigioni',
 };
 
 export default blogMetaChIt;
