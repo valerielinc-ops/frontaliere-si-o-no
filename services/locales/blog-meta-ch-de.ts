@@ -1390,6 +1390,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Sicherheitsbeauftragter im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Grenzschutzbeamte im Tessin: Durchschnittsgehalt CHF 60\'000, Voraussetzungen und Anerkennung des Bildungsabschlusses',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Bild eines Grenzschutzagenten an der Frontaliers',
+    'blog.article.novartis-superaspettative.title': 'Novartis übertrifft die Erwartungen',
+    'blog.article.novartis-superaspettative.excerpt': 'Novartis erwirtschaftete im zweiten Quartal 2026 einen Umsatz von 14,4 Milliarden US-Dollar.',
+    'blog.article.novartis-superaspettative.imageAlt': 'Novartis-Gebäude in Basel',
 };
 
 export default blogMetaChDe;

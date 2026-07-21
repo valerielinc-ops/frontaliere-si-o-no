@@ -1390,6 +1390,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Security officer in Ticino: salary, requirements and recognition',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Border security agents in Ticino: average salary CHF 60\'000, qualification requirements and recognition',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image of a frontier security agent at Lugano',
+    'blog.article.novartis-superaspettative.title': 'Novartis Exceeds Expectations',
+    'blog.article.novartis-superaspettative.excerpt': 'Novartis reported revenue of 'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image of a frontier security agent at Lugano',4.4 billion in the second quarter of 2026.',
+    'blog.article.novartis-superaspettative.imageAlt': 'Novartis building in Basel',
 };
 
 export default blogMetaChEn;

@@ -1390,6 +1390,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.title': 'Agent de sécurité au Tessin : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.excerpt': 'Les agents de sécurité frontaliers au Tessin : salaire moyen CHF 60\'000, exigences et reconnaissance du diplôme',
     'blog.article.frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti.imageAlt': 'Image d\'un agent de sécurité frontalier à Lugano',
+    'blog.article.novartis-superaspettative.title': 'Novartis dépasse les attentes',
+    'blog.article.novartis-superaspettative.excerpt': 'Novartis a réalisé un chiffre d\'affaires de 14,4 milliards de dollars au deuxième trimestre 2026.',
+    'blog.article.novartis-superaspettative.imageAlt': 'Bâtiment Novartis à Bâle',
 };
 
 export default blogMetaChFr;

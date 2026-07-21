@@ -486,6 +486,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'estetista-frontaliere-ticino-stipendio-requisiti': { it: 'estetista-frontaliere-ticino-stipendio-requisiti', en: 'estetista-frontaliere-ticino-stipendio-requisiti', de: 'estetista-frontaliere-ticino-stipendio-requisiti', fr: 'estetista-frontaliere-ticino-stipendio-requisiti' },
  'frontaliere-aiuto-cucina-ticino-stipendio-requisiti': { it: 'frontaliere-aiuto-cucina-ticino-stipendio-requisiti', en: 'frontaliere-kitchen-helper-ticino-salary-requirements', de: 'frontaliere-kuchenhilfe-tessin-honorar-anforderungen', fr: 'frontaliere-aide-cuisine-tessin-salaire-exigences' },
  'frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti': { it: 'frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti', en: 'frontier-security-agent-ticino-salary-requirements', de: 'grenzschutz-agente-ticino-salar-anforderungen', fr: 'agent-de-securite-frontalier-ticino-salaire-requis' },
+ 'novartis-superaspettative': { it: 'novartis-superaspettative', en: 'novartis-exceeds-expectations', de: 'novartis-erhoeht-erwartungen', fr: 'novartis-depasse-les-attentes' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

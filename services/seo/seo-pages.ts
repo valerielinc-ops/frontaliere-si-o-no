@@ -4767,7 +4767,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 3408,
+ "numberOfItems": 3409,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026/` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024/` },
@@ -8176,7 +8176,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 3405, "name": "Frontaliere Ticino: stipendio e requisiti per l...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-aiuto-cucina-ticino-stipendio-requisiti` },
           { "@type": "ListItem", "position": 3406, "name": "Quanto guadagna un aiuto cucina frontaliere in ...", "url": `${BASE_URL}/articoli-frontaliere/aiuto-cucina-frontaliere-ticino-stipendio` },
           { "@type": "ListItem", "position": 3407, "name": "Agente di sicurezza in Ticino: stipendio, requi...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-agente-di-sicurezza-ticino-stipendio-requisiti` },
-          { "@type": "ListItem", "position": 3408, "name": "Quanto guadagna un agente di sicurezza frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-agenzia-sicurezza-guadagno-ticino` }
+          { "@type": "ListItem", "position": 3408, "name": "Quanto guadagna un agente di sicurezza frontali...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-agenzia-sicurezza-guadagno-ticino` },
+          { "@type": "ListItem", "position": 3409, "name": "Novartis supera le aspettative", "url": `${BASE_URL}/articoli-frontaliere/novartis-superaspettative` }
  ]
  },
  {
