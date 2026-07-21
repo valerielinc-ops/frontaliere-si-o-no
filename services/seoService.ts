@@ -4811,6 +4811,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-prezzi-trenord-pendolari': { name: 'Trasporti frontalieri', path: '/articoli-frontaliere/aumento-prezzi-trenord-pendolari', parent: 'blog' },
     'blog-schindler-utile-in-crescita': { name: 'Schindler, crescita utile', path: '/articoli-svizzera/schindler-utile-in-crescita/', parent: 'blog' },
     'blog-frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti': { name: 'Impiegato di commercio in Ticino da', path: '/articoli-frontaliere/frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti', parent: 'blog' },
+    'blog-frontaliere-operaio-ticino-stipendio-requisiti': { name: 'Frontaliere operaio Ticino', path: '/articoli-frontaliere/frontaliere-operaio-ticino-stipendio-requisiti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

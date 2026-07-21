@@ -8821,6 +8821,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Commercial employee in Ticino: salary, requirements and recognition',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Border workers working as commercial employees in Ticino must meet specific requirements and possess certain qualifications.',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri who work in Ticino and reside in Italy. Focused on a work scene with a view of Lake Lugano.',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Working as a worker in Ticino: salary, requirements and permit G',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'The new law on the G permit for frontier workers in Ticino: what are the requirements, the average salary and the recognition of the qualification?',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'A foreign worker operates in a factory in Lugano.',
 };
 
 export default blogMetaEn;

@@ -8820,6 +8820,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Kaufmännischer Angestellter im Tessin: Gehalt, Voraussetzungen und Anerkennung',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Grenzgänger, die als Kaufleute im Tessin arbeiten, müssen bestimmte Anforderungen erfüllen und bestimmte Qualifikationen besitzen.',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontalieri, die in Ticino arbeiten und in Italien wohnen. Fokussiert auf eine Arbeits Szene mit Aussicht auf den Luganersee.',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Als Arbeiter im Tessin arbeiten: Gehalt, Voraussetzungen und Erlaubnis G',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'Das neue Gesetz über die Arbeitserlaubnis G für Grenzgänger im Tessin: Was sind die Voraussetzungen, das Durchschnittsgehalt und die Anerkennung des Bildungsabschlusses?',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'Ein Frontalier arbeitet in einer Fabrik in Lugano.',
 };
 
 export default blogMetaDe;

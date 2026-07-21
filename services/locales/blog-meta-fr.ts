@@ -8823,6 +8823,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.title': 'Employé de commerce au Tessin : salaire, exigences et reconnaissance',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.excerpt': 'Les frontaliers qui travaillent comme employés de commerce au Tessin doivent répondre à des exigences spécifiques et posséder certaines qualifications.',
     'blog.article.frontaliere-impiegato-di-commercio-ticino-stipendio-requisiti.imageAlt': 'Frontaliers qui travaillent en Tessin et résident en Italie. Cadré sur une scène de travail avec une vue sur le lac de Lugano.',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.title': 'Travailler comme ouvrier au Tessin : salaire, exigences et permis G',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.excerpt': 'La nouvelle loi sur le permis G pour les frontaliers ouvriers au Tessin : quelles sont les exigences, le salaire moyen et la reconnaissance du diplôme ?',
+    'blog.article.frontaliere-operaio-ticino-stipendio-requisiti.imageAlt': 'Un travailleur frontalier travaille dans une usine à Lugano.',
 };
 
 export default blogMetaFr;
