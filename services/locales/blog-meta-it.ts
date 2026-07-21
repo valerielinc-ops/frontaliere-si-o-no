@@ -8768,6 +8768,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Lavorare come pasticcere in Ticino: stipendio e requisiti',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'La Svizzera non è membro dell\'UE, il permesso G è necessario per lavorare in Ticino come pasticcere.',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Una pasticciere lavora in una cucina ticinese, con un\'ampia finestra che offre una vista sul lago di Lugano.',
+    'blog.article.parrucchiere-frontaliere-ticino.title': 'Quanto guadagna un parrucchiere frontaliere in Ticino',
+    'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Il salario di un parrucchiere frontaliere in Ticino può variare a seconda della sua esperienza e del tipo di attività che svolge',
+    'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Vista di Lugano con il lago in primo piano',
 };
 
 export default blogMetaIt;

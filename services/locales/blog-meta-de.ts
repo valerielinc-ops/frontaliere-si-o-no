@@ -8766,6 +8766,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Als Konditor im Tessin arbeiten: Gehalt und Anforderungen',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'Die Schweiz ist kein EU-Mitglied, die Bewilligung G ist notwendig, um im Tessin als Konditor zu arbeiten.',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Eine Konditorin arbeitet in einer Tessiner Küche, mit einer großen Fensterfläche, die einen Blick auf den Luganersee bietet.',
+    'blog.article.parrucchiere-frontaliere-ticino.title': 'Wie viel verdient ein Grenzstylist im Tessin',
+    'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Das Gehalt eines Grenzstylisten im Tessin kann je nach Erfahrung und Art der Tätigkeit variieren',
+    'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Lugano mit dem See im Vordergrund',
 };
 
 export default blogMetaDe;

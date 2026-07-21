@@ -8767,6 +8767,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Working as a pastry chef in Ticino: salary and requirements',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'Switzerland is not a member of the EU, the G permit is required to work in Ticino as a pastry chef.',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'A pastry chef works in a Ticino kitchen, with a large window offering a view of Lake Lugano.',
+    'blog.article.parrucchiere-frontaliere-ticino.title': 'How much does a border hairdresser earn in Ticino',
+    'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'The salary of a border hairdresser in Ticino may vary depending on his experience and the type of activity he carries out',
+    'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'View of Lugano with the lake in the foreground',
 };
 
 export default blogMetaEn;
