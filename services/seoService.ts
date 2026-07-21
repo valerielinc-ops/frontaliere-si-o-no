@@ -4776,6 +4776,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-pasticciere-ticino-stipendio-requisiti': { name: 'Frontaliere pasticcere Ticino', path: '/articoli-svizzera/frontaliere-pasticciere-ticino-stipendio-requisiti/', parent: 'blog' },
     'blog-frontaliere-pasticcere-ticino-stipendio-requisiti': { name: 'Lavorare come pasticcere in Ticino da', path: '/articoli-frontaliere/frontaliere-pasticcere-ticino-stipendio-requisiti', parent: 'blog' },
     'blog-parrucchieri-frontaliere-ticino': { name: 'Lavorare come parrucchiera in Ticino da', path: '/articoli-svizzera/parrucchieri-frontaliere-ticino/', parent: 'blog' },
+    'blog-parrucchiere-frontaliere-ticino': { name: 'Parrucchiere frontaliere in Ticino', path: '/articoli-frontaliere/parrucchiere-frontaliere-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8768,6 +8768,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.title': 'Travailler comme pâtissier au Tessin : salaire et exigences',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.excerpt': 'La Suisse n\'est pas membre de l\'UE, le permis G est nécessaire pour travailler au Tessin en tant que pâtissier.',
     'blog.article.frontaliere-pasticcere-ticino-stipendio-requisiti.imageAlt': 'Une pâtissière travaille dans une cuisine tessinoise, avec une grande fenêtre offrant une vue sur le lac de Lugano.',
+    'blog.article.parrucchiere-frontaliere-ticino.title': 'Combien gagne un coiffeur frontalier au Tessin',
+    'blog.article.parrucchiere-frontaliere-ticino.excerpt': 'Le salaire d\'un coiffeur frontalier au Tessin peut varier en fonction de son expérience et du type d\'activité qu\'il exerce',
+    'blog.article.parrucchiere-frontaliere-ticino.imageAlt': 'Vue de Lugano avec le lac en arrière-plan',
 };
 
 export default blogMetaFr;
