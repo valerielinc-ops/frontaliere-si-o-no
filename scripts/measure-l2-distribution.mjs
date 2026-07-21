@@ -11,9 +11,14 @@
  *   node scripts/measure-l2-distribution.mjs --dist=download/artifact --sample=1000 --by-feature
  */
 
-import { readdir, readFile, stat } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { readFile, stat } from 'node:fs/promises';
+import { relative } from 'node:path';
 import { minifyHtml } from '../build-plugins/shared/htmlMinify.ts';
+// Shared bounded-concurrency dist walker (was a 4th copy-pasted sequential
+// `stack.pop()` walk, identical to the ones in verify-l1/l2-equivalence.mjs
+// and the pre-fix scripts/lib/audit-runner.mjs — deduped per CLAUDE.md #6
+// rather than adding a 3rd parallelized copy of the same logic).
+import { walkHtmlFiles as walk } from './lib/audit-runner.mjs';
 
 function parseArgs() {
   const args = new Map();
@@ -24,24 +29,6 @@ function parseArgs() {
     }
   }
   return args;
-}
-
-async function walk(root) {
-  const out = [];
-  const stack = [root];
-  while (stack.length) {
-    const cur = stack.pop();
-    let entries;
-    try { entries = await readdir(cur, { withFileTypes: true }); }
-    catch { continue; }
-    for (const e of entries) {
-      if (e.name.startsWith('.')) continue;
-      const p = join(cur, e.name);
-      if (e.isDirectory()) stack.push(p);
-      else if (e.isFile() && p.endsWith('.html')) out.push(p);
-    }
-  }
-  return out;
 }
 
 function sampleRandom(arr, n) {
