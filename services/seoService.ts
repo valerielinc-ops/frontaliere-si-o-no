@@ -4791,6 +4791,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-lorenzo-quadri-bernareplica': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-lorenzo-quadri-bernareplica', parent: 'blog' },
     'blog-votazioni-federali-27-settembre-cosa-cambia': { name: 'Votazioni federali', path: '/articoli-svizzera/votazioni-federali-27-settembre-cosa-cambia/', parent: 'blog' },
     'blog-accertamenti-fiscali-frontalieri-controlli-e-difesa': { name: 'Accertamenti fiscali ai lavoratori', path: '/articoli-frontaliere/accertamenti-fiscali-frontalieri-controlli-e-difesa', parent: 'blog' },
+    'blog-iperammortamento-transizione-5-0-conferma': { name: 'Iperammortamento 5.0', path: '/articoli-svizzera/iperammortamento-transizione-5-0-conferma/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -1402,6 +1402,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Federal votes 27 Sept: Changes for Swiss residents & workers',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'The upcoming federal votes will address key issues for the Swiss economy and society. Here are the practical implications for residents and border crossers.',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Swiss federal voting ballot box with voting cards',
+    'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Hyper-depreciation: via confirmation communications',
+    'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'The executive decree for the confirmation of the investments of the Transition Plan 5.0 has been published. Here\'s how to proceed through the GSE portal.',
+    'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Modern office with financial data on screens',
 };
 
 export default blogMetaChEn;

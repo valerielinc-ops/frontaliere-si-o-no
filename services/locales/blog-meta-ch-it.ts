@@ -1402,6 +1402,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.title': 'Votazioni federali 27 settembre: cosa cambia per chi vive e lavora in Svizzera',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.excerpt': 'Le prossime votazioni federali affronteranno temi chiave per l\'economia e la società svizzera. Ecco le implicazioni pratiche per residenti e frontalieri.',
     'blog.article.votazioni-federali-27-settembre-cosa-cambia.imageAlt': 'Urna elettorale svizzera con schede di voto durante le votazioni federali',
+    'blog.article.iperammortamento-transizione-5-0-conferma.title': 'Iperammortamento: via alle comunicazioni di conferma',
+    'blog.article.iperammortamento-transizione-5-0-conferma.excerpt': 'Pubblicato il decreto direttoriale per la conferma degli investimenti del Piano Transizione 5.0. Ecco come procedere tramite il portale GSE.',
+    'blog.article.iperammortamento-transizione-5-0-conferma.imageAlt': 'Ufficio moderno con dati finanziari su schermi',
 };
 
 export default blogMetaChIt;
