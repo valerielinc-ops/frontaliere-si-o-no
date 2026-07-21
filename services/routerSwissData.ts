@@ -500,6 +500,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna': { it: 'dichiarazione-imposte-svizzera-guida-pratica-2026-canton-lucerna', en: 'guidance-practical-tax-declaration-switzerland-2026-canton-lucerne', de: 'steuererklarung-anleitung-schweiz-2026-kanton-luzern', fr: 'guide-pratique-declaration-fiscale-suisse-2026-canton-de-lucerne' },
  'birra-in-mancanza': { it: 'birra-in-mancanza', en: 'beer-shortage', de: 'bier-mangel', fr: 'manque-de-biere' },
  'schindler-utile-in-crescita': { it: 'schindler-utile-in-crescita', en: 'schindler-profitable-growth', de: 'schindler-gewinnbringendes-wachstum', fr: 'schindler-croissance-rentable' },
+ 'migros-operatore-conquista-svizzera-coop': { it: 'migros-operatore-conquista-svizzera-coop', en: 'migros-operator-conquers-switzerland-coop', de: 'migros-operator-erobert-schweiz-coop', fr: 'migros-operateur-conquiert-suisse-coop' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

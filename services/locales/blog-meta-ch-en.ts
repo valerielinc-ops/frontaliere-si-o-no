@@ -1432,6 +1432,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.schindler-utile-in-crescita.title': 'Declining turnover, but growing profit for Schindler',
     'blog.article.schindler-utile-in-crescita.excerpt': 'Declining turnover, but slightly growing profits for Schindler, one of the most important internationally active Swiss industrial groups.',
     'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, profitable growth, new installations',
+    'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Migros is the most popular operator in Switzerland',
+    'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Migros scored 7.6 out of 10 in the customer satisfaction ranking.',
+    'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'A customer in front of a Migros store',
 };
 
 export default blogMetaChEn;

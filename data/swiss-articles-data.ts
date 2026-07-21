@@ -4292,6 +4292,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'migros-operatore-conquista-svizzera-coop',
+    category: 'fiscale',
+    date: '2026-07-21T16:05:17.742Z',
+    image: '/images/blog/migros-operatore-conquista-svizzera-coop.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1432,6 +1432,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.schindler-utile-in-crescita.title': 'Giro d\'affari in calo, ma utile in crescita per Schindler',
     'blog.article.schindler-utile-in-crescita.excerpt': 'Fatturato in calo, ma profitti in lieve crescita per Schindler, uno dei più importanti gruppi industriali svizzeri attivi a livello internazionale.',
     'blog.article.schindler-utile-in-crescita.imageAlt': 'Schindler, crescita utile, nuove installazioni',
+    'blog.article.migros-operatore-conquista-svizzera-coop.title': 'Migros è l\'operatore più apprezzato in Svizzera',
+    'blog.article.migros-operatore-conquista-svizzera-coop.excerpt': 'Migros ha ottenuto un punteggio di 7,6 su 10 nella classifica della soddisfazione dei clienti.',
+    'blog.article.migros-operatore-conquista-svizzera-coop.imageAlt': 'Un cliente davanti a un negozio Migros',
 };
 
 export default blogMetaChIt;
